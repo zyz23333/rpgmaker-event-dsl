@@ -1,0 +1,16 @@
+# environment
+.env
+tmp/
+
+# demo artifacts
+demo_artifacts/
+dist/
+node_modules/
+.r3d-local.json
+
+# references
+/references/
+
+# agent
+.codex/
+.claude/
