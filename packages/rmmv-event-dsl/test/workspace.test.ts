@@ -34,6 +34,30 @@ describe("loadWorkspace", () => {
     expect(workspace.config.scriptEnabled).toBe(false);
     expect(workspace.config.definitionTargets).toEqual([]);
   });
+
+  it("rejects duplicate definition targets", async () => {
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-workspace-dup-"));
+    const projectRoot = join(workspaceRoot, "..", "MyGame-dup");
+    const dataDirectory = join(projectRoot, "data");
+
+    await writeFile(
+      join(workspaceRoot, "rmmv-event-dsl.config.json"),
+      JSON.stringify({
+        projectRoot: "../MyGame-dup",
+        scriptEnabled: false,
+        definitionTargets: [
+          { src: "events/a.ts", target: { type: "map", mapId: 1 } },
+          { src: "events/a.ts", target: { type: "map", mapId: 2 } },
+        ],
+      }),
+      "utf8",
+    );
+    await mkdir(projectRoot, { recursive: true });
+    await writeFile(join(projectRoot, ".rpgproject"), "", "utf8");
+    await mkdir(dataDirectory, { recursive: true });
+
+    await expect(loadWorkspace(workspaceRoot)).rejects.toThrow("Duplicate definition source");
+  });
 });
 
 describe("initWorkspace", () => {
