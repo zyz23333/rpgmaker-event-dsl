@@ -1,0 +1,37 @@
+{
+  "name": "@rmmv-event-dsl/core",
+  "version": "0.0.0",
+  "description": "Schema-first TypeScript DSL and CLI foundation for RPG Maker MV event data.",
+  "bin": {
+    "rmmv-event-dsl": "./dist/cli.mjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsx src/cli.ts",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "commander": "^14.0.2",
+    "tsx": "^4.21.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.2",
+    "tsdown": "^0.22.3",
+    "vitest": "^4.0.15"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

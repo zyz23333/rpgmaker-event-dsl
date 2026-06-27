@@ -2,7 +2,7 @@
 
 ## Status
 
-Ready
+Completed
 
 ## Type
 
@@ -73,7 +73,7 @@ Choose the project’s core technical stack and dependency boundaries before imp
 
 ## Code Context
 
-The repository currently has no implementation package or CLI entrypoint. This slice establishes the technical foundations that all later implementation slices will depend on.
+The repository now has a workspace root, a `packages/rmmv-event-dsl` package boundary, a CLI entrypoint shell, and the supporting build, lint, test, and format configuration that later implementation slices will depend on.
 
 ## What To Build
 
@@ -95,10 +95,10 @@ The selected first-version stack is:
 
 ## Acceptance Criteria
 
-- [ ] The technical stack choice is recorded in a way that later slices can depend on it.
-- [ ] The selected stack is sufficient to implement the first-version CLI, DSL, validation, compiler, and writer.
-- [ ] No later slice needs to reopen the core runtime, module system, package manager, CLI framework, build tool, or test framework choice.
-- [ ] `oxlint` and `oxfmt` are the default lint and format tools.
+- [x] The technical stack choice is recorded in a way that later slices can depend on it.
+- [x] The selected stack is sufficient to implement the first-version CLI, DSL, validation, compiler, and writer.
+- [x] No later slice needs to reopen the core runtime, module system, package manager, CLI framework, build tool, or test framework choice.
+- [x] `oxlint` and `oxfmt` are the default lint and format tools.
 
 ## Implementation Notes
 
@@ -122,7 +122,7 @@ If `oxfmt` blocks required formatting behavior during implementation, a follow-u
 
 ## Done When
 
-- [ ] Acceptance criteria pass.
-- [ ] Verification commands pass or skipped reason is documented.
-- [ ] Design references remain satisfied.
-- [ ] No unrelated scope was added.
+- [x] Acceptance criteria pass.
+- [x] Verification commands pass or skipped reason is documented.
+- [x] Design references remain satisfied.
+- [x] No unrelated scope was added.
