@@ -2,7 +2,7 @@
 
 ## Status
 
-Ready
+Done
 
 ## Type
 
@@ -80,12 +80,13 @@ The repository already contains MV runtime source copies and sample JSON files. 
 ## What To Build
 
 Write down the canonical MV schema catalogue and the first-version command set that later implementation slices must follow.
+The completed catalogue lives at `../mv-schema-catalogue.md`.
 
 ## Acceptance Criteria
 
-- [ ] The canonical type/schema vocabulary for first-version MV data is fixed.
-- [ ] The first-version command catalogue is fixed enough for the DSL and compiler slices to implement against.
-- [ ] The decision explicitly distinguishes TypeScript input optionality from MV output completeness.
+- [x] The canonical type/schema vocabulary for first-version MV data is fixed.
+- [x] The first-version command catalogue is fixed enough for the DSL and compiler slices to implement against.
+- [x] The decision explicitly distinguishes TypeScript input optionality from MV output completeness.
 
 ## Implementation Notes
 
@@ -105,7 +106,7 @@ This slice should stop at the type and schema contract. It should not encode imp
 
 ## Done When
 
-- [ ] Acceptance criteria pass.
-- [ ] Verification commands pass or skipped reason is documented.
-- [ ] Design references remain satisfied.
-- [ ] No unrelated scope was added.
+- [x] Acceptance criteria pass.
+- [x] Verification commands pass or skipped reason is documented.
+- [x] Design references remain satisfied.
+- [x] No unrelated scope was added.
