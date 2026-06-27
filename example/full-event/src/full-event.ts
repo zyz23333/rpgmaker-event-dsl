@@ -60,7 +60,7 @@ export const fullEvent = mapEvent({
         },
       },
       commands: [
-        comment(["sample: full event"]),
+        comment(["example: full event"]),
         showText(["Hello", "World"]),
         conditional({
           condition: {

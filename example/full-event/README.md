@@ -1,4 +1,4 @@
-# Full Event Sample Workspace
+# Full Event Example Workspace
 
 This directory is a repository fixture that mirrors a Workspace layout.
 
