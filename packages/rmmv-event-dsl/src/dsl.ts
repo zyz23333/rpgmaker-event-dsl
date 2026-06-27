@@ -81,9 +81,18 @@ export type EventNode =
   | CommonEventNode
   | LabelNode
   | JumpToLabelNode
+  | CommentNode
   | ScriptNode
   | PluginCommandNode
   | TransferPlayerNode
+  | ControlSwitchNode
+  | ControlVariableNode
+  | ControlSelfSwitchNode
+  | ChangeGoldNode
+  | ChangeItemNode
+  | WaitNode
+  | EraseEventNode
+  | BattleProcessingNode
   | ShowChoicesNode
   | ShopProcessingNode
   | RawCommandNode;
@@ -96,10 +105,12 @@ export type ShowTextNode = {
 export type ShowChoicesNode = {
   kind: "showChoices";
   choices: readonly [string, ...string[]];
+  branches: readonly [readonly EventNode[], ...readonly EventNode[][]];
   cancelType?: number;
   defaultType?: number;
   positionType?: 0 | 1 | 2;
   background?: 0 | 1 | 2;
+  cancelBranch?: readonly EventNode[];
 };
 
 export type ConditionalNode = {
@@ -137,6 +148,11 @@ export type JumpToLabelNode = {
   name: string;
 };
 
+export type CommentNode = {
+  kind: "comment";
+  lines: readonly [string, ...string[]];
+};
+
 export type ScriptNode = {
   kind: "script";
   code: readonly [string, ...string[]];
@@ -165,6 +181,66 @@ export type TransferPlayerNode = {
         direction?: 2 | 4 | 6 | 8;
         fadeType?: 0 | 1 | 2;
       };
+};
+
+export type ControlSwitchNode = {
+  kind: "controlSwitch";
+  switch: ReferenceValue<"switch">;
+  value: boolean;
+};
+
+export type ControlVariableNode = {
+  kind: "controlVariable";
+  variable: ReferenceValue<"variable">;
+  operation: "set" | "add" | "sub" | "mul" | "div" | "mod";
+  value:
+    | number
+    | ReferenceValue<"variable">
+    | {
+        kind: "random";
+        from: number;
+        to: number;
+      };
+};
+
+export type ControlSelfSwitchNode = {
+  kind: "controlSelfSwitch";
+  selfSwitch: "A" | "B" | "C" | "D";
+  value: boolean;
+};
+
+export type ChangeGoldNode = {
+  kind: "changeGold";
+  operation: "gain" | "lose";
+  value: number;
+};
+
+export type ChangeItemNode = {
+  kind: "changeItem";
+  item: ReferenceValue<"item">;
+  operation: "gain" | "lose";
+  amount: number;
+};
+
+export type WaitNode = {
+  kind: "wait";
+  frames: number;
+};
+
+export type EraseEventNode = {
+  kind: "eraseEvent";
+};
+
+export type BattleProcessingNode = {
+  kind: "battleProcessing";
+  troop:
+    | ReferenceValue<"troop">
+    | {
+        kind: "troop";
+        useRandomEncounter: true;
+      };
+  canEscape?: boolean;
+  canLose?: boolean;
 };
 
 export type ShopProcessingNode = {
@@ -233,14 +309,17 @@ export function showText(lines: readonly [string, ...string[]]): ShowTextNode {
 
 export function showChoices(input: {
   choices: readonly [string, ...string[]];
+  branches: readonly [readonly EventNode[], ...readonly EventNode[][]];
   cancelType?: number;
   defaultType?: number;
   positionType?: 0 | 1 | 2;
   background?: 0 | 1 | 2;
+  cancelBranch?: readonly EventNode[];
 }): ShowChoicesNode {
   const node: ShowChoicesNode = {
     kind: "showChoices",
     choices: input.choices,
+    branches: input.branches,
   };
 
   if (input.cancelType !== undefined) {
@@ -254,6 +333,9 @@ export function showChoices(input: {
   }
   if (input.background !== undefined) {
     node.background = input.background;
+  }
+  if (input.cancelBranch !== undefined) {
+    node.cancelBranch = input.cancelBranch;
   }
 
   return node;
@@ -301,6 +383,10 @@ export function jumpToLabel(name: string): JumpToLabelNode {
   return { kind: "jumpToLabel", name };
 }
 
+export function comment(lines: readonly [string, ...string[]]): CommentNode {
+  return { kind: "comment", lines };
+}
+
 export function script(code: readonly [string, ...string[]]): ScriptNode {
   return { kind: "script", code };
 }
@@ -332,6 +418,105 @@ export function transferPlayer(input: {
     kind: "transferPlayer",
     target: input,
   };
+}
+
+export function controlSwitch(input: {
+  switch: ReferenceValue<"switch">;
+  value: boolean;
+}): ControlSwitchNode {
+  return {
+    kind: "controlSwitch",
+    switch: input.switch,
+    value: input.value,
+  };
+}
+
+export function controlVariable(input: {
+  variable: ReferenceValue<"variable">;
+  operation: "set" | "add" | "sub" | "mul" | "div" | "mod";
+  value:
+    | number
+    | ReferenceValue<"variable">
+    | {
+        kind: "random";
+        from: number;
+        to: number;
+      };
+}): ControlVariableNode {
+  return {
+    kind: "controlVariable",
+    variable: input.variable,
+    operation: input.operation,
+    value: input.value,
+  };
+}
+
+export function controlSelfSwitch(input: {
+  selfSwitch: "A" | "B" | "C" | "D";
+  value: boolean;
+}): ControlSelfSwitchNode {
+  return {
+    kind: "controlSelfSwitch",
+    selfSwitch: input.selfSwitch,
+    value: input.value,
+  };
+}
+
+export function changeGold(input: {
+  operation: "gain" | "lose";
+  value: number;
+}): ChangeGoldNode {
+  return {
+    kind: "changeGold",
+    operation: input.operation,
+    value: input.value,
+  };
+}
+
+export function changeItem(input: {
+  item: ReferenceValue<"item">;
+  operation: "gain" | "lose";
+  amount: number;
+}): ChangeItemNode {
+  return {
+    kind: "changeItem",
+    item: input.item,
+    operation: input.operation,
+    amount: input.amount,
+  };
+}
+
+export function wait(frames: number): WaitNode {
+  return { kind: "wait", frames };
+}
+
+export function eraseEvent(): EraseEventNode {
+  return { kind: "eraseEvent" };
+}
+
+export function battleProcessing(input: {
+  troop:
+    | ReferenceValue<"troop">
+    | {
+        kind: "troop";
+        useRandomEncounter: true;
+      };
+  canEscape?: boolean;
+  canLose?: boolean;
+}): BattleProcessingNode {
+  const node: BattleProcessingNode = {
+    kind: "battleProcessing",
+    troop: input.troop,
+  };
+
+  if (input.canEscape !== undefined) {
+    node.canEscape = input.canEscape;
+  }
+  if (input.canLose !== undefined) {
+    node.canLose = input.canLose;
+  }
+
+  return node;
 }
 
 export function shopProcessing(input: {

@@ -1,8 +1,10 @@
 import type {
+  BattleProcessingNode,
   CommonEventDefinition,
   EventDefinition,
   EventNode,
   EventPage,
+  ControlVariableNode,
   MapEventDefinition,
   PageConditions,
   ProjectIndex,
@@ -268,6 +270,24 @@ function validateNodes(
         message: "Script commands require explicit config enablement.",
       });
     }
+    if (node.kind === "controlSwitch") {
+      resolveReference(node.switch, projectIndex);
+    }
+    if (node.kind === "controlVariable") {
+      resolveReference(node.variable, projectIndex);
+      if (typeof node.value === "object" && node.value !== null && "kind" in node.value) {
+        resolveReference(node.value as ReferenceValue<"variable">, projectIndex);
+      }
+    }
+    if (node.kind === "changeItem") {
+      resolveReference(node.item, projectIndex);
+    }
+    if (node.kind === "showChoices" && node.branches.length !== node.choices.length) {
+      issues.push({
+        level: "error",
+        message: "Show Choices branches must match the choice count.",
+      });
+    }
     if (node.kind === "commonEvent") {
       resolveReference(node.ref, projectIndex);
     }
@@ -364,6 +384,20 @@ function compileNodes(
           output.push(...compileNodes(node.else, indent + 1, projectIndex, false));
         }
         break;
+      case "comment":
+        output.push({
+          code: 108,
+          indent,
+          parameters: [node.lines[0]],
+        });
+        for (let index = 1; index < node.lines.length; index += 1) {
+          output.push({
+            code: 408,
+            indent,
+            parameters: [node.lines[index]],
+          });
+        }
+        break;
       case "loop":
         output.push({
           code: 112,
@@ -395,6 +429,62 @@ function compileNodes(
         break;
       case "jumpToLabel":
         output.push({ code: 119, indent, parameters: [node.name] });
+        break;
+      case "controlSwitch":
+        output.push({
+          code: 121,
+          indent,
+          parameters: [resolveReference(node.switch, projectIndex), resolveControlValue(node.value)],
+        });
+        break;
+      case "controlVariable":
+        output.push({
+          code: 122,
+          indent,
+          parameters: compileControlVariableParameters(node, projectIndex),
+        });
+        break;
+      case "controlSelfSwitch":
+        output.push({
+          code: 123,
+          indent,
+          parameters: [node.selfSwitch, resolveControlValue(node.value)],
+        });
+        break;
+      case "changeGold":
+        output.push({
+          code: 125,
+          indent,
+          parameters: [node.operation === "gain" ? 0 : 1, 0, node.value],
+        });
+        break;
+      case "changeItem":
+        output.push({
+          code: 126,
+          indent,
+          parameters: [resolveReference(node.item, projectIndex), node.operation === "gain" ? 0 : 1, 0, node.amount],
+        });
+        break;
+      case "wait":
+        output.push({
+          code: 230,
+          indent,
+          parameters: [node.frames],
+        });
+        break;
+      case "eraseEvent":
+        output.push({
+          code: 214,
+          indent,
+          parameters: [],
+        });
+        break;
+      case "battleProcessing":
+        output.push({
+          code: 301,
+          indent,
+          parameters: compileBattleProcessingParameters(node, projectIndex),
+        });
         break;
       case "script":
         output.push({
@@ -458,6 +548,7 @@ function compileNodes(
             node.background ?? 0,
           ],
         });
+        output.push(...compileChoiceBranches(node, indent, projectIndex));
         break;
       case "shopProcessing":
         output.push({
@@ -480,6 +571,67 @@ function compileNodes(
     output.push({ code: 0, indent, parameters: [] });
   }
   return output;
+}
+
+function resolveControlValue(value: boolean): number {
+  return value ? 0 : 1;
+}
+
+function compileControlVariableParameters(
+  node: ControlVariableNode,
+  projectIndex: ProjectIndex,
+): unknown[] {
+  const targetId = resolveReference(node.variable, projectIndex);
+  const operation = node.operation === "set" ? 0 : node.operation === "add" ? 1 : node.operation === "sub" ? 2 : node.operation === "mul" ? 3 : node.operation === "div" ? 4 : 5;
+
+  if (typeof node.value === "number") {
+    return [targetId, targetId, operation, 0, node.value];
+  }
+
+  if ("kind" in node.value && node.value.kind === "random") {
+    return [targetId, targetId, operation, 2, node.value.from, node.value.to];
+  }
+
+  return [targetId, targetId, operation, 1, resolveReference(node.value, projectIndex)];
+}
+
+function compileChoiceBranches(
+  node: Extract<EventNode, { kind: "showChoices" }>,
+  indent: number,
+  projectIndex: ProjectIndex,
+): CompiledEventNode[] {
+  const output: CompiledEventNode[] = [];
+
+  node.branches.forEach((branch, index) => {
+    output.push({
+      code: 402,
+      indent,
+      parameters: [index],
+    });
+    output.push(...compileNodes(branch, indent + 1, projectIndex, false));
+  });
+
+  if (node.cancelBranch) {
+    output.push({
+      code: 403,
+      indent,
+      parameters: [],
+    });
+    output.push(...compileNodes(node.cancelBranch, indent + 1, projectIndex, false));
+  }
+
+  return output;
+}
+
+function compileBattleProcessingParameters(
+  node: BattleProcessingNode,
+  projectIndex: ProjectIndex,
+): unknown[] {
+  if ("useRandomEncounter" in node.troop) {
+    return [2, 0, node.canEscape ?? false, node.canLose ?? false];
+  }
+
+  return [0, resolveReference(node.troop, projectIndex), node.canEscape ?? false, node.canLose ?? false];
 }
 
 function compileConditions(
