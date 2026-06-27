@@ -112,6 +112,10 @@ _Avoid_: workspace root, package root, inferred project directory
 The user-owned directory that contains Event Definition source files and the local tool configuration for a target RPG Maker MV project.
 _Avoid_: MV project root, package root, repository root
 
+**Sample Workspace**:
+A repository-owned workspace fixture used to exercise the CLI against a controlled set of Event Definitions.
+_Avoid_: user-owned workspace, MV project root, production example
+
 **Workspace Initialization**:
 The CLI operation that creates a Workspace at a chosen path and establishes its initial structure.
 _Avoid_: project import, project migration, file sync
@@ -199,6 +203,7 @@ _Avoid_: command-complete, feature-complete
 - **Definition Lint** reads the Event Data Store through the configured project path and performs project-aware checks.
 - A **Project Root** must be configured explicitly and must contain a `.rpgproject` file.
 - A **Workspace** contains the local configuration that resolves a **Project Root**.
+- A **Sample Workspace** is a repository fixture that follows the same shape as a Workspace for testing and examples.
 - A **Workspace Initialization** command creates the initial Workspace structure.
 - A **Workspace Initialization** command creates only the `src/` directory.
 - A **Workspace Initialization** command requires a `projectRoot`.

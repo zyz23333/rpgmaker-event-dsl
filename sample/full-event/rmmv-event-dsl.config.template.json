@@ -1,0 +1,13 @@
+{
+  "projectRoot": "<set-this-to-your-local-test-mv-project>",
+  "scriptEnabled": false,
+  "definitionTargets": [
+    {
+      "src": "src/full-event.ts",
+      "target": {
+        "type": "map",
+        "mapId": 1
+      }
+    }
+  ]
+}
