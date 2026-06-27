@@ -12,7 +12,9 @@ Draft
 
 The repository currently contains a planning README plus a completed local PRD and glossary/ADR set for a first-version RPG Maker MV event authoring tool. The agreed language is schema-first and developer-facing: developers write named TypeScript Event Definitions, and the tool turns those definitions into project-aware event data operations against an existing MV project.
 
-The core design pressure is that RPG Maker MV event data is structurally simple but semantically fragile. Raw command arrays, page conditions, trigger values, and ID handling are easy to get wrong, and MV runtime reads the resulting JSON directly. The design therefore needs to keep authoring expressive while making mutation semantics explicit, validation strict, and output deterministic.
+The current implementation already has a CLI shell, workspace loading, project loading, DSL builders, and JSON writing code, but the definition-loading path is still the unresolved seam. Today `loadDefinitionFile()` uses runtime module import, tests rely on `tsx` for source execution, and `zod` is only used for workspace config validation. That leaves the product boundary unclear: is the tool executing arbitrary TypeScript, or is TypeScript merely the source language for a compiler front-end?
+
+The core design pressure is that RPG Maker MV event data is structurally simple but semantically fragile. Raw command arrays, page conditions, trigger values, and ID handling are easy to get wrong, and MV runtime reads the resulting JSON directly. The design therefore needs to keep authoring expressive while making mutation semantics explicit, validation strict, output deterministic, and source handling constrained.
 
 The main source findings that shape this design are:
 
@@ -20,10 +22,14 @@ The main source findings that shape this design are:
 - Map events require non-empty page lists, and page/runtime fields are read directly by MV runtime.
 - Common events are user-defined project data and can be triggered by the runtime without any built-in plugin command registry.
 - The runtime accepts plugin commands as strings passed to plugin hooks, while script commands execute arbitrary JS only when enabled by project policy.
+- TypeScript compiler APIs expose program-level syntactic and semantic diagnostics, which are the correct mechanism for source validation when `.ts` is treated as an input language rather than as a runtime execution target.
+- Runtime validation libraries such as `zod` are still appropriate for JSON and other external runtime inputs even if TypeScript diagnostics are added.
 
 ## Problem
 
-The current repository has a strong conceptual boundary but no implementation. Without an explicit design, the first version risks drifting into one of the rejected shapes: patch-script authoring, merge/upsert semantics, filename-based target inference, hidden defaults, or ad hoc output formatting. Those shapes would make the tool harder to reason about and easier to misuse.
+The current repository has a strong conceptual boundary but no implementation, and the source-loading seam is ambiguous. Without an explicit design, the first version risks drifting into one of several rejected shapes: patch-script authoring, merge/upsert semantics, filename-based target inference, hidden defaults, ad hoc output formatting, or direct execution of arbitrary `.ts` modules as if that were the product contract.
+
+That ambiguity matters because the product is not a generic TypeScript executor. It is a compiler for a restricted schema-first DSL whose source happens to be authored in TypeScript. If the tool relies only on runtime module import, it cannot reliably distinguish syntax errors, semantic TypeScript errors, and DSL-shape errors. If it pushes all responsibility to the user’s own `tsc`, the CLI stops being the source of truth for input correctness.
 
 ## Goals
 
@@ -33,6 +39,8 @@ The current repository has a strong conceptual boundary but no implementation. W
 - Keep map targets configuration-owned and operation mode run-owned.
 - Produce stable MV-style JSON output that remains readable and reviewable.
 - Preserve the first-version intent to feel workflow-complete while remaining narrow in mutation semantics.
+- Make the CLI responsible for TypeScript source diagnostics on Event Definition files, so users do not need to run a separate `tsc` step before using the tool.
+- Keep runtime schema validation separate from TypeScript source diagnostics, so configuration and JSON inputs remain validated even when source files are rejected.
 
 ## Non-Goals
 
@@ -44,6 +52,9 @@ The current repository has a strong conceptual boundary but no implementation. W
 - Full command coverage for every MV event command in version one.
 - Project-level compiler default overrides.
 - Runtime registry requirements for plugin commands.
+- Requiring users to run `tsc` manually as a prerequisite for the CLI.
+- Treating Node's native `.ts` module execution as part of the product contract.
+- Using TypeScript diagnostics as a substitute for runtime validation of JSON and other external inputs.
 
 ## Scope
 
@@ -57,6 +68,8 @@ The current repository has a strong conceptual boundary but no implementation. W
 - Append-only create behavior and strict unique-name replace behavior.
 - Empty command lists and non-empty map page lists.
 - Script command gating by configuration.
+- TypeScript compiler API based diagnostics for Event Definition source files.
+- A restricted source front-end that extracts Event Definitions from `.ts` modules without making the CLI depend on Node's native TypeScript module loader.
 
 ### Out
 
@@ -66,6 +79,8 @@ The current repository has a strong conceptual boundary but no implementation. W
 - Automatic creation of new switches, variables, items, maps, or actors.
 - Partial page-level event editing.
 - Any semantics that depend on hidden merge behavior.
+- Full TypeScript project compilation or bundling for user applications.
+- Executing arbitrary TypeScript as a general-purpose scripting environment.
 
 ## Canonical References
 
@@ -74,6 +89,8 @@ The current repository has a strong conceptual boundary but no implementation. W
 - `docs/adr/0001-schema-first-dsl-entry-model.md`
 - `docs/adr/0002-event-data-operations-create-replace.md`
 - `docs/adr/0003-validation-preview-and-output-strategy.md`
+- `https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API`
+- `https://www.typescriptlang.org/docs/handbook/compiler-options.html`
 - `references/rpg-maker-mv-corescript/js/rpg_objects/Game_Event.js`
 - `references/rpg-maker-mv-corescript/js/rpg_objects/Game_Map.js`
 - `references/rpg-maker-mv-corescript/js/rpg_objects/Game_CommonEvent.js`
@@ -85,7 +102,13 @@ The current repository has a strong conceptual boundary but no implementation. W
 
 ## Current Behavior
 
-There is no implemented compiler or CLI surface yet. The repository currently documents the domain language, the desired DSL shape, and the first-version workflow, but it does not yet load project data, parse event definitions, or write MV data files.
+The repository already has a CLI shell, workspace/project loading, DSL builders, and MV-style JSON writing. The unresolved seam is Event Definition source handling: `loadDefinitionFile()` currently uses runtime module import, the CLI tests rely on `tsx` to execute source files, and workspace config validation uses `zod`.
+
+That means the repository currently mixes three responsibilities that need to be separated by design:
+
+- TypeScript source diagnostics for definition files
+- DSL extraction from named exports
+- runtime validation of workspace config and MV project data
 
 ## Target Behavior
 
@@ -93,12 +116,13 @@ After this change, the tool should:
 
 1. Read a project configuration that binds each Event Definition file to a target data store location.
 2. Load the target MV project and build a Project Index from existing data.
-3. Collect named Event Definitions from TypeScript modules.
-4. Validate the definitions and planned operations against project data before writing.
-5. Create or replace target event entries with strict name matching and append-only create semantics.
-6. Compile DSL nodes into MV-compatible raw event commands and pages.
-7. Write changed JSON files using a stable MV-style format.
-8. Support `lint`, `create`, `replace`, `--dry-run`, and `--diff` without partial writes on failure.
+3. Parse Event Definition source files as TypeScript and report syntactic and semantic diagnostics before any DSL extraction or project validation.
+4. Collect named Event Definitions from TypeScript source modules through a restricted, compiler-driven front-end rather than by treating the files as executable application code.
+5. Validate the extracted definitions and planned operations against project data before writing.
+6. Create or replace target event entries with strict name matching and append-only create semantics.
+7. Compile DSL nodes into MV-compatible raw event commands and pages.
+8. Write changed JSON files using a stable MV-style format.
+9. Support `lint`, `create`, `replace`, `--dry-run`, and `--diff` without partial writes on failure.
 
 ## Requirements / Behavior Changes
 
@@ -114,6 +138,8 @@ After this change, the tool should:
 | R-08 | No command compiler | MV command helpers compile to raw Event Commands | Known DSL nodes compile to expected command lists and page shapes |
 | R-09 | No script gating | Script commands require explicit config enablement | Script nodes fail unless the config flag is present |
 | R-10 | No runtime-safe reference model | Project references are via `xxxRef` helpers, not bare IDs | Bare numeric references are rejected; explicit ID refs remain allowed |
+| R-11 | Source diagnostics are not yet a product responsibility | Event Definition `.ts` files are parsed and diagnosed by the CLI before DSL extraction | Syntax and semantic errors in definition files fail lint even when the exported DSL object would otherwise be shaped correctly |
+| R-12 | Runtime and source validation are conflated by loader behavior | TypeScript diagnostics and runtime schema validation are separate phases | TypeScript source errors, JSON config errors, and DSL/project errors are reported by the appropriate layer |
 
 ## Locked Decisions
 
@@ -130,12 +156,16 @@ After this change, the tool should:
 - Empty command lists are allowed; map page lists are not empty.
 - Script commands require explicit configuration enablement.
 - Plugin commands do not require a runtime registry.
+- Event Definition source files are treated as restricted TypeScript DSL inputs, not as arbitrary executable programs.
+- The CLI owns TypeScript source diagnostics for definition files; users do not need to run a separate `tsc` step first.
+- Runtime schema validation remains necessary for JSON configuration and other external inputs.
+- Production definition loading does not rely on Node's native `.ts` loader or `tsx`; those are not part of the product contract.
 
 ## Agent Discretion
 
 - The exact internal module boundaries and naming of implementation modules.
 - The exact CLI command names and option surface, as long as they honor the locked decisions.
-- The exact parser and execution strategy for loading named exports, as long as it preserves the schema-first contract.
+- The exact TypeScript compiler API usage pattern, compiler options, and AST extraction strategy used to diagnose and collect source modules.
 - The exact MV-style writer implementation, provided it remains stable and reviewable.
 - The internal structure of validation diagnostics and warning levels, provided errors still block writes.
 
@@ -148,29 +178,37 @@ After this change, the tool should:
 - No default export collection.
 - No hidden project-level default overrides.
 - Raw MV command output must remain valid for the runtime readers that consume `Map###.json` and `CommonEvents.json`.
+- TypeScript source errors are blocked before DSL extraction or project-aware validation begins.
+- `zod`-style runtime validation continues to apply to configuration and other external inputs even when source diagnostics are available.
 
 ## Design
 
-The first version is best modeled as a three-stage flow:
+The first version is best modeled as a four-stage flow:
 
-1. **Collect and validate definitions**
-   - Read project config and resolve each definition file to a target.
-   - Collect named Event Definitions from TypeScript modules.
-   - Validate shape, imports, references, target binding, and mode-specific constraints.
+1. **Source diagnostics**
+   - Read Event Definition source text.
+   - Create a TypeScript compiler front-end in analysis mode.
+   - Report syntax and semantic diagnostics before any DSL collection.
+   - Reject files that use unsupported source shapes or import patterns for the DSL boundary.
 
-2. **Plan event data operations**
+2. **Collect and validate definitions**
+   - Extract named Event Definitions from the TypeScript module after diagnostics pass.
+   - Read workspace config and resolve each definition file to a target.
+   - Validate DSL shape, references, target binding, and mode-specific constraints.
+
+3. **Plan event data operations**
    - Convert each Event Definition into either a create or replace operation.
    - Resolve names through the Project Index.
    - For create, allocate a new ID at the end of the target array.
    - For replace, locate exactly one existing entry by name.
    - Compile DSL nodes into MV raw commands and pages using built-in compiler defaults.
 
-3. **Write or preview**
+4. **Write or preview**
    - In lint and preview modes, report diagnostics and planned changes only.
    - In diff mode, add full-file unified diffs to the entry-level summary.
    - In apply modes, write changed files in MV-style JSON only after all validation passes.
 
-The DSL should stay schema-first across the top-level event builders, page builders, and command helpers. Optional fields in the TypeScript input schema are completed by documented compiler defaults, but output shapes must still satisfy MV runtime expectations. Page conditions remain fixed-slot AND conditions rather than arbitrary predicates.
+The DSL should stay schema-first across the top-level event builders, page builders, and command helpers. The TypeScript source front-end is only a restricted source-processing layer; it is not the place where domain semantics live. Optional fields in the TypeScript input schema are completed by documented compiler defaults, but output shapes must still satisfy MV runtime expectations. Page conditions remain fixed-slot AND conditions rather than arbitrary predicates.
 
 ## Conditional Modules
 
@@ -207,6 +245,7 @@ The DSL should stay schema-first across the top-level event builders, page build
 ### Side Effects / Integrations
 
 - The tool reads and writes MV project JSON files.
+- The tool uses the TypeScript compiler API as a source-diagnostics and extraction dependency for Event Definition modules.
 - The tool may optionally read plugin command registry metadata for lint-time validation.
 - The tool must honor script-command enablement from config.
 
@@ -214,16 +253,21 @@ The DSL should stay schema-first across the top-level event builders, page build
 
 - Script commands are opt-in because they permit arbitrary runtime code.
 - Raw numeric references are disallowed to reduce accidental misuse.
+- Definition source files are not treated as arbitrary executable programs; the source front-end is a restricted analysis and extraction path.
 
 ### Observability / Operations
 
 - Diagnostics should surface project-aware errors, ambiguous targets, and schema violations in a way that is easy to act on.
+- TypeScript diagnostics should be reported separately from runtime schema or project validation errors so users can tell which layer rejected the input.
 - Preview and diff output should describe changed files and entries clearly.
 
 ### Research / Dependency Findings
 
 - MV runtime reads event pages and common events directly from JSON and expects valid shapes for conditions, images, movement, triggers, and command lists.
 - MV plugin commands are dispatched through interpreter hooks without a built-in runtime registry.
+- TypeScript compiler APIs are the appropriate mechanism for program-level syntactic and semantic diagnostics on `.ts` source files.
+- Runtime validation libraries such as `zod` remain useful for JSON configuration and other non-TypeScript external inputs.
+- Node native `.ts` execution is not part of the product contract; relying on it would tie input acceptance to runtime loader behavior rather than to an explicit compiler front-end.
 
 ### Rollout / Migration / Cleanup
 
@@ -267,10 +311,11 @@ Reserved for `to-slices`. Do not fill this section in `to-design`.
 
 ## Test Strategy
 
-The highest practical seams are the CLI entrypoints and the compile-and-apply boundary against a reference MV project. Existing reference project data and editor-generated JSON samples should be used as the prior art for both validation and output expectations.
+The highest practical seams are the CLI entrypoints, the TypeScript source-diagnostic boundary, and the compile-and-apply boundary against a reference MV project. Existing reference project data and editor-generated JSON samples should be used as the prior art for both validation and output expectations.
 
 The test strategy should cover:
 
+- TypeScript source diagnostics for definition files, including syntax errors, semantic errors, default-export rejection, and disallowed source shapes at the DSL boundary
 - project-aware lint failures for invalid references, ambiguous names, and disallowed shapes
 - create vs replace behavior on existing MV data
 - append-only ID allocation for create
@@ -278,10 +323,12 @@ The test strategy should cover:
 - MV-style output stability on changed files
 - command compilation against known MV samples, especially for conditionals, loops, common events, and the battle/shop families
 - script-command gating by configuration
+- runtime validation of workspace config and other JSON inputs with structured error reporting separate from TypeScript diagnostics
 
 What should not be tested at this layer:
 
-- internal parser implementation details
+- internal TypeScript compiler API plumbing details
+- Node native `.ts` loader behavior
 - exact whitespace preservation from source MV files
 - UI-level concerns that do not exist in the first version
 - merge semantics, because merge is explicitly out of scope
@@ -295,7 +342,9 @@ What should not be tested at this layer:
 - Project-level compiler default overrides.
 - Runtime registry enforcement for plugin commands.
 - Full command coverage beyond the agreed first-version set.
+- Treating `zod` as the sole validation mechanism for all input sources.
+- Requiring user projects to run `tsc` manually as part of the normal CLI workflow.
 
 ## Open Questions
 
-None. The first-version scope and semantics are sufficiently bounded for design work to proceed.
+None. The first-version source-handling boundary is now defined as a restricted TypeScript front-end plus separate runtime validation, so implementation can proceed without reopening the product contract.

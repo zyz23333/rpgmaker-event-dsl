@@ -434,7 +434,10 @@ function compileNodes(
         output.push({
           code: 121,
           indent,
-          parameters: [resolveReference(node.switch, projectIndex), resolveControlValue(node.value)],
+          parameters: [
+            resolveReference(node.switch, projectIndex),
+            resolveControlValue(node.value),
+          ],
         });
         break;
       case "controlVariable":
@@ -462,7 +465,12 @@ function compileNodes(
         output.push({
           code: 126,
           indent,
-          parameters: [resolveReference(node.item, projectIndex), node.operation === "gain" ? 0 : 1, 0, node.amount],
+          parameters: [
+            resolveReference(node.item, projectIndex),
+            node.operation === "gain" ? 0 : 1,
+            0,
+            node.amount,
+          ],
         });
         break;
       case "wait":
@@ -582,7 +590,18 @@ function compileControlVariableParameters(
   projectIndex: ProjectIndex,
 ): unknown[] {
   const targetId = resolveReference(node.variable, projectIndex);
-  const operation = node.operation === "set" ? 0 : node.operation === "add" ? 1 : node.operation === "sub" ? 2 : node.operation === "mul" ? 3 : node.operation === "div" ? 4 : 5;
+  const operation =
+    node.operation === "set"
+      ? 0
+      : node.operation === "add"
+        ? 1
+        : node.operation === "sub"
+          ? 2
+          : node.operation === "mul"
+            ? 3
+            : node.operation === "div"
+              ? 4
+              : 5;
 
   if (typeof node.value === "number") {
     return [targetId, targetId, operation, 0, node.value];
@@ -631,7 +650,12 @@ function compileBattleProcessingParameters(
     return [2, 0, node.canEscape ?? false, node.canLose ?? false];
   }
 
-  return [0, resolveReference(node.troop, projectIndex), node.canEscape ?? false, node.canLose ?? false];
+  return [
+    0,
+    resolveReference(node.troop, projectIndex),
+    node.canEscape ?? false,
+    node.canLose ?? false,
+  ];
 }
 
 function compileConditions(

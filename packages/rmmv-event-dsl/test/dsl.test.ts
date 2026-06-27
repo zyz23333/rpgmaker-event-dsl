@@ -69,10 +69,14 @@ describe("collectEventDefinitions", () => {
   it("builds the new command helpers as structured nodes", () => {
     expect(comment(["A", "B"]).kind).toBe("comment");
     expect(controlSwitch({ switch: switchRef({ id: 1 }), value: true }).kind).toBe("controlSwitch");
-    expect(controlVariable({ variable: variableRef({ id: 2 }), operation: "add", value: 3 }).kind).toBe("controlVariable");
+    expect(
+      controlVariable({ variable: variableRef({ id: 2 }), operation: "add", value: 3 }).kind,
+    ).toBe("controlVariable");
     expect(controlSelfSwitch({ selfSwitch: "A", value: false }).kind).toBe("controlSelfSwitch");
     expect(changeGold({ operation: "gain", value: 5 }).kind).toBe("changeGold");
-    expect(changeItem({ item: itemRef({ id: 1 }), operation: "lose", amount: 2 }).kind).toBe("changeItem");
+    expect(changeItem({ item: itemRef({ id: 1 }), operation: "lose", amount: 2 }).kind).toBe(
+      "changeItem",
+    );
     expect(wait(60).kind).toBe("wait");
     expect(eraseEvent().kind).toBe("eraseEvent");
     expect(battleProcessing({ troop: troopRef({ id: 1 }) }).kind).toBe("battleProcessing");

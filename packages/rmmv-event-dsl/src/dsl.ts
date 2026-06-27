@@ -105,7 +105,7 @@ export type ShowTextNode = {
 export type ShowChoicesNode = {
   kind: "showChoices";
   choices: readonly [string, ...string[]];
-  branches: readonly [readonly EventNode[], ...readonly EventNode[][]];
+  branches: readonly [readonly EventNode[], ...(readonly EventNode[][])];
   cancelType?: number;
   defaultType?: number;
   positionType?: 0 | 1 | 2;
@@ -309,7 +309,7 @@ export function showText(lines: readonly [string, ...string[]]): ShowTextNode {
 
 export function showChoices(input: {
   choices: readonly [string, ...string[]];
-  branches: readonly [readonly EventNode[], ...readonly EventNode[][]];
+  branches: readonly [readonly EventNode[], ...(readonly EventNode[][])];
   cancelType?: number;
   defaultType?: number;
   positionType?: 0 | 1 | 2;
@@ -462,10 +462,7 @@ export function controlSelfSwitch(input: {
   };
 }
 
-export function changeGold(input: {
-  operation: "gain" | "lose";
-  value: number;
-}): ChangeGoldNode {
+export function changeGold(input: { operation: "gain" | "lose"; value: number }): ChangeGoldNode {
   return {
     kind: "changeGold",
     operation: input.operation,

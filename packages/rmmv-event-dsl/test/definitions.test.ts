@@ -36,4 +36,30 @@ export const gate = entry;
     expect(definitions).toHaveLength(1);
     expect(definitions[0]?.name).toBe("Gate");
   });
+
+  it("rejects default exports with a TypeScript diagnostics error", async () => {
+    const dir = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-def-"));
+    const file = join(dir, "default-export.ts");
+
+    await writeFile(
+      file,
+      `export default {
+  kind: "mapEvent",
+  name: "Gate",
+  x: 1,
+  y: 2,
+  pages: [
+    {
+      conditions: {},
+      trigger: "action",
+      commands: [],
+    },
+  ],
+};
+`,
+      "utf8",
+    );
+
+    await expect(loadDefinitionFile(file)).rejects.toThrow("TypeScript diagnostics failed for");
+  });
 });

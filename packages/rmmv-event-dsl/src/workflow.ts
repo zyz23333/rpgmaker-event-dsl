@@ -67,10 +67,18 @@ export async function runWorkflow(options: WorkflowOptions): Promise<string[]> {
     }
 
     if (binding.target.type === "map") {
-      const filePath = join(project.dataDirectory, `Map${String(binding.target.mapId).padStart(3, "0")}.json`);
+      const filePath = join(
+        project.dataDirectory,
+        `Map${String(binding.target.mapId).padStart(3, "0")}.json`,
+      );
       const before = JSON.parse(await readFile(filePath, "utf8")) as Record<string, unknown>;
       const beforeEvents = Array.isArray(before.events) ? before.events.slice() : [];
-      const afterEvents = applyMapEventDefinitions(beforeEvents, selectedDefinitions, options.mode, project.index);
+      const afterEvents = applyMapEventDefinitions(
+        beforeEvents,
+        selectedDefinitions,
+        options.mode,
+        project.index,
+      );
       const after = {
         ...before,
         events: afterEvents,
@@ -84,7 +92,12 @@ export async function runWorkflow(options: WorkflowOptions): Promise<string[]> {
     const filePath = join(project.dataDirectory, "CommonEvents.json");
     const before = JSON.parse(await readFile(filePath, "utf8")) as ReadonlyArray<unknown>;
     const beforeEvents = Array.isArray(before) ? before.slice() : [];
-    const after = applyCommonEventDefinitions(beforeEvents, selectedDefinitions, options.mode, project.index);
+    const after = applyCommonEventDefinitions(
+      beforeEvents,
+      selectedDefinitions,
+      options.mode,
+      project.index,
+    );
 
     plans.push({ kind: "commonEvents", filePath, before: beforeEvents, after });
     output.push(previewOnly ? buildDiffReport(filePath, beforeEvents, after) : filePath);
@@ -115,7 +128,10 @@ function applyMapEventDefinitions(
     }
 
     const compiled = compileMapEvent(definition, {
-      nextId: mode === "create" ? ensureCreateSlot(stagedEvents, definition.name) : findExistingId(stagedEvents, definition.name),
+      nextId:
+        mode === "create"
+          ? ensureCreateSlot(stagedEvents, definition.name)
+          : findExistingId(stagedEvents, definition.name),
       projectIndex,
     });
     stagedEvents = replaceOrAppend(stagedEvents, compiled);
@@ -138,7 +154,10 @@ function applyCommonEventDefinitions(
     }
 
     const compiled = compileCommonEvent(definition, {
-      nextId: mode === "create" ? ensureCreateSlot(stagedEvents, definition.name) : findExistingId(stagedEvents, definition.name),
+      nextId:
+        mode === "create"
+          ? ensureCreateSlot(stagedEvents, definition.name)
+          : findExistingId(stagedEvents, definition.name),
       projectIndex,
     });
     stagedEvents = replaceOrAppend(stagedEvents, compiled);
