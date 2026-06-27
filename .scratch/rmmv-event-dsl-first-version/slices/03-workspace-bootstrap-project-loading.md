@@ -2,7 +2,7 @@
 
 ## Status
 
-Ready
+Done
 
 ## Type
 
@@ -30,10 +30,10 @@ Provide the shared runtime foundation for later slices: project/config loading, 
 
 ### In
 
-- Load tool configuration.
-- Resolve the MV project root and data directory.
+- Load workspace configuration from `rmmv-event-dsl.config.json`.
+- Resolve the MV project root and `data/` directory from workspace-relative configuration.
 - Create a shared project-loading surface for later validation and compilation slices.
-- Establish the minimum CLI or library entry points needed by subsequent slices.
+- Establish the `init` CLI entry point and workspace initialization behavior needed by subsequent slices.
 
 ### Out
 
@@ -41,6 +41,7 @@ Provide the shared runtime foundation for later slices: project/config loading, 
 - Project-aware validation rules.
 - Compilation of event nodes.
 - JSON writing.
+- Project Index construction.
 
 ## Design References
 
@@ -68,7 +69,7 @@ Provide the shared runtime foundation for later slices: project/config loading, 
 
 ## Code Context
 
-The repository currently lacks a runtime package and project-loading code. Later slices need a stable place to read config and project data from before they can validate or compile definitions.
+The repository now has a workspace bootstrap path and a shared project-loading surface in `packages/rmmv-event-dsl`. Later slices can reuse this foundation to validate or compile definitions against a configured MV project.
 
 ## What To Build
 
@@ -76,9 +77,10 @@ Establish the workspace and project-loading foundation used by lint, create, rep
 
 ## Acceptance Criteria
 
-- [ ] The project root and data directory can be resolved from configuration.
-- [ ] Later slices can depend on a shared project-loading surface.
-- [ ] The foundation does not yet implement DSL semantics or write paths.
+- [x] The project root and data directory can be resolved from configuration.
+- [x] Later slices can depend on a shared project-loading surface.
+- [x] The foundation does not yet implement DSL semantics or write paths.
+- [x] `init` creates the workspace root structure and writes `rmmv-event-dsl.config.json`.
 
 ## Implementation Notes
 
@@ -93,12 +95,14 @@ This is a foundation slice, so it should stay small and reusable. It should not 
 ## Verification Commands
 
 ```bash
-# to be defined by implementation
+pnpm --filter @rmmv-event-dsl/core test
+pnpm --filter @rmmv-event-dsl/core typecheck
+pnpm format:check
 ```
 
 ## Done When
 
-- [ ] Acceptance criteria pass.
-- [ ] Verification commands pass or skipped reason is documented.
-- [ ] Design references remain satisfied.
-- [ ] No unrelated scope was added.
+- [x] Acceptance criteria pass.
+- [x] Verification commands pass or skipped reason is documented.
+- [x] Design references remain satisfied.
+- [x] No unrelated scope was added.

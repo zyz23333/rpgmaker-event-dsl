@@ -5,4 +5,6 @@ export const runtimeBaseline = {
   runtime: "node-22-lts",
 } as const;
 
+export { loadWorkspace } from "./workspace.js";
+
 export type RuntimeBaseline = typeof runtimeBaseline;

@@ -104,6 +104,34 @@ _Avoid_: per-node reason gate, implicit enablement
 The RPG Maker MV JSON files that store event data, including `Map###.json` and `CommonEvents.json`.
 _Avoid_: database, runtime state
 
+**Project Root**:
+The root directory of an RPG Maker MV project, identified by a `.rpgproject` file.
+_Avoid_: workspace root, package root, inferred project directory
+
+**Workspace**:
+The user-owned directory that contains Event Definition source files and the local tool configuration for a target RPG Maker MV project.
+_Avoid_: MV project root, package root, repository root
+
+**Workspace Initialization**:
+The CLI operation that creates a Workspace at a chosen path and establishes its initial structure.
+_Avoid_: project import, project migration, file sync
+
+**Workspace Root**:
+The root directory of a Workspace, identified by the presence of the Workspace Config.
+_Avoid_: Project Root, repository root, arbitrary source folder
+
+**Workspace Config**:
+The local configuration file `rmmv-event-dsl.config.json` in a Workspace that binds Event Definitions to a Project Root.
+_Avoid_: project config, global config, package config
+
+**Definition Binding**:
+One Workspace Config entry that maps one Event Definition source file to one Definition Target.
+_Avoid_: target inference, file-level merge rule, operation mode
+
+**Definition Source**:
+The single TypeScript file referenced by a Definition Binding.
+_Avoid_: glob, directory, file set
+
 **Event Data Management**:
 The tool layer that reads, validates, creates, and replaces event entries in an Event Data Store.
 _Avoid_: database management, editor automation
@@ -141,7 +169,7 @@ A tool-produced plan that declares one or more event data operations to apply to
 _Avoid_: file-owned generation, full-file rewrite
 
 **Definition Target**:
-The configured Event Data Store location that receives the Event Definitions from one TypeScript file.
+The single Event Data Store file that receives the Event Definitions from one TypeScript file.
 _Avoid_: inferred filename target, CLI target override, operation mode
 
 **Operation Mode**:
@@ -169,6 +197,23 @@ _Avoid_: command-complete, feature-complete
 - A map **Definition Target** must come from configuration in the first version, not from the file name or CLI target arguments.
 - A first-version tool run applies exactly one **Operation Mode** to all selected **Event Definitions**.
 - **Definition Lint** reads the Event Data Store through the configured project path and performs project-aware checks.
+- A **Project Root** must be configured explicitly and must contain a `.rpgproject` file.
+- A **Workspace** contains the local configuration that resolves a **Project Root**.
+- A **Workspace Initialization** command creates the initial Workspace structure.
+- A **Workspace Initialization** command creates only the `src/` directory.
+- A **Workspace Initialization** command requires a `projectRoot`.
+- The **Workspace Config** file is named `rmmv-event-dsl.config.json`.
+- A **Workspace Config** contains a **Project Root**, zero or more **Definition Bindings**, and script-command enablement.
+- The **Project Root** path in a **Workspace Config** is resolved relative to the **Workspace Root**.
+- The **Workspace Config** uses `projectRoot` for the MV project directory.
+- A **Definition Binding** maps exactly one source file to exactly one **Definition Target**.
+- A **Definition Source** is a single TypeScript file path relative to the **Workspace Root**.
+- A **Definition Target** is a single Event Data Store file.
+- A **Definition Target** can be owned by at most one **Definition Binding** in a Workspace.
+- Map **Definition Target** values use `mapId` only.
+- Common event **Definition Target** values point to the shared `CommonEvents.json` file.
+- Workspace Config bindings use `src` and `target` fields.
+- Non-`init` commands require the current directory to be a **Workspace Root**.
 - **Definition Lint** may warn when a named export differs from its RPG Maker MV event name, but the MV event name remains the semantic target.
 - Create and replace runs must perform **Project-Aware Validation** before writing any Event Data Store files.
 - **Apply Preview** is available through dry-run and diff options for first-version create and replace runs.

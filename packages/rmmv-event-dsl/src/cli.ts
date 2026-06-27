@@ -5,6 +5,8 @@ import { fileURLToPath } from "node:url";
 
 import { Command } from "commander";
 
+import { initWorkspace } from "./workspace.js";
+
 export const cliName = "rmmv-event-dsl";
 
 export function createCli(): Command {
@@ -14,6 +16,18 @@ export function createCli(): Command {
     .name(cliName)
     .description("Project-aware RPG Maker MV event definition tooling.")
     .version("0.0.0");
+
+  program
+    .command("init")
+    .description("Initialize a workspace at the current directory or a chosen path.")
+    .argument("[workspaceRoot]", "workspace directory to initialize")
+    .requiredOption("--project-root <path>", "relative path to the RPG Maker MV project root")
+    .action(async (workspaceRoot: string, options: { projectRoot: string }) => {
+      await initWorkspace({
+        workspaceRoot: workspaceRoot ?? process.cwd(),
+        projectRoot: options.projectRoot,
+      });
+    });
 
   program
     .command("lint")

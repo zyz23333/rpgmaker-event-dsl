@@ -8,6 +8,7 @@ describe("createCli", () => {
 
     expect(program.name()).toBe(cliName);
     expect(program.commands.map((command) => command.name())).toEqual([
+      "init",
       "lint",
       "create",
       "replace",
