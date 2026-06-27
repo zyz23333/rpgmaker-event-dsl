@@ -105,6 +105,54 @@ describe("runWorkflow", () => {
     expect(mapAfter.events[2]?.name).toBe("Gate");
   });
 
+  it("creates multiple definitions from the same source file", async () => {
+    const { workspaceRoot, dataDirectory } = await createWorkspaceFixture();
+    await writeFile(
+      join(workspaceRoot, "src", "map.ts"),
+      `export const gate = {
+  kind: "mapEvent",
+  name: "Gate",
+  x: 1,
+  y: 2,
+  pages: [
+    {
+      conditions: {},
+      trigger: "action",
+      commands: [],
+    },
+  ],
+};
+
+export const secondGate = {
+  kind: "mapEvent",
+  name: "GateTwo",
+  x: 3,
+  y: 4,
+  pages: [
+    {
+      conditions: {},
+      trigger: "action",
+      commands: [],
+    },
+  ],
+};
+`,
+      "utf8",
+    );
+
+    await runWorkflow({
+      workspaceRoot,
+      mode: "create",
+    });
+
+    const mapAfter = JSON.parse(await readFile(join(dataDirectory, "Map001.json"), "utf8")) as {
+      events: Array<{ id: number; name: string } | null>;
+    };
+
+    expect(mapAfter.events[2]?.name).toBe("Gate");
+    expect(mapAfter.events[3]?.name).toBe("GateTwo");
+  });
+
   it("replaces an existing map event by name", async () => {
     const { workspaceRoot, dataDirectory } = await createWorkspaceFixture();
     await writeFile(
@@ -137,6 +185,37 @@ describe("runWorkflow", () => {
 
     expect(mapAfter.events[1]?.x).toBe(7);
     expect(mapAfter.events[1]?.y).toBe(8);
+  });
+
+  it("rejects invalid page condition references before writing", async () => {
+    const { workspaceRoot } = await createWorkspaceFixture();
+    await writeFile(
+      join(workspaceRoot, "src", "map.ts"),
+      `export const gate = {
+  kind: "mapEvent",
+  name: "Gate",
+  x: 1,
+  y: 2,
+  pages: [
+    {
+      conditions: {
+        switch1: { kind: "switch", name: "MissingSwitch" },
+      },
+      trigger: "action",
+      commands: [],
+    },
+  ],
+};
+`,
+      "utf8",
+    );
+
+    await expect(
+      runWorkflow({
+        workspaceRoot,
+        mode: "lint",
+      }),
+    ).rejects.toThrow("Unknown switch reference: MissingSwitch");
   });
 
   it("rejects create mode when the target name already exists", async () => {

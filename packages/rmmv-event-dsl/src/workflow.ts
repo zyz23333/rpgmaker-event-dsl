@@ -1,14 +1,14 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
 
-import type { EventDefinition } from "./dsl.js";
 import { loadDefinitionFile } from "./definitions.js";
 import {
   compileCommonEvent,
   compileMapEvent,
+  collectDefinitionsWithTarget,
   validateDefinitions,
-  type DefinitionBindingTarget,
 } from "./events.js";
+import type { EventDefinition } from "./dsl.js";
 import { loadProject } from "./project.js";
 import { loadWorkspace } from "./workspace.js";
 import { writeStableJson } from "./writer.js";
@@ -22,16 +22,36 @@ export type WorkflowOptions = {
   diff?: boolean;
 };
 
+type PlannedWrite =
+  | {
+      kind: "map";
+      filePath: string;
+      before: Record<string, unknown>;
+      after: Record<string, unknown>;
+    }
+  | {
+      kind: "commonEvents";
+      filePath: string;
+      before: ReadonlyArray<unknown>;
+      after: ReadonlyArray<unknown>;
+    };
+
 export async function runWorkflow(options: WorkflowOptions): Promise<string[]> {
   const workspace = await loadWorkspace(options.workspaceRoot);
   const project = await loadProject(workspace.projectRoot);
   const output: string[] = [];
   const previewOnly = options.mode === "lint" || options.dryRun === true || options.diff === true;
+  const plans: PlannedWrite[] = [];
 
   for (const binding of workspace.config.definitionTargets) {
     const definitionFile = resolve(workspace.workspaceRoot, binding.src);
     const definitions = await loadDefinitionFile(definitionFile);
-    const selectedDefinitions = filterDefinitions(definitions, binding.target);
+    const selectedDefinitions = collectDefinitionsWithTarget(definitions, binding.target);
+
+    if (selectedDefinitions.length === 0) {
+      throw new Error(`No Event Definitions matched target for ${binding.src}.`);
+    }
+
     const validation = validateDefinitions(selectedDefinitions, project.index, {
       scriptEnabled: workspace.config.scriptEnabled,
     });
@@ -47,86 +67,93 @@ export async function runWorkflow(options: WorkflowOptions): Promise<string[]> {
     }
 
     if (binding.target.type === "map") {
-      const mapFilePath = join(
-        project.dataDirectory,
-        `Map${String(binding.target.mapId).padStart(3, "0")}.json`,
-      );
-      const before = JSON.parse(await readFile(mapFilePath, "utf8")) as Record<string, unknown>;
-      const beforeEvents = Array.isArray(before.events) ? before.events : [];
-      const definition = selectedDefinitions[0];
-
-      if (!definition || definition.kind !== "mapEvent") {
-        continue;
-      }
-
-      const compiled = compileMapEvent(definition, {
-        nextId:
-          options.mode === "create"
-            ? ensureCreateSlot(beforeEvents, definition.name)
-            : findExistingId(beforeEvents, definition.name),
-        projectIndex: project.index,
-      });
-      const next = {
+      const filePath = join(project.dataDirectory, `Map${String(binding.target.mapId).padStart(3, "0")}.json`);
+      const before = JSON.parse(await readFile(filePath, "utf8")) as Record<string, unknown>;
+      const beforeEvents = Array.isArray(before.events) ? before.events.slice() : [];
+      const afterEvents = applyMapEventDefinitions(beforeEvents, selectedDefinitions, options.mode, project.index);
+      const after = {
         ...before,
-        events: replaceOrAppend(beforeEvents, compiled),
+        events: afterEvents,
       };
-      if (!previewOnly) {
-        await writeFile(mapFilePath, writeStableJson(next), "utf8");
-      }
-      output.push(previewOnly ? buildDiffReport(mapFilePath, before, next) : mapFilePath);
-    } else {
-      const commonEventsPath = join(project.dataDirectory, "CommonEvents.json");
-      const before = JSON.parse(await readFile(commonEventsPath, "utf8")) as unknown;
-      const beforeEvents = Array.isArray(before) ? before : [];
-      const definition = selectedDefinitions[0];
 
-      if (!definition || definition.kind !== "commonEvent") {
-        continue;
-      }
-
-      const compiled = compileCommonEvent(definition, {
-        nextId:
-          options.mode === "create"
-            ? ensureCreateSlot(beforeEvents, definition.name)
-            : findExistingId(beforeEvents, definition.name),
-        projectIndex: project.index,
-      });
-      const next = replaceOrAppend(beforeEvents, compiled);
-      if (!previewOnly) {
-        await writeFile(commonEventsPath, writeStableJson(next), "utf8");
-      }
-      output.push(
-        previewOnly ? buildDiffReport(commonEventsPath, beforeEvents, next) : commonEventsPath,
-      );
+      plans.push({ kind: "map", filePath, before, after });
+      output.push(previewOnly ? buildDiffReport(filePath, before, after) : filePath);
+      continue;
     }
+
+    const filePath = join(project.dataDirectory, "CommonEvents.json");
+    const before = JSON.parse(await readFile(filePath, "utf8")) as ReadonlyArray<unknown>;
+    const beforeEvents = Array.isArray(before) ? before.slice() : [];
+    const after = applyCommonEventDefinitions(beforeEvents, selectedDefinitions, options.mode, project.index);
+
+    plans.push({ kind: "commonEvents", filePath, before: beforeEvents, after });
+    output.push(previewOnly ? buildDiffReport(filePath, beforeEvents, after) : filePath);
+  }
+
+  if (previewOnly) {
+    return output;
+  }
+
+  for (const plan of plans) {
+    await writeFile(plan.filePath, writeStableJson(plan.after), "utf8");
   }
 
   return output;
 }
 
-function filterDefinitions(
-  definitions: EventDefinition[],
-  target: DefinitionBindingTarget,
-): EventDefinition[] {
-  return definitions.filter((definition) => {
-    if (target.type === "map") {
-      return definition.kind === "mapEvent";
+function applyMapEventDefinitions(
+  beforeEvents: ReadonlyArray<unknown>,
+  definitions: ReadonlyArray<EventDefinition>,
+  mode: WorkflowMode,
+  projectIndex: Parameters<typeof compileMapEvent>[1]["projectIndex"],
+): unknown[] {
+  let stagedEvents = beforeEvents.slice();
+
+  for (const definition of definitions) {
+    if (definition.kind !== "mapEvent") {
+      continue;
     }
-    return definition.kind === "commonEvent";
-  });
+
+    const compiled = compileMapEvent(definition, {
+      nextId: mode === "create" ? ensureCreateSlot(stagedEvents, definition.name) : findExistingId(stagedEvents, definition.name),
+      projectIndex,
+    });
+    stagedEvents = replaceOrAppend(stagedEvents, compiled);
+  }
+
+  return stagedEvents;
+}
+
+function applyCommonEventDefinitions(
+  beforeEvents: ReadonlyArray<unknown>,
+  definitions: ReadonlyArray<EventDefinition>,
+  mode: WorkflowMode,
+  projectIndex: Parameters<typeof compileCommonEvent>[1]["projectIndex"],
+): unknown[] {
+  let stagedEvents = beforeEvents.slice();
+
+  for (const definition of definitions) {
+    if (definition.kind !== "commonEvent") {
+      continue;
+    }
+
+    const compiled = compileCommonEvent(definition, {
+      nextId: mode === "create" ? ensureCreateSlot(stagedEvents, definition.name) : findExistingId(stagedEvents, definition.name),
+      projectIndex,
+    });
+    stagedEvents = replaceOrAppend(stagedEvents, compiled);
+  }
+
+  return stagedEvents;
 }
 
 function replaceOrAppend<T extends { id: number }>(
-  collection: readonly unknown[],
+  collection: ReadonlyArray<unknown>,
   entry: T,
 ): unknown[] {
   const output = collection.slice();
   output[entry.id] = entry;
   return output;
-}
-
-function getNextId(collection: readonly unknown[]): number {
-  return collection.length;
 }
 
 function buildDiffReport(path: string, before: unknown, after: unknown): string {
@@ -164,16 +191,16 @@ function toUnifiedDiffLines(before: string, after: string): string[] {
   return lines;
 }
 
-function ensureCreateSlot(collection: readonly unknown[], name: string): number {
+function ensureCreateSlot(collection: ReadonlyArray<unknown>, name: string): number {
   const existingId = findMatchingId(collection, name);
   if (existingId !== null) {
     throw new Error(`Duplicate target name: ${name}`);
   }
 
-  return getNextId(collection);
+  return collection.length;
 }
 
-function findExistingId(collection: readonly unknown[], name: string): number {
+function findExistingId(collection: ReadonlyArray<unknown>, name: string): number {
   const existingId = findMatchingId(collection, name);
   if (existingId === null) {
     throw new Error(`Missing target name: ${name}`);
@@ -182,7 +209,7 @@ function findExistingId(collection: readonly unknown[], name: string): number {
   return existingId;
 }
 
-function findMatchingId(collection: readonly unknown[], name: string): number | null {
+function findMatchingId(collection: ReadonlyArray<unknown>, name: string): number | null {
   let foundId = -1;
 
   for (const [index, value] of collection.entries()) {
@@ -199,9 +226,5 @@ function findMatchingId(collection: readonly unknown[], name: string): number | 
     }
   }
 
-  if (foundId === -1) {
-    return null;
-  }
-
-  return foundId;
+  return foundId === -1 ? null : foundId;
 }

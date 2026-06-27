@@ -250,6 +250,7 @@ function validatePages(
   issues: ValidationIssue[],
 ): void {
   for (const page of pages) {
+    validateCondition(page.conditions, projectIndex, issues);
     validateNodes(page.commands, projectIndex, options, issues);
   }
 }
@@ -292,7 +293,7 @@ function validateNodes(
 function validateCondition(
   condition: PageConditions,
   projectIndex: ProjectIndex,
-  _issues: ValidationIssue[],
+  issues: ValidationIssue[],
 ): void {
   if (condition.actor) {
     resolveReference(condition.actor, projectIndex);
@@ -308,9 +309,18 @@ function validateCondition(
   }
   if (condition.variable) {
     resolveReference(condition.variable.ref, projectIndex);
+    if (typeof condition.variable.value === "number") {
+      return;
+    }
     if (typeof condition.variable.value === "object" && condition.variable.value !== null) {
       resolveReference(condition.variable.value as ReferenceValue<"variable">, projectIndex);
+      return;
     }
+
+    issues.push({
+      level: "error",
+      message: "Variable conditions require either a numeric value or a variable reference.",
+    });
   }
 }
 
