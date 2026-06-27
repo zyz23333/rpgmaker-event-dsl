@@ -79,15 +79,34 @@ The repository currently has no implementation package or CLI entrypoint. This s
 
 Document and settle the implementation stack so that later slices can assume a stable runtime, module format, testing approach, and CLI toolchain.
 
+The selected first-version stack is:
+
+- Runtime: Node.js 22 LTS
+- Language: TypeScript strict mode
+- Module system: ESM / NodeNext
+- Package manager: pnpm
+- CLI: commander
+- Runtime schema / validation: zod
+- TypeScript Event Definition loading: tsx
+- Build: tsdown
+- Test: vitest
+- Lint: oxlint
+- Format: oxfmt
+
 ## Acceptance Criteria
 
 - [ ] The technical stack choice is recorded in a way that later slices can depend on it.
 - [ ] The selected stack is sufficient to implement the first-version CLI, DSL, validation, compiler, and writer.
-- [ ] No later slice needs to reopen the core runtime or CLI framework choice.
+- [ ] No later slice needs to reopen the core runtime, module system, package manager, CLI framework, build tool, or test framework choice.
+- [ ] `oxlint` and `oxfmt` are the default lint and format tools.
 
 ## Implementation Notes
 
 This is a decision slice, not a build slice. It should resolve the stack before any implementation work starts and should not drift into module scaffolding.
+
+`tsdown` is preferred over `tsup` because the project is starting fresh and `tsdown` is the newer Rolldown/Oxc-aligned TypeScript library/CLI bundler. `oxlint` and `oxfmt` keep linting and formatting aligned with the same Oxc ecosystem.
+
+If `oxfmt` blocks required formatting behavior during implementation, a follow-up decision may replace only the formatter with Biome. That fallback should not reopen the broader runtime, CLI, validation, build, or test stack.
 
 ## Suggested Task Plan
 
