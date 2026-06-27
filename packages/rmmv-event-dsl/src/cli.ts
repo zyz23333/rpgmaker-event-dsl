@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import { Command } from "commander";
 
 import { initWorkspace } from "./workspace.js";
+import { runWorkflow } from "./workflow.js";
 
 export const cliName = "rmmv-event-dsl";
 
@@ -32,8 +33,11 @@ export function createCli(): Command {
   program
     .command("lint")
     .description("Validate Event Definitions against the configured MV project.")
-    .action(() => {
-      throw new Error("The lint workflow is reserved for a later implementation slice.");
+    .action(async () => {
+      await runWorkflow({
+        workspaceRoot: process.cwd(),
+        mode: "lint",
+      });
     });
 
   program
@@ -41,8 +45,20 @@ export function createCli(): Command {
     .description("Create Event Data Store entries from Event Definitions.")
     .option("--dry-run", "preview planned changes without writing files")
     .option("--diff", "include full-file unified diffs in preview output")
-    .action(() => {
-      throw new Error("The create workflow is reserved for a later implementation slice.");
+    .action(async (options: { dryRun?: boolean; diff?: boolean }) => {
+      const workflowOptions: Parameters<typeof runWorkflow>[0] = {
+        workspaceRoot: process.cwd(),
+        mode: "create",
+      };
+
+      if (options.dryRun !== undefined) {
+        workflowOptions.dryRun = options.dryRun;
+      }
+      if (options.diff !== undefined) {
+        workflowOptions.diff = options.diff;
+      }
+
+      await runWorkflow(workflowOptions);
     });
 
   program
@@ -50,8 +66,20 @@ export function createCli(): Command {
     .description("Replace existing Event Data Store entries from Event Definitions.")
     .option("--dry-run", "preview planned changes without writing files")
     .option("--diff", "include full-file unified diffs in preview output")
-    .action(() => {
-      throw new Error("The replace workflow is reserved for a later implementation slice.");
+    .action(async (options: { dryRun?: boolean; diff?: boolean }) => {
+      const workflowOptions: Parameters<typeof runWorkflow>[0] = {
+        workspaceRoot: process.cwd(),
+        mode: "replace",
+      };
+
+      if (options.dryRun !== undefined) {
+        workflowOptions.dryRun = options.dryRun;
+      }
+      if (options.diff !== undefined) {
+        workflowOptions.diff = options.diff;
+      }
+
+      await runWorkflow(workflowOptions);
     });
 
   return program;
