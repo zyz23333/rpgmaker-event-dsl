@@ -5,7 +5,7 @@ import {
   changeGold,
   changeItem,
   comment,
-  commonEventCall,
+  callCommonEvent,
   commonEventRef,
   conditional,
   controlSelfSwitch,
@@ -21,7 +21,7 @@ import {
   mapRef,
   page,
   pluginCommand,
-  rawCommand,
+  rawDslCommand,
   script,
   shopProcessing,
   showChoices,
@@ -107,7 +107,7 @@ export const fullEvent = mapEvent({
         }),
         showChoices({
           choices: ["Yes", "No"],
-          branches: [[commonEventCall(sampleCommonEvent)], [exitEvent()]],
+          branches: [[callCommonEvent(sampleCommonEvent)], [exitEvent()]],
           cancelBranch: [script(["console.log('cancel')"])],
         }),
         shopProcessing({
@@ -123,7 +123,7 @@ export const fullEvent = mapEvent({
           command: "FullEventPlugin",
           args: ["alpha", "beta"],
         }),
-        rawCommand({
+        rawDslCommand({
           code: 355,
           parameters: ["this._messageWindow.close();"],
         }),

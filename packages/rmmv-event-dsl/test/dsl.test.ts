@@ -7,7 +7,7 @@ import {
   collectEventDefinitions,
   comment,
   commonEvent,
-  commonEventCall,
+  callCommonEvent,
   commonEventRef,
   controlSelfSwitch,
   controlSwitch,
@@ -41,7 +41,7 @@ describe("collectEventDefinitions", () => {
         name: "Beta",
         trigger: "none",
         switch: switchRef({ id: 1 }),
-        commands: [commonEventCall(commonEventRef({ name: "SomeCommonEvent" }))],
+        commands: [callCommonEvent(commonEventRef({ name: "SomeCommonEvent" }))],
       }),
     });
 
@@ -66,7 +66,7 @@ describe("collectEventDefinitions", () => {
     ).toThrow("Default export is not allowed for Event Definitions.");
   });
 
-  it("builds the new command helpers as structured nodes", () => {
+  it("builds the new command helpers as structured DSL commands", () => {
     expect(comment(["A", "B"]).kind).toBe("comment");
     expect(controlSwitch({ switch: switchRef({ id: 1 }), value: true }).kind).toBe("controlSwitch");
     expect(

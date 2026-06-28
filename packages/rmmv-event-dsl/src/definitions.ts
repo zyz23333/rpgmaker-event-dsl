@@ -411,7 +411,7 @@ function createDslNamespace(): Record<string, unknown> {
     collectEventDefinitions: getDslHelper("collectEventDefinitions"),
     comment: getDslHelper("comment"),
     commonEvent: getDslHelper("commonEvent"),
-    commonEventCall: getDslHelper("commonEventCall"),
+    callCommonEvent: getDslHelper("callCommonEvent"),
     commonEventRef: getDslHelper("commonEventRef"),
     conditional: getDslHelper("conditional"),
     controlSelfSwitch: getDslHelper("controlSelfSwitch"),
@@ -427,7 +427,7 @@ function createDslNamespace(): Record<string, unknown> {
     mapRef: getDslHelper("mapRef"),
     page: getDslHelper("page"),
     pluginCommand: getDslHelper("pluginCommand"),
-    rawCommand: getDslHelper("rawCommand"),
+    rawDslCommand: getDslHelper("rawDslCommand"),
     shopProcessing: getDslHelper("shopProcessing"),
     showChoices: getDslHelper("showChoices"),
     showText: getDslHelper("showText"),
@@ -461,8 +461,8 @@ function getDslHelper(name: string): unknown {
       return dsl.comment;
     case "commonEvent":
       return dsl.commonEvent;
-    case "commonEventCall":
-      return dsl.commonEventCall;
+    case "callCommonEvent":
+      return dsl.callCommonEvent;
     case "commonEventRef":
       return dsl.commonEventRef;
     case "conditional":
@@ -493,8 +493,8 @@ function getDslHelper(name: string): unknown {
       return dsl.page;
     case "pluginCommand":
       return dsl.pluginCommand;
-    case "rawCommand":
-      return dsl.rawCommand;
+    case "rawDslCommand":
+      return dsl.rawDslCommand;
     case "shopProcessing":
       return dsl.shopProcessing;
     case "showChoices":

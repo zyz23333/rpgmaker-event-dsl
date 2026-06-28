@@ -1,10 +1,10 @@
 import type {
-  BattleProcessingNode,
+  BattleProcessingDslCommand,
   CommonEventDefinition,
   EventDefinition,
-  EventNode,
+  DslCommand,
   EventPage,
-  ControlVariableNode,
+  ControlVariableDslCommand,
   MapEventDefinition,
   PageConditions,
   ProjectIndex,
@@ -49,7 +49,7 @@ export type ValidationResult = {
   issues: ValidationIssue[];
 };
 
-type CompiledEventNode = {
+type RawEventCommand = {
   code: number;
   indent: number;
   parameters: unknown[];
@@ -64,14 +64,14 @@ export type ProjectEventData = {
   pages?: ProjectEventPage[];
   trigger?: number;
   switchId?: number;
-  list?: CompiledEventNode[];
+  list?: RawEventCommand[];
 };
 
 type ProjectEventPage = {
   conditions?: Record<string, unknown>;
   directionFix?: boolean;
   image?: Record<string, unknown>;
-  list: CompiledEventNode[];
+  list: RawEventCommand[];
   moveFrequency?: number;
   moveRoute?: Record<string, unknown>;
   moveSpeed?: number;
@@ -88,7 +88,7 @@ type CompiledCommonEvent = {
   name: string;
   trigger: number;
   switchId: number;
-  list: CompiledEventNode[];
+  list: RawEventCommand[];
 };
 
 export function collectDefinitionsWithTarget(
@@ -258,7 +258,7 @@ function validatePages(
 }
 
 function validateNodes(
-  nodes: readonly EventNode[],
+  nodes: readonly DslCommand[],
   projectIndex: ProjectIndex,
   options: { scriptEnabled: boolean },
   issues: ValidationIssue[],
@@ -345,12 +345,12 @@ function validateCondition(
 }
 
 function compileNodes(
-  nodes: readonly EventNode[],
+  nodes: readonly DslCommand[],
   indent: number,
   projectIndex: ProjectIndex,
   includeTerminator = true,
-): CompiledEventNode[] {
-  const output: CompiledEventNode[] = [];
+): RawEventCommand[] {
+  const output: RawEventCommand[] = [];
 
   for (const node of nodes) {
     switch (node.kind) {
@@ -565,7 +565,7 @@ function compileNodes(
           parameters: [...node.goods, node.allowSelling ?? false],
         });
         break;
-      case "rawCommand":
+      case "rawDslCommand":
         output.push({
           code: node.code,
           indent: node.indent ?? indent,
@@ -586,7 +586,7 @@ function resolveControlValue(value: boolean): number {
 }
 
 function compileControlVariableParameters(
-  node: ControlVariableNode,
+  node: ControlVariableDslCommand,
   projectIndex: ProjectIndex,
 ): unknown[] {
   const targetId = resolveReference(node.variable, projectIndex);
@@ -615,11 +615,11 @@ function compileControlVariableParameters(
 }
 
 function compileChoiceBranches(
-  node: Extract<EventNode, { kind: "showChoices" }>,
+  node: Extract<DslCommand, { kind: "showChoices" }>,
   indent: number,
   projectIndex: ProjectIndex,
-): CompiledEventNode[] {
-  const output: CompiledEventNode[] = [];
+): RawEventCommand[] {
+  const output: RawEventCommand[] = [];
 
   node.branches.forEach((branch, index) => {
     output.push({
@@ -643,7 +643,7 @@ function compileChoiceBranches(
 }
 
 function compileBattleProcessingParameters(
-  node: BattleProcessingNode,
+  node: BattleProcessingDslCommand,
   projectIndex: ProjectIndex,
 ): unknown[] {
   if ("useRandomEncounter" in node.troop) {

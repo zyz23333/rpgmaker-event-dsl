@@ -13,7 +13,7 @@ export type CommonEventDefinition = {
   name: string;
   trigger: CommonEventTrigger;
   switch?: ReferenceValue<"switch">;
-  commands: readonly EventNode[];
+  commands: readonly DslCommand[];
 };
 
 export type CommonEventTrigger = "none" | "autorun" | "parallel";
@@ -23,7 +23,7 @@ export type MapPageTrigger = "action" | "playerTouch" | "eventTouch" | "autorun"
 export type EventPage = {
   conditions: PageConditions;
   trigger: MapPageTrigger;
-  commands: readonly EventNode[];
+  commands: readonly DslCommand[];
 };
 
 export type PageConditions = {
@@ -72,99 +72,99 @@ export type ProjectIndex = {
   weaponsByName: Map<string, number>;
 };
 
-export type EventNode =
-  | ShowTextNode
-  | ConditionalNode
-  | LoopNode
-  | BreakLoopNode
-  | ExitEventNode
-  | CommonEventNode
-  | LabelNode
-  | JumpToLabelNode
-  | CommentNode
-  | ScriptNode
-  | PluginCommandNode
-  | TransferPlayerNode
-  | ControlSwitchNode
-  | ControlVariableNode
-  | ControlSelfSwitchNode
-  | ChangeGoldNode
-  | ChangeItemNode
-  | WaitNode
-  | EraseEventNode
-  | BattleProcessingNode
-  | ShowChoicesNode
-  | ShopProcessingNode
-  | RawCommandNode;
+export type DslCommand =
+  | ShowTextDslCommand
+  | ConditionalDslCommand
+  | LoopDslCommand
+  | BreakLoopDslCommand
+  | ExitEventDslCommand
+  | CommonEventDslCommand
+  | LabelDslCommand
+  | JumpToLabelDslCommand
+  | CommentDslCommand
+  | ScriptDslCommand
+  | PluginDslCommand
+  | TransferPlayerDslCommand
+  | ControlSwitchDslCommand
+  | ControlVariableDslCommand
+  | ControlSelfSwitchDslCommand
+  | ChangeGoldDslCommand
+  | ChangeItemDslCommand
+  | WaitDslCommand
+  | EraseEventDslCommand
+  | BattleProcessingDslCommand
+  | ShowChoicesDslCommand
+  | ShopProcessingDslCommand
+  | RawDslCommand;
 
-export type ShowTextNode = {
+export type ShowTextDslCommand = {
   kind: "showText";
   lines: readonly [string, ...string[]];
 };
 
-export type ShowChoicesNode = {
+export type ShowChoicesDslCommand = {
   kind: "showChoices";
   choices: readonly [string, ...string[]];
-  branches: readonly [readonly EventNode[], ...(readonly EventNode[][])];
+  branches: readonly [readonly DslCommand[], ...(readonly DslCommand[][])];
   cancelType?: number;
   defaultType?: number;
   positionType?: 0 | 1 | 2;
   background?: 0 | 1 | 2;
-  cancelBranch?: readonly EventNode[];
+  cancelBranch?: readonly DslCommand[];
 };
 
-export type ConditionalNode = {
+export type ConditionalDslCommand = {
   kind: "conditional";
   condition: PageConditions;
-  then: readonly EventNode[];
-  else?: readonly EventNode[];
+  then: readonly DslCommand[];
+  else?: readonly DslCommand[];
 };
 
-export type LoopNode = {
+export type LoopDslCommand = {
   kind: "loop";
-  body: readonly EventNode[];
+  body: readonly DslCommand[];
 };
 
-export type BreakLoopNode = {
+export type BreakLoopDslCommand = {
   kind: "breakLoop";
 };
 
-export type ExitEventNode = {
+export type ExitEventDslCommand = {
   kind: "exitEvent";
 };
 
-export type CommonEventNode = {
+export type CommonEventDslCommand = {
   kind: "commonEvent";
   ref: ReferenceValue<"commonEvent">;
 };
 
-export type LabelNode = {
+export type LabelDslCommand = {
   kind: "label";
   name: string;
 };
 
-export type JumpToLabelNode = {
+export type JumpToLabelDslCommand = {
   kind: "jumpToLabel";
   name: string;
 };
 
-export type CommentNode = {
+export type CommentDslCommand = {
   kind: "comment";
   lines: readonly [string, ...string[]];
 };
 
-export type ScriptNode = {
+export type ScriptDslCommand = {
   kind: "script";
   code: readonly [string, ...string[]];
 };
 
-export type PluginCommandNode = {
+export type PluginDslCommand = {
   kind: "pluginCommand";
   command: string;
   args?: readonly string[];
 };
 
-export type TransferPlayerNode = {
+export type TransferPlayerDslCommand = {
   kind: "transferPlayer";
   target:
     | {
@@ -183,13 +183,13 @@ export type TransferPlayerNode = {
       };
 };
 
-export type ControlSwitchNode = {
+export type ControlSwitchDslCommand = {
   kind: "controlSwitch";
   switch: ReferenceValue<"switch">;
   value: boolean;
 };
 
-export type ControlVariableNode = {
+export type ControlVariableDslCommand = {
   kind: "controlVariable";
   variable: ReferenceValue<"variable">;
   operation: "set" | "add" | "sub" | "mul" | "div" | "mod";
@@ -203,35 +203,35 @@ export type ControlVariableNode = {
       };
 };
 
-export type ControlSelfSwitchNode = {
+export type ControlSelfSwitchDslCommand = {
   kind: "controlSelfSwitch";
   selfSwitch: "A" | "B" | "C" | "D";
   value: boolean;
 };
 
-export type ChangeGoldNode = {
+export type ChangeGoldDslCommand = {
   kind: "changeGold";
   operation: "gain" | "lose";
   value: number;
 };
 
-export type ChangeItemNode = {
+export type ChangeItemDslCommand = {
   kind: "changeItem";
   item: ReferenceValue<"item">;
   operation: "gain" | "lose";
   amount: number;
 };
 
-export type WaitNode = {
+export type WaitDslCommand = {
   kind: "wait";
   frames: number;
 };
 
-export type EraseEventNode = {
+export type EraseEventDslCommand = {
   kind: "eraseEvent";
 };
 
-export type BattleProcessingNode = {
+export type BattleProcessingDslCommand = {
   kind: "battleProcessing";
   troop:
     | ReferenceValue<"troop">
@@ -243,14 +243,14 @@ export type BattleProcessingNode = {
   canLose?: boolean;
 };
 
-export type ShopProcessingNode = {
+export type ShopProcessingDslCommand = {
   kind: "shopProcessing";
   goods: readonly [number, number, number, number, number?];
   allowSelling?: boolean;
 };
 
-export type RawCommandNode = {
-  kind: "rawCommand";
+export type RawDslCommand = {
+  kind: "rawDslCommand";
   code: number;
   indent?: number;
   parameters: readonly unknown[];
@@ -275,7 +275,7 @@ export function commonEvent(input: {
   name: string;
   trigger: CommonEventTrigger;
   switch?: ReferenceValue<"switch">;
-  commands: readonly EventNode[];
+  commands: readonly DslCommand[];
 }): CommonEventDefinition {
   const definition: CommonEventDefinition = {
     kind: "commonEvent",
@@ -294,7 +294,7 @@ export function commonEvent(input: {
 export function page(input: {
   conditions?: PageConditions;
   trigger?: MapPageTrigger;
-  commands: readonly EventNode[];
+  commands: readonly DslCommand[];
 }): EventPage {
   return {
     conditions: input.conditions ?? {},
@@ -303,20 +303,20 @@ export function page(input: {
   };
 }
 
-export function showText(lines: readonly [string, ...string[]]): ShowTextNode {
+export function showText(lines: readonly [string, ...string[]]): ShowTextDslCommand {
   return { kind: "showText", lines };
 }
 
 export function showChoices(input: {
   choices: readonly [string, ...string[]];
-  branches: readonly [readonly EventNode[], ...(readonly EventNode[][])];
+  branches: readonly [readonly DslCommand[], ...(readonly DslCommand[][])];
   cancelType?: number;
   defaultType?: number;
   positionType?: 0 | 1 | 2;
   background?: 0 | 1 | 2;
-  cancelBranch?: readonly EventNode[];
-}): ShowChoicesNode {
-  const node: ShowChoicesNode = {
+  cancelBranch?: readonly DslCommand[];
+}): ShowChoicesDslCommand {
+  const node: ShowChoicesDslCommand = {
     kind: "showChoices",
     choices: input.choices,
     branches: input.branches,
@@ -343,10 +343,10 @@ export function showChoices(input: {
 
 export function conditional(input: {
   condition: PageConditions;
-  then: readonly EventNode[];
-  else?: readonly EventNode[];
-}): ConditionalNode {
-  const node: ConditionalNode = {
+  then: readonly DslCommand[];
+  else?: readonly DslCommand[];
+}): ConditionalDslCommand {
+  const node: ConditionalDslCommand = {
     kind: "conditional",
     condition: input.condition,
     then: input.then,
@@ -359,43 +359,43 @@ export function conditional(input: {
   return node;
 }
 
-export function loop(body: readonly EventNode[]): LoopNode {
+export function loop(body: readonly DslCommand[]): LoopDslCommand {
   return { kind: "loop", body };
 }
 
-export function breakLoop(): BreakLoopNode {
+export function breakLoop(): BreakLoopDslCommand {
   return { kind: "breakLoop" };
 }
 
-export function exitEvent(): ExitEventNode {
+export function exitEvent(): ExitEventDslCommand {
   return { kind: "exitEvent" };
 }
 
-export function commonEventCall(ref: ReferenceValue<"commonEvent">): CommonEventNode {
+export function callCommonEvent(ref: ReferenceValue<"commonEvent">): CommonEventDslCommand {
   return { kind: "commonEvent", ref };
 }
 
-export function label(name: string): LabelNode {
+export function label(name: string): LabelDslCommand {
   return { kind: "label", name };
 }
 
-export function jumpToLabel(name: string): JumpToLabelNode {
+export function jumpToLabel(name: string): JumpToLabelDslCommand {
   return { kind: "jumpToLabel", name };
 }
 
-export function comment(lines: readonly [string, ...string[]]): CommentNode {
+export function comment(lines: readonly [string, ...string[]]): CommentDslCommand {
   return { kind: "comment", lines };
 }
 
-export function script(code: readonly [string, ...string[]]): ScriptNode {
+export function script(code: readonly [string, ...string[]]): ScriptDslCommand {
   return { kind: "script", code };
 }
 
 export function pluginCommand(input: {
   command: string;
   args?: readonly string[];
-}): PluginCommandNode {
-  const node: PluginCommandNode = {
+}): PluginDslCommand {
+  const node: PluginDslCommand = {
     kind: "pluginCommand",
     command: input.command,
   };
@@ -413,7 +413,7 @@ export function transferPlayer(input: {
   y: number;
   direction?: 2 | 4 | 6 | 8;
   fadeType?: 0 | 1 | 2;
-}): TransferPlayerNode {
+}): TransferPlayerDslCommand {
   return {
     kind: "transferPlayer",
     target: input,
@@ -423,7 +423,7 @@ export function transferPlayer(input: {
 export function controlSwitch(input: {
   switch: ReferenceValue<"switch">;
   value: boolean;
-}): ControlSwitchNode {
+}): ControlSwitchDslCommand {
   return {
     kind: "controlSwitch",
     switch: input.switch,
@@ -442,7 +442,7 @@ export function controlVariable(input: {
         from: number;
         to: number;
       };
-}): ControlVariableNode {
+}): ControlVariableDslCommand {
   return {
     kind: "controlVariable",
     variable: input.variable,
@@ -454,7 +454,7 @@ export function controlVariable(input: {
 export function controlSelfSwitch(input: {
   selfSwitch: "A" | "B" | "C" | "D";
   value: boolean;
-}): ControlSelfSwitchNode {
+}): ControlSelfSwitchDslCommand {
   return {
     kind: "controlSelfSwitch",
     selfSwitch: input.selfSwitch,
@@ -462,7 +462,10 @@ export function controlSelfSwitch(input: {
   };
 }
 
-export function changeGold(input: { operation: "gain" | "lose"; value: number }): ChangeGoldNode {
+export function changeGold(input: {
+  operation: "gain" | "lose";
+  value: number;
+}): ChangeGoldDslCommand {
   return {
     kind: "changeGold",
     operation: input.operation,
@@ -474,7 +477,7 @@ export function changeItem(input: {
   item: ReferenceValue<"item">;
   operation: "gain" | "lose";
   amount: number;
-}): ChangeItemNode {
+}): ChangeItemDslCommand {
   return {
     kind: "changeItem",
     item: input.item,
@@ -483,11 +486,11 @@ export function changeItem(input: {
   };
 }
 
-export function wait(frames: number): WaitNode {
+export function wait(frames: number): WaitDslCommand {
   return { kind: "wait", frames };
 }
 
-export function eraseEvent(): EraseEventNode {
+export function eraseEvent(): EraseEventDslCommand {
   return { kind: "eraseEvent" };
 }
 
@@ -500,8 +503,8 @@ export function battleProcessing(input: {
       };
   canEscape?: boolean;
   canLose?: boolean;
-}): BattleProcessingNode {
-  const node: BattleProcessingNode = {
+}): BattleProcessingDslCommand {
+  const node: BattleProcessingDslCommand = {
     kind: "battleProcessing",
     troop: input.troop,
   };
@@ -519,8 +522,8 @@ export function battleProcessing(input: {
 export function shopProcessing(input: {
   goods: readonly [number, number, number, number, number?];
   allowSelling?: boolean;
-}): ShopProcessingNode {
-  const node: ShopProcessingNode = {
+}): ShopProcessingDslCommand {
+  const node: ShopProcessingDslCommand = {
     kind: "shopProcessing",
     goods: input.goods,
   };
@@ -532,13 +535,13 @@ export function shopProcessing(input: {
   return node;
 }
 
-export function rawCommand(input: {
+export function rawDslCommand(input: {
   code: number;
   indent?: number;
   parameters: readonly unknown[];
-}): RawCommandNode {
-  const node: RawCommandNode = {
-    kind: "rawCommand",
+}): RawDslCommand {
+  const node: RawDslCommand = {
+    kind: "rawDslCommand",
     code: input.code,
     parameters: input.parameters,
   };
