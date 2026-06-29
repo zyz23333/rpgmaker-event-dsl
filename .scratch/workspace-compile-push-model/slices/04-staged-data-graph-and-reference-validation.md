@@ -2,7 +2,7 @@
 
 ## Status
 
-Ready
+Done
 
 ## Type
 
@@ -65,16 +65,26 @@ Create the Staged Data Graph as an explicit compile-time model with duplicate-aw
 
 ## Acceptance Criteria
 
-- [ ] Duplicate Common Event, Variable, and Switch IDs fail.
-- [ ] Duplicate Map Event identity fails only when both `mapId` and `eventId` match.
-- [ ] Same event ID on different maps is allowed.
-- [ ] Duplicate Display Names are allowed when not referenced by name.
-- [ ] Name-based references fail when no visible target exists.
-- [ ] Name-based references fail when more than one visible target exists.
-- [ ] Explicit ID References fail when the target ID is absent from visible scope.
-- [ ] References to DSL-Owned Project Data domains do not fall back to snapshot entries.
-- [ ] External references resolve against Standard Project Data Snapshot indexes.
-- [ ] Raw DSL Command parameters are not inspected as Project Data References.
+- [x] Duplicate Common Event, Variable, and Switch IDs fail.
+- [x] Duplicate Map Event identity fails only when both `mapId` and `eventId` match.
+- [x] Same event ID on different maps is allowed.
+- [x] Duplicate Display Names are allowed when not referenced by name.
+- [x] Name-based references fail when no visible target exists.
+- [x] Name-based references fail when more than one visible target exists.
+- [x] Explicit ID References fail when the target ID is absent from visible scope.
+- [x] References to DSL-Owned Project Data domains do not fall back to snapshot entries.
+- [x] External references resolve against Standard Project Data Snapshot indexes.
+- [x] Raw DSL Command parameters are not inspected as Project Data References.
+
+## Implementation Summary
+
+- Added `packages/rmmv-event-dsl/src/staged-graph.ts` as the explicit staged compile-time model.
+- Added duplicate-aware name indexing and snapshot reference input extraction for external reference scopes.
+- Added DSL-owned identity indexes for Map Events, Common Events, Switch Definitions, and Variable Definitions.
+- Added staged graph validation for required positive identities, duplicate Entry Identity, missing references, ambiguous name references, and missing explicit ID references.
+- Kept DSL-owned domains isolated from snapshot fallback while resolving external data domains against snapshot-derived reference indexes.
+- Introduced a `ReferenceResolver` abstraction and adapted event compilation/validation to use it while keeping the legacy `ProjectIndex` path compatible.
+- Added focused staged graph tests covering identity, name ambiguity, same-run DSL-owned references, external snapshot references, and raw command escape hatch behavior.
 
 ## Implementation Notes
 
@@ -91,13 +101,25 @@ Avoid extending the old `ProjectIndex` shape if it makes ambiguity invisible. A 
 ## Verification Commands
 
 ```bash
-pnpm --filter @rmmv-event-dsl/core test -- project.test.ts events.test.ts workflow.test.ts
+pnpm --filter @rmmv-event-dsl/core test -- staged-graph.test.ts events.test.ts project.test.ts workflow.test.ts
 pnpm --filter @rmmv-event-dsl/core typecheck
+pnpm lint
+pnpm exec oxfmt --check packages/rmmv-event-dsl/src/events.ts packages/rmmv-event-dsl/src/staged-graph.ts packages/rmmv-event-dsl/src/index.ts packages/rmmv-event-dsl/test/staged-graph.test.ts
 ```
+
+Verification completed:
+
+- `pnpm --filter @rmmv-event-dsl/core test -- staged-graph.test.ts events.test.ts project.test.ts workflow.test.ts` passed.
+- `pnpm --filter @rmmv-event-dsl/core typecheck` passed.
+- `pnpm lint` passed with existing warnings in unrelated files:
+  - `packages/rmmv-event-dsl/test/workflow.test.ts`: unused `resolve`
+  - `packages/rmmv-event-dsl/src/definitions.ts`: unused `EventDefinition`
+- Focused format check for touched code/test files passed.
+- Full `pnpm format:check` still fails on pre-existing formatting in `packages/rmmv-event-dsl/test/definitions.test.ts`, which is outside this slice's changes.
 
 ## Done When
 
-- [ ] Acceptance criteria pass.
-- [ ] Verification commands pass or skipped reason is documented.
-- [ ] Design references remain satisfied.
-- [ ] No unrelated scope was added.
+- [x] Acceptance criteria pass.
+- [x] Verification commands pass or skipped reason is documented.
+- [x] Design references remain satisfied.
+- [x] No unrelated scope was added.

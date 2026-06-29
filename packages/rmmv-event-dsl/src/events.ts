@@ -11,6 +11,7 @@ import type {
   ReferenceKind,
   ReferenceValue,
 } from "./dsl.js";
+import { createProjectIndexReferenceResolver, type ReferenceResolver } from "./staged-graph.js";
 
 export type OperationMode = "create" | "replace";
 
@@ -111,6 +112,7 @@ export function validateDefinitions(
     scriptEnabled: boolean;
   },
 ): ValidationResult {
+  const resolver = createProjectIndexReferenceResolver(projectIndex);
   const issues: ValidationIssue[] = [];
 
   for (const definition of definitions) {
@@ -121,9 +123,9 @@ export function validateDefinitions(
           message: `Map event "${definition.name}" must contain at least one page.`,
         });
       }
-      validatePages(definition.pages, projectIndex, options, issues);
+      validatePages(definition.pages, resolver, options, issues);
     } else {
-      validateCommonEvent(definition, projectIndex, options, issues);
+      validateCommonEvent(definition, resolver, options, issues);
     }
   }
 
@@ -132,27 +134,29 @@ export function validateDefinitions(
 
 export function compileMapEvent(
   definition: MapEventDefinition,
-  options: { nextId: number; projectIndex: ProjectIndex },
+  options: { nextId: number; projectIndex?: ProjectIndex; resolver?: ReferenceResolver },
 ): ProjectEventData {
+  const resolver = getResolver(options);
   return {
     id: options.nextId,
     name: definition.name,
     x: definition.x,
     y: definition.y,
-    pages: definition.pages.map((page) => compilePage(page, options.projectIndex)),
+    pages: definition.pages.map((page) => compilePage(page, resolver)),
   };
 }
 
 export function compileCommonEvent(
   definition: CommonEventDefinition,
-  options: { nextId: number; projectIndex: ProjectIndex },
+  options: { nextId: number; projectIndex?: ProjectIndex; resolver?: ReferenceResolver },
 ): CompiledCommonEvent {
+  const resolver = getResolver(options);
   return {
     id: options.nextId,
     name: definition.name,
     trigger: commonEventTriggerToCode(definition.trigger),
-    switchId: definition.switch ? resolveReference(definition.switch, options.projectIndex) : 1,
-    list: compileNodes(definition.commands, 0, options.projectIndex),
+    switchId: definition.switch ? resolver.resolveReference(definition.switch) : 1,
+    list: compileNodes(definition.commands, 0, resolver),
   };
 }
 
@@ -191,9 +195,9 @@ export function toMvCommonEventsFile(
   return output;
 }
 
-export function compilePage(page: EventPage, projectIndex: ProjectIndex): ProjectEventPage {
+export function compilePage(page: EventPage, resolver: ReferenceResolver): ProjectEventPage {
   return {
-    conditions: compileConditions(page.conditions, projectIndex),
+    conditions: compileConditions(page.conditions, resolver),
     directionFix: false,
     image: {
       characterIndex: 0,
@@ -202,7 +206,7 @@ export function compilePage(page: EventPage, projectIndex: ProjectIndex): Projec
       pattern: 0,
       tileId: 0,
     },
-    list: compileNodes(page.commands, 0, projectIndex),
+    list: compileNodes(page.commands, 0, resolver),
     moveFrequency: 3,
     moveRoute: {
       list: [{ code: 0, parameters: [] }],
@@ -231,7 +235,7 @@ export function compilePage(page: EventPage, projectIndex: ProjectIndex): Projec
 
 function validateCommonEvent(
   definition: CommonEventDefinition,
-  projectIndex: ProjectIndex,
+  resolver: ReferenceResolver,
   options: { scriptEnabled: boolean },
   issues: ValidationIssue[],
 ): void {
@@ -242,24 +246,24 @@ function validateCommonEvent(
     });
   }
 
-  validateNodes(definition.commands, projectIndex, options, issues);
+  validateNodes(definition.commands, resolver, options, issues);
 }
 
 function validatePages(
   pages: readonly EventPage[],
-  projectIndex: ProjectIndex,
+  resolver: ReferenceResolver,
   options: { scriptEnabled: boolean },
   issues: ValidationIssue[],
 ): void {
   for (const page of pages) {
-    validateCondition(page.conditions, projectIndex, issues);
-    validateNodes(page.commands, projectIndex, options, issues);
+    validateCondition(page.conditions, resolver, issues);
+    validateNodes(page.commands, resolver, options, issues);
   }
 }
 
 function validateNodes(
   nodes: readonly DslCommand[],
-  projectIndex: ProjectIndex,
+  resolver: ReferenceResolver,
   options: { scriptEnabled: boolean },
   issues: ValidationIssue[],
 ): void {
@@ -271,16 +275,16 @@ function validateNodes(
       });
     }
     if (node.kind === "controlSwitch") {
-      resolveReference(node.switch, projectIndex);
+      resolver.resolveReference(node.switch);
     }
     if (node.kind === "controlVariable") {
-      resolveReference(node.variable, projectIndex);
+      resolver.resolveReference(node.variable);
       if (typeof node.value === "object" && node.value !== null && "kind" in node.value) {
-        resolveReference(node.value as ReferenceValue<"variable">, projectIndex);
+        resolver.resolveReference(node.value as ReferenceValue<"variable">);
       }
     }
     if (node.kind === "changeItem") {
-      resolveReference(node.item, projectIndex);
+      resolver.resolveReference(node.item);
     }
     if (node.kind === "showChoices" && node.branches.length !== node.choices.length) {
       issues.push({
@@ -289,22 +293,22 @@ function validateNodes(
       });
     }
     if (node.kind === "commonEvent") {
-      resolveReference(node.ref, projectIndex);
+      resolver.resolveReference(node.ref);
     }
     if (node.kind === "transferPlayer") {
       if ("map" in node.target) {
-        resolveReference(node.target.map, projectIndex);
+        resolver.resolveReference(node.target.map);
       } else {
-        resolveReference(node.target.variableMap, projectIndex);
-        resolveReference(node.target.variableX, projectIndex);
-        resolveReference(node.target.variableY, projectIndex);
+        resolver.resolveReference(node.target.variableMap);
+        resolver.resolveReference(node.target.variableX);
+        resolver.resolveReference(node.target.variableY);
       }
     }
     if (node.kind === "conditional") {
-      validateCondition(node.condition, projectIndex, issues);
-      validateNodes(node.then, projectIndex, options, issues);
+      validateCondition(node.condition, resolver, issues);
+      validateNodes(node.then, resolver, options, issues);
       if (node.else) {
-        validateNodes(node.else, projectIndex, options, issues);
+        validateNodes(node.else, resolver, options, issues);
       }
     }
   }
@@ -312,28 +316,28 @@ function validateNodes(
 
 function validateCondition(
   condition: PageConditions,
-  projectIndex: ProjectIndex,
+  resolver: ReferenceResolver,
   issues: ValidationIssue[],
 ): void {
   if (condition.actor) {
-    resolveReference(condition.actor, projectIndex);
+    resolver.resolveReference(condition.actor);
   }
   if (condition.item) {
-    resolveReference(condition.item, projectIndex);
+    resolver.resolveReference(condition.item);
   }
   if (condition.switch1) {
-    resolveReference(condition.switch1, projectIndex);
+    resolver.resolveReference(condition.switch1);
   }
   if (condition.switch2) {
-    resolveReference(condition.switch2, projectIndex);
+    resolver.resolveReference(condition.switch2);
   }
   if (condition.variable) {
-    resolveReference(condition.variable.ref, projectIndex);
+    resolver.resolveReference(condition.variable.ref);
     if (typeof condition.variable.value === "number") {
       return;
     }
     if (typeof condition.variable.value === "object" && condition.variable.value !== null) {
-      resolveReference(condition.variable.value as ReferenceValue<"variable">, projectIndex);
+      resolver.resolveReference(condition.variable.value as ReferenceValue<"variable">);
       return;
     }
 
@@ -347,7 +351,7 @@ function validateCondition(
 function compileNodes(
   nodes: readonly DslCommand[],
   indent: number,
-  projectIndex: ProjectIndex,
+  resolver: ReferenceResolver,
   includeTerminator = true,
 ): RawEventCommand[] {
   const output: RawEventCommand[] = [];
@@ -374,14 +378,14 @@ function compileNodes(
           indent,
           parameters: [0, 1, 0, 0, 0],
         });
-        output.push(...compileNodes(node.then, indent + 1, projectIndex, false));
+        output.push(...compileNodes(node.then, indent + 1, resolver, false));
         if (node.else) {
           output.push({
             code: 411,
             indent,
             parameters: [],
           });
-          output.push(...compileNodes(node.else, indent + 1, projectIndex, false));
+          output.push(...compileNodes(node.else, indent + 1, resolver, false));
         }
         break;
       case "comment":
@@ -404,7 +408,7 @@ function compileNodes(
           indent,
           parameters: [],
         });
-        output.push(...compileNodes(node.body, indent + 1, projectIndex, false));
+        output.push(...compileNodes(node.body, indent + 1, resolver, false));
         output.push({
           code: 413,
           indent,
@@ -421,7 +425,7 @@ function compileNodes(
         output.push({
           code: 117,
           indent,
-          parameters: [resolveReference(node.ref, projectIndex)],
+          parameters: [resolver.resolveReference(node.ref)],
         });
         break;
       case "label":
@@ -434,17 +438,14 @@ function compileNodes(
         output.push({
           code: 121,
           indent,
-          parameters: [
-            resolveReference(node.switch, projectIndex),
-            resolveControlValue(node.value),
-          ],
+          parameters: [resolver.resolveReference(node.switch), resolveControlValue(node.value)],
         });
         break;
       case "controlVariable":
         output.push({
           code: 122,
           indent,
-          parameters: compileControlVariableParameters(node, projectIndex),
+          parameters: compileControlVariableParameters(node, resolver),
         });
         break;
       case "controlSelfSwitch":
@@ -466,7 +467,7 @@ function compileNodes(
           code: 126,
           indent,
           parameters: [
-            resolveReference(node.item, projectIndex),
+            resolver.resolveReference(node.item),
             node.operation === "gain" ? 0 : 1,
             0,
             node.amount,
@@ -491,7 +492,7 @@ function compileNodes(
         output.push({
           code: 301,
           indent,
-          parameters: compileBattleProcessingParameters(node, projectIndex),
+          parameters: compileBattleProcessingParameters(node, resolver),
         });
         break;
       case "script":
@@ -556,7 +557,7 @@ function compileNodes(
             node.background ?? 0,
           ],
         });
-        output.push(...compileChoiceBranches(node, indent, projectIndex));
+        output.push(...compileChoiceBranches(node, indent, resolver));
         break;
       case "shopProcessing":
         output.push({
@@ -587,9 +588,9 @@ function resolveControlValue(value: boolean): number {
 
 function compileControlVariableParameters(
   node: ControlVariableDslCommand,
-  projectIndex: ProjectIndex,
+  resolver: ReferenceResolver,
 ): unknown[] {
-  const targetId = resolveReference(node.variable, projectIndex);
+  const targetId = resolver.resolveReference(node.variable);
   const operation =
     node.operation === "set"
       ? 0
@@ -611,13 +612,13 @@ function compileControlVariableParameters(
     return [targetId, targetId, operation, 2, node.value.from, node.value.to];
   }
 
-  return [targetId, targetId, operation, 1, resolveReference(node.value, projectIndex)];
+  return [targetId, targetId, operation, 1, resolver.resolveReference(node.value)];
 }
 
 function compileChoiceBranches(
   node: Extract<DslCommand, { kind: "showChoices" }>,
   indent: number,
-  projectIndex: ProjectIndex,
+  resolver: ReferenceResolver,
 ): RawEventCommand[] {
   const output: RawEventCommand[] = [];
 
@@ -627,7 +628,7 @@ function compileChoiceBranches(
       indent,
       parameters: [index],
     });
-    output.push(...compileNodes(branch, indent + 1, projectIndex, false));
+    output.push(...compileNodes(branch, indent + 1, resolver, false));
   });
 
   if (node.cancelBranch) {
@@ -636,7 +637,7 @@ function compileChoiceBranches(
       indent,
       parameters: [],
     });
-    output.push(...compileNodes(node.cancelBranch, indent + 1, projectIndex, false));
+    output.push(...compileNodes(node.cancelBranch, indent + 1, resolver, false));
   }
 
   return output;
@@ -644,23 +645,18 @@ function compileChoiceBranches(
 
 function compileBattleProcessingParameters(
   node: BattleProcessingDslCommand,
-  projectIndex: ProjectIndex,
+  resolver: ReferenceResolver,
 ): unknown[] {
   if ("useRandomEncounter" in node.troop) {
     return [2, 0, node.canEscape ?? false, node.canLose ?? false];
   }
 
-  return [
-    0,
-    resolveReference(node.troop, projectIndex),
-    node.canEscape ?? false,
-    node.canLose ?? false,
-  ];
+  return [0, resolver.resolveReference(node.troop), node.canEscape ?? false, node.canLose ?? false];
 }
 
 function compileConditions(
   conditions: PageConditions | undefined,
-  projectIndex: ProjectIndex,
+  resolver: ReferenceResolver,
 ): Record<string, unknown> {
   const variableValue =
     conditions?.variable && typeof conditions.variable.value === "number"
@@ -668,17 +664,17 @@ function compileConditions(
       : 0;
 
   return {
-    actorId: conditions?.actor ? resolveReference(conditions.actor, projectIndex) : 0,
+    actorId: conditions?.actor ? resolver.resolveReference(conditions.actor) : 0,
     actorValid: conditions?.actor !== undefined,
-    itemId: conditions?.item ? resolveReference(conditions.item, projectIndex) : 0,
+    itemId: conditions?.item ? resolver.resolveReference(conditions.item) : 0,
     itemValid: conditions?.item !== undefined,
     selfSwitchCh: conditions?.selfSwitch ?? "A",
     selfSwitchValid: conditions?.selfSwitch !== undefined,
-    switch1Id: conditions?.switch1 ? resolveReference(conditions.switch1, projectIndex) : 0,
+    switch1Id: conditions?.switch1 ? resolver.resolveReference(conditions.switch1) : 0,
     switch1Valid: conditions?.switch1 !== undefined,
-    switch2Id: conditions?.switch2 ? resolveReference(conditions.switch2, projectIndex) : 0,
+    switch2Id: conditions?.switch2 ? resolver.resolveReference(conditions.switch2) : 0,
     switch2Valid: conditions?.switch2 !== undefined,
-    variableId: conditions?.variable ? resolveReference(conditions.variable.ref, projectIndex) : 0,
+    variableId: conditions?.variable ? resolver.resolveReference(conditions.variable.ref) : 0,
     variableValid: conditions?.variable !== undefined,
     variableValue,
   };
@@ -695,23 +691,6 @@ function commonEventTriggerToCode(trigger: CommonEventDefinition["trigger"]): nu
   }
 }
 
-function resolveReference<TKind extends ReferenceKind>(
-  ref: ReferenceValue<TKind>,
-  projectIndex: ProjectIndex,
-): number {
-  if ("id" in ref) {
-    return ref.id;
-  }
-
-  const table = selectIndex(ref.kind, projectIndex);
-  const value = table.get(ref.name);
-  if (value === undefined) {
-    throw new Error(`Unknown ${ref.kind} reference: ${ref.name}`);
-  }
-
-  return value;
-}
-
 function getReferenceId<TKind extends ReferenceKind>(ref: ReferenceValue<TKind>): number {
   if ("id" in ref) {
     return ref.id;
@@ -720,25 +699,16 @@ function getReferenceId<TKind extends ReferenceKind>(ref: ReferenceValue<TKind>)
   return 0;
 }
 
-function selectIndex(kind: ReferenceKind, projectIndex: ProjectIndex): Map<string, number> {
-  switch (kind) {
-    case "actor":
-      return projectIndex.actorsByName;
-    case "armor":
-      return projectIndex.armorsByName;
-    case "commonEvent":
-      return projectIndex.commonEventsByName;
-    case "item":
-      return projectIndex.itemsByName;
-    case "map":
-      return projectIndex.mapsByName;
-    case "switch":
-      return projectIndex.switchesByName;
-    case "troop":
-      return projectIndex.troopsByName;
-    case "variable":
-      return projectIndex.variablesByName;
-    case "weapon":
-      return projectIndex.weaponsByName;
+function getResolver(options: {
+  projectIndex?: ProjectIndex;
+  resolver?: ReferenceResolver;
+}): ReferenceResolver {
+  if (options.resolver) {
+    return options.resolver;
   }
+  if (options.projectIndex) {
+    return createProjectIndexReferenceResolver(options.projectIndex);
+  }
+
+  throw new Error("Event compilation requires a ProjectIndex or ReferenceResolver.");
 }

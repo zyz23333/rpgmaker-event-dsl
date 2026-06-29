@@ -9,6 +9,14 @@ export { loadWorkspace } from "./workspace.js";
 export { loadProject, buildProjectIndex, parseCommonEvents, parseMapInfos } from "./project.js";
 export { loadDefinitionFile } from "./definitions.js";
 export {
+  buildDuplicateAwareNameIndex,
+  buildSnapshotReferenceInput,
+  buildStagedDataGraph,
+  createProjectIndexReferenceResolver,
+  validateDslOwnedDeclarations,
+  validateStagedDataGraph,
+} from "./staged-graph.js";
+export {
   actorRef,
   armorRef,
   breakLoop,
@@ -89,6 +97,14 @@ export type {
 } from "./dsl.js";
 export { discoverDefinitionFiles } from "./definitions.js";
 export type { DefinitionSourceDiscovery } from "./definitions.js";
+export type {
+  DuplicateAwareNameIndex,
+  ReferenceEntry,
+  ReferenceResolver,
+  SnapshotReferenceSource,
+  SnapshotReferenceInput,
+  StagedDataGraph,
+} from "./staged-graph.js";
 export type { LoadedWorkspace, WorkspaceConfig } from "./workspace.js";
 
 export type RuntimeBaseline = typeof runtimeBaseline;
