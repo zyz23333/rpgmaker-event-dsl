@@ -1,12 +1,22 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-import type { ProjectIndex } from "./dsl.js";
-
 export type MapInfoEntry = {
   id: number;
   name: string;
   parentId: number;
+};
+
+export type ProjectIndex = {
+  actorsByName: Map<string, number>;
+  armorsByName: Map<string, number>;
+  commonEventsByName: Map<string, number>;
+  itemsByName: Map<string, number>;
+  mapsByName: Map<string, number>;
+  troopsByName: Map<string, number>;
+  switchesByName: Map<string, number>;
+  variablesByName: Map<string, number>;
+  weaponsByName: Map<string, number>;
 };
 
 export type LoadedProject = {

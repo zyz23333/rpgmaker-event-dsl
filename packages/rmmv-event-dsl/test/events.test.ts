@@ -2,9 +2,11 @@ import { describe, expect, it } from "vitest";
 
 import {
   battleProcessing,
+  buildStagedDataGraph,
   changeGold,
   changeItem,
   comment,
+  commonEvent,
   controlVariable,
   eraseEvent,
   itemRef,
@@ -12,25 +14,22 @@ import {
   showChoices,
   showText,
   troopRef,
+  variableDefinition,
   variableRef,
   wait,
 } from "../src/index.js";
-import { buildProjectIndex } from "../src/project.js";
 import { compileMapEvent } from "../src/events.js";
 
-const projectIndex = buildProjectIndex({
-  actors: [{ id: 1, name: "Hero" }],
-  armors: [{ id: 1, name: "Leather" }],
-  commonEvents: [{ id: 1, name: "Common" }],
-  items: [{ id: 1, name: "Potion" }],
-  mapInfos: [{ id: 1, name: "Map001", parentId: 0 }],
-  system: {
-    switches: ["", "Gate"],
-    variables: ["", "Count"],
+const resolver = buildStagedDataGraph({
+  declarations: [
+    commonEvent({ id: 1, name: "Common", trigger: "none", commands: [] }),
+    variableDefinition({ id: 1, name: "Count" }),
+  ],
+  snapshotReferences: {
+    items: [{ id: 1, name: "Potion" }],
+    troops: [{ id: 1, name: "Slime" }],
   },
-  weapons: [{ id: 1, name: "Sword" }],
-  troops: [{ id: 1, name: "Slime" }],
-});
+}).resolver;
 
 describe("compileMapEvent", () => {
   it("compiles core MV command helpers into raw commands", () => {
@@ -65,7 +64,7 @@ describe("compileMapEvent", () => {
       },
       {
         nextId: 2,
-        projectIndex,
+        resolver,
       },
     );
 

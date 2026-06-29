@@ -1,54 +1,15 @@
 import type {
   BattleProcessingDslCommand,
   CommonEventDefinition,
-  EventDefinition,
   DslCommand,
   EventPage,
   ControlVariableDslCommand,
   MapEventDefinition,
   PageConditions,
-  ProjectIndex,
   ReferenceKind,
   ReferenceValue,
 } from "./dsl.js";
-import { createProjectIndexReferenceResolver, type ReferenceResolver } from "./staged-graph.js";
-
-export type OperationMode = "create" | "replace";
-
-export type DefinitionBindingTarget =
-  | {
-      type: "map";
-      mapId: number;
-    }
-  | {
-      type: "commonEvents";
-    };
-
-export type EventDataPlan =
-  | {
-      kind: "map";
-      mapId: number;
-      filePath: string;
-      before: unknown;
-      after: unknown;
-      changed: boolean;
-    }
-  | {
-      kind: "commonEvents";
-      filePath: string;
-      before: unknown;
-      after: unknown;
-      changed: boolean;
-    };
-
-export type ValidationIssue = {
-  level: "error" | "warning";
-  message: string;
-};
-
-export type ValidationResult = {
-  issues: ValidationIssue[];
-};
+import type { ReferenceResolver } from "./staged-graph.js";
 
 type RawEventCommand = {
   code: number;
@@ -92,107 +53,30 @@ type CompiledCommonEvent = {
   list: RawEventCommand[];
 };
 
-export function collectDefinitionsWithTarget(
-  definitions: EventDefinition[],
-  bindingTarget: DefinitionBindingTarget,
-): EventDefinition[] {
-  return definitions.filter((definition) => {
-    if (bindingTarget.type === "map") {
-      return definition.kind === "mapEvent";
-    }
-
-    return definition.kind === "commonEvent";
-  });
-}
-
-export function validateDefinitions(
-  definitions: EventDefinition[],
-  projectIndex: ProjectIndex,
-  options: {
-    scriptEnabled: boolean;
-  },
-): ValidationResult {
-  const resolver = createProjectIndexReferenceResolver(projectIndex);
-  const issues: ValidationIssue[] = [];
-
-  for (const definition of definitions) {
-    if (definition.kind === "mapEvent") {
-      if (definition.pages.length === 0) {
-        issues.push({
-          level: "error",
-          message: `Map event "${definition.name}" must contain at least one page.`,
-        });
-      }
-      validatePages(definition.pages, resolver, options, issues);
-    } else {
-      validateCommonEvent(definition, resolver, options, issues);
-    }
-  }
-
-  return { issues };
-}
-
 export function compileMapEvent(
   definition: MapEventDefinition,
-  options: { nextId: number; projectIndex?: ProjectIndex; resolver?: ReferenceResolver },
+  options: { nextId: number; resolver: ReferenceResolver },
 ): ProjectEventData {
-  const resolver = getResolver(options);
   return {
     id: options.nextId,
     name: definition.name,
     x: definition.x,
     y: definition.y,
-    pages: definition.pages.map((page) => compilePage(page, resolver)),
+    pages: definition.pages.map((page) => compilePage(page, options.resolver)),
   };
 }
 
 export function compileCommonEvent(
   definition: CommonEventDefinition,
-  options: { nextId: number; projectIndex?: ProjectIndex; resolver?: ReferenceResolver },
+  options: { nextId: number; resolver: ReferenceResolver },
 ): CompiledCommonEvent {
-  const resolver = getResolver(options);
   return {
     id: options.nextId,
     name: definition.name,
     trigger: commonEventTriggerToCode(definition.trigger),
-    switchId: definition.switch ? resolver.resolveReference(definition.switch) : 1,
-    list: compileNodes(definition.commands, 0, resolver),
+    switchId: definition.switch ? options.resolver.resolveReference(definition.switch) : 1,
+    list: compileNodes(definition.commands, 0, options.resolver),
   };
-}
-
-export function toMvMapFile(
-  mapData: Record<string, unknown>,
-  event: ProjectEventData,
-): Record<string, unknown> {
-  const events = Array.isArray(mapData.events) ? mapData.events.slice() : [];
-  events[event.id] = {
-    id: event.id,
-    name: event.name,
-    note: event.note ?? "",
-    pages: event.pages ?? [],
-    x: event.x ?? 0,
-    y: event.y ?? 0,
-  };
-
-  return {
-    ...mapData,
-    events,
-  };
-}
-
-export function toMvCommonEventsFile(
-  commonEvents: readonly unknown[],
-  event: CompiledCommonEvent,
-): unknown[] {
-  const output = commonEvents.slice();
-  output[event.id] = {
-    id: event.id,
-    list: event.list,
-    name: event.name,
-    switchId: event.switchId,
-    trigger: event.trigger,
-  };
-  return output;
 }
 
 export function compilePage(page: EventPage, resolver: ReferenceResolver): ProjectEventPage {
@@ -231,121 +115,6 @@ export function compilePage(page: EventPage, resolver: ReferenceResolver): Proje
               : 4,
     walkAnime: true,
   };
-}
-
-function validateCommonEvent(
-  definition: CommonEventDefinition,
-  resolver: ReferenceResolver,
-  options: { scriptEnabled: boolean },
-  issues: ValidationIssue[],
-): void {
-  if (definition.trigger !== "none" && definition.switch === undefined) {
-    issues.push({
-      level: "error",
-      message: `Common event "${definition.name}" requires a switch when trigger is ${definition.trigger}.`,
-    });
-  }
-
-  validateNodes(definition.commands, resolver, options, issues);
-}
-
-function validatePages(
-  pages: readonly EventPage[],
-  resolver: ReferenceResolver,
-  options: { scriptEnabled: boolean },
-  issues: ValidationIssue[],
-): void {
-  for (const page of pages) {
-    validateCondition(page.conditions, resolver, issues);
-    validateNodes(page.commands, resolver, options, issues);
-  }
-}
-
-function validateNodes(
-  nodes: readonly DslCommand[],
-  resolver: ReferenceResolver,
-  options: { scriptEnabled: boolean },
-  issues: ValidationIssue[],
-): void {
-  for (const node of nodes) {
-    if (node.kind === "script" && !options.scriptEnabled) {
-      issues.push({
-        level: "error",
-        message: "Script commands require explicit config enablement.",
-      });
-    }
-    if (node.kind === "controlSwitch") {
-      resolver.resolveReference(node.switch);
-    }
-    if (node.kind === "controlVariable") {
-      resolver.resolveReference(node.variable);
-      if (typeof node.value === "object" && node.value !== null && "kind" in node.value) {
-        resolver.resolveReference(node.value as ReferenceValue<"variable">);
-      }
-    }
-    if (node.kind === "changeItem") {
-      resolver.resolveReference(node.item);
-    }
-    if (node.kind === "showChoices" && node.branches.length !== node.choices.length) {
-      issues.push({
-        level: "error",
-        message: "Show Choices branches must match the choice count.",
-      });
-    }
-    if (node.kind === "commonEvent") {
-      resolver.resolveReference(node.ref);
-    }
-    if (node.kind === "transferPlayer") {
-      if ("map" in node.target) {
-        resolver.resolveReference(node.target.map);
-      } else {
-        resolver.resolveReference(node.target.variableMap);
-        resolver.resolveReference(node.target.variableX);
-        resolver.resolveReference(node.target.variableY);
-      }
-    }
-    if (node.kind === "conditional") {
-      validateCondition(node.condition, resolver, issues);
-      validateNodes(node.then, resolver, options, issues);
-      if (node.else) {
-        validateNodes(node.else, resolver, options, issues);
-      }
-    }
-  }
-}
-
-function validateCondition(
-  condition: PageConditions,
-  resolver: ReferenceResolver,
-  issues: ValidationIssue[],
-): void {
-  if (condition.actor) {
-    resolver.resolveReference(condition.actor);
-  }
-  if (condition.item) {
-    resolver.resolveReference(condition.item);
-  }
-  if (condition.switch1) {
-    resolver.resolveReference(condition.switch1);
-  }
-  if (condition.switch2) {
-    resolver.resolveReference(condition.switch2);
-  }
-  if (condition.variable) {
-    resolver.resolveReference(condition.variable.ref);
-    if (typeof condition.variable.value === "number") {
-      return;
-    }
-    if (typeof condition.variable.value === "object" && condition.variable.value !== null) {
-      resolver.resolveReference(condition.variable.value as ReferenceValue<"variable">);
-      return;
-    }
-
-    issues.push({
-      level: "error",
-      message: "Variable conditions require either a numeric value or a variable reference.",
-    });
-  }
 }
 
 function compileNodes(
@@ -697,18 +466,4 @@ function getReferenceId<TKind extends ReferenceKind>(ref: ReferenceValue<TKind>)
   }
 
   return 0;
-}
-
-function getResolver(options: {
-  projectIndex?: ProjectIndex;
-  resolver?: ReferenceResolver;
-}): ReferenceResolver {
-  if (options.resolver) {
-    return options.resolver;
-  }
-  if (options.projectIndex) {
-    return createProjectIndexReferenceResolver(options.projectIndex);
-  }
-
-  throw new Error("Event compilation requires a ProjectIndex or ReferenceResolver.");
 }

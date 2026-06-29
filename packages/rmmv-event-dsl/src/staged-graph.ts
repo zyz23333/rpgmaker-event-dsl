@@ -5,16 +5,23 @@ import type {
   EventPage,
   MapEventDefinition,
   PageConditions,
-  ProjectIndex,
   ReferenceKind,
   ReferenceValue,
   SwitchDefinition,
   VariableDefinition,
 } from "./dsl.js";
-import type { ValidationIssue, ValidationResult } from "./events.js";
 import type { MapInfoEntry } from "./project.js";
 
 export type DuplicateAwareNameIndex = Map<string, number[]>;
+
+export type ValidationIssue = {
+  level: "error" | "warning";
+  message: string;
+};
+
+export type ValidationResult = {
+  issues: ValidationIssue[];
+};
 
 export type ReferenceResolver = {
   resolveReference<TKind extends ReferenceKind>(ref: ReferenceValue<TKind>): number;
@@ -139,24 +146,6 @@ export function validateDslOwnedDeclarations(
   return validateStagedDataGraph(buildStagedDataGraph(graphInput), {
     scriptEnabled: input.scriptEnabled,
   });
-}
-
-export function createProjectIndexReferenceResolver(projectIndex: ProjectIndex): ReferenceResolver {
-  return {
-    resolveReference(ref) {
-      if ("id" in ref) {
-        return ref.id;
-      }
-
-      const table = selectLegacyNameIndex(ref.kind, projectIndex);
-      const id = table.get(ref.name);
-      if (id === undefined) {
-        throw new Error(`Unknown ${ref.kind} reference: ${ref.name}`);
-      }
-
-      return id;
-    },
-  };
 }
 
 export function buildDuplicateAwareNameIndex(
@@ -560,30 +549,4 @@ function readNonEmptyString(value: unknown): string | null {
 
 function mapEventIdentityKey(definition: MapEventDefinition): string {
   return `${definition.mapId}:${definition.id}`;
-}
-
-function selectLegacyNameIndex(
-  kind: ReferenceKind,
-  projectIndex: ProjectIndex,
-): Map<string, number> {
-  switch (kind) {
-    case "actor":
-      return projectIndex.actorsByName;
-    case "armor":
-      return projectIndex.armorsByName;
-    case "commonEvent":
-      return projectIndex.commonEventsByName;
-    case "item":
-      return projectIndex.itemsByName;
-    case "map":
-      return projectIndex.mapsByName;
-    case "switch":
-      return projectIndex.switchesByName;
-    case "troop":
-      return projectIndex.troopsByName;
-    case "variable":
-      return projectIndex.variablesByName;
-    case "weapon":
-      return projectIndex.weaponsByName;
-  }
 }

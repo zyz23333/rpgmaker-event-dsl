@@ -6,13 +6,20 @@ export const runtimeBaseline = {
 } as const;
 
 export { loadWorkspace } from "./workspace.js";
-export { loadProject, buildProjectIndex, parseCommonEvents, parseMapInfos } from "./project.js";
 export { loadDefinitionFile } from "./definitions.js";
+export {
+  cloneWorkspace,
+  compileWorkspace,
+  decompileWorkspace,
+  diffWorkspace,
+  isGeneratedProjectDataFresh,
+  pullWorkspace,
+  pushWorkspace,
+} from "./workflow.js";
 export {
   buildDuplicateAwareNameIndex,
   buildSnapshotReferenceInput,
   buildStagedDataGraph,
-  createProjectIndexReferenceResolver,
   validateDslOwnedDeclarations,
   validateStagedDataGraph,
 } from "./staged-graph.js";
@@ -23,7 +30,6 @@ export {
   battleProcessing,
   changeGold,
   changeItem,
-  collectEventDefinitions,
   comment,
   commonEvent,
   callCommonEvent,
@@ -82,7 +88,6 @@ export type {
   MapPageTrigger,
   PageConditions,
   PluginDslCommand,
-  ProjectIndex,
   RawDslCommand,
   ReferenceKind,
   ReferenceValue,
@@ -104,7 +109,14 @@ export type {
   SnapshotReferenceSource,
   SnapshotReferenceInput,
   StagedDataGraph,
+  ValidationIssue,
+  ValidationResult,
 } from "./staged-graph.js";
+export type {
+  CompileWorkspaceOptions,
+  PushWorkspaceOptions,
+  WorkspaceCommandOptions,
+} from "./workflow.js";
 export type { LoadedWorkspace, WorkspaceConfig } from "./workspace.js";
 
 export type RuntimeBaseline = typeof runtimeBaseline;

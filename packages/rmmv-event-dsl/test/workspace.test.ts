@@ -45,7 +45,7 @@ describe("loadWorkspace", () => {
     expect(workspace.config.sourceExclude).toEqual(["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"]);
   });
 
-  it("rejects legacy definition target config without source discovery fields", async () => {
+  it("rejects configs that still include removed legacy workflow fields", async () => {
     const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-workspace-legacy-"));
     const projectRoot = join(workspaceRoot, "..", "MyGame-legacy");
     const dataDirectory = join(projectRoot, "data");
@@ -55,7 +55,10 @@ describe("loadWorkspace", () => {
       JSON.stringify({
         projectRoot: "../MyGame-legacy",
         scriptEnabled: false,
-        definitionTargets: [{ src: "events/a.ts", target: { type: "map", mapId: 1 } }],
+        sourceRoot: "src",
+        sourceInclude: ["**/*.events.ts", "**/*.dsl.ts"],
+        sourceExclude: ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"],
+        legacyWorkflow: true,
       }),
       "utf8",
     );
@@ -63,7 +66,7 @@ describe("loadWorkspace", () => {
     await writeFile(join(projectRoot, "Game.rpgproject"), "", "utf8");
     await mkdir(dataDirectory, { recursive: true });
 
-    await expect(loadWorkspace(workspaceRoot)).rejects.toThrow("sourceRoot");
+    await expect(loadWorkspace(workspaceRoot)).rejects.toThrow("Unrecognized key");
   });
 
   it("rejects a project root without an RPG Maker project marker", async () => {

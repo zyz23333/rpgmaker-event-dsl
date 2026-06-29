@@ -81,18 +81,6 @@ export type ReferenceValue<TKind extends ReferenceKind> =
       name: string;
     };
 
-export type ProjectIndex = {
-  actorsByName: Map<string, number>;
-  armorsByName: Map<string, number>;
-  commonEventsByName: Map<string, number>;
-  itemsByName: Map<string, number>;
-  mapsByName: Map<string, number>;
-  troopsByName: Map<string, number>;
-  switchesByName: Map<string, number>;
-  variablesByName: Map<string, number>;
-  weaponsByName: Map<string, number>;
-};
-
 export type DslCommand =
   | ShowTextDslCommand
   | ConditionalDslCommand
@@ -651,10 +639,6 @@ export function collectDslOwnedDeclarations(
   return definitions;
 }
 
-export function collectEventDefinitions(moduleExports: Record<string, unknown>): EventDefinition[] {
-  return collectDslOwnedDeclarations(moduleExports).filter(isEventDefinition);
-}
-
 function createReference<TKind extends ReferenceKind>(
   kind: TKind,
   value: { id: number } | { name: string },
@@ -676,8 +660,4 @@ function isDslOwnedDeclaration(value: unknown): value is DslOwnedDeclaration {
       (value as { kind?: string }).kind === "switchDefinition" ||
       (value as { kind?: string }).kind === "variableDefinition")
   );
-}
-
-function isEventDefinition(value: DslOwnedDeclaration): value is EventDefinition {
-  return value.kind === "mapEvent" || value.kind === "commonEvent";
 }

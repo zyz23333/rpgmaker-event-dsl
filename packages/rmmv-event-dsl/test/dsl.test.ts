@@ -5,7 +5,6 @@ import {
   changeGold,
   changeItem,
   collectDslOwnedDeclarations,
-  collectEventDefinitions,
   comment,
   commonEvent,
   callCommonEvent,
@@ -28,7 +27,7 @@ import {
 } from "../src/index.js";
 
 describe("collectDslOwnedDeclarations", () => {
-  it("collects named Event Definitions", () => {
+  it("collects named DSL-owned declarations", () => {
     const definitions = collectDslOwnedDeclarations({
       alpha: mapEvent({
         mapId: 1,
@@ -67,40 +66,6 @@ describe("collectDslOwnedDeclarations", () => {
       "Delta Variable",
     ]);
   });
-});
-
-describe("collectEventDefinitions", () => {
-  it("filters DSL-owned declarations down to event definitions", () => {
-    const definitions = collectEventDefinitions({
-      alpha: mapEvent({
-        mapId: 1,
-        id: 1,
-        name: "Alpha",
-        x: 1,
-        y: 2,
-        pages: [
-          page({
-            commands: [showText(["Hello"])],
-          }),
-        ],
-      }),
-      beta: commonEvent({
-        id: 2,
-        name: "Beta",
-        trigger: "none",
-        switch: switchRef({ id: 1 }),
-        commands: [callCommonEvent(commonEventRef({ name: "SomeCommonEvent" }))],
-      }),
-      gamma: switchDefinition({
-        id: 3,
-        name: "Gamma Switch",
-      }),
-    });
-
-    expect(definitions).toHaveLength(2);
-    expect(definitions.map((definition) => definition.name)).toEqual(["Alpha", "Beta"]);
-  });
-
   it("rejects default exports", () => {
     expect(() =>
       collectDslOwnedDeclarations({

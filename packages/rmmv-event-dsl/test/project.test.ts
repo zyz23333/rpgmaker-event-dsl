@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { buildProjectIndex, parseCommonEvents, parseMapInfos } from "../src/index.js";
+import { buildProjectIndex, parseCommonEvents, parseMapInfos } from "../src/project.js";
 
 describe("project loading helpers", () => {
   it("parses map infos into a name index", () => {

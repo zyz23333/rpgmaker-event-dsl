@@ -441,7 +441,6 @@ function createDslNamespace(): Record<string, unknown> {
     changeGold: getDslHelper("changeGold"),
     changeItem: getDslHelper("changeItem"),
     collectDslOwnedDeclarations: getDslHelper("collectDslOwnedDeclarations"),
-    collectEventDefinitions: getDslHelper("collectEventDefinitions"),
     comment: getDslHelper("comment"),
     commonEvent: getDslHelper("commonEvent"),
     callCommonEvent: getDslHelper("callCommonEvent"),
@@ -492,8 +491,6 @@ function getDslHelper(name: string): unknown {
       return dsl.changeItem;
     case "collectDslOwnedDeclarations":
       return dsl.collectDslOwnedDeclarations;
-    case "collectEventDefinitions":
-      return dsl.collectEventDefinitions;
     case "comment":
       return dsl.comment;
     case "commonEvent":
