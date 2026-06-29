@@ -16,9 +16,15 @@ describe("CLI entrypoint", () => {
 
     expect(stdout).toContain("Usage: rmmv-event-dsl");
     expect(stdout).toContain("init");
-    expect(stdout).toContain("lint");
-    expect(stdout).toContain("create");
-    expect(stdout).toContain("replace");
+    expect(stdout).toContain("clone");
+    expect(stdout).toContain("pull");
+    expect(stdout).toContain("decompile");
+    expect(stdout).toContain("compile");
+    expect(stdout).toContain("diff");
+    expect(stdout).toContain("push");
+    expect(stdout).not.toContain("lint");
+    expect(stdout).not.toContain("create");
+    expect(stdout).not.toContain("replace");
   });
 
   it("initializes a workspace from the init command", async () => {

@@ -3,66 +3,21 @@ import { resolve } from "node:path";
 
 import { z } from "zod";
 
-export const definitionTargetSchema = z.discriminatedUnion("type", [
-  z.object({
-    type: z.literal("map"),
-    mapId: z.number().int().positive(),
-  }),
-  z.object({
-    type: z.literal("commonEvents"),
-  }),
-]);
-
-export const definitionBindingSchema = z.object({
-  src: z.string().min(1),
-  target: definitionTargetSchema,
-});
+export const defaultSourceRoot = "src";
+export const defaultSourceInclude = ["**/*.events.ts", "**/*.dsl.ts"] as const;
+export const defaultSourceExclude = ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"] as const;
 
 export const workspaceConfigSchema = z
   .object({
     projectRoot: z.string().min(1),
     scriptEnabled: z.boolean(),
-    definitionTargets: z.array(definitionBindingSchema),
+    sourceRoot: z.string().min(1),
+    sourceInclude: z.array(z.string().min(1)),
+    sourceExclude: z.array(z.string().min(1)),
   })
-  .superRefine((config, context) => {
-    const seenSources = new Set<string>();
-    const seenMapTargets = new Set<number>();
-    let seenCommonEvents = false;
-
-    for (const binding of config.definitionTargets) {
-      if (seenSources.has(binding.src)) {
-        context.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: `Duplicate definition source: ${binding.src}`,
-          path: ["definitionTargets"],
-        });
-      }
-      seenSources.add(binding.src);
-
-      if (binding.target.type === "map") {
-        if (seenMapTargets.has(binding.target.mapId)) {
-          context.addIssue({
-            code: z.ZodIssueCode.custom,
-            message: `Duplicate map target: ${binding.target.mapId}`,
-            path: ["definitionTargets"],
-          });
-        }
-        seenMapTargets.add(binding.target.mapId);
-      } else if (seenCommonEvents) {
-        context.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: "Only one commonEvents target is allowed in a workspace.",
-          path: ["definitionTargets"],
-        });
-      } else {
-        seenCommonEvents = true;
-      }
-    }
-  });
+  .strict();
 
 export type WorkspaceConfig = z.infer<typeof workspaceConfigSchema>;
-export type DefinitionBinding = z.infer<typeof definitionBindingSchema>;
-export type DefinitionTarget = z.infer<typeof definitionTargetSchema>;
 
 export type LoadedWorkspace = {
   workspaceRoot: string;
@@ -101,13 +56,15 @@ export async function initWorkspace(options: InitWorkspaceOptions): Promise<Load
   const config: WorkspaceConfig = {
     projectRoot: options.projectRoot,
     scriptEnabled: false,
-    definitionTargets: [],
+    sourceRoot: defaultSourceRoot,
+    sourceInclude: [...defaultSourceInclude],
+    sourceExclude: [...defaultSourceExclude],
   };
 
   await assertProjectRoot(projectRoot);
   await assertDirectoryExists(dataDirectory);
   await mkdir(workspaceRoot, { recursive: true });
-  await mkdir(resolve(workspaceRoot, "src"), { recursive: true });
+  await mkdir(resolve(workspaceRoot, config.sourceRoot), { recursive: true });
   await writeFile(
     resolve(workspaceRoot, "rmmv-event-dsl.config.json"),
     `${JSON.stringify(config, null, 2)}\n`,

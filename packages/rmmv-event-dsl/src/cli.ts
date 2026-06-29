@@ -6,7 +6,14 @@ import { fileURLToPath } from "node:url";
 import { Command } from "commander";
 
 import { initWorkspace } from "./workspace.js";
-import { runWorkflow } from "./workflow.js";
+import {
+  cloneWorkspace,
+  compileWorkspace,
+  decompileWorkspace,
+  diffWorkspace,
+  pullWorkspace,
+  pushWorkspace,
+} from "./workflow.js";
 
 export const cliName = "rmmv-event-dsl";
 
@@ -31,55 +38,53 @@ export function createCli(): Command {
     });
 
   program
-    .command("lint")
-    .description("Validate Event Definitions against the configured MV project.")
+    .command("clone")
+    .description("Capture the initial Project Data Snapshot from the configured MV project.")
     .action(async () => {
-      await runWorkflow({
+      await cloneWorkspace({ workspaceRoot: process.cwd() });
+    });
+
+  program
+    .command("pull")
+    .description("Refresh the Project Data Snapshot from the configured MV project.")
+    .action(async () => {
+      await pullWorkspace({ workspaceRoot: process.cwd() });
+    });
+
+  program
+    .command("decompile")
+    .description("Generate non-destructive DSL source from the Project Data Snapshot.")
+    .action(async () => {
+      await decompileWorkspace({ workspaceRoot: process.cwd() });
+    });
+
+  program
+    .command("compile")
+    .description("Compile discovered DSL source into Generated Project Data.")
+    .option("--check", "validate without writing Generated Project Data")
+    .action(async (options: { check?: boolean }) => {
+      await compileWorkspace({
         workspaceRoot: process.cwd(),
-        mode: "lint",
+        check: options.check === true,
       });
     });
 
   program
-    .command("create")
-    .description("Create Event Data Store entries from Event Definitions.")
-    .option("--dry-run", "preview planned changes without writing files")
-    .option("--diff", "include full-file unified diffs in preview output")
-    .action(async (options: { dryRun?: boolean; diff?: boolean }) => {
-      const workflowOptions: Parameters<typeof runWorkflow>[0] = {
-        workspaceRoot: process.cwd(),
-        mode: "create",
-      };
-
-      if (options.dryRun !== undefined) {
-        workflowOptions.dryRun = options.dryRun;
-      }
-      if (options.diff !== undefined) {
-        workflowOptions.diff = options.diff;
-      }
-
-      await runWorkflow(workflowOptions);
+    .command("diff")
+    .description("Compare Generated Project Data with the Project Data Snapshot.")
+    .action(async () => {
+      await diffWorkspace({ workspaceRoot: process.cwd() });
     });
 
   program
-    .command("replace")
-    .description("Replace existing Event Data Store entries from Event Definitions.")
-    .option("--dry-run", "preview planned changes without writing files")
-    .option("--diff", "include full-file unified diffs in preview output")
-    .action(async (options: { dryRun?: boolean; diff?: boolean }) => {
-      const workflowOptions: Parameters<typeof runWorkflow>[0] = {
+    .command("push")
+    .description("Synchronize fresh Generated Project Data to the configured MV project.")
+    .option("--allow-destructive", "allow reviewed destructive changes")
+    .action(async (options: { allowDestructive?: boolean }) => {
+      await pushWorkspace({
         workspaceRoot: process.cwd(),
-        mode: "replace",
-      };
-
-      if (options.dryRun !== undefined) {
-        workflowOptions.dryRun = options.dryRun;
-      }
-      if (options.diff !== undefined) {
-        workflowOptions.diff = options.diff;
-      }
-
-      await runWorkflow(workflowOptions);
+        allowDestructive: options.allowDestructive === true,
+      });
     });
 
   return program;

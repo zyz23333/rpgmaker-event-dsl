@@ -9,9 +9,21 @@ describe("createCli", () => {
     expect(program.name()).toBe(cliName);
     expect(program.commands.map((command) => command.name())).toEqual([
       "init",
-      "lint",
-      "create",
-      "replace",
+      "clone",
+      "pull",
+      "decompile",
+      "compile",
+      "diff",
+      "push",
     ]);
+  });
+
+  it("declares workspace compile and push safety options", () => {
+    const program = createCli();
+    const compileCommand = program.commands.find((command) => command.name() === "compile");
+    const pushCommand = program.commands.find((command) => command.name() === "push");
+
+    expect(compileCommand?.options.map((option) => option.long)).toContain("--check");
+    expect(pushCommand?.options.map((option) => option.long)).toContain("--allow-destructive");
   });
 });

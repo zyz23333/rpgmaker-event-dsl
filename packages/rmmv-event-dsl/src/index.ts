@@ -81,11 +81,6 @@ export type {
   TransferPlayerDslCommand,
   WaitDslCommand,
 } from "./dsl.js";
-export type {
-  DefinitionBinding,
-  DefinitionTarget,
-  LoadedWorkspace,
-  WorkspaceConfig,
-} from "./workspace.js";
+export type { LoadedWorkspace, WorkspaceConfig } from "./workspace.js";
 
 export type RuntimeBaseline = typeof runtimeBaseline;

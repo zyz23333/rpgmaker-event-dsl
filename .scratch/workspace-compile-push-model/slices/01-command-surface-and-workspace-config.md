@@ -2,7 +2,7 @@
 
 ## Status
 
-Ready
+Done
 
 ## Type
 
@@ -63,17 +63,17 @@ Introduce the new command/config shell while keeping behavior intentionally narr
 
 ## Acceptance Criteria
 
-- [ ] `createCli()` exposes exactly `init`, `clone`, `pull`, `decompile`, `compile`, `diff`, and `push`.
-- [ ] `createCli()` does not expose public `lint`, `create`, or `replace`.
-- [ ] `compile` accepts `--check`.
-- [ ] `push` accepts `--allow-destructive`.
-- [ ] `workspaceConfigSchema` accepts `projectRoot`, `scriptEnabled`, `sourceRoot`, `sourceInclude`, and `sourceExclude`.
-- [ ] `workspaceConfigSchema` no longer requires `definitionTargets`.
-- [ ] `initWorkspace` writes default source discovery config:
+- [x] `createCli()` exposes exactly `init`, `clone`, `pull`, `decompile`, `compile`, `diff`, and `push`.
+- [x] `createCli()` does not expose public `lint`, `create`, or `replace`.
+- [x] `compile` accepts `--check`.
+- [x] `push` accepts `--allow-destructive`.
+- [x] `workspaceConfigSchema` accepts `projectRoot`, `scriptEnabled`, `sourceRoot`, `sourceInclude`, and `sourceExclude`.
+- [x] `workspaceConfigSchema` no longer requires `definitionTargets`.
+- [x] `initWorkspace` writes default source discovery config:
   - `sourceRoot: "src"`
   - `sourceInclude: ["**/*.events.ts", "**/*.dsl.ts"]`
   - `sourceExclude: ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"]`
-- [ ] Existing project root validation still requires `.rpgproject` and `data/`.
+- [x] Existing project root validation still requires `.rpgproject` and `data/`.
 
 ## Implementation Notes
 
@@ -94,9 +94,19 @@ pnpm --filter @rmmv-event-dsl/core test -- cli.test.ts workspace.test.ts
 pnpm --filter @rmmv-event-dsl/core typecheck
 ```
 
+Completed verification:
+
+```bash
+pnpm --filter @rmmv-event-dsl/core test -- cli.test.ts workspace.test.ts workflow.test.ts cli-entry.test.ts
+pnpm --filter @rmmv-event-dsl/core typecheck
+pnpm --filter @rmmv-event-dsl/core test
+pnpm lint
+pnpm format:check
+```
+
 ## Done When
 
-- [ ] Acceptance criteria pass.
-- [ ] Verification commands pass or skipped reason is documented.
-- [ ] Design references remain satisfied.
-- [ ] No unrelated scope was added.
+- [x] Acceptance criteria pass.
+- [x] Verification commands pass or skipped reason is documented.
+- [x] Design references remain satisfied.
+- [x] No unrelated scope was added.
