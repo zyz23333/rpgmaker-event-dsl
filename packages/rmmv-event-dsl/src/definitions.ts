@@ -5,11 +5,7 @@ import { join, matchesGlob } from "node:path";
 import * as ts from "typescript";
 
 import * as dsl from "./dsl.js";
-import {
-  collectDslOwnedDeclarations,
-  type DslOwnedDeclaration,
-  type EventDefinition,
-} from "./dsl.js";
+import { collectDslOwnedDeclarations, type DslOwnedDeclaration } from "./dsl.js";
 
 export type DefinitionSourceDiscovery = {
   sourceRoot: string;

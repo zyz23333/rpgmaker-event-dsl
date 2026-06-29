@@ -148,18 +148,10 @@ describe("discoverDefinitionFiles", () => {
   it("discovers DSL declaration files from sourceRoot and ignores helper modules", async () => {
     const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-discovery-"));
     const sourceRoot = join(workspaceRoot, "src");
-    await writeFile(
-      join(workspaceRoot, "rmmv-event-dsl.config.json"),
-      "{}",
-      "utf8",
-    );
+    await writeFile(join(workspaceRoot, "rmmv-event-dsl.config.json"), "{}", "utf8");
     await mkdir(sourceRoot, { recursive: true });
     await writeFile(join(sourceRoot, "ignored.ts"), "export const helper = 1;\n", "utf8");
-    await writeFile(
-      join(sourceRoot, "alpha.events.ts"),
-      "export const alpha = 1;\n",
-      "utf8",
-    );
+    await writeFile(join(sourceRoot, "alpha.events.ts"), "export const alpha = 1;\n", "utf8");
     await writeFile(join(sourceRoot, "beta.dsl.ts"), "export const beta = 2;\n", "utf8");
     await writeFile(join(sourceRoot, "sample.test.ts"), "export const test = 3;\n", "utf8");
     await writeFile(join(sourceRoot, "sample.d.ts"), "export {};\n", "utf8");
@@ -170,9 +162,6 @@ describe("discoverDefinitionFiles", () => {
       sourceExclude: ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"],
     });
 
-    expect(files).toEqual([
-      join(sourceRoot, "alpha.events.ts"),
-      join(sourceRoot, "beta.dsl.ts"),
-    ]);
+    expect(files).toEqual([join(sourceRoot, "alpha.events.ts"), join(sourceRoot, "beta.dsl.ts")]);
   });
 });
