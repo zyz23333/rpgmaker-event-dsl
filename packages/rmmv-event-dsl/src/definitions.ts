@@ -1,15 +1,51 @@
 import { readFile } from "node:fs/promises";
+import { glob } from "node:fs/promises";
+import { join, matchesGlob } from "node:path";
 
 import * as ts from "typescript";
 
 import * as dsl from "./dsl.js";
-import { collectEventDefinitions, type EventDefinition } from "./dsl.js";
+import {
+  collectDslOwnedDeclarations,
+  type DslOwnedDeclaration,
+  type EventDefinition,
+} from "./dsl.js";
+
+export type DefinitionSourceDiscovery = {
+  sourceRoot: string;
+  sourceInclude: readonly string[];
+  sourceExclude: readonly string[];
+};
 
 type EvaluationScope = {
   bindings: Map<string, unknown>;
 };
 
-export async function loadDefinitionFile(filePath: string): Promise<EventDefinition[]> {
+export async function discoverDefinitionFiles(
+  workspaceRoot: string,
+  discovery: DefinitionSourceDiscovery,
+): Promise<string[]> {
+  const sourceRoot = join(workspaceRoot, discovery.sourceRoot);
+  const includePatterns = discovery.sourceInclude.length > 0 ? discovery.sourceInclude : ["**/*"];
+  const files = new Set<string>();
+
+  for (const pattern of includePatterns) {
+    for await (const relativePath of glob(pattern, {
+      cwd: sourceRoot,
+      exclude: discovery.sourceExclude,
+    })) {
+      if (!matchesGlob(relativePath, pattern)) {
+        continue;
+      }
+
+      files.add(join(sourceRoot, relativePath));
+    }
+  }
+
+  return [...files].sort();
+}
+
+export async function loadDefinitionFile(filePath: string): Promise<DslOwnedDeclaration[]> {
   const sourceText = await readFile(filePath, "utf8");
   const sourceFile = ts.createSourceFile(
     filePath,
@@ -26,7 +62,7 @@ export async function loadDefinitionFile(filePath: string): Promise<EventDefinit
 
   try {
     const moduleExports = evaluateModule(sourceFile);
-    return collectEventDefinitions(moduleExports);
+    return collectDslOwnedDeclarations(moduleExports);
   } catch (error) {
     if (error instanceof Error) {
       throw new Error(formatSourceError(filePath, error.message));
@@ -408,6 +444,7 @@ function createDslNamespace(): Record<string, unknown> {
     breakLoop: getDslHelper("breakLoop"),
     changeGold: getDslHelper("changeGold"),
     changeItem: getDslHelper("changeItem"),
+    collectDslOwnedDeclarations: getDslHelper("collectDslOwnedDeclarations"),
     collectEventDefinitions: getDslHelper("collectEventDefinitions"),
     comment: getDslHelper("comment"),
     commonEvent: getDslHelper("commonEvent"),
@@ -433,9 +470,11 @@ function createDslNamespace(): Record<string, unknown> {
     showText: getDslHelper("showText"),
     script: getDslHelper("script"),
     switchRef: getDslHelper("switchRef"),
+    switchDefinition: getDslHelper("switchDefinition"),
     troopRef: getDslHelper("troopRef"),
     transferPlayer: getDslHelper("transferPlayer"),
     variableRef: getDslHelper("variableRef"),
+    variableDefinition: getDslHelper("variableDefinition"),
     wait: getDslHelper("wait"),
     weaponRef: getDslHelper("weaponRef"),
   };
@@ -455,6 +494,8 @@ function getDslHelper(name: string): unknown {
       return dsl.changeGold;
     case "changeItem":
       return dsl.changeItem;
+    case "collectDslOwnedDeclarations":
+      return dsl.collectDslOwnedDeclarations;
     case "collectEventDefinitions":
       return dsl.collectEventDefinitions;
     case "comment":
@@ -503,6 +544,8 @@ function getDslHelper(name: string): unknown {
       return dsl.showText;
     case "script":
       return dsl.script;
+    case "switchDefinition":
+      return dsl.switchDefinition;
     case "switchRef":
       return dsl.switchRef;
     case "troopRef":
@@ -511,6 +554,8 @@ function getDslHelper(name: string): unknown {
       return dsl.transferPlayer;
     case "variableRef":
       return dsl.variableRef;
+    case "variableDefinition":
+      return dsl.variableDefinition;
     case "wait":
       return dsl.wait;
     case "weaponRef":

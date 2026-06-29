@@ -19,6 +19,7 @@ export {
   comment,
   commonEvent,
   callCommonEvent,
+  collectDslOwnedDeclarations,
   commonEventRef,
   controlSelfSwitch,
   controlSwitch,
@@ -35,9 +36,11 @@ export {
   page,
   pluginCommand,
   rawDslCommand,
+  switchDefinition,
   showChoices,
   script,
   showText,
+  variableDefinition,
   wait,
   switchRef,
   troopRef,
@@ -58,6 +61,7 @@ export type {
   ControlSelfSwitchDslCommand,
   ControlSwitchDslCommand,
   ControlVariableDslCommand,
+  DslOwnedDeclaration,
   DslCommand,
   EraseEventDslCommand,
   EventDefinition,
@@ -78,9 +82,13 @@ export type {
   ShopProcessingDslCommand,
   ShowChoicesDslCommand,
   ShowTextDslCommand,
+  SwitchDefinition,
   TransferPlayerDslCommand,
+  VariableDefinition,
   WaitDslCommand,
 } from "./dsl.js";
+export { discoverDefinitionFiles } from "./definitions.js";
+export type { DefinitionSourceDiscovery } from "./definitions.js";
 export type { LoadedWorkspace, WorkspaceConfig } from "./workspace.js";
 
 export type RuntimeBaseline = typeof runtimeBaseline;

@@ -2,7 +2,7 @@
 
 ## Status
 
-Ready
+Completed
 
 ## Type
 
@@ -64,15 +64,15 @@ Introduce the DSL declaration shape required by the workspace compile model and 
 
 ## Acceptance Criteria
 
-- [ ] `mapEvent` input requires `mapId` and `id`.
-- [ ] `commonEvent` input requires `id`.
-- [ ] `switchDefinition({ id, name })` produces a DSL-owned declaration.
-- [ ] `variableDefinition({ id, name })` produces a DSL-owned declaration.
-- [ ] Variable/switch IDs are positive integers and names are non-empty at the declaration validation layer or staged validation layer.
-- [ ] Source evaluator recognizes and collects Map Events, Common Events, Variable Definitions, and Switch Definitions.
-- [ ] Source discovery includes default `**/*.events.ts` and `**/*.dsl.ts` files under `sourceRoot`.
-- [ ] Source discovery excludes default test/spec/declaration files.
-- [ ] Ordinary helper `.ts` files not matching include patterns are not evaluated.
+- [x] `mapEvent` input requires `mapId` and `id`.
+- [x] `commonEvent` input requires `id`.
+- [x] `switchDefinition({ id, name })` produces a DSL-owned declaration.
+- [x] `variableDefinition({ id, name })` produces a DSL-owned declaration.
+- [x] Variable/switch IDs are positive integers and names are non-empty at the declaration validation layer or staged validation layer.
+- [x] Source evaluator recognizes and collects Map Events, Common Events, Variable Definitions, and Switch Definitions.
+- [x] Source discovery includes default `**/*.events.ts` and `**/*.dsl.ts` files under `sourceRoot`.
+- [x] Source discovery excludes default test/spec/declaration files.
+- [x] Ordinary helper `.ts` files not matching include patterns are not evaluated.
 
 ## Implementation Notes
 
@@ -95,7 +95,7 @@ pnpm --filter @rmmv-event-dsl/core typecheck
 
 ## Done When
 
-- [ ] Acceptance criteria pass.
-- [ ] Verification commands pass or skipped reason is documented.
-- [ ] Design references remain satisfied.
-- [ ] No unrelated scope was added.
+- [x] Acceptance criteria pass.
+- [x] Verification commands pass or skipped reason is documented.
+- [x] Design references remain satisfied.
+- [x] No unrelated scope was added.

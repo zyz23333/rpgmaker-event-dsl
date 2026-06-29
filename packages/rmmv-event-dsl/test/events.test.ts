@@ -37,6 +37,8 @@ describe("compileMapEvent", () => {
     const event = compileMapEvent(
       {
         kind: "mapEvent",
+        mapId: 1,
+        id: 1,
         name: "Gate",
         x: 1,
         y: 2,

@@ -4,6 +4,7 @@ import {
   battleProcessing,
   changeGold,
   changeItem,
+  collectDslOwnedDeclarations,
   collectEventDefinitions,
   comment,
   commonEvent,
@@ -17,6 +18,8 @@ import {
   page,
   showChoices,
   showText,
+  switchDefinition,
+  variableDefinition,
   wait,
   switchRef,
   itemRef,
@@ -24,10 +27,12 @@ import {
   troopRef,
 } from "../src/index.js";
 
-describe("collectEventDefinitions", () => {
+describe("collectDslOwnedDeclarations", () => {
   it("collects named Event Definitions", () => {
-    const definitions = collectEventDefinitions({
+    const definitions = collectDslOwnedDeclarations({
       alpha: mapEvent({
+        mapId: 1,
+        id: 1,
         name: "Alpha",
         x: 1,
         y: 2,
@@ -38,10 +43,57 @@ describe("collectEventDefinitions", () => {
         ],
       }),
       beta: commonEvent({
+        id: 1,
         name: "Beta",
         trigger: "none",
         switch: switchRef({ id: 1 }),
         commands: [callCommonEvent(commonEventRef({ name: "SomeCommonEvent" }))],
+      }),
+      gamma: switchDefinition({
+        id: 2,
+        name: "Gamma Switch",
+      }),
+      delta: variableDefinition({
+        id: 3,
+        name: "Delta Variable",
+      }),
+    });
+
+    expect(definitions).toHaveLength(4);
+    expect(definitions.map((definition) => definition.name)).toEqual([
+      "Alpha",
+      "Beta",
+      "Gamma Switch",
+      "Delta Variable",
+    ]);
+  });
+});
+
+describe("collectEventDefinitions", () => {
+  it("filters DSL-owned declarations down to event definitions", () => {
+    const definitions = collectEventDefinitions({
+      alpha: mapEvent({
+        mapId: 1,
+        id: 1,
+        name: "Alpha",
+        x: 1,
+        y: 2,
+        pages: [
+          page({
+            commands: [showText(["Hello"])],
+          }),
+        ],
+      }),
+      beta: commonEvent({
+        id: 2,
+        name: "Beta",
+        trigger: "none",
+        switch: switchRef({ id: 1 }),
+        commands: [callCommonEvent(commonEventRef({ name: "SomeCommonEvent" }))],
+      }),
+      gamma: switchDefinition({
+        id: 3,
+        name: "Gamma Switch",
       }),
     });
 
@@ -51,8 +103,10 @@ describe("collectEventDefinitions", () => {
 
   it("rejects default exports", () => {
     expect(() =>
-      collectEventDefinitions({
+      collectDslOwnedDeclarations({
         default: mapEvent({
+          mapId: 1,
+          id: 1,
           name: "Ignored",
           x: 0,
           y: 0,
@@ -63,7 +117,7 @@ describe("collectEventDefinitions", () => {
           ],
         }),
       }),
-    ).toThrow("Default export is not allowed for Event Definitions.");
+    ).toThrow("Default export is not allowed for DSL-owned declarations.");
   });
 
   it("builds the new command helpers as structured DSL commands", () => {
@@ -86,5 +140,32 @@ describe("collectEventDefinitions", () => {
         branches: [[], []],
       }).kind,
     ).toBe("showChoices");
+  });
+
+  it("requires explicit identities for event definitions", () => {
+    expect(
+      mapEvent({
+        mapId: 1,
+        id: 2,
+        name: "Gate",
+        x: 1,
+        y: 2,
+        pages: [
+          page({
+            commands: [],
+          }),
+        ],
+      }).mapId,
+    ).toBe(1);
+    expect(
+      commonEvent({
+        id: 3,
+        name: "Alarm",
+        trigger: "none",
+        commands: [],
+      }).id,
+    ).toBe(3);
+    expect(switchDefinition({ id: 4, name: "Has Key" }).kind).toBe("switchDefinition");
+    expect(variableDefinition({ id: 5, name: "Count" }).kind).toBe("variableDefinition");
   });
 });

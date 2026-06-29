@@ -1,7 +1,15 @@
+export type DslOwnedDeclaration =
+  | MapEventDefinition
+  | CommonEventDefinition
+  | SwitchDefinition
+  | VariableDefinition;
+
 export type EventDefinition = MapEventDefinition | CommonEventDefinition;
 
 export type MapEventDefinition = {
   kind: "mapEvent";
+  mapId: number;
+  id: number;
   name: string;
   x: number;
   y: number;
@@ -10,10 +18,23 @@ export type MapEventDefinition = {
 
 export type CommonEventDefinition = {
   kind: "commonEvent";
+  id: number;
   name: string;
   trigger: CommonEventTrigger;
   switch?: ReferenceValue<"switch">;
   commands: readonly DslCommand[];
+};
+
+export type SwitchDefinition = {
+  kind: "switchDefinition";
+  id: number;
+  name: string;
+};
+
+export type VariableDefinition = {
+  kind: "variableDefinition";
+  id: number;
+  name: string;
 };
 
 export type CommonEventTrigger = "none" | "autorun" | "parallel";
@@ -257,6 +278,8 @@ export type RawDslCommand = {
 };
 
 export function mapEvent(input: {
+  mapId: number;
+  id: number;
   name: string;
   x: number;
   y: number;
@@ -264,6 +287,8 @@ export function mapEvent(input: {
 }): MapEventDefinition {
   return {
     kind: "mapEvent",
+    mapId: input.mapId,
+    id: input.id,
     name: input.name,
     x: input.x,
     y: input.y,
@@ -272,6 +297,7 @@ export function mapEvent(input: {
 }
 
 export function commonEvent(input: {
+  id: number;
   name: string;
   trigger: CommonEventTrigger;
   switch?: ReferenceValue<"switch">;
@@ -279,6 +305,7 @@ export function commonEvent(input: {
 }): CommonEventDefinition {
   const definition: CommonEventDefinition = {
     kind: "commonEvent",
+    id: input.id,
     name: input.name,
     trigger: input.trigger,
     commands: input.commands,
@@ -289,6 +316,22 @@ export function commonEvent(input: {
   }
 
   return definition;
+}
+
+export function switchDefinition(input: { id: number; name: string }): SwitchDefinition {
+  return {
+    kind: "switchDefinition",
+    id: input.id,
+    name: input.name,
+  };
+}
+
+export function variableDefinition(input: { id: number; name: string }): VariableDefinition {
+  return {
+    kind: "variableDefinition",
+    id: input.id,
+    name: input.name,
+  };
 }
 
 export function page(input: {
@@ -591,19 +634,25 @@ export function weaponRef(value: { id: number } | { name: string }): ReferenceVa
   return createReference("weapon", value);
 }
 
-export function collectEventDefinitions(moduleExports: Record<string, unknown>): EventDefinition[] {
-  const definitions: EventDefinition[] = [];
+export function collectDslOwnedDeclarations(
+  moduleExports: Record<string, unknown>,
+): DslOwnedDeclaration[] {
+  const definitions: DslOwnedDeclaration[] = [];
 
   for (const [name, value] of Object.entries(moduleExports)) {
     if (name === "default") {
-      throw new Error("Default export is not allowed for Event Definitions.");
+      throw new Error("Default export is not allowed for DSL-owned declarations.");
     }
-    if (isEventDefinition(value)) {
+    if (isDslOwnedDeclaration(value)) {
       definitions.push(value);
     }
   }
 
   return definitions;
+}
+
+export function collectEventDefinitions(moduleExports: Record<string, unknown>): EventDefinition[] {
+  return collectDslOwnedDeclarations(moduleExports).filter(isEventDefinition);
 }
 
 function createReference<TKind extends ReferenceKind>(
@@ -617,12 +666,18 @@ function createReference<TKind extends ReferenceKind>(
   return { kind, name: value.name };
 }
 
-function isEventDefinition(value: unknown): value is EventDefinition {
+function isDslOwnedDeclaration(value: unknown): value is DslOwnedDeclaration {
   return (
     !!value &&
     typeof value === "object" &&
     "kind" in value &&
     ((value as { kind?: string }).kind === "mapEvent" ||
-      (value as { kind?: string }).kind === "commonEvent")
+      (value as { kind?: string }).kind === "commonEvent" ||
+      (value as { kind?: string }).kind === "switchDefinition" ||
+      (value as { kind?: string }).kind === "variableDefinition")
   );
+}
+
+function isEventDefinition(value: DslOwnedDeclaration): value is EventDefinition {
+  return value.kind === "mapEvent" || value.kind === "commonEvent";
 }
