@@ -1,7 +1,0 @@
-{
-  "projectRoot": "../../references/rmmv-test-project",
-  "scriptEnabled": true,
-  "sourceRoot": "src",
-  "sourceInclude": ["**/*.events.ts", "**/*.dsl.ts"],
-  "sourceExclude": ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"]
-}
