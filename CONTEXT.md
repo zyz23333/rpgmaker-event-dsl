@@ -24,6 +24,10 @@ _Avoid_: default export, exported helper
 The single TypeScript file referenced by a Definition Binding.
 _Avoid_: glob, directory, file set
 
+**Definition Source Discovery**:
+The Workspace Config behavior that selects DSL source files for workspace-level compilation.
+_Avoid_: definition binding, target mapping, CLI target override
+
 **Empty Command List**:
 A required `commands` field with no DSL Commands that compiles to only the RPG Maker MV end marker.
 _Avoid_: missing command list, implicit delete
@@ -96,6 +100,10 @@ _Avoid_: Script Command Enablement, per-node reason gate, implicit script suppor
 A DSL reference value from an Event Definition to an existing RPG Maker MV project data entry.
 _Avoid_: project reference, raw ID, definition builder
 
+**External Project Data Reference**:
+A read-only reference from DSL-owned data to RPG Maker MV project data outside DSL-Owned Project Data.
+_Avoid_: DSL-owned definition, generated data, implicit ownership
+
 **Explicit ID Reference**:
 A Project Data Reference that identifies RPG Maker MV data by numeric ID without using a bare number.
 _Avoid_: raw numeric ID, implicit ID
@@ -132,13 +140,121 @@ _Avoid_: Project Root, repository root, arbitrary source folder
 The local configuration file `rmmv-event-dsl.config.json` in a Workspace that binds Event Definitions to a Project Root.
 _Avoid_: project config, global config, package config
 
+**Workspace Data State**:
+The tool-maintained local project data state inside a Workspace, including generated data, project snapshots, and synchronization metadata.
+_Avoid_: local data layer, output folder, editable local JSON
+
+**Generated Project Data**:
+MV-style project data produced from Event DSL compilation inside a Workspace before it is applied to a Project Root.
+_Avoid_: hand-edited output, project snapshot, local source of truth
+
+**Compile Output**:
+The complete Generated Project Data state for all DSL-Owned Project Data domains in a Workspace.
+_Avoid_: patch plan, operation list, partial output
+
+**Staged Data Graph**:
+The in-memory graph of DSL-owned entries and resolvable project references used during compilation.
+_Avoid_: project index, output file, runtime state
+
+**Clone**:
+The workspace operation that captures an initial Project Data Snapshot from a Project Root.
+_Avoid_: compile, pull, apply
+
+**Pull**:
+The workspace operation that refreshes a Project Data Snapshot from a Project Root after the initial clone.
+_Avoid_: compile, clone, apply
+
+**Push**:
+The workspace operation that writes Generated Project Data to a Project Root after synchronization checks pass.
+_Avoid_: compile, pull, copy
+
+**Project Data Snapshot**:
+A local copy of RPG Maker MV project data captured from a Project Root for comparison and reconciliation.
+_Avoid_: generated output, editable local JSON, backup
+
+**Project Drift**:
+A mismatch between the current Project Root state and the latest Project Data Snapshot.
+_Avoid_: stale cache, generated diff, file corruption
+
+**Snapshot-Only Owned Entry**:
+A DSL-owned data entry present in a Project Data Snapshot but absent from Compile Output.
+_Avoid_: compile deletion, project drift, unmanaged entry
+
+**Destructive Change**:
+A Push change that removes a Snapshot-Only Owned Entry from a Project Root.
+_Avoid_: force push, project drift, compile deletion
+
+**Destructive Push**:
+A Push that explicitly allows Destructive Changes while still requiring Generated Freshness and no Project Drift.
+_Avoid_: force push, overwrite, unsafe push
+
+**Entry Removal**:
+The generated representation of a Destructive Change for one DSL-owned data entry.
+_Avoid_: array compaction, entry replacement, project drift
+
+**Diff**:
+The structured comparison report between Generated Project Data and a Project Data Snapshot.
+_Avoid_: drift check, validation, patch plan
+
+**Structured Diff Report**:
+A machine-readable and human-readable Diff output that groups changes by data domain, entry, and command-level detail.
+_Avoid_: raw text diff, ad hoc log output, validation error list
+
+**Reconciliation Hint**:
+A structured Diff detail that suggests how a raw MV change might map back to DSL.
+_Avoid_: decompile output, compile output, validation error
+
+**Data Domain**:
+A semantically distinct portion of RPG Maker MV project data, such as map event entries or system variables and switches.
+_Avoid_: JSON file, whole file, table, file-level ownership
+
+**DSL-Owned Project Data**:
+The set of RPG Maker MV data domains for which Event DSL is the authoritative source.
+_Avoid_: managed project data, partially-owned data, editor-owned event data
+
+**Variable Definition**:
+A DSL-authored RPG Maker MV system variable entry that is part of DSL-Owned Project Data.
+_Avoid_: variable reference, project-only setting, bare numeric ID
+
+**Switch Definition**:
+A DSL-authored RPG Maker MV system switch entry that is part of DSL-Owned Project Data.
+_Avoid_: switch reference, project-only setting, bare numeric ID
+
+**Entry Identity**:
+The data-domain-scoped RPG Maker MV ID that identifies one DSL-owned data entry.
+_Avoid_: display name, generated UUID, manifest-only binding
+
+**Display Name**:
+The RPG Maker MV name field shown to developers and players without serving as Entry Identity.
+_Avoid_: entry identity, unique key, reference target
+
+**System Data**:
+The RPG Maker MV project data domain that stores variables, switches, and other system-level configuration.
+_Avoid_: event data store, project snapshot, workspace data state
+
+**DSL Decompilation**:
+The workspace operation that turns a Project Data Snapshot into compilable DSL declarations with explicit Entry Identities, using raw escape hatches when needed.
+_Avoid_: scaffold, clone, pull, compile, perfect round-trip
+
+**Decompiled Source**:
+DSL source generated by DSL Decompilation as a non-destructive starting point for taking over DSL-Owned Project Data.
+_Avoid_: handwritten DSL, generated project data, overwrite output
+
+**Sync Manifest**:
+Workspace metadata that records synchronization state such as project data identity, file hashes, and allocated RPG Maker MV IDs.
+_Avoid_: generated output, project data file, lockfile, entry identity binding
+
+**Generated Freshness**:
+The condition that Generated Project Data was produced from the current DSL source inputs.
+_Avoid_: project drift, entry identity, source ownership
+
 **Definition Binding**:
 One Workspace Config entry that maps one Definition Source to one Definition Target.
-_Avoid_: target inference, file-level merge rule, operation mode
+_Avoid_: source discovery, target inference, file-level merge rule, operation mode
 
 **Definition Target**:
 The configured Event Data Store destination for a Definition Binding.
-_Avoid_: inferred filename target, CLI target override, operation mode
+_Avoid_: entry identity, inferred filename target, CLI target override, operation mode
 
 **Event Data Management**:
 The tool layer that reads, validates, creates, and replaces event entries in an Event Data Store.
@@ -162,7 +278,7 @@ _Avoid_: definition target, event definition metadata
 
 **Definition Lint**:
 A read-only tool check for Event Definition shape, target configuration, and authoring conventions.
-_Avoid_: static-only lint, apply, compile, smoke test
+_Avoid_: static-only lint, apply, smoke test
 
 **Project-Aware Validation**:
 A validation pass that checks Event Definitions and planned operations against the configured RPG Maker MV project data.
@@ -213,6 +329,7 @@ _Avoid_: config default, inherited old value
 - A script command may be a **Supported Event Command** and still be blocked by the **Script Command Gate**.
 - The **Script Command Gate** applies to **Script Input**, not to **Raw DSL Commands**.
 - **Project Data References** use `xxxRef` helper names to distinguish references from definitions.
+- **External Project Data References** are resolved from **Project Data Snapshots** and do not imply **DSL-Owned Project Data**.
 - **Explicit ID References** are allowed, while bare numeric IDs are not valid DSL references.
 - A **Project Index** resolves names used by **Project Data References** to RPG Maker MV IDs.
 - A **Project Root** must be configured explicitly and must contain a `.rpgproject` file.
@@ -223,16 +340,52 @@ _Avoid_: config default, inherited old value
 - A **Workspace Initialization** command requires a `projectRoot`.
 - The **Workspace Config** file is named `rmmv-event-dsl.config.json`.
 - A **Workspace Config** contains a **Project Root**, zero or more **Definition Bindings**, and the **Script Command Gate**.
+- A **Workspace** may contain **Workspace Data State** maintained by the tool.
+- **Workspace Data State** includes **Generated Project Data**, **Project Data Snapshots**, and a **Sync Manifest**.
+- **Generated Project Data** is produced from Event DSL compilation before any Project Root write.
+- **Generated Project Data** may store whole RPG Maker MV data files as carriers for DSL-owned data domains.
+- Non-owned data domains in **Generated Project Data** are carried forward from a **Project Data Snapshot**.
+- **Compile Output** is complete for all **DSL-Owned Project Data** domains in the current Workspace.
+- Compilation validates the **Staged Data Graph** before producing **Compile Output**.
+- A **Staged Data Graph** may include **External Project Data References** for read-only project data needed by DSL-owned entries.
+- Compilation requires a **Project Data Snapshot** in the first version.
+- **Clone** captures the first **Project Data Snapshot** from a **Project Root**.
+- **Pull** refreshes an existing **Project Data Snapshot** from a **Project Root**.
+- **Push** writes **Generated Project Data** to a **Project Root** only after synchronization checks pass.
+- A successful **Push** refreshes the affected **Project Data Snapshot** and **Sync Manifest**.
+- A **Project Data Snapshot** is captured from a Project Root for comparison and reconciliation.
+- A **Project Data Snapshot** may store whole RPG Maker MV data files even when **DSL-Owned Project Data** covers only selected **Data Domains** within those files.
+- **Project Drift** is a mismatch between a **Project Data Snapshot** and the current **Project Root** state.
+- A **Snapshot-Only Owned Entry** appears when **Compile Output** omits an entry that exists in the **Project Data Snapshot** for a **DSL-Owned Project Data** domain.
+- A **Destructive Change** is only applied by a **Destructive Push**.
+- A **Destructive Push** does not bypass **Generated Freshness** or **Project Drift** checks.
+- **Entry Removal** for event arrays preserves RPG Maker MV IDs by leaving null holes instead of compacting arrays.
+- **Entry Removal** for variable and switch arrays preserves RPG Maker MV IDs by writing empty strings instead of compacting arrays.
+- **Diff** compares **Generated Project Data** with a **Project Data Snapshot**.
+- A **Diff** is a **Structured Diff Report**.
+- A **Structured Diff Report** may include **Reconciliation Hints** for raw MV changes that can be represented in DSL.
+- **DSL-Owned Project Data** is defined by **Data Domain**, not by whole files.
+- The first intended **DSL-Owned Project Data** domains are the **Event Data Store** and the variable and switch entries stored in **System Data**.
+- A DSL-owned data entry is identified by an explicit **Entry Identity**.
+- DSL-owned data entries must declare their **Entry Identity** in the first version.
+- A **Display Name** does not need to be unique among DSL-owned data entries.
+- Name-based **Project Data References** are valid only when the **Display Name** resolves to exactly one entry.
+- **DSL Decompilation** creates initial DSL declarations from a **Project Data Snapshot**.
+- **DSL Decompilation** produces **Decompiled Source** for all **DSL-Owned Project Data** domains.
+- **Decompiled Source** is written non-destructively in the first version.
+- A **Sync Manifest** records file hashes for **Generated Project Data** and **Project Data Snapshots**.
+- A **Sync Manifest** does not record **Entry Identity** bindings in the first version.
+- A **Sync Manifest** may record DSL source hashes to check **Generated Freshness**.
+- **Push** requires **Generated Freshness** in the first version.
+- **Diff** requires **Generated Freshness** in the first version.
 - The **Project Root** path in a **Workspace Config** is resolved relative to the **Workspace Root**.
 - The **Workspace Config** uses `projectRoot` for the MV project directory.
 - A **Definition Binding** maps exactly one **Definition Source** to exactly one **Definition Target**, such as a single map or Common Events.
-- A **Definition Source** is a single TypeScript file path relative to the **Workspace Root**.
-- A **Definition Target** is a single Event Data Store file.
-- A **Definition Target** selects one file from the **Event Data Store**.
-- A **Definition Target** can be owned by at most one **Definition Binding** in a Workspace.
-- Map **Definition Target** values use `mapId` only.
-- Common event **Definition Target** values point to the shared `CommonEvents.json` file.
-- Workspace Config bindings use `src` and `target` fields.
+- A **Definition Source** is a TypeScript source file selected by **Definition Source Discovery**.
+- **Definition Source Discovery** replaces **Definition Bindings** for workspace-level compilation.
+- The first-version **Definition Source Discovery** selects TypeScript files recursively from the Workspace source root.
+- **Decompiled Source** participates in **Definition Source Discovery** unless moved outside the Workspace source root.
+- **Entry Identity** determines the target project data entry for a DSL-owned definition.
 - Non-`init` commands require the current directory to be a **Workspace Root**.
 - The tool derives **Event Data Operations** from **Event Definitions** and tool configuration.
 - **Event Data Operations** may create entries or perform **Explicit Replacement** for **Map Events** and **Common Events**.
@@ -243,9 +396,7 @@ _Avoid_: config default, inherited old value
 - Replace operations require the target event name to exist exactly once.
 - An **Operation Mode** is selected separately from the **Definition Target**.
 - A first-version tool run applies exactly one **Operation Mode** to all selected **Event Definitions**.
-- **Definition Lint** performs no **Event Data Operations**.
-- **Definition Lint** reads the Event Data Store through the configured project path and performs project-aware checks.
-- **Definition Lint** may warn when a named export differs from its RPG Maker MV event name, but the MV event name remains the semantic target.
+- **Compile** with check-only behavior replaces **Definition Lint** in the workspace compile model.
 - Create and replace runs must perform **Project-Aware Validation** before writing any Event Data Store files.
 - Create and replace workflows derive **Event Data Operations** before writing.
 - **Apply Preview** is available through dry-run and diff options for first-version create and replace runs.
@@ -308,3 +459,22 @@ _Avoid_: config default, inherited old value
 - "Map coordinates" were resolved as bounds-checked errors with coordinate occupancy warnings.
 - "Script command enablement" was rejected as unclear; the canonical term is **Script Command Gate**.
 - "Script command" was resolved as config-gated rather than reason-gated at the command level.
+- "Local data layer" was rejected as too implementation-shaped; **Workspace Data State** is the canonical umbrella term.
+- "Output folder" was rejected as canonical language because it hides the distinction between **Generated Project Data** and **Project Data Snapshots**.
+- "Editable local JSON" was rejected as a source-of-truth model; workspace-local data is tool-maintained synchronization state.
+- "Managed Project Data" was rejected because it implies partial ownership; **DSL-Owned Project Data** is the canonical term for project data whose desired state comes from the Event DSL.
+- "File-level ownership" was rejected because the intended boundary is **Data Domain**, not whole JSON files.
+- "Apply" was rejected as the primary user-facing materialization term; **Compile** is the canonical term for producing **Compile Output**.
+- "Force push" was rejected for the first version; **Push** is intentionally conservative and requires a fresh **Pull** after **Project Drift**.
+- "Force push" remains distinct from **Destructive Push**; destructive intent does not bypass synchronization checks.
+- "Raw text diff" was rejected as the primary comparison format; **Diff** is a **Structured Diff Report**.
+- "Scaffold" was rejected because it sounds like workspace initialization; **DSL Decompilation** is the canonical term for generating DSL declarations from a **Project Data Snapshot**.
+- "Overwrite decompilation" was rejected for the first version; **Decompiled Source** must be written non-destructively.
+- "System variables" and "system switches" were split into **Variable Definition** and **Switch Definition** as DSL-authored data domains.
+- "Manifest-only binding" was rejected for DSL-owned data entries; **Entry Identity** is expressed as a data-domain-scoped RPG Maker MV ID.
+- "Entry identity binding" was rejected as **Sync Manifest** responsibility; **Entry Identity** belongs in DSL source.
+- "Name identity" was rejected for DSL-owned data entries because RPG Maker MV allows duplicate display names.
+- "Unique display name" was rejected as a DSL-owned entry requirement; uniqueness belongs to **Entry Identity**.
+- "Project drift validation" was rejected as a compile responsibility; **Compile** validates the **Staged Data Graph**, while **Push** checks **Project Drift**.
+- "Definition Binding" was rejected for the workspace compile model; **Definition Source Discovery** selects source files, while **Entry Identity** identifies target entries.
+- "Definition Lint" was rejected as a first-version command in the workspace compile model; check-only compilation is the validation path.
