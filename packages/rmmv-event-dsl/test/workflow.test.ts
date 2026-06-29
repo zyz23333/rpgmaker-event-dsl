@@ -4,7 +4,12 @@ import { join } from "node:path";
 
 import { describe, expect, it } from "vitest";
 
-import { cloneWorkspace, compileWorkspace, pullWorkspace } from "../src/workflow.js";
+import {
+  cloneWorkspace,
+  compileWorkspace,
+  isGeneratedProjectDataFresh,
+  pullWorkspace,
+} from "../src/workflow.js";
 import { getWorkspaceStatePaths, readSyncManifest } from "../src/state.js";
 
 function createProjectRootFixture(workspaceRoot: string): string {
@@ -36,6 +41,7 @@ async function writeProjectFixture(
   projectRoot: string,
   overrides?: {
     mapInfoName?: string;
+    secondMap?: boolean;
     extraMapFile?: boolean;
     includeMissingMap?: boolean;
   },
@@ -66,7 +72,11 @@ async function writeProjectFixture(
   );
   await writeFile(
     join(dataDirectory, "MapInfos.json"),
-    JSON.stringify([null, { id: 1, name: overrides?.mapInfoName ?? "MAP001", parentId: 0 }]),
+    JSON.stringify([
+      null,
+      { id: 1, name: overrides?.mapInfoName ?? "MAP001", parentId: 0 },
+      ...(overrides?.secondMap === true ? [{ id: 2, name: "MAP002", parentId: 0 }] : []),
+    ]),
     "utf8",
   );
   await writeFile(join(dataDirectory, "Skills.json"), "[]", "utf8");
@@ -74,8 +84,9 @@ async function writeProjectFixture(
   await writeFile(
     join(dataDirectory, "System.json"),
     JSON.stringify({
-      switches: ["", "Switch One"],
-      variables: ["", "Variable One"],
+      gameTitle: "Fixture Game",
+      switches: ["", "Switch One", "Snapshot Only Switch"],
+      variables: ["", "Variable One", "Snapshot Only Variable"],
     }),
     "utf8",
   );
@@ -87,6 +98,14 @@ async function writeProjectFixture(
     JSON.stringify({ id: 1, events: [null] }),
     "utf8",
   );
+
+  if (overrides?.secondMap === true) {
+    await writeFile(
+      join(dataDirectory, "Map002.json"),
+      JSON.stringify({ id: 2, events: [null, { id: 1, name: "Snapshot Only" }], note: "keep" }),
+      "utf8",
+    );
+  }
 
   if (overrides?.extraMapFile === true) {
     await writeFile(
@@ -417,6 +436,224 @@ export const caller = {
       "project-data-snapshot",
       "sync-manifest.json",
     ]);
+  });
+});
+
+describe("compile workflow", () => {
+  it("fails before source evaluation when no Project Data Snapshot exists", async () => {
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-compile-no-snapshot-"));
+    const projectRoot = createProjectRootFixture(workspaceRoot);
+
+    await writeProjectFixture(projectRoot);
+    await writeWorkspaceConfig(workspaceRoot);
+    await mkdir(join(workspaceRoot, "src"), { recursive: true });
+    await writeFile(join(workspaceRoot, "src", "invalid.events.ts"), "export default 1;\n", "utf8");
+
+    await expect(compileWorkspace({ workspaceRoot, check: false })).rejects.toThrow(
+      "Project Data Snapshot is required before compile",
+    );
+  });
+
+  it("writes complete Generated Project Data carriers without mutating Project Root or snapshot", async () => {
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-compile-"));
+    const projectRoot = createProjectRootFixture(workspaceRoot);
+
+    await writeProjectFixture(projectRoot, { secondMap: true });
+    await writeWorkspaceConfig(workspaceRoot);
+    await cloneWorkspace({ workspaceRoot });
+    await mkdir(join(workspaceRoot, "src"), { recursive: true });
+    await writeFile(
+      join(workspaceRoot, "src", "events.events.ts"),
+      `export const gateSwitch = {
+  kind: "switchDefinition",
+  id: 1,
+  name: "Gate Open",
+};
+
+export const visitCount = {
+  kind: "variableDefinition",
+  id: 3,
+  name: "Visit Count",
+};
+
+export const alarm = {
+  kind: "commonEvent",
+  id: 2,
+  name: "Alarm",
+  trigger: "parallel",
+  switch: { kind: "switch", id: 1 },
+  commands: [{ kind: "showText", lines: ["Alarm"] }],
+};
+
+export const gate = {
+  kind: "mapEvent",
+  mapId: 1,
+  id: 2,
+  name: "Gate",
+  x: 4,
+  y: 5,
+  pages: [
+    {
+      conditions: {},
+      trigger: "action",
+      commands: [{ kind: "commonEvent", ref: { kind: "commonEvent", id: 2 } }],
+    },
+  ],
+};
+`,
+      "utf8",
+    );
+
+    const statePaths = getWorkspaceStatePaths(workspaceRoot);
+    const projectMapBefore = await readFile(join(projectRoot, "data", "Map001.json"), "utf8");
+    const snapshotMapBefore = await readFile(
+      join(statePaths.projectDataSnapshotDirectory, "Map001.json"),
+      "utf8",
+    );
+
+    await compileWorkspace({ workspaceRoot, check: false });
+
+    expect(await readFile(join(projectRoot, "data", "Map001.json"), "utf8")).toBe(projectMapBefore);
+    expect(
+      await readFile(join(statePaths.projectDataSnapshotDirectory, "Map001.json"), "utf8"),
+    ).toBe(snapshotMapBefore);
+
+    const generatedMap001 = JSON.parse(
+      await readFile(join(statePaths.generatedProjectDataDirectory, "Map001.json"), "utf8"),
+    );
+    const generatedMap002 = JSON.parse(
+      await readFile(join(statePaths.generatedProjectDataDirectory, "Map002.json"), "utf8"),
+    );
+    const generatedCommonEvents = JSON.parse(
+      await readFile(join(statePaths.generatedProjectDataDirectory, "CommonEvents.json"), "utf8"),
+    );
+    const generatedSystem = JSON.parse(
+      await readFile(join(statePaths.generatedProjectDataDirectory, "System.json"), "utf8"),
+    );
+
+    expect(generatedMap001.events).toHaveLength(3);
+    expect(generatedMap001.events[0]).toBeNull();
+    expect(generatedMap001.events[1]).toBeNull();
+    expect(generatedMap001.events[2]).toMatchObject({
+      id: 2,
+      name: "Gate",
+      x: 4,
+      y: 5,
+    });
+    expect(generatedMap001.events[2].pages[0].list).toContainEqual({
+      code: 117,
+      indent: 0,
+      parameters: [2],
+    });
+    expect(generatedMap002).toEqual({
+      events: [null, null],
+      id: 2,
+      note: "keep",
+    });
+    expect(generatedCommonEvents).toHaveLength(3);
+    expect(generatedCommonEvents[0]).toBeNull();
+    expect(generatedCommonEvents[1]).toBeNull();
+    expect(generatedCommonEvents[2]).toMatchObject({
+      id: 2,
+      name: "Alarm",
+      switchId: 1,
+      trigger: 2,
+    });
+    expect(generatedSystem).toMatchObject({
+      gameTitle: "Fixture Game",
+      switches: ["", "Gate Open", ""],
+      variables: ["", "", "", "Visit Count"],
+    });
+  });
+
+  it("records generated output hashes and Compile Baseline freshness metadata", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(
+      `export const gate = {
+  kind: "mapEvent",
+  mapId: 1,
+  id: 1,
+  name: "Gate",
+  x: 0,
+  y: 0,
+  pages: [
+    {
+      conditions: {},
+      trigger: "action",
+      commands: [],
+    },
+  ],
+};
+`,
+    );
+    const statePaths = getWorkspaceStatePaths(workspaceRoot);
+
+    await compileWorkspace({ workspaceRoot, check: false });
+
+    const manifest = await readSyncManifest(statePaths.syncManifestPath);
+    expect(manifest?.generatedFiles?.map((entry) => entry.relativePath)).toEqual([
+      "CommonEvents.json",
+      "Map001.json",
+      "System.json",
+    ]);
+    expect(manifest?.generatedFiles?.every((entry) => /^[0-9a-f]{64}$/u.test(entry.hash))).toBe(
+      true,
+    );
+    expect(manifest?.compileBaseline?.hash).toMatch(/^[0-9a-f]{64}$/u);
+    expect(manifest?.compileBaseline?.config).toEqual({
+      scriptEnabled: false,
+      sourceExclude: ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"],
+      sourceInclude: ["**/*.events.ts", "**/*.dsl.ts"],
+      sourceRoot: "src",
+    });
+    expect(manifest?.compileBaseline?.sourceFiles).toEqual([
+      {
+        hash: expect.stringMatching(/^[0-9a-f]{64}$/u),
+        relativePath: "src/events.events.ts",
+      },
+    ]);
+    expect(manifest?.compileBaseline?.snapshotFiles.map((entry) => entry.relativePath)).toContain(
+      "Map001.json",
+    );
+    await expect(isGeneratedProjectDataFresh({ workspaceRoot })).resolves.toBe(true);
+
+    await writeFile(
+      join(workspaceRoot, "src", "events.events.ts"),
+      `export const gate = {
+  kind: "mapEvent",
+  mapId: 1,
+  id: 1,
+  name: "Changed Gate",
+  x: 0,
+  y: 0,
+  pages: [
+    {
+      conditions: {},
+      trigger: "action",
+      commands: [],
+    },
+  ],
+};
+`,
+      "utf8",
+    );
+    await expect(isGeneratedProjectDataFresh({ workspaceRoot })).resolves.toBe(false);
+
+    await compileWorkspace({ workspaceRoot, check: false });
+    await expect(isGeneratedProjectDataFresh({ workspaceRoot })).resolves.toBe(true);
+
+    await writeWorkspaceConfig(workspaceRoot, { scriptEnabled: true });
+    await expect(isGeneratedProjectDataFresh({ workspaceRoot })).resolves.toBe(false);
+
+    await writeWorkspaceConfig(workspaceRoot);
+    await compileWorkspace({ workspaceRoot, check: false });
+    await expect(isGeneratedProjectDataFresh({ workspaceRoot })).resolves.toBe(true);
+
+    await writeFile(
+      join(statePaths.projectDataSnapshotDirectory, "Map001.json"),
+      JSON.stringify({ id: 1, events: [null, { id: 1, name: "Snapshot Changed" }] }),
+      "utf8",
+    );
+    await expect(isGeneratedProjectDataFresh({ workspaceRoot })).resolves.toBe(false);
   });
 });
 

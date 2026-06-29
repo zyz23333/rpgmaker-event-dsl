@@ -2,7 +2,7 @@
 
 ## Status
 
-Ready
+Done
 
 ## Type
 
@@ -62,17 +62,17 @@ Implement normal `compile` as source-to-generated-state materialization. It shou
 
 ## Acceptance Criteria
 
-- [ ] `compile` fails when no Project Data Snapshot exists.
-- [ ] `compile` writes Generated Project Data carrier files for all DSL-Owned Project Data domains.
-- [ ] Generated map carrier output covers every map referenced by `MapInfos.json`.
-- [ ] Generated `CommonEvents.json` writes entries by explicit ID.
-- [ ] Generated `System.json` writes variable/switch names by explicit ID.
-- [ ] Non-owned domains in carrier files are copied from snapshot.
-- [ ] Event/CommonEvents arrays are dense and use `null` holes.
-- [ ] System variable/switch arrays are dense and use `""` holes.
-- [ ] Sync Manifest records generated file hashes.
-- [ ] Sync Manifest records Compile Baseline hashes for discovered source files, relevant config fields, and snapshot input files.
-- [ ] Changing source, config, or snapshot makes generated output stale.
+- [x] `compile` fails when no Project Data Snapshot exists.
+- [x] `compile` writes Generated Project Data carrier files for all DSL-Owned Project Data domains.
+- [x] Generated map carrier output covers every map referenced by `MapInfos.json`.
+- [x] Generated `CommonEvents.json` writes entries by explicit ID.
+- [x] Generated `System.json` writes variable/switch names by explicit ID.
+- [x] Non-owned domains in carrier files are copied from snapshot.
+- [x] Event/CommonEvents arrays are dense and use `null` holes.
+- [x] System variable/switch arrays are dense and use `""` holes.
+- [x] Sync Manifest records generated file hashes.
+- [x] Sync Manifest records Compile Baseline hashes for discovered source files, relevant config fields, and snapshot input files.
+- [x] Changing source, config, or snapshot makes generated output stale.
 
 ## Implementation Notes
 
@@ -91,11 +91,23 @@ Be explicit about array lengths: preserve at least snapshot length and extend to
 ```bash
 pnpm --filter @rmmv-event-dsl/core test -- workflow.test.ts events.test.ts project.test.ts
 pnpm --filter @rmmv-event-dsl/core typecheck
+pnpm --filter @rmmv-event-dsl/core test
+pnpm lint
+pnpm format:check
 ```
+
+## Implementation Summary
+
+- Added normal `compile` materialization into Workspace Data State under Generated Project Data.
+- Added complete carrier generation for map events, common events, and System variable/switch names.
+- Added dense explicit hole handling for event arrays and System name arrays.
+- Added generated output hashes and Compile Baseline metadata to the Sync Manifest.
+- Added freshness comparison for source, config, and snapshot changes for later diff/push gates.
+- Preserved `compile --check` as read-only validation.
 
 ## Done When
 
-- [ ] Acceptance criteria pass.
-- [ ] Verification commands pass or skipped reason is documented.
-- [ ] Design references remain satisfied.
-- [ ] No unrelated scope was added.
+- [x] Acceptance criteria pass.
+- [x] Verification commands pass or skipped reason is documented.
+- [x] Design references remain satisfied.
+- [x] No unrelated scope was added.

@@ -7,16 +7,26 @@ import {
   type DefinitionSourceDiscovery,
 } from "./definitions.js";
 import type { DslOwnedDeclaration } from "./dsl.js";
+import {
+  buildCompileBaseline,
+  isCompileBaselineFresh,
+  materializeCompileOutput,
+  type FileHashEntry,
+} from "./materialization.js";
 import { parseMapInfos } from "./project.js";
 import {
   captureStandardProjectDataSnapshot,
   getWorkspaceStatePaths,
+  hashUtf8Content,
   readSyncManifest,
+  writeSyncManifest,
+  type SyncManifest,
   type WorkspaceStatePaths,
 } from "./state.js";
 import {
+  buildStagedDataGraph,
   buildSnapshotReferenceInput,
-  validateDslOwnedDeclarations,
+  validateStagedDataGraph,
   type SnapshotReferenceInput,
   type SnapshotReferenceSource,
 } from "./staged-graph.js";
@@ -55,42 +65,97 @@ export async function decompileWorkspace(options: WorkspaceCommandOptions): Prom
 }
 
 export async function compileWorkspace(options: CompileWorkspaceOptions): Promise<void> {
-  if (!options.check) {
-    throw new Error(
-      `compile workflow is not implemented yet for workspace ${options.workspaceRoot}.`,
-    );
-  }
-
   const workspace = await loadWorkspace(options.workspaceRoot);
   const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
-  await assertProjectDataSnapshotExists(statePaths);
-
-  const declarations = await loadDiscoveredDeclarations(workspace.workspaceRoot, {
+  const manifest = await assertProjectDataSnapshotExists(
+    statePaths,
+    options.check ? "compile --check" : "compile",
+  );
+  const definitionInput = await loadDiscoveredDefinitionInput(workspace.workspaceRoot, {
     sourceRoot: workspace.config.sourceRoot,
     sourceInclude: workspace.config.sourceInclude,
     sourceExclude: workspace.config.sourceExclude,
   });
+
   const snapshotReferences = await loadSnapshotReferenceInput(statePaths);
-  const validation = validateDslOwnedDeclarations(declarations, {
-    scriptEnabled: workspace.config.scriptEnabled,
+  const graph = buildStagedDataGraph({
+    declarations: definitionInput.declarations,
     snapshotReferences,
+  });
+  const validation = validateStagedDataGraph(graph, {
+    scriptEnabled: workspace.config.scriptEnabled,
   });
 
   const errors = validation.issues.filter((issue) => issue.level === "error");
   if (errors.length > 0) {
+    const commandName = options.check ? "compile --check" : "compile";
     throw new Error(
-      ["compile --check validation failed:", ...errors.map((issue) => `- ${issue.message}`)].join(
+      [`${commandName} validation failed:`, ...errors.map((issue) => `- ${issue.message}`)].join(
         "\n",
       ),
     );
   }
+
+  if (options.check) {
+    return;
+  }
+
+  const snapshotFiles = await readCurrentSnapshotFileHashes(statePaths, manifest.snapshotFiles);
+  const output = await materializeCompileOutput({
+    declarations: definitionInput.declarations,
+    resolver: graph.resolver,
+    statePaths,
+  });
+  const compileBaseline = await buildCompileBaseline({
+    config: workspace.config,
+    snapshotFiles,
+    sourceFiles: definitionInput.files,
+    workspaceRoot: workspace.workspaceRoot,
+  });
+
+  await writeSyncManifest(statePaths.syncManifestPath, {
+    ...manifest,
+    compileBaseline,
+    generatedFiles: output.generatedFiles,
+    snapshotFiles,
+  });
 }
 
-async function assertProjectDataSnapshotExists(statePaths: WorkspaceStatePaths): Promise<void> {
+export async function isGeneratedProjectDataFresh(
+  options: WorkspaceCommandOptions,
+): Promise<boolean> {
+  const workspace = await loadWorkspace(options.workspaceRoot);
+  const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
+  const manifest = await readSyncManifest(statePaths.syncManifestPath);
+
+  if (manifest?.compileBaseline === undefined) {
+    return false;
+  }
+
+  const files = await discoverDefinitionFiles(workspace.workspaceRoot, {
+    sourceRoot: workspace.config.sourceRoot,
+    sourceInclude: workspace.config.sourceInclude,
+    sourceExclude: workspace.config.sourceExclude,
+  });
+  const snapshotFiles = await readCurrentSnapshotFileHashes(statePaths, manifest.snapshotFiles);
+
+  return isCompileBaselineFresh({
+    baseline: manifest.compileBaseline,
+    config: workspace.config,
+    snapshotFiles,
+    sourceFiles: files,
+    workspaceRoot: workspace.workspaceRoot,
+  });
+}
+
+async function assertProjectDataSnapshotExists(
+  statePaths: WorkspaceStatePaths,
+  commandName: string,
+): Promise<SyncManifest> {
   const manifest = await readSyncManifest(statePaths.syncManifestPath);
   if (manifest === null) {
     throw new Error(
-      "Project Data Snapshot is required before compile --check. Run clone or pull first.",
+      `Project Data Snapshot is required before ${commandName}. Run clone or pull first.`,
     );
   }
 
@@ -106,15 +171,17 @@ async function assertProjectDataSnapshotExists(statePaths: WorkspaceStatePaths):
 
   if (snapshotStats === null || !snapshotStats.isDirectory()) {
     throw new Error(
-      "Project Data Snapshot is required before compile --check. Run clone or pull first.",
+      `Project Data Snapshot is required before ${commandName}. Run clone or pull first.`,
     );
   }
+
+  return manifest;
 }
 
-async function loadDiscoveredDeclarations(
+async function loadDiscoveredDefinitionInput(
   workspaceRoot: string,
   discovery: DefinitionSourceDiscovery,
-): Promise<DslOwnedDeclaration[]> {
+): Promise<{ declarations: DslOwnedDeclaration[]; files: string[] }> {
   const files = await discoverDefinitionFiles(workspaceRoot, discovery);
   const declarations: DslOwnedDeclaration[] = [];
 
@@ -122,7 +189,21 @@ async function loadDiscoveredDeclarations(
     declarations.push(...(await loadDefinitionFile(file)));
   }
 
-  return declarations;
+  return { declarations, files };
+}
+
+async function readCurrentSnapshotFileHashes(
+  statePaths: WorkspaceStatePaths,
+  snapshotFiles: readonly FileHashEntry[],
+): Promise<FileHashEntry[]> {
+  const entries = await Promise.all(
+    snapshotFiles.map(async ({ relativePath }) => ({
+      hash: hashUtf8Content(await readSnapshotFile(statePaths, relativePath)),
+      relativePath,
+    })),
+  );
+
+  return entries.sort((left, right) => left.relativePath.localeCompare(right.relativePath));
 }
 
 async function loadSnapshotReferenceInput(

@@ -9,6 +9,7 @@ import { writeStableJson } from "./writer.js";
 
 export const workspaceStateDirectoryName = ".rmmv-event-dsl";
 export const projectDataSnapshotDirectoryName = "project-data-snapshot";
+export const generatedProjectDataDirectoryName = "generated-project-data";
 export const syncManifestFileName = "sync-manifest.json";
 
 export const standardDatabaseFileNames = [
@@ -30,6 +31,46 @@ export const standardDatabaseFileNames = [
 
 export const syncManifestSchema = z
   .object({
+    compileBaseline: z
+      .object({
+        hash: z.string().min(1),
+        config: z
+          .object({
+            scriptEnabled: z.boolean(),
+            sourceExclude: z.array(z.string().min(1)),
+            sourceInclude: z.array(z.string().min(1)),
+            sourceRoot: z.string().min(1),
+          })
+          .strict(),
+        snapshotFiles: z.array(
+          z
+            .object({
+              hash: z.string().min(1),
+              relativePath: z.string().min(1),
+            })
+            .strict(),
+        ),
+        sourceFiles: z.array(
+          z
+            .object({
+              hash: z.string().min(1),
+              relativePath: z.string().min(1),
+            })
+            .strict(),
+        ),
+      })
+      .strict()
+      .optional(),
+    generatedFiles: z
+      .array(
+        z
+          .object({
+            hash: z.string().min(1),
+            relativePath: z.string().min(1),
+          })
+          .strict(),
+      )
+      .optional(),
     snapshotFiles: z.array(
       z
         .object({
@@ -44,6 +85,7 @@ export const syncManifestSchema = z
 export type WorkspaceStatePaths = {
   workspaceStateDirectory: string;
   projectDataSnapshotDirectory: string;
+  generatedProjectDataDirectory: string;
   syncManifestPath: string;
 };
 
@@ -63,6 +105,10 @@ export function getWorkspaceStatePaths(workspaceRoot: string): WorkspaceStatePat
     projectDataSnapshotDirectory: resolve(
       workspaceStateDirectory,
       projectDataSnapshotDirectoryName,
+    ),
+    generatedProjectDataDirectory: resolve(
+      workspaceStateDirectory,
+      generatedProjectDataDirectoryName,
     ),
     syncManifestPath: resolve(workspaceStateDirectory, syncManifestFileName),
   };
@@ -206,6 +252,10 @@ async function assertReadableFile(filePath: string): Promise<void> {
 
 function hashContent(content: string): string {
   return createHash("sha256").update(content, "utf8").digest("hex");
+}
+
+export function hashUtf8Content(content: string): string {
+  return hashContent(content);
 }
 
 function formatMapFileName(mapId: number): string {
