@@ -30,7 +30,7 @@ describe("loadWorkspace", () => {
       "utf8",
     );
     await mkdir(projectRoot, { recursive: true });
-    await writeFile(join(projectRoot, ".rpgproject"), "", "utf8");
+    await writeFile(join(projectRoot, "Game.rpgproject"), "", "utf8");
     await mkdir(dataDirectory, { recursive: true });
 
     const workspace = await loadWorkspace(workspaceRoot);
@@ -60,10 +60,30 @@ describe("loadWorkspace", () => {
       "utf8",
     );
     await mkdir(projectRoot, { recursive: true });
-    await writeFile(join(projectRoot, ".rpgproject"), "", "utf8");
+    await writeFile(join(projectRoot, "Game.rpgproject"), "", "utf8");
     await mkdir(dataDirectory, { recursive: true });
 
     await expect(loadWorkspace(workspaceRoot)).rejects.toThrow("sourceRoot");
+  });
+
+  it("rejects a project root without an RPG Maker project marker", async () => {
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-workspace-marker-"));
+    const projectRoot = join(workspaceRoot, "..", "MyGame-missing-marker");
+
+    await writeFile(
+      join(workspaceRoot, "rmmv-event-dsl.config.json"),
+      JSON.stringify({
+        projectRoot: "../MyGame-missing-marker",
+        scriptEnabled: false,
+        sourceRoot: "src",
+        sourceInclude: ["**/*.events.ts", "**/*.dsl.ts"],
+        sourceExclude: ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"],
+      }),
+      "utf8",
+    );
+    await mkdir(join(projectRoot, "data"), { recursive: true });
+
+    await expect(loadWorkspace(workspaceRoot)).rejects.toThrow("to contain a *.rpgproject file");
   });
 });
 
@@ -74,7 +94,7 @@ describe("initWorkspace", () => {
     const dataDirectory = join(projectRoot, "data");
 
     await mkdir(projectRoot, { recursive: true });
-    await writeFile(join(projectRoot, ".rpgproject"), "", "utf8");
+    await writeFile(join(projectRoot, "Game.rpgproject"), "", "utf8");
     await mkdir(dataDirectory, { recursive: true });
 
     const result = await initWorkspace({

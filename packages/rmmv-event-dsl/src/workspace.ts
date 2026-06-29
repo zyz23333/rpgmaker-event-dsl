@@ -1,4 +1,4 @@
-import { mkdir, readFile, stat, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, stat, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 import { z } from "zod";
@@ -80,7 +80,14 @@ export async function initWorkspace(options: InitWorkspaceOptions): Promise<Load
 }
 
 async function assertProjectRoot(projectRoot: string): Promise<void> {
-  await readFile(resolve(projectRoot, ".rpgproject"), "utf8");
+  const entries = await readdir(projectRoot, { withFileTypes: true });
+  const projectMarkers = entries.filter(
+    (entry) => entry.isFile() && entry.name.endsWith(".rpgproject"),
+  );
+
+  if (projectMarkers.length === 0) {
+    throw new Error(`Expected ${projectRoot} to contain a *.rpgproject file.`);
+  }
 }
 
 async function assertDirectoryExists(directoryPath: string): Promise<void> {

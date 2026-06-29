@@ -32,7 +32,7 @@ describe("CLI entrypoint", () => {
     const projectRoot = join(workspaceRoot, "..", "MyGame-cli");
 
     await mkdir(projectRoot, { recursive: true });
-    await writeFile(join(projectRoot, ".rpgproject"), "", "utf8");
+    await writeFile(join(projectRoot, "Game.rpgproject"), "", "utf8");
     await mkdir(join(projectRoot, "data"), { recursive: true });
 
     await execFileAsync(nodeCommand, [

@@ -53,7 +53,7 @@ async function writeProjectFixture(
   const dataDirectory = join(projectRoot, "data");
 
   await mkdir(dataDirectory, { recursive: true });
-  await writeFile(join(projectRoot, ".rpgproject"), "", "utf8");
+  await writeFile(join(projectRoot, "Game.rpgproject"), "", "utf8");
 
   await writeFile(
     join(dataDirectory, "Actors.json"),
