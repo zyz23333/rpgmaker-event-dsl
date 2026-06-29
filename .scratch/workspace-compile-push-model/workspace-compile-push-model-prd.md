@@ -152,6 +152,6 @@ The workspace compile model uses Domain-Wide Takeover. Once a Data Domain is DSL
 
 ## Further Notes
 
-This PRD follows ADR-0005 and ADR-0006. ADR-0005 supersedes the direct-write shape from ADR-0002 and ADR-0003 for the next implementation phase. ADR-0006 fixes Entry Identity on explicit RPG Maker MV IDs rather than Display Names or Sync Manifest bindings.
+This PRD follows ADR-0003 and ADR-0004. ADR-0003 defines the workspace compile/push workflow. ADR-0004 fixes Entry Identity on explicit RPG Maker MV IDs rather than Display Names or Sync Manifest bindings.
 
 The expected follow-up is a design document for the workspace data layout, command contracts, source discovery behavior, Staged Data Graph construction, structured diff schema, and push safety checks.

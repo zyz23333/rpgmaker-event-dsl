@@ -48,7 +48,7 @@ Make normal `compile` produce complete Generated Project Data and Sync Manifest 
 - Decisions: Generated Project Data is complete carrier output; Compile Baseline includes sources, config, and snapshot hashes.
 - Invariants: Compile never mutates Project Root or Project Data Snapshot; Generated Project Data never uses sparse MV ID arrays.
 - Completion Contract: OT-04, OT-06, OUT-04, OUT-05, OUT-06
-- Canonical docs: `CONTEXT.md`, ADR-0005, ADR-0006, `../workspace-compile-push-model-design.md`
+- Canonical docs: `CONTEXT.md`, ADR-0003, ADR-0004, `../workspace-compile-push-model-design.md`
 
 ## Code Context
 

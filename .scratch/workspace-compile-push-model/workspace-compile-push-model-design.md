@@ -12,7 +12,7 @@ Draft
 
 The current implementation is a first-version direct-write workflow. The CLI exposes `init`, `lint`, `create`, and `replace`; `runWorkflow` loads a configured Project Root, iterates `definitionTargets`, validates selected Event Definitions against the current Project Index, then writes changed `Map###.json` or `CommonEvents.json` files directly to the Project Root for non-preview create/replace runs.
 
-ADR-0005 replaces that direct-write shape with a workspace-level `clone` / `pull` / `decompile` / `compile` / `diff` / `push` model. ADR-0006 fixes Entry Identity on explicit RPG Maker MV IDs rather than Display Names or Sync Manifest bindings. The PRD captures the product need: brownfield projects need a local Compile Output and synchronization gate so Event DSL can take over Event Data Store plus System Data variable and switch entries without silently overwriting editor-side changes.
+ADR-0003 defines the workspace-level `clone` / `pull` / `decompile` / `compile` / `diff` / `push` model. ADR-0004 fixes Entry Identity on explicit RPG Maker MV IDs rather than Display Names or Sync Manifest bindings. The PRD captures the product need: brownfield projects need a local Compile Output and synchronization gate so Event DSL can take over Event Data Store plus System Data variable and switch entries without silently overwriting editor-side changes.
 
 The current codebase has useful seams to preserve: CLI construction, workspace config loading, project data loading, DSL source evaluation, event command compilation, MV-style JSON writing, and workflow-style tests that build temporary MV-like projects. The design changes the orchestration model around those seams rather than preserving `create` / `replace` semantics.
 
@@ -79,8 +79,8 @@ Current behavior is unsafe and too low-level for the intended product model:
 ## Canonical References
 
 - `CONTEXT.md`
-- `docs/adr/0005-workspace-compile-push-model.md`
-- `docs/adr/0006-explicit-mv-id-entry-identity.md`
+- `docs/adr/0003-workspace-compile-push-model.md`
+- `docs/adr/0004-explicit-mv-id-entry-identity.md`
 - `.scratch/workspace-compile-push-model/workspace-compile-push-model-prd.md`
 - `packages/rmmv-event-dsl/src/cli.ts`
 - `packages/rmmv-event-dsl/src/workspace.ts`
@@ -436,7 +436,7 @@ Verbose diagnostics may include affected files, Data Domains, and Entry Identiti
 
 ### Rollout / Migration / Cleanup
 
-The project is still in development, so direct replacement is allowed. Tests and examples should be updated to the new command model rather than maintaining backward-compatible direct-write behavior. ADR-0005 explicitly supersedes the relevant direct-write parts of ADR-0002 and ADR-0003.
+The project is still in development, so direct replacement is allowed. Tests and examples should be updated to the new command model rather than maintaining backward-compatible direct-write behavior.
 
 ## Phase Slices
 
@@ -477,7 +477,7 @@ The project is still in development, so direct replacement is allowed. Tests and
 ### Required Canonical Updates
 
 - [ ] DOC-01: `CONTEXT.md` uses the new workspace compile/push vocabulary consistently.
-- [ ] DOC-02: ADR-0005 and ADR-0006 remain aligned with implementation behavior.
+- [ ] DOC-02: ADR-0003 and ADR-0004 remain aligned with implementation behavior.
 - [ ] DOC-03: User-facing examples and sample workspace config reflect source-root discovery and explicit Entry Identity.
 - [ ] DOC-04: README or CLI help describes the new command workflow and safe push behavior.
 

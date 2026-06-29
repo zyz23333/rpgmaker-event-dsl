@@ -56,7 +56,7 @@ Close the change by verifying every Observable Truth, Required Design Outcome, a
 - Decisions: All Locked Decisions
 - Invariants: All Invariants
 - Completion Contract: OT-01 through OT-09, OUT-01 through OUT-08, DOC-01 through DOC-04
-- Canonical docs: `CONTEXT.md`, ADR-0005, ADR-0006, `../workspace-compile-push-model-design.md`
+- Canonical docs: `CONTEXT.md`, ADR-0003, ADR-0004, `../workspace-compile-push-model-design.md`
 
 ## Code Context
 

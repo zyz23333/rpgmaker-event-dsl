@@ -49,7 +49,7 @@ Implement the only Project Root write path with freshness, drift, destructive-ch
 - Decisions: Push writes only Affected Project Data Files; Destructive Push does not bypass freshness or drift.
 - Invariants: Push is the only command that writes Project Root data; normal Push never applies Destructive Changes.
 - Completion Contract: OT-06, OT-07, OT-08, OT-09
-- Canonical docs: `CONTEXT.md`, ADR-0005, `../workspace-compile-push-model-design.md`
+- Canonical docs: `CONTEXT.md`, ADR-0003, `../workspace-compile-push-model-design.md`
 
 ## Code Context
 

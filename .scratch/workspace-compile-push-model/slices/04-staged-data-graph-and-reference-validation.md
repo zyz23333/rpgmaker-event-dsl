@@ -51,7 +51,7 @@ Build the Staged Data Graph and validation model that makes workspace compilatio
 - Decisions: Map Event identity is `{ mapId, eventId }`; DSL-owned domains do not fall back to snapshot entries; Explicit ID References must exist in visible scope.
 - Invariants: External Project Data References do not imply ownership of their Data Domains.
 - Completion Contract: OUT-02, OUT-03
-- Canonical docs: `CONTEXT.md`, ADR-0006, `../workspace-compile-push-model-design.md`
+- Canonical docs: `CONTEXT.md`, ADR-0004, `../workspace-compile-push-model-design.md`
 
 ## Code Context
 

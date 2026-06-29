@@ -48,7 +48,7 @@ Establish the public command surface and Workspace Config shape for the workspac
 - Decisions: Workspace Config uses `sourceRoot`, `sourceInclude`, and `sourceExclude`; direct public `create`/`replace`/`lint` commands are removed.
 - Invariants: Push is the only command that writes Project Root data; Compile Check never mutates Workspace Data State.
 - Completion Contract: OT-01, OUT-01, OUT-07
-- Canonical docs: `CONTEXT.md`, ADR-0005, `../workspace-compile-push-model-design.md`
+- Canonical docs: `CONTEXT.md`, ADR-0003, `../workspace-compile-push-model-design.md`
 
 ## Code Context
 

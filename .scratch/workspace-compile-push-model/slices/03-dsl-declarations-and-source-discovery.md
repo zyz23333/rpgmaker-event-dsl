@@ -49,7 +49,7 @@ Expand the authoring surface and source collection model so workspace compilatio
 - Decisions: DSL-owned entries declare Entry Identity; variables/switches are `System.json` name entries; source discovery does not evaluate every TypeScript file.
 - Invariants: Entry Identity uniqueness is enforced later by the Staged Data Graph.
 - Completion Contract: OUT-02, OUT-07
-- Canonical docs: `CONTEXT.md`, ADR-0006, `../workspace-compile-push-model-design.md`
+- Canonical docs: `CONTEXT.md`, ADR-0004, `../workspace-compile-push-model-design.md`
 
 ## Code Context
 

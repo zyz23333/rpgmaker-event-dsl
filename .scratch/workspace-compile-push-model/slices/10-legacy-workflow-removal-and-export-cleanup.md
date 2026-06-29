@@ -49,7 +49,7 @@ Remove old direct-write workflow surfaces after the new compile/push workflow is
 - Decisions: `create`, `replace`, and standalone `lint` are removed from public CLI.
 - Invariants: Push is the only command that writes Project Root data.
 - Completion Contract: OT-01, DOC-03, DOC-04
-- Canonical docs: ADR-0005, `../workspace-compile-push-model-design.md`
+- Canonical docs: ADR-0003, `../workspace-compile-push-model-design.md`
 
 ## Code Context
 
