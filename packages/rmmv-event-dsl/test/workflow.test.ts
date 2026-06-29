@@ -1,4 +1,4 @@
-import { mkdir, mkdtemp, readdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
@@ -10,6 +10,7 @@ import {
   diffWorkspace,
   isGeneratedProjectDataFresh,
   pullWorkspace,
+  pushWorkspace,
 } from "../src/workflow.js";
 import { getWorkspaceStatePaths, readSyncManifest } from "../src/state.js";
 
@@ -779,6 +780,171 @@ export const gateSwitch = {
   });
 });
 
+describe("push workflow", () => {
+  it("fails when Generated Project Data is missing", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(buildCompleteCoverageSource());
+
+    await expect(pushWorkspace({ workspaceRoot, allowDestructive: false })).rejects.toThrow(
+      "Generated Project Data is required before push. Run compile first.",
+    );
+  });
+
+  it("fails when Generated Project Data is stale", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(buildCompleteCoverageSource());
+
+    await compileWorkspace({ workspaceRoot, check: false });
+    await writeFile(
+      join(workspaceRoot, "src", "events.events.ts"),
+      buildCompleteCoverageSource({
+        mapEventName: "Changed Gate",
+      }),
+      "utf8",
+    );
+
+    await expect(pushWorkspace({ workspaceRoot, allowDestructive: false })).rejects.toThrow(
+      "Generated Project Data is stale before push. Run compile first.",
+    );
+  });
+
+  it("fails when Generated Project Data hashes do not match the Sync Manifest", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(buildCompleteCoverageSource());
+    const statePaths = getWorkspaceStatePaths(workspaceRoot);
+
+    await compileWorkspace({ workspaceRoot, check: false });
+    await writeFile(
+      join(statePaths.generatedProjectDataDirectory, "Map001.json"),
+      JSON.stringify({ id: 1, events: [null] }),
+      "utf8",
+    );
+
+    await expect(pushWorkspace({ workspaceRoot, allowDestructive: false })).rejects.toThrow(
+      "Generated Project Data integrity check failed before push. Run compile first.",
+    );
+  });
+
+  it("reports Project Drift when an affected Project Root file is missing", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(buildCompleteCoverageSource());
+    const projectRoot = createProjectRootFixture(workspaceRoot);
+    const statePaths = getWorkspaceStatePaths(workspaceRoot);
+
+    await compileWorkspace({ workspaceRoot, check: false });
+    const manifestBefore = await readFile(statePaths.syncManifestPath, "utf8");
+    await rm(join(projectRoot, "data", "Map001.json"), { force: true });
+
+    await expect(pushWorkspace({ workspaceRoot, allowDestructive: false })).rejects.toThrow(
+      "Project Drift detected before push for Map001.json. Run pull first.",
+    );
+    expect(await readFile(statePaths.syncManifestPath, "utf8")).toBe(manifestBefore);
+  });
+
+  it("checks Project Drift only for affected Project Data files", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(buildCompleteCoverageSource());
+    const projectRoot = createProjectRootFixture(workspaceRoot);
+
+    await compileWorkspace({ workspaceRoot, check: false });
+    await writeFile(
+      join(projectRoot, "data", "Actors.json"),
+      JSON.stringify([null, { id: 1, name: "Edited Hero" }]),
+      "utf8",
+    );
+    await writeFile(
+      join(projectRoot, "data", "PluginData.json"),
+      JSON.stringify({ edited: true }),
+      "utf8",
+    );
+
+    await expect(
+      pushWorkspace({ workspaceRoot, allowDestructive: false }),
+    ).resolves.toBeUndefined();
+
+    await writeFile(
+      join(workspaceRoot, "src", "events.events.ts"),
+      buildCompleteCoverageSource({
+        mapEventName: "Changed Gate",
+      }),
+      "utf8",
+    );
+    await compileWorkspace({ workspaceRoot, check: false });
+    await writeFile(
+      join(projectRoot, "data", "Map001.json"),
+      JSON.stringify({ id: 1, events: [null, { id: 1, name: "Editor Drift" }] }),
+      "utf8",
+    );
+
+    await expect(pushWorkspace({ workspaceRoot, allowDestructive: false })).rejects.toThrow(
+      "Project Drift detected before push for Map001.json. Run pull first.",
+    );
+  });
+
+  it("rejects destructive changes unless explicitly allowed", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(
+      buildCompleteCoverageSource({
+        includeSnapshotOnlySwitch: false,
+        includeSnapshotOnlyVariable: false,
+      }),
+    );
+    const statePaths = getWorkspaceStatePaths(workspaceRoot);
+    const projectRoot = createProjectRootFixture(workspaceRoot);
+    const projectSystemBefore = await readFile(join(projectRoot, "data", "System.json"), "utf8");
+    const snapshotSystemBefore = await readFile(
+      join(statePaths.projectDataSnapshotDirectory, "System.json"),
+      "utf8",
+    );
+
+    await compileWorkspace({ workspaceRoot, check: false });
+
+    await expect(pushWorkspace({ workspaceRoot, allowDestructive: false })).rejects.toThrow(
+      "Destructive Changes detected before push. Re-run with --allow-destructive after review.",
+    );
+    expect(await readFile(join(projectRoot, "data", "System.json"), "utf8")).toBe(
+      projectSystemBefore,
+    );
+    expect(
+      await readFile(join(statePaths.projectDataSnapshotDirectory, "System.json"), "utf8"),
+    ).toBe(snapshotSystemBefore);
+
+    await expect(pushWorkspace({ workspaceRoot, allowDestructive: true })).resolves.toBeUndefined();
+
+    const pushedSystem = JSON.parse(
+      await readFile(join(projectRoot, "data", "System.json"), "utf8"),
+    );
+    expect(pushedSystem.switches).toEqual(["", "Switch One", ""]);
+    expect(pushedSystem.variables).toEqual(["", "Variable One", ""]);
+  });
+
+  it("writes affected Project Root data and refreshes affected Snapshot and Manifest", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(buildCompleteCoverageSource());
+    const projectRoot = createProjectRootFixture(workspaceRoot);
+    const statePaths = getWorkspaceStatePaths(workspaceRoot);
+    const projectMapBefore = await readFile(join(projectRoot, "data", "Map001.json"), "utf8");
+
+    await compileWorkspace({ workspaceRoot, check: false });
+    const manifestBefore = await readSyncManifest(statePaths.syncManifestPath);
+
+    await pushWorkspace({ workspaceRoot, allowDestructive: false });
+
+    const generatedMap = await readFile(
+      join(statePaths.generatedProjectDataDirectory, "Map001.json"),
+      "utf8",
+    );
+    const projectMap = await readFile(join(projectRoot, "data", "Map001.json"), "utf8");
+    const snapshotMap = await readFile(
+      join(statePaths.projectDataSnapshotDirectory, "Map001.json"),
+      "utf8",
+    );
+    const manifestAfter = await readSyncManifest(statePaths.syncManifestPath);
+
+    expect(projectMapBefore).not.toBe(projectMap);
+    expect(projectMap).toBe(generatedMap);
+    expect(snapshotMap).toBe(generatedMap);
+    expect(manifestAfter?.snapshotFiles).toContainEqual(
+      manifestAfter?.generatedFiles?.find((entry) => entry.relativePath === "Map001.json"),
+    );
+    expect(manifestAfter?.compileBaseline).not.toEqual(manifestBefore?.compileBaseline);
+    await expect(isGeneratedProjectDataFresh({ workspaceRoot })).resolves.toBe(true);
+  });
+});
+
 async function createClonedWorkspaceWithSource(sourceText: string): Promise<string> {
   const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-check-"));
   const projectRoot = createProjectRootFixture(workspaceRoot);
@@ -790,4 +956,67 @@ async function createClonedWorkspaceWithSource(sourceText: string): Promise<stri
   await writeFile(join(workspaceRoot, "src", "events.events.ts"), sourceText, "utf8");
 
   return workspaceRoot;
+}
+
+function buildCompleteCoverageSource(overrides?: {
+  includeSnapshotOnlySwitch?: boolean;
+  includeSnapshotOnlyVariable?: boolean;
+  mapEventName?: string;
+}): string {
+  return `export const switchOne = {
+  kind: "switchDefinition",
+  id: 1,
+  name: "Switch One",
+};
+
+${
+  overrides?.includeSnapshotOnlySwitch === false
+    ? ""
+    : `export const snapshotOnlySwitch = {
+  kind: "switchDefinition",
+  id: 2,
+  name: "Snapshot Only Switch",
+};
+`
+}
+export const variableOne = {
+  kind: "variableDefinition",
+  id: 1,
+  name: "Variable One",
+};
+
+${
+  overrides?.includeSnapshotOnlyVariable === false
+    ? ""
+    : `export const snapshotOnlyVariable = {
+  kind: "variableDefinition",
+  id: 2,
+  name: "Snapshot Only Variable",
+};
+`
+}
+export const common = {
+  kind: "commonEvent",
+  id: 1,
+  name: "Common",
+  trigger: "none",
+  commands: [],
+};
+
+export const gate = {
+  kind: "mapEvent",
+  mapId: 1,
+  id: 1,
+  name: "${overrides?.mapEventName ?? "Gate"}",
+  x: 0,
+  y: 0,
+  pages: [
+    {
+      conditions: {},
+      trigger: "action",
+      commands: [],
+    },
+  ],
+};
+`;
 }
