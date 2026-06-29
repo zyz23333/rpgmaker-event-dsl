@@ -2,7 +2,7 @@
 
 ## Status
 
-Ready
+Done
 
 ## Type
 
@@ -65,18 +65,18 @@ Generate usable DSL source from snapshot carrier files in a deterministic, non-d
 
 ## Acceptance Criteria
 
-- [ ] `decompile` fails when no Project Data Snapshot exists.
-- [ ] `decompile` writes:
+- [x] `decompile` fails when no Project Data Snapshot exists.
+- [x] `decompile` writes:
   - `src/decompiled/maps/Map###.events.ts`
   - `src/decompiled/common-events.events.ts`
   - `src/decompiled/system.dsl.ts`
-- [ ] Decompile preflights all target paths and fails before writing if any target exists.
-- [ ] Map Event declarations include `mapId` and event `id`.
-- [ ] Common Event declarations include `id`.
-- [ ] Variable/Switch declarations include `id` and non-empty `name`.
-- [ ] Empty variable/switch name slots are not emitted.
-- [ ] Unsupported event commands are emitted through `rawDslCommand`.
-- [ ] Generated source matches Definition Source Discovery include patterns.
+- [x] Decompile preflights all target paths and fails before writing if any target exists.
+- [x] Map Event declarations include `mapId` and event `id`.
+- [x] Common Event declarations include `id`.
+- [x] Variable/Switch declarations include `id` and non-empty `name`.
+- [x] Empty variable/switch name slots are not emitted.
+- [x] Unsupported event commands are emitted through `rawDslCommand`.
+- [x] Generated source matches Definition Source Discovery include patterns.
 
 ## Implementation Notes
 
@@ -97,9 +97,17 @@ pnpm --filter @rmmv-event-dsl/core test -- workflow.test.ts definitions.test.ts
 pnpm --filter @rmmv-event-dsl/core typecheck
 ```
 
+Additional verification run during implementation:
+
+```bash
+pnpm format:check
+pnpm lint
+pnpm --filter @rmmv-event-dsl/core test
+```
+
 ## Done When
 
-- [ ] Acceptance criteria pass.
-- [ ] Verification commands pass or skipped reason is documented.
-- [ ] Design references remain satisfied.
-- [ ] No unrelated scope was added.
+- [x] Acceptance criteria pass.
+- [x] Verification commands pass or skipped reason is documented.
+- [x] Design references remain satisfied.
+- [x] No unrelated scope was added.

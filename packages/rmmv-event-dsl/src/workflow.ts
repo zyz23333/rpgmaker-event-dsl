@@ -7,6 +7,7 @@ import {
   loadDefinitionFile,
   type DefinitionSourceDiscovery,
 } from "./definitions.js";
+import { decompileProjectDataSnapshot } from "./decompiler.js";
 import type { DslOwnedDeclaration } from "./dsl.js";
 import {
   buildCompileBaseline,
@@ -61,10 +62,16 @@ export async function pullWorkspace(options: WorkspaceCommandOptions): Promise<v
   await cloneWorkspace(options);
 }
 
-export async function decompileWorkspace(options: WorkspaceCommandOptions): Promise<never> {
-  throw new Error(
-    `decompile workflow is not implemented yet for workspace ${options.workspaceRoot}.`,
-  );
+export async function decompileWorkspace(options: WorkspaceCommandOptions): Promise<void> {
+  const workspace = await loadWorkspace(options.workspaceRoot);
+  const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
+
+  await assertProjectDataSnapshotExists(statePaths, "decompile");
+  await decompileProjectDataSnapshot({
+    sourceRoot: workspace.config.sourceRoot,
+    statePaths,
+    workspaceRoot: workspace.workspaceRoot,
+  });
 }
 
 export async function compileWorkspace(options: CompileWorkspaceOptions): Promise<void> {

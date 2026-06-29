@@ -7,12 +7,14 @@ import { describe, expect, it } from "vitest";
 import {
   cloneWorkspace,
   compileWorkspace,
+  decompileWorkspace,
   diffWorkspace,
   isGeneratedProjectDataFresh,
   pullWorkspace,
   pushWorkspace,
 } from "../src/workflow.js";
 import { getWorkspaceStatePaths, readSyncManifest } from "../src/state.js";
+import { discoverDefinitionFiles, loadDefinitionFile } from "../src/definitions.js";
 
 function createProjectRootFixture(workspaceRoot: string): string {
   return join(workspaceRoot, "Game");
@@ -221,6 +223,181 @@ describe("workspace snapshot workflow", () => {
     await expect(
       readFile(join(statePaths.projectDataSnapshotDirectory, "Map999.json"), "utf8"),
     ).rejects.toThrow();
+  });
+});
+
+describe("decompile workflow", () => {
+  it("fails when no Project Data Snapshot exists", async () => {
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-decompile-no-snapshot-"));
+    const projectRoot = createProjectRootFixture(workspaceRoot);
+
+    await writeProjectFixture(projectRoot);
+    await writeWorkspaceConfig(workspaceRoot);
+
+    await expect(decompileWorkspace({ workspaceRoot })).rejects.toThrow(
+      "Project Data Snapshot is required before decompile",
+    );
+  });
+
+  it("writes the fixed source layout with explicit Entry Identity and raw command fallback", async () => {
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-decompile-"));
+    const projectRoot = createProjectRootFixture(workspaceRoot);
+
+    await writeProjectFixture(projectRoot, { secondMap: true });
+    await writeWorkspaceConfig(workspaceRoot);
+    await writeDslPackageTypes(workspaceRoot);
+    await writeFile(
+      join(projectRoot, "data", "Map001.json"),
+      JSON.stringify({
+        id: 1,
+        events: [
+          null,
+          {
+            id: 1,
+            name: "Gate",
+            x: 4,
+            y: 5,
+            pages: [
+              {
+                conditions: {
+                  switch1Id: 1,
+                  switch1Valid: true,
+                },
+                list: [
+                  { code: 101, indent: 0, parameters: ["", 0, 0, 2] },
+                  { code: 401, indent: 0, parameters: ["Hello"] },
+                  { code: 250, indent: 0, parameters: [{ name: "Bell", volume: 90 }] },
+                  { code: 0, indent: 0, parameters: [] },
+                ],
+                trigger: 0,
+              },
+            ],
+          },
+        ],
+      }),
+      "utf8",
+    );
+    await writeFile(
+      join(projectRoot, "data", "CommonEvents.json"),
+      JSON.stringify([
+        null,
+        {
+          id: 1,
+          list: [
+            { code: 117, indent: 0, parameters: [1] },
+            { code: 0, indent: 0, parameters: [] },
+          ],
+          name: "Common",
+          switchId: 1,
+          trigger: 2,
+        },
+      ]),
+      "utf8",
+    );
+    await writeFile(
+      join(projectRoot, "data", "System.json"),
+      JSON.stringify({
+        gameTitle: "Fixture Game",
+        switches: ["", "Switch One", ""],
+        variables: ["", "", "Variable Two"],
+      }),
+      "utf8",
+    );
+    await cloneWorkspace({ workspaceRoot });
+
+    await decompileWorkspace({ workspaceRoot });
+
+    const mapSource = await readFile(
+      join(workspaceRoot, "src", "decompiled", "maps", "Map001.events.ts"),
+      "utf8",
+    );
+    const secondMapSource = await readFile(
+      join(workspaceRoot, "src", "decompiled", "maps", "Map002.events.ts"),
+      "utf8",
+    );
+    const commonEventsSource = await readFile(
+      join(workspaceRoot, "src", "decompiled", "common-events.events.ts"),
+      "utf8",
+    );
+    const systemSource = await readFile(
+      join(workspaceRoot, "src", "decompiled", "system.dsl.ts"),
+      "utf8",
+    );
+
+    expect(mapSource).toContain("mapId: 1");
+    expect(mapSource).toContain("id: 1");
+    expect(mapSource).toContain('name: "Gate"');
+    expect(mapSource).toContain('showText(["Hello"])');
+    expect(mapSource).toContain("rawDslCommand({");
+    expect(mapSource).toContain("code: 250");
+    expect(secondMapSource).toContain("mapId: 2");
+    expect(secondMapSource).toContain("id: 1");
+    expect(secondMapSource).toContain('name: "Snapshot Only"');
+    expect(commonEventsSource).toContain("id: 1");
+    expect(commonEventsSource).toContain('trigger: "parallel"');
+    expect(commonEventsSource).toContain("callCommonEvent(commonEventRef({ id: 1 }))");
+    expect(systemSource).toContain("switchDefinition({");
+    expect(systemSource).toContain("id: 1");
+    expect(systemSource).toContain('name: "Switch One"');
+    expect(systemSource).toContain("variableDefinition({");
+    expect(systemSource).toContain("id: 2");
+    expect(systemSource).toContain('name: "Variable Two"');
+    expect(systemSource).not.toContain("id: 0");
+
+    const discoveredFiles = await discoverDefinitionFiles(workspaceRoot, {
+      sourceRoot: "src",
+      sourceInclude: ["**/*.events.ts", "**/*.dsl.ts"],
+      sourceExclude: ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"],
+    });
+    expect(discoveredFiles).toEqual([
+      join(workspaceRoot, "src", "decompiled", "common-events.events.ts"),
+      join(workspaceRoot, "src", "decompiled", "maps", "Map001.events.ts"),
+      join(workspaceRoot, "src", "decompiled", "maps", "Map002.events.ts"),
+      join(workspaceRoot, "src", "decompiled", "system.dsl.ts"),
+    ]);
+
+    const declarations = (
+      await Promise.all(discoveredFiles.map((file) => loadDefinitionFile(file)))
+    ).flat();
+    expect(declarations.map((declaration) => declaration.kind)).toEqual([
+      "commonEvent",
+      "mapEvent",
+      "mapEvent",
+      "switchDefinition",
+      "variableDefinition",
+    ]);
+  });
+
+  it("preflights all target files and fails before writing when any output exists", async () => {
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-decompile-existing-"));
+    const projectRoot = createProjectRootFixture(workspaceRoot);
+
+    await writeProjectFixture(projectRoot, { secondMap: true });
+    await writeWorkspaceConfig(workspaceRoot);
+    await cloneWorkspace({ workspaceRoot });
+    await mkdir(join(workspaceRoot, "src", "decompiled", "maps"), { recursive: true });
+    await writeFile(
+      join(workspaceRoot, "src", "decompiled", "common-events.events.ts"),
+      "export const userOwned = true;\n",
+      "utf8",
+    );
+
+    await expect(decompileWorkspace({ workspaceRoot })).rejects.toThrow(
+      "Decompile output already exists",
+    );
+
+    await expect(
+      readFile(join(workspaceRoot, "src", "decompiled", "maps", "Map001.events.ts"), "utf8"),
+    ).rejects.toThrow();
+    await expect(
+      readFile(join(workspaceRoot, "src", "decompiled", "maps", "Map002.events.ts"), "utf8"),
+    ).rejects.toThrow();
+    await expect(
+      readFile(join(workspaceRoot, "src", "decompiled", "system.dsl.ts"), "utf8"),
+    ).rejects.toThrow();
+    expect(
+      await readFile(join(workspaceRoot, "src", "decompiled", "common-events.events.ts"), "utf8"),
+    ).toBe("export const userOwned = true;\n");
   });
 });
 
@@ -956,6 +1133,66 @@ async function createClonedWorkspaceWithSource(sourceText: string): Promise<stri
   await writeFile(join(workspaceRoot, "src", "events.events.ts"), sourceText, "utf8");
 
   return workspaceRoot;
+}
+
+async function writeDslPackageTypes(workspaceRoot: string): Promise<void> {
+  const packageRoot = join(workspaceRoot, "node_modules", "@rmmv-event-dsl", "core");
+  await mkdir(packageRoot, { recursive: true });
+  await writeFile(
+    join(packageRoot, "package.json"),
+    JSON.stringify({
+      name: "@rmmv-event-dsl/core",
+      type: "module",
+      types: "./index.d.ts",
+      exports: {
+        ".": {
+          types: "./index.d.ts",
+          default: "./index.js",
+        },
+      },
+    }),
+    "utf8",
+  );
+  await writeFile(
+    join(packageRoot, "index.d.ts"),
+    `export declare function actorRef(value: { id: number } | { name: string }): unknown;
+export declare function callCommonEvent(value: unknown): unknown;
+export declare function comment(lines: readonly [string, ...string[]]): unknown;
+export declare function commonEvent(input: {
+  id: number;
+  name: string;
+  trigger: "none" | "autorun" | "parallel";
+  switch?: unknown;
+  commands: readonly unknown[];
+}): { kind: "commonEvent"; id: number; name: string; trigger: string; commands: readonly unknown[] };
+export declare function commonEventRef(value: { id: number } | { name: string }): unknown;
+export declare function itemRef(value: { id: number } | { name: string }): unknown;
+export declare function mapEvent(input: {
+  mapId: number;
+  id: number;
+  name: string;
+  x: number;
+  y: number;
+  pages: readonly unknown[];
+}): { kind: "mapEvent"; mapId: number; id: number; name: string; x: number; y: number; pages: readonly unknown[] };
+export declare function page(input: {
+  conditions?: Record<string, unknown>;
+  trigger?: string;
+  commands: readonly unknown[];
+}): unknown;
+export declare function rawDslCommand(input: {
+  code: number;
+  indent?: number;
+  parameters: readonly unknown[];
+}): unknown;
+export declare function showText(lines: readonly [string, ...string[]]): unknown;
+export declare function switchDefinition(input: { id: number; name: string }): { kind: "switchDefinition"; id: number; name: string };
+export declare function switchRef(value: { id: number } | { name: string }): unknown;
+export declare function variableDefinition(input: { id: number; name: string }): { kind: "variableDefinition"; id: number; name: string };
+export declare function variableRef(value: { id: number } | { name: string }): unknown;
+`,
+    "utf8",
+  );
 }
 
 function buildCompleteCoverageSource(overrides?: {
