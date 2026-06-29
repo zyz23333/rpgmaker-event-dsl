@@ -30,6 +30,7 @@ import {
   type SnapshotReferenceInput,
   type SnapshotReferenceSource,
 } from "./staged-graph.js";
+import { buildStructuredDiffReport, renderStructuredDiffReport } from "./structured-diff.js";
 import { loadWorkspace } from "./workspace.js";
 
 export type WorkspaceCommandOptions = {
@@ -263,8 +264,100 @@ function isMissingFileError(error: unknown): boolean {
   );
 }
 
-export async function diffWorkspace(options: WorkspaceCommandOptions): Promise<never> {
-  throw new Error(`diff workflow is not implemented yet for workspace ${options.workspaceRoot}.`);
+export async function diffWorkspace(options: WorkspaceCommandOptions): Promise<string> {
+  const workspace = await loadWorkspace(options.workspaceRoot);
+  const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
+  const manifest = await assertProjectDataSnapshotExists(statePaths, "diff");
+
+  await assertGeneratedProjectDataIntegrity(statePaths, manifest, "diff");
+
+  const files = await discoverDefinitionFiles(workspace.workspaceRoot, {
+    sourceRoot: workspace.config.sourceRoot,
+    sourceInclude: workspace.config.sourceInclude,
+    sourceExclude: workspace.config.sourceExclude,
+  });
+  const snapshotFiles = await readCurrentSnapshotFileHashes(statePaths, manifest.snapshotFiles);
+
+  if (
+    manifest.compileBaseline === undefined ||
+    !(await isCompileBaselineFresh({
+      baseline: manifest.compileBaseline,
+      config: workspace.config,
+      snapshotFiles,
+      sourceFiles: files,
+      workspaceRoot: workspace.workspaceRoot,
+    }))
+  ) {
+    throw new Error("Generated Project Data is stale before diff. Run compile first.");
+  }
+
+  const generatedFiles = manifest.generatedFiles ?? [];
+  const generated = await readJsonFiles(statePaths.generatedProjectDataDirectory, generatedFiles);
+  const snapshot = await readJsonFiles(statePaths.projectDataSnapshotDirectory, generatedFiles);
+  const report = buildStructuredDiffReport({ generated, snapshot });
+
+  return renderStructuredDiffReport(report);
+}
+
+async function assertGeneratedProjectDataIntegrity(
+  statePaths: WorkspaceStatePaths,
+  manifest: SyncManifest,
+  commandName: string,
+): Promise<void> {
+  if (manifest.generatedFiles === undefined || manifest.compileBaseline === undefined) {
+    throw new Error(`Generated Project Data is required before ${commandName}. Run compile first.`);
+  }
+
+  const generatedStats = await stat(statePaths.generatedProjectDataDirectory).catch(
+    (error: unknown) => {
+      if (isMissingFileError(error)) {
+        return null;
+      }
+
+      throw error;
+    },
+  );
+
+  if (generatedStats === null || !generatedStats.isDirectory()) {
+    throw new Error(`Generated Project Data is required before ${commandName}. Run compile first.`);
+  }
+
+  const currentGeneratedFiles = await Promise.all(
+    manifest.generatedFiles.map(async ({ relativePath }) => ({
+      hash: hashUtf8Content(
+        await readFile(resolve(statePaths.generatedProjectDataDirectory, relativePath), "utf8"),
+      ),
+      relativePath,
+    })),
+  );
+  currentGeneratedFiles.sort((left, right) => left.relativePath.localeCompare(right.relativePath));
+
+  const expectedGeneratedFiles = [...manifest.generatedFiles].sort((left, right) =>
+    left.relativePath.localeCompare(right.relativePath),
+  );
+
+  if (JSON.stringify(currentGeneratedFiles) !== JSON.stringify(expectedGeneratedFiles)) {
+    throw new Error(
+      `Generated Project Data integrity check failed before ${commandName}. Run compile first.`,
+    );
+  }
+}
+
+async function readJsonFiles(
+  directory: string,
+  files: readonly FileHashEntry[],
+): Promise<Map<string, unknown>> {
+  const entries = await Promise.all(
+    files.map(
+      async ({ relativePath }) =>
+        [
+          relativePath,
+          JSON.parse(await readFile(resolve(directory, relativePath), "utf8")),
+        ] as const,
+    ),
+  );
+
+  return new Map(entries);
 }
 
 export async function pushWorkspace(options: PushWorkspaceOptions): Promise<never> {

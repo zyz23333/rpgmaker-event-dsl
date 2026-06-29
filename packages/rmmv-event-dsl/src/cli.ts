@@ -73,7 +73,7 @@ export function createCli(): Command {
     .command("diff")
     .description("Compare Generated Project Data with the Project Data Snapshot.")
     .action(async () => {
-      await diffWorkspace({ workspaceRoot: process.cwd() });
+      console.log(await diffWorkspace({ workspaceRoot: process.cwd() }));
     });
 
   program

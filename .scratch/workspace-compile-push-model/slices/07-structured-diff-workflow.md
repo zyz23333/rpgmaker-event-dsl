@@ -2,7 +2,7 @@
 
 ## Status
 
-Ready
+Done
 
 ## Type
 
@@ -61,15 +61,15 @@ Add structured comparison logic and a CLI `diff` workflow that gives users a saf
 
 ## Acceptance Criteria
 
-- [ ] `diff` fails when Generated Project Data is missing.
-- [ ] `diff` fails when Generated Freshness does not match the current Compile Baseline.
-- [ ] `diff` does not read live Project Root files.
-- [ ] Diff report groups changes by Data Domain.
-- [ ] Diff report groups changes by Entry Identity.
-- [ ] Diff report classifies generated-only, snapshot-only, changed, unchanged, and non-owned-carried entries.
-- [ ] Snapshot-only DSL-owned entries are reported as Destructive Changes.
-- [ ] CLI output is human-readable and stable enough for tests.
-- [ ] No stable machine-readable JSON output is added.
+- [x] `diff` fails when Generated Project Data is missing.
+- [x] `diff` fails when Generated Freshness does not match the current Compile Baseline.
+- [x] `diff` does not read live Project Root files.
+- [x] Diff report groups changes by Data Domain.
+- [x] Diff report groups changes by Entry Identity.
+- [x] Diff report classifies generated-only, snapshot-only, changed, unchanged, and non-owned-carried entries.
+- [x] Snapshot-only DSL-owned entries are reported as Destructive Changes.
+- [x] CLI output is human-readable and stable enough for tests.
+- [x] No stable machine-readable JSON output is added.
 
 ## Implementation Notes
 
@@ -87,12 +87,32 @@ CLI output may omit unchanged entries by default, but the internal report model 
 
 ```bash
 pnpm --filter @rmmv-event-dsl/core test -- workflow.test.ts
+pnpm --filter @rmmv-event-dsl/core test -- structured-diff.test.ts
 pnpm --filter @rmmv-event-dsl/core typecheck
+pnpm lint
+pnpm format:check
+pnpm --filter @rmmv-event-dsl/core test
 ```
+
+## Implementation Summary
+
+- Added `packages/rmmv-event-dsl/src/structured-diff.ts` with an internal Structured Diff Report model and stable human-readable renderer.
+- Wired `diffWorkspace` to require Generated Project Data, verify generated output hashes, enforce Compile Baseline freshness, and compare only Generated Project Data against Project Data Snapshot.
+- Updated the CLI `diff` command to print the rendered Structured Diff Report.
+- Added focused classification tests and workflow tests for missing generated output, stale generated output, and Project Root independence.
+
+## Verification Results
+
+- `pnpm --filter @rmmv-event-dsl/core test -- workflow.test.ts`: passed, 16 tests.
+- `pnpm --filter @rmmv-event-dsl/core test -- structured-diff.test.ts`: passed, 2 tests.
+- `pnpm --filter @rmmv-event-dsl/core typecheck`: passed.
+- `pnpm lint`: passed.
+- `pnpm format:check`: passed.
+- `pnpm --filter @rmmv-event-dsl/core test`: passed, 11 test files and 46 tests.
 
 ## Done When
 
-- [ ] Acceptance criteria pass.
-- [ ] Verification commands pass or skipped reason is documented.
-- [ ] Design references remain satisfied.
-- [ ] No unrelated scope was added.
+- [x] Acceptance criteria pass.
+- [x] Verification commands pass or skipped reason is documented.
+- [x] Design references remain satisfied.
+- [x] No unrelated scope was added.

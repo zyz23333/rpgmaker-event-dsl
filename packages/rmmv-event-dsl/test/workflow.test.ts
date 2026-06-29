@@ -7,6 +7,7 @@ import { describe, expect, it } from "vitest";
 import {
   cloneWorkspace,
   compileWorkspace,
+  diffWorkspace,
   isGeneratedProjectDataFresh,
   pullWorkspace,
 } from "../src/workflow.js";
@@ -654,6 +655,127 @@ export const gate = {
       "utf8",
     );
     await expect(isGeneratedProjectDataFresh({ workspaceRoot })).resolves.toBe(false);
+  });
+});
+
+describe("diff workflow", () => {
+  it("fails when Generated Project Data is missing", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(
+      `export const gate = {
+  kind: "mapEvent",
+  mapId: 1,
+  id: 1,
+  name: "Gate",
+  x: 0,
+  y: 0,
+  pages: [
+    {
+      conditions: {},
+      trigger: "action",
+      commands: [],
+    },
+  ],
+};
+`,
+    );
+
+    await expect(diffWorkspace({ workspaceRoot })).rejects.toThrow(
+      "Generated Project Data is required before diff. Run compile first.",
+    );
+  });
+
+  it("fails when Generated Project Data is stale", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(
+      `export const gate = {
+  kind: "mapEvent",
+  mapId: 1,
+  id: 1,
+  name: "Gate",
+  x: 0,
+  y: 0,
+  pages: [
+    {
+      conditions: {},
+      trigger: "action",
+      commands: [],
+    },
+  ],
+};
+`,
+    );
+
+    await compileWorkspace({ workspaceRoot, check: false });
+    await writeFile(
+      join(workspaceRoot, "src", "events.events.ts"),
+      `export const gate = {
+  kind: "mapEvent",
+  mapId: 1,
+  id: 1,
+  name: "Changed Gate",
+  x: 0,
+  y: 0,
+  pages: [
+    {
+      conditions: {},
+      trigger: "action",
+      commands: [],
+    },
+  ],
+};
+`,
+      "utf8",
+    );
+
+    await expect(diffWorkspace({ workspaceRoot })).rejects.toThrow(
+      "Generated Project Data is stale before diff. Run compile first.",
+    );
+  });
+
+  it("compares Generated Project Data with the Project Data Snapshot without reading Project Root", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(
+      `export const gate = {
+  kind: "mapEvent",
+  mapId: 1,
+  id: 1,
+  name: "Gate",
+  x: 0,
+  y: 0,
+  pages: [
+    {
+      conditions: {},
+      trigger: "action",
+      commands: [],
+    },
+  ],
+};
+
+export const gateSwitch = {
+  kind: "switchDefinition",
+  id: 1,
+  name: "Gate Open",
+};
+`,
+    );
+    const projectRoot = createProjectRootFixture(workspaceRoot);
+
+    await compileWorkspace({ workspaceRoot, check: false });
+    await writeFile(join(projectRoot, "data", "Map001.json"), "{not-json", "utf8");
+
+    const output = await diffWorkspace({ workspaceRoot });
+
+    expect(output).toContain("Structured Diff Report");
+    expect(output).toContain("Map Event");
+    expect(output).toContain(
+      "- [generated-only] mapId 1, eventId 1: Entry exists only in Generated Project Data.",
+    );
+    expect(output).toContain("Switch");
+    expect(output).toContain(
+      "- [changed] switchId 1: Generated entry differs from snapshot entry.",
+    );
+    expect(output).toContain(
+      "- [snapshot-only] switchId 2 (destructive): Entry exists only in Project Data Snapshot.",
+    );
+    expect(output).toContain("Destructive Changes: yes");
   });
 });
 
