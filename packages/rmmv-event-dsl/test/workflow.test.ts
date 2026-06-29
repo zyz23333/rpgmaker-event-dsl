@@ -1,14 +1,35 @@
-import { mkdir, mkdtemp, readFile, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readdir, readFile, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
 import { describe, expect, it } from "vitest";
 
-import { cloneWorkspace, pullWorkspace } from "../src/workflow.js";
+import { cloneWorkspace, compileWorkspace, pullWorkspace } from "../src/workflow.js";
 import { getWorkspaceStatePaths, readSyncManifest } from "../src/state.js";
 
 function createProjectRootFixture(workspaceRoot: string): string {
   return join(workspaceRoot, "Game");
+}
+
+async function writeWorkspaceConfig(
+  workspaceRoot: string,
+  overrides?: {
+    scriptEnabled?: boolean;
+    sourceInclude?: string[];
+    sourceExclude?: string[];
+  },
+): Promise<void> {
+  await writeFile(
+    join(workspaceRoot, "rmmv-event-dsl.config.json"),
+    JSON.stringify({
+      projectRoot: "./Game",
+      scriptEnabled: overrides?.scriptEnabled ?? false,
+      sourceRoot: "src",
+      sourceInclude: overrides?.sourceInclude ?? ["**/*.events.ts", "**/*.dsl.ts"],
+      sourceExclude: overrides?.sourceExclude ?? ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"],
+    }),
+    "utf8",
+  );
 }
 
 async function writeProjectFixture(
@@ -94,17 +115,7 @@ describe("workspace snapshot workflow", () => {
     const projectRoot = createProjectRootFixture(workspaceRoot);
 
     await writeProjectFixture(projectRoot, { extraMapFile: true });
-    await writeFile(
-      join(workspaceRoot, "rmmv-event-dsl.config.json"),
-      JSON.stringify({
-        projectRoot: "./Game",
-        scriptEnabled: false,
-        sourceRoot: "src",
-        sourceInclude: ["**/*.events.ts", "**/*.dsl.ts"],
-        sourceExclude: ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"],
-      }),
-      "utf8",
-    );
+    await writeWorkspaceConfig(workspaceRoot);
 
     await cloneWorkspace({ workspaceRoot });
 
@@ -150,17 +161,7 @@ describe("workspace snapshot workflow", () => {
     const projectRoot = createProjectRootFixture(workspaceRoot);
 
     await writeProjectFixture(projectRoot, { includeMissingMap: true });
-    await writeFile(
-      join(workspaceRoot, "rmmv-event-dsl.config.json"),
-      JSON.stringify({
-        projectRoot: "./Game",
-        scriptEnabled: false,
-        sourceRoot: "src",
-        sourceInclude: ["**/*.events.ts", "**/*.dsl.ts"],
-        sourceExclude: ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"],
-      }),
-      "utf8",
-    );
+    await writeWorkspaceConfig(workspaceRoot);
 
     await expect(cloneWorkspace({ workspaceRoot })).rejects.toThrow("Map002.json");
   });
@@ -170,17 +171,7 @@ describe("workspace snapshot workflow", () => {
     const projectRoot = createProjectRootFixture(workspaceRoot);
 
     await writeProjectFixture(projectRoot);
-    await writeFile(
-      join(workspaceRoot, "rmmv-event-dsl.config.json"),
-      JSON.stringify({
-        projectRoot: "./Game",
-        scriptEnabled: false,
-        sourceRoot: "src",
-        sourceInclude: ["**/*.events.ts", "**/*.dsl.ts"],
-        sourceExclude: ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"],
-      }),
-      "utf8",
-    );
+    await writeWorkspaceConfig(workspaceRoot);
 
     await cloneWorkspace({ workspaceRoot });
 
@@ -211,3 +202,233 @@ describe("workspace snapshot workflow", () => {
     ).rejects.toThrow();
   });
 });
+
+describe("compile --check workflow", () => {
+  it("fails before source evaluation when no Project Data Snapshot exists", async () => {
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-check-no-snapshot-"));
+    const projectRoot = createProjectRootFixture(workspaceRoot);
+
+    await writeProjectFixture(projectRoot);
+    await writeWorkspaceConfig(workspaceRoot);
+    await mkdir(join(workspaceRoot, "src"), { recursive: true });
+    await writeFile(join(workspaceRoot, "src", "invalid.events.ts"), "export default 1;\n", "utf8");
+
+    await expect(compileWorkspace({ workspaceRoot, check: true })).rejects.toThrow(
+      "Project Data Snapshot is required before compile --check",
+    );
+  });
+
+  it("discovers configured DSL declaration files and validates same-run references", async () => {
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-check-valid-"));
+    const projectRoot = createProjectRootFixture(workspaceRoot);
+
+    await writeProjectFixture(projectRoot);
+    await writeWorkspaceConfig(workspaceRoot, {
+      sourceInclude: ["owned/**/*.dsl.ts"],
+    });
+    await cloneWorkspace({ workspaceRoot });
+    await mkdir(join(workspaceRoot, "src", "owned"), { recursive: true });
+    await writeFile(
+      join(workspaceRoot, "src", "ignored.events.ts"),
+      `export const duplicate = {
+  kind: "commonEvent",
+  id: 1,
+  name: "Ignored",
+  trigger: "none",
+  commands: [],
+};
+`,
+      "utf8",
+    );
+    await writeFile(
+      join(workspaceRoot, "src", "owned", "events.dsl.ts"),
+      `export const alarm = {
+  kind: "commonEvent",
+  id: 1,
+  name: "Alarm",
+  trigger: "none",
+  commands: [],
+};
+
+export const gate = {
+  kind: "mapEvent",
+  mapId: 1,
+  id: 1,
+  name: "Gate",
+  x: 1,
+  y: 2,
+  pages: [
+    {
+      conditions: {},
+      trigger: "action",
+      commands: [{ kind: "commonEvent", ref: { kind: "commonEvent", name: "Alarm" } }],
+    },
+  ],
+};
+`,
+      "utf8",
+    );
+
+    await expect(compileWorkspace({ workspaceRoot, check: true })).resolves.toBeUndefined();
+  });
+
+  it("rejects duplicate Entry Identity", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(
+      `export const first = {
+  kind: "commonEvent",
+  id: 1,
+  name: "First",
+  trigger: "none",
+  commands: [],
+};
+
+export const second = {
+  kind: "commonEvent",
+  id: 1,
+  name: "Second",
+  trigger: "none",
+  commands: [],
+};
+`,
+    );
+
+    await expect(compileWorkspace({ workspaceRoot, check: true })).rejects.toThrow(
+      "Duplicate Common Event id: 1.",
+    );
+  });
+
+  it("rejects ambiguous name references", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(
+      `export const first = {
+  kind: "commonEvent",
+  id: 1,
+  name: "Shared",
+  trigger: "none",
+  commands: [],
+};
+
+export const second = {
+  kind: "commonEvent",
+  id: 2,
+  name: "Shared",
+  trigger: "none",
+  commands: [],
+};
+
+export const caller = {
+  kind: "mapEvent",
+  mapId: 1,
+  id: 1,
+  name: "Caller",
+  x: 0,
+  y: 0,
+  pages: [
+    {
+      conditions: {},
+      trigger: "action",
+      commands: [{ kind: "commonEvent", ref: { kind: "commonEvent", name: "Shared" } }],
+    },
+  ],
+};
+`,
+    );
+
+    await expect(compileWorkspace({ workspaceRoot, check: true })).rejects.toThrow(
+      "Ambiguous commonEvent reference: Shared",
+    );
+  });
+
+  it("rejects missing Explicit ID References", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(
+      `export const caller = {
+  kind: "mapEvent",
+  mapId: 1,
+  id: 1,
+  name: "Caller",
+  x: 0,
+  y: 0,
+  pages: [
+    {
+      conditions: {},
+      trigger: "action",
+      commands: [{ kind: "commonEvent", ref: { kind: "commonEvent", id: 99 } }],
+    },
+  ],
+};
+`,
+    );
+
+    await expect(compileWorkspace({ workspaceRoot, check: true })).rejects.toThrow(
+      "Unknown commonEvent reference id: 99",
+    );
+  });
+
+  it("enforces Script Command Gate", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(
+      `export const gate = {
+  kind: "mapEvent",
+  mapId: 1,
+  id: 1,
+  name: "Gate",
+  x: 0,
+  y: 0,
+  pages: [
+    {
+      conditions: {},
+      trigger: "action",
+      commands: [{ kind: "script", code: ["console.log(1);"] }],
+    },
+  ],
+};
+`,
+    );
+
+    await expect(compileWorkspace({ workspaceRoot, check: true })).rejects.toThrow(
+      "Script commands require explicit config enablement.",
+    );
+  });
+
+  it("does not write Generated Project Data or update manifest freshness metadata", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(
+      `export const gate = {
+  kind: "mapEvent",
+  mapId: 1,
+  id: 1,
+  name: "Gate",
+  x: 0,
+  y: 0,
+  pages: [
+    {
+      conditions: {},
+      trigger: "action",
+      commands: [],
+    },
+  ],
+};
+`,
+    );
+    const statePaths = getWorkspaceStatePaths(workspaceRoot);
+    const manifestBefore = await readFile(statePaths.syncManifestPath, "utf8");
+
+    await compileWorkspace({ workspaceRoot, check: true });
+
+    expect(await readFile(statePaths.syncManifestPath, "utf8")).toBe(manifestBefore);
+    expect((await readdir(statePaths.workspaceStateDirectory)).sort()).toEqual([
+      "project-data-snapshot",
+      "sync-manifest.json",
+    ]);
+  });
+});
+
+async function createClonedWorkspaceWithSource(sourceText: string): Promise<string> {
+  const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-check-"));
+  const projectRoot = createProjectRootFixture(workspaceRoot);
+
+  await writeProjectFixture(projectRoot);
+  await writeWorkspaceConfig(workspaceRoot);
+  await cloneWorkspace({ workspaceRoot });
+  await mkdir(join(workspaceRoot, "src"), { recursive: true });
+  await writeFile(join(workspaceRoot, "src", "events.events.ts"), sourceText, "utf8");
+
+  return workspaceRoot;
+}

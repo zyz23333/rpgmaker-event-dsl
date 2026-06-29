@@ -2,7 +2,7 @@
 
 ## Status
 
-Ready
+Done
 
 ## Type
 
@@ -62,15 +62,15 @@ Implement a read-only compile validation path that exercises the new workspace c
 
 ## Acceptance Criteria
 
-- [ ] `compile --check` fails before source evaluation when no Project Data Snapshot exists.
-- [ ] `compile --check` discovers configured DSL declaration files.
-- [ ] It validates same-run DSL-owned references.
-- [ ] It rejects duplicate Entry Identity.
-- [ ] It rejects ambiguous name references.
-- [ ] It rejects missing Explicit ID References.
-- [ ] It enforces Script Command Gate.
-- [ ] It writes no Generated Project Data.
-- [ ] It does not update Sync Manifest generated or freshness metadata.
+- [x] `compile --check` fails before source evaluation when no Project Data Snapshot exists.
+- [x] `compile --check` discovers configured DSL declaration files.
+- [x] It validates same-run DSL-owned references.
+- [x] It rejects duplicate Entry Identity.
+- [x] It rejects ambiguous name references.
+- [x] It rejects missing Explicit ID References.
+- [x] It enforces Script Command Gate.
+- [x] It writes no Generated Project Data.
+- [x] It does not update Sync Manifest generated or freshness metadata.
 
 ## Implementation Notes
 
@@ -90,9 +90,21 @@ pnpm --filter @rmmv-event-dsl/core test -- workflow.test.ts cli.test.ts
 pnpm --filter @rmmv-event-dsl/core typecheck
 ```
 
+## Verification Result
+
+Completed with:
+
+```bash
+pnpm --filter @rmmv-event-dsl/core test -- workflow.test.ts cli.test.ts
+pnpm --filter @rmmv-event-dsl/core typecheck
+pnpm --filter @rmmv-event-dsl/core test
+pnpm lint
+pnpm format:check
+```
+
 ## Done When
 
-- [ ] Acceptance criteria pass.
-- [ ] Verification commands pass or skipped reason is documented.
-- [ ] Design references remain satisfied.
-- [ ] No unrelated scope was added.
+- [x] Acceptance criteria pass.
+- [x] Verification commands pass or skipped reason is documented.
+- [x] Design references remain satisfied.
+- [x] No unrelated scope was added.
