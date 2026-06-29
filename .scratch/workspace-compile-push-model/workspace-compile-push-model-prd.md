@@ -16,13 +16,13 @@ Replace the direct `create` / `replace` workflow with a workspace-level compile 
 
 The workspace will maintain Workspace Data State:
 
-- Project Data Snapshots captured from the Project Root.
+- Standard Project Data Snapshots captured from the Project Root.
 - Generated Project Data produced by compilation.
-- A Sync Manifest containing synchronization hashes and Generated Freshness metadata.
+- A Sync Manifest containing synchronization hashes and Compile Baseline metadata used to check Generated Freshness.
 
 The main user workflow becomes:
 
-1. `clone` captures the initial Project Data Snapshot from a Project Root.
+1. `clone` captures the initial Standard Project Data Snapshot from a Project Root.
 2. `decompile` turns the Project Data Snapshot into non-destructive Decompiled Source with explicit Entry Identities.
 3. `compile` validates the Staged Data Graph and produces complete Compile Output for all DSL-Owned Project Data domains.
 4. `diff` compares Generated Project Data with the Project Data Snapshot using a Structured Diff Report.
@@ -31,9 +31,13 @@ The main user workflow becomes:
 
 Entry Identity is explicit in DSL and is defined as Data Domain plus RPG Maker MV ID. Display Names remain useful for humans and name-based references when unique, but they are not identity.
 
+Generated Freshness is defined against the current Compile Baseline, not only DSL source inputs. The Compile Baseline includes the discovered DSL source inputs, relevant Workspace Config fields, and the current Project Data Snapshot baseline used by compilation. Pulling a newer Project Data Snapshot therefore makes older Generated Project Data stale until compilation runs again.
+
+The workspace compile model uses Domain-Wide Takeover. Once a Data Domain is DSL-Owned Project Data, entries in that domain are expected to be represented by Compile Output. Brownfield incremental migration means decompiling the owned domain into raw or helper-based Decompiled Source first, then improving that source over time; it does not mean partially owning selected entries inside an owned domain.
+
 ## User Stories
 
-1. As a brownfield project developer, I want to clone the current Project Root into a Project Data Snapshot, so that I can inspect and take over existing MV data without immediately changing the project.
+1. As a brownfield project developer, I want to clone the current Project Root into a Standard Project Data Snapshot, so that I can inspect and take over existing MV data without immediately changing the project.
 2. As a brownfield project developer, I want DSL Decompilation to generate initial DSL declarations from my Project Data Snapshot, so that I can migrate existing events into DSL incrementally.
 3. As a brownfield project developer, I want Decompiled Source to be written non-destructively, so that generated DSL skeletons do not overwrite hand-maintained source files.
 4. As a brownfield project developer, I want decompiled commands to use DSL helpers when possible and raw escape hatches when needed, so that unsupported MV commands do not block migration.
@@ -58,37 +62,45 @@ Entry Identity is explicit in DSL and is defined as Data Domain plus RPG Maker M
 23. As a DSL author, I want removed Map Events and Common Events to leave null holes instead of compacting arrays, so that MV IDs remain stable.
 24. As a DSL author, I want removed Variable Definitions and Switch Definitions to become empty strings instead of compacting arrays, so that variable and switch IDs remain stable.
 25. As a workspace user, I want `push` to refresh the affected Project Data Snapshot and Sync Manifest after a successful write, so that later drift checks use the new baseline.
-26. As a workspace user, I want `diff` and `push` to reject stale Generated Project Data, so that I do not inspect or push output produced from older DSL source.
+26. As a workspace user, I want `diff` and `push` to reject stale Generated Project Data, so that I do not inspect or push output produced from an older Compile Baseline.
 27. As a workspace user, I want `compile --check` to validate without requiring a separate `lint` command, so that validation follows the same model as compilation.
-28. As a workspace user, I want Definition Source Discovery to collect source files from the workspace source root, so that compilation is workspace-level rather than binding-level.
+28. As a workspace user, I want Definition Source Discovery to collect DSL declaration files from the workspace source root using include and exclude patterns, so that compilation is workspace-level without accidentally evaluating ordinary helper modules.
 29. As a workspace user, I want Decompiled Source to participate in Definition Source Discovery by default, so that decompiled DSL can immediately compile unless I move it outside the source root.
 30. As a project maintainer, I want Generated Project Data and Project Data Snapshots to be optional workspace state rather than the source of truth, so that repository policy can focus on DSL source and workspace config.
 
 ## Implementation Decisions
 
-- Replace `create` and `replace` as primary user-facing operation modes with `clone`, `pull`, `decompile`, `compile`, `diff`, and `push`.
+- Replace `create`, `replace`, and standalone `lint` as public user-facing commands with `clone`, `pull`, `decompile`, `compile`, `diff`, and `push`.
 - Treat `compile` as the operation that validates the Staged Data Graph and produces complete Compile Output for all DSL-Owned Project Data domains.
 - Require a Project Data Snapshot before first-version compilation.
+- Treat `compile --check` as read-only validation; it does not write Generated Project Data, update the Sync Manifest, or create Generated Freshness.
 - Treat `pull` as a snapshot refresh only; it does not run Diff, check Generated Freshness, or modify DSL source.
 - Treat `clone` as the initial Project Data Snapshot capture only; it does not automatically perform DSL Decompilation.
 - Treat `diff` as a Structured Diff Report comparing Generated Project Data with Project Data Snapshot.
-- Treat `push` as a gated synchronization operation that checks Generated Freshness and Project Drift before writing to the Project Root.
+- Treat `push` as a gated synchronization operation that checks Generated Freshness and Project Drift for Affected Project Data Files before writing to the Project Root.
 - Refresh the affected Project Data Snapshot and Sync Manifest after successful Push.
 - Add an explicit Destructive Push option for Destructive Changes; do not make it bypass Generated Freshness or Project Drift checks.
 - Define DSL-Owned Project Data by Data Domain, not by JSON file.
+- Treat DSL-Owned Project Data domains as Domain-Wide Takeover boundaries, not partial entry ownership boundaries.
 - First DSL-Owned Project Data domains are Event Data Store plus System Data variable and switch entries.
+- Use a Standard Project Data Snapshot: clone and pull capture the standard RPG Maker MV database files plus `Map###.json` files referenced by `MapInfos.json`, and ignore non-standard `data/*.json` files.
 - Allow Project Data Snapshots and Generated Project Data to store whole MV data files as carriers while only DSL-owned domains are generated from DSL.
+- Make Generated Project Data complete carrier output for all first-version DSL-Owned Project Data domains, not a changed-file patch plan.
 - Carry non-owned data domains forward from Project Data Snapshot into Generated Project Data.
 - Define Entry Identity as Data Domain plus RPG Maker MV ID, expressed directly in DSL source.
+- Define Map Event identity as `mapId` plus the map-scoped event ID.
 - Require explicit Entry Identity for first-version Map Events, Common Events, Variable Definitions, and Switch Definitions.
 - Do not use Sync Manifest as an Entry Identity binding source of truth.
 - Allow duplicate Display Names.
 - Allow name-based Project Data References only when the Display Name resolves to exactly one entry.
+- Validate Explicit ID References against the same visible reference scope as name-based Project Data References, while leaving Raw DSL Command parameters semantically unchecked.
 - Preserve ID stability during Entry Removal: null holes for event arrays and empty strings for variable and switch arrays.
-- Use Definition Source Discovery from a workspace source root rather than Definition Bindings.
-- Have DSL Decompilation produce non-destructive Decompiled Source for all DSL-Owned Project Data domains.
-- Prefer output under a decompiled source area inside the workspace source root, while leaving exact file layout to design.
+- Generate dense RPG Maker MV ID arrays with explicit hole values; do not use sparse arrays.
+- Use Definition Source Discovery from a workspace source root with include and exclude patterns rather than Definition Bindings.
+- Have DSL Decompilation produce non-destructive Decompiled Source for all DSL-Owned Project Data domains under `src/decompiled/`, with map files under `src/decompiled/maps/`, Common Events in `src/decompiled/common-events.events.ts`, and variables/switches in `src/decompiled/system.dsl.ts`.
+- Treat Variable Definitions and Switch Definitions as `System.json` name entries, not runtime values; decompile non-empty name slots and ignore empty string slots.
 - Make Generated Project Data, Project Data Snapshot, and Sync Manifest workspace state that is not required to be committed.
+- Remove `create`, `replace`, and standalone `lint` from the public CLI; `compile --check` is the validation path.
 
 ## Testing Decisions
 
@@ -96,20 +108,28 @@ Entry Identity is explicit in DSL and is defined as Data Domain plus RPG Maker M
 - Existing workflow-style tests are useful prior art: they create temporary workspaces, MV-like project data, source files, and assert command effects without relying on implementation details.
 - Add behavior tests for `clone`, `pull`, `compile`, `diff`, `push`, and `decompile` as user-facing workflows.
 - Test that `compile` requires a Project Data Snapshot and produces Generated Project Data without mutating the Project Root or Project Data Snapshot.
+- Test that `compile --check` performs validation without writing Generated Project Data or updating the Sync Manifest.
+- Test that pulling a changed Project Data Snapshot makes existing Generated Project Data stale until compile runs again.
 - Test that the Staged Data Graph resolves references across DSL-owned entries in the same compile run, including Map Events calling DSL-owned Common Events.
 - Test that duplicate Entry Identities fail compilation, while duplicate Display Names are allowed.
+- Test that duplicate Map Event IDs only conflict within the same map ID.
 - Test that ambiguous name-based Project Data References fail compilation.
+- Test that Explicit ID References fail when the target is absent from the visible reference scope.
 - Test that Variable Definitions and Switch Definitions are compiled into the owned System Data domains.
+- Test that Variable Definitions and Switch Definitions materialize as System Data name entries, not runtime values, and that empty string slots are treated as holes.
 - Test that non-owned data domains in carrier files are carried forward from Project Data Snapshot into Generated Project Data.
 - Test that `diff` requires Generated Freshness and reports changes grouped by Data Domain and entry.
 - Test that Snapshot-Only Owned Entries appear in Diff without compile mutating snapshot files.
 - Test that `push` rejects stale Generated Project Data.
 - Test that `push` rejects Project Drift and instructs the user to pull first.
+- Test that `push` checks Project Drift only for Affected Project Data Files and ignores non-standard data files outside the Standard Project Data Snapshot.
 - Test that normal `push` rejects Destructive Changes, while Destructive Push accepts them without bypassing Generated Freshness or Project Drift checks.
 - Test Entry Removal representation: null holes for Map Event and Common Event arrays, empty strings for variable and switch arrays.
+- Test that Generated Project Data uses dense MV ID arrays with explicit hole values.
 - Test that successful Push updates Project Root, affected Project Data Snapshot, and Sync Manifest.
+- Test that Push stages writes and does not refresh Snapshot or Manifest unless all affected Project Root replacements succeed.
 - Test that `pull` refreshes Project Data Snapshot even when Generated Project Data is stale.
-- Test DSL Decompilation at the workflow seam: output is non-destructive, includes explicit Entry Identities, and emits raw escape hatches for unsupported commands.
+- Test DSL Decompilation at the workflow seam: output is non-destructive, follows the fixed decompiled source layout, includes explicit Entry Identities, ignores empty variable/switch slots, and emits raw escape hatches for unsupported commands.
 - Keep lower-level unit tests for pure logic that is hard to observe through CLI tests, such as structured diff classification, manifest hash comparison, and raw command to Reconciliation Hint mapping.
 
 ## Out of Scope
@@ -119,6 +139,7 @@ Entry Identity is explicit in DSL and is defined as Data Domain plus RPG Maker M
 - Force push that ignores Project Drift.
 - Manifest-only Entry Identity binding.
 - Automatic rewriting of DSL source to assign IDs.
+- Partial entry takeover inside a DSL-Owned Project Data domain.
 - Default overwrite behavior for DSL Decompilation output.
 - Perfect raw MV data to high-level DSL round-tripping.
 - Semantic command diff beyond the first Structured Diff Report and Reconciliation Hint model.
@@ -126,6 +147,8 @@ Entry Identity is explicit in DSL and is defined as Data Domain plus RPG Maker M
 - Committing Generated Project Data, Project Data Snapshots, or Sync Manifest as a required workflow.
 - Automatic `decompile` during `clone`.
 - Automatic `diff` during `compile` or `pull`.
+- Stable machine-readable JSON output for Diff.
+- Snapshotting non-standard plugin or custom project data files.
 
 ## Further Notes
 

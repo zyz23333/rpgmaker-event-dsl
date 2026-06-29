@@ -36,7 +36,7 @@ Current behavior is unsafe and too low-level for the intended product model:
 - Use explicit Entry Identity in DSL for Map Events, Common Events, Variable Definitions, and Switch Definitions.
 - Let references resolve against a Staged Data Graph containing DSL-owned entries plus External Project Data References from Project Data Snapshot.
 - Store Project Data Snapshots and Generated Project Data as workspace state.
-- Detect Generated Freshness and Project Drift before user-visible diff or Project Root writes.
+- Detect Generated Freshness against the Compile Baseline and Project Drift before user-visible diff or Project Root writes.
 - Generate Structured Diff Reports grouped by Data Domain, entry, and detail.
 - Support conservative Push and explicit Destructive Push.
 - Provide DSL Decompilation as a non-destructive brownfield starting point.
@@ -59,7 +59,7 @@ Current behavior is unsafe and too low-level for the intended product model:
 - CLI command surface and command contracts.
 - Workspace Config schema and initialization defaults.
 - Workspace Data State layout and synchronization metadata.
-- Definition Source Discovery from a workspace source root.
+- Definition Source Discovery from a workspace source root using include and exclude patterns.
 - DSL type changes for explicit Entry Identity and System Data definitions.
 - Staged Data Graph construction and validation.
 - Compile Output materialization for Event Data Store and variable/switch System Data domains.
@@ -127,20 +127,22 @@ Current behavior is unsafe and too low-level for the intended product model:
 | ID | Current | Target | Acceptance |
 | --- | --- | --- | --- |
 | R-01 | CLI exposes `lint`, `create`, `replace` as primary workflow commands. | CLI exposes `clone`, `pull`, `decompile`, `compile`, `diff`, and `push`; check-only compilation replaces `lint`. | CLI command declaration test observes the new command surface and no primary `create` / `replace` commands. |
-| R-02 | Workspace Config uses `definitionTargets`. | Workspace Config uses Definition Source Discovery from source root. | Loading config succeeds with source root config and does not require Definition Bindings. |
+| R-02 | Workspace Config uses `definitionTargets`. | Workspace Config uses Definition Source Discovery from source root with include and exclude patterns. | Loading config succeeds with source discovery config and does not require Definition Bindings. |
 | R-03 | DSL definitions omit IDs and workflow allocates or finds IDs by Display Name. | DSL-owned entries declare Entry Identity explicitly. | Compilation fails when a DSL-owned Map Event, Common Event, Variable Definition, or Switch Definition lacks required ID fields. |
 | R-04 | Duplicate Display Names block create/replace or make references ambiguous inconsistently. | Duplicate Display Names are allowed for entries, but name-based references require exactly one match. | Duplicate IDs fail; duplicate names compile unless a name-based reference targets that ambiguous name. |
-| R-05 | Project Index is built only from live Project Root data. | Staged Data Graph includes DSL-owned entries plus External Project Data References from Project Data Snapshot. | A Map Event can call a Common Event defined in the same compile run by ID, and unique name references resolve against staged entries. |
+| R-05 | Project Index is built only from live Project Root data. | Staged Data Graph includes DSL-owned entries plus External Project Data References from Project Data Snapshot. | A Map Event can call a Common Event defined in the same compile run by ID; name and ID references resolve only when exactly one visible target exists in the correct scope. |
 | R-06 | Compile-like behavior writes Project Root for create/replace. | `compile` writes Generated Project Data only. | After compile, Project Root and Project Data Snapshot files are unchanged while generated files exist. |
 | R-07 | No Project Data Snapshot is required. | Compile requires Project Data Snapshot. | Running compile before clone/pull fails with a snapshot-required error. |
 | R-08 | Diff is direct-write preview output. | Diff is a Structured Diff Report over Generated Project Data vs Project Data Snapshot. | Diff output groups changes by Data Domain and Entry Identity. |
-| R-09 | No Generated Freshness check exists. | Diff and Push require Generated Freshness. | Modifying DSL source after compile causes diff and push to fail until compile runs again. |
-| R-10 | No Project Drift check exists. | Push rejects Project Drift and instructs Pull. | Modifying Project Root after snapshot causes push to fail without writing. |
+| R-09 | No Generated Freshness check exists. | Diff and Push require Generated Freshness against the current Compile Baseline. | Modifying DSL source, relevant config, or the Project Data Snapshot after compile causes diff and push to fail until compile runs again. |
+| R-10 | No Project Drift check exists. | Push rejects Project Drift for Affected Project Data Files and instructs Pull. | Modifying an affected Project Root file after snapshot causes push to fail without writing, while non-standard data files are ignored. |
 | R-11 | Deletes are not modeled. | Snapshot-Only Owned Entries are Destructive Changes. | Diff reports snapshot-only owned entries; normal push rejects them. |
 | R-12 | No Destructive Push exists. | `push --allow-destructive` applies Destructive Changes without bypassing freshness or drift checks. | Destructive push removes snapshot-only owned entries only when generated is fresh and project has no drift. |
 | R-13 | Event arrays are replaced/appended but removal behavior is not defined. | Event Entry Removal leaves null holes. | Destructive removal of Map/Common Events writes null at removed IDs and does not compact arrays. |
 | R-14 | Variables and switches are read-only references from System Data. | Variable Definitions and Switch Definitions are DSL-owned domains. | Compile materializes System Data variable/switch arrays from DSL-owned definitions while preserving non-owned System Data. |
 | R-15 | No DSL Decompilation exists. | Decompile writes non-destructive Decompiled Source for all DSL-Owned Project Data domains. | Decompile fails rather than overwriting existing output and emits explicit Entry Identity in generated DSL. |
+| R-16 | Source discovery is binding-based or would evaluate every TypeScript file. | Source discovery uses configured include/exclude patterns for DSL declaration files. | Ordinary helper `.ts` files outside the include patterns are not evaluated as Definition Sources. |
+| R-17 | Push writes files directly. | Push stages affected files and updates workspace state only after all replacements succeed. | A staged write failure leaves Project Root, snapshot, and manifest unchanged; a partial replacement failure reports written files and leaves snapshot/manifest unchanged. |
 
 ## Locked Decisions
 
@@ -159,15 +161,22 @@ Current behavior is unsafe and too low-level for the intended product model:
 - Push success refreshes affected Project Data Snapshot and Sync Manifest.
 - Sync Manifest records hashes and freshness metadata, not Entry Identity bindings.
 - Generated Project Data, Project Data Snapshot, and Sync Manifest are not required to be committed.
+- Generated Freshness is based on the current Compile Baseline, including source inputs, relevant Workspace Config, and the Project Data Snapshot baseline.
+- Clone and Pull capture a Standard Project Data Snapshot, not arbitrary custom `data/*.json` files.
+- Definition Source Discovery uses include and exclude patterns; it does not evaluate every TypeScript file by default.
+- Map Event identity is `{ mapId, eventId }`.
+- Variable Definitions and Switch Definitions represent `System.json` name entries, not runtime values.
+- Compile Check is read-only and does not create Generated Freshness.
+- Generated Project Data is complete carrier output for all DSL-Owned Project Data domains, not a changed-file patch plan.
+- Push writes only Affected Project Data Files derived from generated-vs-snapshot differences.
 - Destructive Push is distinct from force push and cannot bypass synchronization checks.
 
 ## Agent Discretion
 
 - Exact internal module names, as long as responsibilities remain separated and domain terms are preserved.
 - Exact filesystem paths under Workspace Data State, as long as they are not confused with DSL source and are consistently represented in config/manifest.
-- Exact Structured Diff Report serialization format, as long as it is structured, grouped by Data Domain and entry, and stable enough for tests.
+- Exact Structured Diff Report text format, as long as it is human-readable, grouped by Data Domain and entry, and backed by a structured internal model.
 - Exact text of CLI errors and summaries, as long as they identify the failed invariant and next user action.
-- Whether source discovery supports an exclude list in the first implementation, provided recursive source-root discovery remains the default.
 - How much high-level DSL Decompilation performs beyond guaranteed raw escape hatch output.
 
 ## Invariants
@@ -175,6 +184,7 @@ Current behavior is unsafe and too low-level for the intended product model:
 - Compile never mutates Project Root.
 - Compile never mutates Project Data Snapshot.
 - Pull never mutates DSL source or Generated Project Data.
+- Compile Check never mutates Workspace Data State.
 - Push is the only command that writes Project Root data.
 - Normal Push never applies Destructive Changes.
 - Destructive Push never bypasses Generated Freshness or Project Drift checks.
@@ -183,6 +193,10 @@ Current behavior is unsafe and too low-level for the intended product model:
 - Sync Manifest is never the source of truth for Entry Identity.
 - External Project Data References do not imply ownership of their Data Domains.
 - Structured Diff Report must be derivable without reading live Project Root state.
+- Generated Freshness must fail when the current Compile Baseline differs from the Compile Baseline used to produce Generated Project Data.
+- Generated Project Data uses dense RPG Maker MV ID arrays with explicit hole values, never sparse arrays.
+- Snapshot-only entries in DSL-Owned Project Data domains are Destructive Changes because takeover is domain-wide.
+- Push checks Project Drift only for Affected Project Data Files.
 
 ## Design
 
@@ -191,13 +205,13 @@ Current behavior is unsafe and too low-level for the intended product model:
 ```text
 Project Root
   -- clone/pull -->
-Project Data Snapshot + Sync Manifest snapshot hashes
+Standard Project Data Snapshot + Sync Manifest snapshot hashes
 
-DSL source + Project Data Snapshot
+DSL source + Workspace Config + Standard Project Data Snapshot
   -- compile -->
 Staged Data Graph
   -- validate/materialize -->
-Generated Project Data + Sync Manifest generated hashes/source hash
+Generated Project Data + Sync Manifest generated hashes/Compile Baseline hash
 
 Generated Project Data + Project Data Snapshot
   -- diff -->
@@ -205,26 +219,74 @@ Structured Diff Report
 
 Generated Project Data + Project Data Snapshot + Project Root + Sync Manifest
   -- push -->
-Project Root write + refreshed Project Data Snapshot + refreshed Sync Manifest
+staged Project Root write + refreshed Project Data Snapshot + refreshed Sync Manifest
 ```
 
 ### Workspace Data State
 
 Workspace Data State stores three categories:
 
-- Project Data Snapshot: whole MV data files needed for DSL-owned domains and External Project Data References.
-- Generated Project Data: whole MV data files that carry DSL-owned domains, with non-owned domains carried forward from the snapshot.
-- Sync Manifest: hashes for snapshot files, generated files, and DSL source inputs used for Generated Freshness.
+- Project Data Snapshot: standard MV data files captured from the Project Root.
+- Generated Project Data: complete carrier files that represent DSL-owned domains, with non-owned domains carried forward from the snapshot.
+- Sync Manifest: snapshot hashes, generated file hashes, and Compile Baseline metadata used for Generated Freshness.
 
 Workspace Data State is tool-maintained. Users may inspect it, but it is not the source of truth. DSL source and Workspace Config are the user-authored inputs.
 
+Clone and Pull capture a Standard Project Data Snapshot. The standard snapshot includes:
+
+- `Actors.json`
+- `Animations.json`
+- `Armors.json`
+- `Classes.json`
+- `CommonEvents.json`
+- `Enemies.json`
+- `Items.json`
+- `MapInfos.json`
+- `Skills.json`
+- `States.json`
+- `System.json`
+- `Tilesets.json`
+- `Troops.json`
+- `Weapons.json`
+- Every `Map###.json` referenced by `MapInfos.json`
+
+Non-standard `data/*.json` files are ignored. If `MapInfos.json` references a missing map file, Clone and Pull fail because the Project Root standard data is internally inconsistent. If `data/` contains an unreferenced `Map###.json`, Clone and Pull ignore it because `MapInfos.json` is the map index.
+
 ### Workspace Config
 
-Workspace Config retains `projectRoot` and `scriptEnabled`, replaces `definitionTargets` with source-root discovery, and may declare workspace state paths if the default paths are not sufficient. First-version source discovery recursively selects TypeScript files from the source root. Decompiled Source participates in discovery if written under that root.
+Workspace Config retains `projectRoot` and `scriptEnabled`, replaces `definitionTargets` with source-root discovery, and may declare workspace state paths if the default paths are not sufficient. Source discovery uses `sourceRoot`, `sourceInclude`, and `sourceExclude` patterns. The default configuration is:
+
+```json
+{
+  "projectRoot": "../Game",
+  "scriptEnabled": false,
+  "sourceRoot": "src",
+  "sourceInclude": ["**/*.events.ts", "**/*.dsl.ts"],
+  "sourceExclude": ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"]
+}
+```
+
+Decompiled Source participates in discovery because the fixed decompile layout writes `*.events.ts` and `*.dsl.ts` files under the source root. Ordinary helper modules that do not match the include patterns are not evaluated as Definition Sources.
 
 ### DSL Surface
 
-Map Event definitions add explicit `mapId` and event `id`. Common Event definitions add explicit `id`. Variable Definitions and Switch Definitions are added as DSL-authored values with explicit `id` and Display Name. Existing `variableRef` and `switchRef` continue to reference entries; the Staged Data Graph decides whether the target is DSL-owned or external.
+Map Event definitions add explicit `mapId` and event `id`. The Map Event Entry Identity is the pair `{ mapId, eventId }`, because RPG Maker MV event IDs are scoped to a map. Common Event definitions add explicit `id`.
+
+Variable Definitions and Switch Definitions are added as DSL-authored `System.json` name entries, not runtime values:
+
+```ts
+export const hasKey = switchDefinition({
+  id: 1,
+  name: "Has Key",
+});
+
+export const doorState = variableDefinition({
+  id: 2,
+  name: "Door State",
+});
+```
+
+Their IDs must be positive integers and their names must be non-empty strings. Empty string slots in `System.json` are ID-preserving holes, not definitions. Existing `variableRef` and `switchRef` continue to reference entries; the Staged Data Graph decides whether the target is DSL-owned or external.
 
 The source evaluator must discover all DSL-owned declarations, not only Event Definitions. It should continue to reject unsupported dynamic TypeScript constructs and preserve the current schema-first authoring style.
 
@@ -240,47 +302,72 @@ Validation checks:
 
 - Required Entry Identity fields.
 - Duplicate Entry Identity within each Data Domain.
+- Duplicate Map Event identity by `{ mapId, eventId }`, not by event ID alone.
 - Required Map Event page list.
 - Common Event trigger/switch rule.
 - Script Command Gate.
-- Name-based Project Data Reference uniqueness.
-- Existence of ID-based Project Data References where the Data Domain is known in DSL-owned or external indexes.
+- Name-based Project Data Reference uniqueness in the visible reference scope.
+- Existence of ID-based Project Data References in the same visible reference scope as name-based references.
 - MV runtime shape requirements before writing Generated Project Data.
+
+For DSL-Owned Project Data domains, references resolve against DSL-owned entries in the Staged Data Graph and do not fall back to snapshot entries. For External Project Data Reference domains, references resolve against the Standard Project Data Snapshot. Raw DSL Commands remain an escape hatch and are not semantically inspected for embedded project references.
 
 ### Compile Output Materialization
 
-Compile materializes DSL-owned domains into whole MV carrier files:
+Compile materializes DSL-owned domains into complete whole-file carrier output:
 
-- Map Event entries are written into each affected `Map###.json` events array by explicit event ID.
+- Map Event entries are written into every `Map###.json` referenced by `MapInfos.json` by explicit map-scoped event ID.
 - Common Events are written into `CommonEvents.json` by explicit ID.
 - Variables and switches are written into their System Data arrays by explicit ID.
 - Non-owned domains in those files are copied from Project Data Snapshot.
 
-For Snapshot-Only Owned Entries, Compile Output represents absence from the DSL-owned domain. It does not mutate snapshot files. For event arrays, destructive absence materializes as null holes in Generated Project Data when removal is represented. For variable/switch arrays, destructive absence materializes as empty strings.
+For Snapshot-Only Owned Entries, Compile Output represents absence from the DSL-owned domain. It does not mutate snapshot files. Because DSL-Owned Project Data domains are taken over as a whole, snapshot-only entries are Destructive Changes. For event arrays, destructive absence materializes as explicit `null` holes in Generated Project Data. For variable/switch arrays, destructive absence materializes as empty strings.
+
+Generated arrays must be dense from index `0` through the highest required ID. Event arrays and `CommonEvents.json` use `null` for index `0`, removed entries, and intermediate holes. `System.json` `variables` and `switches` use `""` for index `0`, removed entries, and intermediate holes. Generated Project Data must not rely on sparse JavaScript arrays.
 
 ### Structured Diff Report
 
-Diff compares only Generated Project Data and Project Data Snapshot. It must not read live Project Root state. The report groups by:
+Diff compares only Generated Project Data and Project Data Snapshot. It must not read live Project Root state. The report has an internal structured model and human-readable CLI output; stable machine-readable JSON is deferred. The report groups by:
 
 1. Data Domain.
 2. Entry Identity.
 3. Change detail.
 
-Change classes include at least unchanged, generated-only, snapshot-only, changed, and non-owned-carried. Snapshot-only DSL-owned entries are reported as potential Destructive Changes. Reconciliation Hints attach to command-level differences where a raw MV command can be represented by an existing DSL helper or raw escape hatch.
+Change classes include at least unchanged, generated-only, snapshot-only, changed, and non-owned-carried. Snapshot-only DSL-owned entries are reported as Destructive Changes. Reconciliation Hints attach to command-level differences where a raw MV command can be represented by an existing DSL helper or raw escape hatch. CLI output may omit unchanged entries by default as long as the structured internal report can represent them.
 
 ### Push
 
 Push performs preflight checks before writing:
 
-1. Generated Freshness: current DSL source hash must match generated source hash in Sync Manifest.
-2. Project Drift: current Project Root file hashes must match Project Data Snapshot hashes in Sync Manifest for affected files.
-3. Destructive Change gate: normal Push rejects Destructive Changes; Destructive Push allows them.
+1. Generated Freshness: the current Compile Baseline must match the Compile Baseline used to produce Generated Project Data.
+2. Generated output integrity: current Generated Project Data file hashes must match generated output hashes in the Sync Manifest.
+3. Project Drift: current Project Root file hashes must match Project Data Snapshot hashes in Sync Manifest for Affected Project Data Files.
+4. Destructive Change gate: normal Push rejects Destructive Changes; Destructive Push allows them.
 
-If preflight passes, Push writes affected Generated Project Data files to Project Root with the MV-Style JSON Writer, refreshes affected Project Data Snapshot files from the written data, and updates Sync Manifest hashes.
+The Compile Baseline includes discovered source file paths and contents, relevant Workspace Config fields, and the Project Data Snapshot file hashes used by compilation. Pulling a changed snapshot therefore makes existing Generated Project Data stale even if DSL source files did not change.
+
+Affected Project Data Files are derived from differences between Generated Project Data and Project Data Snapshot. Push checks drift and writes only those files. Non-standard data files ignored by the Standard Project Data Snapshot do not participate in drift checks.
+
+If preflight passes, Push writes affected Generated Project Data files to staging files, then replaces Project Root files with the MV-Style JSON Writer output. Push refreshes affected Project Data Snapshot files and Sync Manifest hashes only after every affected Project Root replacement succeeds. If staging fails, Project Root files are not replaced and Workspace Data State is not updated. If replacement partially succeeds, Push reports which files were replaced, leaves Snapshot and Manifest unchanged, and the user must Pull before trying again.
 
 ### DSL Decompilation
 
 DSL Decompilation reads Project Data Snapshot and writes Decompiled Source under the source root. It is non-destructive: existing output files cause failure in the first version. It emits explicit Entry Identity for every decompiled DSL-owned entry. It should prefer available DSL helpers and fall back to raw escape hatches when no supported helper exists.
+
+The fixed output layout is:
+
+```text
+src/decompiled/
+  maps/
+    Map001.events.ts
+    Map002.events.ts
+  common-events.events.ts
+  system.dsl.ts
+```
+
+Each map file contains the Map Event definitions for that map and includes both `mapId` and event `id`. `common-events.events.ts` contains Common Event definitions with explicit `id`. `system.dsl.ts` contains Variable Definitions and Switch Definitions for non-empty `System.json` variable/switch name slots. Empty string slots are not emitted as definitions.
+
+Decompile must preflight all target output paths before writing. If any target file already exists, it fails before writing any files. Export names may be derived from Display Names, but Entry Identity fields are the source of truth; duplicate or invalid export names should be disambiguated with IDs.
 
 ## Conditional Modules
 
@@ -307,7 +394,7 @@ Event Data Operation, Operation Mode, Definition Binding, Definition Target, and
 
 Public package exports need to include any new DSL helpers for Variable Definitions and Switch Definitions. Existing helpers that create Map Events and Common Events change input contracts to require Entry Identity fields.
 
-CLI contract changes are breaking. `create`, `replace`, and independent `lint` are removed or no longer primary. `compile --check` is the validation path.
+CLI contract changes are breaking. `create`, `replace`, and independent `lint` are removed from the public CLI. `compile --check` is the validation path.
 
 ### Data Model / Persistence
 
@@ -316,12 +403,13 @@ Workspace Data State persists snapshots, generated files, and manifest metadata.
 - Project Data Snapshot files.
 - Generated Project Data files.
 - DSL source inputs selected by Definition Source Discovery.
+- Relevant Workspace Config fields.
 
-Generated Project Data and Project Data Snapshot can be stored as whole MV data files. Sync Manifest records file hashes and source hashes only; it does not store entry bindings.
+Generated Project Data and Project Data Snapshot can be stored as whole MV data files. Sync Manifest records file hashes and Compile Baseline hashes; it does not store entry bindings.
 
 ### Execution / Concurrency Semantics
 
-Commands should avoid partial writes. Compile should fully validate before writing generated files. Push should complete all preflight checks before writing Project Root files. If Push writes multiple files, failure handling must avoid silently reporting success with only a subset updated; the implementation should either stage writes or report exactly which files were written if an unexpected filesystem failure occurs.
+Commands should avoid partial writes. Compile should fully validate before writing generated files. Compile Check is read-only and does not write generated files or update the Sync Manifest. Push should complete all preflight checks before writing Project Root files. Push stages writes before replacing Project Root files and only refreshes Snapshot/Manifest after every affected replacement succeeds.
 
 Concurrent editor changes are handled by Project Drift detection through snapshot hashes. The first version does not attempt automatic merge.
 
@@ -352,24 +440,28 @@ The project is still in development, so direct replacement is allowed. Tests and
 
 ## Phase Slices
 
-Reserved for `to-slices`. Do not fill this section in `to-design`.
-
 | Phase | Goal | Depends On | Requirements | Success Criteria | Slice Candidates |
 | --- | --- | --- | --- | --- | --- |
+| 1 | Establish the new command/config/state foundation. | None | R-01, R-02, R-07, OUT-01, OUT-07, OUT-08 | CLI and Workspace Config expose the new model; clone/pull can create a Standard Project Data Snapshot with manifest hashes. | Slice 01, Slice 02 |
+| 2 | Add DSL-owned declaration discovery and staged validation. | Phase 1 | R-03, R-04, R-05, R-14, OUT-02, OUT-03 | Source discovery collects DSL declarations; Entry Identity and Project Data Reference validation work against the Staged Data Graph. | Slice 03, Slice 04 |
+| 3 | Implement compile artifacts and structured review. | Phase 2 | R-06, R-08, R-09, R-11, R-13, OUT-04, OUT-05, OUT-06 | Compile Check is read-only; normal compile writes complete Generated Project Data with Compile Baseline metadata; diff reports structured changes without reading Project Root. | Slice 05, Slice 06, Slice 07 |
+| 4 | Implement safe Project Root synchronization and brownfield source generation. | Phases 1-3 | R-10, R-12, R-15, R-17, OT-03, OT-07, OT-08, OT-09 | Push enforces freshness, drift, destructive gates, and staged writes; decompile writes non-destructive source in the fixed layout. | Slice 08, Slice 09 |
+| 5 | Remove legacy workflow surface and update user-facing guidance. | Phases 1-4 | R-01, DOC-03, DOC-04 | Public API/docs/tests no longer use direct-write create/replace/lint; examples describe the workspace compile/push workflow. | Slice 10, Slice 11 |
+| 6 | Verify the complete workflow and invariants. | Phases 1-5 | All Observable Truths and Required Design Outcomes | Workflow and pure-logic tests cover the required matrix; package checks pass or skipped reasons are documented. | Slice 12 |
 
 ## Completion Contract
 
 ### Observable Truths
 
-- [ ] OT-01: The CLI exposes the workspace compile/push command surface and no longer exposes `create` / `replace` as primary commands.
+- [ ] OT-01: The CLI exposes the workspace compile/push command surface and no longer exposes `create`, `replace`, or standalone `lint` as public commands.
 - [ ] OT-02: A workspace can clone a Project Root into Project Data Snapshot without writing DSL source or Project Root data.
 - [ ] OT-03: A workspace can decompile Project Data Snapshot into non-destructive Decompiled Source with explicit Entry Identity.
 - [ ] OT-04: A workspace can compile discovered DSL source into Generated Project Data without mutating Project Root or Project Data Snapshot.
 - [ ] OT-05: Diff produces a Structured Diff Report comparing Generated Project Data and Project Data Snapshot.
-- [ ] OT-06: Push rejects stale Generated Project Data.
-- [ ] OT-07: Push rejects Project Drift.
+- [ ] OT-06: Diff and Push reject Generated Project Data that is stale against the current Compile Baseline.
+- [ ] OT-07: Push rejects Project Drift on Affected Project Data Files.
 - [ ] OT-08: Normal Push rejects Destructive Changes, while Destructive Push applies them without bypassing freshness or drift checks.
-- [ ] OT-09: Successful Push writes Project Root data and refreshes affected Project Data Snapshot and Sync Manifest.
+- [ ] OT-09: Successful Push stages and writes affected Project Root data, then refreshes affected Project Data Snapshot and Sync Manifest.
 
 ### Required Design Outcomes
 
@@ -377,8 +469,10 @@ Reserved for `to-slices`. Do not fill this section in `to-design`.
 - [ ] OUT-02: DSL-owned entries require explicit Entry Identity.
 - [ ] OUT-03: Staged Data Graph can resolve same-run DSL-owned references and External Project Data References.
 - [ ] OUT-04: Generated Project Data carries forward non-owned data domains from Project Data Snapshot.
-- [ ] OUT-05: Entry Removal preserves MV IDs without array compaction.
-- [ ] OUT-06: Sync Manifest stores hashes and freshness metadata, not Entry Identity bindings.
+- [ ] OUT-05: Entry Removal preserves MV IDs with explicit hole values in dense arrays.
+- [ ] OUT-06: Sync Manifest stores hashes and Compile Baseline metadata, not Entry Identity bindings.
+- [ ] OUT-07: Definition Source Discovery uses source root include/exclude patterns.
+- [ ] OUT-08: Standard Project Data Snapshot excludes non-standard project data files.
 
 ### Required Canonical Updates
 
@@ -394,27 +488,40 @@ Highest-practical seam: workflow/CLI behavior using temporary workspaces and MV-
 Required workflow tests:
 
 - CLI command surface for `init`, `clone`, `pull`, `decompile`, `compile`, `diff`, and `push`.
-- Workspace config loading with source-root discovery and without Definition Bindings.
-- Clone captures snapshot files and writes snapshot hashes.
+- Workspace config loading with source-root include/exclude discovery and without Definition Bindings.
+- Clone captures Standard Project Data Snapshot files and writes snapshot hashes.
+- Clone ignores non-standard `data/*.json` files and fails when `MapInfos.json` references a missing map file.
 - Pull refreshes snapshot despite stale generated data.
 - Compile requires Project Data Snapshot.
 - Compile writes Generated Project Data and manifest freshness data without touching Project Root or snapshot.
+- Compile Check validates without writing Generated Project Data or updating manifest freshness data.
+- Compile writes complete carrier output for DSL-Owned Project Data domains, not only changed files.
 - Compile resolves same-run DSL-owned references.
 - Compile rejects duplicate Entry Identity.
+- Compile treats Map Event identity as `{ mapId, eventId }`, allowing the same event ID on different maps.
 - Compile allows duplicate Display Name unless referenced ambiguously by name.
+- Compile rejects missing Explicit ID References in the same visible reference scope as name-based references.
+- Compile does not semantically validate Raw DSL Command parameters as Project Data References.
+- Compile materializes Variable Definitions and Switch Definitions as `System.json` name entries and ignores empty string slots as definitions.
+- Compile emits dense MV ID arrays with explicit `null` or `""` holes.
 - Diff rejects stale generated data.
+- Diff rejects generated data whose Compile Baseline snapshot hashes differ from the current Project Data Snapshot after Pull.
 - Diff reports generated-only, snapshot-only, and changed entries by Data Domain and Entry Identity.
-- Push rejects stale generated data.
-- Push rejects Project Drift.
+- Push rejects generated data stale against the current Compile Baseline.
+- Push rejects Project Drift on Affected Project Data Files.
+- Push ignores Project Root changes in non-standard data files outside the Standard Project Data Snapshot.
+- Push ignores Project Root changes in standard files that are not Affected Project Data Files for the current generated-vs-snapshot diff.
 - Normal Push rejects Destructive Changes.
 - Destructive Push applies Destructive Changes and preserves ID holes.
-- Successful Push updates Project Root, snapshot, and manifest.
-- Decompile writes non-destructive source and fails if target output exists.
+- Successful Push stages writes, updates Project Root, snapshot, and manifest.
+- Push does not refresh snapshot or manifest if staging fails or replacement only partially succeeds.
+- Decompile writes the fixed non-destructive source layout and fails before writing if any target output exists.
+- Decompile ignores empty variable/switch name slots.
 
 Focused pure-logic tests:
 
 - Hash calculation and manifest comparison.
-- Source discovery ordering and source hash stability.
+- Source discovery ordering and Compile Baseline hash stability.
 - Staged Data Graph duplicate and ambiguity checks.
 - Data Domain materialization into carrier files.
 - Structured Diff Report classification.
@@ -432,7 +539,7 @@ Do not test implementation details such as private helper call order, exact obje
 - Supporting decompile overwrite.
 - Supporting semantic event-command diff beyond initial Reconciliation Hints.
 - Supporting a machine-only JSON output mode for Diff as a separate public contract.
-- Supporting exclude globs for Definition Source Discovery if source-root recursion is insufficient.
+- Supporting plugin or custom project data files in Project Data Snapshots.
 
 ## Open Questions
 
