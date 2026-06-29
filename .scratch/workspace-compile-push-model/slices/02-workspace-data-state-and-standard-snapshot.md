@@ -2,7 +2,7 @@
 
 ## Status
 
-Ready
+Done
 
 ## Type
 
@@ -64,7 +64,7 @@ Add the first real workspace compile/push workflow behavior: snapshot capture. `
 
 ## Acceptance Criteria
 
-- [ ] `clone` copies standard database files:
+- [x] `clone` copies standard database files:
   - `Actors.json`
   - `Animations.json`
   - `Armors.json`
@@ -79,24 +79,29 @@ Add the first real workspace compile/push workflow behavior: snapshot capture. `
   - `Tilesets.json`
   - `Troops.json`
   - `Weapons.json`
-- [ ] `clone` copies every `Map###.json` referenced by `MapInfos.json`.
-- [ ] `pull` refreshes the same snapshot files and hashes.
-- [ ] Non-standard `data/*.json` files are ignored.
-- [ ] Missing referenced map files fail clone/pull before writing an incomplete snapshot.
-- [ ] Sync Manifest records snapshot file hashes.
-- [ ] Clone and Pull do not write DSL source or Project Root files.
+- [x] `clone` copies every `Map###.json` referenced by `MapInfos.json`.
+- [x] `pull` refreshes the same snapshot files and hashes.
+- [x] Non-standard `data/*.json` files are ignored.
+- [x] Missing referenced map files fail clone/pull before writing an incomplete snapshot.
+- [x] Sync Manifest records snapshot file hashes.
+- [x] Clone and Pull do not write DSL source or Project Root files.
 
 ## Implementation Notes
 
 Use deterministic relative paths in manifest entries so hashes are stable across machine-specific absolute workspace paths. Consider writing snapshot files to a temporary state location before replacing existing snapshot state on pull, so a failed pull does not leave a mixed snapshot.
 
+- Workspace Data State is stored under `.rmmv-event-dsl/` with `project-data-snapshot/` and `sync-manifest.json`.
+- Clone and Pull now capture the standard MV database set plus `Map###.json` files referenced by `MapInfos.json`.
+- Non-standard `data/*.json` files remain outside the snapshot and are ignored by the workflow.
+- Snapshot writes and manifest writes use temporary paths before replacement to reduce mixed-state risk on failure.
+
 ## Suggested Task Plan
 
-1. Add workflow tests for clone/pull snapshot capture.
-2. Add state path helpers and manifest read/write helpers.
-3. Implement Standard Project Data Snapshot enumeration from `MapInfos.json`.
-4. Implement clone/pull commands.
-5. Run focused verification.
+1. Completed: workflow tests for clone/pull snapshot capture.
+2. Completed: state path helpers and manifest read/write helpers.
+3. Completed: Standard Project Data Snapshot enumeration from `MapInfos.json`.
+4. Completed: clone/pull commands.
+5. Completed: focused verification.
 
 ## Verification Commands
 
@@ -107,7 +112,15 @@ pnpm --filter @rmmv-event-dsl/core typecheck
 
 ## Done When
 
-- [ ] Acceptance criteria pass.
-- [ ] Verification commands pass or skipped reason is documented.
-- [ ] Design references remain satisfied.
-- [ ] No unrelated scope was added.
+- [x] Acceptance criteria pass.
+- [x] Verification commands pass or skipped reason is documented.
+- [x] Design references remain satisfied.
+- [x] No unrelated scope was added.
+
+## Verification
+
+```bash
+pnpm --filter @rmmv-event-dsl/core typecheck
+pnpm --filter @rmmv-event-dsl/core test -- workflow.test.ts workspace.test.ts
+pnpm format:check
+```
