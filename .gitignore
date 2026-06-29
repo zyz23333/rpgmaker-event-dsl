@@ -15,5 +15,5 @@ node_modules/
 .codex/
 .claude/
 
-# sample workspace live config
-/sample/full-event/rmmv-event-dsl.config.json
+# sample workspace state
+/example/full-event/.rmmv-event-dsl/

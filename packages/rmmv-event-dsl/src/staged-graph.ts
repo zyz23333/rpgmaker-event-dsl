@@ -359,7 +359,7 @@ function validateNodes(
     }
     if (node.kind === "controlVariable") {
       captureReferenceIssue(() => resolver.resolveReference(node.variable), issues);
-      if (typeof node.value === "object" && node.value !== null && "kind" in node.value) {
+      if (isReferenceValue(node.value)) {
         captureReferenceIssue(
           () => resolver.resolveReference(node.value as ReferenceValue<"variable">),
           issues,
@@ -388,7 +388,7 @@ function validateNodes(
         captureReferenceIssue(() => resolver.resolveReference(target.variableY), issues);
       }
     }
-    if (node.kind === "battleProcessing" && !("useRandomEncounter" in node.troop)) {
+    if (node.kind === "battleProcessing" && isReferenceValue(node.troop)) {
       const troopRef = node.troop;
       captureReferenceIssue(() => resolver.resolveReference(troopRef), issues);
     }
@@ -400,6 +400,16 @@ function validateNodes(
       }
     }
   }
+}
+
+function isReferenceValue(value: unknown): value is ReferenceValue<ReferenceKind> {
+  return (
+    !!value &&
+    typeof value === "object" &&
+    "kind" in value &&
+    (("id" in value && typeof value.id === "number") ||
+      ("name" in value && typeof value.name === "string"))
+  );
 }
 
 function validateCondition(

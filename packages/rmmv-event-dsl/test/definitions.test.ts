@@ -117,6 +117,57 @@ export const count = variableDefinition({
     ]);
   });
 
+  it("preserves nested array literals in DSL command input", async () => {
+    const dir = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-def-"));
+    const file = join(dir, "nested-arrays.ts");
+
+    await writeFile(
+      file,
+      `export const event = {
+  kind: "mapEvent",
+  mapId: 1,
+  id: 1,
+  name: "Choice",
+  x: 1,
+  y: 2,
+  pages: [
+    {
+      conditions: {},
+      trigger: "action",
+      commands: [
+        {
+          kind: "showChoices",
+          choices: ["Yes", "No"],
+          branches: [
+            [{ kind: "wait", frames: 10 }],
+            [{ kind: "eraseEvent" }],
+          ],
+        },
+      ],
+    },
+  ],
+};
+`,
+      "utf8",
+    );
+
+    const definitions = await loadDefinitionFile(file);
+    const event = definitions[0];
+
+    expect(event?.kind).toBe("mapEvent");
+    if (event?.kind !== "mapEvent") {
+      return;
+    }
+
+    const choices = event.pages[0]?.commands[0];
+
+    expect(choices?.kind).toBe("showChoices");
+    if (choices?.kind !== "showChoices") {
+      return;
+    }
+    expect(choices.branches).toEqual([[{ kind: "wait", frames: 10 }], [{ kind: "eraseEvent" }]]);
+  });
+
   it("rejects default exports with a TypeScript diagnostics error", async () => {
     const dir = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-def-"));
     const file = join(dir, "default-export.ts");

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  battleProcessing,
   callCommonEvent,
   buildSnapshotReferenceInput,
   changeItem,
@@ -14,6 +15,7 @@ import {
   rawDslCommand,
   switchDefinition,
   switchRef,
+  troopRef,
   validateDslOwnedDeclarations,
   variableDefinition,
   variableRef,
@@ -238,6 +240,70 @@ describe("validateDslOwnedDeclarations", () => {
     );
 
     expect(result.issues).toEqual([]);
+  });
+
+  it("does not treat random variable operands as variable references", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        variableDefinition({ id: 1, name: "Count" }),
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Random Count",
+          commands: [
+            controlVariable({
+              variable: variableRef({ id: 1 }),
+              operation: "add",
+              value: {
+                kind: "random",
+                from: 1,
+                to: 3,
+              },
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues).toEqual([]);
+  });
+
+  it("validates troop references without treating random encounters as references", () => {
+    const randomEncounterResult = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Random Battle",
+          commands: [
+            battleProcessing({
+              troop: {
+                kind: "troop",
+                useRandomEncounter: true,
+              },
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+    const missingTroopResult = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Fixed Battle",
+          commands: [battleProcessing({ troop: troopRef({ id: 99 }) })],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(randomEncounterResult.issues).toEqual([]);
+    expect(missingTroopResult.issues.map((issue) => issue.message)).toContain(
+      "Unknown troop reference id: 99",
+    );
   });
 });
 

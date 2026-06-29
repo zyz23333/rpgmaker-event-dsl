@@ -2,10 +2,11 @@ import {
   actorRef,
   battleProcessing,
   breakLoop,
+  callCommonEvent,
   changeGold,
   changeItem,
   comment,
-  callCommonEvent,
+  commonEvent,
   commonEventRef,
   conditional,
   controlSelfSwitch,
@@ -26,12 +27,30 @@ import {
   shopProcessing,
   showChoices,
   showText,
+  switchDefinition,
   switchRef,
   transferPlayer,
-  troopRef,
+  variableDefinition,
   variableRef,
   wait,
-} from "../../../packages/rmmv-event-dsl/src/index.js";
+} from "@rmmv-event-dsl/core";
+
+export const sampleSwitchDefinition = switchDefinition({
+  id: 1,
+  name: "Sample Switch",
+});
+
+export const sampleVariableDefinition = variableDefinition({
+  id: 1,
+  name: "Sample Variable",
+});
+
+export const sampleCommonEventDefinition = commonEvent({
+  id: 1,
+  name: "Sample Common Event",
+  trigger: "none",
+  commands: [showText(["Common event from DSL"])],
+});
 
 const sampleSwitch = switchRef({ id: 1 });
 const sampleVariable = variableRef({ id: 1 });
@@ -39,9 +58,10 @@ const sampleActor = actorRef({ id: 1 });
 const sampleItem = itemRef({ id: 1 });
 const sampleMap = mapRef({ id: 1 });
 const sampleCommonEvent = commonEventRef({ id: 1 });
-const sampleTroop = troopRef({ id: 1 });
 
 export const fullEvent = mapEvent({
+  mapId: 1,
+  id: 1,
   name: "FullEvent",
   x: 4,
   y: 4,
@@ -101,7 +121,10 @@ export const fullEvent = mapEvent({
         wait(30),
         eraseEvent(),
         battleProcessing({
-          troop: sampleTroop,
+          troop: {
+            kind: "troop",
+            useRandomEncounter: true,
+          },
           canEscape: true,
           canLose: false,
         }),

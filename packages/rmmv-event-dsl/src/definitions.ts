@@ -303,20 +303,23 @@ function evaluateExpression(node: ts.Expression, scope: EvaluationScope): unknow
   }
 
   if (ts.isArrayLiteralExpression(node)) {
-    return node.elements
-      .map((element) => {
-        if (ts.isSpreadElement(element)) {
-          const spreadValue = evaluateExpression(element.expression, scope);
-          if (!Array.isArray(spreadValue)) {
-            throw new Error("Array spreads must resolve to arrays.");
-          }
+    const output: unknown[] = [];
 
-          return spreadValue;
+    for (const element of node.elements) {
+      if (ts.isSpreadElement(element)) {
+        const spreadValue = evaluateExpression(element.expression, scope);
+        if (!Array.isArray(spreadValue)) {
+          throw new Error("Array spreads must resolve to arrays.");
         }
 
-        return evaluateExpression(element, scope);
-      })
-      .flat();
+        output.push(...spreadValue);
+        continue;
+      }
+
+      output.push(evaluateExpression(element, scope));
+    }
+
+    return output;
   }
 
   if (ts.isObjectLiteralExpression(node)) {

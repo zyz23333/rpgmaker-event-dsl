@@ -1,13 +1,7 @@
 {
   "projectRoot": "<set-this-to-your-local-test-mv-project>",
-  "scriptEnabled": false,
-  "definitionTargets": [
-    {
-      "src": "src/full-event.ts",
-      "target": {
-        "type": "map",
-        "mapId": 1
-      }
-    }
-  ]
+  "scriptEnabled": true,
+  "sourceRoot": "src",
+  "sourceInclude": ["**/*.events.ts", "**/*.dsl.ts"],
+  "sourceExclude": ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"]
 }

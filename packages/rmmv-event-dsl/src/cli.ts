@@ -61,7 +61,7 @@ export function createCli(): Command {
   program
     .command("compile")
     .description("Compile discovered DSL source into Generated Project Data.")
-    .option("--check", "validate without writing Generated Project Data")
+    .option("--check", "validate without writing Generated Project Data or freshness metadata")
     .action(async (options: { check?: boolean }) => {
       await compileWorkspace({
         workspaceRoot: process.cwd(),
@@ -79,7 +79,10 @@ export function createCli(): Command {
   program
     .command("push")
     .description("Synchronize fresh Generated Project Data to the configured MV project.")
-    .option("--allow-destructive", "allow reviewed destructive changes")
+    .option(
+      "--allow-destructive",
+      "allow reviewed destructive changes without bypassing safety checks",
+    )
     .action(async (options: { allowDestructive?: boolean }) => {
       await pushWorkspace({
         workspaceRoot: process.cwd(),

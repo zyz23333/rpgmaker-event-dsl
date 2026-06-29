@@ -1,0 +1,8 @@
+{
+  "name": "rmmv-event-dsl-full-event-example",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@rmmv-event-dsl/core": "workspace:*"
+  }
+}
