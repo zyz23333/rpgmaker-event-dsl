@@ -35,7 +35,11 @@ import {
   type SnapshotReferenceInput,
   type SnapshotReferenceSource,
 } from "./staged-graph.js";
-import { buildStructuredDiffReport, renderStructuredDiffReport } from "./structured-diff.js";
+import {
+  buildStructuredDiffReport,
+  deriveAffectedProjectDataFiles,
+  renderStructuredDiffReport,
+} from "./structured-diff.js";
 import { loadWorkspace, type LoadedWorkspace, type WorkspaceConfig } from "./workspace.js";
 import { writeStableJson } from "./writer.js";
 
@@ -49,6 +53,11 @@ export type CompileWorkspaceOptions = WorkspaceCommandOptions & {
 
 export type PushWorkspaceOptions = WorkspaceCommandOptions & {
   allowDestructive: boolean;
+};
+
+export type DiffWorkspaceOptions = WorkspaceCommandOptions & {
+  file?: string;
+  short?: boolean;
 };
 
 export async function cloneWorkspace(options: WorkspaceCommandOptions): Promise<void> {
@@ -535,7 +544,7 @@ function isMissingFileError(error: unknown): boolean {
   );
 }
 
-export async function diffWorkspace(options: WorkspaceCommandOptions): Promise<string> {
+export async function diffWorkspace(options: DiffWorkspaceOptions): Promise<string> {
   const workspace = await loadWorkspace(options.workspaceRoot);
   const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
 
@@ -567,9 +576,29 @@ export async function diffWorkspace(options: WorkspaceCommandOptions): Promise<s
   const generatedFiles = manifest.generatedFiles ?? [];
   const generated = await readJsonFiles(statePaths.generatedProjectDataDirectory, generatedFiles);
   const snapshot = await readJsonFiles(statePaths.projectDataSnapshotDirectory, generatedFiles);
-  const report = buildStructuredDiffReport({ generated, snapshot });
+  if (options.file !== undefined) {
+    assertKnownSafeProjectDataFile(options.file, generatedFiles);
+  }
 
-  return renderStructuredDiffReport(report);
+  const report = buildStructuredDiffReport({ generated, snapshot });
+  const affectedFiles = deriveAffectedProjectDataFiles({ generated, snapshot });
+  const renderOptions = {
+    affectedFiles,
+    ...(options.file === undefined ? {} : { file: options.file }),
+    ...(options.short === undefined ? {} : { short: options.short }),
+  };
+
+  return renderStructuredDiffReport(report, renderOptions);
+}
+
+function assertKnownSafeProjectDataFile(
+  relativePath: string,
+  generatedFiles: readonly FileHashEntry[],
+): void {
+  const knownFiles = new Set(generatedFiles.map((entry) => entry.relativePath));
+  if (!isSafeProjectDataFileName(relativePath) || !knownFiles.has(relativePath)) {
+    throw new Error(`Unknown or unsafe Project Data File for diff --file: ${relativePath}.`);
+  }
 }
 
 async function assertGeneratedProjectDataIntegrity(
@@ -742,17 +771,6 @@ async function assertGeneratedProjectDataFresh(input: {
   }
 }
 
-function deriveAffectedProjectDataFiles(input: {
-  generated: ReadonlyMap<string, unknown>;
-  snapshot: ReadonlyMap<string, unknown>;
-}): string[] {
-  return [...input.generated.keys()]
-    .filter((relativePath) => {
-      return !isJsonEqual(input.generated.get(relativePath), input.snapshot.get(relativePath));
-    })
-    .sort((left, right) => left.localeCompare(right));
-}
-
 async function assertNoProjectDrift(input: {
   affectedFiles: readonly string[];
   dataDirectory: string;
@@ -883,8 +901,12 @@ async function refreshSnapshotAndManifestAfterPush(input: {
   });
 }
 
-function isJsonEqual(left: unknown, right: unknown): boolean {
-  return writeStableJson(left) === writeStableJson(right);
+function isSafeProjectDataFileName(relativePath: string): boolean {
+  return (
+    relativePath === "CommonEvents.json" ||
+    relativePath === "System.json" ||
+    /^Map\d{3}\.json$/u.test(relativePath)
+  );
 }
 
 function rewriteCompileBaselineSnapshotFiles(

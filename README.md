@@ -21,6 +21,8 @@ rpgmaker-event-dsl decompile
 rpgmaker-event-dsl compile --check
 rpgmaker-event-dsl compile
 rpgmaker-event-dsl diff
+rpgmaker-event-dsl diff --short
+rpgmaker-event-dsl diff --file Map001.json
 rpgmaker-event-dsl push
 ```
 
@@ -32,7 +34,11 @@ rpgmaker-event-dsl push
   or freshness metadata.
 - `compile` validates discovered DSL source and writes Generated Project Data in the
   workspace. It does not write Project Root files or mutate the Project Data Snapshot.
-- `diff` compares Generated Project Data with the Project Data Snapshot.
+- `diff` compares Generated Project Data with the Project Data Snapshot, emits a
+  Structured Diff Report, and lists the Affected Project Data Files that a later `push`
+  would write if Project Drift checks pass. Use `diff --short` for a summary without
+  entry details, or `diff --file <relativePath>` to filter the structured view by one
+  Project Data File.
 - `push` is the only command that writes Project Root data. It requires fresh Generated
   Project Data and no Project Drift.
 - `pull` refreshes the Project Data Snapshot from the Project Root after editor-side

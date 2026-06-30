@@ -12,6 +12,7 @@ export type StructuredDiffEntry = {
   destructive: boolean;
   detail: string;
   identity: string;
+  projectDataFile: string;
 };
 
 export type StructuredDiffDomain = {
@@ -29,9 +30,16 @@ export type BuildStructuredDiffReportOptions = {
   snapshot: ReadonlyMap<string, unknown>;
 };
 
+export type RenderStructuredDiffReportOptions = {
+  affectedFiles?: readonly string[];
+  file?: string;
+  short?: boolean;
+};
+
 type DomainEntryInput = {
   generated: unknown;
   identity: string;
+  projectDataFile: string;
   snapshot: unknown;
 };
 
@@ -62,8 +70,79 @@ export function buildStructuredDiffReport(
   };
 }
 
-export function renderStructuredDiffReport(report: StructuredDiffReport): string {
-  const lines = ["Structured Diff Report"];
+export function deriveAffectedProjectDataFiles(input: {
+  generated: ReadonlyMap<string, unknown>;
+  snapshot: ReadonlyMap<string, unknown>;
+}): string[] {
+  return [...input.generated.keys()]
+    .filter(
+      (relativePath) =>
+        !isJsonEqual(input.generated.get(relativePath), input.snapshot.get(relativePath)),
+    )
+    .sort((left, right) => left.localeCompare(right));
+}
+
+export function renderStructuredDiffReport(
+  report: StructuredDiffReport,
+  options: RenderStructuredDiffReportOptions = {},
+): string {
+  const filteredReport = options.file
+    ? filterReportByProjectDataFile(report, options.file)
+    : report;
+  const lines = [options.short ? "Structured Diff Summary" : "Structured Diff Report"];
+
+  if (options.file) {
+    lines.push(`Filter: Project Data File ${options.file}`);
+  }
+
+  if (options.short) {
+    pushSummaryLines(lines, filteredReport);
+  } else {
+    pushDetailedLines(lines, filteredReport, options.file);
+  }
+
+  if (options.affectedFiles) {
+    pushAffectedFileLines(lines, options.affectedFiles);
+  }
+
+  if (options.file) {
+    lines.push(
+      "",
+      `Destructive Changes In Filter: ${filteredReport.hasDestructiveChanges ? "yes" : "no"}`,
+      `Destructive Changes Overall: ${report.hasDestructiveChanges ? "yes" : "no"}`,
+    );
+  } else {
+    lines.push("", `Destructive Changes: ${report.hasDestructiveChanges ? "yes" : "no"}`);
+  }
+
+  return lines.join("\n");
+}
+
+function filterReportByProjectDataFile(
+  report: StructuredDiffReport,
+  projectDataFile: string,
+): StructuredDiffReport {
+  const domains = report.domains
+    .map((domain) => ({
+      domain: domain.domain,
+      entries: domain.entries.filter((entry) => entry.projectDataFile === projectDataFile),
+    }))
+    .filter((domain) => domain.entries.length > 0);
+
+  return {
+    domains,
+    hasDestructiveChanges: domains.some((domain) =>
+      domain.entries.some((entry) => entry.destructive),
+    ),
+  };
+}
+
+function pushDetailedLines(
+  lines: string[],
+  report: StructuredDiffReport,
+  fileFilter: string | undefined,
+): void {
+  let visibleEntryCount = 0;
 
   for (const domain of report.domains) {
     const visibleEntries = domain.entries.filter(
@@ -74,6 +153,7 @@ export function renderStructuredDiffReport(report: StructuredDiffReport): string
       continue;
     }
 
+    visibleEntryCount += visibleEntries.length;
     lines.push("", domain.domain);
     for (const entry of visibleEntries) {
       const destructiveSuffix = entry.destructive ? " (destructive)" : "";
@@ -81,9 +161,69 @@ export function renderStructuredDiffReport(report: StructuredDiffReport): string
     }
   }
 
-  lines.push("", `Destructive Changes: ${report.hasDestructiveChanges ? "yes" : "no"}`);
+  if (visibleEntryCount === 0 && fileFilter) {
+    lines.push("", "No changes for selected Project Data File.");
+  }
+}
 
-  return lines.join("\n");
+function pushSummaryLines(lines: string[], report: StructuredDiffReport): void {
+  const summaries = report.domains
+    .map((domain) => {
+      const counts = countVisibleChanges(domain.entries);
+      const parts = [
+        formatCount(counts.changed, "changed"),
+        formatCount(counts.generatedOnly, "generated-only"),
+        formatCount(counts.snapshotOnly, "snapshot-only"),
+      ].filter((part): part is string => part !== null);
+
+      return parts.length > 0 ? `${domain.domain}: ${parts.join(", ")}` : null;
+    })
+    .filter((line): line is string => line !== null);
+
+  if (summaries.length === 0) {
+    lines.push("", "No changes.");
+    return;
+  }
+
+  lines.push("", ...summaries);
+}
+
+function countVisibleChanges(entries: readonly StructuredDiffEntry[]): {
+  changed: number;
+  generatedOnly: number;
+  snapshotOnly: number;
+} {
+  return entries.reduce(
+    (counts, entry) => {
+      if (entry.change === "changed") {
+        counts.changed += 1;
+      } else if (entry.change === "generated-only") {
+        counts.generatedOnly += 1;
+      } else if (entry.change === "snapshot-only") {
+        counts.snapshotOnly += 1;
+      }
+
+      return counts;
+    },
+    { changed: 0, generatedOnly: 0, snapshotOnly: 0 },
+  );
+}
+
+function formatCount(count: number, label: string): string | null {
+  return count > 0 ? `${count} ${label}` : null;
+}
+
+function pushAffectedFileLines(lines: string[], affectedFiles: readonly string[]): void {
+  lines.push("", "Affected Project Data Files:");
+
+  if (affectedFiles.length === 0) {
+    lines.push("- none");
+    return;
+  }
+
+  for (const affectedFile of affectedFiles) {
+    lines.push(`- ${affectedFile}`);
+  }
 }
 
 function buildMapEventDomain(options: BuildStructuredDiffReportOptions): StructuredDiffDomain {
@@ -103,6 +243,7 @@ function buildMapEventDomain(options: BuildStructuredDiffReportOptions): Structu
       const entry = classifyOwnedEntry({
         generated: generatedEvents[index],
         identity: `mapId ${mapId}, eventId ${index}`,
+        projectDataFile: relativePath,
         snapshot: snapshotEvents[index],
       });
       if (entry !== null) {
@@ -127,6 +268,7 @@ function buildCommonEventDomain(options: BuildStructuredDiffReportOptions): Stru
     const entry = classifyOwnedEntry({
       generated: generated[index],
       identity: `commonEventId ${index}`,
+      projectDataFile: "CommonEvents.json",
       snapshot: snapshot[index],
     });
     if (entry !== null) {
@@ -157,6 +299,7 @@ function buildSystemNameDomain(
     const entry = classifyOwnedEntry({
       generated: normalizeSystemName(generated[index]),
       identity: `${input.identityPrefix} ${index}`,
+      projectDataFile: "System.json",
       snapshot: normalizeSystemName(snapshot[index]),
     });
     if (entry !== null) {
@@ -189,6 +332,7 @@ function buildCarrierFileDomain(options: BuildStructuredDiffReportOptions): Stru
         destructive: false,
         detail: "Non-owned carrier data matches Project Data Snapshot.",
         identity: relativePath,
+        projectDataFile: relativePath,
       });
     } else {
       entries.push({
@@ -196,6 +340,7 @@ function buildCarrierFileDomain(options: BuildStructuredDiffReportOptions): Stru
         destructive: false,
         detail: "Non-owned carrier data differs from Project Data Snapshot.",
         identity: relativePath,
+        projectDataFile: relativePath,
       });
     }
   }
@@ -216,6 +361,7 @@ function classifyOwnedEntry(input: DomainEntryInput): StructuredDiffEntry | null
       destructive: false,
       detail: "Entry exists only in Generated Project Data.",
       identity: input.identity,
+      projectDataFile: input.projectDataFile,
     };
   }
 
@@ -225,6 +371,7 @@ function classifyOwnedEntry(input: DomainEntryInput): StructuredDiffEntry | null
       destructive: true,
       detail: "Entry exists only in Project Data Snapshot.",
       identity: input.identity,
+      projectDataFile: input.projectDataFile,
     };
   }
 
@@ -241,6 +388,7 @@ function classifyOwnedEntry(input: DomainEntryInput): StructuredDiffEntry | null
       ? "Generated entry matches snapshot entry."
       : "Generated entry differs from snapshot entry.",
     identity: input.identity,
+    projectDataFile: input.projectDataFile,
   };
 }
 

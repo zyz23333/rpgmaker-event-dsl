@@ -72,8 +72,20 @@ export function createCli(): Command {
   program
     .command("diff")
     .description("Compare Generated Project Data with the Project Data Snapshot.")
-    .action(async () => {
-      console.log(await diffWorkspace({ workspaceRoot: process.cwd() }));
+    .option("--short", "show a summary without entry details")
+    .option("--file <relativePath>", "filter the Structured Diff Report by Project Data File")
+    .action(async (options: { file?: string; short?: boolean }) => {
+      const diffOptions = {
+        workspaceRoot: process.cwd(),
+        short: options.short === true,
+      };
+
+      console.log(
+        await diffWorkspace({
+          ...diffOptions,
+          ...(options.file === undefined ? {} : { file: options.file }),
+        }),
+      );
     });
 
   program

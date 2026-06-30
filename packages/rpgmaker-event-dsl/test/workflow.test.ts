@@ -955,7 +955,145 @@ export const gateSwitch = {
     expect(output).toContain(
       "- [snapshot-only] switchId 2 (destructive): Entry exists only in Project Data Snapshot.",
     );
+    expect(output).toContain("Affected Project Data Files:");
+    expect(output).toContain("- Map001.json");
+    expect(output).toContain("- System.json");
     expect(output).toContain("Destructive Changes: yes");
+  });
+
+  it("renders a short Diff summary with Affected Project Data Files", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(
+      `export const gate = {
+  kind: "mapEvent",
+  mapId: 1,
+  id: 1,
+  name: "Gate",
+  x: 0,
+  y: 0,
+  pages: [
+    {
+      conditions: {},
+      trigger: "action",
+      commands: [],
+    },
+  ],
+};
+
+export const gateSwitch = {
+  kind: "switchDefinition",
+  id: 1,
+  name: "Gate Open",
+};
+`,
+    );
+
+    await compileWorkspace({ workspaceRoot, check: false });
+
+    const output = await diffWorkspace({ workspaceRoot, short: true });
+
+    expect(output).toContain("Structured Diff Summary");
+    expect(output).toContain("Map Event: 1 generated-only");
+    expect(output).toContain("Switch: 1 changed, 1 snapshot-only");
+    expect(output).toContain("Affected Project Data Files:");
+    expect(output).toContain("- Map001.json");
+    expect(output).toContain("- System.json");
+    expect(output).not.toContain("Entry exists only in Generated Project Data.");
+    expect(output).toContain("Destructive Changes: yes");
+  });
+
+  it("filters Diff output by Project Data File", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(
+      `export const gate = {
+  kind: "mapEvent",
+  mapId: 1,
+  id: 1,
+  name: "Gate",
+  x: 0,
+  y: 0,
+  pages: [
+    {
+      conditions: {},
+      trigger: "action",
+      commands: [],
+    },
+  ],
+};
+
+export const gateSwitch = {
+  kind: "switchDefinition",
+  id: 1,
+  name: "Gate Open",
+};
+`,
+    );
+
+    await compileWorkspace({ workspaceRoot, check: false });
+
+    const output = await diffWorkspace({ workspaceRoot, file: "Map001.json" });
+
+    expect(output).toContain("Filter: Project Data File Map001.json");
+    expect(output).toContain("Map Event");
+    expect(output).toContain(
+      "- [generated-only] mapId 1, eventId 1: Entry exists only in Generated Project Data.",
+    );
+    expect(output).not.toContain("Switch");
+    expect(output).toContain("Affected Project Data Files:");
+    expect(output).toContain("- Map001.json");
+    expect(output).toContain("- System.json");
+    expect(output).toContain("Destructive Changes In Filter: no");
+    expect(output).toContain("Destructive Changes Overall: yes");
+  });
+
+  it("renders an empty filtered Diff for a known Project Data File with no changes", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(
+      `export const gateSwitch = {
+  kind: "switchDefinition",
+  id: 1,
+  name: "Gate Open",
+};
+`,
+    );
+
+    await compileWorkspace({ workspaceRoot, check: false });
+
+    const output = await diffWorkspace({ workspaceRoot, file: "Map001.json" });
+
+    expect(output).toContain("Filter: Project Data File Map001.json");
+    expect(output).toContain("No changes for selected Project Data File.");
+    expect(output).toContain("Affected Project Data Files:");
+    expect(output).toContain("- System.json");
+    expect(output).toContain("Destructive Changes In Filter: no");
+    expect(output).toContain("Destructive Changes Overall: yes");
+  });
+
+  it("rejects unknown or unsafe Diff file filters", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(
+      `export const gate = {
+  kind: "mapEvent",
+  mapId: 1,
+  id: 1,
+  name: "Gate",
+  x: 0,
+  y: 0,
+  pages: [
+    {
+      conditions: {},
+      trigger: "action",
+      commands: [],
+    },
+  ],
+};
+`,
+    );
+
+    await compileWorkspace({ workspaceRoot, check: false });
+
+    await expect(diffWorkspace({ workspaceRoot, file: "PluginData.json" })).rejects.toThrow(
+      "Unknown or unsafe Project Data File for diff --file: PluginData.json.",
+    );
+    await expect(diffWorkspace({ workspaceRoot, file: "../System.json" })).rejects.toThrow(
+      "Unknown or unsafe Project Data File for diff --file: ../System.json.",
+    );
   });
 });
 

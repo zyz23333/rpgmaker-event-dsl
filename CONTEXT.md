@@ -376,6 +376,11 @@ _Avoid_: config default, inherited old value
 - A **Diff** is a **Structured Diff Report**.
 - A **Structured Diff Report** may include **Reconciliation Hints** for raw MV changes that can be represented in DSL.
 - A **Structured Diff Report** has an internal structured model and human-readable CLI output.
+- **Diff** may list **Affected Project Data Files** derived from comparing **Generated Project Data** with a **Project Data Snapshot**.
+- A file-filtered **Diff** reports destructive status for the filtered view while preserving the overall destructive status of the full **Structured Diff Report**.
+- The Diff CLI uses `--file` for filtering the **Structured Diff Report** by Project Data File.
+- A file-filtered **Diff** with no changes for the selected Project Data File reports an empty filtered result instead of failing.
+- A file-filtered **Diff** rejects unknown or unsafe Project Data File names.
 - **DSL-Owned Project Data** is defined by **Data Domain**, not by whole files.
 - A **DSL-Owned Project Data** domain is taken over as a whole; entries in that domain that are present in the **Project Data Snapshot** but absent from **Compile Output** are **Snapshot-Only Owned Entries**.
 - The first intended **DSL-Owned Project Data** domains are the **Event Data Store** and the variable and switch entries stored in **System Data**.
