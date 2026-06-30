@@ -473,6 +473,7 @@ function validateNodes(
       validateMapDestination(node.destination, resolver, issues);
     }
     if (node.kind === "setEventLocation") {
+      validateCharacterRuntimeSelector(node.character, "Set Event Location character", issues);
       validateEventLocationDestination(node.destination, resolver, issues);
     }
     if (node.kind === "battleProcessing" && isReferenceValue(node.troop)) {
@@ -515,7 +516,60 @@ function validateEventLocationDestination(
   if (destination.kind === "variables") {
     captureReferenceIssue(() => resolver.resolveReference(destination.x), issues);
     captureReferenceIssue(() => resolver.resolveReference(destination.y), issues);
+    return;
   }
+
+  if (destination.kind === "exchange") {
+    validateCharacterRuntimeSelector(
+      destination.character,
+      "Set Event Location exchange character",
+      issues,
+    );
+  }
+}
+
+function validateCharacterRuntimeSelector(
+  selector: RuntimeSelector,
+  fieldName: string,
+  issues: ValidationIssue[],
+): void {
+  if (selector.scope !== "character") {
+    issues.push({
+      level: "error",
+      message: `${fieldName} must use the character runtime selector scope.`,
+    });
+    return;
+  }
+
+  if (selector.target === "player" || selector.target === "currentEvent") {
+    if ("id" in selector) {
+      issues.push({
+        level: "error",
+        message: `${fieldName} must not include an id for ${selector.target}.`,
+      });
+    }
+    return;
+  }
+
+  if (selector.target === "event") {
+    const eventSelector = selector as RuntimeSelector & { id?: unknown };
+    if (
+      typeof eventSelector.id !== "number" ||
+      !Number.isInteger(eventSelector.id) ||
+      eventSelector.id <= 0
+    ) {
+      issues.push({
+        level: "error",
+        message: `${fieldName} event id must be a positive integer.`,
+      });
+    }
+    return;
+  }
+
+  issues.push({
+    level: "error",
+    message: `${fieldName} target must be player, currentEvent, or event.`,
+  });
 }
 
 function validateReferenceOrRange<TKind extends ReferenceKind>(

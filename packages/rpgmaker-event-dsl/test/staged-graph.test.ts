@@ -371,6 +371,62 @@ describe("validateDslOwnedDeclarations", () => {
     expect(result.issues).toEqual([]);
   });
 
+  it("rejects invalid Set Event Location character runtime selectors", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        variableDefinition({ id: 1, name: "X Var" }),
+        variableDefinition({ id: 2, name: "Y Var" }),
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Bad Runtime Selectors",
+          commands: [
+            setEventLocation({
+              character: {
+                kind: "runtimeSelector",
+                scope: "player",
+                target: "current",
+              } as never,
+              destination: { kind: "direct", x: 1, y: 2 },
+            }),
+            setEventLocation({
+              character: {
+                kind: "runtimeSelector",
+                scope: "character",
+                target: "event",
+              } as never,
+              destination: {
+                kind: "variables",
+                x: variableRef({ id: 1 }),
+                y: variableRef({ id: 2 }),
+              },
+            }),
+            setEventLocation({
+              character: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
+              destination: {
+                kind: "exchange",
+                character: {
+                  kind: "runtimeSelector",
+                  scope: "character",
+                  target: "follower",
+                } as never,
+              },
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toEqual(
+      expect.arrayContaining([
+        "Set Event Location character must use the character runtime selector scope.",
+        "Set Event Location character event id must be a positive integer.",
+        "Set Event Location exchange character target must be player, currentEvent, or event.",
+      ]),
+    );
+  });
+
   it("rejects missing variable references in Movement variable destinations", () => {
     const result = validateDslOwnedDeclarations(
       [
