@@ -1,13 +1,13 @@
 {
-  "name": "rmmv-event-dsl-workspace",
+  "name": "rpgmaker-event-dsl-workspace",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "pnpm -r build",
     "check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test",
-    "format": "oxfmt --ignore-path .oxfmtignore --write package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rmmv-event-dsl",
-    "format:check": "oxfmt --ignore-path .oxfmtignore --check package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rmmv-event-dsl",
+    "format": "oxfmt --ignore-path .oxfmtignore --write package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rpgmaker-event-dsl",
+    "format:check": "oxfmt --ignore-path .oxfmtignore --check package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rpgmaker-event-dsl",
     "lint": "oxlint .",
     "test": "pnpm -r test",
     "typecheck": "pnpm -r typecheck"

@@ -33,7 +33,7 @@ import {
   variableDefinition,
   variableRef,
   wait,
-} from "@rmmv-event-dsl/core";
+} from "rpgmaker-event-dsl";
 
 export const tourStarted = switchDefinition({
   id: 1,

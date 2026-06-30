@@ -1,4 +1,4 @@
-# RMMV Event DSL
+# RPG Maker Event DSL
 
 Schema-first TypeScript tooling for RPG Maker MV event data. The current workflow is a
 workspace compile/push model: DSL source is compiled into local Generated Project Data
@@ -10,18 +10,18 @@ checks pass.
 Initialize a workspace next to an RPG Maker MV project:
 
 ```bash
-rmmv-event-dsl init --project-root ../Game
+rpgmaker-event-dsl init --project-root ../Game
 ```
 
 Then use the workspace commands in this order:
 
 ```bash
-rmmv-event-dsl clone
-rmmv-event-dsl decompile
-rmmv-event-dsl compile --check
-rmmv-event-dsl compile
-rmmv-event-dsl diff
-rmmv-event-dsl push
+rpgmaker-event-dsl clone
+rpgmaker-event-dsl decompile
+rpgmaker-event-dsl compile --check
+rpgmaker-event-dsl compile
+rpgmaker-event-dsl diff
+rpgmaker-event-dsl push
 ```
 
 - `clone` captures the initial Standard Project Data Snapshot from the configured
@@ -79,7 +79,7 @@ import {
   switchDefinition,
   switchRef,
   variableDefinition,
-} from "@rmmv-event-dsl/core";
+} from "rpgmaker-event-dsl";
 
 export const hasKey = switchDefinition({
   id: 1,
@@ -138,7 +138,7 @@ domains. After reviewing `diff`, use the explicit destructive option only when t
 removals are intended:
 
 ```bash
-rmmv-event-dsl push --allow-destructive
+rpgmaker-event-dsl push --allow-destructive
 ```
 
 Destructive Push does not bypass Generated Freshness, Generated Project Data integrity,

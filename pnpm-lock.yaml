@@ -20,11 +20,11 @@ importers:
 
   example/full-event:
     dependencies:
-      '@rmmv-event-dsl/core':
+      rpgmaker-event-dsl:
         specifier: workspace:*
-        version: link:../../packages/rmmv-event-dsl
+        version: link:../../packages/rpgmaker-event-dsl
 
-  packages/rmmv-event-dsl:
+  packages/rpgmaker-event-dsl:
     dependencies:
       commander:
         specifier: ^14.0.2

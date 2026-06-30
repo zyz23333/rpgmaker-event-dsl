@@ -1,8 +1,8 @@
 {
-  "name": "rmmv-event-dsl-full-event-example",
+  "name": "rpgmaker-event-dsl-full-event-example",
   "private": true,
   "type": "module",
   "dependencies": {
-    "@rmmv-event-dsl/core": "workspace:*"
+    "rpgmaker-event-dsl": "workspace:*"
   }
 }

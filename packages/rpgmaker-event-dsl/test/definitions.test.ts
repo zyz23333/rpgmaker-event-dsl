@@ -8,7 +8,7 @@ import { discoverDefinitionFiles, loadDefinitionFile } from "../src/definitions.
 
 describe("loadDefinitionFile", () => {
   it("loads a named Event Definition from a TypeScript module", async () => {
-    const dir = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-def-"));
+    const dir = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-def-"));
     const file = join(dir, "sample.ts");
 
     await writeFile(
@@ -40,15 +40,15 @@ export const gate = entry;
   });
 
   it("loads DSL-owned declarations from a TypeScript module", async () => {
-    const dir = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-def-"));
+    const dir = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-def-"));
     const file = join(dir, "owned.ts");
-    const packageRoot = join(dir, "node_modules", "@rmmv-event-dsl", "core");
+    const packageRoot = join(dir, "node_modules", "rpgmaker-event-dsl");
     await mkdir(packageRoot, { recursive: true });
     await writeFile(
       join(packageRoot, "package.json"),
       JSON.stringify(
         {
-          name: "@rmmv-event-dsl/core",
+          name: "rpgmaker-event-dsl",
           type: "module",
           types: "./index.d.ts",
           exports: {
@@ -87,7 +87,7 @@ export declare function variableDefinition(input: {
 
     await writeFile(
       file,
-      `import { commonEvent, switchDefinition, variableDefinition } from "@rmmv-event-dsl/core";
+      `import { commonEvent, switchDefinition, variableDefinition } from "rpgmaker-event-dsl";
 
 export const alarm = commonEvent({
   id: 1,
@@ -118,7 +118,7 @@ export const count = variableDefinition({
   });
 
   it("preserves nested array literals in DSL command input", async () => {
-    const dir = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-def-"));
+    const dir = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-def-"));
     const file = join(dir, "nested-arrays.ts");
 
     await writeFile(
@@ -169,7 +169,7 @@ export const count = variableDefinition({
   });
 
   it("rejects default exports with a TypeScript diagnostics error", async () => {
-    const dir = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-def-"));
+    const dir = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-def-"));
     const file = join(dir, "default-export.ts");
 
     await writeFile(
@@ -197,9 +197,9 @@ export const count = variableDefinition({
 
 describe("discoverDefinitionFiles", () => {
   it("discovers DSL declaration files from sourceRoot and ignores helper modules", async () => {
-    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-discovery-"));
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-discovery-"));
     const sourceRoot = join(workspaceRoot, "src");
-    await writeFile(join(workspaceRoot, "rmmv-event-dsl.config.json"), "{}", "utf8");
+    await writeFile(join(workspaceRoot, "rpgmaker-event-dsl.config.json"), "{}", "utf8");
     await mkdir(sourceRoot, { recursive: true });
     await writeFile(join(sourceRoot, "ignored.ts"), "export const helper = 1;\n", "utf8");
     await writeFile(join(sourceRoot, "alpha.events.ts"), "export const alpha = 1;\n", "utf8");

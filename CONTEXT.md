@@ -1,19 +1,23 @@
-# RMMV Event DSL
+# RPG Maker Event DSL
 
-This context defines the language for a TypeScript-first authoring layer that turns intentional RPG Maker MV event changes into validated MV project data.
+This context defines the language for a TypeScript-first authoring layer that turns intentional RPG Maker event changes into validated project data for supported RPG Maker engines.
 
 ## Language
 
 **Event DSL**:
-The TypeScript authoring surface for defining RPG Maker MV events and event commands before compilation to project data.
+The TypeScript authoring surface for defining RPG Maker events and event commands before compilation to supported project data.
 _Avoid_: raw JSON editing, patch script, editor automation
+
+**RPG Maker MV Project Data**:
+The first supported RPG Maker project data format for Workspace compilation, snapshot, diff, and push behavior.
+_Avoid_: generic RPG Maker project data, MZ project data
 
 **Schema-First DSL**:
 A TypeScript authoring style for the Event DSL where event structures are expressed as named object fields rather than positional block arguments.
 _Avoid_: patch script, positional block DSL
 
 **Event Definition**:
-A top-level developer-authored TypeScript DSL value that defines one RPG Maker MV event.
+A top-level developer-authored TypeScript DSL value that defines one RPG Maker event.
 _Avoid_: patch script, raw event JSON, TypeScript module
 
 **Named Event Export**:
@@ -133,7 +137,7 @@ The root directory of a Workspace, identified by the presence of the Workspace C
 _Avoid_: Project Root, repository root, arbitrary source folder
 
 **Workspace Config**:
-The local configuration file `rmmv-event-dsl.config.json` in a Workspace that declares the Project Root, source discovery patterns, and tool gates.
+The local configuration file `rpgmaker-event-dsl.config.json` in a Workspace that declares the Project Root, source discovery patterns, and tool gates.
 _Avoid_: project config, global config, package config, definition binding
 
 **Workspace Data State**:
@@ -319,7 +323,7 @@ _Avoid_: config default, inherited old value
 - A **Workspace Initialization** command creates the initial Workspace structure.
 - A **Workspace Initialization** command creates only the `src/` directory.
 - A **Workspace Initialization** command requires a `projectRoot`.
-- The **Workspace Config** file is named `rmmv-event-dsl.config.json`.
+- The **Workspace Config** file is named `rpgmaker-event-dsl.config.json`.
 - A **Workspace Config** contains a **Project Root**, Definition Source Discovery fields, and the **Script Command Gate**.
 - A **Workspace** may contain **Workspace Data State** maintained by the tool.
 - **Workspace Data State** includes **Generated Project Data**, **Project Data Snapshots**, and a **Sync Manifest**.

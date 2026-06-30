@@ -32,7 +32,7 @@ export type InitWorkspaceOptions = {
 };
 
 export async function loadWorkspace(workspaceRoot: string): Promise<LoadedWorkspace> {
-  const configPath = resolve(workspaceRoot, "rmmv-event-dsl.config.json");
+  const configPath = resolve(workspaceRoot, "rpgmaker-event-dsl.config.json");
   const rawConfig = await readFile(configPath, "utf8");
   const config = workspaceConfigSchema.parse(JSON.parse(rawConfig));
   const projectRoot = resolve(workspaceRoot, config.projectRoot);
@@ -66,7 +66,7 @@ export async function initWorkspace(options: InitWorkspaceOptions): Promise<Load
   await mkdir(workspaceRoot, { recursive: true });
   await mkdir(resolve(workspaceRoot, config.sourceRoot), { recursive: true });
   await writeFile(
-    resolve(workspaceRoot, "rmmv-event-dsl.config.json"),
+    resolve(workspaceRoot, "rpgmaker-event-dsl.config.json"),
     `${JSON.stringify(config, null, 2)}\n`,
     "utf8",
   );

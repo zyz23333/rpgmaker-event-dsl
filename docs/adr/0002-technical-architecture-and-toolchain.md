@@ -6,7 +6,7 @@ status: accepted
 
 We decided that the implementation uses Node.js 22 LTS as the runtime compatibility baseline, TypeScript strict mode, ESM with NodeNext resolution, pnpm workspaces, commander for the CLI, zod for runtime schemas and validation, tsx for TypeScript DSL source loading, tsdown for builds, vitest for tests, oxlint for linting, and oxfmt for formatting.
 
-The implementation lives in `packages/rmmv-event-dsl` so later slices can add DSL, compiler, validation, project loading, synchronization checks, workspace state, and output writing behind a stable package boundary. The public workflow command surface is workspace-oriented: `init`, `clone`, `pull`, `decompile`, `compile`, `diff`, and `push`; check-only compilation is the validation path.
+The implementation lives in `packages/rpgmaker-event-dsl` so later slices can add DSL, compiler, validation, project loading, synchronization checks, workspace state, and output writing behind a stable package boundary. The public workflow command surface is workspace-oriented: `init`, `clone`, `pull`, `decompile`, `compile`, `diff`, and `push`; check-only compilation is the validation path.
 
 Consequences:
 

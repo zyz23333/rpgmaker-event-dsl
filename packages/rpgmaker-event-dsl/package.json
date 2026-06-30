@@ -1,9 +1,9 @@
 {
-  "name": "@rmmv-event-dsl/core",
+  "name": "rpgmaker-event-dsl",
   "version": "0.0.0",
   "description": "Schema-first TypeScript DSL and CLI foundation for RPG Maker MV event data.",
   "bin": {
-    "rmmv-event-dsl": "./dist/cli.mjs"
+    "rpgmaker-event-dsl": "./dist/cli.mjs"
   },
   "files": [
     "dist"

@@ -206,7 +206,7 @@ function registerImport(statement: ts.ImportDeclaration, scope: EvaluationScope)
   }
 
   const moduleSpecifier = getModuleSpecifier(statement);
-  if (moduleSpecifier !== "@rmmv-event-dsl/core") {
+  if (moduleSpecifier !== "rpgmaker-event-dsl") {
     throw new Error(`Unsupported import source: ${moduleSpecifier}`);
   }
 

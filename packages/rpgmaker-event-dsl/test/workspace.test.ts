@@ -14,12 +14,12 @@ import {
 
 describe("loadWorkspace", () => {
   it("loads a workspace config and resolves the project root relative to the workspace root", async () => {
-    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-workspace-"));
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-workspace-"));
     const projectRoot = join(workspaceRoot, "..", "MyGame");
     const dataDirectory = join(projectRoot, "data");
 
     await writeFile(
-      join(workspaceRoot, "rmmv-event-dsl.config.json"),
+      join(workspaceRoot, "rpgmaker-event-dsl.config.json"),
       JSON.stringify({
         projectRoot: "../MyGame",
         scriptEnabled: false,
@@ -46,12 +46,12 @@ describe("loadWorkspace", () => {
   });
 
   it("rejects configs that still include removed legacy workflow fields", async () => {
-    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-workspace-legacy-"));
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-workspace-legacy-"));
     const projectRoot = join(workspaceRoot, "..", "MyGame-legacy");
     const dataDirectory = join(projectRoot, "data");
 
     await writeFile(
-      join(workspaceRoot, "rmmv-event-dsl.config.json"),
+      join(workspaceRoot, "rpgmaker-event-dsl.config.json"),
       JSON.stringify({
         projectRoot: "../MyGame-legacy",
         scriptEnabled: false,
@@ -70,11 +70,11 @@ describe("loadWorkspace", () => {
   });
 
   it("rejects a project root without an RPG Maker project marker", async () => {
-    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-workspace-marker-"));
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-workspace-marker-"));
     const projectRoot = join(workspaceRoot, "..", "MyGame-missing-marker");
 
     await writeFile(
-      join(workspaceRoot, "rmmv-event-dsl.config.json"),
+      join(workspaceRoot, "rpgmaker-event-dsl.config.json"),
       JSON.stringify({
         projectRoot: "../MyGame-missing-marker",
         scriptEnabled: false,
@@ -92,7 +92,7 @@ describe("loadWorkspace", () => {
 
 describe("initWorkspace", () => {
   it("creates the workspace structure and writes a workspace config", async () => {
-    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-init-"));
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-init-"));
     const projectRoot = join(workspaceRoot, "..", "MyGame-init");
     const dataDirectory = join(projectRoot, "data");
 
@@ -106,7 +106,7 @@ describe("initWorkspace", () => {
     });
 
     const srcStat = await stat(join(workspaceRoot, "src"));
-    const configStat = await stat(join(workspaceRoot, "rmmv-event-dsl.config.json"));
+    const configStat = await stat(join(workspaceRoot, "rpgmaker-event-dsl.config.json"));
 
     expect(srcStat.isDirectory()).toBe(true);
     expect(configStat.isFile()).toBe(true);
@@ -121,7 +121,7 @@ describe("initWorkspace", () => {
       sourceExclude: [...defaultSourceExclude],
     });
     await expect(
-      readFile(join(workspaceRoot, "rmmv-event-dsl.config.json"), "utf8").then((content) =>
+      readFile(join(workspaceRoot, "rpgmaker-event-dsl.config.json"), "utf8").then((content) =>
         JSON.parse(content),
       ),
     ).resolves.toEqual(result.config);

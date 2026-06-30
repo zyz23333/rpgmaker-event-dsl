@@ -14,7 +14,7 @@ describe("CLI entrypoint", () => {
   it("prints help when executed directly", async () => {
     const { stdout } = await execFileAsync(nodeCommand, [...tsxLoaderArgs, "src/cli.ts", "--help"]);
 
-    expect(stdout).toContain("Usage: rmmv-event-dsl");
+    expect(stdout).toContain("Usage: rpgmaker-event-dsl");
     expect(stdout).toContain("init");
     expect(stdout).toContain("clone");
     expect(stdout).toContain("pull");
@@ -28,7 +28,7 @@ describe("CLI entrypoint", () => {
   });
 
   it("initializes a workspace from the init command", async () => {
-    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-cli-"));
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-cli-"));
     const projectRoot = join(workspaceRoot, "..", "MyGame-cli");
 
     await mkdir(projectRoot, { recursive: true });

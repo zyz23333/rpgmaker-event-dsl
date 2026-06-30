@@ -15,7 +15,7 @@ import {
   pushWorkspace,
 } from "./workflow.js";
 
-export const cliName = "rmmv-event-dsl";
+export const cliName = "rpgmaker-event-dsl";
 
 export function createCli(): Command {
   const program = new Command();

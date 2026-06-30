@@ -29,7 +29,7 @@ async function writeWorkspaceConfig(
   },
 ): Promise<void> {
   await writeFile(
-    join(workspaceRoot, "rmmv-event-dsl.config.json"),
+    join(workspaceRoot, "rpgmaker-event-dsl.config.json"),
     JSON.stringify({
       projectRoot: "./Game",
       scriptEnabled: overrides?.scriptEnabled ?? false,
@@ -134,7 +134,7 @@ async function writeProjectFixture(
 
 describe("workspace snapshot workflow", () => {
   it("clones the standard MV snapshot and writes snapshot hashes", async () => {
-    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-clone-"));
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-clone-"));
     const projectRoot = createProjectRootFixture(workspaceRoot);
 
     await writeProjectFixture(projectRoot, { extraMapFile: true });
@@ -180,7 +180,7 @@ describe("workspace snapshot workflow", () => {
   });
 
   it("fails clone when MapInfos references a missing map file", async () => {
-    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-clone-missing-"));
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-clone-missing-"));
     const projectRoot = createProjectRootFixture(workspaceRoot);
 
     await writeProjectFixture(projectRoot, { includeMissingMap: true });
@@ -190,7 +190,7 @@ describe("workspace snapshot workflow", () => {
   });
 
   it("refreshes the snapshot on pull without touching non-standard project files", async () => {
-    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-pull-"));
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-pull-"));
     const projectRoot = createProjectRootFixture(workspaceRoot);
 
     await writeProjectFixture(projectRoot);
@@ -228,7 +228,9 @@ describe("workspace snapshot workflow", () => {
 
 describe("decompile workflow", () => {
   it("fails when no Project Data Snapshot exists", async () => {
-    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-decompile-no-snapshot-"));
+    const workspaceRoot = await mkdtemp(
+      join(tmpdir(), "rpgmaker-event-dsl-decompile-no-snapshot-"),
+    );
     const projectRoot = createProjectRootFixture(workspaceRoot);
 
     await writeProjectFixture(projectRoot);
@@ -240,7 +242,7 @@ describe("decompile workflow", () => {
   });
 
   it("writes the fixed source layout with explicit Entry Identity and raw command fallback", async () => {
-    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-decompile-"));
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-decompile-"));
     const projectRoot = createProjectRootFixture(workspaceRoot);
 
     await writeProjectFixture(projectRoot, { secondMap: true });
@@ -369,7 +371,7 @@ describe("decompile workflow", () => {
   });
 
   it("preflights all target files and fails before writing when any output exists", async () => {
-    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-decompile-existing-"));
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-decompile-existing-"));
     const projectRoot = createProjectRootFixture(workspaceRoot);
 
     await writeProjectFixture(projectRoot, { secondMap: true });
@@ -403,7 +405,7 @@ describe("decompile workflow", () => {
 
 describe("compile --check workflow", () => {
   it("fails before source evaluation when no Project Data Snapshot exists", async () => {
-    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-check-no-snapshot-"));
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-check-no-snapshot-"));
     const projectRoot = createProjectRootFixture(workspaceRoot);
 
     await writeProjectFixture(projectRoot);
@@ -417,7 +419,7 @@ describe("compile --check workflow", () => {
   });
 
   it("discovers configured DSL declaration files and validates same-run references", async () => {
-    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-check-valid-"));
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-check-valid-"));
     const projectRoot = createProjectRootFixture(workspaceRoot);
 
     await writeProjectFixture(projectRoot);
@@ -620,7 +622,7 @@ export const caller = {
 
 describe("compile workflow", () => {
   it("fails before source evaluation when no Project Data Snapshot exists", async () => {
-    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-compile-no-snapshot-"));
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-compile-no-snapshot-"));
     const projectRoot = createProjectRootFixture(workspaceRoot);
 
     await writeProjectFixture(projectRoot);
@@ -634,7 +636,7 @@ describe("compile workflow", () => {
   });
 
   it("writes complete Generated Project Data carriers without mutating Project Root or snapshot", async () => {
-    const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-compile-"));
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-compile-"));
     const projectRoot = createProjectRootFixture(workspaceRoot);
 
     await writeProjectFixture(projectRoot, { secondMap: true });
@@ -1123,7 +1125,7 @@ describe("push workflow", () => {
 });
 
 async function createClonedWorkspaceWithSource(sourceText: string): Promise<string> {
-  const workspaceRoot = await mkdtemp(join(tmpdir(), "rmmv-event-dsl-check-"));
+  const workspaceRoot = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-check-"));
   const projectRoot = createProjectRootFixture(workspaceRoot);
 
   await writeProjectFixture(projectRoot);
@@ -1136,12 +1138,12 @@ async function createClonedWorkspaceWithSource(sourceText: string): Promise<stri
 }
 
 async function writeDslPackageTypes(workspaceRoot: string): Promise<void> {
-  const packageRoot = join(workspaceRoot, "node_modules", "@rmmv-event-dsl", "core");
+  const packageRoot = join(workspaceRoot, "node_modules", "rpgmaker-event-dsl");
   await mkdir(packageRoot, { recursive: true });
   await writeFile(
     join(packageRoot, "package.json"),
     JSON.stringify({
-      name: "@rmmv-event-dsl/core",
+      name: "rpgmaker-event-dsl",
       type: "module",
       types: "./index.d.ts",
       exports: {

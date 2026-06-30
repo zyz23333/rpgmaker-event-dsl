@@ -209,7 +209,7 @@ function renderSystemSource(system: Record<string, unknown>): string {
     return renderEmptyModule();
   }
 
-  return `import { switchDefinition, variableDefinition } from "@rmmv-event-dsl/core";\n\n${declarations.join(
+  return `import { switchDefinition, variableDefinition } from "rpgmaker-event-dsl";\n\n${declarations.join(
     "\n\n",
   )}\n`;
 }
@@ -429,7 +429,7 @@ function renderPageConditions(conditions: Record<string, unknown> | undefined): 
 function renderEventImport(helpers: readonly string[]): string {
   const uniqueHelpers = [...new Set(helpers)].sort((left, right) => left.localeCompare(right));
 
-  return `import { ${uniqueHelpers.join(", ")} } from "@rmmv-event-dsl/core";`;
+  return `import { ${uniqueHelpers.join(", ")} } from "rpgmaker-event-dsl";`;
 }
 
 function collectCommandHelperNames(commands: readonly RawEventCommand[]): string[] {

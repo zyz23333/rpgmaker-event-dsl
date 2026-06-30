@@ -7,7 +7,7 @@ import { z } from "zod";
 import { parseMapInfos } from "./project.js";
 import { writeStableJson } from "./writer.js";
 
-export const workspaceStateDirectoryName = ".rmmv-event-dsl";
+export const workspaceStateDirectoryName = ".rpgmaker-event-dsl";
 export const projectDataSnapshotDirectoryName = "project-data-snapshot";
 export const generatedProjectDataDirectoryName = "generated-project-data";
 export const syncManifestFileName = "sync-manifest.json";
