@@ -10,6 +10,17 @@ type RawEventCommand = {
   parameters: unknown[];
 };
 
+type RenderedCommand = {
+  expression: string;
+  helperNames: readonly string[];
+  nextIndex: number;
+};
+
+export type DecompiledCommandListRendering = {
+  helperNames: readonly string[];
+  source: string;
+};
+
 type SnapshotMapEvent = {
   id: number;
   name: string;
@@ -224,8 +235,11 @@ ${indentLines(renderCommands(normalizeCommandList(page.list)), 4)}
 })`;
 }
 
-function renderCommands(commands: readonly RawEventCommand[]): string {
+export function renderDecompiledCommandList(
+  commands: readonly RawEventCommand[],
+): DecompiledCommandListRendering {
   const rendered: string[] = [];
+  const helperNames = new Set<string>();
 
   for (let index = 0; index < commands.length; index += 1) {
     const command = commands[index];
@@ -234,57 +248,148 @@ function renderCommands(commands: readonly RawEventCommand[]): string {
       continue;
     }
 
-    if (command.code === 101) {
-      const lines: string[] = [];
-      // MV stores Show Text and Comment bodies as continuation commands. Keep those readable
-      // where possible, and leave unsupported command shapes as raw escape hatches below.
-      while (commands[index + 1]?.code === 401 && commands[index + 1]?.indent === command.indent) {
-        const next = commands[index + 1];
-        const line = next?.parameters[0];
-        lines.push(typeof line === "string" ? line : "");
-        index += 1;
-      }
-      rendered.push(`showText(${literal(lines.length > 0 ? lines : [""])})`);
-      continue;
+    const commandRendering = renderCommandAt(commands, index);
+    rendered.push(commandRendering.expression);
+    for (const helperName of commandRendering.helperNames) {
+      helperNames.add(helperName);
     }
-
-    if (command.code === 108) {
-      const lines = [readStringParameter(command.parameters[0])];
-      while (commands[index + 1]?.code === 408 && commands[index + 1]?.indent === command.indent) {
-        const next = commands[index + 1];
-        lines.push(readStringParameter(next?.parameters[0]));
-        index += 1;
-      }
-      rendered.push(`comment(${literal(lines)})`);
-      continue;
-    }
-
-    const helper = renderSimpleCommand(command);
-    rendered.push(helper ?? renderRawCommand(command));
+    index = commandRendering.nextIndex;
   }
 
-  return rendered.map((line) => `${line},`).join("\n");
+  return {
+    helperNames: [...helperNames].sort((left, right) => left.localeCompare(right)),
+    source: rendered.map((line) => `${line},`).join("\n"),
+  };
 }
 
-function renderSimpleCommand(command: RawEventCommand): string | null {
+function renderCommands(commands: readonly RawEventCommand[]): string {
+  return renderDecompiledCommandList(commands).source;
+}
+
+function renderCommandAt(commands: readonly RawEventCommand[], index: number): RenderedCommand {
+  const command = commands[index];
+
+  if (command === undefined) {
+    throw new Error("Cannot render missing event command.");
+  }
+
+  switch (command.code) {
+    case 101:
+      return renderShowTextCommand(commands, index);
+    case 108:
+      return renderCommentCommand(commands, index);
+    default:
+      return renderSimpleOrRawCommand(command, index);
+  }
+}
+
+function renderShowTextCommand(
+  commands: readonly RawEventCommand[],
+  index: number,
+): RenderedCommand {
+  const command = commands[index];
+  if (command === undefined) {
+    throw new Error("Cannot render missing Show Text command.");
+  }
+
+  const lines: string[] = [];
+  let nextIndex = index;
+
+  // MV stores Show Text bodies as 401 continuation commands owned by the parent command.
+  while (
+    commands[nextIndex + 1]?.code === 401 &&
+    commands[nextIndex + 1]?.indent === command.indent
+  ) {
+    const next = commands[nextIndex + 1];
+    const line = next?.parameters[0];
+    lines.push(typeof line === "string" ? line : "");
+    nextIndex += 1;
+  }
+
+  return {
+    expression: `showText(${literal(lines.length > 0 ? lines : [""])})`,
+    helperNames: ["showText"],
+    nextIndex,
+  };
+}
+
+function renderCommentCommand(
+  commands: readonly RawEventCommand[],
+  index: number,
+): RenderedCommand {
+  const command = commands[index];
+  if (command === undefined) {
+    throw new Error("Cannot render missing Comment command.");
+  }
+
+  const lines = [readStringParameter(command.parameters[0])];
+  let nextIndex = index;
+
+  while (
+    commands[nextIndex + 1]?.code === 408 &&
+    commands[nextIndex + 1]?.indent === command.indent
+  ) {
+    const next = commands[nextIndex + 1];
+    lines.push(readStringParameter(next?.parameters[0]));
+    nextIndex += 1;
+  }
+
+  return {
+    expression: `comment(${literal(lines)})`,
+    helperNames: ["comment"],
+    nextIndex,
+  };
+}
+
+function renderSimpleOrRawCommand(command: RawEventCommand, index: number): RenderedCommand {
+  const helper = renderSimpleCommand(command);
+
+  if (helper !== null) {
+    return {
+      expression: helper.expression,
+      helperNames: helper.helperNames,
+      nextIndex: index,
+    };
+  }
+
+  return {
+    expression: renderRawCommand(command),
+    helperNames: ["rawDslCommand"],
+    nextIndex: index,
+  };
+}
+
+function renderSimpleCommand(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
   switch (command.code) {
     case 117: {
       const commonEventId = readPositiveInteger(command.parameters[0]);
       return commonEventId === null
         ? null
-        : `callCommonEvent(commonEventRef({ id: ${commonEventId} }))`;
+        : {
+            expression: `callCommonEvent(commonEventRef({ id: ${commonEventId} }))`,
+            helperNames: ["callCommonEvent", "commonEventRef"],
+          };
     }
     case 118:
-      return `label(${literal(readStringParameter(command.parameters[0]))})`;
+      return {
+        expression: `label(${literal(readStringParameter(command.parameters[0]))})`,
+        helperNames: ["label"],
+      };
     case 119:
-      return `jumpToLabel(${literal(readStringParameter(command.parameters[0]))})`;
+      return {
+        expression: `jumpToLabel(${literal(readStringParameter(command.parameters[0]))})`,
+        helperNames: ["jumpToLabel"],
+      };
     case 121: {
       const switchId = readPositiveInteger(command.parameters[0]);
       const repeatedSwitchId = command.parameters[1];
       const value = command.parameters[2];
       return switchId === null || repeatedSwitchId !== switchId || typeof value !== "number"
         ? null
-        : `controlSwitches({ switch: switchRef({ id: ${switchId} }), value: ${value === 0 ? "true" : "false"} })`;
+        : {
+            expression: `controlSwitches({ switch: switchRef({ id: ${switchId} }), value: ${value === 0 ? "true" : "false"} })`,
+            helperNames: ["controlSwitches", "switchRef"],
+          };
     }
     case 122:
       return renderControlVariables(command);
@@ -292,14 +397,20 @@ function renderSimpleCommand(command: RawEventCommand): string | null {
       const selfSwitch = command.parameters[0];
       const value = command.parameters[1];
       return typeof selfSwitch === "string" && ["A", "B", "C", "D"].includes(selfSwitch)
-        ? `controlSelfSwitch({ selfSwitch: ${literal(selfSwitch)}, value: ${value === 0 ? "true" : "false"} })`
+        ? {
+            expression: `controlSelfSwitch({ selfSwitch: ${literal(selfSwitch)}, value: ${value === 0 ? "true" : "false"} })`,
+            helperNames: ["controlSelfSwitch"],
+          }
         : null;
     }
     case 125: {
       const operation = command.parameters[0];
       const value = command.parameters[2];
       return typeof operation === "number" && typeof value === "number"
-        ? `changeGold({ operation: ${literal(operation === 0 ? "gain" : "lose")}, value: ${value} })`
+        ? {
+            expression: `changeGold({ operation: ${literal(operation === 0 ? "gain" : "lose")}, value: ${value} })`,
+            helperNames: ["changeGold"],
+          }
         : null;
     }
     case 126: {
@@ -307,21 +418,34 @@ function renderSimpleCommand(command: RawEventCommand): string | null {
       const operation = command.parameters[1];
       const amount = command.parameters[3];
       return itemId !== null && typeof operation === "number" && typeof amount === "number"
-        ? `changeItem({ item: itemRef({ id: ${itemId} }), operation: ${literal(operation === 0 ? "gain" : "lose")}, amount: ${amount} })`
+        ? {
+            expression: `changeItem({ item: itemRef({ id: ${itemId} }), operation: ${literal(operation === 0 ? "gain" : "lose")}, amount: ${amount} })`,
+            helperNames: ["changeItem", "itemRef"],
+          }
         : null;
     }
     case 214:
-      return "eraseEvent()";
+      return {
+        expression: "eraseEvent()",
+        helperNames: ["eraseEvent"],
+      };
     case 230: {
       const frames = command.parameters[0];
-      return typeof frames === "number" ? `wait(${frames})` : null;
+      return typeof frames === "number"
+        ? {
+            expression: `wait(${frames})`,
+            helperNames: ["wait"],
+          }
+        : null;
     }
     default:
       return null;
   }
 }
 
-function renderControlVariables(command: RawEventCommand): string | null {
+function renderControlVariables(
+  command: RawEventCommand,
+): Omit<RenderedCommand, "nextIndex"> | null {
   const variableId = readPositiveInteger(command.parameters[0]);
   const repeatedVariableId = command.parameters[1];
   const operationCode = command.parameters[2];
@@ -342,14 +466,20 @@ function renderControlVariables(command: RawEventCommand): string | null {
   }
 
   if (operandKind === 0 && typeof command.parameters[4] === "number") {
-    return `controlVariables({ variable: variableRef({ id: ${variableId} }), operation: ${literal(operation)}, value: ${command.parameters[4]} })`;
+    return {
+      expression: `controlVariables({ variable: variableRef({ id: ${variableId} }), operation: ${literal(operation)}, value: ${command.parameters[4]} })`,
+      helperNames: ["controlVariables", "variableRef"],
+    };
   }
 
   if (operandKind === 1) {
     const sourceVariableId = readPositiveInteger(command.parameters[4]);
     return sourceVariableId === null
       ? null
-      : `controlVariables({ variable: variableRef({ id: ${variableId} }), operation: ${literal(operation)}, value: variableRef({ id: ${sourceVariableId} }) })`;
+      : {
+          expression: `controlVariables({ variable: variableRef({ id: ${variableId} }), operation: ${literal(operation)}, value: variableRef({ id: ${sourceVariableId} }) })`,
+          helperNames: ["controlVariables", "variableRef"],
+        };
   }
 
   if (
@@ -357,7 +487,10 @@ function renderControlVariables(command: RawEventCommand): string | null {
     typeof command.parameters[4] === "number" &&
     typeof command.parameters[5] === "number"
   ) {
-    return `controlVariables({ variable: variableRef({ id: ${variableId} }), operation: ${literal(operation)}, value: { kind: "random", from: ${command.parameters[4]}, to: ${command.parameters[5]} } })`;
+    return {
+      expression: `controlVariables({ variable: variableRef({ id: ${variableId} }), operation: ${literal(operation)}, value: { kind: "random", from: ${command.parameters[4]}, to: ${command.parameters[5]} } })`,
+      helperNames: ["controlVariables", "variableRef"],
+    };
   }
 
   return null;
@@ -434,74 +567,7 @@ function renderEventImport(helpers: readonly string[]): string {
 }
 
 function collectCommandHelperNames(commands: readonly RawEventCommand[]): string[] {
-  const helpers = new Set<string>();
-
-  for (let index = 0; index < commands.length; index += 1) {
-    const command = commands[index];
-    if (command === undefined || command.code === 0) {
-      continue;
-    }
-
-    switch (command.code) {
-      case 101:
-        helpers.add("showText");
-        while (
-          commands[index + 1]?.code === 401 &&
-          commands[index + 1]?.indent === command.indent
-        ) {
-          index += 1;
-        }
-        break;
-      case 108:
-        helpers.add("comment");
-        while (
-          commands[index + 1]?.code === 408 &&
-          commands[index + 1]?.indent === command.indent
-        ) {
-          index += 1;
-        }
-        break;
-      case 117:
-        helpers.add("callCommonEvent");
-        helpers.add("commonEventRef");
-        break;
-      case 118:
-        helpers.add("label");
-        break;
-      case 119:
-        helpers.add("jumpToLabel");
-        break;
-      case 121:
-        helpers.add("controlSwitches");
-        helpers.add("switchRef");
-        break;
-      case 122:
-        helpers.add("controlVariables");
-        helpers.add("variableRef");
-        break;
-      case 123:
-        helpers.add("controlSelfSwitch");
-        break;
-      case 125:
-        helpers.add("changeGold");
-        break;
-      case 126:
-        helpers.add("changeItem");
-        helpers.add("itemRef");
-        break;
-      case 214:
-        helpers.add("eraseEvent");
-        break;
-      case 230:
-        helpers.add("wait");
-        break;
-      default:
-        helpers.add("rawDslCommand");
-        break;
-    }
-  }
-
-  return [...helpers];
+  return [...renderDecompiledCommandList(commands).helperNames];
 }
 
 function collectConditionHelperNames(
