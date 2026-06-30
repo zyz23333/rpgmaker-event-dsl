@@ -6,8 +6,10 @@ import {
   buildSnapshotReferenceInput,
   changeItem,
   audioAsset,
+  classRef,
   commonEvent,
   commonEventRef,
+  conditional,
   controlSwitches,
   controlVariables,
   imageAsset,
@@ -328,6 +330,108 @@ describe("validateDslOwnedDeclarations", () => {
     expect(missingTroopResult.issues.map((issue) => issue.message)).toContain(
       "Unknown troop reference id: 99",
     );
+  });
+
+  it("rejects Conditional Branch script conditions when scripts are disabled", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Scripted Branch",
+          commands: [
+            conditional({
+              condition: {
+                kind: "script",
+                script: scriptInput({ code: "$gameSwitches.value(1)" }),
+              },
+              then: [],
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toContain(
+      "Conditional Branch script conditions require explicit config enablement.",
+    );
+  });
+
+  it("validates Project Data References inside Conditional Branch conditions", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Referenced Branch",
+          commands: [
+            conditional({
+              condition: {
+                kind: "actor",
+                actor: { kind: "actor", id: 1 },
+                check: { kind: "class", class: classRef({ id: 99 }) },
+              },
+              then: [],
+            }),
+            conditional({
+              condition: {
+                kind: "variable",
+                variable: variableRef({ id: 99 }),
+                operator: "eq",
+                value: variableRef({ id: 100 }),
+              },
+              then: [],
+            }),
+          ],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotReferences: {
+          actors: [{ id: 1, name: "Hero" }],
+        },
+      },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toEqual(
+      expect.arrayContaining([
+        "Unknown class reference id: 99",
+        "Unknown variable reference id: 99",
+        "Unknown variable reference id: 100",
+      ]),
+    );
+  });
+
+  it("resolves new Conditional Branch external reference scopes from snapshot input", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Class Branch",
+          commands: [
+            conditional({
+              condition: {
+                kind: "actor",
+                actor: { kind: "actor", id: 1 },
+                check: { kind: "class", class: classRef({ name: "Warrior" }) },
+              },
+              then: [],
+            }),
+          ],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotReferences: {
+          actors: [{ id: 1, name: "Hero" }],
+          classes: [{ id: 1, name: "Warrior" }],
+        },
+      },
+    );
+
+    expect(result.issues).toEqual([]);
   });
 });
 

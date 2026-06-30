@@ -1,5 +1,6 @@
 import type {
   AssetReference,
+  ConditionalBranchCondition,
   CommonEventDefinition,
   DslCommand,
   DslOwnedDeclaration,
@@ -44,9 +45,12 @@ export type ReferenceEntry = {
 export type SnapshotReferenceInput = {
   actors?: readonly ReferenceEntry[];
   armors?: readonly ReferenceEntry[];
+  classes?: readonly ReferenceEntry[];
   commonEvents?: readonly ReferenceEntry[];
   items?: readonly ReferenceEntry[];
   maps?: readonly ReferenceEntry[];
+  skills?: readonly ReferenceEntry[];
+  states?: readonly ReferenceEntry[];
   troops?: readonly ReferenceEntry[];
   switches?: readonly ReferenceEntry[];
   variables?: readonly ReferenceEntry[];
@@ -56,9 +60,12 @@ export type SnapshotReferenceInput = {
 export type SnapshotReferenceSource = {
   actors?: readonly (Record<string, unknown> | null | undefined)[];
   armors?: readonly (Record<string, unknown> | null | undefined)[];
+  classes?: readonly (Record<string, unknown> | null | undefined)[];
   commonEvents?: readonly (Record<string, unknown> | null | undefined)[];
   items?: readonly (Record<string, unknown> | null | undefined)[];
   mapInfos?: readonly MapInfoEntry[];
+  skills?: readonly (Record<string, unknown> | null | undefined)[];
+  states?: readonly (Record<string, unknown> | null | undefined)[];
   troops?: readonly (Record<string, unknown> | null | undefined)[];
   system?: Record<string, unknown>;
   weapons?: readonly (Record<string, unknown> | null | undefined)[];
@@ -187,9 +194,12 @@ export function buildSnapshotReferenceInput(
   return {
     actors: readObjectReferenceEntries(source.actors ?? []),
     armors: readObjectReferenceEntries(source.armors ?? []),
+    classes: readObjectReferenceEntries(source.classes ?? []),
     commonEvents: readObjectReferenceEntries(source.commonEvents ?? []),
     items: readObjectReferenceEntries(source.items ?? []),
     maps: (source.mapInfos ?? []).map(({ id, name }) => ({ id, name })),
+    skills: readObjectReferenceEntries(source.skills ?? []),
+    states: readObjectReferenceEntries(source.states ?? []),
     troops: readObjectReferenceEntries(source.troops ?? []),
     switches: readSystemNameEntries(source.system ?? {}, "switches"),
     variables: readSystemNameEntries(source.system ?? {}, "variables"),
@@ -228,9 +238,12 @@ function buildReferenceScopes(input: {
   return {
     actor: buildReferenceScope(input.snapshotReferences.actors ?? []),
     armor: buildReferenceScope(input.snapshotReferences.armors ?? []),
+    class: buildReferenceScope(input.snapshotReferences.classes ?? []),
     commonEvent: buildReferenceScope(commonEvents),
     item: buildReferenceScope(input.snapshotReferences.items ?? []),
     map: buildReferenceScope(input.snapshotReferences.maps ?? []),
+    skill: buildReferenceScope(input.snapshotReferences.skills ?? []),
+    state: buildReferenceScope(input.snapshotReferences.states ?? []),
     switch: buildReferenceScope(switches),
     troop: buildReferenceScope(input.snapshotReferences.troops ?? []),
     variable: buildReferenceScope(variables),
@@ -434,12 +447,93 @@ function validateNodes(
       captureReferenceIssue(() => resolver.resolveReference(troopRef), issues);
     }
     if (node.kind === "conditional") {
-      validateCondition(node.condition, resolver, issues);
+      validateConditionalBranchCondition(node.condition, resolver, options, issues);
       validateNodes(node.then, resolver, options, issues);
       if (node.else) {
         validateNodes(node.else, resolver, options, issues);
       }
     }
+  }
+}
+
+function validateConditionalBranchCondition(
+  condition: ConditionalBranchCondition,
+  resolver: ReferenceResolver,
+  options: { scriptEnabled: boolean },
+  issues: ValidationIssue[],
+): void {
+  switch (condition.kind) {
+    case "switch":
+      captureReferenceIssue(() => resolver.resolveReference(condition.switch), issues);
+      break;
+    case "variable":
+      captureReferenceIssue(() => resolver.resolveReference(condition.variable), issues);
+      if (isVariableReferenceValue(condition.value)) {
+        const valueRef = condition.value;
+        captureReferenceIssue(() => resolver.resolveReference(valueRef), issues);
+      }
+      break;
+    case "actor":
+      captureReferenceIssue(() => resolver.resolveReference(condition.actor), issues);
+      validateActorConditionCheck(condition.check, resolver, issues);
+      break;
+    case "enemy":
+      if (condition.check.kind === "state") {
+        const stateRef = condition.check.state;
+        captureReferenceIssue(() => resolver.resolveReference(stateRef), issues);
+      }
+      break;
+    case "item":
+      captureReferenceIssue(() => resolver.resolveReference(condition.item), issues);
+      break;
+    case "weapon":
+      captureReferenceIssue(() => resolver.resolveReference(condition.weapon), issues);
+      break;
+    case "armor":
+      captureReferenceIssue(() => resolver.resolveReference(condition.armor), issues);
+      break;
+    case "script":
+      if (!options.scriptEnabled) {
+        issues.push({
+          level: "error",
+          message: "Conditional Branch script conditions require explicit config enablement.",
+        });
+      }
+      break;
+    case "selfSwitch":
+    case "timer":
+    case "character":
+    case "gold":
+    case "button":
+    case "vehicle":
+      break;
+  }
+}
+
+function validateActorConditionCheck(
+  check: Extract<ConditionalBranchCondition, { kind: "actor" }>["check"],
+  resolver: ReferenceResolver,
+  issues: ValidationIssue[],
+): void {
+  switch (check.kind) {
+    case "class":
+      captureReferenceIssue(() => resolver.resolveReference(check.class), issues);
+      break;
+    case "skill":
+      captureReferenceIssue(() => resolver.resolveReference(check.skill), issues);
+      break;
+    case "weapon":
+      captureReferenceIssue(() => resolver.resolveReference(check.weapon), issues);
+      break;
+    case "armor":
+      captureReferenceIssue(() => resolver.resolveReference(check.armor), issues);
+      break;
+    case "state":
+      captureReferenceIssue(() => resolver.resolveReference(check.state), issues);
+      break;
+    case "inParty":
+    case "name":
+      break;
   }
 }
 
@@ -531,6 +625,10 @@ function collectCommandInputPrimitives(
 
 function isReferenceValue(value: unknown): value is ReferenceValue<ReferenceKind> {
   return isProjectDataReference(value);
+}
+
+function isVariableReferenceValue(value: unknown): value is ReferenceValue<"variable"> {
+  return isProjectDataReference(value) && value.kind === "variable";
 }
 
 function captureReferenceIssue(callback: () => number, issues: ValidationIssue[]): void {

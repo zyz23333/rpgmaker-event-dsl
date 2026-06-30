@@ -63,9 +63,12 @@ export type PageConditions = {
 export type ReferenceKind =
   | "actor"
   | "armor"
+  | "class"
   | "commonEvent"
   | "item"
   | "map"
+  | "skill"
+  | "state"
   | "switch"
   | "troop"
   | "variable"
@@ -84,9 +87,12 @@ export type ReferenceValue<TKind extends ReferenceKind> =
 export const referenceKinds = [
   "actor",
   "armor",
+  "class",
   "commonEvent",
   "item",
   "map",
+  "skill",
+  "state",
   "switch",
   "troop",
   "variable",
@@ -229,6 +235,84 @@ export type AudioPayload = {
   pan?: number;
 };
 
+export type ConditionalVariableOperator = "eq" | "ge" | "le" | "gt" | "lt" | "ne";
+
+export type ConditionalBranchCondition =
+  | {
+      kind: "switch";
+      switch: ReferenceValue<"switch">;
+      value: boolean;
+    }
+  | {
+      kind: "variable";
+      variable: ReferenceValue<"variable">;
+      operator: ConditionalVariableOperator;
+      value: number | ReferenceValue<"variable">;
+    }
+  | {
+      kind: "selfSwitch";
+      selfSwitch: "A" | "B" | "C" | "D";
+      value: boolean;
+    }
+  | {
+      kind: "timer";
+      seconds: number;
+      operator: "ge" | "le";
+    }
+  | {
+      kind: "actor";
+      actor: ReferenceValue<"actor">;
+      check:
+        | { kind: "inParty" }
+        | { kind: "name"; name: string }
+        | { kind: "class"; class: ReferenceValue<"class"> }
+        | { kind: "skill"; skill: ReferenceValue<"skill"> }
+        | { kind: "weapon"; weapon: ReferenceValue<"weapon"> }
+        | { kind: "armor"; armor: ReferenceValue<"armor"> }
+        | { kind: "state"; state: ReferenceValue<"state"> };
+    }
+  | {
+      kind: "enemy";
+      enemyIndex: number;
+      check: { kind: "appeared" } | { kind: "state"; state: ReferenceValue<"state"> };
+    }
+  | {
+      kind: "character";
+      characterId: number;
+      direction: 2 | 4 | 6 | 8;
+    }
+  | {
+      kind: "gold";
+      amount: number;
+      operator: "ge" | "le" | "lt";
+    }
+  | {
+      kind: "item";
+      item: ReferenceValue<"item">;
+    }
+  | {
+      kind: "weapon";
+      weapon: ReferenceValue<"weapon">;
+      includeEquipment?: boolean;
+    }
+  | {
+      kind: "armor";
+      armor: ReferenceValue<"armor">;
+      includeEquipment?: boolean;
+    }
+  | {
+      kind: "button";
+      button: "ok" | "cancel" | "shift" | "down" | "left" | "right" | "up" | "pageup" | "pagedown";
+    }
+  | {
+      kind: "script";
+      script: ScriptInput;
+    }
+  | {
+      kind: "vehicle";
+      vehicle: "boat" | "ship" | "airship";
+    };
+
 export type DslCommand =
   | ShowTextDslCommand
   | InputNumberDslCommand
@@ -300,7 +384,7 @@ export type ShowChoicesDslCommand = {
 
 export type ConditionalDslCommand = {
   kind: "conditional";
-  condition: PageConditions;
+  condition: ConditionalBranchCondition;
   then: readonly DslCommand[];
   else?: readonly DslCommand[];
 };
@@ -619,7 +703,7 @@ export function showChoices(input: {
 }
 
 export function conditional(input: {
-  condition: PageConditions;
+  condition: ConditionalBranchCondition;
   then: readonly DslCommand[];
   else?: readonly DslCommand[];
 }): ConditionalDslCommand {
@@ -882,6 +966,10 @@ export function armorRef(value: { id: number } | { name: string }): ReferenceVal
   return createReference("armor", value);
 }
 
+export function classRef(value: { id: number } | { name: string }): ReferenceValue<"class"> {
+  return createReference("class", value);
+}
+
 export function commonEventRef(
   value: { id: number } | { name: string },
 ): ReferenceValue<"commonEvent"> {
@@ -894,6 +982,14 @@ export function itemRef(value: { id: number } | { name: string }): ReferenceValu
 
 export function mapRef(value: { id: number } | { name: string }): ReferenceValue<"map"> {
   return createReference("map", value);
+}
+
+export function skillRef(value: { id: number } | { name: string }): ReferenceValue<"skill"> {
+  return createReference("skill", value);
+}
+
+export function stateRef(value: { id: number } | { name: string }): ReferenceValue<"state"> {
+  return createReference("state", value);
 }
 
 export function switchRef(value: { id: number } | { name: string }): ReferenceValue<"switch"> {

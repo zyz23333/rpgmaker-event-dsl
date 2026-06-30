@@ -94,7 +94,9 @@ export const guideEvent = mapEvent({
         }),
         conditional({
           condition: {
-            switch1: chestOpenedSwitch,
+            kind: "switch",
+            switch: chestOpenedSwitch,
+            value: true,
           },
           then: [showText({ lines: ["The reward chest has already been opened."] })],
           else: [showText({ lines: ["The reward chest is still waiting."] })],

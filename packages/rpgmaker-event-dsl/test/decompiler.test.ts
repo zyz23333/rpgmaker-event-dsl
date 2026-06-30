@@ -103,6 +103,46 @@ describe("decompiler command list rendering", () => {
     });
   });
 
+  it("renders Conditional Branch continuations as a parent-owned helper", () => {
+    expect(
+      renderDecompiledCommandList([
+        { code: 111, indent: 0, parameters: [0, 2, 0] },
+        { code: 230, indent: 1, parameters: [10] },
+        { code: 411, indent: 0, parameters: [] },
+        { code: 111, indent: 1, parameters: [12, "$gameParty.gold() > 10"] },
+        { code: 214, indent: 2, parameters: [] },
+        { code: 230, indent: 0, parameters: [30] },
+      ]),
+    ).toEqual({
+      helperNames: ["conditional", "eraseEvent", "scriptInput", "switchRef", "wait"],
+      source: [
+        'conditional({ condition: { kind: "switch", switch: switchRef({ id: 2 }), value: true }, then: [wait(10),], else: [conditional({ condition: {   kind: "script",   script: scriptInput({ code: "$gameParty.gold() > 10" }), }, then: [eraseEvent(),] }),] }),',
+        "wait(30),",
+      ].join("\n"),
+    });
+  });
+
+  it("renders supported Conditional Branch condition categories", () => {
+    expect(
+      renderDecompiledCommandList([
+        { code: 111, indent: 0, parameters: [1, 3, 1, 4, 5] },
+        { code: 111, indent: 0, parameters: [4, 1, 2, 5] },
+        { code: 111, indent: 0, parameters: [5, 0, 1, 6] },
+        { code: 111, indent: 0, parameters: [9, 7, true] },
+        { code: 111, indent: 0, parameters: [13, 2] },
+      ]),
+    ).toEqual({
+      helperNames: ["actorRef", "classRef", "conditional", "stateRef", "variableRef", "weaponRef"],
+      source: [
+        'conditional({ condition: { kind: "variable", variable: variableRef({ id: 3 }), operator: "ne", value: variableRef({ id: 4 }) }, then: [] }),',
+        'conditional({ condition: { kind: "actor", actor: actorRef({ id: 1 }), check: { kind: "class", class: classRef({ id: 5 }) } }, then: [] }),',
+        'conditional({ condition: { kind: "enemy", enemyIndex: 0, check: { kind: "state", state: stateRef({ id: 6 }) } }, then: [] }),',
+        'conditional({ condition: { kind: "weapon", weapon: weaponRef({ id: 7 }), includeEquipment: true }, then: [] }),',
+        'conditional({ condition: { kind: "vehicle", vehicle: "airship" }, then: [] }),',
+      ].join("\n"),
+    });
+  });
+
   it("falls back to rawDslCommand for malformed supported command shapes", () => {
     expect(
       renderDecompiledCommandList([
@@ -111,6 +151,7 @@ describe("decompiler command list rendering", () => {
         { code: 103, indent: 0, parameters: [0, 4] },
         { code: 104, indent: 0, parameters: [1, 9] },
         { code: 105, indent: 0, parameters: [2, "false"] },
+        { code: 111, indent: 0, parameters: [1, 0, 0, 7, 0] },
         { code: 121, indent: 0, parameters: [1, 2, 0] },
         { code: 122, indent: 0, parameters: [1, 1, 99, 0, 7] },
         { code: 230, indent: 2, parameters: ["thirty"] },
@@ -137,6 +178,10 @@ describe("decompiler command list rendering", () => {
         "rawDslCommand({",
         "  code: 105,",
         '  parameters: [2,"false"],',
+        "}),",
+        "rawDslCommand({",
+        "  code: 111,",
+        "  parameters: [1,0,0,7,0],",
         "}),",
         "rawDslCommand({",
         "  code: 121,",

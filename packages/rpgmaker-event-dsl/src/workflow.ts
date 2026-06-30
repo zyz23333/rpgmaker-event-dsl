@@ -247,9 +247,12 @@ async function loadSnapshotReferenceInput(
   const snapshotSource: SnapshotReferenceSource = {
     actors: await readSnapshotArray(statePaths, "Actors.json"),
     armors: await readSnapshotArray(statePaths, "Armors.json"),
+    classes: await readSnapshotArray(statePaths, "Classes.json"),
     commonEvents: await readSnapshotArray(statePaths, "CommonEvents.json"),
     items: await readSnapshotArray(statePaths, "Items.json"),
     mapInfos: parseMapInfos(await readSnapshotFile(statePaths, "MapInfos.json")),
+    skills: await readSnapshotArray(statePaths, "Skills.json"),
+    states: await readSnapshotArray(statePaths, "States.json"),
     troops: await readSnapshotArray(statePaths, "Troops.json"),
     system: await readSnapshotObject(statePaths, "System.json"),
     weapons: await readSnapshotArray(statePaths, "Weapons.json"),
