@@ -34,7 +34,7 @@ Complete the top-level Movement command families and fix the existing `transferP
 - `setEventLocation`.
 - `scrollMap`.
 - `getOnOffVehicle`.
-- Shared character target model needed by this slice and later movement/character slices.
+- Shared character target Runtime Selector model needed by this slice and later movement/character slices.
 
 ### Out
 
@@ -44,14 +44,14 @@ Complete the top-level Movement command families and fix the existing `transferP
 ## Design References
 
 - Requirements: REQ-01, REQ-04
-- Decisions: Direct-vs-variable modes may use discriminated unions.
-- Invariants: Project Data References resolve through Staged Data Graph; raw output stays MV-compatible.
+- Decisions: Direct-vs-variable modes may use discriminated unions; character targets are Runtime Selectors, not Project Data References.
+- Invariants: Project Data References resolve through Staged Data Graph; Runtime Selectors do not; raw output stays MV-compatible.
 - Completion Contract: OT-01, OT-03
 - Canonical docs: `../mv-command-coverage-design.md`, MV `command201` through `command206`
 
 ## Code Context
 
-Current `transferPlayer` variable target uses `ReferenceValue<"map">` for `variableMap`, but MV variable designation expects variable IDs for map, x, and y.
+Current `transferPlayer` variable target uses `ReferenceValue<"map">` for `variableMap`, but MV variable designation expects variable IDs for map, x, and y. Character targets should be modeled as Runtime Selectors rather than Project Data References.
 
 ## What To Build
 
@@ -62,12 +62,12 @@ Implement Movement matrix rows except `Set Movement Route`, using schema-first t
 - [ ] `transferPlayer` variable designation uses variable references for map, x, and y variable IDs.
 - [ ] Direct and variable designation compile correctly for transfer and vehicle location.
 - [ ] Set Event Location supports direct, variable, and exchange modes.
-- [ ] Character target references validate where applicable.
+- [ ] Character target Runtime Selectors validate where applicable.
 - [ ] Decompiler renders supported movement commands.
 
 ## Implementation Notes
 
-Be careful with MV character target IDs: player, current event, followers, and map events have special target encodings. Do not use Project Data References where MV expects runtime character selectors.
+Be careful with MV character target IDs: player, current event, followers, and map events have special target encodings. Do not use Project Data References where MV expects Runtime Selectors.
 
 ## Suggested Task Plan
 

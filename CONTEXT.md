@@ -120,6 +120,10 @@ _Avoid_: Script Command Enablement, per-node reason gate, implicit script suppor
 A DSL reference value from an Event Definition to an existing RPG Maker MV project data entry.
 _Avoid_: project reference, raw ID, definition builder
 
+**Project Data Reference Scope**:
+The project data entry category a Project Data Reference resolves within, such as actor, skill, state, animation, tileset, switch, variable, map, or common event.
+_Avoid_: asset namespace, runtime selector, command enum, raw numeric parameter
+
 **External Project Data Reference**:
 A read-only reference from DSL-owned data to RPG Maker MV project data outside DSL-Owned Project Data.
 _Avoid_: DSL-owned definition, generated data, implicit ownership
@@ -135,6 +139,10 @@ _Avoid_: Project Data Reference, raw asset string, scanned asset entry
 **Asset Category Reference Helper**:
 A category-specific helper for creating an Asset Reference with an explicit RPG Maker MV asset namespace.
 _Avoid_: generic assetRef, imgRef, per-folder helper, Project Data Reference helper
+
+**Runtime Selector**:
+A schema-first DSL value that selects a runtime RPG Maker MV object or slot for an event command, such as the player, current event, troop enemy index, party actor target, vehicle, or picture slot, without resolving through Project Data References.
+_Avoid_: Project Data Reference, database entry reference, Asset Reference
 
 **Event Data Store**:
 The RPG Maker MV project data files that contain event entries, including `Map###.json` and `CommonEvents.json`.
@@ -356,6 +364,7 @@ _Avoid_: config default, inherited old value
 - **Explicit ID References** are allowed, while bare numeric IDs are not valid DSL references.
 - **Asset References** are separate from **Project Data References** and do not resolve to RPG Maker MV data entry IDs.
 - **Asset References** use **Asset Category Reference Helpers** rather than a generic asset reference helper.
+- **Runtime Selectors** do not use **Project Data Reference Scopes** and do not resolve through the **Staged Data Graph**.
 - Name-based **Project Data References** must resolve to exactly one visible entry in the **Staged Data Graph**.
 - Name-based references to **DSL-Owned Project Data** domains resolve against DSL-owned entries in the **Staged Data Graph**, not by falling back to the **Project Data Snapshot**.
 - Name-based **External Project Data References** resolve against the **Standard Project Data Snapshot**.

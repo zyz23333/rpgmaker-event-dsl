@@ -128,6 +128,19 @@ Asset-bearing command helpers should use **Asset Category Reference Helpers**:
 
 Asset References are opaque in this change: they compile to the filename stem required by MV and do not scan, validate, resolve IDs, or enter the Staged Data Graph.
 
+### Reference Scope Boundary
+
+**Project Data Reference Scopes** cover only RPG Maker MV project data entries that can be resolved by ID or unique display name from DSL-owned declarations or the Standard Project Data Snapshot. They do not cover assets, runtime object selectors, command-local enums, or temporary numeric slots.
+
+Expected Project Data Reference Scopes for MV command coverage include:
+
+- Current scopes: actor, armor, common event, item, map, switch, troop, variable, and weapon.
+- Additional read-only External Project Data Reference scopes added when first required by a command slice: class, skill, state, animation, enemy, and tileset.
+
+Asset-bearing command inputs use **Asset References**, not Project Data References. For example, `tilesetRef(...)` identifies a `Tilesets.json` database entry for `Change Tileset`, while `imageRef({ folder: "tilesets", name })` identifies an `img/tilesets` filename stem and does not prove that any tileset database entry exists.
+
+Runtime command targets use **Runtime Selectors**, not Project Data References. Examples include player/current-event character targets, troop enemy indexes, all-enemies targets, actor command target modes such as entire party or actor ID from variable, battler selectors, vehicle selectors, and picture slots.
+
 ## Requirements / Behavior Changes
 
 | ID | Current | Target | Acceptance |
@@ -141,6 +154,7 @@ Asset References are opaque in this change: they compile to the filename stem re
 | REQ-07 | `rawDslCommand(...)` bypasses semantic validation. | Raw command behavior remains unchanged but documented as a security follow-up. | The design records raw JS detection as deferred and does not block command coverage on it. |
 | REQ-08 | Set Movement Route is a raw object shape when needed. | Move route subcommands have their own nested coverage model. | The matrix includes move route subcommands separately from top-level Event Commands. |
 | REQ-09 | Plugin Command is supported only as a raw command string wrapper. | Plugin Command remains schema-first but does not require plugin registry validation. | `pluginCommand` covers MV code `356`; plugin-specific semantics stay out of scope. |
+| REQ-10 | Runtime target-like parameters and database references can be confused. | Project Data Reference Scopes, Asset References, and Runtime Selectors stay separate in public helper inputs. | New scopes resolve through the Staged Data Graph; Runtime Selectors do not; Asset References remain no-scan filename stems. |
 
 ## Locked Decisions
 
@@ -155,6 +169,9 @@ Asset References are opaque in this change: they compile to the filename stem re
 - No compatibility aliases are kept for those pre-release names.
 - Asset parameters use `audioRef`, `imageRef`, and `movieRef` category helpers with explicit namespaces.
 - Asset References are no-scan and do not participate in Project Data Reference resolution.
+- Project Data Reference Scopes are limited to resolvable RPG Maker MV project data entries.
+- New read-only External Project Data Reference scopes are added only when required by a command slice, and each new scope must include helper exports, snapshot extraction, validation, tests, and decompiler import handling.
+- Runtime Selectors are separate schema-first inputs and are not represented as Project Data References.
 - Move Route subcommands are included as a nested matrix under `Set Movement Route`.
 - Script and Plugin coverage is limited to MV native commands, not plugin-specific APIs.
 - All JavaScript-bearing Script Inputs use the existing Script Command Gate.
@@ -165,6 +182,7 @@ Asset References are opaque in this change: they compile to the filename stem re
 
 - Exact object field names may be chosen during implementation when they remain schema-first, MV-aligned, and readable.
 - Helper input types may use discriminated unions when MV commands have direct-vs-variable or actor-vs-party targeting modes.
+- Runtime Selector field names may be chosen during implementation, but they must not use `xxxRef` helper names or `ReferenceValue` shapes.
 - Decompiler rendering may fall back to `rawDslCommand(...)` for malformed, incomplete, or non-editor-shaped raw command parameters.
 - Documentation examples may use representative commands rather than exhaustively showing every helper.
 - Tests may use focused raw command assertions rather than full generated map files when that is the highest practical seam.
@@ -177,6 +195,7 @@ Asset References are opaque in this change: they compile to the filename stem re
 - Empty command lists still compile to the MV end marker.
 - Project Data References continue to resolve through the Staged Data Graph and Project Data Snapshot rules.
 - Asset References never resolve to project data entry IDs.
+- Runtime Selectors never resolve through the Staged Data Graph.
 - Script Input is gated regardless of which MV command family carries the JavaScript.
 - `rawDslCommand(...)` remains an escape hatch and is not treated as ordinary supported helper coverage.
 
@@ -265,7 +284,7 @@ Matrix status values:
 | --- | --- | --- | --- | --- |
 | Transfer Player | `201` | partial | `transferPlayer` | Existing variable-map target shape is incorrect because MV variable mode uses variable IDs for map, x, and y. Must resolve through variable references, not map references. |
 | Set Vehicle Location | `202` | missing | `setVehicleLocation` | Direct and variable designation. |
-| Set Event Location | `203` | missing | `setEventLocation` | Direct, variable, and exchange modes; character target model required. |
+| Set Event Location | `203` | missing | `setEventLocation` | Direct, variable, and exchange modes; character target is a Runtime Selector, not a Project Data Reference. |
 | Scroll Map | `204` | missing | `scrollMap` | Direction, distance, speed. |
 | Set Movement Route | `205` | missing | `setMovementRoute` | Top-level helper owns nested move route subcommands. |
 | Getting On and Off Vehicles | `206` | missing | `getOnOffVehicle` | No parameters. |
@@ -318,7 +337,7 @@ Matrix status values:
 | MV Command Family | Codes | Current | Target Helper | Notes |
 | --- | --- | --- | --- | --- |
 | Change Map Name Display | `281` | missing | `changeMapNameDisplay` | Enable/disable. |
-| Change Tileset | `282` | missing | `changeTileset` | Tileset Project Data Reference. |
+| Change Tileset | `282` | missing | `changeTileset` | Uses `tilesetRef(...)` for a `Tilesets.json` Project Data Reference Scope, not `imageRef({ folder: "tilesets" })`. |
 | Change Battle Back | `283` | missing | `changeBattleBack` | Uses `imageRef({ folder: "battlebacks1" })` and `imageRef({ folder: "battlebacks2" })`. |
 | Change Parallax | `284` | missing | `changeParallax` | Uses `imageRef({ folder: "parallaxes" })`; loop/speed options. |
 | Get Location Info | `285` | missing | `getLocationInfo` | Variable target, info type, direct or variable coordinates. |
@@ -329,41 +348,41 @@ Matrix status values:
 | --- | --- | --- | --- | --- |
 | Battle Processing | `301`, `601`, `602`, `603` | partial | `battleProcessing` | Existing helper lacks variable troop and branch command lists for win/escape/lose. |
 | Shop Processing | `302`, `605` | partial | `shopProcessing` | Existing goods shape is raw tuple-like; target should model goods entries and continuation goods. |
-| Name Input Processing | `303` | missing | `nameInputProcessing` | Actor reference and max characters. |
+| Name Input Processing | `303` | missing | `nameInputProcessing` | Fixed actor database reference and max characters. |
 
 #### Actor
 
 | MV Command Family | Codes | Current | Target Helper | Notes |
 | --- | --- | --- | --- | --- |
-| Change HP | `311` | missing | `changeHp` | Actor target, operand, allow death. |
-| Change MP | `312` | missing | `changeMp` | Actor target and operand. |
-| Change State | `313` | missing | `changeState` | Actor target, add/remove state. |
-| Recover All | `314` | missing | `recoverAll` | Actor target. |
-| Change EXP | `315` | missing | `changeExp` | Actor target, operand, show level up. |
-| Change Level | `316` | missing | `changeLevel` | Actor target, operand, show level up. |
-| Change Parameter | `317` | missing | `changeParameter` | Actor target, parameter, operand. |
-| Change Skill | `318` | missing | `changeSkill` | Actor target, learn/forget skill. |
-| Change Equipment | `319` | missing | `changeEquipment` | Actor target, equip slot, item reference or none. |
-| Change Name | `320` | missing | `changeName` | Actor target and name. |
-| Change Class | `321` | missing | `changeClass` | Actor target, class reference, keep EXP. |
+| Change HP | `311` | missing | `changeHp` | Actor command target is a Runtime Selector; operand and allow death are command inputs. |
+| Change MP | `312` | missing | `changeMp` | Actor command target is a Runtime Selector; operand is a shared operate-value input. |
+| Change State | `313` | missing | `changeState` | Actor command target is a Runtime Selector; state uses `stateRef(...)`. |
+| Recover All | `314` | missing | `recoverAll` | Actor command target is a Runtime Selector. |
+| Change EXP | `315` | missing | `changeExp` | Actor command target is a Runtime Selector; operand and show level up are command inputs. |
+| Change Level | `316` | missing | `changeLevel` | Actor command target is a Runtime Selector; operand and show level up are command inputs. |
+| Change Parameter | `317` | missing | `changeParameter` | Actor command target is a Runtime Selector; parameter is a command enum, not a Project Data Reference Scope. |
+| Change Skill | `318` | missing | `changeSkill` | Actor command target is a Runtime Selector; skill uses `skillRef(...)`. |
+| Change Equipment | `319` | missing | `changeEquipment` | Actor uses a fixed `actorRef(...)`; equip slot is a command enum/id, not a Project Data Reference Scope; item is weapon/armor/none. |
+| Change Name | `320` | missing | `changeName` | Fixed actor database reference and name. |
+| Change Class | `321` | missing | `changeClass` | Fixed actor database reference, `classRef(...)`, and keep EXP. |
 | Change Actor Images | `322` | missing | `changeActorImages` | Uses `imageRef` for characters/faces/sv_actors and index fields where MV requires them. |
 | Change Vehicle Image | `323` | missing | `changeVehicleImage` | Vehicle target, character image reference, index. |
-| Change Nickname | `324` | missing | `changeNickname` | Actor target and nickname. |
-| Change Profile | `325` | missing | `changeProfile` | Actor target and profile text. |
-| Change TP | `326` | missing | `changeTp` | Actor target and operand. |
+| Change Nickname | `324` | missing | `changeNickname` | Fixed actor database reference and nickname. |
+| Change Profile | `325` | missing | `changeProfile` | Fixed actor database reference and profile text. |
+| Change TP | `326` | missing | `changeTp` | Actor command target is a Runtime Selector; operand is a shared operate-value input. |
 
 #### Enemy
 
 | MV Command Family | Codes | Current | Target Helper | Notes |
 | --- | --- | --- | --- | --- |
-| Change Enemy HP | `331` | missing | `changeEnemyHp` | Enemy target, operand, allow death. |
-| Change Enemy MP | `332` | missing | `changeEnemyMp` | Enemy target and operand. |
-| Change Enemy State | `333` | missing | `changeEnemyState` | Enemy target, add/remove state. |
-| Enemy Recover All | `334` | missing | `enemyRecoverAll` | Enemy target. |
-| Enemy Appear | `335` | missing | `enemyAppear` | Enemy target. |
-| Enemy Transform | `336` | missing | `enemyTransform` | Enemy target and enemy reference. |
-| Show Battle Animation | `337` | missing | `showBattleAnimation` | Enemy target or all enemies, animation reference. |
-| Force Action | `339` | missing | `forceAction` | Actor/enemy battler target, skill reference, target index. |
+| Change Enemy HP | `331` | missing | `changeEnemyHp` | Enemy troop member target is a Runtime Selector; operand and allow death are command inputs. |
+| Change Enemy MP | `332` | missing | `changeEnemyMp` | Enemy troop member target is a Runtime Selector; operand is a shared operate-value input. |
+| Change Enemy State | `333` | missing | `changeEnemyState` | Enemy troop member target is a Runtime Selector; state uses `stateRef(...)`. |
+| Enemy Recover All | `334` | missing | `enemyRecoverAll` | Enemy troop member target is a Runtime Selector. |
+| Enemy Appear | `335` | missing | `enemyAppear` | Enemy troop member target is a Runtime Selector. |
+| Enemy Transform | `336` | missing | `enemyTransform` | Enemy troop member target is a Runtime Selector; transformed enemy uses `enemyRef(...)`. |
+| Show Battle Animation | `337` | missing | `showBattleAnimation` | Enemy troop member target or all-enemies Runtime Selector; animation uses `animationRef(...)`. |
+| Force Action | `339` | missing | `forceAction` | Actor/enemy battler target is a Runtime Selector; skill uses `skillRef(...)`; target index is command-local. |
 | Abort Battle | `340` | missing | `abortBattle` | No parameters. |
 | Change Enemy TP | `342` | missing | `changeEnemyTp` | Enemy target and operand. |
 
