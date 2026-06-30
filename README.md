@@ -136,6 +136,28 @@ Project Root files have not changed since the current snapshot.
 
 Choose the path that matches how you are starting.
 
+### Integrate The Package Into The Workspace
+
+An Event DSL Workspace should also be a Node package so Definition Source files can import
+`rpgmaker-event-dsl` and the CLI can run from the workspace.
+
+Create package metadata if the workspace does not already have it, then install the tool:
+
+```bash
+npm init -y
+npm install --save-dev rpgmaker-event-dsl
+```
+
+After that, run the CLI through your package manager, such as:
+
+```bash
+npx rpgmaker-event-dsl compile --check
+```
+
+The command examples below use `rpgmaker-event-dsl` directly. If the binary is not on
+your `PATH`, use your package manager's exec form instead, such as
+`npx rpgmaker-event-dsl` or `pnpm exec rpgmaker-event-dsl`.
+
 ### If You Already Have A Game Project
 
 Use this path when you already have an RPG Maker MV project with maps, events, switches,

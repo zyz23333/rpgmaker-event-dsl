@@ -2,6 +2,15 @@
 
 Read this when choosing how to structure RPG Maker MV event behavior.
 
+## Authoring Surface
+
+Before writing a pattern, inspect nearby Definition Source for import style and available
+helpers. Import DSL helpers from `rpgmaker-event-dsl` and match the local source style.
+
+When a helper signature or supported pattern is uncertain, check the installed package
+types, exported helpers, existing Definition Source, or decompiled output before writing
+new source. Do not invent helpers from memory.
+
 ## State Ownership
 
 Use self switches for one Map Event's local state, such as opened chests, one-time cutscenes, or a door unlocked only at that event.

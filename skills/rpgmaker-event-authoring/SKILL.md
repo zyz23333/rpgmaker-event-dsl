@@ -11,9 +11,9 @@ Turn RPG Maker MV gameplay intent into idiomatic Event DSL source. Use Workspace
 
 1. Classify the starting point.
 
-   Decide whether the user already has a Workspace or needs initial takeover from an RPG Maker MV Project Root. If takeover is needed, use `init`, `clone`, and `decompile` as appropriate before authoring. Read `references/workflow-safety.md` before any Workspace setup, synchronization, Diff, or Push work.
+   Decide whether the user already has a Workspace or needs initial takeover from an RPG Maker MV Project Root. If takeover is needed, use `init`, `clone`, and `decompile` as appropriate before authoring. Check that the Workspace is also a Node package that can import `rpgmaker-event-dsl` and run its CLI. Read `references/workflow-safety.md` before any package integration, Workspace setup, synchronization, Diff, or Push work.
 
-   Completion criterion: the Workspace state is known, or the missing Project Root or Workspace prerequisite is reported.
+   Completion criterion: the Workspace state and package integration state are known, or the missing Project Root, package dependency, or Workspace prerequisite is reported.
 
 2. Understand the gameplay intent.
 
@@ -41,7 +41,7 @@ Turn RPG Maker MV gameplay intent into idiomatic Event DSL source. Use Workspace
 
 6. Run Workspace validation and stop before unsafe writes.
 
-   Run Compile Check, then compile and Diff using the command form available in the Workspace. Usually this is `rpgmaker-event-dsl compile --check`, `rpgmaker-event-dsl compile`, and `rpgmaker-event-dsl diff`.
+   Run Compile Check, then compile and Diff using the command form available in the Workspace. Usually this is `rpgmaker-event-dsl compile --check`, `rpgmaker-event-dsl compile`, and `rpgmaker-event-dsl diff`. Read `references/cli-commands.md` before choosing unfamiliar commands or flags.
 
    Completion criterion: Compile Check passes and Diff matches the intended event behavior, or the blocker is reported.
 

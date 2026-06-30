@@ -2,6 +2,9 @@
 
 Read this before Workspace setup, synchronization, Diff, or Project Root writes.
 
+Read `cli-commands.md` before choosing command flags or when installed CLI behavior is
+uncertain.
+
 ## Starting Point
 
 If the current directory is not a Workspace, find or ask for the RPG Maker MV Project Root before running `init`.
@@ -9,6 +12,25 @@ If the current directory is not a Workspace, find or ask for the RPG Maker MV Pr
 For an existing RPG Maker MV project takeover, use `init`, then `clone`, then `decompile` so the agent starts from current Project Data Snapshot and editable Definition Source.
 
 For an existing Workspace, read `rpgmaker-event-dsl.config.json` before changing source. Use its source root and include/exclude patterns to identify Definition Source.
+
+## Package Integration
+
+Definition Source imports DSL helpers from `rpgmaker-event-dsl`, so the Workspace must be
+able to resolve that package and run its CLI.
+
+Check `package.json` before authoring. If package metadata is missing, create it with the
+user's package manager. If `rpgmaker-event-dsl` is missing from dependencies or
+devDependencies, add it before writing Definition Source.
+
+Prefer the package manager already used by the Workspace. For example:
+
+- npm: `npm install --save-dev rpgmaker-event-dsl`
+- pnpm: `pnpm add -D rpgmaker-event-dsl`
+- yarn: `yarn add -D rpgmaker-event-dsl`
+
+Use the command form that actually resolves in the Workspace, such as
+`rpgmaker-event-dsl`, `npx rpgmaker-event-dsl`, `pnpm exec rpgmaker-event-dsl`, or an
+existing package script.
 
 ## Normal Review Loop
 
