@@ -110,6 +110,10 @@ This repository includes a distributable agent skill under
 authoring from Workspace setup through Event DSL source creation, validation, diff
 review, and optional push.
 
+```bash
+npx skills add https://github.com/zyz23333/rpgmaker-event-dsl/skills --skill rpgmaker-event-authoring
+```
+
 ## Safety Model In One Minute
 
 The workflow uses three copies of project data:
