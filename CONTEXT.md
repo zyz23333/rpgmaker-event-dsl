@@ -81,12 +81,20 @@ A compiled RPG Maker MV command object with `code`, `indent`, and `parameters`.
 _Avoid_: event node, DSL command
 
 **Supported Event Command**:
-One RPG Maker MV event command that the DSL can represent and compile without using a Raw DSL Command.
+One RPG Maker MV editor event command family that the DSL can represent and compile without using a Raw DSL Command.
 _Avoid_: Initial Command Coverage, complete MV command coverage
+
+**Continuation Event Command**:
+A Raw Event Command that RPG Maker MV uses as part of another editor event command's body, branch, or continuation.
+_Avoid_: Supported Event Command helper, public command helper, standalone editor command
 
 **Function-Style Command Helper**:
 A verb-named DSL helper that carries its inputs as a schema-first object rather than positional arguments.
 _Avoid_: positional command builder, raw command string
+
+**MV-Aligned Command Helper Name**:
+A Function-Style Command Helper name that follows the RPG Maker MV editor event command family name in camelCase.
+_Avoid_: simplified helper name, implementation-shaped helper name, incompatible alias
 
 **Common Event DSL Command**:
 A DSL Command that runs an existing Common Event from an Event Definition command list.
@@ -101,11 +109,11 @@ An optional lint-time catalog of known plugin commands and parameter shapes.
 _Avoid_: runtime dependency, hard validation source
 
 **Script Input**:
-A schema-first DSL object that represents an RPG Maker MV script command and carries the script lines in a `code` field.
+A schema-first DSL object that carries JavaScript code for any RPG Maker MV event command input.
 _Avoid_: raw script string, implicit enablement
 
 **Script Command Gate**:
-The Workspace Config setting that must allow Script Input before it can compile to script Raw Event Commands.
+The Workspace Config setting that must allow Script Input before it can compile to Raw Event Commands that execute JavaScript.
 _Avoid_: Script Command Enablement, per-node reason gate, implicit script support
 
 **Project Data Reference**:
@@ -119,6 +127,14 @@ _Avoid_: DSL-owned definition, generated data, implicit ownership
 **Explicit ID Reference**:
 A Project Data Reference that identifies RPG Maker MV data by numeric ID without using a bare number.
 _Avoid_: raw numeric ID, implicit ID
+
+**Asset Reference**:
+A DSL reference value to an RPG Maker MV asset namespace and filename stem that does not resolve through Project Data References.
+_Avoid_: Project Data Reference, raw asset string, scanned asset entry
+
+**Asset Category Reference Helper**:
+A category-specific helper for creating an Asset Reference with an explicit RPG Maker MV asset namespace.
+_Avoid_: generic assetRef, imgRef, per-folder helper, Project Data Reference helper
 
 **Event Data Store**:
 The RPG Maker MV project data files that contain event entries, including `Map###.json` and `CommonEvents.json`.
@@ -321,21 +337,25 @@ _Avoid_: config default, inherited old value
 - A **DSL Command** compiles to one or more **Raw Event Commands**.
 - A **Raw DSL Command** is a **DSL Command** that directly carries raw RPG Maker MV command fields.
 - A **Supported Event Command** has a corresponding **DSL Command** or command helper.
+- A **Continuation Event Command** is represented through the parent **Supported Event Command**, not as its own **Function-Style Command Helper**.
 - RPG Maker MV event commands outside **Supported Event Commands** require a **Raw DSL Command** or are unsupported.
 - **DSL Commands** use **Function-Style Command Helpers** with schema-first object inputs.
+- **Function-Style Command Helpers** use **MV-Aligned Command Helper Names**.
 - A **Common Event DSL Command** is a **DSL Command**.
 - A **Common Event DSL Command** uses a **Project Data Reference** to identify a **Common Event**.
 - A **Common Event** may be defined by an **Event Definition** and may be run by a **Common Event DSL Command**.
 - A **Plugin DSL Command** does not require a **Plugin Command Registry**.
 - A **Plugin Command Registry** may validate a **Plugin DSL Command** at lint time.
 - **Plugin DSL Command** uses named fields for the command and its arguments.
-- **Script Input** uses a `code` field for script lines and requires explicit config enablement.
+- **Script Input** uses a `code` field for JavaScript-bearing command inputs and requires explicit config enablement.
 - **Script Input** requires the **Script Command Gate** before compilation.
-- A script command may be a **Supported Event Command** and still be blocked by the **Script Command Gate**.
+- A JavaScript-bearing command input may belong to a **Supported Event Command** and still be blocked by the **Script Command Gate**.
 - The **Script Command Gate** applies to **Script Input**, not to **Raw DSL Commands**.
 - **Project Data References** use `xxxRef` helper names to distinguish references from definitions.
 - **External Project Data References** are resolved from **Project Data Snapshots** and do not imply **DSL-Owned Project Data**.
 - **Explicit ID References** are allowed, while bare numeric IDs are not valid DSL references.
+- **Asset References** are separate from **Project Data References** and do not resolve to RPG Maker MV data entry IDs.
+- **Asset References** use **Asset Category Reference Helpers** rather than a generic asset reference helper.
 - Name-based **Project Data References** must resolve to exactly one visible entry in the **Staged Data Graph**.
 - Name-based references to **DSL-Owned Project Data** domains resolve against DSL-owned entries in the **Staged Data Graph**, not by falling back to the **Project Data Snapshot**.
 - Name-based **External Project Data References** resolve against the **Standard Project Data Snapshot**.
@@ -456,6 +476,8 @@ _Avoid_: config default, inherited old value
 - "Event Node" was rejected as too compiler-centric; the canonical term for command-list input values is **DSL Command**.
 - "Raw command" terminology was resolved as two concepts: **Raw DSL Command** is the DSL escape hatch, while **Raw Event Command** is the compiled MV command object.
 - "Initial Command Coverage" was rejected as milestone language; the stable boundary term is **Supported Event Command**.
+- "Complete MV command coverage" was resolved as coverage of RPG Maker MV 1.6.1 editor event command families, not standalone public helpers for **Continuation Event Commands**.
+- "Single-target helper names" for MV plural command families were rejected; **MV-Aligned Command Helper Names** preserve the editor command family naming, including plural wording.
 - "Event database" was rejected as canonical language; the project uses **Event Data Store** to avoid implying database semantics.
 - "Map target" was rejected as configuration-owned; **Map Event Identity** carries the map ID.
 - "Definition target" was rejected for the workspace compile model; **Entry Identity** identifies target entries.
@@ -491,10 +513,13 @@ _Avoid_: config default, inherited old value
 - "Project reference helper names" were resolved as `xxxRef`, such as `itemRef`, `mapRef`, and `commonEventRef`.
 - "Project Reference" was rejected because it sounded like a reference to the project itself; the canonical term is **Project Data Reference**.
 - "Numeric references" were resolved as explicit ID helper calls, not bare numbers; reasons are optional and may be linted.
+- "Asset references" were resolved as **Asset References**, not **Project Data References**, because RPG Maker MV asset filenames do not identify database entries.
+- "Generic assetRef", "imgRef", and per-folder asset helpers were rejected in favor of **Asset Category Reference Helpers** with explicit RPG Maker MV asset namespaces.
 - "Snapshot fallback" was rejected for name-based references to **DSL-Owned Project Data** domains; unresolved DSL-owned names fail instead of resolving to snapshot entries.
 - "Plugin command registry" was resolved as optional lint-time metadata, not a runtime requirement.
 - "Plugin Command Input" was rejected because the value is a **DSL Command**; the canonical term is **Plugin DSL Command**.
 - "Script input" was resolved as schema-first object form with a `code` field.
+- "Script command only" was rejected for the **Script Command Gate**; all JavaScript-bearing **Script Inputs** are gated.
 - "Command node API" was resolved as function-style helpers with object inputs, not positional builders.
 - "Create ID allocation" was rejected for DSL-owned entries; **Entry Identity** uses explicit RPG Maker MV IDs.
 - "Create and replace name matching" was rejected because **Display Name** is not **Entry Identity**.
