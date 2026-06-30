@@ -467,14 +467,13 @@ function validateNodes(
       captureReferenceIssue(() => resolver.resolveReference(node.ref), issues);
     }
     if (node.kind === "transferPlayer") {
-      const target = node.target;
-      if ("map" in target) {
-        captureReferenceIssue(() => resolver.resolveReference(target.map), issues);
-      } else {
-        captureReferenceIssue(() => resolver.resolveReference(target.variableMap), issues);
-        captureReferenceIssue(() => resolver.resolveReference(target.variableX), issues);
-        captureReferenceIssue(() => resolver.resolveReference(target.variableY), issues);
-      }
+      validateMapDestination(node.destination, resolver, issues);
+    }
+    if (node.kind === "setVehicleLocation") {
+      validateMapDestination(node.destination, resolver, issues);
+    }
+    if (node.kind === "setEventLocation") {
+      validateEventLocationDestination(node.destination, resolver, issues);
     }
     if (node.kind === "battleProcessing" && isReferenceValue(node.troop)) {
       const troopRef = node.troop;
@@ -487,6 +486,35 @@ function validateNodes(
         validateNodes(node.else, resolver, options, issues);
       }
     }
+  }
+}
+
+function validateMapDestination(
+  destination: Extract<
+    DslCommand,
+    { kind: "setVehicleLocation" | "transferPlayer" }
+  >["destination"],
+  resolver: ReferenceResolver,
+  issues: ValidationIssue[],
+): void {
+  if (destination.kind === "direct") {
+    captureReferenceIssue(() => resolver.resolveReference(destination.map), issues);
+    return;
+  }
+
+  captureReferenceIssue(() => resolver.resolveReference(destination.map), issues);
+  captureReferenceIssue(() => resolver.resolveReference(destination.x), issues);
+  captureReferenceIssue(() => resolver.resolveReference(destination.y), issues);
+}
+
+function validateEventLocationDestination(
+  destination: Extract<DslCommand, { kind: "setEventLocation" }>["destination"],
+  resolver: ReferenceResolver,
+  issues: ValidationIssue[],
+): void {
+  if (destination.kind === "variables") {
+    captureReferenceIssue(() => resolver.resolveReference(destination.x), issues);
+    captureReferenceIssue(() => resolver.resolveReference(destination.y), issues);
   }
 }
 

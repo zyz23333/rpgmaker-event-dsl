@@ -29,6 +29,9 @@ import {
   page,
   selectItem,
   scriptInput,
+  scrollMap,
+  setEventLocation,
+  setVehicleLocation,
   showChoices,
   showScrollingText,
   showText,
@@ -127,6 +130,19 @@ describe("collectDslOwnedDeclarations", () => {
     expect(changePartyMember({ actor: { kind: "actor", id: 1 }, operation: "add" }).kind).toBe(
       "changePartyMember",
     );
+    expect(
+      setVehicleLocation({
+        vehicle: "boat",
+        destination: { kind: "direct", map: { kind: "map", id: 1 }, x: 2, y: 3 },
+      }).kind,
+    ).toBe("setVehicleLocation");
+    expect(
+      setEventLocation({
+        character: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
+        destination: { kind: "direct", x: 2, y: 3 },
+      }).kind,
+    ).toBe("setEventLocation");
+    expect(scrollMap({ direction: 2, distance: 8, speed: 4 }).kind).toBe("scrollMap");
     expect(wait(60).kind).toBe("wait");
     expect(eraseEvent().kind).toBe("eraseEvent");
     expect(battleProcessing({ troop: troopRef({ id: 1 }) }).kind).toBe("battleProcessing");

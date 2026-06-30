@@ -458,6 +458,7 @@ function createDslNamespace(): Record<string, unknown> {
     controlVariables: getDslHelper("controlVariables"),
     eraseEvent: getDslHelper("eraseEvent"),
     exitEvent: getDslHelper("exitEvent"),
+    getOnOffVehicle: getDslHelper("getOnOffVehicle"),
     imageAsset: getDslHelper("imageAsset"),
     inputNumber: getDslHelper("inputNumber"),
     itemRef: getDslHelper("itemRef"),
@@ -475,6 +476,9 @@ function createDslNamespace(): Record<string, unknown> {
     showScrollingText: getDslHelper("showScrollingText"),
     showText: getDslHelper("showText"),
     script: getDslHelper("script"),
+    scrollMap: getDslHelper("scrollMap"),
+    setEventLocation: getDslHelper("setEventLocation"),
+    setVehicleLocation: getDslHelper("setVehicleLocation"),
     switchRef: getDslHelper("switchRef"),
     switchDefinition: getDslHelper("switchDefinition"),
     troopRef: getDslHelper("troopRef"),
@@ -530,6 +534,8 @@ function getDslHelper(name: string): unknown {
       return dsl.eraseEvent;
     case "exitEvent":
       return dsl.exitEvent;
+    case "getOnOffVehicle":
+      return dsl.getOnOffVehicle;
     case "imageAsset":
       return dsl.imageAsset;
     case "inputNumber":
@@ -564,6 +570,12 @@ function getDslHelper(name: string): unknown {
       return dsl.showText;
     case "script":
       return dsl.script;
+    case "scrollMap":
+      return dsl.scrollMap;
+    case "setEventLocation":
+      return dsl.setEventLocation;
+    case "setVehicleLocation":
+      return dsl.setVehicleLocation;
     case "switchDefinition":
       return dsl.switchDefinition;
     case "switchRef":

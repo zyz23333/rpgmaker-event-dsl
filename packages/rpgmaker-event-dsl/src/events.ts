@@ -1,5 +1,6 @@
 import type {
   BattleProcessingDslCommand,
+  CharacterRuntimeSelector,
   CommandOperand,
   ConditionalBranchCondition,
   ConditionalVariableOperator,
@@ -13,6 +14,7 @@ import type {
   ReferenceKind,
   ReferenceRange,
   ReferenceValue,
+  VehicleTarget,
 } from "./dsl.js";
 import type { ReferenceResolver } from "./staged-graph.js";
 
@@ -364,17 +366,17 @@ function compileNodes(
         });
         break;
       case "transferPlayer":
-        if ("map" in node.target) {
+        if (node.destination.kind === "direct") {
           output.push({
             code: 201,
             indent,
             parameters: [
               0,
-              getReferenceId(node.target.map),
-              node.target.x,
-              node.target.y,
-              node.target.direction ?? 2,
-              node.target.fadeType ?? 0,
+              resolver.resolveReference(node.destination.map),
+              node.destination.x,
+              node.destination.y,
+              node.direction ?? 2,
+              node.fadeType ?? 0,
             ],
           });
         } else {
@@ -383,14 +385,42 @@ function compileNodes(
             indent,
             parameters: [
               1,
-              getReferenceId(node.target.variableMap),
-              getReferenceId(node.target.variableX),
-              getReferenceId(node.target.variableY),
-              node.target.direction ?? 2,
-              node.target.fadeType ?? 0,
+              resolver.resolveReference(node.destination.map),
+              resolver.resolveReference(node.destination.x),
+              resolver.resolveReference(node.destination.y),
+              node.direction ?? 2,
+              node.fadeType ?? 0,
             ],
           });
         }
+        break;
+      case "setVehicleLocation":
+        output.push({
+          code: 202,
+          indent,
+          parameters: compileSetVehicleLocationParameters(node.vehicle, node.destination, resolver),
+        });
+        break;
+      case "setEventLocation":
+        output.push({
+          code: 203,
+          indent,
+          parameters: compileSetEventLocationParameters(node, resolver),
+        });
+        break;
+      case "scrollMap":
+        output.push({
+          code: 204,
+          indent,
+          parameters: [node.direction, node.distance, node.speed],
+        });
+        break;
+      case "getOnOffVehicle":
+        output.push({
+          code: 206,
+          indent,
+          parameters: [],
+        });
         break;
       case "showChoices":
         output.push({
@@ -554,7 +584,7 @@ function goldConditionOperatorToCode(
 }
 
 function vehicleToCode(
-  vehicle: Extract<ConditionalBranchCondition, { kind: "vehicle" }>["vehicle"],
+  vehicle: Extract<ConditionalBranchCondition, { kind: "vehicle" }>["vehicle"] | VehicleTarget,
 ): number {
   switch (vehicle) {
     case "boat":
@@ -563,6 +593,17 @@ function vehicleToCode(
       return 1;
     case "airship":
       return 2;
+  }
+}
+
+function characterSelectorToCode(selector: CharacterRuntimeSelector): number {
+  switch (selector.target) {
+    case "player":
+      return -1;
+    case "currentEvent":
+      return 0;
+    case "event":
+      return selector.id;
   }
 }
 
@@ -811,6 +852,59 @@ function compileBattleProcessingParameters(
   return [0, resolver.resolveReference(node.troop), node.canEscape ?? false, node.canLose ?? false];
 }
 
+function compileSetVehicleLocationParameters(
+  vehicle: VehicleTarget,
+  destination: Extract<DslCommand, { kind: "setVehicleLocation" }>["destination"],
+  resolver: ReferenceResolver,
+): unknown[] {
+  const vehicleCode = vehicleToCode(vehicle);
+  if (destination.kind === "direct") {
+    return [
+      vehicleCode,
+      0,
+      resolver.resolveReference(destination.map),
+      destination.x,
+      destination.y,
+    ];
+  }
+
+  return [
+    vehicleCode,
+    1,
+    resolver.resolveReference(destination.map),
+    resolver.resolveReference(destination.x),
+    resolver.resolveReference(destination.y),
+  ];
+}
+
+function compileSetEventLocationParameters(
+  node: Extract<DslCommand, { kind: "setEventLocation" }>,
+  resolver: ReferenceResolver,
+): unknown[] {
+  const characterId = characterSelectorToCode(node.character);
+
+  switch (node.destination.kind) {
+    case "direct":
+      return [characterId, 0, node.destination.x, node.destination.y, node.direction ?? 0];
+    case "variables":
+      return [
+        characterId,
+        1,
+        resolver.resolveReference(node.destination.x),
+        resolver.resolveReference(node.destination.y),
+        node.direction ?? 0,
+      ];
+    case "exchange":
+      return [
+        characterId,
+        2,
+        characterSelectorToCode(node.destination.character),
+        0,
+        node.direction ?? 0,
+      ];
+  }
+}
+
 function compileConditions(
   conditions: PageConditions | undefined,
   resolver: ReferenceResolver,
@@ -846,12 +940,4 @@ function commonEventTriggerToCode(trigger: CommonEventDefinition["trigger"]): nu
     case "parallel":
       return 2;
   }
-}
-
-function getReferenceId<TKind extends ReferenceKind>(ref: ReferenceValue<TKind>): number {
-  if ("id" in ref) {
-    return ref.id;
-  }
-
-  return 0;
 }

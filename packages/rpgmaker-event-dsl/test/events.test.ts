@@ -16,12 +16,16 @@ import {
   controlSwitches,
   controlVariables,
   eraseEvent,
+  getOnOffVehicle,
   imageAsset,
   inputNumber,
   itemRef,
   page,
   scriptInput,
   selectItem,
+  scrollMap,
+  setEventLocation,
+  setVehicleLocation,
   showChoices,
   showScrollingText,
   showText,
@@ -29,6 +33,7 @@ import {
   stateRef,
   switchDefinition,
   switchRef,
+  transferPlayer,
   troopRef,
   variableDefinition,
   variableRef,
@@ -43,12 +48,16 @@ const resolver = buildStagedDataGraph({
     switchDefinition({ id: 2, name: "Gate B" }),
     variableDefinition({ id: 1, name: "Count" }),
     variableDefinition({ id: 2, name: "Count B" }),
+    variableDefinition({ id: 3, name: "Map Var" }),
+    variableDefinition({ id: 4, name: "X Var" }),
+    variableDefinition({ id: 5, name: "Y Var" }),
   ],
   snapshotReferences: {
     actors: [{ id: 1, name: "Hero" }],
     armors: [{ id: 1, name: "Shield" }],
     classes: [{ id: 1, name: "Warrior" }],
     items: [{ id: 1, name: "Potion" }],
+    maps: [{ id: 1, name: "Town" }],
     skills: [{ id: 1, name: "Heal" }],
     states: [{ id: 1, name: "Poison" }],
     troops: [{ id: 1, name: "Slime" }],
@@ -142,6 +151,55 @@ describe("compileMapEvent", () => {
                 operation: "add",
                 initialize: true,
               }),
+              transferPlayer({
+                destination: {
+                  kind: "variables",
+                  map: variableRef({ name: "Map Var" }),
+                  x: variableRef({ name: "X Var" }),
+                  y: variableRef({ name: "Y Var" }),
+                },
+                direction: 4,
+                fadeType: 1,
+              }),
+              setVehicleLocation({
+                vehicle: "airship",
+                destination: { kind: "direct", map: { kind: "map", id: 1 }, x: 10, y: 12 },
+              }),
+              setVehicleLocation({
+                vehicle: "boat",
+                destination: {
+                  kind: "variables",
+                  map: variableRef({ name: "Map Var" }),
+                  x: variableRef({ name: "X Var" }),
+                  y: variableRef({ name: "Y Var" }),
+                },
+              }),
+              setEventLocation({
+                character: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
+                destination: { kind: "direct", x: 6, y: 7 },
+                direction: 8,
+              }),
+              setEventLocation({
+                character: { kind: "runtimeSelector", scope: "character", target: "event", id: 3 },
+                destination: {
+                  kind: "variables",
+                  x: variableRef({ name: "X Var" }),
+                  y: variableRef({ name: "Y Var" }),
+                },
+              }),
+              setEventLocation({
+                character: { kind: "runtimeSelector", scope: "character", target: "player" },
+                destination: {
+                  kind: "exchange",
+                  character: {
+                    kind: "runtimeSelector",
+                    scope: "character",
+                    target: "currentEvent",
+                  },
+                },
+              }),
+              scrollMap({ direction: 6, distance: 9, speed: 5 }),
+              getOnOffVehicle(),
               battleProcessing({ troop: troopRef({ name: "Slime" }), canEscape: true }),
             ],
           }),
@@ -188,8 +246,45 @@ describe("compileMapEvent", () => {
     expect(commands[26]).toEqual({ code: 127, indent: 0, parameters: [1, 0, 1, 1, true] });
     expect(commands[27]).toEqual({ code: 128, indent: 0, parameters: [1, 1, 0, 2, false] });
     expect(commands[28]).toEqual({ code: 129, indent: 0, parameters: [1, 0, true] });
-    expect(commands[29]).toEqual({ code: 301, indent: 0, parameters: [0, 1, true, false] });
-    expect(commands[30]).toEqual({ code: 0, indent: 0, parameters: [] });
+    expect(commands[29]).toEqual({ code: 201, indent: 0, parameters: [1, 3, 4, 5, 4, 1] });
+    expect(commands[30]).toEqual({ code: 202, indent: 0, parameters: [2, 0, 1, 10, 12] });
+    expect(commands[31]).toEqual({ code: 202, indent: 0, parameters: [0, 1, 3, 4, 5] });
+    expect(commands[32]).toEqual({ code: 203, indent: 0, parameters: [0, 0, 6, 7, 8] });
+    expect(commands[33]).toEqual({ code: 203, indent: 0, parameters: [3, 1, 4, 5, 0] });
+    expect(commands[34]).toEqual({ code: 203, indent: 0, parameters: [-1, 2, 0, 0, 0] });
+    expect(commands[35]).toEqual({ code: 204, indent: 0, parameters: [6, 9, 5] });
+    expect(commands[36]).toEqual({ code: 206, indent: 0, parameters: [] });
+    expect(commands[37]).toEqual({ code: 301, indent: 0, parameters: [0, 1, true, false] });
+    expect(commands[38]).toEqual({ code: 0, indent: 0, parameters: [] });
+  });
+
+  it("compiles direct Transfer Player destinations with resolved map references", () => {
+    const event = compileMapEvent(
+      {
+        kind: "mapEvent",
+        mapId: 1,
+        id: 1,
+        name: "Transfer",
+        x: 1,
+        y: 2,
+        pages: [
+          page({
+            commands: [
+              transferPlayer({
+                destination: { kind: "direct", map: { kind: "map", name: "Town" }, x: 4, y: 5 },
+              }),
+            ],
+          }),
+        ],
+      },
+      { nextId: 2, resolver },
+    );
+
+    expect(event.pages?.[0]?.list?.[0]).toEqual({
+      code: 201,
+      indent: 0,
+      parameters: [0, 1, 4, 5, 2, 0],
+    });
   });
 
   it("compiles MV Conditional Branch condition categories into raw parameters", () => {

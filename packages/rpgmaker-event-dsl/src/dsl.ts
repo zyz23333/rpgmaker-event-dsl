@@ -284,6 +284,59 @@ export type VariablePosition = {
 
 export type CommandPosition = DirectPosition | VariablePosition;
 
+export type VehicleTarget = "boat" | "ship" | "airship";
+
+export type Direction = 2 | 4 | 6 | 8;
+
+export type CharacterRuntimeSelector =
+  | (RuntimeSelector<"character", "player"> & {
+      id?: never;
+    })
+  | (RuntimeSelector<"character", "currentEvent"> & {
+      id?: never;
+    })
+  | (RuntimeSelector<"character", "event"> & {
+      id: number;
+    });
+
+export type DirectMapDestination = {
+  kind: "direct";
+  map: ReferenceValue<"map">;
+  x: number;
+  y: number;
+};
+
+export type VariableMapDestination = {
+  kind: "variables";
+  map: ReferenceValue<"variable">;
+  x: ReferenceValue<"variable">;
+  y: ReferenceValue<"variable">;
+};
+
+export type MapDestination = DirectMapDestination | VariableMapDestination;
+
+export type DirectEventLocationDestination = {
+  kind: "direct";
+  x: number;
+  y: number;
+};
+
+export type VariableEventLocationDestination = {
+  kind: "variables";
+  x: ReferenceValue<"variable">;
+  y: ReferenceValue<"variable">;
+};
+
+export type ExchangeEventLocationDestination = {
+  kind: "exchange";
+  character: CharacterRuntimeSelector;
+};
+
+export type EventLocationDestination =
+  | DirectEventLocationDestination
+  | VariableEventLocationDestination
+  | ExchangeEventLocationDestination;
+
 export type ToneInput =
   | readonly [red: number, green: number, blue: number, gray: number]
   | {
@@ -412,6 +465,10 @@ export type DslCommand =
   | ChangeWeaponsDslCommand
   | ChangeArmorsDslCommand
   | ChangePartyMemberDslCommand
+  | SetVehicleLocationDslCommand
+  | SetEventLocationDslCommand
+  | ScrollMapDslCommand
+  | GetOnOffVehicleDslCommand
   | WaitDslCommand
   | EraseEventDslCommand
   | BattleProcessingDslCommand
@@ -513,21 +570,9 @@ export type PluginDslCommand = {
 
 export type TransferPlayerDslCommand = {
   kind: "transferPlayer";
-  target:
-    | {
-        map: ReferenceValue<"map">;
-        x: number;
-        y: number;
-        direction?: 2 | 4 | 6 | 8;
-        fadeType?: 0 | 1 | 2;
-      }
-    | {
-        variableMap: ReferenceValue<"map">;
-        variableX: ReferenceValue<"variable">;
-        variableY: ReferenceValue<"variable">;
-        direction?: 2 | 4 | 6 | 8;
-        fadeType?: 0 | 1 | 2;
-      };
+  destination: MapDestination;
+  direction?: Direction;
+  fadeType?: 0 | 1 | 2;
 };
 
 export type ControlSwitchesDslCommand = {
@@ -599,6 +644,30 @@ export type ChangePartyMemberDslCommand = {
   actor: ReferenceValue<"actor">;
   operation: "add" | "remove";
   initialize?: boolean;
+};
+
+export type SetVehicleLocationDslCommand = {
+  kind: "setVehicleLocation";
+  vehicle: VehicleTarget;
+  destination: MapDestination;
+};
+
+export type SetEventLocationDslCommand = {
+  kind: "setEventLocation";
+  character: CharacterRuntimeSelector;
+  destination: EventLocationDestination;
+  direction?: 0 | Direction;
+};
+
+export type ScrollMapDslCommand = {
+  kind: "scrollMap";
+  direction: Direction;
+  distance: number;
+  speed: number;
+};
+
+export type GetOnOffVehicleDslCommand = {
+  kind: "getOnOffVehicle";
 };
 
 export type WaitDslCommand = {
@@ -879,16 +948,23 @@ export function pluginCommand(input: {
 }
 
 export function transferPlayer(input: {
-  map: ReferenceValue<"map">;
-  x: number;
-  y: number;
-  direction?: 2 | 4 | 6 | 8;
+  destination: MapDestination;
+  direction?: Direction;
   fadeType?: 0 | 1 | 2;
 }): TransferPlayerDslCommand {
-  return {
+  const node: TransferPlayerDslCommand = {
     kind: "transferPlayer",
-    target: input,
+    destination: input.destination,
   };
+
+  if (input.direction !== undefined) {
+    node.direction = input.direction;
+  }
+  if (input.fadeType !== undefined) {
+    node.fadeType = input.fadeType;
+  }
+
+  return node;
 }
 
 export function controlSwitches(input: {
@@ -1026,6 +1102,54 @@ export function changePartyMember(input: {
   }
 
   return node;
+}
+
+export function setVehicleLocation(input: {
+  vehicle: VehicleTarget;
+  destination: MapDestination;
+}): SetVehicleLocationDslCommand {
+  return {
+    kind: "setVehicleLocation",
+    vehicle: input.vehicle,
+    destination: input.destination,
+  };
+}
+
+export function setEventLocation(input: {
+  character: CharacterRuntimeSelector;
+  destination: EventLocationDestination;
+  direction?: 0 | Direction;
+}): SetEventLocationDslCommand {
+  const node: SetEventLocationDslCommand = {
+    kind: "setEventLocation",
+    character: input.character,
+    destination: input.destination,
+  };
+
+  if (input.direction !== undefined) {
+    node.direction = input.direction;
+  }
+
+  return node;
+}
+
+export function scrollMap(input: {
+  direction: Direction;
+  distance: number;
+  speed: number;
+}): ScrollMapDslCommand {
+  return {
+    kind: "scrollMap",
+    direction: input.direction,
+    distance: input.distance,
+    speed: input.speed,
+  };
+}
+
+export function getOnOffVehicle(): GetOnOffVehicleDslCommand {
+  return {
+    kind: "getOnOffVehicle",
+  };
 }
 
 export function wait(frames: number): WaitDslCommand {

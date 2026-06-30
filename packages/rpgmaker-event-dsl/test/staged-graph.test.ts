@@ -19,8 +19,11 @@ import {
   page,
   scriptInput,
   rawDslCommand,
+  setEventLocation,
+  setVehicleLocation,
   switchDefinition,
   switchRef,
+  transferPlayer,
   troopRef,
   validateDslOwnedDeclarations,
   variableDefinition,
@@ -321,6 +324,82 @@ describe("validateDslOwnedDeclarations", () => {
     expect(inspection.scriptInputs).toHaveLength(1);
     expect(inspection.projectDataReferences).toHaveLength(1);
     expect(inspection.projectDataReferences[0]).toEqual(switchRef({ id: 1 }));
+  });
+
+  it("validates Movement command references without resolving runtime selectors", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        variableDefinition({ id: 1, name: "Map Var" }),
+        variableDefinition({ id: 2, name: "X Var" }),
+        variableDefinition({ id: 3, name: "Y Var" }),
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Mover",
+          commands: [
+            transferPlayer({
+              destination: {
+                kind: "variables",
+                map: variableRef({ id: 1 }),
+                x: variableRef({ id: 2 }),
+                y: variableRef({ id: 3 }),
+              },
+            }),
+            setVehicleLocation({
+              vehicle: "boat",
+              destination: { kind: "direct", map: { kind: "map", id: 1 }, x: 4, y: 5 },
+            }),
+            setEventLocation({
+              character: { kind: "runtimeSelector", scope: "character", target: "event", id: 99 },
+              destination: {
+                kind: "variables",
+                x: variableRef({ id: 2 }),
+                y: variableRef({ id: 3 }),
+              },
+            }),
+          ],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotReferences: {
+          maps: [{ id: 1, name: "Town" }],
+        },
+      },
+    );
+
+    expect(result.issues).toEqual([]);
+  });
+
+  it("rejects missing variable references in Movement variable destinations", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Bad Mover",
+          commands: [
+            transferPlayer({
+              destination: {
+                kind: "variables",
+                map: variableRef({ id: 98 }),
+                x: variableRef({ id: 99 }),
+                y: variableRef({ id: 100 }),
+              },
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toEqual(
+      expect.arrayContaining([
+        "Unknown variable reference id: 98",
+        "Unknown variable reference id: 99",
+        "Unknown variable reference id: 100",
+      ]),
+    );
   });
 
   it("validates troop references without treating random encounters as references", () => {

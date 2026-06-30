@@ -736,6 +736,21 @@ function renderSimpleCommand(command: RawEventCommand): Omit<RenderedCommand, "n
             helperNames: ["actorRef", "changePartyMember"],
           };
     }
+    case 201:
+      return renderTransferPlayer(command);
+    case 202:
+      return renderSetVehicleLocation(command);
+    case 203:
+      return renderSetEventLocation(command);
+    case 204:
+      return renderScrollMap(command);
+    case 206:
+      return command.parameters.length === 0
+        ? {
+            expression: "getOnOffVehicle()",
+            helperNames: ["getOnOffVehicle"],
+          }
+        : null;
     case 214:
       return {
         expression: "eraseEvent()",
@@ -753,6 +768,136 @@ function renderSimpleCommand(command: RawEventCommand): Omit<RenderedCommand, "n
     default:
       return null;
   }
+}
+
+function renderTransferPlayer(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const designation = command.parameters[0];
+  const direction = command.parameters[4];
+  const fadeType = command.parameters[5];
+
+  if (!isDirection(direction) || !isFadeType(fadeType)) {
+    return null;
+  }
+
+  if (designation === 0) {
+    const mapId = readPositiveInteger(command.parameters[1]);
+    const x = command.parameters[2];
+    const y = command.parameters[3];
+    return mapId === null || typeof x !== "number" || typeof y !== "number"
+      ? null
+      : {
+          expression: `transferPlayer({ destination: { kind: "direct", map: mapRef({ id: ${mapId} }), x: ${x}, y: ${y} }${renderOptionalDirectionAndFade(direction, fadeType)} })`,
+          helperNames: ["mapRef", "transferPlayer"],
+        };
+  }
+
+  if (designation === 1) {
+    const mapVariableId = readPositiveInteger(command.parameters[1]);
+    const xVariableId = readPositiveInteger(command.parameters[2]);
+    const yVariableId = readPositiveInteger(command.parameters[3]);
+    return mapVariableId === null || xVariableId === null || yVariableId === null
+      ? null
+      : {
+          expression: `transferPlayer({ destination: { kind: "variables", map: variableRef({ id: ${mapVariableId} }), x: variableRef({ id: ${xVariableId} }), y: variableRef({ id: ${yVariableId} }) }${renderOptionalDirectionAndFade(direction, fadeType)} })`,
+          helperNames: ["transferPlayer", "variableRef"],
+        };
+  }
+
+  return null;
+}
+
+function renderSetVehicleLocation(
+  command: RawEventCommand,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const vehicle = vehicleFromCode(command.parameters[0]);
+  const designation = command.parameters[1];
+  if (vehicle === null) {
+    return null;
+  }
+
+  if (designation === 0) {
+    const mapId = readPositiveInteger(command.parameters[2]);
+    const x = command.parameters[3];
+    const y = command.parameters[4];
+    return mapId === null || typeof x !== "number" || typeof y !== "number"
+      ? null
+      : {
+          expression: `setVehicleLocation({ vehicle: ${literal(vehicle)}, destination: { kind: "direct", map: mapRef({ id: ${mapId} }), x: ${x}, y: ${y} } })`,
+          helperNames: ["mapRef", "setVehicleLocation"],
+        };
+  }
+
+  if (designation === 1) {
+    const mapVariableId = readPositiveInteger(command.parameters[2]);
+    const xVariableId = readPositiveInteger(command.parameters[3]);
+    const yVariableId = readPositiveInteger(command.parameters[4]);
+    return mapVariableId === null || xVariableId === null || yVariableId === null
+      ? null
+      : {
+          expression: `setVehicleLocation({ vehicle: ${literal(vehicle)}, destination: { kind: "variables", map: variableRef({ id: ${mapVariableId} }), x: variableRef({ id: ${xVariableId} }), y: variableRef({ id: ${yVariableId} }) } })`,
+          helperNames: ["setVehicleLocation", "variableRef"],
+        };
+  }
+
+  return null;
+}
+
+function renderSetEventLocation(
+  command: RawEventCommand,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const character = renderCharacterRuntimeSelector(command.parameters[0]);
+  const designation = command.parameters[1];
+  const direction = command.parameters[4];
+  if (character === null || !isEventLocationDirection(direction)) {
+    return null;
+  }
+
+  if (designation === 0) {
+    const x = command.parameters[2];
+    const y = command.parameters[3];
+    return typeof x !== "number" || typeof y !== "number"
+      ? null
+      : {
+          expression: `setEventLocation({ character: ${character.expression}, destination: { kind: "direct", x: ${x}, y: ${y} }${renderOptionalEventDirection(direction)} })`,
+          helperNames: ["setEventLocation"],
+        };
+  }
+
+  if (designation === 1) {
+    const xVariableId = readPositiveInteger(command.parameters[2]);
+    const yVariableId = readPositiveInteger(command.parameters[3]);
+    return xVariableId === null || yVariableId === null
+      ? null
+      : {
+          expression: `setEventLocation({ character: ${character.expression}, destination: { kind: "variables", x: variableRef({ id: ${xVariableId} }), y: variableRef({ id: ${yVariableId} }) }${renderOptionalEventDirection(direction)} })`,
+          helperNames: ["setEventLocation", "variableRef"],
+        };
+  }
+
+  if (designation === 2) {
+    const exchangeCharacter = renderCharacterRuntimeSelector(command.parameters[2]);
+    return exchangeCharacter === null
+      ? null
+      : {
+          expression: `setEventLocation({ character: ${character.expression}, destination: { kind: "exchange", character: ${exchangeCharacter.expression} }${renderOptionalEventDirection(direction)} })`,
+          helperNames: ["setEventLocation"],
+        };
+  }
+
+  return null;
+}
+
+function renderScrollMap(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const direction = command.parameters[0];
+  const distance = command.parameters[1];
+  const speed = command.parameters[2];
+
+  return isDirection(direction) && typeof distance === "number" && typeof speed === "number"
+    ? {
+        expression: `scrollMap({ direction: ${direction}, distance: ${distance}, speed: ${speed} })`,
+        helperNames: ["scrollMap"],
+      }
+    : null;
 }
 
 function renderControlVariables(
@@ -839,6 +984,47 @@ function renderReferenceTarget(
   }
 
   return `{ kind: "referenceRange", from: ${helperName}({ id: ${startId} }), to: ${helperName}({ id: ${endId} }) }`;
+}
+
+function renderCharacterRuntimeSelector(
+  value: unknown,
+): { expression: string; helperNames: readonly string[] } | null {
+  if (value === -1) {
+    return {
+      expression: `{ kind: "runtimeSelector", scope: "character", target: "player" }`,
+      helperNames: [],
+    };
+  }
+  if (value === 0) {
+    return {
+      expression: `{ kind: "runtimeSelector", scope: "character", target: "currentEvent" }`,
+      helperNames: [],
+    };
+  }
+  if (typeof value === "number" && Number.isInteger(value) && value > 0) {
+    return {
+      expression: `{ kind: "runtimeSelector", scope: "character", target: "event", id: ${value} }`,
+      helperNames: [],
+    };
+  }
+
+  return null;
+}
+
+function renderOptionalDirectionAndFade(direction: 2 | 4 | 6 | 8, fadeType: 0 | 1 | 2): string {
+  const fields: string[] = [];
+  if (direction !== 2) {
+    fields.push(`direction: ${direction}`);
+  }
+  if (fadeType !== 0) {
+    fields.push(`fadeType: ${fadeType}`);
+  }
+
+  return fields.length === 0 ? "" : `, ${fields.join(", ")}`;
+}
+
+function renderOptionalEventDirection(direction: 0 | 2 | 4 | 6 | 8): string {
+  return direction === 0 ? "" : `, direction: ${direction}`;
 }
 
 function renderOperateValueOperand(
@@ -1256,14 +1442,7 @@ function renderButtonCondition(
 function renderVehicleCondition(
   parameters: readonly unknown[],
 ): { expression: string; helperNames: readonly string[] } | null {
-  const vehicle =
-    parameters[1] === 0
-      ? "boat"
-      : parameters[1] === 1
-        ? "ship"
-        : parameters[1] === 2
-          ? "airship"
-          : null;
+  const vehicle = vehicleFromCode(parameters[1]);
 
   return vehicle === null
     ? null
@@ -1271,6 +1450,20 @@ function renderVehicleCondition(
         expression: `{ kind: "vehicle", vehicle: ${literal(vehicle)} }`,
         helperNames: [],
       };
+}
+
+function vehicleFromCode(value: unknown): "boat" | "ship" | "airship" | null {
+  if (value === 0) {
+    return "boat";
+  }
+  if (value === 1) {
+    return "ship";
+  }
+  if (value === 2) {
+    return "airship";
+  }
+
+  return null;
 }
 
 function renderRawCommand(command: RawEventCommand): string {
@@ -1861,6 +2054,14 @@ function isItemType(value: unknown): value is 1 | 2 | 3 | 4 {
 
 function isDirection(value: unknown): value is 2 | 4 | 6 | 8 {
   return value === 2 || value === 4 || value === 6 || value === 8;
+}
+
+function isEventLocationDirection(value: unknown): value is 0 | 2 | 4 | 6 | 8 {
+  return value === 0 || isDirection(value);
+}
+
+function isFadeType(value: unknown): value is 0 | 1 | 2 {
+  return value === 0 || value === 1 || value === 2;
 }
 
 function isSelfSwitch(value: unknown): value is "A" | "B" | "C" | "D" {
