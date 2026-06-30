@@ -45,7 +45,7 @@ Complete MV Audio & Video, System Settings, and Map command families, including 
 ## Design References
 
 - Requirements: REQ-01, REQ-04, REQ-05
-- Decisions: use `audioRef`, `imageRef`, `movieRef`; assets are no-scan; `tilesetRef` is the Project Data Reference for `Change Tileset`.
+- Decisions: use `audioAsset`, `imageAsset`, `movieAsset`; assets are no-scan; `tilesetRef` is the Project Data Reference for `Change Tileset`.
 - Invariants: Asset References never resolve to project data IDs; Runtime Selectors do not resolve through the Staged Data Graph; Project Data References still resolve through normal graph.
 - Completion Contract: OUT-03, OT-05
 - Canonical docs: `../mv-command-coverage-design.md`, MV `command132` through `command140`, `command241` through `command285`
@@ -61,7 +61,7 @@ Implement these command families with correct MV parameter shapes, no-scan asset
 ## Acceptance Criteria
 
 - [ ] Audio commands compile/decompile with MV AudioFile objects.
-- [ ] Movie command uses `movieRef` and compiles to the MV filename stem.
+- [ ] Movie command uses `movieAsset` and compiles to the MV filename stem.
 - [ ] System setting commands compile/decompile access toggles and audio settings.
 - [ ] Map commands compile/decompile display, tileset, battleback, parallax, and location info behavior.
 - [ ] No implementation scans audio/img/movie directories.

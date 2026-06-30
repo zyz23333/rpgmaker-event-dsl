@@ -136,7 +136,7 @@ _Avoid_: raw numeric ID, implicit ID
 A DSL reference value to an RPG Maker MV asset namespace and filename stem that does not resolve through Project Data References.
 _Avoid_: Project Data Reference, raw asset string, scanned asset entry
 
-**Asset Category Reference Helper**:
+**Asset Category Helper**:
 A category-specific helper for creating an Asset Reference with an explicit RPG Maker MV asset namespace.
 _Avoid_: generic assetRef, imgRef, per-folder helper, Project Data Reference helper
 
@@ -363,7 +363,7 @@ _Avoid_: config default, inherited old value
 - **External Project Data References** are resolved from **Project Data Snapshots** and do not imply **DSL-Owned Project Data**.
 - **Explicit ID References** are allowed, while bare numeric IDs are not valid DSL references.
 - **Asset References** are separate from **Project Data References** and do not resolve to RPG Maker MV data entry IDs.
-- **Asset References** use **Asset Category Reference Helpers** rather than a generic asset reference helper.
+- **Asset References** use **Asset Category Helpers** rather than a generic asset helper.
 - **Runtime Selectors** do not use **Project Data Reference Scopes** and do not resolve through the **Staged Data Graph**.
 - Name-based **Project Data References** must resolve to exactly one visible entry in the **Staged Data Graph**.
 - Name-based references to **DSL-Owned Project Data** domains resolve against DSL-owned entries in the **Staged Data Graph**, not by falling back to the **Project Data Snapshot**.
@@ -523,7 +523,8 @@ _Avoid_: config default, inherited old value
 - "Project Reference" was rejected because it sounded like a reference to the project itself; the canonical term is **Project Data Reference**.
 - "Numeric references" were resolved as explicit ID helper calls, not bare numbers; reasons are optional and may be linted.
 - "Asset references" were resolved as **Asset References**, not **Project Data References**, because RPG Maker MV asset filenames do not identify database entries.
-- "Generic assetRef", "imgRef", and per-folder asset helpers were rejected in favor of **Asset Category Reference Helpers** with explicit RPG Maker MV asset namespaces.
+- "Generic assetRef", "imgRef", and per-folder asset helpers were rejected in favor of **Asset Category Helpers** with explicit RPG Maker MV asset namespaces.
+- "audioRef", "imageRef", and "movieRef" were rejected because `Ref` suffixes are reserved for **Project Data Reference** helpers; the resolved asset helper names are `audioAsset`, `imageAsset`, and `movieAsset`.
 - "Snapshot fallback" was rejected for name-based references to **DSL-Owned Project Data** domains; unresolved DSL-owned names fail instead of resolving to snapshot entries.
 - "Plugin command registry" was resolved as optional lint-time metadata, not a runtime requirement.
 - "Plugin Command Input" was rejected because the value is a **DSL Command**; the canonical term is **Plugin DSL Command**.

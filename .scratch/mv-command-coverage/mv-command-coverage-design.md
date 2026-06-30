@@ -120,11 +120,11 @@ Continuation commands are not public top-level helpers. Examples:
 - `605` belongs to `shopProcessing`.
 - `655` belongs to `script`.
 
-Asset-bearing command helpers should use **Asset Category Reference Helpers**:
+Asset-bearing command helpers should use **Asset Category Helpers**:
 
-- `audioRef({ folder, name })`, where folder is one of MV's `audio` namespaces such as `bgm`, `bgs`, `me`, or `se`.
-- `imageRef({ folder, name })`, where folder is one of MV's `img` namespaces such as `pictures`, `characters`, `faces`, `sv_actors`, `sv_enemies`, `battlebacks1`, `battlebacks2`, `parallaxes`, or `tilesets`.
-- `movieRef({ name })`, using MV's fixed `movies` namespace.
+- `audioAsset({ folder, name })`, where folder is one of MV's `audio` namespaces such as `bgm`, `bgs`, `me`, or `se`.
+- `imageAsset({ folder, name })`, where folder is one of MV's `img` namespaces such as `pictures`, `characters`, `faces`, `sv_actors`, `sv_enemies`, `battlebacks1`, `battlebacks2`, `parallaxes`, or `tilesets`.
+- `movieAsset({ name })`, using MV's fixed `movies` namespace.
 
 Asset References are opaque in this change: they compile to the filename stem required by MV and do not scan, validate, resolve IDs, or enter the Staged Data Graph.
 
@@ -137,7 +137,7 @@ Expected Project Data Reference Scopes for MV command coverage include:
 - Current scopes: actor, armor, common event, item, map, switch, troop, variable, and weapon.
 - Additional read-only External Project Data Reference scopes added when first required by a command slice: class, skill, state, animation, enemy, and tileset.
 
-Asset-bearing command inputs use **Asset References**, not Project Data References. For example, `tilesetRef(...)` identifies a `Tilesets.json` database entry for `Change Tileset`, while `imageRef({ folder: "tilesets", name })` identifies an `img/tilesets` filename stem and does not prove that any tileset database entry exists.
+Asset-bearing command inputs use **Asset References**, not Project Data References. For example, `tilesetRef(...)` identifies a `Tilesets.json` database entry for `Change Tileset`, while `imageAsset({ folder: "tilesets", name })` identifies an `img/tilesets` filename stem and does not prove that any tileset database entry exists.
 
 Runtime command targets use **Runtime Selectors**, not Project Data References. Examples include player/current-event character targets, troop enemy indexes, all-enemies targets, actor command target modes such as entire party or actor ID from variable, battler selectors, vehicle selectors, and picture slots.
 
@@ -167,7 +167,7 @@ Runtime command targets use **Runtime Selectors**, not Project Data References. 
 - Existing plural MV command families should use plural helper names.
 - `controlSwitch` and `controlVariable` are breaking-renamed to `controlSwitches` and `controlVariables`.
 - No compatibility aliases are kept for those pre-release names.
-- Asset parameters use `audioRef`, `imageRef`, and `movieRef` category helpers with explicit namespaces.
+- Asset parameters use `audioAsset`, `imageAsset`, and `movieAsset` category helpers with explicit namespaces.
 - Asset References are no-scan and do not participate in Project Data Reference resolution.
 - Project Data Reference Scopes are limited to resolvable RPG Maker MV project data entries.
 - New read-only External Project Data Reference scopes are added only when required by a command slice, and each new scope must include helper exports, snapshot extraction, validation, tests, and decompiler import handling.
@@ -268,15 +268,15 @@ Matrix status values:
 
 | MV Command Family | Codes | Current | Target Helper | Notes |
 | --- | --- | --- | --- | --- |
-| Change Battle BGM | `132` | missing | `changeBattleBgm` | Uses `audioRef({ folder: "bgm", name })`. |
-| Change Victory ME | `133` | missing | `changeVictoryMe` | Uses `audioRef({ folder: "me", name })`. |
+| Change Battle BGM | `132` | missing | `changeBattleBgm` | Uses `audioAsset({ folder: "bgm", name })`. |
+| Change Victory ME | `133` | missing | `changeVictoryMe` | Uses `audioAsset({ folder: "me", name })`. |
 | Change Save Access | `134` | missing | `changeSaveAccess` | Enable/disable. |
 | Change Menu Access | `135` | missing | `changeMenuAccess` | Enable/disable. |
 | Change Encounter Disable | `136` | missing | `changeEncounterDisable` | Enable/disable encounter behavior. |
 | Change Formation Access | `137` | missing | `changeFormationAccess` | Enable/disable. |
 | Change Window Color | `138` | missing | `changeWindowColor` | Tone array or named tone object. |
-| Change Defeat ME | `139` | missing | `changeDefeatMe` | Uses `audioRef({ folder: "me", name })`. |
-| Change Vehicle BGM | `140` | missing | `changeVehicleBgm` | Vehicle target plus `audioRef({ folder: "bgm", name })`. |
+| Change Defeat ME | `139` | missing | `changeDefeatMe` | Uses `audioAsset({ folder: "me", name })`. |
+| Change Vehicle BGM | `140` | missing | `changeVehicleBgm` | Vehicle target plus `audioAsset({ folder: "bgm", name })`. |
 
 #### Movement
 
@@ -310,7 +310,7 @@ Matrix status values:
 | Flash Screen | `224` | missing | `flashScreen` | Color, duration, wait. |
 | Shake Screen | `225` | missing | `shakeScreen` | Power, speed, duration, wait. |
 | Wait | `230` | complete | `wait` | Existing helper is sufficient. |
-| Show Picture | `231` | missing | `showPicture` | Uses `imageRef({ folder: "pictures", name })`; direct and variable position. |
+| Show Picture | `231` | missing | `showPicture` | Uses `imageAsset({ folder: "pictures", name })`; direct and variable position. |
 | Move Picture | `232` | missing | `movePicture` | Direct and variable position, duration, wait. |
 | Rotate Picture | `233` | missing | `rotatePicture` | Picture ID and speed. |
 | Tint Picture | `234` | missing | `tintPicture` | Picture ID, tone, duration, wait. |
@@ -321,25 +321,25 @@ Matrix status values:
 
 | MV Command Family | Codes | Current | Target Helper | Notes |
 | --- | --- | --- | --- | --- |
-| Play BGM | `241` | missing | `playBgm` | Uses AudioFile object with `audioRef({ folder: "bgm", name })`. |
+| Play BGM | `241` | missing | `playBgm` | Uses AudioFile object with `audioAsset({ folder: "bgm", name })`. |
 | Fadeout BGM | `242` | missing | `fadeoutBgm` | Duration. |
 | Save BGM | `243` | missing | `saveBgm` | No parameters. |
 | Resume BGM | `244` | missing | `resumeBgm` | No parameters. |
-| Play BGS | `245` | missing | `playBgs` | Uses `audioRef({ folder: "bgs", name })`. |
+| Play BGS | `245` | missing | `playBgs` | Uses `audioAsset({ folder: "bgs", name })`. |
 | Fadeout BGS | `246` | missing | `fadeoutBgs` | Duration. |
-| Play ME | `249` | missing | `playMe` | Uses `audioRef({ folder: "me", name })`. |
-| Play SE | `250` | missing | `playSe` | Uses `audioRef({ folder: "se", name })`. |
+| Play ME | `249` | missing | `playMe` | Uses `audioAsset({ folder: "me", name })`. |
+| Play SE | `250` | missing | `playSe` | Uses `audioAsset({ folder: "se", name })`. |
 | Stop SE | `251` | missing | `stopSe` | No parameters. |
-| Play Movie | `261` | missing | `playMovie` | Uses `movieRef({ name })`. |
+| Play Movie | `261` | missing | `playMovie` | Uses `movieAsset({ name })`. |
 
 #### Map
 
 | MV Command Family | Codes | Current | Target Helper | Notes |
 | --- | --- | --- | --- | --- |
 | Change Map Name Display | `281` | missing | `changeMapNameDisplay` | Enable/disable. |
-| Change Tileset | `282` | missing | `changeTileset` | Uses `tilesetRef(...)` for a `Tilesets.json` Project Data Reference Scope, not `imageRef({ folder: "tilesets" })`. |
-| Change Battle Back | `283` | missing | `changeBattleBack` | Uses `imageRef({ folder: "battlebacks1" })` and `imageRef({ folder: "battlebacks2" })`. |
-| Change Parallax | `284` | missing | `changeParallax` | Uses `imageRef({ folder: "parallaxes" })`; loop/speed options. |
+| Change Tileset | `282` | missing | `changeTileset` | Uses `tilesetRef(...)` for a `Tilesets.json` Project Data Reference Scope, not `imageAsset({ folder: "tilesets" })`. |
+| Change Battle Back | `283` | missing | `changeBattleBack` | Uses `imageAsset({ folder: "battlebacks1" })` and `imageAsset({ folder: "battlebacks2" })`. |
+| Change Parallax | `284` | missing | `changeParallax` | Uses `imageAsset({ folder: "parallaxes" })`; loop/speed options. |
 | Get Location Info | `285` | missing | `getLocationInfo` | Variable target, info type, direct or variable coordinates. |
 
 #### Scene Control
@@ -365,7 +365,7 @@ Matrix status values:
 | Change Equipment | `319` | missing | `changeEquipment` | Actor uses a fixed `actorRef(...)`; equip slot is a command enum/id, not a Project Data Reference Scope; item is weapon/armor/none. |
 | Change Name | `320` | missing | `changeName` | Fixed actor database reference and name. |
 | Change Class | `321` | missing | `changeClass` | Fixed actor database reference, `classRef(...)`, and keep EXP. |
-| Change Actor Images | `322` | missing | `changeActorImages` | Uses `imageRef` for characters/faces/sv_actors and index fields where MV requires them. |
+| Change Actor Images | `322` | missing | `changeActorImages` | Uses `imageAsset` for characters/faces/sv_actors and index fields where MV requires them. |
 | Change Vehicle Image | `323` | missing | `changeVehicleImage` | Vehicle target, character image reference, index. |
 | Change Nickname | `324` | missing | `changeNickname` | Fixed actor database reference and nickname. |
 | Change Profile | `325` | missing | `changeProfile` | Fixed actor database reference and profile text. |
@@ -408,8 +408,8 @@ Matrix status values:
 | Wait | `15` | `routeWait({ frames })` or route-local `wait` shape | Avoid collision ambiguity with event-level `wait` in imports if using helper functions. |
 | Turn commands | `16`-`26` | turn discriminants such as `turnDown`, `turnRandom`, `turnTowardPlayer` | Keep route-local namespace clear. |
 | Switch on/off | `27`, `28` | route command with switch reference | Project Data Reference validation required. |
-| Speed/frequency/walk/step/direction/through/transparent/image/blend | `29`-`41` | route command discriminants with typed parameters | `Change Image` uses `imageRef({ folder: "characters", name })` plus index. |
-| Play SE | `44` | route command with `audioRef({ folder: "se", name })` | AudioFile object shape. |
+| Speed/frequency/walk/step/direction/through/transparent/image/blend | `29`-`41` | route command discriminants with typed parameters | `Change Image` uses `imageAsset({ folder: "characters", name })` plus index. |
+| Play SE | `44` | route command with `audioAsset({ folder: "se", name })` | AudioFile object shape. |
 | Script | `45` | route Script Input | Must be blocked by Script Command Gate when disabled. |
 
 Exact route helper surface may be a nested object array rather than exported function per route command, as long as it is schema-first, readable, decompilable, and gate-aware.
@@ -432,7 +432,7 @@ The public `rpgmaker-event-dsl` export surface changes:
 - `controlVariable` is removed and replaced with `controlVariables`.
 - Related types and `kind` values use plural names.
 - New helper exports are added for missing MV command families.
-- Asset category helpers `audioRef`, `imageRef`, and `movieRef` are added.
+- Asset category helpers `audioAsset`, `imageAsset`, and `movieAsset` are added.
 - `script` should move toward schema-first input with a `code` field, matching the glossary; compatibility aliasing is not required before first public release.
 
 The compiler and decompiler must share the same command model. A helper is not considered complete if it only compiles.
@@ -500,13 +500,13 @@ The first implementation work should establish the MV-aligned helper rename foun
 
 - [ ] OUT-01: The design locks RPG Maker MV 1.6.1 editor command families as the coverage target.
 - [ ] OUT-02: The design locks breaking rename behavior for plural MV command family helpers.
-- [ ] OUT-03: The design locks asset helper granularity as `audioRef`, `imageRef`, and `movieRef`.
+- [ ] OUT-03: The design locks asset helper granularity as `audioAsset`, `imageAsset`, and `movieAsset`.
 - [ ] OUT-04: The design records raw command script-gate bypass as deferred security work.
 - [ ] OUT-05: The design reserves implementation sequencing and executable slice work for `to-slices`.
 
 ### Required Canonical Updates
 
-- [ ] DOC-01: `CONTEXT.md` includes the resolved glossary boundaries for Supported Event Command, Continuation Event Command, MV-Aligned Command Helper Name, Asset Reference, Asset Category Reference Helper, and Script Input.
+- [ ] DOC-01: `CONTEXT.md` includes the resolved glossary boundaries for Supported Event Command, Continuation Event Command, MV-Aligned Command Helper Name, Asset Reference, Asset Category Helper, and Script Input.
 - [ ] DOC-02: Future implementation must update README examples and Agent Event Authoring Skill guidance when public helpers are renamed or added.
 - [ ] DOC-03: Future implementation must update decompile documentation or examples when raw fallback behavior changes.
 

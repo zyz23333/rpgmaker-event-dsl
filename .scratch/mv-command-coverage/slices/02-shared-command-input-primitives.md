@@ -29,7 +29,7 @@ Create reusable input models for repeated MV command shapes so later command-fam
 ### In
 
 - Shared range, operand, target, position, tone/color, and audio payload types.
-- Opaque Asset References with `audioRef`, `imageRef`, and `movieRef`.
+- Opaque Asset References with `audioAsset`, `imageAsset`, and `movieAsset`.
 - Shared Script Input detection for non-top-level script-bearing command inputs.
 - Generic validation traversal support for nested Project Data References, Asset References, Runtime Selectors, and Script Inputs in future command shapes.
 - Public exports for new reference helpers and types where appropriate.
@@ -61,7 +61,7 @@ This slice establishes the reusable mechanism and naming boundary for future Pro
 
 ## Acceptance Criteria
 
-- [ ] `audioRef({ folder, name })`, `imageRef({ folder, name })`, and `movieRef({ name })` exist and are exported.
+- [ ] `audioAsset({ folder, name })`, `imageAsset({ folder, name })`, and `movieAsset({ name })` exist and are exported.
 - [ ] Asset Reference values are distinct from Project Data Reference values.
 - [ ] Asset Reference validation is limited to shape/namespace checks, with no file-system reads.
 - [ ] Runtime Selector primitives are distinct from Project Data Reference and Asset Reference values.
@@ -71,7 +71,7 @@ This slice establishes the reusable mechanism and naming boundary for future Pro
 
 ## Implementation Notes
 
-Keep helper names category-level, not per-folder. `audioRef.folder` should cover MV `audio` namespaces; `imageRef.folder` should cover MV `img` namespaces; `movieRef` has no folder because MV movies use the fixed `movies` namespace.
+Keep helper names category-level, not per-folder. `audioAsset.folder` should cover MV `audio` namespaces; `imageAsset.folder` should cover MV `img` namespaces; `movieAsset` has no folder because MV movies use the fixed `movies` namespace.
 
 Do not create `xxxRef` helpers for runtime target concepts such as player/current event, enemy troop member index, actor target mode, vehicle selector, picture slot, or equip slot. Those should be schema-first Runtime Selector or command-local enum values.
 

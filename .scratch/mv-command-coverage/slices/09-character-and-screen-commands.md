@@ -32,7 +32,7 @@ Add the MV Character and Screen command families, including picture-related Asse
 
 - Character helpers: transparency, animation, balloon, followers, gather followers.
 - Screen helpers: fade, tint, flash, shake, picture, weather, and existing wait regression coverage.
-- `imageRef({ folder: "pictures", name })` use for picture commands.
+- `imageAsset({ folder: "pictures", name })` use for picture commands.
 - Compile, decompile, validation, and tests.
 
 ### Out
@@ -61,7 +61,7 @@ Implement Character and Screen matrix rows with MV-compatible command parameters
 
 - [ ] Character commands compile/decompile with correct target and wait behavior.
 - [ ] Screen fade/tint/flash/shake/weather commands compile/decompile with duration and wait options.
-- [ ] Picture commands use `imageRef` for picture names and support direct/variable positioning where MV supports it.
+- [ ] Picture commands use `imageAsset` for picture names and support direct/variable positioning where MV supports it.
 - [ ] Existing `wait` and `eraseEvent` behavior remains compatible.
 
 ## Implementation Notes
