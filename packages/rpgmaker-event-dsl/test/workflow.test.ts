@@ -268,6 +268,8 @@ describe("decompile workflow", () => {
                 list: [
                   { code: 101, indent: 0, parameters: ["", 0, 0, 2] },
                   { code: 401, indent: 0, parameters: ["Hello"] },
+                  { code: 121, indent: 0, parameters: [1, 1, 0] },
+                  { code: 122, indent: 0, parameters: [2, 2, 1, 0, 5] },
                   { code: 250, indent: 0, parameters: [{ name: "Bell", volume: 90 }] },
                   { code: 0, indent: 0, parameters: [] },
                 ],
@@ -330,6 +332,12 @@ describe("decompile workflow", () => {
     expect(mapSource).toContain("id: 1");
     expect(mapSource).toContain('name: "Gate"');
     expect(mapSource).toContain('showText(["Hello"])');
+    expect(mapSource).toContain("controlSwitches({ switch: switchRef({ id: 1 }), value: true })");
+    expect(mapSource).toContain(
+      'controlVariables({ variable: variableRef({ id: 2 }), operation: "add", value: 5 })',
+    );
+    expect(mapSource).not.toContain("controlSwitch(");
+    expect(mapSource).not.toContain("controlVariable(");
     expect(mapSource).toContain("rawDslCommand({");
     expect(mapSource).toContain("code: 250");
     expect(secondMapSource).toContain("mapId: 2");
@@ -1391,6 +1399,15 @@ export declare function commonEvent(input: {
   commands: readonly unknown[];
 }): { kind: "commonEvent"; id: number; name: string; trigger: string; commands: readonly unknown[] };
 export declare function commonEventRef(value: { id: number } | { name: string }): unknown;
+export declare function controlSwitches(input: {
+  switch: unknown;
+  value: boolean;
+}): unknown;
+export declare function controlVariables(input: {
+  variable: unknown;
+  operation: "set" | "add" | "sub" | "mul" | "div" | "mod";
+  value: unknown;
+}): unknown;
 export declare function itemRef(value: { id: number } | { name: string }): unknown;
 export declare function mapEvent(input: {
   mapId: number;

@@ -7,12 +7,15 @@ import {
   changeItem,
   comment,
   commonEvent,
-  controlVariable,
+  controlSwitches,
+  controlVariables,
   eraseEvent,
   itemRef,
   page,
   showChoices,
   showText,
+  switchDefinition,
+  switchRef,
   troopRef,
   variableDefinition,
   variableRef,
@@ -23,6 +26,7 @@ import { compileMapEvent } from "../src/events.js";
 const resolver = buildStagedDataGraph({
   declarations: [
     commonEvent({ id: 1, name: "Common", trigger: "none", commands: [] }),
+    switchDefinition({ id: 1, name: "Gate" }),
     variableDefinition({ id: 1, name: "Count" }),
   ],
   snapshotReferences: {
@@ -50,11 +54,12 @@ describe("compileMapEvent", () => {
                 choices: ["Yes", "No"],
                 branches: [[wait(10)], [eraseEvent()]],
               }),
-              controlVariable({
+              controlVariables({
                 variable: variableRef({ name: "Count" }),
                 operation: "add",
                 value: 3,
               }),
+              controlSwitches({ switch: switchRef({ name: "Gate" }), value: true }),
               changeGold({ operation: "gain", value: 5 }),
               changeItem({ item: itemRef({ name: "Potion" }), operation: "lose", amount: 1 }),
               battleProcessing({ troop: troopRef({ name: "Slime" }), canEscape: true }),
@@ -79,9 +84,10 @@ describe("compileMapEvent", () => {
     expect(commands[6]).toEqual({ code: 402, indent: 0, parameters: [1] });
     expect(commands[7]).toEqual({ code: 214, indent: 1, parameters: [] });
     expect(commands[8]).toEqual({ code: 122, indent: 0, parameters: [1, 1, 1, 0, 3] });
-    expect(commands[9]).toEqual({ code: 125, indent: 0, parameters: [0, 0, 5] });
-    expect(commands[10]).toEqual({ code: 126, indent: 0, parameters: [1, 1, 0, 1] });
-    expect(commands[11]).toEqual({ code: 301, indent: 0, parameters: [0, 1, true, false] });
-    expect(commands[12]).toEqual({ code: 0, indent: 0, parameters: [] });
+    expect(commands[9]).toEqual({ code: 121, indent: 0, parameters: [1, 1, 0] });
+    expect(commands[10]).toEqual({ code: 125, indent: 0, parameters: [0, 0, 5] });
+    expect(commands[11]).toEqual({ code: 126, indent: 0, parameters: [1, 1, 0, 1] });
+    expect(commands[12]).toEqual({ code: 301, indent: 0, parameters: [0, 1, true, false] });
+    expect(commands[13]).toEqual({ code: 0, indent: 0, parameters: [] });
   });
 });

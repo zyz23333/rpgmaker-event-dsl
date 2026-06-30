@@ -450,8 +450,8 @@ function createDslNamespace(): Record<string, unknown> {
     commonEventRef: getDslHelper("commonEventRef"),
     conditional: getDslHelper("conditional"),
     controlSelfSwitch: getDslHelper("controlSelfSwitch"),
-    controlSwitch: getDslHelper("controlSwitch"),
-    controlVariable: getDslHelper("controlVariable"),
+    controlSwitches: getDslHelper("controlSwitches"),
+    controlVariables: getDslHelper("controlVariables"),
     eraseEvent: getDslHelper("eraseEvent"),
     exitEvent: getDslHelper("exitEvent"),
     itemRef: getDslHelper("itemRef"),
@@ -506,10 +506,10 @@ function getDslHelper(name: string): unknown {
       return dsl.conditional;
     case "controlSelfSwitch":
       return dsl.controlSelfSwitch;
-    case "controlSwitch":
-      return dsl.controlSwitch;
-    case "controlVariable":
-      return dsl.controlVariable;
+    case "controlSwitches":
+      return dsl.controlSwitches;
+    case "controlVariables":
+      return dsl.controlVariables;
     case "eraseEvent":
       return dsl.eraseEvent;
     case "exitEvent":

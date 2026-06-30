@@ -1,9 +1,9 @@
 import type {
   BattleProcessingDslCommand,
   CommonEventDefinition,
+  ControlVariablesDslCommand,
   DslCommand,
   EventPage,
-  ControlVariableDslCommand,
   MapEventDefinition,
   PageConditions,
   ReferenceKind,
@@ -203,18 +203,20 @@ function compileNodes(
       case "jumpToLabel":
         output.push({ code: 119, indent, parameters: [node.name] });
         break;
-      case "controlSwitch":
+      case "controlSwitches": {
+        const switchId = resolver.resolveReference(node.switch);
         output.push({
           code: 121,
           indent,
-          parameters: [resolver.resolveReference(node.switch), resolveControlValue(node.value)],
+          parameters: [switchId, switchId, resolveControlValue(node.value)],
         });
         break;
-      case "controlVariable":
+      }
+      case "controlVariables":
         output.push({
           code: 122,
           indent,
-          parameters: compileControlVariableParameters(node, resolver),
+          parameters: compileControlVariablesParameters(node, resolver),
         });
         break;
       case "controlSelfSwitch":
@@ -355,8 +357,8 @@ function resolveControlValue(value: boolean): number {
   return value ? 0 : 1;
 }
 
-function compileControlVariableParameters(
-  node: ControlVariableDslCommand,
+function compileControlVariablesParameters(
+  node: ControlVariablesDslCommand,
   resolver: ReferenceResolver,
 ): unknown[] {
   const targetId = resolver.resolveReference(node.variable);

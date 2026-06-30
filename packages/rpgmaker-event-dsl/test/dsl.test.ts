@@ -10,8 +10,8 @@ import {
   callCommonEvent,
   commonEventRef,
   controlSelfSwitch,
-  controlSwitch,
-  controlVariable,
+  controlSwitches,
+  controlVariables,
   eraseEvent,
   mapEvent,
   page,
@@ -87,10 +87,12 @@ describe("collectDslOwnedDeclarations", () => {
 
   it("builds the new command helpers as structured DSL commands", () => {
     expect(comment(["A", "B"]).kind).toBe("comment");
-    expect(controlSwitch({ switch: switchRef({ id: 1 }), value: true }).kind).toBe("controlSwitch");
+    expect(controlSwitches({ switch: switchRef({ id: 1 }), value: true }).kind).toBe(
+      "controlSwitches",
+    );
     expect(
-      controlVariable({ variable: variableRef({ id: 2 }), operation: "add", value: 3 }).kind,
-    ).toBe("controlVariable");
+      controlVariables({ variable: variableRef({ id: 2 }), operation: "add", value: 3 }).kind,
+    ).toBe("controlVariables");
     expect(controlSelfSwitch({ selfSwitch: "A", value: false }).kind).toBe("controlSelfSwitch");
     expect(changeGold({ operation: "gain", value: 5 }).kind).toBe("changeGold");
     expect(changeItem({ item: itemRef({ id: 1 }), operation: "lose", amount: 2 }).kind).toBe(

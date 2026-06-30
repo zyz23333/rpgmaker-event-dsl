@@ -280,13 +280,14 @@ function renderSimpleCommand(command: RawEventCommand): string | null {
       return `jumpToLabel(${literal(readStringParameter(command.parameters[0]))})`;
     case 121: {
       const switchId = readPositiveInteger(command.parameters[0]);
-      const value = command.parameters[1];
-      return switchId === null || typeof value !== "number"
+      const repeatedSwitchId = command.parameters[1];
+      const value = command.parameters[2];
+      return switchId === null || repeatedSwitchId !== switchId || typeof value !== "number"
         ? null
-        : `controlSwitch({ switch: switchRef({ id: ${switchId} }), value: ${value === 0 ? "true" : "false"} })`;
+        : `controlSwitches({ switch: switchRef({ id: ${switchId} }), value: ${value === 0 ? "true" : "false"} })`;
     }
     case 122:
-      return renderControlVariable(command);
+      return renderControlVariables(command);
     case 123: {
       const selfSwitch = command.parameters[0];
       const value = command.parameters[1];
@@ -320,7 +321,7 @@ function renderSimpleCommand(command: RawEventCommand): string | null {
   }
 }
 
-function renderControlVariable(command: RawEventCommand): string | null {
+function renderControlVariables(command: RawEventCommand): string | null {
   const variableId = readPositiveInteger(command.parameters[0]);
   const repeatedVariableId = command.parameters[1];
   const operationCode = command.parameters[2];
@@ -335,20 +336,20 @@ function renderControlVariable(command: RawEventCommand): string | null {
     return null;
   }
 
-  const operation = controlVariableOperationFromCode(operationCode);
+  const operation = controlVariablesOperationFromCode(operationCode);
   if (operation === null) {
     return null;
   }
 
   if (operandKind === 0 && typeof command.parameters[4] === "number") {
-    return `controlVariable({ variable: variableRef({ id: ${variableId} }), operation: ${literal(operation)}, value: ${command.parameters[4]} })`;
+    return `controlVariables({ variable: variableRef({ id: ${variableId} }), operation: ${literal(operation)}, value: ${command.parameters[4]} })`;
   }
 
   if (operandKind === 1) {
     const sourceVariableId = readPositiveInteger(command.parameters[4]);
     return sourceVariableId === null
       ? null
-      : `controlVariable({ variable: variableRef({ id: ${variableId} }), operation: ${literal(operation)}, value: variableRef({ id: ${sourceVariableId} }) })`;
+      : `controlVariables({ variable: variableRef({ id: ${variableId} }), operation: ${literal(operation)}, value: variableRef({ id: ${sourceVariableId} }) })`;
   }
 
   if (
@@ -356,7 +357,7 @@ function renderControlVariable(command: RawEventCommand): string | null {
     typeof command.parameters[4] === "number" &&
     typeof command.parameters[5] === "number"
   ) {
-    return `controlVariable({ variable: variableRef({ id: ${variableId} }), operation: ${literal(operation)}, value: { kind: "random", from: ${command.parameters[4]}, to: ${command.parameters[5]} } })`;
+    return `controlVariables({ variable: variableRef({ id: ${variableId} }), operation: ${literal(operation)}, value: { kind: "random", from: ${command.parameters[4]}, to: ${command.parameters[5]} } })`;
   }
 
   return null;
@@ -471,11 +472,11 @@ function collectCommandHelperNames(commands: readonly RawEventCommand[]): string
         helpers.add("jumpToLabel");
         break;
       case 121:
-        helpers.add("controlSwitch");
+        helpers.add("controlSwitches");
         helpers.add("switchRef");
         break;
       case 122:
-        helpers.add("controlVariable");
+        helpers.add("controlVariables");
         helpers.add("variableRef");
         break;
       case 123:
@@ -715,7 +716,7 @@ function mapPageTriggerFromCode(
   return "action";
 }
 
-function controlVariableOperationFromCode(
+function controlVariablesOperationFromCode(
   value: number,
 ): "set" | "add" | "sub" | "mul" | "div" | "mod" | null {
   switch (value) {

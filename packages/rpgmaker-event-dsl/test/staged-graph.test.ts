@@ -7,8 +7,8 @@ import {
   changeItem,
   commonEvent,
   commonEventRef,
-  controlSwitch,
-  controlVariable,
+  controlSwitches,
+  controlVariables,
   itemRef,
   mapEvent,
   page,
@@ -145,8 +145,8 @@ describe("validateDslOwnedDeclarations", () => {
           trigger: "none",
           commands: [
             callCommonEvent(commonEventRef({ name: "Snapshot Common" })),
-            controlSwitch({ switch: switchRef({ name: "Snapshot Switch" }), value: true }),
-            controlVariable({
+            controlSwitches({ switch: switchRef({ name: "Snapshot Switch" }), value: true }),
+            controlVariables({
               variable: variableRef({ name: "Snapshot Variable" }),
               operation: "set",
               value: 1,
@@ -251,7 +251,7 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Random Count",
           commands: [
-            controlVariable({
+            controlVariables({
               variable: variableRef({ id: 1 }),
               operation: "add",
               value: {

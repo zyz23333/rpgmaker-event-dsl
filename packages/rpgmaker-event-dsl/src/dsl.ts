@@ -94,8 +94,8 @@ export type DslCommand =
   | ScriptDslCommand
   | PluginDslCommand
   | TransferPlayerDslCommand
-  | ControlSwitchDslCommand
-  | ControlVariableDslCommand
+  | ControlSwitchesDslCommand
+  | ControlVariablesDslCommand
   | ControlSelfSwitchDslCommand
   | ChangeGoldDslCommand
   | ChangeItemDslCommand
@@ -192,14 +192,14 @@ export type TransferPlayerDslCommand = {
       };
 };
 
-export type ControlSwitchDslCommand = {
-  kind: "controlSwitch";
+export type ControlSwitchesDslCommand = {
+  kind: "controlSwitches";
   switch: ReferenceValue<"switch">;
   value: boolean;
 };
 
-export type ControlVariableDslCommand = {
-  kind: "controlVariable";
+export type ControlVariablesDslCommand = {
+  kind: "controlVariables";
   variable: ReferenceValue<"variable">;
   operation: "set" | "add" | "sub" | "mul" | "div" | "mod";
   value:
@@ -451,18 +451,18 @@ export function transferPlayer(input: {
   };
 }
 
-export function controlSwitch(input: {
+export function controlSwitches(input: {
   switch: ReferenceValue<"switch">;
   value: boolean;
-}): ControlSwitchDslCommand {
+}): ControlSwitchesDslCommand {
   return {
-    kind: "controlSwitch",
+    kind: "controlSwitches",
     switch: input.switch,
     value: input.value,
   };
 }
 
-export function controlVariable(input: {
+export function controlVariables(input: {
   variable: ReferenceValue<"variable">;
   operation: "set" | "add" | "sub" | "mul" | "div" | "mod";
   value:
@@ -473,9 +473,9 @@ export function controlVariable(input: {
         from: number;
         to: number;
       };
-}): ControlVariableDslCommand {
+}): ControlVariablesDslCommand {
   return {
-    kind: "controlVariable",
+    kind: "controlVariables",
     variable: input.variable,
     operation: input.operation,
     value: input.value,

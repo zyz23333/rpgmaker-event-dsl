@@ -9,8 +9,8 @@ import {
   commonEventRef,
   conditional,
   controlSelfSwitch,
-  controlSwitch,
-  controlVariable,
+  controlSwitches,
+  controlVariables,
   eraseEvent,
   exitEvent,
   itemRef,
@@ -64,7 +64,7 @@ export const sampleCommonEventDefinition = commonEvent({
   trigger: "none",
   commands: [
     showText(["This line came from a Common Event defined in the same DSL workspace."]),
-    controlVariable({
+    controlVariables({
       variable: visitCountVariable,
       operation: "add",
       value: 1,
@@ -83,11 +83,11 @@ export const guideEvent = mapEvent({
       commands: [
         comment(["Visible entry point for the full-event sample workspace."]),
         showText(["Event DSL sample", "Talk to nearby events to try each command family."]),
-        controlSwitch({
+        controlSwitches({
           switch: tourStartedSwitch,
           value: true,
         }),
-        controlVariable({
+        controlVariables({
           variable: visitCountVariable,
           operation: "add",
           value: 1,
@@ -136,7 +136,7 @@ export const rewardChestEvent = mapEvent({
           operation: "gain",
           amount: 1,
         }),
-        controlVariable({
+        controlVariables({
           variable: visitCountVariable,
           operation: "add",
           value: {
@@ -145,7 +145,7 @@ export const rewardChestEvent = mapEvent({
             to: 3,
           },
         }),
-        controlSwitch({
+        controlSwitches({
           switch: chestOpenedSwitch,
           value: true,
         }),

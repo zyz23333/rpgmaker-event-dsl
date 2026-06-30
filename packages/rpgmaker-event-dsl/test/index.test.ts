@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import * as packageExports from "../src/index.js";
 import { runtimeBaseline } from "../src/index.js";
 
 describe("runtime baseline", () => {
@@ -10,5 +11,12 @@ describe("runtime baseline", () => {
       packageManager: "pnpm",
       runtime: "node-22-lts",
     });
+  });
+
+  it("exports only the MV-aligned plural control helper names", () => {
+    expect(packageExports).toHaveProperty("controlSwitches");
+    expect(packageExports).toHaveProperty("controlVariables");
+    expect(packageExports).not.toHaveProperty("controlSwitch");
+    expect(packageExports).not.toHaveProperty("controlVariable");
   });
 });

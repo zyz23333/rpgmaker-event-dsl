@@ -354,10 +354,10 @@ function validateNodes(
         message: "Script commands require explicit config enablement.",
       });
     }
-    if (node.kind === "controlSwitch") {
+    if (node.kind === "controlSwitches") {
       captureReferenceIssue(() => resolver.resolveReference(node.switch), issues);
     }
-    if (node.kind === "controlVariable") {
+    if (node.kind === "controlVariables") {
       captureReferenceIssue(() => resolver.resolveReference(node.variable), issues);
       if (isReferenceValue(node.value)) {
         captureReferenceIssue(
