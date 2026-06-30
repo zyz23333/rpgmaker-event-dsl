@@ -13,6 +13,7 @@ import {
   buildCompileBaseline,
   isCompileBaselineFresh,
   materializeCompileOutput,
+  type CompileBaseline,
   type FileHashEntry,
 } from "./materialization.js";
 import { parseMapInfos } from "./project.js";
@@ -20,8 +21,10 @@ import {
   captureStandardProjectDataSnapshot,
   getWorkspaceStatePaths,
   hashUtf8Content,
+  readPendingPush,
   readSyncManifest,
   writeSyncManifest,
+  type PendingPush,
   type SyncManifest,
   type WorkspaceStatePaths,
 } from "./state.js";
@@ -49,23 +52,32 @@ export type PushWorkspaceOptions = WorkspaceCommandOptions & {
 };
 
 export async function cloneWorkspace(options: WorkspaceCommandOptions): Promise<void> {
+  await captureWorkspaceSnapshot(options, "clone");
+}
+
+export async function pullWorkspace(options: WorkspaceCommandOptions): Promise<void> {
+  await captureWorkspaceSnapshot(options, "pull");
+}
+
+async function captureWorkspaceSnapshot(
+  options: WorkspaceCommandOptions,
+  commandName: string,
+): Promise<void> {
   const workspace = await loadWorkspace(options.workspaceRoot);
   const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
 
+  await assertNoPendingInterruptedPushForNonPush({ statePaths, commandName });
   await captureStandardProjectDataSnapshot({
     dataDirectory: workspace.dataDirectory,
     statePaths,
   });
 }
 
-export async function pullWorkspace(options: WorkspaceCommandOptions): Promise<void> {
-  await cloneWorkspace(options);
-}
-
 export async function decompileWorkspace(options: WorkspaceCommandOptions): Promise<void> {
   const workspace = await loadWorkspace(options.workspaceRoot);
   const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
 
+  await assertNoPendingInterruptedPushForNonPush({ statePaths, commandName: "decompile" });
   await assertProjectDataSnapshotExists(statePaths, "decompile");
   await decompileProjectDataSnapshot({
     sourceRoot: workspace.config.sourceRoot,
@@ -77,10 +89,10 @@ export async function decompileWorkspace(options: WorkspaceCommandOptions): Prom
 export async function compileWorkspace(options: CompileWorkspaceOptions): Promise<void> {
   const workspace = await loadWorkspace(options.workspaceRoot);
   const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
-  const manifest = await assertProjectDataSnapshotExists(
-    statePaths,
-    options.check ? "compile --check" : "compile",
-  );
+  const commandName = options.check ? "compile --check" : "compile";
+
+  await assertNoPendingInterruptedPushForNonPush({ statePaths, commandName });
+  const manifest = await assertProjectDataSnapshotExists(statePaths, commandName);
   const definitionInput = await loadDiscoveredDefinitionInput(workspace.workspaceRoot, {
     sourceRoot: workspace.config.sourceRoot,
     sourceInclude: workspace.config.sourceInclude,
@@ -98,7 +110,6 @@ export async function compileWorkspace(options: CompileWorkspaceOptions): Promis
 
   const errors = validation.issues.filter((issue) => issue.level === "error");
   if (errors.length > 0) {
-    const commandName = options.check ? "compile --check" : "compile";
     throw new Error(
       [`${commandName} validation failed:`, ...errors.map((issue) => `- ${issue.message}`)].join(
         "\n",
@@ -136,6 +147,11 @@ export async function isGeneratedProjectDataFresh(
 ): Promise<boolean> {
   const workspace = await loadWorkspace(options.workspaceRoot);
   const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
+
+  await assertNoPendingInterruptedPushForNonPush({
+    statePaths,
+    commandName: "isGeneratedProjectDataFresh",
+  });
   const manifest = await readSyncManifest(statePaths.syncManifestPath);
 
   if (manifest?.compileBaseline === undefined) {
@@ -264,6 +280,252 @@ async function readSnapshotFile(
   return readFile(resolve(statePaths.projectDataSnapshotDirectory, relativePath), "utf8");
 }
 
+async function assertNoPendingInterruptedPushForNonPush(input: {
+  statePaths: WorkspaceStatePaths;
+  commandName: string;
+}): Promise<void> {
+  const pendingPush = await readPendingPush(input.statePaths.pendingPushManifestPath);
+  if (pendingPush === null) {
+    return;
+  }
+
+  throw new Error(
+    `Interrupted Push is pending before ${input.commandName}. Run push to resolve it before running other workspace commands.`,
+  );
+}
+
+type InterruptedPushFileState = "generated" | "missing" | "snapshot" | "unknown";
+
+async function resolvePendingInterruptedPushForPush(input: {
+  workspace: LoadedWorkspace;
+  statePaths: WorkspaceStatePaths;
+}): Promise<void> {
+  const pendingPush = await readPendingPush(input.statePaths.pendingPushManifestPath);
+  if (pendingPush === null) {
+    return;
+  }
+
+  const states = await classifyInterruptedPushFiles({
+    dataDirectory: input.workspace.dataDirectory,
+    pendingPush,
+    statePaths: input.statePaths,
+  });
+  const stateSet = new Set(states.map(({ state }) => state));
+
+  if (stateSet.size === 1 && stateSet.has("generated")) {
+    await completeInterruptedPush({
+      affectedFiles: pendingPush.affectedFiles.map(({ relativePath }) => relativePath),
+      manifest: await assertProjectDataSnapshotExists(input.statePaths, "push"),
+      statePaths: input.statePaths,
+    });
+    await rm(input.statePaths.pendingPushDirectory, { force: true, recursive: true });
+    return;
+  }
+
+  if (stateSet.size === 1 && stateSet.has("snapshot")) {
+    await rm(input.statePaths.pendingPushDirectory, { force: true, recursive: true });
+    return;
+  }
+
+  throw new Error(
+    [
+      "Interrupted Push cannot be recovered automatically.",
+      "Restore affected Project Root files to either the pending backup state or Generated Project Data, then run push again.",
+      ...states.map(({ relativePath, state }) => `- ${relativePath}: ${state}`),
+    ].join("\n"),
+  );
+}
+
+async function createPendingPushState(input: {
+  affectedFiles: readonly string[];
+  generatedFiles: readonly FileHashEntry[];
+  manifest: SyncManifest;
+  statePaths: WorkspaceStatePaths;
+}): Promise<void> {
+  const snapshotHashes = new Map(
+    input.manifest.snapshotFiles.map((entry) => [entry.relativePath, entry.hash]),
+  );
+  const generatedHashes = new Map(
+    input.generatedFiles.map((entry) => [entry.relativePath, entry.hash]),
+  );
+
+  const tempDirectory = resolve(
+    input.statePaths.workspaceStateDirectory,
+    `pending-push.tmp-${process.pid}-${randomUUID()}`,
+  );
+
+  await rm(tempDirectory, { force: true, recursive: true });
+  await mkdir(resolve(tempDirectory, "backup"), { recursive: true });
+
+  try {
+    const affectedFiles = [];
+
+    for (const relativePath of input.affectedFiles) {
+      const snapshotHash = snapshotHashes.get(relativePath);
+      const generatedHash = generatedHashes.get(relativePath);
+      if (snapshotHash === undefined || generatedHash === undefined) {
+        throw new Error(`Cannot create Interrupted Push state for ${relativePath}.`);
+      }
+
+      const snapshotPath = resolve(input.statePaths.projectDataSnapshotDirectory, relativePath);
+      const backupPath = resolve(tempDirectory, "backup", relativePath);
+      const content = await readFile(snapshotPath, "utf8");
+      const backupHash = hashUtf8Content(content);
+
+      await mkdir(dirname(backupPath), { recursive: true });
+      await writeFile(backupPath, content, "utf8");
+      affectedFiles.push({
+        backupHash,
+        backupRelativePath: relativePath,
+        generatedHash,
+        relativePath,
+        snapshotHash,
+      });
+    }
+
+    await writeFile(
+      resolve(tempDirectory, "pending-push.json"),
+      writeStableJson({
+        affectedFiles,
+        startedAt: new Date().toISOString(),
+        version: 1,
+      }),
+      "utf8",
+    );
+    await rm(input.statePaths.pendingPushDirectory, { force: true, recursive: true });
+    await rename(tempDirectory, input.statePaths.pendingPushDirectory);
+  } catch (error) {
+    await rm(tempDirectory, { force: true, recursive: true });
+    throw error;
+  }
+}
+
+async function completeInterruptedPush(input: {
+  affectedFiles: readonly string[];
+  manifest: SyncManifest;
+  statePaths: WorkspaceStatePaths;
+}): Promise<void> {
+  const snapshotFiles = new Map(
+    input.manifest.snapshotFiles.map((entry) => [entry.relativePath, entry]),
+  );
+  const generatedFiles = new Map(
+    (input.manifest.generatedFiles ?? []).map((entry) => [entry.relativePath, entry]),
+  );
+
+  for (const relativePath of input.affectedFiles) {
+    const content = await readFile(
+      resolve(input.statePaths.generatedProjectDataDirectory, relativePath),
+      "utf8",
+    );
+    const snapshotPath = resolve(input.statePaths.projectDataSnapshotDirectory, relativePath);
+
+    await mkdir(dirname(snapshotPath), { recursive: true });
+    await writeFile(snapshotPath, content, "utf8");
+    snapshotFiles.set(relativePath, {
+      hash: hashUtf8Content(content),
+      relativePath,
+    });
+  }
+
+  const nextSnapshotFiles = [...snapshotFiles.values()].sort((left, right) =>
+    left.relativePath.localeCompare(right.relativePath),
+  );
+  const previousCompileBaseline = input.manifest.compileBaseline;
+  const compileBaseline =
+    previousCompileBaseline === undefined
+      ? undefined
+      : rewriteCompileBaselineSnapshotFiles(previousCompileBaseline, nextSnapshotFiles);
+
+  await writeSyncManifest(input.statePaths.syncManifestPath, {
+    ...input.manifest,
+    compileBaseline,
+    generatedFiles: [...generatedFiles.values()].sort((left, right) =>
+      left.relativePath.localeCompare(right.relativePath),
+    ),
+    snapshotFiles: nextSnapshotFiles,
+  });
+}
+
+async function classifyInterruptedPushFiles(input: {
+  dataDirectory: string;
+  pendingPush: PendingPush;
+  statePaths: WorkspaceStatePaths;
+}): Promise<Array<{ relativePath: string; state: InterruptedPushFileState }>> {
+  return Promise.all(
+    input.pendingPush.affectedFiles.map(async (entry) => {
+      await assertPendingBackupIntegrity({
+        entry,
+        statePaths: input.statePaths,
+      });
+      await assertPendingGeneratedIntegrity({
+        entry,
+        statePaths: input.statePaths,
+      });
+
+      const currentHash = await readFileHashOrNull(
+        resolve(input.dataDirectory, entry.relativePath),
+      );
+      if (currentHash === null) {
+        return { relativePath: entry.relativePath, state: "missing" };
+      }
+
+      if (currentHash === entry.generatedHash) {
+        return { relativePath: entry.relativePath, state: "generated" };
+      }
+
+      if (currentHash === entry.snapshotHash) {
+        return { relativePath: entry.relativePath, state: "snapshot" };
+      }
+
+      return { relativePath: entry.relativePath, state: "unknown" };
+    }),
+  );
+}
+
+async function assertPendingBackupIntegrity(input: {
+  entry: PendingPush["affectedFiles"][number];
+  statePaths: WorkspaceStatePaths;
+}): Promise<void> {
+  const backupPath = resolve(
+    input.statePaths.pendingPushBackupDirectory,
+    input.entry.backupRelativePath,
+  );
+  const backupHash = await readFileHashOrNull(backupPath);
+
+  if (backupHash !== input.entry.backupHash || backupHash !== input.entry.snapshotHash) {
+    throw new Error(
+      `Interrupted Push backup integrity check failed for ${input.entry.relativePath}. Restore affected Project Root files manually before continuing.`,
+    );
+  }
+}
+
+async function assertPendingGeneratedIntegrity(input: {
+  entry: PendingPush["affectedFiles"][number];
+  statePaths: WorkspaceStatePaths;
+}): Promise<void> {
+  const generatedHash = await readFileHashOrNull(
+    resolve(input.statePaths.generatedProjectDataDirectory, input.entry.relativePath),
+  );
+
+  if (generatedHash !== input.entry.generatedHash) {
+    throw new Error(
+      `Interrupted Push generated data integrity check failed for ${input.entry.relativePath}. Run compile before retrying push after manual restoration.`,
+    );
+  }
+}
+
+async function readFileHashOrNull(filePath: string): Promise<string | null> {
+  try {
+    return hashUtf8Content(await readFile(filePath, "utf8"));
+  } catch (error) {
+    if (isMissingFileError(error)) {
+      return null;
+    }
+
+    throw error;
+  }
+}
+
 function isMissingFileError(error: unknown): boolean {
   return (
     error instanceof Error &&
@@ -276,6 +538,8 @@ function isMissingFileError(error: unknown): boolean {
 export async function diffWorkspace(options: WorkspaceCommandOptions): Promise<string> {
   const workspace = await loadWorkspace(options.workspaceRoot);
   const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
+
+  await assertNoPendingInterruptedPushForNonPush({ statePaths, commandName: "diff" });
   const manifest = await assertProjectDataSnapshotExists(statePaths, "diff");
 
   await assertGeneratedProjectDataIntegrity(statePaths, manifest, "diff");
@@ -373,6 +637,9 @@ export async function pushWorkspace(options: PushWorkspaceOptions): Promise<void
   const commandName = options.allowDestructive ? "push --allow-destructive" : "push";
   const workspace = await loadWorkspace(options.workspaceRoot);
   const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
+
+  await resolvePendingInterruptedPushForPush({ workspace, statePaths });
+
   const manifest = await assertProjectDataSnapshotExists(statePaths, commandName);
 
   await assertGeneratedProjectDataIntegrity(statePaths, manifest, commandName);
@@ -410,6 +677,12 @@ export async function pushWorkspace(options: PushWorkspaceOptions): Promise<void
     dataDirectory: workspace.dataDirectory,
     statePaths,
   });
+  await createPendingPushState({
+    affectedFiles,
+    generatedFiles,
+    manifest,
+    statePaths,
+  });
   const writtenFiles: string[] = [];
 
   try {
@@ -434,6 +707,7 @@ export async function pushWorkspace(options: PushWorkspaceOptions): Promise<void
     workspaceRoot: workspace.workspaceRoot,
     config: workspace.config,
   });
+  await rm(statePaths.pendingPushDirectory, { force: true, recursive: true });
 }
 
 async function assertGeneratedProjectDataFresh(input: {
@@ -611,4 +885,20 @@ async function refreshSnapshotAndManifestAfterPush(input: {
 
 function isJsonEqual(left: unknown, right: unknown): boolean {
   return writeStableJson(left) === writeStableJson(right);
+}
+
+function rewriteCompileBaselineSnapshotFiles(
+  baseline: CompileBaseline,
+  snapshotFiles: readonly FileHashEntry[],
+): CompileBaseline {
+  const baselineWithoutHash = {
+    config: baseline.config,
+    snapshotFiles: [...snapshotFiles],
+    sourceFiles: baseline.sourceFiles,
+  };
+
+  return {
+    ...baselineWithoutHash,
+    hash: hashUtf8Content(writeStableJson(baselineWithoutHash)),
+  };
 }

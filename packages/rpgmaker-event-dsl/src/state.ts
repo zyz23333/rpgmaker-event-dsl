@@ -11,6 +11,9 @@ export const workspaceStateDirectoryName = ".rpgmaker-event-dsl";
 export const projectDataSnapshotDirectoryName = "project-data-snapshot";
 export const generatedProjectDataDirectoryName = "generated-project-data";
 export const syncManifestFileName = "sync-manifest.json";
+export const pendingPushDirectoryName = "pending-push";
+export const pendingPushBackupDirectoryName = "backup";
+export const pendingPushManifestFileName = "pending-push.json";
 
 export const standardDatabaseFileNames = [
   "Actors.json",
@@ -82,14 +85,38 @@ export const syncManifestSchema = z
   })
   .strict();
 
+export const pendingPushSchema = z
+  .object({
+    affectedFiles: z
+      .array(
+        z
+          .object({
+            backupHash: z.string().min(1),
+            backupRelativePath: z.string().min(1),
+            generatedHash: z.string().min(1),
+            relativePath: z.string().min(1),
+            snapshotHash: z.string().min(1),
+          })
+          .strict(),
+      )
+      .min(1),
+    startedAt: z.string().min(1),
+    version: z.literal(1),
+  })
+  .strict();
+
 export type WorkspaceStatePaths = {
   workspaceStateDirectory: string;
   projectDataSnapshotDirectory: string;
   generatedProjectDataDirectory: string;
+  pendingPushDirectory: string;
+  pendingPushBackupDirectory: string;
+  pendingPushManifestPath: string;
   syncManifestPath: string;
 };
 
 export type SyncManifest = z.infer<typeof syncManifestSchema>;
+export type PendingPush = z.infer<typeof pendingPushSchema>;
 
 export type SnapshotFilePlan = {
   relativePath: string;
@@ -110,6 +137,17 @@ export function getWorkspaceStatePaths(workspaceRoot: string): WorkspaceStatePat
       workspaceStateDirectory,
       generatedProjectDataDirectoryName,
     ),
+    pendingPushDirectory: resolve(workspaceStateDirectory, pendingPushDirectoryName),
+    pendingPushBackupDirectory: resolve(
+      workspaceStateDirectory,
+      pendingPushDirectoryName,
+      pendingPushBackupDirectoryName,
+    ),
+    pendingPushManifestPath: resolve(
+      workspaceStateDirectory,
+      pendingPushDirectoryName,
+      pendingPushManifestFileName,
+    ),
     syncManifestPath: resolve(workspaceStateDirectory, syncManifestFileName),
   };
 }
@@ -118,6 +156,19 @@ export async function readSyncManifest(manifestPath: string): Promise<SyncManife
   try {
     const rawManifest = await readFile(manifestPath, "utf8");
     return syncManifestSchema.parse(JSON.parse(rawManifest));
+  } catch (error) {
+    if (isMissingFileError(error)) {
+      return null;
+    }
+
+    throw error;
+  }
+}
+
+export async function readPendingPush(manifestPath: string): Promise<PendingPush | null> {
+  try {
+    const rawManifest = await readFile(manifestPath, "utf8");
+    return pendingPushSchema.parse(JSON.parse(rawManifest));
   } catch (error) {
     if (isMissingFileError(error)) {
       return null;

@@ -1,6 +1,6 @@
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 
 import { describe, expect, it } from "vitest";
 
@@ -13,7 +13,7 @@ import {
   pullWorkspace,
   pushWorkspace,
 } from "../src/workflow.js";
-import { getWorkspaceStatePaths, readSyncManifest } from "../src/state.js";
+import { getWorkspaceStatePaths, hashUtf8Content, readSyncManifest } from "../src/state.js";
 import { discoverDefinitionFiles, loadDefinitionFile } from "../src/definitions.js";
 
 function createProjectRootFixture(workspaceRoot: string): string {
@@ -1122,6 +1122,91 @@ describe("push workflow", () => {
     expect(manifestAfter?.compileBaseline).not.toEqual(manifestBefore?.compileBaseline);
     await expect(isGeneratedProjectDataFresh({ workspaceRoot })).resolves.toBe(true);
   });
+
+  it("stops non-Push commands when an Interrupted Push is pending", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(buildCompleteCoverageSource());
+
+    await compileWorkspace({ workspaceRoot, check: false });
+    await writePendingPushFixture(workspaceRoot);
+
+    await expect(compileWorkspace({ workspaceRoot, check: true })).rejects.toThrow(
+      "Interrupted Push is pending before compile --check. Run push to resolve it",
+    );
+    await expect(diffWorkspace({ workspaceRoot })).rejects.toThrow(
+      "Interrupted Push is pending before diff. Run push to resolve it",
+    );
+    await expect(pullWorkspace({ workspaceRoot })).rejects.toThrow(
+      "Interrupted Push is pending before pull. Run push to resolve it",
+    );
+    await expect(isGeneratedProjectDataFresh({ workspaceRoot })).rejects.toThrow(
+      "Interrupted Push is pending before isGeneratedProjectDataFresh. Run push to resolve it",
+    );
+  });
+
+  it("completes an all-generated Interrupted Push during push", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(buildCompleteCoverageSource());
+    const projectRoot = createProjectRootFixture(workspaceRoot);
+    const statePaths = getWorkspaceStatePaths(workspaceRoot);
+
+    await compileWorkspace({ workspaceRoot, check: false });
+    await writePendingPushFixture(workspaceRoot);
+    await writeFile(
+      join(projectRoot, "data", "Map001.json"),
+      await readFile(join(statePaths.generatedProjectDataDirectory, "Map001.json"), "utf8"),
+      "utf8",
+    );
+
+    await pushWorkspace({ workspaceRoot, allowDestructive: false });
+
+    await expect(readFile(statePaths.pendingPushManifestPath, "utf8")).rejects.toThrow();
+    await expect(readFile(statePaths.pendingPushBackupDirectory, "utf8")).rejects.toThrow();
+    expect(
+      await readFile(join(statePaths.projectDataSnapshotDirectory, "Map001.json"), "utf8"),
+    ).toBe(await readFile(join(statePaths.generatedProjectDataDirectory, "Map001.json"), "utf8"));
+    await expect(isGeneratedProjectDataFresh({ workspaceRoot })).resolves.toBe(true);
+  });
+
+  it("abandons an all-snapshot Interrupted Push and continues normal push", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(buildCompleteCoverageSource());
+    const projectRoot = createProjectRootFixture(workspaceRoot);
+    const statePaths = getWorkspaceStatePaths(workspaceRoot);
+
+    await compileWorkspace({ workspaceRoot, check: false });
+    await writePendingPushFixture(workspaceRoot);
+
+    await pushWorkspace({ workspaceRoot, allowDestructive: false });
+
+    await expect(readFile(statePaths.pendingPushManifestPath, "utf8")).rejects.toThrow();
+    expect(await readFile(join(projectRoot, "data", "Map001.json"), "utf8")).toBe(
+      await readFile(join(statePaths.generatedProjectDataDirectory, "Map001.json"), "utf8"),
+    );
+  });
+
+  it("stops push for mixed or missing Interrupted Push file states", async () => {
+    const workspaceRoot = await createClonedWorkspaceWithSource(
+      buildCompleteCoverageSource({ includeSnapshotOnlySwitch: false }),
+    );
+    const projectRoot = createProjectRootFixture(workspaceRoot);
+    const statePaths = getWorkspaceStatePaths(workspaceRoot);
+
+    await compileWorkspace({ workspaceRoot, check: false });
+    await writePendingPushFixture(workspaceRoot, ["Map001.json", "System.json"]);
+    await writeFile(
+      join(projectRoot, "data", "Map001.json"),
+      await readFile(join(statePaths.generatedProjectDataDirectory, "Map001.json"), "utf8"),
+      "utf8",
+    );
+    await rm(join(projectRoot, "data", "System.json"), { force: true });
+
+    await expect(pushWorkspace({ workspaceRoot, allowDestructive: false })).rejects.toThrow(
+      [
+        "Interrupted Push cannot be recovered automatically.",
+        "Restore affected Project Root files to either the pending backup state or Generated Project Data, then run push again.",
+        "- Map001.json: generated",
+        "- System.json: missing",
+      ].join("\n"),
+    );
+  });
 });
 
 async function createClonedWorkspaceWithSource(sourceText: string): Promise<string> {
@@ -1193,6 +1278,44 @@ export declare function switchRef(value: { id: number } | { name: string }): unk
 export declare function variableDefinition(input: { id: number; name: string }): { kind: "variableDefinition"; id: number; name: string };
 export declare function variableRef(value: { id: number } | { name: string }): unknown;
 `,
+    "utf8",
+  );
+}
+
+async function writePendingPushFixture(
+  workspaceRoot: string,
+  affectedFiles: readonly string[] = ["Map001.json"],
+): Promise<void> {
+  const statePaths = getWorkspaceStatePaths(workspaceRoot);
+  const entries = [];
+
+  await rm(statePaths.pendingPushDirectory, { force: true, recursive: true });
+  await mkdir(statePaths.pendingPushBackupDirectory, { recursive: true });
+
+  for (const relativePath of affectedFiles) {
+    const snapshotPath = join(statePaths.projectDataSnapshotDirectory, relativePath);
+    const generatedPath = join(statePaths.generatedProjectDataDirectory, relativePath);
+    const backupPath = join(statePaths.pendingPushBackupDirectory, relativePath);
+    const snapshotContent = await readFile(snapshotPath, "utf8");
+
+    await mkdir(dirname(backupPath), { recursive: true });
+    await writeFile(backupPath, snapshotContent, "utf8");
+    entries.push({
+      backupHash: hashUtf8Content(snapshotContent),
+      backupRelativePath: relativePath,
+      generatedHash: hashUtf8Content(await readFile(generatedPath, "utf8")),
+      relativePath,
+      snapshotHash: hashUtf8Content(snapshotContent),
+    });
+  }
+
+  await writeFile(
+    statePaths.pendingPushManifestPath,
+    JSON.stringify({
+      affectedFiles: entries,
+      startedAt: "2026-06-30T00:00:00.000Z",
+      version: 1,
+    }),
     "utf8",
   );
 }

@@ -180,6 +180,10 @@ _Avoid_: full data clone, plugin data snapshot, custom data snapshot
 A mismatch between the current Project Root state and the latest Project Data Snapshot.
 _Avoid_: stale cache, generated diff, file corruption
 
+**Interrupted Push**:
+A Push that started replacing Affected Project Data Files in the Project Root but did not complete the corresponding Project Data Snapshot and Sync Manifest refresh.
+_Avoid_: dirty state, failed push, partial push, project drift
+
 **Affected Project Data File**:
 A standard project data file that Push would write from Generated Project Data.
 _Avoid_: every data file, ignored plugin data, source file
@@ -345,11 +349,18 @@ _Avoid_: config default, inherited old value
 - A **Standard Project Data Snapshot** excludes non-standard project data files.
 - A **Project Data Snapshot** may store whole RPG Maker MV data files even when **DSL-Owned Project Data** covers only selected **Data Domains** within those files.
 - **Project Drift** is a mismatch between a **Project Data Snapshot** and the current **Project Root** state.
+- An **Interrupted Push** is not ordinary **Project Drift** because the mismatch may have been produced by an incomplete **Push**.
 - **Push** checks **Project Drift** for **Affected Project Data Files**.
 - **Affected Project Data Files** are derived from differences between **Generated Project Data** and the **Project Data Snapshot**.
 - **Push** writes only **Affected Project Data Files**.
 - **Push** stages **Affected Project Data Files** before replacing Project Root files.
 - **Push** refreshes the **Project Data Snapshot** and **Sync Manifest** only after all affected Project Root files are replaced successfully.
+- **Push** may complete or abandon a recoverable **Interrupted Push** before continuing.
+- Commands that detect an unrecoverable **Interrupted Push** must stop instead of using potentially inconsistent Workspace Data State or Project Root data.
+- An unrecoverable **Interrupted Push** requires explicit restoration before Workspace workflow commands may continue.
+- **Interrupted Push** recovery is based on observed Project Root file contents, not trusted per-file write progress.
+- Non-Push Workspace workflow commands must stop when an **Interrupted Push** is pending.
+- **Pull** must not silently capture an **Interrupted Push** as a normal **Project Data Snapshot**.
 - Non-standard project data files do not participate in **Project Drift** checks.
 - A **Snapshot-Only Owned Entry** appears when **Compile Output** omits an entry that exists in the **Project Data Snapshot** for a **DSL-Owned Project Data** domain.
 - A **Destructive Change** is only applied by a **Destructive Push**.
@@ -478,3 +489,4 @@ _Avoid_: config default, inherited old value
 - "Definition Lint" was rejected as a command in the workspace compile model; check-only compilation is the validation path.
 - "All TypeScript files" was rejected for **Definition Source Discovery** because ordinary helper modules are not necessarily **Definition Sources**.
 - "Source freshness" was rejected as too narrow; **Generated Freshness** is based on the full **Compile Baseline**, not only DSL source inputs.
+- "Dirty state" was rejected for incomplete Project Root writes; **Interrupted Push** distinguishes tool-created incomplete synchronization from ordinary **Project Drift**.
