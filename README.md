@@ -55,7 +55,7 @@ agent to change safely.
 The DSL gives those raw records readable names and typed structure:
 
 ```ts
-commands: [showText(["Welcome."])]
+commands: [showText(["Welcome."])];
 ```
 
 That single DSL command compiles into the raw command list above. `code: 101` starts the
@@ -102,6 +102,13 @@ When compiled, `introCommonEvent` becomes a `CommonEvents.json` entry, and its
 DSL source files are discovered from the workspace config. By default, files under `src/`
 are treated as DSL declaration files when they match names like `**/*.events.ts` or
 `**/*.dsl.ts`.
+
+## Agent Event Authoring Skill
+
+This repository includes a distributable agent skill under
+`skills/rpgmaker-event-authoring`. It helps agents take over RPG Maker MV event
+authoring from Workspace setup through Event DSL source creation, validation, diff
+review, and optional push.
 
 ## Safety Model In One Minute
 
@@ -309,10 +316,7 @@ export const doorEvent = mapEvent({
       conditions: {
         switch1: switchRef({ id: 1 }),
       },
-      commands: [
-        showText(["The door is open."]),
-        callCommonEvent(commonEventRef({ id: 1 })),
-      ],
+      commands: [showText(["The door is open."]), callCommonEvent(commonEventRef({ id: 1 }))],
     }),
   ],
 });
@@ -320,15 +324,15 @@ export const doorEvent = mapEvent({
 
 ## Command Reference
 
-| Command | Writes to Project Root? | Purpose |
-| --- | --- | --- |
-| `clone` | No | Captures the initial Standard Project Data Snapshot from the configured RPG Maker MV project. |
-| `decompile` | No | Generates non-destructive DSL source from the Project Data Snapshot without overwriting existing output. |
-| `compile --check` | No | Validates discovered DSL source without writing Generated Project Data or freshness metadata. |
-| `compile` | No | Validates discovered DSL source and writes Generated Project Data in the workspace. |
-| `diff` | No | Compares Generated Project Data with the Project Data Snapshot. |
-| `pull` | No | Refreshes the Project Data Snapshot from the Project Root after editor-side changes. |
-| `push` | Yes | Writes reviewed Generated Project Data back to the RPG Maker MV project after safety checks pass. |
+| Command           | Writes to Project Root? | Purpose                                                                                                  |
+| ----------------- | ----------------------- | -------------------------------------------------------------------------------------------------------- |
+| `clone`           | No                      | Captures the initial Standard Project Data Snapshot from the configured RPG Maker MV project.            |
+| `decompile`       | No                      | Generates non-destructive DSL source from the Project Data Snapshot without overwriting existing output. |
+| `compile --check` | No                      | Validates discovered DSL source without writing Generated Project Data or freshness metadata.            |
+| `compile`         | No                      | Validates discovered DSL source and writes Generated Project Data in the workspace.                      |
+| `diff`            | No                      | Compares Generated Project Data with the Project Data Snapshot.                                          |
+| `pull`            | No                      | Refreshes the Project Data Snapshot from the Project Root after editor-side changes.                     |
+| `push`            | Yes                     | Writes reviewed Generated Project Data back to the RPG Maker MV project after safety checks pass.        |
 
 `diff` emits a Structured Diff Report and lists the Affected Project Data Files that a
 later `push` would write if Project Drift checks pass. Use `diff --short` for a summary

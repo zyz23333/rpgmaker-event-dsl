@@ -8,6 +8,14 @@ This context defines the language for a TypeScript-first authoring layer that tu
 The TypeScript authoring surface for defining RPG Maker events and event commands before compilation to supported project data.
 _Avoid_: raw JSON editing, patch script, editor automation
 
+**Agent Event Authoring Skill**:
+A repo-owned agent skill that helps an agent turn RPG Maker MV gameplay intent into idiomatic Event DSL source and validate it through the Workspace workflow.
+_Avoid_: MV script authoring, scriptwriting, CLI workflow skill, raw JSON event editing, editor automation
+
+**Distributable Skill Source**:
+The project-owned `skills/` tree that contains agent skills intended to be maintained and distributed with the repository.
+_Avoid_: scratch prompts, local-only skill copies
+
 **RPG Maker MV Project Data**:
 The first supported RPG Maker project data format for Workspace compilation, snapshot, diff, and push behavior.
 _Avoid_: generic RPG Maker project data, MZ project data
@@ -287,6 +295,19 @@ _Avoid_: config default, inherited old value
 ## Relationships
 
 - Developers use the **Event DSL** to author **Event Definitions** and **DSL Commands**.
+- Agents use the **Agent Event Authoring Skill** to turn RPG Maker MV gameplay intent into **Event DSL** source.
+- The **Agent Event Authoring Skill** is used in a **Workspace** to produce **Definition Source** for a user's RPG Maker MV game project.
+- The **Agent Event Authoring Skill** may guide **Workspace Initialization**, **Clone**, and **DSL Decompilation** before authoring **Definition Source**.
+- The **Agent Event Authoring Skill** covers both initial takeover and ongoing authoring as one distributed skill.
+- The **Agent Event Authoring Skill** is centered on authoring judgment: gameplay intent to RPG Maker MV event shape to **Event DSL** source, with Workspace workflow as support.
+- The **Agent Event Authoring Skill** may fill in idiomatic RPG Maker MV event structure but should not invent substantial story or dialogue content without user intent.
+- The **Agent Event Authoring Skill** may use a confirmed **Raw DSL Command** escape hatch when no **Supported Event Command** exists for the intended RPG Maker MV behavior.
+- The **Agent Event Authoring Skill** may use **Script Input** and **Plugin DSL Command** when they are grounded in user intent, project evidence, or plugin documentation, and **Script Input** remains subject to the **Script Command Gate**.
+- The **Agent Event Authoring Skill** may add short functional player-facing text but should not expand story, tone, or character voice without user intent.
+- The **Agent Event Authoring Skill** follows the repository's current Event DSL version while respecting the installed package and local source style in a user's **Workspace**.
+- The **Distributable Skill Source** is the source of truth for the **Agent Event Authoring Skill**.
+- The README may point to the **Agent Event Authoring Skill**, but the skill folder owns the detailed agent-facing guidance.
+- Installation guidance for the **Agent Event Authoring Skill** belongs in the project README, not inside the runtime skill instructions.
 - An **Event Definition** contains command lists made of **DSL Commands**.
 - A **Named Event Export** is the module boundary for collecting **Event Definitions**.
 - A **Map Event** contains pages whose command lists are made of **Raw Event Commands**.
@@ -445,6 +466,18 @@ _Avoid_: config default, inherited old value
 - "Apply failure" was resolved as no-write on validation or planning errors; the tool must not write partial results after a failed project-aware check.
 - "Preview" was rejected as the primary review term; **Diff** is the workspace review command.
 - "Raw text diff" was rejected as the primary comparison format; **Diff** is a **Structured Diff Report**.
+- "Agent skill" was resolved as a project-distributed authoring aid when it lives under the **Distributable Skill Source**.
+- "Source-repository agent workflow" was rejected as the normal context for the **Agent Event Authoring Skill**; it targets user **Workspaces** and produces user game **Definition Source**.
+- "Existing Workspace only" was rejected as the scope of the **Agent Event Authoring Skill**; the skill may cover **Workspace Initialization**, **Clone**, and **DSL Decompilation** so an agent can take over the full authoring flow.
+- "Separate onboarding and authoring skills" was rejected for the first distributed **Agent Event Authoring Skill**; initial takeover and ongoing authoring stay in one skill.
+- "CLI workflow skill" was rejected as the organizing center for the **Agent Event Authoring Skill**; Workspace commands support the authoring flow rather than defining it.
+- "Translator-only agent behavior" was rejected for the **Agent Event Authoring Skill**; the skill may choose idiomatic RPG Maker MV event structure, but substantial story and dialogue invention requires user intent.
+- "Supported helpers only" was rejected for the **Agent Event Authoring Skill**; a confirmed **Raw DSL Command** is allowed when no **Supported Event Command** can express the intended RPG Maker MV behavior.
+- "Script and plugin commands disabled by default" was rejected for the **Agent Event Authoring Skill**; they are allowed when grounded, with **Script Input** still gated by the **Script Command Gate**.
+- "Placeholder-only event text" was rejected for the **Agent Event Authoring Skill**; short functional text is allowed so authored events are playable.
+- "Multi-version skill matrix" was rejected for the first **Agent Event Authoring Skill**; the distributed skill tracks the current repository version and checks local Workspace evidence when helper signatures are uncertain.
+- "Standalone agent authoring docs page" was deferred for the first **Agent Event Authoring Skill**; the README acts as an entry point and the skill folder owns the detailed guidance.
+- "Skill-local installation guide" was rejected for the first **Agent Event Authoring Skill**; installation guidance stays at the project README entry point.
 - "JSON formatting" was resolved as stable MV-style writing for changed event data files, not generic pretty printing or original-whitespace preservation.
 - "Defaults" were resolved as built-in compiler behavior, not project configuration and not inheritance from replaced entries.
 - "Page API" was resolved as a single object with named fields, including `commands`.
