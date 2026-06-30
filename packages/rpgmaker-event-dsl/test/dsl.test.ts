@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   battleProcessing,
+  audioAsset,
   changeGold,
   changeItem,
   collectDslOwnedDeclarations,
@@ -13,8 +14,15 @@ import {
   controlSwitches,
   controlVariables,
   eraseEvent,
+  imageAsset,
+  isAssetReference,
+  isProjectDataReference,
+  isRuntimeSelector,
+  isScriptInput,
   mapEvent,
+  movieAsset,
   page,
+  scriptInput,
   showChoices,
   showText,
   switchDefinition,
@@ -86,6 +94,10 @@ describe("collectDslOwnedDeclarations", () => {
   });
 
   it("builds the new command helpers as structured DSL commands", () => {
+    expect(audioAsset({ folder: "bgm", name: "Theme" }).kind).toBe("asset");
+    expect(imageAsset({ folder: "pictures", name: "Poster" }).kind).toBe("asset");
+    expect(movieAsset({ name: "Intro" }).folder).toBe("movies");
+    expect(scriptInput({ code: "console.log(1);" }).kind).toBe("scriptInput");
     expect(comment(["A", "B"]).kind).toBe("comment");
     expect(controlSwitches({ switch: switchRef({ id: 1 }), value: true }).kind).toBe(
       "controlSwitches",
@@ -107,6 +119,27 @@ describe("collectDslOwnedDeclarations", () => {
         branches: [[], []],
       }).kind,
     ).toBe("showChoices");
+  });
+
+  it("distinguishes asset, project data, runtime selector, and script primitives", () => {
+    const asset = audioAsset({ folder: "se", name: "Cursor" });
+    const image = imageAsset({ folder: "faces", name: "Hero" });
+    const script = scriptInput({ code: "return true;" });
+    const projectData = switchRef({ id: 1 });
+    const runtimeSelector = {
+      kind: "runtimeSelector",
+      scope: "player",
+      target: "current",
+    } as const;
+
+    expect(isAssetReference(asset)).toBe(true);
+    expect(isAssetReference(image)).toBe(true);
+    expect(isProjectDataReference(projectData)).toBe(true);
+    expect(isProjectDataReference(asset)).toBe(false);
+    expect(isRuntimeSelector(runtimeSelector)).toBe(true);
+    expect(isRuntimeSelector(projectData)).toBe(false);
+    expect(isScriptInput(script)).toBe(true);
+    expect(isScriptInput(projectData)).toBe(false);
   });
 
   it("requires explicit identities for event definitions", () => {

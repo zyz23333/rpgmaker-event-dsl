@@ -5,13 +5,17 @@ import {
   callCommonEvent,
   buildSnapshotReferenceInput,
   changeItem,
+  audioAsset,
   commonEvent,
   commonEventRef,
   controlSwitches,
   controlVariables,
+  imageAsset,
+  inspectCommandInputPrimitives,
   itemRef,
   mapEvent,
   page,
+  scriptInput,
   rawDslCommand,
   switchDefinition,
   switchRef,
@@ -267,6 +271,26 @@ describe("validateDslOwnedDeclarations", () => {
     );
 
     expect(result.issues).toEqual([]);
+  });
+
+  it("inspects command input primitives recursively without conflating categories", () => {
+    const inspection = inspectCommandInputPrimitives([
+      {
+        source: audioAsset({ folder: "bgm", name: "Theme" }),
+        image: imageAsset({ folder: "pictures", name: "Poster" }),
+        selector: { kind: "runtimeSelector", scope: "player", target: "current" } as const,
+        script: scriptInput({ code: "console.log(1);" }),
+        nested: {
+          ref: switchRef({ id: 1 }),
+        },
+      },
+    ]);
+
+    expect(inspection.assetReferences).toHaveLength(2);
+    expect(inspection.runtimeSelectors).toHaveLength(1);
+    expect(inspection.scriptInputs).toHaveLength(1);
+    expect(inspection.projectDataReferences).toHaveLength(1);
+    expect(inspection.projectDataReferences[0]).toEqual(switchRef({ id: 1 }));
   });
 
   it("validates troop references without treating random encounters as references", () => {

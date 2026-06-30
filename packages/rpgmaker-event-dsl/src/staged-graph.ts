@@ -1,4 +1,5 @@
 import type {
+  AssetReference,
   CommonEventDefinition,
   DslCommand,
   DslOwnedDeclaration,
@@ -7,8 +8,16 @@ import type {
   PageConditions,
   ReferenceKind,
   ReferenceValue,
+  RuntimeSelector,
+  ScriptInput,
   SwitchDefinition,
   VariableDefinition,
+} from "./dsl.js";
+import {
+  isAssetReference,
+  isProjectDataReference,
+  isRuntimeSelector,
+  isScriptInput,
 } from "./dsl.js";
 import type { MapInfoEntry } from "./project.js";
 
@@ -53,6 +62,13 @@ export type SnapshotReferenceSource = {
   troops?: readonly (Record<string, unknown> | null | undefined)[];
   system?: Record<string, unknown>;
   weapons?: readonly (Record<string, unknown> | null | undefined)[];
+};
+
+export type CommandInputPrimitiveInspection = {
+  projectDataReferences: ReferenceValue<ReferenceKind>[];
+  assetReferences: AssetReference[];
+  runtimeSelectors: RuntimeSelector[];
+  scriptInputs: ScriptInput[];
 };
 
 export type StagedDataGraph = {
@@ -179,6 +195,20 @@ export function buildSnapshotReferenceInput(
     variables: readSystemNameEntries(source.system ?? {}, "variables"),
     weapons: readObjectReferenceEntries(source.weapons ?? []),
   };
+}
+
+export function inspectCommandInputPrimitives(value: unknown): CommandInputPrimitiveInspection {
+  const inspection: CommandInputPrimitiveInspection = {
+    projectDataReferences: [],
+    assetReferences: [],
+    runtimeSelectors: [],
+    scriptInputs: [],
+  };
+  const seen = new Set<object>();
+
+  collectCommandInputPrimitives(value, inspection, seen);
+
+  return inspection;
 }
 
 function buildReferenceScopes(input: {
@@ -402,16 +432,6 @@ function validateNodes(
   }
 }
 
-function isReferenceValue(value: unknown): value is ReferenceValue<ReferenceKind> {
-  return (
-    !!value &&
-    typeof value === "object" &&
-    "kind" in value &&
-    (("id" in value && typeof value.id === "number") ||
-      ("name" in value && typeof value.name === "string"))
-  );
-}
-
 function validateCondition(
   condition: PageConditions,
   resolver: ReferenceResolver,
@@ -453,6 +473,53 @@ function validateCondition(
       message: "Variable conditions require either a numeric value or a variable reference.",
     });
   }
+}
+
+function collectCommandInputPrimitives(
+  value: unknown,
+  inspection: CommandInputPrimitiveInspection,
+  seen: Set<object>,
+): void {
+  if (!value || typeof value !== "object") {
+    return;
+  }
+  if (seen.has(value)) {
+    return;
+  }
+
+  seen.add(value);
+
+  if (isProjectDataReference(value)) {
+    inspection.projectDataReferences.push(value);
+    return;
+  }
+  if (isAssetReference(value)) {
+    inspection.assetReferences.push(value);
+    return;
+  }
+  if (isRuntimeSelector(value)) {
+    inspection.runtimeSelectors.push(value);
+    return;
+  }
+  if (isScriptInput(value)) {
+    inspection.scriptInputs.push(value);
+    return;
+  }
+
+  if (Array.isArray(value)) {
+    for (const item of value) {
+      collectCommandInputPrimitives(item, inspection, seen);
+    }
+    return;
+  }
+
+  for (const nestedValue of Object.values(value)) {
+    collectCommandInputPrimitives(nestedValue, inspection, seen);
+  }
+}
+
+function isReferenceValue(value: unknown): value is ReferenceValue<ReferenceKind> {
+  return isProjectDataReference(value);
 }
 
 function captureReferenceIssue(callback: () => number, issues: ValidationIssue[]): void {

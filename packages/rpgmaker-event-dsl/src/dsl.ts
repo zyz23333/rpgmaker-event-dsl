@@ -81,6 +81,154 @@ export type ReferenceValue<TKind extends ReferenceKind> =
       name: string;
     };
 
+export const referenceKinds = [
+  "actor",
+  "armor",
+  "commonEvent",
+  "item",
+  "map",
+  "switch",
+  "troop",
+  "variable",
+  "weapon",
+] as const satisfies readonly ReferenceKind[];
+
+export const audioAssetFolders = ["bgm", "bgs", "me", "se"] as const;
+
+export const imageAssetFolders = [
+  "animations",
+  "battlebacks1",
+  "battlebacks2",
+  "characters",
+  "enemies",
+  "faces",
+  "parallaxes",
+  "pictures",
+  "sv_actors",
+  "sv_enemies",
+  "system",
+  "tilesets",
+  "titles1",
+  "titles2",
+] as const;
+
+export type AudioAssetFolder = (typeof audioAssetFolders)[number];
+
+export type ImageAssetFolder = (typeof imageAssetFolders)[number];
+
+export type AudioAssetReference = {
+  kind: "asset";
+  category: "audio";
+  folder: AudioAssetFolder;
+  name: string;
+};
+
+export type ImageAssetReference = {
+  kind: "asset";
+  category: "image";
+  folder: ImageAssetFolder;
+  name: string;
+};
+
+export type MovieAssetReference = {
+  kind: "asset";
+  category: "movie";
+  folder: "movies";
+  name: string;
+};
+
+export type AssetReference = AudioAssetReference | ImageAssetReference | MovieAssetReference;
+
+export type RuntimeSelector<TScope extends string = string, TTarget extends string = string> = {
+  kind: "runtimeSelector";
+  scope: TScope;
+  target: TTarget;
+};
+
+export type ScriptInput = {
+  kind: "scriptInput";
+  code: string;
+};
+
+export type ReferenceRange<TKind extends ReferenceKind> = {
+  kind: "referenceRange";
+  from: ReferenceValue<TKind>;
+  to: ReferenceValue<TKind>;
+};
+
+export type NumericRange = {
+  kind: "numericRange";
+  from: number;
+  to: number;
+};
+
+export type ConstantOperand = {
+  kind: "constant";
+  value: number;
+};
+
+export type VariableOperand = {
+  kind: "variable";
+  variable: ReferenceValue<"variable">;
+};
+
+export type RandomOperand = {
+  kind: "random";
+  from: number;
+  to: number;
+};
+
+export type ScriptOperand = {
+  kind: "script";
+  script: ScriptInput;
+};
+
+export type CommandOperand = ConstantOperand | VariableOperand | RandomOperand | ScriptOperand;
+
+export type OperateValueInput = {
+  operation: "increase" | "decrease";
+  operand: CommandOperand;
+};
+
+export type DirectPosition = {
+  kind: "direct";
+  x: number;
+  y: number;
+};
+
+export type VariablePosition = {
+  kind: "variables";
+  x: ReferenceValue<"variable">;
+  y: ReferenceValue<"variable">;
+};
+
+export type CommandPosition = DirectPosition | VariablePosition;
+
+export type ToneInput =
+  | readonly [red: number, green: number, blue: number, gray: number]
+  | {
+      red: number;
+      green: number;
+      blue: number;
+      gray: number;
+    };
+
+export type ColorInput =
+  | readonly [red: number, green: number, blue: number, alpha: number]
+  | {
+      red: number;
+      green: number;
+      blue: number;
+      alpha: number;
+    };
+
+export type AudioPayload = {
+  asset: AudioAssetReference;
+  volume?: number;
+  pitch?: number;
+  pan?: number;
+};
+
 export type DslCommand =
   | ShowTextDslCommand
   | ConditionalDslCommand
@@ -584,6 +732,50 @@ export function rawDslCommand(input: {
   return node;
 }
 
+export function audioAsset(input: { folder: AudioAssetFolder; name: string }): AudioAssetReference {
+  assertIncluded(audioAssetFolders, input.folder, "audio asset folder");
+  assertNonEmptyString(input.name, "Audio asset name");
+
+  return {
+    kind: "asset",
+    category: "audio",
+    folder: input.folder,
+    name: input.name,
+  };
+}
+
+export function imageAsset(input: { folder: ImageAssetFolder; name: string }): ImageAssetReference {
+  assertIncluded(imageAssetFolders, input.folder, "image asset folder");
+  assertNonEmptyString(input.name, "Image asset name");
+
+  return {
+    kind: "asset",
+    category: "image",
+    folder: input.folder,
+    name: input.name,
+  };
+}
+
+export function movieAsset(input: { name: string }): MovieAssetReference {
+  assertNonEmptyString(input.name, "Movie asset name");
+
+  return {
+    kind: "asset",
+    category: "movie",
+    folder: "movies",
+    name: input.name,
+  };
+}
+
+export function scriptInput(input: { code: string }): ScriptInput {
+  assertNonEmptyString(input.code, "Script input code");
+
+  return {
+    kind: "scriptInput",
+    code: input.code,
+  };
+}
+
 export function actorRef(value: { id: number } | { name: string }): ReferenceValue<"actor"> {
   return createReference("actor", value);
 }
@@ -622,6 +814,77 @@ export function weaponRef(value: { id: number } | { name: string }): ReferenceVa
   return createReference("weapon", value);
 }
 
+export function isProjectDataReference(value: unknown): value is ReferenceValue<ReferenceKind> {
+  if (!value || typeof value !== "object" || !("kind" in value)) {
+    return false;
+  }
+
+  const candidate = value as { kind?: unknown; id?: unknown; name?: unknown };
+  return (
+    typeof candidate.kind === "string" &&
+    isReferenceKind(candidate.kind) &&
+    ((typeof candidate.id === "number" && !("name" in candidate)) ||
+      (typeof candidate.name === "string" && !("id" in candidate)))
+  );
+}
+
+export function isAssetReference(value: unknown): value is AssetReference {
+  if (!value || typeof value !== "object" || !("kind" in value)) {
+    return false;
+  }
+
+  const candidate = value as {
+    kind?: unknown;
+    category?: unknown;
+    folder?: unknown;
+    name?: unknown;
+  };
+
+  if (candidate.kind !== "asset" || typeof candidate.name !== "string") {
+    return false;
+  }
+
+  if (candidate.category === "audio") {
+    return isIncluded(audioAssetFolders, candidate.folder);
+  }
+  if (candidate.category === "image") {
+    return isIncluded(imageAssetFolders, candidate.folder);
+  }
+  if (candidate.category === "movie") {
+    return candidate.folder === "movies";
+  }
+
+  return false;
+}
+
+export function isRuntimeSelector(value: unknown): value is RuntimeSelector {
+  if (!value || typeof value !== "object" || !("kind" in value)) {
+    return false;
+  }
+
+  const candidate = value as { kind?: unknown; scope?: unknown; target?: unknown };
+  return (
+    candidate.kind === "runtimeSelector" &&
+    typeof candidate.scope === "string" &&
+    candidate.scope.length > 0 &&
+    typeof candidate.target === "string" &&
+    candidate.target.length > 0
+  );
+}
+
+export function isScriptInput(value: unknown): value is ScriptInput {
+  if (!value || typeof value !== "object" || !("kind" in value)) {
+    return false;
+  }
+
+  const candidate = value as { kind?: unknown; code?: unknown };
+  return (
+    candidate.kind === "scriptInput" &&
+    typeof candidate.code === "string" &&
+    candidate.code.length > 0
+  );
+}
+
 export function collectDslOwnedDeclarations(
   moduleExports: Record<string, unknown>,
 ): DslOwnedDeclaration[] {
@@ -648,6 +911,33 @@ function createReference<TKind extends ReferenceKind>(
   }
 
   return { kind, name: value.name };
+}
+
+function isReferenceKind(value: string): value is ReferenceKind {
+  return (referenceKinds as readonly string[]).includes(value);
+}
+
+function assertIncluded<TValue extends string>(
+  allowedValues: readonly TValue[],
+  value: TValue,
+  fieldName: string,
+): void {
+  if (!isIncluded(allowedValues, value)) {
+    throw new Error(`Invalid ${fieldName}: ${String(value)}.`);
+  }
+}
+
+function isIncluded<TValue extends string>(
+  allowedValues: readonly TValue[],
+  value: unknown,
+): value is TValue {
+  return typeof value === "string" && (allowedValues as readonly string[]).includes(value);
+}
+
+function assertNonEmptyString(value: string, fieldName: string): void {
+  if (typeof value !== "string" || value.length === 0) {
+    throw new Error(`${fieldName} must be a non-empty string.`);
+  }
 }
 
 function isDslOwnedDeclaration(value: unknown): value is DslOwnedDeclaration {
