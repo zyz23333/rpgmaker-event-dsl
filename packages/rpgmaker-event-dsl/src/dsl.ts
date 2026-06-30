@@ -189,11 +189,85 @@ export type ScriptOperand = {
   script: ScriptInput;
 };
 
-export type CommandOperand = ConstantOperand | VariableOperand | RandomOperand | ScriptOperand;
+export type ControlVariablesGameDataOperand =
+  | {
+      kind: "gameData";
+      source: "item";
+      item: ReferenceValue<"item">;
+    }
+  | {
+      kind: "gameData";
+      source: "weapon";
+      weapon: ReferenceValue<"weapon">;
+    }
+  | {
+      kind: "gameData";
+      source: "armor";
+      armor: ReferenceValue<"armor">;
+    }
+  | {
+      kind: "gameData";
+      source: "actor";
+      actor: ReferenceValue<"actor">;
+      value:
+        | "level"
+        | "exp"
+        | "hp"
+        | "mp"
+        | "mhp"
+        | "mmp"
+        | "atk"
+        | "def"
+        | "mat"
+        | "mdf"
+        | "agi"
+        | "luk";
+    }
+  | {
+      kind: "gameData";
+      source: "enemy";
+      enemyIndex: number;
+      value: "hp" | "mp" | "mhp" | "mmp" | "atk" | "def" | "mat" | "mdf" | "agi" | "luk";
+    }
+  | {
+      kind: "gameData";
+      source: "character";
+      characterId: number;
+      value: "mapX" | "mapY" | "direction" | "screenX" | "screenY";
+    }
+  | {
+      kind: "gameData";
+      source: "party";
+      memberIndex: number;
+    }
+  | {
+      kind: "gameData";
+      source: "other";
+      value:
+        | "mapId"
+        | "partyMembers"
+        | "gold"
+        | "steps"
+        | "playTime"
+        | "timer"
+        | "saveCount"
+        | "battleCount"
+        | "winCount"
+        | "escapeCount";
+    };
+
+export type CommandOperand =
+  | ConstantOperand
+  | VariableOperand
+  | RandomOperand
+  | ControlVariablesGameDataOperand
+  | ScriptOperand;
+
+export type OperateValueOperand = number | ReferenceValue<"variable">;
 
 export type OperateValueInput = {
   operation: "increase" | "decrease";
-  operand: CommandOperand;
+  operand: OperateValueOperand;
 };
 
 export type DirectPosition = {
@@ -332,8 +406,12 @@ export type DslCommand =
   | ControlSwitchesDslCommand
   | ControlVariablesDslCommand
   | ControlSelfSwitchDslCommand
+  | ControlTimerDslCommand
   | ChangeGoldDslCommand
-  | ChangeItemDslCommand
+  | ChangeItemsDslCommand
+  | ChangeWeaponsDslCommand
+  | ChangeArmorsDslCommand
+  | ChangePartyMemberDslCommand
   | WaitDslCommand
   | EraseEventDslCommand
   | BattleProcessingDslCommand
@@ -454,22 +532,20 @@ export type TransferPlayerDslCommand = {
 
 export type ControlSwitchesDslCommand = {
   kind: "controlSwitches";
-  switch: ReferenceValue<"switch">;
+  switch: ReferenceValue<"switch"> | ReferenceRange<"switch">;
   value: boolean;
 };
 
 export type ControlVariablesDslCommand = {
   kind: "controlVariables";
-  variable: ReferenceValue<"variable">;
+  variable: ReferenceValue<"variable"> | ReferenceRange<"variable">;
   operation: "set" | "add" | "sub" | "mul" | "div" | "mod";
   value:
     | number
     | ReferenceValue<"variable">
-    | {
-        kind: "random";
-        from: number;
-        to: number;
-      };
+    | RandomOperand
+    | ControlVariablesGameDataOperand
+    | ScriptOperand;
 };
 
 export type ControlSelfSwitchDslCommand = {
@@ -478,17 +554,51 @@ export type ControlSelfSwitchDslCommand = {
   value: boolean;
 };
 
+export type ControlTimerDslCommand =
+  | {
+      kind: "controlTimer";
+      action: "start";
+      seconds: number;
+    }
+  | {
+      kind: "controlTimer";
+      action: "stop";
+    };
+
 export type ChangeGoldDslCommand = {
   kind: "changeGold";
   operation: "gain" | "lose";
-  value: number;
+  value: OperateValueOperand;
 };
 
-export type ChangeItemDslCommand = {
-  kind: "changeItem";
+export type ChangeItemsDslCommand = {
+  kind: "changeItems";
   item: ReferenceValue<"item">;
   operation: "gain" | "lose";
-  amount: number;
+  amount: OperateValueOperand;
+};
+
+export type ChangeWeaponsDslCommand = {
+  kind: "changeWeapons";
+  weapon: ReferenceValue<"weapon">;
+  operation: "gain" | "lose";
+  amount: OperateValueOperand;
+  includeEquipment?: boolean;
+};
+
+export type ChangeArmorsDslCommand = {
+  kind: "changeArmors";
+  armor: ReferenceValue<"armor">;
+  operation: "gain" | "lose";
+  amount: OperateValueOperand;
+  includeEquipment?: boolean;
+};
+
+export type ChangePartyMemberDslCommand = {
+  kind: "changePartyMember";
+  actor: ReferenceValue<"actor">;
+  operation: "add" | "remove";
+  initialize?: boolean;
 };
 
 export type WaitDslCommand = {
@@ -782,7 +892,7 @@ export function transferPlayer(input: {
 }
 
 export function controlSwitches(input: {
-  switch: ReferenceValue<"switch">;
+  switch: ReferenceValue<"switch"> | ReferenceRange<"switch">;
   value: boolean;
 }): ControlSwitchesDslCommand {
   return {
@@ -793,16 +903,14 @@ export function controlSwitches(input: {
 }
 
 export function controlVariables(input: {
-  variable: ReferenceValue<"variable">;
+  variable: ReferenceValue<"variable"> | ReferenceRange<"variable">;
   operation: "set" | "add" | "sub" | "mul" | "div" | "mod";
   value:
     | number
     | ReferenceValue<"variable">
-    | {
-        kind: "random";
-        from: number;
-        to: number;
-      };
+    | RandomOperand
+    | ControlVariablesGameDataOperand
+    | ScriptOperand;
 }): ControlVariablesDslCommand {
   return {
     kind: "controlVariables",
@@ -823,9 +931,24 @@ export function controlSelfSwitch(input: {
   };
 }
 
+export function controlTimer(
+  input: { action: "start"; seconds: number } | { action: "stop" },
+): ControlTimerDslCommand {
+  return input.action === "start"
+    ? {
+        kind: "controlTimer",
+        action: input.action,
+        seconds: input.seconds,
+      }
+    : {
+        kind: "controlTimer",
+        action: input.action,
+      };
+}
+
 export function changeGold(input: {
   operation: "gain" | "lose";
-  value: number;
+  value: OperateValueOperand;
 }): ChangeGoldDslCommand {
   return {
     kind: "changeGold",
@@ -834,17 +957,75 @@ export function changeGold(input: {
   };
 }
 
-export function changeItem(input: {
+export function changeItems(input: {
   item: ReferenceValue<"item">;
   operation: "gain" | "lose";
-  amount: number;
-}): ChangeItemDslCommand {
+  amount: OperateValueOperand;
+}): ChangeItemsDslCommand {
   return {
-    kind: "changeItem",
+    kind: "changeItems",
     item: input.item,
     operation: input.operation,
     amount: input.amount,
   };
+}
+
+export function changeWeapons(input: {
+  weapon: ReferenceValue<"weapon">;
+  operation: "gain" | "lose";
+  amount: OperateValueOperand;
+  includeEquipment?: boolean;
+}): ChangeWeaponsDslCommand {
+  const node: ChangeWeaponsDslCommand = {
+    kind: "changeWeapons",
+    weapon: input.weapon,
+    operation: input.operation,
+    amount: input.amount,
+  };
+
+  if (input.includeEquipment !== undefined) {
+    node.includeEquipment = input.includeEquipment;
+  }
+
+  return node;
+}
+
+export function changeArmors(input: {
+  armor: ReferenceValue<"armor">;
+  operation: "gain" | "lose";
+  amount: OperateValueOperand;
+  includeEquipment?: boolean;
+}): ChangeArmorsDslCommand {
+  const node: ChangeArmorsDslCommand = {
+    kind: "changeArmors",
+    armor: input.armor,
+    operation: input.operation,
+    amount: input.amount,
+  };
+
+  if (input.includeEquipment !== undefined) {
+    node.includeEquipment = input.includeEquipment;
+  }
+
+  return node;
+}
+
+export function changePartyMember(input: {
+  actor: ReferenceValue<"actor">;
+  operation: "add" | "remove";
+  initialize?: boolean;
+}): ChangePartyMemberDslCommand {
+  const node: ChangePartyMemberDslCommand = {
+    kind: "changePartyMember",
+    actor: input.actor,
+    operation: input.operation,
+  };
+
+  if (input.initialize !== undefined) {
+    node.initialize = input.initialize;
+  }
+
+  return node;
 }
 
 export function wait(frames: number): WaitDslCommand {

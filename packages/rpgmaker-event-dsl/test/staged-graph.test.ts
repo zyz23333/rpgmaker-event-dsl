@@ -4,7 +4,7 @@ import {
   battleProcessing,
   callCommonEvent,
   buildSnapshotReferenceInput,
-  changeItem,
+  changeItems,
   audioAsset,
   classRef,
   commonEvent,
@@ -189,7 +189,7 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Gate",
           commands: [
-            changeItem({ item: itemRef({ name: "Potion" }), operation: "gain", amount: 1 }),
+            changeItems({ item: itemRef({ name: "Potion" }), operation: "gain", amount: 1 }),
           ],
         }),
       ],
@@ -212,7 +212,7 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Gate",
           commands: [
-            changeItem({ item: itemRef({ name: "Potion" }), operation: "gain", amount: 1 }),
+            changeItems({ item: itemRef({ name: "Potion" }), operation: "gain", amount: 1 }),
           ],
         }),
       ],
@@ -273,6 +273,34 @@ describe("validateDslOwnedDeclarations", () => {
     );
 
     expect(result.issues).toEqual([]);
+  });
+
+  it("rejects Control Variables script operands when scripts are disabled", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        variableDefinition({ id: 1, name: "Count" }),
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Script Count",
+          commands: [
+            controlVariables({
+              variable: variableRef({ id: 1 }),
+              operation: "set",
+              value: {
+                kind: "script",
+                script: scriptInput({ code: "$gameParty.gold()" }),
+              },
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toContain(
+      "Control Variables script operands require explicit config enablement.",
+    );
   });
 
   it("inspects command input primitives recursively without conflating categories", () => {

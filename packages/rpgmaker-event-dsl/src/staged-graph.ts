@@ -398,19 +398,53 @@ function validateNodes(
       });
     }
     if (node.kind === "controlSwitches") {
-      captureReferenceIssue(() => resolver.resolveReference(node.switch), issues);
+      validateReferenceOrRange(node.switch, resolver, issues);
     }
     if (node.kind === "controlVariables") {
-      captureReferenceIssue(() => resolver.resolveReference(node.variable), issues);
-      if (isReferenceValue(node.value)) {
-        captureReferenceIssue(
-          () => resolver.resolveReference(node.value as ReferenceValue<"variable">),
-          issues,
-        );
+      validateReferenceOrRange(node.variable, resolver, issues);
+      if (isVariableReferenceValue(node.value)) {
+        const valueRef = node.value;
+        captureReferenceIssue(() => resolver.resolveReference(valueRef), issues);
+      }
+      if (typeof node.value === "object" && node.value !== null && "kind" in node.value) {
+        if (node.value.kind === "script" && !options.scriptEnabled) {
+          issues.push({
+            level: "error",
+            message: "Control Variables script operands require explicit config enablement.",
+          });
+        }
+        if (node.value.kind === "gameData") {
+          validateControlVariablesGameDataOperand(node.value, resolver, issues);
+        }
       }
     }
-    if (node.kind === "changeItem") {
+    if (node.kind === "changeItems") {
       captureReferenceIssue(() => resolver.resolveReference(node.item), issues);
+      if (isVariableReferenceValue(node.amount)) {
+        const amountRef = node.amount;
+        captureReferenceIssue(() => resolver.resolveReference(amountRef), issues);
+      }
+    }
+    if (node.kind === "changeWeapons") {
+      captureReferenceIssue(() => resolver.resolveReference(node.weapon), issues);
+      if (isVariableReferenceValue(node.amount)) {
+        const amountRef = node.amount;
+        captureReferenceIssue(() => resolver.resolveReference(amountRef), issues);
+      }
+    }
+    if (node.kind === "changeArmors") {
+      captureReferenceIssue(() => resolver.resolveReference(node.armor), issues);
+      if (isVariableReferenceValue(node.amount)) {
+        const amountRef = node.amount;
+        captureReferenceIssue(() => resolver.resolveReference(amountRef), issues);
+      }
+    }
+    if (node.kind === "changeGold" && isVariableReferenceValue(node.value)) {
+      const valueRef = node.value;
+      captureReferenceIssue(() => resolver.resolveReference(valueRef), issues);
+    }
+    if (node.kind === "changePartyMember") {
+      captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
     }
     if (node.kind === "inputNumber" || node.kind === "selectItem") {
       captureReferenceIssue(() => resolver.resolveReference(node.variable), issues);
@@ -453,6 +487,49 @@ function validateNodes(
         validateNodes(node.else, resolver, options, issues);
       }
     }
+  }
+}
+
+function validateReferenceOrRange<TKind extends ReferenceKind>(
+  value: ReferenceValue<TKind> | { from: ReferenceValue<TKind>; to: ReferenceValue<TKind> },
+  resolver: ReferenceResolver,
+  issues: ValidationIssue[],
+): void {
+  if ("from" in value) {
+    captureReferenceIssue(() => resolver.resolveReference(value.from), issues);
+    captureReferenceIssue(() => resolver.resolveReference(value.to), issues);
+    return;
+  }
+
+  captureReferenceIssue(() => resolver.resolveReference(value), issues);
+}
+
+function validateControlVariablesGameDataOperand(
+  operand: Extract<
+    Extract<DslCommand, { kind: "controlVariables" }>["value"],
+    { kind: "gameData" }
+  >,
+  resolver: ReferenceResolver,
+  issues: ValidationIssue[],
+): void {
+  switch (operand.source) {
+    case "item":
+      captureReferenceIssue(() => resolver.resolveReference(operand.item), issues);
+      break;
+    case "weapon":
+      captureReferenceIssue(() => resolver.resolveReference(operand.weapon), issues);
+      break;
+    case "armor":
+      captureReferenceIssue(() => resolver.resolveReference(operand.armor), issues);
+      break;
+    case "actor":
+      captureReferenceIssue(() => resolver.resolveReference(operand.actor), issues);
+      break;
+    case "enemy":
+    case "character":
+    case "party":
+    case "other":
+      break;
   }
 }
 

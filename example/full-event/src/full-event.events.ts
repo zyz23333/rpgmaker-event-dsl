@@ -3,7 +3,7 @@ import {
   breakLoop,
   callCommonEvent,
   changeGold,
-  changeItem,
+  changeItems,
   comment,
   commonEvent,
   commonEventRef,
@@ -133,7 +133,7 @@ export const rewardChestEvent = mapEvent({
           operation: "gain",
           value: 100,
         }),
-        changeItem({
+        changeItems({
           item: potion,
           operation: "gain",
           amount: 1,

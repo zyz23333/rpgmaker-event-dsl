@@ -16,7 +16,13 @@ describe("runtime baseline", () => {
   it("exports only the MV-aligned plural control helper names", () => {
     expect(packageExports).toHaveProperty("controlSwitches");
     expect(packageExports).toHaveProperty("controlVariables");
+    expect(packageExports).toHaveProperty("changeItems");
+    expect(packageExports).toHaveProperty("changeWeapons");
+    expect(packageExports).toHaveProperty("changeArmors");
+    expect(packageExports).toHaveProperty("changePartyMember");
+    expect(packageExports).toHaveProperty("controlTimer");
     expect(packageExports).not.toHaveProperty("controlSwitch");
     expect(packageExports).not.toHaveProperty("controlVariable");
+    expect(packageExports).not.toHaveProperty("changeItem");
   });
 });

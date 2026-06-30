@@ -3,8 +3,11 @@ import { describe, expect, it } from "vitest";
 import {
   battleProcessing,
   audioAsset,
+  changeArmors,
   changeGold,
-  changeItem,
+  changeItems,
+  changePartyMember,
+  changeWeapons,
   collectDslOwnedDeclarations,
   comment,
   commonEvent,
@@ -12,6 +15,7 @@ import {
   commonEventRef,
   controlSelfSwitch,
   controlSwitches,
+  controlTimer,
   controlVariables,
   eraseEvent,
   imageAsset,
@@ -110,8 +114,18 @@ describe("collectDslOwnedDeclarations", () => {
     ).toBe("controlVariables");
     expect(controlSelfSwitch({ selfSwitch: "A", value: false }).kind).toBe("controlSelfSwitch");
     expect(changeGold({ operation: "gain", value: 5 }).kind).toBe("changeGold");
-    expect(changeItem({ item: itemRef({ id: 1 }), operation: "lose", amount: 2 }).kind).toBe(
-      "changeItem",
+    expect(changeItems({ item: itemRef({ id: 1 }), operation: "lose", amount: 2 }).kind).toBe(
+      "changeItems",
+    );
+    expect(controlTimer({ action: "start", seconds: 30 }).kind).toBe("controlTimer");
+    expect(
+      changeWeapons({ weapon: { kind: "weapon", id: 1 }, operation: "gain", amount: 1 }).kind,
+    ).toBe("changeWeapons");
+    expect(
+      changeArmors({ armor: { kind: "armor", id: 1 }, operation: "lose", amount: 1 }).kind,
+    ).toBe("changeArmors");
+    expect(changePartyMember({ actor: { kind: "actor", id: 1 }, operation: "add" }).kind).toBe(
+      "changePartyMember",
     );
     expect(wait(60).kind).toBe("wait");
     expect(eraseEvent().kind).toBe("eraseEvent");

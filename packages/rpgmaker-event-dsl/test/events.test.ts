@@ -4,11 +4,15 @@ import {
   battleProcessing,
   buildStagedDataGraph,
   classRef,
+  changeArmors,
   changeGold,
-  changeItem,
+  changeItems,
+  changePartyMember,
+  changeWeapons,
   comment,
   commonEvent,
   conditional,
+  controlTimer,
   controlSwitches,
   controlVariables,
   eraseEvent,
@@ -36,7 +40,9 @@ const resolver = buildStagedDataGraph({
   declarations: [
     commonEvent({ id: 1, name: "Common", trigger: "none", commands: [] }),
     switchDefinition({ id: 1, name: "Gate" }),
+    switchDefinition({ id: 2, name: "Gate B" }),
     variableDefinition({ id: 1, name: "Count" }),
+    variableDefinition({ id: 2, name: "Count B" }),
   ],
   snapshotReferences: {
     actors: [{ id: 1, name: "Hero" }],
@@ -86,7 +92,56 @@ describe("compileMapEvent", () => {
               }),
               controlSwitches({ switch: switchRef({ name: "Gate" }), value: true }),
               changeGold({ operation: "gain", value: 5 }),
-              changeItem({ item: itemRef({ name: "Potion" }), operation: "lose", amount: 1 }),
+              controlSwitches({
+                switch: {
+                  kind: "referenceRange",
+                  from: switchRef({ name: "Gate" }),
+                  to: switchRef({ name: "Gate B" }),
+                },
+                value: false,
+              }),
+              controlVariables({
+                variable: {
+                  kind: "referenceRange",
+                  from: variableRef({ name: "Count" }),
+                  to: variableRef({ name: "Count B" }),
+                },
+                operation: "set",
+                value: {
+                  kind: "gameData",
+                  source: "item",
+                  item: itemRef({ name: "Potion" }),
+                },
+              }),
+              controlVariables({
+                variable: variableRef({ name: "Count" }),
+                operation: "set",
+                value: {
+                  kind: "script",
+                  script: scriptInput({ code: "$gameParty.gold()" }),
+                },
+              }),
+              controlTimer({ action: "start", seconds: 45 }),
+              controlTimer({ action: "stop" }),
+              changeGold({ operation: "lose", value: variableRef({ name: "Count" }) }),
+              changeItems({ item: itemRef({ name: "Potion" }), operation: "lose", amount: 1 }),
+              changeWeapons({
+                weapon: { kind: "weapon", id: 1 },
+                operation: "gain",
+                amount: variableRef({ name: "Count" }),
+                includeEquipment: true,
+              }),
+              changeArmors({
+                armor: { kind: "armor", id: 1 },
+                operation: "lose",
+                amount: 2,
+                includeEquipment: false,
+              }),
+              changePartyMember({
+                actor: { kind: "actor", id: 1 },
+                operation: "add",
+                initialize: true,
+              }),
               battleProcessing({ troop: troopRef({ name: "Slime" }), canEscape: true }),
             ],
           }),
@@ -119,9 +174,22 @@ describe("compileMapEvent", () => {
     expect(commands[16]).toEqual({ code: 122, indent: 0, parameters: [1, 1, 1, 0, 3] });
     expect(commands[17]).toEqual({ code: 121, indent: 0, parameters: [1, 1, 0] });
     expect(commands[18]).toEqual({ code: 125, indent: 0, parameters: [0, 0, 5] });
-    expect(commands[19]).toEqual({ code: 126, indent: 0, parameters: [1, 1, 0, 1] });
-    expect(commands[20]).toEqual({ code: 301, indent: 0, parameters: [0, 1, true, false] });
-    expect(commands[21]).toEqual({ code: 0, indent: 0, parameters: [] });
+    expect(commands[19]).toEqual({ code: 121, indent: 0, parameters: [1, 2, 1] });
+    expect(commands[20]).toEqual({ code: 122, indent: 0, parameters: [1, 2, 0, 3, 0, 1, 0] });
+    expect(commands[21]).toEqual({
+      code: 122,
+      indent: 0,
+      parameters: [1, 1, 0, 4, "$gameParty.gold()"],
+    });
+    expect(commands[22]).toEqual({ code: 124, indent: 0, parameters: [0, 45] });
+    expect(commands[23]).toEqual({ code: 124, indent: 0, parameters: [1, 0] });
+    expect(commands[24]).toEqual({ code: 125, indent: 0, parameters: [1, 1, 1] });
+    expect(commands[25]).toEqual({ code: 126, indent: 0, parameters: [1, 1, 0, 1] });
+    expect(commands[26]).toEqual({ code: 127, indent: 0, parameters: [1, 0, 1, 1, true] });
+    expect(commands[27]).toEqual({ code: 128, indent: 0, parameters: [1, 1, 0, 2, false] });
+    expect(commands[28]).toEqual({ code: 129, indent: 0, parameters: [1, 0, true] });
+    expect(commands[29]).toEqual({ code: 301, indent: 0, parameters: [0, 1, true, false] });
+    expect(commands[30]).toEqual({ code: 0, indent: 0, parameters: [] });
   });
 
   it("compiles MV Conditional Branch condition categories into raw parameters", () => {

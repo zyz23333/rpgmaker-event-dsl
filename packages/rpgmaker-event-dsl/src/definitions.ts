@@ -441,8 +441,11 @@ function createDslNamespace(): Record<string, unknown> {
     armorRef: getDslHelper("armorRef"),
     battleProcessing: getDslHelper("battleProcessing"),
     breakLoop: getDslHelper("breakLoop"),
+    changeArmors: getDslHelper("changeArmors"),
     changeGold: getDslHelper("changeGold"),
-    changeItem: getDslHelper("changeItem"),
+    changeItems: getDslHelper("changeItems"),
+    changePartyMember: getDslHelper("changePartyMember"),
+    changeWeapons: getDslHelper("changeWeapons"),
     collectDslOwnedDeclarations: getDslHelper("collectDslOwnedDeclarations"),
     comment: getDslHelper("comment"),
     commonEvent: getDslHelper("commonEvent"),
@@ -451,6 +454,7 @@ function createDslNamespace(): Record<string, unknown> {
     conditional: getDslHelper("conditional"),
     controlSelfSwitch: getDslHelper("controlSelfSwitch"),
     controlSwitches: getDslHelper("controlSwitches"),
+    controlTimer: getDslHelper("controlTimer"),
     controlVariables: getDslHelper("controlVariables"),
     eraseEvent: getDslHelper("eraseEvent"),
     exitEvent: getDslHelper("exitEvent"),
@@ -492,10 +496,16 @@ function getDslHelper(name: string): unknown {
       return dsl.battleProcessing;
     case "breakLoop":
       return dsl.breakLoop;
+    case "changeArmors":
+      return dsl.changeArmors;
     case "changeGold":
       return dsl.changeGold;
-    case "changeItem":
-      return dsl.changeItem;
+    case "changeItems":
+      return dsl.changeItems;
+    case "changePartyMember":
+      return dsl.changePartyMember;
+    case "changeWeapons":
+      return dsl.changeWeapons;
     case "collectDslOwnedDeclarations":
       return dsl.collectDslOwnedDeclarations;
     case "comment":
@@ -512,6 +522,8 @@ function getDslHelper(name: string): unknown {
       return dsl.controlSelfSwitch;
     case "controlSwitches":
       return dsl.controlSwitches;
+    case "controlTimer":
+      return dsl.controlTimer;
     case "controlVariables":
       return dsl.controlVariables;
     case "eraseEvent":

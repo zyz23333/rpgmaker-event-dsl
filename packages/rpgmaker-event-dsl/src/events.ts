@@ -1,5 +1,6 @@
 import type {
   BattleProcessingDslCommand,
+  CommandOperand,
   ConditionalBranchCondition,
   ConditionalVariableOperator,
   CommonEventDefinition,
@@ -7,8 +8,10 @@ import type {
   DslCommand,
   EventPage,
   MapEventDefinition,
+  OperateValueOperand,
   PageConditions,
   ReferenceKind,
+  ReferenceRange,
   ReferenceValue,
 } from "./dsl.js";
 import type { ReferenceResolver } from "./staged-graph.js";
@@ -239,11 +242,11 @@ function compileNodes(
         output.push({ code: 119, indent, parameters: [node.name] });
         break;
       case "controlSwitches": {
-        const switchId = resolver.resolveReference(node.switch);
+        const [startSwitchId, endSwitchId] = compileReferenceTargetRange(node.switch, resolver);
         output.push({
           code: 121,
           indent,
-          parameters: [switchId, switchId, resolveControlValue(node.value)],
+          parameters: [startSwitchId, endSwitchId, resolveControlValue(node.value)],
         });
         break;
       }
@@ -261,22 +264,60 @@ function compileNodes(
           parameters: [node.selfSwitch, resolveControlValue(node.value)],
         });
         break;
+      case "controlTimer":
+        output.push({
+          code: 124,
+          indent,
+          parameters: node.action === "start" ? [0, node.seconds] : [1, 0],
+        });
+        break;
       case "changeGold":
         output.push({
           code: 125,
           indent,
-          parameters: [node.operation === "gain" ? 0 : 1, 0, node.value],
+          parameters: compileOperateValueParameters(node.operation, node.value, resolver),
         });
         break;
-      case "changeItem":
+      case "changeItems":
         output.push({
           code: 126,
           indent,
           parameters: [
             resolver.resolveReference(node.item),
-            node.operation === "gain" ? 0 : 1,
-            0,
-            node.amount,
+            ...compileOperateValueParameters(node.operation, node.amount, resolver),
+          ],
+        });
+        break;
+      case "changeWeapons":
+        output.push({
+          code: 127,
+          indent,
+          parameters: [
+            resolver.resolveReference(node.weapon),
+            ...compileOperateValueParameters(node.operation, node.amount, resolver),
+            node.includeEquipment ?? false,
+          ],
+        });
+        break;
+      case "changeArmors":
+        output.push({
+          code: 128,
+          indent,
+          parameters: [
+            resolver.resolveReference(node.armor),
+            ...compileOperateValueParameters(node.operation, node.amount, resolver),
+            node.includeEquipment ?? false,
+          ],
+        });
+        break;
+      case "changePartyMember":
+        output.push({
+          code: 129,
+          indent,
+          parameters: [
+            resolver.resolveReference(node.actor),
+            node.operation === "add" ? 0 : 1,
+            node.initialize ?? false,
           ],
         });
         break;
@@ -542,7 +583,7 @@ function compileControlVariablesParameters(
   node: ControlVariablesDslCommand,
   resolver: ReferenceResolver,
 ): unknown[] {
-  const targetId = resolver.resolveReference(node.variable);
+  const [startVariableId, endVariableId] = compileReferenceTargetRange(node.variable, resolver);
   const operation =
     node.operation === "set"
       ? 0
@@ -557,14 +598,178 @@ function compileControlVariablesParameters(
               : 5;
 
   if (typeof node.value === "number") {
-    return [targetId, targetId, operation, 0, node.value];
+    return [startVariableId, endVariableId, operation, 0, node.value];
   }
 
   if ("kind" in node.value && node.value.kind === "random") {
-    return [targetId, targetId, operation, 2, node.value.from, node.value.to];
+    return [startVariableId, endVariableId, operation, 2, node.value.from, node.value.to];
   }
 
-  return [targetId, targetId, operation, 1, resolver.resolveReference(node.value)];
+  if ("kind" in node.value && node.value.kind === "script") {
+    return [startVariableId, endVariableId, operation, 4, node.value.script.code];
+  }
+
+  if ("kind" in node.value && node.value.kind === "gameData") {
+    return [
+      startVariableId,
+      endVariableId,
+      operation,
+      3,
+      ...compileControlVariablesGameDataOperand(node.value, resolver),
+    ];
+  }
+
+  return [startVariableId, endVariableId, operation, 1, resolver.resolveReference(node.value)];
+}
+
+function compileReferenceTargetRange<TKind extends ReferenceKind>(
+  target: ReferenceValue<TKind> | ReferenceRange<TKind>,
+  resolver: ReferenceResolver,
+): [number, number] {
+  if ("from" in target) {
+    return [resolver.resolveReference(target.from), resolver.resolveReference(target.to)];
+  }
+
+  const id = resolver.resolveReference(target);
+  return [id, id];
+}
+
+function compileOperateValueParameters(
+  operation: "gain" | "lose",
+  operand: OperateValueOperand,
+  resolver: ReferenceResolver,
+): [number, number, number] {
+  return [
+    operation === "gain" ? 0 : 1,
+    isReferenceValue(operand) ? 1 : 0,
+    isReferenceValue(operand) ? resolver.resolveReference(operand) : operand,
+  ];
+}
+
+function compileControlVariablesGameDataOperand(
+  operand: Extract<CommandOperand, { kind: "gameData" }>,
+  resolver: ReferenceResolver,
+): [number, number, number] {
+  switch (operand.source) {
+    case "item":
+      return [0, resolver.resolveReference(operand.item), 0];
+    case "weapon":
+      return [1, resolver.resolveReference(operand.weapon), 0];
+    case "armor":
+      return [2, resolver.resolveReference(operand.armor), 0];
+    case "actor":
+      return [3, resolver.resolveReference(operand.actor), actorGameDataValueToCode(operand.value)];
+    case "enemy":
+      return [4, operand.enemyIndex, enemyGameDataValueToCode(operand.value)];
+    case "character":
+      return [5, operand.characterId, characterGameDataValueToCode(operand.value)];
+    case "party":
+      return [6, operand.memberIndex, 0];
+    case "other":
+      return [7, otherGameDataValueToCode(operand.value), 0];
+  }
+}
+
+function actorGameDataValueToCode(
+  value: Extract<CommandOperand, { kind: "gameData"; source: "actor" }>["value"],
+): number {
+  switch (value) {
+    case "level":
+      return 0;
+    case "exp":
+      return 1;
+    case "hp":
+      return 2;
+    case "mp":
+      return 3;
+    case "mhp":
+      return 4;
+    case "mmp":
+      return 5;
+    case "atk":
+      return 6;
+    case "def":
+      return 7;
+    case "mat":
+      return 8;
+    case "mdf":
+      return 9;
+    case "agi":
+      return 10;
+    case "luk":
+      return 11;
+  }
+}
+
+function enemyGameDataValueToCode(
+  value: Extract<CommandOperand, { kind: "gameData"; source: "enemy" }>["value"],
+): number {
+  switch (value) {
+    case "hp":
+      return 0;
+    case "mp":
+      return 1;
+    case "mhp":
+      return 2;
+    case "mmp":
+      return 3;
+    case "atk":
+      return 4;
+    case "def":
+      return 5;
+    case "mat":
+      return 6;
+    case "mdf":
+      return 7;
+    case "agi":
+      return 8;
+    case "luk":
+      return 9;
+  }
+}
+
+function characterGameDataValueToCode(
+  value: Extract<CommandOperand, { kind: "gameData"; source: "character" }>["value"],
+): number {
+  switch (value) {
+    case "mapX":
+      return 0;
+    case "mapY":
+      return 1;
+    case "direction":
+      return 2;
+    case "screenX":
+      return 3;
+    case "screenY":
+      return 4;
+  }
+}
+
+function otherGameDataValueToCode(
+  value: Extract<CommandOperand, { kind: "gameData"; source: "other" }>["value"],
+): number {
+  switch (value) {
+    case "mapId":
+      return 0;
+    case "partyMembers":
+      return 1;
+    case "gold":
+      return 2;
+    case "steps":
+      return 3;
+    case "playTime":
+      return 4;
+    case "timer":
+      return 5;
+    case "saveCount":
+      return 6;
+    case "battleCount":
+      return 7;
+    case "winCount":
+      return 8;
+    case "escapeCount":
+      return 9;
+  }
 }
 
 function compileChoiceBranches(
