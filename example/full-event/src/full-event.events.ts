@@ -63,7 +63,7 @@ export const sampleCommonEventDefinition = commonEvent({
   name: "Sample Common Event",
   trigger: "none",
   commands: [
-    showText(["This line came from a Common Event defined in the same DSL workspace."]),
+    showText({ lines: ["This line came from a Common Event defined in the same DSL workspace."] }),
     controlVariables({
       variable: visitCountVariable,
       operation: "add",
@@ -82,7 +82,7 @@ export const guideEvent = mapEvent({
     page({
       commands: [
         comment(["Visible entry point for the full-event sample workspace."]),
-        showText(["Event DSL sample", "Talk to nearby events to try each command family."]),
+        showText({ lines: ["Event DSL sample", "Talk to nearby events to try each command family."] }),
         controlSwitches({
           switch: tourStartedSwitch,
           value: true,
@@ -96,13 +96,13 @@ export const guideEvent = mapEvent({
           condition: {
             switch1: chestOpenedSwitch,
           },
-          then: [showText(["The reward chest has already been opened."])],
-          else: [showText(["The reward chest is still waiting."])],
+          then: [showText({ lines: ["The reward chest has already been opened."] })],
+          else: [showText({ lines: ["The reward chest is still waiting."] })],
         }),
         showChoices({
           choices: ["Call common event", "Stop here"],
           branches: [[callCommonEvent(sampleCommonEvent)], [exitEvent()]],
-          cancelBranch: [showText(["Canceled."])],
+          cancelBranch: [showText({ lines: ["Canceled."] })],
         }),
         wait(15),
       ],
@@ -121,12 +121,12 @@ export const rewardChestEvent = mapEvent({
       conditions: {
         selfSwitch: "A",
       },
-      commands: [showText(["The chest is empty."])],
+      commands: [showText({ lines: ["The chest is empty."] })],
     }),
     page({
       commands: [
         comment(["Reward chest demonstrates items, gold, variables, and self switches."]),
-        showText(["You found a DSL reward chest."]),
+        showText({ lines: ["You found a DSL reward chest."] }),
         changeGold({
           operation: "gain",
           value: 100,
@@ -168,8 +168,8 @@ export const practiceBattleEvent = mapEvent({
     page({
       commands: [
         comment(["Battle, shop, loop, plugin command, script, and raw command sample."]),
-        showText(["Practice station", "This event exercises several command compilers."]),
-        loop([showText(["Loop body runs once, then breaks."]), breakLoop()]),
+        showText({ lines: ["Practice station", "This event exercises several command compilers."] }),
+        loop([showText({ lines: ["Loop body runs once, then breaks."] }), breakLoop()]),
         battleProcessing({
           troop: batTroop,
           canEscape: true,
@@ -202,7 +202,7 @@ export const transferPadEvent = mapEvent({
   pages: [
     page({
       commands: [
-        showText(["Transfer pad", "You will jump to another tile on the same map."]),
+        showText({ lines: ["Transfer pad", "You will jump to another tile on the same map."] }),
         transferPlayer({
           map: currentMap,
           x: 5,
@@ -223,11 +223,11 @@ export const labelDemoEvent = mapEvent({
   pages: [
     page({
       commands: [
-        showText(["Label demo", "This event jumps over one message, then continues."]),
+        showText({ lines: ["Label demo", "This event jumps over one message, then continues."] }),
         jumpToLabel("AfterSkippedLine"),
-        showText(["You should not see this skipped line."]),
+        showText({ lines: ["You should not see this skipped line."] }),
         label("AfterSkippedLine"),
-        showText(["Jump target reached."]),
+        showText({ lines: ["Jump target reached."] }),
       ],
     }),
   ],

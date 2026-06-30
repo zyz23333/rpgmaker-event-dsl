@@ -276,6 +276,10 @@ function renderCommandAt(commands: readonly RawEventCommand[], index: number): R
   switch (command.code) {
     case 101:
       return renderShowTextCommand(commands, index);
+    case 102:
+      return renderShowChoicesCommand(commands, index);
+    case 105:
+      return renderShowScrollingTextCommand(commands, index);
     case 108:
       return renderCommentCommand(commands, index);
     default:
@@ -294,6 +298,19 @@ function renderShowTextCommand(
 
   const lines: string[] = [];
   let nextIndex = index;
+  const faceName = command.parameters[0];
+  const faceIndex = command.parameters[1];
+  const background = command.parameters[2];
+  const positionType = command.parameters[3];
+
+  if (
+    typeof faceName !== "string" ||
+    typeof faceIndex !== "number" ||
+    !isMessageBackground(background) ||
+    !isMessagePositionType(positionType)
+  ) {
+    return renderSimpleOrRawCommand(command, index);
+  }
 
   // MV stores Show Text bodies as 401 continuation commands owned by the parent command.
   while (
@@ -306,9 +323,166 @@ function renderShowTextCommand(
     nextIndex += 1;
   }
 
+  const fields = [`lines: ${literal(lines.length > 0 ? lines : [""])}`];
+  const helperNames = ["showText"];
+
+  if (faceName.length > 0) {
+    fields.push(
+      `face: { image: imageAsset({ folder: "faces", name: ${literal(faceName)} }), index: ${faceIndex} }`,
+    );
+    helperNames.push("imageAsset");
+  }
+  if (background !== 0) {
+    fields.push(`background: ${background}`);
+  }
+  if (positionType !== 2) {
+    fields.push(`positionType: ${positionType}`);
+  }
+
   return {
-    expression: `showText(${literal(lines.length > 0 ? lines : [""])})`,
-    helperNames: ["showText"],
+    expression: `showText({ ${fields.join(", ")} })`,
+    helperNames,
+    nextIndex,
+  };
+}
+
+function renderShowChoicesCommand(
+  commands: readonly RawEventCommand[],
+  index: number,
+): RenderedCommand {
+  const command = commands[index];
+  if (command === undefined) {
+    throw new Error("Cannot render missing Show Choices command.");
+  }
+
+  const choices = command.parameters[0];
+  const cancelType = command.parameters[1];
+  const defaultType = command.parameters[2];
+  const positionType = command.parameters[3];
+  const background = command.parameters[4];
+
+  if (
+    !isStringArray(choices) ||
+    choices.length === 0 ||
+    typeof cancelType !== "number" ||
+    typeof defaultType !== "number" ||
+    !isMessagePositionType(positionType) ||
+    !isMessageBackground(background)
+  ) {
+    return renderSimpleOrRawCommand(command, index);
+  }
+
+  const helperNames = new Set<string>(["showChoices"]);
+  const branches = Array.from({ length: choices.length }, () => [] as RawEventCommand[]);
+  let cancelBranch: RawEventCommand[] | null = null;
+  let nextIndex = index;
+
+  while (commands[nextIndex + 1]?.indent === command.indent) {
+    const branchCommand = commands[nextIndex + 1];
+    if (branchCommand === undefined || (branchCommand.code !== 402 && branchCommand.code !== 403)) {
+      break;
+    }
+
+    const branchEndIndex = findMessageBranchEnd(commands, nextIndex + 2, command.indent);
+    const body = commands.slice(nextIndex + 2, branchEndIndex);
+
+    if (branchCommand.code === 402) {
+      const choiceIndex = branchCommand.parameters[0];
+      if (
+        typeof choiceIndex !== "number" ||
+        !Number.isInteger(choiceIndex) ||
+        choiceIndex < 0 ||
+        choiceIndex >= choices.length
+      ) {
+        break;
+      }
+      branches[choiceIndex] = body;
+    } else {
+      cancelBranch = body;
+    }
+
+    nextIndex = branchEndIndex - 1;
+  }
+
+  const branchExpressions = branches.map((branch) => {
+    const rendered = renderDecompiledCommandList(branch);
+    for (const helperName of rendered.helperNames) {
+      helperNames.add(helperName);
+    }
+    return `[${renderInlineCommandListSource(rendered.source)}]`;
+  });
+
+  const fields = [`choices: ${literal(choices)}`, `branches: [${branchExpressions.join(", ")}]`];
+
+  if (cancelType !== -1) {
+    fields.push(`cancelType: ${cancelType}`);
+  }
+  if (defaultType !== 0) {
+    fields.push(`defaultType: ${defaultType}`);
+  }
+  if (positionType !== 2) {
+    fields.push(`positionType: ${positionType}`);
+  }
+  if (background !== 0) {
+    fields.push(`background: ${background}`);
+  }
+  if (cancelBranch !== null) {
+    const renderedCancelBranch = renderDecompiledCommandList(cancelBranch);
+    for (const helperName of renderedCancelBranch.helperNames) {
+      helperNames.add(helperName);
+    }
+    fields.push(`cancelBranch: [${renderInlineCommandListSource(renderedCancelBranch.source)}]`);
+  }
+
+  return {
+    expression: `showChoices({ ${fields.join(", ")} })`,
+    helperNames: [...helperNames],
+    nextIndex,
+  };
+}
+
+function renderShowScrollingTextCommand(
+  commands: readonly RawEventCommand[],
+  index: number,
+): RenderedCommand {
+  const command = commands[index];
+  if (command === undefined) {
+    throw new Error("Cannot render missing Show Scrolling Text command.");
+  }
+
+  const speed = command.parameters[0];
+  const noFastForward = command.parameters[1];
+  if (typeof speed !== "number" || typeof noFastForward !== "boolean") {
+    return renderSimpleOrRawCommand(command, index);
+  }
+
+  const lines: string[] = [];
+  let nextIndex = index;
+
+  while (
+    commands[nextIndex + 1]?.code === 405 &&
+    commands[nextIndex + 1]?.indent === command.indent
+  ) {
+    const next = commands[nextIndex + 1];
+    const line = next?.parameters[0];
+    if (typeof line !== "string") {
+      break;
+    }
+    lines.push(line);
+    nextIndex += 1;
+  }
+
+  const fields = [`lines: ${literal(lines.length > 0 ? lines : [""])}`];
+  if (speed !== 2) {
+    fields.push(`speed: ${speed}`);
+  }
+  if (noFastForward) {
+    fields.push("noFastForward: true");
+  }
+
+  return {
+    expression: `showScrollingText({ ${fields.join(", ")} })`,
+    helperNames: ["showScrollingText"],
     nextIndex,
   };
 }
@@ -413,6 +587,26 @@ function renderSimpleCommand(command: RawEventCommand): Omit<RenderedCommand, "n
           }
         : null;
     }
+    case 103: {
+      const variableId = readPositiveInteger(command.parameters[0]);
+      const digits = command.parameters[1];
+      return variableId !== null && typeof digits === "number"
+        ? {
+            expression: `inputNumber({ variable: variableRef({ id: ${variableId} }), digits: ${digits} })`,
+            helperNames: ["inputNumber", "variableRef"],
+          }
+        : null;
+    }
+    case 104: {
+      const variableId = readPositiveInteger(command.parameters[0]);
+      const itemType = command.parameters[1];
+      return variableId !== null && isItemType(itemType)
+        ? {
+            expression: `selectItem({ variable: variableRef({ id: ${variableId} }), itemType: ${itemType} })`,
+            helperNames: ["selectItem", "variableRef"],
+          }
+        : null;
+    }
     case 126: {
       const itemId = readPositiveInteger(command.parameters[0]);
       const operation = command.parameters[1];
@@ -503,6 +697,32 @@ function renderRawCommand(command: RawEventCommand): string {
   code: ${command.code},${indentLine}
   parameters: ${literal(command.parameters)},
 })`;
+}
+
+function findMessageBranchEnd(
+  commands: readonly RawEventCommand[],
+  startIndex: number,
+  parentIndent: number,
+): number {
+  let index = startIndex;
+
+  while (index < commands.length) {
+    const command = commands[index];
+    if (command === undefined || command.indent <= parentIndent) {
+      break;
+    }
+    index += 1;
+  }
+
+  return index;
+}
+
+function renderInlineCommandListSource(source: string): string {
+  if (source.length === 0) {
+    return "";
+  }
+
+  return source.replaceAll("\n", " ");
 }
 
 function renderPageConditions(conditions: Record<string, unknown> | undefined): string {
@@ -859,6 +1079,22 @@ function literal(value: unknown): string {
 
 function readStringParameter(value: unknown): string {
   return typeof value === "string" ? value : "";
+}
+
+function isStringArray(value: unknown): value is string[] {
+  return Array.isArray(value) && value.every((entry) => typeof entry === "string");
+}
+
+function isMessageBackground(value: unknown): value is 0 | 1 | 2 {
+  return value === 0 || value === 1 || value === 2;
+}
+
+function isMessagePositionType(value: unknown): value is 0 | 1 | 2 {
+  return value === 0 || value === 1 || value === 2;
+}
+
+function isItemType(value: unknown): value is 1 | 2 | 3 | 4 {
+  return value === 1 || value === 2 || value === 3 || value === 4;
 }
 
 function readPositiveInteger(value: unknown): number | null {

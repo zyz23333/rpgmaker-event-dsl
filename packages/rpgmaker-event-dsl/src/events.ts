@@ -131,11 +131,44 @@ function compileNodes(
         output.push({
           code: 101,
           indent,
-          parameters: ["", 0, 0, 2],
+          parameters: [
+            node.face?.image.name ?? "",
+            node.face?.index ?? 0,
+            node.background ?? 0,
+            node.positionType ?? 2,
+          ],
         });
         for (const line of node.lines) {
           output.push({
             code: 401,
+            indent,
+            parameters: [line],
+          });
+        }
+        break;
+      case "inputNumber":
+        output.push({
+          code: 103,
+          indent,
+          parameters: [resolver.resolveReference(node.variable), node.digits],
+        });
+        break;
+      case "selectItem":
+        output.push({
+          code: 104,
+          indent,
+          parameters: [resolver.resolveReference(node.variable), node.itemType ?? 2],
+        });
+        break;
+      case "showScrollingText":
+        output.push({
+          code: 105,
+          indent,
+          parameters: [node.speed ?? 2, node.noFastForward ?? false],
+        });
+        for (const line of node.lines) {
+          output.push({
+            code: 405,
             indent,
             parameters: [line],
           });

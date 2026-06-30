@@ -231,6 +231,9 @@ export type AudioPayload = {
 
 export type DslCommand =
   | ShowTextDslCommand
+  | InputNumberDslCommand
+  | SelectItemDslCommand
+  | ShowScrollingTextDslCommand
   | ConditionalDslCommand
   | LoopDslCommand
   | BreakLoopDslCommand
@@ -257,6 +260,31 @@ export type DslCommand =
 export type ShowTextDslCommand = {
   kind: "showText";
   lines: readonly [string, ...string[]];
+  face?: {
+    image: ImageAssetReference;
+    index?: number;
+  };
+  background?: 0 | 1 | 2;
+  positionType?: 0 | 1 | 2;
+};
+
+export type InputNumberDslCommand = {
+  kind: "inputNumber";
+  variable: ReferenceValue<"variable">;
+  digits: number;
+};
+
+export type SelectItemDslCommand = {
+  kind: "selectItem";
+  variable: ReferenceValue<"variable">;
+  itemType?: 1 | 2 | 3 | 4;
+};
+
+export type ShowScrollingTextDslCommand = {
+  kind: "showScrollingText";
+  lines: readonly [string, ...string[]];
+  speed?: number;
+  noFastForward?: boolean;
 };
 
 export type ShowChoicesDslCommand = {
@@ -482,8 +510,78 @@ export function page(input: {
   };
 }
 
-export function showText(lines: readonly [string, ...string[]]): ShowTextDslCommand {
-  return { kind: "showText", lines };
+export function showText(input: {
+  lines: readonly [string, ...string[]];
+  face?: {
+    image: ImageAssetReference;
+    index?: number;
+  };
+  background?: 0 | 1 | 2;
+  positionType?: 0 | 1 | 2;
+}): ShowTextDslCommand {
+  const node: ShowTextDslCommand = {
+    kind: "showText",
+    lines: input.lines,
+  };
+
+  if (input.face !== undefined) {
+    node.face = input.face;
+  }
+  if (input.background !== undefined) {
+    node.background = input.background;
+  }
+  if (input.positionType !== undefined) {
+    node.positionType = input.positionType;
+  }
+
+  return node;
+}
+
+export function inputNumber(input: {
+  variable: ReferenceValue<"variable">;
+  digits: number;
+}): InputNumberDslCommand {
+  return {
+    kind: "inputNumber",
+    variable: input.variable,
+    digits: input.digits,
+  };
+}
+
+export function selectItem(input: {
+  variable: ReferenceValue<"variable">;
+  itemType?: 1 | 2 | 3 | 4;
+}): SelectItemDslCommand {
+  const node: SelectItemDslCommand = {
+    kind: "selectItem",
+    variable: input.variable,
+  };
+
+  if (input.itemType !== undefined) {
+    node.itemType = input.itemType;
+  }
+
+  return node;
+}
+
+export function showScrollingText(input: {
+  lines: readonly [string, ...string[]];
+  speed?: number;
+  noFastForward?: boolean;
+}): ShowScrollingTextDslCommand {
+  const node: ShowScrollingTextDslCommand = {
+    kind: "showScrollingText",
+    lines: input.lines,
+  };
+
+  if (input.speed !== undefined) {
+    node.speed = input.speed;
+  }
+  if (input.noFastForward !== undefined) {
+    node.noFastForward = input.noFastForward;
+  }
+
+  return node;
 }
 
 export function showChoices(input: {

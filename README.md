@@ -55,7 +55,7 @@ agent to change safely.
 The DSL gives those raw records readable names and typed structure:
 
 ```ts
-commands: [showText(["Welcome."])];
+commands: [showText({ lines: ["Welcome."] })];
 ```
 
 That single DSL command compiles into the raw command list above. `code: 101` starts the
@@ -92,7 +92,7 @@ export const introCommonEvent = commonEvent({
   id: 1,
   name: "Intro",
   trigger: "none",
-  commands: [showText(["Welcome."])],
+  commands: [showText({ lines: ["Welcome."] })],
 });
 ```
 
@@ -328,7 +328,7 @@ export const introCommonEvent = commonEvent({
   id: 1,
   name: "Intro",
   trigger: "none",
-  commands: [showText(["Welcome."])],
+  commands: [showText({ lines: ["Welcome."] })],
 });
 
 export const doorEvent = mapEvent({
@@ -342,7 +342,10 @@ export const doorEvent = mapEvent({
       conditions: {
         switch1: switchRef({ id: 1 }),
       },
-      commands: [showText(["The door is open."]), callCommonEvent(commonEventRef({ id: 1 }))],
+      commands: [
+        showText({ lines: ["The door is open."] }),
+        callCommonEvent(commonEventRef({ id: 1 })),
+      ],
     }),
   ],
 });

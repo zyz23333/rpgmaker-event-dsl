@@ -268,6 +268,10 @@ describe("decompile workflow", () => {
                 list: [
                   { code: 101, indent: 0, parameters: ["", 0, 0, 2] },
                   { code: 401, indent: 0, parameters: ["Hello"] },
+                  { code: 103, indent: 0, parameters: [2, 4] },
+                  { code: 104, indent: 0, parameters: [2, 1] },
+                  { code: 105, indent: 0, parameters: [3, true] },
+                  { code: 405, indent: 0, parameters: ["Scrolling"] },
                   { code: 121, indent: 0, parameters: [1, 1, 0] },
                   { code: 122, indent: 0, parameters: [2, 2, 1, 0, 5] },
                   { code: 250, indent: 0, parameters: [{ name: "Bell", volume: 90 }] },
@@ -331,7 +335,12 @@ describe("decompile workflow", () => {
     expect(mapSource).toContain("mapId: 1");
     expect(mapSource).toContain("id: 1");
     expect(mapSource).toContain('name: "Gate"');
-    expect(mapSource).toContain('showText(["Hello"])');
+    expect(mapSource).toContain('showText({ lines: ["Hello"] })');
+    expect(mapSource).toContain("inputNumber({ variable: variableRef({ id: 2 }), digits: 4 })");
+    expect(mapSource).toContain("selectItem({ variable: variableRef({ id: 2 }), itemType: 1 })");
+    expect(mapSource).toContain(
+      'showScrollingText({ lines: ["Scrolling"], speed: 3, noFastForward: true })',
+    );
     expect(mapSource).toContain("controlSwitches({ switch: switchRef({ id: 1 }), value: true })");
     expect(mapSource).toContain(
       'controlVariables({ variable: variableRef({ id: 2 }), operation: "add", value: 5 })',
@@ -1409,6 +1418,10 @@ export declare function controlVariables(input: {
   value: unknown;
 }): unknown;
 export declare function itemRef(value: { id: number } | { name: string }): unknown;
+export declare function inputNumber(input: {
+  variable: unknown;
+  digits: number;
+}): unknown;
 export declare function mapEvent(input: {
   mapId: number;
   id: number;
@@ -1427,7 +1440,21 @@ export declare function rawDslCommand(input: {
   indent?: number;
   parameters: readonly unknown[];
 }): unknown;
-export declare function showText(lines: readonly [string, ...string[]]): unknown;
+export declare function selectItem(input: {
+  variable: unknown;
+  itemType?: 1 | 2 | 3 | 4;
+}): unknown;
+export declare function showScrollingText(input: {
+  lines: readonly [string, ...string[]];
+  speed?: number;
+  noFastForward?: boolean;
+}): unknown;
+export declare function showText(input: {
+  lines: readonly [string, ...string[]];
+  face?: { image: unknown; index?: number };
+  background?: 0 | 1 | 2;
+  positionType?: 0 | 1 | 2;
+}): unknown;
 export declare function switchDefinition(input: { id: number; name: string }): { kind: "switchDefinition"; id: number; name: string };
 export declare function switchRef(value: { id: number } | { name: string }): unknown;
 export declare function variableDefinition(input: { id: number; name: string }): { kind: "variableDefinition"; id: number; name: string };

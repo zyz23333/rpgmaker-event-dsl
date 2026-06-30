@@ -399,11 +399,22 @@ function validateNodes(
     if (node.kind === "changeItem") {
       captureReferenceIssue(() => resolver.resolveReference(node.item), issues);
     }
+    if (node.kind === "inputNumber" || node.kind === "selectItem") {
+      captureReferenceIssue(() => resolver.resolveReference(node.variable), issues);
+    }
     if (node.kind === "showChoices" && node.branches.length !== node.choices.length) {
       issues.push({
         level: "error",
         message: "Show Choices branches must match the choice count.",
       });
+    }
+    if (node.kind === "showChoices") {
+      for (const branch of node.branches) {
+        validateNodes(branch, resolver, options, issues);
+      }
+      if (node.cancelBranch) {
+        validateNodes(node.cancelBranch, resolver, options, issues);
+      }
     }
     if (node.kind === "commonEvent") {
       captureReferenceIssue(() => resolver.resolveReference(node.ref), issues);

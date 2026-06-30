@@ -15,6 +15,7 @@ import {
   controlVariables,
   eraseEvent,
   imageAsset,
+  inputNumber,
   isAssetReference,
   isProjectDataReference,
   isRuntimeSelector,
@@ -22,8 +23,10 @@ import {
   mapEvent,
   movieAsset,
   page,
+  selectItem,
   scriptInput,
   showChoices,
+  showScrollingText,
   showText,
   switchDefinition,
   variableDefinition,
@@ -45,7 +48,7 @@ describe("collectDslOwnedDeclarations", () => {
         y: 2,
         pages: [
           page({
-            commands: [showText(["Hello"])],
+            commands: [showText({ lines: ["Hello"] })],
           }),
         ],
       }),
@@ -113,6 +116,31 @@ describe("collectDslOwnedDeclarations", () => {
     expect(wait(60).kind).toBe("wait");
     expect(eraseEvent().kind).toBe("eraseEvent");
     expect(battleProcessing({ troop: troopRef({ id: 1 }) }).kind).toBe("battleProcessing");
+    expect(
+      showText({
+        lines: ["Portrait line"],
+        face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 3 },
+        background: 1,
+        positionType: 0,
+      }),
+    ).toEqual({
+      kind: "showText",
+      lines: ["Portrait line"],
+      face: {
+        image: {
+          kind: "asset",
+          category: "image",
+          folder: "faces",
+          name: "Actor1",
+        },
+        index: 3,
+      },
+      background: 1,
+      positionType: 0,
+    });
+    expect(inputNumber({ variable: variableRef({ id: 1 }), digits: 4 }).kind).toBe("inputNumber");
+    expect(selectItem({ variable: variableRef({ id: 1 }), itemType: 1 }).kind).toBe("selectItem");
+    expect(showScrollingText({ lines: ["A", "B"], speed: 4 }).kind).toBe("showScrollingText");
     expect(
       showChoices({
         choices: ["Yes", "No"],

@@ -168,6 +168,102 @@ export const count = variableDefinition({
     expect(choices.branches).toEqual([[{ kind: "wait", frames: 10 }], [{ kind: "eraseEvent" }]]);
   });
 
+  it("evaluates imported message command helpers", async () => {
+    const dir = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-def-message-"));
+    const file = join(dir, "message.ts");
+    const packageRoot = join(dir, "node_modules", "rpgmaker-event-dsl");
+    await mkdir(packageRoot, { recursive: true });
+    await writeFile(
+      join(packageRoot, "package.json"),
+      JSON.stringify({
+        name: "rpgmaker-event-dsl",
+        type: "module",
+        types: "./index.d.ts",
+        exports: {
+          ".": {
+            types: "./index.d.ts",
+            default: "./index.js",
+          },
+        },
+      }),
+      "utf8",
+    );
+    await writeFile(
+      join(packageRoot, "index.d.ts"),
+      `export declare function imageAsset(input: { folder: "faces"; name: string }): unknown;
+export declare function inputNumber(input: { variable: unknown; digits: number }): unknown;
+export declare function mapEvent(input: {
+  mapId: number;
+  id: number;
+  name: string;
+  x: number;
+  y: number;
+  pages: readonly unknown[];
+}): { kind: "mapEvent"; pages: readonly [{ commands: readonly unknown[] }] };
+export declare function page(input: { commands: readonly unknown[] }): unknown;
+export declare function selectItem(input: { variable: unknown; itemType?: 1 | 2 | 3 | 4 }): unknown;
+export declare function showScrollingText(input: { lines: readonly [string, ...string[]]; speed?: number }): unknown;
+export declare function showText(input: {
+  lines: readonly [string, ...string[]];
+  face?: { image: unknown; index?: number };
+}): unknown;
+export declare function variableRef(value: { id: number } | { name: string }): unknown;
+`,
+      "utf8",
+    );
+    await writeFile(
+      file,
+      `import {
+  imageAsset,
+  inputNumber,
+  mapEvent,
+  page,
+  selectItem,
+  showScrollingText,
+  showText,
+  variableRef,
+} from "rpgmaker-event-dsl";
+
+export const message = mapEvent({
+  mapId: 1,
+  id: 1,
+  name: "Message",
+  x: 1,
+  y: 2,
+  pages: [
+    page({
+      commands: [
+        showText({
+          lines: ["Hello"],
+          face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 0 },
+        }),
+        inputNumber({ variable: variableRef({ id: 1 }), digits: 3 }),
+        selectItem({ variable: variableRef({ id: 1 }), itemType: 2 }),
+        showScrollingText({ lines: ["Scroll"], speed: 4 }),
+      ],
+    }),
+  ],
+});
+`,
+      "utf8",
+    );
+
+    const definitions = await loadDefinitionFile(file);
+    const event = definitions[0];
+
+    expect(event?.kind).toBe("mapEvent");
+    if (event?.kind !== "mapEvent") {
+      return;
+    }
+
+    expect(event.pages[0]?.commands.map((command) => command.kind)).toEqual([
+      "showText",
+      "inputNumber",
+      "selectItem",
+      "showScrollingText",
+    ]);
+  });
+
   it("rejects default exports with a TypeScript diagnostics error", async () => {
     const dir = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-def-"));
     const file = join(dir, "default-export.ts");

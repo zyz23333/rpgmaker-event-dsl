@@ -454,6 +454,8 @@ function createDslNamespace(): Record<string, unknown> {
     controlVariables: getDslHelper("controlVariables"),
     eraseEvent: getDslHelper("eraseEvent"),
     exitEvent: getDslHelper("exitEvent"),
+    imageAsset: getDslHelper("imageAsset"),
+    inputNumber: getDslHelper("inputNumber"),
     itemRef: getDslHelper("itemRef"),
     jumpToLabel: getDslHelper("jumpToLabel"),
     label: getDslHelper("label"),
@@ -463,8 +465,10 @@ function createDslNamespace(): Record<string, unknown> {
     page: getDslHelper("page"),
     pluginCommand: getDslHelper("pluginCommand"),
     rawDslCommand: getDslHelper("rawDslCommand"),
+    selectItem: getDslHelper("selectItem"),
     shopProcessing: getDslHelper("shopProcessing"),
     showChoices: getDslHelper("showChoices"),
+    showScrollingText: getDslHelper("showScrollingText"),
     showText: getDslHelper("showText"),
     script: getDslHelper("script"),
     switchRef: getDslHelper("switchRef"),
@@ -514,6 +518,10 @@ function getDslHelper(name: string): unknown {
       return dsl.eraseEvent;
     case "exitEvent":
       return dsl.exitEvent;
+    case "imageAsset":
+      return dsl.imageAsset;
+    case "inputNumber":
+      return dsl.inputNumber;
     case "itemRef":
       return dsl.itemRef;
     case "jumpToLabel":
@@ -532,10 +540,14 @@ function getDslHelper(name: string): unknown {
       return dsl.pluginCommand;
     case "rawDslCommand":
       return dsl.rawDslCommand;
+    case "selectItem":
+      return dsl.selectItem;
     case "shopProcessing":
       return dsl.shopProcessing;
     case "showChoices":
       return dsl.showChoices;
+    case "showScrollingText":
+      return dsl.showScrollingText;
     case "showText":
       return dsl.showText;
     case "script":
