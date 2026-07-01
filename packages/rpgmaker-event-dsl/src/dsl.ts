@@ -71,6 +71,7 @@ export type ReferenceKind =
   | "skill"
   | "state"
   | "switch"
+  | "tileset"
   | "troop"
   | "variable"
   | "weapon";
@@ -96,6 +97,7 @@ export const referenceKinds = [
   "skill",
   "state",
   "switch",
+  "tileset",
   "troop",
   "variable",
   "weapon",
@@ -364,6 +366,15 @@ export type AudioPayload = {
   pan?: number;
 };
 
+export type LocationInfoType =
+  | "terrainTag"
+  | "eventId"
+  | "tileIdLayer1"
+  | "tileIdLayer2"
+  | "tileIdLayer3"
+  | "tileIdLayer4"
+  | "regionId";
+
 export type ConditionalVariableOperator = "eq" | "ge" | "le" | "gt" | "lt" | "ne";
 
 export type ConditionalBranchCondition =
@@ -467,6 +478,15 @@ export type DslCommand =
   | ChangeWeaponsDslCommand
   | ChangeArmorsDslCommand
   | ChangePartyMemberDslCommand
+  | ChangeBattleBgmDslCommand
+  | ChangeVictoryMeDslCommand
+  | ChangeSaveAccessDslCommand
+  | ChangeMenuAccessDslCommand
+  | ChangeEncounterDisableDslCommand
+  | ChangeFormationAccessDslCommand
+  | ChangeWindowColorDslCommand
+  | ChangeDefeatMeDslCommand
+  | ChangeVehicleBgmDslCommand
   | SetVehicleLocationDslCommand
   | SetEventLocationDslCommand
   | ScrollMapDslCommand
@@ -489,6 +509,21 @@ export type DslCommand =
   | TintPictureDslCommand
   | ErasePictureDslCommand
   | SetWeatherEffectDslCommand
+  | PlayBgmDslCommand
+  | FadeoutBgmDslCommand
+  | SaveBgmDslCommand
+  | ResumeBgmDslCommand
+  | PlayBgsDslCommand
+  | FadeoutBgsDslCommand
+  | PlayMeDslCommand
+  | PlaySeDslCommand
+  | StopSeDslCommand
+  | PlayMovieDslCommand
+  | ChangeMapNameDisplayDslCommand
+  | ChangeTilesetDslCommand
+  | ChangeBattleBackDslCommand
+  | ChangeParallaxDslCommand
+  | GetLocationInfoDslCommand
   | EraseEventDslCommand
   | BattleProcessingDslCommand
   | ShowChoicesDslCommand
@@ -663,6 +698,52 @@ export type ChangePartyMemberDslCommand = {
   actor: ReferenceValue<"actor">;
   operation: "add" | "remove";
   initialize?: boolean;
+};
+
+export type ChangeBattleBgmDslCommand = {
+  kind: "changeBattleBgm";
+  audio: AudioPayload;
+};
+
+export type ChangeVictoryMeDslCommand = {
+  kind: "changeVictoryMe";
+  audio: AudioPayload;
+};
+
+export type ChangeSaveAccessDslCommand = {
+  kind: "changeSaveAccess";
+  enabled: boolean;
+};
+
+export type ChangeMenuAccessDslCommand = {
+  kind: "changeMenuAccess";
+  enabled: boolean;
+};
+
+export type ChangeEncounterDisableDslCommand = {
+  kind: "changeEncounterDisable";
+  disabled: boolean;
+};
+
+export type ChangeFormationAccessDslCommand = {
+  kind: "changeFormationAccess";
+  enabled: boolean;
+};
+
+export type ChangeWindowColorDslCommand = {
+  kind: "changeWindowColor";
+  tone: ToneInput;
+};
+
+export type ChangeDefeatMeDslCommand = {
+  kind: "changeDefeatMe";
+  audio: AudioPayload;
+};
+
+export type ChangeVehicleBgmDslCommand = {
+  kind: "changeVehicleBgm";
+  vehicle: VehicleTarget;
+  audio: AudioPayload;
 };
 
 export type SetVehicleLocationDslCommand = {
@@ -870,6 +951,85 @@ export type SetWeatherEffectDslCommand = {
   power: number;
   duration: number;
   wait?: boolean;
+};
+
+export type PlayBgmDslCommand = {
+  kind: "playBgm";
+  audio: AudioPayload;
+};
+
+export type FadeoutBgmDslCommand = {
+  kind: "fadeoutBgm";
+  duration: number;
+};
+
+export type SaveBgmDslCommand = {
+  kind: "saveBgm";
+};
+
+export type ResumeBgmDslCommand = {
+  kind: "resumeBgm";
+};
+
+export type PlayBgsDslCommand = {
+  kind: "playBgs";
+  audio: AudioPayload;
+};
+
+export type FadeoutBgsDslCommand = {
+  kind: "fadeoutBgs";
+  duration: number;
+};
+
+export type PlayMeDslCommand = {
+  kind: "playMe";
+  audio: AudioPayload;
+};
+
+export type PlaySeDslCommand = {
+  kind: "playSe";
+  audio: AudioPayload;
+};
+
+export type StopSeDslCommand = {
+  kind: "stopSe";
+};
+
+export type PlayMovieDslCommand = {
+  kind: "playMovie";
+  movie: MovieAssetReference;
+};
+
+export type ChangeMapNameDisplayDslCommand = {
+  kind: "changeMapNameDisplay";
+  enabled: boolean;
+};
+
+export type ChangeTilesetDslCommand = {
+  kind: "changeTileset";
+  tileset: ReferenceValue<"tileset">;
+};
+
+export type ChangeBattleBackDslCommand = {
+  kind: "changeBattleBack";
+  battleback1: ImageAssetReference;
+  battleback2: ImageAssetReference;
+};
+
+export type ChangeParallaxDslCommand = {
+  kind: "changeParallax";
+  image: ImageAssetReference;
+  loopX?: boolean;
+  loopY?: boolean;
+  sx?: number;
+  sy?: number;
+};
+
+export type GetLocationInfoDslCommand = {
+  kind: "getLocationInfo";
+  variable: ReferenceValue<"variable">;
+  info: LocationInfoType;
+  location: CommandPosition;
 };
 
 export type EraseEventDslCommand = {
@@ -1301,6 +1461,77 @@ export function changePartyMember(input: {
   return node;
 }
 
+export function changeBattleBgm(input: { audio: AudioPayload }): ChangeBattleBgmDslCommand {
+  return {
+    kind: "changeBattleBgm",
+    audio: input.audio,
+  };
+}
+
+export function changeVictoryMe(input: { audio: AudioPayload }): ChangeVictoryMeDslCommand {
+  return {
+    kind: "changeVictoryMe",
+    audio: input.audio,
+  };
+}
+
+export function changeSaveAccess(input: { enabled: boolean }): ChangeSaveAccessDslCommand {
+  return {
+    kind: "changeSaveAccess",
+    enabled: input.enabled,
+  };
+}
+
+export function changeMenuAccess(input: { enabled: boolean }): ChangeMenuAccessDslCommand {
+  return {
+    kind: "changeMenuAccess",
+    enabled: input.enabled,
+  };
+}
+
+export function changeEncounterDisable(input: {
+  disabled: boolean;
+}): ChangeEncounterDisableDslCommand {
+  return {
+    kind: "changeEncounterDisable",
+    disabled: input.disabled,
+  };
+}
+
+export function changeFormationAccess(input: {
+  enabled: boolean;
+}): ChangeFormationAccessDslCommand {
+  return {
+    kind: "changeFormationAccess",
+    enabled: input.enabled,
+  };
+}
+
+export function changeWindowColor(input: { tone: ToneInput }): ChangeWindowColorDslCommand {
+  return {
+    kind: "changeWindowColor",
+    tone: input.tone,
+  };
+}
+
+export function changeDefeatMe(input: { audio: AudioPayload }): ChangeDefeatMeDslCommand {
+  return {
+    kind: "changeDefeatMe",
+    audio: input.audio,
+  };
+}
+
+export function changeVehicleBgm(input: {
+  vehicle: VehicleTarget;
+  audio: AudioPayload;
+}): ChangeVehicleBgmDslCommand {
+  return {
+    kind: "changeVehicleBgm",
+    vehicle: input.vehicle,
+    audio: input.audio,
+  };
+}
+
 export function setVehicleLocation(input: {
   vehicle: VehicleTarget;
   destination: MapDestination;
@@ -1604,6 +1835,141 @@ export function setWeatherEffect(input: {
   return node;
 }
 
+export function playBgm(input: { audio: AudioPayload }): PlayBgmDslCommand {
+  return {
+    kind: "playBgm",
+    audio: input.audio,
+  };
+}
+
+export function fadeoutBgm(input: { duration: number }): FadeoutBgmDslCommand {
+  return {
+    kind: "fadeoutBgm",
+    duration: input.duration,
+  };
+}
+
+export function saveBgm(): SaveBgmDslCommand {
+  return {
+    kind: "saveBgm",
+  };
+}
+
+export function resumeBgm(): ResumeBgmDslCommand {
+  return {
+    kind: "resumeBgm",
+  };
+}
+
+export function playBgs(input: { audio: AudioPayload }): PlayBgsDslCommand {
+  return {
+    kind: "playBgs",
+    audio: input.audio,
+  };
+}
+
+export function fadeoutBgs(input: { duration: number }): FadeoutBgsDslCommand {
+  return {
+    kind: "fadeoutBgs",
+    duration: input.duration,
+  };
+}
+
+export function playMe(input: { audio: AudioPayload }): PlayMeDslCommand {
+  return {
+    kind: "playMe",
+    audio: input.audio,
+  };
+}
+
+export function playSe(input: { audio: AudioPayload }): PlaySeDslCommand {
+  return {
+    kind: "playSe",
+    audio: input.audio,
+  };
+}
+
+export function stopSe(): StopSeDslCommand {
+  return {
+    kind: "stopSe",
+  };
+}
+
+export function playMovie(input: { movie: MovieAssetReference }): PlayMovieDslCommand {
+  return {
+    kind: "playMovie",
+    movie: input.movie,
+  };
+}
+
+export function changeMapNameDisplay(input: { enabled: boolean }): ChangeMapNameDisplayDslCommand {
+  return {
+    kind: "changeMapNameDisplay",
+    enabled: input.enabled,
+  };
+}
+
+export function changeTileset(input: {
+  tileset: ReferenceValue<"tileset">;
+}): ChangeTilesetDslCommand {
+  return {
+    kind: "changeTileset",
+    tileset: input.tileset,
+  };
+}
+
+export function changeBattleBack(input: {
+  battleback1: ImageAssetReference;
+  battleback2: ImageAssetReference;
+}): ChangeBattleBackDslCommand {
+  return {
+    kind: "changeBattleBack",
+    battleback1: input.battleback1,
+    battleback2: input.battleback2,
+  };
+}
+
+export function changeParallax(input: {
+  image: ImageAssetReference;
+  loopX?: boolean;
+  loopY?: boolean;
+  sx?: number;
+  sy?: number;
+}): ChangeParallaxDslCommand {
+  const node: ChangeParallaxDslCommand = {
+    kind: "changeParallax",
+    image: input.image,
+  };
+
+  if (input.loopX !== undefined) {
+    node.loopX = input.loopX;
+  }
+  if (input.loopY !== undefined) {
+    node.loopY = input.loopY;
+  }
+  if (input.sx !== undefined) {
+    node.sx = input.sx;
+  }
+  if (input.sy !== undefined) {
+    node.sy = input.sy;
+  }
+
+  return node;
+}
+
+export function getLocationInfo(input: {
+  variable: ReferenceValue<"variable">;
+  info: LocationInfoType;
+  location: CommandPosition;
+}): GetLocationInfoDslCommand {
+  return {
+    kind: "getLocationInfo",
+    variable: input.variable,
+    info: input.info,
+    location: input.location,
+  };
+}
+
 export function eraseEvent(): EraseEventDslCommand {
   return { kind: "eraseEvent" };
 }
@@ -1753,6 +2119,10 @@ export function stateRef(value: { id: number } | { name: string }): ReferenceVal
 
 export function switchRef(value: { id: number } | { name: string }): ReferenceValue<"switch"> {
   return createReference("switch", value);
+}
+
+export function tilesetRef(value: { id: number } | { name: string }): ReferenceValue<"tileset"> {
+  return createReference("tileset", value);
 }
 
 export function troopRef(value: { id: number } | { name: string }): ReferenceValue<"troop"> {

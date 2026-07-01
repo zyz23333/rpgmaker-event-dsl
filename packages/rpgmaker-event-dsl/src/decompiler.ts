@@ -736,6 +736,24 @@ function renderSimpleCommand(command: RawEventCommand): Omit<RenderedCommand, "n
             helperNames: ["actorRef", "changePartyMember"],
           };
     }
+    case 132:
+      return renderAudioCommand(command, "changeBattleBgm", "bgm");
+    case 133:
+      return renderAudioCommand(command, "changeVictoryMe", "me");
+    case 134:
+      return renderBooleanSystemCommand(command, "changeSaveAccess", "enabled", false);
+    case 135:
+      return renderBooleanSystemCommand(command, "changeMenuAccess", "enabled", false);
+    case 136:
+      return renderBooleanSystemCommand(command, "changeEncounterDisable", "disabled", true);
+    case 137:
+      return renderBooleanSystemCommand(command, "changeFormationAccess", "enabled", false);
+    case 138:
+      return renderChangeWindowColor(command);
+    case 139:
+      return renderAudioCommand(command, "changeDefeatMe", "me");
+    case 140:
+      return renderChangeVehicleBgm(command);
     case 201:
       return renderTransferPlayer(command);
     case 202:
@@ -814,6 +832,51 @@ function renderSimpleCommand(command: RawEventCommand): Omit<RenderedCommand, "n
       return renderErasePicture(command);
     case 236:
       return renderSetWeatherEffect(command);
+    case 241:
+      return renderAudioCommand(command, "playBgm", "bgm");
+    case 242:
+      return renderDurationCommand(command, "fadeoutBgm");
+    case 243:
+      return command.parameters.length === 0
+        ? {
+            expression: "saveBgm()",
+            helperNames: ["saveBgm"],
+          }
+        : null;
+    case 244:
+      return command.parameters.length === 0
+        ? {
+            expression: "resumeBgm()",
+            helperNames: ["resumeBgm"],
+          }
+        : null;
+    case 245:
+      return renderAudioCommand(command, "playBgs", "bgs");
+    case 246:
+      return renderDurationCommand(command, "fadeoutBgs");
+    case 249:
+      return renderAudioCommand(command, "playMe", "me");
+    case 250:
+      return renderAudioCommand(command, "playSe", "se");
+    case 251:
+      return command.parameters.length === 0
+        ? {
+            expression: "stopSe()",
+            helperNames: ["stopSe"],
+          }
+        : null;
+    case 261:
+      return renderPlayMovie(command);
+    case 281:
+      return renderBooleanSystemCommand(command, "changeMapNameDisplay", "enabled", true);
+    case 282:
+      return renderChangeTileset(command);
+    case 283:
+      return renderChangeBattleBack(command);
+    case 284:
+      return renderChangeParallax(command);
+    case 285:
+      return renderGetLocationInfo(command);
     default:
       return null;
   }
@@ -1203,6 +1266,183 @@ function renderSetWeatherEffect(
       };
 }
 
+function renderAudioCommand(
+  command: RawEventCommand,
+  helperName: string,
+  folder: "bgm" | "bgs" | "me" | "se",
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const audio = renderAudioPayload(command.parameters[0], folder);
+  return audio === null
+    ? null
+    : {
+        expression: `${helperName}({ audio: ${audio} })`,
+        helperNames: ["audioAsset", helperName],
+      };
+}
+
+function renderDurationCommand(
+  command: RawEventCommand,
+  helperName: string,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const duration = command.parameters[0];
+  return typeof duration !== "number"
+    ? null
+    : {
+        expression: `${helperName}({ duration: ${duration} })`,
+        helperNames: [helperName],
+      };
+}
+
+function renderBooleanSystemCommand(
+  command: RawEventCommand,
+  helperName: string,
+  fieldName: "disabled" | "enabled",
+  zeroMeansTrue: boolean,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const value = command.parameters[0];
+  if (value !== 0 && value !== 1) {
+    return null;
+  }
+
+  const booleanValue = zeroMeansTrue ? value === 0 : value === 1;
+  return {
+    expression: `${helperName}({ ${fieldName}: ${booleanValue} })`,
+    helperNames: [helperName],
+  };
+}
+
+function renderChangeWindowColor(
+  command: RawEventCommand,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const tone = renderTone(command.parameters[0]);
+  return tone === null
+    ? null
+    : {
+        expression: `changeWindowColor({ tone: ${tone} })`,
+        helperNames: ["changeWindowColor"],
+      };
+}
+
+function renderChangeVehicleBgm(
+  command: RawEventCommand,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const vehicle = vehicleFromCode(command.parameters[0]);
+  const audio = renderAudioPayload(command.parameters[1], "bgm");
+  return vehicle === null || audio === null
+    ? null
+    : {
+        expression: `changeVehicleBgm({ vehicle: ${literal(vehicle)}, audio: ${audio} })`,
+        helperNames: ["audioAsset", "changeVehicleBgm"],
+      };
+}
+
+function renderPlayMovie(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const movieName = command.parameters[0];
+  return typeof movieName !== "string"
+    ? null
+    : {
+        expression: `playMovie({ movie: movieAsset({ name: ${literal(movieName)} }) })`,
+        helperNames: ["movieAsset", "playMovie"],
+      };
+}
+
+function renderChangeTileset(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const tilesetId = readPositiveInteger(command.parameters[0]);
+  return tilesetId === null
+    ? null
+    : {
+        expression: `changeTileset({ tileset: tilesetRef({ id: ${tilesetId} }) })`,
+        helperNames: ["changeTileset", "tilesetRef"],
+      };
+}
+
+function renderChangeBattleBack(
+  command: RawEventCommand,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const battleback1 = command.parameters[0];
+  const battleback2 = command.parameters[1];
+  return typeof battleback1 !== "string" || typeof battleback2 !== "string"
+    ? null
+    : {
+        expression: `changeBattleBack({ battleback1: imageAsset({ folder: "battlebacks1", name: ${literal(battleback1)} }), battleback2: imageAsset({ folder: "battlebacks2", name: ${literal(battleback2)} }) })`,
+        helperNames: ["changeBattleBack", "imageAsset"],
+      };
+}
+
+function renderChangeParallax(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const imageName = command.parameters[0];
+  const loopX = command.parameters[1];
+  const loopY = command.parameters[2];
+  const sx = command.parameters[3];
+  const sy = command.parameters[4];
+
+  if (
+    typeof imageName !== "string" ||
+    typeof loopX !== "boolean" ||
+    typeof loopY !== "boolean" ||
+    typeof sx !== "number" ||
+    typeof sy !== "number"
+  ) {
+    return null;
+  }
+
+  const fields = [`image: imageAsset({ folder: "parallaxes", name: ${literal(imageName)} })`];
+  if (loopX) {
+    fields.push("loopX: true");
+  }
+  if (loopY) {
+    fields.push("loopY: true");
+  }
+  if (sx !== 0) {
+    fields.push(`sx: ${sx}`);
+  }
+  if (sy !== 0) {
+    fields.push(`sy: ${sy}`);
+  }
+
+  return {
+    expression: `changeParallax({ ${fields.join(", ")} })`,
+    helperNames: ["changeParallax", "imageAsset"],
+  };
+}
+
+function renderGetLocationInfo(
+  command: RawEventCommand,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const variableId = readPositiveInteger(command.parameters[0]);
+  const info = locationInfoTypeFromCode(command.parameters[1]);
+  const location = renderCommandPosition(
+    command.parameters[2],
+    command.parameters[3],
+    command.parameters[4],
+  );
+
+  return variableId === null || info === null || location === null
+    ? null
+    : {
+        expression: `getLocationInfo({ variable: variableRef({ id: ${variableId} }), info: ${literal(info)}, location: ${location.expression} })`,
+        helperNames: ["getLocationInfo", "variableRef", ...location.helperNames],
+      };
+}
+
+function renderAudioPayload(value: unknown, folder: "bgm" | "bgs" | "me" | "se"): string | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return null;
+  }
+
+  const audio = value as Record<string, unknown>;
+  if (
+    typeof audio.name !== "string" ||
+    typeof audio.volume !== "number" ||
+    typeof audio.pitch !== "number" ||
+    typeof audio.pan !== "number"
+  ) {
+    return null;
+  }
+
+  return `{ asset: audioAsset({ folder: ${literal(folder)}, name: ${literal(audio.name)} }), volume: ${audio.volume}, pitch: ${audio.pitch}, pan: ${audio.pan} }`;
+}
+
 function renderMoveRouteCommands(
   commands: readonly unknown[],
 ): { expressions: string[]; helperNames: string[] } | null {
@@ -1558,6 +1798,32 @@ function renderPicturePosition(
       ? null
       : {
           expression: `{ kind: "variables", x: variableRef({ id: ${xVariableId} }), y: variableRef({ id: ${yVariableId} })${origin === "center" ? ', origin: "center"' : ""} }`,
+          helperNames: ["variableRef"],
+        };
+  }
+
+  return null;
+}
+
+function renderCommandPosition(
+  designation: unknown,
+  xParameter: unknown,
+  yParameter: unknown,
+): { expression: string; helperNames: readonly string[] } | null {
+  if (designation === 0 && typeof xParameter === "number" && typeof yParameter === "number") {
+    return {
+      expression: `{ kind: "direct", x: ${xParameter}, y: ${yParameter} }`,
+      helperNames: [],
+    };
+  }
+
+  if (designation === 1) {
+    const xVariableId = readPositiveInteger(xParameter);
+    const yVariableId = readPositiveInteger(yParameter);
+    return xVariableId === null || yVariableId === null
+      ? null
+      : {
+          expression: `{ kind: "variables", x: variableRef({ id: ${xVariableId} }), y: variableRef({ id: ${yVariableId} }) }`,
           helperNames: ["variableRef"],
         };
   }
@@ -2708,6 +2974,37 @@ function weatherEffectFromCode(value: unknown): "none" | "rain" | "storm" | "sno
   }
 
   return null;
+}
+
+function locationInfoTypeFromCode(
+  value: unknown,
+):
+  | "terrainTag"
+  | "eventId"
+  | "tileIdLayer1"
+  | "tileIdLayer2"
+  | "tileIdLayer3"
+  | "tileIdLayer4"
+  | "regionId"
+  | null {
+  switch (value) {
+    case 0:
+      return "terrainTag";
+    case 1:
+      return "eventId";
+    case 2:
+      return "tileIdLayer1";
+    case 3:
+      return "tileIdLayer2";
+    case 4:
+      return "tileIdLayer3";
+    case 5:
+      return "tileIdLayer4";
+    case 6:
+      return "regionId";
+    default:
+      return null;
+  }
 }
 
 function isNumberTuple(value: unknown, length: number): value is number[] {

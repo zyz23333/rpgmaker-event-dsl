@@ -7,6 +7,7 @@ import {
   buildSnapshotReferenceInput,
   changeItems,
   audioAsset,
+  changeTileset,
   classRef,
   commonEvent,
   commonEventRef,
@@ -30,6 +31,7 @@ import {
   switchDefinition,
   switchRef,
   transferPlayer,
+  tilesetRef,
   troopRef,
   validateDslOwnedDeclarations,
   variableDefinition,
@@ -746,6 +748,41 @@ describe("validateDslOwnedDeclarations", () => {
     );
 
     expect(result.issues).toEqual([]);
+  });
+
+  it("validates Change Tileset through tileset project data references only", () => {
+    const validResult = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Tileset Changer",
+          commands: [changeTileset({ tileset: tilesetRef({ name: "Field" }) })],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotReferences: buildSnapshotReferenceInput({
+          tilesets: [{ id: 1, name: "Field" }],
+        }),
+      },
+    );
+    const missingResult = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Missing Tileset",
+          commands: [changeTileset({ tileset: tilesetRef({ id: 99 }) })],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(validResult.issues).toEqual([]);
+    expect(missingResult.issues.map((issue) => issue.message)).toContain(
+      "Unknown tileset reference id: 99",
+    );
   });
 });
 

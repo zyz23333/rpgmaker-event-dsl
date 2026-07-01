@@ -53,6 +53,7 @@ export type SnapshotReferenceInput = {
   maps?: readonly ReferenceEntry[];
   skills?: readonly ReferenceEntry[];
   states?: readonly ReferenceEntry[];
+  tilesets?: readonly ReferenceEntry[];
   troops?: readonly ReferenceEntry[];
   switches?: readonly ReferenceEntry[];
   variables?: readonly ReferenceEntry[];
@@ -69,6 +70,7 @@ export type SnapshotReferenceSource = {
   mapInfos?: readonly MapInfoEntry[];
   skills?: readonly (Record<string, unknown> | null | undefined)[];
   states?: readonly (Record<string, unknown> | null | undefined)[];
+  tilesets?: readonly (Record<string, unknown> | null | undefined)[];
   troops?: readonly (Record<string, unknown> | null | undefined)[];
   system?: Record<string, unknown>;
   weapons?: readonly (Record<string, unknown> | null | undefined)[];
@@ -204,6 +206,7 @@ export function buildSnapshotReferenceInput(
     maps: (source.mapInfos ?? []).map(({ id, name }) => ({ id, name })),
     skills: readObjectReferenceEntries(source.skills ?? []),
     states: readObjectReferenceEntries(source.states ?? []),
+    tilesets: readObjectReferenceEntries(source.tilesets ?? []),
     troops: readObjectReferenceEntries(source.troops ?? []),
     switches: readSystemNameEntries(source.system ?? {}, "switches"),
     variables: readSystemNameEntries(source.system ?? {}, "variables"),
@@ -250,6 +253,7 @@ function buildReferenceScopes(input: {
     skill: buildReferenceScope(input.snapshotReferences.skills ?? []),
     state: buildReferenceScope(input.snapshotReferences.states ?? []),
     switch: buildReferenceScope(switches),
+    tileset: buildReferenceScope(input.snapshotReferences.tilesets ?? []),
     troop: buildReferenceScope(input.snapshotReferences.troops ?? []),
     variable: buildReferenceScope(variables),
     weapon: buildReferenceScope(input.snapshotReferences.weapons ?? []),
@@ -498,6 +502,13 @@ function validateNodes(
     if (node.kind === "battleProcessing" && isReferenceValue(node.troop)) {
       const troopRef = node.troop;
       captureReferenceIssue(() => resolver.resolveReference(troopRef), issues);
+    }
+    if (node.kind === "changeTileset") {
+      captureReferenceIssue(() => resolver.resolveReference(node.tileset), issues);
+    }
+    if (node.kind === "getLocationInfo") {
+      captureReferenceIssue(() => resolver.resolveReference(node.variable), issues);
+      validateCommandPosition(node.location, resolver, issues);
     }
     if (node.kind === "conditional") {
       validateConditionalBranchCondition(node.condition, resolver, options, issues);

@@ -5,11 +5,24 @@ import {
   battleProcessing,
   audioAsset,
   changeArmors,
+  changeBattleBack,
+  changeBattleBgm,
+  changeDefeatMe,
+  changeEncounterDisable,
+  changeFormationAccess,
   changeGold,
   changeItems,
+  changeMapNameDisplay,
+  changeMenuAccess,
   changePartyMember,
+  changeParallax,
   changePlayerFollowers,
+  changeSaveAccess,
   changeTransparency,
+  changeTileset,
+  changeVehicleBgm,
+  changeVictoryMe,
+  changeWindowColor,
   changeWeapons,
   collectDslOwnedDeclarations,
   comment,
@@ -23,9 +36,12 @@ import {
   erasePicture,
   eraseEvent,
   fadeinScreen,
+  fadeoutBgm,
+  fadeoutBgs,
   fadeoutScreen,
   flashScreen,
   gatherFollowers,
+  getLocationInfo,
   imageAsset,
   inputNumber,
   isAssetReference,
@@ -36,7 +52,14 @@ import {
   movieAsset,
   movePicture,
   page,
+  playBgm,
+  playBgs,
+  playMe,
+  playMovie,
+  playSe,
   rotatePicture,
+  resumeBgm,
+  saveBgm,
   selectItem,
   scriptInput,
   scrollMap,
@@ -52,6 +75,8 @@ import {
   showText,
   shakeScreen,
   switchDefinition,
+  stopSe,
+  tilesetRef,
   tintPicture,
   tintScreen,
   variableDefinition,
@@ -149,6 +174,26 @@ describe("collectDslOwnedDeclarations", () => {
       "changePartyMember",
     );
     expect(
+      changeBattleBgm({ audio: { asset: audioAsset({ folder: "bgm", name: "Battle1" }) } }).kind,
+    ).toBe("changeBattleBgm");
+    expect(
+      changeVictoryMe({ audio: { asset: audioAsset({ folder: "me", name: "Victory1" }) } }).kind,
+    ).toBe("changeVictoryMe");
+    expect(changeSaveAccess({ enabled: true }).kind).toBe("changeSaveAccess");
+    expect(changeMenuAccess({ enabled: false }).kind).toBe("changeMenuAccess");
+    expect(changeEncounterDisable({ disabled: true }).kind).toBe("changeEncounterDisable");
+    expect(changeFormationAccess({ enabled: true }).kind).toBe("changeFormationAccess");
+    expect(changeWindowColor({ tone: [0, 0, 0, 0] }).kind).toBe("changeWindowColor");
+    expect(
+      changeDefeatMe({ audio: { asset: audioAsset({ folder: "me", name: "Defeat1" }) } }).kind,
+    ).toBe("changeDefeatMe");
+    expect(
+      changeVehicleBgm({
+        vehicle: "ship",
+        audio: { asset: audioAsset({ folder: "bgm", name: "Ship1" }) },
+      }).kind,
+    ).toBe("changeVehicleBgm");
+    expect(
       setVehicleLocation({
         vehicle: "boat",
         destination: { kind: "direct", map: { kind: "map", id: 1 }, x: 2, y: 3 },
@@ -219,6 +264,46 @@ describe("collectDslOwnedDeclarations", () => {
     expect(setWeatherEffect({ weather: "rain", power: 5, duration: 60 }).kind).toBe(
       "setWeatherEffect",
     );
+    expect(playBgm({ audio: { asset: audioAsset({ folder: "bgm", name: "Theme" }) } }).kind).toBe(
+      "playBgm",
+    );
+    expect(fadeoutBgm({ duration: 60 }).kind).toBe("fadeoutBgm");
+    expect(saveBgm().kind).toBe("saveBgm");
+    expect(resumeBgm().kind).toBe("resumeBgm");
+    expect(playBgs({ audio: { asset: audioAsset({ folder: "bgs", name: "Rain" }) } }).kind).toBe(
+      "playBgs",
+    );
+    expect(fadeoutBgs({ duration: 30 }).kind).toBe("fadeoutBgs");
+    expect(playMe({ audio: { asset: audioAsset({ folder: "me", name: "Fanfare" }) } }).kind).toBe(
+      "playMe",
+    );
+    expect(playSe({ audio: { asset: audioAsset({ folder: "se", name: "Cursor" }) } }).kind).toBe(
+      "playSe",
+    );
+    expect(stopSe().kind).toBe("stopSe");
+    expect(playMovie({ movie: movieAsset({ name: "Intro" }) }).kind).toBe("playMovie");
+    expect(changeMapNameDisplay({ enabled: true }).kind).toBe("changeMapNameDisplay");
+    expect(changeTileset({ tileset: tilesetRef({ id: 1 }) }).kind).toBe("changeTileset");
+    expect(
+      changeBattleBack({
+        battleback1: imageAsset({ folder: "battlebacks1", name: "Grassland" }),
+        battleback2: imageAsset({ folder: "battlebacks2", name: "Forest" }),
+      }).kind,
+    ).toBe("changeBattleBack");
+    expect(
+      changeParallax({
+        image: imageAsset({ folder: "parallaxes", name: "Clouds" }),
+        loopX: true,
+        sx: 1,
+      }).kind,
+    ).toBe("changeParallax");
+    expect(
+      getLocationInfo({
+        variable: variableRef({ id: 1 }),
+        info: "regionId",
+        location: { kind: "direct", x: 1, y: 2 },
+      }).kind,
+    ).toBe("getLocationInfo");
     expect(wait(60).kind).toBe("wait");
     expect(eraseEvent().kind).toBe("eraseEvent");
     expect(battleProcessing({ troop: troopRef({ id: 1 }) }).kind).toBe("battleProcessing");

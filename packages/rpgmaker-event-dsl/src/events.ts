@@ -1,5 +1,6 @@
 import type {
   BattleProcessingDslCommand,
+  AudioPayload,
   CharacterRuntimeSelector,
   CommandOperand,
   CommandPosition,
@@ -22,6 +23,7 @@ import type {
   ColorInput,
   VehicleTarget,
   WeatherEffectType,
+  LocationInfoType,
 } from "./dsl.js";
 import type { ReferenceResolver } from "./staged-graph.js";
 
@@ -330,6 +332,69 @@ function compileNodes(
           ],
         });
         break;
+      case "changeBattleBgm":
+        output.push({
+          code: 132,
+          indent,
+          parameters: [compileAudioPayload(node.audio)],
+        });
+        break;
+      case "changeVictoryMe":
+        output.push({
+          code: 133,
+          indent,
+          parameters: [compileAudioPayload(node.audio)],
+        });
+        break;
+      case "changeSaveAccess":
+        output.push({
+          code: 134,
+          indent,
+          parameters: [node.enabled ? 1 : 0],
+        });
+        break;
+      case "changeMenuAccess":
+        output.push({
+          code: 135,
+          indent,
+          parameters: [node.enabled ? 1 : 0],
+        });
+        break;
+      case "changeEncounterDisable":
+        output.push({
+          code: 136,
+          indent,
+          parameters: [node.disabled ? 0 : 1],
+        });
+        break;
+      case "changeFormationAccess":
+        output.push({
+          code: 137,
+          indent,
+          parameters: [node.enabled ? 1 : 0],
+        });
+        break;
+      case "changeWindowColor":
+        output.push({
+          code: 138,
+          indent,
+          parameters: [compileTone(node.tone)],
+        });
+        break;
+      case "changeDefeatMe":
+        output.push({
+          code: 139,
+          indent,
+          parameters: [compileAudioPayload(node.audio)],
+        });
+        break;
+      case "changeVehicleBgm":
+        output.push({
+          code: 140,
+          indent,
+          parameters: [vehicleToCode(node.vehicle), compileAudioPayload(node.audio)],
+        });
+        break;
       case "wait":
         output.push({
           code: 230,
@@ -607,6 +672,121 @@ function compileNodes(
             node.power,
             node.duration,
             node.wait ?? false,
+          ],
+        });
+        break;
+      case "playBgm":
+        output.push({
+          code: 241,
+          indent,
+          parameters: [compileAudioPayload(node.audio)],
+        });
+        break;
+      case "fadeoutBgm":
+        output.push({
+          code: 242,
+          indent,
+          parameters: [node.duration],
+        });
+        break;
+      case "saveBgm":
+        output.push({
+          code: 243,
+          indent,
+          parameters: [],
+        });
+        break;
+      case "resumeBgm":
+        output.push({
+          code: 244,
+          indent,
+          parameters: [],
+        });
+        break;
+      case "playBgs":
+        output.push({
+          code: 245,
+          indent,
+          parameters: [compileAudioPayload(node.audio)],
+        });
+        break;
+      case "fadeoutBgs":
+        output.push({
+          code: 246,
+          indent,
+          parameters: [node.duration],
+        });
+        break;
+      case "playMe":
+        output.push({
+          code: 249,
+          indent,
+          parameters: [compileAudioPayload(node.audio)],
+        });
+        break;
+      case "playSe":
+        output.push({
+          code: 250,
+          indent,
+          parameters: [compileAudioPayload(node.audio)],
+        });
+        break;
+      case "stopSe":
+        output.push({
+          code: 251,
+          indent,
+          parameters: [],
+        });
+        break;
+      case "playMovie":
+        output.push({
+          code: 261,
+          indent,
+          parameters: [node.movie.name],
+        });
+        break;
+      case "changeMapNameDisplay":
+        output.push({
+          code: 281,
+          indent,
+          parameters: [node.enabled ? 0 : 1],
+        });
+        break;
+      case "changeTileset":
+        output.push({
+          code: 282,
+          indent,
+          parameters: [resolver.resolveReference(node.tileset)],
+        });
+        break;
+      case "changeBattleBack":
+        output.push({
+          code: 283,
+          indent,
+          parameters: [node.battleback1.name, node.battleback2.name],
+        });
+        break;
+      case "changeParallax":
+        output.push({
+          code: 284,
+          indent,
+          parameters: [
+            node.image.name,
+            node.loopX ?? false,
+            node.loopY ?? false,
+            node.sx ?? 0,
+            node.sy ?? 0,
+          ],
+        });
+        break;
+      case "getLocationInfo":
+        output.push({
+          code: 285,
+          indent,
+          parameters: [
+            resolver.resolveReference(node.variable),
+            locationInfoTypeToCode(node.info),
+            ...compileLocationInfoPosition(node.location, resolver),
           ],
         });
         break;
@@ -1226,17 +1406,54 @@ function compileMoveRouteCommand(
     case "playSe":
       return {
         code: 44,
-        parameters: [
-          {
-            name: command.audio.asset.name,
-            volume: command.audio.volume ?? 90,
-            pitch: command.audio.pitch ?? 100,
-            pan: command.audio.pan ?? 0,
-          },
-        ],
+        parameters: [compileAudioPayload(command.audio)],
       };
     case "script":
       return { code: 45, parameters: [command.script.code] };
+  }
+}
+
+function compileAudioPayload(audio: AudioPayload): {
+  name: string;
+  pan: number;
+  pitch: number;
+  volume: number;
+} {
+  return {
+    name: audio.asset.name,
+    volume: audio.volume ?? 90,
+    pitch: audio.pitch ?? 100,
+    pan: audio.pan ?? 0,
+  };
+}
+
+function compileLocationInfoPosition(
+  position: CommandPosition,
+  resolver: ReferenceResolver,
+): [number, number, number] {
+  if (position.kind === "direct") {
+    return [0, position.x, position.y];
+  }
+
+  return [1, resolver.resolveReference(position.x), resolver.resolveReference(position.y)];
+}
+
+function locationInfoTypeToCode(info: LocationInfoType): number {
+  switch (info) {
+    case "terrainTag":
+      return 0;
+    case "eventId":
+      return 1;
+    case "tileIdLayer1":
+      return 2;
+    case "tileIdLayer2":
+      return 3;
+    case "tileIdLayer3":
+      return 4;
+    case "tileIdLayer4":
+      return 5;
+    case "regionId":
+      return 6;
   }
 }
 
