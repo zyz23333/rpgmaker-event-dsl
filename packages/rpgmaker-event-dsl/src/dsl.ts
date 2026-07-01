@@ -468,6 +468,7 @@ export type DslCommand =
   | SetVehicleLocationDslCommand
   | SetEventLocationDslCommand
   | ScrollMapDslCommand
+  | SetMovementRouteDslCommand
   | GetOnOffVehicleDslCommand
   | WaitDslCommand
   | EraseEventDslCommand
@@ -664,6 +665,57 @@ export type ScrollMapDslCommand = {
   direction: Direction;
   distance: number;
   speed: number;
+};
+
+export type MoveRouteCommand =
+  | { kind: "moveDown" }
+  | { kind: "moveLeft" }
+  | { kind: "moveRight" }
+  | { kind: "moveUp" }
+  | { kind: "moveLowerLeft" }
+  | { kind: "moveLowerRight" }
+  | { kind: "moveUpperLeft" }
+  | { kind: "moveUpperRight" }
+  | { kind: "moveRandom" }
+  | { kind: "moveTowardPlayer" }
+  | { kind: "moveAwayFromPlayer" }
+  | { kind: "moveForward" }
+  | { kind: "moveBackward" }
+  | { kind: "jump"; x: number; y: number }
+  | { kind: "routeWait"; frames: number }
+  | { kind: "turnDown" }
+  | { kind: "turnLeft" }
+  | { kind: "turnRight" }
+  | { kind: "turnUp" }
+  | { kind: "turn90Right" }
+  | { kind: "turn90Left" }
+  | { kind: "turn180" }
+  | { kind: "turn90RightOrLeft" }
+  | { kind: "turnRandom" }
+  | { kind: "turnTowardPlayer" }
+  | { kind: "turnAwayFromPlayer" }
+  | { kind: "switchOn"; switch: ReferenceValue<"switch"> }
+  | { kind: "switchOff"; switch: ReferenceValue<"switch"> }
+  | { kind: "changeSpeed"; speed: number }
+  | { kind: "changeFrequency"; frequency: number }
+  | { kind: "walkAnimation"; enabled: boolean }
+  | { kind: "stepAnimation"; enabled: boolean }
+  | { kind: "directionFix"; enabled: boolean }
+  | { kind: "through"; enabled: boolean }
+  | { kind: "transparent"; enabled: boolean }
+  | { kind: "changeImage"; image: ImageAssetReference; index: number }
+  | { kind: "changeOpacity"; opacity: number }
+  | { kind: "changeBlendMode"; blendMode: 0 | 1 | 2 | 3 }
+  | { kind: "playSe"; audio: AudioPayload }
+  | { kind: "script"; script: ScriptInput };
+
+export type SetMovementRouteDslCommand = {
+  kind: "setMovementRoute";
+  target: CharacterRuntimeSelector;
+  route: readonly MoveRouteCommand[];
+  repeat?: boolean;
+  skippable?: boolean;
+  wait?: boolean;
 };
 
 export type GetOnOffVehicleDslCommand = {
@@ -1144,6 +1196,32 @@ export function scrollMap(input: {
     distance: input.distance,
     speed: input.speed,
   };
+}
+
+export function setMovementRoute(input: {
+  target: CharacterRuntimeSelector;
+  route: readonly MoveRouteCommand[];
+  repeat?: boolean;
+  skippable?: boolean;
+  wait?: boolean;
+}): SetMovementRouteDslCommand {
+  const node: SetMovementRouteDslCommand = {
+    kind: "setMovementRoute",
+    target: input.target,
+    route: input.route,
+  };
+
+  if (input.repeat !== undefined) {
+    node.repeat = input.repeat;
+  }
+  if (input.skippable !== undefined) {
+    node.skippable = input.skippable;
+  }
+  if (input.wait !== undefined) {
+    node.wait = input.wait;
+  }
+
+  return node;
 }
 
 export function getOnOffVehicle(): GetOnOffVehicleDslCommand {

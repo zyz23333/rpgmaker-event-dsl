@@ -744,6 +744,8 @@ function renderSimpleCommand(command: RawEventCommand): Omit<RenderedCommand, "n
       return renderSetEventLocation(command);
     case 204:
       return renderScrollMap(command);
+    case 205:
+      return renderSetMovementRoute(command);
     case 206:
       return command.parameters.length === 0
         ? {
@@ -898,6 +900,270 @@ function renderScrollMap(command: RawEventCommand): Omit<RenderedCommand, "nextI
         helperNames: ["scrollMap"],
       }
     : null;
+}
+
+function renderSetMovementRoute(
+  command: RawEventCommand,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const target = renderCharacterRuntimeSelector(command.parameters[0]);
+  const route = command.parameters[1];
+
+  if (target === null || !route || typeof route !== "object" || Array.isArray(route)) {
+    return null;
+  }
+
+  const routeRecord = route as Record<string, unknown>;
+  if (
+    !Array.isArray(routeRecord.list) ||
+    typeof routeRecord.repeat !== "boolean" ||
+    typeof routeRecord.skippable !== "boolean" ||
+    typeof routeRecord.wait !== "boolean"
+  ) {
+    return null;
+  }
+
+  const renderedRoute = renderMoveRouteCommands(routeRecord.list);
+  if (renderedRoute === null) {
+    return null;
+  }
+
+  const fields = [
+    `target: ${target.expression}`,
+    `route: [${renderedRoute.expressions.join(", ")}]`,
+  ];
+  if (!routeRecord.repeat) {
+    fields.push("repeat: false");
+  }
+  if (routeRecord.skippable) {
+    fields.push("skippable: true");
+  }
+  if (routeRecord.wait) {
+    fields.push("wait: true");
+  }
+
+  return {
+    expression: `setMovementRoute({ ${fields.join(", ")} })`,
+    helperNames: ["setMovementRoute", ...renderedRoute.helperNames],
+  };
+}
+
+function renderMoveRouteCommands(
+  commands: readonly unknown[],
+): { expressions: string[]; helperNames: string[] } | null {
+  const expressions: string[] = [];
+  const helperNames = new Set<string>();
+
+  for (const command of commands) {
+    if (!command || typeof command !== "object" || Array.isArray(command)) {
+      return null;
+    }
+
+    const record = command as Record<string, unknown>;
+    if (record.code === 0) {
+      if (!Array.isArray(record.parameters) || record.parameters.length !== 0) {
+        return null;
+      }
+      continue;
+    }
+
+    const rendered = renderMoveRouteCommand(record);
+    if (rendered === null) {
+      return null;
+    }
+
+    expressions.push(rendered.expression);
+    for (const helperName of rendered.helperNames) {
+      helperNames.add(helperName);
+    }
+  }
+
+  return { expressions, helperNames: [...helperNames] };
+}
+
+function renderMoveRouteCommand(
+  command: Record<string, unknown>,
+): { expression: string; helperNames: readonly string[] } | null {
+  const parameters = Array.isArray(command.parameters) ? command.parameters : null;
+  if (typeof command.code !== "number" || parameters === null) {
+    return null;
+  }
+
+  const simpleExpression = moveRouteSimpleExpressionFromCode(command.code);
+  if (simpleExpression !== null) {
+    return parameters.length === 0 ? { expression: simpleExpression, helperNames: [] } : null;
+  }
+
+  switch (command.code) {
+    case 14:
+      return typeof parameters[0] === "number" && typeof parameters[1] === "number"
+        ? {
+            expression: `{ kind: "jump", x: ${parameters[0]}, y: ${parameters[1]} }`,
+            helperNames: [],
+          }
+        : null;
+    case 15:
+      return typeof parameters[0] === "number"
+        ? { expression: `{ kind: "routeWait", frames: ${parameters[0]} }`, helperNames: [] }
+        : null;
+    case 27:
+    case 28: {
+      const switchId = readPositiveInteger(parameters[0]);
+      return switchId === null
+        ? null
+        : {
+            expression: `{ kind: ${literal(command.code === 27 ? "switchOn" : "switchOff")}, switch: switchRef({ id: ${switchId} }) }`,
+            helperNames: ["switchRef"],
+          };
+    }
+    case 29:
+      return typeof parameters[0] === "number"
+        ? { expression: `{ kind: "changeSpeed", speed: ${parameters[0]} }`, helperNames: [] }
+        : null;
+    case 30:
+      return typeof parameters[0] === "number"
+        ? {
+            expression: `{ kind: "changeFrequency", frequency: ${parameters[0]} }`,
+            helperNames: [],
+          }
+        : null;
+    case 31:
+    case 32:
+      return {
+        expression: `{ kind: "walkAnimation", enabled: ${command.code === 31} }`,
+        helperNames: [],
+      };
+    case 33:
+    case 34:
+      return {
+        expression: `{ kind: "stepAnimation", enabled: ${command.code === 33} }`,
+        helperNames: [],
+      };
+    case 35:
+    case 36:
+      return {
+        expression: `{ kind: "directionFix", enabled: ${command.code === 35} }`,
+        helperNames: [],
+      };
+    case 37:
+    case 38:
+      return {
+        expression: `{ kind: "through", enabled: ${command.code === 37} }`,
+        helperNames: [],
+      };
+    case 39:
+    case 40:
+      return {
+        expression: `{ kind: "transparent", enabled: ${command.code === 39} }`,
+        helperNames: [],
+      };
+    case 41:
+      return typeof parameters[0] === "string" && typeof parameters[1] === "number"
+        ? {
+            expression: `{ kind: "changeImage", image: imageAsset({ folder: "characters", name: ${literal(parameters[0])} }), index: ${parameters[1]} }`,
+            helperNames: ["imageAsset"],
+          }
+        : null;
+    case 42:
+      return typeof parameters[0] === "number"
+        ? { expression: `{ kind: "changeOpacity", opacity: ${parameters[0]} }`, helperNames: [] }
+        : null;
+    case 43:
+      return isBlendMode(parameters[0])
+        ? {
+            expression: `{ kind: "changeBlendMode", blendMode: ${parameters[0]} }`,
+            helperNames: [],
+          }
+        : null;
+    case 44:
+      return renderMoveRoutePlaySe(parameters[0]);
+    case 45:
+      return typeof parameters[0] === "string"
+        ? {
+            expression: `{ kind: "script", script: scriptInput({ code: ${literal(parameters[0])} }) }`,
+            helperNames: ["scriptInput"],
+          }
+        : null;
+    default:
+      return null;
+  }
+}
+
+function moveRouteSimpleExpressionFromCode(code: number): string | null {
+  switch (code) {
+    case 1:
+      return `{ kind: "moveDown" }`;
+    case 2:
+      return `{ kind: "moveLeft" }`;
+    case 3:
+      return `{ kind: "moveRight" }`;
+    case 4:
+      return `{ kind: "moveUp" }`;
+    case 5:
+      return `{ kind: "moveLowerLeft" }`;
+    case 6:
+      return `{ kind: "moveLowerRight" }`;
+    case 7:
+      return `{ kind: "moveUpperLeft" }`;
+    case 8:
+      return `{ kind: "moveUpperRight" }`;
+    case 9:
+      return `{ kind: "moveRandom" }`;
+    case 10:
+      return `{ kind: "moveTowardPlayer" }`;
+    case 11:
+      return `{ kind: "moveAwayFromPlayer" }`;
+    case 12:
+      return `{ kind: "moveForward" }`;
+    case 13:
+      return `{ kind: "moveBackward" }`;
+    case 16:
+      return `{ kind: "turnDown" }`;
+    case 17:
+      return `{ kind: "turnLeft" }`;
+    case 18:
+      return `{ kind: "turnRight" }`;
+    case 19:
+      return `{ kind: "turnUp" }`;
+    case 20:
+      return `{ kind: "turn90Right" }`;
+    case 21:
+      return `{ kind: "turn90Left" }`;
+    case 22:
+      return `{ kind: "turn180" }`;
+    case 23:
+      return `{ kind: "turn90RightOrLeft" }`;
+    case 24:
+      return `{ kind: "turnRandom" }`;
+    case 25:
+      return `{ kind: "turnTowardPlayer" }`;
+    case 26:
+      return `{ kind: "turnAwayFromPlayer" }`;
+    default:
+      return null;
+  }
+}
+
+function renderMoveRoutePlaySe(
+  value: unknown,
+): { expression: string; helperNames: readonly string[] } | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return null;
+  }
+
+  const audio = value as Record<string, unknown>;
+  if (
+    typeof audio.name !== "string" ||
+    typeof audio.volume !== "number" ||
+    typeof audio.pitch !== "number" ||
+    typeof audio.pan !== "number"
+  ) {
+    return null;
+  }
+
+  return {
+    expression: `{ kind: "playSe", audio: { asset: audioAsset({ folder: "se", name: ${literal(audio.name)} }), volume: ${audio.volume}, pitch: ${audio.pitch}, pan: ${audio.pan} } }`,
+    helperNames: ["audioAsset"],
+  };
 }
 
 function renderControlVariables(
@@ -2062,6 +2328,10 @@ function isEventLocationDirection(value: unknown): value is 0 | 2 | 4 | 6 | 8 {
 
 function isFadeType(value: unknown): value is 0 | 1 | 2 {
   return value === 0 || value === 1 || value === 2;
+}
+
+function isBlendMode(value: unknown): value is 0 | 1 | 2 | 3 {
+  return value === 0 || value === 1 || value === 2 || value === 3;
 }
 
 function isSelfSwitch(value: unknown): value is "A" | "B" | "C" | "D" {

@@ -6,6 +6,7 @@ import type {
   DslOwnedDeclaration,
   EventPage,
   MapEventDefinition,
+  MoveRouteCommand,
   PageConditions,
   ReferenceKind,
   ReferenceValue,
@@ -476,6 +477,10 @@ function validateNodes(
       validateCharacterRuntimeSelector(node.character, "Set Event Location character", issues);
       validateEventLocationDestination(node.destination, resolver, issues);
     }
+    if (node.kind === "setMovementRoute") {
+      validateCharacterRuntimeSelector(node.target, "Set Movement Route target", issues);
+      validateMoveRouteCommands(node.route, resolver, options, issues);
+    }
     if (node.kind === "battleProcessing" && isReferenceValue(node.troop)) {
       const troopRef = node.troop;
       captureReferenceIssue(() => resolver.resolveReference(troopRef), issues);
@@ -486,6 +491,26 @@ function validateNodes(
       if (node.else) {
         validateNodes(node.else, resolver, options, issues);
       }
+    }
+  }
+}
+
+function validateMoveRouteCommands(
+  route: readonly MoveRouteCommand[],
+  resolver: ReferenceResolver,
+  options: { scriptEnabled: boolean },
+  issues: ValidationIssue[],
+): void {
+  for (const command of route) {
+    if (command.kind === "switchOn" || command.kind === "switchOff") {
+      captureReferenceIssue(() => resolver.resolveReference(command.switch), issues);
+    }
+
+    if (command.kind === "script" && !options.scriptEnabled) {
+      issues.push({
+        level: "error",
+        message: "Set Movement Route script commands require explicit config enablement.",
+      });
     }
   }
 }

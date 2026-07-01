@@ -31,6 +31,7 @@ import {
   scriptInput,
   scrollMap,
   setEventLocation,
+  setMovementRoute,
   setVehicleLocation,
   showChoices,
   showScrollingText,
@@ -143,6 +144,20 @@ describe("collectDslOwnedDeclarations", () => {
       }).kind,
     ).toBe("setEventLocation");
     expect(scrollMap({ direction: 2, distance: 8, speed: 4 }).kind).toBe("scrollMap");
+    expect(
+      setMovementRoute({
+        target: { kind: "runtimeSelector", scope: "character", target: "player" },
+        route: [
+          { kind: "moveDown" },
+          { kind: "routeWait", frames: 15 },
+          { kind: "switchOn", switch: switchRef({ id: 1 }) },
+          { kind: "script", script: scriptInput({ code: "this.moveForward();" }) },
+        ],
+        repeat: false,
+        skippable: true,
+        wait: true,
+      }).kind,
+    ).toBe("setMovementRoute");
     expect(wait(60).kind).toBe("wait");
     expect(eraseEvent().kind).toBe("eraseEvent");
     expect(battleProcessing({ troop: troopRef({ id: 1 }) }).kind).toBe("battleProcessing");

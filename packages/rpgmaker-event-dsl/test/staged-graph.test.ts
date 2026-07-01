@@ -20,6 +20,7 @@ import {
   scriptInput,
   rawDslCommand,
   setEventLocation,
+  setMovementRoute,
   setVehicleLocation,
   switchDefinition,
   switchRef,
@@ -329,6 +330,7 @@ describe("validateDslOwnedDeclarations", () => {
   it("validates Movement command references without resolving runtime selectors", () => {
     const result = validateDslOwnedDeclarations(
       [
+        switchDefinition({ id: 1, name: "Route Switch" }),
         variableDefinition({ id: 1, name: "Map Var" }),
         variableDefinition({ id: 2, name: "X Var" }),
         variableDefinition({ id: 3, name: "Y Var" }),
@@ -357,6 +359,17 @@ describe("validateDslOwnedDeclarations", () => {
                 y: variableRef({ id: 3 }),
               },
             }),
+            setMovementRoute({
+              target: { kind: "runtimeSelector", scope: "character", target: "event", id: 99 },
+              route: [
+                { kind: "switchOn", switch: switchRef({ id: 1 }) },
+                {
+                  kind: "changeImage",
+                  image: imageAsset({ folder: "characters", name: "Actor1" }),
+                  index: 0,
+                },
+              ],
+            }),
           ],
         }),
       ],
@@ -369,6 +382,59 @@ describe("validateDslOwnedDeclarations", () => {
     );
 
     expect(result.issues).toEqual([]);
+  });
+
+  it("rejects Set Movement Route script commands when scripts are disabled", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Scripted Route",
+          commands: [
+            setMovementRoute({
+              target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
+              route: [{ kind: "script", script: scriptInput({ code: "this.moveForward();" }) }],
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toContain(
+      "Set Movement Route script commands require explicit config enablement.",
+    );
+  });
+
+  it("validates Set Movement Route runtime selector and switch references", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Bad Route",
+          commands: [
+            setMovementRoute({
+              target: {
+                kind: "runtimeSelector",
+                scope: "player",
+                target: "current",
+              } as never,
+              route: [{ kind: "switchOff", switch: switchRef({ id: 99 }) }],
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: true },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toEqual(
+      expect.arrayContaining([
+        "Set Movement Route target must use the character runtime selector scope.",
+        "Unknown switch reference id: 99",
+      ]),
+    );
   });
 
   it("rejects invalid Set Event Location character runtime selectors", () => {
