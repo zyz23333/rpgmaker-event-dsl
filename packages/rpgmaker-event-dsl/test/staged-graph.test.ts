@@ -5,6 +5,10 @@ import {
   battleProcessing,
   callCommonEvent,
   buildSnapshotReferenceInput,
+  changeEnemyHp,
+  changeEquipment,
+  enemyRef,
+  enemyTransform,
   changeItems,
   audioAsset,
   changeTileset,
@@ -19,6 +23,7 @@ import {
   itemRef,
   mapEvent,
   page,
+  script,
   scriptInput,
   rawDslCommand,
   movePicture,
@@ -648,6 +653,70 @@ describe("validateDslOwnedDeclarations", () => {
     );
   });
 
+  it("rejects unreachable Battle Processing result branches", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Invalid Battle Branches",
+          commands: [
+            battleProcessing({
+              troop: troopRef({ id: 1 }),
+              escape: [],
+              lose: [],
+            }),
+          ],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotReferences: buildSnapshotReferenceInput({
+          troops: [{ id: 1, name: "Slime" }],
+        }),
+      },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toEqual(
+      expect.arrayContaining([
+        "Battle Processing escape branch requires canEscape: true.",
+        "Battle Processing lose branch requires canLose: true.",
+      ]),
+    );
+  });
+
+  it("validates Change Equipment native MV ids without equipment database references", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Bad Equipment",
+          commands: [
+            changeEquipment({
+              actor: { kind: "actor", id: 1 },
+              equipmentTypeId: 0,
+              itemId: -1,
+            }),
+          ],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotReferences: buildSnapshotReferenceInput({
+          actors: [{ id: 1, name: "Alex" }],
+        }),
+      },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toEqual(
+      expect.arrayContaining([
+        "Change Equipment equipment type id must be a positive integer.",
+        "Change Equipment item id must be a non-negative integer.",
+      ]),
+    );
+  });
+
   it("rejects Conditional Branch script conditions when scripts are disabled", () => {
     const result = validateDslOwnedDeclarations(
       [
@@ -782,6 +851,74 @@ describe("validateDslOwnedDeclarations", () => {
     expect(validResult.issues).toEqual([]);
     expect(missingResult.issues.map((issue) => issue.message)).toContain(
       "Unknown tileset reference id: 99",
+    );
+  });
+
+  it("validates enemy database references while keeping enemy targets as runtime selectors", () => {
+    const validResult = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Enemy Transform",
+          commands: [
+            enemyTransform({
+              target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
+              enemy: enemyRef({ name: "Bat" }),
+            }),
+            changeEnemyHp({
+              target: { kind: "runtimeSelector", scope: "enemy", target: "all" },
+              operation: "lose",
+              value: 5,
+            }),
+          ],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotReferences: buildSnapshotReferenceInput({
+          enemies: [{ id: 1, name: "Bat" }],
+        }),
+      },
+    );
+    const invalidResult = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Bad Enemy Transform",
+          commands: [
+            enemyTransform({
+              target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
+              enemy: enemyRef({ id: 99 }),
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(validResult.issues).toEqual([]);
+    expect(invalidResult.issues.map((issue) => issue.message)).toContain(
+      "Unknown enemy reference id: 99",
+    );
+  });
+
+  it("enforces the schema-first Script command gate", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Script",
+          commands: [script({ code: "console.log(1);" })],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toContain(
+      "Script commands require explicit config enablement.",
     );
   });
 });

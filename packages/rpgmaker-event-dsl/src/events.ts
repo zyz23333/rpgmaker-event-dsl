@@ -1,6 +1,8 @@
 import type {
   BattleProcessingDslCommand,
+  ActorCommandTarget,
   AudioPayload,
+  BattlerCommandTarget,
   CharacterRuntimeSelector,
   CommandOperand,
   CommandPosition,
@@ -9,6 +11,7 @@ import type {
   CommonEventDefinition,
   ControlVariablesDslCommand,
   DslCommand,
+  EnemyCommandTarget,
   EventPage,
   MapEventDefinition,
   MoveRouteCommand,
@@ -24,6 +27,8 @@ import type {
   VehicleTarget,
   WeatherEffectType,
   LocationInfoType,
+  ActorParameter,
+  ShopGoods,
 } from "./dsl.js";
 import type { ReferenceResolver } from "./staged-graph.js";
 
@@ -415,18 +420,30 @@ function compileNodes(
           indent,
           parameters: compileBattleProcessingParameters(node, resolver),
         });
+        if (node.win) {
+          output.push({ code: 601, indent, parameters: [] });
+          output.push(...compileNodes(node.win, indent + 1, resolver, false));
+        }
+        if (node.escape) {
+          output.push({ code: 602, indent, parameters: [] });
+          output.push(...compileNodes(node.escape, indent + 1, resolver, false));
+        }
+        if (node.lose) {
+          output.push({ code: 603, indent, parameters: [] });
+          output.push(...compileNodes(node.lose, indent + 1, resolver, false));
+        }
         break;
       case "script":
         output.push({
           code: 355,
           indent,
-          parameters: [node.code.join("\n")],
+          parameters: [node.script.code.split("\n")[0] ?? ""],
         });
-        for (let index = 1; index < node.code.length; index += 1) {
+        for (const line of node.script.code.split("\n").slice(1)) {
           output.push({
             code: 655,
             indent,
-            parameters: [node.code[index]],
+            parameters: [line],
           });
         }
         break;
@@ -602,11 +619,273 @@ function compileNodes(
         output.push(...compileChoiceBranches(node, indent, resolver));
         break;
       case "shopProcessing":
-        output.push({
-          code: 302,
-          indent,
-          parameters: [...node.goods, node.allowSelling ?? false],
+        node.goods.forEach((goods, index) => {
+          output.push({
+            code: index === 0 ? 302 : 605,
+            indent,
+            parameters:
+              index === 0
+                ? [...compileShopGoodsParameters(goods, resolver), node.allowSelling ?? false]
+                : compileShopGoodsParameters(goods, resolver),
+          });
         });
+        break;
+      case "nameInputProcessing":
+        output.push({
+          code: 303,
+          indent,
+          parameters: [resolver.resolveReference(node.actor), node.maxCharacters],
+        });
+        break;
+      case "changeHp":
+        output.push({
+          code: 311,
+          indent,
+          parameters: [
+            ...compileActorCommandTarget(node.target, resolver),
+            ...compileOperateValueParameters(node.operation, node.value, resolver),
+            node.allowDeath ?? false,
+          ],
+        });
+        break;
+      case "changeMp":
+        output.push({
+          code: 312,
+          indent,
+          parameters: [
+            ...compileActorCommandTarget(node.target, resolver),
+            ...compileOperateValueParameters(node.operation, node.value, resolver),
+          ],
+        });
+        break;
+      case "changeState":
+        output.push({
+          code: 313,
+          indent,
+          parameters: [
+            ...compileActorCommandTarget(node.target, resolver),
+            node.operation === "add" ? 0 : 1,
+            resolver.resolveReference(node.state),
+          ],
+        });
+        break;
+      case "recoverAll":
+        output.push({
+          code: 314,
+          indent,
+          parameters: compileActorCommandTarget(node.target, resolver),
+        });
+        break;
+      case "changeExp":
+        output.push({
+          code: 315,
+          indent,
+          parameters: [
+            ...compileActorCommandTarget(node.target, resolver),
+            ...compileOperateValueParameters(node.operation, node.value, resolver),
+            node.showLevelUp ?? false,
+          ],
+        });
+        break;
+      case "changeLevel":
+        output.push({
+          code: 316,
+          indent,
+          parameters: [
+            ...compileActorCommandTarget(node.target, resolver),
+            ...compileOperateValueParameters(node.operation, node.value, resolver),
+            node.showLevelUp ?? false,
+          ],
+        });
+        break;
+      case "changeParameter":
+        output.push({
+          code: 317,
+          indent,
+          parameters: [
+            ...compileActorCommandTarget(node.target, resolver),
+            actorParameterToCode(node.parameter),
+            ...compileOperateValueParameters(node.operation, node.value, resolver),
+          ],
+        });
+        break;
+      case "changeSkill":
+        output.push({
+          code: 318,
+          indent,
+          parameters: [
+            ...compileActorCommandTarget(node.target, resolver),
+            node.operation === "learn" ? 0 : 1,
+            resolver.resolveReference(node.skill),
+          ],
+        });
+        break;
+      case "changeEquipment":
+        output.push({
+          code: 319,
+          indent,
+          parameters: [
+            resolver.resolveReference(node.actor),
+            node.equipmentTypeId,
+            node.itemId ?? 0,
+          ],
+        });
+        break;
+      case "changeName":
+        output.push({
+          code: 320,
+          indent,
+          parameters: [resolver.resolveReference(node.actor), node.name],
+        });
+        break;
+      case "changeClass":
+        output.push({
+          code: 321,
+          indent,
+          parameters: [
+            resolver.resolveReference(node.actor),
+            resolver.resolveReference(node.class),
+            node.keepExp ?? false,
+          ],
+        });
+        break;
+      case "changeActorImages":
+        output.push({
+          code: 322,
+          indent,
+          parameters: [
+            resolver.resolveReference(node.actor),
+            node.character.image.name,
+            node.character.index,
+            node.face.image.name,
+            node.face.index,
+            node.battler.name,
+          ],
+        });
+        break;
+      case "changeVehicleImage":
+        output.push({
+          code: 323,
+          indent,
+          parameters: [vehicleToCode(node.vehicle), node.image.name, node.index],
+        });
+        break;
+      case "changeNickname":
+        output.push({
+          code: 324,
+          indent,
+          parameters: [resolver.resolveReference(node.actor), node.nickname],
+        });
+        break;
+      case "changeProfile":
+        output.push({
+          code: 325,
+          indent,
+          parameters: [resolver.resolveReference(node.actor), node.profile],
+        });
+        break;
+      case "changeTp":
+        output.push({
+          code: 326,
+          indent,
+          parameters: [
+            ...compileActorCommandTarget(node.target, resolver),
+            ...compileOperateValueParameters(node.operation, node.value, resolver),
+          ],
+        });
+        break;
+      case "changeEnemyHp":
+        output.push({
+          code: 331,
+          indent,
+          parameters: [
+            enemyTargetToCode(node.target),
+            ...compileOperateValueParameters(node.operation, node.value, resolver),
+            node.allowDeath ?? false,
+          ],
+        });
+        break;
+      case "changeEnemyMp":
+        output.push({
+          code: 332,
+          indent,
+          parameters: [
+            enemyTargetToCode(node.target),
+            ...compileOperateValueParameters(node.operation, node.value, resolver),
+          ],
+        });
+        break;
+      case "changeEnemyState":
+        output.push({
+          code: 333,
+          indent,
+          parameters: [
+            enemyTargetToCode(node.target),
+            node.operation === "add" ? 0 : 1,
+            resolver.resolveReference(node.state),
+          ],
+        });
+        break;
+      case "enemyRecoverAll":
+        output.push({ code: 334, indent, parameters: [enemyTargetToCode(node.target)] });
+        break;
+      case "enemyAppear":
+        output.push({ code: 335, indent, parameters: [enemyTargetToCode(node.target)] });
+        break;
+      case "enemyTransform":
+        output.push({
+          code: 336,
+          indent,
+          parameters: [enemyTargetToCode(node.target), resolver.resolveReference(node.enemy)],
+        });
+        break;
+      case "showBattleAnimation":
+        output.push({
+          code: 337,
+          indent,
+          parameters: [
+            node.target.target === "all" ? 0 : node.target.index,
+            resolver.resolveReference(node.animation),
+            node.target.target === "all",
+          ],
+        });
+        break;
+      case "forceAction":
+        output.push({
+          code: 339,
+          indent,
+          parameters: [
+            battlerTargetTypeToCode(node.subject),
+            battlerTargetIdToCode(node.subject),
+            resolver.resolveReference(node.skill),
+            node.targetIndex,
+          ],
+        });
+        break;
+      case "abortBattle":
+        output.push({ code: 340, indent, parameters: [] });
+        break;
+      case "changeEnemyTp":
+        output.push({
+          code: 342,
+          indent,
+          parameters: [
+            enemyTargetToCode(node.target),
+            ...compileOperateValueParameters(node.operation, node.value, resolver),
+          ],
+        });
+        break;
+      case "openMenuScreen":
+        output.push({ code: 351, indent, parameters: [] });
+        break;
+      case "openSaveScreen":
+        output.push({ code: 352, indent, parameters: [] });
+        break;
+      case "gameOver":
+        output.push({ code: 353, indent, parameters: [] });
+        break;
+      case "returnToTitleScreen":
+        output.push({ code: 354, indent, parameters: [] });
         break;
       case "showPicture":
         output.push({
@@ -1256,7 +1535,83 @@ function compileBattleProcessingParameters(
     return [2, 0, node.canEscape ?? false, node.canLose ?? false];
   }
 
+  if ("variable" in node.troop) {
+    return [
+      1,
+      resolver.resolveReference(node.troop.variable),
+      node.canEscape ?? false,
+      node.canLose ?? false,
+    ];
+  }
+
   return [0, resolver.resolveReference(node.troop), node.canEscape ?? false, node.canLose ?? false];
+}
+
+function compileShopGoodsParameters(goods: ShopGoods, resolver: ReferenceResolver): unknown[] {
+  return [
+    shopGoodsTypeToCode(goods.kind),
+    resolver.resolveReference(goods.item),
+    goods.price === undefined ? 0 : 1,
+    goods.price ?? 0,
+  ];
+}
+
+function shopGoodsTypeToCode(kind: ShopGoods["kind"]): number {
+  switch (kind) {
+    case "item":
+      return 0;
+    case "weapon":
+      return 1;
+    case "armor":
+      return 2;
+  }
+}
+
+function compileActorCommandTarget(
+  target: ActorCommandTarget,
+  resolver: ReferenceResolver,
+): [number, number] {
+  switch (target.target) {
+    case "entireParty":
+      return [0, 0];
+    case "actor":
+      return [0, target.actorId];
+    case "actorFromVariable":
+      return [1, resolver.resolveReference(target.variable)];
+  }
+}
+
+function enemyTargetToCode(target: EnemyCommandTarget): number {
+  return target.target === "all" ? -1 : target.index;
+}
+
+function battlerTargetTypeToCode(target: BattlerCommandTarget): number {
+  return target.target === "enemy" ? 0 : 1;
+}
+
+function battlerTargetIdToCode(target: BattlerCommandTarget): number {
+  return target.target === "enemy" ? target.index : target.actorId;
+}
+
+function actorParameterToCode(parameter: ActorParameter): number {
+  switch (parameter) {
+    case "mhp":
+      return 0;
+    case "mmp":
+      return 1;
+    case "atk":
+      return 2;
+    case "def":
+      return 3;
+    case "mat":
+      return 4;
+    case "mdf":
+      return 5;
+    case "agi":
+      return 6;
+    case "luk":
+      return 7;
+  }
 }
 
 function compileSetVehicleLocationParameters(

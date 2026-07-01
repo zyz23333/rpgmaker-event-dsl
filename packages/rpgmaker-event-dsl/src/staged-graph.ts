@@ -49,6 +49,7 @@ export type SnapshotReferenceInput = {
   armors?: readonly ReferenceEntry[];
   classes?: readonly ReferenceEntry[];
   commonEvents?: readonly ReferenceEntry[];
+  enemies?: readonly ReferenceEntry[];
   items?: readonly ReferenceEntry[];
   maps?: readonly ReferenceEntry[];
   skills?: readonly ReferenceEntry[];
@@ -66,6 +67,7 @@ export type SnapshotReferenceSource = {
   armors?: readonly (Record<string, unknown> | null | undefined)[];
   classes?: readonly (Record<string, unknown> | null | undefined)[];
   commonEvents?: readonly (Record<string, unknown> | null | undefined)[];
+  enemies?: readonly (Record<string, unknown> | null | undefined)[];
   items?: readonly (Record<string, unknown> | null | undefined)[];
   mapInfos?: readonly MapInfoEntry[];
   skills?: readonly (Record<string, unknown> | null | undefined)[];
@@ -202,6 +204,7 @@ export function buildSnapshotReferenceInput(
     armors: readObjectReferenceEntries(source.armors ?? []),
     classes: readObjectReferenceEntries(source.classes ?? []),
     commonEvents: readObjectReferenceEntries(source.commonEvents ?? []),
+    enemies: readObjectReferenceEntries(source.enemies ?? []),
     items: readObjectReferenceEntries(source.items ?? []),
     maps: (source.mapInfos ?? []).map(({ id, name }) => ({ id, name })),
     skills: readObjectReferenceEntries(source.skills ?? []),
@@ -248,6 +251,7 @@ function buildReferenceScopes(input: {
     armor: buildReferenceScope(input.snapshotReferences.armors ?? []),
     class: buildReferenceScope(input.snapshotReferences.classes ?? []),
     commonEvent: buildReferenceScope(commonEvents),
+    enemy: buildReferenceScope(input.snapshotReferences.enemies ?? []),
     item: buildReferenceScope(input.snapshotReferences.items ?? []),
     map: buildReferenceScope(input.snapshotReferences.maps ?? []),
     skill: buildReferenceScope(input.snapshotReferences.skills ?? []),
@@ -503,6 +507,129 @@ function validateNodes(
       const troopRef = node.troop;
       captureReferenceIssue(() => resolver.resolveReference(troopRef), issues);
     }
+    if (
+      node.kind === "battleProcessing" &&
+      typeof node.troop === "object" &&
+      node.troop.kind === "troop" &&
+      "variable" in node.troop
+    ) {
+      const troopVariable = node.troop.variable;
+      captureReferenceIssue(() => resolver.resolveReference(troopVariable), issues);
+    }
+    if (node.kind === "battleProcessing") {
+      if (node.win) {
+        validateNodes(node.win, resolver, options, issues);
+      }
+      if (node.escape) {
+        if (node.canEscape !== true) {
+          issues.push({
+            level: "error",
+            message: "Battle Processing escape branch requires canEscape: true.",
+          });
+        }
+        validateNodes(node.escape, resolver, options, issues);
+      }
+      if (node.lose) {
+        if (node.canLose !== true) {
+          issues.push({
+            level: "error",
+            message: "Battle Processing lose branch requires canLose: true.",
+          });
+        }
+        validateNodes(node.lose, resolver, options, issues);
+      }
+    }
+    if (node.kind === "shopProcessing") {
+      for (const goods of node.goods) {
+        captureReferenceIssue(() => resolver.resolveReference(goods.item), issues);
+      }
+    }
+    if (node.kind === "nameInputProcessing") {
+      captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
+    }
+    if (
+      node.kind === "changeHp" ||
+      node.kind === "changeMp" ||
+      node.kind === "recoverAll" ||
+      node.kind === "changeExp" ||
+      node.kind === "changeLevel" ||
+      node.kind === "changeParameter" ||
+      node.kind === "changeSkill" ||
+      node.kind === "changeTp"
+    ) {
+      validateActorCommandTarget(node.target, resolver, `${node.kind} target`, issues);
+    }
+    if (
+      node.kind === "changeHp" ||
+      node.kind === "changeMp" ||
+      node.kind === "changeExp" ||
+      node.kind === "changeLevel" ||
+      node.kind === "changeParameter" ||
+      node.kind === "changeTp"
+    ) {
+      validateOperateValueOperand(node.value, resolver, issues);
+    }
+    if (node.kind === "changeState") {
+      validateActorCommandTarget(node.target, resolver, "Change State target", issues);
+      captureReferenceIssue(() => resolver.resolveReference(node.state), issues);
+    }
+    if (node.kind === "changeSkill") {
+      captureReferenceIssue(() => resolver.resolveReference(node.skill), issues);
+    }
+    if (node.kind === "changeEquipment") {
+      captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
+      validateCommandPositiveInteger(
+        node.equipmentTypeId,
+        "Change Equipment equipment type id",
+        issues,
+      );
+      validateCommandNonNegativeInteger(node.itemId ?? 0, "Change Equipment item id", issues);
+    }
+    if (node.kind === "changeName") {
+      captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
+    }
+    if (node.kind === "changeClass") {
+      captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
+      captureReferenceIssue(() => resolver.resolveReference(node.class), issues);
+    }
+    if (node.kind === "changeActorImages") {
+      captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
+    }
+    if (node.kind === "changeNickname" || node.kind === "changeProfile") {
+      captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
+    }
+    if (
+      node.kind === "changeEnemyHp" ||
+      node.kind === "changeEnemyMp" ||
+      node.kind === "enemyRecoverAll" ||
+      node.kind === "enemyAppear" ||
+      node.kind === "enemyTransform" ||
+      node.kind === "showBattleAnimation" ||
+      node.kind === "changeEnemyTp"
+    ) {
+      validateEnemyCommandTarget(node.target, `${node.kind} target`, issues);
+    }
+    if (
+      node.kind === "changeEnemyHp" ||
+      node.kind === "changeEnemyMp" ||
+      node.kind === "changeEnemyTp"
+    ) {
+      validateOperateValueOperand(node.value, resolver, issues);
+    }
+    if (node.kind === "changeEnemyState") {
+      validateEnemyCommandTarget(node.target, "Change Enemy State target", issues);
+      captureReferenceIssue(() => resolver.resolveReference(node.state), issues);
+    }
+    if (node.kind === "enemyTransform") {
+      captureReferenceIssue(() => resolver.resolveReference(node.enemy), issues);
+    }
+    if (node.kind === "showBattleAnimation") {
+      captureReferenceIssue(() => resolver.resolveReference(node.animation), issues);
+    }
+    if (node.kind === "forceAction") {
+      validateBattlerCommandTarget(node.subject, "Force Action subject", issues);
+      captureReferenceIssue(() => resolver.resolveReference(node.skill), issues);
+    }
     if (node.kind === "changeTileset") {
       captureReferenceIssue(() => resolver.resolveReference(node.tileset), issues);
     }
@@ -631,6 +758,183 @@ function validateCharacterRuntimeSelector(
     level: "error",
     message: `${fieldName} target must be player, currentEvent, or event.`,
   });
+}
+
+function validateActorCommandTarget(
+  selector: RuntimeSelector,
+  resolver: ReferenceResolver,
+  fieldName: string,
+  issues: ValidationIssue[],
+): void {
+  if (selector.scope !== "actor") {
+    issues.push({
+      level: "error",
+      message: `${fieldName} must use the actor runtime selector scope.`,
+    });
+    return;
+  }
+
+  if (selector.target === "entireParty") {
+    return;
+  }
+
+  const actorSelector = selector as RuntimeSelector & {
+    actorId?: unknown;
+    variable?: ReferenceValue<"variable">;
+  };
+  if (selector.target === "actor") {
+    if (
+      typeof actorSelector.actorId !== "number" ||
+      !Number.isInteger(actorSelector.actorId) ||
+      actorSelector.actorId <= 0
+    ) {
+      issues.push({
+        level: "error",
+        message: `${fieldName} actor id must be a positive integer.`,
+      });
+    }
+    return;
+  }
+
+  if (selector.target === "actorFromVariable") {
+    const actorVariable = actorSelector.variable;
+    if (actorVariable === undefined) {
+      issues.push({
+        level: "error",
+        message: `${fieldName} actorFromVariable target requires a variable reference.`,
+      });
+      return;
+    }
+    captureReferenceIssue(() => resolver.resolveReference(actorVariable), issues);
+    return;
+  }
+
+  issues.push({
+    level: "error",
+    message: `${fieldName} target must be entireParty, actor, or actorFromVariable.`,
+  });
+}
+
+function validateEnemyCommandTarget(
+  selector: RuntimeSelector,
+  fieldName: string,
+  issues: ValidationIssue[],
+): void {
+  if (selector.scope !== "enemy") {
+    issues.push({
+      level: "error",
+      message: `${fieldName} must use the enemy runtime selector scope.`,
+    });
+    return;
+  }
+
+  if (selector.target === "all") {
+    return;
+  }
+
+  const enemySelector = selector as RuntimeSelector & { index?: unknown };
+  if (selector.target === "enemy") {
+    if (
+      typeof enemySelector.index !== "number" ||
+      !Number.isInteger(enemySelector.index) ||
+      enemySelector.index < 0
+    ) {
+      issues.push({
+        level: "error",
+        message: `${fieldName} enemy index must be a zero-based integer.`,
+      });
+    }
+    return;
+  }
+
+  issues.push({
+    level: "error",
+    message: `${fieldName} target must be all or enemy.`,
+  });
+}
+
+function validateBattlerCommandTarget(
+  selector: RuntimeSelector,
+  fieldName: string,
+  issues: ValidationIssue[],
+): void {
+  if (selector.scope !== "battler") {
+    issues.push({
+      level: "error",
+      message: `${fieldName} must use the battler runtime selector scope.`,
+    });
+    return;
+  }
+
+  const battlerSelector = selector as RuntimeSelector & { actorId?: unknown; index?: unknown };
+  if (selector.target === "enemy") {
+    if (
+      typeof battlerSelector.index !== "number" ||
+      !Number.isInteger(battlerSelector.index) ||
+      battlerSelector.index < 0
+    ) {
+      issues.push({
+        level: "error",
+        message: `${fieldName} enemy index must be a zero-based integer.`,
+      });
+    }
+    return;
+  }
+
+  if (selector.target === "actor") {
+    if (
+      typeof battlerSelector.actorId !== "number" ||
+      !Number.isInteger(battlerSelector.actorId) ||
+      battlerSelector.actorId <= 0
+    ) {
+      issues.push({
+        level: "error",
+        message: `${fieldName} actor id must be a positive integer.`,
+      });
+    }
+    return;
+  }
+
+  issues.push({
+    level: "error",
+    message: `${fieldName} target must be enemy or actor.`,
+  });
+}
+
+function validateOperateValueOperand(
+  operand: number | ReferenceValue<"variable">,
+  resolver: ReferenceResolver,
+  issues: ValidationIssue[],
+): void {
+  if (isVariableReferenceValue(operand)) {
+    captureReferenceIssue(() => resolver.resolveReference(operand), issues);
+  }
+}
+
+function validateCommandPositiveInteger(
+  value: unknown,
+  fieldName: string,
+  issues: ValidationIssue[],
+): void {
+  if (typeof value !== "number" || !Number.isInteger(value) || value <= 0) {
+    issues.push({
+      level: "error",
+      message: `${fieldName} must be a positive integer.`,
+    });
+  }
+}
+
+function validateCommandNonNegativeInteger(
+  value: unknown,
+  fieldName: string,
+  issues: ValidationIssue[],
+): void {
+  if (typeof value !== "number" || !Number.isInteger(value) || value < 0) {
+    issues.push({
+      level: "error",
+      message: `${fieldName} must be a non-negative integer.`,
+    });
+  }
 }
 
 function validateReferenceOrRange<TKind extends ReferenceKind>(

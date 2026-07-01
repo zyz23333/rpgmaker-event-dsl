@@ -249,6 +249,7 @@ async function loadSnapshotReferenceInput(
     armors: await readSnapshotArray(statePaths, "Armors.json"),
     classes: await readSnapshotArray(statePaths, "Classes.json"),
     commonEvents: await readSnapshotArray(statePaths, "CommonEvents.json"),
+    enemies: await readSnapshotArray(statePaths, "Enemies.json"),
     items: await readSnapshotArray(statePaths, "Items.json"),
     mapInfos: parseMapInfos(await readSnapshotFile(statePaths, "MapInfos.json")),
     skills: await readSnapshotArray(statePaths, "Skills.json"),

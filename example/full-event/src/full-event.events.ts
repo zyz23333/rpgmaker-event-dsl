@@ -178,14 +178,14 @@ export const practiceBattleEvent = mapEvent({
           canLose: true,
         }),
         shopProcessing({
-          goods: [0, 1, 1, 0, 1],
+          goods: [{ kind: "item", item: potionItem, price: 1 }],
           allowSelling: true,
         }),
         pluginCommand({
           command: "FullEventPlugin",
           args: ["alpha", "beta"],
         }),
-        script(["console.log('DSL practice station ran');"]),
+        script({ code: "console.log('DSL practice station ran');" }),
         rawDslCommand({
           code: 108,
           parameters: ["Raw DSL command comment from sample."],

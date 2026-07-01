@@ -66,6 +66,7 @@ export type ReferenceKind =
   | "armor"
   | "class"
   | "commonEvent"
+  | "enemy"
   | "item"
   | "map"
   | "skill"
@@ -92,6 +93,7 @@ export const referenceKinds = [
   "armor",
   "class",
   "commonEvent",
+  "enemy",
   "item",
   "map",
   "skill",
@@ -273,6 +275,40 @@ export type OperateValueInput = {
   operation: "increase" | "decrease";
   operand: OperateValueOperand;
 };
+
+export type ActorCommandTarget =
+  | (RuntimeSelector<"actor", "entireParty"> & {
+      actorId?: never;
+      variable?: never;
+    })
+  | (RuntimeSelector<"actor", "actor"> & {
+      actorId: number;
+      variable?: never;
+    })
+  | (RuntimeSelector<"actor", "actorFromVariable"> & {
+      actorId?: never;
+      variable: ReferenceValue<"variable">;
+    });
+
+export type EnemyCommandTarget =
+  | (RuntimeSelector<"enemy", "all"> & {
+      index?: never;
+    })
+  | (RuntimeSelector<"enemy", "enemy"> & {
+      index: number;
+    });
+
+export type BattlerCommandTarget =
+  | (RuntimeSelector<"battler", "enemy"> & {
+      index: number;
+      actorId?: never;
+    })
+  | (RuntimeSelector<"battler", "actor"> & {
+      actorId: number;
+      index?: never;
+    });
+
+export type ActorParameter = "mhp" | "mmp" | "atk" | "def" | "mat" | "mdf" | "agi" | "luk";
 
 export type DirectPosition = {
   kind: "direct";
@@ -528,6 +564,37 @@ export type DslCommand =
   | BattleProcessingDslCommand
   | ShowChoicesDslCommand
   | ShopProcessingDslCommand
+  | NameInputProcessingDslCommand
+  | ChangeHpDslCommand
+  | ChangeMpDslCommand
+  | ChangeStateDslCommand
+  | RecoverAllDslCommand
+  | ChangeExpDslCommand
+  | ChangeLevelDslCommand
+  | ChangeParameterDslCommand
+  | ChangeSkillDslCommand
+  | ChangeEquipmentDslCommand
+  | ChangeNameDslCommand
+  | ChangeClassDslCommand
+  | ChangeActorImagesDslCommand
+  | ChangeVehicleImageDslCommand
+  | ChangeNicknameDslCommand
+  | ChangeProfileDslCommand
+  | ChangeTpDslCommand
+  | ChangeEnemyHpDslCommand
+  | ChangeEnemyMpDslCommand
+  | ChangeEnemyStateDslCommand
+  | EnemyRecoverAllDslCommand
+  | EnemyAppearDslCommand
+  | EnemyTransformDslCommand
+  | ShowBattleAnimationDslCommand
+  | ForceActionDslCommand
+  | AbortBattleDslCommand
+  | ChangeEnemyTpDslCommand
+  | OpenMenuScreenDslCommand
+  | OpenSaveScreenDslCommand
+  | GameOverDslCommand
+  | ReturnToTitleScreenDslCommand
   | RawDslCommand;
 
 export type ShowTextDslCommand = {
@@ -613,7 +680,7 @@ export type CommentDslCommand = {
 
 export type ScriptDslCommand = {
   kind: "script";
-  code: readonly [string, ...string[]];
+  script: ScriptInput;
 };
 
 export type PluginDslCommand = {
@@ -1042,16 +1109,225 @@ export type BattleProcessingDslCommand = {
     | ReferenceValue<"troop">
     | {
         kind: "troop";
+        variable: ReferenceValue<"variable">;
+      }
+    | {
+        kind: "troop";
         useRandomEncounter: true;
       };
   canEscape?: boolean;
   canLose?: boolean;
+  win?: readonly DslCommand[];
+  escape?: readonly DslCommand[];
+  lose?: readonly DslCommand[];
+};
+
+export type ShopGoods = {
+  kind: "item" | "weapon" | "armor";
+  item: ReferenceValue<"item"> | ReferenceValue<"weapon"> | ReferenceValue<"armor">;
+  price?: number;
 };
 
 export type ShopProcessingDslCommand = {
   kind: "shopProcessing";
-  goods: readonly [number, number, number, number, number?];
+  goods: readonly [ShopGoods, ...ShopGoods[]];
   allowSelling?: boolean;
+};
+
+export type NameInputProcessingDslCommand = {
+  kind: "nameInputProcessing";
+  actor: ReferenceValue<"actor">;
+  maxCharacters: number;
+};
+
+export type ChangeHpDslCommand = {
+  kind: "changeHp";
+  target: ActorCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+  allowDeath?: boolean;
+};
+
+export type ChangeMpDslCommand = {
+  kind: "changeMp";
+  target: ActorCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+};
+
+export type ChangeStateDslCommand = {
+  kind: "changeState";
+  target: ActorCommandTarget;
+  operation: "add" | "remove";
+  state: ReferenceValue<"state">;
+};
+
+export type RecoverAllDslCommand = {
+  kind: "recoverAll";
+  target: ActorCommandTarget;
+};
+
+export type ChangeExpDslCommand = {
+  kind: "changeExp";
+  target: ActorCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+  showLevelUp?: boolean;
+};
+
+export type ChangeLevelDslCommand = {
+  kind: "changeLevel";
+  target: ActorCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+  showLevelUp?: boolean;
+};
+
+export type ChangeParameterDslCommand = {
+  kind: "changeParameter";
+  target: ActorCommandTarget;
+  parameter: ActorParameter;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+};
+
+export type ChangeSkillDslCommand = {
+  kind: "changeSkill";
+  target: ActorCommandTarget;
+  operation: "learn" | "forget";
+  skill: ReferenceValue<"skill">;
+};
+
+export type ChangeEquipmentDslCommand = {
+  kind: "changeEquipment";
+  actor: ReferenceValue<"actor">;
+  equipmentTypeId: number;
+  itemId: number | null;
+};
+
+export type ChangeNameDslCommand = {
+  kind: "changeName";
+  actor: ReferenceValue<"actor">;
+  name: string;
+};
+
+export type ChangeClassDslCommand = {
+  kind: "changeClass";
+  actor: ReferenceValue<"actor">;
+  class: ReferenceValue<"class">;
+  keepExp?: boolean;
+};
+
+export type ChangeActorImagesDslCommand = {
+  kind: "changeActorImages";
+  actor: ReferenceValue<"actor">;
+  character: { image: ImageAssetReference; index: number };
+  face: { image: ImageAssetReference; index: number };
+  battler: ImageAssetReference;
+};
+
+export type ChangeVehicleImageDslCommand = {
+  kind: "changeVehicleImage";
+  vehicle: VehicleTarget;
+  image: ImageAssetReference;
+  index: number;
+};
+
+export type ChangeNicknameDslCommand = {
+  kind: "changeNickname";
+  actor: ReferenceValue<"actor">;
+  nickname: string;
+};
+
+export type ChangeProfileDslCommand = {
+  kind: "changeProfile";
+  actor: ReferenceValue<"actor">;
+  profile: string;
+};
+
+export type ChangeTpDslCommand = {
+  kind: "changeTp";
+  target: ActorCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+};
+
+export type ChangeEnemyHpDslCommand = {
+  kind: "changeEnemyHp";
+  target: EnemyCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+  allowDeath?: boolean;
+};
+
+export type ChangeEnemyMpDslCommand = {
+  kind: "changeEnemyMp";
+  target: EnemyCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+};
+
+export type ChangeEnemyStateDslCommand = {
+  kind: "changeEnemyState";
+  target: EnemyCommandTarget;
+  operation: "add" | "remove";
+  state: ReferenceValue<"state">;
+};
+
+export type EnemyRecoverAllDslCommand = {
+  kind: "enemyRecoverAll";
+  target: EnemyCommandTarget;
+};
+
+export type EnemyAppearDslCommand = {
+  kind: "enemyAppear";
+  target: EnemyCommandTarget;
+};
+
+export type EnemyTransformDslCommand = {
+  kind: "enemyTransform";
+  target: EnemyCommandTarget;
+  enemy: ReferenceValue<"enemy">;
+};
+
+export type ShowBattleAnimationDslCommand = {
+  kind: "showBattleAnimation";
+  target: EnemyCommandTarget;
+  animation: ReferenceValue<"animation">;
+};
+
+export type ForceActionDslCommand = {
+  kind: "forceAction";
+  subject: BattlerCommandTarget;
+  skill: ReferenceValue<"skill">;
+  targetIndex: number;
+};
+
+export type AbortBattleDslCommand = {
+  kind: "abortBattle";
+};
+
+export type ChangeEnemyTpDslCommand = {
+  kind: "changeEnemyTp";
+  target: EnemyCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+};
+
+export type OpenMenuScreenDslCommand = {
+  kind: "openMenuScreen";
+};
+
+export type OpenSaveScreenDslCommand = {
+  kind: "openSaveScreen";
+};
+
+export type GameOverDslCommand = {
+  kind: "gameOver";
+};
+
+export type ReturnToTitleScreenDslCommand = {
+  kind: "returnToTitleScreen";
 };
 
 export type RawDslCommand = {
@@ -1284,8 +1560,11 @@ export function comment(lines: readonly [string, ...string[]]): CommentDslComman
   return { kind: "comment", lines };
 }
 
-export function script(code: readonly [string, ...string[]]): ScriptDslCommand {
-  return { kind: "script", code };
+export function script(input: { code: string } | ScriptInput): ScriptDslCommand {
+  return {
+    kind: "script",
+    script: isScriptInput(input) ? input : scriptInput(input),
+  };
 }
 
 export function pluginCommand(input: {
@@ -1979,10 +2258,17 @@ export function battleProcessing(input: {
     | ReferenceValue<"troop">
     | {
         kind: "troop";
+        variable: ReferenceValue<"variable">;
+      }
+    | {
+        kind: "troop";
         useRandomEncounter: true;
       };
   canEscape?: boolean;
   canLose?: boolean;
+  win?: readonly DslCommand[];
+  escape?: readonly DslCommand[];
+  lose?: readonly DslCommand[];
 }): BattleProcessingDslCommand {
   const node: BattleProcessingDslCommand = {
     kind: "battleProcessing",
@@ -1995,12 +2281,21 @@ export function battleProcessing(input: {
   if (input.canLose !== undefined) {
     node.canLose = input.canLose;
   }
+  if (input.win !== undefined) {
+    node.win = input.win;
+  }
+  if (input.escape !== undefined) {
+    node.escape = input.escape;
+  }
+  if (input.lose !== undefined) {
+    node.lose = input.lose;
+  }
 
   return node;
 }
 
 export function shopProcessing(input: {
-  goods: readonly [number, number, number, number, number?];
+  goods: readonly [ShopGoods, ...ShopGoods[]];
   allowSelling?: boolean;
 }): ShopProcessingDslCommand {
   const node: ShopProcessingDslCommand = {
@@ -2013,6 +2308,381 @@ export function shopProcessing(input: {
   }
 
   return node;
+}
+
+export function nameInputProcessing(input: {
+  actor: ReferenceValue<"actor">;
+  maxCharacters: number;
+}): NameInputProcessingDslCommand {
+  return {
+    kind: "nameInputProcessing",
+    actor: input.actor,
+    maxCharacters: input.maxCharacters,
+  };
+}
+
+export function changeHp(input: {
+  target: ActorCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+  allowDeath?: boolean;
+}): ChangeHpDslCommand {
+  const node: ChangeHpDslCommand = {
+    kind: "changeHp",
+    target: input.target,
+    operation: input.operation,
+    value: input.value,
+  };
+
+  if (input.allowDeath !== undefined) {
+    node.allowDeath = input.allowDeath;
+  }
+
+  return node;
+}
+
+export function changeMp(input: {
+  target: ActorCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+}): ChangeMpDslCommand {
+  return {
+    kind: "changeMp",
+    target: input.target,
+    operation: input.operation,
+    value: input.value,
+  };
+}
+
+export function changeState(input: {
+  target: ActorCommandTarget;
+  operation: "add" | "remove";
+  state: ReferenceValue<"state">;
+}): ChangeStateDslCommand {
+  return {
+    kind: "changeState",
+    target: input.target,
+    operation: input.operation,
+    state: input.state,
+  };
+}
+
+export function recoverAll(input: { target: ActorCommandTarget }): RecoverAllDslCommand {
+  return {
+    kind: "recoverAll",
+    target: input.target,
+  };
+}
+
+export function changeExp(input: {
+  target: ActorCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+  showLevelUp?: boolean;
+}): ChangeExpDslCommand {
+  const node: ChangeExpDslCommand = {
+    kind: "changeExp",
+    target: input.target,
+    operation: input.operation,
+    value: input.value,
+  };
+
+  if (input.showLevelUp !== undefined) {
+    node.showLevelUp = input.showLevelUp;
+  }
+
+  return node;
+}
+
+export function changeLevel(input: {
+  target: ActorCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+  showLevelUp?: boolean;
+}): ChangeLevelDslCommand {
+  const node: ChangeLevelDslCommand = {
+    kind: "changeLevel",
+    target: input.target,
+    operation: input.operation,
+    value: input.value,
+  };
+
+  if (input.showLevelUp !== undefined) {
+    node.showLevelUp = input.showLevelUp;
+  }
+
+  return node;
+}
+
+export function changeParameter(input: {
+  target: ActorCommandTarget;
+  parameter: ActorParameter;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+}): ChangeParameterDslCommand {
+  return {
+    kind: "changeParameter",
+    target: input.target,
+    parameter: input.parameter,
+    operation: input.operation,
+    value: input.value,
+  };
+}
+
+export function changeSkill(input: {
+  target: ActorCommandTarget;
+  operation: "learn" | "forget";
+  skill: ReferenceValue<"skill">;
+}): ChangeSkillDslCommand {
+  return {
+    kind: "changeSkill",
+    target: input.target,
+    operation: input.operation,
+    skill: input.skill,
+  };
+}
+
+export function changeEquipment(input: {
+  actor: ReferenceValue<"actor">;
+  equipmentTypeId: number;
+  itemId: number | null;
+}): ChangeEquipmentDslCommand {
+  return {
+    kind: "changeEquipment",
+    actor: input.actor,
+    equipmentTypeId: input.equipmentTypeId,
+    itemId: input.itemId,
+  };
+}
+
+export function changeName(input: {
+  actor: ReferenceValue<"actor">;
+  name: string;
+}): ChangeNameDslCommand {
+  return {
+    kind: "changeName",
+    actor: input.actor,
+    name: input.name,
+  };
+}
+
+export function changeClass(input: {
+  actor: ReferenceValue<"actor">;
+  class: ReferenceValue<"class">;
+  keepExp?: boolean;
+}): ChangeClassDslCommand {
+  const node: ChangeClassDslCommand = {
+    kind: "changeClass",
+    actor: input.actor,
+    class: input.class,
+  };
+
+  if (input.keepExp !== undefined) {
+    node.keepExp = input.keepExp;
+  }
+
+  return node;
+}
+
+export function changeActorImages(input: {
+  actor: ReferenceValue<"actor">;
+  character: { image: ImageAssetReference; index: number };
+  face: { image: ImageAssetReference; index: number };
+  battler: ImageAssetReference;
+}): ChangeActorImagesDslCommand {
+  return {
+    kind: "changeActorImages",
+    actor: input.actor,
+    character: input.character,
+    face: input.face,
+    battler: input.battler,
+  };
+}
+
+export function changeVehicleImage(input: {
+  vehicle: VehicleTarget;
+  image: ImageAssetReference;
+  index: number;
+}): ChangeVehicleImageDslCommand {
+  return {
+    kind: "changeVehicleImage",
+    vehicle: input.vehicle,
+    image: input.image,
+    index: input.index,
+  };
+}
+
+export function changeNickname(input: {
+  actor: ReferenceValue<"actor">;
+  nickname: string;
+}): ChangeNicknameDslCommand {
+  return {
+    kind: "changeNickname",
+    actor: input.actor,
+    nickname: input.nickname,
+  };
+}
+
+export function changeProfile(input: {
+  actor: ReferenceValue<"actor">;
+  profile: string;
+}): ChangeProfileDslCommand {
+  return {
+    kind: "changeProfile",
+    actor: input.actor,
+    profile: input.profile,
+  };
+}
+
+export function changeTp(input: {
+  target: ActorCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+}): ChangeTpDslCommand {
+  return {
+    kind: "changeTp",
+    target: input.target,
+    operation: input.operation,
+    value: input.value,
+  };
+}
+
+export function changeEnemyHp(input: {
+  target: EnemyCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+  allowDeath?: boolean;
+}): ChangeEnemyHpDslCommand {
+  const node: ChangeEnemyHpDslCommand = {
+    kind: "changeEnemyHp",
+    target: input.target,
+    operation: input.operation,
+    value: input.value,
+  };
+
+  if (input.allowDeath !== undefined) {
+    node.allowDeath = input.allowDeath;
+  }
+
+  return node;
+}
+
+export function changeEnemyMp(input: {
+  target: EnemyCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+}): ChangeEnemyMpDslCommand {
+  return {
+    kind: "changeEnemyMp",
+    target: input.target,
+    operation: input.operation,
+    value: input.value,
+  };
+}
+
+export function changeEnemyState(input: {
+  target: EnemyCommandTarget;
+  operation: "add" | "remove";
+  state: ReferenceValue<"state">;
+}): ChangeEnemyStateDslCommand {
+  return {
+    kind: "changeEnemyState",
+    target: input.target,
+    operation: input.operation,
+    state: input.state,
+  };
+}
+
+export function enemyRecoverAll(input: { target: EnemyCommandTarget }): EnemyRecoverAllDslCommand {
+  return {
+    kind: "enemyRecoverAll",
+    target: input.target,
+  };
+}
+
+export function enemyAppear(input: { target: EnemyCommandTarget }): EnemyAppearDslCommand {
+  return {
+    kind: "enemyAppear",
+    target: input.target,
+  };
+}
+
+export function enemyTransform(input: {
+  target: EnemyCommandTarget;
+  enemy: ReferenceValue<"enemy">;
+}): EnemyTransformDslCommand {
+  return {
+    kind: "enemyTransform",
+    target: input.target,
+    enemy: input.enemy,
+  };
+}
+
+export function showBattleAnimation(input: {
+  target: EnemyCommandTarget;
+  animation: ReferenceValue<"animation">;
+}): ShowBattleAnimationDslCommand {
+  return {
+    kind: "showBattleAnimation",
+    target: input.target,
+    animation: input.animation,
+  };
+}
+
+export function forceAction(input: {
+  subject: BattlerCommandTarget;
+  skill: ReferenceValue<"skill">;
+  targetIndex: number;
+}): ForceActionDslCommand {
+  return {
+    kind: "forceAction",
+    subject: input.subject,
+    skill: input.skill,
+    targetIndex: input.targetIndex,
+  };
+}
+
+export function abortBattle(): AbortBattleDslCommand {
+  return {
+    kind: "abortBattle",
+  };
+}
+
+export function changeEnemyTp(input: {
+  target: EnemyCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+}): ChangeEnemyTpDslCommand {
+  return {
+    kind: "changeEnemyTp",
+    target: input.target,
+    operation: input.operation,
+    value: input.value,
+  };
+}
+
+export function openMenuScreen(): OpenMenuScreenDslCommand {
+  return {
+    kind: "openMenuScreen",
+  };
+}
+
+export function openSaveScreen(): OpenSaveScreenDslCommand {
+  return {
+    kind: "openSaveScreen",
+  };
+}
+
+export function gameOver(): GameOverDslCommand {
+  return {
+    kind: "gameOver",
+  };
+}
+
+export function returnToTitleScreen(): ReturnToTitleScreenDslCommand {
+  return {
+    kind: "returnToTitleScreen",
+  };
 }
 
 export function rawDslCommand(input: {
@@ -2099,6 +2769,10 @@ export function commonEventRef(
   value: { id: number } | { name: string },
 ): ReferenceValue<"commonEvent"> {
   return createReference("commonEvent", value);
+}
+
+export function enemyRef(value: { id: number } | { name: string }): ReferenceValue<"enemy"> {
+  return createReference("enemy", value);
 }
 
 export function itemRef(value: { id: number } | { name: string }): ReferenceValue<"item"> {

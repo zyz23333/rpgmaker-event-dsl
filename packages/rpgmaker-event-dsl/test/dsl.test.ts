@@ -2,25 +2,45 @@ import { describe, expect, it } from "vitest";
 
 import {
   animationRef,
+  abortBattle,
   battleProcessing,
   audioAsset,
+  changeActorImages,
   changeArmors,
   changeBattleBack,
   changeBattleBgm,
+  changeClass,
   changeDefeatMe,
   changeEncounterDisable,
+  changeEnemyHp,
+  changeEnemyMp,
+  changeEnemyState,
+  changeEnemyTp,
+  changeEquipment,
+  changeExp,
   changeFormationAccess,
   changeGold,
+  changeHp,
   changeItems,
+  changeLevel,
   changeMapNameDisplay,
   changeMenuAccess,
+  changeMp,
+  changeName,
+  changeNickname,
   changePartyMember,
   changeParallax,
+  changeParameter,
   changePlayerFollowers,
+  changeProfile,
   changeSaveAccess,
+  changeSkill,
+  changeState,
+  changeTp,
   changeTransparency,
   changeTileset,
   changeVehicleBgm,
+  changeVehicleImage,
   changeVictoryMe,
   changeWindowColor,
   changeWeapons,
@@ -33,6 +53,10 @@ import {
   controlSwitches,
   controlTimer,
   controlVariables,
+  enemyAppear,
+  enemyRecoverAll,
+  enemyRef,
+  enemyTransform,
   erasePicture,
   eraseEvent,
   fadeinScreen,
@@ -42,6 +66,8 @@ import {
   flashScreen,
   gatherFollowers,
   getLocationInfo,
+  forceAction,
+  gameOver,
   imageAsset,
   inputNumber,
   isAssetReference,
@@ -51,6 +77,9 @@ import {
   mapEvent,
   movieAsset,
   movePicture,
+  nameInputProcessing,
+  openMenuScreen,
+  openSaveScreen,
   page,
   playBgm,
   playBgs,
@@ -59,7 +88,9 @@ import {
   playSe,
   rotatePicture,
   resumeBgm,
+  returnToTitleScreen,
   saveBgm,
+  script,
   selectItem,
   scriptInput,
   scrollMap,
@@ -74,8 +105,11 @@ import {
   showScrollingText,
   showText,
   shakeScreen,
+  shopProcessing,
+  stateRef,
   switchDefinition,
   stopSe,
+  showBattleAnimation,
   tilesetRef,
   tintPicture,
   tintScreen,
@@ -307,6 +341,177 @@ describe("collectDslOwnedDeclarations", () => {
     expect(wait(60).kind).toBe("wait");
     expect(eraseEvent().kind).toBe("eraseEvent");
     expect(battleProcessing({ troop: troopRef({ id: 1 }) }).kind).toBe("battleProcessing");
+    expect(
+      battleProcessing({
+        troop: { kind: "troop", variable: variableRef({ id: 1 }) },
+        win: [wait(1)],
+      }).kind,
+    ).toBe("battleProcessing");
+    expect(
+      shopProcessing({
+        goods: [{ kind: "item", item: itemRef({ id: 1 }), price: 1 }],
+        allowSelling: true,
+      }).kind,
+    ).toBe("shopProcessing");
+    expect(nameInputProcessing({ actor: { kind: "actor", id: 1 }, maxCharacters: 8 }).kind).toBe(
+      "nameInputProcessing",
+    );
+    expect(
+      changeHp({
+        target: { kind: "runtimeSelector", scope: "actor", target: "entireParty" },
+        operation: "lose",
+        value: 1,
+      }).kind,
+    ).toBe("changeHp");
+    expect(
+      changeMp({
+        target: { kind: "runtimeSelector", scope: "actor", target: "actor", actorId: 1 },
+        operation: "gain",
+        value: variableRef({ id: 1 }),
+      }).kind,
+    ).toBe("changeMp");
+    expect(
+      changeState({
+        target: {
+          kind: "runtimeSelector",
+          scope: "actor",
+          target: "actorFromVariable",
+          variable: variableRef({ id: 1 }),
+        },
+        operation: "add",
+        state: stateRef({ id: 1 }),
+      }).kind,
+    ).toBe("changeState");
+    expect(
+      changeExp({
+        target: { kind: "runtimeSelector", scope: "actor", target: "actor", actorId: 1 },
+        operation: "gain",
+        value: 10,
+      }).kind,
+    ).toBe("changeExp");
+    expect(
+      changeLevel({
+        target: { kind: "runtimeSelector", scope: "actor", target: "actor", actorId: 1 },
+        operation: "gain",
+        value: 1,
+      }).kind,
+    ).toBe("changeLevel");
+    expect(
+      changeParameter({
+        target: { kind: "runtimeSelector", scope: "actor", target: "actor", actorId: 1 },
+        parameter: "atk",
+        operation: "gain",
+        value: 2,
+      }).kind,
+    ).toBe("changeParameter");
+    expect(
+      changeSkill({
+        target: { kind: "runtimeSelector", scope: "actor", target: "actor", actorId: 1 },
+        operation: "learn",
+        skill: { kind: "skill", id: 1 },
+      }).kind,
+    ).toBe("changeSkill");
+    expect(
+      changeEquipment({ actor: { kind: "actor", id: 1 }, equipmentTypeId: 1, itemId: 1 }).kind,
+    ).toBe("changeEquipment");
+    expect(changeName({ actor: { kind: "actor", id: 1 }, name: "Alex" }).kind).toBe("changeName");
+    expect(
+      changeClass({
+        actor: { kind: "actor", id: 1 },
+        class: { kind: "class", id: 1 },
+      }).kind,
+    ).toBe("changeClass");
+    expect(
+      changeActorImages({
+        actor: { kind: "actor", id: 1 },
+        character: { image: imageAsset({ folder: "characters", name: "Actor1" }), index: 0 },
+        face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 1 },
+        battler: imageAsset({ folder: "sv_actors", name: "Actor1_1" }),
+      }).kind,
+    ).toBe("changeActorImages");
+    expect(
+      changeVehicleImage({
+        vehicle: "boat",
+        image: imageAsset({ folder: "characters", name: "Vehicle" }),
+        index: 0,
+      }).kind,
+    ).toBe("changeVehicleImage");
+    expect(changeNickname({ actor: { kind: "actor", id: 1 }, nickname: "Ace" }).kind).toBe(
+      "changeNickname",
+    );
+    expect(changeProfile({ actor: { kind: "actor", id: 1 }, profile: "Profile" }).kind).toBe(
+      "changeProfile",
+    );
+    expect(
+      changeTp({
+        target: { kind: "runtimeSelector", scope: "actor", target: "actor", actorId: 1 },
+        operation: "gain",
+        value: 5,
+      }).kind,
+    ).toBe("changeTp");
+    expect(
+      changeEnemyHp({
+        target: { kind: "runtimeSelector", scope: "enemy", target: "all" },
+        operation: "lose",
+        value: 1,
+      }).kind,
+    ).toBe("changeEnemyHp");
+    expect(
+      changeEnemyMp({
+        target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
+        operation: "gain",
+        value: 1,
+      }).kind,
+    ).toBe("changeEnemyMp");
+    expect(
+      changeEnemyState({
+        target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
+        operation: "add",
+        state: stateRef({ id: 1 }),
+      }).kind,
+    ).toBe("changeEnemyState");
+    expect(
+      enemyRecoverAll({
+        target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
+      }).kind,
+    ).toBe("enemyRecoverAll");
+    expect(
+      enemyAppear({
+        target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
+      }).kind,
+    ).toBe("enemyAppear");
+    expect(
+      enemyTransform({
+        target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
+        enemy: enemyRef({ id: 1 }),
+      }).kind,
+    ).toBe("enemyTransform");
+    expect(
+      showBattleAnimation({
+        target: { kind: "runtimeSelector", scope: "enemy", target: "all" },
+        animation: animationRef({ id: 1 }),
+      }).kind,
+    ).toBe("showBattleAnimation");
+    expect(
+      forceAction({
+        subject: { kind: "runtimeSelector", scope: "battler", target: "actor", actorId: 1 },
+        skill: { kind: "skill", id: 1 },
+        targetIndex: -2,
+      }).kind,
+    ).toBe("forceAction");
+    expect(abortBattle().kind).toBe("abortBattle");
+    expect(
+      changeEnemyTp({
+        target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
+        operation: "gain",
+        value: 4,
+      }).kind,
+    ).toBe("changeEnemyTp");
+    expect(openMenuScreen().kind).toBe("openMenuScreen");
+    expect(openSaveScreen().kind).toBe("openSaveScreen");
+    expect(gameOver().kind).toBe("gameOver");
+    expect(returnToTitleScreen().kind).toBe("returnToTitleScreen");
+    expect(script({ code: "console.log(1);" }).kind).toBe("script");
     expect(
       showText({
         lines: ["Portrait line"],

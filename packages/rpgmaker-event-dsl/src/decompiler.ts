@@ -284,6 +284,12 @@ function renderCommandAt(commands: readonly RawEventCommand[], index: number): R
       return renderCommentCommand(commands, index);
     case 111:
       return renderConditionalCommand(commands, index);
+    case 301:
+      return renderBattleProcessingCommand(commands, index);
+    case 302:
+      return renderShopProcessingCommand(commands, index);
+    case 355:
+      return renderScriptCommand(commands, index);
     default:
       return renderSimpleOrRawCommand(command, index);
   }
@@ -563,6 +569,138 @@ function renderCommentCommand(
   return {
     expression: `comment(${literal(lines)})`,
     helperNames: ["comment"],
+    nextIndex,
+  };
+}
+
+function renderBattleProcessingCommand(
+  commands: readonly RawEventCommand[],
+  index: number,
+): RenderedCommand {
+  const command = commands[index];
+  if (command === undefined) {
+    throw new Error("Cannot render missing Battle Processing command.");
+  }
+
+  const troop = renderBattleTroop(command.parameters);
+  if (
+    troop === null ||
+    typeof command.parameters[2] !== "boolean" ||
+    typeof command.parameters[3] !== "boolean"
+  ) {
+    return renderSimpleOrRawCommand(command, index);
+  }
+
+  const helperNames = new Set<string>(["battleProcessing", ...troop.helperNames]);
+  const fields = [`troop: ${troop.expression}`];
+  if (command.parameters[2]) {
+    fields.push("canEscape: true");
+  }
+  if (command.parameters[3]) {
+    fields.push("canLose: true");
+  }
+
+  let nextIndex = index;
+  while (commands[nextIndex + 1]?.indent === command.indent) {
+    const branchCommand = commands[nextIndex + 1];
+    if (
+      branchCommand === undefined ||
+      (branchCommand.code !== 601 && branchCommand.code !== 602 && branchCommand.code !== 603)
+    ) {
+      break;
+    }
+
+    const branchEndIndex = findMessageBranchEnd(commands, nextIndex + 2, command.indent);
+    const rendered = renderDecompiledCommandList(commands.slice(nextIndex + 2, branchEndIndex));
+    for (const helperName of rendered.helperNames) {
+      helperNames.add(helperName);
+    }
+    fields.push(
+      `${battleBranchFieldName(branchCommand.code)}: [${renderInlineCommandListSource(rendered.source)}]`,
+    );
+    nextIndex = branchEndIndex - 1;
+  }
+
+  return {
+    expression: `battleProcessing({ ${fields.join(", ")} })`,
+    helperNames: [...helperNames],
+    nextIndex,
+  };
+}
+
+function renderShopProcessingCommand(
+  commands: readonly RawEventCommand[],
+  index: number,
+): RenderedCommand {
+  const command = commands[index];
+  if (command === undefined) {
+    throw new Error("Cannot render missing Shop Processing command.");
+  }
+
+  const firstGoods = renderShopGoods(command.parameters);
+  const allowSelling = command.parameters[4];
+  if (firstGoods === null || typeof allowSelling !== "boolean") {
+    return renderSimpleOrRawCommand(command, index);
+  }
+
+  const goods = [firstGoods.expression];
+  const helperNames = new Set<string>(["shopProcessing", ...firstGoods.helperNames]);
+  let nextIndex = index;
+
+  while (
+    commands[nextIndex + 1]?.code === 605 &&
+    commands[nextIndex + 1]?.indent === command.indent
+  ) {
+    const renderedGoods = renderShopGoods(commands[nextIndex + 1]?.parameters ?? []);
+    if (renderedGoods === null) {
+      break;
+    }
+    goods.push(renderedGoods.expression);
+    for (const helperName of renderedGoods.helperNames) {
+      helperNames.add(helperName);
+    }
+    nextIndex += 1;
+  }
+
+  const fields = [`goods: [${goods.join(", ")}]`];
+  if (allowSelling) {
+    fields.push("allowSelling: true");
+  }
+
+  return {
+    expression: `shopProcessing({ ${fields.join(", ")} })`,
+    helperNames: [...helperNames],
+    nextIndex,
+  };
+}
+
+function renderScriptCommand(commands: readonly RawEventCommand[], index: number): RenderedCommand {
+  const command = commands[index];
+  if (command === undefined) {
+    throw new Error("Cannot render missing Script command.");
+  }
+
+  if (typeof command.parameters[0] !== "string") {
+    return renderSimpleOrRawCommand(command, index);
+  }
+
+  const lines = [command.parameters[0]];
+  let nextIndex = index;
+  while (
+    commands[nextIndex + 1]?.code === 655 &&
+    commands[nextIndex + 1]?.indent === command.indent
+  ) {
+    const line = commands[nextIndex + 1]?.parameters[0];
+    if (typeof line !== "string") {
+      break;
+    }
+    lines.push(line);
+    nextIndex += 1;
+  }
+
+  return {
+    expression: `script({ code: ${literal(lines.join("\n"))} })`,
+    helperNames: ["script"],
     nextIndex,
   };
 }
@@ -877,6 +1015,70 @@ function renderSimpleCommand(command: RawEventCommand): Omit<RenderedCommand, "n
       return renderChangeParallax(command);
     case 285:
       return renderGetLocationInfo(command);
+    case 303:
+      return renderNameInputProcessing(command);
+    case 311:
+      return renderActorOperateValueCommand(command, "changeHp", true);
+    case 312:
+      return renderActorOperateValueCommand(command, "changeMp", false);
+    case 313:
+      return renderChangeState(command);
+    case 314:
+      return renderRecoverAll(command);
+    case 315:
+      return renderActorOperateValueCommand(command, "changeExp", true);
+    case 316:
+      return renderActorOperateValueCommand(command, "changeLevel", true);
+    case 317:
+      return renderChangeParameter(command);
+    case 318:
+      return renderChangeSkill(command);
+    case 319:
+      return renderChangeEquipment(command);
+    case 320:
+      return renderActorStringCommand(command, "changeName", "name");
+    case 321:
+      return renderChangeClass(command);
+    case 322:
+      return renderChangeActorImages(command);
+    case 323:
+      return renderChangeVehicleImage(command);
+    case 324:
+      return renderActorStringCommand(command, "changeNickname", "nickname");
+    case 325:
+      return renderActorStringCommand(command, "changeProfile", "profile");
+    case 326:
+      return renderActorOperateValueCommand(command, "changeTp", false);
+    case 331:
+      return renderEnemyOperateValueCommand(command, "changeEnemyHp", true);
+    case 332:
+      return renderEnemyOperateValueCommand(command, "changeEnemyMp", false);
+    case 333:
+      return renderChangeEnemyState(command);
+    case 334:
+      return renderEnemyTargetOnlyCommand(command, "enemyRecoverAll");
+    case 335:
+      return renderEnemyTargetOnlyCommand(command, "enemyAppear");
+    case 336:
+      return renderEnemyTransform(command);
+    case 337:
+      return renderShowBattleAnimation(command);
+    case 339:
+      return renderForceAction(command);
+    case 340:
+      return renderNoParameterCommand(command, "abortBattle");
+    case 342:
+      return renderEnemyOperateValueCommand(command, "changeEnemyTp", false);
+    case 351:
+      return renderNoParameterCommand(command, "openMenuScreen");
+    case 352:
+      return renderNoParameterCommand(command, "openSaveScreen");
+    case 353:
+      return renderNoParameterCommand(command, "gameOver");
+    case 354:
+      return renderNoParameterCommand(command, "returnToTitleScreen");
+    case 356:
+      return renderPluginCommand(command);
     default:
       return null;
   }
@@ -1425,6 +1627,318 @@ function renderGetLocationInfo(
       };
 }
 
+function renderNameInputProcessing(
+  command: RawEventCommand,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const actorId = readPositiveInteger(command.parameters[0]);
+  const maxCharacters = command.parameters[1];
+  return actorId === null || typeof maxCharacters !== "number"
+    ? null
+    : {
+        expression: `nameInputProcessing({ actor: actorRef({ id: ${actorId} }), maxCharacters: ${maxCharacters} })`,
+        helperNames: ["actorRef", "nameInputProcessing"],
+      };
+}
+
+function renderActorOperateValueCommand(
+  command: RawEventCommand,
+  helperName: "changeExp" | "changeHp" | "changeLevel" | "changeMp" | "changeTp",
+  hasTrailingBoolean: boolean,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const target = renderActorCommandTarget(command.parameters[0], command.parameters[1]);
+  const operand = renderOperateValueOperand(
+    command.parameters[2],
+    command.parameters[3],
+    command.parameters[4],
+  );
+  const trailing = command.parameters[5];
+  if (
+    target === null ||
+    operand === null ||
+    (hasTrailingBoolean && typeof trailing !== "boolean")
+  ) {
+    return null;
+  }
+
+  const trailingField =
+    hasTrailingBoolean && trailing
+      ? helperName === "changeHp"
+        ? ", allowDeath: true"
+        : ", showLevelUp: true"
+      : "";
+
+  return {
+    expression: `${helperName}({ target: ${target.expression}, operation: ${literal(operand.operation)}, value: ${operand.expression}${trailingField} })`,
+    helperNames: [helperName, ...target.helperNames, ...operand.helperNames],
+  };
+}
+
+function renderChangeState(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const target = renderActorCommandTarget(command.parameters[0], command.parameters[1]);
+  const operation =
+    command.parameters[2] === 0 ? "add" : command.parameters[2] === 1 ? "remove" : null;
+  const stateId = readPositiveInteger(command.parameters[3]);
+  return target === null || operation === null || stateId === null
+    ? null
+    : {
+        expression: `changeState({ target: ${target.expression}, operation: ${literal(operation)}, state: stateRef({ id: ${stateId} }) })`,
+        helperNames: ["changeState", "stateRef", ...target.helperNames],
+      };
+}
+
+function renderRecoverAll(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const target = renderActorCommandTarget(command.parameters[0], command.parameters[1]);
+  return target === null
+    ? null
+    : {
+        expression: `recoverAll({ target: ${target.expression} })`,
+        helperNames: ["recoverAll", ...target.helperNames],
+      };
+}
+
+function renderChangeParameter(
+  command: RawEventCommand,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const target = renderActorCommandTarget(command.parameters[0], command.parameters[1]);
+  const parameter = actorParameterFromCode(command.parameters[2]);
+  const operand = renderOperateValueOperand(
+    command.parameters[3],
+    command.parameters[4],
+    command.parameters[5],
+  );
+  return target === null || parameter === null || operand === null
+    ? null
+    : {
+        expression: `changeParameter({ target: ${target.expression}, parameter: ${literal(parameter)}, operation: ${literal(operand.operation)}, value: ${operand.expression} })`,
+        helperNames: ["changeParameter", ...target.helperNames, ...operand.helperNames],
+      };
+}
+
+function renderChangeSkill(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const target = renderActorCommandTarget(command.parameters[0], command.parameters[1]);
+  const operation =
+    command.parameters[2] === 0 ? "learn" : command.parameters[2] === 1 ? "forget" : null;
+  const skillId = readPositiveInteger(command.parameters[3]);
+  return target === null || operation === null || skillId === null
+    ? null
+    : {
+        expression: `changeSkill({ target: ${target.expression}, operation: ${literal(operation)}, skill: skillRef({ id: ${skillId} }) })`,
+        helperNames: ["changeSkill", "skillRef", ...target.helperNames],
+      };
+}
+
+function renderChangeEquipment(
+  command: RawEventCommand,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const actorId = readPositiveInteger(command.parameters[0]);
+  const equipmentTypeId = readPositiveInteger(command.parameters[1]);
+  const itemId = command.parameters[2];
+  if (
+    actorId === null ||
+    equipmentTypeId === null ||
+    typeof itemId !== "number" ||
+    !Number.isInteger(itemId) ||
+    itemId < 0
+  ) {
+    return null;
+  }
+
+  return {
+    expression: `changeEquipment({ actor: actorRef({ id: ${actorId} }), equipmentTypeId: ${equipmentTypeId}, itemId: ${itemId === 0 ? "null" : itemId} })`,
+    helperNames: ["actorRef", "changeEquipment"],
+  };
+}
+
+function renderActorStringCommand(
+  command: RawEventCommand,
+  helperName: "changeName" | "changeNickname" | "changeProfile",
+  fieldName: "name" | "nickname" | "profile",
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const actorId = readPositiveInteger(command.parameters[0]);
+  const value = command.parameters[1];
+  return actorId === null || typeof value !== "string"
+    ? null
+    : {
+        expression: `${helperName}({ actor: actorRef({ id: ${actorId} }), ${fieldName}: ${literal(value)} })`,
+        helperNames: ["actorRef", helperName],
+      };
+}
+
+function renderChangeClass(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const actorId = readPositiveInteger(command.parameters[0]);
+  const classId = readPositiveInteger(command.parameters[1]);
+  const keepExp = command.parameters[2];
+  return actorId === null || classId === null || typeof keepExp !== "boolean"
+    ? null
+    : {
+        expression: `changeClass({ actor: actorRef({ id: ${actorId} }), class: classRef({ id: ${classId} })${keepExp ? ", keepExp: true" : ""} })`,
+        helperNames: ["actorRef", "changeClass", "classRef"],
+      };
+}
+
+function renderChangeActorImages(
+  command: RawEventCommand,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const actorId = readPositiveInteger(command.parameters[0]);
+  const characterName = command.parameters[1];
+  const characterIndex = command.parameters[2];
+  const faceName = command.parameters[3];
+  const faceIndex = command.parameters[4];
+  const battlerName = command.parameters[5];
+  return actorId === null ||
+    typeof characterName !== "string" ||
+    typeof characterIndex !== "number" ||
+    typeof faceName !== "string" ||
+    typeof faceIndex !== "number" ||
+    typeof battlerName !== "string"
+    ? null
+    : {
+        expression: `changeActorImages({ actor: actorRef({ id: ${actorId} }), character: { image: imageAsset({ folder: "characters", name: ${literal(characterName)} }), index: ${characterIndex} }, face: { image: imageAsset({ folder: "faces", name: ${literal(faceName)} }), index: ${faceIndex} }, battler: imageAsset({ folder: "sv_actors", name: ${literal(battlerName)} }) })`,
+        helperNames: ["actorRef", "changeActorImages", "imageAsset"],
+      };
+}
+
+function renderChangeVehicleImage(
+  command: RawEventCommand,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const vehicle = vehicleFromCode(command.parameters[0]);
+  const imageName = command.parameters[1];
+  const index = command.parameters[2];
+  return vehicle === null || typeof imageName !== "string" || typeof index !== "number"
+    ? null
+    : {
+        expression: `changeVehicleImage({ vehicle: ${literal(vehicle)}, image: imageAsset({ folder: "characters", name: ${literal(imageName)} }), index: ${index} })`,
+        helperNames: ["changeVehicleImage", "imageAsset"],
+      };
+}
+
+function renderEnemyOperateValueCommand(
+  command: RawEventCommand,
+  helperName: "changeEnemyHp" | "changeEnemyMp" | "changeEnemyTp",
+  hasAllowDeath: boolean,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const target = renderEnemyCommandTarget(command.parameters[0]);
+  const operand = renderOperateValueOperand(
+    command.parameters[1],
+    command.parameters[2],
+    command.parameters[3],
+  );
+  const allowDeath = command.parameters[4];
+  if (target === null || operand === null || (hasAllowDeath && typeof allowDeath !== "boolean")) {
+    return null;
+  }
+
+  return {
+    expression: `${helperName}({ target: ${target.expression}, operation: ${literal(operand.operation)}, value: ${operand.expression}${hasAllowDeath && allowDeath ? ", allowDeath: true" : ""} })`,
+    helperNames: [helperName, ...target.helperNames, ...operand.helperNames],
+  };
+}
+
+function renderChangeEnemyState(
+  command: RawEventCommand,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const target = renderEnemyCommandTarget(command.parameters[0]);
+  const operation =
+    command.parameters[1] === 0 ? "add" : command.parameters[1] === 1 ? "remove" : null;
+  const stateId = readPositiveInteger(command.parameters[2]);
+  return target === null || operation === null || stateId === null
+    ? null
+    : {
+        expression: `changeEnemyState({ target: ${target.expression}, operation: ${literal(operation)}, state: stateRef({ id: ${stateId} }) })`,
+        helperNames: ["changeEnemyState", "stateRef", ...target.helperNames],
+      };
+}
+
+function renderEnemyTargetOnlyCommand(
+  command: RawEventCommand,
+  helperName: "enemyAppear" | "enemyRecoverAll",
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const target = renderEnemyCommandTarget(command.parameters[0]);
+  return target === null
+    ? null
+    : {
+        expression: `${helperName}({ target: ${target.expression} })`,
+        helperNames: [helperName, ...target.helperNames],
+      };
+}
+
+function renderEnemyTransform(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const target = renderEnemyCommandTarget(command.parameters[0]);
+  const enemyId = readPositiveInteger(command.parameters[1]);
+  return target === null || enemyId === null
+    ? null
+    : {
+        expression: `enemyTransform({ target: ${target.expression}, enemy: enemyRef({ id: ${enemyId} }) })`,
+        helperNames: ["enemyRef", "enemyTransform", ...target.helperNames],
+      };
+}
+
+function renderShowBattleAnimation(
+  command: RawEventCommand,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const animationId = readPositiveInteger(command.parameters[1]);
+  const allEnemies = command.parameters[2];
+  const target =
+    allEnemies === true
+      ? renderEnemyCommandTarget(-1)
+      : renderEnemyCommandTarget(command.parameters[0]);
+  return target === null || animationId === null || typeof allEnemies !== "boolean"
+    ? null
+    : {
+        expression: `showBattleAnimation({ target: ${target.expression}, animation: animationRef({ id: ${animationId} }) })`,
+        helperNames: ["animationRef", "showBattleAnimation", ...target.helperNames],
+      };
+}
+
+function renderForceAction(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const subject = renderBattlerCommandTarget(command.parameters[0], command.parameters[1]);
+  const skillId = readPositiveInteger(command.parameters[2]);
+  const targetIndex = command.parameters[3];
+  return subject === null || skillId === null || typeof targetIndex !== "number"
+    ? null
+    : {
+        expression: `forceAction({ subject: ${subject.expression}, skill: skillRef({ id: ${skillId} }), targetIndex: ${targetIndex} })`,
+        helperNames: ["forceAction", "skillRef", ...subject.helperNames],
+      };
+}
+
+function renderPluginCommand(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const line = command.parameters[0];
+  if (typeof line !== "string" || line.length === 0) {
+    return null;
+  }
+  if (line.trim() !== line || line.includes("  ")) {
+    return null;
+  }
+
+  const [name = "", ...args] = line.split(" ");
+  const fields = [`command: ${literal(name)}`];
+  if (args.length > 0) {
+    fields.push(`args: ${literal(args)}`);
+  }
+  return {
+    expression: `pluginCommand({ ${fields.join(", ")} })`,
+    helperNames: ["pluginCommand"],
+  };
+}
+
+function renderNoParameterCommand(
+  command: RawEventCommand,
+  helperName:
+    | "abortBattle"
+    | "gameOver"
+    | "openMenuScreen"
+    | "openSaveScreen"
+    | "returnToTitleScreen",
+): Omit<RenderedCommand, "nextIndex"> | null {
+  return command.parameters.length === 0
+    ? {
+        expression: `${helperName}()`,
+        helperNames: [helperName],
+      }
+    : null;
+}
+
 function renderAudioPayload(value: unknown, folder: "bgm" | "bgs" | "me" | "se"): string | null {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
     return null;
@@ -1773,6 +2287,85 @@ function renderCharacterRuntimeSelector(
   return null;
 }
 
+function renderActorCommandTarget(
+  targetKind: unknown,
+  targetValue: unknown,
+): { expression: string; helperNames: readonly string[] } | null {
+  if (targetKind === 0) {
+    const actorId =
+      typeof targetValue === "number" && Number.isInteger(targetValue) ? targetValue : null;
+    if (actorId === 0) {
+      return {
+        expression: `{ kind: "runtimeSelector", scope: "actor", target: "entireParty" }`,
+        helperNames: [],
+      };
+    }
+    return actorId !== null && actorId > 0
+      ? {
+          expression: `{ kind: "runtimeSelector", scope: "actor", target: "actor", actorId: ${actorId} }`,
+          helperNames: [],
+        }
+      : null;
+  }
+
+  if (targetKind === 1) {
+    const variableId = readPositiveInteger(targetValue);
+    return variableId === null
+      ? null
+      : {
+          expression: `{ kind: "runtimeSelector", scope: "actor", target: "actorFromVariable", variable: variableRef({ id: ${variableId} }) }`,
+          helperNames: ["variableRef"],
+        };
+  }
+
+  return null;
+}
+
+function renderEnemyCommandTarget(
+  value: unknown,
+): { expression: string; helperNames: readonly string[] } | null {
+  if (value === -1) {
+    return {
+      expression: `{ kind: "runtimeSelector", scope: "enemy", target: "all" }`,
+      helperNames: [],
+    };
+  }
+
+  return typeof value === "number" && Number.isInteger(value) && value >= 0
+    ? {
+        expression: `{ kind: "runtimeSelector", scope: "enemy", target: "enemy", index: ${value} }`,
+        helperNames: [],
+      }
+    : null;
+}
+
+function renderBattlerCommandTarget(
+  targetKind: unknown,
+  targetValue: unknown,
+): { expression: string; helperNames: readonly string[] } | null {
+  if (
+    targetKind === 0 &&
+    typeof targetValue === "number" &&
+    Number.isInteger(targetValue) &&
+    targetValue >= 0
+  ) {
+    return {
+      expression: `{ kind: "runtimeSelector", scope: "battler", target: "enemy", index: ${targetValue} }`,
+      helperNames: [],
+    };
+  }
+
+  const actorId = readPositiveInteger(targetValue);
+  if (targetKind === 1 && actorId !== null) {
+    return {
+      expression: `{ kind: "runtimeSelector", scope: "battler", target: "actor", actorId: ${actorId} }`,
+      helperNames: [],
+    };
+  }
+
+  return null;
+}
+
 function renderPicturePosition(
   originParameter: unknown,
   designation: unknown,
@@ -1913,6 +2506,111 @@ function renderOperateValueOperand(
   }
 
   return null;
+}
+
+function renderBattleTroop(
+  parameters: readonly unknown[],
+): { expression: string; helperNames: readonly string[] } | null {
+  if (parameters[0] === 0) {
+    const troopId = readPositiveInteger(parameters[1]);
+    return troopId === null
+      ? null
+      : {
+          expression: `troopRef({ id: ${troopId} })`,
+          helperNames: ["troopRef"],
+        };
+  }
+
+  if (parameters[0] === 1) {
+    const variableId = readPositiveInteger(parameters[1]);
+    return variableId === null
+      ? null
+      : {
+          expression: `{ kind: "troop", variable: variableRef({ id: ${variableId} }) }`,
+          helperNames: ["variableRef"],
+        };
+  }
+
+  if (parameters[0] === 2) {
+    return {
+      expression: `{ kind: "troop", useRandomEncounter: true }`,
+      helperNames: [],
+    };
+  }
+
+  return null;
+}
+
+function battleBranchFieldName(code: number): "escape" | "lose" | "win" {
+  if (code === 602) {
+    return "escape";
+  }
+  if (code === 603) {
+    return "lose";
+  }
+  return "win";
+}
+
+function renderShopGoods(
+  parameters: readonly unknown[],
+): { expression: string; helperNames: readonly string[] } | null {
+  const kind = shopGoodsKindFromCode(parameters[0]);
+  const itemId = readPositiveInteger(parameters[1]);
+  const priceMode = parameters[2];
+  const price = parameters[3];
+  if (kind === null || itemId === null || (priceMode !== 0 && priceMode !== 1)) {
+    return null;
+  }
+  if (priceMode === 1 && typeof price !== "number") {
+    return null;
+  }
+
+  const helperName = kind === "item" ? "itemRef" : kind === "weapon" ? "weaponRef" : "armorRef";
+  const fields = [`kind: ${literal(kind)}`, `item: ${helperName}({ id: ${itemId} })`];
+  if (priceMode === 1) {
+    fields.push(`price: ${price}`);
+  }
+
+  return {
+    expression: `{ ${fields.join(", ")} }`,
+    helperNames: [helperName],
+  };
+}
+
+function shopGoodsKindFromCode(value: unknown): "armor" | "item" | "weapon" | null {
+  if (value === 0) {
+    return "item";
+  }
+  if (value === 1) {
+    return "weapon";
+  }
+  if (value === 2) {
+    return "armor";
+  }
+  return null;
+}
+
+function actorParameterFromCode(value: unknown): string | null {
+  switch (value) {
+    case 0:
+      return "mhp";
+    case 1:
+      return "mmp";
+    case 2:
+      return "atk";
+    case 3:
+      return "def";
+    case 4:
+      return "mat";
+    case 5:
+      return "mdf";
+    case 6:
+      return "agi";
+    case 7:
+      return "luk";
+    default:
+      return null;
+  }
 }
 
 function renderControlVariablesGameDataOperand(
