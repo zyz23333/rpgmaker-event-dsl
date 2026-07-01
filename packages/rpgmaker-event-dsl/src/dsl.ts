@@ -62,6 +62,7 @@ export type PageConditions = {
 
 export type ReferenceKind =
   | "actor"
+  | "animation"
   | "armor"
   | "class"
   | "commonEvent"
@@ -86,6 +87,7 @@ export type ReferenceValue<TKind extends ReferenceKind> =
 
 export const referenceKinds = [
   "actor",
+  "animation",
   "armor",
   "class",
   "commonEvent",
@@ -470,7 +472,23 @@ export type DslCommand =
   | ScrollMapDslCommand
   | SetMovementRouteDslCommand
   | GetOnOffVehicleDslCommand
+  | ChangeTransparencyDslCommand
+  | ShowAnimationDslCommand
+  | ShowBalloonIconDslCommand
+  | ChangePlayerFollowersDslCommand
+  | GatherFollowersDslCommand
+  | FadeoutScreenDslCommand
+  | FadeinScreenDslCommand
+  | TintScreenDslCommand
+  | FlashScreenDslCommand
+  | ShakeScreenDslCommand
   | WaitDslCommand
+  | ShowPictureDslCommand
+  | MovePictureDslCommand
+  | RotatePictureDslCommand
+  | TintPictureDslCommand
+  | ErasePictureDslCommand
+  | SetWeatherEffectDslCommand
   | EraseEventDslCommand
   | BattleProcessingDslCommand
   | ShowChoicesDslCommand
@@ -722,9 +740,136 @@ export type GetOnOffVehicleDslCommand = {
   kind: "getOnOffVehicle";
 };
 
+export type ChangeTransparencyDslCommand = {
+  kind: "changeTransparency";
+  transparent: boolean;
+};
+
+export type ShowAnimationDslCommand = {
+  kind: "showAnimation";
+  target: CharacterRuntimeSelector;
+  animation: ReferenceValue<"animation">;
+  wait?: boolean;
+};
+
+export type BalloonIcon =
+  | "exclamation"
+  | "question"
+  | "musicNote"
+  | "heart"
+  | "anger"
+  | "sweat"
+  | "cobweb"
+  | "silence"
+  | "lightBulb"
+  | "zzz";
+
+export type ShowBalloonIconDslCommand = {
+  kind: "showBalloonIcon";
+  target: CharacterRuntimeSelector;
+  balloon: BalloonIcon | number;
+  wait?: boolean;
+};
+
+export type ChangePlayerFollowersDslCommand = {
+  kind: "changePlayerFollowers";
+  visible: boolean;
+};
+
+export type GatherFollowersDslCommand = {
+  kind: "gatherFollowers";
+};
+
+export type FadeoutScreenDslCommand = {
+  kind: "fadeoutScreen";
+};
+
+export type FadeinScreenDslCommand = {
+  kind: "fadeinScreen";
+};
+
+export type TintScreenDslCommand = {
+  kind: "tintScreen";
+  tone: ToneInput;
+  duration: number;
+  wait?: boolean;
+};
+
+export type FlashScreenDslCommand = {
+  kind: "flashScreen";
+  color: ColorInput;
+  duration: number;
+  wait?: boolean;
+};
+
+export type ShakeScreenDslCommand = {
+  kind: "shakeScreen";
+  power: number;
+  speed: number;
+  duration: number;
+  wait?: boolean;
+};
+
 export type WaitDslCommand = {
   kind: "wait";
   frames: number;
+};
+
+export type PictureOrigin = "upperLeft" | "center";
+
+export type PicturePosition = CommandPosition & {
+  origin?: PictureOrigin;
+};
+
+export type PictureDisplayInput = {
+  scaleX?: number;
+  scaleY?: number;
+  opacity?: number;
+  blendMode?: 0 | 1 | 2 | 3;
+};
+
+export type ShowPictureDslCommand = {
+  kind: "showPicture";
+  pictureId: number;
+  image: ImageAssetReference;
+  position: PicturePosition;
+} & PictureDisplayInput;
+
+export type MovePictureDslCommand = {
+  kind: "movePicture";
+  pictureId: number;
+  position: PicturePosition;
+  duration: number;
+  wait?: boolean;
+} & PictureDisplayInput;
+
+export type RotatePictureDslCommand = {
+  kind: "rotatePicture";
+  pictureId: number;
+  speed: number;
+};
+
+export type TintPictureDslCommand = {
+  kind: "tintPicture";
+  pictureId: number;
+  tone: ToneInput;
+  duration: number;
+  wait?: boolean;
+};
+
+export type ErasePictureDslCommand = {
+  kind: "erasePicture";
+  pictureId: number;
+};
+
+export type WeatherEffectType = "none" | "rain" | "storm" | "snow";
+
+export type SetWeatherEffectDslCommand = {
+  kind: "setWeatherEffect";
+  weather: WeatherEffectType;
+  power: number;
+  duration: number;
+  wait?: boolean;
 };
 
 export type EraseEventDslCommand = {
@@ -1230,8 +1375,233 @@ export function getOnOffVehicle(): GetOnOffVehicleDslCommand {
   };
 }
 
+export function changeTransparency(input: { transparent: boolean }): ChangeTransparencyDslCommand {
+  return {
+    kind: "changeTransparency",
+    transparent: input.transparent,
+  };
+}
+
+export function showAnimation(input: {
+  target: CharacterRuntimeSelector;
+  animation: ReferenceValue<"animation">;
+  wait?: boolean;
+}): ShowAnimationDslCommand {
+  const node: ShowAnimationDslCommand = {
+    kind: "showAnimation",
+    target: input.target,
+    animation: input.animation,
+  };
+
+  if (input.wait !== undefined) {
+    node.wait = input.wait;
+  }
+
+  return node;
+}
+
+export function showBalloonIcon(input: {
+  target: CharacterRuntimeSelector;
+  balloon: BalloonIcon | number;
+  wait?: boolean;
+}): ShowBalloonIconDslCommand {
+  const node: ShowBalloonIconDslCommand = {
+    kind: "showBalloonIcon",
+    target: input.target,
+    balloon: input.balloon,
+  };
+
+  if (input.wait !== undefined) {
+    node.wait = input.wait;
+  }
+
+  return node;
+}
+
+export function changePlayerFollowers(input: {
+  visible: boolean;
+}): ChangePlayerFollowersDslCommand {
+  return {
+    kind: "changePlayerFollowers",
+    visible: input.visible,
+  };
+}
+
+export function gatherFollowers(): GatherFollowersDslCommand {
+  return {
+    kind: "gatherFollowers",
+  };
+}
+
+export function fadeoutScreen(): FadeoutScreenDslCommand {
+  return {
+    kind: "fadeoutScreen",
+  };
+}
+
+export function fadeinScreen(): FadeinScreenDslCommand {
+  return {
+    kind: "fadeinScreen",
+  };
+}
+
+export function tintScreen(input: {
+  tone: ToneInput;
+  duration: number;
+  wait?: boolean;
+}): TintScreenDslCommand {
+  const node: TintScreenDslCommand = {
+    kind: "tintScreen",
+    tone: input.tone,
+    duration: input.duration,
+  };
+
+  if (input.wait !== undefined) {
+    node.wait = input.wait;
+  }
+
+  return node;
+}
+
+export function flashScreen(input: {
+  color: ColorInput;
+  duration: number;
+  wait?: boolean;
+}): FlashScreenDslCommand {
+  const node: FlashScreenDslCommand = {
+    kind: "flashScreen",
+    color: input.color,
+    duration: input.duration,
+  };
+
+  if (input.wait !== undefined) {
+    node.wait = input.wait;
+  }
+
+  return node;
+}
+
+export function shakeScreen(input: {
+  power: number;
+  speed: number;
+  duration: number;
+  wait?: boolean;
+}): ShakeScreenDslCommand {
+  const node: ShakeScreenDslCommand = {
+    kind: "shakeScreen",
+    power: input.power,
+    speed: input.speed,
+    duration: input.duration,
+  };
+
+  if (input.wait !== undefined) {
+    node.wait = input.wait;
+  }
+
+  return node;
+}
+
 export function wait(frames: number): WaitDslCommand {
   return { kind: "wait", frames };
+}
+
+export function showPicture(
+  input: {
+    pictureId: number;
+    image: ImageAssetReference;
+    position: PicturePosition;
+  } & PictureDisplayInput,
+): ShowPictureDslCommand {
+  const node: ShowPictureDslCommand = {
+    kind: "showPicture",
+    pictureId: input.pictureId,
+    image: input.image,
+    position: input.position,
+  };
+
+  assignPictureDisplayInput(node, input);
+  return node;
+}
+
+export function movePicture(
+  input: {
+    pictureId: number;
+    position: PicturePosition;
+    duration: number;
+    wait?: boolean;
+  } & PictureDisplayInput,
+): MovePictureDslCommand {
+  const node: MovePictureDslCommand = {
+    kind: "movePicture",
+    pictureId: input.pictureId,
+    position: input.position,
+    duration: input.duration,
+  };
+
+  assignPictureDisplayInput(node, input);
+  if (input.wait !== undefined) {
+    node.wait = input.wait;
+  }
+
+  return node;
+}
+
+export function rotatePicture(input: {
+  pictureId: number;
+  speed: number;
+}): RotatePictureDslCommand {
+  return {
+    kind: "rotatePicture",
+    pictureId: input.pictureId,
+    speed: input.speed,
+  };
+}
+
+export function tintPicture(input: {
+  pictureId: number;
+  tone: ToneInput;
+  duration: number;
+  wait?: boolean;
+}): TintPictureDslCommand {
+  const node: TintPictureDslCommand = {
+    kind: "tintPicture",
+    pictureId: input.pictureId,
+    tone: input.tone,
+    duration: input.duration,
+  };
+
+  if (input.wait !== undefined) {
+    node.wait = input.wait;
+  }
+
+  return node;
+}
+
+export function erasePicture(input: { pictureId: number }): ErasePictureDslCommand {
+  return {
+    kind: "erasePicture",
+    pictureId: input.pictureId,
+  };
+}
+
+export function setWeatherEffect(input: {
+  weather: WeatherEffectType;
+  power: number;
+  duration: number;
+  wait?: boolean;
+}): SetWeatherEffectDslCommand {
+  const node: SetWeatherEffectDslCommand = {
+    kind: "setWeatherEffect",
+    weather: input.weather,
+    power: input.power,
+    duration: input.duration,
+  };
+
+  if (input.wait !== undefined) {
+    node.wait = input.wait;
+  }
+
+  return node;
 }
 
 export function eraseEvent(): EraseEventDslCommand {
@@ -1343,6 +1713,12 @@ export function scriptInput(input: { code: string }): ScriptInput {
 
 export function actorRef(value: { id: number } | { name: string }): ReferenceValue<"actor"> {
   return createReference("actor", value);
+}
+
+export function animationRef(
+  value: { id: number } | { name: string },
+): ReferenceValue<"animation"> {
+  return createReference("animation", value);
 }
 
 export function armorRef(value: { id: number } | { name: string }): ReferenceValue<"armor"> {
@@ -1488,6 +1864,24 @@ function createReference<TKind extends ReferenceKind>(
   }
 
   return { kind, name: value.name };
+}
+
+function assignPictureDisplayInput<TNode extends PictureDisplayInput>(
+  node: TNode,
+  input: PictureDisplayInput,
+): void {
+  if (input.scaleX !== undefined) {
+    node.scaleX = input.scaleX;
+  }
+  if (input.scaleY !== undefined) {
+    node.scaleY = input.scaleY;
+  }
+  if (input.opacity !== undefined) {
+    node.opacity = input.opacity;
+  }
+  if (input.blendMode !== undefined) {
+    node.blendMode = input.blendMode;
+  }
 }
 
 function isReferenceKind(value: string): value is ReferenceKind {

@@ -753,11 +753,46 @@ function renderSimpleCommand(command: RawEventCommand): Omit<RenderedCommand, "n
             helperNames: ["getOnOffVehicle"],
           }
         : null;
+    case 211:
+      return renderChangeTransparency(command);
+    case 212:
+      return renderShowAnimation(command);
+    case 213:
+      return renderShowBalloonIcon(command);
     case 214:
       return {
         expression: "eraseEvent()",
         helperNames: ["eraseEvent"],
       };
+    case 216:
+      return renderChangePlayerFollowers(command);
+    case 217:
+      return command.parameters.length === 0
+        ? {
+            expression: "gatherFollowers()",
+            helperNames: ["gatherFollowers"],
+          }
+        : null;
+    case 221:
+      return command.parameters.length === 0
+        ? {
+            expression: "fadeoutScreen()",
+            helperNames: ["fadeoutScreen"],
+          }
+        : null;
+    case 222:
+      return command.parameters.length === 0
+        ? {
+            expression: "fadeinScreen()",
+            helperNames: ["fadeinScreen"],
+          }
+        : null;
+    case 223:
+      return renderTintScreen(command);
+    case 224:
+      return renderFlashScreen(command);
+    case 225:
+      return renderShakeScreen(command);
     case 230: {
       const frames = command.parameters[0];
       return typeof frames === "number"
@@ -767,6 +802,18 @@ function renderSimpleCommand(command: RawEventCommand): Omit<RenderedCommand, "n
           }
         : null;
     }
+    case 231:
+      return renderShowPicture(command);
+    case 232:
+      return renderMovePicture(command);
+    case 233:
+      return renderRotatePicture(command);
+    case 234:
+      return renderTintPicture(command);
+    case 235:
+      return renderErasePicture(command);
+    case 236:
+      return renderSetWeatherEffect(command);
     default:
       return null;
   }
@@ -945,6 +992,215 @@ function renderSetMovementRoute(
     expression: `setMovementRoute({ ${fields.join(", ")} })`,
     helperNames: ["setMovementRoute", ...renderedRoute.helperNames],
   };
+}
+
+function renderChangeTransparency(
+  command: RawEventCommand,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const transparent = readControlValue(command.parameters[0]);
+  return transparent === null
+    ? null
+    : {
+        expression: `changeTransparency({ transparent: ${transparent} })`,
+        helperNames: ["changeTransparency"],
+      };
+}
+
+function renderShowAnimation(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const target = renderCharacterRuntimeSelector(command.parameters[0]);
+  const animationId = readPositiveInteger(command.parameters[1]);
+  const wait = command.parameters[2];
+
+  return target === null || animationId === null || typeof wait !== "boolean"
+    ? null
+    : {
+        expression: `showAnimation({ target: ${target.expression}, animation: animationRef({ id: ${animationId} })${wait ? ", wait: true" : ""} })`,
+        helperNames: ["animationRef", "showAnimation"],
+      };
+}
+
+function renderShowBalloonIcon(
+  command: RawEventCommand,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const target = renderCharacterRuntimeSelector(command.parameters[0]);
+  const balloon = balloonIconFromCode(command.parameters[1]);
+  const wait = command.parameters[2];
+
+  return target === null || balloon === null || typeof wait !== "boolean"
+    ? null
+    : {
+        expression: `showBalloonIcon({ target: ${target.expression}, balloon: ${balloon}${wait ? ", wait: true" : ""} })`,
+        helperNames: ["showBalloonIcon"],
+      };
+}
+
+function renderChangePlayerFollowers(
+  command: RawEventCommand,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const visible = readControlValue(command.parameters[0]);
+  return visible === null
+    ? null
+    : {
+        expression: `changePlayerFollowers({ visible: ${visible} })`,
+        helperNames: ["changePlayerFollowers"],
+      };
+}
+
+function renderTintScreen(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const tone = renderTone(command.parameters[0]);
+  const duration = command.parameters[1];
+  const wait = command.parameters[2];
+
+  return tone === null || typeof duration !== "number" || typeof wait !== "boolean"
+    ? null
+    : {
+        expression: `tintScreen({ tone: ${tone}, duration: ${duration}${wait ? ", wait: true" : ""} })`,
+        helperNames: ["tintScreen"],
+      };
+}
+
+function renderFlashScreen(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const color = renderColor(command.parameters[0]);
+  const duration = command.parameters[1];
+  const wait = command.parameters[2];
+
+  return color === null || typeof duration !== "number" || typeof wait !== "boolean"
+    ? null
+    : {
+        expression: `flashScreen({ color: ${color}, duration: ${duration}${wait ? ", wait: true" : ""} })`,
+        helperNames: ["flashScreen"],
+      };
+}
+
+function renderShakeScreen(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const power = command.parameters[0];
+  const speed = command.parameters[1];
+  const duration = command.parameters[2];
+  const wait = command.parameters[3];
+
+  return typeof power !== "number" ||
+    typeof speed !== "number" ||
+    typeof duration !== "number" ||
+    typeof wait !== "boolean"
+    ? null
+    : {
+        expression: `shakeScreen({ power: ${power}, speed: ${speed}, duration: ${duration}${wait ? ", wait: true" : ""} })`,
+        helperNames: ["shakeScreen"],
+      };
+}
+
+function renderShowPicture(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const pictureId = readPositiveInteger(command.parameters[0]);
+  const imageName = command.parameters[1];
+  const position = renderPicturePosition(
+    command.parameters[2],
+    command.parameters[3],
+    command.parameters[4],
+    command.parameters[5],
+  );
+  const display = renderPictureDisplay(
+    command.parameters[6],
+    command.parameters[7],
+    command.parameters[8],
+    command.parameters[9],
+  );
+
+  return pictureId === null ||
+    typeof imageName !== "string" ||
+    position === null ||
+    display === null
+    ? null
+    : {
+        expression: `showPicture({ pictureId: ${pictureId}, image: imageAsset({ folder: "pictures", name: ${literal(imageName)} }), position: ${position.expression}${display} })`,
+        helperNames: ["imageAsset", "showPicture", ...position.helperNames],
+      };
+}
+
+function renderMovePicture(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const pictureId = readPositiveInteger(command.parameters[0]);
+  const position = renderPicturePosition(
+    command.parameters[2],
+    command.parameters[3],
+    command.parameters[4],
+    command.parameters[5],
+  );
+  const display = renderPictureDisplay(
+    command.parameters[6],
+    command.parameters[7],
+    command.parameters[8],
+    command.parameters[9],
+  );
+  const duration = command.parameters[10];
+  const wait = command.parameters[11];
+
+  return pictureId === null ||
+    position === null ||
+    display === null ||
+    typeof duration !== "number" ||
+    typeof wait !== "boolean"
+    ? null
+    : {
+        expression: `movePicture({ pictureId: ${pictureId}, position: ${position.expression}${display}, duration: ${duration}${wait ? ", wait: true" : ""} })`,
+        helperNames: ["movePicture", ...position.helperNames],
+      };
+}
+
+function renderRotatePicture(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const pictureId = readPositiveInteger(command.parameters[0]);
+  const speed = command.parameters[1];
+
+  return pictureId === null || typeof speed !== "number"
+    ? null
+    : {
+        expression: `rotatePicture({ pictureId: ${pictureId}, speed: ${speed} })`,
+        helperNames: ["rotatePicture"],
+      };
+}
+
+function renderTintPicture(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const pictureId = readPositiveInteger(command.parameters[0]);
+  const tone = renderTone(command.parameters[1]);
+  const duration = command.parameters[2];
+  const wait = command.parameters[3];
+
+  return pictureId === null ||
+    tone === null ||
+    typeof duration !== "number" ||
+    typeof wait !== "boolean"
+    ? null
+    : {
+        expression: `tintPicture({ pictureId: ${pictureId}, tone: ${tone}, duration: ${duration}${wait ? ", wait: true" : ""} })`,
+        helperNames: ["tintPicture"],
+      };
+}
+
+function renderErasePicture(command: RawEventCommand): Omit<RenderedCommand, "nextIndex"> | null {
+  const pictureId = readPositiveInteger(command.parameters[0]);
+  return pictureId === null
+    ? null
+    : {
+        expression: `erasePicture({ pictureId: ${pictureId} })`,
+        helperNames: ["erasePicture"],
+      };
+}
+
+function renderSetWeatherEffect(
+  command: RawEventCommand,
+): Omit<RenderedCommand, "nextIndex"> | null {
+  const weather = weatherEffectFromCode(command.parameters[0]);
+  const power = command.parameters[1];
+  const duration = command.parameters[2];
+  const wait = command.parameters[3];
+
+  return weather === null ||
+    typeof power !== "number" ||
+    typeof duration !== "number" ||
+    typeof wait !== "boolean"
+    ? null
+    : {
+        expression: `setWeatherEffect({ weather: ${literal(weather)}, power: ${power}, duration: ${duration}${wait ? ", wait: true" : ""} })`,
+        helperNames: ["setWeatherEffect"],
+      };
 }
 
 function renderMoveRouteCommands(
@@ -1275,6 +1531,78 @@ function renderCharacterRuntimeSelector(
   }
 
   return null;
+}
+
+function renderPicturePosition(
+  originParameter: unknown,
+  designation: unknown,
+  xParameter: unknown,
+  yParameter: unknown,
+): { expression: string; helperNames: readonly string[] } | null {
+  const origin = pictureOriginFromCode(originParameter);
+  if (origin === null) {
+    return null;
+  }
+
+  if (designation === 0 && typeof xParameter === "number" && typeof yParameter === "number") {
+    return {
+      expression: `{ kind: "direct", x: ${xParameter}, y: ${yParameter}${origin === "center" ? ', origin: "center"' : ""} }`,
+      helperNames: [],
+    };
+  }
+
+  if (designation === 1) {
+    const xVariableId = readPositiveInteger(xParameter);
+    const yVariableId = readPositiveInteger(yParameter);
+    return xVariableId === null || yVariableId === null
+      ? null
+      : {
+          expression: `{ kind: "variables", x: variableRef({ id: ${xVariableId} }), y: variableRef({ id: ${yVariableId} })${origin === "center" ? ', origin: "center"' : ""} }`,
+          helperNames: ["variableRef"],
+        };
+  }
+
+  return null;
+}
+
+function renderPictureDisplay(
+  scaleX: unknown,
+  scaleY: unknown,
+  opacity: unknown,
+  blendMode: unknown,
+): string | null {
+  if (
+    typeof scaleX !== "number" ||
+    typeof scaleY !== "number" ||
+    typeof opacity !== "number" ||
+    !isBlendMode(blendMode)
+  ) {
+    return null;
+  }
+
+  const fields: string[] = [];
+  if (scaleX !== 100) {
+    fields.push(`scaleX: ${scaleX}`);
+  }
+  if (scaleY !== 100) {
+    fields.push(`scaleY: ${scaleY}`);
+  }
+  if (opacity !== 255) {
+    fields.push(`opacity: ${opacity}`);
+  }
+  if (blendMode !== 0) {
+    fields.push(`blendMode: ${blendMode}`);
+  }
+
+  return fields.length === 0 ? "" : `, ${fields.join(", ")}`;
+}
+
+function renderTone(value: unknown): string | null {
+  return isNumberTuple(value, 4) ? literal(value) : null;
+}
+
+function renderColor(value: unknown): string | null {
+  return isNumberTuple(value, 4) ? literal(value) : null;
 }
 
 function renderOptionalDirectionAndFade(direction: 2 | 4 | 6 | 8, fadeType: 0 | 1 | 2): string {
@@ -2332,6 +2660,62 @@ function isFadeType(value: unknown): value is 0 | 1 | 2 {
 
 function isBlendMode(value: unknown): value is 0 | 1 | 2 | 3 {
   return value === 0 || value === 1 || value === 2 || value === 3;
+}
+
+function pictureOriginFromCode(value: unknown): "upperLeft" | "center" | null {
+  if (value === 0) {
+    return "upperLeft";
+  }
+  if (value === 1) {
+    return "center";
+  }
+
+  return null;
+}
+
+function balloonIconFromCode(value: unknown): string | null {
+  switch (value) {
+    case 1:
+      return '"exclamation"';
+    case 2:
+      return '"question"';
+    case 3:
+      return '"musicNote"';
+    case 4:
+      return '"heart"';
+    case 5:
+      return '"anger"';
+    case 6:
+      return '"sweat"';
+    case 7:
+      return '"cobweb"';
+    case 8:
+      return '"silence"';
+    case 9:
+      return '"lightBulb"';
+    case 10:
+      return '"zzz"';
+    default:
+      return typeof value === "number" && Number.isInteger(value) && value > 0
+        ? String(value)
+        : null;
+  }
+}
+
+function weatherEffectFromCode(value: unknown): "none" | "rain" | "storm" | "snow" | null {
+  if (value === "none" || value === "rain" || value === "storm" || value === "snow") {
+    return value;
+  }
+
+  return null;
+}
+
+function isNumberTuple(value: unknown, length: number): value is number[] {
+  return (
+    Array.isArray(value) &&
+    value.length === length &&
+    value.every((entry) => typeof entry === "number")
+  );
 }
 
 function isSelfSwitch(value: unknown): value is "A" | "B" | "C" | "D" {

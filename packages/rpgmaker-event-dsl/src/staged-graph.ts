@@ -45,6 +45,7 @@ export type ReferenceEntry = {
 
 export type SnapshotReferenceInput = {
   actors?: readonly ReferenceEntry[];
+  animations?: readonly ReferenceEntry[];
   armors?: readonly ReferenceEntry[];
   classes?: readonly ReferenceEntry[];
   commonEvents?: readonly ReferenceEntry[];
@@ -60,6 +61,7 @@ export type SnapshotReferenceInput = {
 
 export type SnapshotReferenceSource = {
   actors?: readonly (Record<string, unknown> | null | undefined)[];
+  animations?: readonly (Record<string, unknown> | null | undefined)[];
   armors?: readonly (Record<string, unknown> | null | undefined)[];
   classes?: readonly (Record<string, unknown> | null | undefined)[];
   commonEvents?: readonly (Record<string, unknown> | null | undefined)[];
@@ -194,6 +196,7 @@ export function buildSnapshotReferenceInput(
 ): SnapshotReferenceInput {
   return {
     actors: readObjectReferenceEntries(source.actors ?? []),
+    animations: readObjectReferenceEntries(source.animations ?? []),
     armors: readObjectReferenceEntries(source.armors ?? []),
     classes: readObjectReferenceEntries(source.classes ?? []),
     commonEvents: readObjectReferenceEntries(source.commonEvents ?? []),
@@ -238,6 +241,7 @@ function buildReferenceScopes(input: {
 
   return {
     actor: buildReferenceScope(input.snapshotReferences.actors ?? []),
+    animation: buildReferenceScope(input.snapshotReferences.animations ?? []),
     armor: buildReferenceScope(input.snapshotReferences.armors ?? []),
     class: buildReferenceScope(input.snapshotReferences.classes ?? []),
     commonEvent: buildReferenceScope(commonEvents),
@@ -481,6 +485,16 @@ function validateNodes(
       validateCharacterRuntimeSelector(node.target, "Set Movement Route target", issues);
       validateMoveRouteCommands(node.route, resolver, options, issues);
     }
+    if (node.kind === "showAnimation") {
+      validateCharacterRuntimeSelector(node.target, "Show Animation target", issues);
+      captureReferenceIssue(() => resolver.resolveReference(node.animation), issues);
+    }
+    if (node.kind === "showBalloonIcon") {
+      validateCharacterRuntimeSelector(node.target, "Show Balloon Icon target", issues);
+    }
+    if (node.kind === "showPicture" || node.kind === "movePicture") {
+      validateCommandPosition(node.position, resolver, issues);
+    }
     if (node.kind === "battleProcessing" && isReferenceValue(node.troop)) {
       const troopRef = node.troop;
       captureReferenceIssue(() => resolver.resolveReference(troopRef), issues);
@@ -492,6 +506,17 @@ function validateNodes(
         validateNodes(node.else, resolver, options, issues);
       }
     }
+  }
+}
+
+function validateCommandPosition(
+  position: Extract<DslCommand, { kind: "showPicture" | "movePicture" }>["position"],
+  resolver: ReferenceResolver,
+  issues: ValidationIssue[],
+): void {
+  if (position.kind === "variables") {
+    captureReferenceIssue(() => resolver.resolveReference(position.x), issues);
+    captureReferenceIssue(() => resolver.resolveReference(position.y), issues);
   }
 }
 

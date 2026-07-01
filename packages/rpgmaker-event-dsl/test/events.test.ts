@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  animationRef,
   battleProcessing,
   audioAsset,
   buildStagedDataGraph,
@@ -9,6 +10,8 @@ import {
   changeGold,
   changeItems,
   changePartyMember,
+  changePlayerFollowers,
+  changeTransparency,
   changeWeapons,
   comment,
   commonEvent,
@@ -16,21 +19,33 @@ import {
   controlTimer,
   controlSwitches,
   controlVariables,
+  erasePicture,
   eraseEvent,
+  fadeinScreen,
+  fadeoutScreen,
+  flashScreen,
+  gatherFollowers,
   getOnOffVehicle,
   imageAsset,
   inputNumber,
   itemRef,
+  movePicture,
   page,
+  rotatePicture,
   scriptInput,
   selectItem,
   scrollMap,
   setEventLocation,
   setMovementRoute,
   setVehicleLocation,
+  setWeatherEffect,
+  showAnimation,
+  showBalloonIcon,
   showChoices,
+  showPicture,
   showScrollingText,
   showText,
+  shakeScreen,
   skillRef,
   stateRef,
   switchDefinition,
@@ -40,6 +55,8 @@ import {
   variableDefinition,
   variableRef,
   wait,
+  tintPicture,
+  tintScreen,
 } from "../src/index.js";
 import { compileMapEvent } from "../src/events.js";
 
@@ -56,6 +73,7 @@ const resolver = buildStagedDataGraph({
   ],
   snapshotReferences: {
     actors: [{ id: 1, name: "Hero" }],
+    animations: [{ id: 1, name: "Sparkle" }],
     armors: [{ id: 1, name: "Shield" }],
     classes: [{ id: 1, name: "Warrior" }],
     items: [{ id: 1, name: "Potion" }],
@@ -407,6 +425,97 @@ describe("compileMapEvent", () => {
       indent: 0,
       parameters: [0, 1, 4, 5, 2, 0],
     });
+  });
+
+  it("compiles MV Character and Screen command helpers into raw parameters", () => {
+    const event = compileMapEvent(
+      {
+        kind: "mapEvent",
+        mapId: 1,
+        id: 1,
+        name: "Presentation",
+        x: 1,
+        y: 2,
+        pages: [
+          page({
+            commands: [
+              changeTransparency({ transparent: true }),
+              showAnimation({
+                target: { kind: "runtimeSelector", scope: "character", target: "event", id: 3 },
+                animation: animationRef({ name: "Sparkle" }),
+                wait: true,
+              }),
+              showBalloonIcon({
+                target: { kind: "runtimeSelector", scope: "character", target: "player" },
+                balloon: "question",
+              }),
+              eraseEvent(),
+              changePlayerFollowers({ visible: false }),
+              gatherFollowers(),
+              fadeoutScreen(),
+              fadeinScreen(),
+              tintScreen({ tone: [68, -34, -34, 0], duration: 60, wait: true }),
+              flashScreen({
+                color: { red: 255, green: 255, blue: 255, alpha: 160 },
+                duration: 30,
+              }),
+              shakeScreen({ power: 5, speed: 7, duration: 40, wait: true }),
+              wait(12),
+              showPicture({
+                pictureId: 1,
+                image: imageAsset({ folder: "pictures", name: "Poster" }),
+                position: { kind: "direct", x: 10, y: 20, origin: "center" },
+                scaleX: 120,
+                scaleY: 80,
+                opacity: 200,
+                blendMode: 1,
+              }),
+              movePicture({
+                pictureId: 1,
+                position: {
+                  kind: "variables",
+                  x: variableRef({ name: "X Var" }),
+                  y: variableRef({ name: "Y Var" }),
+                },
+                scaleX: 100,
+                scaleY: 100,
+                opacity: 255,
+                blendMode: 0,
+                duration: 45,
+                wait: true,
+              }),
+              rotatePicture({ pictureId: 1, speed: -5 }),
+              tintPicture({ pictureId: 1, tone: [0, 0, 0, 255], duration: 30 }),
+              erasePicture({ pictureId: 1 }),
+              setWeatherEffect({ weather: "rain", power: 6, duration: 50, wait: true }),
+            ],
+          }),
+        ],
+      },
+      { nextId: 2, resolver },
+    );
+
+    expect(event.pages?.[0]?.list).toEqual([
+      { code: 211, indent: 0, parameters: [0] },
+      { code: 212, indent: 0, parameters: [3, 1, true] },
+      { code: 213, indent: 0, parameters: [-1, 2, false] },
+      { code: 214, indent: 0, parameters: [] },
+      { code: 216, indent: 0, parameters: [1] },
+      { code: 217, indent: 0, parameters: [] },
+      { code: 221, indent: 0, parameters: [] },
+      { code: 222, indent: 0, parameters: [] },
+      { code: 223, indent: 0, parameters: [[68, -34, -34, 0], 60, true] },
+      { code: 224, indent: 0, parameters: [[255, 255, 255, 160], 30, false] },
+      { code: 225, indent: 0, parameters: [5, 7, 40, true] },
+      { code: 230, indent: 0, parameters: [12] },
+      { code: 231, indent: 0, parameters: [1, "Poster", 1, 0, 10, 20, 120, 80, 200, 1] },
+      { code: 232, indent: 0, parameters: [1, 0, 0, 1, 4, 5, 100, 100, 255, 0, 45, true] },
+      { code: 233, indent: 0, parameters: [1, -5] },
+      { code: 234, indent: 0, parameters: [1, [0, 0, 0, 255], 30, false] },
+      { code: 235, indent: 0, parameters: [1] },
+      { code: 236, indent: 0, parameters: ["rain", 6, 50, true] },
+      { code: 0, indent: 0, parameters: [] },
+    ]);
   });
 
   it("compiles MV Conditional Branch condition categories into raw parameters", () => {

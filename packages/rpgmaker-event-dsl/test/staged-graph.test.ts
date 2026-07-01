@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  animationRef,
   battleProcessing,
   callCommonEvent,
   buildSnapshotReferenceInput,
@@ -19,9 +20,13 @@ import {
   page,
   scriptInput,
   rawDslCommand,
+  movePicture,
   setEventLocation,
   setMovementRoute,
   setVehicleLocation,
+  showAnimation,
+  showBalloonIcon,
+  showPicture,
   switchDefinition,
   switchRef,
   transferPlayer,
@@ -433,6 +438,86 @@ describe("validateDslOwnedDeclarations", () => {
       expect.arrayContaining([
         "Set Movement Route target must use the character runtime selector scope.",
         "Unknown switch reference id: 99",
+      ]),
+    );
+  });
+
+  it("validates Character command runtime selectors and animation references", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Character Commands",
+          commands: [
+            showAnimation({
+              target: {
+                kind: "runtimeSelector",
+                scope: "player",
+                target: "current",
+              } as never,
+              animation: animationRef({ id: 99 }),
+            }),
+            showBalloonIcon({
+              target: {
+                kind: "runtimeSelector",
+                scope: "character",
+                target: "event",
+              } as never,
+              balloon: "question",
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toEqual(
+      expect.arrayContaining([
+        "Show Animation target must use the character runtime selector scope.",
+        "Unknown animation reference id: 99",
+        "Show Balloon Icon target event id must be a positive integer.",
+      ]),
+    );
+  });
+
+  it("validates Screen picture variable positions without scanning image assets", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        variableDefinition({ id: 1, name: "X Var" }),
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Pictures",
+          commands: [
+            showPicture({
+              pictureId: 1,
+              image: imageAsset({ folder: "pictures", name: "Poster" }),
+              position: {
+                kind: "variables",
+                x: variableRef({ id: 1 }),
+                y: variableRef({ id: 99 }),
+              },
+            }),
+            movePicture({
+              pictureId: 1,
+              position: {
+                kind: "variables",
+                x: variableRef({ id: 98 }),
+                y: variableRef({ id: 1 }),
+              },
+              duration: 30,
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toEqual(
+      expect.arrayContaining([
+        "Unknown variable reference id: 99",
+        "Unknown variable reference id: 98",
       ]),
     );
   });

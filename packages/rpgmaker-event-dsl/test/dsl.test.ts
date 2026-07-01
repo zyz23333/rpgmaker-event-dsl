@@ -1,12 +1,15 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  animationRef,
   battleProcessing,
   audioAsset,
   changeArmors,
   changeGold,
   changeItems,
   changePartyMember,
+  changePlayerFollowers,
+  changeTransparency,
   changeWeapons,
   collectDslOwnedDeclarations,
   comment,
@@ -17,7 +20,12 @@ import {
   controlSwitches,
   controlTimer,
   controlVariables,
+  erasePicture,
   eraseEvent,
+  fadeinScreen,
+  fadeoutScreen,
+  flashScreen,
+  gatherFollowers,
   imageAsset,
   inputNumber,
   isAssetReference,
@@ -26,17 +34,26 @@ import {
   isScriptInput,
   mapEvent,
   movieAsset,
+  movePicture,
   page,
+  rotatePicture,
   selectItem,
   scriptInput,
   scrollMap,
   setEventLocation,
   setMovementRoute,
   setVehicleLocation,
+  setWeatherEffect,
+  showAnimation,
+  showBalloonIcon,
   showChoices,
+  showPicture,
   showScrollingText,
   showText,
+  shakeScreen,
   switchDefinition,
+  tintPicture,
+  tintScreen,
   variableDefinition,
   wait,
   switchRef,
@@ -158,6 +175,50 @@ describe("collectDslOwnedDeclarations", () => {
         wait: true,
       }).kind,
     ).toBe("setMovementRoute");
+    expect(changeTransparency({ transparent: true }).kind).toBe("changeTransparency");
+    expect(
+      showAnimation({
+        target: { kind: "runtimeSelector", scope: "character", target: "player" },
+        animation: animationRef({ id: 1 }),
+        wait: true,
+      }).kind,
+    ).toBe("showAnimation");
+    expect(
+      showBalloonIcon({
+        target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
+        balloon: "exclamation",
+      }).kind,
+    ).toBe("showBalloonIcon");
+    expect(changePlayerFollowers({ visible: false }).kind).toBe("changePlayerFollowers");
+    expect(gatherFollowers().kind).toBe("gatherFollowers");
+    expect(fadeoutScreen().kind).toBe("fadeoutScreen");
+    expect(fadeinScreen().kind).toBe("fadeinScreen");
+    expect(tintScreen({ tone: [0, 0, 0, 0], duration: 30 }).kind).toBe("tintScreen");
+    expect(flashScreen({ color: [255, 255, 255, 128], duration: 20 }).kind).toBe("flashScreen");
+    expect(shakeScreen({ power: 5, speed: 5, duration: 30 }).kind).toBe("shakeScreen");
+    expect(
+      showPicture({
+        pictureId: 1,
+        image: imageAsset({ folder: "pictures", name: "Poster" }),
+        position: { kind: "direct", x: 10, y: 20, origin: "center" },
+      }).kind,
+    ).toBe("showPicture");
+    expect(
+      movePicture({
+        pictureId: 1,
+        position: { kind: "variables", x: variableRef({ id: 1 }), y: variableRef({ id: 2 }) },
+        duration: 60,
+        wait: true,
+      }).kind,
+    ).toBe("movePicture");
+    expect(rotatePicture({ pictureId: 1, speed: 5 }).kind).toBe("rotatePicture");
+    expect(tintPicture({ pictureId: 1, tone: [68, -34, -34, 0], duration: 30 }).kind).toBe(
+      "tintPicture",
+    );
+    expect(erasePicture({ pictureId: 1 }).kind).toBe("erasePicture");
+    expect(setWeatherEffect({ weather: "rain", power: 5, duration: 60 }).kind).toBe(
+      "setWeatherEffect",
+    );
     expect(wait(60).kind).toBe("wait");
     expect(eraseEvent().kind).toBe("eraseEvent");
     expect(battleProcessing({ troop: troopRef({ id: 1 }) }).kind).toBe("battleProcessing");

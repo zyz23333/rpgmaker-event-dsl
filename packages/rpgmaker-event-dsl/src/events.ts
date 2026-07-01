@@ -2,6 +2,7 @@ import type {
   BattleProcessingDslCommand,
   CharacterRuntimeSelector,
   CommandOperand,
+  CommandPosition,
   ConditionalBranchCondition,
   ConditionalVariableOperator,
   CommonEventDefinition,
@@ -12,10 +13,15 @@ import type {
   MoveRouteCommand,
   OperateValueOperand,
   PageConditions,
+  PicturePosition,
   ReferenceKind,
   ReferenceRange,
   ReferenceValue,
+  ShowBalloonIconDslCommand,
+  ToneInput,
+  ColorInput,
   VehicleTarget,
+  WeatherEffectType,
 } from "./dsl.js";
 import type { ReferenceResolver } from "./staged-graph.js";
 
@@ -438,6 +444,84 @@ function compileNodes(
           parameters: [],
         });
         break;
+      case "changeTransparency":
+        output.push({
+          code: 211,
+          indent,
+          parameters: [node.transparent ? 0 : 1],
+        });
+        break;
+      case "showAnimation":
+        output.push({
+          code: 212,
+          indent,
+          parameters: [
+            characterSelectorToCode(node.target),
+            resolver.resolveReference(node.animation),
+            node.wait ?? false,
+          ],
+        });
+        break;
+      case "showBalloonIcon":
+        output.push({
+          code: 213,
+          indent,
+          parameters: [
+            characterSelectorToCode(node.target),
+            balloonIconToCode(node.balloon),
+            node.wait ?? false,
+          ],
+        });
+        break;
+      case "changePlayerFollowers":
+        output.push({
+          code: 216,
+          indent,
+          parameters: [node.visible ? 0 : 1],
+        });
+        break;
+      case "gatherFollowers":
+        output.push({
+          code: 217,
+          indent,
+          parameters: [],
+        });
+        break;
+      case "fadeoutScreen":
+        output.push({
+          code: 221,
+          indent,
+          parameters: [],
+        });
+        break;
+      case "fadeinScreen":
+        output.push({
+          code: 222,
+          indent,
+          parameters: [],
+        });
+        break;
+      case "tintScreen":
+        output.push({
+          code: 223,
+          indent,
+          parameters: [compileTone(node.tone), node.duration, node.wait ?? false],
+        });
+        break;
+      case "flashScreen":
+        output.push({
+          code: 224,
+          indent,
+          parameters: [compileColor(node.color), node.duration, node.wait ?? false],
+        });
+        break;
+      case "shakeScreen":
+        output.push({
+          code: 225,
+          indent,
+          parameters: [node.power, node.speed, node.duration, node.wait ?? false],
+        });
+        break;
       case "showChoices":
         output.push({
           code: 102,
@@ -457,6 +541,73 @@ function compileNodes(
           code: 302,
           indent,
           parameters: [...node.goods, node.allowSelling ?? false],
+        });
+        break;
+      case "showPicture":
+        output.push({
+          code: 231,
+          indent,
+          parameters: [
+            node.pictureId,
+            node.image.name,
+            pictureOriginToCode(node.position.origin),
+            ...compilePicturePosition(node.position, resolver),
+            node.scaleX ?? 100,
+            node.scaleY ?? 100,
+            node.opacity ?? 255,
+            node.blendMode ?? 0,
+          ],
+        });
+        break;
+      case "movePicture":
+        output.push({
+          code: 232,
+          indent,
+          parameters: [
+            node.pictureId,
+            0,
+            pictureOriginToCode(node.position.origin),
+            ...compilePicturePosition(node.position, resolver),
+            node.scaleX ?? 100,
+            node.scaleY ?? 100,
+            node.opacity ?? 255,
+            node.blendMode ?? 0,
+            node.duration,
+            node.wait ?? false,
+          ],
+        });
+        break;
+      case "rotatePicture":
+        output.push({
+          code: 233,
+          indent,
+          parameters: [node.pictureId, node.speed],
+        });
+        break;
+      case "tintPicture":
+        output.push({
+          code: 234,
+          indent,
+          parameters: [node.pictureId, compileTone(node.tone), node.duration, node.wait ?? false],
+        });
+        break;
+      case "erasePicture":
+        output.push({
+          code: 235,
+          indent,
+          parameters: [node.pictureId],
+        });
+        break;
+      case "setWeatherEffect":
+        output.push({
+          code: 236,
+          indent,
+          parameters: [
+            weatherEffectToCode(node.weather),
+            node.power,
+            node.duration,
+            node.wait ?? false,
+          ],
         });
         break;
       case "rawDslCommand":
@@ -612,6 +763,35 @@ function vehicleToCode(
   }
 }
 
+function balloonIconToCode(balloon: ShowBalloonIconDslCommand["balloon"]): number {
+  if (typeof balloon === "number") {
+    return balloon;
+  }
+
+  switch (balloon) {
+    case "exclamation":
+      return 1;
+    case "question":
+      return 2;
+    case "musicNote":
+      return 3;
+    case "heart":
+      return 4;
+    case "anger":
+      return 5;
+    case "sweat":
+      return 6;
+    case "cobweb":
+      return 7;
+    case "silence":
+      return 8;
+    case "lightBulb":
+      return 9;
+    case "zzz":
+      return 10;
+  }
+}
+
 function characterSelectorToCode(selector: CharacterRuntimeSelector): number {
   switch (selector.target) {
     case "player":
@@ -621,6 +801,37 @@ function characterSelectorToCode(selector: CharacterRuntimeSelector): number {
     case "event":
       return selector.id;
   }
+}
+
+function compileTone(tone: ToneInput): [number, number, number, number] {
+  return "red" in tone
+    ? [tone.red, tone.green, tone.blue, tone.gray]
+    : [tone[0], tone[1], tone[2], tone[3]];
+}
+
+function compileColor(color: ColorInput): [number, number, number, number] {
+  return "red" in color
+    ? [color.red, color.green, color.blue, color.alpha]
+    : [color[0], color[1], color[2], color[3]];
+}
+
+function pictureOriginToCode(origin: PicturePosition["origin"]): number {
+  return origin === "center" ? 1 : 0;
+}
+
+function compilePicturePosition(
+  position: CommandPosition,
+  resolver: ReferenceResolver,
+): [number, number, number] {
+  if (position.kind === "direct") {
+    return [0, position.x, position.y];
+  }
+
+  return [1, resolver.resolveReference(position.x), resolver.resolveReference(position.y)];
+}
+
+function weatherEffectToCode(weather: WeatherEffectType): string {
+  return weather === "none" ? "none" : weather;
 }
 
 function resolveControlValue(value: boolean): number {
