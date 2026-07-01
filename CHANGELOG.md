@@ -8,6 +8,12 @@ minor releases.
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-07-02
+
+### Fixed
+
+- Fixed the project name in the MIT license copyright notice.
+
 ## [0.1.1] - 2026-07-02
 
 ### Fixed

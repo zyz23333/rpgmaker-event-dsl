@@ -24,7 +24,7 @@ export function createCli(): Command {
   program
     .name(cliName)
     .description("Project-aware RPG Maker MV event definition tooling.")
-    .version("0.1.1");
+    .version("0.1.2");
 
   program
     .command("init")
