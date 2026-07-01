@@ -434,3 +434,8 @@ or Project Drift checks.
 
 See `example/full-event` for a sample workspace using source discovery and explicit Entry
 Identity.
+
+## License
+
+This repository's original source code and the published `rpgmaker-event-dsl` package are
+licensed under the MIT License. See `LICENSE` and `packages/rpgmaker-event-dsl/LICENSE`.

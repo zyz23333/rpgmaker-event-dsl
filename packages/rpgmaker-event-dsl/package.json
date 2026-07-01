@@ -2,6 +2,7 @@
   "name": "rpgmaker-event-dsl",
   "version": "0.0.0",
   "description": "Schema-first TypeScript DSL and CLI foundation for RPG Maker MV event data.",
+  "license": "MIT",
   "bin": {
     "rpgmaker-event-dsl": "./dist/cli.mjs"
   },
