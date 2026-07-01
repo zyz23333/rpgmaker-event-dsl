@@ -188,8 +188,9 @@ rpgmaker-event-dsl decompile
 ```
 
 `decompile` is non-destructive. It does not overwrite existing decompile output. It also
-decompiles on a best-effort basis: when an RPG Maker MV command cannot yet be expressed
-as a dedicated DSL helper, it is preserved as a raw command in the DSL output.
+decompiles on a best-effort basis: supported RPG Maker MV command shapes render as DSL
+helpers, while malformed raw command shapes or data outside the supported MV editor
+surface are preserved as `rawDslCommand(...)` in the DSL output.
 
 ### If You Are Starting Fresh
 
@@ -291,6 +292,33 @@ Files under `sourceRoot` are evaluated as DSL declaration files when they match
 declarations such as `src/maps/Map001.events.ts` and system declarations such as
 `src/system.dsl.ts`. Ordinary helper modules should use names outside those include
 patterns unless they are intended to export DSL-owned declarations.
+
+Keep `scriptEnabled` set to `false` for workspaces that should reject JavaScript-bearing
+event commands. Set it to `true` only when Script Inputs are intentional and reviewed.
+
+## Event Command Coverage
+
+The public command helpers target the RPG Maker MV 1.6.1 editor event command surface.
+Use MV-aligned helper names such as `controlSwitches(...)`, `controlVariables(...)`,
+`showScrollingText(...)`, `setMovementRoute(...)`, `playBgm(...)`, `changeHp(...)`, and
+`forceAction(...)` instead of hand-writing raw command records.
+
+Continuation commands are represented by their parent helper. For example, `showText(...)`
+owns MV text continuation records, `showChoices(...)` owns choice branches,
+`battleProcessing(...)` owns battle result branches, `shopProcessing(...)` owns goods
+continuations, and `setMovementRoute(...)` owns nested move route commands.
+
+Project data references use helpers such as `switchRef(...)`, `variableRef(...)`,
+`actorRef(...)`, `skillRef(...)`, and `tilesetRef(...)`. Asset parameters use no-scan
+Asset References instead: `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)`
+compile to MV filename stems without checking the filesystem or resolving database IDs.
+
+JavaScript-bearing inputs are explicit Script Inputs and are gated by the workspace
+`scriptEnabled` setting. This includes `script(...)`, script conditions,
+`controlVariables(...)` script operands, and move route script commands. `pluginCommand(...)`
+covers MV's native plugin command string only; plugin-specific argument semantics are not
+validated by the DSL. `rawDslCommand(...)` remains an explicit escape hatch for confirmed
+raw MV command shapes and is preserved by decompile for malformed or unsupported raw data.
 
 ## Entry Identity
 

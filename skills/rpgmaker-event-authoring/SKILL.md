@@ -29,13 +29,15 @@ Turn RPG Maker MV gameplay intent into idiomatic Event DSL source. Use Workspace
 
 4. Author Definition Source.
 
-   Edit Definition Source selected by the Workspace Config. Preserve existing Entry Identity and local source style. Prefer supported DSL helpers. Use `script(...)`, `pluginCommand(...)`, or `rawDslCommand(...)` only when grounded by user intent, project evidence, plugin documentation, or confirmed RPG Maker MV command shape.
+   Edit Definition Source selected by the Workspace Config. Preserve existing Entry Identity and local source style. Use the MV-aligned DSL helpers for RPG Maker MV 1.6.1 editor command families. Keep continuation commands inside their parent helper, such as text lines in `showText(...)`, choice branches in `showChoices(...)`, battle result branches in `battleProcessing(...)`, shop goods continuations in `shopProcessing(...)`, and route commands in `setMovementRoute(...)`.
 
-   Completion criterion: each intended RPG Maker MV event command is represented by a DSL Command or a justified escape hatch.
+   Use Project Data Reference helpers for database-backed data and no-scan Asset Reference helpers for assets: `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)`. Use `script(...)` or `scriptInput(...)` only when the Workspace Script Command Gate allows JavaScript-bearing inputs. Use `pluginCommand(...)` only for MV's native plugin command string and do not invent plugin-specific validation. Use `rawDslCommand(...)` only for confirmed raw MV command shapes that intentionally remain escape hatches.
+
+   Completion criterion: each intended RPG Maker MV event command is represented by a supported DSL Command or a justified, explicit escape hatch.
 
 5. Validate the event flow.
 
-   Review first interaction, repeated interaction, unmet condition, success condition, and post-completion state. Check that autorun pages turn themselves off, one-time rewards cannot repeat, and referenced project data can resolve.
+   Review first interaction, repeated interaction, unmet condition, success condition, and post-completion state. Check that autorun pages turn themselves off, one-time rewards cannot repeat, referenced project data can resolve, asset references are intentional filename stems, and JavaScript-bearing Script Inputs are expected by the workspace policy.
 
    Completion criterion: the authored event has no missing command list, accidental repeat, unreachable branch, undefined reference, or unsupported behavior hidden as if it were implemented.
 

@@ -39,12 +39,16 @@ Shopkeepers use `shopProcessing(...)`. Event-driven battles use `battleProcessin
 
 ## DSL Command Selection
 
-Use supported helpers for text, choices, conditionals, loops, labels, comments, common event calls, transfers, switches, variables, self switches, gold, items, waits, erase event, battle processing, and shop processing.
+Use supported helpers for RPG Maker MV editor command families. Representative groups include message commands, flow control, game progression, party changes, system settings, movement, character commands, screen commands, audio and video, map commands, scene control, actor commands, enemy commands, advanced commands, and nested Set Movement Route commands.
+
+Continuation commands are not standalone authoring units. Keep text continuations inside `showText(...)` or `showScrollingText(...)`, choice branches inside `showChoices(...)`, battle result branches inside `battleProcessing(...)`, shop goods inside `shopProcessing(...)`, script continuations inside `script(...)`, and move route command objects inside `setMovementRoute(...)`.
 
 Use reference helpers instead of bare numeric IDs when referring to project data. Prefer `{ id: number }` when identity is known; use `{ name: string }` only when the Display Name resolves unambiguously.
 
-Use `script(...)` for short RPG Maker MV JavaScript only when the Workspace Script Command Gate allows it and ordinary event commands are not enough.
+Use Asset Reference helpers for files, not Project Data Reference helpers. `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)` are no-scan filename-stem references; they do not validate that a file exists on disk.
 
-Use `pluginCommand(...)` only when the plugin command is grounded in user intent, existing project usage, or plugin documentation.
+Use `script(...)` and `scriptInput(...)` for short RPG Maker MV JavaScript only when the Workspace Script Command Gate allows it and ordinary event commands are not enough. The gate also applies to Conditional Branch script conditions, Control Variables script operands, and Set Movement Route script subcommands.
 
-Use `rawDslCommand(...)` only when no supported helper can express confirmed RPG Maker MV behavior. Confirm the command code, parameters, and indentation from project data, decompiled source, nearby examples, or reliable MV command mapping. Do not invent raw command shapes.
+Use `pluginCommand(...)` only when the plugin command is grounded in user intent, existing project usage, or plugin documentation. The DSL models MV's native plugin command string; plugin-specific argument schemas are outside this helper's validation boundary.
+
+Use `rawDslCommand(...)` only for confirmed raw RPG Maker MV behavior that intentionally remains an escape hatch, such as malformed decompile fallback or non-editor/custom data. Confirm the command code, parameters, and indentation from project data, decompiled source,nearby examples, or reliable MV command mapping. Do not invent raw command shapes.

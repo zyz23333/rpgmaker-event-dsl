@@ -3,6 +3,11 @@
 This directory is a repository fixture that mirrors a Workspace layout for the
 workspace compile/push model.
 
+`src/full-event.events.ts` intentionally demonstrates representative RPG Maker MV 1.6.1
+command families rather than every helper. It includes message, flow control, switches,
+variables, party, movement, screen, audio, map, battle, actor, enemy, plugin, script, and
+raw fallback examples.
+
 ## Config
 
 `rpgmaker-event-dsl.config.template.json` shows the required config shape. It uses
@@ -17,8 +22,13 @@ this repository layout. If your local RPG Maker MV test project lives somewhere 
 update only `projectRoot`.
 
 This example intentionally sets `scriptEnabled` to `true` because `src/full-event.events.ts`
-contains a Script command. Keep `scriptEnabled` disabled in workspaces that should reject
-Script commands during compilation.
+contains Script Inputs in a Script command, a Conditional Branch script condition, and a
+Set Movement Route script subcommand. Keep `scriptEnabled` disabled in workspaces that
+should reject JavaScript-bearing event commands during compilation.
+
+The example also uses Asset References such as `audioAsset(...)`, `imageAsset(...)`, and
+`movieAsset(...)`. These are opaque filename-stem references; they do not scan or validate
+asset files on disk.
 
 The example is a private pnpm workspace package so TypeScript can resolve
 `rpgmaker-event-dsl` from the declaration source. Run `pnpm install` at the repository
