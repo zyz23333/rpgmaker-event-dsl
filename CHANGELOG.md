@@ -8,6 +8,12 @@ minor releases.
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-07-02
+
+### Fixed
+
+- Fixed the published CLI entrypoint when executed through package manager bin shims.
+
 ## [0.1.0] - 2026-07-02
 
 ### Added

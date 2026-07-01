@@ -1,5 +1,5 @@
 import { execFile } from "node:child_process";
-import { mkdtemp, mkdir, writeFile } from "node:fs/promises";
+import { mkdtemp, mkdir, symlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { promisify } from "node:util";
@@ -25,6 +25,17 @@ describe("CLI entrypoint", () => {
     expect(stdout).not.toContain("lint");
     expect(stdout).not.toContain("create");
     expect(stdout).not.toContain("replace");
+  });
+
+  it("prints help when executed through a symlinked bin path", async () => {
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-cli-bin-"));
+    const binPath = join(workspaceRoot, "rpgmaker-event-dsl.ts");
+
+    await symlink(join(process.cwd(), "src", "cli.ts"), binPath);
+
+    const { stdout } = await execFileAsync(nodeCommand, [...tsxLoaderArgs, binPath, "--help"]);
+
+    expect(stdout).toContain("Usage: rpgmaker-event-dsl");
   });
 
   it("initializes a workspace from the init command", async () => {

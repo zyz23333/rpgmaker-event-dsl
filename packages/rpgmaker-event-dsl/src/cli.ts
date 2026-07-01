@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import { realpathSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -23,7 +24,7 @@ export function createCli(): Command {
   program
     .name(cliName)
     .description("Project-aware RPG Maker MV event definition tooling.")
-    .version("0.1.0");
+    .version("0.1.1");
 
   program
     .command("init")
@@ -109,6 +110,14 @@ export async function runCli(argv: readonly string[] = process.argv): Promise<vo
   await createCli().parseAsync(argv);
 }
 
-if (process.argv[1] !== undefined && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
+function isCliEntrypoint(metaUrl: string, argvPath: string | undefined): boolean {
+  if (argvPath === undefined) {
+    return false;
+  }
+
+  return realpathSync(fileURLToPath(metaUrl)) === realpathSync(resolve(argvPath));
+}
+
+if (isCliEntrypoint(import.meta.url, process.argv[1])) {
   await runCli();
 }
