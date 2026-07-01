@@ -284,6 +284,8 @@ function renderCommandAt(commands: readonly RawEventCommand[], index: number): R
       return renderCommentCommand(commands, index);
     case 111:
       return renderConditionalCommand(commands, index);
+    case 112:
+      return renderLoopCommand(commands, index);
     case 301:
       return renderBattleProcessingCommand(commands, index);
     case 302:
@@ -545,6 +547,26 @@ function renderConditionalCommand(
   };
 }
 
+function renderLoopCommand(commands: readonly RawEventCommand[], index: number): RenderedCommand {
+  const command = commands[index];
+  if (command === undefined) {
+    throw new Error("Cannot render missing Loop command.");
+  }
+
+  const bodyEndIndex = findLoopBodyEnd(commands, index + 1, command.indent);
+  const body = renderDecompiledCommandList(commands.slice(index + 1, bodyEndIndex));
+  const nextIndex =
+    commands[bodyEndIndex]?.code === 413 && commands[bodyEndIndex]?.indent === command.indent
+      ? bodyEndIndex
+      : bodyEndIndex - 1;
+
+  return {
+    expression: `loop([${renderInlineCommandListSource(body.source)}])`,
+    helperNames: ["loop", ...body.helperNames],
+    nextIndex,
+  };
+}
+
 function renderCommentCommand(
   commands: readonly RawEventCommand[],
   index: number,
@@ -797,6 +819,10 @@ function renderSimpleCommand(command: RawEventCommand): Omit<RenderedCommand, "n
             helperNames: ["changeGold", ...operand.helperNames],
           };
     }
+    case 113:
+      return renderNoParameterCommand(command, "breakLoop");
+    case 115:
+      return renderNoParameterCommand(command, "exitEvent");
     case 103: {
       const variableId = readPositiveInteger(command.parameters[0]);
       const digits = command.parameters[1];
@@ -1926,6 +1952,8 @@ function renderNoParameterCommand(
   command: RawEventCommand,
   helperName:
     | "abortBattle"
+    | "breakLoop"
+    | "exitEvent"
     | "gameOver"
     | "openMenuScreen"
     | "openSaveScreen"
@@ -3046,6 +3074,30 @@ function findConditionalBranchBodyEnd(
       break;
     }
     if (command.indent === parentIndent && command.code === 411) {
+      break;
+    }
+    if (command.indent <= parentIndent) {
+      break;
+    }
+    index += 1;
+  }
+
+  return index;
+}
+
+function findLoopBodyEnd(
+  commands: readonly RawEventCommand[],
+  startIndex: number,
+  parentIndent: number,
+): number {
+  let index = startIndex;
+
+  while (index < commands.length) {
+    const command = commands[index];
+    if (command === undefined || command.code === 0 || command.indent < parentIndent) {
+      break;
+    }
+    if (command.indent === parentIndent && command.code === 413) {
       break;
     }
     if (command.indent <= parentIndent) {

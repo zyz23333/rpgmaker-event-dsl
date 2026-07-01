@@ -2,6 +2,8 @@ import { describe, expect, it } from "vitest";
 
 import { renderDecompiledCommandList } from "../src/decompiler.js";
 
+type RawEventCommand = Parameters<typeof renderDecompiledCommandList>[0][number];
+
 describe("decompiler command list rendering", () => {
   it("renders supported command helpers and deterministic imports from the same command pass", () => {
     expect(
@@ -658,5 +660,850 @@ describe("decompiler command list rendering", () => {
         "}),",
       ].join("\n"),
     });
+  });
+
+  it("keeps every top-level MV editor command family off raw decompile fallback", () => {
+    const coverageCases: Array<{
+      codes: readonly number[];
+      commands: readonly RawEventCommand[];
+      family: string;
+      helperName: string;
+    }> = [
+      {
+        family: "Show Text",
+        codes: [101, 401],
+        helperName: "showText",
+        commands: [
+          { code: 101, indent: 0, parameters: ["", 0, 0, 2] },
+          { code: 401, indent: 0, parameters: ["Hello"] },
+        ],
+      },
+      {
+        family: "Show Choices",
+        codes: [102, 402, 403],
+        helperName: "showChoices",
+        commands: [
+          { code: 102, indent: 0, parameters: [["Yes", "No"], -1, 0, 2, 0] },
+          { code: 402, indent: 0, parameters: [0] },
+          { code: 402, indent: 0, parameters: [1] },
+          { code: 403, indent: 0, parameters: [] },
+        ],
+      },
+      {
+        family: "Input Number",
+        codes: [103],
+        helperName: "inputNumber",
+        commands: [{ code: 103, indent: 0, parameters: [1, 4] }],
+      },
+      {
+        family: "Select Item",
+        codes: [104],
+        helperName: "selectItem",
+        commands: [{ code: 104, indent: 0, parameters: [1, 2] }],
+      },
+      {
+        family: "Show Scrolling Text",
+        codes: [105, 405],
+        helperName: "showScrollingText",
+        commands: [
+          { code: 105, indent: 0, parameters: [2, false] },
+          { code: 405, indent: 0, parameters: ["Line"] },
+        ],
+      },
+      {
+        family: "Comment",
+        codes: [108, 408],
+        helperName: "comment",
+        commands: [
+          { code: 108, indent: 0, parameters: ["First"] },
+          { code: 408, indent: 0, parameters: ["Second"] },
+        ],
+      },
+      {
+        family: "Conditional Branch",
+        codes: [111, 411],
+        helperName: "conditional",
+        commands: [
+          { code: 111, indent: 0, parameters: [0, 1, 0] },
+          { code: 411, indent: 0, parameters: [] },
+        ],
+      },
+      {
+        family: "Loop",
+        codes: [112, 413],
+        helperName: "loop",
+        commands: [
+          { code: 112, indent: 0, parameters: [] },
+          { code: 230, indent: 1, parameters: [1] },
+          { code: 413, indent: 0, parameters: [] },
+        ],
+      },
+      {
+        family: "Break Loop",
+        codes: [113],
+        helperName: "breakLoop",
+        commands: [{ code: 113, indent: 0, parameters: [] }],
+      },
+      {
+        family: "Exit Event Processing",
+        codes: [115],
+        helperName: "exitEvent",
+        commands: [{ code: 115, indent: 0, parameters: [] }],
+      },
+      {
+        family: "Common Event",
+        codes: [117],
+        helperName: "callCommonEvent",
+        commands: [{ code: 117, indent: 0, parameters: [1] }],
+      },
+      {
+        family: "Label",
+        codes: [118],
+        helperName: "label",
+        commands: [{ code: 118, indent: 0, parameters: ["Start"] }],
+      },
+      {
+        family: "Jump to Label",
+        codes: [119],
+        helperName: "jumpToLabel",
+        commands: [{ code: 119, indent: 0, parameters: ["Start"] }],
+      },
+      {
+        family: "Control Switches",
+        codes: [121],
+        helperName: "controlSwitches",
+        commands: [{ code: 121, indent: 0, parameters: [1, 2, 0] }],
+      },
+      {
+        family: "Control Variables",
+        codes: [122],
+        helperName: "controlVariables",
+        commands: [{ code: 122, indent: 0, parameters: [1, 2, 0, 0, 1] }],
+      },
+      {
+        family: "Control Self Switch",
+        codes: [123],
+        helperName: "controlSelfSwitch",
+        commands: [{ code: 123, indent: 0, parameters: ["A", 0] }],
+      },
+      {
+        family: "Control Timer",
+        codes: [124],
+        helperName: "controlTimer",
+        commands: [{ code: 124, indent: 0, parameters: [0, 30] }],
+      },
+      {
+        family: "Change Gold",
+        codes: [125],
+        helperName: "changeGold",
+        commands: [{ code: 125, indent: 0, parameters: [0, 0, 10] }],
+      },
+      {
+        family: "Change Items",
+        codes: [126],
+        helperName: "changeItems",
+        commands: [{ code: 126, indent: 0, parameters: [1, 0, 0, 1] }],
+      },
+      {
+        family: "Change Weapons",
+        codes: [127],
+        helperName: "changeWeapons",
+        commands: [{ code: 127, indent: 0, parameters: [1, 0, 0, 1, false] }],
+      },
+      {
+        family: "Change Armors",
+        codes: [128],
+        helperName: "changeArmors",
+        commands: [{ code: 128, indent: 0, parameters: [1, 0, 0, 1, false] }],
+      },
+      {
+        family: "Change Party Member",
+        codes: [129],
+        helperName: "changePartyMember",
+        commands: [{ code: 129, indent: 0, parameters: [1, 0, false] }],
+      },
+      {
+        family: "Change Battle BGM",
+        codes: [132],
+        helperName: "changeBattleBgm",
+        commands: [
+          {
+            code: 132,
+            indent: 0,
+            parameters: [{ name: "Battle", volume: 90, pitch: 100, pan: 0 }],
+          },
+        ],
+      },
+      {
+        family: "Change Victory ME",
+        codes: [133],
+        helperName: "changeVictoryMe",
+        commands: [
+          {
+            code: 133,
+            indent: 0,
+            parameters: [{ name: "Victory", volume: 90, pitch: 100, pan: 0 }],
+          },
+        ],
+      },
+      {
+        family: "Change Save Access",
+        codes: [134],
+        helperName: "changeSaveAccess",
+        commands: [{ code: 134, indent: 0, parameters: [1] }],
+      },
+      {
+        family: "Change Menu Access",
+        codes: [135],
+        helperName: "changeMenuAccess",
+        commands: [{ code: 135, indent: 0, parameters: [1] }],
+      },
+      {
+        family: "Change Encounter Disable",
+        codes: [136],
+        helperName: "changeEncounterDisable",
+        commands: [{ code: 136, indent: 0, parameters: [0] }],
+      },
+      {
+        family: "Change Formation Access",
+        codes: [137],
+        helperName: "changeFormationAccess",
+        commands: [{ code: 137, indent: 0, parameters: [1] }],
+      },
+      {
+        family: "Change Window Color",
+        codes: [138],
+        helperName: "changeWindowColor",
+        commands: [{ code: 138, indent: 0, parameters: [[0, 0, 0, 0]] }],
+      },
+      {
+        family: "Change Defeat ME",
+        codes: [139],
+        helperName: "changeDefeatMe",
+        commands: [
+          {
+            code: 139,
+            indent: 0,
+            parameters: [{ name: "Defeat", volume: 90, pitch: 100, pan: 0 }],
+          },
+        ],
+      },
+      {
+        family: "Change Vehicle BGM",
+        codes: [140],
+        helperName: "changeVehicleBgm",
+        commands: [
+          {
+            code: 140,
+            indent: 0,
+            parameters: [0, { name: "Boat", volume: 90, pitch: 100, pan: 0 }],
+          },
+        ],
+      },
+      {
+        family: "Transfer Player",
+        codes: [201],
+        helperName: "transferPlayer",
+        commands: [{ code: 201, indent: 0, parameters: [0, 1, 2, 3, 2, 0] }],
+      },
+      {
+        family: "Set Vehicle Location",
+        codes: [202],
+        helperName: "setVehicleLocation",
+        commands: [{ code: 202, indent: 0, parameters: [0, 0, 1, 2, 3] }],
+      },
+      {
+        family: "Set Event Location",
+        codes: [203],
+        helperName: "setEventLocation",
+        commands: [{ code: 203, indent: 0, parameters: [0, 0, 2, 3, 2] }],
+      },
+      {
+        family: "Scroll Map",
+        codes: [204],
+        helperName: "scrollMap",
+        commands: [{ code: 204, indent: 0, parameters: [2, 3, 4] }],
+      },
+      {
+        family: "Set Movement Route",
+        codes: [205],
+        helperName: "setMovementRoute",
+        commands: [
+          {
+            code: 205,
+            indent: 0,
+            parameters: [
+              0,
+              {
+                list: [
+                  { code: 1, parameters: [] },
+                  { code: 0, parameters: [] },
+                ],
+                repeat: true,
+                skippable: false,
+                wait: false,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        family: "Getting On and Off Vehicles",
+        codes: [206],
+        helperName: "getOnOffVehicle",
+        commands: [{ code: 206, indent: 0, parameters: [] }],
+      },
+      {
+        family: "Change Transparency",
+        codes: [211],
+        helperName: "changeTransparency",
+        commands: [{ code: 211, indent: 0, parameters: [0] }],
+      },
+      {
+        family: "Show Animation",
+        codes: [212],
+        helperName: "showAnimation",
+        commands: [{ code: 212, indent: 0, parameters: [0, 1, false] }],
+      },
+      {
+        family: "Show Balloon Icon",
+        codes: [213],
+        helperName: "showBalloonIcon",
+        commands: [{ code: 213, indent: 0, parameters: [0, 1, false] }],
+      },
+      {
+        family: "Erase Event",
+        codes: [214],
+        helperName: "eraseEvent",
+        commands: [{ code: 214, indent: 0, parameters: [] }],
+      },
+      {
+        family: "Change Player Followers",
+        codes: [216],
+        helperName: "changePlayerFollowers",
+        commands: [{ code: 216, indent: 0, parameters: [0] }],
+      },
+      {
+        family: "Gather Followers",
+        codes: [217],
+        helperName: "gatherFollowers",
+        commands: [{ code: 217, indent: 0, parameters: [] }],
+      },
+      {
+        family: "Fadeout Screen",
+        codes: [221],
+        helperName: "fadeoutScreen",
+        commands: [{ code: 221, indent: 0, parameters: [] }],
+      },
+      {
+        family: "Fadein Screen",
+        codes: [222],
+        helperName: "fadeinScreen",
+        commands: [{ code: 222, indent: 0, parameters: [] }],
+      },
+      {
+        family: "Tint Screen",
+        codes: [223],
+        helperName: "tintScreen",
+        commands: [{ code: 223, indent: 0, parameters: [[0, 0, 0, 0], 30, false] }],
+      },
+      {
+        family: "Flash Screen",
+        codes: [224],
+        helperName: "flashScreen",
+        commands: [{ code: 224, indent: 0, parameters: [[255, 255, 255, 255], 30, false] }],
+      },
+      {
+        family: "Shake Screen",
+        codes: [225],
+        helperName: "shakeScreen",
+        commands: [{ code: 225, indent: 0, parameters: [5, 5, 30, false] }],
+      },
+      {
+        family: "Wait",
+        codes: [230],
+        helperName: "wait",
+        commands: [{ code: 230, indent: 0, parameters: [30] }],
+      },
+      {
+        family: "Show Picture",
+        codes: [231],
+        helperName: "showPicture",
+        commands: [
+          { code: 231, indent: 0, parameters: [1, "Picture", 0, 0, 2, 3, 100, 100, 255, 0] },
+        ],
+      },
+      {
+        family: "Move Picture",
+        codes: [232],
+        helperName: "movePicture",
+        commands: [
+          { code: 232, indent: 0, parameters: [1, "", 0, 0, 2, 3, 100, 100, 255, 0, 30, false] },
+        ],
+      },
+      {
+        family: "Rotate Picture",
+        codes: [233],
+        helperName: "rotatePicture",
+        commands: [{ code: 233, indent: 0, parameters: [1, 5] }],
+      },
+      {
+        family: "Tint Picture",
+        codes: [234],
+        helperName: "tintPicture",
+        commands: [{ code: 234, indent: 0, parameters: [1, [0, 0, 0, 0], 30, false] }],
+      },
+      {
+        family: "Erase Picture",
+        codes: [235],
+        helperName: "erasePicture",
+        commands: [{ code: 235, indent: 0, parameters: [1] }],
+      },
+      {
+        family: "Set Weather Effect",
+        codes: [236],
+        helperName: "setWeatherEffect",
+        commands: [{ code: 236, indent: 0, parameters: ["rain", 5, 30, false] }],
+      },
+      {
+        family: "Play BGM",
+        codes: [241],
+        helperName: "playBgm",
+        commands: [
+          { code: 241, indent: 0, parameters: [{ name: "Theme", volume: 90, pitch: 100, pan: 0 }] },
+        ],
+      },
+      {
+        family: "Fadeout BGM",
+        codes: [242],
+        helperName: "fadeoutBgm",
+        commands: [{ code: 242, indent: 0, parameters: [30] }],
+      },
+      {
+        family: "Save BGM",
+        codes: [243],
+        helperName: "saveBgm",
+        commands: [{ code: 243, indent: 0, parameters: [] }],
+      },
+      {
+        family: "Resume BGM",
+        codes: [244],
+        helperName: "resumeBgm",
+        commands: [{ code: 244, indent: 0, parameters: [] }],
+      },
+      {
+        family: "Play BGS",
+        codes: [245],
+        helperName: "playBgs",
+        commands: [
+          { code: 245, indent: 0, parameters: [{ name: "Rain", volume: 90, pitch: 100, pan: 0 }] },
+        ],
+      },
+      {
+        family: "Fadeout BGS",
+        codes: [246],
+        helperName: "fadeoutBgs",
+        commands: [{ code: 246, indent: 0, parameters: [30] }],
+      },
+      {
+        family: "Play ME",
+        codes: [249],
+        helperName: "playMe",
+        commands: [
+          {
+            code: 249,
+            indent: 0,
+            parameters: [{ name: "Fanfare", volume: 90, pitch: 100, pan: 0 }],
+          },
+        ],
+      },
+      {
+        family: "Play SE",
+        codes: [250],
+        helperName: "playSe",
+        commands: [
+          {
+            code: 250,
+            indent: 0,
+            parameters: [{ name: "Cursor", volume: 90, pitch: 100, pan: 0 }],
+          },
+        ],
+      },
+      {
+        family: "Stop SE",
+        codes: [251],
+        helperName: "stopSe",
+        commands: [{ code: 251, indent: 0, parameters: [] }],
+      },
+      {
+        family: "Play Movie",
+        codes: [261],
+        helperName: "playMovie",
+        commands: [{ code: 261, indent: 0, parameters: ["Intro"] }],
+      },
+      {
+        family: "Change Map Name Display",
+        codes: [281],
+        helperName: "changeMapNameDisplay",
+        commands: [{ code: 281, indent: 0, parameters: [1] }],
+      },
+      {
+        family: "Change Tileset",
+        codes: [282],
+        helperName: "changeTileset",
+        commands: [{ code: 282, indent: 0, parameters: [1] }],
+      },
+      {
+        family: "Change Battle Back",
+        codes: [283],
+        helperName: "changeBattleBack",
+        commands: [{ code: 283, indent: 0, parameters: ["Grassland", "Forest"] }],
+      },
+      {
+        family: "Change Parallax",
+        codes: [284],
+        helperName: "changeParallax",
+        commands: [{ code: 284, indent: 0, parameters: ["Clouds", false, false, 0, 0] }],
+      },
+      {
+        family: "Get Location Info",
+        codes: [285],
+        helperName: "getLocationInfo",
+        commands: [{ code: 285, indent: 0, parameters: [1, 6, 0, 2, 3] }],
+      },
+      {
+        family: "Battle Processing",
+        codes: [301, 601, 602, 603],
+        helperName: "battleProcessing",
+        commands: [
+          { code: 301, indent: 0, parameters: [0, 1, true, true] },
+          { code: 601, indent: 0, parameters: [] },
+          { code: 602, indent: 0, parameters: [] },
+          { code: 603, indent: 0, parameters: [] },
+        ],
+      },
+      {
+        family: "Shop Processing",
+        codes: [302, 605],
+        helperName: "shopProcessing",
+        commands: [
+          { code: 302, indent: 0, parameters: [0, 1, 0, 0, false] },
+          { code: 605, indent: 0, parameters: [1, 1, 0, 0] },
+        ],
+      },
+      {
+        family: "Name Input Processing",
+        codes: [303],
+        helperName: "nameInputProcessing",
+        commands: [{ code: 303, indent: 0, parameters: [1, 8] }],
+      },
+      {
+        family: "Change HP",
+        codes: [311],
+        helperName: "changeHp",
+        commands: [{ code: 311, indent: 0, parameters: [0, 0, 0, 0, 1, false] }],
+      },
+      {
+        family: "Change MP",
+        codes: [312],
+        helperName: "changeMp",
+        commands: [{ code: 312, indent: 0, parameters: [0, 1, 0, 0, 1] }],
+      },
+      {
+        family: "Change State",
+        codes: [313],
+        helperName: "changeState",
+        commands: [{ code: 313, indent: 0, parameters: [0, 1, 0, 1] }],
+      },
+      {
+        family: "Recover All",
+        codes: [314],
+        helperName: "recoverAll",
+        commands: [{ code: 314, indent: 0, parameters: [0, 0] }],
+      },
+      {
+        family: "Change EXP",
+        codes: [315],
+        helperName: "changeExp",
+        commands: [{ code: 315, indent: 0, parameters: [0, 1, 0, 0, 1, false] }],
+      },
+      {
+        family: "Change Level",
+        codes: [316],
+        helperName: "changeLevel",
+        commands: [{ code: 316, indent: 0, parameters: [0, 1, 0, 0, 1, false] }],
+      },
+      {
+        family: "Change Parameter",
+        codes: [317],
+        helperName: "changeParameter",
+        commands: [{ code: 317, indent: 0, parameters: [0, 1, 0, 0, 0, 1] }],
+      },
+      {
+        family: "Change Skill",
+        codes: [318],
+        helperName: "changeSkill",
+        commands: [{ code: 318, indent: 0, parameters: [0, 1, 0, 1] }],
+      },
+      {
+        family: "Change Equipment",
+        codes: [319],
+        helperName: "changeEquipment",
+        commands: [{ code: 319, indent: 0, parameters: [1, 1, 0] }],
+      },
+      {
+        family: "Change Name",
+        codes: [320],
+        helperName: "changeName",
+        commands: [{ code: 320, indent: 0, parameters: [1, "Alex"] }],
+      },
+      {
+        family: "Change Class",
+        codes: [321],
+        helperName: "changeClass",
+        commands: [{ code: 321, indent: 0, parameters: [1, 1, false] }],
+      },
+      {
+        family: "Change Actor Images",
+        codes: [322],
+        helperName: "changeActorImages",
+        commands: [{ code: 322, indent: 0, parameters: [1, "Actor1", 0, "Actor1", 0, "Actor1_1"] }],
+      },
+      {
+        family: "Change Vehicle Image",
+        codes: [323],
+        helperName: "changeVehicleImage",
+        commands: [{ code: 323, indent: 0, parameters: [0, "Vehicle", 0] }],
+      },
+      {
+        family: "Change Nickname",
+        codes: [324],
+        helperName: "changeNickname",
+        commands: [{ code: 324, indent: 0, parameters: [1, "Ace"] }],
+      },
+      {
+        family: "Change Profile",
+        codes: [325],
+        helperName: "changeProfile",
+        commands: [{ code: 325, indent: 0, parameters: [1, "Profile"] }],
+      },
+      {
+        family: "Change TP",
+        codes: [326],
+        helperName: "changeTp",
+        commands: [{ code: 326, indent: 0, parameters: [0, 1, 0, 0, 1] }],
+      },
+      {
+        family: "Change Enemy HP",
+        codes: [331],
+        helperName: "changeEnemyHp",
+        commands: [{ code: 331, indent: 0, parameters: [0, 0, 0, 1, false] }],
+      },
+      {
+        family: "Change Enemy MP",
+        codes: [332],
+        helperName: "changeEnemyMp",
+        commands: [{ code: 332, indent: 0, parameters: [0, 0, 0, 1] }],
+      },
+      {
+        family: "Change Enemy State",
+        codes: [333],
+        helperName: "changeEnemyState",
+        commands: [{ code: 333, indent: 0, parameters: [0, 0, 1] }],
+      },
+      {
+        family: "Enemy Recover All",
+        codes: [334],
+        helperName: "enemyRecoverAll",
+        commands: [{ code: 334, indent: 0, parameters: [0] }],
+      },
+      {
+        family: "Enemy Appear",
+        codes: [335],
+        helperName: "enemyAppear",
+        commands: [{ code: 335, indent: 0, parameters: [0] }],
+      },
+      {
+        family: "Enemy Transform",
+        codes: [336],
+        helperName: "enemyTransform",
+        commands: [{ code: 336, indent: 0, parameters: [0, 1] }],
+      },
+      {
+        family: "Show Battle Animation",
+        codes: [337],
+        helperName: "showBattleAnimation",
+        commands: [{ code: 337, indent: 0, parameters: [0, 1, false] }],
+      },
+      {
+        family: "Force Action",
+        codes: [339],
+        helperName: "forceAction",
+        commands: [{ code: 339, indent: 0, parameters: [0, 0, 1, 0] }],
+      },
+      {
+        family: "Abort Battle",
+        codes: [340],
+        helperName: "abortBattle",
+        commands: [{ code: 340, indent: 0, parameters: [] }],
+      },
+      {
+        family: "Change Enemy TP",
+        codes: [342],
+        helperName: "changeEnemyTp",
+        commands: [{ code: 342, indent: 0, parameters: [0, 0, 0, 1] }],
+      },
+      {
+        family: "Open Menu Screen",
+        codes: [351],
+        helperName: "openMenuScreen",
+        commands: [{ code: 351, indent: 0, parameters: [] }],
+      },
+      {
+        family: "Open Save Screen",
+        codes: [352],
+        helperName: "openSaveScreen",
+        commands: [{ code: 352, indent: 0, parameters: [] }],
+      },
+      {
+        family: "Game Over",
+        codes: [353],
+        helperName: "gameOver",
+        commands: [{ code: 353, indent: 0, parameters: [] }],
+      },
+      {
+        family: "Return to Title Screen",
+        codes: [354],
+        helperName: "returnToTitleScreen",
+        commands: [{ code: 354, indent: 0, parameters: [] }],
+      },
+      {
+        family: "Script",
+        codes: [355, 655],
+        helperName: "script",
+        commands: [
+          { code: 355, indent: 0, parameters: ["const value = 1;"] },
+          { code: 655, indent: 0, parameters: ["console.log(value);"] },
+        ],
+      },
+      {
+        family: "Plugin Command",
+        codes: [356],
+        helperName: "pluginCommand",
+        commands: [{ code: 356, indent: 0, parameters: ["Plugin arg"] }],
+      },
+    ];
+
+    for (const coverageCase of coverageCases) {
+      const rendering = renderDecompiledCommandList(coverageCase.commands);
+      const label = `${coverageCase.family} (${coverageCase.codes.join(", ")})`;
+
+      expect(rendering.source, label).not.toContain("rawDslCommand");
+      expect(rendering.source, label).not.toContain("controlSwitch(");
+      expect(rendering.source, label).not.toContain("controlVariable(");
+      expect(rendering.helperNames, label).toContain(coverageCase.helperName);
+    }
+  });
+
+  it("keeps every Set Movement Route subcommand off raw decompile fallback", () => {
+    const routeCases: Array<{
+      code: number;
+      expectedSnippet: string;
+      parameters: readonly unknown[];
+    }> = [
+      { code: 1, parameters: [], expectedSnippet: '{ kind: "moveDown" }' },
+      { code: 2, parameters: [], expectedSnippet: '{ kind: "moveLeft" }' },
+      { code: 3, parameters: [], expectedSnippet: '{ kind: "moveRight" }' },
+      { code: 4, parameters: [], expectedSnippet: '{ kind: "moveUp" }' },
+      { code: 5, parameters: [], expectedSnippet: '{ kind: "moveLowerLeft" }' },
+      { code: 6, parameters: [], expectedSnippet: '{ kind: "moveLowerRight" }' },
+      { code: 7, parameters: [], expectedSnippet: '{ kind: "moveUpperLeft" }' },
+      { code: 8, parameters: [], expectedSnippet: '{ kind: "moveUpperRight" }' },
+      { code: 9, parameters: [], expectedSnippet: '{ kind: "moveRandom" }' },
+      { code: 10, parameters: [], expectedSnippet: '{ kind: "moveTowardPlayer" }' },
+      { code: 11, parameters: [], expectedSnippet: '{ kind: "moveAwayFromPlayer" }' },
+      { code: 12, parameters: [], expectedSnippet: '{ kind: "moveForward" }' },
+      { code: 13, parameters: [], expectedSnippet: '{ kind: "moveBackward" }' },
+      { code: 14, parameters: [1, -1], expectedSnippet: '{ kind: "jump", x: 1, y: -1 }' },
+      { code: 15, parameters: [10], expectedSnippet: '{ kind: "routeWait", frames: 10 }' },
+      { code: 16, parameters: [], expectedSnippet: '{ kind: "turnDown" }' },
+      { code: 17, parameters: [], expectedSnippet: '{ kind: "turnLeft" }' },
+      { code: 18, parameters: [], expectedSnippet: '{ kind: "turnRight" }' },
+      { code: 19, parameters: [], expectedSnippet: '{ kind: "turnUp" }' },
+      { code: 20, parameters: [], expectedSnippet: '{ kind: "turn90Right" }' },
+      { code: 21, parameters: [], expectedSnippet: '{ kind: "turn90Left" }' },
+      { code: 22, parameters: [], expectedSnippet: '{ kind: "turn180" }' },
+      { code: 23, parameters: [], expectedSnippet: '{ kind: "turn90RightOrLeft" }' },
+      { code: 24, parameters: [], expectedSnippet: '{ kind: "turnRandom" }' },
+      { code: 25, parameters: [], expectedSnippet: '{ kind: "turnTowardPlayer" }' },
+      { code: 26, parameters: [], expectedSnippet: '{ kind: "turnAwayFromPlayer" }' },
+      {
+        code: 27,
+        parameters: [1],
+        expectedSnippet: '{ kind: "switchOn", switch: switchRef({ id: 1 }) }',
+      },
+      {
+        code: 28,
+        parameters: [1],
+        expectedSnippet: '{ kind: "switchOff", switch: switchRef({ id: 1 }) }',
+      },
+      { code: 29, parameters: [4], expectedSnippet: '{ kind: "changeSpeed", speed: 4 }' },
+      { code: 30, parameters: [5], expectedSnippet: '{ kind: "changeFrequency", frequency: 5 }' },
+      { code: 31, parameters: [], expectedSnippet: '{ kind: "walkAnimation", enabled: true }' },
+      { code: 32, parameters: [], expectedSnippet: '{ kind: "walkAnimation", enabled: false }' },
+      { code: 33, parameters: [], expectedSnippet: '{ kind: "stepAnimation", enabled: true }' },
+      { code: 34, parameters: [], expectedSnippet: '{ kind: "stepAnimation", enabled: false }' },
+      { code: 35, parameters: [], expectedSnippet: '{ kind: "directionFix", enabled: true }' },
+      { code: 36, parameters: [], expectedSnippet: '{ kind: "directionFix", enabled: false }' },
+      { code: 37, parameters: [], expectedSnippet: '{ kind: "through", enabled: true }' },
+      { code: 38, parameters: [], expectedSnippet: '{ kind: "through", enabled: false }' },
+      { code: 39, parameters: [], expectedSnippet: '{ kind: "transparent", enabled: true }' },
+      { code: 40, parameters: [], expectedSnippet: '{ kind: "transparent", enabled: false }' },
+      {
+        code: 41,
+        parameters: ["Actor1", 0],
+        expectedSnippet:
+          '{ kind: "changeImage", image: imageAsset({ folder: "characters", name: "Actor1" }), index: 0 }',
+      },
+      { code: 42, parameters: [128], expectedSnippet: '{ kind: "changeOpacity", opacity: 128 }' },
+      { code: 43, parameters: [1], expectedSnippet: '{ kind: "changeBlendMode", blendMode: 1 }' },
+      {
+        code: 44,
+        parameters: [{ name: "Cursor", volume: 90, pitch: 100, pan: 0 }],
+        expectedSnippet:
+          '{ kind: "playSe", audio: { asset: audioAsset({ folder: "se", name: "Cursor" }), volume: 90, pitch: 100, pan: 0 } }',
+      },
+      {
+        code: 45,
+        parameters: ["this.moveForward();"],
+        expectedSnippet: '{ kind: "script", script: scriptInput({ code: "this.moveForward();" }) }',
+      },
+    ];
+
+    for (const routeCase of routeCases) {
+      const rendering = renderDecompiledCommandList([
+        {
+          code: 205,
+          indent: 0,
+          parameters: [
+            0,
+            {
+              list: [
+                { code: routeCase.code, parameters: routeCase.parameters },
+                { code: 0, parameters: [] },
+              ],
+              repeat: true,
+              skippable: false,
+              wait: false,
+            },
+          ],
+        },
+      ]);
+      const label = `Move Route code ${routeCase.code}`;
+
+      expect(rendering.source, label).not.toContain("rawDslCommand");
+      expect(rendering.helperNames, label).toContain("setMovementRoute");
+      expect(rendering.source, label).toContain(routeCase.expectedSnippet);
+    }
   });
 });
