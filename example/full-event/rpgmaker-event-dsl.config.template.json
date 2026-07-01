@@ -1,0 +1,7 @@
+{
+  "projectRoot": "<set-this-to-your-local-test-mv-project>",
+  "scriptEnabled": true,
+  "sourceRoot": "src",
+  "sourceInclude": ["**/*.events.ts", "**/*.dsl.ts"],
+  "sourceExclude": ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"]
+}

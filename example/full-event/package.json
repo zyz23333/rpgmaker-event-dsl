@@ -1,0 +1,16 @@
+{
+  "name": "rpgmaker-event-dsl-full-event-example",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "clone": "rpgmaker-event-dsl clone",
+    "pull": "rpgmaker-event-dsl pull",
+    "check": "rpgmaker-event-dsl compile --check",
+    "compile": "rpgmaker-event-dsl compile",
+    "diff": "rpgmaker-event-dsl diff",
+    "push": "rpgmaker-event-dsl push"
+  },
+  "devDependencies": {
+    "rpgmaker-event-dsl": "^0.1.1"
+  }
+}
