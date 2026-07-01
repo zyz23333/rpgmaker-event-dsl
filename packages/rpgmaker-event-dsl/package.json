@@ -1,13 +1,32 @@
 {
   "name": "rpgmaker-event-dsl",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Schema-first TypeScript DSL and CLI foundation for RPG Maker MV event data.",
+  "keywords": [
+    "dsl",
+    "event",
+    "rpg-maker",
+    "rpg-maker-mv",
+    "rpgmaker",
+    "typescript"
+  ],
+  "homepage": "https://github.com/zyz23333/rpgmaker-event-dsl#readme",
+  "bugs": {
+    "url": "https://github.com/zyz23333/rpgmaker-event-dsl/issues"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zyz23333/rpgmaker-event-dsl.git",
+    "directory": "packages/rpgmaker-event-dsl"
+  },
   "bin": {
-    "rpgmaker-event-dsl": "./dist/cli.mjs"
+    "rpgmaker-event-dsl": "dist/cli.mjs"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
   ],
   "type": "module",
   "exports": {
