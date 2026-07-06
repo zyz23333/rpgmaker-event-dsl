@@ -8,19 +8,8 @@ dist/
 node_modules/
 .r3d-local.json
 
-# references
-/references/
-
-# agent
-.codex/
-.claude/
-.agents/
-AGENTS.md
-CLAUDE.md
-skills-lock.json
-
 # local planning scratch space
-.scratch/
+/.scratch/
 
 # sample workspace state
 /example/full-event/rpgmaker-event-dsl.config.json
