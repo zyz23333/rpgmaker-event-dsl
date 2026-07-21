@@ -8,6 +8,13 @@ minor releases.
 
 ## [Unreleased]
 
+### Changed
+
+- Split the Event DSL authoring, compilation, decompilation, validation, domain type, and
+  Push workflow implementations into focused command-family and processing-stage modules.
+- Kept the package authoring surface and Workspace safety behavior unchanged while reducing
+  the top-level modules to coordination facades.
+
 ## [0.1.2] - 2026-07-02
 
 ### Fixed
