@@ -125,6 +125,10 @@ export function renderShowChoicesCommand(
     nextIndex = branchEndIndex - 1;
   }
 
+  if (commands[nextIndex + 1]?.code === 404 && commands[nextIndex + 1]?.indent === command.indent) {
+    nextIndex += 1;
+  }
+
   const branchExpressions = branches.map((branch) => {
     const rendered = renderDecompiledCommandList(branch);
     for (const helperName of rendered.helperNames) {
@@ -135,7 +139,7 @@ export function renderShowChoicesCommand(
 
   const fields = [`choices: ${literal(choices)}`, `branches: [${branchExpressions.join(", ")}]`];
 
-  if (cancelType !== -1) {
+  if (cancelBranch === null && cancelType !== -1) {
     fields.push(`cancelType: ${cancelType}`);
   }
   if (defaultType !== 0) {
@@ -152,7 +156,9 @@ export function renderShowChoicesCommand(
     for (const helperName of renderedCancelBranch.helperNames) {
       helperNames.add(helperName);
     }
-    fields.push(`cancelBranch: [${renderInlineCommandListSource(renderedCancelBranch.source)}]`);
+    fields.push(
+      `cancelType: -2, cancelBranch: [${renderInlineCommandListSource(renderedCancelBranch.source)}]`,
+    );
   }
 
   return {

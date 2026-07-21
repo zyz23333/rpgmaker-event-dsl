@@ -51,6 +51,10 @@ export function renderBattleProcessingCommand(
     nextIndex = branchEndIndex - 1;
   }
 
+  if (commands[nextIndex + 1]?.code === 604 && commands[nextIndex + 1]?.indent === command.indent) {
+    nextIndex += 1;
+  }
+
   return {
     expression: `battleProcessing({ ${fields.join(", ")} })`,
     helperNames: [...helperNames],

@@ -36,6 +36,7 @@ export type CompileBaselineInput = {
   workspaceRoot: string;
   config: WorkspaceConfig;
   sourceFiles: readonly string[];
+  sourceFileHashes?: readonly FileHashEntry[];
   snapshotFiles: readonly FileHashEntry[];
 };
 
@@ -90,12 +91,15 @@ export async function materializeCompileOutput(
 }
 
 export async function buildCompileBaseline(input: CompileBaselineInput): Promise<CompileBaseline> {
-  const sourceFiles = await Promise.all(
-    input.sourceFiles.map(async (filePath) => ({
-      hash: hashUtf8Content(await readFile(filePath, "utf8")),
-      relativePath: toPosixPath(relative(input.workspaceRoot, filePath)),
-    })),
-  );
+  const sourceFiles =
+    input.sourceFileHashes === undefined
+      ? await Promise.all(
+          input.sourceFiles.map(async (filePath) => ({
+            hash: hashUtf8Content(await readFile(filePath, "utf8")),
+            relativePath: toPosixPath(relative(input.workspaceRoot, filePath)),
+          })),
+        )
+      : [...input.sourceFileHashes];
   sourceFiles.sort((left, right) => left.relativePath.localeCompare(right.relativePath));
 
   const snapshotFiles = [...input.snapshotFiles].sort((left, right) =>

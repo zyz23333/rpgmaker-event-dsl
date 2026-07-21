@@ -289,6 +289,7 @@ describe("decompiler command list rendering", () => {
         { code: 403, indent: 0, parameters: [] },
         { code: 101, indent: 1, parameters: ["", 0, 0, 2] },
         { code: 401, indent: 1, parameters: ["Canceled"] },
+        { code: 404, indent: 0, parameters: [] },
         { code: 103, indent: 0, parameters: [3, 4] },
         { code: 104, indent: 0, parameters: [3, 1] },
         { code: 105, indent: 0, parameters: [5, true] },
@@ -309,7 +310,7 @@ describe("decompiler command list rendering", () => {
       ],
       source: [
         'showText({ lines: ["Hello"], face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 2 }, background: 1, positionType: 0 }),',
-        'showChoices({ choices: ["Yes","No"], branches: [[wait(10),], [eraseEvent(),]], cancelType: 1, cancelBranch: [showText({ lines: ["Canceled"] }),] }),',
+        'showChoices({ choices: ["Yes","No"], branches: [[wait(10),], [eraseEvent(),]], cancelType: -2, cancelBranch: [showText({ lines: ["Canceled"] }),] }),',
         "inputNumber({ variable: variableRef({ id: 3 }), digits: 4 }),",
         "selectItem({ variable: variableRef({ id: 3 }), itemType: 1 }),",
         'showScrollingText({ lines: ["Scroll","More"], speed: 5, noFastForward: true }),',
@@ -325,6 +326,7 @@ describe("decompiler command list rendering", () => {
         { code: 411, indent: 0, parameters: [] },
         { code: 111, indent: 1, parameters: [12, "$gameParty.gold() > 10"] },
         { code: 214, indent: 2, parameters: [] },
+        { code: 412, indent: 0, parameters: [] },
         { code: 230, indent: 0, parameters: [30] },
       ]),
     ).toEqual({

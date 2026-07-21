@@ -44,6 +44,101 @@ import {
 } from "../src/index.js";
 
 describe("validateDslOwnedDeclarations", () => {
+  it("validates Map Event placement against snapshot map metadata", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        mapEvent({
+          mapId: 9,
+          id: 1,
+          name: "Missing Map",
+          x: 0,
+          y: 0,
+          pages: [page({ commands: [] })],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotMaps: [{ id: 1, width: 5, height: 5, eventLocations: [] }],
+      },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toContain(
+      'Map event "Missing Map" references unknown mapId 9.',
+    );
+  });
+
+  it("rejects out-of-bounds coordinates and warns on occupied coordinates", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        mapEvent({ mapId: 1, id: 1, name: "Out", x: 5, y: 0, pages: [page({ commands: [] })] }),
+        mapEvent({
+          mapId: 1,
+          id: 2,
+          name: "Occupied",
+          x: 1,
+          y: 1,
+          pages: [page({ commands: [] })],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotMaps: [
+          { id: 1, width: 5, height: 5, eventLocations: [{ eventId: 8, x: 1, y: 1 }] },
+        ],
+      },
+    );
+
+    expect(result.issues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          level: "error",
+          message: expect.stringContaining("x coordinate 5"),
+        }),
+        expect.objectContaining({
+          level: "warning",
+          message: expect.stringContaining("occupied coordinate"),
+        }),
+      ]),
+    );
+  });
+
+  it("rejects Page variable conditions that RPG Maker MV cannot represent", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        mapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Invalid Page Condition",
+          x: 0,
+          y: 0,
+          pages: [
+            page({
+              conditions: {
+                variable: {
+                  ref: variableRef({ id: 1 }),
+                  operator: "eq" as "ge",
+                  value: variableRef({ id: 2 }) as unknown as number,
+                },
+              },
+              commands: [],
+            }),
+          ],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotReferences: { variables: [{ id: 1, name: "Counter" }] },
+      },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toEqual(
+      expect.arrayContaining([
+        'Map Event Page variable conditions only support operator "ge".',
+        "Map Event Page variable conditions require a finite numeric value.",
+      ]),
+    );
+  });
+
   it("rejects duplicate Common Event, Switch, and Variable ids", () => {
     const result = validateDslOwnedDeclarations(
       [

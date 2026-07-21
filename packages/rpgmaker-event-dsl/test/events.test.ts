@@ -149,6 +149,27 @@ const resolver = buildStagedDataGraph({
 }).resolver;
 
 describe("compileMapEvent", () => {
+  it("does not add an empty plugin argument", () => {
+    const event = compileMapEvent(
+      {
+        kind: "mapEvent",
+        mapId: 1,
+        id: 1,
+        name: "Plugin",
+        x: 0,
+        y: 0,
+        pages: [page({ commands: [pluginCommand({ command: "MyPlugin", args: [] })] })],
+      },
+      { nextId: 1, resolver },
+    );
+
+    expect(event.pages?.[0]?.list?.[0]).toEqual({
+      code: 356,
+      indent: 0,
+      parameters: ["MyPlugin"],
+    });
+  });
+
   it("compiles core MV command helpers into raw commands", () => {
     const event = compileMapEvent(
       {
@@ -354,12 +375,14 @@ describe("compileMapEvent", () => {
       },
     );
 
-    const commands = event.pages?.[0]?.list ?? [];
+    const compiledCommands = event.pages?.[0]?.list ?? [];
+    expect(compiledCommands[11]).toEqual({ code: 404, indent: 0, parameters: [] });
+    const commands = compiledCommands.filter((command) => command.code !== 404);
 
     expect(commands[0]).toEqual({ code: 108, indent: 0, parameters: ["note"] });
     expect(commands[1]).toEqual({ code: 101, indent: 0, parameters: ["Actor1", 2, 1, 0] });
     expect(commands[2]).toEqual({ code: 401, indent: 0, parameters: ["Hello"] });
-    expect(commands[3]).toEqual({ code: 102, indent: 0, parameters: [["Yes", "No"], 1, 0, 2, 0] });
+    expect(commands[3]).toEqual({ code: 102, indent: 0, parameters: [["Yes", "No"], -2, 0, 2, 0] });
     expect(commands[4]).toEqual({ code: 402, indent: 0, parameters: [0] });
     expect(commands[5]).toEqual({ code: 230, indent: 1, parameters: [10] });
     expect(commands[6]).toEqual({ code: 402, indent: 0, parameters: [1] });
@@ -458,7 +481,8 @@ describe("compileMapEvent", () => {
     });
     expect(commands[37]).toEqual({ code: 206, indent: 0, parameters: [] });
     expect(commands[38]).toEqual({ code: 301, indent: 0, parameters: [0, 1, true, false] });
-    expect(commands[39]).toEqual({ code: 0, indent: 0, parameters: [] });
+    expect(commands[39]).toEqual({ code: 604, indent: 0, parameters: [] });
+    expect(commands[40]).toEqual({ code: 0, indent: 0, parameters: [] });
   });
 
   it("compiles direct Transfer Player destinations with resolved map references", () => {
@@ -997,6 +1021,7 @@ describe("compileMapEvent", () => {
       { code: 230, indent: 1, parameters: [2] },
       { code: 603, indent: 0, parameters: [] },
       { code: 230, indent: 1, parameters: [3] },
+      { code: 604, indent: 0, parameters: [] },
       { code: 302, indent: 0, parameters: [0, 1, 0, 0, true] },
       { code: 605, indent: 0, parameters: [1, 1, 1, 250] },
       { code: 605, indent: 0, parameters: [2, 1, 0, 0] },

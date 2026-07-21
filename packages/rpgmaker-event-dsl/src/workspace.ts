@@ -51,6 +51,7 @@ export async function loadWorkspace(workspaceRoot: string): Promise<LoadedWorksp
 
 export async function initWorkspace(options: InitWorkspaceOptions): Promise<LoadedWorkspace> {
   const workspaceRoot = resolve(options.workspaceRoot);
+  const configPath = resolve(workspaceRoot, "rpgmaker-event-dsl.config.json");
   const projectRoot = resolve(workspaceRoot, options.projectRoot);
   const dataDirectory = resolve(projectRoot, "data");
   const config: WorkspaceConfig = {
@@ -63,6 +64,7 @@ export async function initWorkspace(options: InitWorkspaceOptions): Promise<Load
 
   await assertProjectRoot(projectRoot);
   await assertDirectoryExists(dataDirectory);
+  await assertConfigDoesNotExist(configPath);
   await mkdir(workspaceRoot, { recursive: true });
   await mkdir(resolve(workspaceRoot, config.sourceRoot), { recursive: true });
   await writeFile(
@@ -77,6 +79,30 @@ export async function initWorkspace(options: InitWorkspaceOptions): Promise<Load
     dataDirectory,
     config,
   };
+}
+
+async function assertConfigDoesNotExist(configPath: string): Promise<void> {
+  try {
+    await stat(configPath);
+  } catch (error) {
+    if (isMissingFileError(error)) {
+      return;
+    }
+    throw error;
+  }
+
+  throw new Error(
+    `Workspace Config already exists at ${configPath}. Refusing to overwrite it during init.`,
+  );
+}
+
+function isMissingFileError(error: unknown): boolean {
+  return (
+    error instanceof Error &&
+    "code" in error &&
+    typeof (error as { code?: unknown }).code === "string" &&
+    (error as { code?: string }).code === "ENOENT"
+  );
 }
 
 async function assertProjectRoot(projectRoot: string): Promise<void> {

@@ -170,6 +170,7 @@ export function compileNodes(
           });
           output.push(...compileNodes(node.else, indent + 1, resolver, false));
         }
+        output.push({ code: 412, indent, parameters: [] });
         break;
       case "comment":
         output.push({
@@ -392,6 +393,7 @@ export function compileNodes(
           output.push({ code: 603, indent, parameters: [] });
           output.push(...compileNodes(node.lose, indent + 1, resolver, false));
         }
+        output.push({ code: 604, indent, parameters: [] });
         break;
       case "script":
         output.push({
@@ -411,7 +413,11 @@ export function compileNodes(
         output.push({
           code: 356,
           indent,
-          parameters: [node.args ? `${node.command} ${node.args.join(" ")}` : node.command],
+          parameters: [
+            node.args !== undefined && node.args.length > 0
+              ? `${node.command} ${node.args.join(" ")}`
+              : node.command,
+          ],
         });
         break;
       case "transferPlayer":
@@ -570,13 +576,14 @@ export function compileNodes(
           indent,
           parameters: [
             node.choices,
-            node.cancelType ?? -1,
+            node.cancelBranch === undefined ? (node.cancelType ?? -1) : -2,
             node.defaultType ?? 0,
             node.positionType ?? 2,
             node.background ?? 0,
           ],
         });
         output.push(...compileChoiceBranches(node, indent, resolver));
+        output.push({ code: 404, indent, parameters: [] });
         break;
       case "shopProcessing":
         node.goods.forEach((goods, index) => {
@@ -1049,11 +1056,6 @@ export function compileConditions(
   conditions: PageConditions | undefined,
   resolver: ReferenceResolver,
 ): Record<string, unknown> {
-  const variableValue =
-    conditions?.variable && typeof conditions.variable.value === "number"
-      ? conditions.variable.value
-      : 0;
-
   return {
     actorId: conditions?.actor ? resolver.resolveReference(conditions.actor) : 0,
     actorValid: conditions?.actor !== undefined,
@@ -1067,7 +1069,7 @@ export function compileConditions(
     switch2Valid: conditions?.switch2 !== undefined,
     variableId: conditions?.variable ? resolver.resolveReference(conditions.variable.ref) : 0,
     variableValid: conditions?.variable !== undefined,
-    variableValue,
+    variableValue: conditions?.variable?.value ?? 0,
   };
 }
 

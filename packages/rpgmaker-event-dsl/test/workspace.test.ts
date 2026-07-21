@@ -126,4 +126,18 @@ describe("initWorkspace", () => {
       ),
     ).resolves.toEqual(result.config);
   });
+
+  it("refuses to overwrite an existing workspace config", async () => {
+    const workspaceRoot = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-init-existing-"));
+    const projectRoot = join(workspaceRoot, "..", "MyGame-init-existing");
+    await mkdir(join(projectRoot, "data"), { recursive: true });
+    await writeFile(join(projectRoot, "Game.rpgproject"), "", "utf8");
+    const configPath = join(workspaceRoot, "rpgmaker-event-dsl.config.json");
+    await writeFile(configPath, '{"preserve":true}\n', "utf8");
+
+    await expect(
+      initWorkspace({ workspaceRoot, projectRoot: "../MyGame-init-existing" }),
+    ).rejects.toThrow("Refusing to overwrite");
+    await expect(readFile(configPath, "utf8")).resolves.toBe('{"preserve":true}\n');
+  });
 });

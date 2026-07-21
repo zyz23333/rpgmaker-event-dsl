@@ -52,6 +52,10 @@ export function renderConditionalCommand(
     nextIndex = elseEndIndex - 1;
   }
 
+  if (commands[nextIndex + 1]?.code === 412 && commands[nextIndex + 1]?.indent === command.indent) {
+    nextIndex += 1;
+  }
+
   return {
     expression: `conditional({ ${fields.join(", ")} })`,
     helperNames: [...helperNames],
@@ -402,7 +406,7 @@ export function findConditionalBranchBodyEnd(
     if (command === undefined || command.code === 0 || command.indent < parentIndent) {
       break;
     }
-    if (command.indent === parentIndent && command.code === 411) {
+    if (command.indent === parentIndent && (command.code === 411 || command.code === 412)) {
       break;
     }
     if (command.indent <= parentIndent) {

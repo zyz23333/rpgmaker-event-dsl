@@ -712,22 +712,18 @@ export function validateCondition(
   if (condition.variable) {
     const variableCondition = condition.variable;
     captureReferenceIssue(() => resolver.resolveReference(variableCondition.ref), issues);
-    if (typeof variableCondition.value === "number") {
-      return;
+    if (variableCondition.operator !== "ge") {
+      issues.push({
+        level: "error",
+        message: 'Map Event Page variable conditions only support operator "ge".',
+      });
     }
-    if (typeof variableCondition.value === "object" && variableCondition.value !== null) {
-      const variableValue = variableCondition.value;
-      captureReferenceIssue(
-        () => resolver.resolveReference(variableValue as ReferenceValue<"variable">),
-        issues,
-      );
-      return;
+    if (typeof variableCondition.value !== "number" || !Number.isFinite(variableCondition.value)) {
+      issues.push({
+        level: "error",
+        message: "Map Event Page variable conditions require a finite numeric value.",
+      });
     }
-
-    issues.push({
-      level: "error",
-      message: "Variable conditions require either a numeric value or a variable reference.",
-    });
   }
 }
 

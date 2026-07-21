@@ -1,5 +1,5 @@
 import { readFile, stat } from "node:fs/promises";
-import { resolve } from "node:path";
+import { relative, resolve } from "node:path";
 
 import {
   discoverDefinitionFiles,
@@ -31,6 +31,7 @@ import {
   type SnapshotReferenceInput,
   type SnapshotReferenceSource,
 } from "./staged-graph.js";
+import type { SnapshotMapValidationEntry } from "./validation/identities.js";
 import {
   buildStructuredDiffReport,
   deriveAffectedProjectDataFiles,
@@ -111,10 +112,11 @@ export async function compileWorkspace(options: CompileWorkspaceOptions): Promis
     sourceExclude: workspace.config.sourceExclude,
   });
 
-  const snapshotReferences = await loadSnapshotReferenceInput(statePaths);
+  const snapshotInput = await loadSnapshotValidationInput(statePaths);
   const graph = buildStagedDataGraph({
     declarations: definitionInput.declarations,
-    snapshotReferences,
+    snapshotReferences: snapshotInput.references,
+    snapshotMaps: snapshotInput.maps,
   });
   const validation = validateStagedDataGraph(graph, {
     scriptEnabled: workspace.config.scriptEnabled,
@@ -143,6 +145,7 @@ export async function compileWorkspace(options: CompileWorkspaceOptions): Promis
     config: workspace.config,
     snapshotFiles,
     sourceFiles: definitionInput.files,
+    sourceFileHashes: definitionInput.sourceFileHashes,
     workspaceRoot: workspace.workspaceRoot,
   });
 
@@ -219,15 +222,31 @@ export async function assertProjectDataSnapshotExists(
 async function loadDiscoveredDefinitionInput(
   workspaceRoot: string,
   discovery: DefinitionSourceDiscovery,
-): Promise<{ declarations: DslOwnedDeclaration[]; files: string[] }> {
+): Promise<{
+  declarations: DslOwnedDeclaration[];
+  files: string[];
+  sourceFileHashes: FileHashEntry[];
+}> {
   const files = await discoverDefinitionFiles(workspaceRoot, discovery);
   const declarations: DslOwnedDeclaration[] = [];
+  const sourceFileHashes: FileHashEntry[] = [];
 
   for (const file of files) {
+    const sourceBefore = await readFile(file, "utf8");
     declarations.push(...(await loadDefinitionFile(file)));
+    const sourceAfter = await readFile(file, "utf8");
+    const beforeHash = hashUtf8Content(sourceBefore);
+    if (beforeHash !== hashUtf8Content(sourceAfter)) {
+      throw new Error(`Definition Source changed while compiling: ${file}. Run compile again.`);
+    }
+    sourceFileHashes.push({
+      hash: beforeHash,
+      relativePath: relative(workspaceRoot, file).split(/[/\\]/u).join("/"),
+    });
   }
 
-  return { declarations, files };
+  sourceFileHashes.sort((left, right) => left.relativePath.localeCompare(right.relativePath));
+  return { declarations, files, sourceFileHashes };
 }
 
 export async function readCurrentSnapshotFileHashes(
@@ -244,9 +263,10 @@ export async function readCurrentSnapshotFileHashes(
   return entries.sort((left, right) => left.relativePath.localeCompare(right.relativePath));
 }
 
-async function loadSnapshotReferenceInput(
+async function loadSnapshotValidationInput(
   statePaths: WorkspaceStatePaths,
-): Promise<SnapshotReferenceInput> {
+): Promise<{ references: SnapshotReferenceInput; maps: SnapshotMapValidationEntry[] }> {
+  const mapInfos = parseMapInfos(await readSnapshotFile(statePaths, "MapInfos.json"));
   const snapshotSource: SnapshotReferenceSource = {
     actors: await readSnapshotArray(statePaths, "Actors.json"),
     armors: await readSnapshotArray(statePaths, "Armors.json"),
@@ -254,7 +274,7 @@ async function loadSnapshotReferenceInput(
     commonEvents: await readSnapshotArray(statePaths, "CommonEvents.json"),
     enemies: await readSnapshotArray(statePaths, "Enemies.json"),
     items: await readSnapshotArray(statePaths, "Items.json"),
-    mapInfos: parseMapInfos(await readSnapshotFile(statePaths, "MapInfos.json")),
+    mapInfos,
     skills: await readSnapshotArray(statePaths, "Skills.json"),
     states: await readSnapshotArray(statePaths, "States.json"),
     troops: await readSnapshotArray(statePaths, "Troops.json"),
@@ -262,7 +282,60 @@ async function loadSnapshotReferenceInput(
     weapons: await readSnapshotArray(statePaths, "Weapons.json"),
   };
 
-  return buildSnapshotReferenceInput(snapshotSource);
+  const maps = await Promise.all(
+    mapInfos.map(async ({ id }) => readSnapshotMapValidationEntry(statePaths, id)),
+  );
+
+  return { references: buildSnapshotReferenceInput(snapshotSource), maps };
+}
+
+async function readSnapshotMapValidationEntry(
+  statePaths: WorkspaceStatePaths,
+  mapId: number,
+): Promise<SnapshotMapValidationEntry> {
+  const relativePath = `Map${mapId.toString().padStart(3, "0")}.json`;
+  const map = await readSnapshotObject(statePaths, relativePath);
+  const width = readOptionalMapDimension(map.width, relativePath, "width");
+  const height = readOptionalMapDimension(map.height, relativePath, "height");
+  const events = Array.isArray(map.events) ? map.events : [];
+  const eventLocations = events.flatMap((event) => {
+    if (event === null || typeof event !== "object" || Array.isArray(event)) {
+      return [];
+    }
+    const record = event as Record<string, unknown>;
+    if (
+      typeof record.id !== "number" ||
+      !Number.isInteger(record.id) ||
+      typeof record.x !== "number" ||
+      !Number.isInteger(record.x) ||
+      typeof record.y !== "number" ||
+      !Number.isInteger(record.y)
+    ) {
+      return [];
+    }
+    return [{ eventId: record.id, x: record.x, y: record.y }];
+  });
+
+  return {
+    id: mapId,
+    ...(width === undefined ? {} : { width }),
+    ...(height === undefined ? {} : { height }),
+    eventLocations,
+  };
+}
+
+function readOptionalMapDimension(
+  value: unknown,
+  relativePath: string,
+  fieldName: string,
+): number | undefined {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (typeof value !== "number" || !Number.isInteger(value) || value <= 0) {
+    throw new Error(`Expected snapshot ${relativePath} ${fieldName} to be a positive integer.`);
+  }
+  return value;
 }
 
 async function readSnapshotArray(

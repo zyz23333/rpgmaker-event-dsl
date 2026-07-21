@@ -58,7 +58,7 @@ export type PageConditions = {
   switch2?: ReferenceValue<"switch">;
   variable?: {
     ref: ReferenceValue<"variable">;
-    operator: "eq" | "ge" | "le" | "gt" | "lt";
-    value: number | ReferenceValue<"variable">;
+    operator: "ge";
+    value: number;
   };
 };

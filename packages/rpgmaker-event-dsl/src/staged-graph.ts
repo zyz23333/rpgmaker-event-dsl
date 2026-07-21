@@ -23,7 +23,11 @@ export {
   validateDeclarationReferences,
   captureReferenceIssue,
 } from "./validation/references.js";
-import { validateDeclarationIdentities, mapEventIdentityKey } from "./validation/identities.js";
+import {
+  validateDeclarationIdentities,
+  mapEventIdentityKey,
+  type SnapshotMapValidationEntry,
+} from "./validation/identities.js";
 export {
   validateDeclarationIdentities,
   validatePositiveInteger,
@@ -131,6 +135,7 @@ export type StagedDataGraph = {
   commonEventsById: Map<number, CommonEventDefinition>;
   switchesById: Map<number, SwitchDefinition>;
   variablesById: Map<number, VariableDefinition>;
+  snapshotMaps?: readonly SnapshotMapValidationEntry[];
   resolver: ReferenceResolver;
 };
 
@@ -144,6 +149,7 @@ export type ReferenceScopes = Record<ReferenceKind, ReferenceScope>;
 export function buildStagedDataGraph(input: {
   declarations: readonly DslOwnedDeclaration[];
   snapshotReferences?: SnapshotReferenceInput;
+  snapshotMaps?: readonly SnapshotMapValidationEntry[];
 }): StagedDataGraph {
   const declarations = [...input.declarations];
   const mapEventsByIdentity = new Map<string, MapEventDefinition>();
@@ -179,6 +185,7 @@ export function buildStagedDataGraph(input: {
     commonEventsById,
     switchesById,
     variablesById,
+    ...(input.snapshotMaps === undefined ? {} : { snapshotMaps: input.snapshotMaps }),
     resolver: createReferenceResolver(scopes),
   };
 }
@@ -191,7 +198,7 @@ export function validateStagedDataGraph(
 ): ValidationResult {
   const issues: ValidationIssue[] = [];
 
-  validateDeclarationIdentities(graph.declarations, issues);
+  validateDeclarationIdentities(graph.declarations, issues, graph.snapshotMaps);
   validateDeclarationReferences(graph.declarations, graph.resolver, options, issues);
 
   return { issues };
@@ -202,15 +209,20 @@ export function validateDslOwnedDeclarations(
   input: {
     scriptEnabled: boolean;
     snapshotReferences?: SnapshotReferenceInput;
+    snapshotMaps?: readonly SnapshotMapValidationEntry[];
   },
 ): ValidationResult {
   const graphInput: {
     declarations: readonly DslOwnedDeclaration[];
     snapshotReferences?: SnapshotReferenceInput;
+    snapshotMaps?: readonly SnapshotMapValidationEntry[];
   } = { declarations };
 
   if (input.snapshotReferences !== undefined) {
     graphInput.snapshotReferences = input.snapshotReferences;
+  }
+  if (input.snapshotMaps !== undefined) {
+    graphInput.snapshotMaps = input.snapshotMaps;
   }
 
   return validateStagedDataGraph(buildStagedDataGraph(graphInput), {

@@ -1,14 +1,29 @@
 import type { DslOwnedDeclaration, MapEventDefinition } from "../dsl.js";
 import type { ValidationIssue } from "../staged-graph.js";
 
+export type SnapshotMapValidationEntry = {
+  id: number;
+  width?: number;
+  height?: number;
+  eventLocations: readonly {
+    eventId: number;
+    x: number;
+    y: number;
+  }[];
+};
+
 export function validateDeclarationIdentities(
   declarations: readonly DslOwnedDeclaration[],
   issues: ValidationIssue[],
+  snapshotMaps?: readonly SnapshotMapValidationEntry[],
 ): void {
   const mapEventIdentities = new Set<string>();
   const commonEventIds = new Set<number>();
   const switchIds = new Set<number>();
   const variableIds = new Set<number>();
+  const snapshotMapsById =
+    snapshotMaps === undefined ? undefined : new Map(snapshotMaps.map((map) => [map.id, map]));
+  const occupiedCoordinates = new Set<string>();
 
   for (const declaration of declarations) {
     switch (declaration.kind) {
@@ -27,6 +42,7 @@ export function validateDeclarationIdentities(
             message: `Map event "${declaration.name}" must contain at least one page.`,
           });
         }
+        validateMapEventPlacement(declaration, snapshotMapsById, occupiedCoordinates, issues);
         break;
       case "commonEvent":
         validatePositiveInteger(declaration.id, "Common event id", declaration.name, issues);
@@ -59,6 +75,56 @@ export function validateDeclarationIdentities(
         break;
     }
   }
+}
+
+function validateMapEventPlacement(
+  declaration: MapEventDefinition,
+  snapshotMapsById: ReadonlyMap<number, SnapshotMapValidationEntry> | undefined,
+  occupiedCoordinates: Set<string>,
+  issues: ValidationIssue[],
+): void {
+  if (snapshotMapsById === undefined) {
+    return;
+  }
+
+  const map = snapshotMapsById.get(declaration.mapId);
+  if (map === undefined) {
+    issues.push({
+      level: "error",
+      message: `Map event "${declaration.name}" references unknown mapId ${declaration.mapId}.`,
+    });
+    return;
+  }
+
+  if (map.width !== undefined && !isCoordinateInBounds(declaration.x, map.width)) {
+    issues.push({
+      level: "error",
+      message: `Map event "${declaration.name}" x coordinate ${declaration.x} is outside map ${map.id} bounds 0-${map.width - 1}.`,
+    });
+  }
+  if (map.height !== undefined && !isCoordinateInBounds(declaration.y, map.height)) {
+    issues.push({
+      level: "error",
+      message: `Map event "${declaration.name}" y coordinate ${declaration.y} is outside map ${map.id} bounds 0-${map.height - 1}.`,
+    });
+  }
+
+  const coordinateKey = `${declaration.mapId}:${declaration.x}:${declaration.y}`;
+  const snapshotOccupant = map.eventLocations.find(
+    (event) =>
+      event.eventId !== declaration.id && event.x === declaration.x && event.y === declaration.y,
+  );
+  if (occupiedCoordinates.has(coordinateKey) || snapshotOccupant !== undefined) {
+    issues.push({
+      level: "warning",
+      message: `Map event "${declaration.name}" uses occupied coordinate (${declaration.x}, ${declaration.y}) on map ${declaration.mapId}.`,
+    });
+  }
+  occupiedCoordinates.add(coordinateKey);
+}
+
+function isCoordinateInBounds(value: number, size: number): boolean {
+  return Number.isInteger(value) && value >= 0 && value < size;
 }
 
 export function validatePositiveInteger(

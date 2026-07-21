@@ -4,7 +4,6 @@ import { randomUUID } from "node:crypto";
 
 import { discoverDefinitionFiles } from "../definitions.js";
 import {
-  buildCompileBaseline,
   isCompileBaselineFresh,
   type CompileBaseline,
   type FileHashEntry,
@@ -401,11 +400,19 @@ export async function pushWorkspace(options: PushWorkspaceOptions): Promise<void
     statePaths,
   });
   const writtenFiles: string[] = [];
+  const snapshotHashes = new Map(
+    manifest.snapshotFiles.map((entry) => [entry.relativePath, entry.hash]),
+  );
 
   try {
     for (const stagedFile of stagedWrite.files) {
-      await rm(stagedFile.targetPath, { force: true });
-      await rename(stagedFile.stagedPath, stagedFile.targetPath);
+      const expectedHash = snapshotHashes.get(stagedFile.relativePath);
+      if (expectedHash === undefined) {
+        throw new Error(
+          `Project Drift detected before push for ${stagedFile.relativePath}. Run pull first.`,
+        );
+      }
+      await replaceProjectRootFile(stagedFile, expectedHash);
       writtenFiles.push(stagedFile.relativePath);
     }
   } catch (error) {
@@ -500,13 +507,23 @@ async function stageProjectRootWrites(input: {
   statePaths: WorkspaceStatePaths;
 }): Promise<{
   directory: string;
-  files: Array<{ relativePath: string; stagedPath: string; targetPath: string }>;
+  files: Array<{
+    relativePath: string;
+    stagedPath: string;
+    targetPath: string;
+    originalPath: string;
+  }>;
 }> {
   const stagingDirectory = resolve(
     input.dataDirectory,
     `push-staging.tmp-${process.pid}-${randomUUID()}`,
   );
-  const files: Array<{ relativePath: string; stagedPath: string; targetPath: string }> = [];
+  const files: Array<{
+    relativePath: string;
+    stagedPath: string;
+    targetPath: string;
+    originalPath: string;
+  }> = [];
 
   await rm(stagingDirectory, { force: true, recursive: true });
   await mkdir(stagingDirectory, { recursive: true });
@@ -519,6 +536,7 @@ async function stageProjectRootWrites(input: {
       await mkdir(dirname(stagedPath), { recursive: true });
       await writeFile(stagedPath, await readFile(generatedPath, "utf8"), "utf8");
       files.push({
+        originalPath: resolve(stagingDirectory, "original", relativePath),
         relativePath,
         stagedPath,
         targetPath: resolve(input.dataDirectory, relativePath),
@@ -533,6 +551,61 @@ async function stageProjectRootWrites(input: {
     directory: stagingDirectory,
     files,
   };
+}
+
+async function replaceProjectRootFile(
+  stagedFile: {
+    relativePath: string;
+    stagedPath: string;
+    targetPath: string;
+    originalPath: string;
+  },
+  expectedHash: string,
+): Promise<void> {
+  const conflictPath = `${stagedFile.targetPath}.rpgmaker-event-dsl-conflict-${randomUUID()}`;
+  let replacementInstalled = false;
+  let originalCaptured = false;
+  await mkdir(dirname(stagedFile.originalPath), { recursive: true });
+  try {
+    await rename(stagedFile.targetPath, stagedFile.originalPath);
+    originalCaptured = true;
+    const capturedHash = await readFileHashOrNull(stagedFile.originalPath);
+    if (capturedHash !== expectedHash) {
+      throw new Error(
+        `Project Drift detected during push for ${stagedFile.relativePath}. Run pull first.`,
+      );
+    }
+
+    const concurrentTargetHash = await readFileHashOrNull(stagedFile.targetPath);
+    if (concurrentTargetHash !== null && concurrentTargetHash !== expectedHash) {
+      throw new Error(
+        `Project Drift detected during push for ${stagedFile.relativePath}. Run pull first.`,
+      );
+    }
+
+    await rename(stagedFile.stagedPath, stagedFile.targetPath);
+    replacementInstalled = true;
+  } catch (error) {
+    if (replacementInstalled) {
+      await rm(stagedFile.targetPath, { force: true });
+    } else if (originalCaptured && (await readFileHashOrNull(stagedFile.targetPath)) !== null) {
+      await rename(stagedFile.targetPath, conflictPath);
+    }
+    if (originalCaptured) {
+      try {
+        await rename(stagedFile.originalPath, stagedFile.targetPath);
+      } catch (restoreError) {
+        if (!isMissingFileError(restoreError)) {
+          throw new Error(`Failed to restore Project Root file ${stagedFile.relativePath}.`, {
+            cause: restoreError,
+          });
+        }
+      }
+    }
+    throw error;
+  }
+
+  await rm(stagedFile.originalPath, { force: true });
 }
 
 async function refreshSnapshotAndManifestAfterPush(input: {
@@ -567,21 +640,14 @@ async function refreshSnapshotAndManifestAfterPush(input: {
   const nextSnapshotFiles = [...snapshotFiles.values()].sort((left, right) =>
     left.relativePath.localeCompare(right.relativePath),
   );
-  const sourceFiles = await discoverDefinitionFiles(input.workspaceRoot, {
-    sourceRoot: input.config.sourceRoot,
-    sourceInclude: input.config.sourceInclude,
-    sourceExclude: input.config.sourceExclude,
-  });
-  const compileBaseline = await buildCompileBaseline({
-    config: input.config,
-    snapshotFiles: nextSnapshotFiles,
-    sourceFiles,
-    workspaceRoot: input.workspaceRoot,
-  });
+  const compileBaseline =
+    input.manifest.compileBaseline === undefined
+      ? undefined
+      : rewriteCompileBaselineSnapshotFiles(input.manifest.compileBaseline, nextSnapshotFiles);
 
   await writeSyncManifest(input.statePaths.syncManifestPath, {
     ...input.manifest,
-    compileBaseline,
+    ...(compileBaseline === undefined ? {} : { compileBaseline }),
     generatedFiles: [...generatedFiles.values()].sort((left, right) =>
       left.relativePath.localeCompare(right.relativePath),
     ),

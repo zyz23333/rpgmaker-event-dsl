@@ -31,7 +31,20 @@ describe("CLI entrypoint", () => {
     const workspaceRoot = await mkdtemp(join(tmpdir(), "rpgmaker-event-dsl-cli-bin-"));
     const binPath = join(workspaceRoot, "rpgmaker-event-dsl.ts");
 
-    await symlink(join(process.cwd(), "src", "cli.ts"), binPath);
+    try {
+      await symlink(join(process.cwd(), "src", "cli.ts"), binPath);
+    } catch (error) {
+      if (
+        process.platform === "win32" &&
+        error instanceof Error &&
+        "code" in error &&
+        ((error as { code?: unknown }).code === "EPERM" ||
+          (error as { code?: unknown }).code === "EACCES")
+      ) {
+        return;
+      }
+      throw error;
+    }
 
     const { stdout } = await execFileAsync(nodeCommand, [...tsxLoaderArgs, binPath, "--help"]);
 

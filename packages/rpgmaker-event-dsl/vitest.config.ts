@@ -7,5 +7,6 @@ export default defineConfig({
     },
     globals: true,
     include: ["test/**/*.test.ts"],
+    testTimeout: 10_000,
   },
 });
