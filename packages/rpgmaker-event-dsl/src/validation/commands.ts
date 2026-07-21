@@ -7,10 +7,11 @@ import type {
   ReferenceKind,
   ReferenceValue,
   RuntimeSelector,
-} from "../dsl.js";
-import { isProjectDataReference } from "../dsl.js";
-import type { ReferenceResolver, ValidationIssue } from "../staged-graph.js";
-import { captureReferenceIssue, isReferenceValue } from "../staged-graph.js";
+} from "../domain/types.js";
+import { isProjectDataReference } from "../domain/references.js";
+import type { ReferenceResolver, ValidationIssue } from "./types.js";
+import { captureReferenceIssue } from "./shared.js";
+import { isReferenceValue } from "./inspection.js";
 
 export function validatePages(
   pages: readonly EventPage[],

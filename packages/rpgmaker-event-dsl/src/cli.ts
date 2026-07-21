@@ -6,15 +6,15 @@ import { fileURLToPath } from "node:url";
 
 import { Command } from "commander";
 
-import { initWorkspace } from "./workspace.js";
+import { initWorkspace } from "./workspace/config.js";
 import {
   cloneWorkspace,
   compileWorkspace,
   decompileWorkspace,
   diffWorkspace,
   pullWorkspace,
-  pushWorkspace,
-} from "./workflow.js";
+} from "./workspace/operations.js";
+import { pushWorkspace } from "./workspace/push.js";
 
 export const cliName = "rpgmaker-event-dsl";
 

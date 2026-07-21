@@ -8,6 +8,13 @@ minor releases.
 
 ## [Unreleased]
 
+### Changed
+
+- Migrated the implementation to command-family vertical slices with separate domain,
+  compiler, decompiler, validation, Workspace, and Project Data ownership.
+- Restricted the package root to Event DSL authoring exports and added the
+  `rpgmaker-event-dsl/workspace` programmatic Workspace entry point.
+
 ## [0.1.2] - 2026-07-02
 
 ### Fixed

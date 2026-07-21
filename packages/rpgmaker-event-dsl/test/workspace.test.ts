@@ -10,7 +10,7 @@ import {
   defaultSourceRoot,
   initWorkspace,
   loadWorkspace,
-} from "../src/workspace.js";
+} from "../src/workspace/config.js";
 
 describe("loadWorkspace", () => {
   it("loads a workspace config and resolves the project root relative to the workspace root", async () => {

@@ -1,16 +1,7 @@
-import type { DslOwnedDeclaration, MapEventDefinition } from "../dsl.js";
-import type { ValidationIssue } from "../staged-graph.js";
+import type { DslOwnedDeclaration, MapEventDefinition } from "../domain/types.js";
+import type { SnapshotMapValidationEntry, ValidationIssue } from "./types.js";
 
-export type SnapshotMapValidationEntry = {
-  id: number;
-  width?: number;
-  height?: number;
-  eventLocations: readonly {
-    eventId: number;
-    x: number;
-    y: number;
-  }[];
-};
+export type { SnapshotMapValidationEntry } from "./types.js";
 
 export function validateDeclarationIdentities(
   declarations: readonly DslOwnedDeclaration[],

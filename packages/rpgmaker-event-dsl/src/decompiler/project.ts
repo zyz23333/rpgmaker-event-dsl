@@ -1,10 +1,9 @@
 import { mkdir, stat, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
-import { parseMapInfos, type MapInfoEntry } from "../project.js";
-import type { WorkspaceStatePaths } from "../state.js";
-import type { RawEventCommand } from "../compiler/commands.js";
+import { parseMapInfos, type MapInfoEntry } from "../project-data/project.js";
+import type { WorkspaceStatePaths } from "../workspace/state.js";
+import type { SnapshotCommonEvent, SnapshotMapEvent, SnapshotMapEventPage } from "./types.js";
 import {
-  collectCommandHelperNames,
   collectConditionHelperNames,
   commonEventTriggerFromCode,
   createExportNameAllocator,
@@ -24,30 +23,9 @@ import {
   renderEmptyModule,
   renderEventImport,
   renderPageConditions,
-} from "../decompiler.js";
-import { renderCommands } from "./commands.js";
-
-export type SnapshotMapEvent = {
-  id: number;
-  name: string;
-  x: number;
-  y: number;
-  pages: SnapshotMapEventPage[];
-};
-
-export type SnapshotMapEventPage = {
-  conditions?: Record<string, unknown>;
-  list?: RawEventCommand[];
-  trigger?: number;
-};
-
-export type SnapshotCommonEvent = {
-  id: number;
-  list?: RawEventCommand[];
-  name: string;
-  switchId?: number;
-  trigger?: number;
-};
+} from "./core.js";
+import { renderCommands } from "./dispatch.js";
+import { renderDecompiledCommandList } from "./dispatch.js";
 
 type DecompileFile = {
   content: string;
@@ -161,8 +139,10 @@ ${indentLines(event.pages.map(renderPage).join(",\n"), 4)}
     ...collectConditionHelperNames(
       events.flatMap((event) => event.pages.map((page) => page.conditions)),
     ),
-    ...collectCommandHelperNames(
-      events.flatMap((event) => event.pages.flatMap((page) => normalizeCommandList(page.list))),
+    ...events.flatMap(
+      (event) =>
+        renderDecompiledCommandList(event.pages.flatMap((page) => normalizeCommandList(page.list)))
+          .helperNames,
     ),
   ])}\n\n${body}\n`;
 }
@@ -198,7 +178,8 @@ ${indentLines(renderCommands(normalizeCommandList(event.list)), 4)}
     ...(events.some((event) => commonEventTriggerFromCode(event.trigger) !== "none")
       ? ["switchRef"]
       : []),
-    ...collectCommandHelperNames(events.flatMap((event) => normalizeCommandList(event.list))),
+    ...renderDecompiledCommandList(events.flatMap((event) => normalizeCommandList(event.list)))
+      .helperNames,
   ])}\n\n${body}\n`;
 }
 

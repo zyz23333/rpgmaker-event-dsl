@@ -4,7 +4,7 @@ import { join } from "node:path";
 
 import { describe, expect, it } from "vitest";
 
-import { discoverDefinitionFiles, loadDefinitionFile } from "../src/definitions.js";
+import { discoverDefinitionFiles, loadDefinitionFile } from "../src/workspace/definitions.js";
 
 describe("loadDefinitionFile", () => {
   it("loads a named Event Definition from a TypeScript module", async () => {

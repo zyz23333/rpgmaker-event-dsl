@@ -11,10 +11,14 @@ import {
   diffWorkspace,
   isGeneratedProjectDataFresh,
   pullWorkspace,
-  pushWorkspace,
-} from "../src/workflow.js";
-import { getWorkspaceStatePaths, hashUtf8Content, readSyncManifest } from "../src/state.js";
-import { discoverDefinitionFiles, loadDefinitionFile } from "../src/definitions.js";
+} from "../src/workspace/operations.js";
+import { pushWorkspace } from "../src/workspace/push.js";
+import {
+  getWorkspaceStatePaths,
+  hashUtf8Content,
+  readSyncManifest,
+} from "../src/workspace/state.js";
+import { discoverDefinitionFiles, loadDefinitionFile } from "../src/workspace/definitions.js";
 
 function createProjectRootFixture(workspaceRoot: string): string {
   return join(workspaceRoot, "Game");

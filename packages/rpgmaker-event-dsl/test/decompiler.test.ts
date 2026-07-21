@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { renderDecompiledCommandList } from "../src/decompiler.js";
+import { renderDecompiledCommandList } from "../src/decompiler/dispatch.js";
 
 type RawEventCommand = Parameters<typeof renderDecompiledCommandList>[0][number];
 

@@ -4,7 +4,7 @@ import {
   buildStructuredDiffReport,
   deriveAffectedProjectDataFiles,
   renderStructuredDiffReport,
-} from "../src/structured-diff.js";
+} from "../src/project-data/structured-diff.js";
 
 describe("buildStructuredDiffReport", () => {
   it("classifies owned event and system entries by domain and identity", () => {

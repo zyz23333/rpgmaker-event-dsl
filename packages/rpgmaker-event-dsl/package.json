@@ -33,6 +33,10 @@
     ".": {
       "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs"
+    },
+    "./workspace": {
+      "types": "./dist/workspace-api.d.mts",
+      "import": "./dist/workspace-api.mjs"
     }
   },
   "scripts": {

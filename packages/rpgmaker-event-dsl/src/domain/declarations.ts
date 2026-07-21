@@ -1,4 +1,4 @@
-import type { DslCommand } from "./commands.js";
+import type { DslCommand } from "./command.js";
 import type { ReferenceValue } from "./references.js";
 
 export type DslOwnedDeclaration =
@@ -62,3 +62,32 @@ export type PageConditions = {
     value: number;
   };
 };
+
+export function collectDslOwnedDeclarations(
+  moduleExports: Record<string, unknown>,
+): DslOwnedDeclaration[] {
+  const definitions: DslOwnedDeclaration[] = [];
+
+  for (const [name, value] of Object.entries(moduleExports)) {
+    if (name === "default") {
+      throw new Error("Default export is not allowed for DSL-owned declarations.");
+    }
+    if (isDslOwnedDeclaration(value)) {
+      definitions.push(value);
+    }
+  }
+
+  return definitions;
+}
+
+export function isDslOwnedDeclaration(value: unknown): value is DslOwnedDeclaration {
+  return (
+    !!value &&
+    typeof value === "object" &&
+    "kind" in value &&
+    ((value as { kind?: string }).kind === "mapEvent" ||
+      (value as { kind?: string }).kind === "commonEvent" ||
+      (value as { kind?: string }).kind === "switchDefinition" ||
+      (value as { kind?: string }).kind === "variableDefinition")
+  );
+}

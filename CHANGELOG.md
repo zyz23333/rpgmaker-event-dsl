@@ -10,10 +10,12 @@ minor releases.
 
 ### Changed
 
-- Split the Event DSL authoring, compilation, decompilation, validation, domain type, and
-  Push workflow implementations into focused command-family and processing-stage modules.
-- Kept the package authoring surface and Workspace safety behavior unchanged while reducing
-  the top-level modules to coordination facades.
+- Migrated the implementation to command-family vertical slices with separate domain,
+  compiler, decompiler, validation, Workspace, and Project Data ownership.
+- Removed the transitional `dsl.ts`, `decompiler.ts`, `workflow.ts`, and `staged-graph.ts`
+  module facades and their internal compatibility imports.
+- Restricted the package root to Event DSL authoring exports and added the
+  `rpgmaker-event-dsl/workspace` programmatic Workspace entry point.
 
 ## [0.1.2] - 2026-07-02
 

@@ -1,4 +1,4 @@
-import type { DslOwnedDeclaration } from "../dsl.js";
+import type { DslOwnedDeclaration } from "../domain/types.js";
 import type {
   ReferenceEntry,
   ReferenceResolver,
@@ -6,13 +6,10 @@ import type {
   ReferenceScopes,
   SnapshotReferenceInput,
   ValidationIssue,
-} from "../staged-graph.js";
-import {
-  buildDuplicateAwareNameIndex,
-  toReferenceEntry,
-  validateNodes,
-  validatePages,
-} from "../staged-graph.js";
+} from "./types.js";
+import { validateNodes, validatePages } from "./commands.js";
+import { toReferenceEntry } from "./snapshot.js";
+import { buildDuplicateAwareNameIndex, captureReferenceIssue } from "./shared.js";
 
 export function buildReferenceScopes(input: {
   declarations: readonly DslOwnedDeclaration[];
@@ -108,13 +105,4 @@ export function validateDeclarationReferences(
   }
 }
 
-export function captureReferenceIssue(callback: () => number, issues: ValidationIssue[]): void {
-  try {
-    callback();
-  } catch (error) {
-    issues.push({
-      level: "error",
-      message: error instanceof Error ? error.message : String(error),
-    });
-  }
-}
+export { captureReferenceIssue } from "./shared.js";

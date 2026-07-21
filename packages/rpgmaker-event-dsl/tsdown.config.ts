@@ -6,6 +6,7 @@ export default defineConfig({
   entry: {
     cli: "src/cli.ts",
     index: "src/index.ts",
+    "workspace-api": "src/workspace-api.ts",
   },
   format: ["esm"],
   platform: "node",

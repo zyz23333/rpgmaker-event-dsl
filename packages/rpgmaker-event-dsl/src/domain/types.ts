@@ -170,4 +170,4 @@ export type {
   TransferPlayerDslCommand,
   WaitDslCommand,
   WeatherEffectType,
-} from "./commands.js";
+} from "./command.js";

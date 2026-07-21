@@ -1,5 +1,9 @@
-import type { CommonEventDefinition, SwitchDefinition, VariableDefinition } from "../dsl.js";
-import type { ReferenceEntry } from "../staged-graph.js";
+import type {
+  CommonEventDefinition,
+  SwitchDefinition,
+  VariableDefinition,
+} from "../domain/types.js";
+import type { ReferenceEntry } from "./types.js";
 
 export function toReferenceEntry(
   declaration: CommonEventDefinition | SwitchDefinition | VariableDefinition,

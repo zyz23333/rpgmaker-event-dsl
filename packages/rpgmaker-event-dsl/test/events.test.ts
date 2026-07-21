@@ -5,7 +5,6 @@ import {
   abortBattle,
   battleProcessing,
   audioAsset,
-  buildStagedDataGraph,
   classRef,
   changeActorImages,
   changeArmors,
@@ -119,7 +118,8 @@ import {
   tintPicture,
   tintScreen,
 } from "../src/index.js";
-import { compileMapEvent } from "../src/events.js";
+import { compileMapEvent } from "../src/compiler/events.js";
+import { buildStagedDataGraph } from "../src/validation/staged-graph.js";
 
 const resolver = buildStagedDataGraph({
   declarations: [

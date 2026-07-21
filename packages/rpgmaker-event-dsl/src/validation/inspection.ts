@@ -1,11 +1,11 @@
-import type { ReferenceKind, ReferenceValue } from "../dsl.js";
+import type { ReferenceKind, ReferenceValue } from "../domain/types.js";
 import {
   isAssetReference,
   isProjectDataReference,
   isRuntimeSelector,
   isScriptInput,
-} from "../dsl.js";
-import type { CommandInputPrimitiveInspection } from "../staged-graph.js";
+} from "../domain/references.js";
+import type { CommandInputPrimitiveInspection } from "./types.js";
 
 export function collectCommandInputPrimitives(
   value: unknown,

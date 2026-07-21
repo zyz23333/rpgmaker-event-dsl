@@ -1,5 +1,3 @@
-import type { audioAssetFolders, imageAssetFolders } from "../dsl.js";
-
 export type ReferenceKind =
   | "actor"
   | "animation"
@@ -16,6 +14,43 @@ export type ReferenceKind =
   | "troop"
   | "variable"
   | "weapon";
+
+export const referenceKinds = [
+  "actor",
+  "animation",
+  "armor",
+  "class",
+  "commonEvent",
+  "enemy",
+  "item",
+  "map",
+  "skill",
+  "state",
+  "switch",
+  "tileset",
+  "troop",
+  "variable",
+  "weapon",
+] as const satisfies readonly ReferenceKind[];
+
+export const audioAssetFolders = ["bgm", "bgs", "me", "se"] as const;
+
+export const imageAssetFolders = [
+  "animations",
+  "battlebacks1",
+  "battlebacks2",
+  "characters",
+  "enemies",
+  "faces",
+  "parallaxes",
+  "pictures",
+  "sv_actors",
+  "sv_enemies",
+  "system",
+  "tilesets",
+  "titles1",
+  "titles2",
+] as const;
 
 export type ReferenceValue<TKind extends ReferenceKind> =
   | {
@@ -391,3 +426,96 @@ export type ConditionalBranchCondition =
       kind: "vehicle";
       vehicle: "boat" | "ship" | "airship";
     };
+
+export function isProjectDataReference(value: unknown): value is ReferenceValue<ReferenceKind> {
+  if (!value || typeof value !== "object" || !("kind" in value)) {
+    return false;
+  }
+
+  const candidate = value as { kind?: unknown; id?: unknown; name?: unknown };
+  return (
+    typeof candidate.kind === "string" &&
+    isReferenceKind(candidate.kind) &&
+    ((typeof candidate.id === "number" && !("name" in candidate)) ||
+      (typeof candidate.name === "string" && !("id" in candidate)))
+  );
+}
+
+export function isAssetReference(value: unknown): value is AssetReference {
+  if (!value || typeof value !== "object" || !("kind" in value)) {
+    return false;
+  }
+
+  const candidate = value as {
+    kind?: unknown;
+    category?: unknown;
+    folder?: unknown;
+    name?: unknown;
+  };
+
+  if (candidate.kind !== "asset" || typeof candidate.name !== "string") {
+    return false;
+  }
+
+  if (candidate.category === "audio") {
+    return isIncluded(audioAssetFolders, candidate.folder);
+  }
+  if (candidate.category === "image") {
+    return isIncluded(imageAssetFolders, candidate.folder);
+  }
+  if (candidate.category === "movie") {
+    return candidate.folder === "movies";
+  }
+
+  return false;
+}
+
+export function isRuntimeSelector(value: unknown): value is RuntimeSelector {
+  if (!value || typeof value !== "object" || !("kind" in value)) {
+    return false;
+  }
+
+  const candidate = value as { kind?: unknown; scope?: unknown; target?: unknown };
+  return (
+    candidate.kind === "runtimeSelector" &&
+    typeof candidate.scope === "string" &&
+    candidate.scope.length > 0 &&
+    typeof candidate.target === "string" &&
+    candidate.target.length > 0
+  );
+}
+
+export function isScriptInput(value: unknown): value is ScriptInput {
+  if (!value || typeof value !== "object" || !("kind" in value)) {
+    return false;
+  }
+
+  const candidate = value as { kind?: unknown; code?: unknown };
+  return (
+    candidate.kind === "scriptInput" &&
+    typeof candidate.code === "string" &&
+    candidate.code.length > 0
+  );
+}
+
+export function createReference<TKind extends ReferenceKind>(
+  kind: TKind,
+  value: { id: number } | { name: string },
+): ReferenceValue<TKind> {
+  if ("id" in value) {
+    return { id: value.id, kind };
+  }
+
+  return { kind, name: value.name };
+}
+
+export function isReferenceKind(value: string): value is ReferenceKind {
+  return (referenceKinds as readonly string[]).includes(value);
+}
+
+function isIncluded<TValue extends string>(
+  allowedValues: readonly TValue[],
+  value: unknown,
+): value is TValue {
+  return typeof value === "string" && (allowedValues as readonly string[]).includes(value);
+}

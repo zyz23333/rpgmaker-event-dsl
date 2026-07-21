@@ -4,7 +4,6 @@ import {
   animationRef,
   battleProcessing,
   callCommonEvent,
-  buildSnapshotReferenceInput,
   changeEnemyHp,
   changeEquipment,
   enemyRef,
@@ -19,7 +18,6 @@ import {
   controlSwitches,
   controlVariables,
   imageAsset,
-  inspectCommandInputPrimitives,
   itemRef,
   mapEvent,
   page,
@@ -38,10 +36,14 @@ import {
   transferPlayer,
   tilesetRef,
   troopRef,
-  validateDslOwnedDeclarations,
   variableDefinition,
   variableRef,
 } from "../src/index.js";
+import {
+  buildSnapshotReferenceInput,
+  inspectCommandInputPrimitives,
+  validateDslOwnedDeclarations,
+} from "../src/validation/staged-graph.js";
 
 describe("validateDslOwnedDeclarations", () => {
   it("validates Map Event placement against snapshot map metadata", () => {

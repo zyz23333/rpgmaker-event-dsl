@@ -11,6 +11,10 @@ The package provides:
   `diff`, and `push`.
 - Safety checks for generated freshness, project drift, and reviewed destructive changes.
 
+The root package export is the Event DSL authoring surface. Programmatic Workspace
+operations are available from `rpgmaker-event-dsl/workspace`; the CLI remains the primary
+Workspace workflow interface.
+
 This project is in early development. The TypeScript API, DSL syntax, CLI workflow,
 generated output, and workspace format may change before `1.0.0`.
 
