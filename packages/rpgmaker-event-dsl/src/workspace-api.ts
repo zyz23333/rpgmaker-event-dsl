@@ -14,6 +14,8 @@ export type { RenderWorkspaceMapOptions } from "./workspace/map-preview.js";
 export type {
   MapPreviewBounds,
   MapImageInput,
+  MapImageUnavailableReason,
+  MapImageWarning,
   MapPreviewPage,
   MapPreviewResult,
 } from "./map-observation/preview-types.js";

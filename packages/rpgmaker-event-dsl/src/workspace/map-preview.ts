@@ -7,7 +7,10 @@ import type { MapPreviewResult } from "../map-observation/preview-types.js";
 import { loadSelectedWorkspaceMap } from "./map-observation.js";
 import type { MapObservationOptions } from "./map-observation.js";
 
-export type RenderWorkspaceMapOptions = MapObservationOptions & { mapId: number };
+export type RenderWorkspaceMapOptions = MapObservationOptions & {
+  mapId: number;
+  allowMissingAssets?: boolean;
+};
 
 export async function renderWorkspaceMap(
   options: RenderWorkspaceMapOptions,
@@ -17,6 +20,7 @@ export async function renderWorkspaceMap(
     map: context.map,
     tileset: context.tileset,
     projectRoot: context.workspace.projectRoot,
+    allowMissingAssets: options.allowMissingAssets === true,
   });
   const bounds = { x: 0, y: 0, width: context.map.width, height: context.map.height };
   const identity = createHash("sha256")
@@ -44,7 +48,7 @@ export async function renderWorkspaceMap(
     source: context.source,
     map: context.identity,
     dataInputs: context.dataInputs,
-    warnings: [],
+    warnings: rendered.warnings,
     originalMap: {
       width: context.map.width,
       height: context.map.height,
@@ -63,7 +67,7 @@ export async function renderWorkspaceMap(
       png: resolve(directory, "preview.png"),
       metadata: resolve(directory, "metadata.json"),
     },
-    complete: true,
+    complete: rendered.warnings.length === 0,
   };
   await mkdir(stagingDirectory, { recursive: true });
   try {
