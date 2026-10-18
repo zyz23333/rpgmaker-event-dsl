@@ -8,6 +8,7 @@ import type { ValidatedMap, ValidatedTileset } from "./read.js";
 import type { MapImageInput, MapPreviewPage } from "./preview-types.js";
 import { blitRaster, createRaster, decodePng, encodePng } from "./raster.js";
 import type { Raster } from "./raster.js";
+import { drawNativeParallax, drawNativeShadow, nativeCellLayers } from "./native-layers.js";
 
 const imageSchema = z.object({
   characterName: z.string(),
@@ -35,23 +36,18 @@ export async function renderMapPreview(options: {
   projectRoot: string;
 }) {
   const { map, tileset, projectRoot } = options;
-  if (map.parallaxName !== "") throw new Error("Parallax rendering is not implemented yet.");
   const previewPages = readPreviewPages(map);
   const raster = createRaster(map.width * 48, map.height * 48);
   const assets = new Map<string, Raster>();
   const imageInputs: MapImageInput[] = [];
 
-  async function loadTileset(slot: number): Promise<Raster> {
-    const name = tileset.tilesetNames[slot];
-    if (name === undefined || name === "") {
-      throw new Error(`Required tileset image slot ${slot} has no filename in Tilesets.json.`);
-    }
-    const relativePath = `img/tilesets/${name}.png`;
+  async function loadImage(category: "tilesets" | "parallaxes", name: string): Promise<Raster> {
+    const relativePath = `img/${category}/${name}.png`;
     const path = resolve(projectRoot, relativePath);
     const withinProject = relative(projectRoot, path);
     if (withinProject.startsWith("..") || isAbsolute(withinProject) || /[\\/]/u.test(name)) {
       throw new Error(
-        `Invalid tileset image filename ${JSON.stringify(name)}: use a project asset filename.`,
+        `Invalid ${category} image filename ${JSON.stringify(name)}: use a project asset filename.`,
       );
     }
     const cached = assets.get(path);
@@ -84,37 +80,33 @@ export async function renderMapPreview(options: {
     return asset;
   }
 
-  const cells = map.width * map.height;
-  for (let index = 0; index < cells; index++) {
-    if ([1, 2, 3].some((layer) => map.data[layer * cells + index] !== 0)) {
-      throw new Error("Multiple tile layer rendering is not implemented yet.");
+  async function loadTileset(slot: number): Promise<Raster> {
+    const name = tileset.tilesetNames[slot];
+    if (name === undefined || name === "") {
+      throw new Error(`Required tileset image slot ${slot} has no filename in Tilesets.json.`);
     }
-    if (map.data[4 * cells + index] !== 0)
-      throw new Error("Shadow rendering is not implemented yet.");
-    const tileId = map.data[index]!;
-    if (tileId === 0) continue;
+    return loadImage("tilesets", name);
+  }
+
+  if (map.parallaxName !== "") {
+    const parallax = await loadImage("parallaxes", map.parallaxName);
+    drawNativeParallax(raster, parallax, map.width * 48, map.height * 48);
+  }
+
+  async function drawTile(tileId: number, dx: number, dy: number) {
+    if (tileId === 0) return;
     if (tileId >= 2048) throw new Error("Autotile rendering is not implemented yet.");
     if (tileId >= 1024 && tileId < 1536) throw new Error(`Malformed ordinary tile ID ${tileId}.`);
     const flags = tileset.flags[tileId];
     if (flags === undefined)
       throw new Error(`Tileset flags are missing required tile ID ${tileId}.`);
-    if ((flags & 0x10) !== 0) throw new Error("Upper tile layer rendering is not implemented yet.");
     const slot = tileId >= 1536 ? 4 : 5 + Math.floor(tileId / 256);
     const asset = await loadTileset(slot);
     // MV ordinary tiles use two eight-column blocks in each B-E sheet.
     const sx = ((Math.floor(tileId / 128) % 2) * 8 + (tileId % 8)) * 48;
     const sy = (Math.floor((tileId % 256) / 8) % 16) * 48;
     try {
-      blitRaster(
-        raster,
-        asset,
-        sx,
-        sy,
-        48,
-        48,
-        (index % map.width) * 48,
-        Math.floor(index / map.width) * 48,
-      );
+      blitRaster(raster, asset, sx, sy, 48, 48, dx, dy);
     } catch (error) {
       throw new Error(
         `Cannot render tile ${tileId} from tileset image ${tileset.tilesetNames[slot]}: ${error instanceof Error ? error.message : String(error)}`,
@@ -122,10 +114,36 @@ export async function renderMapPreview(options: {
       );
     }
   }
+  const cells = map.width * map.height;
+  for (let index = 0; index < cells; index++) {
+    const layers = nativeCellLayers(map, tileset, index);
+    const dx = (index % map.width) * 48;
+    const dy = Math.floor(index / map.width) * 48;
+    for (const tileId of layers.lowerBeforeShadow) await drawTile(tileId, dx, dy);
+    drawNativeShadow(raster, layers.shadowBits, dx, dy);
+    for (const tileId of layers.lowerAfterShadow) await drawTile(tileId, dx, dy);
+  }
+  // Event sprites at native z1/z3 are composed here by event rendering.
+  for (let index = 0; index < cells; index++) {
+    const layers = nativeCellLayers(map, tileset, index);
+    for (const tileId of layers.upper)
+      await drawTile(tileId, (index % map.width) * 48, Math.floor(index / map.width) * 48);
+  }
+  // Native z5 event sprites are above the upper tile scene.
   return {
     png: encodePng(raster),
     imageInputs,
     previewPages,
+    parallax: {
+      name: map.parallaxName,
+      originX: 0 as const,
+      originY: 0 as const,
+      time: 0 as const,
+      loopX: map.parallaxLoopX,
+      loopY: map.parallaxLoopY,
+      scrollX: map.parallaxSx,
+      scrollY: map.parallaxSy,
+    },
     width: raster.width,
     height: raster.height,
   };
