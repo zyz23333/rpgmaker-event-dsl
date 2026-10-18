@@ -47,11 +47,13 @@
   },
   "dependencies": {
     "commander": "^14.0.2",
+    "pngjs": "^7.0.0",
     "typescript": "^5.9.3",
     "zod": "^4.4.3"
   },
   "devDependencies": {
     "@types/node": "^22.19.2",
+    "@types/pngjs": "^6.0.5",
     "tsdown": "^0.22.3",
     "tsx": "^4.21.0",
     "vitest": "^4.0.15"

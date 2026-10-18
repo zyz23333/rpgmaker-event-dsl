@@ -8,6 +8,7 @@ import type {
   MapObservationSource,
 } from "./map-observation/types.js";
 import { inspectWorkspaceMap, listWorkspaceMaps } from "./workspace/map-observation.js";
+import { registerMapRenderCommand } from "./cli-map-preview.js";
 
 function sourceOption(): Option {
   return new Option("--source <source>", "project data source to observe")
@@ -89,6 +90,7 @@ export function registerMapCommands(program: Command): void {
   const map = program
     .command("map")
     .description("Inspect map layout and event definition positions.");
+  registerMapRenderCommand(map);
   map
     .command("list")
     .description("List map IDs, display names, and parent relationships.")
