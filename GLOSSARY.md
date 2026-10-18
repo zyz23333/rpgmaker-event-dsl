@@ -196,6 +196,10 @@ _Avoid_: database, runtime state
 The root directory of an RPG Maker MV project, identified by a `.rpgproject` file.
 _Avoid_: workspace root, package root, inferred project directory
 
+**Project Root Binding**:
+The association between a Workspace's captured project data state and the Project Root it belongs to. Generated Project Data and Interrupted Push recovery retain that target association.
+_Avoid_: event target mapping, implicit current project, portable pending push
+
 **Workspace**:
 The user-owned directory that contains Event Definition source files and the local tool configuration for a target RPG Maker MV project.
 _Avoid_: MV project root, package root, repository root
@@ -349,8 +353,12 @@ Workspace metadata that records synchronization file hashes, Generated Freshness
 _Avoid_: generated output, project data file, lockfile, entry identity binding
 
 **Compile Baseline**:
-The current set of inputs that Compile Output depends on, including DSL source inputs, Workspace Config, and the Project Data Snapshot.
+The current set of inputs that Compile Output depends on, including DSL source inputs and their validation dependencies, Workspace Config, the Project Data Snapshot, the Project Root Binding, and the Compile Contract Version.
 _Avoid_: source hash, snapshot freshness, generated state
+
+**Compile Contract Version**:
+The tool-maintained version of the Event DSL compilation contract that determines generated event data, validation rules, and Compiler Defaults. Generated Project Data belongs to the contract under which it was compiled.
+_Avoid_: package version, RPG Maker engine version, source version
 
 **Generated Freshness**:
 The condition that Generated Project Data was produced from the current Compile Baseline.
@@ -476,7 +484,7 @@ _Avoid_: config default, inherited old value
 - A **Project Data Snapshot** may store whole RPG Maker MV data files even when **DSL-Owned Project Data** covers only selected **Data Domains** within those files.
 - **Project Drift** is a mismatch between a **Project Data Snapshot** and the current **Project Root** state.
 - An **Interrupted Push** is not ordinary **Project Drift** because the mismatch may have been produced by an incomplete **Push**.
-- **Push** checks **Project Drift** for **Affected Project Data Files**.
+- **Push** checks **Project Drift** for the complete **Standard Project Data Snapshot** file set, including when no **Affected Project Data File** would be written; checking an external dependency does not make it an **Affected Project Data File** or expand **DSL-Owned Project Data**.
 - **Affected Project Data Files** are derived from differences between **Generated Project Data** and the **Project Data Snapshot**.
 - **Push** writes only **Affected Project Data Files**.
 - **Push** stages **Affected Project Data Files** before replacing Project Root files.
@@ -522,7 +530,7 @@ _Avoid_: config default, inherited old value
 - **Decompiled Source** is written under the Workspace source root.
 - A **Sync Manifest** records file hashes for **Generated Project Data** and **Project Data Snapshots**.
 - A **Sync Manifest** does not record **Entry Identity** bindings.
-- A **Compile Baseline** includes the current DSL source inputs, **Workspace Config**, and **Project Data Snapshot**.
+- A **Compile Baseline** includes the current DSL source inputs and their validation dependencies, **Workspace Config**, **Project Data Snapshot**, **Project Root Binding**, and **Compile Contract Version**.
 - A **Sync Manifest** may record **Compile Baseline** hashes to check **Generated Freshness**.
 - **Push** requires **Generated Freshness**.
 - **Diff** requires **Generated Freshness**.
@@ -532,14 +540,14 @@ _Avoid_: config default, inherited old value
 - A **Definition Source** is a TypeScript source file selected by **Definition Source Discovery**.
 - **Definition Source Discovery** is the workspace-level source selection model.
 - **Definition Source Discovery** selects DSL declaration files from the Workspace source root using include and exclude patterns.
-- **Decompiled Source** participates in **Definition Source Discovery** unless moved outside the Workspace source root.
+- At publication, all **Decompiled Source** must participate in the Workspace's configured **Definition Source Discovery**.
 - **Entry Identity** determines the target project data entry for a DSL-owned definition.
 - Non-`init` commands require the current directory to be a **Workspace Root**.
 - **Compile** with check-only behavior is the read-only validation path.
 - **Compile** with check-only behavior does not write **Generated Project Data** or update the **Sync Manifest**.
 - **Project-Aware Validation** runs before **Generated Project Data** is written.
 - **Diff** emits a **Structured Diff Report** grouped by **Data Domain** and **Entry Identity**.
-- Changed `Map###.json`, `CommonEvents.json`, and `System.json` files are written with an **MV-Style JSON Writer** during **Push**.
+- Changed `Map###.json`, `CommonEvents.json`, `Troops.json`, and `System.json` files are written with an **MV-Style JSON Writer** during **Push**.
 - **Compiler Defaults** are built in, documented, and overridable through explicit DSL fields.
 - A map target comes from **Map Event Identity**, not from the file name or CLI target arguments.
 - Map event coordinates must be within map bounds; coordinate occupancy is a validation warning, not an error.

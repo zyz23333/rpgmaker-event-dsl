@@ -18,7 +18,8 @@ Status: open
 - 每次继续前读取 `wayfinder`、`docs/agents/issue-tracker.md`、`docs/agents/domain.md` 和 `GLOSSARY.md`。讨论设计时使用 `grilling` 与 `domain-modeling`；研究使用 `research`；只有首方文档、模板和 runtime 不能回答编辑器问题时才使用 `reverse-engineer-anything`。
 - 尊重 ADR 0001 的 Schema-First DSL、ADR 0003 的 Workspace Compile/Push 与 Data Domain 所有权、ADR 0004 的显式 MV Entry Identity、ADR 0006 的 Interrupted Push 安全模型，以及 ADR 0008 的 command-family 模块边界。必要的语义变更应明确指出需要重开的 ADR。
 - 地图事件页遵循 [ADR 0009](../../docs/adr/0009-preserve-native-map-page-saved-state.md)：正式表达未启用的原生保存配置，使用固定空白页默认值，并仅对禁用条件的显式保存 ID 放宽目标存在性检查。此决定不替代 06 票的全局未知数据与往返契约。
-- 敌群战斗事件遵循 [ADR 0010](../../docs/adr/0010-troop-event-ownership-and-reset.md)：整体接管 pages，以既有 troopId 标识，保留外部敌群数据与原生页序、禁用条件配置；省略声明和显式空白都生成一张默认空白页。非空白到空白的 Troop Event Reset 扩展 Destructive Change，但不放宽同步检查；未知数据规则已由 06 确认，Workspace 接入继续由 07 承接。
+- 敌群战斗事件遵循 [ADR 0010](../../docs/adr/0010-troop-event-ownership-and-reset.md)：整体接管 pages，以既有 troopId 标识，保留外部敌群数据与原生页序、禁用条件配置；省略声明和显式空白都生成一张默认空白页。非空白到空白的 Troop Event Reset 扩展 Destructive Change，但不放宽同步检查；未知数据规则与 Workspace 接入契约已分别由语义往返和 Workspace 集成决定确认。
+- Workspace 集成遵循已接受的 [ADR 0013](../../docs/adr/0013-bind-generated-data-to-compilation-assumptions.md) 与 [ADR 0014](../../docs/adr/0014-publish-decompiled-source-as-a-complete-directory.md)；实际实现与安全验收仍待后续规划和执行。
 - 用户所说的 `.references/RPGMV` 实际位于 `references/RPGMV`；另有 `references/rmmv-local-runtime-1.6.1`、`references/rpg-maker-mv-corescript` 与 `references/rmmv-test-project`。它们是本地参考资料，不随研究分支发布。
 - 研究必须区分首方帮助、随包模板、runtime 源码、编辑器二进制与真实运行观察；runtime 版本不能代替编辑器本体版本证据。未经实际执行不得声称编辑器或游戏测试通过。
 - 原生指令契约已最终确认：由 [原生指令逐参数契约还缺哪些证据](issues/11-native-command-parameter-evidence.md) 补全参数表，作为实施规格完成的前置要求，并阻塞最终验收与顺序决策；类别库存与设计讨论完成均不能代替全参证明。
@@ -35,6 +36,7 @@ Status: open
 - [敌群战斗事件的身份与数据所有权如何划定](issues/04-troop-event-ownership.md)：经三轮 Q1–Q11 及最终确认，已确定 troopId 与 pages 所有权、完整条件/span 模型、位置引用校验、默认空白与 Reset 分类、数量边界及逐敌群反编译；ADR 0010 已接受，05/06/07/08 已收到后续输入。
 - [原生指令的完整参数与结构应如何表达和校验](issues/05-native-command-contract.md#answer)：经四轮 Q1–Q24 及最终确认，已确定正式表达、固定默认、分支与续行、保存状态、引用/运行选择校验、文本/None/脚本与插件边界；ADR 0011 已接受，逐参数证据表继续作为实施规格完成门槛。
 - [语义无损往返与未知数据处理的精确契约是什么](issues/06-semantic-roundtrip-policy.md#answer)：经四轮 Q1–Q16 及最终确认，按保存结构和值判定往返；未知事件代码单记录 raw 警告保留，已知异常和事件内部未知字段拒绝，外部 carrier 完整保留。raw 原生参数/引用/Gate 不豁免，完整列表结构校验，文本只以 LF 分记录且 CR 原样保存；已确定发布前引用检查、准确诊断与反编译失败隔离。ADR 0012 已接受并收紧 ADR 0003，05 文本规则及 07/08/11 已同步；实现和真实验收仍未执行。
+- [扩展事件数据域后 Workspace 如何保持同步与写入安全](issues/07-workspace-domain-integration.md#answer)：经三轮 Q1–Q16 及最终确认，已确定真实校验输入、完整候选发布、页级 Diff/Reset、基线版本与目标绑定、全标准输入漂移检查、失败恢复和操作互斥；ADR 0013/0014 已接受，验收输入已交后续规划，未实施产品或执行真实验收。
 - [编辑器如何保存分支与移动路线及不启用的字段](issues/09-editor-serialization-evidence.md)：本体版本与嵌入源证据已确认 402 文本、505 镜像、空分支 code 0 和非激活编辑状态的保存规则；真实保存仍属验收工作。
 - [原生事件属性的合法值与创建默认值是什么](issues/10-editor-event-defaults-and-limits.md)：普通创建/清空的工厂初值、属性控件范围与常规页数限制已有静态依据；装载异常值、控件时序和真实保存仍需实验。
 
@@ -42,7 +44,6 @@ Status: open
 
 - 首方编辑器帮助、模板与 1.6.1 runtime 如存在分歧，哪些具体分歧必须用编辑器保存样本或二进制证据裁定，待研究发现后才能逐项命名。
 - 完整组合场景可能暴露尚未看见的页生命周期、战斗时序或编辑器归一化规则；发现具体反例后再形成独立决策票。
-- 敌群事件所有权及 Reset 分类已由 04 确定，语义往返与未知数据策略已由 06 确定；07 结合这些输入继续确认 Workspace 接入、失败发布机制与是否需要额外调查。
 
 ## Out of scope
 

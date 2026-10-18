@@ -84,3 +84,20 @@ Parent: [完整支持 MV 原生事件的决策地图](../map.md)
 - 数据检查失败、目标文件冲突及 I/O 发布失败均不留下可被正常发现并当作完整结果的部分新源码，原源码/Snapshot 保持；诊断分类、路径、冲突双方与避免级联误报。
 
 11 仍需补齐原生结构与全参证据；正常原生反例须重开模型，不能因现规则拒绝就标成非法。真实编辑器只保存容器与重新确认参数的行为继续分开验证。
+
+### 2026-10-18 — Workspace 集成的已最终确认验收输入
+
+[扩展事件数据域后 Workspace 如何保持同步与写入安全](07-workspace-domain-integration.md#answer) 的 Q1–Q16 及完整契约已最终确认，该票已 resolved；[ADR 0013](../../../docs/adr/0013-bind-generated-data-to-compilation-assumptions.md) 与 [ADR 0014](../../../docs/adr/0014-publish-decompiled-source-as-a-complete-directory.md) 已 accepted。本节记录后续验收设计输入，不提前解决本票、不表示以下检查已执行；本票仍等待逐参数证据前置。
+
+- 从真实 Workspace Snapshot 接通 Animations/Tilesets、地图 tileset 与事件位置、完整 troop members/Enemy 实际存在性、System 槽容量和装备槽配置；不能只靠手工注入的 compiler 单测。空名称对象的实际 ID、启用/禁用条件例外、普通 Runtime Selector 警告、保存路线与 raw 原生引用/Gate 检查分别覆盖。
+- 变量/开关按 Snapshot 容量与命名声明最大 ID 保留或扩容；容量内无名显式引用、越界/ID0、引用不扩容、名称不回退 Snapshot、删除名称不缩容量，且候选校验/Compile/Check/物化一致。
+- Troops 完整 carrier 保留外部未知 JSON；省略与显式空白产生同样 Reset，原已空白不变，局部删页仍非空白为普通修改。Diff 展示页位置、保存字段和命令变化及独立 Reset 原因；Troops 文件过滤保留全局破坏性状态。JSON 键序/排版相等与实时整文件哈希漂移分别验证。
+- Decompile 整批隔离、一次目录发布；目标目录存在（含空目录）、并发出现目标、宽 glob、链接/junction 别名、隔离位置与最终位置依赖解析差异、部分输出不被发现、实际 include/exclude 漏选文件、已有身份冲突和无法可靠提取身份等失败场景。既有源码只查身份，候选不借它补引用，Gate 关闭仍可准确反编译。
+- Decompile 在候选生成/校验/发布中途 I/O 失败不暴露部分新源码，原源码/Snapshot 保持；完成目录发布后进程未报成功的重试报告目标存在。只清理明确归属的隔离残片，不删除未知文件。
+- Compile/Check 完整输出校验一致；Check 不发布文件或改状态；校验失败无发布。Compile 发布或 manifest 写入失败后 Diff/Push 拒绝不完整/不一致状态，重新 Compile 可恢复，不假定上一份输出总是可用。warnings 默认 stderr、含身份/路径且不把成功变失败。
+- Freshness 覆盖实际源码/类型依赖、配置、Snapshot 集合、Compile Contract Version 与 Project Root Binding；旧/缺失契约版本及类型依赖变化失效。切换目标须 Pull 重绑；pending 不能作用到另一个目标。源码/类型依赖/配置/MapInfos/数据文件在捕获或发布期间变化时报错重跑，哈希与实际使用字节一致，不混合版本或自动局部重试。
+- 全 Standard Snapshot 集合的外部改动、缺失、MapInfos 登记变化以及 no-op Push 均触发漂移保护；无关条目变化亦阻止 Push，插件文件与未登记孤立地图排除。检查集合扩大，实际写入/备份仍仅 Affected 文件。
+- Push 写前全量、逐替换旧内容与写后全量复核；后置检查发现外部改动时保留 pending，不盲目覆盖/回滚。恢复覆盖全 generated、全 snapshot、mixed/missing/unknown、元数据不一致、目标不匹配与不理解的 pending 格式；旧契约收尾不洗成新 fresh，恢复后外部新漂移仍阻止新写。
+- 同一 Workspace 的各工作流命令互斥，第二命令即时报忙，包括 Check/Diff；崩溃失效锁的清理不解除 pending。不同 Workspace/外部编辑器不受该锁控制，检查点不冒充全工程原子隔离。
+
+实施切片、故障注入点、代表性编辑器/游戏实验与证据责任继续由本票确认；全参证据门槛仍由逐参数研究提供。
