@@ -20,3 +20,11 @@ Parent: [完整支持 MV 原生事件的决策地图](../map.md)
 ## Research inputs
 
 [MV 1.6.1 原生事件指令库存与有界保真审计](../research/native-command-fidelity.md) 的 Workspace 调用链调查指出：当前 validation input 未载入 Animations/Tilesets，部分编译单测却手工注入了这两类引用。讨论和实施验收需覆盖已有原生指令的真实 Workspace 路径，不只接入新增 Troop Event 数据域。
+
+## Comments
+
+### 2026-10-18 — 已决地图页模型输入
+
+[03 号票](03-map-event-page-model.md#answer) 已解决，完整 note/页字段必须贯穿实际 Workspace 读取、反编译、校验、编译、Diff 与物化路径。现有 Snapshot 已保存完整 Map JSON 与 Tilesets.json，但页面验证上下文尚未保留 map.tilesetId / tilesetNames，需要接通，不能只在单测中注入。活动图块所用 tileset 不存在时报错，对应 B/C/D/E 图组名称为空时警告并保留；本票输入不要求新增图片文件或尺寸扫描。
+
+项目引用校验必须区分禁用条件显式保存 ID 的有限例外、名称引用的唯一解析，以及始终完整校验的 Movement Route。不得使空白页的禁用占位 ID 1 依赖实际条目存在。完整输出仍从 DSL 与固定 Compiler Defaults 构建，不与旧事件隐式合并；既有 Freshness、Drift、Destructive Change 和 Interrupted Push 安全边界继续适用。

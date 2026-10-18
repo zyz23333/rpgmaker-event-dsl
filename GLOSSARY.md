@@ -48,6 +48,18 @@ _Avoid_: missing command list, implicit delete
 An event stored in a `Map###.json` file.
 _Avoid_: common event, event data operation
 
+**Map Event Page**:
+One ordered page of a Map Event, with page conditions, an image, autonomous movement, priority, behavior options, a trigger, and an event command list. Its saved configuration includes settings that are currently inactive.
+_Avoid_: Battle Event Page, Common Event, active command list
+
+**Autonomous Movement**:
+The movement behavior configured by a Map Event Page: fixed, random, approach, or custom, together with its speed, frequency, and saved Movement Route. The saved route remains part of the page when custom movement is not selected.
+_Avoid_: Set Movement Route, forced movement, event command list
+
+**Movement Route**:
+An ordered sequence of RPG Maker MV movement instructions with repeat, skip, and wait settings, shared by Autonomous Movement and the Set Movement Route event command. Its wait setting controls interpreter waiting only when used by Set Movement Route.
+_Avoid_: event command list, Autonomous Movement, character target
+
 **Common Event**:
 A reusable RPG Maker MV event command list stored in `CommonEvents.json`.
 _Avoid_: runtime event, built-in event
@@ -73,7 +85,7 @@ The activation mode for a Map Event page: action, playerTouch, eventTouch, autor
 _Avoid_: common event trigger
 
 **Page Condition Slots**:
-The fixed RPG Maker MV page condition fields for switches, variable threshold, self switch, item, and actor.
+The fixed RPG Maker MV page condition fields for switches, variable threshold, self switch, item, and actor. Each slot has an activation state and a saved setting that remains part of the Map Event Page when the slot is disabled.
 _Avoid_: boolean expression, arbitrary predicate
 
 **DSL Command**:
@@ -125,7 +137,7 @@ The Workspace Config setting that must allow Script Input before it can compile 
 _Avoid_: Script Command Enablement, per-node reason gate, implicit script support
 
 **Project Data Reference**:
-A DSL reference value from an Event Definition to an existing RPG Maker MV project data entry.
+A DSL reference value from an Event Definition that identifies an RPG Maker MV project data entry. A disabled Page Condition Slot may retain an explicit saved ID without a corresponding entry.
 _Avoid_: project reference, raw ID, definition builder
 
 **Project Data Reference Scope**:
@@ -346,7 +358,9 @@ _Avoid_: config default, inherited old value
 - Installation guidance for the **Agent Event Authoring Skill** belongs in the project README, not inside the runtime skill instructions.
 - An **Event Definition** contains command lists made of **DSL Commands**.
 - A **Named Event Export** is the module boundary for collecting **Event Definitions**.
-- A **Map Event** contains pages whose command lists are made of **Raw Event Commands**.
+- A **Map Event** contains an ordered list of **Map Event Pages** whose command lists are made of **Raw Event Commands**.
+- A **Map Event Page** configures **Autonomous Movement**, including a saved **Movement Route** regardless of the selected movement type.
+- **Autonomous Movement** and Set Movement Route share **Movement Routes**; the target of Set Movement Route is separate from the route itself.
 - A **Common Event** contains a command list made of **Raw Event Commands**.
 - Event pages, map events, and common events use the **Schema-First DSL** style with named object fields.
 - An **Empty Command List** is valid for event pages and common events.
@@ -380,7 +394,9 @@ _Avoid_: config default, inherited old value
 - Name-based **Project Data References** must resolve to exactly one visible entry in the **Staged Data Graph**.
 - Name-based references to **DSL-Owned Project Data** domains resolve against DSL-owned entries in the **Staged Data Graph**, not by falling back to the **Project Data Snapshot**.
 - Name-based **External Project Data References** resolve against the **Standard Project Data Snapshot**.
-- **Explicit ID References** must resolve to an existing visible entry in the same reference scope as name-based **Project Data References**.
+- **Explicit ID References** must resolve to an existing visible entry in the same reference scope as name-based **Project Data References**, except for explicit saved IDs in disabled **Page Condition Slots**.
+- Disabled **Page Condition Slots** may retain an explicit saved ID without an existing target; name-based references still require unique resolution.
+- A saved **Movement Route** requires reference validation and the **Script Command Gate** even when its **Map Event Page** does not select custom **Autonomous Movement**.
 - **Raw DSL Commands** are not semantically validated for embedded **Project Data References**.
 - The **Staged Data Graph** resolves names used by **Project Data References** to RPG Maker MV IDs.
 - A **Project Root** must be configured explicitly and must contain a `.rpgproject` file.
