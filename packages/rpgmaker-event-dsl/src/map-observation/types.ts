@@ -43,3 +43,58 @@ export type MapSummaryResult = MapObservationResult & {
   settings: MapSettings;
   events: MapEventSummary[];
 };
+
+export type MapInspectionSelector =
+  | { kind: "summary" }
+  | { kind: "event"; eventId: number; commands?: boolean }
+  | { kind: "cell"; x: number; y: number }
+  | ({ kind: "area" } & MapBounds);
+
+export type MapBounds = { x: number; y: number; width: number; height: number };
+
+export type MapTileFlags = {
+  /** Individual tile passage bits; these do not determine final cell passability. */
+  passageBlocked: { down: boolean; left: boolean; right: boolean; up: boolean };
+  upperLayer: boolean;
+  ladder: boolean;
+  bush: boolean;
+  counter: boolean;
+  damageFloor: boolean;
+  terrainTag: number;
+};
+
+export type MapCellLayer = {
+  layer: 0 | 1 | 2 | 3;
+  tileId: number;
+  rawFlags: number;
+  flags: MapTileFlags;
+};
+
+export type MapCellDetail = {
+  x: number;
+  y: number;
+  layers: MapCellLayer[];
+  shadowBits: number;
+  regionId: number;
+  terrainTag: number;
+};
+
+export type MapCellResult = MapObservationResult & {
+  kind: "map-cell";
+  map: MapInfoEntry;
+  width: number;
+  height: number;
+  cell: MapCellDetail;
+};
+
+export type MapAreaResult = MapObservationResult & {
+  kind: "map-area";
+  map: MapInfoEntry;
+  width: number;
+  height: number;
+  bounds: MapBounds;
+  cells: MapCellDetail[];
+  events: MapEventSummary[];
+};
+
+export type MapInspectionResult = MapSummaryResult | MapCellResult | MapAreaResult;

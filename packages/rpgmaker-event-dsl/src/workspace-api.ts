@@ -16,8 +16,16 @@ export type {
 export type { MapSettings } from "./map-observation/read.js";
 export type {
   MapDataInput,
+  MapAreaResult,
+  MapBounds,
   MapListResult,
   MapEventSummary,
+  MapCellDetail,
+  MapCellLayer,
+  MapCellResult,
+  MapInspectionResult,
+  MapInspectionSelector,
+  MapTileFlags,
   MapSummaryResult,
   MapObservationResult,
   MapObservationSource,
