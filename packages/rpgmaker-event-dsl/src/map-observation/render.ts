@@ -1,14 +1,12 @@
-import { createHash } from "node:crypto";
-import { readFile } from "node:fs/promises";
-import { isAbsolute, relative, resolve } from "node:path";
-
+import { createMapImageLoader } from "./assets.js";
+import { drawIncompleteNotice } from "./incomplete-notice.js";
 import { z } from "zod";
 
 import type { ValidatedMap, ValidatedTileset } from "./read.js";
-import type { MapImageInput, MapPreviewBounds, MapPreviewPage } from "./preview-types.js";
+import type { MapPreviewBounds, MapPreviewPage } from "./preview-types.js";
 import { planMapViewport } from "./viewport.js";
 import { drawCoordinateOverlay } from "./overlays.js";
-import { blitRaster, createRaster, decodePng, encodePng } from "./raster.js";
+import { blitRaster, createRaster, encodePng } from "./raster.js";
 import type { Raster } from "./raster.js";
 import { drawNativeParallax, drawNativeShadow, nativeCellLayers } from "./native-layers.js";
 import { drawAutotile, drawTableEdge, getAutotileSlot } from "./native-autotiles.js";
@@ -37,6 +35,7 @@ export async function renderMapPreview(options: {
   map: ValidatedMap;
   tileset: ValidatedTileset;
   projectRoot: string;
+  allowMissingAssets?: boolean;
   crop?: MapPreviewBounds;
   grid?: boolean;
 }) {
@@ -51,47 +50,11 @@ export async function renderMapPreview(options: {
     offsetY: viewport.transform.offsetY,
     clip: viewport.mapContent,
   };
-  const assets = new Map<string, Raster>();
-  const imageInputs: MapImageInput[] = [];
-
-  async function loadImage(category: "tilesets" | "parallaxes", name: string): Promise<Raster> {
-    const relativePath = `img/${category}/${name}.png`;
-    const path = resolve(projectRoot, relativePath);
-    const withinProject = relative(projectRoot, path);
-    if (withinProject.startsWith("..") || isAbsolute(withinProject) || /[\\/]/u.test(name)) {
-      throw new Error(
-        `Invalid ${category} image filename ${JSON.stringify(name)}: use a project asset filename.`,
-      );
-    }
-    const cached = assets.get(path);
-    if (cached !== undefined) return cached;
-    let bytes: Buffer;
-    try {
-      bytes = await readFile(path);
-    } catch (error) {
-      throw new Error(
-        `Cannot read required Map Image Asset ${relativePath} from Project Root ${projectRoot}. Restore the PNG image before rendering.`,
-        { cause: error },
-      );
-    }
-    let asset: Raster;
-    try {
-      asset = decodePng(bytes);
-    } catch (error) {
-      throw new Error(
-        `Cannot decode required Map Image Asset ${relativePath}: ${error instanceof Error ? error.message : String(error)} Restore a valid PNG image before rendering.`,
-        { cause: error },
-      );
-    }
-    assets.set(path, asset);
-    imageInputs.push({
-      relativePath,
-      path,
-      status: "available",
-      hash: createHash("sha256").update(bytes).digest("hex"),
-    });
-    return asset;
-  }
+  const imageLoader = createMapImageLoader({
+    projectRoot,
+    allowMissingAssets: options.allowMissingAssets === true,
+  });
+  const loadImage = imageLoader.load;
 
   async function loadTileset(slot: number): Promise<Raster> {
     const name = tileset.tilesetNames[slot];
@@ -131,13 +94,14 @@ export async function renderMapPreview(options: {
       );
     }
   }
-  const visibleIndices: number[] = [];
-  for (let y = viewport.bounds.y; y < viewport.bounds.y + viewport.bounds.height; y++) {
-    for (let x = viewport.bounds.x; x < viewport.bounds.x + viewport.bounds.width; x++) {
-      visibleIndices.push(y * map.width + x);
+  function* visibleCellIndices() {
+    for (let y = viewport.bounds.y; y < viewport.bounds.y + viewport.bounds.height; y++) {
+      for (let x = viewport.bounds.x; x < viewport.bounds.x + viewport.bounds.width; x++) {
+        yield y * map.width + x;
+      }
     }
   }
-  for (const index of visibleIndices) {
+  for (const index of visibleCellIndices()) {
     const layers = nativeCellLayers(map, tileset, index);
     const dx = (index % map.width) * 48;
     const dy = Math.floor(index / map.width) * 48;
@@ -150,16 +114,18 @@ export async function renderMapPreview(options: {
     for (const tileId of layers.lowerAfterShadow) await drawTile(tileId, dx, dy);
   }
   // Event sprites at native z1/z3 are composed here by event rendering.
-  for (const index of visibleIndices) {
+  for (const index of visibleCellIndices()) {
     const layers = nativeCellLayers(map, tileset, index);
     for (const tileId of layers.upper)
       await drawTile(tileId, (index % map.width) * 48, Math.floor(index / map.width) * 48);
   }
   // Native z5 event sprites are above the upper tile scene.
   drawCoordinateOverlay(raster, viewport);
+  if (imageLoader.warnings.length > 0) drawIncompleteNotice(raster);
   return {
     png: encodePng(raster),
-    imageInputs,
+    imageInputs: imageLoader.imageInputs,
+    warnings: imageLoader.warnings,
     previewPages,
     parallax: {
       name: map.parallaxName,

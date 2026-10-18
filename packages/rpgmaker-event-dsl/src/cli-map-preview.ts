@@ -28,6 +28,10 @@ export function registerMapRenderCommand(map: Command): void {
         .default("snapshot"),
     )
     .option("--json", "print a versioned structured result")
+    .option(
+      "--allow-missing-assets",
+      "show explicit incomplete placeholders for unavailable images",
+    )
     .action(
       async (options: {
         map: number;
@@ -35,6 +39,7 @@ export function registerMapRenderCommand(map: Command): void {
         json?: boolean;
         crop?: string;
         grid?: boolean;
+        allowMissingAssets?: boolean;
       }) => {
         const result = await renderWorkspaceMap({
           workspaceRoot: process.cwd(),
@@ -42,6 +47,7 @@ export function registerMapRenderCommand(map: Command): void {
           source: options.source,
           ...(options.crop === undefined ? {} : { crop: parseCrop(options.crop) }),
           grid: options.grid !== false,
+          allowMissingAssets: options.allowMissingAssets === true,
         });
         console.log(
           options.json
@@ -50,6 +56,12 @@ export function registerMapRenderCommand(map: Command): void {
                 `Map ${result.map.id}: ${result.map.name} (${result.source})`,
                 `${result.output.width} x ${result.output.height} pixels; native MV static preview`,
                 `Bounds: (${result.bounds.x}, ${result.bounds.y}), ${result.bounds.width} x ${result.bounds.height} cells`,
+                ...(result.complete
+                  ? []
+                  : [
+                      "INCOMPLETE: unavailable images use diagnostic placeholders.",
+                      ...result.warnings.map(({ message }) => message),
+                    ]),
                 `PNG: ${result.artifacts.png}`,
                 `Metadata: ${result.artifacts.metadata}`,
               ].join("\n"),
