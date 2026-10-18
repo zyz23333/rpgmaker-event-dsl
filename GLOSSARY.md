@@ -65,12 +65,32 @@ A reusable RPG Maker MV event command list stored in `CommonEvents.json`.
 _Avoid_: runtime event, built-in event
 
 **Troop Event**:
-RPG Maker MV battle event logic attached to a troop and stored as an ordered list of Battle Event Pages in `Troops.json`.
+The complete ordered list of Battle Event Pages attached to one RPG Maker MV troop in `Troops.json`. The troop's name and members are external project data rather than part of the Troop Event.
 _Avoid_: Common Event, troop definition, enemy event
 
+**Troop Event Identity**:
+The Entry Identity for a Troop Event, determined by the ID of its containing RPG Maker MV troop. A troop has at most one Troop Event definition, regardless of its display name.
+_Avoid_: battle page ID, troop name, separate battle event ID
+
 **Battle Event Page**:
-One ordered page of a Troop Event, with battle conditions, an execution span, and an event command list.
+One position in a Troop Event's ordered page list, with battle conditions, an execution span, and an event command list, without a separate page identity. Its saved configuration includes condition settings that are currently disabled.
 _Avoid_: Map Event page, Common Event, troop member
+
+**Battle Page Condition Slots**:
+The fixed RPG Maker MV battle page conditions for turn end, turn count, troop member HP, actor HP, and a switch, including each condition's saved settings while disabled. Enabled conditions combine as AND, and a page with no enabled condition does not run.
+_Avoid_: Page Condition Slots, arbitrary predicate, unconditional battle page
+
+**Battle Event Span**:
+The repetition mode of a Battle Event Page: once per battle, once per turn, or repeatedly at eligible battle event checks while its conditions hold.
+_Avoid_: Map Page Trigger, event priority, arbitrary-time callback
+
+**Blank Troop Event**:
+A Troop Event containing exactly one Battle Event Page in its complete native default saved state, with no authored commands. Disabled conditions alone do not make a Troop Event blank if any saved configuration differs from that state.
+_Avoid_: zero-page event, disabled event, missing troop
+
+**Troop Event Reset**:
+A change from a nonblank Troop Event to a Blank Troop Event while retaining its containing troop and external data.
+_Avoid_: troop deletion, Entry Removal, partial page edit
 
 **Event Page List**:
 The required non-empty list of pages for a Map Event definition.
@@ -137,7 +157,7 @@ The Workspace Config setting that must allow Script Input before it can compile 
 _Avoid_: Script Command Enablement, per-node reason gate, implicit script support
 
 **Project Data Reference**:
-A DSL reference value from an Event Definition that identifies an RPG Maker MV project data entry. A disabled Page Condition Slot may retain an explicit saved ID without a corresponding entry.
+A DSL reference value from an Event Definition that identifies an RPG Maker MV project data entry. Disabled Page Condition Slots and disabled actor or switch Battle Page Condition Slots may retain an explicit saved ID without a corresponding entry.
 _Avoid_: project reference, raw ID, definition builder
 
 **Project Data Reference Scope**:
@@ -245,7 +265,7 @@ A DSL-owned data entry present in a Project Data Snapshot but absent from Compil
 _Avoid_: compile deletion, project drift, unmanaged entry
 
 **Destructive Change**:
-A Push change that removes a Snapshot-Only Owned Entry from a Project Root.
+A Push change that removes a Snapshot-Only Owned Entry from a Project Root or performs a Troop Event Reset.
 _Avoid_: force push, project drift, compile deletion
 
 **Destructive Push**:
@@ -253,7 +273,7 @@ A Push that explicitly allows Destructive Changes while still requiring Generate
 _Avoid_: force push, overwrite, unsafe push
 
 **Entry Removal**:
-The generated representation of a Destructive Change for one DSL-owned data entry.
+The generated representation of removing one Snapshot-Only Owned Entry while preserving the identities of other project data entries.
 _Avoid_: array compaction, entry replacement, project drift
 
 **Diff**:
@@ -362,6 +382,15 @@ _Avoid_: config default, inherited old value
 - A **Map Event Page** configures **Autonomous Movement**, including a saved **Movement Route** regardless of the selected movement type.
 - **Autonomous Movement** and Set Movement Route share **Movement Routes**; the target of Set Movement Route is separate from the route itself.
 - A **Common Event** contains a command list made of **Raw Event Commands**.
+- A **Troop Event** is identified by its **Troop Event Identity** and contains the complete ordered list of **Battle Event Pages** for that troop.
+- A **Battle Event Page** uses **Battle Page Condition Slots** and retains disabled condition settings; the first eligible page in the ordered list is selected when battle events are checked.
+- A **Troop Event** owns its event pages; the containing troop's name and members remain external project data.
+- The **Troop Event** Data Domain is owned as a whole, and every authored **Troop Event Identity** must refer to an existing troop in the **Project Data Snapshot**, including troops with empty names or no members.
+- A **Battle Event Page** has a **Battle Event Span** and a required command list that may be an **Empty Command List**.
+- **Battle Event Pages** have no independent Entry Identities; removing a page preserves the order of the remaining pages.
+- A **Troop Event Reset** replaces the complete event with a **Blank Troop Event**, retaining the containing troop and its external data.
+- A **Troop Event Reset** is a **Destructive Change** whether requested by an explicit blank definition or by omitting the definition; edits that leave a nonblank event are ordinary content changes.
+- Disabled enemy **Battle Page Condition Slots** may retain a nonnegative member position that no longer exists; enabled enemy conditions require a valid position and valid Enemy references throughout that troop's members.
 - Event pages, map events, and common events use the **Schema-First DSL** style with named object fields.
 - An **Empty Command List** is valid for event pages and common events.
 - A map event **Event Page List** must contain at least one page.
@@ -394,8 +423,8 @@ _Avoid_: config default, inherited old value
 - Name-based **Project Data References** must resolve to exactly one visible entry in the **Staged Data Graph**.
 - Name-based references to **DSL-Owned Project Data** domains resolve against DSL-owned entries in the **Staged Data Graph**, not by falling back to the **Project Data Snapshot**.
 - Name-based **External Project Data References** resolve against the **Standard Project Data Snapshot**.
-- **Explicit ID References** must resolve to an existing visible entry in the same reference scope as name-based **Project Data References**, except for explicit saved IDs in disabled **Page Condition Slots**.
-- Disabled **Page Condition Slots** may retain an explicit saved ID without an existing target; name-based references still require unique resolution.
+- **Explicit ID References** must resolve to an existing visible entry in the same reference scope as name-based **Project Data References**, except for explicit saved IDs in disabled **Page Condition Slots** and disabled actor or switch **Battle Page Condition Slots**.
+- Disabled **Page Condition Slots** and disabled actor or switch **Battle Page Condition Slots** may retain an explicit saved ID without an existing target; name-based references still require unique resolution.
 - A saved **Movement Route** requires reference validation and the **Script Command Gate** even when its **Map Event Page** does not select custom **Autonomous Movement**.
 - **Raw DSL Commands** are not semantically validated for embedded **Project Data References**.
 - The **Staged Data Graph** resolves names used by **Project Data References** to RPG Maker MV IDs.
@@ -443,7 +472,7 @@ _Avoid_: config default, inherited old value
 - A **Snapshot-Only Owned Entry** appears when **Compile Output** omits an entry that exists in the **Project Data Snapshot** for a **DSL-Owned Project Data** domain.
 - A **Destructive Change** is only applied by a **Destructive Push**.
 - A **Destructive Push** does not bypass **Generated Freshness** or **Project Drift** checks.
-- **Entry Removal** for event arrays preserves RPG Maker MV IDs by leaving null holes instead of compacting arrays.
+- **Entry Removal** for Map Event and Common Event ID arrays preserves RPG Maker MV IDs by leaving null holes instead of compacting arrays; this does not describe **Battle Event Pages** or a **Troop Event Reset**.
 - **Entry Removal** for variable and switch arrays preserves RPG Maker MV IDs by writing empty strings instead of compacting arrays.
 - **Entry Removal** uses explicit hole values in dense RPG Maker MV ID arrays.
 - **Generated Project Data** does not use sparse arrays for RPG Maker MV ID arrays.

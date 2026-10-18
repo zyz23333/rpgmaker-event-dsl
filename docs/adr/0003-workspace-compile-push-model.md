@@ -19,3 +19,4 @@ Consequences:
 - A successful Push refreshes the affected Project Data Snapshot and Sync Manifest.
 - **Destructive Push** is allowed only through an explicit destructive option and still does not bypass Generated Freshness or Project Drift checks.
 - Project Data Snapshots and Generated Project Data may store whole MV data files, but DSL ownership is still defined by Data Domain rather than by file.
+- [ADR 0010](0010-troop-event-ownership-and-reset.md) extends Destructive Change to a Troop Event Reset: a nonblank event becomes a Blank Troop Event while its containing troop remains external project data. The same synchronization and destructive Push gates apply.

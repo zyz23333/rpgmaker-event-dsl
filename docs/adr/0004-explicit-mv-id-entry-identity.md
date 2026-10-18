@@ -17,4 +17,5 @@ Consequences:
 - Name-based Project Data References are valid only when the Display Name resolves to exactly one entry.
 - ID-based Project Data References remain the stable path for ambiguous brownfield data.
 - Sync Manifest records synchronization hashes and Generated Freshness data, but not Entry Identity bindings.
-- Entry Removal preserves MV IDs: event arrays leave null holes, while variable and switch arrays write empty strings instead of compacting arrays.
+- Entry Removal preserves MV IDs: Map Event and Common Event ID arrays leave null holes, while variable and switch arrays write empty strings instead of compacting arrays.
+- [ADR 0010](0010-troop-event-ownership-and-reset.md) adds Troop Event Identity using the containing troop's explicit ID. Battle Event Pages have no independent IDs; resetting their event preserves the troop and writes a default blank page rather than a null hole.
