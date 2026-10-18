@@ -429,7 +429,7 @@ export async function pushWorkspace(options: PushWorkspaceOptions): Promise<void
   await rm(statePaths.pendingPushDirectory, { force: true, recursive: true });
 }
 
-async function assertGeneratedProjectDataFresh(input: {
+export async function assertGeneratedProjectDataFresh(input: {
   commandName: string;
   manifest: SyncManifest;
   statePaths: WorkspaceStatePaths;

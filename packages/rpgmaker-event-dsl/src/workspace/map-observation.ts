@@ -16,7 +16,12 @@ import type {
 } from "../map-observation/types.js";
 import { assertProjectDataSnapshotExists } from "./checks.js";
 import { loadWorkspace } from "./config.js";
-import { assertNoPendingInterruptedPushForNonPush } from "./push.js";
+import {
+  assertGeneratedProjectDataFresh,
+  assertGeneratedProjectDataIntegrity,
+  assertNoPendingInterruptedPushForNonPush,
+} from "./push.js";
+import { isMissingFileError } from "./guards.js";
 import { getWorkspaceStatePaths } from "./state.js";
 import type { WorkspaceCommandOptions } from "./types.js";
 
@@ -41,9 +46,24 @@ export async function loadMapObservationContext(
   await assertNoPendingInterruptedPushForNonPush({ statePaths, commandName });
   const manifest = await assertProjectDataSnapshotExists(statePaths, commandName);
   if (source === "generated") {
-    throw new Error(
-      "Generated map observation requires compiled Generated Project Data. Run compile first.",
-    );
+    try {
+      await assertGeneratedProjectDataIntegrity(statePaths, manifest, commandName);
+    } catch (error) {
+      if (!isMissingFileError(error)) throw error;
+      throw new Error(
+        `Generated Project Data is missing before ${commandName}. Run compile first.`,
+        { cause: error },
+      );
+    }
+    try {
+      await assertGeneratedProjectDataFresh({ commandName, manifest, statePaths, workspace });
+    } catch (error) {
+      if (!isMissingFileError(error)) throw error;
+      throw new Error(
+        `Project Data Snapshot input is missing before ${commandName}. Run clone or pull, then compile first.`,
+        { cause: error },
+      );
+    }
   }
   return { source, workspace, statePaths, manifest };
 }
@@ -59,7 +79,7 @@ export async function readMapObservationInput(
     bytes = await readFile(path);
   } catch (error) {
     throw new Error(
-      `Cannot read ${source} map input ${relativePath}. Run clone or pull to restore snapshot data.`,
+      `Cannot read ${source} map input ${relativePath}. ${source === "generated" ? "Run compile first to restore Generated Project Data." : "Run clone or pull to restore snapshot data."}`,
       { cause: error },
     );
   }
@@ -77,13 +97,37 @@ export async function readMapObservationInput(
   };
 }
 
+export type MapObservationContext = Awaited<ReturnType<typeof loadMapObservationContext>>;
+
+export async function readWorkspaceMapDataInput(
+  context: MapObservationContext,
+  relativePath: string,
+) {
+  const generatedDomain = /^(?:Map\d+|System|CommonEvents)\.json$/u.test(relativePath);
+  const source = context.source === "generated" && generatedDomain ? "generated" : "snapshot";
+  const directory =
+    source === "generated"
+      ? context.statePaths.generatedProjectDataDirectory
+      : context.statePaths.projectDataSnapshotDirectory;
+  const result = await readMapObservationInput(directory, source, relativePath);
+  if (context.source === "generated") {
+    const expected =
+      source === "generated"
+        ? context.manifest.generatedFiles
+        : context.manifest.compileBaseline?.snapshotFiles;
+    const expectedHash = expected?.find((entry) => entry.relativePath === relativePath)?.hash;
+    if (expectedHash === undefined || result.input.hash !== expectedHash) {
+      throw new Error(
+        `${source === "generated" ? "Generated Project Data integrity check failed" : "Generated Project Data is stale"} for ${relativePath}. Run compile first.`,
+      );
+    }
+  }
+  return result;
+}
+
 export async function listWorkspaceMaps(options: MapObservationOptions): Promise<MapListResult> {
   const context = await loadMapObservationContext(options, "map list");
-  const directory = await readMapObservationInput(
-    context.statePaths.projectDataSnapshotDirectory,
-    "snapshot",
-    "MapInfos.json",
-  );
+  const directory = await readWorkspaceMapDataInput(context, "MapInfos.json");
   return {
     schemaVersion: 1,
     kind: "map-list",
@@ -104,11 +148,7 @@ export async function loadSelectedWorkspaceMap(
     );
   }
   const context = await loadMapObservationContext(options, commandName);
-  const directory = await readMapObservationInput(
-    context.statePaths.projectDataSnapshotDirectory,
-    "snapshot",
-    "MapInfos.json",
-  );
+  const directory = await readWorkspaceMapDataInput(context, "MapInfos.json");
   const identity = readMapDirectory(directory.value).find(({ id }) => id === options.mapId);
   if (identity === undefined) {
     throw new Error(
@@ -116,17 +156,9 @@ export async function loadSelectedWorkspaceMap(
     );
   }
   const mapFileName = `Map${options.mapId.toString().padStart(3, "0")}.json`;
-  const mapInput = await readMapObservationInput(
-    context.statePaths.projectDataSnapshotDirectory,
-    "snapshot",
-    mapFileName,
-  );
+  const mapInput = await readWorkspaceMapDataInput(context, mapFileName);
   const map = readSelectedMap(mapInput.value, options.mapId);
-  const tilesetInput = await readMapObservationInput(
-    context.statePaths.projectDataSnapshotDirectory,
-    "snapshot",
-    "Tilesets.json",
-  );
+  const tilesetInput = await readWorkspaceMapDataInput(context, "Tilesets.json");
   const tileset = readSelectedTileset(tilesetInput.value, map.tilesetId);
   return {
     ...context,
