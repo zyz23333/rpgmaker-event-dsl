@@ -3,7 +3,7 @@ import { mkdir, rename, rm, writeFile } from "node:fs/promises";
 import { isAbsolute, relative, resolve } from "node:path";
 
 import { renderMapPreview } from "../map-observation/render.js";
-import type { MapPreviewResult } from "../map-observation/preview-types.js";
+import type { MapPreviewPage, MapPreviewResult } from "../map-observation/preview-types.js";
 import { loadSelectedWorkspaceMap } from "./map-observation.js";
 import type { MapObservationOptions } from "./map-observation.js";
 
@@ -11,6 +11,7 @@ export type RenderWorkspaceMapOptions = MapObservationOptions & {
   mapId: number;
   allowMissingAssets?: boolean;
   events?: boolean;
+  eventPages?: readonly MapPreviewPage[];
 };
 
 export async function renderWorkspaceMap(
@@ -23,6 +24,7 @@ export async function renderWorkspaceMap(
     projectRoot: context.workspace.projectRoot,
     allowMissingAssets: options.allowMissingAssets === true,
     ...(options.events === undefined ? {} : { events: options.events }),
+    ...(options.eventPages === undefined ? {} : { eventPages: options.eventPages }),
   });
   const bounds = { x: 0, y: 0, width: context.map.width, height: context.map.height };
   const identity = createHash("sha256")

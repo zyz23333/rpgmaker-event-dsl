@@ -2,6 +2,7 @@ import { createMapImageLoader } from "./assets.js";
 import { drawIncompleteNotice } from "./incomplete-notice.js";
 
 import type { ValidatedMap, ValidatedTileset } from "./read.js";
+import type { MapPreviewPage } from "./preview-types.js";
 import { blitRaster, createRaster, encodePng } from "./raster.js";
 import type { Raster } from "./raster.js";
 import { drawNativeParallax, drawNativeShadow, nativeCellLayers } from "./native-layers.js";
@@ -14,10 +15,13 @@ export async function renderMapPreview(options: {
   projectRoot: string;
   allowMissingAssets?: boolean;
   events?: boolean;
+  eventPages?: readonly MapPreviewPage[];
 }) {
   const { map, tileset, projectRoot } = options;
-  const previewEvents = selectPreviewEvents(map);
+  const previewEvents = selectPreviewEvents(map, options.eventPages);
   const previewPages = previewEvents.map(({ eventId, page }) => ({ eventId, page }));
+  const orderedEvents = [...previewEvents].sort((left, right) =>
+    left.priorityType - right.priorityType || left.bottomY - right.bottomY || left.order - right.order);
   const raster = createRaster(map.width * 48, map.height * 48);
   const imageLoader = createMapImageLoader({
     projectRoot,
@@ -77,16 +81,16 @@ export async function renderMapPreview(options: {
     for (const tileId of layers.lowerAfterShadow) await drawTile(tileId, dx, dy);
   }
   for (const priority of [0, 1]) {
-    for (const event of previewEvents.filter((event) => event.priorityType === priority))
-      await drawNativeEvent({ target: raster, event, tileset, loadImage });
+    for (const event of orderedEvents.filter((event) => event.priorityType === priority))
+      await drawNativeEvent({ target: raster, event, map, tileset, loadImage });
   }
   for (let index = 0; index < cells; index++) {
     const layers = nativeCellLayers(map, tileset, index);
     for (const tileId of layers.upper)
       await drawTile(tileId, (index % map.width) * 48, Math.floor(index / map.width) * 48);
   }
-  for (const event of previewEvents.filter((event) => event.priorityType === 2))
-    await drawNativeEvent({ target: raster, event, tileset, loadImage });
+  for (const event of orderedEvents.filter((event) => event.priorityType === 2))
+    await drawNativeEvent({ target: raster, event, map, tileset, loadImage });
   if (imageLoader.warnings.length > 0) drawIncompleteNotice(raster);
   return {
     png: encodePng(raster),

@@ -54,6 +54,106 @@ async function createEventWorkspace(
 }
 
 describe("native Map Preview event appearance", () => {
+  it.each([
+    [{ eventId: 1, page: 1 }, { eventId: 1, page: 1 }],
+    [{ eventId: 99, page: 1 }], [{ eventId: 0, page: 1 }],
+    [{ eventId: 1.5, page: 1 }], [{ eventId: 1, page: 0 }],
+    [{ eventId: 1, page: 2 }], [{ eventId: 1, page: 1.5 }],
+  ])("rejects invalid or duplicate Preview Page choices before artifact publication (%j)", async (...choices) => {
+    const { workspaceRoot } = await createMapWorkspace();
+    try {
+      const before = await readWorkspaceFiles(workspaceRoot);
+      await expect(renderWorkspaceMap({ workspaceRoot, mapId: 1, eventPages: choices })).rejects.toThrow(/Preview Page/u);
+      expect(await readWorkspaceFiles(workspaceRoot)).toEqual(before);
+    } finally {
+      await rm(workspaceRoot, { recursive: true, force: true });
+    }
+  });
+
+  it("defaults to page one and applies repeated explicit Preview Pages without evaluating conditions", async () => {
+    const states = new PNG({ width: 144, height: 192 });
+    paint(states, 0, 0, 48, 48, [180, 20, 40, 255]);
+    paint(states, 48, 0, 48, 48, [20, 40, 180, 255]);
+    const { workspaceRoot } = await createEventWorkspace((map) => {
+      const first = event(1, 0, 1, { characterName: "!$States", pattern: 0 });
+      first.pages.push({ ...first.pages[0]!, conditions: { switch1Valid: true },
+        image: { ...first.pages[0]!.image, pattern: 1 } });
+      const second = event(2, 2, 1, {});
+      second.pages.push({ ...second.pages[0]!, image: { ...second.pages[0]!.image, characterName: "!$States", pattern: 0 } });
+      map.events.push(first, second);
+    }, [{ category: "characters", name: "!$States", image: states }]);
+    try {
+      const defaults = await renderWorkspaceMap({ workspaceRoot, mapId: 1, events: false });
+      expect(defaults.previewPages).toEqual([{ eventId: 1, page: 1 }, { eventId: 2, page: 1 }]);
+      const defaultImage = PNG.sync.read(await readFile(defaults.artifacts.png));
+      expect(pixel(defaultImage, 24, 60)).toEqual([180, 20, 40, 255]);
+      expect(pixel(defaultImage, 120, 60)).toEqual([0, 0, 0, 0]);
+      const selected = await renderWorkspaceMap({ workspaceRoot, mapId: 1, events: false,
+        eventPages: [{ eventId: 2, page: 2 }, { eventId: 1, page: 2 }] });
+      expect(selected.previewPages).toEqual([{ eventId: 1, page: 2 }, { eventId: 2, page: 2 }]);
+      const selectedImage = PNG.sync.read(await readFile(selected.artifacts.png));
+      expect(pixel(selectedImage, 24, 60)).toEqual([20, 40, 180, 255]);
+      expect(pixel(selectedImage, 120, 60)).toEqual([180, 20, 40, 255]);
+      expect(JSON.parse(await readFile(selected.artifacts.metadata, "utf8")).previewPages).toEqual(selected.previewPages);
+    } finally {
+      await rm(workspaceRoot, { recursive: true, force: true });
+    }
+  });
+
+  it("applies native bush opacity only to the bottom twelve pixels of normal non-object characters", async () => {
+    const actor = new PNG({ width: 144, height: 192 });
+    paint(actor, 0, 0, 144, 192, [200, 0, 0, 255]);
+    const tiles = new PNG({ width: 96, height: 48 });
+    paint(tiles, 48, 0, 48, 48, [20, 40, 60, 255]);
+    const { workspaceRoot } = await createEventWorkspace((map) => {
+      map.data.fill(1, 18, 24);
+      map.events.push(event(1, 0, 1, { characterName: "$Actor" }));
+      map.events.push(event(2, 1, 1, { characterName: "!$Actor" }));
+      map.events.push(event(3, 2, 1, { characterName: "$Actor" }, 0));
+    }, [
+      { category: "characters", name: "$Actor", image: actor },
+      { category: "characters", name: "!$Actor", image: actor },
+      { category: "tilesets", name: "Bush", image: tiles },
+    ], (tileset) => {
+      tileset.tilesetNames[5] = "Bush";
+      tileset.flags[1] = 0x40;
+    });
+    try {
+      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1, events: false });
+      const image = PNG.sync.read(await readFile(result.artifacts.png));
+      expect(pixel(image, 12, 77)).toEqual([200, 0, 0, 255]);
+      expect(pixel(image, 12, 78)).toEqual([110, 20, 30, 255]);
+      expect(pixel(image, 12, 89)).toEqual([110, 20, 30, 255]);
+      expect(pixel(image, 60, 84)).toEqual([200, 0, 0, 255]);
+      expect(pixel(image, 108, 84)).toEqual([200, 0, 0, 255]);
+    } finally {
+      await rm(workspaceRoot, { recursive: true, force: true });
+    }
+  });
+
+  it.each([
+    { secondName: "$Blue", expected: [180, 20, 40, 255] },
+    { secondName: "!$Blue", expected: [20, 40, 180, 255] },
+  ])("sorts overlapping event sprites by native bottom Y then creation order ($secondName)", async ({ secondName, expected }) => {
+    const red = new PNG({ width: 288, height: 384 });
+    const blue = new PNG({ width: 288, height: 384 });
+    paint(red, 0, 0, 288, 384, [180, 20, 40, 255]);
+    paint(blue, 0, 0, 288, 384, [20, 40, 180, 255]);
+    const { workspaceRoot } = await createEventWorkspace((map) => {
+      map.events.push(event(1, 1, 1, { characterName: "!$Red" }));
+      map.events.push(event(2, 1, 1, { characterName: secondName }));
+    }, [
+      { category: "characters", name: "!$Red", image: red },
+      { category: "characters", name: secondName, image: blue },
+    ]);
+    try {
+      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1, events: false });
+      expect(pixel(PNG.sync.read(await readFile(result.artifacts.png)), 72, 24)).toEqual(expected);
+    } finally {
+      await rm(workspaceRoot, { recursive: true, force: true });
+    }
+  });
+
   it("places event priorities z1/z3 above lower tiles and below starred tiles, with z5 above both", async () => {
     const actor = new PNG({ width: 144, height: 192 });
     paint(actor, 0, 0, 144, 192, [20, 40, 210, 255]);
