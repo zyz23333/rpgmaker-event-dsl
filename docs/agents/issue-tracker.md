@@ -11,7 +11,7 @@ Issues and specs for this repo live as Markdown files in `.scratch/`.
 - When triaging an implementation ticket, record its category as `Category: bug` or `Category: enhancement`.
 - Record dependencies in a `Blocked by:` line using ticket numbers and titles, or `None`. A ticket is unblocked when all its blockers are resolved or closed.
 - Append discussion under a `## Comments` heading. Keep acceptance criteria and verification results with the ticket.
-- `.scratch/` is local planning space and is ignored by Git in this repo.
+- `.scratch/` contains local Markdown planning artifacts and is not ignored by Git; specs and tickets can be reviewed and committed with the repository.
 
 ## When a skill says "publish to the issue tracker"
 
