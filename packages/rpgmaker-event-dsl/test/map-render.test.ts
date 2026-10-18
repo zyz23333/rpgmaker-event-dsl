@@ -168,13 +168,12 @@ describe("Workspace Map Preview", () => {
     }
   });
 
-  it.each(["autotile", "upper tile", "layer", "shadow", "parallax", "event image"])(
+  it.each(["upper tile", "layer", "shadow", "parallax", "event image"])(
     "rejects unsupported %s rather than silently producing an incomplete scene",
     async (feature) => {
       const { workspaceRoot, dataDirectory } = await createMapWorkspace({ clone: false });
       try {
         const map = mapFixture();
-        if (feature === "autotile") map.data[0] = 2048;
         if (feature === "upper tile") {
           map.data[0] = 1;
           const path = join(dataDirectory, "Tilesets.json");

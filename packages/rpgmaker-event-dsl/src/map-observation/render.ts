@@ -10,6 +10,7 @@ import { planMapViewport } from "./viewport.js";
 import { drawCoordinateOverlay } from "./overlays.js";
 import { blitRaster, createRaster, decodePng, encodePng } from "./raster.js";
 import type { Raster } from "./raster.js";
+import { drawAutotile, getAutotileSlot } from "./native-autotiles.js";
 
 const imageSchema = z.object({
   characterName: z.string(),
@@ -114,18 +115,29 @@ export async function renderMapPreview(options: {
       throw new Error("Shadow rendering is not implemented yet.");
     const tileId = map.data[index]!;
     if (tileId === 0) continue;
-    if (tileId >= 2048) throw new Error("Autotile rendering is not implemented yet.");
     if (tileId >= 1024 && tileId < 1536) throw new Error(`Malformed ordinary tile ID ${tileId}.`);
     const flags = tileset.flags[tileId];
     if (flags === undefined)
       throw new Error(`Tileset flags are missing required tile ID ${tileId}.`);
     if ((flags & 0x10) !== 0) throw new Error("Upper tile layer rendering is not implemented yet.");
-    const slot = tileId >= 1536 ? 4 : 5 + Math.floor(tileId / 256);
+    const slot =
+      tileId >= 2048 ? getAutotileSlot(tileId) : tileId >= 1536 ? 4 : 5 + Math.floor(tileId / 256);
     const asset = await loadTileset(slot);
     // MV ordinary tiles use two eight-column blocks in each B-E sheet.
     const sx = ((Math.floor(tileId / 128) % 2) * 8 + (tileId % 8)) * 48;
     const sy = (Math.floor((tileId % 256) / 8) % 16) * 48;
     try {
+      if (tileId >= 2048) {
+        drawAutotile(
+          raster,
+          asset,
+          tileId,
+          flags,
+          (index % map.width) * 48,
+          Math.floor(index / map.width) * 48,
+        );
+        continue;
+      }
       blitRaster(
         raster,
         asset,
