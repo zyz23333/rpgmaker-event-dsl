@@ -1,8 +1,10 @@
 # RPG Maker Event DSL
 
-This context defines the language for a TypeScript-first authoring layer that turns intentional RPG Maker event changes into validated project data for supported RPG Maker engines.
+This glossary defines the language for a TypeScript-first authoring layer that turns intentional RPG Maker event changes into validated project data for supported RPG Maker engines, including Map Inspection and Map Preview. It also records the existing domain relationships, examples, and resolved ambiguities.
 
 ## Language
+
+### Event DSL and Workspace
 
 **Event DSL**:
 The TypeScript authoring surface for defining RPG Maker events and event commands before compilation to supported project data.
@@ -315,6 +317,40 @@ _Avoid_: generic pretty print, whitespace-preserving text patch
 **Compiler Default**:
 A documented built-in value used to complete MV runtime-required output fields omitted from the TypeScript input schema.
 _Avoid_: config default, inherited old value
+
+### Map Inspection and Map Preview
+
+**Selected Map**:
+The RPG Maker MV map explicitly identified as the subject of an event-authoring task.
+_Avoid_: current editor map, current player map, implicit current map
+
+**Map Inspection**:
+A structured, read-only description of a Selected Map's layout and Map Events.
+_Avoid_: runtime state inspection, raw map dump, map editing
+
+**Map Preview**:
+A static visual representation of a Selected Map's layout and Map Event locations.
+_Avoid_: game screenshot, live map view, playtest
+
+**Map Cell**:
+A location on a map's grid containing the tile layers and location-specific map information at that coordinate.
+_Avoid_: tile image, pixel coordinate, single tile layer
+
+**Map Image Asset**:
+A project image used to depict a map's tiles, parallax background, or Map Events.
+_Avoid_: tileset database entry, project data snapshot
+
+**Preview Page**:
+The Event Page selected to supply a Map Event's appearance in a Map Preview, independently of runtime page activation.
+_Avoid_: active page, current event page, simulated page
+
+**Preview Bounds**:
+The rectangle of Map Cells represented by a Map Preview, expressed in the original map's coordinates.
+_Avoid_: Region ID, local map coordinates, screen bounds
+
+**Incomplete Map Preview**:
+A Map Preview that visibly substitutes placeholders for unavailable Map Image Assets.
+_Avoid_: complete preview, empty map area, successful asset restoration
 
 ## Relationships
 
