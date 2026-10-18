@@ -9,6 +9,14 @@ export {
 } from "./workspace/operations.js";
 export { pushWorkspace } from "./workspace/push.js";
 export { inspectWorkspaceMap, listWorkspaceMaps } from "./workspace/map-observation.js";
+export { renderWorkspaceMap } from "./workspace/map-preview.js";
+export type { RenderWorkspaceMapOptions } from "./workspace/map-preview.js";
+export type {
+  MapPreviewBounds,
+  MapImageInput,
+  MapPreviewPage,
+  MapPreviewResult,
+} from "./map-observation/preview-types.js";
 export type {
   InspectWorkspaceMapOptions,
   MapObservationOptions,
