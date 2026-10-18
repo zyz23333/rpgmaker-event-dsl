@@ -1,6 +1,6 @@
 # Third-party notices
 
-Native map tile composition and autotile lookup tables are adapted from [RPG Maker MV CoreScript](https://github.com/rpgtkoolmv/corescript), `js/rpg_core/Tilemap.js`.
+Native map tile composition, autotile lookup tables, and static event sprite positioning and frame selection are adapted from [RPG Maker MV CoreScript](https://github.com/rpgtkoolmv/corescript): `js/rpg_core/Tilemap.js`, `js/rpg_sprites/Sprite_Character.js`, and `js/rpg_objects/Game_CharacterBase.js`.
 
 MIT License
 

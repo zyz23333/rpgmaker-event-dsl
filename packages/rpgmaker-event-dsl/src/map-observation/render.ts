@@ -4,7 +4,7 @@ import { drawIncompleteNotice } from "./incomplete-notice.js";
 import type { ValidatedMap, ValidatedTileset } from "./read.js";
 import type { MapPreviewBounds, MapPreviewPage } from "./preview-types.js";
 import { planMapViewport } from "./viewport.js";
-import { drawCoordinateOverlay } from "./overlays.js";
+import { drawCoordinateOverlay, drawEventMarkers } from "./overlays.js";
 import { blitRaster, createRaster, encodePng } from "./raster.js";
 import type { Raster } from "./raster.js";
 import { drawNativeParallax, drawNativeShadow, nativeCellLayers } from "./native-layers.js";
@@ -24,8 +24,12 @@ export async function renderMapPreview(options: {
   const { map, tileset, projectRoot } = options;
   const previewEvents = selectPreviewEvents(map, options.eventPages);
   const previewPages = previewEvents.map(({ eventId, page }) => ({ eventId, page }));
-  const orderedEvents = [...previewEvents].sort((left, right) =>
-    left.priorityType - right.priorityType || left.bottomY - right.bottomY || left.order - right.order);
+  const orderedEvents = [...previewEvents].sort(
+    (left, right) =>
+      left.priorityType - right.priorityType ||
+      left.bottomY - right.bottomY ||
+      left.order - right.order,
+  );
   const viewport = planMapViewport(map.width, map.height, options.crop, options.grid ?? true);
   const raster = createRaster(viewport.output.width, viewport.output.height);
   raster.viewport = {
@@ -110,6 +114,7 @@ export async function renderMapPreview(options: {
   for (const event of orderedEvents.filter((event) => event.priorityType === 2))
     await drawNativeEvent({ target: raster, event, map, tileset, loadImage });
   drawCoordinateOverlay(raster, viewport);
+  if (options.events !== false) drawEventMarkers(raster, previewEvents, viewport);
   if (imageLoader.warnings.length > 0) drawIncompleteNotice(raster);
   return {
     png: encodePng(raster),
@@ -129,5 +134,6 @@ export async function renderMapPreview(options: {
     width: raster.width,
     height: raster.height,
     ...viewport,
+    overlays: { ...viewport.overlays, events: options.events !== false },
   };
 }

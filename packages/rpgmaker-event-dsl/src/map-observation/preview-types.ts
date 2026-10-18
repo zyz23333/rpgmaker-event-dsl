@@ -32,7 +32,7 @@ export type MapPreviewResult = Omit<MapObservationResult, "warnings"> & {
   mapContent: MapPreviewBounds;
   /** Original map cell boundaries map to (x * scaleX + offsetX, y * scaleY + offsetY). */
   transform: { scaleX: number; scaleY: number; offsetX: number; offsetY: number };
-  overlays: { grid: boolean; coordinateStep: { x: number; y: number } };
+  overlays: { grid: boolean; events: boolean; coordinateStep: { x: number; y: number } };
   compatibility: { target: "rpg-maker-mv-native-static"; animationFrame: 0 };
   previewPages: MapPreviewPage[];
   parallax: {

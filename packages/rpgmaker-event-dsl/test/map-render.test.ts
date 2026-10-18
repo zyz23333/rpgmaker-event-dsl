@@ -168,26 +168,6 @@ describe("Workspace Map Preview", () => {
     }
   });
 
-  it.each(["event image"])(
-    "rejects unsupported %s rather than silently producing an incomplete scene",
-    async (feature) => {
-      const { workspaceRoot, dataDirectory } = await createMapWorkspace({ clone: false });
-      try {
-        const map = mapFixture();
-        if (feature === "event image") map.events[1]!.pages[0]!.image.characterName = "Actor1";
-        await writeFile(join(dataDirectory, "Map001.json"), JSON.stringify(map));
-        await cloneWorkspace({ workspaceRoot });
-        const before = await readWorkspaceFiles(workspaceRoot);
-        await expect(renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1 })).rejects.toThrow(
-          /not implemented|resource limit/u,
-        );
-        expect(await readWorkspaceFiles(workspaceRoot)).toEqual(before);
-      } finally {
-        await rm(workspaceRoot, { recursive: true, force: true });
-      }
-    },
-  );
-
   it("exposes artifact locations through clean CLI JSON and readable human output", async () => {
     const { workspaceRoot } = await createOrdinaryTileWorkspace();
     try {

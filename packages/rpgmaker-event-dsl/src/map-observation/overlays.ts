@@ -1,4 +1,4 @@
-import { fillRasterRect } from "./raster.js";
+import { blitRaster, createRaster, fillRasterRect } from "./raster.js";
 import type { Raster } from "./raster.js";
 import type { planMapViewport } from "./viewport.js";
 
@@ -74,6 +74,43 @@ export function drawCoordinateOverlay(
       mapContent.x - 8 - (text.length * 4 - 1),
       Math.round(py + transform.scaleY / 2 - 2),
       foreground,
+    );
+  }
+}
+
+export function drawEventMarkers(
+  target: Raster,
+  events: readonly { eventId: number; x: number; y: number }[],
+  viewport: ReturnType<typeof planMapViewport>,
+): void {
+  const { bounds, mapContent, transform } = viewport;
+  const output: Raster = {
+    width: target.width,
+    height: target.height,
+    data: target.data,
+    viewport: { scaleX: 1, scaleY: 1, offsetX: 0, offsetY: 0, clip: mapContent },
+  };
+  for (const event of events) {
+    if (
+      event.x < bounds.x ||
+      event.y < bounds.y ||
+      event.x >= bounds.x + bounds.width ||
+      event.y >= bounds.y + bounds.height
+    )
+      continue;
+    const text = String(event.eventId);
+    const badge = createRaster(text.length * 4 + 3, 9);
+    fillRasterRect(badge, 0, 0, badge.width, badge.height, [255, 208, 64, 255]);
+    drawRasterText(badge, text, 2, 2, [20, 24, 32, 255]);
+    blitRaster(
+      output,
+      badge,
+      0,
+      0,
+      badge.width,
+      badge.height,
+      Math.round(event.x * transform.scaleX + transform.offsetX + 2),
+      Math.round(event.y * transform.scaleY + transform.offsetY + 2),
     );
   }
 }

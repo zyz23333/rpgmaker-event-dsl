@@ -3,7 +3,11 @@ import { mkdir, rename, rm, writeFile } from "node:fs/promises";
 import { isAbsolute, relative, resolve } from "node:path";
 
 import { renderMapPreview } from "../map-observation/render.js";
-import type { MapPreviewBounds, MapPreviewPage, MapPreviewResult } from "../map-observation/preview-types.js";
+import type {
+  MapPreviewBounds,
+  MapPreviewPage,
+  MapPreviewResult,
+} from "../map-observation/preview-types.js";
 import { loadSelectedWorkspaceMap } from "./map-observation.js";
 import type { MapObservationOptions } from "./map-observation.js";
 
@@ -40,6 +44,7 @@ export async function renderWorkspaceMap(
         data: context.dataInputs,
         images: rendered.imageInputs,
         grid: options.grid ?? true,
+        events: options.events ?? true,
       }),
     )
     .digest("hex")
