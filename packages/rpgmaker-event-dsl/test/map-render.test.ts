@@ -57,7 +57,12 @@ describe("Workspace Map Preview", () => {
     const { workspaceRoot } = await createOrdinaryTileWorkspace();
     try {
       await compileMapWorkspace(workspaceRoot);
-      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1, source: "generated" });
+      const result = await renderWorkspaceMap({
+        grid: false,
+        workspaceRoot,
+        mapId: 1,
+        source: "generated",
+      });
       expect(result.source).toBe("generated");
       expect(result.previewPages).toEqual([{ eventId: 2, page: 1 }]);
       expect(
@@ -86,7 +91,7 @@ describe("Workspace Map Preview", () => {
         join(projectRoot, "js", "plugins.js"),
         'throw new Error("Project scripts were executed");',
       );
-      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1 });
+      const result = await renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1 });
       expect(result.imageInputs).toEqual([]);
       expect(result.complete).toBe(true);
       expect(result.previewPages).toEqual([{ eventId: 1, page: 1 }]);
@@ -114,7 +119,9 @@ describe("Workspace Map Preview", () => {
           await writeFile(path, oversizedHeader);
         }
         const before = await readWorkspaceFiles(workspaceRoot);
-        await expect(renderWorkspaceMap({ workspaceRoot, mapId: 1 })).rejects.toThrow(/A5/u);
+        await expect(renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1 })).rejects.toThrow(
+          /A5/u,
+        );
         expect(await readWorkspaceFiles(workspaceRoot)).toEqual(before);
       } finally {
         await rm(workspaceRoot, { recursive: true, force: true });
@@ -126,7 +133,12 @@ describe("Workspace Map Preview", () => {
     const { workspaceRoot, projectRoot } = await createOrdinaryTileWorkspace();
     try {
       await compileMapWorkspace(workspaceRoot);
-      const first = await renderWorkspaceMap({ workspaceRoot, mapId: 1, source: "generated" });
+      const first = await renderWorkspaceMap({
+        grid: false,
+        workspaceRoot,
+        mapId: 1,
+        source: "generated",
+      });
       const state = join(workspaceRoot, ".rpgmaker-event-dsl");
       const manifest = await readFile(join(state, "sync-manifest.json"));
       const imagePath = join(projectRoot, "img", "tilesets", "C.png");
@@ -134,7 +146,12 @@ describe("Workspace Map Preview", () => {
       for (let y = 0; y < 48; y++)
         for (let x = 0; x < 48; x++) png.data.set([42, 52, 62, 255], (y * png.width + x) * 4);
       await writeFile(imagePath, PNG.sync.write(png));
-      const second = await renderWorkspaceMap({ workspaceRoot, mapId: 1, source: "generated" });
+      const second = await renderWorkspaceMap({
+        grid: false,
+        workspaceRoot,
+        mapId: 1,
+        source: "generated",
+      });
       expect(second.dataInputs).toEqual(first.dataInputs);
       expect(
         second.imageInputs.find(({ relativePath }) => relativePath.endsWith("C.png"))?.hash,
@@ -151,7 +168,7 @@ describe("Workspace Map Preview", () => {
     }
   });
 
-  it.each(["autotile", "upper tile", "layer", "shadow", "parallax", "event image", "large output"])(
+  it.each(["autotile", "upper tile", "layer", "shadow", "parallax", "event image"])(
     "rejects unsupported %s rather than silently producing an incomplete scene",
     async (feature) => {
       const { workspaceRoot, dataDirectory } = await createMapWorkspace({ clone: false });
@@ -169,14 +186,10 @@ describe("Workspace Map Preview", () => {
         if (feature === "shadow") map.data[24] = 1;
         if (feature === "parallax") map.parallaxName = "Sky";
         if (feature === "event image") map.events[1]!.pages[0]!.image.characterName = "Actor1";
-        if (feature === "large output") {
-          map.width = 100;
-          map.data = Array<number>(1200).fill(0);
-        }
         await writeFile(join(dataDirectory, "Map001.json"), JSON.stringify(map));
         await cloneWorkspace({ workspaceRoot });
         const before = await readWorkspaceFiles(workspaceRoot);
-        await expect(renderWorkspaceMap({ workspaceRoot, mapId: 1 })).rejects.toThrow(
+        await expect(renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1 })).rejects.toThrow(
           /not implemented|resource limit/u,
         );
         expect(await readWorkspaceFiles(workspaceRoot)).toEqual(before);
@@ -191,7 +204,16 @@ describe("Workspace Map Preview", () => {
     try {
       const execute = promisify(execFile);
       const cli = fileURLToPath(new URL("../src/cli.ts", import.meta.url));
-      const args = ["--import", import.meta.resolve("tsx"), cli, "map", "render", "--map", "1"];
+      const args = [
+        "--import",
+        import.meta.resolve("tsx"),
+        cli,
+        "map",
+        "render",
+        "--map",
+        "1",
+        "--no-grid",
+      ];
       const json = await execute(process.execPath, [...args, "--json"], { cwd: workspaceRoot });
       expect(JSON.parse(json.stdout)).toMatchObject({
         kind: "map-preview",
@@ -212,7 +234,7 @@ describe("Workspace Map Preview", () => {
     const { workspaceRoot, projectRoot } = await createOrdinaryTileWorkspace();
     try {
       const before = await readWorkspaceFiles(workspaceRoot);
-      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1 });
+      const result = await renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1 });
       expect(result).toMatchObject({
         schemaVersion: 1,
         kind: "map-preview",

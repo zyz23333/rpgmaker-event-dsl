@@ -5,7 +5,9 @@ import { isAbsolute, relative, resolve } from "node:path";
 import { z } from "zod";
 
 import type { ValidatedMap, ValidatedTileset } from "./read.js";
-import type { MapImageInput, MapPreviewPage } from "./preview-types.js";
+import type { MapImageInput, MapPreviewBounds, MapPreviewPage } from "./preview-types.js";
+import { planMapViewport } from "./viewport.js";
+import { drawCoordinateOverlay } from "./overlays.js";
 import { blitRaster, createRaster, decodePng, encodePng } from "./raster.js";
 import type { Raster } from "./raster.js";
 
@@ -33,11 +35,21 @@ export async function renderMapPreview(options: {
   map: ValidatedMap;
   tileset: ValidatedTileset;
   projectRoot: string;
+  crop?: MapPreviewBounds;
+  grid?: boolean;
 }) {
   const { map, tileset, projectRoot } = options;
   if (map.parallaxName !== "") throw new Error("Parallax rendering is not implemented yet.");
   const previewPages = readPreviewPages(map);
-  const raster = createRaster(map.width * 48, map.height * 48);
+  const viewport = planMapViewport(map.width, map.height, options.crop, options.grid ?? true);
+  const raster = createRaster(viewport.output.width, viewport.output.height);
+  raster.viewport = {
+    scaleX: viewport.transform.scaleX / 48,
+    scaleY: viewport.transform.scaleY / 48,
+    offsetX: viewport.transform.offsetX,
+    offsetY: viewport.transform.offsetY,
+    clip: viewport.mapContent,
+  };
   const assets = new Map<string, Raster>();
   const imageInputs: MapImageInput[] = [];
 
@@ -86,6 +98,15 @@ export async function renderMapPreview(options: {
 
   const cells = map.width * map.height;
   for (let index = 0; index < cells; index++) {
+    const x = index % map.width;
+    const y = Math.floor(index / map.width);
+    if (
+      x < viewport.bounds.x ||
+      y < viewport.bounds.y ||
+      x >= viewport.bounds.x + viewport.bounds.width ||
+      y >= viewport.bounds.y + viewport.bounds.height
+    )
+      continue;
     if ([1, 2, 3].some((layer) => map.data[layer * cells + index] !== 0)) {
       throw new Error("Multiple tile layer rendering is not implemented yet.");
     }
@@ -122,11 +143,13 @@ export async function renderMapPreview(options: {
       );
     }
   }
+  drawCoordinateOverlay(raster, viewport);
   return {
     png: encodePng(raster),
     imageInputs,
     previewPages,
     width: raster.width,
     height: raster.height,
+    ...viewport,
   };
 }
