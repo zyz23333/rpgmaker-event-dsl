@@ -151,13 +151,12 @@ describe("Workspace Map Preview", () => {
     }
   });
 
-  it.each(["autotile", "event image", "large output"])(
+  it.each(["event image", "large output"])(
     "rejects unsupported %s rather than silently producing an incomplete scene",
     async (feature) => {
       const { workspaceRoot, dataDirectory } = await createMapWorkspace({ clone: false });
       try {
         const map = mapFixture();
-        if (feature === "autotile") map.data[0] = 2048;
         if (feature === "event image") map.events[1]!.pages[0]!.image.characterName = "Actor1";
         if (feature === "large output") {
           map.width = 100;

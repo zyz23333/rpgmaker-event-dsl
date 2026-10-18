@@ -2,8 +2,10 @@ import { Command, Option } from "commander";
 
 import type {
   MapListResult,
-  MapObservationSource,
+  MapCellDetail,
   MapInspectionResult,
+  MapInspectionSelector,
+  MapObservationSource,
 } from "./map-observation/types.js";
 import { inspectWorkspaceMap, listWorkspaceMaps } from "./workspace/map-observation.js";
 import { registerMapRenderCommand } from "./cli-map-preview.js";
@@ -14,11 +16,36 @@ function sourceOption(): Option {
     .default("snapshot");
 }
 
+function formatMapCell(cell: MapCellDetail): string[] {
+  return [
+    `Cell (${cell.x}, ${cell.y}): Region ID: ${cell.regionId}; Terrain Tag: ${cell.terrainTag}; shadow bits: ${cell.shadowBits}`,
+    ...cell.layers.map(
+      (layer) =>
+        `  Layer ${layer.layer}: tile ${layer.tileId}; raw flags ${layer.rawFlags}; ${JSON.stringify(layer.flags)}`,
+    ),
+  ];
+}
+
 function formatMapResult(result: MapListResult | MapInspectionResult): string {
   if (result.kind === "map-list") {
     return [
       `Maps (${result.source}):`,
       ...result.maps.map((map) => `  ${map.id}: ${map.name} (parent: ${map.parentId})`),
+    ].join("\n");
+  }
+  if (result.kind === "map-cell") {
+    return [
+      `Map ${result.map.id}: ${result.map.name} (${result.source})`,
+      ...formatMapCell(result.cell),
+    ].join("\n");
+  }
+  if (result.kind === "map-area") {
+    return [
+      `Map ${result.map.id}: ${result.map.name} (${result.source})`,
+      `Area (${result.bounds.x}, ${result.bounds.y}), ${result.bounds.width} x ${result.bounds.height} cells:`,
+      ...result.cells.flatMap(formatMapCell),
+      `Events (${result.events.length}):`,
+      ...result.events.map((event) => `  ${event.id}: ${event.name} at (${event.x}, ${event.y})`),
     ].join("\n");
   }
   if (result.kind === "map-event") {
@@ -47,6 +74,38 @@ function formatMapResult(result: MapListResult | MapInspectionResult): string {
   ].join("\n");
 }
 
+function parseInspectionSelector(options: {
+  cell?: string;
+  area?: string;
+  event?: number;
+  commands?: boolean;
+}): MapInspectionSelector {
+  if (
+    [options.event, options.cell, options.area].filter((value) => value !== undefined).length > 1
+  ) {
+    throw new Error("--event, --cell, and --area are mutually exclusive inspection selectors.");
+  }
+  if (options.commands && options.event === undefined) {
+    throw new Error("--commands requires --event.");
+  }
+  if (options.event !== undefined) {
+    return { kind: "event", eventId: options.event, commands: options.commands === true };
+  }
+  const kind =
+    options.cell !== undefined ? "cell" : options.area !== undefined ? "area" : "summary";
+  if (kind === "summary") return { kind };
+  const value = kind === "cell" ? options.cell! : options.area!;
+  const components = value.split(",");
+  const expectedCount = kind === "cell" ? 2 : 4;
+  if (components.length !== expectedCount || components.some((part) => !/^-?\d+$/u.test(part))) {
+    throw new Error(
+      `Invalid --${kind}: use ${kind === "cell" ? "X,Y" : "X,Y,width,height"} integer coordinates.`,
+    );
+  }
+  const [x, y, width, height] = components.map(Number) as [number, number, number, number];
+  return kind === "cell" ? { kind, x, y } : { kind, x, y, width, height };
+}
+
 export function registerMapCommands(program: Command): void {
   const map = program
     .command("map")
@@ -66,10 +125,12 @@ export function registerMapCommands(program: Command): void {
     });
   map
     .command("inspect")
-    .description("Inspect the Selected Map's summary or one event's pages.")
+    .description("Inspect the Selected Map's summary or selected event, cell, or area.")
     .requiredOption("--map <id>", "positive RPG Maker MV map ID", Number)
     .option("--event <id>", "inspect one positive map-scoped event ID", Number)
     .option("--commands", "include complete raw commands for the selected event")
+    .option("--cell <x,y>", "inspect one cell using original zero-based map coordinates")
+    .option("--area <x,y,width,height>", "inspect a rectangle and its event definition positions")
     .addOption(sourceOption())
     .option("--json", "print a versioned structured result")
     .action(
@@ -82,28 +143,11 @@ export function registerMapCommands(program: Command): void {
         cell?: string;
         area?: string;
       }) => {
-        if (options.commands === true && options.event === undefined)
-          throw new Error("--commands requires --event.");
-        if (
-          options.event !== undefined &&
-          (options.cell !== undefined || options.area !== undefined)
-        )
-          throw new Error(
-            "--event, --cell, and --area are mutually exclusive inspection selectors.",
-          );
         const result = await inspectWorkspaceMap({
           workspaceRoot: process.cwd(),
           source: options.source,
           mapId: options.map,
-          ...(options.event === undefined
-            ? {}
-            : {
-                selector: {
-                  kind: "event" as const,
-                  eventId: options.event,
-                  commands: options.commands === true,
-                },
-              }),
+          selector: parseInspectionSelector(options),
         });
         console.log(options.json ? JSON.stringify(result) : formatMapResult(result));
       },

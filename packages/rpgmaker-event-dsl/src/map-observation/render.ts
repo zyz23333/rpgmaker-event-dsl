@@ -9,6 +9,7 @@ import type { MapImageInput, MapPreviewPage } from "./preview-types.js";
 import { blitRaster, createRaster, decodePng, encodePng } from "./raster.js";
 import type { Raster } from "./raster.js";
 import { drawNativeParallax, drawNativeShadow, nativeCellLayers } from "./native-layers.js";
+import { drawAutotile, drawTableEdge, getAutotileSlot } from "./native-autotiles.js";
 
 const imageSchema = z.object({
   characterName: z.string(),
@@ -95,17 +96,21 @@ export async function renderMapPreview(options: {
 
   async function drawTile(tileId: number, dx: number, dy: number) {
     if (tileId === 0) return;
-    if (tileId >= 2048) throw new Error("Autotile rendering is not implemented yet.");
     if (tileId >= 1024 && tileId < 1536) throw new Error(`Malformed ordinary tile ID ${tileId}.`);
     const flags = tileset.flags[tileId];
     if (flags === undefined)
       throw new Error(`Tileset flags are missing required tile ID ${tileId}.`);
-    const slot = tileId >= 1536 ? 4 : 5 + Math.floor(tileId / 256);
+    const slot =
+      tileId >= 2048 ? getAutotileSlot(tileId) : tileId >= 1536 ? 4 : 5 + Math.floor(tileId / 256);
     const asset = await loadTileset(slot);
     // MV ordinary tiles use two eight-column blocks in each B-E sheet.
     const sx = ((Math.floor(tileId / 128) % 2) * 8 + (tileId % 8)) * 48;
     const sy = (Math.floor((tileId % 256) / 8) % 16) * 48;
     try {
+      if (tileId >= 2048) {
+        drawAutotile(raster, asset, tileId, flags, dx, dy);
+        return;
+      }
       blitRaster(raster, asset, sx, sy, 48, 48, dx, dy);
     } catch (error) {
       throw new Error(
@@ -121,6 +126,10 @@ export async function renderMapPreview(options: {
     const dy = Math.floor(index / map.width) * 48;
     for (const tileId of layers.lowerBeforeShadow) await drawTile(tileId, dx, dy);
     drawNativeShadow(raster, layers.shadowBits, dx, dy);
+    if (layers.tableEdgeTileId !== 0) {
+      const asset = await loadTileset(1);
+      drawTableEdge(raster, asset, layers.tableEdgeTileId, dx, dy);
+    }
     for (const tileId of layers.lowerAfterShadow) await drawTile(tileId, dx, dy);
   }
   // Event sprites at native z1/z3 are composed here by event rendering.
