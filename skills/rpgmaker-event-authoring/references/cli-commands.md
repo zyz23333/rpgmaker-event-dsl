@@ -26,6 +26,13 @@ Project Root containing a `.rpgproject` file and `data/`.
 `decompile` creates non-destructive starter Definition Source from the Project Data
 Snapshot.
 
+`map list` discovers numeric map IDs, names, and parents. `map inspect --map <id>`
+returns a summary or targeted event, cell, or area detail. `map render --map <id>`
+writes a PNG and matching metadata inside the Workspace's preview artifact area.
+All accept `--source snapshot|generated` and `--json`; snapshot is the default.
+Read `map-observation.md` for placement, crops, Preview Pages, provenance, and
+explicit incomplete-output handling. Use each subcommand's `--help` for flags.
+
 `compile --check` validates Definition Source and project-aware references without
 writing Generated Project Data.
 
