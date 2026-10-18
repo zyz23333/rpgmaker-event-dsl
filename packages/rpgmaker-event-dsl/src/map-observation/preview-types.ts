@@ -1,18 +1,28 @@
 import type { MapInfoEntry } from "../project-data/project.js";
-import type { MapObservationResult } from "./types.js";
+import type { MapObservationResult, MapObservationWarning } from "./types.js";
 
 export type MapPreviewBounds = { x: number; y: number; width: number; height: number };
+
+export type MapImageUnavailableReason = "missing" | "unreadable" | "undecodable";
 
 export type MapImageInput = {
   relativePath: string;
   path: string;
-  hash: string;
-  status: "available";
+} & (
+  | { status: "available"; hash: string }
+  | { status: "unavailable"; reason: MapImageUnavailableReason; hash?: never }
+);
+
+export type MapImageWarning = MapObservationWarning & {
+  code: "map-image-unavailable";
+  reason: MapImageUnavailableReason;
+  relativePath: string;
+  path: string;
 };
 
 export type MapPreviewPage = { eventId: number; page: number };
 
-export type MapPreviewResult = MapObservationResult & {
+export type MapPreviewResult = Omit<MapObservationResult, "warnings"> & {
   kind: "map-preview";
   map: MapInfoEntry;
   originalMap: { width: number; height: number; tileWidth: 48; tileHeight: 48 };
@@ -26,4 +36,5 @@ export type MapPreviewResult = MapObservationResult & {
   imageInputs: MapImageInput[];
   artifacts: { png: string; metadata: string };
   complete: boolean;
+  warnings: MapImageWarning[];
 };

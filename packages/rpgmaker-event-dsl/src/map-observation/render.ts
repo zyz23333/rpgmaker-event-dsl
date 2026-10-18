@@ -1,12 +1,10 @@
-import { createHash } from "node:crypto";
-import { readFile } from "node:fs/promises";
-import { isAbsolute, relative, resolve } from "node:path";
-
+import { createMapImageLoader } from "./assets.js";
+import { drawIncompleteNotice } from "./incomplete-notice.js";
 import { z } from "zod";
 
 import type { ValidatedMap, ValidatedTileset } from "./read.js";
-import type { MapImageInput, MapPreviewPage } from "./preview-types.js";
-import { blitRaster, createRaster, decodePng, encodePng } from "./raster.js";
+import type { MapPreviewPage } from "./preview-types.js";
+import { blitRaster, createRaster, encodePng } from "./raster.js";
 import type { Raster } from "./raster.js";
 import { drawAutotile, getAutotileSlot } from "./native-autotiles.js";
 
@@ -34,55 +32,22 @@ export async function renderMapPreview(options: {
   map: ValidatedMap;
   tileset: ValidatedTileset;
   projectRoot: string;
+  allowMissingAssets?: boolean;
 }) {
   const { map, tileset, projectRoot } = options;
   if (map.parallaxName !== "") throw new Error("Parallax rendering is not implemented yet.");
   const previewPages = readPreviewPages(map);
   const raster = createRaster(map.width * 48, map.height * 48);
-  const assets = new Map<string, Raster>();
-  const imageInputs: MapImageInput[] = [];
+  const imageLoader = createMapImageLoader({
+    projectRoot,
+    allowMissingAssets: options.allowMissingAssets === true,
+  });
 
   async function loadTileset(slot: number): Promise<Raster> {
     const name = tileset.tilesetNames[slot];
-    if (name === undefined || name === "") {
+    if (name === undefined || name === "")
       throw new Error(`Required tileset image slot ${slot} has no filename in Tilesets.json.`);
-    }
-    const relativePath = `img/tilesets/${name}.png`;
-    const path = resolve(projectRoot, relativePath);
-    const withinProject = relative(projectRoot, path);
-    if (withinProject.startsWith("..") || isAbsolute(withinProject) || /[\\/]/u.test(name)) {
-      throw new Error(
-        `Invalid tileset image filename ${JSON.stringify(name)}: use a project asset filename.`,
-      );
-    }
-    const cached = assets.get(path);
-    if (cached !== undefined) return cached;
-    let bytes: Buffer;
-    try {
-      bytes = await readFile(path);
-    } catch (error) {
-      throw new Error(
-        `Cannot read required Map Image Asset ${relativePath} from Project Root ${projectRoot}. Restore the PNG image before rendering.`,
-        { cause: error },
-      );
-    }
-    let asset: Raster;
-    try {
-      asset = decodePng(bytes);
-    } catch (error) {
-      throw new Error(
-        `Cannot decode required Map Image Asset ${relativePath}: ${error instanceof Error ? error.message : String(error)} Restore a valid PNG image before rendering.`,
-        { cause: error },
-      );
-    }
-    assets.set(path, asset);
-    imageInputs.push({
-      relativePath,
-      path,
-      status: "available",
-      hash: createHash("sha256").update(bytes).digest("hex"),
-    });
-    return asset;
+    return imageLoader.load("tilesets", name);
   }
 
   const cells = map.width * map.height;
@@ -134,9 +99,11 @@ export async function renderMapPreview(options: {
       );
     }
   }
+  if (imageLoader.warnings.length > 0) drawIncompleteNotice(raster);
   return {
     png: encodePng(raster),
-    imageInputs,
+    imageInputs: imageLoader.imageInputs,
+    warnings: imageLoader.warnings,
     previewPages,
     width: raster.width,
     height: raster.height,
