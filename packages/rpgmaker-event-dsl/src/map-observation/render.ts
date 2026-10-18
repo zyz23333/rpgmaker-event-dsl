@@ -2,47 +2,28 @@ import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { isAbsolute, relative, resolve } from "node:path";
 
-import { z } from "zod";
-
 import type { ValidatedMap, ValidatedTileset } from "./read.js";
-import type { MapImageInput, MapPreviewPage } from "./preview-types.js";
+import type { MapImageInput } from "./preview-types.js";
 import { blitRaster, createRaster, decodePng, encodePng } from "./raster.js";
 import type { Raster } from "./raster.js";
 import { drawNativeParallax, drawNativeShadow, nativeCellLayers } from "./native-layers.js";
 import { drawAutotile, drawTableEdge, getAutotileSlot } from "./native-autotiles.js";
-
-const imageSchema = z.object({
-  characterName: z.string(),
-  tileId: z.number().int().nonnegative(),
-});
-
-function readPreviewPages(map: ValidatedMap): MapPreviewPage[] {
-  return map.events.flatMap((event) => {
-    if (event === null) return [];
-    const image = imageSchema.safeParse(event.pages[0]?.image);
-    if (!image.success)
-      throw new Error(`Malformed event ${event.id} Preview Page 1 image definition.`);
-    if (image.data.tileId !== 0 || image.data.characterName !== "") {
-      throw new Error(
-        `Event ${event.id} has a visual image. Event image rendering is not implemented yet.`,
-      );
-    }
-    return [{ eventId: event.id, page: 1 }];
-  });
-}
+import { drawNativeEvent, selectPreviewEvents } from "./native-events.js";
 
 export async function renderMapPreview(options: {
   map: ValidatedMap;
   tileset: ValidatedTileset;
   projectRoot: string;
+  events?: boolean;
 }) {
   const { map, tileset, projectRoot } = options;
-  const previewPages = readPreviewPages(map);
+  const previewEvents = selectPreviewEvents(map);
+  const previewPages = previewEvents.map(({ eventId, page }) => ({ eventId, page }));
   const raster = createRaster(map.width * 48, map.height * 48);
   const assets = new Map<string, Raster>();
   const imageInputs: MapImageInput[] = [];
 
-  async function loadImage(category: "tilesets" | "parallaxes", name: string): Promise<Raster> {
+  async function loadImage(category: "tilesets" | "parallaxes" | "characters", name: string): Promise<Raster> {
     const relativePath = `img/${category}/${name}.png`;
     const path = resolve(projectRoot, relativePath);
     const withinProject = relative(projectRoot, path);
@@ -132,13 +113,17 @@ export async function renderMapPreview(options: {
     }
     for (const tileId of layers.lowerAfterShadow) await drawTile(tileId, dx, dy);
   }
-  // Event sprites at native z1/z3 are composed here by event rendering.
+  for (const priority of [0, 1]) {
+    for (const event of previewEvents.filter((event) => event.priorityType === priority))
+      await drawNativeEvent({ target: raster, event, tileset, loadImage });
+  }
   for (let index = 0; index < cells; index++) {
     const layers = nativeCellLayers(map, tileset, index);
     for (const tileId of layers.upper)
       await drawTile(tileId, (index % map.width) * 48, Math.floor(index / map.width) * 48);
   }
-  // Native z5 event sprites are above the upper tile scene.
+  for (const event of previewEvents.filter((event) => event.priorityType === 2))
+    await drawNativeEvent({ target: raster, event, tileset, loadImage });
   return {
     png: encodePng(raster),
     imageInputs,

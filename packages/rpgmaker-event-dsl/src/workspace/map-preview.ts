@@ -7,7 +7,7 @@ import type { MapPreviewResult } from "../map-observation/preview-types.js";
 import { loadSelectedWorkspaceMap } from "./map-observation.js";
 import type { MapObservationOptions } from "./map-observation.js";
 
-export type RenderWorkspaceMapOptions = MapObservationOptions & { mapId: number };
+export type RenderWorkspaceMapOptions = MapObservationOptions & { mapId: number; events?: boolean };
 
 export async function renderWorkspaceMap(
   options: RenderWorkspaceMapOptions,
@@ -17,6 +17,7 @@ export async function renderWorkspaceMap(
     map: context.map,
     tileset: context.tileset,
     projectRoot: context.workspace.projectRoot,
+    ...(options.events === undefined ? {} : { events: options.events }),
   });
   const bounds = { x: 0, y: 0, width: context.map.width, height: context.map.height };
   const identity = createHash("sha256")

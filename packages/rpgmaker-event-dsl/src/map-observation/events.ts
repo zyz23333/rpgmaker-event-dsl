@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 import { renderCommandAt } from "../decompiler/dispatch.js";
+import { mapEventImageSchema } from "./event-image.js";
 import type { ValidatedMap } from "./read.js";
 import type {
   MapCommandSummary,
@@ -31,15 +32,7 @@ const conditionSchema = z
 const pageSchema = z.object({
   conditions: conditionSchema,
   trigger: z.number().int().min(0).max(4),
-  image: z
-    .object({
-      characterName: z.string(),
-      characterIndex: z.number().int().min(0).max(7),
-      direction: z.union([z.literal(2), z.literal(4), z.literal(6), z.literal(8)]),
-      pattern: z.number().int().min(0).max(2),
-      tileId: z.number().int().nonnegative(),
-    })
-    .passthrough(),
+  image: mapEventImageSchema,
   list: z.array(z.unknown()),
 });
 
