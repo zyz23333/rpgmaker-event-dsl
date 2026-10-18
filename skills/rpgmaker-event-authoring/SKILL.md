@@ -1,6 +1,6 @@
 ---
 name: rpgmaker-event-authoring
-description: Use when an agent needs to author RPG Maker MV gameplay behavior as Event DSL source with rpgmaker-event-dsl. Trigger on requests to set up or take over an RPG Maker MV project, initialize a Workspace, clone or decompile project data, create or modify Map Events, Common Events, event pages, dialogue, choices, quests, chests, doors, transfers, shops, battles, switches, variables, plugin commands, script commands, raw MV event commands, compile, diff, or prepare a reviewed push.
+description: Use when an agent needs to author RPG Maker MV gameplay behavior as Event DSL source with rpgmaker-event-dsl. Trigger on requests to set up or take over an RPG Maker MV project, initialize a Workspace, clone or decompile project data, inspect maps for event placement, create or modify Map Events, Common Events, event pages, dialogue, choices, quests, chests, doors, transfers, shops, battles, switches, variables, plugin commands, script commands, raw MV event commands, compile, diff, or prepare a reviewed push.
 ---
 
 # RPG Maker Event Authoring
@@ -19,7 +19,9 @@ Turn RPG Maker MV gameplay intent into idiomatic Event DSL source. Use Workspace
 
    Identify the trigger, location, player-visible result, repeat behavior, failure path, and persistent state. Add only short functional player-facing text unless the user asks for story, tone, or character voice.
 
-   Completion criterion: the event can be stated as "when the player does X, the game checks Y, does or shows Z, and records state W."
+   For Map Event placement, read `references/map-observation.md`. Resolve the Selected Map by explicit ID, view an overview and a useful crop, and inspect the candidate Map Cell, surrounding area, and relevant events before choosing original-map coordinates.
+
+   Completion criterion: the event can be stated as "when the player does X, the game checks Y, does or shows Z, and records state W," with the Selected Map ID and original coordinates established for a Map Event.
 
 3. Choose the MV event shape.
 
@@ -41,11 +43,13 @@ Turn RPG Maker MV gameplay intent into idiomatic Event DSL source. Use Workspace
 
    Completion criterion: the authored event has no missing command list, accidental repeat, unreachable branch, undefined reference, or unsupported behavior hidden as if it were implemented.
 
-6. Run Workspace validation and stop before unsafe writes.
+6. Validate and review the compiled result.
 
    Run Compile Check, then compile and Diff using the command form available in the Workspace. Usually this is `rpgmaker-event-dsl compile --check`, `rpgmaker-event-dsl compile`, and `rpgmaker-event-dsl diff`. Read `references/cli-commands.md` before choosing unfamiliar commands or flags.
 
-   Completion criterion: Compile Check passes and Diff matches the intended event behavior, or the blocker is reported.
+   After compiling Map Events, inspect and render `--source generated` to verify their identities and original-map positions before reviewing Diff. Follow `references/map-observation.md` for Preview Page choices, image-free compiler pages, provenance, and incomplete previews.
+
+   Completion criterion: Compile Check passes, generated Map Event identities and positions match the intended placement, and Diff matches the intended event behavior, or the blocker is reported.
 
 ## Write Boundary
 
@@ -57,4 +61,4 @@ Do not run `push --allow-destructive` unless the user explicitly confirms the de
 
 ## Output
 
-Report the authored gameplay behavior, changed Definition Source files, introduced switches, variables, self switches, Common Events, plugin commands, script commands, or raw commands, validation results, Diff summary, Affected Project Data Files when available, and whether Push was skipped or completed.
+Report the authored gameplay behavior, changed Definition Source files, introduced switches, variables, self switches, Common Events, plugin commands, script commands, or raw commands, validation results, Diff summary, Affected Project Data Files when available, and whether Push was skipped or completed. For Map Event placement, include the Selected Map ID, original coordinates, observed sources, preview artifact paths, and any incomplete-preview warnings.

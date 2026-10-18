@@ -31,6 +31,7 @@ That makes common developer tasks easier:
 - Search game behavior across source files.
 - Use TypeScript types and validation before writing generated data.
 - Let AI agents propose, inspect, and update RPG Maker MV logic through source files.
+- Inspect map cells and event pages, and preview maps before choosing event coordinates.
 - Keep editor-authored changes in the loop by bringing them back with `pull`.
 
 ## How This Works
@@ -215,13 +216,75 @@ Then create DSL source files under `src/`, such as `src/system.dsl.ts` or
 
 After either path, use the daily workflow whenever you edit DSL source.
 
+## Inspect Maps Before Placing Events
+
+Discover maps by numeric ID, view an overview, then inspect a local entrance or path:
+
+```bash
+rpgmaker-event-dsl map list --json
+rpgmaker-event-dsl map inspect --map 1 --json
+rpgmaker-event-dsl map render --map 1 --json
+rpgmaker-event-dsl map render --map 1 --crop 2,1,3,3 --json
+rpgmaker-event-dsl map inspect --map 1 --cell 3,2 --json
+rpgmaker-event-dsl map inspect --map 1 --area 2,1,3,3 --json
+rpgmaker-event-dsl map inspect --map 1 --event 1 --json
+```
+
+These examples assume map 1 contains the requested bounds and event. Map names may be
+duplicated, so use the ID from the task or map listing. Observation defaults to the
+Project Data Snapshot. It does not Pull, Compile, Push, or run the game or its plugins.
+Event details summarize commands; add `--commands` for complete command records.
+
+Rendering returns absolute PNG and matching metadata paths. Overviews are bounded in
+size; request a crop for local detail. Crop and area coordinates remain in the original
+map, starting at `(0,0)`. Metadata records `bounds`, the content rectangle in
+`mapContent`, and the `transform` from original cell boundaries to output pixels. Grid/coordinate labels
+and event-ID markers are enabled by default. `--no-grid` hides the grid and labels;
+`--no-events` hides markers while retaining actual event images.
+
+Each event's first page supplies its preview appearance. Use repeated overrides such as
+`--event-page 1:2 --event-page 3:1` for other one-based Preview Pages. These are explicit
+preview choices; conditions are not evaluated to determine the runtime-active page.
+
+After authoring Definition Source and compiling, review the actual generated placement:
+
+```bash
+rpgmaker-event-dsl compile --check
+rpgmaker-event-dsl compile
+rpgmaker-event-dsl map inspect --map 1 --source generated --json
+rpgmaker-event-dsl map render --map 1 --source generated --crop 2,1,3,3 --json
+rpgmaker-event-dsl diff
+```
+
+Generated observations require fresh, intact output and use baseline-snapshot names and
+tilesets. They preserve the generated map/event content: the current compiler's
+image-free pages and removal of snapshot-only events remain visible. Per-input
+`dataInputs` records identify actual sources. Rendering reads live images from the
+configured Project Root and records their paths/hashes separately in `imageInputs`;
+images are not captured by Clone/Pull or added to the Compile Baseline.
+
+Missing required images fail normal rendering. Explicit `--allow-missing-assets` enables
+diagnostic placeholders and a visible incomplete notice, with `complete: false` and
+structured warnings. Disclose incomplete output during review. Structured inspection
+works without images, and intentionally image-free events are valid.
+
+Previews target native RPG Maker MV static appearance at animation frame zero. They do
+not evaluate plugin visuals or runtime page activation. Tile flags, Region IDs, and
+Terrain Tags describe stored data; they do not prove passability, reachability, or
+trigger behavior. Use `map <subcommand> --help` for available selectors and options.
+
+The reusable functions `listWorkspaceMaps`, `inspectWorkspaceMap`, and
+`renderWorkspaceMap` are exported from `rpgmaker-event-dsl/workspace`. Inspection uses
+one typed `selector` (`summary`, `event`, `cell`, or `area`); rendering accepts `crop`,
+`grid`, `events`, `eventPages`, and `allowMissingAssets` options.
+
 ## Daily Workflow
 
 After editing DSL source, use this loop:
 
 1. Check whether the source is valid.
 2. Generate RPG Maker MV data in the workspace.
-3. Review what would change.
+3. Review generated Map Event placement when applicable, then review what would change.
 4. Write the reviewed result back to the game project.
 
 Validate the source without writing generated data:
@@ -267,8 +330,8 @@ rpgmaker-event-dsl diff
 ```
 
 `pull` updates the Project Data Snapshot from the Project Root. If the snapshot changes,
-previous Generated Project Data becomes stale, so run `compile` again before `diff` or
-`push`.
+previous Generated Project Data becomes stale, so run `compile` again before generated
+map observation, `diff`, or `push`.
 
 ## Workspace Config
 
@@ -385,6 +448,9 @@ export const doorEvent = mapEvent({
 | ----------------- | ----------------------- | -------------------------------------------------------------------------------------------------------- |
 | `clone`           | No                      | Captures the initial Standard Project Data Snapshot from the configured RPG Maker MV project.            |
 | `decompile`       | No                      | Generates non-destructive DSL source from the Project Data Snapshot without overwriting existing output. |
+| `map list`        | No                      | Lists map IDs, names, and parents from the selected source.                                               |
+| `map inspect`     | No                      | Inspects a Selected Map summary, event, Map Cell, or area.                                                |
+| `map render`      | No                      | Writes a static PNG and provenance metadata to the Workspace preview artifact area.                      |
 | `compile --check` | No                      | Validates discovered DSL source without writing Generated Project Data or freshness metadata.            |
 | `compile`         | No                      | Validates discovered DSL source and writes Generated Project Data in the workspace.                      |
 | `diff`            | No                      | Compares Generated Project Data with the Project Data Snapshot.                                          |
@@ -407,8 +473,8 @@ version.
 
 ### Generated Freshness
 
-Generated Freshness is checked before `diff` and `push`. Generated Project Data becomes
-stale when discovered source files, relevant workspace config fields, or the Project Data
+Generated Freshness is checked before generated map observation, `diff`, and `push`.
+Generated Project Data becomes stale when discovered source files, relevant workspace config fields, or the Project Data
 Snapshot baseline differ from the baseline used by the last `compile`.
 
 ### Project Drift

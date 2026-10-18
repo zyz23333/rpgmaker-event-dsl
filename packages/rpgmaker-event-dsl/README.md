@@ -9,6 +9,8 @@ The package provides:
   references, assets, and RPG Maker MV event commands.
 - A CLI for snapshot-based workflows: `init`, `clone`, `pull`, `decompile`, `compile`,
   `diff`, and `push`.
+- Read-only `map list`, `map inspect`, and `map render` commands for map discovery,
+  targeted cell/event detail, and native-static PNG previews with provenance.
 - Safety checks for generated freshness, project drift, and reviewed destructive changes.
 
 The root package export is the Event DSL authoring surface. Programmatic Workspace
@@ -39,14 +41,49 @@ If you already have event data in the RPG Maker MV project, generate starter DSL
 rpgmaker-event-dsl decompile
 ```
 
-After editing DSL source, validate, compile, review, and push:
+Before placing a Map Event, discover its map and inspect an overview and local detail:
+
+```bash
+rpgmaker-event-dsl map list --json
+rpgmaker-event-dsl map render --map 1 --json
+rpgmaker-event-dsl map render --map 1 --crop 2,1,3,3 --json
+rpgmaker-event-dsl map inspect --map 1 --cell 3,2 --json
+```
+
+Use the selected numeric map ID and bounds that exist in that map. Observation defaults
+to `snapshot`; crop coordinates remain original-map coordinates. Rendering returns
+absolute PNG/metadata paths, with grid labels and event-ID markers enabled by default.
+`--no-grid` hides grid/labels; `--no-events` hides markers while retaining event images.
+The first page supplies each event's appearance; repeat options such as
+`--event-page 1:2 --event-page 3:1` to choose one-based Preview Pages independently of
+runtime activation.
+
+After editing DSL source, validate, compile, review generated placement, and inspect Diff:
 
 ```bash
 rpgmaker-event-dsl compile --check
 rpgmaker-event-dsl compile
+rpgmaker-event-dsl map inspect --map 1 --source generated --json
+rpgmaker-event-dsl map render --map 1 --source generated --json
 rpgmaker-event-dsl diff
-rpgmaker-event-dsl push
 ```
+
+Generated observation requires fresh, intact compiled output and represents image-free
+compiler pages faithfully. Map-data provenance and live Project Root image paths/hashes
+are reported separately. Missing required images fail normally; explicit
+`--allow-missing-assets` renders diagnostic placeholders with a visible incomplete
+notice, `complete: false`, and warnings. Structured inspection needs no images.
+
+Previews target native RPG Maker MV static appearance at frame zero. Plugin visuals,
+runtime page activation, final passability, and trigger behavior are outside this
+observation. It does not implicitly Pull, Compile, or Push. Use `map <subcommand> --help`
+for options. Programmatic observation functions `listWorkspaceMaps`,
+`inspectWorkspaceMap`, and `renderWorkspaceMap` are available from
+`rpgmaker-event-dsl/workspace`.
+
+Run `rpgmaker-event-dsl push` only when the user explicitly requests writing the reviewed
+result to Project Root. Confirm the destructive entries shown by Diff before allowing
+`push --allow-destructive`.
 
 ## Example
 
