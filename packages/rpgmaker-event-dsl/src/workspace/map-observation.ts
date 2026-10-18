@@ -8,11 +8,19 @@ import {
   readSelectedMap,
   readSelectedTileset,
 } from "../map-observation/read.js";
+import {
+  eventReferenceFiles,
+  inspectMapEvent,
+  resolveEventReferences,
+} from "../map-observation/events.js";
 import type {
   MapDataInput,
   MapListResult,
   MapObservationSource,
   MapSummaryResult,
+  MapInspectionSelector,
+  MapInspectionResult,
+  MapEventResult,
 } from "../map-observation/types.js";
 import { assertProjectDataSnapshotExists } from "./checks.js";
 import { loadWorkspace } from "./config.js";
@@ -31,6 +39,7 @@ export type MapObservationOptions = WorkspaceCommandOptions & {
 
 export type InspectWorkspaceMapOptions = MapObservationOptions & {
   mapId: number;
+  selector?: MapInspectionSelector;
 };
 
 export async function loadMapObservationContext(
@@ -169,10 +178,46 @@ export async function loadSelectedWorkspaceMap(
   };
 }
 
+export function inspectWorkspaceMap(
+  options: InspectWorkspaceMapOptions & { selector?: { kind: "summary" } },
+): Promise<MapSummaryResult>;
+export function inspectWorkspaceMap(
+  options: InspectWorkspaceMapOptions & {
+    selector: { kind: "event"; eventId: number; commands?: boolean };
+  },
+): Promise<MapEventResult>;
+export function inspectWorkspaceMap(
+  options: InspectWorkspaceMapOptions,
+): Promise<MapInspectionResult>;
 export async function inspectWorkspaceMap(
   options: InspectWorkspaceMapOptions,
-): Promise<MapSummaryResult> {
+): Promise<MapInspectionResult> {
   const context = await loadSelectedWorkspaceMap(options, "map inspect");
+  if (options.selector?.kind === "event") {
+    if (options.selector.commands !== undefined && typeof options.selector.commands !== "boolean") {
+      throw new Error("The event selector commands option must be boolean.");
+    }
+    const inspection = inspectMapEvent(
+      context.map,
+      options.selector.eventId,
+      options.selector.commands === true,
+    );
+    const related = new Map<string, unknown>();
+    for (const file of eventReferenceFiles(inspection.event)) {
+      const input = await readWorkspaceMapDataInput(context, file);
+      related.set(file, input.value);
+      context.dataInputs.push(input.input);
+    }
+    return {
+      schemaVersion: 1,
+      kind: "map-event",
+      source: context.source,
+      map: context.identity,
+      event: resolveEventReferences(inspection.event, related),
+      dataInputs: context.dataInputs,
+      warnings: inspection.warnings,
+    };
+  }
   return {
     schemaVersion: 1,
     kind: "map-summary",
