@@ -4,7 +4,7 @@ Type: grilling
 Labels: wayfinder:grilling
 Status: open
 Mode: HITL
-Blocked by: 03, 04, 05, 06, 07
+Blocked by: 03, 04, 05, 06, 07, 11
 Parent: [完整支持 MV 原生事件的决策地图](../map.md)
 
 ## Question
@@ -18,6 +18,8 @@ Parent: [完整支持 MV 原生事件的决策地图](../map.md)
 确定可发布的最小原生夹具及其来源、维护方式和首方参考资料缺席时的可重复验证方式；不将本地编辑器和游戏资产提交到仓库。最终产出应足以编写实施规格，但不在本票偷跑功能实现或把尚未执行的验收记为通过。
 
 ## Research inputs
+
+[原生指令逐参数契约还缺哪些证据](11-native-command-parameter-evidence.md) 是已确认的实施规格完成门槛，纳入本票前置依赖。须依据参数证据表规划验收，不能把 105+45 类别库存等同于全参契约完成。
 
 [MV 编辑器分支、移动路线与禁用字段的静态保存证据](../research/editor-serialization.md) 已提供“后续最小原生保存样本任务”，覆盖 402/403/505/code 0、禁用槽、none 公共事件、非 custom 路线与图像选择联动。静态生成规则已知不等于真实编辑器保存实验通过；本票需把该样本任务和游戏运行场景纳入验收矩阵。
 
@@ -49,3 +51,21 @@ Parent: [完整支持 MV 原生事件的决策地图](../map.md)
 - 真实 Workspace 的 decompile/compile/diff/push/恢复链路，包括完整成员上下文、外部 carrier 漂移、Reset 的破坏性检查、全部状态刷新；结合 06 的未知数据契约验证空白判定和禁止静默丢失。
 
 本票继续统筹最小原生夹具、执行环境、证据归属和实施切片；这些输入不是新增的已通过验收记录。
+
+### 2026-10-18 — 原生指令契约与参数证据门槛
+
+[原生指令的完整参数与结构应如何表达和校验](05-native-command-contract.md#answer) 的 Q1–Q24 及完整契约已最终确认，讨论票已解决，ADR 0011 已接受。Q24 已要求 [逐参数契约证据表](11-native-command-parameter-evidence.md) 作为实施规格完成的前置条件，本票已增加对应依赖。105+45类别库存与本轮静态补证均不等于全参或运行验收通过。
+
+验收规划至少包含以下有区分力的案例，再结合完整参数表补齐其他命令族：
+
+- Choices空文字/纯空白/显式尾部空项；1项配默认cancel choice1及2项配choice5的保留和警告；主文字与402镜像；一项重新打开是否引入初始No文字的静态疑点。
+- Conditional缺省else与显式else:[]；空Loop；Battle四种flags组合、缺失必需分支及额外禁用分支的错误；空体code0和非空体处理；403实际落盘参数。
+- Transfer/Set Event Location的retain，Transfer fade、Shop purchaseOnly和Battle flags的省略/显式默认等价；目标编辑器新建默认核实，不能把上游Qt推断写成真实目标实验。
+- 空Shop与非空重复商品/自定义价格；连续ID范围含无名槽、反向错误、Random每目标独立采样和其他operand一次求值、actorFromVariable运行值0全队。
+- None素材保持独立参数；空BGM/SE/Picture等不同语义；ShowText空脸的非零index往返；生成正式源码须能求值并重编译，不能仅检查输出包含helper名称。
+- 文本空行、尾部空行、4/6/12边界、空Script门禁；超长原始组和换行差异按已完成的证据与往返决策核对，不自动裁剪或拆组。
+- Change Equipment按执行时双持/装备槽状态解释同一ID、None卸下、候选缺失及库存不足；不把初始数据库候选当作成功保证。Force Action技能位置与当前敌人数独立。
+- 所有嵌套列表与保存路线的引用/Gate递归，compile --check与compile一致；无名系统槽在最终容量内正常解析，容量外报错；真实Workspace加载Animations/Tilesets及上下文。
+- 当前上下文不适用、缺失位置、循环外Break Loop与缺失/重复Label的准确警告及原生行为；区分跳过、残留对象作用、停滞，不能统一标成no-op。
+
+代表样本区分“只保存事件容器”与“主动打开并确认参数对话框”，分别记录编辑器打开/保存和游戏执行的实际结果。本次只有设计与静态证据整理，没有运行上述产品、编辑器或游戏检查。

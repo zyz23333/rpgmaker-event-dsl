@@ -144,6 +144,10 @@ _Avoid_: Common Event, Common Event Definition, Common Event command
 A DSL Command that runs an RPG Maker MV plugin command.
 _Avoid_: Plugin Command Input, raw command string, runtime plugin registry
 
+**Plugin Command Line**:
+The complete text of an RPG Maker MV plugin command, including whitespace that affects the command and arguments received by a plugin.
+_Avoid_: normalized command text, argument list, Raw DSL Command
+
 **Plugin Command Registry**:
 An optional lint-time catalog of known plugin commands and parameter shapes.
 _Avoid_: runtime dependency, hard validation source
@@ -157,7 +161,7 @@ The Workspace Config setting that must allow Script Input before it can compile 
 _Avoid_: Script Command Enablement, per-node reason gate, implicit script support
 
 **Project Data Reference**:
-A DSL reference value from an Event Definition that identifies an RPG Maker MV project data entry. Disabled Page Condition Slots and disabled actor or switch Battle Page Condition Slots may retain an explicit saved ID without a corresponding entry.
+A DSL reference value from an Event Definition that identifies an RPG Maker MV project data entry or an addressable System Variable Slot or System Switch Slot. Disabled Page Condition Slots and disabled actor or switch Battle Page Condition Slots may retain an explicit saved ID without a corresponding target.
 _Avoid_: project reference, raw ID, definition builder
 
 **Project Data Reference Scope**:
@@ -173,7 +177,7 @@ A Project Data Reference that identifies RPG Maker MV data by numeric ID without
 _Avoid_: raw numeric ID, implicit ID
 
 **Asset Reference**:
-A DSL reference value to an RPG Maker MV asset namespace and filename stem that does not resolve through Project Data References.
+A DSL reference value to an RPG Maker MV asset namespace and non-empty filename stem that does not resolve through Project Data References.
 _Avoid_: Project Data Reference, raw asset string, scanned asset entry
 
 **Asset Category Helper**:
@@ -181,7 +185,7 @@ A category-specific helper for creating an Asset Reference with an explicit RPG 
 _Avoid_: generic assetRef, imgRef, per-folder helper, Project Data Reference helper
 
 **Runtime Selector**:
-A schema-first DSL value that selects a runtime RPG Maker MV object or slot for an event command, such as the player, current event, troop enemy index, party actor target, vehicle, or picture slot, without resolving through Project Data References.
+A schema-first DSL value that selects an RPG Maker MV object, slot, or equipment candidate using execution-time context. A selector is not itself a Project Data Reference, but a fixed project target within it may be identified by one.
 _Avoid_: Project Data Reference, database entry reference, Asset Reference
 
 **Event Data Store**:
@@ -297,12 +301,20 @@ The set of RPG Maker MV data domains for which Event DSL is the authoritative so
 _Avoid_: managed project data, partially-owned data, editor-owned event data
 
 **Variable Definition**:
-A DSL-authored RPG Maker MV system variable entry that is part of DSL-Owned Project Data.
+A DSL-authored declaration of a named System Variable Slot that is part of DSL-Owned Project Data.
 _Avoid_: variable reference, runtime variable value, bare numeric ID
 
 **Switch Definition**:
-A DSL-authored RPG Maker MV system switch entry that is part of DSL-Owned Project Data.
+A DSL-authored declaration of a named System Switch Slot that is part of DSL-Owned Project Data.
 _Avoid_: switch reference, runtime switch value, bare numeric ID
+
+**System Variable Slot**:
+A positive-ID RPG Maker MV variable position within the system's variable capacity, whether or not it has a display name.
+_Avoid_: Variable Definition, missing variable, runtime variable value
+
+**System Switch Slot**:
+A positive-ID RPG Maker MV switch position within the system's switch capacity, whether or not it has a display name.
+_Avoid_: Switch Definition, missing switch, runtime switch value
 
 **Entry Identity**:
 The data-domain-scoped RPG Maker MV ID that identifies one DSL-owned data entry.
@@ -409,7 +421,8 @@ _Avoid_: config default, inherited old value
 - A **Common Event** may be defined by an **Event Definition** and may be run by a **Common Event DSL Command**.
 - A **Plugin DSL Command** does not require a **Plugin Command Registry**.
 - A **Plugin Command Registry** may validate a **Plugin DSL Command** at lint time.
-- **Plugin DSL Command** uses named fields for the command and its arguments.
+- A **Plugin DSL Command** carries one complete **Plugin Command Line**, preserving its whitespace.
+- A **Plugin Command Registry** may interpret a **Plugin Command Line** for linting but does not rewrite it.
 - **Script Input** uses a `code` field for JavaScript-bearing command inputs and requires explicit config enablement.
 - **Script Input** requires the **Script Command Gate** before compilation.
 - A JavaScript-bearing command input may belong to a **Supported Event Command** and still be blocked by the **Script Command Gate**.
@@ -419,11 +432,17 @@ _Avoid_: config default, inherited old value
 - **Explicit ID References** are allowed, while bare numeric IDs are not valid DSL references.
 - **Asset References** are separate from **Project Data References** and do not resolve to RPG Maker MV data entry IDs.
 - **Asset References** use **Asset Category Helpers** rather than a generic asset helper.
-- **Runtime Selectors** do not use **Project Data Reference Scopes** and do not resolve through the **Staged Data Graph**.
+- A native command parameter may explicitly select no asset where that parameter supports it; this absence is distinct from an **Asset Reference**, a missing project target, and an omitted field's **Compiler Default**.
+- Selecting no asset does not discard the command's independently saved settings or imply a universal stop or erase operation.
+- **Runtime Selectors** do not themselves resolve as **Project Data References**; any **Project Data References** they contain still resolve through the **Staged Data Graph**.
+- A **Runtime Selector** describes a runtime selection without guaranteeing that the selected object exists when the command executes.
+- An equipment **Runtime Selector** identifies a candidate according to the actor's equipment slot at execution time, without fixing its database category from the actor's initial state or guaranteeing successful equipment changes.
+- Each **Supported Event Command** accepts only the **Runtime Selector** forms supported by that command's native behavior.
 - Name-based **Project Data References** must resolve to exactly one visible entry in the **Staged Data Graph**.
 - Name-based references to **DSL-Owned Project Data** domains resolve against DSL-owned entries in the **Staged Data Graph**, not by falling back to the **Project Data Snapshot**.
 - Name-based **External Project Data References** resolve against the **Standard Project Data Snapshot**.
-- **Explicit ID References** must resolve to an existing visible entry in the same reference scope as name-based **Project Data References**, except for explicit saved IDs in disabled **Page Condition Slots** and disabled actor or switch **Battle Page Condition Slots**.
+- **Explicit ID References** must identify an existing target in the corresponding **Project Data Reference Scope**, except for explicit saved IDs in disabled **Page Condition Slots** and disabled actor or switch **Battle Page Condition Slots**.
+- An **Explicit ID Reference** may identify an unnamed **System Variable Slot** or **System Switch Slot** without a corresponding named definition; the slot must remain addressable in **Generated Project Data**.
 - Disabled **Page Condition Slots** and disabled actor or switch **Battle Page Condition Slots** may retain an explicit saved ID without an existing target; name-based references still require unique resolution.
 - A saved **Movement Route** requires reference validation and the **Script Command Gate** even when its **Map Event Page** does not select custom **Autonomous Movement**.
 - **Raw DSL Commands** are not semantically validated for embedded **Project Data References**.
@@ -478,7 +497,7 @@ _Avoid_: config default, inherited old value
 - **Generated Project Data** does not use sparse arrays for RPG Maker MV ID arrays.
 - A **Variable Definition** represents a `System.json` variable name entry, not a runtime variable value.
 - A **Switch Definition** represents a `System.json` switch name entry, not a runtime switch value.
-- Empty variable and switch name slots are ID-preserving holes, not **Variable Definitions** or **Switch Definitions**.
+- Empty variable and switch names leave unnamed **System Variable Slots** and **System Switch Slots**; those slots remain addressable but are not **Variable Definitions** or **Switch Definitions**.
 - **Diff** compares **Generated Project Data** with a **Project Data Snapshot**.
 - A **Diff** is a **Structured Diff Report**.
 - A **Structured Diff Report** may include **Reconciliation Hints** for raw MV changes that can be represented in DSL.
@@ -585,6 +604,11 @@ _Avoid_: config default, inherited old value
 - "Snapshot fallback" was rejected for name-based references to **DSL-Owned Project Data** domains; unresolved DSL-owned names fail instead of resolving to snapshot entries.
 - "Plugin command registry" was resolved as optional lint-time metadata, not a runtime requirement.
 - "Plugin Command Input" was rejected because the value is a **DSL Command**; the canonical term is **Plugin DSL Command**.
+- "Separate command and arguments" was replaced by a complete **Plugin Command Line** so significant whitespace remains explicit authored state.
+- "Runtime Selector cannot contain a project reference" was rejected: the selection itself is distinct from a **Project Data Reference**, while a fixed project target inside it may use one.
+- "None is an empty-named asset" was rejected: native absence is a choice of the command parameter, separate from an **Asset Reference**.
+- "Change Equipment always identifies a fixed weapon or armor" was rejected because the equipment slot's category can depend on execution-time actor state.
+- "Event Definition location determines all runtime targets" was rejected because **Common Events** inherit invocation context and native commands can change runtime context.
 - "Script input" was resolved as schema-first object form with a `code` field.
 - "Script command only" was rejected for the **Script Command Gate**; all JavaScript-bearing **Script Inputs** are gated.
 - "Command node API" was resolved as function-style helpers with object inputs, not positional builders.
@@ -608,6 +632,7 @@ _Avoid_: config default, inherited old value
 - "Scaffold" was rejected because it sounds like workspace initialization; **DSL Decompilation** is the canonical term for generating DSL declarations from a **Project Data Snapshot**.
 - "Overwrite decompilation" was rejected; **Decompiled Source** must be written non-destructively.
 - "System variables" and "system switches" were split into **Variable Definition** and **Switch Definition** as DSL-authored data domains.
+- "Unnamed system slot is a missing target" was rejected: an unnamed **System Variable Slot** or **System Switch Slot** remains addressable by explicit ID while it exists.
 - "Variable initial value" and "switch initial value" were rejected for **Variable Definition** and **Switch Definition** because RPG Maker MV stores runtime values separately from `System.json` name entries.
 - "Manifest-only binding" was rejected for DSL-owned data entries; **Entry Identity** is expressed as a data-domain-scoped RPG Maker MV ID.
 - "Entry identity binding" was rejected as **Sync Manifest** responsibility; **Entry Identity** belongs in DSL source.

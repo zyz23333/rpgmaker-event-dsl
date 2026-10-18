@@ -38,3 +38,14 @@ Parent: [完整支持 MV 原生事件的决策地图](../map.md)
 省略现有敌群的声明和显式默认空白定义都生成一张默认空白页；pages=[] 拒绝。Snapshot 非空白变成 Blank Troop Event 是 Troop Event Reset，属于 Destructive Change，按前后数据分类并要求显式允许；它不是 Snapshot-Only Owned Entry 的 Entry Removal，不能删除 troop 或写 null。原本默认空白没有变化，局部删页后仍非空白是普通内容修改。Diff 需保留 troop 身份、原生页序与整体 Reset 的可辨识信息；具体报告形状由本票确定。
 
 Reset 不绕过 Freshness、Drift 或 Interrupted Push。本票继续明确实际接入和失败场景：若 Troops.json 成为 Affected Project Data File，沿用当前整文件漂移机制时，外部 name/members 改动也会阻止写入；04 没有批准实时细粒度合并。Snapshot 中所属 troop 消失且声明仍存在时报错；成员重排按新位置解释，坏 Enemy 引用不能通过 runtime 过滤悄悄改变目标。等待 06 的未知数据规则后再完成本票决策。
+
+### 2026-10-18 — 原生指令契约的引用与上下文输入
+
+[原生指令的完整参数与结构应如何表达和校验](05-native-command-contract.md#answer) 的 Q1–Q24 及完整契约已最终确认，讨论票已解决，ADR 0011 已接受。本票需将以下已选边界接到真实 Workspace，而非只靠手工注入的 compiler 测试：
+
+- variableRef/switchRef 的显式ID可引用最终生成System容量内的无名正ID槽；名称仅解析唯一DSL命名声明，不回退Snapshot名称。引用不扩容；ID0和越界仍报错，既有禁用页条件保存ID例外不变。本票明确最终容量及对应输入构造。
+- 普通命令中的固定项目引用必须存在；Runtime Selector 合法数值域内的位置缺失或不适用上下文警告保留。Common Event 不强制声明上下文，不做全调用图状态预测。启用enemy页条件仍沿用战斗页更严格规则，不与命令警告混用。
+- 校验输入保留地图事件位置、敌群完整成员/Enemy有效性、System装备槽配置与需要的项目数据；接通 Animations/Tilesets。Change Equipment 的equipment ID按运行时槽位解释，不能从初始Actor/Class编成固定weapon/armor引用。
+- compile --check与普通compile完整递归同一命令结构，包含Loop及所有保存路线；所有Script Input执行Gate，None素材或空Script不能绕过。语义往返讨论另定Raw DSL边界。
+
+连续ID范围、固定默认、空Shop与None参数必须贯穿decompile/compile/物化及Diff，不能在不同阶段重新解释。现有Freshness/Drift/Destructive Change/Interrupted Push边界继续适用；本次输入未授权新增同步机制，也未执行实际Workspace验证。

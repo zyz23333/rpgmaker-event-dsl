@@ -21,6 +21,7 @@ Status: open
 - 敌群战斗事件遵循 [ADR 0010](../../docs/adr/0010-troop-event-ownership-and-reset.md)：整体接管 pages，以既有 troopId 标识，保留外部敌群数据与原生页序、禁用条件配置；省略声明和显式空白都生成一张默认空白页。非空白到空白的 Troop Event Reset 扩展 Destructive Change，但不放宽同步检查；未知数据规则与 Workspace 接入仍由 06 / 07 承接。
 - 用户所说的 `.references/RPGMV` 实际位于 `references/RPGMV`；另有 `references/rmmv-local-runtime-1.6.1`、`references/rpg-maker-mv-corescript` 与 `references/rmmv-test-project`。它们是本地参考资料，不随研究分支发布。
 - 研究必须区分首方帮助、随包模板、runtime 源码、编辑器二进制与真实运行观察；runtime 版本不能代替编辑器本体版本证据。未经实际执行不得声称编辑器或游戏测试通过。
+- 原生指令契约已最终确认：由 [原生指令逐参数契约还缺哪些证据](issues/11-native-command-parameter-evidence.md) 补全参数表，作为实施规格完成的前置要求，并阻塞最终验收与顺序决策；类别库存与设计讨论完成均不能代替全参证明。
 - 本地 tracker 使用 `Type` / `Labels` 标识票类型；`Status: open / claimed / resolved` 为 wayfinding 执行状态，不使用 triage 标签。依赖见各票 `Blocked by`；按编号选择未解决、未认领、依赖均已解决的票。研究票可并行，HITL 设计票必须由用户实际参与，建图会话不手动解决设计票。
 - 研究报告放在本目录 `research/`。每条研究使用独立的临时 `research/<name>` 分支，仅推送自写研究文字，不开 PR、不合并、不提交本地编辑器、游戏资产或原生源码副本。结果应链接报告、分支和原始资料位置。
 
@@ -32,6 +33,7 @@ Status: open
 - [原生事件指令的参数与结构还存在哪些保真缺口](issues/02-native-command-fidelity.md)：105+45 的逐项静态库存已建立，并定位参数、镜像、递归验证与引用装配缺口；全参组合与真实往返仍需后续证据。
 - [地图事件备注与完整事件页应采用什么 DSL 模型](issues/03-map-event-page-model.md)：经三轮逐项讨论与最终确认，已确定 note、完整页分组、固定空白页默认、未启用状态保留、共享 Movement Route、禁用条件 ID 例外、图像/数值校验和准确省略默认的反编译规则；ADR 0009 已接受，05/06/07/08 继续承接各自范围。
 - [敌群战斗事件的身份与数据所有权如何划定](issues/04-troop-event-ownership.md)：经三轮 Q1–Q11 及最终确认，已确定 troopId 与 pages 所有权、完整条件/span 模型、位置引用校验、默认空白与 Reset 分类、数量边界及逐敌群反编译；ADR 0010 已接受，05/06/07/08 已收到后续输入。
+- [原生指令的完整参数与结构应如何表达和校验](issues/05-native-command-contract.md#answer)：经四轮 Q1–Q24 及最终确认，已确定正式表达、固定默认、分支与续行、保存状态、引用/运行选择校验、文本/None/脚本与插件边界；ADR 0011 已接受，逐参数证据表继续作为实施规格完成门槛。
 - [编辑器如何保存分支与移动路线及不启用的字段](issues/09-editor-serialization-evidence.md)：本体版本与嵌入源证据已确认 402 文本、505 镜像、空分支 code 0 和非激活编辑状态的保存规则；真实保存仍属验收工作。
 - [原生事件属性的合法值与创建默认值是什么](issues/10-editor-event-defaults-and-limits.md)：普通创建/清空的工厂初值、属性控件范围与常规页数限制已有静态依据；装载异常值、控件时序和真实保存仍需实验。
 
@@ -39,7 +41,6 @@ Status: open
 
 - 首方编辑器帮助、模板与 1.6.1 runtime 如存在分歧，哪些具体分歧必须用编辑器保存样本或二进制证据裁定，待研究发现后才能逐项命名。
 - 完整组合场景可能暴露尚未看见的页生命周期、战斗时序或编辑器归一化规则；发现具体反例后再形成独立决策票。
-- 指令库存中多数 family 尚未逐参数深审；正式契约确定后，再明确哪些参数组需要独立事实调查、哪些由原生夹具与实施验收覆盖，不能将库存状态当作全参完成。
 - 敌群事件所有权及 Reset 分类已由 04 确定；06 仍需确定未知数据规则，07 再结合这些输入确认 Workspace 安全边界和是否需要额外调查。
 
 ## Out of scope
