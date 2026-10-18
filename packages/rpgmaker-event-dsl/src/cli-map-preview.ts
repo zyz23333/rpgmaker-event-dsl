@@ -14,21 +14,39 @@ export function registerMapRenderCommand(map: Command): void {
         .default("snapshot"),
     )
     .option("--json", "print a versioned structured result")
-    .action(async (options: { map: number; source: MapObservationSource; json?: boolean }) => {
-      const result = await renderWorkspaceMap({
-        workspaceRoot: process.cwd(),
-        mapId: options.map,
-        source: options.source,
-      });
-      console.log(
-        options.json
-          ? JSON.stringify(result)
-          : [
-              `Map ${result.map.id}: ${result.map.name} (${result.source})`,
-              `${result.output.width} x ${result.output.height} pixels; native MV static preview`,
-              `PNG: ${result.artifacts.png}`,
-              `Metadata: ${result.artifacts.metadata}`,
-            ].join("\n"),
-      );
-    });
+    .option(
+      "--allow-missing-assets",
+      "show explicit incomplete placeholders for unavailable images",
+    )
+    .action(
+      async (options: {
+        map: number;
+        source: MapObservationSource;
+        json?: boolean;
+        allowMissingAssets?: boolean;
+      }) => {
+        const result = await renderWorkspaceMap({
+          workspaceRoot: process.cwd(),
+          mapId: options.map,
+          source: options.source,
+          allowMissingAssets: options.allowMissingAssets === true,
+        });
+        console.log(
+          options.json
+            ? JSON.stringify(result)
+            : [
+                `Map ${result.map.id}: ${result.map.name} (${result.source})`,
+                `${result.output.width} x ${result.output.height} pixels; native MV static preview`,
+                ...(result.complete
+                  ? []
+                  : [
+                      "INCOMPLETE: unavailable images use diagnostic placeholders.",
+                      ...result.warnings.map(({ message }) => message),
+                    ]),
+                `PNG: ${result.artifacts.png}`,
+                `Metadata: ${result.artifacts.metadata}`,
+              ].join("\n"),
+        );
+      },
+    );
 }

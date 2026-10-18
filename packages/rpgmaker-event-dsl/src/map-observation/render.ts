@@ -1,10 +1,8 @@
-import { createHash } from "node:crypto";
-import { readFile } from "node:fs/promises";
-import { isAbsolute, relative, resolve } from "node:path";
+import { createMapImageLoader } from "./assets.js";
+import { drawIncompleteNotice } from "./incomplete-notice.js";
 
 import type { ValidatedMap, ValidatedTileset } from "./read.js";
-import type { MapImageInput } from "./preview-types.js";
-import { blitRaster, createRaster, decodePng, encodePng } from "./raster.js";
+import { blitRaster, createRaster, encodePng } from "./raster.js";
 import type { Raster } from "./raster.js";
 import { drawNativeParallax, drawNativeShadow, nativeCellLayers } from "./native-layers.js";
 import { drawAutotile, drawTableEdge, getAutotileSlot } from "./native-autotiles.js";
@@ -14,53 +12,18 @@ export async function renderMapPreview(options: {
   map: ValidatedMap;
   tileset: ValidatedTileset;
   projectRoot: string;
+  allowMissingAssets?: boolean;
   events?: boolean;
 }) {
   const { map, tileset, projectRoot } = options;
   const previewEvents = selectPreviewEvents(map);
   const previewPages = previewEvents.map(({ eventId, page }) => ({ eventId, page }));
   const raster = createRaster(map.width * 48, map.height * 48);
-  const assets = new Map<string, Raster>();
-  const imageInputs: MapImageInput[] = [];
-
-  async function loadImage(category: "tilesets" | "parallaxes" | "characters", name: string): Promise<Raster> {
-    const relativePath = `img/${category}/${name}.png`;
-    const path = resolve(projectRoot, relativePath);
-    const withinProject = relative(projectRoot, path);
-    if (withinProject.startsWith("..") || isAbsolute(withinProject) || /[\\/]/u.test(name)) {
-      throw new Error(
-        `Invalid ${category} image filename ${JSON.stringify(name)}: use a project asset filename.`,
-      );
-    }
-    const cached = assets.get(path);
-    if (cached !== undefined) return cached;
-    let bytes: Buffer;
-    try {
-      bytes = await readFile(path);
-    } catch (error) {
-      throw new Error(
-        `Cannot read required Map Image Asset ${relativePath} from Project Root ${projectRoot}. Restore the PNG image before rendering.`,
-        { cause: error },
-      );
-    }
-    let asset: Raster;
-    try {
-      asset = decodePng(bytes);
-    } catch (error) {
-      throw new Error(
-        `Cannot decode required Map Image Asset ${relativePath}: ${error instanceof Error ? error.message : String(error)} Restore a valid PNG image before rendering.`,
-        { cause: error },
-      );
-    }
-    assets.set(path, asset);
-    imageInputs.push({
-      relativePath,
-      path,
-      status: "available",
-      hash: createHash("sha256").update(bytes).digest("hex"),
-    });
-    return asset;
-  }
+  const imageLoader = createMapImageLoader({
+    projectRoot,
+    allowMissingAssets: options.allowMissingAssets === true,
+  });
+  const loadImage = imageLoader.load;
 
   async function loadTileset(slot: number): Promise<Raster> {
     const name = tileset.tilesetNames[slot];
@@ -124,9 +87,11 @@ export async function renderMapPreview(options: {
   }
   for (const event of previewEvents.filter((event) => event.priorityType === 2))
     await drawNativeEvent({ target: raster, event, tileset, loadImage });
+  if (imageLoader.warnings.length > 0) drawIncompleteNotice(raster);
   return {
     png: encodePng(raster),
-    imageInputs,
+    imageInputs: imageLoader.imageInputs,
+    warnings: imageLoader.warnings,
     previewPages,
     parallax: {
       name: map.parallaxName,

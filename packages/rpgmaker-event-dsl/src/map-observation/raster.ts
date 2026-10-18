@@ -4,6 +4,7 @@ import { PNG } from "pngjs";
 export type Raster = { width: number; height: number; data: Buffer };
 export const maximumRasterPixels = 16_777_216;
 export const maximumRasterDimension = 4096;
+export class RasterResourceLimitError extends Error {}
 
 export function assertRasterBudget(width: number, height: number): void {
   if (
@@ -15,7 +16,7 @@ export function assertRasterBudget(width: number, height: number): void {
     height > maximumRasterDimension ||
     width * height > maximumRasterPixels
   ) {
-    throw new Error(
+    throw new RasterResourceLimitError(
       `Map Preview resource limit: ${width} x ${height} pixels exceeds the ${maximumRasterDimension}-pixel dimension or ${maximumRasterPixels}-pixel budget. Request a smaller view.`,
     );
   }
