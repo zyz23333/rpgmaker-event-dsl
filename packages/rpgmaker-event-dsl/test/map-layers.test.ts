@@ -91,7 +91,117 @@ async function createParallaxWorkspace() {
   return fixture;
 }
 
+async function createTableWorkspace(configure?: (map: ReturnType<typeof mapFixture>) => void) {
+  const fixture = await createMapWorkspace({ clone: false });
+  const map = mapFixture();
+  map.data = [
+    1, 1, 1, 1, 1, 4352, 2816, 2863, 2816, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+    0, 0, 0, 0, 0, 0, 0, 0,
+  ];
+  configure?.(map);
+  await writeFile(join(fixture.dataDirectory, "Map001.json"), JSON.stringify(map));
+  const tilesetsPath = join(fixture.dataDirectory, "Tilesets.json");
+  const tilesets = JSON.parse(await readFile(tilesetsPath, "utf8"));
+  tilesets[1].tilesetNames[1] = "Tables";
+  tilesets[1].tilesetNames[2] = "Walls";
+  tilesets[1].tilesetNames[5] = "Ground";
+  tilesets[1].flags[2816] = 0x80;
+  tilesets[1].flags[2863] = 0x80;
+  await writeFile(tilesetsPath, JSON.stringify(tilesets));
+  const ground = new PNG({ width: 192, height: 48 });
+  const table = new PNG({ width: 96, height: 144 });
+  const wall = new PNG({ width: 96, height: 96 });
+  function paint(
+    image: PNG,
+    sx: number,
+    sy: number,
+    width: number,
+    height: number,
+    rgba: number[],
+  ) {
+    for (let y = sy; y < sy + height; y++)
+      for (let x = sx; x < sx + width; x++) image.data.set(rgba, (y * image.width + x) * 4);
+  }
+  paint(ground, 48, 0, 48, 48, [200, 100, 0, 255]);
+  paint(ground, 144, 0, 24, 48, [0, 0, 200, 255]);
+  // Independent Tilemap._drawTableEdge ledger: shape0 copies source BL/BR
+  // (48,84)/(24,84); shape47 instead copies (0,36)/(24,36), each24x12.
+  paint(table, 48, 84, 24, 12, [180, 0, 180, 255]);
+  paint(table, 24, 84, 24, 12, [0, 180, 180, 255]);
+  paint(table, 0, 36, 24, 12, [60, 80, 100, 255]);
+  paint(table, 24, 36, 24, 12, [100, 80, 60, 255]);
+  paint(table, 48, 96, 24, 24, [10, 20, 30, 255]);
+  paint(table, 24, 96, 24, 24, [40, 50, 60, 255]);
+  paint(wall, 0, 0, 96, 96, [80, 40, 200, 255]);
+  await mkdir(join(fixture.projectRoot, "img", "tilesets"), { recursive: true });
+  for (const [name, image] of [
+    ["Ground", ground],
+    ["Tables", table],
+    ["Walls", wall],
+  ] as const)
+    await writeFile(
+      join(fixture.projectRoot, "img", "tilesets", `${name}.png`),
+      PNG.sync.write(image),
+    );
+  await cloneWorkspace({ workspaceRoot: fixture.workspaceRoot });
+  return fixture;
+}
+
 describe("native Map Preview layer composition", () => {
+  it("composes the above A2 table shape's edge after shadows and before later planes", async () => {
+    const { workspaceRoot } = await createTableWorkspace();
+    try {
+      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1 });
+      const png = PNG.sync.read(await readFile(result.artifacts.png));
+      expect(pixel(png, 12, 54)).toEqual([180, 0, 180, 255]);
+      expect(pixel(png, 36, 54)).toEqual([0, 180, 180, 255]);
+      expect(pixel(png, 12, 66)).toEqual([100, 50, 0, 255]);
+      expect(pixel(png, 36, 66)).toEqual([200, 100, 0, 255]);
+      // Plane2 covers the left lip; the transparent right half keeps shape47's lip.
+      expect(pixel(png, 60, 54)).toEqual([0, 0, 200, 255]);
+      expect(pixel(png, 84, 54)).toEqual([100, 80, 60, 255]);
+      // A3/A4 base tiles suppress table edges from the cell above.
+      expect(pixel(png, 108, 54)).toEqual([80, 40, 200, 255]);
+    } finally {
+      await rm(workspaceRoot, { recursive: true, force: true });
+    }
+  });
+
+  it("suppresses a table lip when the current plane1 is itself a table", async () => {
+    const { workspaceRoot } = await createTableWorkspace((map) => {
+      map.data[9] = 2816;
+      map.data[27] = 0;
+    });
+    try {
+      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1 });
+      const png = PNG.sync.read(await readFile(result.artifacts.png));
+      expect(pixel(png, 12, 54)).toEqual([10, 20, 30, 255]);
+      expect(pixel(png, 36, 54)).toEqual([40, 50, 60, 255]);
+    } finally {
+      await rm(workspaceRoot, { recursive: true, force: true });
+    }
+  });
+
+  it.each([0, 1, 2, 3])(
+    "reads the top-row table neighbor using scrollType %i",
+    async (scrollType) => {
+      const { workspaceRoot } = await createTableWorkspace((map) => {
+        map.scrollType = scrollType;
+        map.data[6] = 0;
+        map.data[9] = 2816;
+      });
+      try {
+        const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1 });
+        const png = PNG.sync.read(await readFile(result.artifacts.png));
+        expect(pixel(png, 12, 6)).toEqual(
+          scrollType === 1 || scrollType === 3 ? [180, 0, 180, 255] : [200, 100, 0, 255],
+        );
+      } finally {
+        await rm(workspaceRoot, { recursive: true, force: true });
+      }
+    },
+  );
+
   it.each(["missing", "undecodable"])(
     "fails strict rendering for %s required parallax without partial artifacts",
     async (damage) => {

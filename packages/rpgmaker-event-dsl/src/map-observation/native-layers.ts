@@ -1,3 +1,6 @@
+// Adapted from RPG Maker MV CoreScript Tilemap.js (MIT).
+// Copyright (c) 2015 KADOKAWA CORPORATION./YOJI OJIMA.
+// Full license: distributed THIRD_PARTY_NOTICES.md.
 import type { ValidatedMap, ValidatedTileset } from "./read.js";
 import { blitRaster, createRaster } from "./raster.js";
 import type { Raster } from "./raster.js";
