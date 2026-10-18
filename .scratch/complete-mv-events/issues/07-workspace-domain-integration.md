@@ -49,3 +49,14 @@ Reset 不绕过 Freshness、Drift 或 Interrupted Push。本票继续明确实�
 - compile --check与普通compile完整递归同一命令结构，包含Loop及所有保存路线；所有Script Input执行Gate，None素材或空Script不能绕过。语义往返讨论另定Raw DSL边界。
 
 连续ID范围、固定默认、空Shop与None参数必须贯穿decompile/compile/物化及Diff，不能在不同阶段重新解释。现有Freshness/Drift/Destructive Change/Interrupted Push边界继续适用；本次输入未授权新增同步机制，也未执行实际Workspace验证。
+
+### 2026-10-18 — 语义往返契约的已最终确认输入
+
+[06 号票 Answer](06-semantic-roundtrip-policy.md#answer) 的 Q1–Q16 及完整契约已最终确认，06 已 resolved，ADR 0012 已 accepted，ADR 0003 已同步。本票的 04/06 前置决策均已解决，保持 open，随后接入以下要求，不将机制设计或真实验证视为已经完成：
+
+- 支持范围内按保存结构和值判定往返；未知外部 carrier JSON 完整保留，已拥有事件内部的未知字段拒绝。外部数据只进行定位/替换与所需引用校验；不扩大 DSL 所有权或进行实时细粒度合并。
+- Decompile 发布源码前校验完整候选声明加外部 Snapshot 已能确定的固定引用，不借手写源码补目标；Compile/Check 对最终图独立重查。原生保存例外、Runtime Selector 警告与系统槽容量约定须接到实际输入。
+- 真正未知事件代码可单记录 raw 警告保留；已知原生参数、引用和脚本即使手写 raw 也执行正式校验。未知移动指令拒绝，不以 raw 205 隐藏。完整生成列表统一检查缩进、分支、镜像、续行和结束。
+- Gate 关闭允许准确反编译并提示，Compile/Check 必须阻止；覆盖所有保存体、路线和可识别原生脚本，不声称理解未知插件载荷。
+- 反编译任何事件不可表达则整次失败；包括 I/O 发布失败在内，不得遗留会被 Definition Source Discovery 当作完整接管读取的部分新源码。保留原有源码与 Snapshot，可独立保留诊断。本票选择隔离发布、回滚或失败状态拦截的具体机制。
+- 诊断携带稳定标识、阶段、严重级别、身份和原生/DSL 路径；镜像冲突双位置，源码行列只在可靠时提供。Push 继续执行既有同步与破坏性检查，不作为首次事件表达校验阶段。

@@ -12,7 +12,7 @@ Consequences:
 
 - **Clone** captures the first Project Data Snapshot.
 - **Pull** refreshes an existing Project Data Snapshot and does not run Diff.
-- **DSL Decompilation** creates Decompiled Source from a Project Data Snapshot as a non-destructive, best-effort starting point.
+- **DSL Decompilation** creates Decompiled Source from a Project Data Snapshot non-destructively. [ADR 0012](0012-event-saved-state-roundtrip-boundary.md) tightens the former best-effort contract within the supported native event scope: unchanged source must reconstruct saved event structure and values when configuration, reference, and synchronization requirements are satisfied. Unsupported data is explicitly preserved under the agreed unknown-command rules or rejected; failed decompilation must not expose partial new source as a complete takeover.
 - **Compile** validates the Staged Data Graph and writes Generated Project Data, but it does not mutate the Project Data Snapshot or Project Root.
 - **Diff** compares Generated Project Data with the Project Data Snapshot and emits a Structured Diff Report.
 - **Push** writes Generated Project Data to the Project Root only when Generated Freshness and Project Drift checks pass.
