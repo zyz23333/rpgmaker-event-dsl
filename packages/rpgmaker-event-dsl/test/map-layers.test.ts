@@ -148,10 +148,46 @@ async function createTableWorkspace(configure?: (map: ReturnType<typeof mapFixtu
 }
 
 describe("native Map Preview layer composition", () => {
+  it("retains the original outside-crop table neighbor for a crop's top lip", async () => {
+    const { workspaceRoot } = await createTableWorkspace();
+    try {
+      const result = await renderWorkspaceMap({
+        workspaceRoot,
+        mapId: 1,
+        crop: { x: 0, y: 1, width: 1, height: 1 },
+        grid: false,
+      });
+      const png = PNG.sync.read(await readFile(result.artifacts.png));
+      expect(pixel(png, 12, 6)).toEqual([180, 0, 180, 255]);
+      expect(pixel(png, 36, 6)).toEqual([0, 180, 180, 255]);
+      expect(pixel(png, 12, 18)).toEqual([100, 50, 0, 255]);
+      expect(pixel(png, 36, 18)).toEqual([200, 100, 0, 255]);
+    } finally {
+      await rm(workspaceRoot, { recursive: true, force: true });
+    }
+  });
+
+  it("crops repeating parallax without resetting its original-map phase", async () => {
+    const { workspaceRoot } = await createParallaxWorkspace();
+    try {
+      const result = await renderWorkspaceMap({
+        workspaceRoot,
+        mapId: 1,
+        crop: { x: 1, y: 1, width: 1, height: 1 },
+        grid: false,
+      });
+      const png = PNG.sync.read(await readFile(result.artifacts.png));
+      expect(pixel(png, 12, 12)).toEqual([200, 220, 240, 255]);
+      expect(pixel(png, 36, 12)).toEqual([140, 160, 180, 255]);
+      expect(pixel(png, 12, 36)).toEqual([80, 100, 120, 255]);
+    } finally {
+      await rm(workspaceRoot, { recursive: true, force: true });
+    }
+  });
   it("composes the above A2 table shape's edge after shadows and before later planes", async () => {
     const { workspaceRoot } = await createTableWorkspace();
     try {
-      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1 });
+      const result = await renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1 });
       const png = PNG.sync.read(await readFile(result.artifacts.png));
       expect(pixel(png, 12, 54)).toEqual([180, 0, 180, 255]);
       expect(pixel(png, 36, 54)).toEqual([0, 180, 180, 255]);
@@ -173,7 +209,7 @@ describe("native Map Preview layer composition", () => {
       map.data[27] = 0;
     });
     try {
-      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1 });
+      const result = await renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1 });
       const png = PNG.sync.read(await readFile(result.artifacts.png));
       expect(pixel(png, 12, 54)).toEqual([10, 20, 30, 255]);
       expect(pixel(png, 36, 54)).toEqual([40, 50, 60, 255]);
@@ -191,7 +227,7 @@ describe("native Map Preview layer composition", () => {
         map.data[9] = 2816;
       });
       try {
-        const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1 });
+        const result = await renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1 });
         const png = PNG.sync.read(await readFile(result.artifacts.png));
         expect(pixel(png, 12, 6)).toEqual(
           scrollType === 1 || scrollType === 3 ? [180, 0, 180, 255] : [200, 100, 0, 255],
@@ -211,7 +247,7 @@ describe("native Map Preview layer composition", () => {
         if (damage === "missing") await rm(path);
         else await writeFile(path, "invalid parallax image");
         const before = await readWorkspaceFiles(workspaceRoot);
-        await expect(renderWorkspaceMap({ workspaceRoot, mapId: 1 })).rejects.toThrow(
+        await expect(renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1 })).rejects.toThrow(
           /Map Image Asset img\/parallaxes\/!Sky.png/u,
         );
         expect(await readWorkspaceFiles(workspaceRoot)).toEqual(before);
@@ -225,14 +261,24 @@ describe("native Map Preview layer composition", () => {
     const { workspaceRoot, projectRoot } = await createParallaxWorkspace();
     try {
       await compileMapWorkspace(workspaceRoot);
-      const first = await renderWorkspaceMap({ workspaceRoot, mapId: 1, source: "generated" });
+      const first = await renderWorkspaceMap({
+        grid: false,
+        workspaceRoot,
+        mapId: 1,
+        source: "generated",
+      });
       const manifestPath = join(workspaceRoot, ".rpgmaker-event-dsl", "sync-manifest.json");
       const manifest = await readFile(manifestPath);
       const path = join(projectRoot, "img", "parallaxes", "!Sky.png");
       const changed = PNG.sync.read(await readFile(path));
       changed.data.set([1, 2, 3, 255], (12 * changed.width + 4) * 4);
       await writeFile(path, PNG.sync.write(changed));
-      const second = await renderWorkspaceMap({ workspaceRoot, mapId: 1, source: "generated" });
+      const second = await renderWorkspaceMap({
+        grid: false,
+        workspaceRoot,
+        mapId: 1,
+        source: "generated",
+      });
       expect(second.dataInputs).toEqual(first.dataInputs);
       expect(second.imageInputs[0]?.hash).not.toBe(first.imageInputs[0]?.hash);
       expect(pixel(PNG.sync.read(await readFile(second.artifacts.png)), 68, 12)).toEqual([
@@ -248,7 +294,7 @@ describe("native Map Preview layer composition", () => {
     const { workspaceRoot, projectRoot } = await createParallaxWorkspace();
     try {
       const before = await readWorkspaceFiles(workspaceRoot);
-      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1 });
+      const result = await renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1 });
       const png = PNG.sync.read(await readFile(result.artifacts.png));
       // Native Spriteset_Map places a TilingSprite behind tiles; Game_Map.setupParallax
       // initializes both offsets to zero. These samples use an independently colored 64px bitmap.
@@ -283,7 +329,7 @@ describe("native Map Preview layer composition", () => {
     const { workspaceRoot } = await createLayerWorkspace();
     try {
       const before = await readWorkspaceFiles(workspaceRoot);
-      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1 });
+      const result = await renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1 });
       const png = PNG.sync.read(await readFile(result.artifacts.png));
       // Starred plane1 covers later lower plane2; starred plane0 covers plane3.
       expect(pixel(png, 12, 12)).toEqual([0, 200, 0, 255]);

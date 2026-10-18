@@ -3,7 +3,9 @@ import { drawIncompleteNotice } from "./incomplete-notice.js";
 import { z } from "zod";
 
 import type { ValidatedMap, ValidatedTileset } from "./read.js";
-import type { MapPreviewPage } from "./preview-types.js";
+import type { MapPreviewBounds, MapPreviewPage } from "./preview-types.js";
+import { planMapViewport } from "./viewport.js";
+import { drawCoordinateOverlay } from "./overlays.js";
 import { blitRaster, createRaster, encodePng } from "./raster.js";
 import type { Raster } from "./raster.js";
 import { drawNativeParallax, drawNativeShadow, nativeCellLayers } from "./native-layers.js";
@@ -34,10 +36,20 @@ export async function renderMapPreview(options: {
   tileset: ValidatedTileset;
   projectRoot: string;
   allowMissingAssets?: boolean;
+  crop?: MapPreviewBounds;
+  grid?: boolean;
 }) {
   const { map, tileset, projectRoot } = options;
   const previewPages = readPreviewPages(map);
-  const raster = createRaster(map.width * 48, map.height * 48);
+  const viewport = planMapViewport(map.width, map.height, options.crop, options.grid ?? true);
+  const raster = createRaster(viewport.output.width, viewport.output.height);
+  raster.viewport = {
+    scaleX: viewport.transform.scaleX / 48,
+    scaleY: viewport.transform.scaleY / 48,
+    offsetX: viewport.transform.offsetX,
+    offsetY: viewport.transform.offsetY,
+    clip: viewport.mapContent,
+  };
   const imageLoader = createMapImageLoader({
     projectRoot,
     allowMissingAssets: options.allowMissingAssets === true,
@@ -82,8 +94,14 @@ export async function renderMapPreview(options: {
       );
     }
   }
-  const cells = map.width * map.height;
-  for (let index = 0; index < cells; index++) {
+  function* visibleCellIndices() {
+    for (let y = viewport.bounds.y; y < viewport.bounds.y + viewport.bounds.height; y++) {
+      for (let x = viewport.bounds.x; x < viewport.bounds.x + viewport.bounds.width; x++) {
+        yield y * map.width + x;
+      }
+    }
+  }
+  for (const index of visibleCellIndices()) {
     const layers = nativeCellLayers(map, tileset, index);
     const dx = (index % map.width) * 48;
     const dy = Math.floor(index / map.width) * 48;
@@ -96,12 +114,13 @@ export async function renderMapPreview(options: {
     for (const tileId of layers.lowerAfterShadow) await drawTile(tileId, dx, dy);
   }
   // Event sprites at native z1/z3 are composed here by event rendering.
-  for (let index = 0; index < cells; index++) {
+  for (const index of visibleCellIndices()) {
     const layers = nativeCellLayers(map, tileset, index);
     for (const tileId of layers.upper)
       await drawTile(tileId, (index % map.width) * 48, Math.floor(index / map.width) * 48);
   }
   // Native z5 event sprites are above the upper tile scene.
+  drawCoordinateOverlay(raster, viewport);
   if (imageLoader.warnings.length > 0) drawIncompleteNotice(raster);
   return {
     png: encodePng(raster),
@@ -120,5 +139,6 @@ export async function renderMapPreview(options: {
     },
     width: raster.width,
     height: raster.height,
+    ...viewport,
   };
 }

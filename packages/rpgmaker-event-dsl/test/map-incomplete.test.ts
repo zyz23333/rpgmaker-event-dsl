@@ -41,10 +41,11 @@ describe("explicitly Incomplete Map Preview", () => {
       map.parallaxName = "MissingSky";
       await writeFile(join(dataDirectory, "Map001.json"), JSON.stringify(map));
       await cloneWorkspace({ workspaceRoot });
-      await expect(renderWorkspaceMap({ workspaceRoot, mapId: 1 })).rejects.toThrow(
+      await expect(renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1 })).rejects.toThrow(
         /img\/parallaxes\/MissingSky.png/u,
       );
       const result = await renderWorkspaceMap({
+        grid: false,
         workspaceRoot,
         mapId: 1,
         allowMissingAssets: true,
@@ -83,10 +84,11 @@ describe("explicitly Incomplete Map Preview", () => {
           kind: "map-summary",
           map: { id: 1 },
         });
-        await expect(renderWorkspaceMap({ workspaceRoot, mapId: 1 })).rejects.toThrow(
+        await expect(renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1 })).rejects.toThrow(
           /Missing_B.png/u,
         );
         const result = await renderWorkspaceMap({
+          grid: false,
           workspaceRoot,
           mapId: 1,
           allowMissingAssets: true,
@@ -106,6 +108,7 @@ describe("explicitly Incomplete Map Preview", () => {
     const { workspaceRoot } = await createMapWorkspace();
     try {
       const result = await renderWorkspaceMap({
+        grid: false,
         workspaceRoot,
         mapId: 1,
         allowMissingAssets: true,
@@ -157,7 +160,7 @@ describe("explicitly Incomplete Map Preview", () => {
       }
       const before = await readWorkspaceFiles(workspaceRoot);
       await expect(
-        renderWorkspaceMap({ workspaceRoot, mapId: 1, allowMissingAssets: true }),
+        renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1, allowMissingAssets: true }),
       ).rejects.toThrow(/Malformed|no filename|Invalid tilesets image|resource limit/u);
       expect(await readWorkspaceFiles(workspaceRoot)).toEqual(before);
     } finally {
@@ -201,6 +204,7 @@ describe("explicitly Incomplete Map Preview", () => {
         const before = await readWorkspaceFiles(workspaceRoot);
         await expect(
           renderWorkspaceMap({
+            grid: false,
             workspaceRoot,
             mapId: 1,
             source: "generated",
@@ -223,7 +227,7 @@ describe("explicitly Incomplete Map Preview", () => {
       );
       const before = await readWorkspaceFiles(workspaceRoot);
       await expect(
-        renderWorkspaceMap({ workspaceRoot, mapId: 1, allowMissingAssets: true }),
+        renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1, allowMissingAssets: true }),
       ).rejects.toThrow();
       expect(await readWorkspaceFiles(workspaceRoot)).toEqual(before);
     } finally {
@@ -263,11 +267,12 @@ describe("explicitly Incomplete Map Preview", () => {
     const { workspaceRoot, projectRoot } = await createUnavailableAssetWorkspace();
     try {
       const before = await readWorkspaceFiles(workspaceRoot);
-      await expect(renderWorkspaceMap({ workspaceRoot, mapId: 1 })).rejects.toThrow(
+      await expect(renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1 })).rejects.toThrow(
         /Missing_B.png/u,
       );
       expect(await readWorkspaceFiles(workspaceRoot)).toEqual(before);
       const result = await renderWorkspaceMap({
+        grid: false,
         workspaceRoot,
         mapId: 1,
         allowMissingAssets: true,
