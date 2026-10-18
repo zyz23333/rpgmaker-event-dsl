@@ -57,14 +57,20 @@ export function encodePng(raster: Raster): Buffer {
   return PNG.sync.write(image);
 }
 
-function compositePixel(target: Raster, offset: number, color: ArrayLike<number>, sourceOffset = 0): void {
+function compositePixel(
+  target: Raster,
+  offset: number,
+  color: ArrayLike<number>,
+  sourceOffset = 0,
+): void {
   const alpha = color[sourceOffset + 3]! / 255;
   if (alpha === 0) return;
   const targetAlpha = target.data[offset + 3]! / 255;
   const outputAlpha = alpha + targetAlpha * (1 - alpha);
   for (let channel = 0; channel < 3; channel++) {
     target.data[offset + channel] = Math.round(
-      (color[sourceOffset + channel]! * alpha + target.data[offset + channel]! * targetAlpha * (1 - alpha)) /
+      (color[sourceOffset + channel]! * alpha +
+        target.data[offset + channel]! * targetAlpha * (1 - alpha)) /
         outputAlpha,
     );
   }

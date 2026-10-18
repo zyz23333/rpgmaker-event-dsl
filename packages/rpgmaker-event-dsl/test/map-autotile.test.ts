@@ -68,7 +68,12 @@ describe("native MV autotile Map Preview", () => {
     try {
       await compileMapWorkspace(workspaceRoot);
       const snapshot = await renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1 });
-      const generated = await renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1, source: "generated" });
+      const generated = await renderWorkspaceMap({
+        grid: false,
+        workspaceRoot,
+        mapId: 1,
+        source: "generated",
+      });
       expect(generated.dataInputs[1]).toMatchObject({
         source: "generated",
         relativePath: "Map001.json",
