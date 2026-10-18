@@ -5,15 +5,14 @@ import { isAbsolute, relative, resolve } from "node:path";
 import type { MapImageInput, MapImageUnavailableReason, MapImageWarning } from "./preview-types.js";
 import { createRaster, decodePng, RasterResourceLimitError } from "./raster.js";
 import type { Raster } from "./raster.js";
+import { nativeCharacterImageFlags } from "./native-image-layout.js";
 
 type ImageCategory = "tilesets" | "characters" | "parallaxes";
 
 function checkerPlaceholder(category: ImageCategory, name: string): Raster {
-  const largeCharacter = /^[!$]*\$/u.test(name);
-  const width =
-    category === "tilesets" ? 768 : category === "parallaxes" ? 96 : largeCharacter ? 144 : 576;
-  const height =
-    category === "tilesets" ? 768 : category === "parallaxes" ? 96 : largeCharacter ? 192 : 384;
+  const { big } = nativeCharacterImageFlags(name);
+  const width = category === "tilesets" ? 768 : category === "parallaxes" ? 96 : big ? 144 : 576;
+  const height = category === "tilesets" ? 768 : category === "parallaxes" ? 96 : big ? 192 : 384;
   const raster = createRaster(width, height);
   for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {

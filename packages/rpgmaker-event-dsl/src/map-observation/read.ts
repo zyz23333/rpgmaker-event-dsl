@@ -80,8 +80,13 @@ export function readSelectedMap(value: unknown, mapId: number): ValidatedMap {
     );
   }
   const ids = new Set<number>();
-  for (const event of map.events) {
+  for (const [slot, event] of map.events.entries()) {
     if (event === null) continue;
+    if (event.id !== slot) {
+      throw new Error(
+        `Malformed map ${mapId}: event ID ${event.id} does not match its native MV array slot ${slot}. Restore matching event identities before observing the map.`,
+      );
+    }
     if (ids.has(event.id) || event.x >= map.width || event.y >= map.height) {
       throw new Error(
         `Malformed map ${mapId}: event ${event.id} must have a unique ID and a definition position inside the map.`,
@@ -114,6 +119,13 @@ export function readMapDirectory(value: unknown): MapInfoEntry[] {
   const result = z.array(mapInfoSchema.nullable()).safeParse(value);
   if (!result.success) {
     throw new Error(`Malformed MapInfos.json: ${result.error.message}`);
+  }
+  for (const [slot, entry] of result.data.entries()) {
+    if (entry !== null && entry.id !== slot) {
+      throw new Error(
+        `Malformed MapInfos.json: map ID ${entry.id} does not match its native MV array slot ${slot}. Restore matching map identities before observing maps.`,
+      );
+    }
   }
   const maps = result.data.filter((entry) => entry !== null);
   if (new Set(maps.map(({ id }) => id)).size !== maps.length) {

@@ -8,6 +8,7 @@ import type { ValidatedMap, ValidatedTileset } from "./read.js";
 import { blitRaster, createRaster } from "./raster.js";
 import type { Raster } from "./raster.js";
 import type { MapPreviewPage } from "./preview-types.js";
+import { nativeCharacterImageFlags, ordinaryTileAtlasLayout } from "./native-image-layout.js";
 
 export function selectPreviewEvents(map: ValidatedMap, choices: readonly MapPreviewPage[] = []) {
   const checked = z
@@ -44,8 +45,8 @@ export function selectPreviewEvents(map: ValidatedMap, choices: readonly MapPrev
     const priority = z.number().int().min(0).max(2).default(1).safeParse(selected?.priorityType);
     if (!priority.success)
       throw new Error(`Malformed event ${event.id} Preview Page ${page} priorityType.`);
-    const prefix = /^[!$]+/u.exec(image.data.characterName)?.[0] ?? "";
-    const shiftY = image.data.tileId > 0 || prefix.includes("!") ? 0 : 6;
+    const { object } = nativeCharacterImageFlags(image.data.characterName);
+    const shiftY = image.data.tileId > 0 || object ? 0 : 6;
     return [
       {
         eventId: event.id,
@@ -76,20 +77,17 @@ export async function drawNativeEvent(options: {
       throw new Error(
         `Malformed event ${event.eventId} tile graphic ${image.tileId}: use a native B-E tile ID.`,
       );
-    const slot = 5 + Math.floor(image.tileId / 256);
+    const { slot, sx, sy } = ordinaryTileAtlasLayout(image.tileId);
     const name = tileset.tilesetNames[slot];
     if (name === undefined || name === "")
       throw new Error(
         `Required event tileset image slot ${slot} has no filename in Tilesets.json.`,
       );
     const asset = await loadImage("tilesets", name);
-    const sx = ((Math.floor(image.tileId / 128) % 2) * 8 + (image.tileId % 8)) * 48;
-    const sy = (Math.floor((image.tileId % 256) / 8) % 16) * 48;
     blitRaster(target, asset, sx, sy, 48, 48, event.x * 48, event.y * 48);
     return;
   }
-  const prefix = /^[!$]+/u.exec(image.characterName)?.[0] ?? "";
-  const big = prefix.includes("$");
+  const { big, object } = nativeCharacterImageFlags(image.characterName);
   const asset = await loadImage("characters", image.characterName);
   const width = asset.width / (big ? 3 : 12);
   const height = asset.height / (big ? 4 : 8);
@@ -109,7 +107,7 @@ export async function drawNativeEvent(options: {
       throw new Error(`Tileset flags are missing required tile ID ${tileId}.`);
     if ((flags & 0x40) !== 0) onBush = true;
   }
-  if (event.priorityType === 1 && !prefix.includes("!") && onBush) {
+  if (event.priorityType === 1 && !object && onBush) {
     const depth = Math.min(12, height);
     const dx = event.x * 48 + 24 - width / 2;
     if (height > depth)
