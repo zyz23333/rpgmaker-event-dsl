@@ -2,6 +2,14 @@ import { readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { resolve } from "node:path";
 
+import { inspectMapCell } from "../map-observation/cells.js";
+import { validateMapBounds } from "../map-observation/geometry.js";
+import { readMapInspectionSelector } from "../map-observation/selection.js";
+import {
+  eventReferenceFiles,
+  inspectMapEvent,
+  resolveEventReferences,
+} from "../map-observation/events.js";
 import {
   readMapDirectory,
   readMapSettings,
@@ -10,6 +18,12 @@ import {
 } from "../map-observation/read.js";
 import type {
   MapDataInput,
+  MapAreaResult,
+  MapBounds,
+  MapCellResult,
+  MapEventResult,
+  MapInspectionResult,
+  MapInspectionSelector,
   MapListResult,
   MapObservationSource,
   MapSummaryResult,
@@ -31,6 +45,7 @@ export type MapObservationOptions = WorkspaceCommandOptions & {
 
 export type InspectWorkspaceMapOptions = MapObservationOptions & {
   mapId: number;
+  selector?: MapInspectionSelector;
 };
 
 export async function loadMapObservationContext(
@@ -169,10 +184,100 @@ export async function loadSelectedWorkspaceMap(
   };
 }
 
+export function inspectWorkspaceMap(
+  options: InspectWorkspaceMapOptions & { selector?: { kind: "summary" } },
+): Promise<MapSummaryResult>;
+export function inspectWorkspaceMap(
+  options: InspectWorkspaceMapOptions & { selector: { kind: "cell"; x: number; y: number } },
+): Promise<MapCellResult>;
+export function inspectWorkspaceMap(
+  options: InspectWorkspaceMapOptions & { selector: { kind: "area" } & MapBounds },
+): Promise<MapAreaResult>;
+export function inspectWorkspaceMap(
+  options: InspectWorkspaceMapOptions & {
+    selector: { kind: "event"; eventId: number; commands?: boolean };
+  },
+): Promise<MapEventResult>;
+export function inspectWorkspaceMap(
+  options: InspectWorkspaceMapOptions,
+): Promise<MapInspectionResult>;
 export async function inspectWorkspaceMap(
   options: InspectWorkspaceMapOptions,
-): Promise<MapSummaryResult> {
+): Promise<MapInspectionResult> {
+  options = { ...options, selector: readMapInspectionSelector(options.selector) };
   const context = await loadSelectedWorkspaceMap(options, "map inspect");
+  if (options.selector?.kind === "event") {
+    const inspection = inspectMapEvent(
+      context.map,
+      options.selector.eventId,
+      options.selector.commands === true,
+    );
+    const related = new Map<string, unknown>();
+    for (const file of eventReferenceFiles(inspection.event)) {
+      const input = await readWorkspaceMapDataInput(context, file);
+      related.set(file, input.value);
+      context.dataInputs.push(input.input);
+    }
+    return {
+      schemaVersion: 1,
+      kind: "map-event",
+      source: context.source,
+      map: context.identity,
+      event: resolveEventReferences(inspection.event, related),
+      dataInputs: context.dataInputs,
+      warnings: inspection.warnings,
+    };
+  }
+  if (options.selector?.kind === "area") {
+    const { x, y, width, height } = options.selector;
+    validateMapBounds({ x, y, width, height }, context.map.width, context.map.height, "area");
+    const cells = [];
+    for (let cellY = y; cellY < y + height; cellY += 1) {
+      for (let cellX = x; cellX < x + width; cellX += 1) {
+        cells.push(inspectMapCell(context.map, context.tileset, cellX, cellY));
+      }
+    }
+    return {
+      schemaVersion: 1,
+      kind: "map-area",
+      source: context.source,
+      map: context.identity,
+      width: context.map.width,
+      height: context.map.height,
+      bounds: { x, y, width, height },
+      cells,
+      events: context.map.events.flatMap((event) =>
+        event !== null &&
+        event.x >= x &&
+        event.x < x + width &&
+        event.y >= y &&
+        event.y < y + height
+          ? [{ id: event.id, name: event.name, x: event.x, y: event.y }]
+          : [],
+      ),
+      dataInputs: context.dataInputs,
+      warnings: [],
+    };
+  }
+  if (options.selector?.kind === "cell") {
+    validateMapBounds(
+      { x: options.selector.x, y: options.selector.y, width: 1, height: 1 },
+      context.map.width,
+      context.map.height,
+      "cell",
+    );
+    return {
+      schemaVersion: 1,
+      kind: "map-cell",
+      source: context.source,
+      map: context.identity,
+      width: context.map.width,
+      height: context.map.height,
+      cell: inspectMapCell(context.map, context.tileset, options.selector.x, options.selector.y),
+      dataInputs: context.dataInputs,
+      warnings: [],
+    };
+  }
   return {
     schemaVersion: 1,
     kind: "map-summary",
