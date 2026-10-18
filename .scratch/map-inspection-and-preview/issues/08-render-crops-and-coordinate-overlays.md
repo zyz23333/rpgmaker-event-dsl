@@ -4,7 +4,7 @@
 
 **Blocked by:** [05: Render a Basic Map Preview with Provenance](05-render-basic-map-preview.md).
 
-**Status:** ready-for-agent
+**Status:** resolved
 
 **Category:** enhancement
 
@@ -12,8 +12,16 @@
 
 ## Acceptance criteria
 
-- [ ] Full-map overviews and explicit crops work through CLI and Workspace rendering with validated zero-based original-map bounds.
-- [ ] Grid/coordinate aids are enabled by default and can be disabled; map-content pixel bounds account for label margins.
-- [ ] Actual scale and cell-to-pixel transform match rendered pixels for overview resizing and local detail.
-- [ ] Looping maps show one definition rectangle and report looping properties; invalid bounds fail instead of clipping or wrapping.
-- [ ] Large maps remain within output budgets or return resource errors before wasteful allocation; public tests verify image/metadata agreement.
+- [x] Full-map overviews and explicit crops work through CLI and Workspace rendering with validated zero-based original-map bounds.
+- [x] Grid/coordinate aids are enabled by default and can be disabled; map-content pixel bounds account for label margins.
+- [x] Actual scale and cell-to-pixel transform match rendered pixels for overview resizing and local detail.
+- [x] Looping maps show one definition rectangle and report looping properties; invalid bounds fail instead of clipping or wrapping.
+- [x] Large maps remain within output budgets or return resource errors before wasteful allocation; public tests verify image/metadata agreement.
+
+## Verification
+
+- Public Workspace red/green slices in `test/map-viewport.test.ts` verify native-detail crops, original-coordinate labels and transforms, default grid margins, bounded 4096-pixel overviews with/without labels, actual PNG dimensions and boundary colors, looping metadata, and invalid rectangle errors without new artifacts.
+- CLI coverage verifies `--crop X,Y,width,height`, `--no-grid`, human bounds/artifact output, clean JSON, and malformed tuple errors.
+- Native drawing maps directly into the bounded target raster; it does not allocate a full native-size scene before resizing. Native quarter tiles, shadow masks, and later event sprites share the same transformed blit seam.
+- A 1000 x 500-cell scene with a 1 x 1-pixel repeating parallax verifies bounded output work. The previous native-repetition loop timed out after 8 seconds; output-pixel sampling passes while retaining original-map phase. `test/map-layers.test.ts` also verifies cropped parallax phase and the table lip supplied by a neighbor outside crop bounds.
+- After merging the integration branch through explicit incomplete-image support, six focused viewport, ordinary-tile, autotile, layer, incomplete-preview, and architecture suites pass (53 tests). Workspace typecheck, changed-file lint/format, and `git diff --check` pass. The shared image loader, raster allocation limits, and final output-pixel incomplete notice remain intact.

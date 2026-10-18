@@ -53,7 +53,7 @@ describe("native MV autotile Map Preview", () => {
       const { workspaceRoot } = await createAutotileWorkspace([tileId]);
       try {
         const before = await readWorkspaceFiles(workspaceRoot);
-        await expect(renderWorkspaceMap({ workspaceRoot, mapId: 1 })).rejects.toThrow(
+        await expect(renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1 })).rejects.toThrow(
           /Malformed autotile ID.*no native MV/u,
         );
         expect(await readWorkspaceFiles(workspaceRoot)).toEqual(before);
@@ -67,8 +67,13 @@ describe("native MV autotile Map Preview", () => {
     const { workspaceRoot, projectRoot } = await createAutotileWorkspace([2816, 2048]);
     try {
       await compileMapWorkspace(workspaceRoot);
-      const snapshot = await renderWorkspaceMap({ workspaceRoot, mapId: 1 });
-      const generated = await renderWorkspaceMap({ workspaceRoot, mapId: 1, source: "generated" });
+      const snapshot = await renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1 });
+      const generated = await renderWorkspaceMap({
+        grid: false,
+        workspaceRoot,
+        mapId: 1,
+        source: "generated",
+      });
       expect(generated.dataInputs[1]).toMatchObject({
         source: "generated",
         relativePath: "Map001.json",
@@ -81,7 +86,7 @@ describe("native MV autotile Map Preview", () => {
       await rm(join(projectRoot, "img", "tilesets", "A1.png"));
       const before = await readWorkspaceFiles(workspaceRoot);
       await expect(
-        renderWorkspaceMap({ workspaceRoot, mapId: 1, source: "generated" }),
+        renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1, source: "generated" }),
       ).rejects.toThrow(/required Map Image Asset img\/tilesets\/A1.png/u);
       expect(await readWorkspaceFiles(workspaceRoot)).toEqual(before);
     } finally {
@@ -96,7 +101,7 @@ describe("native MV autotile Map Preview", () => {
       4352: 0x80,
     });
     try {
-      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1 });
+      const result = await renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1 });
       const png = PNG.sync.read(await readFile(result.artifacts.png));
       // Shape47 bottom quarters are (0,1)/(1,1). Native table underlay remaps
       // these to (0,3)/(3,3), then overlays the original top12px at y+12.
@@ -322,7 +327,7 @@ describe("native MV autotile Map Preview", () => {
     ];
     const { workspaceRoot } = await createAutotileWorkspace(ledger.map(({ id }) => id));
     try {
-      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1 });
+      const result = await renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1 });
       expect(result.compatibility).toEqual({
         target: "rpg-maker-mv-native-static",
         animationFrame: 0,

@@ -3,12 +3,14 @@ import { mkdir, rename, rm, writeFile } from "node:fs/promises";
 import { isAbsolute, relative, resolve } from "node:path";
 
 import { renderMapPreview } from "../map-observation/render.js";
-import type { MapPreviewPage, MapPreviewResult } from "../map-observation/preview-types.js";
+import type { MapPreviewBounds, MapPreviewPage, MapPreviewResult } from "../map-observation/preview-types.js";
 import { loadSelectedWorkspaceMap } from "./map-observation.js";
 import type { MapObservationOptions } from "./map-observation.js";
 
 export type RenderWorkspaceMapOptions = MapObservationOptions & {
   mapId: number;
+  crop?: MapPreviewBounds;
+  grid?: boolean;
   allowMissingAssets?: boolean;
   events?: boolean;
   eventPages?: readonly MapPreviewPage[];
@@ -22,11 +24,13 @@ export async function renderWorkspaceMap(
     map: context.map,
     tileset: context.tileset,
     projectRoot: context.workspace.projectRoot,
+    ...(options.crop === undefined ? {} : { crop: options.crop }),
+    ...(options.grid === undefined ? {} : { grid: options.grid }),
     allowMissingAssets: options.allowMissingAssets === true,
     ...(options.events === undefined ? {} : { events: options.events }),
     ...(options.eventPages === undefined ? {} : { eventPages: options.eventPages }),
   });
-  const bounds = { x: 0, y: 0, width: context.map.width, height: context.map.height };
+  const bounds = rendered.bounds;
   const identity = createHash("sha256")
     .update(
       JSON.stringify({
@@ -35,6 +39,7 @@ export async function renderWorkspaceMap(
         pages: rendered.previewPages,
         data: context.dataInputs,
         images: rendered.imageInputs,
+        grid: options.grid ?? true,
       }),
     )
     .digest("hex")
@@ -43,7 +48,7 @@ export async function renderWorkspaceMap(
   const suffix = randomUUID();
   const directory = resolve(
     artifactRoot,
-    `map-${context.identity.id}-${context.source}-0-0-${bounds.width}-${bounds.height}-${identity}-${suffix}`,
+    `map-${context.identity.id}-${context.source}-${bounds.x}-${bounds.y}-${bounds.width}-${bounds.height}-${identity}-${suffix}`,
   );
   const stagingDirectory = resolve(artifactRoot, `.tmp-${suffix}`);
   const result: MapPreviewResult = {
@@ -59,10 +64,15 @@ export async function renderWorkspaceMap(
       tileWidth: 48,
       tileHeight: 48,
     },
+    looping: {
+      horizontal: context.map.scrollType === 2 || context.map.scrollType === 3,
+      vertical: context.map.scrollType === 1 || context.map.scrollType === 3,
+    },
     bounds,
     output: { width: rendered.width, height: rendered.height },
-    mapContent: { x: 0, y: 0, width: rendered.width, height: rendered.height },
-    transform: { scaleX: 48, scaleY: 48, offsetX: 0, offsetY: 0 },
+    mapContent: rendered.mapContent,
+    transform: rendered.transform,
+    overlays: rendered.overlays,
     compatibility: { target: "rpg-maker-mv-native-static", animationFrame: 0 },
     previewPages: rendered.previewPages,
     parallax: rendered.parallax,

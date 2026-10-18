@@ -63,7 +63,7 @@ describe("native Map Preview event appearance", () => {
     const { workspaceRoot } = await createMapWorkspace();
     try {
       const before = await readWorkspaceFiles(workspaceRoot);
-      await expect(renderWorkspaceMap({ workspaceRoot, mapId: 1, eventPages: choices })).rejects.toThrow(/Preview Page/u);
+      await expect(renderWorkspaceMap({ workspaceRoot, mapId: 1, grid: false, eventPages: choices })).rejects.toThrow(/Preview Page/u);
       expect(await readWorkspaceFiles(workspaceRoot)).toEqual(before);
     } finally {
       await rm(workspaceRoot, { recursive: true, force: true });
@@ -83,12 +83,12 @@ describe("native Map Preview event appearance", () => {
       map.events.push(first, second);
     }, [{ category: "characters", name: "!$States", image: states }]);
     try {
-      const defaults = await renderWorkspaceMap({ workspaceRoot, mapId: 1, events: false });
+      const defaults = await renderWorkspaceMap({ workspaceRoot, mapId: 1, grid: false, events: false });
       expect(defaults.previewPages).toEqual([{ eventId: 1, page: 1 }, { eventId: 2, page: 1 }]);
       const defaultImage = PNG.sync.read(await readFile(defaults.artifacts.png));
       expect(pixel(defaultImage, 24, 60)).toEqual([180, 20, 40, 255]);
       expect(pixel(defaultImage, 120, 60)).toEqual([0, 0, 0, 0]);
-      const selected = await renderWorkspaceMap({ workspaceRoot, mapId: 1, events: false,
+      const selected = await renderWorkspaceMap({ workspaceRoot, mapId: 1, grid: false, events: false,
         eventPages: [{ eventId: 2, page: 2 }, { eventId: 1, page: 2 }] });
       expect(selected.previewPages).toEqual([{ eventId: 1, page: 2 }, { eventId: 2, page: 2 }]);
       const selectedImage = PNG.sync.read(await readFile(selected.artifacts.png));
@@ -119,7 +119,7 @@ describe("native Map Preview event appearance", () => {
       tileset.flags[1] = 0x40;
     });
     try {
-      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1, events: false });
+      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1, grid: false, events: false });
       const image = PNG.sync.read(await readFile(result.artifacts.png));
       expect(pixel(image, 12, 77)).toEqual([200, 0, 0, 255]);
       expect(pixel(image, 12, 78)).toEqual([110, 20, 30, 255]);
@@ -147,7 +147,7 @@ describe("native Map Preview event appearance", () => {
       { category: "characters", name: secondName, image: blue },
     ]);
     try {
-      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1, events: false });
+      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1, grid: false, events: false });
       expect(pixel(PNG.sync.read(await readFile(result.artifacts.png)), 72, 24)).toEqual(expected);
     } finally {
       await rm(workspaceRoot, { recursive: true, force: true });
@@ -174,7 +174,7 @@ describe("native Map Preview event appearance", () => {
       tileset.flags[2] = 0x10;
     });
     try {
-      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1, events: false });
+      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1, grid: false, events: false });
       const image = PNG.sync.read(await readFile(result.artifacts.png));
       expect(pixel(image, 12, 60)).toEqual([0, 180, 0, 255]);
       expect(pixel(image, 36, 60)).toEqual([20, 40, 210, 255]);
@@ -200,7 +200,7 @@ describe("native Map Preview event appearance", () => {
       map.events.push(event(1, 1, 1, { characterName: name, characterIndex: index, pattern, direction }));
     }, [{ category: "characters", name, image: actor }]);
     try {
-      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1, events: false });
+      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1, grid: false, events: false });
       const image = PNG.sync.read(await readFile(result.artifacts.png));
       expect(pixel(image, 72, top)).toEqual([20, 140, 80, 255]);
       expect(pixel(image, 72, top - 1)).toEqual([0, 0, 0, 0]);
@@ -220,7 +220,7 @@ describe("native Map Preview event appearance", () => {
       tileset.tilesetNames[5] = "Events";
     });
     try {
-      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1, events: false });
+      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1, grid: false, events: false });
       const image = PNG.sync.read(await readFile(result.artifacts.png));
       expect(pixel(image, 72, 47)).toEqual([0, 0, 0, 0]);
       expect(pixel(image, 72, 48)).toEqual([210, 150, 40, 255]);
@@ -242,7 +242,7 @@ describe("native Map Preview event appearance", () => {
     }, [{ category: "characters", name: "Actors", image: actor }]);
     try {
       const before = await readWorkspaceFiles(workspaceRoot);
-      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1, events: false });
+      const result = await renderWorkspaceMap({ workspaceRoot, mapId: 1, grid: false, events: false });
       const image = PNG.sync.read(await readFile(result.artifacts.png));
       expect(pixel(image, 72, 48)).toEqual([180, 30, 60, 255]);
       expect(pixel(image, 72, 41)).toEqual([0, 0, 0, 0]);
