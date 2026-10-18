@@ -3,7 +3,11 @@ import { mkdir, rename, rm, writeFile } from "node:fs/promises";
 import { isAbsolute, relative, resolve } from "node:path";
 
 import { renderMapPreview } from "../map-observation/render.js";
-import type { MapPreviewBounds, MapPreviewResult } from "../map-observation/preview-types.js";
+import type {
+  MapPreviewBounds,
+  MapPreviewPage,
+  MapPreviewResult,
+} from "../map-observation/preview-types.js";
 import { loadSelectedWorkspaceMap } from "./map-observation.js";
 import type { MapObservationOptions } from "./map-observation.js";
 
@@ -12,6 +16,8 @@ export type RenderWorkspaceMapOptions = MapObservationOptions & {
   crop?: MapPreviewBounds;
   grid?: boolean;
   allowMissingAssets?: boolean;
+  events?: boolean;
+  eventPages?: readonly MapPreviewPage[];
 };
 
 export async function renderWorkspaceMap(
@@ -25,6 +31,8 @@ export async function renderWorkspaceMap(
     ...(options.crop === undefined ? {} : { crop: options.crop }),
     ...(options.grid === undefined ? {} : { grid: options.grid }),
     allowMissingAssets: options.allowMissingAssets === true,
+    ...(options.events === undefined ? {} : { events: options.events }),
+    ...(options.eventPages === undefined ? {} : { eventPages: options.eventPages }),
   });
   const bounds = rendered.bounds;
   const identity = createHash("sha256")
@@ -36,6 +44,7 @@ export async function renderWorkspaceMap(
         data: context.dataInputs,
         images: rendered.imageInputs,
         grid: options.grid ?? true,
+        events: options.events ?? true,
       }),
     )
     .digest("hex")

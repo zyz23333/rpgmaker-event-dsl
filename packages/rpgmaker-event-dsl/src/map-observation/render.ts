@@ -1,46 +1,35 @@
 import { createMapImageLoader } from "./assets.js";
 import { drawIncompleteNotice } from "./incomplete-notice.js";
-import { z } from "zod";
 
 import type { ValidatedMap, ValidatedTileset } from "./read.js";
 import type { MapPreviewBounds, MapPreviewPage } from "./preview-types.js";
 import { planMapViewport } from "./viewport.js";
-import { drawCoordinateOverlay } from "./overlays.js";
+import { drawCoordinateOverlay, drawEventMarkers } from "./overlays.js";
 import { blitRaster, createRaster, encodePng } from "./raster.js";
 import type { Raster } from "./raster.js";
 import { drawNativeParallax, drawNativeShadow, nativeCellLayers } from "./native-layers.js";
 import { drawAutotile, drawTableEdge, getAutotileSlot } from "./native-autotiles.js";
-
-const imageSchema = z.object({
-  characterName: z.string(),
-  tileId: z.number().int().nonnegative(),
-});
-
-function readPreviewPages(map: ValidatedMap): MapPreviewPage[] {
-  return map.events.flatMap((event) => {
-    if (event === null) return [];
-    const image = imageSchema.safeParse(event.pages[0]?.image);
-    if (!image.success)
-      throw new Error(`Malformed event ${event.id} Preview Page 1 image definition.`);
-    if (image.data.tileId !== 0 || image.data.characterName !== "") {
-      throw new Error(
-        `Event ${event.id} has a visual image. Event image rendering is not implemented yet.`,
-      );
-    }
-    return [{ eventId: event.id, page: 1 }];
-  });
-}
+import { drawNativeEvent, selectPreviewEvents } from "./native-events.js";
 
 export async function renderMapPreview(options: {
   map: ValidatedMap;
   tileset: ValidatedTileset;
   projectRoot: string;
   allowMissingAssets?: boolean;
+  events?: boolean;
+  eventPages?: readonly MapPreviewPage[];
   crop?: MapPreviewBounds;
   grid?: boolean;
 }) {
   const { map, tileset, projectRoot } = options;
-  const previewPages = readPreviewPages(map);
+  const previewEvents = selectPreviewEvents(map, options.eventPages);
+  const previewPages = previewEvents.map(({ eventId, page }) => ({ eventId, page }));
+  const orderedEvents = [...previewEvents].sort(
+    (left, right) =>
+      left.priorityType - right.priorityType ||
+      left.bottomY - right.bottomY ||
+      left.order - right.order,
+  );
   const viewport = planMapViewport(map.width, map.height, options.crop, options.grid ?? true);
   const raster = createRaster(viewport.output.width, viewport.output.height);
   raster.viewport = {
@@ -113,14 +102,19 @@ export async function renderMapPreview(options: {
     }
     for (const tileId of layers.lowerAfterShadow) await drawTile(tileId, dx, dy);
   }
-  // Event sprites at native z1/z3 are composed here by event rendering.
+  for (const priority of [0, 1]) {
+    for (const event of orderedEvents.filter((event) => event.priorityType === priority))
+      await drawNativeEvent({ target: raster, event, map, tileset, loadImage });
+  }
   for (const index of visibleCellIndices()) {
     const layers = nativeCellLayers(map, tileset, index);
     for (const tileId of layers.upper)
       await drawTile(tileId, (index % map.width) * 48, Math.floor(index / map.width) * 48);
   }
-  // Native z5 event sprites are above the upper tile scene.
+  for (const event of orderedEvents.filter((event) => event.priorityType === 2))
+    await drawNativeEvent({ target: raster, event, map, tileset, loadImage });
   drawCoordinateOverlay(raster, viewport);
+  if (options.events !== false) drawEventMarkers(raster, previewEvents, viewport);
   if (imageLoader.warnings.length > 0) drawIncompleteNotice(raster);
   return {
     png: encodePng(raster),
@@ -140,5 +134,6 @@ export async function renderMapPreview(options: {
     width: raster.width,
     height: raster.height,
     ...viewport,
+    overlays: { ...viewport.overlays, events: options.events !== false },
   };
 }

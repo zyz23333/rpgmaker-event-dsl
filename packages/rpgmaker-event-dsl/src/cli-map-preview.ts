@@ -1,7 +1,7 @@
 import { Command, Option } from "commander";
 
 import type { MapObservationSource } from "./map-observation/types.js";
-import type { MapPreviewBounds } from "./map-observation/preview-types.js";
+import type { MapPreviewBounds, MapPreviewPage } from "./map-observation/preview-types.js";
 import { renderWorkspaceMap } from "./workspace/map-preview.js";
 
 function parseCrop(value: string): MapPreviewBounds {
@@ -15,6 +15,15 @@ function parseCrop(value: string): MapPreviewBounds {
   return { x, y, width, height };
 }
 
+function collectEventPage(value: string, previous: MapPreviewPage[]): MapPreviewPage[] {
+  const match = /^(\d+):(\d+)$/u.exec(value);
+  if (match === null)
+    throw new Error(
+      "Invalid --event-page: use eventID:page with positive one-based IDs and pages.",
+    );
+  return [...previous, { eventId: Number(match[1]), page: Number(match[2]) }];
+}
+
 export function registerMapRenderCommand(map: Command): void {
   map
     .command("render")
@@ -22,6 +31,13 @@ export function registerMapRenderCommand(map: Command): void {
     .requiredOption("--map <id>", "positive RPG Maker MV map ID", Number)
     .option("--crop <x,y,width,height>", "render original-map cell bounds at useful local detail")
     .option("--no-grid", "hide grid and coordinate label aids")
+    .option("--no-events", "hide event-ID markers while retaining actual event images")
+    .option(
+      "--event-page <eventID:page>",
+      "choose a static Preview Page for an event; repeat for other events",
+      collectEventPage,
+      [],
+    )
     .addOption(
       new Option("--source <source>", "project data source to observe")
         .choices(["snapshot", "generated"])
@@ -39,6 +55,8 @@ export function registerMapRenderCommand(map: Command): void {
         json?: boolean;
         crop?: string;
         grid?: boolean;
+        events?: boolean;
+        eventPage?: MapPreviewPage[];
         allowMissingAssets?: boolean;
       }) => {
         const result = await renderWorkspaceMap({
@@ -47,6 +65,8 @@ export function registerMapRenderCommand(map: Command): void {
           source: options.source,
           ...(options.crop === undefined ? {} : { crop: parseCrop(options.crop) }),
           grid: options.grid !== false,
+          events: options.events !== false,
+          eventPages: options.eventPage ?? [],
           allowMissingAssets: options.allowMissingAssets === true,
         });
         console.log(
