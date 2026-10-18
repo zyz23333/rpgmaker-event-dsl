@@ -7,8 +7,8 @@ import { promisify } from "node:util";
 import { PNG } from "pngjs";
 import { describe, expect, it } from "vitest";
 
-import { cloneWorkspace, renderWorkspaceMap } from "../src/workspace-api.js";
-import { createMapWorkspace, mapFixture } from "./map-observation-fixture.js";
+import { cloneWorkspace, renderWorkspaceMap, type MapPreviewBounds } from "../src/workspace-api.js";
+import { createMapWorkspace, mapFixture, readWorkspaceFiles } from "./map-observation-fixture.js";
 
 const palette = [
   [0, 0, 0],
@@ -116,6 +116,16 @@ describe("Map Preview bounds and coordinates", () => {
       expect([png.width, png.height]).toEqual([4096, 40]);
       expect(pixel(png, 4095, 2)).toEqual([0, 220, 0, 255]);
       expect(pixel(png, 4095, 39)).toEqual([220, 0, 0, 255]);
+      const labeled = await renderWorkspaceMap({ workspaceRoot, mapId: 1 });
+      expect(labeled).toMatchObject({
+        output: { width: 4096, height: 60 },
+        mapContent: { x: 28, y: 20, width: 4068, height: 40 },
+        transform: { scaleX: 4.068, scaleY: 4, offsetX: 28, offsetY: 20 },
+        overlays: { grid: true },
+      });
+      const labeledPng = PNG.sync.read(await readFile(labeled.artifacts.png));
+      expect([labeledPng.width, labeledPng.height]).toEqual([4096, 60]);
+      expect(pixel(labeledPng, 4095, 59)).toEqual([220, 0, 0, 255]);
     } finally {
       await rm(workspaceRoot, { recursive: true, force: true });
     }
@@ -172,6 +182,7 @@ describe("Map Preview bounds and coordinates", () => {
       });
       const png = PNG.sync.read(await readFile(result.artifacts.png));
       expect(pixel(png, 24, 24)).toEqual([220, 0, 220, 255]);
+      const beforeInvalid = await readWorkspaceFiles(workspaceRoot);
       for (const crop of [
         { x: -1, y: 0, width: 1, height: 1 },
         { x: 0, y: 0, width: 0, height: 1 },
@@ -181,11 +192,14 @@ describe("Map Preview bounds and coordinates", () => {
         { x: 0, y: 2, width: 1, height: 2 },
         { x: NaN, y: 0, width: 1, height: 1 },
         { x: 0, y: 0, width: Infinity, height: 1 },
+        null,
+        [],
       ]) {
-        await expect(renderWorkspaceMap({ workspaceRoot, mapId: 1, crop })).rejects.toThrow(
-          /Invalid crop|outside/iu,
-        );
+        await expect(
+          renderWorkspaceMap({ workspaceRoot, mapId: 1, crop: crop as MapPreviewBounds }),
+        ).rejects.toThrow(/Invalid crop|outside/iu);
       }
+      expect(await readWorkspaceFiles(workspaceRoot)).toEqual(beforeInvalid);
     } finally {
       await rm(workspaceRoot, { recursive: true, force: true });
     }
@@ -222,4 +236,51 @@ describe("Map Preview bounds and coordinates", () => {
       await rm(workspaceRoot, { recursive: true, force: true });
     }
   });
+
+  it("renders tiny repeating parallax on a large overview with work bounded by output pixels", async () => {
+    const { workspaceRoot, projectRoot, dataDirectory } = await createViewportWorkspace();
+    try {
+      await writeFile(
+        join(dataDirectory, "Map001.json"),
+        JSON.stringify({
+          ...mapFixture(),
+          width: 1000,
+          height: 500,
+          events: [null],
+          parallaxName: "Tiny",
+          data: Array<number>(3_000_000).fill(0),
+        }),
+      );
+      const tiny = new PNG({ width: 1, height: 1 });
+      tiny.data.set([37, 83, 129, 255]);
+      await mkdir(join(projectRoot, "img", "parallaxes"));
+      await writeFile(join(projectRoot, "img", "parallaxes", "Tiny.png"), PNG.sync.write(tiny));
+      await cloneWorkspace({ workspaceRoot });
+      const execute = promisify(execFile);
+      const cli = fileURLToPath(new URL("../src/cli.ts", import.meta.url));
+      // A native 48,000 x 24,000 repetition loop is deliberately too expensive;
+      // the bounded output contains only 4,096 x 2,048 pixels.
+      const output = await execute(
+        process.execPath,
+        [
+          "--import",
+          import.meta.resolve("tsx"),
+          cli,
+          "map",
+          "render",
+          "--map",
+          "1",
+          "--no-grid",
+          "--json",
+        ],
+        { cwd: workspaceRoot, timeout: 8000 },
+      );
+      const result = JSON.parse(output.stdout);
+      expect(result.output).toEqual({ width: 4096, height: 2048 });
+      const png = PNG.sync.read(await readFile(result.artifacts.png));
+      expect(pixel(png, 4095, 2047)).toEqual([37, 83, 129, 255]);
+    } finally {
+      await rm(workspaceRoot, { recursive: true, force: true });
+    }
+  }, 15000);
 });

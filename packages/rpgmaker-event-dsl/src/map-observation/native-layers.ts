@@ -2,7 +2,7 @@
 // Copyright (c) 2015 KADOKAWA CORPORATION./YOJI OJIMA.
 // Full license: distributed THIRD_PARTY_NOTICES.md.
 import type { ValidatedMap, ValidatedTileset } from "./read.js";
-import { blitRaster, createRaster } from "./raster.js";
+import { blitRaster, createRaster, repeatRaster } from "./raster.js";
 import type { Raster } from "./raster.js";
 
 // MV Tilemap._paintTiles keeps z0 and z4 separate, with shadows between
@@ -67,18 +67,5 @@ export function drawNativeParallax(
   width: number,
   height: number,
 ): void {
-  for (let y = 0; y < height; y += source.height) {
-    for (let x = 0; x < width; x += source.width) {
-      blitRaster(
-        target,
-        source,
-        0,
-        0,
-        Math.min(source.width, width - x),
-        Math.min(source.height, height - y),
-        x,
-        y,
-      );
-    }
-  }
+  repeatRaster(target, source, width, height);
 }

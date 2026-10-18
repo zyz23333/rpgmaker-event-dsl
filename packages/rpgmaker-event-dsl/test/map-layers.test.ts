@@ -148,6 +148,42 @@ async function createTableWorkspace(configure?: (map: ReturnType<typeof mapFixtu
 }
 
 describe("native Map Preview layer composition", () => {
+  it("retains the original outside-crop table neighbor for a crop's top lip", async () => {
+    const { workspaceRoot } = await createTableWorkspace();
+    try {
+      const result = await renderWorkspaceMap({
+        workspaceRoot,
+        mapId: 1,
+        crop: { x: 0, y: 1, width: 1, height: 1 },
+        grid: false,
+      });
+      const png = PNG.sync.read(await readFile(result.artifacts.png));
+      expect(pixel(png, 12, 6)).toEqual([180, 0, 180, 255]);
+      expect(pixel(png, 36, 6)).toEqual([0, 180, 180, 255]);
+      expect(pixel(png, 12, 18)).toEqual([100, 50, 0, 255]);
+      expect(pixel(png, 36, 18)).toEqual([200, 100, 0, 255]);
+    } finally {
+      await rm(workspaceRoot, { recursive: true, force: true });
+    }
+  });
+
+  it("crops repeating parallax without resetting its original-map phase", async () => {
+    const { workspaceRoot } = await createParallaxWorkspace();
+    try {
+      const result = await renderWorkspaceMap({
+        workspaceRoot,
+        mapId: 1,
+        crop: { x: 1, y: 1, width: 1, height: 1 },
+        grid: false,
+      });
+      const png = PNG.sync.read(await readFile(result.artifacts.png));
+      expect(pixel(png, 12, 12)).toEqual([200, 220, 240, 255]);
+      expect(pixel(png, 36, 12)).toEqual([140, 160, 180, 255]);
+      expect(pixel(png, 12, 36)).toEqual([80, 100, 120, 255]);
+    } finally {
+      await rm(workspaceRoot, { recursive: true, force: true });
+    }
+  });
   it("composes the above A2 table shape's edge after shadows and before later planes", async () => {
     const { workspaceRoot } = await createTableWorkspace();
     try {
@@ -225,14 +261,24 @@ describe("native Map Preview layer composition", () => {
     const { workspaceRoot, projectRoot } = await createParallaxWorkspace();
     try {
       await compileMapWorkspace(workspaceRoot);
-      const first = await renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1, source: "generated" });
+      const first = await renderWorkspaceMap({
+        grid: false,
+        workspaceRoot,
+        mapId: 1,
+        source: "generated",
+      });
       const manifestPath = join(workspaceRoot, ".rpgmaker-event-dsl", "sync-manifest.json");
       const manifest = await readFile(manifestPath);
       const path = join(projectRoot, "img", "parallaxes", "!Sky.png");
       const changed = PNG.sync.read(await readFile(path));
       changed.data.set([1, 2, 3, 255], (12 * changed.width + 4) * 4);
       await writeFile(path, PNG.sync.write(changed));
-      const second = await renderWorkspaceMap({ grid: false, workspaceRoot, mapId: 1, source: "generated" });
+      const second = await renderWorkspaceMap({
+        grid: false,
+        workspaceRoot,
+        mapId: 1,
+        source: "generated",
+      });
       expect(second.dataInputs).toEqual(first.dataInputs);
       expect(second.imageInputs[0]?.hash).not.toBe(first.imageInputs[0]?.hash);
       expect(pixel(PNG.sync.read(await readFile(second.artifacts.png)), 68, 12)).toEqual([

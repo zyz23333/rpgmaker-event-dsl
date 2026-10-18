@@ -8,7 +8,10 @@ export function planMapViewport(
   crop?: MapPreviewBounds,
   grid = true,
 ) {
-  const bounds = crop ?? { x: 0, y: 0, width: mapWidth, height: mapHeight };
+  if (crop !== undefined && (crop === null || typeof crop !== "object" || Array.isArray(crop))) {
+    throw new Error("Invalid crop: use an object with integer X, Y, width, and height.");
+  }
+  const bounds = crop === undefined ? { x: 0, y: 0, width: mapWidth, height: mapHeight } : crop;
   validateMapBounds(bounds, mapWidth, mapHeight, "crop");
   const nativeWidth = bounds.width * 48;
   const nativeHeight = bounds.height * 48;

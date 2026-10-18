@@ -153,3 +153,38 @@ export function blitRaster(
     }
   }
 }
+
+/** Repeating backgrounds sample only bounded output pixels, retaining the map-origin phase. */
+export function repeatRaster(target: Raster, source: Raster, width: number, height: number): void {
+  const view = target.viewport ?? {
+    scaleX: 1,
+    scaleY: 1,
+    offsetX: 0,
+    offsetY: 0,
+    clip: { x: 0, y: 0, width: target.width, height: target.height },
+  };
+  const left = Math.max(view.clip.x, 0, Math.ceil(view.offsetX - 0.5));
+  const top = Math.max(view.clip.y, 0, Math.ceil(view.offsetY - 0.5));
+  const right = Math.min(
+    view.clip.x + view.clip.width,
+    target.width,
+    Math.ceil(width * view.scaleX + view.offsetX - 0.5),
+  );
+  const bottom = Math.min(
+    view.clip.y + view.clip.height,
+    target.height,
+    Math.ceil(height * view.scaleY + view.offsetY - 0.5),
+  );
+  for (let y = top; y < bottom; y++) {
+    const sourceY = Math.floor((y + 0.5 - view.offsetY) / view.scaleY) % source.height;
+    for (let x = left; x < right; x++) {
+      const sourceX = Math.floor((x + 0.5 - view.offsetX) / view.scaleX) % source.width;
+      compositePixel(
+        target,
+        (y * target.width + x) * 4,
+        source.data,
+        (sourceY * source.width + sourceX) * 4,
+      );
+    }
+  }
+}
