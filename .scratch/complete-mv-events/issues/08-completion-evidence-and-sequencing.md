@@ -4,7 +4,7 @@ Type: grilling
 Labels: wayfinder:grilling
 Status: open
 Mode: HITL
-Blocked by: 03, 04, 05, 06, 07, 11
+Blocked by: 03, 04, 05, 06, 07, 11, 12, 13
 Parent: [完整支持 MV 原生事件的决策地图](../map.md)
 
 ## Question
@@ -101,3 +101,11 @@ Parent: [完整支持 MV 原生事件的决策地图](../map.md)
 - 同一 Workspace 的各工作流命令互斥，第二命令即时报忙，包括 Check/Diff；崩溃失效锁的清理不解除 pending。不同 Workspace/外部编辑器不受该锁控制，检查点不冒充全工程原子隔离。
 
 实施切片、故障注入点、代表性编辑器/游戏实验与证据责任继续由本票确认；全参证据门槛仍由逐参数研究提供。
+
+### 2026-10-19 — 全量逐参数研究交付与新增前置
+
+[原生指令逐参数契约还缺哪些证据](11-native-command-parameter-evidence.md#answer)已完成事实调查，交付[105+45逐参数索引](../research/command-parameters/index.md)及各分片正负/边界样本；Qt基础整数与初值已有实际REA+Ghidra证据，仍没有真实编辑器或游戏验收。
+
+本票继续等待[原生保存形态差异如何进入正式 DSL](12-native-saved-shape-model.md)与[原生控件范围与保存值的支持边界如何划定](13-native-value-domain-boundaries.md)。正式表示和值域未定前，不划定最终实施规格。两票决定后，将计时器Stop尾槽、移动parameters/indent/M0外壳、非空body尾0、脸图索引、缩图后坐标、单槽文本，以及EXP帮助与本体上限差异的真实核对，纳入验收矩阵。
+
+所有真实样本须区分新建、仅保存容器、主动重确认参数和游戏运行；先保留完整解析结构再比较，不能过滤新发现差异后宣称无损。各命令所有模式/引用/Gate、None和保存配置的组合由参数表提供，合成拒绝样本不替代原生创建证据。

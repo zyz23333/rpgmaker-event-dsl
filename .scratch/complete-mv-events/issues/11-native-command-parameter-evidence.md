@@ -2,8 +2,9 @@
 
 Type: research
 Labels: wayfinder:research
-Status: open
+Status: resolved
 Mode: AFK
+Assignee: codex
 Blocked by: 05
 Parent: [完整支持 MV 原生事件的决策地图](../map.md)
 
@@ -51,6 +52,28 @@ Parent: [完整支持 MV 原生事件的决策地图](../map.md)
 - [本轮指令契约的编辑器静态证据](../research/command-contract-editor-evidence.md)：Choices、空体、默认、空 Shop、换装、文本、None 素材和连续范围；明确尚未执行的样本。
 - [原生事件创建初值与控件范围](../research/event-defaults-and-limits.md)：相关属性及证据方法，不能代替指令逐参数检查。
 
+## Answer
+
+2026-10-19：逐参数事实调查与责任归口已完成，研究票 resolved。交付[完整参数证据索引](../research/command-parameters/index.md)及五个分片：核心24族、系统/地图48族、角色/战斗33族、移动45码、共享Qt/保存链。105+45逐项与原库存一致，包括完整条件模式、Game Data来源、原生续行/分支/终止/镜像，而非仅统计helper。
+
+各参数表分别给出正式字段/候选、原生槽位与数量、值域/None、初值与已决Compiler Default、引用/Runtime Selector/Gate和待执行样本。能机械应用既决原则的保存配置已记录；新的模型和范围选择没有由研究代理代决。
+
+### 证据与验证
+
+- 本体内嵌QML/JS及随包帮助/runtime均只读核查；五分片195条EXE资源身份行逐条验证长度/编码/解码SHA，无不符。212个相对链接及标题片段核对通过；三位研究代理完成交叉审阅，已修正发现的字段表述与结构前置关联。
+- 本轮实际使用REA + Ghidra 12.1.4检查编辑器随附 `QtQuick/Controls/qtquickcontrolsplugin.dll` 的SpinBoxValidator构造、元属性和getter，补齐整数、基础value0/step1/min0/max99证据。没有将DLL分析冒称为全面反编译编辑器。详细Evidence ID、二进制身份与初始化时序限制见[共享控件报告](../research/command-parameters/shared-controls.md)。
+- REA Evidence bundle和snapshot仅留本地 `C:/Users/Shuen/.codex/research-evidence/mv-command-parameters-20261019/`，已成功关闭native session。研究分支不含原软件、资产、runtime源码或完整反编译输出。
+- 六份原创Markdown已提交并推送到[研究分支](https://github.com/zyz23333/rpgmaker-event-dsl/tree/research/mv-command-parameter-evidence/.scratch/complete-mv-events/research/command-parameters)，提交 `7e3f137ccc5f5891c8e602e7b67810538817ae46`；远端ref与本地HEAD一致。未开PR、未合并；同内容报告已同步到当前工作区。`git diff --cached --check`通过。
+
+### 新的明确设计依赖
+
+1. [原生保存形态差异如何进入正式 DSL](12-native-saved-shape-model.md)：计时器Stop的缺失/存在秒数槽；移动记录省略parameters、终止外壳与静态推导indent:null；普通编辑留下的非空子体尾0。需要补充正式表示，不能补默认、删记录或raw。
+2. [原生控件范围与保存值的支持边界如何划定](13-native-value-domain-boundaries.md)：非标准尺寸脸图可选索引、直接坐标随地图变化的越界与诊断、完整单字符串槽与控件行数的边界。EXP本体/帮助上限差异明确记录，目标真实输入核查交验收，不以用户选择代替事实。
+
+两票仍open、未进行HITL讨论；[验收与实施顺序](08-completion-evidence-and-sequencing.md)继续被它们阻塞。本研究完成不等于全参产品契约已经定稿，更不等于完整支持已实现。后续决定须回写参数表及必要ADR；尚未执行的真实保存与运行样本由验收票接收。
+
+本轮没有产品代码修改、产品测试、编辑器打开保存或游戏运行。原生工厂/插入/保存路径的静态推导与真实文件观察始终分开，未把所有未发现的形态宣布为非法。
+
 ## Comments
 
 ### 2026-10-18 — 从指令契约讨论中分出的明确后续调查
@@ -71,3 +94,11 @@ Parent: [完整支持 MV 原生事件的决策地图](../map.md)
 - 原生脚本槽及可识别 raw 内引用遵循同一校验；路线采用同一模型，未知移动指令拒绝。证据表需覆盖所需递归位置、例外和错误/警告等级。
 
 本次仅转交设计输入，未认领或执行全量调查，不改变本票 open 状态或实施规格完成门槛。
+
+### 2026-10-19 — 开始逐参数研究
+
+由主代理认领并协调按命令族划分的 research 子代理；以本次已提交的领域契约和首方 MV 1.6.1 资料为依据。用户已配置 REA + Ghidra，并授权在必要时查看所提供的 MV 编辑器实现。研究报告区分已决产品规则、目标静态证据、推断与真实观察；新增模型冲突形成独立决策依赖，不自行改变已决规则。
+
+### 2026-10-19 — 研究结果已发布并交接
+
+详见正式Answer和参数总索引。已创建两项必要HITL依赖并接入验收票；本轮只解决本研究票，没有替用户解决新增设计选择。
