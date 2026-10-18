@@ -6,6 +6,11 @@ import { inspectMapCell } from "../map-observation/cells.js";
 import { validateMapBounds } from "../map-observation/geometry.js";
 import { readMapInspectionSelector } from "../map-observation/selection.js";
 import {
+  eventReferenceFiles,
+  inspectMapEvent,
+  resolveEventReferences,
+} from "../map-observation/events.js";
+import {
   readMapDirectory,
   readMapSettings,
   readSelectedMap,
@@ -16,6 +21,7 @@ import type {
   MapAreaResult,
   MapBounds,
   MapCellResult,
+  MapEventResult,
   MapInspectionResult,
   MapInspectionSelector,
   MapListResult,
@@ -188,6 +194,11 @@ export function inspectWorkspaceMap(
   options: InspectWorkspaceMapOptions & { selector: { kind: "area" } & MapBounds },
 ): Promise<MapAreaResult>;
 export function inspectWorkspaceMap(
+  options: InspectWorkspaceMapOptions & {
+    selector: { kind: "event"; eventId: number; commands?: boolean };
+  },
+): Promise<MapEventResult>;
+export function inspectWorkspaceMap(
   options: InspectWorkspaceMapOptions,
 ): Promise<MapInspectionResult>;
 export async function inspectWorkspaceMap(
@@ -195,6 +206,28 @@ export async function inspectWorkspaceMap(
 ): Promise<MapInspectionResult> {
   options = { ...options, selector: readMapInspectionSelector(options.selector) };
   const context = await loadSelectedWorkspaceMap(options, "map inspect");
+  if (options.selector?.kind === "event") {
+    const inspection = inspectMapEvent(
+      context.map,
+      options.selector.eventId,
+      options.selector.commands === true,
+    );
+    const related = new Map<string, unknown>();
+    for (const file of eventReferenceFiles(inspection.event)) {
+      const input = await readWorkspaceMapDataInput(context, file);
+      related.set(file, input.value);
+      context.dataInputs.push(input.input);
+    }
+    return {
+      schemaVersion: 1,
+      kind: "map-event",
+      source: context.source,
+      map: context.identity,
+      event: resolveEventReferences(inspection.event, related),
+      dataInputs: context.dataInputs,
+      warnings: inspection.warnings,
+    };
+  }
   if (options.selector?.kind === "area") {
     const { x, y, width, height } = options.selector;
     validateMapBounds({ x, y, width, height }, context.map.width, context.map.height, "area");

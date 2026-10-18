@@ -73,6 +73,9 @@ describe("Map Cell and area CLI selectors", () => {
     try {
       for (const [args, message] of [
         [["--cell", "0,0", "--area", "0,0,1,1"], "mutually exclusive"],
+        [["--event", "1", "--cell", "0,0"], "mutually exclusive"],
+        [["--event", "1", "--area", "0,0,1,1"], "mutually exclusive"],
+        [["--cell", "0,0", "--commands"], "--commands requires --event"],
         [["--cell", "1,0,2"], "Invalid --cell"],
         [["--area", "0,0,1"], "Invalid --area"],
         [["--cell", "1.2,0"], "Invalid --cell"],

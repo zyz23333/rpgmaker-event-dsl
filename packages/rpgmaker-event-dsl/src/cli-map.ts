@@ -48,6 +48,23 @@ function formatMapResult(result: MapListResult | MapInspectionResult): string {
       ...result.events.map((event) => `  ${event.id}: ${event.name} at (${event.x}, ${event.y})`),
     ].join("\n");
   }
+  if (result.kind === "map-event") {
+    return [
+      `Map ${result.map.id}: ${result.map.name} (${result.source})`,
+      `Event ${result.event.id}: ${result.event.name} at (${result.event.x}, ${result.event.y})`,
+      ...result.event.pages.flatMap((page) => [
+        `Page ${page.page}: ${page.triggerName}`,
+        `  Conditions: ${JSON.stringify(page.conditions)}`,
+        `  Image: ${JSON.stringify(page.image)}`,
+        `  Command summary: ${JSON.stringify(page.commandSummary)}`,
+        ...(page.references.length === 0
+          ? []
+          : [`  References: ${JSON.stringify(page.references)}`]),
+        ...(page.commands === undefined ? [] : [`  Commands: ${JSON.stringify(page.commands)}`]),
+      ]),
+      ...result.warnings.map((warning) => `Warning (${warning.code}): ${warning.message}`),
+    ].join("\n");
+  }
   return [
     `Map ${result.map.id}: ${result.map.name} (${result.source})`,
     `${result.width} x ${result.height} cells; tileset ${result.tileset.id}: ${result.tileset.name}`,
@@ -57,7 +74,7 @@ function formatMapResult(result: MapListResult | MapInspectionResult): string {
   ].join("\n");
 }
 
-function parseCellOrAreaSelector(options: {
+function parseInspectionSelector(options: {
   cell?: string;
   area?: string;
   event?: number;
@@ -70,6 +87,9 @@ function parseCellOrAreaSelector(options: {
   }
   if (options.commands && options.event === undefined) {
     throw new Error("--commands requires --event.");
+  }
+  if (options.event !== undefined) {
+    return { kind: "event", eventId: options.event, commands: options.commands === true };
   }
   const kind =
     options.cell !== undefined ? "cell" : options.area !== undefined ? "area" : "summary";
@@ -107,6 +127,8 @@ export function registerMapCommands(program: Command): void {
     .command("inspect")
     .description("Inspect the Selected Map's summary or selected event, cell, or area.")
     .requiredOption("--map <id>", "positive RPG Maker MV map ID", Number)
+    .option("--event <id>", "inspect one positive map-scoped event ID", Number)
+    .option("--commands", "include complete raw commands for the selected event")
     .option("--cell <x,y>", "inspect one cell using original zero-based map coordinates")
     .option("--area <x,y,width,height>", "inspect a rectangle and its event definition positions")
     .addOption(sourceOption())
@@ -116,6 +138,8 @@ export function registerMapCommands(program: Command): void {
         map: number;
         source: MapObservationSource;
         json?: boolean;
+        event?: number;
+        commands?: boolean;
         cell?: string;
         area?: string;
       }) => {
@@ -123,7 +147,7 @@ export function registerMapCommands(program: Command): void {
           workspaceRoot: process.cwd(),
           source: options.source,
           mapId: options.map,
-          selector: parseCellOrAreaSelector(options),
+          selector: parseInspectionSelector(options),
         });
         console.log(options.json ? JSON.stringify(result) : formatMapResult(result));
       },

@@ -24,6 +24,11 @@ export function readMapInspectionSelector(value: unknown): MapInspectionSelector
     value === undefined ? { kind: "summary" } : value,
   );
   if (!result.success) {
+    if (result.error.issues.some((issue) => issue.path[0] === "eventId")) {
+      throw new Error(
+        "Invalid map inspection selector: select a positive integer event ID within safe integer limits.",
+      );
+    }
     throw new Error(
       `Invalid map inspection selector: select one summary, event, cell, or area; commands are valid only inside an event selector. ${result.error.message}`,
     );
