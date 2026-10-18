@@ -2,7 +2,7 @@ import { mkdir, mkdtemp, readdir, readFile, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
-import { cloneWorkspace } from "../src/workspace-api.js";
+import { cloneWorkspace, compileWorkspace } from "../src/workspace-api.js";
 
 export function mapFixture() {
   return {
@@ -116,6 +116,22 @@ export async function createMapWorkspace(options: { clone?: boolean } = {}) {
     await cloneWorkspace({ workspaceRoot });
   }
   return { workspaceRoot, projectRoot, dataDirectory };
+}
+
+export async function compileMapWorkspace(workspaceRoot: string): Promise<void> {
+  await writeFile(
+    join(workspaceRoot, "src", "entrance.events.ts"),
+    `
+export const entrance = {
+  kind: "mapEvent", mapId: 1, id: 2, name: "Generated Entrance", x: 0, y: 0,
+  pages: [{ conditions: {}, trigger: "action", commands: [] }],
+};
+export const switchDefinition = { kind: "switchDefinition", id: 1, name: "Generated Switch" };
+export const variableDefinition = { kind: "variableDefinition", id: 1, name: "Generated Variable" };
+export const common = { kind: "commonEvent", id: 2, name: "Generated Common", trigger: "none", commands: [] };
+`,
+  );
+  await compileWorkspace({ workspaceRoot, check: false });
 }
 
 export async function readWorkspaceFiles(directory: string): Promise<Record<string, string>> {

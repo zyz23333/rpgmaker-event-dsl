@@ -41,7 +41,7 @@ const mapEventSchema = z
   .object({
     id: z.number().int().positive(),
     name: z.string(),
-    note: z.string(),
+    note: z.string().optional(),
     x: z.number().int().nonnegative(),
     y: z.number().int().nonnegative(),
     pages: z.array(z.record(z.string(), z.unknown())).nonempty(),
