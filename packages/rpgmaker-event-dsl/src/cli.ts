@@ -15,6 +15,7 @@ import {
   pullWorkspace,
 } from "./workspace/operations.js";
 import { pushWorkspace } from "./workspace/push.js";
+import { registerMapCommands } from "./cli-map.js";
 
 export const cliName = "rpgmaker-event-dsl";
 
@@ -102,6 +103,8 @@ export function createCli(): Command {
         allowDestructive: options.allowDestructive === true,
       });
     });
+
+  registerMapCommands(program);
 
   return program;
 }

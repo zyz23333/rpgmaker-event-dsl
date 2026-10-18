@@ -15,6 +15,7 @@ describe("createCli", () => {
       "compile",
       "diff",
       "push",
+      "map",
     ]);
   });
 
