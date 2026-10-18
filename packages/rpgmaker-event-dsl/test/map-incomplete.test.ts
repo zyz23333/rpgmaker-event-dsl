@@ -34,6 +34,41 @@ function pixel(png: PNG, x: number, y: number) {
 }
 
 describe("explicitly Incomplete Map Preview", () => {
+  it("uses the same explicit diagnostic loader for required parallax images", async () => {
+    const { workspaceRoot, dataDirectory } = await createMapWorkspace({ clone: false });
+    try {
+      const map = mapFixture();
+      map.parallaxName = "MissingSky";
+      await writeFile(join(dataDirectory, "Map001.json"), JSON.stringify(map));
+      await cloneWorkspace({ workspaceRoot });
+      await expect(renderWorkspaceMap({ workspaceRoot, mapId: 1 })).rejects.toThrow(
+        /img\/parallaxes\/MissingSky.png/u,
+      );
+      const result = await renderWorkspaceMap({
+        workspaceRoot,
+        mapId: 1,
+        allowMissingAssets: true,
+      });
+      expect(result.complete).toBe(false);
+      expect(result.imageInputs).toEqual([
+        {
+          status: "unavailable",
+          reason: "missing",
+          relativePath: "img/parallaxes/MissingSky.png",
+          path: expect.any(String),
+        },
+      ]);
+      const png = PNG.sync.read(await readFile(result.artifacts.png));
+      expect([pixel(png, 4, 80), pixel(png, 12, 80)]).toEqual([
+        [255, 0, 255, 255],
+        [32, 0, 32, 255],
+      ]);
+      expect(result.parallax.name).toBe("MissingSky");
+    } finally {
+      await rm(workspaceRoot, { recursive: true, force: true });
+    }
+  });
+
   it.each(["undecodable", "unreadable"])(
     "reports %s assets explicitly while structured inspection remains independent of images",
     async (reason) => {
