@@ -25,6 +25,16 @@ export type MapPreviewResult = MapObservationResult & {
   overlays: { grid: boolean; coordinateStep: { x: number; y: number } };
   compatibility: { target: "rpg-maker-mv-native-static"; animationFrame: 0 };
   previewPages: MapPreviewPage[];
+  parallax: {
+    name: string;
+    originX: 0;
+    originY: 0;
+    time: 0;
+    loopX: boolean;
+    loopY: boolean;
+    scrollX: number;
+    scrollY: number;
+  };
   imageInputs: MapImageInput[];
   artifacts: { png: string; metadata: string };
   complete: boolean;

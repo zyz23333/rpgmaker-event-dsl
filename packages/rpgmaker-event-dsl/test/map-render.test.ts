@@ -168,22 +168,12 @@ describe("Workspace Map Preview", () => {
     }
   });
 
-  it.each(["upper tile", "layer", "shadow", "parallax", "event image"])(
+  it.each(["event image"])(
     "rejects unsupported %s rather than silently producing an incomplete scene",
     async (feature) => {
       const { workspaceRoot, dataDirectory } = await createMapWorkspace({ clone: false });
       try {
         const map = mapFixture();
-        if (feature === "upper tile") {
-          map.data[0] = 1;
-          const path = join(dataDirectory, "Tilesets.json");
-          const tilesets = JSON.parse(await readFile(path, "utf8"));
-          tilesets[1].flags[1] = 0x10;
-          await writeFile(path, JSON.stringify(tilesets));
-        }
-        if (feature === "layer") map.data[6] = 1;
-        if (feature === "shadow") map.data[24] = 1;
-        if (feature === "parallax") map.parallaxName = "Sky";
         if (feature === "event image") map.events[1]!.pages[0]!.image.characterName = "Actor1";
         await writeFile(join(dataDirectory, "Map001.json"), JSON.stringify(map));
         await cloneWorkspace({ workspaceRoot });

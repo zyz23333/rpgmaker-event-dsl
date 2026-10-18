@@ -69,6 +69,7 @@ export async function renderWorkspaceMap(
     overlays: rendered.overlays,
     compatibility: { target: "rpg-maker-mv-native-static", animationFrame: 0 },
     previewPages: rendered.previewPages,
+    parallax: rendered.parallax,
     imageInputs: rendered.imageInputs,
     artifacts: {
       png: resolve(directory, "preview.png"),
