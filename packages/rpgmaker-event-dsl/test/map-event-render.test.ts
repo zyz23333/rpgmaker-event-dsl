@@ -251,7 +251,7 @@ export const entrance = { kind:"mapEvent", mapId:1, id:1, name:"Generated Entran
     const { workspaceRoot } = await createEventWorkspace(
       (map) => {
         map.events.push(event(1, 0, 1, { characterName: "!$Actor" }));
-        map.events.push(event(12, 2, 1, {}));
+        map.events.push(...Array<null>(10).fill(null), event(12, 2, 1, {}));
       },
       [{ category: "characters", name: "!$Actor", image: actor }],
     );

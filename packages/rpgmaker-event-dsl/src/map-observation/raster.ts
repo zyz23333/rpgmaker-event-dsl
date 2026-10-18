@@ -78,14 +78,13 @@ function compositePixel(
   target.data[offset + 3] = Math.round(outputAlpha * 255);
 }
 
-export function fillRasterRect(
+function targetPixelRectangle(
   target: Raster,
   dx: number,
   dy: number,
   width: number,
   height: number,
-  color: readonly [number, number, number, number],
-): void {
+) {
   const view = target.viewport ?? {
     scaleX: 1,
     scaleY: 1,
@@ -105,6 +104,18 @@ export function fillRasterRect(
     target.height,
     Math.ceil((dy + height) * view.scaleY + view.offsetY - 0.5),
   );
+  return { view, left, top, right, bottom };
+}
+
+export function fillRasterRect(
+  target: Raster,
+  dx: number,
+  dy: number,
+  width: number,
+  height: number,
+  color: readonly [number, number, number, number],
+): void {
+  const { left, top, right, bottom } = targetPixelRectangle(target, dx, dy, width, height);
   for (let y = top; y < bottom; y++) {
     for (let x = left; x < right; x++) compositePixel(target, (y * target.width + x) * 4, color);
   }
@@ -125,25 +136,7 @@ export function blitRaster(
       `Required image is too small for source rectangle ${sx},${sy},${width},${height}.`,
     );
   }
-  const view = target.viewport ?? {
-    scaleX: 1,
-    scaleY: 1,
-    offsetX: 0,
-    offsetY: 0,
-    clip: { x: 0, y: 0, width: target.width, height: target.height },
-  };
-  const left = Math.max(view.clip.x, 0, Math.ceil(dx * view.scaleX + view.offsetX - 0.5));
-  const top = Math.max(view.clip.y, 0, Math.ceil(dy * view.scaleY + view.offsetY - 0.5));
-  const right = Math.min(
-    view.clip.x + view.clip.width,
-    target.width,
-    Math.ceil((dx + width) * view.scaleX + view.offsetX - 0.5),
-  );
-  const bottom = Math.min(
-    view.clip.y + view.clip.height,
-    target.height,
-    Math.ceil((dy + height) * view.scaleY + view.offsetY - 0.5),
-  );
+  const { view, left, top, right, bottom } = targetPixelRectangle(target, dx, dy, width, height);
   for (let y = top; y < bottom; y++) {
     const sourceY = sy + Math.floor((y + 0.5 - view.offsetY) / view.scaleY - dy);
     for (let x = left; x < right; x++) {
@@ -157,25 +150,7 @@ export function blitRaster(
 
 /** Repeating backgrounds sample only bounded output pixels, retaining the map-origin phase. */
 export function repeatRaster(target: Raster, source: Raster, width: number, height: number): void {
-  const view = target.viewport ?? {
-    scaleX: 1,
-    scaleY: 1,
-    offsetX: 0,
-    offsetY: 0,
-    clip: { x: 0, y: 0, width: target.width, height: target.height },
-  };
-  const left = Math.max(view.clip.x, 0, Math.ceil(view.offsetX - 0.5));
-  const top = Math.max(view.clip.y, 0, Math.ceil(view.offsetY - 0.5));
-  const right = Math.min(
-    view.clip.x + view.clip.width,
-    target.width,
-    Math.ceil(width * view.scaleX + view.offsetX - 0.5),
-  );
-  const bottom = Math.min(
-    view.clip.y + view.clip.height,
-    target.height,
-    Math.ceil(height * view.scaleY + view.offsetY - 0.5),
-  );
+  const { view, left, top, right, bottom } = targetPixelRectangle(target, 0, 0, width, height);
   for (let y = top; y < bottom; y++) {
     const sourceY = Math.floor((y + 0.5 - view.offsetY) / view.scaleY) % source.height;
     for (let x = left; x < right; x++) {

@@ -27,8 +27,16 @@ export function nativeCellLayers(map: ValidatedMap, tileset: ValidatedTileset, i
   const above = aboveY < 0 ? 0 : map.data[cells + aboveY * map.width + x]!;
   const current = map.data[cells + index]!;
   const base = map.data[index]!;
-  const isTable = (tileId: number) =>
-    tileId >= 2816 && tileId < 4352 && ((tileset.flags[tileId] ?? 0) & 0x80) !== 0;
+  const isTable = (tileId: number) => {
+    if (tileId < 2816 || tileId >= 4352) return false;
+    const flags = tileset.flags[tileId];
+    if (flags === undefined) {
+      throw new Error(
+        `Tileset flags are missing required tile ID ${tileId} for native table-edge rendering. Restore Tilesets.json supporting data before rendering.`,
+      );
+    }
+    return (flags & 0x80) !== 0;
+  };
   const tableEdgeTileId =
     isTable(above) && !isTable(current) && !(base >= 4352 && base < 8192) ? above : 0;
   return {

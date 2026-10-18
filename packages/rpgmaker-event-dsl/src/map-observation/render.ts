@@ -10,6 +10,7 @@ import type { Raster } from "./raster.js";
 import { drawNativeParallax, drawNativeShadow, nativeCellLayers } from "./native-layers.js";
 import { drawAutotile, drawTableEdge, getAutotileSlot } from "./native-autotiles.js";
 import { drawNativeEvent, selectPreviewEvents } from "./native-events.js";
+import { ordinaryTileAtlasLayout } from "./native-image-layout.js";
 
 export async function renderMapPreview(options: {
   map: ValidatedMap;
@@ -64,18 +65,15 @@ export async function renderMapPreview(options: {
     const flags = tileset.flags[tileId];
     if (flags === undefined)
       throw new Error(`Tileset flags are missing required tile ID ${tileId}.`);
-    const slot =
-      tileId >= 2048 ? getAutotileSlot(tileId) : tileId >= 1536 ? 4 : 5 + Math.floor(tileId / 256);
+    const ordinary = tileId < 2048 ? ordinaryTileAtlasLayout(tileId) : undefined;
+    const slot = ordinary?.slot ?? getAutotileSlot(tileId);
     const asset = await loadTileset(slot);
-    // MV ordinary tiles use two eight-column blocks in each B-E sheet.
-    const sx = ((Math.floor(tileId / 128) % 2) * 8 + (tileId % 8)) * 48;
-    const sy = (Math.floor((tileId % 256) / 8) % 16) * 48;
     try {
-      if (tileId >= 2048) {
+      if (ordinary === undefined) {
         drawAutotile(raster, asset, tileId, flags, dx, dy);
         return;
       }
-      blitRaster(raster, asset, sx, sy, 48, 48, dx, dy);
+      blitRaster(raster, asset, ordinary.sx, ordinary.sy, 48, 48, dx, dy);
     } catch (error) {
       throw new Error(
         `Cannot render tile ${tileId} from tileset image ${tileset.tilesetNames[slot]}: ${error instanceof Error ? error.message : String(error)}`,
