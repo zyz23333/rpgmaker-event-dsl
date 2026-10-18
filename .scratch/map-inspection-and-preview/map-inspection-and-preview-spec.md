@@ -1,6 +1,6 @@
 # Map Inspection and Map Preview
 
-Status: ready-for-agent
+Status: resolved
 Category: enhancement
 
 ## Problem Statement
@@ -137,10 +137,21 @@ Use the existing Project Root for required Map Image Assets without launching MV
 
 ## Further Notes
 
-This spec synthesizes the fourteen accepted scope and behavior decisions and replaces the earlier design discussion note. It is published to the repository's local Markdown issue tracker with `ready-for-agent` status. It specifies upcoming implementation; the map operations do not exist merely because this planning document has been written.
+This spec synthesizes the fourteen accepted scope and behavior decisions and replaces the earlier design discussion note. Implementation is complete on `codex/map-inspection-and-preview`; all eleven linked implementation tickets are resolved. The map operations are delivered through the existing CLI and Workspace API.
 
 Use the [domain glossary](../../GLOSSARY.md) for canonical language. Existing decisions remain recorded in [ADR-0002: Technical architecture and toolchain](../../docs/adr/0002-technical-architecture-and-toolchain.md), [ADR-0003: Workspace compile and push model](../../docs/adr/0003-workspace-compile-push-model.md), [ADR-0004: Explicit MV entry identity](../../docs/adr/0004-explicit-mv-id-entry-identity.md), [ADR-0006: Interrupted Push recovery](../../docs/adr/0006-interrupted-push-recovery.md), [ADR-0009: Read-only Map Inspection and Map Preview](../../docs/adr/0009-read-only-map-inspection-and-preview.md), and [ADR-0010: Static rendering with project image assets](../../docs/adr/0010-static-map-rendering-with-project-image-assets.md).
 
 The current DSL compiles event pages without appearance images. Generated observation must expose that fact, while event-ID markers still permit placement review. Live Map Image Assets can change independently of captured map data, and recorded hashes identify their versions without restoring overwritten files. Complete previews remain static native-map observations rather than runtime guarantees.
 
-Proceed from validated map reading and public inspection, to native rendering and asset provenance, to bounded overviews/crops and overlays, then CLI integration, authoring-skill guidance, and end-to-end acceptance. Select the image-processing dependency, numerical output budget, fixture construction details, artifact names, and internal module arrangement during implementation within the accepted contracts; these do not require a new product interview.
+The implementation uses `pngjs` internally and plans output before allocating the canvas, with each dimension limited to 4096 pixels and a 16,777,216-pixel budget. Public results expose domain metadata and artifact paths rather than raster-library types.
+
+## Completion and Verification
+
+Completed on 2026-10-18. The [final two-axis review](review.md) records three Standards P3 judgment calls and two Spec P2 validation defects, all fixed together and confirmed by their original reviewers. The final implementation merge is `025ed97dc9f5495c71ff281ba36e35fbc5a2f3ce`.
+
+- `pnpm check` passed: typecheck, lint, formatting, and 28 test files / 243 tests. `pnpm build` passed.
+- Independent installed-package checks covered API imports, strict NodeNext declarations, map CLI help, JSON output, artifacts, and invalid page overrides.
+- The controlled entrance-placement workflow covers discovery, overview/crop, precise inspection, Definition Source authoring, Compile Check, Compile, generated identity/position/image-free review, and Diff, preserving Project Root and snapshot bytes.
+- Independent native-static fixtures cover tiles/autotiles, layers, shadows, parallax, event graphics, crop transforms, page selection, and incomplete assets. An additional real local project matched all 509,184 pixels of an independently assembled reference. The final built CLI output remained byte-identical after the review fixes.
+- The distributed authoring skill and user-facing guides match the delivered source, page, overlay, and incomplete-output contracts. Preview remains native-static; runtime passability, page activation, and trigger success are not inferred.
+- Observation and authoring acceptance performed no Project Root Push. The explicit user-instruction boundary before Push remains in place.
