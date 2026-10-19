@@ -1,0 +1,13 @@
+{
+  "root": "C:/Users/Shuen/.codex/tmp/mv22-merger-pending-capture-5d8f97de-0ccc-41da-87c9-b04aa0652629",
+  "node": "v22.23.0",
+  "packageRoot": "C:/Users/Shuen/.codex/worktrees/mv-ticket-22/rpgmaker-event-dsl/packages/rpgmaker-event-dsl",
+  "injected": true,
+  "reads": 7,
+  "actual": {
+    "ok": true
+  },
+  "pendingAfter": null,
+  "snapshotEqualsGenerated": true,
+  "expected": "Reject observed pending replacement with unknown version999, preserve authoritative pending evidence and original synchronization metadata."
+}

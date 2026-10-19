@@ -1,0 +1,21 @@
+
+> rpgmaker-event-dsl-workspace@0.0.0 check C:\Users\Shuen\.codex\worktrees\mv-ticket-22\rpgmaker-event-dsl
+> pnpm typecheck && pnpm lint && pnpm format:check && pnpm test
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 typecheck C:\Users\Shuen\.codex\worktrees\mv-ticket-22\rpgmaker-event-dsl
+> pnpm -r typecheck
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl typecheck$ tsc -p tsconfig.json --noEmit
+packages/rpgmaker-event-dsl typecheck: test/push-recovery.test.ts(744,32): error TS2345: Argument of type '{ backupRelativePath: string; snapshotHash: string; generatedHash: string; } | undefined' is not assignable to parameter of type '{ backupRelativePath: string; snapshotHash: string; generatedHash: string; }'.
+packages/rpgmaker-event-dsl typecheck:   Type 'undefined' is not assignable to type '{ backupRelativePath: string; snapshotHash: string; generatedHash: string; }'.
+packages/rpgmaker-event-dsl typecheck: test/push-recovery.test.ts(762,11): error TS2532: Object is possibly 'undefined'.
+packages/rpgmaker-event-dsl typecheck: test/push-recovery.test.ts(768,11): error TS2532: Object is possibly 'undefined'.
+packages/rpgmaker-event-dsl typecheck: test/push-recovery.test.ts(774,11): error TS2532: Object is possibly 'undefined'.
+packages/rpgmaker-event-dsl typecheck: Failed
+C:\Users\Shuen\.codex\worktrees\mv-ticket-22\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 typecheck: `tsc -p tsconfig.json --noEmit`
+Exit status 2
+ ELIFECYCLE  Command failed with exit code 2.
+ ELIFECYCLE  Command failed with exit code 2.

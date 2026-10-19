@@ -7254,6 +7254,861 @@
       },
       "slice": "21 / S4c",
       "required": true
+    },
+    {
+      "id": "MV-S4-RECOVERY-001",
+      "title": "finishes an actual killed Push with a partially refreshed Snapshot",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/22-interrupted-push-content-recovery.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Actual held child Push killed after installing Common Snapshot, with live Common/System generated and System Snapshot still original.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Only completed writes are recorded from original compilation evidence, pending retires, ordinary checks still run.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "MV-S4-RECOVERY-001: finishes an actual killed Push with a partially refreshed Snapshot"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "22 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-RECOVERY-002",
+      "title": "recognizes a committed manifest with intact pending after actual process death",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/22-interrupted-push-content-recovery.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Actual child killed after final manifest rename but before pending retirement.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Only completed writes are recorded from original compilation evidence, pending retires, ordinary checks still run.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "MV-S4-RECOVERY-002: recognizes a committed manifest with intact pending after actual process death"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "22 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-RECOVERY-003",
+      "title": "finishes preconstructed understood old evidence without manufacturing current Freshness",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/22-interrupted-push-content-recovery.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independently preconstructed v3 pending with absent contract and typeInputs; live affected bytes equal known generated output.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Only completed writes are recorded from original compilation evidence, pending retires, ordinary checks still run.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "MV-S4-RECOVERY-003: finishes preconstructed understood old evidence without manufacturing current Freshness"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "22 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-RECOVERY-004",
+      "title": "completes preconstructed all-generated Snapshot matrix (%s)",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/22-interrupted-push-content-recovery.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent fixture, preconstructed recovery evidence, actual filesystem and public API/CLI observations.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Only completed writes are recorded from original compilation evidence, pending retires, ordinary checks still run.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "MV-S4-RECOVERY-004: completes preconstructed all-generated Snapshot matrix (%s)"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "22 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-RECOVERY-005",
+      "title": "retains original basis under changed current assumptions (%s)",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/22-interrupted-push-content-recovery.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent fixture, preconstructed recovery evidence, actual filesystem and public API/CLI observations.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Only completed writes are recorded from original compilation evidence, pending retires, ordinary checks still run.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "MV-S4-RECOVERY-005: retains original basis under changed current assumptions (%s)"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "22 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-RECOVERY-006",
+      "title": "continues ordinary checks after content-based resolution (%s)",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/22-interrupted-push-content-recovery.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent fixture, preconstructed recovery evidence, actual filesystem and public API/CLI observations.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Only completed writes are recorded from original compilation evidence, pending retires, ordinary checks still run.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "MV-S4-RECOVERY-006: continues ordinary checks after content-based resolution (%s)"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "22 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-RECOVERY-007",
+      "title": "refuses contradictory live and recovery evidence without state changes",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/22-interrupted-push-content-recovery.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent fixture, preconstructed recovery evidence, actual filesystem and public API/CLI observations.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Only completed writes are recorded from original compilation evidence, pending retires, ordinary checks still run.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "MV-S4-RECOVERY-007: refuses contradictory live and recovery evidence without state changes"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "22 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-RECOVERY-008",
+      "title": "resumes repeated real process deaths across Snapshot, manifest and retirement",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/22-interrupted-push-content-recovery.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent fixture, preconstructed recovery evidence, actual filesystem and public API/CLI observations.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Only completed writes are recorded from original compilation evidence, pending retires, ordinary checks still run.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "MV-S4-RECOVERY-008: resumes repeated real process deaths across Snapshot, manifest and retirement"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "22 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-RECOVERY-009",
+      "title": "compares original bytes for live, backup, generated and Snapshot evidence",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/22-interrupted-push-content-recovery.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent fixture, preconstructed recovery evidence, actual filesystem and public API/CLI observations.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Only completed writes are recorded from original compilation evidence, pending retires, ordinary checks still run.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "MV-S4-RECOVERY-009: compares original bytes for live, backup, generated and Snapshot evidence"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "22 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-RECOVERY-010",
+      "title": "refuses late generated mutation at actual consumption boundaries (%s)",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/22-interrupted-push-content-recovery.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent fixture, preconstructed recovery evidence, actual filesystem and public API/CLI observations.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Only completed writes are recorded from original compilation evidence, pending retires, ordinary checks still run.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "MV-S4-RECOVERY-010: refuses late generated mutation at actual consumption boundaries (%s)"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "22 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-RECOVERY-011",
+      "title": "preserves the appropriate authority across deterministic I/O failures (%s)",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/22-interrupted-push-content-recovery.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent fixture, preconstructed recovery evidence, actual filesystem and public API/CLI observations.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Only completed writes are recorded from original compilation evidence, pending retires, ordinary checks still run.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "MV-S4-RECOVERY-011: preserves the appropriate authority across deterministic I/O failures (%s)"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "22 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-RECOVERY-012",
+      "title": "refuses a committed manifest whose Snapshot or live content contradicts completion",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/22-interrupted-push-content-recovery.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent fixture, preconstructed recovery evidence, actual filesystem and public API/CLI observations.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Only completed writes are recorded from original compilation evidence, pending retires, ordinary checks still run.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "MV-S4-RECOVERY-012: refuses a committed manifest whose Snapshot or live content contradicts completion"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "22 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-RECOVERY-013",
+      "title": "non-Push commands and dead-owner lock cleanup preserve pending evidence",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/22-interrupted-push-content-recovery.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent fixture, preconstructed recovery evidence, actual filesystem and public API/CLI observations.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Only completed writes are recorded from original compilation evidence, pending retires, ordinary checks still run.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "MV-S4-RECOVERY-013: non-Push commands and dead-owner lock cleanup preserve pending evidence"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "22 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-RECOVERY-014",
+      "title": "rejects an incomplete affected set instead of losing pending authority",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/22-interrupted-push-content-recovery.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent fixture, preconstructed recovery evidence, actual filesystem and public API/CLI observations.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Only completed writes are recorded from original compilation evidence, pending retires, ordinary checks still run.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "MV-S4-RECOVERY-014: rejects an incomplete affected set instead of losing pending authority"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "22 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-RECOVERY-015",
+      "title": "identifies missing or uninterpretable recovery evidence and retains all remaining state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/22-interrupted-push-content-recovery.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Missing original backup, malformed Snapshot map collection, missing frozen generated data.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Only completed writes are recorded from original compilation evidence, pending retires, ordinary checks still run.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "MV-S4-RECOVERY-015: identifies missing or uninterpretable recovery evidence and retains all remaining state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "22 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-RECOVERY-016",
+      "title": "all-Snapshot abandonment completes retirement before any new write (%s)",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/22-interrupted-push-content-recovery.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent original Snapshot, frozen v3 evidence, actual Windows retirement failure or independently assembled M1.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Only completed writes are recorded from original compilation evidence, pending retires, ordinary checks still run.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "MV-S4-RECOVERY-016: all-Snapshot abandonment completes retirement before any new write (%s)"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "22 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-RECOVERY-017",
+      "title": "recognizes an independently preconstructed committed manifest without rerecording basis",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/22-interrupted-push-content-recovery.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent original Snapshot, frozen v3 evidence, actual Windows retirement failure or independently assembled M1.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Only completed writes are recorded from original compilation evidence, pending retires, ordinary checks still run.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "MV-S4-RECOVERY-017: recognizes an independently preconstructed committed manifest without rerecording basis"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "22 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-RECOVERY-018",
+      "title": "rejects byte-corrupt metadata even when replacement decoding produces identical fields (%s)",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/22-interrupted-push-content-recovery.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Valid discovered source path with U+FFFD, metadata raw bytes replaced with invalid FF while decoded objects remain equal.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Only completed writes are recorded from original compilation evidence, pending retires, ordinary checks still run.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "MV-S4-RECOVERY-018: rejects byte-corrupt metadata even when replacement decoding produces identical fields (%s)"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "22 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-RECOVERY-019",
+      "title": "refuses pending replacement after its original bytes are captured",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/22-interrupted-push-content-recovery.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Actual public Push child held after its first completed pending read, externally replace on-disk metadata with unknown version999 before returning original Buffer.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Reject changed pending evidence without advancing Snapshot or Sync Manifest, preserve all current business state and unknown pending bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "MV-S4-RECOVERY-019: refuses pending replacement after its original bytes are captured"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "22 / S4c",
+      "required": true
     }
   ]
 }

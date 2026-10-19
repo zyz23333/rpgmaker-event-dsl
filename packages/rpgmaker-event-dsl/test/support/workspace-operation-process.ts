@@ -47,7 +47,16 @@ export function startWorkspaceOperation(
       | "push-before-install"
       | "push-before-capture"
       | "push-capture-restore"
-      | "push-generated-capture";
+      | "push-generated-capture"
+      | "push-pending-capture"
+      | "push-snapshot-installed"
+      | "push-manifest-installed"
+      | "push-snapshot-candidate"
+      | "push-snapshot-failure"
+      | "push-retirement-failure"
+      | "push-retirement-installed"
+      | "push-retirement-directory-failure"
+      | "push-retirement-cleanup-failure";
     failRestore?: boolean;
     failInstall?: boolean;
     captureFile?: string;
@@ -80,6 +89,12 @@ export function startWorkspaceOperation(
           sandbox.workspaceRoot,
           ".rpgmaker-event-dsl",
           "project-data-snapshot",
+        ),
+        snapshotFilePath: resolve(
+          sandbox.workspaceRoot,
+          ".rpgmaker-event-dsl",
+          "project-data-snapshot",
+          input.captureFile ?? "CommonEvents.json",
         ),
         manifestPath: resolve(sandbox.workspaceRoot, ".rpgmaker-event-dsl", "sync-manifest.json"),
         generatedPath: resolve(

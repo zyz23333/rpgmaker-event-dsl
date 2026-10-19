@@ -320,3 +320,30 @@ boundaries; native execution remains `not-executed` for this ticket.
 | MV-S4-DRIFT-013 | atomic installation preserves directory and junction arrivals and fails safely when unsupported | synthetic-support | Windows public Workspace API/CLI and real filesystem/process boundaries |
 | MV-S4-DRIFT-014 | deletion before a later capture leaves earlier writes and the external absence intact | synthetic-support | Windows public Workspace API/CLI and real filesystem/process boundaries |
 | MV-S4-DRIFT-015 | manifest finalization failure retains pending and the original compilation basis | synthetic-support | Windows public Workspace API/CLI and real filesystem/process boundaries |
+
+
+Ticket22 verifies Interrupted Push content recovery through the public Workspace API/CLI, independently preconstructed evidence and actual held child processes. All records remain synthetic support; native execution is `not-executed`.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S4-RECOVERY-001 | finishes an actual killed Push with a partially refreshed Snapshot | synthetic-support | Windows public API/CLI, real filesystem and held process boundaries |
+| MV-S4-RECOVERY-002 | recognizes a committed manifest with intact pending after actual process death | synthetic-support | Windows public API/CLI, real filesystem and held process boundaries |
+| MV-S4-RECOVERY-003 | finishes preconstructed understood old evidence without manufacturing current Freshness | synthetic-support | Windows public API/CLI, real filesystem and held process boundaries |
+| MV-S4-RECOVERY-004 | completes preconstructed all-generated Snapshot matrix (%s) | synthetic-support | Windows public API/CLI, real filesystem and held process boundaries |
+| MV-S4-RECOVERY-005 | retains original basis under changed current assumptions (%s) | synthetic-support | Windows public API/CLI, real filesystem and held process boundaries |
+| MV-S4-RECOVERY-006 | continues ordinary checks after content-based resolution (%s) | synthetic-support | Windows public API/CLI, real filesystem and held process boundaries |
+| MV-S4-RECOVERY-007 | refuses contradictory live and recovery evidence without state changes | synthetic-support | Windows public API/CLI, real filesystem and held process boundaries |
+| MV-S4-RECOVERY-008 | resumes repeated real process deaths across Snapshot, manifest and retirement | synthetic-support | Windows public API/CLI, real filesystem and held process boundaries |
+| MV-S4-RECOVERY-009 | compares original bytes for live, backup, generated and Snapshot evidence | synthetic-support | Windows public API/CLI, real filesystem and held process boundaries |
+| MV-S4-RECOVERY-010 | refuses late generated mutation at actual consumption boundaries (%s) | synthetic-support | Windows public API/CLI, real filesystem and held process boundaries |
+| MV-S4-RECOVERY-011 | preserves the appropriate authority across deterministic I/O failures (%s) | synthetic-support | Windows public API/CLI, real filesystem and held process boundaries |
+| MV-S4-RECOVERY-012 | refuses a committed manifest whose Snapshot or live content contradicts completion | synthetic-support | Windows public API/CLI, real filesystem and held process boundaries |
+| MV-S4-RECOVERY-013 | non-Push commands and dead-owner lock cleanup preserve pending evidence | synthetic-support | Windows public API/CLI, real filesystem and held process boundaries |
+| MV-S4-RECOVERY-014 | rejects an incomplete affected set instead of losing pending authority | synthetic-support | Windows public API/CLI, real filesystem and held process boundaries |
+| MV-S4-RECOVERY-015 | missing or uninterpretable recovery evidence has an explicit pending diagnostic | synthetic-support | Windows public API/CLI and actual filesystem |
+| MV-S4-RECOVERY-016 | all-Snapshot abandonment completes retirement before any new write (%s) | synthetic-support | Windows public API/CLI and actual filesystem/process boundary |
+| MV-S4-RECOVERY-017 | recognizes an independently preconstructed committed manifest without rerecording basis | synthetic-support | Windows public API/CLI and actual filesystem/process boundary |
+| MV-S4-RECOVERY-018 | rejects byte-corrupt metadata even when replacement decoding produces identical fields (%s) | synthetic-support | Windows public API/CLI and raw metadata bytes |
+| MV-S4-RECOVERY-019 | refuses pending replacement after its original bytes are captured | synthetic-support | Windows public API and actual held filesystem/process boundary |
+
+Ticket22 records [the frozen recovery protocol, actual red/green runs and byte-preserved evidence](22-interrupted-push-content-recovery.md). Historical failures and superseded passes keep their original status and provenance; native execution remains `not-executed`.

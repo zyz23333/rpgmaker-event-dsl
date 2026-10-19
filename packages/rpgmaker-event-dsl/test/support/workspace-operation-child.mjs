@@ -10,6 +10,8 @@ const readFile = fs.readFile;
 const rename = fs.rename;
 const writeFile = fs.writeFile;
 const link = fs.link;
+const rm = fs.rm;
+const mkdtemp = fs.mkdtemp;
 const spawn = childProcess.spawn;
 const reached = new Set();
 let inputReads = 0;
@@ -34,6 +36,11 @@ fs.readFile = async function (path, ...args) {
   }
   const content = await readFile(path, ...args);
   if (
+    options.boundary === "push-pending-capture" &&
+    resolve(String(path)) === resolve(options.pendingPath, "pending-push.json")
+  )
+    await checkpoint();
+  if (
     options.boundary === "push-generated-capture" &&
     resolve(String(path)) === options.generatedCapturePath
   )
@@ -51,6 +58,11 @@ fs.readFile = async function (path, ...args) {
   return content;
 };
 fs.rename = async function (source, target) {
+  if (
+    options.boundary === "push-retirement-failure" &&
+    resolve(String(source)) === options.pendingPath
+  )
+    throw new Error("Controlled pending retirement rename failure");
   if (
     ["push-before-capture", "push-capture-restore"].includes(options.boundary) &&
     resolve(String(source)) === options.capturePath &&
@@ -84,6 +96,21 @@ fs.rename = async function (source, target) {
     await checkpoint();
   }
   const result = await rename(source, target);
+  if (
+    options.boundary === "push-retirement-installed" &&
+    resolve(String(source)) === options.pendingPath
+  )
+    await checkpoint();
+  if (
+    options.boundary === "push-manifest-installed" &&
+    resolve(String(target)) === options.manifestPath
+  )
+    await checkpoint();
+  if (
+    options.boundary === "push-snapshot-installed" &&
+    resolve(String(target)) === options.snapshotFilePath
+  )
+    await checkpoint();
   if (options.boundary === "push-prewrite" && resolve(String(target)) === options.pendingPath)
     await checkpoint();
   if (
@@ -121,6 +148,11 @@ fs.link = async function (source, target) {
   return result;
 };
 fs.writeFile = async function (path, ...args) {
+  if (String(path).startsWith(`${options.snapshotFilePath}.push-`)) {
+    if (options.boundary === "push-snapshot-candidate") await checkpoint();
+    if (options.boundary === "push-snapshot-failure")
+      throw new Error("Controlled Snapshot candidate failure");
+  }
   if (
     options.boundary === "decompile-write-failure" &&
     String(path).includes("decompile-candidates") &&
@@ -134,6 +166,11 @@ fs.writeFile = async function (path, ...args) {
     throw new Error("Controlled generated candidate write failure");
   const result = await writeFile(path, ...args);
   if (
+    options.boundary === "push-snapshot-installed" &&
+    resolve(String(path)) === options.snapshotFilePath
+  )
+    await checkpoint();
+  if (
     options.boundary === "decompile-stage" &&
     String(path).includes("decompile-candidates") &&
     String(path).endsWith(".ts")
@@ -145,6 +182,24 @@ fs.writeFile = async function (path, ...args) {
   )
     await checkpoint();
   return result;
+};
+fs.mkdtemp = async function (prefix, ...args) {
+  if (
+    options.boundary === "push-retirement-directory-failure" &&
+    String(prefix).includes("pending-push.retired-")
+  )
+    throw new Error("Controlled pending retirement directory failure");
+  return mkdtemp(prefix, ...args);
+};
+fs.rm = async function (path, ...args) {
+  if (
+    options.boundary === "push-retirement-cleanup-failure" &&
+    String(path).includes("pending-push.retired-")
+  ) {
+    await rm(resolve(String(path), "operation/backup/CommonEvents.json"));
+    throw new Error("Controlled partial retired cleanup failure");
+  }
+  return rm(path, ...args);
 };
 childProcess.spawn = function (...args) {
   if (

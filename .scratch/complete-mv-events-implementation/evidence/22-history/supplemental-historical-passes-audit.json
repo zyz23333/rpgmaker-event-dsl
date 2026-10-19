@@ -1,0 +1,751 @@
+{
+  "purpose": "Preserve every earlier intermediate passed Ticket22 record without treating it as final delivered-tip proof.",
+  "count": 124,
+  "alreadyArchivedEqual": 0,
+  "copies": [
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-001-2026-10-19T12-35-18-286Z-45068e85-e4d7-4231-aa78-e75765878960.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-001-2026-10-19T12-35-18-286Z-45068e85-e4d7-4231-aa78-e75765878960.json",
+      "bytes": 686307,
+      "sha256": "f9fe40beaaf2ecc9cb3471e7ecb22eb3085f9d2fae9f699d554b182839b9da2a"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-001-2026-10-19T12-43-16-137Z-a3f2d977-c013-4d02-be90-5a556ec4489d.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-001-2026-10-19T12-43-16-137Z-a3f2d977-c013-4d02-be90-5a556ec4489d.json",
+      "bytes": 903813,
+      "sha256": "b4afbfa815cb0cbee9d415873c74e2329fdde0bf82e9aa29605d0617b83ebd33"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-001-2026-10-19T12-45-57-229Z-a49c391b-18d2-4e59-95c8-240774acc00c.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-001-2026-10-19T12-45-57-229Z-a49c391b-18d2-4e59-95c8-240774acc00c.json",
+      "bytes": 903813,
+      "sha256": "7f234745d6b8b4e116a9a59c169eaa12e0b9a2ccb953b8b40a681931eb0fb61d"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-001-2026-10-19T12-47-59-344Z-e07b1ebb-e64f-4ed7-a028-7e1f856c6395.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-001-2026-10-19T12-47-59-344Z-e07b1ebb-e64f-4ed7-a028-7e1f856c6395.json",
+      "bytes": 918556,
+      "sha256": "f45e36f83e2481460534cc3d58891f269a7cfb5e0ba0af3749a24be1bc62f8a9"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-001-2026-10-19T12-51-01-455Z-ae6122fd-d7bf-46a2-bdbd-51046caa23ca.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-001-2026-10-19T12-51-01-455Z-ae6122fd-d7bf-46a2-bdbd-51046caa23ca.json",
+      "bytes": 918556,
+      "sha256": "6afbd915ee9a956cf35cbb6c53a6b0f6c1485d81d1dba10b0efee7b53aa0c3cd"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-001-2026-10-19T12-56-25-247Z-fdee5763-a0d0-4da3-86c6-893c9a9a46e0.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-001-2026-10-19T12-56-25-247Z-fdee5763-a0d0-4da3-86c6-893c9a9a46e0.json",
+      "bytes": 918555,
+      "sha256": "500528b26c7cd18a1a2b04a736173143e40eb26bb40b1aad040987a9fc3902e3"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-001-2026-10-19T13-02-11-629Z-a1f9e097-21c8-4cf9-a783-9f3aa9ca8e6f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-001-2026-10-19T13-02-11-629Z-a1f9e097-21c8-4cf9-a783-9f3aa9ca8e6f.json",
+      "bytes": 918555,
+      "sha256": "24e74f4cdf235feaab646f6c9535143eb1250fc701e790c6b5d80f1f2b5effef"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-002-2026-10-19T12-43-18-138Z-aadf9882-129a-4eb7-a470-52fcdf1c6afe.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-002-2026-10-19T12-43-18-138Z-aadf9882-129a-4eb7-a470-52fcdf1c6afe.json",
+      "bytes": 684449,
+      "sha256": "12065dd90c59d00edce991cd30787e8bb998e12e9eba8841236c83333064ea45"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-002-2026-10-19T12-45-59-197Z-f4745dfb-249a-4db9-b109-817338cf7ad3.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-002-2026-10-19T12-45-59-197Z-f4745dfb-249a-4db9-b109-817338cf7ad3.json",
+      "bytes": 684449,
+      "sha256": "5b52c093fff5681165505436bc89aa3224999120bd7990d39ed33454dd3e9955"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-002-2026-10-19T12-48-29-028Z-88ed364c-5608-43f5-9bcb-b3d15f0e6281.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-002-2026-10-19T12-48-29-028Z-88ed364c-5608-43f5-9bcb-b3d15f0e6281.json",
+      "bytes": 695465,
+      "sha256": "c4c0742b7230694913168d57dd18cba8804788fe626043bec676d68e56ef1117"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-002-2026-10-19T12-52-09-362Z-80afd8c2-06bd-498c-9df5-152ac71f65fa.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-002-2026-10-19T12-52-09-362Z-80afd8c2-06bd-498c-9df5-152ac71f65fa.json",
+      "bytes": 695465,
+      "sha256": "620f7ba4e9f82f6e1dd6b520caf1d40296a9ec33b210b7e1e7bac909da91b44c"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-002-2026-10-19T12-57-36-124Z-0c7113a7-6c74-4a74-aa73-4a9354e004a8.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-002-2026-10-19T12-57-36-124Z-0c7113a7-6c74-4a74-aa73-4a9354e004a8.json",
+      "bytes": 695465,
+      "sha256": "d30301f0987ba9399891a6a894cae20602749a630cc1debb72058d582fba1685"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-002-2026-10-19T13-03-34-892Z-70cd213c-2d9f-4f94-a5b3-8f083da7e755.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-002-2026-10-19T13-03-34-892Z-70cd213c-2d9f-4f94-a5b3-8f083da7e755.json",
+      "bytes": 695465,
+      "sha256": "c1fb5b67c4e5d2bdba5ae0d058b28124178229805acb41420c3d1e11f7b94c35"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-003-2026-10-19T12-46-00-345Z-c76523d6-d150-4212-b506-33bed09007ab.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-003-2026-10-19T12-46-00-345Z-c76523d6-d150-4212-b506-33bed09007ab.json",
+      "bytes": 98965,
+      "sha256": "57aef3ba082e6c21b2cfe79db88da68d0d09e750d93077ca3be20de5365d3eed"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-003-2026-10-19T12-48-30-735Z-625aa303-7488-490a-abfd-bca8b45fe86c.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-003-2026-10-19T12-48-30-735Z-625aa303-7488-490a-abfd-bca8b45fe86c.json",
+      "bytes": 99856,
+      "sha256": "52118e7b4e3908ca79bcbf4353bd13c96f0c4ae49a3d120f4af2a2ca73aa8aff"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-003-2026-10-19T12-52-11-095Z-6032fcec-46d6-4b6c-9801-e82fb32ebe85.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-003-2026-10-19T12-52-11-095Z-6032fcec-46d6-4b6c-9801-e82fb32ebe85.json",
+      "bytes": 99856,
+      "sha256": "9f4f13ba110cfcbb8be294e42d327e22e7bff990853643f94990ef03af8d661c"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-003-2026-10-19T12-57-38-006Z-846ba333-fb39-4331-b666-60e36efa853a.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-003-2026-10-19T12-57-38-006Z-846ba333-fb39-4331-b666-60e36efa853a.json",
+      "bytes": 99856,
+      "sha256": "f7e67307d0a7716d8fc608e7e1edc53b4df709b7ee305afaf2ec3f8f8fc0662c"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-003-2026-10-19T13-03-36-731Z-e056d840-c49d-4b29-ace3-757693a3b0de.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-003-2026-10-19T13-03-36-731Z-e056d840-c49d-4b29-ace3-757693a3b0de.json",
+      "bytes": 99856,
+      "sha256": "b5bafece1f3fb0fa4ffc5eef54c0d84a172bee0283b9f19348acd68ff773ab40"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-004-2026-10-19T12-48-00-522Z-9f42c023-75d3-4b02-9903-7f87f4f49004.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T12-48-00-522Z-9f42c023-75d3-4b02-9903-7f87f4f49004.json",
+      "bytes": 693657,
+      "sha256": "cdac1966b4e074653f05a1b9a7325caae4d5095f5c736c6367b6a50fbe13ce29"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-004-2026-10-19T12-48-01-748Z-67356353-0774-418a-bf44-8a493045ef8f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T12-48-01-748Z-67356353-0774-418a-bf44-8a493045ef8f.json",
+      "bytes": 694499,
+      "sha256": "b8fadca751f628d7ba60af3e204b2d33dcfd35cf06c8dbe32ccb5104c52bb455"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-004-2026-10-19T12-48-03-151Z-f3b430e5-e28a-47eb-97c4-3863b0a8c0df.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T12-48-03-151Z-f3b430e5-e28a-47eb-97c4-3863b0a8c0df.json",
+      "bytes": 694607,
+      "sha256": "ea2b913c36e22e87a75794599a81e8db66122c0c21c36060bdadc498340f4e8a"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-004-2026-10-19T12-51-38-750Z-1ea9f0e0-90fe-429f-863b-dc3b658650c6.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T12-51-38-750Z-1ea9f0e0-90fe-429f-863b-dc3b658650c6.json",
+      "bytes": 693657,
+      "sha256": "488454040b1b63acd6e9b19daf9fc86093dfb8bfa0db4d98e99a2bf3a121408d"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-004-2026-10-19T12-51-40-545Z-c1b5c439-42be-4286-bfb8-f636bc9a23ad.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T12-51-40-545Z-c1b5c439-42be-4286-bfb8-f636bc9a23ad.json",
+      "bytes": 694499,
+      "sha256": "1e221ecd196b9b97d1393ad4e4ac52af150770569f31d9a4c1e0dd5455dc79ce"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-004-2026-10-19T12-51-42-457Z-eddd2198-33a0-40a9-a72c-6c3800946164.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T12-51-42-457Z-eddd2198-33a0-40a9-a72c-6c3800946164.json",
+      "bytes": 694607,
+      "sha256": "4782f598fd6ff80d5412831a2a954ec7e1b9c5f1f15734fa3571905d1750f9cd"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-004-2026-10-19T12-57-03-148Z-ea28ed52-c305-4356-92d6-603a18a7945e.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T12-57-03-148Z-ea28ed52-c305-4356-92d6-603a18a7945e.json",
+      "bytes": 693657,
+      "sha256": "f3386bd46ced10862c5a81de0ee5b1c5f981fd15c08bd825093a224313766adb"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-004-2026-10-19T12-57-05-039Z-2d4a7f8f-0213-48eb-b1f2-e258e4fecbed.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T12-57-05-039Z-2d4a7f8f-0213-48eb-b1f2-e258e4fecbed.json",
+      "bytes": 694499,
+      "sha256": "8fc6a52670420afc909fc00026a8769ebcb398b2828fdd6019ffd9bf19524f8c"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-004-2026-10-19T12-57-07-039Z-88dd1ac8-ba7a-4f7b-bfc8-d6474ed72396.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T12-57-07-039Z-88dd1ac8-ba7a-4f7b-bfc8-d6474ed72396.json",
+      "bytes": 694607,
+      "sha256": "a7bcdd877b8377cec5577993ebc17c6cb3b345b1baf9ad5fc8d83baa32a0f4a9"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-004-2026-10-19T13-02-53-583Z-b741cf33-2da6-4f41-aa09-1b11a73ca9cf.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T13-02-53-583Z-b741cf33-2da6-4f41-aa09-1b11a73ca9cf.json",
+      "bytes": 693657,
+      "sha256": "39f39ec7553424ddb40af9d74626bba6034d1deb00fa1f280b8e9b58a1526c72"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-004-2026-10-19T13-02-55-423Z-2af59751-2ef9-47e9-bca5-dbc93b8b565c.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T13-02-55-423Z-2af59751-2ef9-47e9-bca5-dbc93b8b565c.json",
+      "bytes": 694499,
+      "sha256": "3a3c44bd0958c8d1aae749802104d3ca86157b36a2f7e5387a9f43512371ae85"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-004-2026-10-19T13-02-57-205Z-5155b497-bd05-4011-8a20-71d7f21c3f03.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T13-02-57-205Z-5155b497-bd05-4011-8a20-71d7f21c3f03.json",
+      "bytes": 694607,
+      "sha256": "4f95b82f236f532593fa8b2ed85c34e8a9a40730e72331eb57a2be931f00c2cb"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-48-05-004Z-38f5b310-c32b-4e2d-97cf-2bf387ce62d5.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-48-05-004Z-38f5b310-c32b-4e2d-97cf-2bf387ce62d5.json",
+      "bytes": 693729,
+      "sha256": "fadeff6ef04211e6076f33d0229a4702631f553df501fadf66fedacb558f7cee"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-48-06-809Z-49655504-b7f1-42f0-9cbc-c5eb7166ebae.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-48-06-809Z-49655504-b7f1-42f0-9cbc-c5eb7166ebae.json",
+      "bytes": 694384,
+      "sha256": "442cb2ef9d1464c0b87806b5c750d1717b1230a26b33f59aab1bd5838c0a8138"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-48-08-713Z-124246a3-e08d-40e2-8461-cd947ed7f98c.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-48-08-713Z-124246a3-e08d-40e2-8461-cd947ed7f98c.json",
+      "bytes": 693517,
+      "sha256": "4152a5d76a0d7c45c22c509549c5961be5b7952a320b09dd75707af47574247b"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-48-10-802Z-6c3c4b89-c6cc-4f30-862a-b8a0876d6c42.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-48-10-802Z-6c3c4b89-c6cc-4f30-862a-b8a0876d6c42.json",
+      "bytes": 693676,
+      "sha256": "4496bfbf941368d21f39edc17241a47f0869032bc03a03d9906328aaac14d6b2"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-48-12-612Z-792bbd98-4199-45f0-9d08-d19dcf16d98f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-48-12-612Z-792bbd98-4199-45f0-9d08-d19dcf16d98f.json",
+      "bytes": 693486,
+      "sha256": "fc831c53aac18d7116d34959f37bbe248685b09d53df692b1c131ad154fab1c0"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-48-14-512Z-0df56ac6-f52a-4c23-b198-cfea1664225b.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-48-14-512Z-0df56ac6-f52a-4c23-b198-cfea1664225b.json",
+      "bytes": 693737,
+      "sha256": "09f05167a79b8b35f036a1d81007872ac7665e45b1dcaec25f15530639752ef1"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-48-16-287Z-4ca68055-65a1-4cee-b7d8-9b919e22d16f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-48-16-287Z-4ca68055-65a1-4cee-b7d8-9b919e22d16f.json",
+      "bytes": 80042,
+      "sha256": "b3b0741cf1c0801f0f3aa53a7ff15a9f7e2d21cbde6723dcd6585a8267aa5a02"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-51-44-256Z-ca401516-6513-4e64-9c17-855a05d86b21.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-51-44-256Z-ca401516-6513-4e64-9c17-855a05d86b21.json",
+      "bytes": 693729,
+      "sha256": "cc975a92c5d10b7e7f18c260bab448a8c744001b08785d10f32cdfa5221ed95e"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-51-46-232Z-c36c3596-10f5-4b17-a6d2-54e0353f87d2.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-51-46-232Z-c36c3596-10f5-4b17-a6d2-54e0353f87d2.json",
+      "bytes": 694384,
+      "sha256": "6e5791f44e1141312acd677c2c7a3a50391aa78b07bc69086f89700ad9c5f296"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-51-47-988Z-4ae042a8-effd-4b8f-bb4a-46cc0d019034.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-51-47-988Z-4ae042a8-effd-4b8f-bb4a-46cc0d019034.json",
+      "bytes": 693517,
+      "sha256": "631a248adfdf250edd3e885595754dce9fde5d8ef273267df4bbc62c3103a461"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-51-49-806Z-5b162e5d-565a-46d2-a3e1-ccdf42271b77.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-51-49-806Z-5b162e5d-565a-46d2-a3e1-ccdf42271b77.json",
+      "bytes": 693676,
+      "sha256": "17b6c42753ed2f44a61ef3128d7b7ffdbcfdede5dcfab473f7edd16c7fc79c79"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-51-51-522Z-c942fdb6-61da-4407-ab19-5fc32df17a80.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-51-51-522Z-c942fdb6-61da-4407-ab19-5fc32df17a80.json",
+      "bytes": 693486,
+      "sha256": "33dd7db36ac44583b42f63277cd188c2bd7a1356895fb9d72d30749c9d295272"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-51-53-294Z-52bcd0ce-97d8-43e7-9855-9ba6ebc11e27.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-51-53-294Z-52bcd0ce-97d8-43e7-9855-9ba6ebc11e27.json",
+      "bytes": 693737,
+      "sha256": "bca9574efdcc36e7b562aec6eb5ec8dde403287b81a215a736a95f54e45fb774"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-51-54-975Z-332102a4-3cda-4e7b-ae50-a563c4dec86f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-51-54-975Z-332102a4-3cda-4e7b-ae50-a563c4dec86f.json",
+      "bytes": 80042,
+      "sha256": "8a5af2e6e69f7c9b0ca898c85796c84c51af5ad97f78cc31c2aebc4a34625f44"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-57-09-318Z-884fc862-54ca-411f-96d4-a5a2e9bc1c5e.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-57-09-318Z-884fc862-54ca-411f-96d4-a5a2e9bc1c5e.json",
+      "bytes": 693729,
+      "sha256": "6f0b45b4ab99717cc94313ee21b8e7b273dce7ee7f136651e5ec9bebad9899c0"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-57-11-258Z-4a28dc87-e173-4a09-bf53-96661d15d5f4.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-57-11-258Z-4a28dc87-e173-4a09-bf53-96661d15d5f4.json",
+      "bytes": 694384,
+      "sha256": "d33f6c11c675eecf77ab7f65fee16a27e1e534775ea3ea3a93dca24faa4e0496"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-57-13-255Z-1d03022c-ab08-4271-996b-56c8fe9a3048.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-57-13-255Z-1d03022c-ab08-4271-996b-56c8fe9a3048.json",
+      "bytes": 693517,
+      "sha256": "6b680dca23f061770a3e94945c7c61bdc0b13c7709f31c211eaea3d79919a015"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-57-15-131Z-505d139e-9c39-4856-ac30-5060f96287ea.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-57-15-131Z-505d139e-9c39-4856-ac30-5060f96287ea.json",
+      "bytes": 693676,
+      "sha256": "dcde3b434e6d0e3b6e93595ed758cb977b01cf14bbcb159e470182789bf019f8"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-57-16-960Z-de169368-196d-4836-8150-c0b11d510b29.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-57-16-960Z-de169368-196d-4836-8150-c0b11d510b29.json",
+      "bytes": 693486,
+      "sha256": "29426f7f7de3899b130809e725dc53d67f7d61679d7bab546e493fd07314c675"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-57-18-828Z-b0bbc640-c572-4947-a8c2-35451d1e7e45.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-57-18-828Z-b0bbc640-c572-4947-a8c2-35451d1e7e45.json",
+      "bytes": 693737,
+      "sha256": "319e7c38cdee5b57cefdabd33cc402321c6771da32887537e7b9590ab97d08f3"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T12-57-20-587Z-f72ab826-ac0b-428c-bf1e-558ca6a3f531.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T12-57-20-587Z-f72ab826-ac0b-428c-bf1e-558ca6a3f531.json",
+      "bytes": 80042,
+      "sha256": "b1e9e8d85c78d43a5c008dc768bdbb72efd3a4b1b202667b13ee709af9678e9a"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T13-02-59-064Z-172ebbe8-48c4-47d1-8d4d-743af370de1f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-02-59-064Z-172ebbe8-48c4-47d1-8d4d-743af370de1f.json",
+      "bytes": 693729,
+      "sha256": "a0edc25e343b80898cc542633a11c6b4c9623a9f907740b7c41bdd7719c02c0c"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T13-03-00-995Z-2b4d94dd-a075-4de1-903d-6de7057ef872.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-03-00-995Z-2b4d94dd-a075-4de1-903d-6de7057ef872.json",
+      "bytes": 694384,
+      "sha256": "d58a05b545c515735042899d5c5e321e73503d07f7e1ea4fcf2c1e4682d5f233"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T13-03-02-851Z-7f34bfd7-a411-455c-9564-e438c6c988e5.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-03-02-851Z-7f34bfd7-a411-455c-9564-e438c6c988e5.json",
+      "bytes": 693517,
+      "sha256": "c6ea60fb4fcba7c09f30fcf657fb1a176886298a7b38ad7f0617ae685d50be46"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T13-03-04-789Z-6fa2523a-87a6-42e2-b582-a39707d83924.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-03-04-789Z-6fa2523a-87a6-42e2-b582-a39707d83924.json",
+      "bytes": 693676,
+      "sha256": "323fbd685172b99315d076d14951724446c50a328bd307e4c56fb7b1c3a46fd5"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T13-03-06-599Z-5798a5f6-6afa-41fe-a31a-6d9b61c1ac2a.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-03-06-599Z-5798a5f6-6afa-41fe-a31a-6d9b61c1ac2a.json",
+      "bytes": 693486,
+      "sha256": "318f2d75249192e050b74e38705071bc9d5dad964c49b05e59cff4c6a5821657"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T13-03-08-362Z-37e2e7c3-d9c8-4f80-bdcc-7dd6650dfb10.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-03-08-362Z-37e2e7c3-d9c8-4f80-bdcc-7dd6650dfb10.json",
+      "bytes": 693737,
+      "sha256": "a979f9349c35c4c638907c275d6575fe30732d01f9744f4b43e40152d904a44a"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-005-2026-10-19T13-03-10-111Z-5f680ad2-f52d-4da4-ba68-ed07f2240859.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-03-10-111Z-5f680ad2-f52d-4da4-ba68-ed07f2240859.json",
+      "bytes": 80042,
+      "sha256": "379acd00267ec96bc4e0887ce1a75889bb32ce2c292b75273eeee80d9933125e"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-006-2026-10-19T12-48-18-166Z-8c251c3a-2db1-4ebb-b01c-faced262b8b9.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T12-48-18-166Z-8c251c3a-2db1-4ebb-b01c-faced262b8b9.json",
+      "bytes": 692705,
+      "sha256": "8dacfdea17590e745637ec0899d55229a714bc4ae04fcbee9e14c0341723f888"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-006-2026-10-19T12-48-23-510Z-7a2e9d5e-b048-4f83-b299-e3dc191c40cc.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T12-48-23-510Z-7a2e9d5e-b048-4f83-b299-e3dc191c40cc.json",
+      "bytes": 693784,
+      "sha256": "90c5633b9ce345268e195678bc9e26d6f688fe8809b1ccf1adbd27363cbb550e"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-006-2026-10-19T12-51-56-787Z-c96e291c-5ed1-4d87-99d9-bde7cd8f7d13.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T12-51-56-787Z-c96e291c-5ed1-4d87-99d9-bde7cd8f7d13.json",
+      "bytes": 692705,
+      "sha256": "2e76026171ccf79a3e38bf2bb05925185f5faf33b3736400e18bf738be151084"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-006-2026-10-19T12-51-58-549Z-22ac7462-c8a5-43fd-89fd-49229831ce44.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T12-51-58-549Z-22ac7462-c8a5-43fd-89fd-49229831ce44.json",
+      "bytes": 690845,
+      "sha256": "e5d16be2ed908397066965831f8288c6cae3f4868193d7911d82c0880390aa52"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-006-2026-10-19T12-52-00-364Z-48de2249-2e60-4aa2-be7f-6b4d58497d6f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T12-52-00-364Z-48de2249-2e60-4aa2-be7f-6b4d58497d6f.json",
+      "bytes": 690924,
+      "sha256": "f726eb15de25318047fda959bf07d65ad3bfca5281de1d789fe6f5734f2371b3"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-006-2026-10-19T12-52-02-308Z-a5a5a7fe-9459-4634-be12-92b2cac7a6f1.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T12-52-02-308Z-a5a5a7fe-9459-4634-be12-92b2cac7a6f1.json",
+      "bytes": 693784,
+      "sha256": "5f54fbdda6523afac45cc28c2381fa005e5e1f8c20e37ee980ed84ff97feded7"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-006-2026-10-19T12-57-22-559Z-126ca702-a54a-4b63-ad27-85f62de5fac5.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T12-57-22-559Z-126ca702-a54a-4b63-ad27-85f62de5fac5.json",
+      "bytes": 692705,
+      "sha256": "9551c2ac16e0a68d1e35b019e71ac9624194a59a045722a744839b90562ec527"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-006-2026-10-19T12-57-24-507Z-c771e34f-0a96-48e3-834c-38ddf0f9e4a0.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T12-57-24-507Z-c771e34f-0a96-48e3-834c-38ddf0f9e4a0.json",
+      "bytes": 690845,
+      "sha256": "d97d2362a053ad3abbbe6349517e2b6f54e7aa9f52e7d6da9dc7eba16ee34a3e"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-006-2026-10-19T12-57-26-384Z-b23e32a2-14ed-4e96-a4ce-c83d85e2c6af.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T12-57-26-384Z-b23e32a2-14ed-4e96-a4ce-c83d85e2c6af.json",
+      "bytes": 690924,
+      "sha256": "4a55a17909a608a090b2084cec9e2a310bbfa717cf9bec3fcfd20c4079b0c609"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-006-2026-10-19T12-57-28-317Z-ee582e10-6c1c-4eba-b560-6619bcd4aeb3.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T12-57-28-317Z-ee582e10-6c1c-4eba-b560-6619bcd4aeb3.json",
+      "bytes": 693784,
+      "sha256": "946412706573a2d33b2750b344c7788058c238c2189f1502155a6fd8f86423d8"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-006-2026-10-19T13-03-11-928Z-15a6b4a7-f866-47cc-9faf-cca0cb068ea1.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T13-03-11-928Z-15a6b4a7-f866-47cc-9faf-cca0cb068ea1.json",
+      "bytes": 692705,
+      "sha256": "a7fbe1d41db82fbfbd93632d1d6e5ef9ab79558d6955dea2f992824510e1d348"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-006-2026-10-19T13-03-13-723Z-e7ed60bc-3561-4333-a53e-488bc547ca6e.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T13-03-13-723Z-e7ed60bc-3561-4333-a53e-488bc547ca6e.json",
+      "bytes": 690845,
+      "sha256": "6075979de2c92c67cdd698bed602454187340ec6f4959fb18d9f2c1d57f7fa34"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-006-2026-10-19T13-03-15-427Z-398c5ebf-35bf-4676-bc12-d13770dc7799.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T13-03-15-427Z-398c5ebf-35bf-4676-bc12-d13770dc7799.json",
+      "bytes": 690924,
+      "sha256": "3fa91d134975806511027b4df6bb0a6fe288ccc34ef9f4a8e1e46158b775e5fe"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-006-2026-10-19T13-03-17-257Z-de847d09-c91a-481a-ba47-2042ffdb1205.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T13-03-17-257Z-de847d09-c91a-481a-ba47-2042ffdb1205.json",
+      "bytes": 693784,
+      "sha256": "e05d07ed775b29c295ed95ce7574d5675364939701a88f3419055b6566ce02f8"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-007-2026-10-19T12-48-26-087Z-aa6ebd97-76a7-452a-ab94-33351ab4fa01.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-007-2026-10-19T12-48-26-087Z-aa6ebd97-76a7-452a-ab94-33351ab4fa01.json",
+      "bytes": 471721,
+      "sha256": "7191e0c3054076b268b09dcacd88829140f8fd1cbbd3bafc5adc24f68caa2f0b"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-007-2026-10-19T12-52-06-733Z-e153e960-b9ed-420a-9d8b-96dc72d5dca9.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-007-2026-10-19T12-52-06-733Z-e153e960-b9ed-420a-9d8b-96dc72d5dca9.json",
+      "bytes": 471721,
+      "sha256": "a51529dc76d8601f3f9dd95becaebb22c5662ae163d16a8db99df9990f60350b"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-007-2026-10-19T12-57-33-078Z-4c003c6d-3b53-46a8-af43-a9b40e88238b.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-007-2026-10-19T12-57-33-078Z-4c003c6d-3b53-46a8-af43-a9b40e88238b.json",
+      "bytes": 471721,
+      "sha256": "f06c1365592645edd9b5ceccf8d23a9e8b9641551af60a9102c2e0ca3704e714"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-007-2026-10-19T13-03-21-763Z-ea436420-06fb-4253-a473-d4877634cde0.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-007-2026-10-19T13-03-21-763Z-ea436420-06fb-4253-a473-d4877634cde0.json",
+      "bytes": 473205,
+      "sha256": "70e7ac62214a0a553ef32ee0df97e65608f016378d6804961d64f5f018286c5b"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-008-2026-10-19T12-51-05-236Z-811f7ee8-212f-45ba-82eb-52ced45200c8.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-008-2026-10-19T12-51-05-236Z-811f7ee8-212f-45ba-82eb-52ced45200c8.json",
+      "bytes": 1815169,
+      "sha256": "670e42531c77d239239e7cac8a157b9f82d579ff6221b9fa671738a17953cd2d"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-008-2026-10-19T12-56-29-289Z-d27d840c-06a5-44a9-8685-558f83ace22b.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-008-2026-10-19T12-56-29-289Z-d27d840c-06a5-44a9-8685-558f83ace22b.json",
+      "bytes": 1815169,
+      "sha256": "ba46a52d882fda1486f09d50660128d59a7dc271807ddbe4b1cf37d840c142d9"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-008-2026-10-19T13-02-18-340Z-321bd89a-90a2-4e17-8397-5424d5c12f4f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-008-2026-10-19T13-02-18-340Z-321bd89a-90a2-4e17-8397-5424d5c12f4f.json",
+      "bytes": 1815169,
+      "sha256": "2d892c277eb66d97ba096816301afbe0987226f19e2c06db45c67539dfc1c299"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-009-2026-10-19T12-51-07-199Z-8585e04f-fee9-45a1-be56-1df3f50d5369.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-009-2026-10-19T12-51-07-199Z-8585e04f-fee9-45a1-be56-1df3f50d5369.json",
+      "bytes": 471526,
+      "sha256": "08772af9b32639b9976ca7abb68e13b6fa2fb1d04e6655d0e9fe1d943e71ac4c"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-009-2026-10-19T12-56-31-347Z-78be07b9-b4d8-4df2-b941-9b8706db5d09.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-009-2026-10-19T12-56-31-347Z-78be07b9-b4d8-4df2-b941-9b8706db5d09.json",
+      "bytes": 471526,
+      "sha256": "3c270f53a8f4e6624e0bbdf35d332ad921b8ef6676b406c892402e851a65aa12"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-009-2026-10-19T13-02-22-210Z-001df45e-0ea2-448e-bd4b-8c7b396ec7b5.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-009-2026-10-19T13-02-22-210Z-001df45e-0ea2-448e-bd4b-8c7b396ec7b5.json",
+      "bytes": 471526,
+      "sha256": "eebcc3312e708f4c91acccb5f62dce2a34a69700e0be6fab5c9e377788417300"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-010-2026-10-19T12-51-12-915Z-de007a49-9820-4cf0-8c03-39193f06ec09.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T12-51-12-915Z-de007a49-9820-4cf0-8c03-39193f06ec09.json",
+      "bytes": 694936,
+      "sha256": "7efdf25e2df375a84edb1abf6f91018526679aa27caa133c4400c7678a0875bc"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-010-2026-10-19T12-51-15-744Z-b13dd8cc-48d2-4dcd-ab8e-5507dd82b398.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T12-51-15-744Z-b13dd8cc-48d2-4dcd-ab8e-5507dd82b398.json",
+      "bytes": 694936,
+      "sha256": "cf301d98bc686c9e5ce4f27cb87ab3711cb33c7614ce3c3dd86b2fff66aa695c"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-010-2026-10-19T12-56-34-241Z-0974ee54-e536-4b17-b91f-16cb633c7989.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T12-56-34-241Z-0974ee54-e536-4b17-b91f-16cb633c7989.json",
+      "bytes": 696058,
+      "sha256": "41a101607f9dabd821dd975e9b09aef15ed0d54b5a009913597e9d9174a5cace"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-010-2026-10-19T12-56-37-009Z-f7edf3c4-c474-48dc-8cf7-56b877ef2752.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T12-56-37-009Z-f7edf3c4-c474-48dc-8cf7-56b877ef2752.json",
+      "bytes": 694936,
+      "sha256": "a820c3144a9818f73886d1fa7ab915affd268ec6491643e5f830301ff9d952ae"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-010-2026-10-19T12-56-39-802Z-3e014969-4335-4c95-bed2-425c664ade88.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T12-56-39-802Z-3e014969-4335-4c95-bed2-425c664ade88.json",
+      "bytes": 694937,
+      "sha256": "3442b8327dcf02d753ad333f35af5bc7277503b019aaff901fb286b1f024cc8f"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-010-2026-10-19T13-02-25-486Z-86e63cb2-c75b-48a1-a583-bc7ff2f3403f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T13-02-25-486Z-86e63cb2-c75b-48a1-a583-bc7ff2f3403f.json",
+      "bytes": 696058,
+      "sha256": "0fca006566d88d79fcee31b4e98b885fb1b9d8fa28b2e2d3c28aac2a6dd6d166"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-010-2026-10-19T13-02-28-359Z-13e29a2e-fdb0-4959-9519-884069bb9742.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T13-02-28-359Z-13e29a2e-fdb0-4959-9519-884069bb9742.json",
+      "bytes": 694936,
+      "sha256": "6c3d9e0be504102d02cd0c9b45bdd53eb1cee3043a6380e27c1331ae3dfbcb11"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-010-2026-10-19T13-02-31-255Z-ede9a3f6-5881-4b1a-a3a1-2acbea1ff8ea.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T13-02-31-255Z-ede9a3f6-5881-4b1a-a3a1-2acbea1ff8ea.json",
+      "bytes": 694937,
+      "sha256": "9e6d71fc9f429eee2ee9e7c469af91bf4888f0fa60b8a1697b255c085c4fc730"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-011-2026-10-19T12-51-18-803Z-3c5f0b6e-dca7-411c-aff9-e06da674d1d7.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T12-51-18-803Z-3c5f0b6e-dca7-411c-aff9-e06da674d1d7.json",
+      "bytes": 695594,
+      "sha256": "8e6b37ad2cc750b3a8104aab5cbcec1986fe376ecd0412aee310228bc3f7c063"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-011-2026-10-19T12-51-21-732Z-95a3d382-f1d7-4fe0-b5db-cab9f976cee4.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T12-51-21-732Z-95a3d382-f1d7-4fe0-b5db-cab9f976cee4.json",
+      "bytes": 695721,
+      "sha256": "dc1904819036352d31bf85ed55c7ace4c3c3099693e0f9165f620c9c31c93eb4"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-011-2026-10-19T12-51-24-297Z-90adcd1f-6a17-4b02-916d-e74c42aab7fc.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T12-51-24-297Z-90adcd1f-6a17-4b02-916d-e74c42aab7fc.json",
+      "bytes": 695728,
+      "sha256": "9e6d7c6f0bec629f02540532b65f3987be41924e430747eae3d171030d0b3fa7"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-011-2026-10-19T12-51-26-874Z-1d9fc777-7980-4d9b-904c-8055e473d8ce.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T12-51-26-874Z-1d9fc777-7980-4d9b-904c-8055e473d8ce.json",
+      "bytes": 695825,
+      "sha256": "8e37cc60f03ebb077e7416a25b51ad017aa0c81a795b2d438d77ad87097d4e63"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-011-2026-10-19T12-51-29-603Z-35b23777-a556-498a-a6be-37758c1c17e9.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T12-51-29-603Z-35b23777-a556-498a-a6be-37758c1c17e9.json",
+      "bytes": 918777,
+      "sha256": "04ced2b363a23d4de784ce5f79a81f7d8ffd15df94fc113a52062b5168061db3"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-011-2026-10-19T12-56-43-023Z-ff43d34a-6c45-4ffe-a778-44fb68b94598.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T12-56-43-023Z-ff43d34a-6c45-4ffe-a778-44fb68b94598.json",
+      "bytes": 695707,
+      "sha256": "83a84c2e46609a73b66f635f0f2a53a2279f5e7898f596ea2a9525880802053d"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-011-2026-10-19T12-56-45-763Z-a3f11c64-a595-4049-b377-8ca98c982490.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T12-56-45-763Z-a3f11c64-a595-4049-b377-8ca98c982490.json",
+      "bytes": 695834,
+      "sha256": "14988d13d8e0a4ccd9513cccbfe27de3a893270c663c2805f8fff38bf15a1907"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-011-2026-10-19T12-56-48-450Z-69cc8a0b-8f41-4bec-b452-1f06ae1c789e.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T12-56-48-450Z-69cc8a0b-8f41-4bec-b452-1f06ae1c789e.json",
+      "bytes": 695841,
+      "sha256": "f03b2c89e14a5e7b74ed691db0d2d03f35835813f4e313ed6dcf783e62b5e8bc"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-011-2026-10-19T12-56-51-236Z-555ae525-f5d0-46c1-ad8b-cba708848166.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T12-56-51-236Z-555ae525-f5d0-46c1-ad8b-cba708848166.json",
+      "bytes": 695938,
+      "sha256": "9def78b16181899394dfd7a496f919a796818eb78dc77ecf0292e2a26cee75b3"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-011-2026-10-19T12-56-53-939Z-de88e69c-9331-460f-8d1d-ac7353893a96.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T12-56-53-939Z-de88e69c-9331-460f-8d1d-ac7353893a96.json",
+      "bytes": 918777,
+      "sha256": "f15ea51b056eec02fac16a7d4b844fe99090065664a09686c62c059447a4eaf0"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-011-2026-10-19T13-02-34-009Z-6c433e33-745b-4c5b-8184-f2ce8ff2951d.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-02-34-009Z-6c433e33-745b-4c5b-8184-f2ce8ff2951d.json",
+      "bytes": 695707,
+      "sha256": "3bdc5d204c0077adcd7ae17e588e2c33b57fe9b03da2a6a4d9909322f44d7fd7"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-011-2026-10-19T13-02-36-694Z-9ed2a6eb-1951-4011-8b07-cbe37ed17f59.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-02-36-694Z-9ed2a6eb-1951-4011-8b07-cbe37ed17f59.json",
+      "bytes": 695834,
+      "sha256": "8be37e7d3bc0f202ed80e7cbfc3d4d97d395e5c5f29d65f89454c0959a6164e7"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-011-2026-10-19T13-02-39-622Z-a0075c1e-9960-4e5f-907d-c101bca0d97c.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-02-39-622Z-a0075c1e-9960-4e5f-907d-c101bca0d97c.json",
+      "bytes": 695841,
+      "sha256": "2c0ff490c65fa5e6dceb656d8f7287c631ef5f6a71785815d77241e922579ecd"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-011-2026-10-19T13-02-42-298Z-09ba88ac-28d9-4d2b-b9b3-8fc36c92d14f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-02-42-298Z-09ba88ac-28d9-4d2b-b9b3-8fc36c92d14f.json",
+      "bytes": 695938,
+      "sha256": "126ba6b4ebfd4b4c35b529fc066ef9bc15277c9102143ae6a3587f8741fd3ddf"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-011-2026-10-19T13-02-44-822Z-571e8a5a-1272-4455-989e-54f48b232d95.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-02-44-822Z-571e8a5a-1272-4455-989e-54f48b232d95.json",
+      "bytes": 918777,
+      "sha256": "1020f7d725cd8748ca264498eee1f403c9335b616189ad83e7531e250bd8fdf2"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-012-2026-10-19T12-51-32-473Z-787b6a58-6d8f-47b5-91da-ff5dc8fa5d9f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-012-2026-10-19T12-51-32-473Z-787b6a58-6d8f-47b5-91da-ff5dc8fa5d9f.json",
+      "bytes": 472470,
+      "sha256": "431b1ef7c8e9eed0f63e12a2ede84471cadd2c3bfadbcb78b39d1da2cebe1d9a"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-012-2026-10-19T12-56-56-698Z-1c8d4109-264e-46b4-a10e-e3d23c50d7d7.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-012-2026-10-19T12-56-56-698Z-1c8d4109-264e-46b4-a10e-e3d23c50d7d7.json",
+      "bytes": 472470,
+      "sha256": "8241adb18d5912fc7f961f2a48007ae3682e83003651376ac9f44a99296b0cba"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-012-2026-10-19T13-02-47-509Z-1c57ee9f-6642-47fe-aef8-6f1d14460f96.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-012-2026-10-19T13-02-47-509Z-1c57ee9f-6642-47fe-aef8-6f1d14460f96.json",
+      "bytes": 472470,
+      "sha256": "059ea19b7e0b26a59141b52b16bc5a918b275fb6b937cf2be9a6795401e396b6"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-013-2026-10-19T12-51-36-885Z-a742bcdd-d8b6-4c7c-9848-ca3b167122c0.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-013-2026-10-19T12-51-36-885Z-a742bcdd-d8b6-4c7c-9848-ca3b167122c0.json",
+      "bytes": 702489,
+      "sha256": "2533e7cc95746eaebb80881740017bbecf89ccd937a2826028c225acf6bd7ed3"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-013-2026-10-19T12-57-01-223Z-f8f60103-30ad-46f0-8675-8b9099196b66.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-013-2026-10-19T12-57-01-223Z-f8f60103-30ad-46f0-8675-8b9099196b66.json",
+      "bytes": 702489,
+      "sha256": "f0877ffdc78b27c6db75e2763f5d8b5751e40758b63352b6756cfbb5114361c3"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-013-2026-10-19T13-02-51-695Z-6420a016-204a-4a54-a859-dfc4cbb8eff2.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-013-2026-10-19T13-02-51-695Z-6420a016-204a-4a54-a859-dfc4cbb8eff2.json",
+      "bytes": 702489,
+      "sha256": "bac1408381f3fb5b850fe9aa60681d976bef3714a69a91160fa587a75bd853db"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-014-2026-10-19T12-49-50-623Z-ba062cf4-8fb4-4c19-b6b5-5d26c423798b.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-014-2026-10-19T12-49-50-623Z-ba062cf4-8fb4-4c19-b6b5-5d26c423798b.json",
+      "bytes": 830838,
+      "sha256": "c325d151213e7ed786c46ea826b87f3737c8714f7f93b44dbe9967f59c50c236"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-014-2026-10-19T12-52-04-140Z-d6b9f466-af92-452c-8bcf-b23d9431aea4.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-014-2026-10-19T12-52-04-140Z-d6b9f466-af92-452c-8bcf-b23d9431aea4.json",
+      "bytes": 830838,
+      "sha256": "149fa34ad5d4e3e2b38ab36cdd80655a52d4f89c8db361e97d4bc944332ea2fe"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-014-2026-10-19T12-57-30-102Z-49eacc56-95e4-4f2a-8ba7-dd3fb0a2b8de.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-014-2026-10-19T12-57-30-102Z-49eacc56-95e4-4f2a-8ba7-dd3fb0a2b8de.json",
+      "bytes": 830838,
+      "sha256": "7a4bf2eccbfb8dee2879657e31f9be667015e3d974d4e0b83f686b18a5e5546a"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-014-2026-10-19T13-03-18-962Z-443b06b3-7101-4c35-829c-22fb78484767.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-014-2026-10-19T13-03-18-962Z-443b06b3-7101-4c35-829c-22fb78484767.json",
+      "bytes": 830838,
+      "sha256": "9baeaa59b99d81f68de0ef4f888018da9d52ff37b3be99175da108bd3b0a064a"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-015-2026-10-19T12-56-21-749Z-f6d9fb06-997d-4e19-8e7f-c03f37afe701.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-015-2026-10-19T12-56-21-749Z-f6d9fb06-997d-4e19-8e7f-c03f37afe701.json",
+      "bytes": 1801889,
+      "sha256": "1872f1149217587e6482243910ea0a2dec73811c10207496ecd9f0f807513009"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-015-2026-10-19T13-02-07-749Z-2fe63946-8fd7-4ff2-8fc3-0db2e3746d39.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-015-2026-10-19T13-02-07-749Z-2fe63946-8fd7-4ff2-8fc3-0db2e3746d39.json",
+      "bytes": 1801889,
+      "sha256": "6857aca9ea52144e45a4e0d9db613071b1ce80c4cf9f52716f99291f09ac9b42"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-016-2026-10-19T13-03-24-549Z-8bedb5d0-c2b9-4008-b4fc-c319a9c0d018.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-016-2026-10-19T13-03-24-549Z-8bedb5d0-c2b9-4008-b4fc-c319a9c0d018.json",
+      "bytes": 693941,
+      "sha256": "b41c14cee43ec42798fedf76d195ab3a5c6ff2e3da3f34caab69e107be0fdafe"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-016-2026-10-19T13-03-27-274Z-766da5fd-2c83-4680-8a94-427454c45b1e.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-016-2026-10-19T13-03-27-274Z-766da5fd-2c83-4680-8a94-427454c45b1e.json",
+      "bytes": 694038,
+      "sha256": "c6966077832db5f7b01caee679a2dcaf3f82c8fd9c46d25d183bd763d3595f5d"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-016-2026-10-19T13-03-30-047Z-3bb07a3d-b113-4bf2-8ae8-6cff430ff233.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-016-2026-10-19T13-03-30-047Z-3bb07a3d-b113-4bf2-8ae8-6cff430ff233.json",
+      "bytes": 916877,
+      "sha256": "7be7835c74b308e8863ebf32dbf52d1b583bd3c8dcc49863e893db71c0558a56"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-017-2026-10-19T13-03-32-214Z-ca2ed2e3-7495-49c6-ae59-3a44d6651cb6.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-017-2026-10-19T13-03-32-214Z-ca2ed2e3-7495-49c6-ae59-3a44d6651cb6.json",
+      "bytes": 694429,
+      "sha256": "0321fa585d7054b5a357437cc15ae8ed05fec1a07d7fd85ccc5ac740f35352a1"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-018-2026-10-19T13-04-57-697Z-192fe959-23b7-4680-92a0-4506e566a024.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-018-2026-10-19T13-04-57-697Z-192fe959-23b7-4680-92a0-4506e566a024.json",
+      "bytes": 914782,
+      "sha256": "2e82f7b4ce9c6a38d80c8b8dd97e24e2b4083e0eb2acb744ae11d8c0c65718d3"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-018-2026-10-19T13-04-59-195Z-f7ed33b1-5675-4417-8d3d-f64cc58c4b50.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-018-2026-10-19T13-04-59-195Z-f7ed33b1-5675-4417-8d3d-f64cc58c4b50.json",
+      "bytes": 914770,
+      "sha256": "e000ec55728d1f2196d1552bb60aa1d025662d93bd6b4a3b3d4c5486d0aa21ab"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-019-2026-10-19T13-17-51-744Z-9a3c7e35-0c81-406a-93da-a54aab640e70.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-019-2026-10-19T13-17-51-744Z-9a3c7e35-0c81-406a-93da-a54aab640e70.json",
+      "bytes": 833723,
+      "sha256": "0f951042326e4f51bfe10c01eaa21950c0c0e0821368ec244a7afc8506114901"
+    }
+  ]
+}
