@@ -15,6 +15,14 @@ The root package export is the Event DSL authoring surface. Programmatic Workspa
 operations are available from `rpgmaker-event-dsl/workspace`; the CLI remains the primary
 Workspace workflow interface.
 
+Clone, Pull, Decompile, Compile (including `--check`), Diff, Push and the Workspace
+API's freshness query share a per-Workspace lock. Contention immediately reports
+`Workspace is busy`; retry after the active operation finishes. Different Workspaces
+operate independently. Windows releases the lock when its owner exits or crashes.
+The persistent `.rpgmaker-event-dsl/operation.lock` file stays in place; its existence
+does not indicate a live owner. Lock release preserves pending Interrupted Push state,
+which only Push can resolve.
+
 This project is in early development. The TypeScript API, DSL syntax, CLI workflow,
 generated output, and workspace format may change before `1.0.0`.
 

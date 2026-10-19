@@ -187,3 +187,12 @@ Ticket12 adds captured Snapshot assembly and bounded existing-command validation
 Ticket 08 adds [face index, preview, replacement and None review](08-face-index-and-image-replacement-reverse.md) with [resource identities and independent dimension examples](08-resource-identities.json). Its 14 bounded review records preserve third-row 8/11 reachability, active two-row reset, inactive one-row non-reset, independent None index and the 1 ms/missing-file timing limits. Accepted 0..2147483647 saved-value support is distinct from ordinary picker creation; no contract amendment, actual UI/game execution or product pass is claimed.
 
 Ticket 09 adds [single-slot text, input and reconfirmation review](09-single-slot-strings-and-reconfirmation-reverse.md), [28 selected resource identities](09-resource-identities.json), and [12 independent exact-character examples](09-string-inputs.json). Its 17 bounded review records distinguish direct command-slot assignments from shared TextEdit line-limit/change/keyboard handling, Qt timing and CR/CRLF unknowns, and container/outer-route serialization. Original-string warning thresholds remain accepted product choices, with no new length restriction or normalization. No editor UI, extracted-code, product or game execution is claimed.
+
+Ticket16 adds [Workspace operation lock acceptance](16-workspace-operation-locking.md). These are automated synthetic filesystem/process cases; they do not execute the editor or a game.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S4-LOCK-001 | All same-Workspace API and CLI operations immediately reject contention | synthetic-support | Windows public API and real child processes |
+| MV-S4-LOCK-002 | hides Snapshot publication gaps and aliases while other Workspaces operate | synthetic-support | Windows public API and real child processes |
+| MV-S4-LOCK-003 | recovers kernel leases after interruption and crash without stale-cleaner races | synthetic-support | Windows public API and real child processes |
+| MV-S4-LOCK-004 | preserves Interrupted Push independently of abandoned locks and failed checks | synthetic-support | Windows public API and real child processes |

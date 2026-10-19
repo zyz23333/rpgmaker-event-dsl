@@ -300,6 +300,16 @@ previous Generated Project Data becomes stale, so run `compile` again before `di
 
 ## Workspace Config
 
+Clone, Pull, Decompile, Compile, Check, Diff and Push acquire one shared lock per
+Workspace before reading configuration or data. The Workspace API's freshness query
+uses the same lock. Concurrent calls report `Workspace is busy` immediately; retry
+after the active operation finishes. Separate Workspaces can run independently.
+
+The persistent `.rpgmaker-event-dsl/operation.lock` file is tool-maintained state.
+Windows releases its exclusive handle when the owner exits, including a crash; file
+existence alone does not mean the Workspace is busy. Keep this file in place. Lock
+release never clears a pending Interrupted Push, which only Push can resolve.
+
 The workspace config tells the CLI where the RPG Maker MV project is and which
 TypeScript files should be treated as DSL declaration files.
 

@@ -37,6 +37,7 @@ import {
   renderStructuredDiffReport,
 } from "../project-data/structured-diff.js";
 import { loadWorkspace } from "./config.js";
+import { withWorkspaceOperationLock } from "./operation-lock.js";
 import {
   assertKnownSafeProjectDataFile,
   assertGeneratedProjectDataIntegrity,
@@ -51,11 +52,15 @@ import type {
 } from "./types.js";
 
 export async function cloneWorkspace(options: WorkspaceCommandOptions): Promise<void> {
-  await captureWorkspaceSnapshot(options, "clone");
+  await withWorkspaceOperationLock(options.workspaceRoot, "clone", () =>
+    captureWorkspaceSnapshot(options, "clone"),
+  );
 }
 
 export async function pullWorkspace(options: WorkspaceCommandOptions): Promise<void> {
-  await captureWorkspaceSnapshot(options, "pull");
+  await withWorkspaceOperationLock(options.workspaceRoot, "pull", () =>
+    captureWorkspaceSnapshot(options, "pull"),
+  );
 }
 
 async function captureWorkspaceSnapshot(
@@ -73,6 +78,12 @@ async function captureWorkspaceSnapshot(
 }
 
 export async function decompileWorkspace(options: WorkspaceCommandOptions): Promise<void> {
+  await withWorkspaceOperationLock(options.workspaceRoot, "decompile", () =>
+    decompileWorkspaceUnlocked(options),
+  );
+}
+
+async function decompileWorkspaceUnlocked(options: WorkspaceCommandOptions): Promise<void> {
   const workspace = await loadWorkspace(options.workspaceRoot);
   const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
 
@@ -86,6 +97,14 @@ export async function decompileWorkspace(options: WorkspaceCommandOptions): Prom
 }
 
 export async function compileWorkspace(options: CompileWorkspaceOptions): Promise<void> {
+  await withWorkspaceOperationLock(
+    options.workspaceRoot,
+    options.check ? "compile --check" : "compile",
+    () => compileWorkspaceUnlocked(options),
+  );
+}
+
+async function compileWorkspaceUnlocked(options: CompileWorkspaceOptions): Promise<void> {
   const workspace = await loadWorkspace(options.workspaceRoot);
   const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
   const commandName = options.check ? "compile --check" : "compile";
@@ -149,6 +168,14 @@ export async function compileWorkspace(options: CompileWorkspaceOptions): Promis
 }
 
 export async function isGeneratedProjectDataFresh(
+  options: WorkspaceCommandOptions,
+): Promise<boolean> {
+  return withWorkspaceOperationLock(options.workspaceRoot, "isGeneratedProjectDataFresh", () =>
+    isGeneratedProjectDataFreshUnlocked(options),
+  );
+}
+
+async function isGeneratedProjectDataFreshUnlocked(
   options: WorkspaceCommandOptions,
 ): Promise<boolean> {
   const workspace = await loadWorkspace(options.workspaceRoot);
@@ -340,6 +367,12 @@ async function readSnapshotFile(
 }
 
 export async function diffWorkspace(options: DiffWorkspaceOptions): Promise<string> {
+  return withWorkspaceOperationLock(options.workspaceRoot, "diff", () =>
+    diffWorkspaceUnlocked(options),
+  );
+}
+
+async function diffWorkspaceUnlocked(options: DiffWorkspaceOptions): Promise<string> {
   const workspace = await loadWorkspace(options.workspaceRoot);
   const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
 
