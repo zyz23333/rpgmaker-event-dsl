@@ -4,7 +4,6 @@ import type {
   VehicleTarget,
 } from "../../domain/types.js";
 import type { ReferenceResolver } from "../../validation/types.js";
-import { isReferenceValue } from "../../validation/inspection.js";
 import { resolveControlValue } from "../../commands/variables/compile.js";
 
 export function compileConditionalBranchParameters(
@@ -18,10 +17,10 @@ export function compileConditionalBranchParameters(
       return [
         1,
         resolver.resolveReference(condition.variable),
-        isReferenceValue(condition.value) ? 1 : 0,
-        isReferenceValue(condition.value)
-          ? resolver.resolveReference(condition.value)
-          : condition.value,
+        condition.value.kind === "variable" ? 1 : 0,
+        condition.value.kind === "variable"
+          ? resolver.resolveReference(condition.value.variable)
+          : condition.value.value,
         conditionalVariableOperatorToCode(condition.operator),
       ];
     case "selfSwitch":
@@ -39,18 +38,26 @@ export function compileConditionalBranchParameters(
           ];
     case "enemy":
       return condition.check.kind === "appeared"
-        ? [5, condition.enemyIndex, 0]
-        : [5, condition.enemyIndex, 1, resolver.resolveReference(condition.check.state)];
+        ? [5, condition.enemy.index, 0]
+        : [5, condition.enemy.index, 1, resolver.resolveReference(condition.check.state)];
     case "character":
-      return [6, condition.characterId, condition.direction];
+      return [
+        6,
+        condition.target.target === "player"
+          ? -1
+          : condition.target.target === "currentEvent"
+            ? 0
+            : condition.target.id,
+        condition.direction,
+      ];
     case "gold":
       return [7, condition.amount, goldConditionOperatorToCode(condition.operator)];
     case "item":
       return [8, resolver.resolveReference(condition.item)];
     case "weapon":
-      return [9, resolver.resolveReference(condition.weapon), condition.includeEquipment ?? false];
+      return [9, resolver.resolveReference(condition.weapon), condition.includeEquipment];
     case "armor":
-      return [10, resolver.resolveReference(condition.armor), condition.includeEquipment ?? false];
+      return [10, resolver.resolveReference(condition.armor), condition.includeEquipment];
     case "button":
       return [11, condition.button];
     case "script":

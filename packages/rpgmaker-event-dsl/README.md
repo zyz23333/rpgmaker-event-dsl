@@ -314,6 +314,49 @@ Decompile warns while producing source; Check and Compile reject actual current 
 containing scripts. Removing those scripts permits compilation without replacing the
 old Snapshot. Plugin command argument semantics remain external.
 
+## Conditional and child bodies
+
+```ts
+import { conditional, variableRef, wait } from "rpgmaker-event-dsl";
+
+const branch = conditional({
+  condition: {
+    kind: "variable",
+    variable: variableRef({ id: 1 }),
+    operator: "ge",
+    value: { kind: "constant", value: 2 },
+  },
+  then: { commands: [wait(1)] },
+  else: { commands: [] },
+});
+```
+
+Conditional supports all 14 MV modes and seven Actor checks. `then.commands` is
+required. Omitted `else` and an explicit empty body retain different native shapes.
+Each body defaults `endMarker` to `"present"`; `"absent"` preserves a nonempty
+body with no saved marker. Empty bodies require a marker. Combined formal and raw
+output cannot duplicate or contradict the owning marker; nested raw markers retain
+their own ownership.
+
+Variable comparisons use a constant mode as above or
+`{ kind: "variable", variable: variableRef(...) }`, and the six operators are
+`eq/ge/le/gt/lt/ne`. Enemy conditions require
+`enemy: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index }`
+with index 0..7. Character conditions require a `target` Runtime Selector in the
+`character` scope: player, currentEvent, or event with a positive ID. Directions
+are 2/4/6/8. Weapon and Armor conditions require `includeEquipment: boolean`.
+
+Fixed references resolve in their own category. Missing runtime positions and
+inapplicable contexts warn; Common Event caller context stays unknown. Enemy
+appeared uses `isAlive()` and is false while hidden or dead. Ordinary numeric
+constants, timer seconds, gold amounts and enemy indices preserve negative zero;
+symbolic native encodings that cannot represent its sign are rejected.
+
+Script conditions use `script: scriptInput({ code })`. The complete string is one
+saved slot, including empty input, CR/LF, trailing whitespace and long content.
+CR or LF produces a reconfirmation warning independently of the Script Command
+Gate. Actor name comparisons preserve exact strings without that warning.
+
 ## Loop and event processing
 
 ```ts

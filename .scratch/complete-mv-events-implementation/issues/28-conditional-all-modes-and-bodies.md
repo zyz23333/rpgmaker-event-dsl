@@ -1,6 +1,6 @@
 # 28: Conditional 全条件与子体
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 09, 23, 24, 25
 Stage: S6
 Created: 2026-10-19
@@ -52,3 +52,17 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [核心指令参数附表](../../complete-mv-events/research/command-parameters/core.md)。
+
+## Comments
+
+### 2026-10-20 — 认领与实施边界
+
+在独立 managed worktree `mv-ticket-28`、分支 `codex/mv-ticket-28` 基于实际集成 `205334338d8e64e3d00e485849c9ddf67bd7e3b1` 认领。沿用规格 T1 已确认的公开 DSL／实际 Workspace Discovery、求值和文件系统测试边界，按独立原生预期逐切片 red→green。完整14条件、Actor7子型、Child Command Body、正式／已知 raw／严格未类型化输入、引用／Gate／上下文及数值保真均属本票；原17页三回合 Conditional R2 失败保留并安排原完整输入产品配对复验，不由25的Script guard变体替代。
+
+先进行聚焦开发、文档和追加证据；全量检查、构建、built Windows基线、原生产品配对及最终契约版本由root串行排期。当前认领不表示验收或READY。
+
+### 2026-10-20 — DEV源码检查点，仍未READY
+
+完整E111形式模型、14模式／Actor7子型、严格helper／直接值／原生／已知raw、独立子体marker、单槽Script／Gate／CR-LF warning、类别引用和运行上下文warning已形成源码DEV检查点。实际Discovery／求值的三容器完整往返和真实源码修改Push保留负零；原R2简化guard回归通过。最终聚焦11文件304测试、package typecheck和改动TypeScript的lint通过；未运行全量check、build、built基线、原生游戏或最终Compile Contract Version更新。
+
+新增4条Workspace源码验收记录，旧274条requirement逐对象相同、2,307个历史结果／fixture文件逐字节相同，见[DEV报告](../evidence/conditional-dev-20261020.md)和[历史审计](../evidence/conditional-dev-history-audit.json)。报告列出待root串行执行的集成／built／E2-E5及R3-R4-R7原生工作；原完整17页三回合R2输入仍须配对复验，简化guard及25的E355变体不替代。票保持claimed，不能据此关闭。

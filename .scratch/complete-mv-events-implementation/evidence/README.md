@@ -441,3 +441,8 @@ Ticket24 adds [complete Map Event pages and exact saved state](24-map-event-full
 
 | MV-S5-COMMON-CARRIER-BOUNDARY | Reject missing or nonnull Common reserved slot0 and preserve ordinary null-only carrier | synthetic-rejection | Actual public Workspace native carrier boundary |
 | MV-S5-COMMON-TRIGGER-BOUNDARY | Reject categorical Common trigger negative zero with exact diagnostic and unchanged complete business state | synthetic-rejection | Actual public Workspace native carrier boundary |
+
+| MV-S6-CONDITIONAL-R2-GUARD | preserves the original R2 Conditional guard marker through actual discovered source and Workspace Push | synthetic-support | Actual public source/built Workspace boundary; native obligations remain separate |
+| MV-S6-CONDITIONAL-ALL-CARRIERS | round-trips every Conditional mode and numeric negative zero through actual source in all three carriers | synthetic-support | Actual public source/built Workspace boundary; native obligations remain separate |
+| MV-S6-CONDITIONAL-NATIVE-REJECTION | rejects malformed Conditional native inputs and missing fixed references before source publication | synthetic-rejection | Actual public source/built Workspace boundary; native obligations remain separate |
+| MV-S6-CONDITIONAL-SOURCE-REJECTION | rejects malformed actual discovered Conditional source with Check and Compile while preserving business files | synthetic-rejection | Actual public source/built Workspace boundary; native obligations remain separate |

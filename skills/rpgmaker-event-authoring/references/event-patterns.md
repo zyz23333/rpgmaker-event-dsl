@@ -69,6 +69,30 @@ Shopkeepers use `shopProcessing(...)`. Event-driven battles use `battleProcessin
 
 ## DSL Command Selection
 
+Use `conditional({ condition, then: { commands: [...] }, else? })` for a
+momentary check. Each `then`/`else` body independently defaults its `endMarker`
+to `"present"`; use `"absent"` only to preserve a nonempty saved body without
+the marker. Preserve omitted else separately from `else: { commands: [] }`.
+Check combined formal/raw output against the declared marker and keep nested
+markers with their owners.
+
+Variable conditions require a mode object: `{ kind: "constant", value }` or
+`{ kind: "variable", variable: variableRef(...) }`. Choose `eq/ge/le/gt/lt/ne`.
+Enemy conditions take `enemy: { kind: "runtimeSelector", scope: "enemy",
+target: "enemy", index }`, index 0..7. Character conditions take `target` in
+the character scope with player/currentEvent/event targets and direction 2/4/6/8.
+Weapon and Armor conditions require an explicit `includeEquipment` Boolean.
+Resolve every fixed reference in its actual category. Review context warnings:
+Common Event callers remain unknown, battle interpreters have no characters,
+and missing enemy positions evaluate false. Enemy appeared checks `isAlive()`;
+hidden and dead members are false.
+
+Keep Conditional Script as one complete `scriptInput({ code })` string. Review
+the CR/LF reconfirmation warning independently of the Script Command Gate;
+empty, whitespace-only and long strings alone receive no such warning. Actor
+name comparison strings remain ordinary exact literals. Preserve accepted
+negative zero in numeric constants, timer seconds, gold amounts and enemy indices.
+
 Use `loop({ body: { commands: [...] } })` for repeated work and `breakLoop()`
 inside its body to finish it. `body.commands` is required. The optional
 `body.endMarker` defaults to `"present"`; use `"absent"` only when preserving

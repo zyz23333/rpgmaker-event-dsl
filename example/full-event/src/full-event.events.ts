@@ -138,12 +138,21 @@ const batTroop = troopRef({ id: 1 });
 const heroActor = actorRef({ id: 1 });
 const attackSkill = skillRef({ id: 1 });
 const poisonState = stateRef({ id: 4 });
-const currentEvent = { kind: "runtimeSelector", scope: "character", target: "currentEvent" } as const;
+const currentEvent = {
+  kind: "runtimeSelector",
+  scope: "character",
+  target: "currentEvent",
+} as const;
 const playerCharacter = { kind: "runtimeSelector", scope: "character", target: "player" } as const;
 const entireParty = { kind: "runtimeSelector", scope: "actor", target: "entireParty" } as const;
 const firstEnemy = { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 } as const;
 const allEnemies = { kind: "runtimeSelector", scope: "enemy", target: "all" } as const;
-const heroBattler = { kind: "runtimeSelector", scope: "battler", target: "actor", actorId: 1 } as const;
+const heroBattler = {
+  kind: "runtimeSelector",
+  scope: "battler",
+  target: "actor",
+  actorId: 1,
+} as const;
 
 export const sampleCommonEventDefinition = commonEvent({
   id: 1,
@@ -170,7 +179,10 @@ export const guideEvent = mapEvent({
       commands: [
         comment(["Visible entry point for the full-event sample workspace."]),
         showText({
-          lines: ["Event DSL sample", "Talk to nearby events to try representative command families."],
+          lines: [
+            "Event DSL sample",
+            "Talk to nearby events to try representative command families.",
+          ],
           face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 0 },
         }),
         showScrollingText({
@@ -200,15 +212,17 @@ export const guideEvent = mapEvent({
             switch: chestOpenedSwitch,
             value: true,
           },
-          then: [showText({ lines: ["The reward chest has already been opened."] })],
-          else: [showText({ lines: ["The reward chest is still waiting."] })],
+          then: { commands: [showText({ lines: ["The reward chest has already been opened."] })] },
+          else: { commands: [showText({ lines: ["The reward chest is still waiting."] })] },
         }),
         conditional({
           condition: {
             kind: "script",
             script: scriptInput({ code: "$gameParty.gold() >= 0" }),
           },
-          then: [showText({ lines: ["Script conditions are explicit Script Inputs."] })],
+          then: {
+            commands: [showText({ lines: ["Script conditions are explicit Script Inputs."] })],
+          },
         }),
         showChoices({
           choices: ["Call common event", "Stop here"],
@@ -347,7 +361,12 @@ export const presentationStationEvent = mapEvent({
   pages: [
     page({
       commands: [
-        showText({ lines: ["Presentation station", "This event uses screen, audio, picture, and map helpers."] }),
+        showText({
+          lines: [
+            "Presentation station",
+            "This event uses screen, audio, picture, and map helpers.",
+          ],
+        }),
         changeBattleBgm({
           audio: { asset: audioAsset({ folder: "bgm", name: "Battle1" }), volume: 80 },
         }),
@@ -447,16 +466,17 @@ export const movementStationEvent = mapEvent({
         }),
         setMovementRoute({
           target: currentEvent,
-          route: { commands: [
-            { kind: "turnDown" },
-            { kind: "moveForward" },
-            { kind: "routeWait", frames: 10 },
-            { kind: "switchOn", switch: sampleRouteCompleteSwitch },
-            { kind: "playSe", audio: { asset: audioAsset({ folder: "se", name: "Cursor2" }) } },
-            { kind: "script", script: scriptInput({ code: "this.turnTowardPlayer();" }) },
-          ],
-          skippable: true,
-          wait: true,
+          route: {
+            commands: [
+              { kind: "turnDown" },
+              { kind: "moveForward" },
+              { kind: "routeWait", frames: 10 },
+              { kind: "switchOn", switch: sampleRouteCompleteSwitch },
+              { kind: "playSe", audio: { asset: audioAsset({ folder: "se", name: "Cursor2" }) } },
+              { kind: "script", script: scriptInput({ code: "this.turnTowardPlayer();" }) },
+            ],
+            skippable: true,
+            wait: true,
           },
         }),
         showBalloonIcon({
@@ -489,7 +509,9 @@ export const partyStateStationEvent = mapEvent({
   pages: [
     page({
       commands: [
-        showText({ lines: ["Party state station", "This event touches party, actor, and enemy helpers."] }),
+        showText({
+          lines: ["Party state station", "This event touches party, actor, and enemy helpers."],
+        }),
         changePartyMember({
           actor: heroActor,
           operation: "add",
@@ -501,30 +523,32 @@ export const partyStateStationEvent = mapEvent({
             actor: heroActor,
             check: { kind: "state", state: poisonState },
           },
-          then: [showText({ lines: ["The hero is poisoned."] })],
-          else: [showText({ lines: ["The hero is not poisoned."] })],
+          then: { commands: [showText({ lines: ["The hero is poisoned."] })] },
+          else: { commands: [showText({ lines: ["The hero is not poisoned."] })] },
         }),
         conditional({
           condition: {
             kind: "enemy",
-            enemyIndex: 0,
+            enemy: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
             check: { kind: "appeared" },
           },
-          then: [
-            changeEnemyHp({
-              target: firstEnemy,
-              operation: "lose",
-              value: 10,
-              allowDeath: true,
-            }),
-          ],
+          then: {
+            commands: [
+              changeEnemyHp({
+                target: firstEnemy,
+                operation: "lose",
+                value: 10,
+                allowDeath: true,
+              }),
+            ],
+          },
         }),
         conditional({
           condition: {
             kind: "item",
             item: potion,
           },
-          then: [showText({ lines: ["The party has at least one potion."] })],
+          then: { commands: [showText({ lines: ["The party has at least one potion."] })] },
         }),
         controlTimer({ action: "start", seconds: 30 }),
         controlTimer({ action: "stop" }),

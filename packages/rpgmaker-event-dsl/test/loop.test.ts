@@ -43,14 +43,14 @@ it("reports the complete DSL path for an invalid Loop inside another parent's bo
     commands: [
       conditional({
         condition: { kind: "button", button: "ok" },
-        then: [loop({ body: { commands: [], endMarker: "absent" } })],
+        then: { commands: [loop({ body: { commands: [], endMarker: "absent" } })] },
       }),
     ],
   });
   expect(validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues).toContainEqual(
     expect.objectContaining({
       code: "MV-CHILD-BODY",
-      dslPath: "commands[0].then[0].body.endMarker",
+      dslPath: "commands[0].then.commands[0].body.endMarker",
     }),
   );
 });
@@ -81,7 +81,10 @@ it.each([
     commands: [{ kind: "rawDslCommand", code: 113, ...input } as never],
   });
   expect(validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues).toContainEqual(
-    expect.objectContaining({ code: "MV-COMMAND-ENVELOPE", dslPath: "commands[0]" }),
+    expect.objectContaining({
+      code: "MV-COMMAND-ENVELOPE",
+      dslPath: `commands[0].${"indent" in input ? "indent" : "parameters"}`,
+    }),
   );
 });
 
@@ -308,7 +311,7 @@ it.each([
         level: "error",
         identity: "commonEvent:1",
         ...(commands[at]?.code === 113 && commands[at]?.parameters.length
-          ? { dslPath: `commands[${at}]` }
+          ? { dslPath: `commands[${at}].parameters` }
           : { nativePath: `list[${at}]` }),
       }),
     );

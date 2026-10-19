@@ -733,25 +733,25 @@ describe("compileMapEvent", () => {
             commands: [
               conditional({
                 condition: { kind: "switch", switch: switchRef({ name: "Gate" }), value: true },
-                then: [wait(1)],
-                else: [wait(2)],
+                then: { commands: [wait(1)] },
+                else: { commands: [wait(2)] },
               }),
               conditional({
                 condition: {
                   kind: "variable",
                   variable: variableRef({ name: "Count" }),
                   operator: "ne",
-                  value: variableRef({ name: "Count" }),
+                  value: { kind: "variable", variable: variableRef({ name: "Count" }) },
                 },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: { kind: "selfSwitch", selfSwitch: "B", value: false },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: { kind: "timer", seconds: 30, operator: "le" },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: {
@@ -759,27 +759,31 @@ describe("compileMapEvent", () => {
                   actor: { kind: "actor", id: 1 },
                   check: { kind: "class", class: classRef({ name: "Warrior" }) },
                 },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: {
                   kind: "enemy",
-                  enemyIndex: 0,
+                  enemy: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
                   check: { kind: "state", state: stateRef({ name: "Poison" }) },
                 },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
-                condition: { kind: "character", characterId: -1, direction: 2 },
-                then: [],
+                condition: {
+                  kind: "character",
+                  target: { kind: "runtimeSelector", scope: "character", target: "player" },
+                  direction: 2,
+                },
+                then: { commands: [] },
               }),
               conditional({
                 condition: { kind: "gold", amount: 100, operator: "lt" },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: { kind: "item", item: itemRef({ name: "Potion" }) },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: {
@@ -787,7 +791,7 @@ describe("compileMapEvent", () => {
                   weapon: { kind: "weapon", id: 1 },
                   includeEquipment: true,
                 },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: {
@@ -795,22 +799,22 @@ describe("compileMapEvent", () => {
                   armor: { kind: "armor", id: 1 },
                   includeEquipment: false,
                 },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: { kind: "button", button: "ok" },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: {
                   kind: "script",
                   script: scriptInput({ code: "$gameParty.size() > 1" }),
                 },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: { kind: "vehicle", vehicle: "airship" },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: {
@@ -818,7 +822,7 @@ describe("compileMapEvent", () => {
                   actor: { kind: "actor", id: 1 },
                   check: { kind: "skill", skill: skillRef({ name: "Heal" }) },
                 },
-                then: [],
+                then: { commands: [] },
               }),
             ],
           }),

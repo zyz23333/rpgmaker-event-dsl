@@ -4,7 +4,6 @@ import type {
   CommonEventDslCommand,
   ConditionalBranchCondition,
   ConditionalDslCommand,
-  DslCommand,
   ExitEventProcessingDslCommand,
   JumpToLabelDslCommand,
   LabelDslCommand,
@@ -17,12 +16,14 @@ import type {
 import { isScriptInput } from "../../domain/references.js";
 import { scriptInput } from "../../authoring/references.js";
 import { assertCommonEventCall } from "./validation.js";
+import { assertConditionalCommand } from "./conditional-validation.js";
 
 export function conditional(input: {
   condition: ConditionalBranchCondition;
-  then: readonly DslCommand[];
-  else?: readonly DslCommand[];
+  then: ConditionalDslCommand["then"];
+  else?: ConditionalDslCommand["else"];
 }): ConditionalDslCommand {
+  assertConditionalCommand(input, "conditional", false);
   const node: ConditionalDslCommand = {
     kind: "conditional",
     condition: input.condition,
