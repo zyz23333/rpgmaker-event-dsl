@@ -124,6 +124,10 @@ _Avoid_: parent closing command, event-list terminator, ordinary DSL Command
 The arrangement and presence of saved fields, parameter slots, and structural records in RPG Maker MV event data, including differences that do not change immediate execution behavior.
 _Avoid_: runtime behavior, JSON text formatting, arbitrary extra data
 
+**Native Saved Value**:
+A value stored for a native RPG Maker MV event setting, including one retained after the available assets, map dimensions, or editor choices change. It is distinct from a value obtained when the event executes.
+_Avoid_: current picker choice, runtime value, normalized value
+
 **Raw DSL Command**:
 A DSL Command that directly carries one Raw Event Command's code, indentation, and parameters as an escape hatch.
 _Avoid_: Raw Event Command, ordinary DSL helper
@@ -562,7 +566,7 @@ _Avoid_: config default, inherited old value
 - Changed `Map###.json`, `CommonEvents.json`, `Troops.json`, and `System.json` files are written with an **MV-Style JSON Writer** during **Push**.
 - **Compiler Defaults** are built in, documented, and overridable through explicit DSL fields.
 - A map target comes from **Map Event Identity**, not from the file name or CLI target arguments.
-- Map event coordinates must be within map bounds; coordinate occupancy is a validation warning, not an error.
+- A **Map Event**'s initial location must be within its map bounds; coordinate occupancy is a validation warning, not an error. This location is distinct from a **Native Saved Value** used by a command to select a position during execution.
 - Script commands require the **Script Command Gate**.
 
 ## Example Dialogue
@@ -636,7 +640,8 @@ _Avoid_: config default, inherited old value
 - "Command node API" was resolved as function-style helpers with object inputs, not positional builders.
 - "Create ID allocation" was rejected for DSL-owned entries; **Entry Identity** uses explicit RPG Maker MV IDs.
 - "Create and replace name matching" was rejected because **Display Name** is not **Entry Identity**.
-- "Map coordinates" were resolved as bounds-checked errors with coordinate occupancy warnings.
+- "Map coordinates" in the initial-location rule means a **Map Event**'s own placement, not every coordinate stored by an event command.
+- "Current picker choices" were distinguished from **Native Saved Values**: changes to an asset or map can change the available choices while the event retains its earlier setting.
 - "Script command enablement" was rejected as unclear; the canonical term is **Script Command Gate**.
 - "Script command" was resolved as config-gated rather than reason-gated at the command level.
 - "Local data layer" was rejected as too implementation-shaped; **Workspace Data State** is the canonical umbrella term.

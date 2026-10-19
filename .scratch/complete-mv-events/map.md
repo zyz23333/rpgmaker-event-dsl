@@ -21,6 +21,7 @@ Status: open
 - 敌群战斗事件遵循 [ADR 0010](../../docs/adr/0010-troop-event-ownership-and-reset.md)：整体接管 pages，以既有 troopId 标识，保留外部敌群数据与原生页序、禁用条件配置；省略声明和显式空白都生成一张默认空白页。非空白到空白的 Troop Event Reset 扩展 Destructive Change，但不放宽同步检查；未知数据规则与 Workspace 接入契约已分别由语义往返和 Workspace 集成决定确认。
 - Workspace 集成遵循已接受的 [ADR 0013](../../docs/adr/0013-bind-generated-data-to-compilation-assumptions.md) 与 [ADR 0014](../../docs/adr/0014-publish-decompiled-source-as-a-complete-directory.md)；实际实现与安全验收仍待后续规划和执行。
 - 原生保存形态遵循已接受的 [ADR 0015](../../docs/adr/0015-bounded-native-saved-shape.md)：Stop保留可选秒数槽；移动记录与M0使用逐类有限保存字段；非空子体尾标记两态由正式结构精确保留。编写默认不修补原生数据，静态推导、明确产品支持选择与真实UI观察分开记录。
+- 原生保存值边界已由[13号票](issues/13-native-value-domain-boundaries.md#answer)最终确认：脸图索引与四类direct坐标采用非负32位域并拒绝负零，素材不扫描，当前尺寸或运行上下文风险按明确矩阵警告；列明单槽字符串完整保存并按CR/LF给参数重确认风险提示。ADR0011/0012已细化，产品选择、静态路径与真实验收分别记录。
 - 用户所说的 `.references/RPGMV` 实际位于 `references/RPGMV`；另有 `references/rmmv-local-runtime-1.6.1`、`references/rpg-maker-mv-corescript` 与 `references/rmmv-test-project`。它们是本地参考资料，不随研究分支发布。
 - 研究必须区分首方帮助、随包模板、runtime 源码、编辑器二进制与真实运行观察；runtime 版本不能代替编辑器本体版本证据。未经实际执行不得声称编辑器或游戏测试通过。
 - 原生指令契约已最终确认：由 [原生指令逐参数契约还缺哪些证据](issues/11-native-command-parameter-evidence.md) 补全参数表，作为实施规格完成的前置要求，并阻塞最终验收与顺序决策；类别库存与设计讨论完成均不能代替全参证明。
@@ -43,7 +44,9 @@ Status: open
 
 - [原生指令逐参数契约还缺哪些证据](issues/11-native-command-parameter-evidence.md#answer)：105+45逐参数证据及全模式/样本责任已齐，实际REA+Ghidra补齐随包Qt数值控件依据；正常保存形态与具体值域边界已形成新的HITL依赖，契约定稿和真实验收仍待后续。
 
-- [原生保存形态差异如何进入正式 DSL](issues/12-native-saved-shape-model.md#answer)：经两轮Q1–Q7及最终确认，已确定Stop可选seconds、移动指令savedShape与路线terminator的逐类外壳及默认、子体commands/endMarker对象、准确省略和undefined语义；保留精确镜像、raw完整结构校验及递归引用/Gate。ADR0015已接受，12对08的阻塞解除；13支持边界及08验收规划仍未完成，产品与真实验收未执行。
+- [原生保存形态差异如何进入正式 DSL](issues/12-native-saved-shape-model.md#answer)：经两轮Q1–Q7及最终确认，已确定Stop可选seconds、移动指令savedShape与路线terminator的逐类外壳及默认、子体commands/endMarker对象、准确省略和undefined语义；保留精确镜像、raw完整结构校验及递归引用/Gate。ADR0015已接受，12对08的阻塞解除；08验收规划及产品与真实验收仍待后续。
+
+- [原生控件范围与保存值的支持边界如何划定](issues/13-native-value-domain-boundaries.md#answer)：经两轮Q1–Q8及最终确认，已确定faceIndex与E201/202/203/285直接坐标的0..2,147,483,647整数域和负零拒绝；不扫描素材，非None大索引与固定/运行地图采用准确warning；完整字符串保留CR/LF/尾部字符，并按原生单行/两行控件给重确认风险提示；EXP常量1..9,999,999，帮助差异交真实验收。ADR0011/0012、参数表及08输入已同步。13已resolved，08的全部前置现已resolved；08仍open，实施与真实验收尚未执行。
 
 ## Not yet specified
 

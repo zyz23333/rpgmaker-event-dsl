@@ -81,6 +81,8 @@ Choices 初值有完整局部静态创建链。Transfer/Set Event Location/Shop/
 
 ### 引用、运行选择与校验等级
 
+2026-10-19补充：[13号票Answer](13-native-value-domain-boundaries.md#answer)的Q1–Q8及完整契约已最终确认，13已resolved。E101/E322脸图索引及E201/202/203/285的direct x/y采用整数0..2,147,483,647并拒绝负零；不把当前素材或地图尺寸当成该形式域。固定map缺失仍error，域内坐标越界按固定目标或条件性所属地图warning，未知运行地图不猜。素材文件/尺寸不扫描，非None faceIndex>=8警告超标准布局且尺寸未校验，None保留独立index。EXP常量采用1..9,999,999，资料冲突仍待真实核验。精确范围、诊断与能力限制以13为准，不推广到其他数值字段。
+
 Runtime Selector 不是 Project Data Reference，但其中的固定项目目标或变量引用必须正常解析。同一概念在条件、Game Data 和命令中复用，各命令只接受原生支持的子集；位置 index 零起始，不混淆人物、敌群位置、队伍位置与技能目标位置。Common Event 不增加强制上下文声明，不做完整调用图或运行状态推演，不保证未来目标命中。
 
 | 情况 | 正式编写的处理 |
@@ -130,6 +132,8 @@ changeImage 使用 character 与 characterIndex，character 为 characters 类�
 Asset Reference 继续要求非空素材名。已逐字段证明支持原生 None 的素材槽使用显式 null，并保留同条记录的 index、volume、pitch、pan 等独立参数；字段省略只对应其固定默认。null 的原生编码与行为逐字段确定，不能统一改写为 stop/erase/删除指令，也不能把地图内部 null 与原生空素材字符串混用。runtime 能读取空名不足以证明所有素材 picker 均支持 None。
 
 ### 文本、Script 与 Plugin Command Line
+
+13 Q3/Q8已接受Label/Jump、Name/Nickname/Profile及E111/E122/M45单参数Script槽的完整字符串，含空串、空白、CR/LF/CRLF及尾部字符，不设产品字符数/行数上限。列明单行槽含LF、Profile含两个及以上LF、任一列明槽含CR，给参数重确认风险warning并保留；不裁剪、拆记录或先规范化换行。此补充不改变下表四类行记录、既有Plugin Command Line或Script Gate规则，也不扩展该warning矩阵到其他字段。
 
 | 正式命令 | 行数 | 空内容的表达 | 正常记录归属 |
 | --- | --- | --- | --- |

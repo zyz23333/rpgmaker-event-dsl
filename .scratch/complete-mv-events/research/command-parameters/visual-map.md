@@ -106,11 +106,19 @@ R为 `references/RPGMV/NewData/js/rpg_objects.js`，A为同目录 `rpg_managers.
 | DURATION | duration/frames →整数；wait→布尔独立槽（有wait的命令） | frames/seconds依命令，控件值1..999；wait不因时长或上下文被删除 | Q687080显式value60、wait=true；Fadeout音频覆盖duration10。DSL时长是核心必填，wait=true可作固定默认候选，未逐族批准 | Q687080:25–27/43–49；验证1/999以及wait两值，拒绝0/1000只按已确认控件契约，勿说runtime必拒。 |
 | VEHICLE | vehicle:boat/ship/airship →0/1/2 | 固定原生运行对象类别枚举，无Project Data Reference/None | 编辑器ComboBox首项为框架初值；DSL必填 | Q916501:281–283；用三车样本。 |
 | CHARACTER | {kind:runtimeSelector,scope:character,target:player/thisEvent/eventId,id?} →−1/0/正event ID | 仅player有−1，thisEvent为0；eventId必须正整数。Q612052枚举当前地图events数组所有非空位置，没有999常量上限；203不允许player | DSL目标必填，不把编辑器首项player/thisEvent当默认 | Q612052:12–16/44–64；R:9028–9037 character()区分运行上下文。合法位置当前缺失按已决警告；未知Common Event不报固定地图缺失。检验player、thisEvent、存在/缺失event位置。 |
-| MAP-LOCATION | destination:{kind:direct,map:mapRef,x,y} →mode0,mapId,x,y；或{kind:variables,map:variableRef,x:variableRef,y:variableRef}→mode1,三个variable ID | direct map为固定Project Data Reference，x/y整数；变量模式只验证引用，不限制将来值。源控件默认当前地图、0/0，通过地图选择器获取坐标；没有固定9999上限 | 整个目标与所选模式全部字段必填，无继承当前地图的DSL默认 | Q664736:19–27/34–88/113–125，Q8678030:15–18/31–40，Q8693982:33–55。正常点击范围随地图宽高；已有工程缩图后坐标越界不是新建picker范围能直接证明非法，需独立诊断决策。 |
+| MAP-LOCATION | destination:{kind:direct,map:mapRef,x,y} →mode0,mapId,x,y；或{kind:variables,map:variableRef,x:variableRef,y:variableRef}→mode1,三个variable ID | direct map为固定Project Data Reference；13 Q5接受x/y整数0..2,147,483,647，拒负零。变量模式只验证引用，不限制将来值。源控件默认当前地图、0/0，无固定9999上限 | 整个目标与所选模式全部字段必填，无继承当前地图的DSL默认 | Q664736:19–27/34–88/113–125，Q8678030:15–18/31–40，Q8693982:33–55。13 Q7固定目标地图缺失error，域内坐标超Snapshot宽高warning并保留；不裁剪。 |
 | CURRENT-LOCATION | location/destination:{kind:direct,x,y}→mode0,x,y；或{kind:variables,x:variableRef,y:variableRef}→mode1,两变量ID | 与MAP-LOCATION相同但无map槽；当前地图属于运行上下文 | 字段必填；编辑器direct选中、x/y0，DSL不继承 | Q664736；203另加exchange，285无exchange。不同调用地图/地图缩小样本。 |
 | PICTURE | pictureId→整数1..100，属于运行图片槽；image→pictures Asset或null；origin:upperLeft/center→0/1；position:direct{x,y}/variables{x,y}→type0/1与两个值；scaleX/Y；opacity；blendMode | 直接x/y整数−9999..9999；scaleX/Y整数−2000..2000（负数合法）；opacity整数0..255；blend normal/additive/multiply/screen→0/1/2/3 | 初值pictureId由min1与Qt初值决定，image空，origin框架首项0，direct显式选中，x/y框架0，scale显式100/100，opacity显式255，blend框架首项0。DSL目标/position/image必填；其余候选默认尚待逐项定稿 | Q676413:19–32，Q695465:18–21/28–33/42–100/105–115，Q666669:19–35，Q694489:16–32，Q916501:253–258/314–316。图片槽无静态存在性要求；变量存在性照常。image None经Q8722495→Q8787441:50–64与Q618109证实。 |
 
 以上完整显式形式可表达所有本表已证参数，不把未定可省略性误报为原生功能无法表达。可省略API定稿责任需由汇总研究的设计前置明确跟踪。
+
+### 13号票已接受的直接坐标域与诊断
+
+[13号票Answer](../../issues/13-native-value-domain-boundaries.md#answer)的Q1–Q8及完整契约已最终确认，13已resolved；以下为Q2/Q5/Q7的已接受坐标规则。E201/202/203/285的direct x/y在正式编写、反编译及可识别raw中统一为0..2,147,483,647整数，负数、小数、非有限、域外和负零均error。目标QML `int`声明是静态事实；该非负32位整段域是有限产品支持选择，不保证每个值可点选或目标极值已实测。不能把地图缩小后的域内越界值判成形状错误，也不改写坐标。
+
+E201/202按固定目标map的Snapshot尺寸检查，x>=width或y>=height给warning，map缺失error。E203/285在Map Event内只按所属地图给条件性上下文warning，不将声明位置当成所有执行路径的地图证明；Common Event等无法确定地图时不猜、不要求声明，不仅因未知本身报警。变量模式验证所有输入/输出引用，不限制未来读值。既有容器不适用和selector警告继续适用，不做全程序分析；Map Event初始位置、图片坐标、相对位移与exchange的保存占位不采用本域。
+
+验收覆盖0/边缘/最大值、负零/域外、缩图保留、缺固定地图、跨不同地图调用Common Event、条件性上下文warning和变量引用；合成支持夹具与普通UI创建分开，实际重确认和游戏后果仍未执行。
 
 ## 逐指令契约
 ### E132 — Change Battle BGM
@@ -290,11 +298,11 @@ R为 `references/RPGMV/NewData/js/rpg_objects.js`，A为同目录 `rpg_managers.
 
 **证据**：Q758295:15–32/37–56；Q916501:303–305/339–341/554–560；共享MAP-LOCATION；R:9709–9726
 
-**校验与运行边界**：固定map缺失报错；三个variable引用存在性报错；未来地图/坐标值不预测。战斗中函数不推进_index而返回false，按已决警告可能停滞。直接坐标当前越界政策见汇总前置，不能静默裁剪。
+**校验与运行边界**：固定map缺失报错；三个variable引用存在性报错；未来地图/坐标值不预测。战斗中函数不推进_index而返回false，按已决警告可能停滞。13 Q7：direct域内值超固定目标地图Snapshot宽高warning并保留，不能静默裁剪。
 
 **最小验收样本（未执行）**：两位置模式×五方向×三fade覆盖；含方向retain；地图缩小后旧坐标；Common Event被不同地图调用；战斗上下文停滞样本单独受控运行。
 
-**参数拒绝夹具候选（未执行）**：mode未知或同时给direct与variables；缺map/x/y；固定map或变量不存在；direction=1、fade=3。direct当前坐标越界先按HITL待决，不编造固定9999硬界。
+**参数拒绝夹具候选（未执行）**：mode未知或同时给direct与variables；缺map/x/y；固定map或变量不存在；direction=1、fade=3；direct x/y负数、小数、非有限、负零、2,147,483,648。域内当前越界是warning，不编造9999硬界。
 
 ### E202 — Set Vehicle Location
 
@@ -309,7 +317,7 @@ R为 `references/RPGMV/NewData/js/rpg_objects.js`，A为同目录 `rpg_managers.
 
 **证据**：Q733751:15–43；共享MAP-LOCATION；R:9729–9745
 
-**校验与运行边界**：固定地图与变量按Project Data Reference；未来运行坐标不预测。车辆类别无数据库存在性检查。
+**校验与运行边界**：固定地图与变量按Project Data Reference；未来运行坐标不预测。13 Q7：direct域内值超固定目标地图Snapshot宽高warning并保留。车辆类别无数据库存在性检查。
 
 **最小验收样本（未执行）**：三车×两模式；变量给远地图；当前map缩小后的已存目标，验证未自动裁剪。
 
@@ -330,7 +338,7 @@ R为 `references/RPGMV/NewData/js/rpg_objects.js`，A为同目录 `rpg_managers.
 
 **证据**：Q711364:15–33/36–59；Q664736:92–108/126–129；Q612052；R:9748–9768
 
-**校验与运行边界**：缺当前事件位置按Runtime Selector警告；固定变量引用报错。Common Event不能从声明位置推断运行地图。exchange保存p[3]非0为未证形态，按ADR0012拒绝并标unsupported，不将其冒称运行非法。
+**校验与运行边界**：缺当前事件位置按Runtime Selector警告；固定变量引用报错。13 Q7：Map Event内direct仅按所属地图作条件性越界warning，Common Event不猜运行地图、不仅因未知报警。exchange保存p[3]非0为未证形态，按ADR0012拒绝并标unsupported，不将其冒称运行非法；不把direct数值域推广到exchange占位。
 
 **最小验收样本（未执行）**：三模式×retain及四向；thisEvent交换自身；缺失event；exchange规范p[3]=0；额外非0合成输入应诊断且不得重写为0。
 
@@ -1003,23 +1011,23 @@ R为 `references/RPGMV/NewData/js/rpg_objects.js`，A为同目录 `rpg_managers.
 
 **证据**：Q778493:15–52；Q916501:317–322；Q664736；R:10099–10128
 
-**校验与运行边界**：输出与输入variable引用都验证；位置属于当前运行地图，Common Event不强推静态所属地图。当前越界坐标政策见汇总前置；不能给tile模式增加原生没有的任意层。
+**校验与运行边界**：输出与输入variable引用都验证；位置属于当前运行地图，Common Event不强推静态所属地图。13 Q7：Map Event内direct仅按所属地图作条件性越界warning，未知地图不猜也不单为未知报警；不能给tile模式增加原生没有的任意层。
 
 **最小验收样本（未执行）**：7种info×2位置模式；输出无名有效变量；坐标原点/地图边缘，图层4与region区别；缩图后的保存位置。
 
-**参数拒绝夹具候选（未执行）**：输出/输入variable ID0或缺失，info−1/7/小数，mode2/exchange；缺坐标字段；当前直接坐标越界由HITL待决。
+**参数拒绝夹具候选（未执行）**：输出/输入variable ID0或缺失，info−1/7/小数，mode2/exchange；缺坐标字段；direct x/y负数、小数、非有限、负零或超过2,147,483,647。域内当前越界按Q7上下文warning，不作拒绝夹具。
 
 ## 需要跟踪的前置与验收交接
 
 | ID | 事实与状态 | 责任/下一步 |
 | --- | --- | --- |
-| VM-MOVE-ENVELOPE | **正常创建路径新结构问题**：205内无参子项可缺parameters，插入器可能写indent:NaN并在JSON化后成为null；205/505本身不清理。源级数值/序列化推断不能冒充实际落盘观察。 | 与[movement.md](movement.md)共同的HITL模型前置；不得用raw route回退或拒绝正常形态来宣称完成。收集普通UI新建、重开、重确认路线样本。 |
-| VM-COORDINATES | 原生位置控件不提供固定整数最大值；坐标按地图点击取得，已有保存值可随地图缩小而超出现宽高。Common Event运行地图亦不固定。 | 汇总研究的范围与诊断前置需要确定direct坐标的形式域及当前越界错误/警告级别；不得擅自借页初始位置规则裁剪/拒绝。 |
+| VM-MOVE-ENVELOPE | **正常创建路径的结构差异**：205内无参子项可缺parameters，插入器可能写indent:NaN并在JSON化后成为null；205/505本身不清理。源级数值/序列化推断不能冒充实际落盘观察。 | 12已最终确认与[movement.md](movement.md)共享的逐类savedShape/terminator模型；不得用raw route绕过。普通UI新建、重开、重确认路线样本仍交08验收。 |
+| VM-COORDINATES | 原生位置按地图点击取得，没有9999数值控件上界，输出属性声明int；已有值可随地图缩小越界，Common Event运行地图不固定。 | 13 Q2/Q5/Q7已接受非负32位域、拒负零、固定地图/条件上下文/未知地图诊断矩阵；完整契约已最终确认，真实验收交08，不借页初始位置规则裁剪/拒绝。 |
 | VM-DEFAULTS | 除已决201/203及共享Movement Route外，本分片完整表达使用显式字段。很多编辑器初值已找到，但132/133/138/139/140从工程读值，不能用作固定DSL默认。 | 未逐项接受的可省略性在最终接口定稿中明确跟踪；当前研究不新增默认。全显式源可无损，无需自动继承工程状态。Qt首项/SpinBox0等强度见shared-controls。 |
 | VM-RESERVED | 203 exchange p[3]、232 p[1]普通onSave固定0，runtime不消费；任意非0尚无普通原生生成证据。 | 目前作为未证保存形态按ADR0012报unsupported；如真实正常样本出现非0，先重开正式模型，不能静默归0。不是未知code自动raw的理由。 |
 | VM-SAMPLES | 全部48族的本节最小样本均未执行；本体静态代码、项目API映射、产品自动化与真实运行是四种不同证据。 | [完整性与顺序讨论](../../issues/08-completion-evidence-and-sequencing.md)须安排自动化slot/边界/round-trip测试及真实新建、无操作重开保存、重新确认参数、游戏场景。样本应包含None与独立状态、隐藏gray、负缩放、空天气残留power、禁用parallax残留速度。 |
 
-**坐标运行边界补充。** R:5907–5909的isValid检查宽高；terrainTag（5991–6003）与regionId（6005–6007）会对越界返回0。tileId（5926–5930）直接索引数组，缺值才回0，没有调用isValid；例如x达到width可能定位下一行，而非保证0。因此Get Location Info越界警告不能统一写成“返回0”。这一点属于源码观察，未运行样本。
+**坐标运行边界补充。** R:5907–5909的isValid检查宽高；terrainTag（5991–6003）与regionId（6005–6007）会对越界返回0。tileId（5926–5930）直接索引数组，缺值才回0，没有调用isValid；例如x达到width可能定位下一行。E285的eventId分派（10112）调用eventIdXy（5844起），经eventsXy（5826起）和pos（6290起）按事件当前x/y精确匹配，无地图边界检查；未命中才返回0，命中返回列表中首个事件ID，事件位于越界坐标时仍可能命中。因此Get Location Info越界警告不能统一写成“返回0”。这些属于源码观察，未运行样本。
 
 **无参数命令与全参结构。** 无参命令生成路径Q679418:202–207和表flag0已闭合；有参onSave按各表列完整槽数赋值。已有eventData原数组若包含额外槽，部分onSave并不显式截断；这并不证明额外槽能由普通原生新建得到。正式已知形态仍按ADR0012诊断，不能将“runtime忽略”自动升级为合法保存范围。
 

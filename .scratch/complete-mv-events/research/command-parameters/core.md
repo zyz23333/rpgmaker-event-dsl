@@ -35,14 +35,14 @@ runtime 根 `F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/NewData/js/`；下
 | 字段/组 | 原生映射与值域 | 固定默认 / 原生新建初值 | 校验、出处 |
 | --- | --- | --- | --- |
 | face.image | p0 string，None 编为空字符串；非空 faces 素材名 | 未新增默认；S ObjImageBox 初值 `""` | Asset Reference 类别 faces；None picker 已证，Q@625536:11–15 → Q@8723218:24–25,34–62 → Q@8787441:50–56 → Q@618109:247–264 |
-| face.index | p1 integer，首方Help规定144×144帧、2行4列（`references/RPGMV/Help/page/01_11_01.html:53–55`），标准 576×288 素材为 0..7；实际 picker 按图片高度动态分帧，**没有证据支持通用硬上限7** | 未新增默认；S 初值0 | 与 None 独立保存；扩展素材域见下方阻塞项 C-FACE；Q@638194:25–44,89–92 |
+| face.index | p1 integer；13 Q5已接受0..2,147,483,647，拒绝负零。首方Help标准144×144帧、2行4列为0..7，但picker按图片高度动态分帧，不以7硬限 | 未新增默认；S 初值0 | 13 Q6：与None独立；非None且index>=8警告超标准布局/尺寸未校验，None不报缺图或图片越界；不扫描文件/尺寸。Q@638194:21,25–44,89–92；H `01_11_01.html:53–55` |
 | background | p2 0 window / 1 dim / 2 transparent | C 候选 window；S 新建0 | 完整枚举；Q@729658:74–88,164–168，Q@916501:259–265 |
 | position | p3 0 top / 1 middle / 2 bottom | C 候选 bottom；S 新建2 | 不是 Choices 的 left/center/right；同上 |
 | lines | 1..4 个 string，每个一条401 `[text]`，同101 indent | D 必填，`[""]`合法、`[]`错误，无内容默认 | 每元素禁内嵌LF、CR字面保留，保留尾空行；Q@729658:158–174，O:9058–9084 |
 
 S 批量输入可以输入大于4行，但保存循环每四行插一个新的101，所以不能用批量模式证明单组超过4条401。保存函数会裁尾空行，D DSL 明确保留；该差别是已决编辑状态政策，不模拟用户重新确认。原生 runtime 在101之后能联接相邻102/103/104等待输入（O:9067–9081）；DSL 不需合并 helper，测试须验证相邻记录顺序保持。
 
-最小验收：有脸/None各配非零index、三种背景×位置；1/4行、空白/尾空行、CR字面；五行批量原生保存应形成两组；101后各接102/103/104；576×432三行脸图的index8样本交 C-FACE。
+最小验收：有脸/None各配非零index、三种背景×位置；1/4行、空白/尾空行、CR字面；五行批量原生保存应形成两组；101后各接102/103/104；576×432三行脸图index8/11、0/上界、负零/域外拒绝、缩小替换图与缺文件不扫描的限制。数值合成夹具和真实picker创建分开，参数重确认可能归零的路径见[13号票Answer](../../issues/13-native-value-domain-boundaries.md#answer)。
 
 ### E102 — Show Choices
 
@@ -98,7 +98,7 @@ D `conditional({condition,then,else?})`；condition和then必需；12 号票 Q5 
 | item `{item}` | `[8,itemId]` | itemRef，无None；Q@703296:222–224；O:9294–9296 |
 | weapon `{weapon,includeEquipment}` / armor `{armor,includeEquipment}` | `[9,weaponId,bool]` / `[10,armorId,bool]` | 两字段独立，引用必需；bool C候选默认false，尚未新增；Q@703296:225–231；O:9297–9302 |
 | button `{button}` | `[11,string]`，枚举ok/cancel/shift/down/left/right/up/pageup/pagedown | 无Script Gate；Q@916501:348–354，Q@703296:233–235；O:9303–9305 |
-| script `{script:ScriptInput}` | `[12,code:string]`，允许空，355的12行上限不适用 | Gate，不能预求值；Q@703296:236–238；O:9306–9308 `!!eval` |
+| script `{script:ScriptInput}` | `[12,code:string]`，允许空及完整CR/LF/CRLF，无产品长度/行数上限 | Gate，不能预求值；13 Q8含LF/CR给重确认风险warning，不改写。Q@703296:165–169,236–238；O:9306–9308 `!!eval` |
 | vehicle `{vehicle:boat\|ship\|airship}` | `[13,0\|1\|2]` | enum非项目引用；Q@650223:185–186、Q@916501:281–283；O:9309–9311 |
 
 固定默认：condition及其目标、操作、值必需；else省略表示不存在。新建S：默认选switch（Q@661534:31），该switch控件初始1；Create Else Branch未显式checked，Qt初值推断false。**这不授权凭缺失condition制造switch1条件。** 各条件模式切换的makeParameters新建空数组，actor inParty/enemy appeared不留下旧的p3（与E124不同）。所有then/else递归检查，包括未运行分支和空Script；不存在event/敌人位置warning不等于无损数据可省略。
@@ -125,6 +125,8 @@ C `callCommonEvent({commonEvent})`（helper动词遵循已有命名语义，移�
 
 C `label({name})`，p=`[name:string]`；空/纯空白可保存，精确匹配、不trim，未设置长度上限；name必需无Compiler Default。S Q@790356:15–33直接存TextField.text，无非空检查；新建文本为空。O:9383–9385标记本身无操作。当前列表重复Label为warning，不能自动改名。验收`""`、`"A"`与`" A "`、重复、不同Common Event中的同名。
 
+13 Q3/Q8已接受E118/E119完整字符串含CR/LF/CRLF与尾部字符，不设产品字符数/行数上限。原串含LF警告超过单行控件，含CR警告重确认保留行为待验；可合并原因，不trim、拆记录或改写。空串及不含CR/LF的纯空白不触发本类警告，缺失/重复Label警告仍按精确字符串独立判断。
+
 ### E119 — Jump to Label
 
 C `jumpToLabel({name})`，p=`[name:string]`，值域/新建同E118。S Q@771175:15–33；O:9388–9413按完整当前list从头找首个同名118；缺目标warning、重复warning、保留跨分支行为，不增加禁令。无引用解析器/Gate。验收前跳/后跳、缺失/重复、跨indent跳转及branch清理；不要把不同list的Label合成全局命名空间。
@@ -145,7 +147,7 @@ D `controlVariables({variable:ref或referenceRange,operation,value:模式对象}
 | `{kind:"variable",variable}` | `[1,variableId]`；长度5 | 有效System变量引用；同上:191–193 |
 | `{kind:"random",from,to}` | `[2,from,to]`；长度6 | D两端同常量范围且有序；Q@683885:194–197原生保存排序；DSL不排序 |
 | `{kind:"gameData",source,...}` | `[3,sourceCode,param1,param2]`；长度7 | 下表完整八种source；**未使用param2仍明确写0**；Q@683885:198–202 |
-| `{kind:"script",script:ScriptInput}` | `[4,code:string]`；长度5 | Gate；空合法、无355行数上限；同上:203–205 |
+| `{kind:"script",script:ScriptInput}` | `[4,code:string]`；长度5 | Gate；完整字符串含空/CR/LF/CRLF，无产品字符数/行数上限；13 Q8含LF/CR给重确认风险warning。Q@683885:141–146,203–205 |
 
 Game Data子表中的schema为C字段映射，`source`与`value`枚举沿有意义名字复用；enemy/character/party目标必须统一Runtime Selector，不延用裸enemyIndex/characterId。数字只标原生槽。
 
@@ -254,7 +256,7 @@ D `pluginCommand({line})`，p=`[line:string]`确切一槽；空字符串/前后�
 | 标识 | 首方事实 / 最短反例 | 对既决契约的影响 | 责任 |
 | --- | --- | --- | --- |
 | C-TIMER | 普通新建stop=`[1]`；start83→stop=`[1,83]`，无需异常JSON | 只有action的旧stop schema无法做到ADR0012保存槽位存在性无损；不能补0/删83/raw兜底 | 12号票Q1/Q7已接受可选seconds及undefined缺槽语义；E124三阶段原生样本仍待验收 |
-| C-FACE | faces picker固定144px帧、4列；576×432图第三行可写index8..11，runtime也按4列绘制 | 通用index0..7硬约束缺证，且与正常扩展尺寸素材静态可达路径冲突；None伴随index须保留 | HITL明确原生素材尺寸边界/索引域；真实样本验证。不把素材格式建议当文件加载硬约束 |
+| C-FACE | faces picker固定144px帧、4列；576×432图第三行可写index8..11，runtime也按4列绘制 | 不以官方0..7硬限；QML int类型不等于所有产品域数值均可普通点选 | 13 Q1/Q5/Q6已接受非负32位域、负零拒绝、不扫描素材、非None且>=8警告及None独立索引。完整契约已最终确认；真实样本仍待验收 |
 | C-BODY | 空体新建有0；在此处普通插入命令不删除0，非空体收集代码继续保留0 | 编译非空body时若不产生保存尾0会丢正常结构；尚未证明普通UI可产生同内容但无尾0的形式，不预断两者都正常 | 12号票Q3/Q5已接受非空体两态的有限支持及子体对象；原生生成与合成支持样本区分验收 |
 
 其余范围的原生模式/枚举/参数数目/数据库类目已逐项列出；正常数据中的硬引用和最终System容量按既决策略验证。没有在这些范围发现理由执行目标本体；本子任务未自行打开/关闭共享Ghidra native session，引用的共享控件Ghidra证据由主代理取得。
