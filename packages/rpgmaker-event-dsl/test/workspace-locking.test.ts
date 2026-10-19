@@ -39,6 +39,27 @@ const operations: WorkspaceOperation[] = [
 ];
 
 function invoke(operation: WorkspaceOperation, workspaceRoot: string): Promise<unknown> {
+  return rejectQueue(executeOperation(operation, workspaceRoot));
+}
+
+async function rejectQueue(operation: Promise<unknown>): Promise<unknown> {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  try {
+    return await Promise.race([
+      operation,
+      new Promise((_, reject) => {
+        timer = setTimeout(
+          () => reject(new Error("Competitor queued instead of immediately reporting busy")),
+          5_000,
+        );
+      }),
+    ]);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+function executeOperation(operation: WorkspaceOperation, workspaceRoot: string): Promise<unknown> {
   const options = { workspaceRoot };
   switch (operation) {
     case "clone":

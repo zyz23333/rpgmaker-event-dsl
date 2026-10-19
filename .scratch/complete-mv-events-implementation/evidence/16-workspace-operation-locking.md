@@ -38,6 +38,10 @@ T1 已批准的系统边界控制位于测试 helper，限定暂停一次真实�
 
 全量检查还发现既有 Check 测试精确枚举 Workspace Data State 时需要计入 Clone 已建立的持久锁文件。测试现同时要求 Check 前后目录集合完全一致，并独立列出 `operation.lock`、Snapshot 和 manifest；没有放松 Generated 或 freshness 不发布的断言。
 
-Windows / Node22.23.0、pnpm10.33.0 的首次完整 `pnpm check` 已通过：typecheck、lint、format、20 files /165 tests；`pnpm build` 已通过（node22目标）。构建后 CLI/API 互斥矩阵和集成后复验结果在完成时追加到下方，机器记录包含精确受测源码/测试/配置指纹。
+Windows / Node22.23.0、pnpm10.33.0 的首次完整 `pnpm check` 已通过：typecheck、lint、format、20 files /165 tests；`pnpm build` 已通过（node22目标）。构建后 `test:windows-baseline` 也通过，含真实构建 CLI/API 互斥矩阵的3 files /8 tests。初次通过结果四份源码执行和四份构建执行均已入库，另保留两份 harness/预期修正前的真实失败记录。
+
+提交 `5c82d3a` 后合入集成 `9556622` 为 `87bca8b`，来源索引按 ID 合并，保留08/09逆向证据和本票四例。合并后两次全并发 `pnpm check` 的静态阶段通过，但完整 suite 各有一项既有测试超时：`08:54:53Z` 开始的一次是 `MV-S3-CONTEXT-003` 超过30s；`08:56:47Z` 开始的一次是 `MV-S0-CE-001` 超过10s。两轮均为19 files通过、1 file失败，164 tests通过、1 test失败；本票四例均通过。其他分支同时全量验证也观察到时间资源争用，因此父代理指定 `--maxWorkers=2` 重跑完整 suite，保持所有原断言与 timeout，不改产品或无关测试来掩盖超时。最终按顺序执行 typecheck、lint、format:check 和 `pnpm -r test --maxWorkers=2` 全部通过（20 files /165 tests，58.38s）；重新 `pnpm build` 通过，`test:windows-baseline --maxWorkers=2` 全部通过（3 files /8 tests，33.59s）。追加合并后四份源码与四份构建执行结果，指向87bca8b及实际源码/测试指纹。竞争 API 另有独立5s等待上限，队列回归会在父测试超时前失败并执行owner清理。
 
 本票未分配独立编辑器或游戏场景，所有机器记录明确 `native: not-executed`。最终 E1–E7 逆向输出比较与 R1–R7 实际游戏运行仍由指定后续票完成。
+
+最终结果入库后，索引/schema 与基础往返校验 pnpm --filter rpgmaker-event-dsl test --maxWorkers=2 test/mv-evidence.test.ts 通过（1 file /3 tests）。
