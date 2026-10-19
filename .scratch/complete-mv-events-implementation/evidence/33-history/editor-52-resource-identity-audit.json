@@ -1,0 +1,663 @@
+{
+  "purpose": "Ticket33 E3/E5 exact shipped identities, not UI execution",
+  "at": "2026-10-19T15:51:09.152Z",
+  "node": "v22.23.0",
+  "target": {
+    "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\RPGMV.exe",
+    "bytes": 19595264,
+    "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281"
+  },
+  "reusedVersionEvidence": "ev_007ba386e622855bf771049084c3103afebbcc6b5d813f18c441f3ecf1d16d24",
+  "method": "Read-only identified fs/zlib/crypto resource boundary and decoded identity comparison; no target execution or fabricated REA Evidence ID",
+  "records": [
+    {
+      "offset": 346222,
+      "stored": 2617,
+      "compressed": true,
+      "decoded": 11436,
+      "sha256": "52fd4ca2a3f178712d94467c5770919cf716882e2ebc9a57bde0a963e9447165",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md",
+        ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json"
+      ],
+      "storedSha256": "8df91f9e37b5f5ef1dfcf9faada0a80888575a7ae5e5593d15d0e476a3dc551d",
+      "verified": true
+    },
+    {
+      "offset": 596373,
+      "stored": 2004,
+      "compressed": false,
+      "decoded": 2000,
+      "sha256": "5aaba3b55a3d310b69dd2cb833cf8a864b6785eff31f868a927134c814d7f9a8",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md"
+      ],
+      "storedSha256": "313afa613a3b413ab2529136a02558f4133b8388495b1a6752f9e984c61fbc43",
+      "verified": true
+    },
+    {
+      "offset": 602267,
+      "stored": 521,
+      "compressed": false,
+      "decoded": 517,
+      "sha256": "36f300fe57216b5d2e8cc8b95cdec472db04555aafe2ce3c7e79b39100144606",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md"
+      ],
+      "storedSha256": "5c55d0e08614e10eec15922de29fe3c9baa25963b21b36944bd8203e4b15ee6c",
+      "verified": true
+    },
+    {
+      "offset": 618109,
+      "stored": 2836,
+      "compressed": true,
+      "decoded": 11083,
+      "sha256": "2cd5a2d9b73ad52c3ebdd45e1d4ab228fe6adc05e1644be90bc29ceda2d28c36",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md"
+      ],
+      "storedSha256": "36b6627f161e97e2b7982615b55d25329a4d84c3510ca0629a42e61e3ed5a602",
+      "verified": true
+    },
+    {
+      "offset": 620945,
+      "stored": 496,
+      "compressed": false,
+      "decoded": 492,
+      "sha256": "a79b3da1057059bdb7073a5e79c2538eaefcf9b00c9c463e51fb7ac3b74b86cc",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md"
+      ],
+      "storedSha256": "5e32c08db30158ce56954a5555e2960ccf51276b76439360dac8f7ab784030bc",
+      "verified": true
+    },
+    {
+      "offset": 641925,
+      "stored": 962,
+      "compressed": false,
+      "decoded": 958,
+      "sha256": "e04e2333308248a392de8783ebfa3a044d0d722963f3f8990cada25715441e29",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md"
+      ],
+      "storedSha256": "e11e0b38cb3b6f9d306363c9d25a205b9008fb376604546ccba09f1cf4ca0c49",
+      "verified": true
+    },
+    {
+      "offset": 642887,
+      "stored": 1036,
+      "compressed": true,
+      "decoded": 3992,
+      "sha256": "7134ca5457bfe1299b890ffb4c5be2eb28ec53c8029c503e9c00fd606f34f777",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md"
+      ],
+      "storedSha256": "225130fc3735534ff4b2bbd4b0e8c814c3298c932ce376416a36cbbeb5985ae3",
+      "verified": true
+    },
+    {
+      "offset": 653645,
+      "stored": 927,
+      "compressed": false,
+      "decoded": 923,
+      "sha256": "6343dfa083bf2e1451a5af7867664957f4696bf7f950d8751857f108faee3456",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json",
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "21cf9b3a965ded3a0c2dd6287fef82f0b1958f35cc464d544e8c0fa95943ec85",
+      "verified": true
+    },
+    {
+      "offset": 656916,
+      "stored": 1086,
+      "compressed": false,
+      "decoded": 1082,
+      "sha256": "0152387fa661f0e67f45b989248c60142881526cda1f31898e29c0e03366fbf7",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json",
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "91796da241501b7634b5cf49175556fb92a81638597c54ab1f42675ad3c7326f",
+      "verified": true
+    },
+    {
+      "offset": 665677,
+      "stored": 992,
+      "compressed": true,
+      "decoded": 3578,
+      "sha256": "199459336be17ccb510d1912ef53648342e8903ea95d84b59275f6bcbf4b135e",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md",
+        ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json",
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "ccb5c6829f2b0c8cf430693475876f867108037f353f5ea4b3e8f5d61f36da05",
+      "verified": true
+    },
+    {
+      "offset": 667573,
+      "stored": 3694,
+      "compressed": true,
+      "decoded": 17486,
+      "sha256": "bbc1e26fa83771fc56581b1dc34ec762b3789444dacef76cb24334834e17e82c",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json",
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "0d2256db396879e26e51888dbd5905f306631f20691bc6dd5f416b3e090aeea1",
+      "verified": true
+    },
+    {
+      "offset": 672838,
+      "stored": 1325,
+      "compressed": true,
+      "decoded": 4997,
+      "sha256": "2180bf600ca5a34ebbf35f65a343ca95be10055e3abcc7561efd5bc4fab8f51e",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md",
+        ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json",
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "6eab994ad9b920529d5bd42d7012ae94987c9a8e83c7b1ade74b5482e65833d4",
+      "verified": true
+    },
+    {
+      "offset": 679418,
+      "stored": 1424,
+      "compressed": true,
+      "decoded": 7863,
+      "sha256": "8e83b762134d12696649e6302adec9f40bbad7618b2c9cbff5ad945f005dd829",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "da4ec20dd82890612f3a46d7672f6d7cef7e4e5aac68f174a735b20b09be8003",
+      "verified": true
+    },
+    {
+      "offset": 683357,
+      "stored": 528,
+      "compressed": false,
+      "decoded": 524,
+      "sha256": "5f8ef1afae81820acbf38a4160b725efee36476bc6c555576f3b15796e9340ce",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md",
+        ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json",
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "85d5b78b02c921b96d225d348644d8a20ac3b84a1c0fe6572dbed0cfbc0a69f2",
+      "verified": true
+    },
+    {
+      "offset": 683885,
+      "stored": 1207,
+      "compressed": true,
+      "decoded": 6701,
+      "sha256": "bfcb7f528bca2e310e6bfa5216c694d66599e9892ac7d55168f6687f312d09f8",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "4acd7300ff506f13969fc84dc421853defc549ec4754d9cdce2f590045fad405",
+      "verified": true
+    },
+    {
+      "offset": 685092,
+      "stored": 1049,
+      "compressed": false,
+      "decoded": 1045,
+      "sha256": "382dc3b59de7d967c897dcf0f7fafce0c7ed19598e07f3f357d16f8a8a827b69",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json",
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "d19da5af8933392df96613f4a95de6204395f58b9b930ca3197667e2a24cae97",
+      "verified": true
+    },
+    {
+      "offset": 686141,
+      "stored": 939,
+      "compressed": false,
+      "decoded": 935,
+      "sha256": "740d0c01de598e2a55b58f67f975a30e2d3c8c96de36eb8ff15c3dd4d6ad2780",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json",
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "f5316f22e2835f159c2c22512061e269d503a0e99f8df98565ae85e6b41c4076",
+      "verified": true
+    },
+    {
+      "offset": 687080,
+      "stored": 1484,
+      "compressed": false,
+      "decoded": 1480,
+      "sha256": "b84f75ac9894c217b6422a996f2c26f712ba95a3688eaea4d0190a97018205d3",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md"
+      ],
+      "storedSha256": "3af18436e8a0d390c01ba7b872675a69b0c9b1c1dcfd1cadb42ac2181274c851",
+      "verified": true
+    },
+    {
+      "offset": 701512,
+      "stored": 1784,
+      "compressed": true,
+      "decoded": 7813,
+      "sha256": "d3f53b2536e23bb60f8b080f1692cec652262688cd20dd5184de5773dc9c3b15",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json",
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "7654a2713389f9eed6c6257dffabb5b63411523cb724abd741d65c67997afd96",
+      "verified": true
+    },
+    {
+      "offset": 703296,
+      "stored": 1350,
+      "compressed": true,
+      "decoded": 8485,
+      "sha256": "bb9e8fe60880075e0357c3ca10e4e577b463f9d4f566adeef26fd6745bcef9b3",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "b01afe74917ce64fa8af8bbadedc59ddf8cc0d421e7fd27c5fb4425e9a41d933",
+      "verified": true
+    },
+    {
+      "offset": 721727,
+      "stored": 1116,
+      "compressed": false,
+      "decoded": 1112,
+      "sha256": "e4b4d61825ecd872d327bf3f329d34b318979c7a35c420b3186607caf7ef96af",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "2bcbd6f09c5c962830408f68ac4b7cddc4e72cbcd84e61f7ee5066bcf48501e9",
+      "verified": true
+    },
+    {
+      "offset": 732733,
+      "stored": 1018,
+      "compressed": false,
+      "decoded": 1014,
+      "sha256": "685ded00629658dd89f64342e2fea085d01d7840c39ee4299bda12babe6175bd",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "5150836622e8319ea7cbcbf703d866b78018b131a4191dc47deb5a05bc9007ea",
+      "verified": true
+    },
+    {
+      "offset": 736003,
+      "stored": 935,
+      "compressed": true,
+      "decoded": 4527,
+      "sha256": "47268876ada2d3e9f69c748857f9d783fc8c71006b5fc7dc66597f8977c641b8",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "510cd1c9bd6e6e7d56a01ad34a1070347d3a7f70d4c1227cb399401e641860f3",
+      "verified": true
+    },
+    {
+      "offset": 746793,
+      "stored": 1034,
+      "compressed": false,
+      "decoded": 1030,
+      "sha256": "ac56677374938c7d9e4c43b73ca123d5880bc817a6bce8039d444aae9c75e0b6",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "da4e48bd69ba6cc24161c52b537e84df1f5e053f223e42236cbf2c5bc40c4ab9",
+      "verified": true
+    },
+    {
+      "offset": 748645,
+      "stored": 1102,
+      "compressed": true,
+      "decoded": 5024,
+      "sha256": "e94ba6162d753827591839fd6d1aa7d793d40270a6ddbfa5ddbb093476872dcb",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "ad9425bda99f5e92fa5e09aacbb662d4fca99ac58dca2558168827f92929c5dc",
+      "verified": true
+    },
+    {
+      "offset": 771175,
+      "stored": 771,
+      "compressed": false,
+      "decoded": 767,
+      "sha256": "abc5db1a3aea0497fd766badf89af966b77fcd5f5907a9bd39a9b267f679a521",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "48f8a29c1657ea64550f2369ee7afd95a488d68c2313f8a7ba9beb99e67dfe69",
+      "verified": true
+    },
+    {
+      "offset": 771946,
+      "stored": 1393,
+      "compressed": false,
+      "decoded": 1389,
+      "sha256": "95cf5319c62eeacfbea61afa69a05be5d5788e5b795f34f776a791adcab44615",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md",
+        ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json",
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "855db316991737e483ce525ca55d81966de9335659e5f7188fc5fe948ef48379",
+      "verified": true
+    },
+    {
+      "offset": 790356,
+      "stored": 756,
+      "compressed": false,
+      "decoded": 752,
+      "sha256": "c074ab7d30a0a2da87162112da6abbcd6ec4772555192b42ad55eae6b5bb2bed",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "779c72b3e43f6b9f09c1a6f99420307c871ed3aee8fb479216d8284d4bc7c5e9",
+      "verified": true
+    },
+    {
+      "offset": 806586,
+      "stored": 674,
+      "compressed": false,
+      "decoded": 670,
+      "sha256": "66bdf50a2c8bc37b37e902c011e6c28df349be085a0ed06a96d166fd667697c5",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md",
+        ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json"
+      ],
+      "storedSha256": "1666527a4bb6c6f04993c9041031a5f73f292ee0122d0948592b1faf646605b0",
+      "verified": true
+    },
+    {
+      "offset": 807260,
+      "stored": 807,
+      "compressed": false,
+      "decoded": 803,
+      "sha256": "dcad8a81a8a3318af1b9f79f1e3d1b574684badddd44a20de5090c93d6e3a5b8",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md"
+      ],
+      "storedSha256": "52bad1bab9e1f95eb678a14f24b73ec6ad903954cd0e08cfa38688a0f32a2dfb",
+      "verified": true
+    },
+    {
+      "offset": 808067,
+      "stored": 708,
+      "compressed": false,
+      "decoded": 704,
+      "sha256": "a7a02f3ae66eb20bdfc9339a9835fedb46fcc8c589de3bda2d672866b57f53a3",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md",
+        ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json"
+      ],
+      "storedSha256": "62c39e3759ba7338f0d400ad3b382e04ee68224307f16441279a88cbc0e5f3e8",
+      "verified": true
+    },
+    {
+      "offset": 808775,
+      "stored": 731,
+      "compressed": false,
+      "decoded": 727,
+      "sha256": "f3bcab3e4d31dd83999dce6a0c04a21c21e62a98ac48828e8b26bc489e9d7301",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md"
+      ],
+      "storedSha256": "c211b389f28eb26fa2f9cefd4ba6dc8a7cc6719928914c6bd033c9a47f2b523e",
+      "verified": true
+    },
+    {
+      "offset": 809506,
+      "stored": 839,
+      "compressed": false,
+      "decoded": 835,
+      "sha256": "6d6642b9de5258304ef89df986e562bd499bfb446e5dff22f059e5e3f71d46de",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md"
+      ],
+      "storedSha256": "8c9392f4a88ae464c8a942a547582ef80bdae7c2dbcd6990290016623711aceb",
+      "verified": true
+    },
+    {
+      "offset": 810345,
+      "stored": 876,
+      "compressed": false,
+      "decoded": 872,
+      "sha256": "1feccbc5052474e0cabc0470d0a5c82d1c20b0ea27e5b7b0e4a95d4edc2b257e",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md",
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "aa601f0b35bfe8992aba7ad737e3d40f6ea6782eaa34cec5a173eb813840f951",
+      "verified": true
+    },
+    {
+      "offset": 811221,
+      "stored": 1299,
+      "compressed": false,
+      "decoded": 1295,
+      "sha256": "d1822b652c597f6a06cf1fd343a3b731047942e17bad8aee49e6ee4b079fa033",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md"
+      ],
+      "storedSha256": "259bb655d7a03fffaafc107454b1a5713dc952a10e5951c4f53c5254170b1306",
+      "verified": true
+    },
+    {
+      "offset": 812520,
+      "stored": 729,
+      "compressed": false,
+      "decoded": 725,
+      "sha256": "509fd97d93f2955995cbf0c008a1d1718eb9e7f6cfeb5b0a61b0227c01d4c734",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md"
+      ],
+      "storedSha256": "249e7bbb6a763accbc7ef0940020310bf4401779cdf46b1999eb219177935e9c",
+      "verified": true
+    },
+    {
+      "offset": 813249,
+      "stored": 1063,
+      "compressed": false,
+      "decoded": 1059,
+      "sha256": "63fdec340ab13fe0c143552d98ef6645b1c26bbfcff5806f1bda1e4cf50b7292",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md",
+        ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json"
+      ],
+      "storedSha256": "e9512f6f650e86279302571bce42b3cf69693191e14592c168a76b70fc82ad00",
+      "verified": true
+    },
+    {
+      "offset": 814312,
+      "stored": 694,
+      "compressed": false,
+      "decoded": 690,
+      "sha256": "ff6e7988ad12b987c0a523b181915773436e3c5879a7e29c9f2b5beaa893309f",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md"
+      ],
+      "storedSha256": "58aad64aa4ee508c60686440b607f0e416d1c8257a4973738c37cd4e1b591054",
+      "verified": true
+    },
+    {
+      "offset": 815006,
+      "stored": 845,
+      "compressed": false,
+      "decoded": 841,
+      "sha256": "cbd7eac1252d5f9e7f2a45c296544947901df3e33323b1e94960fc352bec48e9",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md"
+      ],
+      "storedSha256": "14c403c662209e445de7d3bf7631093a081c1179bfaff405cd01fce85f42702e",
+      "verified": true
+    },
+    {
+      "offset": 826857,
+      "stored": 48,
+      "compressed": false,
+      "decoded": 44,
+      "sha256": "04e14edf4bb1b0279e8d5dd491b8e113639e2ff996580bcc664b6e368e01e599",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "fcc061e69a70fbcdc2a46f619a278dbf8ca23d9baae51c789b9a162c22799d0c",
+      "verified": true
+    },
+    {
+      "offset": 866210,
+      "stored": 3005,
+      "compressed": true,
+      "decoded": 14044,
+      "sha256": "12dfecd9a6fdc127a1759552698490bccd5ccf599aa898fd682461f0ed939dad",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "67931efad3a333eac942df27a1a6e3f0b81c894eb9809720c16af7db35fe37f8",
+      "verified": true
+    },
+    {
+      "offset": 875471,
+      "stored": 1735,
+      "compressed": true,
+      "decoded": 7183,
+      "sha256": "a94b75dfca7ceb95315d38a3897e8c389a96d71f56696329f0cf8edd20535984",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/shared-controls.md"
+      ],
+      "storedSha256": "ad7906df766cc51b1f952d05eab89811df72315ce91a435b1dab8b474e143fb5",
+      "verified": true
+    },
+    {
+      "offset": 877206,
+      "stored": 73,
+      "compressed": false,
+      "decoded": 69,
+      "sha256": "4c498faa0ec8d1ded0a1fbd1697978a061999a7961ecfc231be4f5176d775727",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "81a9aaa5ca6f8e6c1dc929f33c0da2c630d217866ec134a1f04e25028a05d50d",
+      "verified": true
+    },
+    {
+      "offset": 878315,
+      "stored": 1884,
+      "compressed": true,
+      "decoded": 8437,
+      "sha256": "875ac97ba5e20ab1a457399321e9621d3b56a698aaeeadc78c9584f3b69a970e",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "1cb82140d805e570382b90e527523860a6a03c0f4b6d3904f6aa2b11d90a3bcc",
+      "verified": true
+    },
+    {
+      "offset": 893754,
+      "stored": 1005,
+      "compressed": true,
+      "decoded": 3826,
+      "sha256": "13ce867d2bf5d9081e234e2cc4b3330a59fad91ed351baddec15b6a553376467",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json"
+      ],
+      "storedSha256": "cdcdfb9e46c265c15f425aefd1a26f9f0292c159d6fc7044ee7026a724adc251",
+      "verified": true
+    },
+    {
+      "offset": 909009,
+      "stored": 4291,
+      "compressed": true,
+      "decoded": 24761,
+      "sha256": "9ce1877d3eac47699a558ada219ec4f217dbc4f215531a7f65ccacd8169c4f93",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/shared-controls.md",
+        ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json",
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "5270be842eec5e3091f42c89221f5fcb56eac9c60ac0dd9b980f2b8e91525367",
+      "verified": true
+    },
+    {
+      "offset": 913300,
+      "stored": 1270,
+      "compressed": true,
+      "decoded": 5566,
+      "sha256": "0858eff5ff54f87975a9ac93bc93d8c79f2a62d137c87e49b5a6818970f87670",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json"
+      ],
+      "storedSha256": "9919b91390b17ebcbee4c5efa671c776db858f13c587212d1e4ba45f7048d4fa",
+      "verified": true
+    },
+    {
+      "offset": 916501,
+      "stored": 5142,
+      "compressed": true,
+      "decoded": 25783,
+      "sha256": "b29ba19e1bd5ed04e2334aab57ddcbf386331dbe136751c77f05f47a9e35edd2",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md"
+      ],
+      "storedSha256": "d0fd1c907b2fd5ffd3d189c690866e346c0ad783bd2b9c6dfb2768fd40a0250a",
+      "verified": true
+    },
+    {
+      "offset": 8723218,
+      "stored": 691,
+      "compressed": true,
+      "decoded": 2310,
+      "sha256": "c83f4c1884a4bf3cbbd5564e84bc9ae1677561a6d21421b13a0bdbd3f074808e",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/movement.md"
+      ],
+      "storedSha256": "77c4b264e44f662b1a3e65dc8b2b05683b9c151aa35950b4612428bbb2bb9f3e",
+      "verified": true
+    },
+    {
+      "offset": 8796406,
+      "stored": 630,
+      "compressed": false,
+      "decoded": 626,
+      "sha256": "a0810e1c287e4e2eb22bb24cf75308a7bf492a7e5a45b683f6eaec52f8c898fe",
+      "sources": [
+        ".scratch/complete-mv-events/research/command-parameters/shared-controls.md"
+      ],
+      "storedSha256": "c1ce1174f1ce871f3ccc43433e10abbfcfec293669f710509d01b856fb502d60",
+      "verified": true
+    },
+    {
+      "offset": 8799522,
+      "stored": 389,
+      "compressed": false,
+      "decoded": 385,
+      "sha256": "20d7752e7a0f74a49842b29e97dee8c59d7b905715e614c495ca5676b8eb8d0b",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "9a92f5c94e7885054c4b93bfbf8567423ea7dfaad32c39e318bd6e9db47af670",
+      "verified": true
+    },
+    {
+      "offset": 8800825,
+      "stored": 882,
+      "compressed": false,
+      "decoded": 878,
+      "sha256": "57ebdcdf7dc151cfe17903a5699724ad3cea67009e7ade0a33d5d2fdae3c62de",
+      "sources": [
+        ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json"
+      ],
+      "storedSha256": "a160ddb94932c94570b1e751003719f2925de98f34894097ed4f29a9ecf65d5f",
+      "verified": true
+    }
+  ],
+  "rawLocalDirectory": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-editor-resources-v1-82386c37-8ceb-42b7-8474-005a52ae526a",
+  "passed": true,
+  "editorUi": "not-executed",
+  "parameterReconfirmation": "not-executed"
+}

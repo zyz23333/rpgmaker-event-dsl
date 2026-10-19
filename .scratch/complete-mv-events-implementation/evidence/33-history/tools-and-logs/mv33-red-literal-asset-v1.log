@@ -1,0 +1,36 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-33/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/movement-instructions.test.ts (72 tests | 1 failed | 71 skipped) 7ms
+   × preserves a nonempty character asset name without trimming its literal contents 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/movement-instructions.test.ts > preserves a nonempty character asset name without trimming its literal contents
+Error: MV-MOVEMENT-SHAPE: Movement asset requires a nonempty image/characters reference or null. (commands[0].route.commands[0].character)
+ ❯ fail src/commands/movement/validation.ts:15:9
+     13|
+     14| function fail(message: string, location: Location, code = "MV-MOVEMENT…
+     15|   throw new CommandStructureError(code, message, location);
+       |         ^
+     16| }
+     17|
+
+ ❯ asset src/commands/movement/validation.ts:100:5
+ Test Files  1 failed (1)
+      Tests  1 failed | 71 skipped (72)
+   Start at  23:30:53
+   Duration  1.26s (transform 366ms, setup 0ms, import 1.11s, tests 7ms, environment 0ms)
+
+ ❯ assertMovementRoute src/commands/movement/validation.ts:360:41
+ ❯ assertSetMovementRoute src/commands/movement/validation.ts:395:3
+ ❯ compileNodes src/compiler/dispatch.ts:559:9
+ ❯ compileCommonEvent src/compiler/events.ts:68:11
+ ❯ compileInstructions test/movement-instructions.test.ts:18:10
+ ❯ test/movement-instructions.test.ts:71:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-33\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/movement-instructions.test.ts -t without trimming

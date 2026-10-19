@@ -461,3 +461,12 @@ Ticket24 adds [complete Map Event pages and exact saved state](24-map-event-full
 | MV-S6-MOVEMENT-010 | R6/R7 immutable complete native input binding | R1/R6/R7; [record](33-movement-instructions.md#native-delivery-input-bindings) |
 | MV-S6-MOVEMENT-011 | Preserve accepted negative-zero saved movement numbers through actual Workspace installation | Public source/built Workspace API; [record](33-movement-instructions.md#scoped-negative-zero-saved-values) |
 | MV-S6-MOVEMENT-012 | Reject negative-zero categorical M43 before source publication | Public source/built Workspace API; [record](33-movement-instructions.md#scoped-negative-zero-saved-values) |
+
+Ticket33 allocated delivery is complete on the actual23-integrated contract
+`mv-1.6.1/9`: full source check39files/980tests, complete built Windows baseline
+15files/366tests, actual R1-v2 two-side13/13 and R6/R7-v3 two-side19/19 all pass.
+The [delivery report](33-movement-instructions.md#final-integrated-product-and-verification--2026-10-20)
+and [append-only final audit](33-history/final-delivery-audit-v3.json) bind62 movement
+records, all274 incoming plus12 own requirements, unchanged inherited histories
+and the exact complete97-source/15-dist product identities. Final49–55 remain
+separate from this allocated delivery.

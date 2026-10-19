@@ -1,8 +1,10 @@
 # Ticket33 — complete movement instructions
 
-This is the allocated ticket33 record. Final49–54 evidence is a separate delivery.
-The ticket remains claimed while final integration, complete checks and final built
-native pairs are pending. Original failures remain preserved.
+This is the completed allocated ticket33 record. Final49–55 evidence, complete
+integration review and the full support declaration remain separate deliveries.
+The final product includes actual23 integration2053343 and contractmv-1.6.1/9;
+all allocated checks and actual built native pairs pass. Earlier checkpoints and
+original failures below remain historical records with their original identities.
 
 ## Automated movement matrix
 
@@ -184,3 +186,121 @@ history/result blob remain unchanged. The current index has263 rows: incoming251
 plus this ticket's original eight and four appended binding/saved-number rows.
 Complete source check, build, built Windows baseline and actual native pairs still
 wait for the actual23 integration; this checkpoint does not close ticket33.
+
+## Final integrated product and verification — 2026-10-20
+
+Mergec20c471481fcfa8b4c705f3a082b9613d82d60e8 incorporates actual integration
+205334338d8e64e3d00e485849c9ddf67bd7e3b1 and advances the sole compile-contract
+owner from /8 to mv-1.6.1/9. Both native pairs use this clean product state and its
+fresh actual ticket33 build. Subsequent changes only publish this allocated
+evidence and ticket outcome; all97 source and15 dist bytes still match that state.
+
+| Verification | Actual result | Original record |
+| --- | --- | --- |
+| pnpm check | Passed;39 files,980 tests;334.85s. Typecheck/lint/format pass; only3 inherited history warnings. | [Full check](33-history/tools-and-logs/mv33-final-check-original.log) |
+| pnpm build | Passed;15 actual files, including operations/authoring chunks, declarations and maps. | [Fresh build](33-history/tools-and-logs/mv33-final-build-original.log) |
+| Complete built Windows baseline | Passed;15 files,366 tests;262.38s. Both workers and original deadlines retained. | [Built baseline](33-history/tools-and-logs/mv33-final-built-windows-original.log) |
+| Allocated actual R1 pair | Passed on both normal-Scene processes; original13/13 predicates. | [Safe R1 record](33-history/native/mv33-r1-route-waits-delivery-v2-38b51944-87cf-44e7-8a77-172a6facab53-safe-summary.json) |
+| Allocated actual R6/R7 pair | Passed on both normal-Scene processes; original19/19 predicates. | [Safe R6/R7 record](33-history/native/mv33-r6-r7-movement-delivery-v3-0c4fb8b9-edd2-47b6-a2eb-1d5d9a86678b-safe-summary.json) |
+| Final evidence index | Passed;3 tests,4.99s test time; original10s deadline. | [Index output](33-history/tools-and-logs/mv33-final-index-original.log) |
+| Final archive lint | Passed, only3 inherited history warnings. | [Archive lint](33-history/tools-and-logs/mv33-final-archive-lint-corrected-original.log) |
+
+Tooling was actual Windows / Node22.23.0 / pnpm10.33.0 / Vitest4.1.9. The337
+movement cases plus14 actual Workspace cases cover every formal movement code,
+all finite envelopes, domain endpoints/enums/None/reference/Gate and independent
+saved values. The source and built Workspace cases include all45 via real
+Discovery/evaluation and Check/Compile/Diff/Push with all15 complete carriers.
+MV-S6-MOVEMENT-005 records the documentary matrix review. MV-S6-MOVEMENT-001–004,
+011/012 retain their original separate source/built observations.
+
+## Final R1, R6/R7 native observations
+
+MV-S6-MOVEMENT-006 and009 bind the exact final R1 pair at
+`C:/Users/Shuen/.codex/tmp/mv33-r1-route-waits-delivery-v2-38b51944-87cf-44e7-8a77-172a6facab53/`.
+Its raw pair-result.json SHA256 is
+`93eecb8bd7afd44f518905c0644920686b5e83ccc6f213c0e54f513c38f4f65b`.
+MV-S6-MOVEMENT-007 and010 bind the exact final R6/R7 pair at
+`C:/Users/Shuen/.codex/tmp/mv33-r6-r7-movement-delivery-v3-0c4fb8b9-edd2-47b6-a2eb-1d5d9a86678b/`.
+Its raw pair-result.json SHA256 is
+`f6432b46fb5b37e23099fea82e71ce36b821a32334061f1803e94c514671f8fb`.
+Those originals, full carriers, native profiles and float samples stay external.
+
+Both runs use MV1.6.1 / NW.js0.29.0 / embedded Node9.7.1. The actual host is
+`F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/nwjs-win-test/game.exe`, SHA256
+`78beb07fa8f2b905d468a40d64d0d5588b4cfa42d7822d5e16878245657da3aa`.
+Each side records a fresh explicit NativeProfile, unique appName, actual PID/PPID,
+cwd/host/profile identity, DLL identities and all seven unchanged engine hashes.
+Both stdout and stderr are empty and exit is0. Every initial15-carrier identity
+matches its independently frozen binding; all four mandatory generated carriers,
+all15 installed disk carriers and complete actual loaded Map/Common/System/Troops
+carriers compare exactly. Real formal Map-name edits prove actual Push replacement;
+Check leaves complete state unchanged. Per-side validations and the cross-side
+semantic comparator are strict booleantrue.
+
+The original13 R1 checks prove inactive fixed routes, native custom movement,
+autonomous wait behavior, forced no-wait/wait completion, Parallel scheduling and
+all15 markers. R6/R7 retains those13 and additionally proves complete single-slot
+empty/whitespace/CRLF/>12line M45 with native this binding through both entrances,
+None character/index7, named SE followed by None17/73/-41 without stopping its
+existing buffer, actual2048-float mixed audio signals before/after None and route
+state flags. The saved M45 captures autonomous image fields while its page is
+active. The observer only clean-starts and passively observes normal Scene
+scheduling, with a passive zero-gain analyser branch retaining original output.
+Hardware output is muted; no human hearing or editor UI observation is claimed.
+
+## Final E3/E5 product comparison and immutable provenance
+
+MV-S6-MOVEMENT-008 records the52 verified resources in the
+[identified editor audit](33-history/editor-52-resource-identity-audit.json),
+with existing version Evidence
+`ev_007ba386e622855bf771049084c3103afebbcc6b5d813f18c441f3ecf1d16d24`
+and exact editor EXE SHA256
+`1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281`.
+The accepted04/09 shipped initialization/loading/edit/confirm/serialization facts
+and conditional clipboard-shell deduction are compared with the independent
+all45 source/built product matrix. Synthetic shell/string support and the actual
+game observations above remain separately identified. No arbitrary multiline
+editor reconfirmation or UI execution is asserted.
+
+The complete actual product was frozen before evidence capture at
+`C:/Users/Shuen/.codex/tmp/mv33-final-product-preserved-6b677974-0d1b-4482-9061-b5825eb1faf1/manifest.json`.
+The original manifest SHA256 is
+`0bd5b59d94105b4b8d7abab99fa48f0beececc7c5395bac54ff7708f14a7ddc5`.
+It records clean actualc20c471 Git base/tree/status, times, Node identity and
+complete source/test/config/dist bytes. Its97-file source fingerprint is
+`4424a4d9826432e056354ce93a342886c39bf52d74d3a304a8a6f8ed116e0567`;
+its15-file dist fingerprint is
+`d830ac065741f364a7d748ca94557da83b005b0d7e66cfcded929eac65f23506`.
+Both native reports independently capture and match every one of those files,
+including all imported implementation chunks, types and maps. The
+[repo-safe complete manifest](33-history/provenance/final-product-preserved-manifest.json)
+retains every path/hash and the external capture identity.
+
+The index is286 requirements: all274 actual23 objects and their prefix formatting
+remain unchanged, followed by the exact12 unpublished33 objects from59e0d8d.
+All2594 inherited tracked result/history files compare byte-for-byte with actual23.
+The original45-code fixture and original preformat fixture/results remain intact.
+The [main archive](33-history/archive-manifest-v1.json) retains92 original permitted
+tools/logs/manifests and58 original schema results (56 movement plus two original
+baseline records). Six additional review records005–010 were emitted by the
+existing recordEvidence, their original bytes preserved, then separately enriched
+with actual native artifact identities and documentary fixture hashes. Their
+[provenance](33-history/review-record-provenance-v1.json) identifies each original
+and derivative. All12 allocated requirements have passed records,62 movement
+records in total; historical red/harness failures remain in original logs/summaries.
+
+The first final byte audit exceeded a single256MiB child-process output buffer.
+That original failure is retained; a separately versioned audit compares all2594
+original blobs in32-file batches with unchanged equality assertions. The first
+archive lint flagged explicit-any annotations in the one-off evidence operator.
+The exact executed tool is preserved as inert historical `.mts.txt`, with its
+original-name/hash/external-original mapping in
+[storage provenance](33-history/historical-tool-storage-correction-v1.json).
+No lint rule, test scope, worker count, assertion or deadline is excluded. These
+archive-only corrections do not alter executed source or dist. The
+[final audit](33-history/final-delivery-audit-v3.json) verifies original and enriched
+records, inherited bytes, requirement ordering, fixtures and both executed builds.
+The [append-only supplement](33-history/archive-supplement-v1.json) identifies the
+ten later original audit/index/review/lint tools and failure/success logs. The
+initial main manifest and every captured file retain their recorded bytes; the
+single inert historical-tool filename mapping is explicit in storage provenance.

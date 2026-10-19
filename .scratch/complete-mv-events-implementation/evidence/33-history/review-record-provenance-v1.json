@@ -1,0 +1,85 @@
+{
+  "purpose": "Original recordEvidence outputs preserved byte-identically; separately identified derivatives enrich actual native identities and include documentary fixture/summary hashes in the captured source set. All verdicts derive from actual retained results.",
+  "at": "2026-10-19T17:22:14.056Z",
+  "rawOutput": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-review-recorder-originals-ec65be0a-b0a3-4873-8ca8-6f9d3ca99f60",
+  "records": [
+    {
+      "id": "MV-S6-MOVEMENT-005",
+      "original": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-review-recorder-originals-ec65be0a-b0a3-4873-8ca8-6f9d3ca99f60\\MV-S6-MOVEMENT-005-2026-10-19T17-22-13-710Z-2566f81a-966c-4182-9887-9c1bb08dcfe8.json",
+        "sha256": "f14cf400ddb08b90b873974d1ace0e6480550f825590ea32d6840481b757be18",
+        "archive": ".scratch/complete-mv-events-implementation/evidence/33-history/review-recorder-originals/MV-S6-MOVEMENT-005-2026-10-19T17-22-13-710Z-2566f81a-966c-4182-9887-9c1bb08dcfe8.json"
+      },
+      "derivative": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-005-2026-10-19T17-22-13-710Z-2566f81a-966c-4182-9887-9c1bb08dcfe8.json",
+        "sha256": "24c0113999f0957b9fec1282dcaf0cc19eb9099165fe51e33b9ac89e22a12266"
+      },
+      "nativeMethod": "not-executed"
+    },
+    {
+      "id": "MV-S6-MOVEMENT-006",
+      "original": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-review-recorder-originals-ec65be0a-b0a3-4873-8ca8-6f9d3ca99f60\\MV-S6-MOVEMENT-006-2026-10-19T17-22-13-772Z-4e8ec62d-d557-43ca-9f61-fd4ba3c51579.json",
+        "sha256": "367b95a2dfb6088694cfa888855abb4a38323e414dee3c317b4207b8edbf400a",
+        "archive": ".scratch/complete-mv-events-implementation/evidence/33-history/review-recorder-originals/MV-S6-MOVEMENT-006-2026-10-19T17-22-13-772Z-4e8ec62d-d557-43ca-9f61-fd4ba3c51579.json"
+      },
+      "derivative": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-006-2026-10-19T17-22-13-772Z-4e8ec62d-d557-43ca-9f61-fd4ba3c51579.json",
+        "sha256": "c8cdf9c683344154761534edb6188b9f6ebe8ad4ff319bfe089708e193895aab"
+      },
+      "nativeMethod": "game"
+    },
+    {
+      "id": "MV-S6-MOVEMENT-007",
+      "original": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-review-recorder-originals-ec65be0a-b0a3-4873-8ca8-6f9d3ca99f60\\MV-S6-MOVEMENT-007-2026-10-19T17-22-13-831Z-ea326519-b23f-41e4-b97f-11bddd14ddbf.json",
+        "sha256": "d93a2ecceb88f09d235c65b1d48a4a55607edf7e831910b9b9c52abc5391aa5d",
+        "archive": ".scratch/complete-mv-events-implementation/evidence/33-history/review-recorder-originals/MV-S6-MOVEMENT-007-2026-10-19T17-22-13-831Z-ea326519-b23f-41e4-b97f-11bddd14ddbf.json"
+      },
+      "derivative": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-007-2026-10-19T17-22-13-831Z-ea326519-b23f-41e4-b97f-11bddd14ddbf.json",
+        "sha256": "9b8d7f316d9973717edc7cb98889bc2b37bd2931bb9cf3ad655bc76e26dca0d6"
+      },
+      "nativeMethod": "game"
+    },
+    {
+      "id": "MV-S6-MOVEMENT-008",
+      "original": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-review-recorder-originals-ec65be0a-b0a3-4873-8ca8-6f9d3ca99f60\\MV-S6-MOVEMENT-008-2026-10-19T17-22-13-892Z-156627fc-c810-4128-90c5-0d39cf50610f.json",
+        "sha256": "2b9737ab44a2e886c4702bb2366110482082da2c56eb5376c34c42e9dbbd7f20",
+        "archive": ".scratch/complete-mv-events-implementation/evidence/33-history/review-recorder-originals/MV-S6-MOVEMENT-008-2026-10-19T17-22-13-892Z-156627fc-c810-4128-90c5-0d39cf50610f.json"
+      },
+      "derivative": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-008-2026-10-19T17-22-13-892Z-156627fc-c810-4128-90c5-0d39cf50610f.json",
+        "sha256": "2ac8f0aa0fe04e09a79a281f37381a4a912badc07808f32d9e496ec132269898"
+      },
+      "nativeMethod": "reverse-engineering"
+    },
+    {
+      "id": "MV-S6-MOVEMENT-009",
+      "original": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-review-recorder-originals-ec65be0a-b0a3-4873-8ca8-6f9d3ca99f60\\MV-S6-MOVEMENT-009-2026-10-19T17-22-13-946Z-7d822f65-5042-48f0-be55-73d1b341d5c2.json",
+        "sha256": "a83c435e4f5fe7bf1011761ca3731b59657daadd455be2cd3fc8c62c5eeaa525",
+        "archive": ".scratch/complete-mv-events-implementation/evidence/33-history/review-recorder-originals/MV-S6-MOVEMENT-009-2026-10-19T17-22-13-946Z-7d822f65-5042-48f0-be55-73d1b341d5c2.json"
+      },
+      "derivative": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-009-2026-10-19T17-22-13-946Z-7d822f65-5042-48f0-be55-73d1b341d5c2.json",
+        "sha256": "3ba9de715be86dfc0549ba24b40448fb2e2f6ad47474db5009bcf9724f0b72c3"
+      },
+      "nativeMethod": "game"
+    },
+    {
+      "id": "MV-S6-MOVEMENT-010",
+      "original": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-review-recorder-originals-ec65be0a-b0a3-4873-8ca8-6f9d3ca99f60\\MV-S6-MOVEMENT-010-2026-10-19T17-22-14-011Z-a339d307-125a-4edd-a2e8-c68fe2dba5ae.json",
+        "sha256": "7ef021a6fbb4ce6489e5db16b67d45b59c438fbf6e44b2b5d95e16c7c91398aa",
+        "archive": ".scratch/complete-mv-events-implementation/evidence/33-history/review-recorder-originals/MV-S6-MOVEMENT-010-2026-10-19T17-22-14-011Z-a339d307-125a-4edd-a2e8-c68fe2dba5ae.json"
+      },
+      "derivative": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-010-2026-10-19T17-22-14-011Z-a339d307-125a-4edd-a2e8-c68fe2dba5ae.json",
+        "sha256": "9a4560460371317b6e8e6e07697adc6eb492f933e2e6dd9a08d98e0b5960c001"
+      },
+      "nativeMethod": "game"
+    }
+  ]
+}
