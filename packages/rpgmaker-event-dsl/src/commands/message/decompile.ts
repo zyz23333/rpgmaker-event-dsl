@@ -143,6 +143,7 @@ export function renderShowChoicesCommand(
     }
     return `[${renderInlineCommandListSource(rendered.source)}]`;
   });
+  if (cancelBranch !== null && cancelType !== -2) return renderSimpleCommand(command, index);
 
   const fields = [`choices: ${literal(choices)}`, `branches: [${branchExpressions.join(", ")}]`];
 

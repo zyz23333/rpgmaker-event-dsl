@@ -124,6 +124,7 @@ async function decompileWorkspaceUnlocked(options: WorkspaceCommandOptions): Pro
   for (const file of files) capture.fileHash(file);
   const snapshot = await captureCompileSnapshot(statePaths, manifest.snapshotFiles);
   await decompileProjectDataSnapshot({
+    scriptEnabled: workspace.config.scriptEnabled,
     sourceRoot: workspace.config.sourceRoot,
     statePaths: snapshot.statePaths,
     workspaceRoot: workspace.workspaceRoot,
@@ -174,6 +175,8 @@ async function compileWorkspaceUnlocked(options: CompileWorkspaceOptions): Promi
   });
 
   const errors = validation.issues.filter((issue) => issue.level === "error");
+  for (const issue of validation.issues.filter((issue) => issue.level === "warning"))
+    console.error(issue.message);
   if (errors.length > 0) {
     throw new Error(
       [`${commandName} validation failed:`, ...errors.map((issue) => `- ${issue.message}`)].join(

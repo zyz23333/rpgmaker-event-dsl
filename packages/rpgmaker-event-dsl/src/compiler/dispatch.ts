@@ -1,6 +1,7 @@
 import type { CommonEventDefinition, DslCommand, PageConditions } from "../domain/types.js";
 import type { ReferenceResolver } from "../validation/types.js";
-import type { RawEventCommand } from "./types.js";
+import type { RawEventCommand, CommandOrigins } from "./types.js";
+import { assertDslCommandList } from "../validation/dsl-command-inputs.js";
 import { assertLoopCommand, assertParameterlessFlowCommand } from "../commands/flow/validation.js";
 import {
   assertNativeCommandEnvelope,
@@ -110,10 +111,13 @@ export function compileNodes(
   resolver: ReferenceResolver,
   includeTerminator = true,
   sourcePath = "commands",
+  origins: CommandOrigins = new Map(),
 ): RawEventCommand[] {
+  assertDslCommandList(nodes, sourcePath);
   const output: RawEventCommand[] = [];
 
   for (const [nodeIndex, node] of nodes.entries()) {
+    const outputStart = output.length;
     switch (node.kind) {
       case "showText":
         output.push({
@@ -175,8 +179,10 @@ export function compileNodes(
             resolver,
             false,
             `${sourcePath}[${nodeIndex}].then`,
+            origins,
           ),
         );
+        if (node.then.length === 0) output.push({ code: 0, indent: indent + 1, parameters: [] });
         if (node.else) {
           output.push({
             code: 411,
@@ -190,8 +196,10 @@ export function compileNodes(
               resolver,
               false,
               `${sourcePath}[${nodeIndex}].else`,
+              origins,
             ),
           );
+          if (node.else.length === 0) output.push({ code: 0, indent: indent + 1, parameters: [] });
         }
         output.push({ code: 412, indent, parameters: [] });
         break;
@@ -217,6 +225,7 @@ export function compileNodes(
           resolver,
           false,
           `${sourcePath}[${nodeIndex}].body.commands`,
+          origins,
         );
         if (body.at(-1)?.code === 0 && body.at(-1)?.indent === indent + 1) {
           throw new CommandStructureError(
@@ -435,8 +444,10 @@ export function compileNodes(
               resolver,
               false,
               `${sourcePath}[${nodeIndex}].win`,
+              origins,
             ),
           );
+          if (node.win.length === 0) output.push({ code: 0, indent: indent + 1, parameters: [] });
         }
         if (node.escape) {
           output.push({ code: 602, indent, parameters: [] });
@@ -447,8 +458,11 @@ export function compileNodes(
               resolver,
               false,
               `${sourcePath}[${nodeIndex}].escape`,
+              origins,
             ),
           );
+          if (node.escape.length === 0)
+            output.push({ code: 0, indent: indent + 1, parameters: [] });
         }
         if (node.lose) {
           output.push({ code: 603, indent, parameters: [] });
@@ -459,8 +473,10 @@ export function compileNodes(
               resolver,
               false,
               `${sourcePath}[${nodeIndex}].lose`,
+              origins,
             ),
           );
+          if (node.lose.length === 0) output.push({ code: 0, indent: indent + 1, parameters: [] });
         }
         output.push({ code: 604, indent, parameters: [] });
         break;
@@ -657,7 +673,15 @@ export function compileNodes(
             node,
             indent,
             resolver,
-            compileNodes,
+            (children, childIndent, childResolver, childTerminator, childPath) =>
+              compileNodes(
+                children,
+                childIndent,
+                childResolver,
+                childTerminator,
+                childPath,
+                origins,
+              ),
             `${sourcePath}[${nodeIndex}]`,
           ),
         );
@@ -1119,7 +1143,7 @@ export function compileNodes(
           assertNativeMovementCommandParameters(node.code, node.parameters, {
             dslPath: `${sourcePath}[${nodeIndex}]`,
           });
-        if ([0, 112, 113, 115, 205, 413, 505].includes(node.code)) {
+        {
           try {
             assertNativeCommandEnvelope(
               {
@@ -1132,6 +1156,7 @@ export function compileNodes(
           } catch (error) {
             if (error instanceof CommandStructureError)
               throw new CommandStructureError(error.code, error.detail, {
+                ...error.location,
                 dslPath: `${sourcePath}[${nodeIndex}]`,
               });
             throw error;
@@ -1143,14 +1168,45 @@ export function compileNodes(
           parameters: [...node.parameters],
         });
         break;
+      default:
+        throw new CommandStructureError("MV-DSL-KIND", "Unknown authored command kind.", {
+          dslPath: `${sourcePath}[${nodeIndex}].kind`,
+          expected: "supported command kind",
+          actual: String((node as { kind: unknown }).kind),
+        });
     }
+    if (origins)
+      for (const command of output.slice(outputStart))
+        if (!origins.has(command))
+          origins.set(command, { path: `${sourcePath}[${nodeIndex}]`, kind: node.kind });
   }
 
   if (includeTerminator && !(output.at(-1)?.code === 0 && output.at(-1)?.indent === indent)) {
     output.push({ code: 0, indent, parameters: [] });
   }
   if (includeTerminator && indent === 0)
-    inspectCommandListStructure(output, { requireTerminator: true });
+    try {
+      inspectCommandListStructure(output, { requireTerminator: true });
+    } catch (error) {
+      if (error instanceof CommandStructureError) {
+        const dslAt = (path: string | undefined) =>
+          path ? origins.get(output[Number(/^list\[(\d+)\]/u.exec(path)?.[1])]!)?.path : undefined;
+        const dslPath = dslAt(error.location.nativePath);
+        throw new CommandStructureError(error.code, error.detail, {
+          ...error.location,
+          ...(dslPath ? { dslPath } : {}),
+          ...(error.location.relatedLocations
+            ? {
+                relatedLocations: error.location.relatedLocations.map((related) => {
+                  const source = dslAt(related.nativePath);
+                  return { ...related, ...(source ? { dslPath: source } : {}) };
+                }),
+              }
+            : {}),
+        });
+      }
+      throw error;
+    }
   return output;
 }
 

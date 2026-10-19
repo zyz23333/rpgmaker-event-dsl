@@ -215,10 +215,11 @@ because it turns RPG Maker MV JSON data into editable source files:
 rpgmaker-event-dsl decompile
 ```
 
-`decompile` is non-destructive. It does not overwrite existing decompile output. It also
-decompiles on a best-effort basis: supported RPG Maker MV command shapes render as DSL
-helpers, while malformed raw command shapes or data outside the supported MV editor
-surface are preserved as `rawDslCommand(...)` in the DSL output.
+`decompile` does not overwrite existing decompile output. Supported RPG Maker MV
+command shapes render as DSL helpers. A genuinely unknown event code is preserved as
+one `rawDslCommand(...)` with a warning when its complete record and surrounding
+structure are valid. Malformed known commands, unsupported known saved variants,
+orphan continuations and conflicting mirrors fail before any source is published.
 
 ### If You Are Starting Fresh
 
@@ -359,17 +360,37 @@ complete mirrored object, including nested values and key presence. Unknown move
 codes and unsupported route shapes fail before source publication. Recognized raw
 routes receive the same mirror, switch-reference and Script Command Gate checks.
 
+Map Event Pages accept `movement: { type?, speed?, frequency?, route? }`.
+`type` is `"fixed"`, `"random"`, `"approach"` or `"custom"` (default `"fixed"`);
+`speed` is an integer from 1 to 6 and `frequency` from 1 to 5 (both default 3).
+`route` uses the same `MovementRoute` model and defaults to an empty route.
+The saved route is preserved and checked even when the Page selects fixed, random
+or approach movement. Its `wait` flag remains saved data; interpreter waiting applies
+when a route is used by Set Movement Route.
+
 Project data references use helpers such as `switchRef(...)`, `variableRef(...)`,
 `actorRef(...)`, `skillRef(...)`, and `tilesetRef(...)`. Asset parameters use no-scan
 Asset References instead: `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)`
 compile to MV filename stems without checking the filesystem or resolving database IDs.
 
 JavaScript-bearing inputs are explicit Script Inputs and are gated by the workspace
-`scriptEnabled` setting. This includes `script(...)`, script conditions,
-`controlVariables(...)` script operands, and move route script commands. `pluginCommand(...)`
-covers MV's native plugin command string only; plugin-specific argument semantics are not
-validated by the DSL. `rawDslCommand(...)` remains an explicit escape hatch for confirmed
-raw MV command shapes and is preserved by decompile for malformed or unsupported raw data.
+`scriptEnabled` setting. The Gate scans every saved script position, including empty
+or unreachable Script/continuation records, script conditions, Control Variables
+script operands, Set Movement Route records and mirrors, and saved Page routes in
+every movement mode. Recognized raw commands receive the same checks. With the Gate
+closed, Decompile produces source with warnings; Check and Compile reject the current
+declarations until those scripts are removed or the Gate is enabled. `pluginCommand(...)`
+carries MV's native plugin command string; plugin-specific argument semantics remain
+outside validation.
+
+`rawDslCommand({ code, indent?, parameters })` carries one event record. An explicit
+`indent: 0` is absolute and remains explicit after Decompile. Parameters must be dense,
+finite JSON data: strings retain CR/CRLF, and values such as null, empty arrays, own
+`__proto__` keys and negative zero are preserved. Missing required fields, undefined,
+array holes, non-finite numbers, accessors, custom prototypes and extra envelope fields
+are rejected. Known raw codes still receive supported parameter, reference, structure
+and Script Command Gate checks. Every complete event list requires its final terminator;
+the owning helper supplies continuations, branch markers and route mirrors.
 
 ## Entry Identity
 

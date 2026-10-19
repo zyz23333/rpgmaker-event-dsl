@@ -418,6 +418,12 @@ export const movementStationEvent = mapEvent({
   y: 7,
   pages: [
     page({
+      movement: {
+        type: "fixed",
+        speed: 3,
+        frequency: 3,
+        route: { commands: [{ kind: "turnDown" }], repeat: false },
+      },
       commands: [
         showText({ lines: ["Movement station", "This event uses route and character helpers."] }),
         setEventLocation({
@@ -510,7 +516,7 @@ export const partyStateStationEvent = mapEvent({
         controlTimer({ action: "stop" }),
         rawDslCommand({
           code: 108,
-          parameters: ["Raw fallback remains explicit in the sample workspace."],
+          parameters: ["Unknown raw commands remain explicit in the sample workspace."],
         }),
       ],
     }),

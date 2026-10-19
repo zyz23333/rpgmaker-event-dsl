@@ -4,26 +4,58 @@ import type { RawEventCommand } from "../../compiler/types.js";
 import type { NativeMovementRecord, NativeMovementRoute } from "./types.js";
 import type { ReferenceResolver, ValidationIssue } from "../../validation/types.js";
 import { CommandStructureError } from "../../validation/command-errors.js";
+import { describeValue, renderJsonValue } from "../../project-data/json-values.js";
 
-type Location = { nativePath?: string; dslPath?: string };
+type Location = Pick<
+  ValidationIssue,
+  "nativePath" | "dslPath" | "expected" | "actual" | "relatedLocations"
+>;
 
 function fail(message: string, location: Location, code = "MV-MOVEMENT-SHAPE"): never {
   throw new CommandStructureError(code, message, location);
 }
 
 function record(value: unknown, location: Location): Record<string, unknown> {
-  if (typeof value !== "object" || value === null || Array.isArray(value))
+  if (
+    typeof value !== "object" ||
+    value === null ||
+    Array.isArray(value) ||
+    ![Object.prototype, null].includes(Object.getPrototypeOf(value))
+  )
     fail("Expected a Movement Route object.", location);
   return value as Record<string, unknown>;
 }
 
 function keys(value: Record<string, unknown>, allowed: readonly string[], location: Location) {
-  if (Object.keys(value).some((key) => !allowed.includes(key)))
+  if (
+    Reflect.ownKeys(value).some((key) => {
+      const descriptor = Object.getOwnPropertyDescriptor(value, key)!;
+      return (
+        typeof key !== "string" ||
+        !allowed.includes(key) ||
+        !("value" in descriptor) ||
+        !descriptor.enumerable
+      );
+    })
+  )
     fail("Unknown Movement Route field.", location);
 }
 
 function array(value: unknown, location: Location): unknown[] {
-  if (!Array.isArray(value)) fail("Expected a dense array.", location);
+  if (!Array.isArray(value) || Object.getPrototypeOf(value) !== Array.prototype)
+    fail("Expected a dense ordinary array.", location);
+  for (const key of Reflect.ownKeys(value))
+    if (key !== "length") {
+      const descriptor = Object.getOwnPropertyDescriptor(value, key)!;
+      if (
+        typeof key !== "string" ||
+        !/^(0|[1-9]\d*)$/u.test(key) ||
+        Number(key) >= value.length ||
+        !("value" in descriptor) ||
+        !descriptor.enumerable
+      )
+        fail("Movement Route arrays require only ordinary data slots.", location);
+    }
   if (Object.keys(value).length !== value.length || value.some((item) => item === undefined))
     fail("Movement Route arrays cannot contain undefined, sparse slots or extra keys.", location);
   for (let index = 0; index < value.length; index += 1)
@@ -56,6 +88,7 @@ export function assertNativeMovementRecord(
   if (terminal) {
     if (
       item.code !== 0 ||
+      Object.is(item.code, -0) ||
       (Object.hasOwn(item, "parameters") && array(item.parameters, location).length !== 0)
     )
       fail(
@@ -162,7 +195,21 @@ export function assertNativeMovementCommands(commands: readonly RawEventCommand[
       )
         fail(
           "Every nonterminal movement record requires one ordered, same-indent 505 containing the complete identical object.",
-          { nativePath: `list[${mirrorIndex}]` },
+          {
+            nativePath: `list[${mirrorIndex}]`,
+            expected: renderJsonValue({
+              code: 505,
+              indent: command.indent,
+              parameters: [nonterminals[offset]],
+            }),
+            actual: mirror ? describeValue(mirror) : "missing",
+            relatedLocations: [
+              {
+                nativePath: `list[${index}].parameters[1].list[${offset}]`,
+                value: renderJsonValue(nonterminals[offset]),
+              },
+            ],
+          },
           "MV-MOVEMENT-MIRROR",
         );
       array(mirror!.parameters, { nativePath: `list[${mirrorIndex}].parameters` });
@@ -294,6 +341,9 @@ export function validateNativeMovementRouteInputs(
         ...(options.dslPath === undefined ? {} : { dslPath: options.dslPath }),
         nativePath,
         message,
+        expected: command.code === 45 ? "scriptEnabled: true" : "existing switch ID",
+        actual:
+          command.code === 45 ? "scriptEnabled: false" : describeValue(command.parameters?.[0]),
       });
     if (command.code === 45 && !options.scriptEnabled)
       issue("MV-MOVEMENT-SCRIPT", "Movement Route Script requires explicit config enablement.");

@@ -6,7 +6,7 @@ import {
   compileNodes,
   type RawEventCommand,
 } from "./dispatch.js";
-import { compileMovementRoute } from "../commands/movement/compile.js";
+import { compilePageMovement } from "../commands/movement/page.js";
 
 export type ProjectEventData = {
   id: number;
@@ -82,10 +82,7 @@ export function compilePage(page: EventPage, resolver: ReferenceResolver): Proje
       tileId: 0,
     },
     list: compileNodes(page.commands, 0, resolver),
-    moveFrequency: 3,
-    moveRoute: compileMovementRoute({ commands: [] }, resolver),
-    moveSpeed: 3,
-    moveType: 0,
+    ...compilePageMovement(page.movement, resolver),
     priorityType: 1,
     stepAnime: false,
     through: false,

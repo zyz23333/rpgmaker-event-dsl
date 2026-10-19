@@ -1,4 +1,5 @@
 import type { RawEventCommand } from "../compiler/types.js";
+import type { NativePageMovement } from "../commands/movement/page.js";
 export type { RawEventCommand } from "../compiler/types.js";
 
 export type RenderedCommand = {
@@ -27,6 +28,7 @@ export type SnapshotMapEvent = {
 };
 
 export type SnapshotMapEventPage = {
+  movement?: NativePageMovement;
   conditions?: Record<string, unknown>;
   list?: RawEventCommand[];
   trigger?: number;

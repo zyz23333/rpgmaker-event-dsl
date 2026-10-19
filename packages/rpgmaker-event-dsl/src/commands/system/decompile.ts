@@ -74,7 +74,7 @@ export function renderNoParameterCommand(
 }
 
 export function renderRawCommand(command: RawEventCommand): string {
-  const indentLine = command.indent === 0 ? "" : `\n  indent: ${command.indent},`;
+  const indentLine = `\n  indent: ${command.indent},`;
 
   return `rawDslCommand({
   code: ${command.code},${indentLine}

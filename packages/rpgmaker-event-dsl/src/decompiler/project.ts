@@ -28,9 +28,24 @@ import { renderCommands } from "./dispatch.js";
 import { renderDecompiledCommandList } from "./dispatch.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
 import { assertNativeContextReferences } from "../validation/native-context-references.js";
-import { buildSnapshotReferenceInput, buildStagedDataGraph } from "../validation/staged-graph.js";
+import { buildSnapshotReferenceInput } from "../validation/staged-graph.js";
+import {
+  buildReferenceScopes,
+  buildReferenceScope,
+  createReferenceResolver,
+} from "../validation/references.js";
+import { readObjectReferenceEntries } from "../validation/snapshot.js";
 import type { ReferenceResolver } from "../validation/types.js";
+import type { ValidationIssue } from "../validation/types.js";
 import type { RawEventCommand } from "./types.js";
+import {
+  inspectNativeCommandInputs,
+  inspectNativeRouteInputs,
+} from "../validation/native-command-inputs.js";
+import { renderMovementRoute } from "../commands/movement/decompile.js";
+import { validateNativeMovementRouteInputs } from "../commands/movement/validation.js";
+import { inspectNativeCommandReferences } from "../validation/native-references.js";
+import { CommandStructureError } from "../validation/command-errors.js";
 
 type DecompileFile = {
   content: string;
@@ -38,6 +53,7 @@ type DecompileFile = {
 };
 
 export type DecompileProjectDataSnapshotOptions = {
+  scriptEnabled?: boolean;
   sourceRoot: string;
   statePaths: WorkspaceStatePaths;
   workspaceRoot: string;
@@ -47,10 +63,12 @@ export type DecompileProjectDataSnapshotOptions = {
 export async function decompileProjectDataSnapshot(
   options: DecompileProjectDataSnapshotOptions,
 ): Promise<void> {
-  const files = await buildDecompiledSourceFiles(options);
+  const issues: ValidationIssue[] = [];
+  const files = await buildDecompiledSourceFiles(options, issues);
 
   await assertTargetFilesDoNotExist(files);
   await options.assertInputsUnchanged?.();
+  for (const issue of issues) console.error(issue.message);
 
   for (const file of files) {
     await mkdir(dirname(file.path), { recursive: true });
@@ -60,20 +78,78 @@ export async function decompileProjectDataSnapshot(
 
 async function buildDecompiledSourceFiles(
   options: DecompileProjectDataSnapshotOptions,
+  issues: ValidationIssue[],
 ): Promise<DecompileFile[]> {
   const mapInfos = parseMapInfos(await readSnapshotFile(options.statePaths, "MapInfos.json"));
   const outputRoot = resolve(options.workspaceRoot, options.sourceRoot, "decompiled");
   const files: DecompileFile[] = [];
   const system = await readSnapshotObject(options.statePaths, "System.json");
-  const resolver = buildStagedDataGraph({
+  const referenceSources = await Promise.all(
+    [
+      "Actors",
+      "Animations",
+      "Armors",
+      "Classes",
+      "CommonEvents",
+      "Enemies",
+      "Items",
+      "Skills",
+      "States",
+      "Tilesets",
+      "Troops",
+      "Weapons",
+    ].map((name) => readSnapshotArray(options.statePaths, `${name}.json`)),
+  );
+  const [
+    actors,
+    animations,
+    armors,
+    classes,
+    commonEventsInput,
+    enemies,
+    items,
+    skills,
+    states,
+    tilesets,
+    troops,
+    weapons,
+  ] = referenceSources as [
+    unknown[],
+    unknown[],
+    unknown[],
+    unknown[],
+    unknown[],
+    unknown[],
+    unknown[],
+    unknown[],
+    unknown[],
+    unknown[],
+    unknown[],
+    unknown[],
+  ];
+  const scopes = buildReferenceScopes({
     declarations: [],
     snapshotReferences: buildSnapshotReferenceInput({
       system,
-      animations: await readSnapshotArray(options.statePaths, "Animations.json"),
-      tilesets: await readSnapshotArray(options.statePaths, "Tilesets.json"),
-      enemies: await readSnapshotArray(options.statePaths, "Enemies.json"),
+      actors,
+      animations,
+      armors,
+      classes,
+      commonEvents: commonEventsInput,
+      enemies,
+      items,
+      mapInfos,
+      skills,
+      states,
+      tilesets,
+      troops,
+      weapons,
     }),
-  }).resolver;
+  });
+  // Decompile's entire owned candidate comes from this captured Snapshot. Compile's
+  // resolver continues to take Common Events exclusively from actual declarations.
+  scopes.commonEvent = buildReferenceScope(readObjectReferenceEntries(commonEventsInput));
+  const resolver = createReferenceResolver(scopes);
 
   for (const mapInfo of mapInfos) {
     const mapFileName = formatMapFileName(mapInfo.id);
@@ -81,11 +157,36 @@ async function buildDecompiledSourceFiles(
     const events = readMapEvents(mapData, mapInfo.id);
     for (const event of events) {
       for (const [pageIndex, page] of event.pages.entries()) {
+        const inputOptions = {
+          identity: `map:${mapInfo.id}/event:${event.id}`,
+          stage: "decompile" as const,
+          scriptEnabled: options.scriptEnabled ?? false,
+          prefix: `pages[${pageIndex}].`,
+        };
+        issues.push(...inspectNativeCommandInputs(page.list ?? [], inputOptions));
+        if (page.movement !== undefined) {
+          const path = `pages[${pageIndex}].moveRoute`;
+          const referenceIssues: ValidationIssue[] = [];
+          validateNativeMovementRouteInputs(
+            page.movement.route,
+            resolver,
+            { scriptEnabled: true, identity: inputOptions.identity, nativePath: path },
+            referenceIssues,
+          );
+          if (referenceIssues.length)
+            throw new Error(
+              `decompile error ${inputOptions.identity}: ${referenceIssues.map((issue) => `${issue.nativePath}: ${issue.message}`).join("; ")}`,
+            );
+          issues.push(...inspectNativeRouteInputs(page.movement.route, path, inputOptions));
+        }
         assertSnapshotReferences(
           normalizeCommandList(page.list),
           `map ${mapInfo.id} event ${event.id}.pages[${pageIndex}].list`,
           resolver,
         );
+        const errors = inspectNativeCommandReferences(page.list ?? [], resolver, inputOptions);
+        if (errors.length) throw new Error(errors.map((issue) => issue.message).join("\n"));
+        assertSnapshotRendering(page.list ?? [], inputOptions.identity, inputOptions.prefix);
       }
     }
     files.push({
@@ -97,12 +198,26 @@ async function buildDecompiledSourceFiles(
   const commonEvents = readCommonEvents(
     await readSnapshotArray(options.statePaths, "CommonEvents.json"),
   );
-  for (const event of commonEvents)
+  for (const event of commonEvents) {
+    issues.push(
+      ...inspectNativeCommandInputs(event.list ?? [], {
+        identity: `commonEvent:${event.id}`,
+        stage: "decompile",
+        scriptEnabled: options.scriptEnabled ?? false,
+      }),
+    );
     assertSnapshotReferences(
       normalizeCommandList(event.list),
       `common event ${event.id}.list`,
       resolver,
     );
+    const errors = inspectNativeCommandReferences(event.list ?? [], resolver, {
+      identity: `commonEvent:${event.id}`,
+      stage: "decompile",
+    });
+    if (errors.length) throw new Error(errors.map((issue) => issue.message).join("\n"));
+    assertSnapshotRendering(event.list ?? [], `commonEvent:${event.id}`);
+  }
   files.push({
     content: renderCommonEventsSource(commonEvents),
     path: resolve(outputRoot, "common-events.events.ts"),
@@ -116,6 +231,28 @@ async function buildDecompiledSourceFiles(
   return files.sort((left, right) => left.path.localeCompare(right.path));
 }
 
+function assertSnapshotRendering(
+  commands: readonly RawEventCommand[],
+  identity: string,
+  prefix = "",
+): void {
+  try {
+    renderDecompiledCommandList(commands);
+  } catch (error) {
+    if (error instanceof CommandStructureError) {
+      const location = { ...error.location };
+      if (location.nativePath) location.nativePath = prefix + location.nativePath;
+      if (location.relatedLocations)
+        location.relatedLocations = location.relatedLocations.map((related) => ({
+          ...related,
+          ...(related.nativePath ? { nativePath: prefix + related.nativePath } : {}),
+        }));
+      throw new CommandStructureError(error.code, error.detail, location, identity, "decompile");
+    }
+    throw error;
+  }
+}
+
 function assertSnapshotReferences(
   commands: readonly RawEventCommand[],
   identity: string,
@@ -125,6 +262,19 @@ function assertSnapshotReferences(
     try {
       assertNativeSwitchCommand(command.code, command.parameters, resolver);
       assertNativeContextReferences(command.code, command.parameters, resolver);
+      if (command.code === 205) {
+        const issues: ValidationIssue[] = [];
+        validateNativeMovementRouteInputs(
+          command.parameters[1],
+          resolver,
+          { scriptEnabled: true, nativePath: `list[${index}].parameters[1]` },
+          issues,
+        );
+        if (issues.length)
+          throw new Error(
+            issues.map((issue) => `${issue.code} ${issue.nativePath}: ${issue.message}`).join("; "),
+          );
+      }
     } catch (error) {
       throw new Error(
         `decompile ${identity}[${index}]: ${error instanceof Error ? error.message : String(error)}`,
@@ -191,9 +341,10 @@ ${indentLines(event.pages.map(renderPage).join(",\n"), 4)}
       events.flatMap((event) => event.pages.map((page) => page.conditions)),
     ),
     ...events.flatMap((event) =>
-      event.pages.flatMap(
-        (page) => renderDecompiledCommandList(normalizeCommandList(page.list)).helperNames,
-      ),
+      event.pages.flatMap((page) => [
+        ...renderDecompiledCommandList(normalizeCommandList(page.list)).helperNames,
+        ...(page.movement ? (renderMovementRoute(page.movement.route)?.helperNames ?? []) : []),
+      ]),
     ),
   ])}\n\n${body}\n`;
 }
@@ -268,6 +419,7 @@ function renderPage(page: SnapshotMapEventPage): string {
   return `page({
   conditions: ${renderPageConditions(page.conditions)},
   trigger: ${literal(mapPageTriggerFromCode(page.trigger))},
+${page.movement ? `  movement: { type: ${literal(page.movement.type)}, speed: ${page.movement.speed}, frequency: ${page.movement.frequency}, route: ${renderMovementRoute(page.movement.route)!.expression} },\n` : ""}\
   commands: [
 ${indentLines(renderCommands(normalizeCommandList(page.list)), 4)}
   ],

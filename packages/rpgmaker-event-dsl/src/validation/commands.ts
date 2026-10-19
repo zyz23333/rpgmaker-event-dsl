@@ -20,6 +20,7 @@ import {
   validateNativeMovementRouteInputs,
 } from "../commands/movement/validation.js";
 import { CommandStructureError } from "./command-structure.js";
+import { assertDslCommandList } from "./dsl-command-inputs.js";
 
 type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
@@ -46,6 +47,14 @@ export function validateNodes(
   options: CommandValidationOptions,
   issues: ValidationIssue[],
 ): void {
+  try {
+    assertDslCommandList(nodes, options.path ?? "commands", false);
+  } catch (error) {
+    if (error instanceof CommandStructureError)
+      issues.push(error.issue(options.identity ?? "event", "compile"));
+    else throw error;
+    return;
+  }
   for (const [nodeIndex, node] of nodes.entries()) {
     const nodePath = `${options.path ?? "commands"}[${nodeIndex}]`;
     const childOptions = (field: string): CommandValidationOptions => ({

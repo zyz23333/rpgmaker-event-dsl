@@ -167,7 +167,7 @@ it("rejects extra array keys in recognized raw movement parameters before compil
     ],
   });
   expect(validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues).toContainEqual(
-    expect.objectContaining({ code: "MV-MOVEMENT-SHAPE", dslPath: "commands[1]" }),
+    expect.objectContaining({ code: "MV-STRICT-JSON", dslPath: "commands[1]" }),
   );
 });
 
@@ -246,7 +246,7 @@ it.each(
         parameters: [-1, { list: records, repeat: true, skippable: false, wait: false }],
       },
     ];
-    expect(() => renderDecompiledCommandList(list)).toThrow(/MV-MOVEMENT-/);
+    expect(() => renderDecompiledCommandList(list)).toThrow(/MV-MOVEMENT-|MV-STRICT-JSON/);
   },
 );
 

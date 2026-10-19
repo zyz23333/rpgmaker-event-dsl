@@ -307,7 +307,9 @@ it.each([
       expect.objectContaining({
         level: "error",
         identity: "commonEvent:1",
-        nativePath: `list[${at}]`,
+        ...(commands[at]?.code === 113 && commands[at]?.parameters.length
+          ? { dslPath: `commands[${at}]` }
+          : { nativePath: `list[${at}]` }),
       }),
     );
   },

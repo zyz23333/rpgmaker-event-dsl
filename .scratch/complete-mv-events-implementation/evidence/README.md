@@ -1,5 +1,21 @@
 # MV acceptance evidence
 
+Ticket15 adds [finite raw boundary and recursive Script Gate acceptance](15-command-boundary-and-script-gate.md).
+Its original independent fixture runs through actual source Discovery/evaluation and
+source/built Workspace CLI. These bounded records have `native: not-executed`;
+later full family matrices and allocated native regression remain required.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S2-RAW-015 | Exact finite raw JSON, own keys, negative zero and explicit indent | synthetic-support | Public compiler and actual Workspace |
+| MV-S2-KNOWN-015 | Same known shape and reference boundary for formal and raw | synthetic-rejection | Public compiler and Staged Data Graph |
+| MV-S2-MIRROR-015 | Exact ordered choice/route mirrors with both Page locations | synthetic-rejection | Public native reader and validation |
+| MV-S2-GATE-015 | Every recognizable physical script location including inactive saved routes | synthetic-rejection | Staged Data Graph and native reader |
+| MV-S2-WORKSPACE-015 | Independent complete roundtrip and unchanged failure state | synthetic-support | Actual filesystem Workspace and CLI |
+| MV-S2-CURRENT-SOURCE-015 | Removed scripts permit current source despite old Snapshot | synthetic-support | Actual Discovery/evaluation and Check/Compile |
+| MV-S2-CANDIDATE-015 | Complete Common candidate, unusual export names and data boundaries | synthetic-support | Actual Workspace plus direct compiler boundary |
+| MV-S2-BUILT-015 | All five boundary cases and Windows baseline through built CLI | synthetic-support | Separate actual Windows CLI processes |
+
 `requirements.json` describes obligations. `results/` contains immutable, machine-produced run records. A requirement does not acquire a passing status merely because it appears in this index. The ordinary test suite validates the index schema, unique IDs, fixture hashes, source sections, test links, checklist completeness and recorded run references.
 
 This index contains ticket 01 automated seeds, ticket 02 Windows automation baseline, tickets 03–10 reverse-engineering obligations and contract review, ticket 11 System-slot/switch coverage, ticket12 captured map/battle context and ticket13 Loop/Break/Exit coverage; it is not the complete command or native acceptance matrix. Later tickets add their own stable case IDs and independent input/expected data. Per the user's revised acceptance, editor validation uses REA reverse engineering while final actual game runs remain required. The Common Event seed itself does not execute these native groups; its synthetic project context is sufficient for Workspace data operations and is not claimed to be a playable MV project.

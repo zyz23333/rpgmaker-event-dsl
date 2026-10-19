@@ -145,7 +145,7 @@ export function validateStagedDataGraph(
 
   validateDeclarationIdentities(graph.declarations, issues, graph.snapshotMaps);
   validateDeclarationReferences(graph.declarations, graph.resolver, options, issues);
-  validateCompiledCommandLists(graph, issues);
+  validateCompiledCommandLists(graph, issues, options);
 
   return { issues };
 }

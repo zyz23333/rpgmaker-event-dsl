@@ -89,7 +89,7 @@ it("rejects malformed known native flow before publishing any source and preserv
       code: "MV-COMMAND-ENVELOPE",
       identity: "commonEvent:5",
       stage: "decompile",
-      location: { nativePath: "list[2]" },
+      location: { nativePath: "list[2].parameters" },
     });
     expect(
       await discoverDefinitionFiles(workspaceRoot, {

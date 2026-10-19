@@ -385,9 +385,9 @@ describe("compileMapEvent", () => {
     expect(commands[1]).toEqual({ code: 101, indent: 0, parameters: ["Actor1", 2, 1, 0] });
     expect(commands[2]).toEqual({ code: 401, indent: 0, parameters: ["Hello"] });
     expect(commands[3]).toEqual({ code: 102, indent: 0, parameters: [["Yes", "No"], -2, 0, 2, 0] });
-    expect(commands[4]).toEqual({ code: 402, indent: 0, parameters: [0] });
+    expect(commands[4]).toEqual({ code: 402, indent: 0, parameters: [0, "Yes"] });
     expect(commands[5]).toEqual({ code: 230, indent: 1, parameters: [10] });
-    expect(commands[6]).toEqual({ code: 402, indent: 0, parameters: [1] });
+    expect(commands[6]).toEqual({ code: 402, indent: 0, parameters: [1, "No"] });
     expect(commands[7]).toEqual({ code: 214, indent: 1, parameters: [] });
     expect(commands[8]).toEqual({ code: 403, indent: 0, parameters: [] });
     expect(commands[9]).toEqual({ code: 101, indent: 1, parameters: ["", 0, 0, 2] });

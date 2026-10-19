@@ -3,6 +3,7 @@ import type {
   CommonEventTrigger,
   DslCommand,
   EventPage,
+  AutonomousMovement,
   MapEventDefinition,
   MapPageTrigger,
   PageConditions,
@@ -72,10 +73,12 @@ export function page(input: {
   conditions?: PageConditions;
   trigger?: MapPageTrigger;
   commands: readonly DslCommand[];
+  movement?: AutonomousMovement;
 }): EventPage {
   return {
     conditions: input.conditions ?? {},
     trigger: input.trigger ?? "action",
     commands: input.commands,
+    ...(input.movement === undefined ? {} : { movement: input.movement }),
   };
 }
