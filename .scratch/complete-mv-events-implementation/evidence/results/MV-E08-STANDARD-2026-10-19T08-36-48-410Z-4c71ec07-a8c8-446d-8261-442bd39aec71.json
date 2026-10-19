@@ -1,0 +1,242 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-E08-STANDARD",
+  "runId": "2026-10-19T08-36-48-410Z-4c71ec07-a8c8-446d-8261-442bd39aec71",
+  "status": "passed",
+  "startedAt": "2026-10-19T08:35:05.718Z",
+  "completedAt": "2026-10-19T08:36:48.410Z",
+  "operator": "Codex ticket08 reverse-engineering analyst; bounded documentary review only",
+  "source": {
+    "revision": "c28c3ea217eb31577efc0cadf299448c8258d6af",
+    "fingerprint": "ff510cdfaf067a1b99a0ff9256d3c70741a0a3853c94a16fb2844f1a44cfa715",
+    "files": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+        "sha256": "529cd52082289febe91a6d7d49007fe4988fdf2a9fecf4101ee7e417519087f7"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-face-index-and-image-replacement-reverse.md",
+        "sha256": "378a0af0152c0223defb01d407cd2384a72f3ecfcf6d81fd2eacc3dde574c6dd"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-resource-identities.json",
+        "sha256": "848eca9eee546137e0bfa545eb698a701d4624c1717396c6ecb61d98fbeddc37"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/README.md",
+        "sha256": "59949c0a0130284d0a5b998da5173b9a25068d7fea1a1eea4e8abf6e225856e9"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+        "sha256": "50abc5dbb8ec50793c8bf3e6a26f91478722c5b2cea653f45506ca1bf51426e6"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/issues/08-native-face-index-behavior.md",
+        "sha256": "b44f8b2ba29234fcb044755d9a666e3c81d561e1fa5a5bbb3cbebb844f486b6a"
+      },
+      {
+        "path": ".scratch/complete-mv-events/issues/13-native-value-domain-boundaries.md",
+        "sha256": "82e2bf5ed877b4aded41a13000f74e4788b08d74d2425ef9f5e54b6fc9a9e841"
+      },
+      {
+        "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+        "sha256": "74053674f88965e086440da20505fc732f6b69c21ec6c3b465ce948774420f79"
+      },
+      {
+        "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+        "sha256": "08ac93c048c86f7edcc27c1ab8aac84301eb32c3f2e965331379f2cb5a714a7b"
+      },
+      {
+        "path": "docs/adr/0011-native-command-state-and-validation.md",
+        "sha256": "ba07e235d89dcc95c13d43cce5d757c95669bdc3a2169b34220e8a426d3840da"
+      },
+      {
+        "path": "docs/adr/0012-event-saved-state-roundtrip-boundary.md",
+        "sha256": "bf0360517532caaadad221a0479ba2dd1a4c26e4285a2891bf6708925e901528"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/mv-evidence.ts",
+        "sha256": "ae82454a6ba72ee174b81b5b3dd8b1f5c0875a18034ffff1b2219bd3e8db7b07"
+      }
+    ]
+  },
+  "fixture": {
+    "path": ".scratch/complete-mv-events-implementation/evidence/08-resource-identities.json",
+    "sha256": "848eca9eee546137e0bfa545eb698a701d4624c1717396c6ecb61d98fbeddc37"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "node": "v22.23.0",
+    "vitest": "not-executed for this documentary review; separate Windows/Node22 index check passed1 with2 excluded by name filter",
+    "typescript": "not-executed (documentary review)",
+    "package": "0.1.2",
+    "native": {
+      "method": "reverse-engineering",
+      "mv": "1.6.1 / FileVersion1.6.1.0 (reused historical PE self-report; identical EXE SHA256)",
+      "runtime": "not-executed",
+      "nwjs": "not-executed",
+      "tools": {
+        "resourceDecode": "Initial extraction/preview scan Node v24.14.0 fs/zlib/crypto; final recorder reverified original artifact, outer/compressed/decoded lengths, exact boundaries and SHA256",
+        "nativeAnalysis": "Read-only shipped QML and help review; no new native-disassembly session; historical PE Evidence ID is a provenance pointer, not fresh analysis",
+        "extractedCode": "not-executed",
+        "recorder": "C:/Users/Shuen/.codex/tmp/record-mv08.cjs; SHA256 615c7b12c5d470baf96046be43e3506300870a44f21b182d7a177e83dc32990b"
+      },
+      "artifacts": [
+        {
+          "path": "references/RPGMV/RPGMV.exe",
+          "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281"
+        },
+        {
+          "path": "references/RPGMV/Help/page/01_11_01.html",
+          "sha256": "cf1aa93ec2795b4e6fe5e9205451ff6c21d184758fab9b2fe029a057532b2cdf"
+        }
+      ]
+    }
+  },
+  "stages": [
+    "Verified selected editor QML resources and original first-party help identity without executing extracted code",
+    "Read E101/E322 construction/load/save and complete relevant FaceImageBox preview inheritance",
+    "Read child image dialog, file list, fixed-frame/dynamic-row mouse and keyboard selection, source-change timer and adjustment guards",
+    "Kept standard/third-row/one-row dimensions and extreme saved integers as independent synthetic examples, not actual native captures",
+    "Distinguished active two-row reset, inactive one-row skip, conditional None preservation, missing-file selection and unknown image/model timing",
+    "Compared accepted finite domain, independent None index, no asset scanning and warnings with authoritative13, ADR0011/0012, E101/E322 and specI6",
+    "Reviewed container-only serialization separately from child and parent confirmation; found no current domain conflict",
+    "Closed ticket08 bounded reverse-engineering prerequisite only; product comparison and actual game remain separate"
+  ],
+  "expected": "普通点击公式可分别产生0/7；有效格仍由当前尺寸决定; 有条件静态推导；没有实际图片/点击捕获",
+  "actual": {
+    "reviewInput": "合成576×288已加载，点击第一格及第二行末格内部",
+    "finding": "普通点击公式可分别产生0/7；有效格仍由当前尺寸决定",
+    "evidenceLevelAndLimit": "有条件静态推导；没有实际图片/点击捕获",
+    "artifactVerification": [
+      {
+        "path": "references/RPGMV/RPGMV.exe",
+        "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+        "resources": [
+          {
+            "name": "face-box",
+            "offset": 625536,
+            "sha256": "28e5ac99d832a6764a3073a4eca8c69e689e57e9fd3c46cff23050c7bc1caa00",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "image-selector-view",
+            "offset": 638194,
+            "sha256": "1d00d66ec8159738c77a866c7218d6219eb9d7cb1ecdcce7619abf7214670d9a",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "file-list",
+            "offset": 618109,
+            "sha256": "2cd5a2d9b73ad52c3ebdd45e1d4ab228fe6adc05e1644be90bc29ceda2d28c36",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "object-image-box",
+            "offset": 8723218,
+            "sha256": "c83f4c1884a4bf3cbbd5564e84bc9ae1677561a6d21421b13a0bdbd3f074808e",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "image-dialog",
+            "offset": 8787441,
+            "sha256": "07186f580840ab0cccaa2fdb5b22dec768f27b7d67ba804e07354096857c4b50",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "show-text",
+            "offset": 729658,
+            "sha256": "2577da93fb1bc923d0c2f1868cadfcee04deb3d625610ed6493b466114236425",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "actor-images",
+            "offset": 788887,
+            "sha256": "d65004b296d1ca2c912e2ffad250bfdfe663dad4be013814b0ec80ae66c6e046",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "base",
+            "offset": 686141,
+            "sha256": "740d0c01de598e2a55b58f67f975a30e2d3c8c96de36eb8ff15c3dd4d6ad2780",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "dialog",
+            "offset": 656916,
+            "sha256": "0152387fa661f0e67f45b989248c60142881526cda1f31898e29c0e03366fbf7",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "list",
+            "offset": 667573,
+            "sha256": "bbc1e26fa83771fc56581b1dc34ec762b3789444dacef76cb24334834e17e82c",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "picker",
+            "offset": 679418,
+            "sha256": "8e83b762134d12696649e6302adec9f40bbad7618b2c9cbff5ad945f005dd829",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "modal",
+            "offset": 878315,
+            "sha256": "875ac97ba5e20ab1a457399321e9621d3b56a698aaeeadc78c9584f3b69a970e",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "data",
+            "offset": 909009,
+            "sha256": "9ce1877d3eac47699a558ada219ec4f217dbc4f215531a7f65ccacd8169c4f93",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "image-box",
+            "offset": 832674,
+            "sha256": "511f12e57cb47c19ef0d87d71ddf466813f2ef25370fd6e420b7f4316f5abd47",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "image-clip",
+            "offset": 880199,
+            "sha256": "b6bb6de2e829edecda72e8b27cd5019355001b3a695019a76fb905b3c1316b95",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "labeled-image-box",
+            "offset": 8797197,
+            "sha256": "9a97a46f8b5b5dc91890a17a721ca027e9dda78976487992e088e4ef7b5e934f",
+            "status": "matched original source bytes"
+          }
+        ]
+      },
+      {
+        "path": "references/RPGMV/Help/page/01_11_01.html",
+        "sha256": "cf1aa93ec2795b4e6fe5e9205451ff6c21d184758fab9b2fe029a057532b2cdf",
+        "resources": []
+      }
+    ],
+    "reusedEvidence": [
+      {
+        "id": "ev_007ba386e622855bf771049084c3103afebbcc6b5d813f18c441f3ecf1d16d24",
+        "role": "Historical PE self-reported version pointer from03/parameter index; identical EXE hash freshly checked, no new native session"
+      }
+    ],
+    "rawFiles": [
+      {
+        "path": "C:/Users/Shuen/.codex/research-evidence/mv-editor-08-20261019/resource-manifest.json",
+        "sha256": "160536e02cfccabed3e3f2c46b7814733420a7e929c819133200bb47069f2261"
+      },
+      {
+        "path": "C:/Users/Shuen/.codex/research-evidence/mv-editor-08-20261019/preview-discovery-manifest.json",
+        "sha256": "18fa7632fe629d45e6f6f97c192f47b727c9a81080ecea5af8f10b6031992bef"
+      }
+    ],
+    "rawFirstPartyOutput": "C:/Users/Shuen/.codex/research-evidence/mv-editor-08-20261019/",
+    "reviewScope": "Passed means the stated bounded code-path facts, conditional inferences, residual timing limitations and accepted-contract consistency were reviewed. It does not pass the unexecuted UI outcome, ordinary picker creation of extremes, native disk save, product behavior, asset existence/dimensions or game display."
+  },
+  "difference": null
+}
