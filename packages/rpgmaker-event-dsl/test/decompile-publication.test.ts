@@ -107,10 +107,10 @@ it("MV-S4-DECOMPILE-001: checks existing Entry Identity without validating unrel
     const source = join(workspaceRoot, "src/existing.events.ts");
     const existing = (
       id: string,
-    ) => `import { commonEvent as define, rawDslCommand } from "rpgmaker-event-dsl";
+    ) => `import { commonEvent as define, rawDslCommand, nonexistentCommand as missingCommand } from "rpgmaker-event-dsl";
 const bad: number = "unrelated type error";
 const base = { id: ${id} };
-const value = define({ ...base, name: "Existing", trigger: "none", commands: [rawDslCommand({code:999,parameters:[],extra:true}), missingIdentifier] });
+const value = define({ ...base, name: "Existing", trigger: "none", commands: [rawDslCommand({code:999,parameters:[],extra:true}), missingIdentifier, missingCommand({})] });
 export { value as __proto__ };
 `;
     await writeFile(source, existing("1"));
@@ -119,6 +119,12 @@ export { value as __proto__ };
       /MV-DECOMPILE-IDENTITY.*commonEvent:1/s,
     );
     expect(await state(workspaceRoot)).toStrictEqual(before);
+    await writeFile(source, existing("missingCommand({})"));
+    const unknownIdentityBefore = await state(workspaceRoot);
+    await expect(decompileWorkspace({ workspaceRoot })).rejects.toThrow(
+      /MV-DECOMPILE-IDENTITY.*Unknown DSL helper nonexistentCommand/s,
+    );
+    expect(await state(workspaceRoot)).toStrictEqual(unknownIdentityBefore);
     await writeFile(source, existing("99"));
     await decompileWorkspace({ workspaceRoot });
     expect(

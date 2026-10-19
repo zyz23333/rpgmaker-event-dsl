@@ -63,10 +63,9 @@ export function definitionIdentities(filePath: string, text: string): string[] {
       else if (named)
         for (const element of named.elements)
           if (!element.isTypeOnly)
-            bindings.set(
-              element.name.text,
-              helper(element.propertyName?.text ?? element.name.text),
-            );
+            bindings.set(element.name.text, {
+              helper: element.propertyName?.text ?? element.name.text,
+            });
     } else if (ts.isVariableStatement(statement)) {
       if (!(statement.declarationList.flags & ts.NodeFlags.Const))
         fail("Only const bindings are supported.");
@@ -120,7 +119,7 @@ export function definitionIdentities(filePath: string, text: string): string[] {
       return fail(`Unresolved or cyclic binding ${name}.`);
     const value = bindings.get(name);
     if (value && typeof value === "object" && ("helper" in value || "object" in value))
-      return value;
+      return "helper" in value ? helper(value.helper) : value;
     resolving.add(name);
     try {
       const result = expression(value as ts.Expression);
