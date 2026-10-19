@@ -73,6 +73,17 @@ example project:
 
 https://github.com/zyz23333/rpgmaker-event-dsl
 
+Switch and variable references by ID accept unnamed slots within the final System
+capacity: the larger of Snapshot capacity and the highest DSL declaration ID.
+Removing a name retains that capacity; referencing an ID does not expand it.
+Switch and variable names resolve only from unique DSL declarations. Existing
+database entries with empty names remain referenceable by ID.
+
+`controlSwitches` ranges include both endpoints and reject reversed order.
+`controlSwitches` and `controlSelfSwitch` require an explicit Boolean `value`;
+self-switch letters are A–D. A Common Event called by a Map Event inherits its
+caller identity for self switches.
+
 ## License
 
 MIT

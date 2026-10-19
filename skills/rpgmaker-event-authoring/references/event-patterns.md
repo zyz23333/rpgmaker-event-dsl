@@ -45,10 +45,22 @@ Continuation commands are not standalone authoring units. Keep text continuation
 
 Use reference helpers instead of bare numeric IDs when referring to project data. Prefer `{ id: number }` when identity is known; use `{ name: string }` only when the Display Name resolves unambiguously.
 
+Switch and variable names resolve only from unique DSL declarations. Use explicit IDs
+for unnamed System slots within the larger of Snapshot capacity and the highest DSL
+declaration ID. A reference cannot expand capacity; removing a declaration clears its
+name while retaining Snapshot capacity. Existing database IDs remain valid with empty
+names. Author switch ranges in ascending order, including both endpoints, and give
+`controlSwitches` and `controlSelfSwitch` an explicit Boolean `value`. Self-switch
+letters are A–D; a Common Event called from a Map Event inherits the caller's identity.
+
 Use Asset Reference helpers for files, not Project Data Reference helpers. `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)` are no-scan filename-stem references; they do not validate that a file exists on disk.
 
 Use `script(...)` and `scriptInput(...)` for short RPG Maker MV JavaScript only when the Workspace Script Command Gate allows it and ordinary event commands are not enough. The gate also applies to Conditional Branch script conditions, Control Variables script operands, and Set Movement Route script subcommands.
 
 Use `pluginCommand(...)` only when the plugin command is grounded in user intent, existing project usage, or plugin documentation. The DSL models MV's native plugin command string; plugin-specific argument schemas are outside this helper's validation boundary.
 
-Use `rawDslCommand(...)` only for confirmed raw RPG Maker MV behavior that intentionally remains an escape hatch, such as malformed decompile fallback or non-editor/custom data. Confirm the command code, parameters, and indentation from project data, decompiled source,nearby examples, or reliable MV command mapping. Do not invent raw command shapes.
+Use `rawDslCommand(...)` for a genuinely unknown command with a valid record envelope
+and surrounding structure. Recognized native parameters and references retain their
+normal validation; report malformed known commands instead of using raw as a fallback.
+Confirm code, parameters, and indentation from project data, Decompiled Source, nearby
+examples, or reliable MV command mapping.

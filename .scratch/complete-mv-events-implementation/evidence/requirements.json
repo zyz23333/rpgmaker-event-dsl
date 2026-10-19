@@ -673,6 +673,256 @@
       },
       "slice": "02 / S0",
       "required": true
+    },
+    {
+      "id": "MV-S3-SLOTS-001",
+      "title": "preserves unnamed System capacity through real Workspace roundtrip and name removal",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/11-system-capacity-and-unnamed-references.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E123 — Control Self Switch"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Extend names to switch5/variable4, Push, remove names, compile unnamed variable4/item1 references, Push again.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-slots-project.json",
+        "sha256": "eae9d3c30c431a9a66a2af6e822100309da6920f794ba34b84fea15566bdde38"
+      },
+      "expected": "Complete original System/CommonEvents roundtrip; name removal keeps5/4 capacity, external empty-name item1 survives, both Push operations refresh Snapshot and leave Diff clean.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-slots.test.ts",
+        "name": "MV-S3-SLOTS-001: preserves unnamed System capacity through real Workspace roundtrip and name removal"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; ordinary suite independent of local MV installation",
+        "owner": "Automated runner; Codex ticket11 implementer",
+        "layer": "Real temporary Workspace discovery/evaluation/filesystem and staged validation boundaries"
+      },
+      "slice": "11 / S3",
+      "required": true
+    },
+    {
+      "id": "MV-S3-SLOTS-002",
+      "title": "separates actual empty-name IDs, unnamed slots and DSL-only name resolution",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/11-system-capacity-and-unnamed-references.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E123 — Control Self Switch"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Actual empty-name item1, System switch capacity3/variable capacity2, unresolved Snapshot name and duplicate DSL name.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-slots-project.json",
+        "sha256": "eae9d3c30c431a9a66a2af6e822100309da6920f794ba34b84fea15566bdde38"
+      },
+      "expected": "Unnamed IDs inside capacity and actual item1 pass; IDs outside capacity, missing item2, Snapshot-only names and ambiguous DSL names fail without reference-driven expansion.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-slots.test.ts",
+        "name": "MV-S3-SLOTS-002: separates actual empty-name IDs, unnamed slots and DSL-only name resolution"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; ordinary suite independent of local MV installation",
+        "owner": "Automated runner; Codex ticket11 implementer",
+        "layer": "Real temporary Workspace discovery/evaluation/filesystem and staged validation boundaries"
+      },
+      "slice": "11 / S3",
+      "required": true
+    },
+    {
+      "id": "MV-S3-SWITCH-001",
+      "title": "validates formal and recognized raw switch commands without normalizing malformed native input",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/11-system-capacity-and-unnamed-references.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E123 — Control Self Switch"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent E121 range1..3 ON then2 OFF and all A-D ON/OFF, with malformed arity/value/letter/range/ID controls.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-slots-project.json",
+        "sha256": "eae9d3c30c431a9a66a2af6e822100309da6920f794ba34b84fea15566bdde38"
+      },
+      "expected": "Formal and recognized raw compile to the complete independent list; malformed native records fail validation and decompilation rather than falling back or reordering.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-slots.test.ts",
+        "name": "MV-S3-SWITCH-001: validates formal and recognized raw switch commands without normalizing malformed native input"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; ordinary suite independent of local MV installation",
+        "owner": "Automated runner; Codex ticket11 implementer",
+        "layer": "Real temporary Workspace discovery/evaluation/filesystem and staged validation boundaries"
+      },
+      "slice": "11 / S3",
+      "required": true
+    },
+    {
+      "id": "MV-S3-SLOTS-003",
+      "title": "rejects missing native switch references before publishing Decompiled Source",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/11-system-capacity-and-unnamed-references.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E123 — Control Self Switch"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Native Common Event E121 range1..3 against Snapshot capacity1, with existing user.events.ts.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Missing fixed switch3 rejects Decompile; source and Discovery contents, Project CommonEvents, Snapshot and manifest stay unchanged.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-slots.test.ts",
+        "name": "MV-S3-SLOTS-003: rejects missing native switch references before publishing Decompiled Source"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; ordinary suite independent of local MV installation",
+        "owner": "Automated runner; Codex ticket11 implementer",
+        "layer": "Real temporary Workspace discovery/evaluation/filesystem and staged validation boundaries"
+      },
+      "slice": "11 / S3",
+      "required": true
+    },
+    {
+      "id": "MV-R1-SWITCH-011",
+      "title": "Native direct and Map-called Common switch execution matches compiled output",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/11-system-capacity-and-unnamed-references.md",
+          "section": "## Scope"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E123 — Control Self Switch"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A6",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Four fresh actual MV boots: independent literal versus real Workspace-compiled list, each direct eventId1 and native117 Common Event call. All A-D ON/OFF and121 inclusive1..3 ON then2 OFF.",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/11-switch-expected.json",
+        "sha256": "2d661983356996e83ca1299a5397736a901a750e975e760041eb3ae446d6cf48"
+      },
+      "expected": "Each direct run observes all11 literal per-command states, and each Common call ends with switches[true,false,true,false], self-switches[false,false,false,false] and terminated interpreter. Literal and compiled observations agree.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/11-system-slots-and-native-switches.md",
+        "section": "## Native game execution"
+      },
+      "nativeGroups": [
+        "R1"
+      ],
+      "execution": {
+        "environment": "Windows; actual MV1.6.1 / NW.js0.29.0 / Chromium65 / embedded Node9.7.1",
+        "owner": "Codex ticket11 implementer /root/ticket_02",
+        "layer": "Actual native Scene_Map and Game_Interpreter; original observation-only harness"
+      },
+      "slice": "11 / S3 / bounded R1",
+      "required": true
     }
   ]
 }
