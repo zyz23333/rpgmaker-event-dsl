@@ -10,7 +10,7 @@ import type {
 } from "../domain/types.js";
 import { audioAssetFolders, createReference, imageAssetFolders } from "../domain/references.js";
 import { assertIncluded, assertNonEmptyString } from "./shared.js";
-import { assertRawDslInput } from "../validation/dsl-command-inputs.js";
+import { assertDslObject, assertRawDslInput } from "../validation/dsl-command-inputs.js";
 
 export function rawDslCommand(input: {
   code: number;
@@ -44,6 +44,7 @@ export function audioAsset(input: { folder: AudioAssetFolder; name: string }): A
 }
 
 export function imageAsset(input: { folder: ImageAssetFolder; name: string }): ImageAssetReference {
+  assertDslObject(input, ["folder", "name"], "imageAsset");
   assertIncluded(imageAssetFolders, input.folder, "image asset folder");
   assertNonEmptyString(input.name, "Image asset name");
 

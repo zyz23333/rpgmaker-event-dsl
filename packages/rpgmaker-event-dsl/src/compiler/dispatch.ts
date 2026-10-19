@@ -1,6 +1,8 @@
 import type { CommonEventDefinition, DslCommand } from "../domain/types.js";
 import type { ReferenceResolver } from "../validation/types.js";
 import type { RawEventCommand, CommandOrigins } from "./types.js";
+import { compileShowText } from "../commands/message/compile.js";
+import { resolveMessageVariable } from "../commands/message/validation.js";
 import { assertDslCommandList } from "../validation/dsl-command-inputs.js";
 import {
   resolveCommonEventCall,
@@ -124,43 +126,43 @@ export function compileNodes(
     const outputStart = output.length;
     switch (node.kind) {
       case "showText":
-        output.push({
-          code: 101,
-          indent,
-          parameters: [
-            node.face?.image.name ?? "",
-            node.face?.index ?? 0,
-            node.background ?? 0,
-            node.positionType ?? 2,
-          ],
-        });
-        for (const line of node.lines) {
-          output.push({
-            code: 401,
-            indent,
-            parameters: [line],
-          });
-        }
+        output.push(...compileShowText(node, indent));
         break;
       case "inputNumber":
         output.push({
           code: 103,
           indent,
-          parameters: [resolver.resolveReference(node.variable), node.digits],
+          parameters: [
+            resolveMessageVariable(
+              node.variable,
+              103,
+              resolver,
+              `${sourcePath}[${nodeIndex}].variable`,
+            ),
+            node.digits,
+          ],
         });
         break;
       case "selectItem":
         output.push({
           code: 104,
           indent,
-          parameters: [resolver.resolveReference(node.variable), node.itemType ?? 2],
+          parameters: [
+            resolveMessageVariable(
+              node.variable,
+              104,
+              resolver,
+              `${sourcePath}[${nodeIndex}].variable`,
+            ),
+            { regular: 1, key: 2, hiddenA: 3, hiddenB: 4 }[node.itemType],
+          ],
         });
         break;
       case "showScrollingText":
         output.push({
           code: 105,
           indent,
-          parameters: [node.speed ?? 2, node.noFastForward ?? false],
+          parameters: [node.speed, node.noFastForward],
         });
         for (const line of node.lines) {
           output.push({

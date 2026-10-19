@@ -441,3 +441,13 @@ Ticket24 adds [complete Map Event pages and exact saved state](24-map-event-full
 
 | MV-S5-COMMON-CARRIER-BOUNDARY | Reject missing or nonnull Common reserved slot0 and preserve ordinary null-only carrier | synthetic-rejection | Actual public Workspace native carrier boundary |
 | MV-S5-COMMON-TRIGGER-BOUNDARY | Reject categorical Common trigger negative zero with exact diagnostic and unchanged complete business state | synthetic-rejection | Actual public Workspace native carrier boundary |
+
+Ticket29 adds focused synthetic message delivery checks; its E5/E6 reverse-engineering product comparisons and R6 actual game delivery remain separate and pending.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-MESSAGE-001 | Exact messages in complete Map/Common/Troop through discovered source and edited Push | synthetic-support | Actual source/built Workspace API and independent complete state |
+| MV-S6-MESSAGE-002 | Authored helper-before-copy, forged known messages and stale Push preserve complete business state | synthetic-rejection | Actual source/built Workspace API and independent complete state |
+| MV-S6-MESSAGE-003 | Invalid native physical records fail before publishing any generated source in every carrier | synthetic-rejection | Actual source/built Workspace API and independent complete state |
+| MV-S6-MESSAGE-004 | Actual TypeScript source rejects missing required settings and removed positional/numeric forms | synthetic-rejection | Actual source/built Workspace API and independent complete state |
+| MV-S6-MESSAGE-005 | Complete message value domains and exact saved fields through public compiler/decompiler and Staged Data Graph | synthetic-support | Public authoring/compiler/decompiler/Staged Data Graph |

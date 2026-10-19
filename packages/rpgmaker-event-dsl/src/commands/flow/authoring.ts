@@ -17,6 +17,7 @@ import type {
 import { isScriptInput } from "../../domain/references.js";
 import { scriptInput } from "../../authoring/references.js";
 import { assertCommonEventCall } from "./validation.js";
+import { assertComment } from "../message/validation.js";
 
 export function conditional(input: {
   condition: ConditionalBranchCondition;
@@ -63,8 +64,9 @@ export function jumpToLabel(name: string): JumpToLabelDslCommand {
   return { kind: "jumpToLabel", name };
 }
 
-export function comment(lines: readonly [string, ...string[]]): CommentDslCommand {
-  return { kind: "comment", lines };
+export function comment(input: Omit<CommentDslCommand, "kind">): CommentDslCommand {
+  assertComment(input, "comment", false);
+  return { kind: "comment", lines: input.lines };
 }
 
 export function script(input: { code: string } | ScriptInput): ScriptDslCommand {

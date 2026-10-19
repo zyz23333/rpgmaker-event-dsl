@@ -287,9 +287,10 @@ describe("decompiler command list rendering", () => {
       ]),
     ).toEqual({
       helperNames: ["comment", "showText"],
-      source: ['showText({ lines: ["Hello","World"] }),', 'comment(["First","Second"]),'].join(
-        "\n",
-      ),
+      source: [
+        'showText({ lines: ["Hello","World"], face: { image: null, index: 0 }, background: "window", position: "bottom" }),',
+        'comment({ lines: ["First","Second"] }),',
+      ].join("\n"),
     });
   });
 
@@ -326,10 +327,10 @@ describe("decompiler command list rendering", () => {
         "wait",
       ],
       source: [
-        'showText({ lines: ["Hello"], face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 2 }, background: 1, positionType: 0 }),',
-        'showChoices({ choices: ["Yes","No"], branches: [[wait(10),], [eraseEvent(),]], cancelType: -2, cancelBranch: [showText({ lines: ["Canceled"] }),] }),',
+        'showText({ lines: ["Hello"], face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 2 }, background: "dim", position: "top" }),',
+        'showChoices({ choices: ["Yes","No"], branches: [[wait(10),], [eraseEvent(),]], cancelType: -2, cancelBranch: [showText({ lines: ["Canceled"], face: { image: null, index: 0 }, background: "window", position: "bottom" }),] }),',
         "inputNumber({ variable: variableRef({ id: 3 }), digits: 4 }),",
-        "selectItem({ variable: variableRef({ id: 3 }), itemType: 1 }),",
+        'selectItem({ variable: variableRef({ id: 3 }), itemType: "regular" }),',
         'showScrollingText({ lines: ["Scroll","More"], speed: 5, noFastForward: true }),',
       ].join("\n"),
     });

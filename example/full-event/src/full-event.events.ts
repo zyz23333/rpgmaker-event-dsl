@@ -84,7 +84,14 @@ export const trainingBattle = troopEvent({
     battlePage({
       conditions: { turn: { enabled: true, a: 0, b: 0 } },
       span: "battle",
-      commands: [showText({ lines: ["The training battle begins."] })],
+      commands: [
+        showText({
+          lines: ["The training battle begins."],
+          face: { image: null, index: 0 },
+          background: "window",
+          position: "bottom",
+        }),
+      ],
     }),
   ],
 });
@@ -138,19 +145,33 @@ const batTroop = troopRef({ id: 1 });
 const heroActor = actorRef({ id: 1 });
 const attackSkill = skillRef({ id: 1 });
 const poisonState = stateRef({ id: 4 });
-const currentEvent = { kind: "runtimeSelector", scope: "character", target: "currentEvent" } as const;
+const currentEvent = {
+  kind: "runtimeSelector",
+  scope: "character",
+  target: "currentEvent",
+} as const;
 const playerCharacter = { kind: "runtimeSelector", scope: "character", target: "player" } as const;
 const entireParty = { kind: "runtimeSelector", scope: "actor", target: "entireParty" } as const;
 const firstEnemy = { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 } as const;
 const allEnemies = { kind: "runtimeSelector", scope: "enemy", target: "all" } as const;
-const heroBattler = { kind: "runtimeSelector", scope: "battler", target: "actor", actorId: 1 } as const;
+const heroBattler = {
+  kind: "runtimeSelector",
+  scope: "battler",
+  target: "actor",
+  actorId: 1,
+} as const;
 
 export const sampleCommonEventDefinition = commonEvent({
   id: 1,
   name: "Sample Common Event",
   trigger: "none",
   commands: [
-    showText({ lines: ["This line came from a Common Event defined in the same DSL workspace."] }),
+    showText({
+      lines: ["This line came from a Common Event defined in the same DSL workspace."],
+      face: { image: null, index: 0 },
+      background: "window",
+      position: "bottom",
+    }),
     controlVariables({
       variable: visitCountVariable,
       operation: "add",
@@ -168,14 +189,20 @@ export const guideEvent = mapEvent({
   pages: [
     page({
       commands: [
-        comment(["Visible entry point for the full-event sample workspace."]),
+        comment({ lines: ["Visible entry point for the full-event sample workspace."] }),
         showText({
-          lines: ["Event DSL sample", "Talk to nearby events to try representative command families."],
+          lines: [
+            "Event DSL sample",
+            "Talk to nearby events to try representative command families.",
+          ],
           face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 0 },
+          background: "window",
+          position: "bottom",
         }),
         showScrollingText({
           lines: ["The DSL helper surface covers RPG Maker MV 1.6.1 editor command families."],
           speed: 3,
+          noFastForward: false,
         }),
         controlSwitches({
           switch: tourStartedSwitch,
@@ -192,7 +219,7 @@ export const guideEvent = mapEvent({
         }),
         selectItem({
           variable: selectedItemVariable,
-          itemType: 1,
+          itemType: "regular",
         }),
         conditional({
           condition: {
@@ -200,20 +227,48 @@ export const guideEvent = mapEvent({
             switch: chestOpenedSwitch,
             value: true,
           },
-          then: [showText({ lines: ["The reward chest has already been opened."] })],
-          else: [showText({ lines: ["The reward chest is still waiting."] })],
+          then: [
+            showText({
+              lines: ["The reward chest has already been opened."],
+              face: { image: null, index: 0 },
+              background: "window",
+              position: "bottom",
+            }),
+          ],
+          else: [
+            showText({
+              lines: ["The reward chest is still waiting."],
+              face: { image: null, index: 0 },
+              background: "window",
+              position: "bottom",
+            }),
+          ],
         }),
         conditional({
           condition: {
             kind: "script",
             script: scriptInput({ code: "$gameParty.gold() >= 0" }),
           },
-          then: [showText({ lines: ["Script conditions are explicit Script Inputs."] })],
+          then: [
+            showText({
+              lines: ["Script conditions are explicit Script Inputs."],
+              face: { image: null, index: 0 },
+              background: "window",
+              position: "bottom",
+            }),
+          ],
         }),
         showChoices({
           choices: ["Call common event", "Stop here"],
           branches: [[callCommonEvent(sampleCommonEvent)], [exitEvent()]],
-          cancelBranch: [showText({ lines: ["Canceled."] })],
+          cancelBranch: [
+            showText({
+              lines: ["Canceled."],
+              face: { image: null, index: 0 },
+              background: "window",
+              position: "bottom",
+            }),
+          ],
         }),
         wait(15),
       ],
@@ -232,12 +287,26 @@ export const rewardChestEvent = mapEvent({
       conditions: {
         selfSwitch: { enabled: true, value: "A" },
       },
-      commands: [showText({ lines: ["The chest is empty."] })],
+      commands: [
+        showText({
+          lines: ["The chest is empty."],
+          face: { image: null, index: 0 },
+          background: "window",
+          position: "bottom",
+        }),
+      ],
     }),
     page({
       commands: [
-        comment(["Reward chest demonstrates items, gold, variables, and self switches."]),
-        showText({ lines: ["You found a DSL reward chest."] }),
+        comment({
+          lines: ["Reward chest demonstrates items, gold, variables, and self switches."],
+        }),
+        showText({
+          lines: ["You found a DSL reward chest."],
+          face: { image: null, index: 0 },
+          background: "window",
+          position: "bottom",
+        }),
         changeGold({
           operation: "gain",
           value: 100,
@@ -282,9 +351,24 @@ export const practiceBattleEvent = mapEvent({
   pages: [
     page({
       commands: [
-        comment(["Battle, shop, actor, enemy, plugin command, script, and raw command sample."]),
-        showText({ lines: ["Practice station", "This event exercises several command families."] }),
-        loop([showText({ lines: ["Loop body runs once, then breaks."] }), breakLoop()]),
+        comment({
+          lines: ["Battle, shop, actor, enemy, plugin command, script, and raw command sample."],
+        }),
+        showText({
+          lines: ["Practice station", "This event exercises several command families."],
+          face: { image: null, index: 0 },
+          background: "window",
+          position: "bottom",
+        }),
+        loop([
+          showText({
+            lines: ["Loop body runs once, then breaks."],
+            face: { image: null, index: 0 },
+            background: "window",
+            position: "bottom",
+          }),
+          breakLoop(),
+        ]),
         changeHp({
           target: entireParty,
           operation: "gain",
@@ -299,9 +383,30 @@ export const practiceBattleEvent = mapEvent({
           troop: batTroop,
           canEscape: true,
           canLose: true,
-          win: [showText({ lines: ["Battle branch: win."] })],
-          escape: [showText({ lines: ["Battle branch: escape."] })],
-          lose: [showText({ lines: ["Battle branch: lose."] })],
+          win: [
+            showText({
+              lines: ["Battle branch: win."],
+              face: { image: null, index: 0 },
+              background: "window",
+              position: "bottom",
+            }),
+          ],
+          escape: [
+            showText({
+              lines: ["Battle branch: escape."],
+              face: { image: null, index: 0 },
+              background: "window",
+              position: "bottom",
+            }),
+          ],
+          lose: [
+            showText({
+              lines: ["Battle branch: lose."],
+              face: { image: null, index: 0 },
+              background: "window",
+              position: "bottom",
+            }),
+          ],
         }),
         changeEnemyHp({
           target: allEnemies,
@@ -347,7 +452,15 @@ export const presentationStationEvent = mapEvent({
   pages: [
     page({
       commands: [
-        showText({ lines: ["Presentation station", "This event uses screen, audio, picture, and map helpers."] }),
+        showText({
+          lines: [
+            "Presentation station",
+            "This event uses screen, audio, picture, and map helpers.",
+          ],
+          face: { image: null, index: 0 },
+          background: "window",
+          position: "bottom",
+        }),
         changeBattleBgm({
           audio: { asset: audioAsset({ folder: "bgm", name: "Battle1" }), volume: 80 },
         }),
@@ -414,11 +527,26 @@ export const labelDemoEvent = mapEvent({
   pages: [
     page({
       commands: [
-        showText({ lines: ["Label demo", "This event jumps over one message, then continues."] }),
+        showText({
+          lines: ["Label demo", "This event jumps over one message, then continues."],
+          face: { image: null, index: 0 },
+          background: "window",
+          position: "bottom",
+        }),
         jumpToLabel("AfterSkippedLine"),
-        showText({ lines: ["You should not see this skipped line."] }),
+        showText({
+          lines: ["You should not see this skipped line."],
+          face: { image: null, index: 0 },
+          background: "window",
+          position: "bottom",
+        }),
         label("AfterSkippedLine"),
-        showText({ lines: ["Jump target reached."] }),
+        showText({
+          lines: ["Jump target reached."],
+          face: { image: null, index: 0 },
+          background: "window",
+          position: "bottom",
+        }),
       ],
     }),
   ],
@@ -439,7 +567,12 @@ export const movementStationEvent = mapEvent({
         route: { commands: [{ kind: "turnDown" }], repeat: false },
       },
       commands: [
-        showText({ lines: ["Movement station", "This event uses route and character helpers."] }),
+        showText({
+          lines: ["Movement station", "This event uses route and character helpers."],
+          face: { image: null, index: 0 },
+          background: "window",
+          position: "bottom",
+        }),
         setEventLocation({
           character: currentEvent,
           destination: { kind: "direct", x: 11, y: 7 },
@@ -447,16 +580,17 @@ export const movementStationEvent = mapEvent({
         }),
         setMovementRoute({
           target: currentEvent,
-          route: { commands: [
-            { kind: "turnDown" },
-            { kind: "moveForward" },
-            { kind: "routeWait", frames: 10 },
-            { kind: "switchOn", switch: sampleRouteCompleteSwitch },
-            { kind: "playSe", audio: { asset: audioAsset({ folder: "se", name: "Cursor2" }) } },
-            { kind: "script", script: scriptInput({ code: "this.turnTowardPlayer();" }) },
-          ],
-          skippable: true,
-          wait: true,
+          route: {
+            commands: [
+              { kind: "turnDown" },
+              { kind: "moveForward" },
+              { kind: "routeWait", frames: 10 },
+              { kind: "switchOn", switch: sampleRouteCompleteSwitch },
+              { kind: "playSe", audio: { asset: audioAsset({ folder: "se", name: "Cursor2" }) } },
+              { kind: "script", script: scriptInput({ code: "this.turnTowardPlayer();" }) },
+            ],
+            skippable: true,
+            wait: true,
           },
         }),
         showBalloonIcon({
@@ -489,7 +623,12 @@ export const partyStateStationEvent = mapEvent({
   pages: [
     page({
       commands: [
-        showText({ lines: ["Party state station", "This event touches party, actor, and enemy helpers."] }),
+        showText({
+          lines: ["Party state station", "This event touches party, actor, and enemy helpers."],
+          face: { image: null, index: 0 },
+          background: "window",
+          position: "bottom",
+        }),
         changePartyMember({
           actor: heroActor,
           operation: "add",
@@ -501,8 +640,22 @@ export const partyStateStationEvent = mapEvent({
             actor: heroActor,
             check: { kind: "state", state: poisonState },
           },
-          then: [showText({ lines: ["The hero is poisoned."] })],
-          else: [showText({ lines: ["The hero is not poisoned."] })],
+          then: [
+            showText({
+              lines: ["The hero is poisoned."],
+              face: { image: null, index: 0 },
+              background: "window",
+              position: "bottom",
+            }),
+          ],
+          else: [
+            showText({
+              lines: ["The hero is not poisoned."],
+              face: { image: null, index: 0 },
+              background: "window",
+              position: "bottom",
+            }),
+          ],
         }),
         conditional({
           condition: {
@@ -524,7 +677,14 @@ export const partyStateStationEvent = mapEvent({
             kind: "item",
             item: potion,
           },
-          then: [showText({ lines: ["The party has at least one potion."] })],
+          then: [
+            showText({
+              lines: ["The party has at least one potion."],
+              face: { image: null, index: 0 },
+              background: "window",
+              position: "bottom",
+            }),
+          ],
         }),
         controlTimer({ action: "start", seconds: 30 }),
         controlTimer({ action: "stop" }),
