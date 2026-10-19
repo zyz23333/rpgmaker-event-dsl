@@ -61,6 +61,32 @@ export function inspectNativeCommandInputs(
   for (const [index, command] of commands.entries()) {
     const path = `${options.prefix ?? ""}list[${index}]`;
     const origin = options.origins?.get(command);
+    if (command.code === 102) {
+      const count = (command.parameters[0] as unknown[]).length;
+      for (const slot of [1, 2]) {
+        const value = command.parameters[slot] as number;
+        if (value >= count)
+          issues.push({
+            code: "MV-CHOICE-INDEX",
+            level: "warning",
+            stage: options.stage,
+            identity: options.identity,
+            nativePath: `${path}.parameters[${slot}]`,
+            ...(origin
+              ? {
+                  dslPath:
+                    origin.path +
+                    (origin.kind === "rawDslCommand"
+                      ? `.parameters[${slot}]`
+                      : `.${slot === 1 ? "cancel" : "defaultChoice"}.index`),
+                }
+              : {}),
+            expected: `choice index below ${count}`,
+            actual: String(value),
+            message: `${options.stage} warning ${options.identity}: MV-CHOICE-INDEX at ${path}.parameters[${slot}]: saved choice index ${value} has no current choice and is preserved.`,
+          });
+      }
+    }
     if (!isKnownCommandCode(command.code))
       issues.push({
         code: "MV-UNKNOWN-COMMAND",

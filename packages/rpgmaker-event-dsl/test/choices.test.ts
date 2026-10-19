@@ -1,0 +1,548 @@
+import { expect, it } from "vitest";
+import {
+  commonEvent,
+  rawDslCommand,
+  showChoices,
+  wait,
+  script,
+  callCommonEvent,
+  commonEventRef,
+} from "../src/index.js";
+import {
+  buildStagedDataGraph,
+  validateDslOwnedDeclarations,
+} from "../src/validation/staged-graph.js";
+import { compileCommonEvent } from "../src/compiler/events.js";
+import { renderDecompiledCommandList } from "../src/decompiler/dispatch.js";
+import type { RawEventCommand } from "../src/compiler/types.js";
+
+const nativeChoices: RawEventCommand[] = [
+  { code: 102, indent: 0, parameters: [["one", "two"], 1, 0, 2, 0] },
+  { code: 402, indent: 0, parameters: [0, "one"] },
+  { code: 0, indent: 1, parameters: [] },
+  { code: 402, indent: 0, parameters: [1, "two"] },
+  { code: 0, indent: 1, parameters: [] },
+  { code: 404, indent: 0, parameters: [] },
+  { code: 0, indent: 0, parameters: [] },
+];
+
+it.each([
+  { index: 0, warn: false },
+  { index: 1, warn: false },
+  { index: 2, warn: true },
+  { index: 3, warn: true },
+  { index: 4, warn: true },
+  { index: 5, warn: true },
+])(
+  "preserves saved default and cancel index $index independently of the current two choices",
+  ({ index, warn }) => {
+    const command = showChoices({
+      choices: [
+        { text: "one", commands: [] },
+        { text: "two", commands: [] },
+      ],
+      defaultChoice: { kind: "choice", index },
+      cancel: { kind: "choice", index },
+    });
+    const event = commonEvent({
+      id: 1,
+      name: "Saved positions",
+      trigger: "none",
+      commands: [command],
+    });
+    const expected = structuredClone(nativeChoices);
+    expected[0]!.parameters = [["one", "two"], index, index, 2, 0];
+    expect(
+      compileCommonEvent(event, {
+        nextId: 1,
+        resolver: buildStagedDataGraph({ declarations: [] }).resolver,
+      }).list,
+    ).toStrictEqual(expected);
+    const issues = validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues;
+    expect(issues.filter((issue) => issue.level === "error")).toEqual([]);
+    expect(
+      issues.filter((issue) => issue.code === "MV-CHOICE-INDEX").map((issue) => issue.nativePath),
+    ).toEqual(warn ? ["list[0].parameters[1]", "list[0].parameters[2]"] : []);
+    expect(renderDecompiledCommandList(expected).source).not.toContain('kind: "branch"');
+  },
+);
+
+it.each([
+  { position: "left", background: "window", native: [0, 0] },
+  { position: "center", background: "dim", native: [1, 1] },
+  { position: "right", background: "transparent", native: [2, 2] },
+] as const)(
+  "preserves named $position/$background modes and the none/disabled states",
+  ({ position, background, native }) => {
+    const event = commonEvent({
+      id: 1,
+      name: "Named modes",
+      trigger: "none",
+      commands: [
+        showChoices({
+          choices: [{ text: "", commands: [] }],
+          defaultChoice: { kind: "none" },
+          cancel: { kind: "disabled" },
+          position,
+          background,
+        }),
+      ],
+    });
+    expect(
+      compileCommonEvent(event, {
+        nextId: 1,
+        resolver: buildStagedDataGraph({ declarations: [] }).resolver,
+      }).list,
+    ).toStrictEqual([
+      { code: 102, indent: 0, parameters: [[""], -1, -1, ...native] },
+      { code: 402, indent: 0, parameters: [0, ""] },
+      { code: 0, indent: 1, parameters: [] },
+      { code: 404, indent: 0, parameters: [] },
+      { code: 0, indent: 0, parameters: [] },
+    ]);
+  },
+);
+
+it("keeps a valid nested raw body's marker separate from its formal owner", () => {
+  const event = commonEvent({
+    id: 1,
+    name: "Nested raw",
+    trigger: "none",
+    commands: [
+      showChoices({
+        choices: [
+          {
+            text: "",
+            commands: [
+              rawDslCommand({ code: 112, parameters: [] }),
+              rawDslCommand({ code: 113, indent: 2, parameters: [] }),
+              rawDslCommand({ code: 0, indent: 2, parameters: [] }),
+              rawDslCommand({ code: 413, parameters: [] }),
+            ],
+            endMarker: "absent",
+          },
+        ],
+        cancel: { kind: "branch", commands: [wait(1)], endMarker: "absent" },
+      }),
+    ],
+  });
+  const expected = [
+    { code: 102, indent: 0, parameters: [[""], -2, 0, 2, 0] },
+    { code: 402, indent: 0, parameters: [0, ""] },
+    { code: 112, indent: 1, parameters: [] },
+    { code: 113, indent: 2, parameters: [] },
+    { code: 0, indent: 2, parameters: [] },
+    { code: 413, indent: 1, parameters: [] },
+    { code: 403, indent: 0, parameters: [6, null] },
+    { code: 230, indent: 1, parameters: [1] },
+    { code: 404, indent: 0, parameters: [] },
+    { code: 0, indent: 0, parameters: [] },
+  ];
+  expect(
+    compileCommonEvent(event, {
+      nextId: 1,
+      resolver: buildStagedDataGraph({ declarations: [] }).resolver,
+    }).list,
+  ).toStrictEqual(expected);
+  expect(renderDecompiledCommandList(expected).helperNames).toEqual([
+    "breakLoop",
+    "loop",
+    "showChoices",
+    "wait",
+  ]);
+});
+
+it("visits unreachable choice and cancel bodies for references and Script Command Gate", () => {
+  const event = commonEvent({
+    id: 1,
+    name: "Recursive checks",
+    trigger: "none",
+    commands: [
+      showChoices({
+        choices: [{ text: "", commands: [script({ code: "" })] }],
+        cancel: {
+          kind: "branch",
+          commands: [callCommonEvent({ commonEvent: commonEventRef({ id: 1 }) })],
+        },
+      }),
+    ],
+  });
+  const issues = validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues;
+  expect(issues).toContainEqual(
+    expect.objectContaining({
+      code: "MV-SCRIPT-GATE",
+      dslPath: "commands[0].choices[0].commands[0].script.code",
+      nativePath: "list[2].parameters[0]",
+    }),
+  );
+  const missing = commonEvent({
+    id: 1,
+    name: "Missing recursive reference",
+    trigger: "none",
+    commands: [
+      showChoices({
+        choices: [{ text: "", commands: [] }],
+        cancel: {
+          kind: "branch",
+          commands: [callCommonEvent({ commonEvent: commonEventRef({ id: 99 }) })],
+        },
+      }),
+    ],
+  });
+  expect(validateDslOwnedDeclarations([missing], { scriptEnabled: true }).issues).toContainEqual(
+    expect.objectContaining({
+      code: "MV-E117-REFERENCE",
+      dslPath: "commands[0].cancel.commands[0].commonEvent",
+    }),
+  );
+});
+
+it.each([
+  {
+    name: "ordinal negative zero",
+    edit: (list: RawEventCommand[]) => {
+      list[1]!.parameters[0] = -0;
+    },
+    code: "MV-COMMAND-PARAMETERS",
+    path: "list[1].parameters[0]",
+  },
+  {
+    name: "mirror text",
+    edit: (list: RawEventCommand[]) => {
+      list[1]!.parameters[1] = "different";
+    },
+    code: "MV-CHOICE-MIRROR",
+    path: "list[1].parameters",
+  },
+  {
+    name: "missing branch",
+    edit: (list: RawEventCommand[]) => {
+      list.splice(3, 2);
+    },
+    code: "MV-CHOICE-MIRROR",
+    path: "list[3]",
+  },
+  {
+    name: "empty missing marker",
+    edit: (list: RawEventCommand[]) => {
+      list.splice(2, 1);
+    },
+    code: "MV-CHILD-BODY",
+    path: "list[2]",
+  },
+  {
+    name: "missing close",
+    edit: (list: RawEventCommand[]) => {
+      list.splice(5, 1);
+    },
+    code: "MV-COMMAND-STRUCTURE",
+    path: "list[4]",
+  },
+])("refuses a $name through the native structure seam", ({ edit, code, path }) => {
+  const list = structuredClone(nativeChoices);
+  edit(list);
+  expect(() => renderDecompiledCommandList(list)).toThrow(
+    expect.objectContaining({ code, location: expect.objectContaining({ nativePath: path }) }),
+  );
+});
+
+it.each(["present", "absent"] as const)(
+  "rejects a raw own marker contradicting the declared %s choice body",
+  (endMarker) => {
+    const event = commonEvent({
+      id: 1,
+      name: "Raw conflict",
+      trigger: "none",
+      commands: [
+        showChoices({
+          choices: [
+            { text: "", commands: [rawDslCommand({ code: 0, parameters: [] })], endMarker },
+          ],
+          cancel: { kind: "disabled" },
+        }),
+      ],
+    });
+    expect(validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-BODY-MARKER-CONFLICT",
+        dslPath: "commands[0].choices[0].endMarker",
+      }),
+    );
+  },
+);
+it("rejects a raw own marker contradicting the cancel body", () => {
+  const event = commonEvent({
+    id: 1,
+    name: "Cancel conflict",
+    trigger: "none",
+    commands: [
+      showChoices({
+        choices: [{ text: "", commands: [] }],
+        cancel: {
+          kind: "branch",
+          commands: [wait(1), rawDslCommand({ code: 0, parameters: [] })],
+          endMarker: "absent",
+        },
+      }),
+    ],
+  });
+  expect(validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues).toContainEqual(
+    expect.objectContaining({
+      code: "MV-BODY-MARKER-CONFLICT",
+      dslPath: "commands[0].cancel.endMarker",
+    }),
+  );
+});
+
+it.each([
+  { slot: 0, value: [] },
+  { slot: 0, value: ["1", "2", "3", "4", "5", "6", "7"] },
+  { slot: 1, value: -3 },
+  { slot: 1, value: 6 },
+  { slot: 1, value: 0.5 },
+  { slot: 1, value: -0 },
+  { slot: 2, value: -2 },
+  { slot: 2, value: 6 },
+  { slot: 2, value: -0 },
+  { slot: 3, value: 3 },
+  { slot: 3, value: -0 },
+  { slot: 4, value: 3 },
+  { slot: 4, value: -0 },
+])("rejects unsupported E102 slot $slot=$value in native and known raw", ({ slot, value }) => {
+  const list = structuredClone(nativeChoices);
+  list[0]!.parameters[slot] = value;
+  expect(() => renderDecompiledCommandList(list)).toThrow(
+    expect.objectContaining({
+      code: "MV-COMMAND-PARAMETERS",
+      location: expect.objectContaining({ nativePath: `list[0].parameters[${slot}]` }),
+    }),
+  );
+  const event = commonEvent({
+    id: 1,
+    name: "Known raw",
+    trigger: "none",
+    commands: list.slice(0, -1).map(rawDslCommand),
+  });
+  expect(validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues).toContainEqual(
+    expect.objectContaining({ code: "MV-COMMAND-PARAMETERS", dslPath: "commands[0]" }),
+  );
+});
+
+it.each(["missing", "forbidden"])(
+  "rejects a %s cancel branch instead of changing the saved mode",
+  (mode) => {
+    const list = structuredClone(nativeChoices);
+    if (mode === "missing") list[0]!.parameters[1] = -2;
+    else
+      list.splice(
+        5,
+        0,
+        { code: 403, indent: 0, parameters: [6, null] },
+        { code: 0, indent: 1, parameters: [] },
+      );
+    expect(() => renderDecompiledCommandList(list)).toThrow(
+      expect.objectContaining({
+        code: "MV-CHOICE-CANCEL",
+        location: expect.objectContaining({
+          nativePath: mode === "missing" ? "list[5]" : "list[5]",
+          relatedLocations: expect.arrayContaining([
+            expect.objectContaining({ nativePath: "list[0].parameters[1]" }),
+          ]),
+        }),
+      }),
+    );
+    const event = commonEvent({
+      id: 1,
+      name: "Known raw cancel",
+      trigger: "none",
+      commands: list.slice(0, -1).map(rawDslCommand),
+    });
+    expect(validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues).toContainEqual(
+      expect.objectContaining({ code: "MV-CHOICE-CANCEL", nativePath: "list[5]" }),
+    );
+  },
+);
+
+it.each([
+  { input: {}, path: ".choices" },
+  { input: { choices: [] }, path: ".choices" },
+  {
+    input: { choices: Array.from({ length: 7 }, () => ({ text: "", commands: [] })) },
+    path: ".choices",
+  },
+  { input: { choices: [undefined] }, path: ".choices[0]" },
+  { input: { choices: new Array(1) }, path: ".choices[0]" },
+  { input: { choices: [{ text: "" }] }, path: ".choices[0].commands" },
+  { input: { choices: [{ text: 5, commands: [] }] }, path: ".choices[0].text" },
+  { input: { choices: [{ text: "", commands: [], extra: 1 }] }, path: ".choices[0]" },
+  {
+    input: { choices: [{ text: "", commands: [] }], cancel: { kind: "choice" } },
+    path: ".cancel.index",
+  },
+  {
+    input: { choices: [{ text: "", commands: [] }], defaultChoice: { kind: "choice", index: 6 } },
+    path: ".defaultChoice.index",
+  },
+  {
+    input: { choices: [{ text: "", commands: [] }], cancel: { kind: "disabled", index: 0 } },
+    path: ".cancel",
+  },
+  {
+    input: { choices: [{ text: "", commands: [] }], cancel: { kind: "branch" } },
+    path: ".cancel.commands",
+  },
+  { input: { choices: [{ text: "", commands: [] }], position: 0 }, path: ".position" },
+  { input: { choices: [{ text: "", commands: [] }], background: null }, path: ".background" },
+  { input: { choices: [{ text: "", commands: [] }], cancel: null }, path: ".cancel" },
+  {
+    input: {
+      choices: [{ text: "", commands: [] }],
+      defaultChoice: { kind: "none", index: undefined },
+    },
+    path: ".defaultChoice",
+  },
+  {
+    input: {
+      choices: [{ text: "", commands: [] }],
+      defaultChoice: { kind: "branch", commands: [] },
+    },
+    path: ".defaultChoice.kind",
+  },
+  {
+    input: { choices: [{ text: "", commands: [] }], cancel: { kind: "none" } },
+    path: ".cancel.kind",
+  },
+  {
+    input: { choices: [{ text: "", commands: [] }], cancel: { kind: "choice", index: -0 } },
+    path: ".cancel.index",
+  },
+  { input: { choices: [{ text: "", commands: [undefined] }] }, path: ".choices[0].commands[0]" },
+  {
+    input: { choices: [{ text: "", commands: [], endMarker: null }] },
+    path: ".choices[0].endMarker",
+  },
+])("rejects forged Choices at the precise owned path $path", ({ input, path }) => {
+  const event = commonEvent({
+    id: 1,
+    name: "Invalid choices",
+    trigger: "none",
+    commands: [{ kind: "showChoices", ...input } as never],
+  });
+  expect(validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues).toContainEqual(
+    expect.objectContaining({ code: "MV-CHOICES", dslPath: `commands[0]${path}` }),
+  );
+});
+
+it("rejects non-data own fields before reading an untyped helper input", () => {
+  let reads = 0;
+  expect(() =>
+    showChoices({
+      get choices() {
+        reads++;
+        return [{ text: "", commands: [] }];
+      },
+    } as never),
+  ).toThrow(/MV-CHOICES/u);
+  expect(reads).toBe(0);
+});
+
+it("treats optional undefined as omission while keeping required arrays explicit", () => {
+  const event = commonEvent({
+    id: 1,
+    name: "Omitted modes",
+    trigger: "none",
+    commands: [
+      showChoices({
+        choices: [{ text: "", commands: [], endMarker: undefined }],
+        cancel: undefined,
+        defaultChoice: undefined,
+        position: undefined,
+        background: undefined,
+      } as never),
+    ],
+  });
+  expect(
+    compileCommonEvent(event, {
+      nextId: 1,
+      resolver: buildStagedDataGraph({ declarations: [] }).resolver,
+    }).list,
+  ).toStrictEqual([
+    { code: 102, indent: 0, parameters: [[""], 1, 0, 2, 0] },
+    { code: 402, indent: 0, parameters: [0, ""] },
+    { code: 0, indent: 1, parameters: [] },
+    { code: 404, indent: 0, parameters: [] },
+    { code: 0, indent: 0, parameters: [] },
+  ]);
+});
+
+it.each(["choice", "cancel"])(
+  "rejects empty absent %s body rather than borrowing another layer's marker",
+  (kind) => {
+    const node = {
+      kind: "showChoices",
+      choices: [{ text: "", commands: [], ...(kind === "choice" ? { endMarker: "absent" } : {}) }],
+      cancel:
+        kind === "cancel"
+          ? { kind: "branch", commands: [], endMarker: "absent" }
+          : { kind: "disabled" },
+    };
+    const event = commonEvent({
+      id: 1,
+      name: "Empty absent",
+      trigger: "none",
+      commands: [node as never],
+    });
+    expect(validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-CHILD-BODY",
+        dslPath: `commands[0].${kind === "choice" ? "choices[0]" : "cancel"}.endMarker`,
+      }),
+    );
+  },
+);
+
+it.each([
+  { parameters: [] },
+  { parameters: [6] },
+  { parameters: [5, null] },
+  { parameters: [6, ""] },
+  { parameters: [6, null, 0] },
+])("rejects unsupported 403 saved slots $parameters", ({ parameters }) => {
+  const list = structuredClone(nativeChoices);
+  list[0]!.parameters[1] = -2;
+  list.splice(5, 0, { code: 403, indent: 0, parameters }, { code: 0, indent: 1, parameters: [] });
+  expect(() => renderDecompiledCommandList(list)).toThrow(
+    expect.objectContaining({ code: "MV-COMMAND-PARAMETERS" }),
+  );
+});
+
+it("locates preserved out-of-count saved indices in formal and raw source fields", () => {
+  const raw = structuredClone(nativeChoices);
+  raw[0]!.parameters[1] = 5;
+  raw[0]!.parameters[2] = 5;
+  const event = commonEvent({
+    id: 1,
+    name: "Warning origins",
+    trigger: "none",
+    commands: [
+      showChoices({
+        choices: [{ text: "", commands: [] }],
+        cancel: { kind: "choice", index: 5 },
+        defaultChoice: { kind: "choice", index: 5 },
+      }),
+      ...raw.slice(0, -1).map(rawDslCommand),
+    ],
+  });
+  const issues = validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues;
+  expect(issues.filter((issue) => issue.level === "error")).toEqual([]);
+  expect(
+    issues
+      .filter((issue) => issue.code === "MV-CHOICE-INDEX")
+      .map(({ dslPath, nativePath }) => ({ dslPath, nativePath })),
+  ).toEqual([
+    { dslPath: "commands[0].cancel.index", nativePath: "list[0].parameters[1]" },
+    { dslPath: "commands[0].defaultChoice.index", nativePath: "list[0].parameters[2]" },
+    { dslPath: "commands[1].parameters[1]", nativePath: "list[4].parameters[1]" },
+    { dslPath: "commands[1].parameters[2]", nativePath: "list[4].parameters[2]" },
+  ]);
+});

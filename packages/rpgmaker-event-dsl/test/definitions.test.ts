@@ -137,10 +137,9 @@ export const count = variableDefinition({
       commands: [
         {
           kind: "showChoices",
-          choices: ["Yes", "No"],
-          branches: [
-            [{ kind: "wait", frames: 10 }],
-            [{ kind: "eraseEvent" }],
+          choices: [
+            {text:"Yes",commands:[{ kind: "wait", frames: 10 }]},
+            {text:"No",commands:[{ kind: "eraseEvent" }]},
           ],
         },
       ],
@@ -165,7 +164,10 @@ export const count = variableDefinition({
     if (choices?.kind !== "showChoices") {
       return;
     }
-    expect(choices.branches).toEqual([[{ kind: "wait", frames: 10 }], [{ kind: "eraseEvent" }]]);
+    expect(choices.choices).toEqual([
+      { text: "Yes", commands: [{ kind: "wait", frames: 10 }] },
+      { text: "No", commands: [{ kind: "eraseEvent" }] },
+    ]);
   });
 
   it("evaluates imported message command helpers", async () => {

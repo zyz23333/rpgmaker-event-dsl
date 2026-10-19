@@ -19,6 +19,7 @@ export default defineConfig({
       "test/push-recovery.test.ts",
       "test/common-event-workspace.test.ts",
       "test/common-native-boundaries.test.ts",
+      "test/choices-workspace.test.ts",
 
       "test/troop-safety.test.ts",
       "test/troop-workflow.test.ts",

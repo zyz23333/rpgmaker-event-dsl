@@ -1,6 +1,6 @@
 # 27: Choices 完整分支往返
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 23
 Stage: S6
 Created: 2026-10-19
@@ -49,3 +49,23 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [核心指令参数附表](../../complete-mv-events/research/command-parameters/core.md)。
+
+## Comments
+
+### 2026-10-20 — DEV checkpoint
+
+在实际依赖 23 的集成基线 `205334338d8e64e3d00e485849c9ddf67bd7e3b1`
+上完成 Choices 的开发切片：嵌套 choice/cancel 编写结构、完整 E102 保存模式、
+402 文本镜像、精确 403 `[6, null]`、子体尾标记所有权、已知 raw 与反编译验证，
+以及越项保存值 warning。同步当前 README 和 agent 编写指南。
+
+Windows / Node 22.23.0 下，8 个相关测试文件共 118 项通过；package typecheck、
+17 个变更 TypeScript 文件的 scoped lint 与 format check 通过。
+Workspace 测试实际发现并求值源码，覆盖 Compile / Diff / Push 和失败重试后业务状态。
+TDD、测试前提修正和检查原始日志保存在工作区外的
+`C:/Users/Shuen/.codex/tmp/mv27-dev-*.log`。
+
+本次仅交付 DEV checkpoint。票仍为 claimed，验收项未勾选；未运行 broad check、
+build、built baseline 或原生游戏，未提升契约版本，也未登记 E2/R3 为通过。
+后续须在 root 分配的实际最新集成和 finalization slot 上复验，协调 ticket 26
+的共享 raw 诊断路径修复，再补充验收索引、完整检查和分配的原生证据。
