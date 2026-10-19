@@ -1,0 +1,36 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-33/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/movement-instructions.test.ts (2 tests | 1 failed | 1 skipped) 9ms
+   × M41 preserves None and big-character index seven independently with the current character fields 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/movement-instructions.test.ts > M41 preserves None and big-character index seven independently with the current character fields
+Error: MV-MOVEMENT-SHAPE: Unknown Movement Route field. (commands[0].route.commands[0])
+ ❯ fail src/commands/movement/validation.ts:15:9
+     13|
+     14| function fail(message: string, location: Location, code = "MV-MOVEMENT…
+     15|   throw new CommandStructureError(code, message, location);
+       |         ^
+     16| }
+     17|
+ ❯ keys src/commands/movement/validation.ts:41:5
+ ❯ assertMovementRoute src/commands/movement/validation.ts:304:5
+ ❯ assertSetMovementRoute src/commands/movement/validation.ts:323:3
+ ❯ compileNodes src/compiler/dispatch.ts:559:9
+ ❯ compileCommonEvent src/compiler/events.ts:68:11
+ ❯ compileInstructions test/movement-instructions.test.ts:17:10
+ ❯ test/movement-instructions.test.ts:35:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 skipped (2)
+   Start at  23:19:11
+   Duration  768ms (transform 270ms, setup 0ms, import 570ms, tests 9ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-33\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/movement-instructions.test.ts -t M41

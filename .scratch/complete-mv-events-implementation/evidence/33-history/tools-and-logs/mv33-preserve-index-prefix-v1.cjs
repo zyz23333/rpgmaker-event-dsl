@@ -1,0 +1,17 @@
+'use strict';
+const fs = require('node:fs');
+const cp = require('node:child_process');
+const assert = require('node:assert/strict');
+const root = 'C:/Users/Shuen/.codex/worktrees/mv-ticket-33/rpgmaker-event-dsl';
+const relative = '.scratch/complete-mv-events-implementation/evidence/requirements.json';
+const prior = cp.execFileSync('git', ['show', '8617d815750631d00a8b60b2410d9e5420da4e16:' + relative], { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
+const current = JSON.parse(fs.readFileSync(root + '/' + relative, 'utf8'));
+const old = JSON.parse(prior);
+assert.deepEqual(current.requirements.slice(0, old.requirements.length), old.requirements);
+const added = current.requirements.slice(old.requirements.length);
+const at = prior.lastIndexOf('\n  ]');
+assert.ok(at > 0);
+const after = prior.slice(0, at) + ',\n' + added.map(row => JSON.stringify(row, null, 2).split('\n').map(line => '    ' + line).join('\n')).join(',\n') + '\n  ]\n}\n';
+assert.deepEqual(JSON.parse(after), current);
+fs.writeFileSync(root + '/' + relative, after);
+console.log(JSON.stringify({ preservedPriorObjects: old.requirements.length, added: added.length, preservedOriginalPrefix: true }));

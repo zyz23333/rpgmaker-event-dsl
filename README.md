@@ -434,6 +434,14 @@ The saved route is preserved and checked even when the Page selects fixed, rando
 or approach movement. Its `wait` flag remains saved data; interpreter waiting applies
 when a route is used by Set Movement Route.
 
+All 45 movement instructions have formal parameter validation. Route `wait` uses
+explicit frames, `changeImage` uses nullable `character` plus independent
+`characterIndex`, `changeBlendMode` uses normal/additive/multiply/screen symbols,
+and route `playSe` requires its complete nullable-asset audio object. M45 preserves
+one complete string, including CR/LF and trailing whitespace, and remains gated
+even when empty or inactive. See the [movement parameter reference](packages/rpgmaker-event-dsl/README.md#movement-routes)
+for every instruction and accepted range.
+
 Project data references use helpers such as `switchRef(...)`, `variableRef(...)`,
 `actorRef(...)`, `skillRef(...)`, and `tilesetRef(...)`. Asset parameters use no-scan
 Asset References instead: `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)`

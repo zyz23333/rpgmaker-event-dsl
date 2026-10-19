@@ -1,0 +1,70 @@
+{
+  "purpose": "Final33 isolation repair: exact old588 evidence preservation, frozen actual product correspondence, fresh physical pairs and append-only reclassification. Historical native acceptance remains rejected.",
+  "at": "2026-10-19T18:02:15.712Z",
+  "original": "588f586d15a684d64dd828f4e63a54d4ca5bc657",
+  "requirements": {
+    "count": 286,
+    "exactOriginalBytes": true
+  },
+  "originalEvidenceBlobsVerified": 2909,
+  "allowedCurrentDocuments": [
+    ".scratch/complete-mv-events-implementation/evidence/33-movement-instructions.md",
+    ".scratch/complete-mv-events-implementation/evidence/README.md"
+  ],
+  "frozenProductInputsVerified": 175,
+  "actualSource": {
+    "files": 97,
+    "sha256": "4424a4d9826432e056354ce93a342886c39bf52d74d3a304a8a6f8ed116e0567"
+  },
+  "actualDist": {
+    "files": 15,
+    "sha256": "d830ac065741f364a7d748ca94557da83b005b0d7e66cfcded929eac65f23506"
+  },
+  "fullReference": {
+    "files": 1100,
+    "sha256": "14374fd86c845e5e3e59b47558d705ba086cc747e1cf8fb761e34230b60dc66d",
+    "unchanged": true
+  },
+  "fullSeed": {
+    "files": 1101,
+    "sha256": "e4c2d5959d26a8510c532cb429f0f14ac3c4b728ec5d9c4c78775db00b5d0b89",
+    "unchanged": true
+  },
+  "pairs": [
+    {
+      "name": "r1",
+      "root": "C:/Users/Shuen/.codex/tmp/mv33-r1-route-waits-delivery-v4-ae8c1388-ee47-42c1-b943-a3c71d226ea4",
+      "raw": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-route-waits-delivery-v4-ae8c1388-ee47-42c1-b943-a3c71d226ea4\\pair-result.json",
+        "sha256": "9a83d2df58c68b21cacabf48c26438c1113561f7a23c4fec66df5e69dd6fdad4"
+      },
+      "physicalCheckpoints": 32,
+      "independentPredicates": 13,
+      "strictValidationFields": 15,
+      "passed": true
+    },
+    {
+      "name": "r6-r7",
+      "root": "C:/Users/Shuen/.codex/tmp/mv33-r6-r7-movement-delivery-v5-6e6ae105-ea4a-4170-810e-406cbfd881c2",
+      "raw": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v5-6e6ae105-ea4a-4170-810e-406cbfd881c2\\pair-result.json",
+        "sha256": "705aa02d3bd675a32538d834ea86fb0eb6132db8772ea10e1ea68b2b27ee86bd"
+      },
+      "physicalCheckpoints": 32,
+      "independentPredicates": 19,
+      "strictValidationFields": 15,
+      "passed": true
+    }
+  ],
+  "oldRawReportsUnchanged": true,
+  "archiveRecordsVerified": 47,
+  "reclassificationRecords": 4,
+  "replacementPassedRecords": 4,
+  "recorderOriginalsAndDerivativesVerified": 8,
+  "changedExistingFiles": [
+    ".scratch/complete-mv-events-implementation/evidence/33-movement-instructions.md",
+    ".scratch/complete-mv-events-implementation/evidence/README.md",
+    ".scratch/complete-mv-events-implementation/issues/33-movement-all-45-instructions.md"
+  ],
+  "passed": true
+}

@@ -1,0 +1,43 @@
+{
+  "root": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v2-literal-7ea6daa9-5f9d-494c-9fc0-07b6987528b6",
+  "passed": true,
+  "validation": {
+    "freshExplicitProfile": true,
+    "declaredProfile": true,
+    "identityParsed": true,
+    "declaredHost": true,
+    "declaredProject": true,
+    "ownedProcess": true,
+    "isolatedAppName": true,
+    "appDataPathRecorded": true,
+    "exit0": true,
+    "runtimePassed": true,
+    "diskInputUnchanged": true,
+    "loadedCarriersMatch": true,
+    "engineIdentityMatches": true,
+    "stdoutEmpty": true,
+    "stderrEmpty": true
+  },
+  "actual": {
+    "allMarkersOnce": true,
+    "inactiveSavedRouteNeverRuns": true,
+    "fixedPageRetainsInitialLocation": true,
+    "customRouteExecutesNatively": true,
+    "autonomousWaitDoesNotBlockMain": true,
+    "parallelDuringAutonomous": true,
+    "forcedNoWaitReturnsSameFrame": true,
+    "forcedRouteStartsAfterContinuation": true,
+    "forcedNoWaitMovesAndFinishes": true,
+    "forcedWaitFinishesBeforeContinuation": true,
+    "forcedWaitIncludesMovementAndDelay": true,
+    "parallelDuringForcedWait": true,
+    "finished": true,
+    "singleSlotScriptInBothEntrances": true,
+    "scriptThisBinding": true,
+    "noneImageKeepsIndex": true,
+    "noneSeKeepsBufferPlaying": true,
+    "realAudioSignalBeforeAfterNone": true,
+    "routeSavedStateFlags": true
+  },
+  "runtimeError": null
+}

@@ -441,3 +441,35 @@ Ticket24 adds [complete Map Event pages and exact saved state](24-map-event-full
 
 | MV-S5-COMMON-CARRIER-BOUNDARY | Reject missing or nonnull Common reserved slot0 and preserve ordinary null-only carrier | synthetic-rejection | Actual public Workspace native carrier boundary |
 | MV-S5-COMMON-TRIGGER-BOUNDARY | Reject categorical Common trigger negative zero with exact diagnostic and unchanged complete business state | synthetic-rejection | Actual public Workspace native carrier boundary |
+
+## Ticket33 — all45 movement instructions
+
+| Requirement | Case | Scope |
+| --- | --- | --- |
+| MV-S6-MOVEMENT-001 | All45 finite movement shells and parameter cases through actual Workspace installation | E3/E5; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-002 | M45 closed Gate warning and recovery across fixed and forced routes | E5/R7; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-003 | Evaluated untyped movement fields reach real product validation | Product; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-004 | Late malformed saved route and exact mirror publication atomicity | Product; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-005 | All45 authoring/compiler/native/known-raw parameter and shape matrix | E3/E5; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-006 | Actual normal-Scene autonomous and forced route waiting with Parallel | R1; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-007 | Actual movement None image/SE and complete M45 single-slot execution | R1/R6/R7; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-008 | Same-identity E3/E5 movement resources and product comparison | E3/E5; [record](33-movement-instructions.md) |
+
+| Requirement | Case | Scope |
+| --- | --- | --- |
+| MV-S6-MOVEMENT-009 | R1 immutable complete native input binding | R1; [record](33-movement-instructions.md#native-delivery-input-bindings) |
+| MV-S6-MOVEMENT-010 | R6/R7 immutable complete native input binding | R1/R6/R7; [record](33-movement-instructions.md#native-delivery-input-bindings) |
+| MV-S6-MOVEMENT-011 | Preserve accepted negative-zero saved movement numbers through actual Workspace installation | Public source/built Workspace API; [record](33-movement-instructions.md#scoped-negative-zero-saved-values) |
+| MV-S6-MOVEMENT-012 | Reject negative-zero categorical M43 before source publication | Public source/built Workspace API; [record](33-movement-instructions.md#scoped-negative-zero-saved-values) |
+
+Ticket33's original R1-v2/R6/R7-v3 native acceptance was rejected for shared data
+junctions. Four append-only `retest-required` records supersede those claims;
+four fresh passed records bind physically independent R1-v4/R6/R7-v5 pairs.
+The [isolation repair](33-movement-instructions.md#native-isolation-repair--2026-10-20)
+preserves the incident, restored-reference provenance, physical guards and all
+original records. Both new pairs retain the original13/19 predicates and all
+strict native checks, with32 physical checkpoints each and unchanged full1100
+reference/full1101 seed files. Product contract remains `mv-1.6.1/9`; source
+check39files/980tests and built Windows15files/366tests remain applicable to the
+unchanged97-source/15-dist product. All286 requirement objects retain their exact
+bytes and order. Final49–55 remain separate from this allocated delivery.

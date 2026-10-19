@@ -293,6 +293,50 @@ and defaults to `{ commands: [] }`. Its saved flags, instructions and envelope s
 remain preserved and validated in every movement mode. A saved script in a fixed
 Page route still requires the Script Command Gate.
 
+All 45 native movement instructions are formal `MoveRouteCommand` objects. M1–13
+use `moveDown`, `moveLeft`, `moveRight`, `moveUp`, `moveLowerLeft`, `moveLowerRight`,
+`moveUpperLeft`, `moveUpperRight`, `moveRandom`, `moveTowardPlayer`, `moveAwayFromPlayer`,
+`moveForward`, and `moveBackward`. M16–26 use `turnDown`, `turnLeft`, `turnRight`,
+`turnUp`, `turn90Right`, `turn90Left`, `turn180`, `turn90RightOrLeft`, `turnRandom`,
+`turnTowardPlayer`, and `turnAwayFromPlayer`. These objects need only `kind`.
+
+| Native code                                                                       | Formal fields in addition to `kind`    | Accepted values                                                    |
+| --------------------------------------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------------ |
+| M14 `jump`                                                                        | `x`, `y`                               | Independent integers −99..99                                       |
+| M15 `wait`                                                                        | `frames`                               | Integer 1..999                                                     |
+| M27/28 `switchOn` / `switchOff`                                                   | `switch`                               | A switch reference by existing ID or unique declared name          |
+| M29 `changeSpeed`                                                                 | `speed`                                | Integer 1..6                                                       |
+| M30 `changeFrequency`                                                             | `frequency`                            | Integer 1..5                                                       |
+| M31–40 `walkAnimation`, `stepAnimation`, `directionFix`, `through`, `transparent` | `enabled`                              | Required boolean, with distinct on/off codes                       |
+| M41 `changeImage`                                                                 | `character`, `characterIndex`          | Characters image asset or null; independent integer index 0..7     |
+| M42 `changeOpacity`                                                               | `opacity`                              | Integer 0..255                                                     |
+| M43 `changeBlendMode`                                                             | `blendMode`                            | `"normal"`, `"additive"`, `"multiply"`, `"screen"`                 |
+| M44 `playSe`                                                                      | `audio: { asset, volume, pitch, pan }` | SE asset or null; integers 0..100, 50..150, −100..100 respectively |
+| M45 `script`                                                                      | `script: scriptInput({ code })`        | One complete string under the Script Command Gate                  |
+
+Every listed core field is required. None image preserves its independent index,
+including index 7; big-character filenames also retain the chosen index. None SE
+preserves all explicitly supplied volume, pitch and pan values. For example:
+
+```ts
+const instructions = [
+  { kind: "wait", frames: 30 },
+  { kind: "changeImage", character: null, characterIndex: 7 },
+  { kind: "changeBlendMode", blendMode: "screen" },
+  { kind: "playSe", audio: { asset: null, volume: 17, pitch: 73, pan: -41 } },
+] satisfies import("rpgmaker-event-dsl").MoveRouteCommand[];
+```
+
+Saved numeric values retain negative zero for jump x/y, characterIndex, opacity,
+and SE volume/pan. The symbolic blend code, movement code and finite indent forms
+reject native negative zero because their formal symbols cannot reconstruct it.
+
+M45 keeps empty text, whitespace, CR/LF/CRLF and trailing characters in one native
+slot, including more than twelve lines. LF warns about the editor's single-line
+input; CR warns that parameter reconfirmation needs verification. Warnings retain
+the exact text. Empty, inactive and unreachable M45 instructions still require
+`scriptEnabled: true` during Check and Compile.
+
 ## Raw commands and the Script Command Gate
 
 `rawDslCommand({ code, indent?, parameters })` carries one event command. Explicit

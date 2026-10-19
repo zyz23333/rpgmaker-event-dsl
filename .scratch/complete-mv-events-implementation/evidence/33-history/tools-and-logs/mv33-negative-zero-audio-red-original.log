@@ -1,0 +1,59 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-33/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/movement-instructions-workspace.test.ts > M44 SE volume and pan preserves negative-zero saved parameters through actual Workspace source evaluation and installation
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\movement-negative-zero-a4knZ8
+
+ ❯ test/movement-instructions-workspace.test.ts (9 tests | 1 failed | 8 skipped) 1050ms
+   × M44 SE volume and pan preserves negative-zero saved parameters through actual Workspace source evaluation and installation 1049ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/movement-instructions-workspace.test.ts > M44 SE volume and pan preserves negative-zero saved parameters through actual Workspace source evaluation and installation
+AssertionError: expected 'import { mapEvent, page, setMovementR…' to contain 'volume: -0'
+
+- Expected
++ Received
+
+- volume: -0
++ import { mapEvent, page, setMovementRoute } from "rpgmaker-event-dsl";
++
++ export const mapEventCompleteBlank001 = mapEvent({
++   mapId: 1,
++   id: 1,
++   name: "Complete blank",
++   note: "  <tag: x>\r\n\n<tag:y>\rtrailing\n",
++   x: 0,
++   y: 0,
++   pages: [
++     page({
++       movement: { route: { commands: [{ kind: "playSe", audio: { asset: null, volume: 0, pitch: 100, pan: 0 } }] } },
++       commands: [
++         setMovementRoute({ target: { kind: "runtimeSelector", scope: "character", target: "player" }, route: { commands: [{ kind: "playSe", audio: { asset: null, volume: 0, pitch: 100, pan: 0 } }] } }),
++       ],
++     })
++   ],
++ });
++
+
+ ❯ test/movement-instructions-workspace.test.ts:226:56
+
+    224|       const sourcePath = join(workspaceRoot, "src/decompiled/maps/Map0…
+    225|       const source = await readFile(sourcePath, "utf8");
+    226|       for (const field of sourceFields) expect(source).toContain(field…
+       |                                                        ^
+    227|       await compileWorkspace({ workspaceRoot, check: true });
+    228|       await compileWorkspace({ workspaceRoot, check: false });
+ Test Files  1 failed (1)
+      Tests  1 failed | 8 skipped (9)
+   Start at  00:21:14
+   Duration  2.87s (transform 637ms, setup 0ms, import 1.65s, tests 1.05s, environment 0ms)
+
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/movement-instructions-workspace.test.ts:219:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-33\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/movement-instructions-workspace.test.ts -t M44 SE volume and pan preserves negative-zero
