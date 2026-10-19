@@ -1,0 +1,94 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-33/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/movement-instructions.test.ts (70 tests | 21 failed) 33ms
+   × M44 rejects volume below in formal and native SE objects 5ms
+   × M44 rejects volume above in formal and native SE objects 1ms
+   × M44 rejects volume fraction in formal and native SE objects 1ms
+   × M44 rejects pitch below in formal and native SE objects 0ms
+   × M44 rejects pitch above in formal and native SE objects 1ms
+   × M44 rejects pitch fraction in formal and native SE objects 0ms
+   × M44 rejects pan below in formal and native SE objects 0ms
+   × M44 rejects pan above in formal and native SE objects 0ms
+   × M44 rejects pan fraction in formal and native SE objects 0ms
+   × rejects untyped movement core values without coercion or field loss: {"kind":"walkAnimation","enabled":"false"} 0ms
+   × rejects untyped movement core values without coercion or field loss: {"kind":"stepAnimation","enabled":0} 0ms
+   × rejects untyped movement core values without coercion or field loss: {"kind":"directionFix","enabled":null} 0ms
+   × rejects untyped movement core values without coercion or field loss: {"kind":"through","enabled":[]} 0ms
+   × rejects untyped movement core values without coercion or field loss: {"kind":"transparent","enabled":{}} 0ms
+   × rejects untyped movement core values without coercion or field loss: {"kind":"changeImage","character":{"kind":"asset","category":"image","folder":"faces","name":"Actor1"},"characterIndex":0} 0ms
+   × rejects untyped movement core values without coercion or field loss: {"kind":"changeImage","character":{"kind":"asset","category":"image","folder":"characters","name":""},"characterIndex":0} 0ms
+   × rejects untyped movement core values without coercion or field loss: {"kind":"changeImage","character":{"kind":"asset","category":"image","folder":"characters","name":"Actor1","extra":true},"characterIndex":0} 0ms
+   × rejects untyped movement core values without coercion or field loss: {"kind":"playSe","audio":{"asset":{"kind":"asset","category":"audio","folder":"bgm","name":"Battle1"},"volume":90,"pitch":100,"pan":0}} 0ms
+   × rejects untyped movement core values without coercion or field loss: {"kind":"playSe","audio":{"asset":null,"volume":90,"pitch":100,"pan":0,"extra":true}} 0ms
+   × rejects untyped movement core values without coercion or field loss: {"kind":"script","script":{"kind":"other","code":""}} 0ms
+   × rejects untyped movement core values without coercion or field loss: {"kind":"script","script":{"kind":"scriptInput","code":"","extra":true}} 0ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 21 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/movement-instructions.test.ts > M44 rejects volume below in formal and native SE objects
+ FAIL  test/movement-instructions.test.ts > M44 rejects volume above in formal and native SE objects
+ FAIL  test/movement-instructions.test.ts > M44 rejects volume fraction in formal and native SE objects
+ FAIL  test/movement-instructions.test.ts > M44 rejects pitch below in formal and native SE objects
+ FAIL  test/movement-instructions.test.ts > M44 rejects pitch above in formal and native SE objects
+ FAIL  test/movement-instructions.test.ts > M44 rejects pitch fraction in formal and native SE objects
+ FAIL  test/movement-instructions.test.ts > M44 rejects pan below in formal and native SE objects
+ FAIL  test/movement-instructions.test.ts > M44 rejects pan above in formal and native SE objects
+ FAIL  test/movement-instructions.test.ts > M44 rejects pan fraction in formal and native SE objects
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/movement-instructions.test.ts:130:121
+    128|   ["pan below", 90, 100, -101], ["pan above", 90, 100, 101], ["pan fra…
+    129| ])("M44 rejects %s in formal and native SE objects", (_label, volume, …
+    130|   expect(() => compileInstructions([{ kind: "playSe", audio: { asset: …
+       |                                                                                                                         ^
+    131|   const instruction = { code: 44, parameters: [{ name: "", volume, pit…
+    132|   expect(() => renderDecompiledCommandList([
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/21]⎯
+
+ FAIL  test/movement-instructions.test.ts > rejects untyped movement core values without coercion or field loss: {"kind":"walkAnimation","enabled":"false"}
+ FAIL  test/movement-instructions.test.ts > rejects untyped movement core values without coercion or field loss: {"kind":"stepAnimation","enabled":0}
+ FAIL  test/movement-instructions.test.ts > rejects untyped movement core values without coercion or field loss: {"kind":"directionFix","enabled":null}
+ FAIL  test/movement-instructions.test.ts > rejects untyped movement core values without coercion or field loss: {"kind":"through","enabled":[]}
+ FAIL  test/movement-instructions.test.ts > rejects untyped movement core values without coercion or field loss: {"kind":"transparent","enabled":{}}
+ FAIL  test/movement-instructions.test.ts > rejects untyped movement core values without coercion or field loss: {"kind":"changeImage","character":{"kind":"asset","category":"image","folder":"faces","name":"Actor1"},"characterIndex":0}
+ FAIL  test/movement-instructions.test.ts > rejects untyped movement core values without coercion or field loss: {"kind":"changeImage","character":{"kind":"asset","category":"image","folder":"characters","name":""},"characterIndex":0}
+ FAIL  test/movement-instructions.test.ts > rejects untyped movement core values without coercion or field loss: {"kind":"changeImage","character":{"kind":"asset","category":"image","folder":"characters","name":"Actor1","extra":true},"characterIndex":0}
+ FAIL  test/movement-instructions.test.ts > rejects untyped movement core values without coercion or field loss: {"kind":"playSe","audio":{"asset":{"kind":"asset","category":"audio","folder":"bgm","name":"Battle1"},"volume":90,"pitch":100,"pan":0}}
+ FAIL  test/movement-instructions.test.ts > rejects untyped movement core values without coercion or field loss: {"kind":"playSe","audio":{"asset":null,"volume":90,"pitch":100,"pan":0,"extra":true}}
+ FAIL  test/movement-instructions.test.ts > rejects untyped movement core values without coercion or field loss: {"kind":"script","script":{"kind":"other","code":""}}
+ FAIL  test/movement-instructions.test.ts > rejects untyped movement core values without coercion or field loss: {"kind":"script","script":{"kind":"scriptInput","code":"","extra":true}}
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/movement-instructions.test.ts:154:66
+    152|   { kind: "script", script: { kind: "scriptInput", code: "", extra: tr…
+    153| ])("rejects untyped movement core values without coercion or field los…
+    154|   expect(() => compileInstructions([value as MoveRouteCommand])).toThr…
+       |                                                                  ^
+    155| });
+    156|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/21]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  21 failed | 49 passed (70)
+   Start at  23:25:17
+   Duration  1.64s (transform 489ms, setup 0ms, import 1.35s, tests 33ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-33\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/movement-instructions.test.ts

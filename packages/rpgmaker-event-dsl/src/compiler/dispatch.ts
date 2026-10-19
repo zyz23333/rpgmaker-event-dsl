@@ -2,7 +2,12 @@ import type { CommonEventDefinition, DslCommand } from "../domain/types.js";
 import type { ReferenceResolver } from "../validation/types.js";
 import type { RawEventCommand, CommandOrigins } from "./types.js";
 import { assertDslCommandList } from "../validation/dsl-command-inputs.js";
-import { assertLoopCommand, assertParameterlessFlowCommand } from "../commands/flow/validation.js";
+import { assertMapAppearanceInput } from "../commands/map/validation.js";
+import {
+  resolveCommonEventCall,
+  assertLoopCommand,
+  assertParameterlessFlowCommand,
+} from "../commands/flow/validation.js";
 import {
   assertNativeCommandEnvelope,
   CommandStructureError,
@@ -117,6 +122,7 @@ export function compileNodes(
   const output: RawEventCommand[] = [];
 
   for (const [nodeIndex, node] of nodes.entries()) {
+    assertMapAppearanceInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     const outputStart = output.length;
     switch (node.kind) {
       case "showText":
@@ -263,7 +269,7 @@ export function compileNodes(
         output.push({
           code: 117,
           indent,
-          parameters: [resolver.resolveReference(node.ref)],
+          parameters: [resolveCommonEventCall(node, resolver, `${sourcePath}[${nodeIndex}]`)],
         });
         break;
       case "label":
@@ -1113,20 +1119,14 @@ export function compileNodes(
         output.push({
           code: 283,
           indent,
-          parameters: [node.battleback1.name, node.battleback2.name],
+          parameters: [node.battleback1?.name ?? "", node.battleback2?.name ?? ""],
         });
         break;
       case "changeParallax":
         output.push({
           code: 284,
           indent,
-          parameters: [
-            node.image.name,
-            node.loopX ?? false,
-            node.loopY ?? false,
-            node.sx ?? 0,
-            node.sy ?? 0,
-          ],
+          parameters: [node.image?.name ?? "", node.loopX, node.loopY, node.sx, node.sy],
         });
         break;
       case "getLocationInfo":

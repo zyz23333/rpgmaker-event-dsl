@@ -1,0 +1,117 @@
+{
+  "purpose": "Ticket36 allocated E6 read-only revalidation of previously identified editor resources; no UI capture or target code execution",
+  "at": "2026-10-19T18:22:07.558Z",
+  "node": "v22.23.0",
+  "reusedVersionEvidence": "ev_007ba386e622855bf771049084c3103afebbcc6b5d813f18c441f3ecf1d16d24",
+  "target": {
+    "path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/RPGMV.exe",
+    "bytes": 19595264,
+    "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281"
+  },
+  "normativeAppendix": {
+    "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-36\\rpgmaker-event-dsl\\.scratch\\complete-mv-events\\research\\command-parameters\\visual-map.md",
+    "sha256": "80c607a7e76e044590330ba993296746b71a5437b290a8ec18b69e9321e91409"
+  },
+  "resources": [
+    {
+      "offset": 770563,
+      "storedBytes": 612,
+      "storedSha256": "32fa718acce27dd43094bf71ca4121bc5787d9a385ce8cb698377b3dd23f6762",
+      "encoding": "plain",
+      "decodedBytes": 608,
+      "decodedSha256": "f804d816511ae3549ca7580e8c1991b9946692b448b095b0706aa12c60d78099",
+      "compressedInputBytesConsumed": null,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv36-resource-audit-5fd1d566-7814-456c-9593-20f0034372bd\\Q770563.txt",
+      "passed": true
+    },
+    {
+      "offset": 747827,
+      "storedBytes": 818,
+      "storedSha256": "a8fe8d0e8a9d78040ac78cac211d2b477666a31dfcf57a561599e64a6481eb0d",
+      "encoding": "plain",
+      "decodedBytes": 814,
+      "decodedSha256": "1422da144e3be3f7fa018a6ec851984b0dd9843df3d77f70607441bd4b7ba287",
+      "compressedInputBytesConsumed": null,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv36-resource-audit-5fd1d566-7814-456c-9593-20f0034372bd\\Q747827.txt",
+      "passed": true
+    },
+    {
+      "offset": 722843,
+      "storedBytes": 1030,
+      "storedSha256": "2811a66c47adb25dd583281a58334fdc2d3d2baea748f28c3038c1b9a07b8cbe",
+      "encoding": "plain",
+      "decodedBytes": 1026,
+      "decodedSha256": "6c5840faf4a53d8ebd7228e10e9e5a8c0fd384af7993c890d4feb3b7cd5db9cd",
+      "compressedInputBytesConsumed": null,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv36-resource-audit-5fd1d566-7814-456c-9593-20f0034372bd\\Q722843.txt",
+      "passed": true
+    },
+    {
+      "offset": 797896,
+      "storedBytes": 1234,
+      "storedSha256": "4157a8d0abfe7a19adc8fcb80a0e0fb187fbced5377602041a93813f9289bfba",
+      "encoding": "plain",
+      "decodedBytes": 1230,
+      "decodedSha256": "792b87ef69db0fb2e4b3381fa8d978cf63ce253eb1d3bff7782ee732cfd66298",
+      "compressedInputBytesConsumed": null,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv36-resource-audit-5fd1d566-7814-456c-9593-20f0034372bd\\Q797896.txt",
+      "passed": true
+    },
+    {
+      "offset": 649305,
+      "storedBytes": 918,
+      "storedSha256": "8417b6d46c09ac7c3a1b1befb0f0375f904aba03f6abd8fd263ec0ac819309ee",
+      "encoding": "plain",
+      "decodedBytes": 914,
+      "decodedSha256": "6447326aed6996e6a433c48846286b16e5865287cb406c43097ab8b107f700bc",
+      "compressedInputBytesConsumed": null,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv36-resource-audit-5fd1d566-7814-456c-9593-20f0034372bd\\Q649305.txt",
+      "passed": true
+    },
+    {
+      "offset": 680842,
+      "storedBytes": 1335,
+      "storedSha256": "50b0256f648a8ce62d5560582172b3cde5ddbf1361d7bf37b587fd989ab5b160",
+      "encoding": "plain",
+      "decodedBytes": 1331,
+      "decodedSha256": "0d87a64dcdc267fcbce7aca42df12a3b665df6153be84b5701eade6113ed8cc8",
+      "compressedInputBytesConsumed": null,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv36-resource-audit-5fd1d566-7814-456c-9593-20f0034372bd\\Q680842.txt",
+      "passed": true
+    },
+    {
+      "offset": 8722495,
+      "storedBytes": 723,
+      "storedSha256": "7d8aabb8f3b75dfd39d354aca935af988d4e96853daa2d350597dbe1931f4db1",
+      "encoding": "zlib",
+      "decodedBytes": 2764,
+      "decodedSha256": "ef6561ec8e0cbf91cb07df558f9e7593c6a64b3f36a872931aea77b284f177d2",
+      "compressedInputBytesConsumed": 715,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv36-resource-audit-5fd1d566-7814-456c-9593-20f0034372bd\\Q8722495.txt",
+      "passed": true
+    },
+    {
+      "offset": 648210,
+      "storedBytes": 588,
+      "storedSha256": "c32df064fdbd5dd55fa3f0a57db1ec850b3391e8bfdf4d8cc08ca8d234c60f7a",
+      "encoding": "zlib",
+      "decodedBytes": 2170,
+      "decodedSha256": "e9fe57645db2de85774d5bd2706f8f73c43842243c6c2743c2886c85bae5779d",
+      "compressedInputBytesConsumed": 580,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv36-resource-audit-5fd1d566-7814-456c-9593-20f0034372bd\\Q648210.txt",
+      "passed": true
+    },
+    {
+      "offset": 8787441,
+      "storedBytes": 1343,
+      "storedSha256": "0ed57fb1b8005d49ca81578f9e2e392828c51b78a53731baf47ff4bae4a59ddc",
+      "encoding": "zlib",
+      "decodedBytes": 6236,
+      "decodedSha256": "07186f580840ab0cccaa2fdb5b22dec768f27b7d67ba804e07354096857c4b50",
+      "compressedInputBytesConsumed": 1335,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv36-resource-audit-5fd1d566-7814-456c-9593-20f0034372bd\\Q8787441.txt",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

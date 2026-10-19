@@ -4,6 +4,9 @@
 # Preserve the original PowerShell-produced acceptance artifact's hashed bytes.
 /.scratch/complete-mv-events-implementation/evidence/11-switch-final-provenance.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 
+# Ticket23 keeps original runner output and verifier bytes, including CRLF.
+/.scratch/complete-mv-events-implementation/evidence/23-history/** -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol
+
 # Preserve byte-identical original ticket25 delivery runners and their fixture hashes.
 /.scratch/complete-mv-events-implementation/evidence/25-troop-delivery-tools/*.cjs -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 

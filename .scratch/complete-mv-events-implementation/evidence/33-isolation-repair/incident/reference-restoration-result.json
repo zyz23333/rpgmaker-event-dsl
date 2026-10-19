@@ -1,0 +1,142 @@
+{
+  "purpose": "Verified restoration of accidental33 native pair writes to first-party reference data",
+  "at": "2026-10-19T17:49:22.331Z",
+  "destination": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/NewData/data",
+  "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\data",
+  "mutations": [
+    {
+      "name": "CommonEvents.json",
+      "beforeSha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+      "restoredSha256": "0d5cb077d7a0c52baf70ff3a2941e62eb449357aa45b0ad546599e4e1800fada",
+      "method": "write distinct regular temporary file then rename into checked destination; timestamp from original copy"
+    },
+    {
+      "name": "Map001.json",
+      "beforeSha256": "43647aeac010c4300d9e293a57bb76e7c8fd4979fb93c951208ca1b676b18b52",
+      "restoredSha256": "662c508f367f38f393c34f13eb192a872e5f32f609d2e8500d7bfd601e391b1b",
+      "method": "write distinct regular temporary file then rename into checked destination; timestamp from original copy"
+    },
+    {
+      "name": "System.json",
+      "beforeSha256": "c5a95c39aa1f5ecad4f4a30100da6922edf62f84351c0fa08ef91af1d64aca74",
+      "restoredSha256": "e9e419ac5cadc32bfd145c752966bf29baee1a00d34a97bb252c32876cfac6de",
+      "method": "write distinct regular temporary file then rename into checked destination; timestamp from original copy"
+    },
+    {
+      "name": "Troops.json",
+      "beforeSha256": "446aa046e637de0712741d51ff2c038fb6e665c000c1e8e41e268333814cb4ee",
+      "restoredSha256": "bc648267369814f36ba814f736255f54ccdd4fb98557f6889f67cce9c116be23",
+      "method": "write distinct regular temporary file then rename into checked destination; timestamp from original copy"
+    }
+  ],
+  "all15EqualVerifiedOriginal": true,
+  "after": [
+    {
+      "name": "Actors.json",
+      "sha256": "782f49f5bb2cb5a02f34f891f513f93783762e3a16091a6fd09d43bdfaead7ed",
+      "bytes": 983,
+      "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Actors.json",
+      "nlink": 1
+    },
+    {
+      "name": "Animations.json",
+      "sha256": "e3f0e4ba8c72e493eea5fd5db2a714723d9f350bfc78e160ed40742d647b21da",
+      "bytes": 382278,
+      "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Animations.json",
+      "nlink": 1
+    },
+    {
+      "name": "Armors.json",
+      "sha256": "7b5cb0e7c19646d4fd0f698c1ba844eee76fa04a92efe68015eb688d36dcc68e",
+      "bytes": 716,
+      "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Armors.json",
+      "nlink": 1
+    },
+    {
+      "name": "Classes.json",
+      "sha256": "500d7510ef6b2215fa8c2ba69748603cab0d2fe3bfed402dee26b91bd4658d2f",
+      "bytes": 13657,
+      "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Classes.json",
+      "nlink": 1
+    },
+    {
+      "name": "CommonEvents.json",
+      "sha256": "0d5cb077d7a0c52baf70ff3a2941e62eb449357aa45b0ad546599e4e1800fada",
+      "bytes": 382,
+      "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\CommonEvents.json",
+      "nlink": 1
+    },
+    {
+      "name": "Enemies.json",
+      "sha256": "848b0827d7a1ccb6440592e2965f0b0e110d3a83eb0fef3b41eb32e18cabda4d",
+      "bytes": 1864,
+      "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Enemies.json",
+      "nlink": 1
+    },
+    {
+      "name": "Items.json",
+      "sha256": "b8b3344c8b5d3534707eb1d273c5b152a36ecb8e0dd567c0f1cd0923e49a408d",
+      "bytes": 1709,
+      "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Items.json",
+      "nlink": 1
+    },
+    {
+      "name": "Map001.json",
+      "sha256": "662c508f367f38f393c34f13eb192a872e5f32f609d2e8500d7bfd601e391b1b",
+      "bytes": 3820,
+      "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Map001.json",
+      "nlink": 1
+    },
+    {
+      "name": "MapInfos.json",
+      "sha256": "d1f6336147136c2fc68e55b60d6d1a356e8170e4d0a0c4471d12e45264f16536",
+      "bytes": 107,
+      "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\MapInfos.json",
+      "nlink": 1
+    },
+    {
+      "name": "Skills.json",
+      "sha256": "b6c7d7dee520581a2a1b62ae06f75764d52620943531244b467fbed17bf0f36a",
+      "bytes": 4319,
+      "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Skills.json",
+      "nlink": 1
+    },
+    {
+      "name": "States.json",
+      "sha256": "25344e6d723dbaf1f5476aba83117be6e5e1d65ae9fcecd4aec53d63c01ee579",
+      "bytes": 4510,
+      "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\States.json",
+      "nlink": 1
+    },
+    {
+      "name": "System.json",
+      "sha256": "e9e419ac5cadc32bfd145c752966bf29baee1a00d34a97bb252c32876cfac6de",
+      "bytes": 5793,
+      "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\System.json",
+      "nlink": 1
+    },
+    {
+      "name": "Tilesets.json",
+      "sha256": "06df3bf126c9e4e304646ad03ae72ce495aa7f4654b2ca198a215a08554ad554",
+      "bytes": 246726,
+      "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Tilesets.json",
+      "nlink": 1
+    },
+    {
+      "name": "Troops.json",
+      "sha256": "bc648267369814f36ba814f736255f54ccdd4fb98557f6889f67cce9c116be23",
+      "bytes": 1491,
+      "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Troops.json",
+      "nlink": 1
+    },
+    {
+      "name": "Weapons.json",
+      "sha256": "6e301f0a754c00473595e09ef5274f5ad1cabe188d1bb082fa9c80682c9d4b4f",
+      "bytes": 908,
+      "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Weapons.json",
+      "nlink": 1
+    }
+  ],
+  "oldSandboxes": "Original directory entries, links, helpers and raw reports untouched. Old33 links now resolve restored reference bytes; pre-restoration contents separately preserved and old native evidence stays invalid.",
+  "limitations": "No editor UI or new game acceptance asserted; restore uses retained actual pre-experiment copy, not inferred template data."
+}

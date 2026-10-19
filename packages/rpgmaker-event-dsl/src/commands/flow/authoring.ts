@@ -16,6 +16,7 @@ import type {
 } from "../../domain/types.js";
 import { isScriptInput } from "../../domain/references.js";
 import { scriptInput } from "../../authoring/references.js";
+import { assertCommonEventCall } from "./validation.js";
 
 export function conditional(input: {
   condition: ConditionalBranchCondition;
@@ -47,8 +48,11 @@ export function exitEventProcessing(): ExitEventProcessingDslCommand {
   return { kind: "exitEventProcessing" };
 }
 
-export function callCommonEvent(ref: ReferenceValue<"commonEvent">): CommonEventDslCommand {
-  return { kind: "commonEvent", ref };
+export function callCommonEvent(input: {
+  commonEvent: ReferenceValue<"commonEvent">;
+}): CommonEventDslCommand {
+  assertCommonEventCall(input, "callCommonEvent", false);
+  return { kind: "commonEvent", commonEvent: input.commonEvent };
 }
 
 export function label(name: string): LabelDslCommand {

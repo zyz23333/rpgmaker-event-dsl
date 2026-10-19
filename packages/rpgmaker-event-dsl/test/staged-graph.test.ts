@@ -211,7 +211,7 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Caller",
           trigger: "none",
-          commands: [callCommonEvent(commonEventRef({ name: "Missing" }))],
+          commands: [callCommonEvent({ commonEvent: commonEventRef({ name: "Missing" }) })],
         }),
       ],
       { scriptEnabled: false },
@@ -225,17 +225,25 @@ describe("validateDslOwnedDeclarations", () => {
           id: 3,
           name: "Caller",
           trigger: "none",
-          commands: [callCommonEvent(commonEventRef({ name: "Shared" }))],
+          commands: [callCommonEvent({ commonEvent: commonEventRef({ name: "Shared" }) })],
         }),
       ],
       { scriptEnabled: false },
     );
 
-    expect(missingResult.issues.map((issue) => issue.message)).toContain(
-      "Unknown commonEvent reference: Missing",
+    expect(missingResult.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-E117-REFERENCE",
+        dslPath: "commands[0].commonEvent",
+        message: expect.stringContaining("Unknown commonEvent reference: Missing"),
+      }),
     );
-    expect(ambiguousResult.issues.map((issue) => issue.message)).toContain(
-      "Ambiguous commonEvent reference: Shared",
+    expect(ambiguousResult.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-E117-REFERENCE",
+        dslPath: "commands[0].commonEvent",
+        message: expect.stringContaining("Ambiguous commonEvent reference: Shared"),
+      }),
     );
   });
 
@@ -246,14 +254,18 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Caller",
           trigger: "none",
-          commands: [callCommonEvent(commonEventRef({ id: 99 }))],
+          commands: [callCommonEvent({ commonEvent: commonEventRef({ id: 99 }) })],
         }),
       ],
       { scriptEnabled: false },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toContain(
-      "Unknown commonEvent reference id: 99",
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-E117-REFERENCE",
+        dslPath: "commands[0].commonEvent",
+        message: expect.stringContaining("Unknown commonEvent reference id: 99"),
+      }),
     );
   });
 
@@ -265,7 +277,7 @@ describe("validateDslOwnedDeclarations", () => {
           name: "Caller",
           trigger: "none",
           commands: [
-            callCommonEvent(commonEventRef({ name: "Snapshot Common" })),
+            callCommonEvent({ commonEvent: commonEventRef({ name: "Snapshot Common" }) }),
             controlSwitches({ switch: switchRef({ name: "Snapshot Switch" }), value: true }),
             controlVariables({
               variable: variableRef({ name: "Snapshot Variable" }),
@@ -287,10 +299,17 @@ describe("validateDslOwnedDeclarations", () => {
 
     expect(result.issues.map((issue) => issue.message)).toEqual(
       expect.arrayContaining([
-        "Unknown commonEvent reference: Snapshot Common",
+        expect.stringContaining("Unknown commonEvent reference: Snapshot Common"),
         "MV-E121-REFERENCE validation common event 1.commands[1].switch: Unknown switch reference: Snapshot Switch",
         "Unknown variable reference: Snapshot Variable",
       ]),
+    );
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-E117-REFERENCE",
+        dslPath: "commands[0].commonEvent",
+        message: expect.stringContaining("Unknown commonEvent reference: Snapshot Common"),
+      }),
     );
   });
 
@@ -482,8 +501,8 @@ describe("validateDslOwnedDeclarations", () => {
                   { kind: "switchOn", switch: switchRef({ id: 1 }) },
                   {
                     kind: "changeImage",
-                    image: imageAsset({ folder: "characters", name: "Actor1" }),
-                    index: 0,
+                    character: imageAsset({ folder: "characters", name: "Actor1" }),
+                    characterIndex: 0,
                   },
                 ],
               },
@@ -959,8 +978,18 @@ describe("validateDslOwnedDeclarations", () => {
     );
 
     expect(validResult.issues).toEqual([]);
-    expect(missingResult.issues.map((issue) => issue.message)).toContain(
-      "MV-E282-REFERENCE validation map 1 event 1.pages[0].commands[0].tileset: Unknown tileset reference id: 99",
+    expect(missingResult.issues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          level: "error",
+          code: "MV-E282-REFERENCE",
+          stage: "compile",
+          dslPath: "pages[0].commands[0].tileset",
+          expected: "existing tileset in the Project Data Snapshot",
+          actual: expect.stringContaining("99"),
+          message: expect.stringContaining("Unknown tileset reference id: 99"),
+        }),
+      ]),
     );
   });
 

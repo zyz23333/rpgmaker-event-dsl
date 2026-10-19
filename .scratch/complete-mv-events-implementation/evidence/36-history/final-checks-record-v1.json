@@ -1,0 +1,48 @@
+{
+  "purpose": "Final checks after append-only metadata/evidence finalization; no unchanged full test/build/native rerun",
+  "at": "2026-10-19T19:10:19.092Z",
+  "evidenceIndex": {
+    "passed": true,
+    "files": 1,
+    "tests": 1,
+    "skippedUnselectedTests": 2,
+    "totalSeconds": 5.67,
+    "testSeconds": 3.35,
+    "originalTestDeadlineMs": 10000
+  },
+  "scopedLint": {
+    "passed": true,
+    "errors": 0,
+    "warnings": 6,
+    "classification": "Unused sync declarations in preserved original physical/archive/audit tools; source/test has no warnings. Original historical bytes are retained rather than rewritten."
+  },
+  "format": {
+    "passed": true,
+    "files": 183
+  },
+  "gitDiffCheck": {
+    "passed": true
+  },
+  "captured": [
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-final-evidence-index-v1.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-evidence-index-v1.log",
+      "sha256": "b0a6566d92dd87f086e55afafbbd096dbf6eb397777324d80aad7b7ccb95b0b0"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-final-scoped-lint-v1.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-scoped-lint-v1.log",
+      "sha256": "3aaea9c0a426645610a092a87c70104def52c6a7c03dd188c20a138b3ed5fd05"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-final-format-v1.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-format-v1.log",
+      "sha256": "d9baa3aed83bfd9af2f47a145989666a50fdb3f9abd8f99655266abc7530bd8d"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-final-metadata-check-record-v1.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-metadata-check-record-v1.cjs",
+      "sha256": "7a2ffdc61ff53f93848dc5df0d0583f30e3fb8fce5e0cb8916d76aa5ad13aefc"
+    }
+  ]
+}

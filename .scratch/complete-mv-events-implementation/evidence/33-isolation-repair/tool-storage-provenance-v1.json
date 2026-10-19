@@ -1,0 +1,30 @@
+{
+  "purpose": "Exact external evidence operator sources preserved inert where appropriate; no lint rule or scope exclusion. Recorderv1 transform failed before any execution; recorderv2 uses an async preparation callback without changing assertions.",
+  "at": "2026-10-19T18:02:47.988Z",
+  "entries": [
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-record-isolation-repair-v1.mts",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/tools/mv33-record-isolation-repair-v1.mts.txt",
+      "sha256": "e906c173d249662cbff56a98318f2ae77d3e52f2893978e6b942ea553c007c3e",
+      "bytes": 8292
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-record-isolation-repair-v2.mts",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/tools/mv33-record-isolation-repair-v2.mts.txt",
+      "sha256": "9bd7096df7d4622addb5c00efd3c4ed99dcd68bd1b8543fec04ddec4a63884e6",
+      "bytes": 8317
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-audit-isolation-repair-v1.cjs",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/tools/mv33-audit-isolation-repair-v1.cjs",
+      "sha256": "dcb6c95ab1a28f8bb6c94007d94eb2ad54b25ab58a18e2736f2af09fe3ec6c83",
+      "bytes": 8385
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-archive-isolation-supplement-v1.cjs",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/tools/mv33-archive-isolation-supplement-v1.cjs",
+      "sha256": "83d396d8af7aa5e9f9cb6d1e4d4c58681d367332b7e1f5c625eb73aa6f000ccd",
+      "bytes": 2998
+    }
+  ]
+}

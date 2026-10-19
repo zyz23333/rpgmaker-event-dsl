@@ -173,12 +173,36 @@ Removing a name retains that capacity; referencing an ID does not expand it.
 Switch and variable names resolve only from unique DSL declarations. Existing
 database entries with empty names remain referenceable by ID.
 
+Common Events require an explicit positive `id`, exact string `name`,
+`trigger: "none" | "autorun" | "parallel"`, and a `commands` array, including when
+empty. Names may be empty or duplicated; a name reference requires exactly one
+current Common Event declaration. Call one with
+`callCommonEvent({ commonEvent: commonEventRef({ id: 1 }) })`.
+Autorun and parallel require `switch: switchRef(...)`. The optional switch for none
+preserves its independent native saved value; omission or explicit `undefined`
+writes fixed `switchId: 1`.
+Every explicit reference requires a valid System Switch slot or unique staged
+Switch name. Common Events inherit invocation context without map/battle
+annotations. Removing one preserves its null ID hole and needs a destructive Push.
+
 Workspace validation resolves Animations, Tilesets, Enemy entries and maps from the
 captured Snapshot, retaining empty-name IDs. Fixed targets of `showAnimation`,
 `changeTileset` and `enemyTransform` are checked in formal commands, recognized raw
 records and before Decompile publishes source. Runtime enemy positions and dynamic
 equipment candidates retain their selector meaning. Capture database changes with
 `pull` before compiling against them.
+
+Map appearance uses explicit saved values. `changeMapNameDisplay({ enabled })`
+requires a Boolean; `changeTileset({ tileset: tilesetRef({ id: 2 }) })` requires
+an existing Snapshot Tileset and has no None value. `changeBattleBack({ battleback1,
+battleback2 })` requires both independent slots, each an image Asset Reference in
+`battlebacks1` or `battlebacks2` respectively, or explicit `null` for None.
+`changeParallax({ image: null, loopX: false, loopY: true, sx: 32, sy: -32 })`
+requires all five fields. Its image uses `parallaxes`; integer speeds −32..32 preserve
+negative zero and remain saved with looping disabled or image None. None compiles
+to an empty filename.
+Empty Asset Reference names and unknown command fields fail validation. Asset
+references preserve names without checking image directories or file sizes.
 
 Clone and Pull capture exact UTF-8 file bytes, their hashes and the map collection
 selected by the same MapInfos input. Invalid collections, missing registered maps,
@@ -286,6 +310,50 @@ frequency is integer 1..5, and both default to 3. The route shares `MovementRout
 and defaults to `{ commands: [] }`. Its saved flags, instructions and envelope states
 remain preserved and validated in every movement mode. A saved script in a fixed
 Page route still requires the Script Command Gate.
+
+All 45 native movement instructions are formal `MoveRouteCommand` objects. M1–13
+use `moveDown`, `moveLeft`, `moveRight`, `moveUp`, `moveLowerLeft`, `moveLowerRight`,
+`moveUpperLeft`, `moveUpperRight`, `moveRandom`, `moveTowardPlayer`, `moveAwayFromPlayer`,
+`moveForward`, and `moveBackward`. M16–26 use `turnDown`, `turnLeft`, `turnRight`,
+`turnUp`, `turn90Right`, `turn90Left`, `turn180`, `turn90RightOrLeft`, `turnRandom`,
+`turnTowardPlayer`, and `turnAwayFromPlayer`. These objects need only `kind`.
+
+| Native code                                                                       | Formal fields in addition to `kind`    | Accepted values                                                    |
+| --------------------------------------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------------ |
+| M14 `jump`                                                                        | `x`, `y`                               | Independent integers −99..99                                       |
+| M15 `wait`                                                                        | `frames`                               | Integer 1..999                                                     |
+| M27/28 `switchOn` / `switchOff`                                                   | `switch`                               | A switch reference by existing ID or unique declared name          |
+| M29 `changeSpeed`                                                                 | `speed`                                | Integer 1..6                                                       |
+| M30 `changeFrequency`                                                             | `frequency`                            | Integer 1..5                                                       |
+| M31–40 `walkAnimation`, `stepAnimation`, `directionFix`, `through`, `transparent` | `enabled`                              | Required boolean, with distinct on/off codes                       |
+| M41 `changeImage`                                                                 | `character`, `characterIndex`          | Characters image asset or null; independent integer index 0..7     |
+| M42 `changeOpacity`                                                               | `opacity`                              | Integer 0..255                                                     |
+| M43 `changeBlendMode`                                                             | `blendMode`                            | `"normal"`, `"additive"`, `"multiply"`, `"screen"`                 |
+| M44 `playSe`                                                                      | `audio: { asset, volume, pitch, pan }` | SE asset or null; integers 0..100, 50..150, −100..100 respectively |
+| M45 `script`                                                                      | `script: scriptInput({ code })`        | One complete string under the Script Command Gate                  |
+
+Every listed core field is required. None image preserves its independent index,
+including index 7; big-character filenames also retain the chosen index. None SE
+preserves all explicitly supplied volume, pitch and pan values. For example:
+
+```ts
+const instructions = [
+  { kind: "wait", frames: 30 },
+  { kind: "changeImage", character: null, characterIndex: 7 },
+  { kind: "changeBlendMode", blendMode: "screen" },
+  { kind: "playSe", audio: { asset: null, volume: 17, pitch: 73, pan: -41 } },
+] satisfies import("rpgmaker-event-dsl").MoveRouteCommand[];
+```
+
+Saved numeric values retain negative zero for jump x/y, characterIndex, opacity,
+and SE volume/pan. The symbolic blend code, movement code and finite indent forms
+reject native negative zero because their formal symbols cannot reconstruct it.
+
+M45 keeps empty text, whitespace, CR/LF/CRLF and trailing characters in one native
+slot, including more than twelve lines. LF warns about the editor's single-line
+input; CR warns that parameter reconfirmation needs verification. Warnings retain
+the exact text. Empty, inactive and unreachable M45 instructions still require
+`scriptEnabled: true` during Check and Compile.
 
 ## Raw commands and the Script Command Gate
 

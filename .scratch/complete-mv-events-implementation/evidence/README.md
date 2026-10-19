@@ -349,6 +349,30 @@ Ticket22 verifies Interrupted Push content recovery through the public Workspace
 Ticket22 records [the frozen recovery protocol, actual red/green runs and byte-preserved evidence](22-interrupted-push-content-recovery.md). Historical failures and superseded passes keep their original status and provenance; native execution remains `not-executed`.
 
 
+Ticket23 verifies complete Common Event state and E117 through public authoring and Workspace operations. Native evidence is recorded separately in [the Common roundtrip report](23-common-event-roundtrip.md).
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S5-COMMON-001 | evaluates named-object Common calls against complete current declarations | synthetic-support | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-002 | preserves every trigger and independent saved switch through editable source and safe Push | synthetic-support | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-003 | rejects malformed owned Common metadata before any source publication | synthetic-rejection | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-004 | rejects malformed formal Common containers without publishing output | synthetic-rejection | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-005 | rejects invalid E117 shape through real source | synthetic-rejection | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-006 | applies ordinary Switch reference rules | synthetic-support | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-007 | rejects saved Switch references outside actual capacity | synthetic-rejection | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-008 | reports independent saved-field changes and safely removes entries without compacting IDs | synthetic-support | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-009 | resolves E117 only against current complete declarations | synthetic-support | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-010 | rejects malformed late Common command lists | synthetic-rejection | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-011 | existing handwritten declarations cannot repair an incomplete native candidate | synthetic-rejection | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-012 | preserves a distant explicit identity and omitted none default without a picker cap | synthetic-support | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-013 | preserves known calls and opaque raw payloads while the Script Gate remains effective | synthetic-support | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-014 | public types require an active trigger Switch and the named E117 input | synthetic-rejection | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-015 | validates direct exported Common definitions before scope construction | synthetic-rejection | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-016 | preserves caller-dependent current-event operations without inventing a fixed Map context | synthetic-support | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+
+| MV-S5-COMMON-E1 | Identified editor Common factory/load/edit/save and E117 selection code facts | reverse-engineering-observation | Read-only resource identity and complete Common initialization/load/edit/serialize code review |
+
+
 Ticket25 records [Troop Event ownership, Reset, complete carrier safety, E1 reverse/product comparison and actual R2](25-troop-event-ownership-and-reset.md). Historical rows and captured result bytes remain unchanged.
 
 | Requirement | Obligation | Evidence kind | Required layer |
@@ -406,6 +430,72 @@ Ticket24 adds [complete Map Event pages and exact saved state](24-map-event-full
 | MV-S5-TROOP-R2-DELIVERY-003 | Allocated R2 delivery revision 3: complete17-page/three-turn normal Scene/Input literal and formal DSL product pair | game-observation | Explicit version-bound delivery input; original R2 remains separate |
 
 | MV-S5-TROOP-R2-DELIVERY-004 | Allocated R2 delivery revision 4: complete17-page/three-turn normal Scene/Input literal and formal DSL product pair | game-observation | Explicit version-bound delivery input; original R2 remains separate |
+
+| MV-S5-COMMON-R1-TRIGGERS | Complete Map/Common trigger and named E117 runtime pair | game-observation | Actual built Workspace and two fresh normal Scene native processes |
+
+| MV-S5-COMMON-R1-PARALLEL | Shared-switch Common Parallel wait and shutdown runtime pair | game-observation | Actual built Workspace and two fresh normal Scene native processes |
+
+| MV-S5-COMMON-R1-AUTORUN | Lowest active Common Autorun ID selection runtime pair | game-observation | Actual built Workspace and two fresh normal Scene native processes |
+
+| MV-S5-COMMON-R4-CONTEXT | Same Common formal current-event and self-switch behavior from Map and Battle | game-observation | Actual built Workspace and two fresh normal Scene native processes |
+
+| MV-S5-COMMON-CARRIER-BOUNDARY | Reject missing or nonnull Common reserved slot0 and preserve ordinary null-only carrier | synthetic-rejection | Actual public Workspace native carrier boundary |
+| MV-S5-COMMON-TRIGGER-BOUNDARY | Reject categorical Common trigger negative zero with exact diagnostic and unchanged complete business state | synthetic-rejection | Actual public Workspace native carrier boundary |
+
+## Ticket33 — all45 movement instructions
+
+| Requirement | Case | Scope |
+| --- | --- | --- |
+| MV-S6-MOVEMENT-001 | All45 finite movement shells and parameter cases through actual Workspace installation | E3/E5; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-002 | M45 closed Gate warning and recovery across fixed and forced routes | E5/R7; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-003 | Evaluated untyped movement fields reach real product validation | Product; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-004 | Late malformed saved route and exact mirror publication atomicity | Product; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-005 | All45 authoring/compiler/native/known-raw parameter and shape matrix | E3/E5; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-006 | Actual normal-Scene autonomous and forced route waiting with Parallel | R1; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-007 | Actual movement None image/SE and complete M45 single-slot execution | R1/R6/R7; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-008 | Same-identity E3/E5 movement resources and product comparison | E3/E5; [record](33-movement-instructions.md) |
+
+| Requirement | Case | Scope |
+| --- | --- | --- |
+| MV-S6-MOVEMENT-009 | R1 immutable complete native input binding | R1; [record](33-movement-instructions.md#native-delivery-input-bindings) |
+| MV-S6-MOVEMENT-010 | R6/R7 immutable complete native input binding | R1/R6/R7; [record](33-movement-instructions.md#native-delivery-input-bindings) |
+| MV-S6-MOVEMENT-011 | Preserve accepted negative-zero saved movement numbers through actual Workspace installation | Public source/built Workspace API; [record](33-movement-instructions.md#scoped-negative-zero-saved-values) |
+| MV-S6-MOVEMENT-012 | Reject negative-zero categorical M43 before source publication | Public source/built Workspace API; [record](33-movement-instructions.md#scoped-negative-zero-saved-values) |
+
+Ticket33's original R1-v2/R6/R7-v3 native acceptance was rejected for shared data
+junctions. Four append-only `retest-required` records supersede those claims;
+four fresh passed records bind physically independent R1-v4/R6/R7-v5 pairs.
+The [isolation repair](33-movement-instructions.md#native-isolation-repair--2026-10-20)
+preserves the incident, restored-reference provenance, physical guards and all
+original records. Both new pairs retain the original13/19 predicates and all
+strict native checks, with32 physical checkpoints each and unchanged full1100
+reference/full1101 seed files. Product contract remains `mv-1.6.1/9`; source
+check39files/980tests and built Windows15files/366tests remain applicable to the
+unchanged97-source/15-dist product. All286 requirement objects retain their exact
+bytes and order. Final49–55 remain separate from this allocated delivery.
+
+Ticket36 map appearance cases use independent complete saved literals and actual Workspace operations.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-MAP-APPEARANCE-001 | preserves independent None and inactive map appearance values through discovered source and real Push | synthetic-support | Public source/built Workspace and complete data/state assertions |
+| MV-S6-MAP-APPEARANCE-006 | rejects malformed known native and raw appearance slots at their actual native and authored paths | synthetic-rejection | Public source/built Workspace and complete data/state assertions |
+| MV-S6-MAP-APPEARANCE-005 | requires all E284 fields and enforces saved speed bounds even with None and disabled looping | synthetic-rejection | Public source/built Workspace and complete data/state assertions |
+| MV-S6-MAP-APPEARANCE-004 | requires both independent E283 asset-or-None slots with exact folders and nonempty names | synthetic-rejection | Public source/built Workspace and complete data/state assertions |
+| MV-S6-MAP-APPEARANCE-003 | rejects E282 None, zero, wrong scope and absent actual Tilesets with precise source paths | synthetic-rejection | Public source/built Workspace and complete data/state assertions |
+| MV-S6-MAP-APPEARANCE-002 | rejects missing and untyped E281 values and helper unknown fields without changing complete Workspace state | synthetic-rejection | Public source/built Workspace and complete data/state assertions |
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-MAP-APPEARANCE-E6 | Ticket36 allocated E6 identified map appearance resources and actual product comparison | reverse-engineering-observation | Exact resource identity plus actual current built product/literal native pairs |
+| MV-S6-MAP-APPEARANCE-R6 | Ticket36 allocated R6 current built normal-Scene map appearance and eight Battle background pairs | game-observation | Exact resource identity plus actual current built product/literal native pairs |
+| MV-S6-MAP-APPEARANCE-R6-MISSING | Ticket36 allocated actual missing-Tileset-image Loading Error and E282 stall pair | game-observation | Exact resource identity plus actual current built product/literal native pairs |
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-MAP-APPEARANCE-007 | preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push | synthetic-support | Public source/built Workspace; literal signed-zero carrier and Object.is assertions |
+
+Ticket36 allocated delivery is complete on contract `mv-1.6.1/10`: current source40 files/987 tests, fresh build, built Windows16 files/373 tests,9 exact E6 resource checks and10 physically isolated current-built/native pairs (20 game sides) passed. The [current delivery record](36-map-appearance-settings.md#final-current-delivery--contract-mv-16110) and `36-history/` preserve actual source/dist identities, rejected/incomplete attempts, original captures and safe native projections. All286 incoming rows/history bytes are preserved; final49–55 remain separate.
 
 | Requirement | Supplemental Map numeric saved-value check | Source | Boundary |
 | --- | --- | --- | --- |

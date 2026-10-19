@@ -14,13 +14,14 @@ import { captureReferenceIssue } from "./shared.js";
 import { isReferenceValue } from "./inspection.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
 import { assertNativeContextReferences } from "./native-context-references.js";
-import { assertLoopCommand } from "../commands/flow/validation.js";
+import { resolveCommonEventCall, assertLoopCommand } from "../commands/flow/validation.js";
 import {
   assertSetMovementRoute,
   validateNativeMovementRouteInputs,
 } from "../commands/movement/validation.js";
 import { CommandStructureError } from "./command-structure.js";
 import { assertDslCommandList } from "./dsl-command-inputs.js";
+import { assertMapAppearanceInput } from "../commands/map/validation.js";
 
 type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
@@ -57,6 +58,14 @@ export function validateNodes(
   }
   for (const [nodeIndex, node] of nodes.entries()) {
     const nodePath = `${options.path ?? "commands"}[${nodeIndex}]`;
+    try {
+      assertMapAppearanceInput(node.kind, node, nodePath, true, resolver);
+    } catch (error) {
+      if (error instanceof CommandStructureError)
+        issues.push(error.issue(options.identity ?? "event", "compile"));
+      else throw error;
+      continue;
+    }
     const childOptions = (field: string): CommandValidationOptions => ({
       ...options,
       path: `${nodePath}.${field}`,
@@ -205,7 +214,14 @@ export function validateNodes(
       }
     }
     if (node.kind === "commonEvent") {
-      captureReferenceIssue(() => resolver.resolveReference(node.ref), issues);
+      try {
+        resolveCommonEventCall(node, resolver, nodePath);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+        continue;
+      }
     }
     if (node.kind === "transferPlayer") {
       validateMapDestination(node.destination, resolver, issues);

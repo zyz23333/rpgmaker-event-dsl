@@ -124,6 +124,28 @@ The DSL does not replace RPG Maker MV's event system. It is a readable source fo
 producing normal RPG Maker MV project data, so the RPG Maker MV editor can continue to
 work with the generated result.
 
+Map appearance commands require their complete saved configuration:
+
+```ts
+changeMapNameDisplay({ enabled: true });
+changeTileset({ tileset: tilesetRef({ id: 2 }) });
+changeBattleBack({
+  battleback1: imageAsset({ folder: "battlebacks1", name: "Castle1" }),
+  battleback2: null,
+});
+changeParallax({ image: null, loopX: false, loopY: true, sx: 32, sy: -32 });
+```
+
+The two battle background slots are independent. Explicit `null` means None and
+compiles to an empty filename; it differs from MV's internal automatic background
+state. Parallax requires all five fields. Each speed is an integer from −32 to 32,
+preserves negative zero, and remains saved while its loop is disabled or its image
+is None. Use the exact
+`battlebacks1`, `battlebacks2` and `parallaxes` folders for each image slot; an empty
+Asset Reference name is invalid. Tilesets must exist in the Snapshot and have no
+None value. Asset filenames are preserved without scanning local image files;
+a valid reference does not guarantee that MV can load its images.
+
 ## Writing Your First DSL File
 
 A DSL file is a TypeScript file that exports RPG Maker MV declarations. For example,
@@ -147,6 +169,19 @@ export const introCommonEvent = commonEvent({
 
 When compiled, `introCommonEvent` becomes a `CommonEvents.json` entry, and its
 `showText(...)` command becomes RPG Maker MV's raw text command records.
+
+Common Events require an explicit positive `id`, exact `name`, `trigger`, and
+`commands` array, which may be empty. Names may be empty or duplicated; references
+by name require exactly one current declaration. Use
+`callCommonEvent({ commonEvent: commonEventRef({ id: 1 }) })` to call one.
+
+`trigger: "autorun"` and `"parallel"` require a `switch: switchRef(...)`. The same
+field preserves an independent saved switch when the trigger is `"none"`. Omitting
+it, including explicit `switch: undefined`, for `"none"` writes the fixed saved
+default `switchId: 1`; an explicit reference
+always follows ordinary Switch existence and capacity rules. Common Events inherit
+their invocation context and require no map or battle declaration. Removing a
+Common Event leaves a null ID hole and requires a destructive Push.
 
 DSL source files are discovered from the workspace config. By default, files under `src/`
 are treated as DSL declaration files when they match names like `**/*.events.ts` or
@@ -421,6 +456,14 @@ The saved route is preserved and checked even when the Page selects fixed, rando
 or approach movement. Its `wait` flag remains saved data; interpreter waiting applies
 when a route is used by Set Movement Route.
 
+All 45 movement instructions have formal parameter validation. Route `wait` uses
+explicit frames, `changeImage` uses nullable `character` plus independent
+`characterIndex`, `changeBlendMode` uses normal/additive/multiply/screen symbols,
+and route `playSe` requires its complete nullable-asset audio object. M45 preserves
+one complete string, including CR/LF and trailing whitespace, and remains gated
+even when empty or inactive. See the [movement parameter reference](packages/rpgmaker-event-dsl/README.md#movement-routes)
+for every instruction and accepted range.
+
 Project data references use helpers such as `switchRef(...)`, `variableRef(...)`,
 `actorRef(...)`, `skillRef(...)`, and `tilesetRef(...)`. Asset parameters use no-scan
 Asset References instead: `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)`
@@ -497,7 +540,7 @@ export const doorEvent = mapEvent({
       },
       commands: [
         showText({ lines: ["The door is open."] }),
-        callCommonEvent(commonEventRef({ id: 1 })),
+        callCommonEvent({ commonEvent: commonEventRef({ id: 1 }) }),
       ],
     }),
   ],

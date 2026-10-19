@@ -49,8 +49,8 @@ export type SnapshotMapEventPage = {
 
 export type SnapshotCommonEvent = {
   id: number;
-  list?: RawEventCommand[];
+  list: RawEventCommand[];
   name: string;
-  switchId?: number;
-  trigger?: number;
+  switchId: number;
+  trigger: 0 | 1 | 2;
 };

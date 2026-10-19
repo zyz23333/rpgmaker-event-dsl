@@ -1,0 +1,176 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-33/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/movement-instructions.test.ts (48 tests | 35 failed) 33ms
+   × M15 zero rejects an authored parameter outside its accepted domain 4ms
+   × M15 above rejects an authored parameter outside its accepted domain 1ms
+   × M15 fraction rejects an authored parameter outside its accepted domain 0ms
+   × M29 below rejects an authored parameter outside its accepted domain 0ms
+   × M29 above rejects an authored parameter outside its accepted domain 0ms
+   × M29 fraction rejects an authored parameter outside its accepted domain 0ms
+   × M30 below rejects an authored parameter outside its accepted domain 0ms
+   × M30 above rejects an authored parameter outside its accepted domain 0ms
+   × M30 fraction rejects an authored parameter outside its accepted domain 0ms
+   × M41 below rejects an authored parameter outside its accepted domain 0ms
+   × M41 above rejects an authored parameter outside its accepted domain 0ms
+   × M41 fraction rejects an authored parameter outside its accepted domain 0ms
+   × M42 below rejects an authored parameter outside its accepted domain 1ms
+   × M42 above rejects an authored parameter outside its accepted domain 0ms
+   × M42 fraction rejects an authored parameter outside its accepted domain 0ms
+   × M43 unknown rejects an authored parameter outside its accepted domain 0ms
+   × M43 old numeric rejects an authored parameter outside its accepted domain 0ms
+   × rejects native movement M15 invalid parameters [0] before decompiling 1ms
+   × rejects native movement M15 invalid parameters [1000] before decompiling 0ms
+   × rejects native movement M15 invalid parameters [0.5] before decompiling 0ms
+   × rejects native movement M29 invalid parameters [0] before decompiling 0ms
+   × rejects native movement M29 invalid parameters [7] before decompiling 0ms
+   × rejects native movement M29 invalid parameters [1.5] before decompiling 0ms
+   × rejects native movement M30 invalid parameters [0] before decompiling 0ms
+   × rejects native movement M30 invalid parameters [6] before decompiling 0ms
+   × rejects native movement M30 invalid parameters [1.5] before decompiling 0ms
+   × rejects native movement M41 invalid parameters ["",-1] before decompiling 0ms
+   × rejects native movement M41 invalid parameters ["",8] before decompiling 0ms
+   × rejects native movement M41 invalid parameters ["",0.5] before decompiling 0ms
+   × rejects native movement M42 invalid parameters [-1] before decompiling 0ms
+   × rejects native movement M42 invalid parameters [256] before decompiling 0ms
+   × rejects native movement M42 invalid parameters [0.5] before decompiling 0ms
+   × rejects native movement M43 invalid parameters [-1] before decompiling 1ms
+   × rejects native movement M43 invalid parameters [4] before decompiling 0ms
+   × rejects native movement M43 invalid parameters [0.5] before decompiling 0ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 35 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/movement-instructions.test.ts > M15 zero rejects an authored parameter outside its accepted domain
+ FAIL  test/movement-instructions.test.ts > M15 above rejects an authored parameter outside its accepted domain
+ FAIL  test/movement-instructions.test.ts > M15 fraction rejects an authored parameter outside its accepted domain
+ FAIL  test/movement-instructions.test.ts > M29 below rejects an authored parameter outside its accepted domain
+ FAIL  test/movement-instructions.test.ts > M29 above rejects an authored parameter outside its accepted domain
+ FAIL  test/movement-instructions.test.ts > M29 fraction rejects an authored parameter outside its accepted domain
+ FAIL  test/movement-instructions.test.ts > M30 below rejects an authored parameter outside its accepted domain
+ FAIL  test/movement-instructions.test.ts > M30 above rejects an authored parameter outside its accepted domain
+ FAIL  test/movement-instructions.test.ts > M30 fraction rejects an authored parameter outside its accepted domain
+ FAIL  test/movement-instructions.test.ts > M41 below rejects an authored parameter outside its accepted domain
+ FAIL  test/movement-instructions.test.ts > M41 above rejects an authored parameter outside its accepted domain
+ FAIL  test/movement-instructions.test.ts > M41 fraction rejects an authored parameter outside its accepted domain
+ FAIL  test/movement-instructions.test.ts > M42 below rejects an authored parameter outside its accepted domain
+ FAIL  test/movement-instructions.test.ts > M42 above rejects an authored parameter outside its accepted domain
+ FAIL  test/movement-instructions.test.ts > M42 fraction rejects an authored parameter outside its accepted domain
+ FAIL  test/movement-instructions.test.ts > M43 unknown rejects an authored parameter outside its accepted domain
+ FAIL  test/movement-instructions.test.ts > M43 old numeric rejects an authored parameter outside its accepted domain
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/movement-instructions.test.ts:106:66
+    104|   ["M43 old numeric", { kind: "changeBlendMode", blendMode: 1 }],
+    105| ])("%s rejects an authored parameter outside its accepted domain", (_l…
+    106|   expect(() => compileInstructions([value as MoveRouteCommand])).toThr…
+       |                                                                  ^
+    107| });
+    108|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/35]⎯
+
+ FAIL  test/movement-instructions.test.ts > rejects native movement M15 invalid parameters [0] before decompiling
+ FAIL  test/movement-instructions.test.ts > rejects native movement M15 invalid parameters [1000] before decompiling
+ FAIL  test/movement-instructions.test.ts > rejects native movement M15 invalid parameters [0.5] before decompiling
+ FAIL  test/movement-instructions.test.ts > rejects native movement M29 invalid parameters [0] before decompiling
+ FAIL  test/movement-instructions.test.ts > rejects native movement M29 invalid parameters [7] before decompiling
+ FAIL  test/movement-instructions.test.ts > rejects native movement M29 invalid parameters [1.5] before decompiling
+ FAIL  test/movement-instructions.test.ts > rejects native movement M30 invalid parameters [0] before decompiling
+ FAIL  test/movement-instructions.test.ts > rejects native movement M30 invalid parameters [6] before decompiling
+ FAIL  test/movement-instructions.test.ts > rejects native movement M30 invalid parameters [1.5] before decompiling
+ FAIL  test/movement-instructions.test.ts > rejects native movement M41 invalid parameters ["",-1] before decompiling
+ FAIL  test/movement-instructions.test.ts > rejects native movement M41 invalid parameters ["",8] before decompiling
+ FAIL  test/movement-instructions.test.ts > rejects native movement M41 invalid parameters ["",0.5] before decompiling
+ FAIL  test/movement-instructions.test.ts > rejects native movement M42 invalid parameters [-1] before decompiling
+ FAIL  test/movement-instructions.test.ts > rejects native movement M42 invalid parameters [256] before decompiling
+ FAIL  test/movement-instructions.test.ts > rejects native movement M42 invalid parameters [0.5] before decompiling
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/movement-instructions.test.ts:122:13
+    120|     { code: 505, indent: 0, parameters: [instruction] },
+    121|     { code: 0, indent: 0, parameters: [] },
+    122|   ], "  ")).toThrow(/MV-MOVEMENT-PARAMETER/);
+       |             ^
+    123| });
+    124|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/35]⎯
+
+ FAIL  test/movement-instructions.test.ts > rejects native movement M43 invalid parameters [-1] before decompiling
+AssertionError: expected [Function] to throw error matching /MV-MOVEMENT-PARAMETER/ but got 'decompile error MV-COMMAND-UNSUPPORTE…'
+
+- Expected:
+/MV-MOVEMENT-PARAMETER/
+
++ Received:
+"decompile error MV-COMMAND-UNSUPPORTED: Known native command cannot be represented by its current formal helper; raw fallback is unavailable. at list[0].parameters; expected supported formal native command; actual [-1,{\"list\":[{\"code\":43,\"parameters\":[-1]},{\"code\":0}],\"repeat\":true,\"skippable\":false,\"wait\":false}]"
+
+ ❯ test/movement-instructions.test.ts:122:13
+    120|     { code: 505, indent: 0, parameters: [instruction] },
+    121|     { code: 0, indent: 0, parameters: [] },
+    122|   ], "  ")).toThrow(/MV-MOVEMENT-PARAMETER/);
+       |             ^
+    123| });
+    124|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/35]⎯
+
+ FAIL  test/movement-instructions.test.ts > rejects native movement M43 invalid parameters [4] before decompiling
+AssertionError: expected [Function] to throw error matching /MV-MOVEMENT-PARAMETER/ but got 'decompile error MV-COMMAND-UNSUPPORTE…'
+
+- Expected:
+/MV-MOVEMENT-PARAMETER/
+
++ Received:
+"decompile error MV-COMMAND-UNSUPPORTED: Known native command cannot be represented by its current formal helper; raw fallback is unavailable. at list[0].parameters; expected supported formal native command; actual [-1,{\"list\":[{\"code\":43,\"parameters\":[4]},{\"code\":0}],\"repeat\":true,\"skippable\":false,\"wait\":false}]"
+
+ ❯ test/movement-instructions.test.ts:122:13
+    120|     { code: 505, indent: 0, parameters: [instruction] },
+    121|     { code: 0, indent: 0, parameters: [] },
+    122|   ], "  ")).toThrow(/MV-MOVEMENT-PARAMETER/);
+       |             ^
+    123| });
+    124|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/35]⎯
+
+ FAIL  test/movement-instructions.test.ts > rejects native movement M43 invalid parameters [0.5] before decompiling
+AssertionError: expected [Function] to throw error matching /MV-MOVEMENT-PARAMETER/ but got 'decompile error MV-COMMAND-UNSUPPORTE…'
+
+- Expected:
+/MV-MOVEMENT-PARAMETER/
+
++ Received:
+"decompile error MV-COMMAND-UNSUPPORTED: Known native command cannot be represented by its current formal helper; raw fallback is unavailable. at list[0].parameters; expected supported formal native command; actual [-1,{\"list\":[{\"code\":43,\"parameters\":[0.5]},{\"code\":0}],\"repeat\":true,\"skippable\":false,\"wait\":false}]"
+
+ ❯ test/movement-instructions.test.ts:122:13
+    120|     { code: 505, indent: 0, parameters: [instruction] },
+    121|     { code: 0, indent: 0, parameters: [] },
+    122|   ], "  ")).toThrow(/MV-MOVEMENT-PARAMETER/);
+       |             ^
+    123| });
+    124|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/35]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  35 failed | 13 passed (48)
+   Start at  23:23:52
+   Duration  1.49s (transform 417ms, setup 0ms, import 1.19s, tests 33ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-33\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/movement-instructions.test.ts

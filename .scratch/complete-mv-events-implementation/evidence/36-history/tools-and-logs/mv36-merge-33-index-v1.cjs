@@ -1,0 +1,11 @@
+const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),assert=require('node:assert/strict');
+const repo='C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl',incoming='c2a40a41c094ccdda47faccd4399891952739008',own='55f9de5af37a747d30e6f9ab6bdc6881e4e0ec72';
+const rel='.scratch/complete-mv-events-implementation/evidence/requirements.json';
+const show=(ref,file)=>cp.execFileSync('git',['show',ref+':'+file],{cwd:repo,encoding:'utf8',maxBuffer:32*1024*1024});
+const latest=JSON.parse(show(incoming,rel)),ours=JSON.parse(show(own,rel));
+const additions=ours.requirements.filter(r=>r.id.startsWith('MV-S6-MAP-APPEARANCE-'));assert.equal(additions.length,10);assert.equal(latest.requirements.length,286);
+for(const row of additions)assert.ok(!latest.requirements.some(r=>r.id===row.id));
+const next={...latest,requirements:[...latest.requirements,...additions]};assert.deepEqual(next.requirements.slice(0,286),latest.requirements);fs.writeFileSync(path.join(repo,rel),JSON.stringify(next,null,2)+'\n');
+const readme=path.join(repo,'.scratch/complete-mv-events-implementation/evidence/README.md'),conflicted=fs.readFileSync(readme,'utf8');let count=0;
+const merged=conflicted.replace(/<<<<<<< HEAD\r?\n([\s\S]*?)=======\r?\n([\s\S]*?)>>>>>>>[^\r\n]*\r?\n/g,(_m,ours,theirs)=>{count++;return theirs+'\n'+ours;});assert.equal(count,1);assert.ok(!merged.includes('<<<<<<<'));fs.writeFileSync(readme,merged);
+console.log({incoming,priorRows:286,ownAdded:10,total:next.requirements.length,readmeConflicts:count});

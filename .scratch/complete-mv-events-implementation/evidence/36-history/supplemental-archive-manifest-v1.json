@@ -1,0 +1,192 @@
+{
+  "purpose": "Append-only exact prepare physical proofs and safe summaries, current input identities, original failed attempts, final audit and recorder provenance; no first-party runtime/assets/loaded carriers copied",
+  "at": "2026-10-19T19:07:54.899Z",
+  "captured": [
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-delivery-v4-pointer.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/provenance/physical-input-pointer-v4.json",
+      "sha256": "2927512603e6019fa888f6be2633b17d38bddfdf2943a7fd3399db893284f4f5",
+      "bytes": 400
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\manifest.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/provenance/physical-input-manifest-v4.json",
+      "sha256": "658dc83c6de9e6df6c79dea6d0907419221b101eca132b39c9f25cc29062b947",
+      "bytes": 3289555
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-delivery-v4-prepare-index-0ef05557-8dd9-4f5d-aca6-79b7df80a5a5.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/prepare-index-v4.json",
+      "sha256": "a44d1575cb5b92552b8f849baa029a2bd26da8638308752e9e144db46906519b",
+      "bytes": 3319
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-map-physical-delivery-v4-prepare-cc6bff54-306c-4b88-8ef0-61dbe51a890b\\physical-isolation-proof.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/map-physical-isolation-proof.json",
+      "sha256": "48947ac1d61b3d0c0bc7e33ff05a47cd2f81f2c0d32bea1b0109eca4c9087d09",
+      "bytes": 2107746
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-map-physical-delivery-v4-prepare-cc6bff54-306c-4b88-8ef0-61dbe51a890b\\preparation-result.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/map-safe-summary.json",
+      "sha256": "c1803afbfe0f195b9935fdec9ab489599c8498b5a8f85eab75c357b909de8eec",
+      "projection": true
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-both-physical-delivery-v4-prepare-eb3f4d93-253e-4746-817a-c35ab6c87f44\\physical-isolation-proof.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/battle-overworld-both-physical-isolation-proof.json",
+      "sha256": "374d9f4f189c333e0a116bf9c91a29d0c116414aa9838071f087254627abac85",
+      "bytes": 2111646
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-both-physical-delivery-v4-prepare-eb3f4d93-253e-4746-817a-c35ab6c87f44\\preparation-result.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/battle-overworld-both-safe-summary.json",
+      "sha256": "9bb84b0a228b3274503cb9721d0710580aab89486fde5e4c05ad138e928c642b",
+      "projection": true
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-only1-physical-delivery-v4-prepare-69bced22-71fd-4bcb-b920-3fe4e601013e\\physical-isolation-proof.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/battle-overworld-only1-physical-isolation-proof.json",
+      "sha256": "a5263b1fac2945086a1bc4097d08636ad557dcf9cb7aa7869fe3274c7ddcfe2c",
+      "bytes": 2111864
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-only1-physical-delivery-v4-prepare-69bced22-71fd-4bcb-b920-3fe4e601013e\\preparation-result.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/battle-overworld-only1-safe-summary.json",
+      "sha256": "474bbb2f0e7fb89e026cf0f7af8b92f1d2418314009781089289b2e0a68d97c3",
+      "projection": true
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-only2-physical-delivery-v4-prepare-f62dbb31-0181-4d18-b92c-9c670e5338cd\\physical-isolation-proof.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/battle-overworld-only2-physical-isolation-proof.json",
+      "sha256": "70edc4f7044dd8189e1e1a8106509f674e3dc22fe448a02c7664efc62bc2498e",
+      "bytes": 2111864
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-only2-physical-delivery-v4-prepare-f62dbb31-0181-4d18-b92c-9c670e5338cd\\preparation-result.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/battle-overworld-only2-safe-summary.json",
+      "sha256": "f90f8979caaca0ac1b4943385b12eebe25b08c1f9cba88d4b1061893eeb4b1f8",
+      "projection": true
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-none-physical-delivery-v4-prepare-a98d7884-71aa-48a5-8c50-0659ef1c519b\\physical-isolation-proof.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/battle-overworld-none-physical-isolation-proof.json",
+      "sha256": "d9a54af53d0537b8172daaa6bfd4189347549fc147fcc366f5135697622128cf",
+      "bytes": 2111646
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-none-physical-delivery-v4-prepare-a98d7884-71aa-48a5-8c50-0659ef1c519b\\preparation-result.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/battle-overworld-none-safe-summary.json",
+      "sha256": "ece1b68cb2320a6bf58706d1701613b7c42763897ca37302bc6e0d8577bd41a2",
+      "projection": true
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-both-physical-delivery-v4-prepare-68921840-3770-4b9a-8d58-498db39a20d8\\physical-isolation-proof.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/battle-ordinary-both-physical-isolation-proof.json",
+      "sha256": "6340ba9f7b674cf80e76a1b7af50281f7410620aa94edadde1352a7cbea218b5",
+      "bytes": 2111428
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-both-physical-delivery-v4-prepare-68921840-3770-4b9a-8d58-498db39a20d8\\preparation-result.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/battle-ordinary-both-safe-summary.json",
+      "sha256": "8526476bf8ba0520349ea87063b341fbfc64c1528566f251835459aec9d1f80a",
+      "projection": true
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-only1-physical-delivery-v4-prepare-c7864087-e649-4535-bcd8-dc3133363d76\\physical-isolation-proof.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/battle-ordinary-only1-physical-isolation-proof.json",
+      "sha256": "45ce5300d9be832d3fe081228669c3e6ee172ec3f26e5615780284dc72487782",
+      "bytes": 2111646
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-only1-physical-delivery-v4-prepare-c7864087-e649-4535-bcd8-dc3133363d76\\preparation-result.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/battle-ordinary-only1-safe-summary.json",
+      "sha256": "a000e4ed71f6fd07946fdd6c04ca829995513f0efaed9b2afa6b0a18da02b5aa",
+      "projection": true
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-only2-physical-delivery-v4-prepare-0656af85-d55b-4f07-8fae-34413ea47fab\\physical-isolation-proof.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/battle-ordinary-only2-physical-isolation-proof.json",
+      "sha256": "6bea7b474b57730f0518f73ebfe5aa09fe13853ff3a670edd5617a493932c9fb",
+      "bytes": 2111646
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-only2-physical-delivery-v4-prepare-0656af85-d55b-4f07-8fae-34413ea47fab\\preparation-result.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/battle-ordinary-only2-safe-summary.json",
+      "sha256": "52f318c3bd66a6291cfadd8f0c3accacdb1a0132fbc1fb572a2853a5e6448461",
+      "projection": true
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-none-physical-delivery-v4-prepare-ebde6ddd-0a5a-4db6-be4b-faed82834ad7\\physical-isolation-proof.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/battle-ordinary-none-physical-isolation-proof.json",
+      "sha256": "f3764cedde9d0b0373e4a2ee82452578b09e13eaeeaaf52acf503c82373addb4",
+      "bytes": 2111428
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-none-physical-delivery-v4-prepare-ebde6ddd-0a5a-4db6-be4b-faed82834ad7\\preparation-result.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/battle-ordinary-none-safe-summary.json",
+      "sha256": "bced85baf0488d4a3f1977f61e2e1ab1645586148d0ddfcecd11dbb84b408217",
+      "projection": true
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-missing-tileset-physical-delivery-v4-prepare-c9d5bd19-b3b6-4866-ac84-9820fdb2437a\\physical-isolation-proof.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/missing-tileset-physical-isolation-proof.json",
+      "sha256": "5861108ebeacf387cdc6bfbb22d7be37d81520d0ca4e5a37a69bbed6f9437989",
+      "bytes": 2110338
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-missing-tileset-physical-delivery-v4-prepare-c9d5bd19-b3b6-4866-ac84-9820fdb2437a\\preparation-result.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/prepare/missing-tileset-safe-summary.json",
+      "sha256": "259866bdf29caa22de07d951b1b87b30fa3e73ead406a1ec87b75e085b5d7638",
+      "projection": true
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\preparation-failures-v1.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/preparation-failures-v1.json",
+      "sha256": "e074f6d40093244d5b75c0d4bce5ba7a99629ced5fa0811a82c78556ad227ff0",
+      "bytes": 1667
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-record-final-results-v2.mts",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-record-final-results-v2.mts",
+      "sha256": "48aa50c783e23e623fe8c652a3250ddfb2feda0cd4595ef86acbc65877e253be",
+      "bytes": 8860
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-finalize-docs-v1.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-finalize-docs-v1.cjs",
+      "sha256": "b38284e273c2c4d7bd6687d62e43543597c41b588b094efeb14604ed0f7cd1b8",
+      "bytes": 12398
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-archive-prepare-v1.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-archive-prepare-v1.cjs",
+      "sha256": "829b497706b71313cae7e5dc3bb9bacce763b2cc4bc27c4d948d7647b8f9c4c4",
+      "bytes": 4627
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\recorder-load-gate-v2.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/recorder-load-gate-v2.log",
+      "sha256": "dbba4344b5549e7bf262ce50ecffdcbf85f5134e42ea00459203c8c82cef27df",
+      "bytes": 994
+    },
+    {
+      "source": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket36-delivery-v4/mv36-final-audit-v2-1c865f97-79d6-42a8-942a-15d93f0fe393.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/provenance/final-product-history-native-audit-v2.json",
+      "sha256": "025695793a9840b419fa807a52215134ff18c99bf25d73800641afd86ea5895b",
+      "bytes": 1683239
+    },
+    {
+      "source": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket36-delivery-v4/mv36-final-documentary-results-v3.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/final-documentary-results-v2.log",
+      "sha256": "52adfdf932817a2945fba4921234df17178aeee4b6029b59dd92db4ec80fddd7",
+      "bytes": 1082
+    },
+    {
+      "source": "M:/Shuen/Codex/mv-events-implementation-20261020/disk-recovery-v1/relocation-index.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/provenance/root-disk-recovery-relocation-index.json",
+      "sha256": "c86e9d99f20b9ffe7c7391e7b86372dfba293c9ba25d39115377d0d9343b1930",
+      "bytes": 3262
+    }
+  ]
+}
