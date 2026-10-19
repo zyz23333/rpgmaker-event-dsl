@@ -2,7 +2,7 @@
 
 `requirements.json` describes obligations. `results/` contains immutable, machine-produced run records. A requirement does not acquire a passing status merely because it appears in this index. The ordinary test suite validates the index schema, unique IDs, fixture hashes, source sections, test links, checklist completeness and recorded run references.
 
-This index contains ticket 01 automated seeds, ticket 02 Windows automation baseline, tickets 03–09 reverse-engineering obligations and contract review, ticket 11 System-slot/switch coverage, ticket12 captured map/battle context and ticket13 Loop/Break/Exit coverage; it is not the complete command or native acceptance matrix. Later tickets add their own stable case IDs and independent input/expected data. Per the user's revised acceptance, editor validation uses REA reverse engineering while final actual game runs remain required. The Common Event seed itself does not execute these native groups; its synthetic project context is sufficient for Workspace data operations and is not claimed to be a playable MV project.
+This index contains ticket 01 automated seeds, ticket 02 Windows automation baseline, tickets 03–10 reverse-engineering obligations and contract review, ticket 11 System-slot/switch coverage, ticket12 captured map/battle context and ticket13 Loop/Break/Exit coverage; it is not the complete command or native acceptance matrix. Later tickets add their own stable case IDs and independent input/expected data. Per the user's revised acceptance, editor validation uses REA reverse engineering while final actual game runs remain required. The Common Event seed itself does not execute these native groups; its synthetic project context is sufficient for Workspace data operations and is not claimed to be a playable MV project.
 
 | Requirement            | Obligation                                                                                                                                        | Evidence kind                   | Required layer                                               |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------ |
@@ -127,6 +127,23 @@ Ticket 13's [acceptance report](13-loop-acceptance.md) records scope, exact test
 | MV-E09-CONTAINER        | Container and outer route confirmation keep strings outside TextEdit | reverse-engineering-observation | identified editor resources; bounded review only |
 | MV-E09-WARNING-POLICY   | Accepted original-string warning rules and independent Gate          | static-inference                | identified editor resources; bounded review only |
 
+| Requirement          | Obligation                                                           | Evidence kind                   | Required layer                            |
+| -------------------- | -------------------------------------------------------------------- | ------------------------------- | ----------------------------------------- |
+| MV-E10-RANGE         | EXP constant range from editor and bundled native control            | reverse-engineering-observation | identified editor/Qt; bounded review only |
+| MV-E10-INITIALIZE    | EXP new-dialog completed initialization                              | static-inference                | identified editor/Qt; bounded review only |
+| MV-E10-LOAD-MAX      | Upper constant numeric load and confirmation                         | static-inference                | identified editor/Qt; bounded review only |
+| MV-E10-LOAD-OVER     | Injected out-of-domain numeric load versus text input                | static-inference                | identified editor/Qt; bounded review only |
+| MV-E10-TEXT-MAX      | Seven-digit text handler boundary                                    | static-inference                | identified editor/Qt; bounded review only |
+| MV-E10-TEXT-OVER     | Eight-digit text truncation precedes numeric clamp                   | static-inference                | identified editor/Qt; bounded review only |
+| MV-E10-STEP          | Endpoint increment and decrement use bounded setter                  | reverse-engineering-observation | identified editor/Qt; bounded review only |
+| MV-E10-CONFIRM       | Six current properties saved on parameter confirmation               | reverse-engineering-observation | identified editor/Qt; bounded review only |
+| MV-E10-CONTAINER     | Container serialization does not open the EXP parameter control      | reverse-engineering-observation | identified editor/Qt; bounded review only |
+| MV-E10-HELP          | Same-install help maximum discrepancy                                | reverse-engineering-observation | identified editor/Qt; bounded review only |
+| MV-E10-VARIABLE      | Variable slot ID versus runtime operand value                        | reverse-engineering-observation | identified editor/Qt; bounded review only |
+| MV-E10-SHOW-LEVEL-UP | Disabled Show Level Up remains an independent saved boolean          | reverse-engineering-observation | identified editor/Qt; bounded review only |
+| MV-E10-TIMING        | Unexecuted text, focus and signal order remains explicit             | static-inference                | identified editor/Qt; bounded review only |
+| MV-E10-CONTRACT      | Accepted EXP range consistency and separate product/game obligations | static-inference                | identified editor/Qt; bounded review only |
+
 | Requirement | Obligation | Evidence kind | Required layer |
 | --- | --- | --- | --- |
 | MV-S2-ROUTE-014 | Shared route defaults, finite indent and M0 state, all eight flags | synthetic-support | command and Staged Data Graph |
@@ -190,9 +207,11 @@ Ticket 09 adds [single-slot text, input and reconfirmation review](09-single-slo
 
 Ticket16 adds [Workspace operation lock acceptance](16-workspace-operation-locking.md). These are automated synthetic filesystem/process cases; they do not execute the editor or a game.
 
-| Requirement | Obligation | Evidence kind | Required layer |
-| --- | --- | --- | --- |
-| MV-S4-LOCK-001 | All same-Workspace API and CLI operations immediately reject contention | synthetic-support | Windows public API and real child processes |
-| MV-S4-LOCK-002 | hides Snapshot publication gaps and aliases while other Workspaces operate | synthetic-support | Windows public API and real child processes |
+| Requirement    | Obligation                                                                      | Evidence kind     | Required layer                              |
+| -------------- | ------------------------------------------------------------------------------- | ----------------- | ------------------------------------------- |
+| MV-S4-LOCK-001 | All same-Workspace API and CLI operations immediately reject contention         | synthetic-support | Windows public API and real child processes |
+| MV-S4-LOCK-002 | hides Snapshot publication gaps and aliases while other Workspaces operate      | synthetic-support | Windows public API and real child processes |
 | MV-S4-LOCK-003 | recovers kernel leases after interruption and crash without stale-cleaner races | synthetic-support | Windows public API and real child processes |
-| MV-S4-LOCK-004 | preserves Interrupted Push independently of abandoned locks and failed checks | synthetic-support | Windows public API and real child processes |
+| MV-S4-LOCK-004 | preserves Interrupted Push independently of abandoned locks and failed checks   | synthetic-support | Windows public API and real child processes |
+
+Ticket 10 adds [EXP range, input, load and save review](10-exp-boundaries-reverse.md), [16 selected resource identities and real native Evidence pointers](10-resource-identities.json), and [11 independent literal boundary inputs](10-exp-inputs.json). Its 14 bounded review records distinguish seven-digit text truncation from numeric setter clamping, initialization/completion and step paths, six-slot confirmation, container-only serialization, variable runtime values and the conflicting help maximum. Fresh same-DLL REA/Ghidra evidence closes the completion/range gap; exact UI signal order remains explicitly unexecuted. No editor UI, extracted-code, product or game execution is claimed.
