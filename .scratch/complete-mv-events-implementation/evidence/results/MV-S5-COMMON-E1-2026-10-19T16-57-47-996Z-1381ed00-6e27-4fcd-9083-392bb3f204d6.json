@@ -1,0 +1,2240 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-S5-COMMON-E1",
+  "runId": "2026-10-19T16-57-47-996Z-1381ed00-6e27-4fcd-9083-392bb3f204d6",
+  "status": "passed",
+  "startedAt": "2026-10-19T16:44:12.699Z",
+  "completedAt": "2026-10-19T16:57:47.997Z",
+  "operator": "Codex Ticket23 current product and reverse-engineering comparison operator",
+  "source": {
+    "revision": "59de6e9745ce1508299ff5acbbf80c59fbf2c9b3",
+    "fingerprint": "e4377fd93b2d8e0fcff8cd6db4667877a05f89fb98a68b308b1bb8fdc562742d",
+    "files": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-common-event-roundtrip.md",
+        "sha256": "dc70bdb1f73aa4e5f702588618d172203603004bbec13b539a2ebfea9ed0f557"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-history/e1-identity-recheck-v3.json",
+        "sha256": "d3975b3c81f3c00a1bcdd87f2ac98ab4cd813efab5ac93002a8766e9df9033fa"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-history/mv23-e1-rea-pe-resources.json",
+        "sha256": "c38fcb0f8bcb0c56477800def47b7b2ba2c47dc6bae088805d9ff8612f0801e1"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-history/mv23-e1-recheck-v3.cjs",
+        "sha256": "388a5e81c7e8b89c4822a5e83722951e19bd8a2bda1736bd117e971a01021560"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-history/mv23-review-boundaries-red-v1.json",
+        "sha256": "6465d6d97dbd0e0bba15d6fcbafb966b96e12ce117085be39d509e08fd75870a"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-history/mv23-review-build-final-v1.txt",
+        "sha256": "0f747e3613b68de5225ab524b34170f13befeea2924678fe5b4a5036c0812fc5"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-history/mv23-review-check-final-v1.txt",
+        "sha256": "0b16f77088518abde8c6f90072a783ead86a77e49e8a08bd1f8bea626e0af8e7"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-history/mv23-review-e1-delivery-identity-v1.json",
+        "sha256": "1bc3e3608413face7cbf528cb2c9d1e44b98059137be18de7b958415ff7a1b7c"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-history/mv23-review-windows-baseline-final-v1.txt",
+        "sha256": "f1e3e4873410f5775cc0560709ec041e8bed56d8dfa1d83e9ade8471a54fa078"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+        "sha256": "59a40c9f77f81a50ee4d705285067ae2b0d3bb8e4c389a611fc6ec51ee266e10"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-001-2026-10-19T16-45-46-725Z-c407253c-03b0-4f59-89f4-2f228c3bd68a.json",
+        "sha256": "f58854e3af1ef36dd50a2b8768ef3401037a552ee30769871d2415caff911dbb"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-001-2026-10-19T16-55-00-541Z-3b4f56e7-3f98-411f-8d53-be0a80f9c127.json",
+        "sha256": "d2bda78d811660e6b8c95c68bfaf38915c9e3b241d1105739bb71a2bffbd00de"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-002-2026-10-19T16-45-46-076Z-f1c24caf-d24f-4043-9da8-685fb8804d2e.json",
+        "sha256": "4eeb8ad119970f6905d145abf674cc100ea26af6cf58b1b9a1fbd8067bb12b3a"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-002-2026-10-19T16-54-59-904Z-e4ababab-e96e-4d84-a131-c47978dc7626.json",
+        "sha256": "32d6b0acf0daaa62f35b8bf50cdf16a1a5f5c94fc9487ae76be50f79cc357e95"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-39-535Z-b4d45900-8c94-4157-b994-ee9b6b828d6a.json",
+        "sha256": "2d803891efb6a54eac6013fe8508230449038076dd5359614f117404182d4ad0"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-39-651Z-b7c19854-aab7-4929-8a3f-a37638b94163.json",
+        "sha256": "8e7e64b2050fc83c39e6942961a12b9cbf85c44af1f89a75965f022a4b25ee06"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-39-761Z-3c763376-9034-4cc2-a299-acbf3631c197.json",
+        "sha256": "d20d6c069be94eab22db8e22e655a062104a1914cde116d685c825fccd5318a3"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-39-869Z-c847a272-37d8-44c4-a108-8fae980ba60c.json",
+        "sha256": "ef836e061d940ba9d5e83b0ba595db700468398baddc945d5fa2e87f5045dc75"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-39-994Z-02e24952-707a-4cdb-8025-14ad777782d1.json",
+        "sha256": "a8cadc4228700b3ebb33aa04fe48fe7db10eafe6847d7cdaec5a652580ba45f9"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-40-111Z-203e3cbd-49cd-466f-842e-a029323f0af1.json",
+        "sha256": "d8af5a3a853b82a6f187a9c2aafacfebfc6af08b3ed2f2d44c5385c3c9c06633"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-40-227Z-f6d8c076-0cb9-411b-b044-a5323d833872.json",
+        "sha256": "04b53a7bb83dd308bebe01d308cb6b108d224e419b0520519d55b2221bd6dec3"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-40-399Z-a687726e-d7e6-4e65-85e6-630393a76639.json",
+        "sha256": "1a2b04699047f877f3acdc8490ad764ec08566dc487aadec3ddd10c9feae991c"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-40-593Z-41e84a39-8bda-4803-9172-048ed8a1167f.json",
+        "sha256": "dc31a90b32e47612669f56b2985c4d965723dc52c8039251567d97bfc285ec0f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-40-765Z-392463cf-3088-4567-995f-cd26e78d20f3.json",
+        "sha256": "45fb18fc26c1c638b3dbd40dcfb7780cdbcae46cd11f55f20b217ea8473c7049"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-40-895Z-da2fc409-7f5a-46af-865b-f83f78204099.json",
+        "sha256": "a6761591c259b94d558d54815b9e7afb077b14f5a6deba3265b64026f82ad2cc"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-41-010Z-9ce8dc34-bcb8-4862-a738-7ee845eeecca.json",
+        "sha256": "aada8f078b5f3c13572a5186003b5fb3d027bab5bd8da4d8f2333f074e0266a4"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-41-124Z-e65fa4cb-42ce-4b56-a3bc-c667fde6a601.json",
+        "sha256": "6625957d2f8b32f84e27e8e8fa8d0bfb3bde0bfd68397d1058804bc7d16efd8b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-41-244Z-d9dfd41d-20f6-4738-a380-1bd539c20c7d.json",
+        "sha256": "9eed9446ce7b9ce29a5413ee85937975049238431cff308573d7946b0ce23014"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-41-398Z-8ee20b88-41bd-43cd-91a8-fa45b8e5431a.json",
+        "sha256": "1cfbfbd41d3a0c61f93cbec65bf7d77ceededfba36b29b1ea6f9d71f14b1e254"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-41-609Z-ac1cda54-c41d-45e9-8f2e-6fa203b06c8d.json",
+        "sha256": "870354bdebf4c2ad0cb6feef6cf7f430038d48a3eb8b765943280dd53fee8641"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-41-797Z-b9e69e76-0cf5-45bc-a3c9-066eab60305d.json",
+        "sha256": "b71b448b0db8121b4e32d6836b4d52ab0b1fdf588734542424a02bd9a32b586a"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-41-926Z-bb6e7017-0a57-4818-9478-c4ffbd3b64ee.json",
+        "sha256": "eddd4f4ceb3862a77e9f0e89bc4e82c1089a684352ba3ccf06af29808da58129"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-42-040Z-b35f6aa8-8bc5-45b3-af81-24d939cc255c.json",
+        "sha256": "7811f97acfa185ce19fd9d753ecff71dd86c067905868adc63576dfe568ced5b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-42-177Z-b2aa0dc2-e930-4b54-a143-3bcf46c2fdc9.json",
+        "sha256": "d328fb9afabaab98d02093e379fc434dce65aa78de283ee7b498cfa0cfa92243"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-42-333Z-08388fef-1727-4e13-aff7-6a6cf956bf02.json",
+        "sha256": "5914a1b2846bd61ee6ceb33d0a12a1931eb4e86d4e84b88cbdb65ac209337057"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-42-531Z-fac6f88a-efe4-4a64-bd7e-4c48ac5eb4a9.json",
+        "sha256": "3a540abf009012d3350430d8b16442f950b16f8a6961ffedb54f8446c02eb993"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-54-015Z-07f9c354-11ee-404a-8246-cab47a062798.json",
+        "sha256": "deb9f38298bb14c1f9e330dbf5ceab4fbc63a06d70cb029f20fa8e96273efa92"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-54-198Z-1e183613-5501-4211-855c-83877752ba5c.json",
+        "sha256": "291552d57ed1c5faaf6646ccc57a11000b01b29408becd666da733c6a3b65add"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-54-409Z-5b3b8df7-0d53-4c5b-a478-99d938cd573c.json",
+        "sha256": "0b0cffa93a9c7d251a8c7163bfb15c99ddc927e8d59e89f8d4981c66c1d2fa45"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-54-561Z-dfcd8c13-368f-49b9-9130-a03384221ae0.json",
+        "sha256": "6e32c317d9eddfdc0f355a4019c737f7f1bfd8b7d5f51469e1367d40dbbc2648"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-54-708Z-c7119eae-a048-410a-a561-7f08ac47375e.json",
+        "sha256": "31b18e518b6dada500d63b5c4a6d40c823ff0c1ca182dde7b4e1e7aed41acc35"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-54-857Z-1f8e39a7-fba4-40d3-bfdf-e69934e6a327.json",
+        "sha256": "595cc0232a31581e6da93121a53de22c1da22ee9ad949b5545838693ac5d7e59"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-54-994Z-6d86c7d1-93cd-4927-bfcc-4647ef00ac70.json",
+        "sha256": "9a38438e95c5dec910adb952e6590c4b417646f9ecf2cfc858b50c3835465747"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-55-136Z-e6759da2-4d4d-4a0a-8e7a-93c63e94c8b9.json",
+        "sha256": "97ffc7614341f93dae0ca73ecd5edf2f40ed4395f88757b716791efcc3b53b2b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-55-322Z-c2c4039f-a5b7-4cbe-86c9-bea2759ce5c6.json",
+        "sha256": "b0221ca5b7b9c55bfe4de959c33e9146a89aa16e51bc94b271cf3495c3f1dad8"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-55-511Z-69b4014a-bb78-4437-8196-ed46bf5f3462.json",
+        "sha256": "673ba2ad5517da0f95b263028e5340460a633eadab373185346cfa8d4025ad3b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-55-656Z-a501b91f-ee2a-43ae-989b-aab2dfd41fb7.json",
+        "sha256": "75d4f85ff50ec867d2f529e6e6592c717e23f0cadb4becfc208af595a65e8be6"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-55-776Z-4c6ca1c2-5c3e-4b82-9519-c47e5afa7fac.json",
+        "sha256": "42c108470fd20d50525c28e63054906a29c594e59604884e71d513b7682e9f90"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-55-919Z-d5f48e09-1323-4d6c-b2be-907157f95d3c.json",
+        "sha256": "ef33c3c75c2d16a070398ec9ed2e57bd5ee2bb14595fecc7bb180c7b54baf956"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-56-040Z-97b3873c-0cbc-4a41-87b1-6cc957e9e40f.json",
+        "sha256": "aa577f7ef222931d631eece72f5151e1efa834f8d34e33432d8a0c5550fb1f12"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-56-172Z-4c3e0179-5cff-4d5d-b9be-1573104ef9e3.json",
+        "sha256": "dcf62a200b4944402c09632c9fde74af29b439ca0b35027eb00ff486e30ca5c4"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-56-293Z-2026c58a-8d12-48ce-9960-5112a16a6a6f.json",
+        "sha256": "f2b600bf720b6aabd200b65f1d14b1811b142bb12bd659e7e935d2711f40a771"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-56-415Z-f3068bd3-99a9-47ee-adf6-24544d1b2b41.json",
+        "sha256": "7b8abdc581bb1218f11a7075dac6a6a19c704e570361fd72446947864c7d0f33"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-56-528Z-e20bc9f9-2e7b-42ce-b7e6-c7de000a1e59.json",
+        "sha256": "faeb3716abcbdce379cd1b45e07425d202c7bff652e73c20136d187cc8318878"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-56-657Z-1d98f538-0039-43d1-87d8-cbddeddf68b4.json",
+        "sha256": "703cd99355a98b9f212a5eb6670afc3c85603e0df88c075775e4b4caef86ae98"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-56-781Z-c3c9b804-9dda-4996-b105-81dc958c4145.json",
+        "sha256": "da5ffe2fc1551bb856ac540f39835e8f106d7c964e607682afe5b4b8bb13e8fa"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-56-907Z-145594fd-a256-4320-b33a-50e1165e6dca.json",
+        "sha256": "557e2d7b1158ca762735d274f74268e88ddd009172b4c85fe76958c776357cda"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-57-067Z-5e6b2a8e-40e7-47eb-936e-d4132ccd2fc3.json",
+        "sha256": "671e29071ae16fc0d5ad58d0c6997d0690eb95ffcc0ad8adc50f8c07308328e7"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-30-632Z-178f3877-6c2d-47d5-b938-be368f2758cc.json",
+        "sha256": "2e1f52002b76419625af4fdf1f1b40cc9e6bebb1a5a6180ff2821634aa35ac0e"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-31-265Z-e5892973-ef40-4a09-8e13-e53138128e0a.json",
+        "sha256": "6935e35825d6eef23454897a0fcb05f4a15bbcc4d1dc9a08fe20a573326adbe9"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-31-856Z-cc38537e-cbcb-4dd0-af9f-dbfe89b19fb0.json",
+        "sha256": "f69797f949377300e5e60907f9d86474363a0089b7a9b72ed511ae76197df4fc"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-32-365Z-ce9c0139-d904-4a89-9b79-c54399ca28fe.json",
+        "sha256": "dbf41793e788292d0037d957c87ed48100dd234cfdb8b6e1b56260838b6baaad"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-32-880Z-a4ed4a79-d126-4695-81d3-aa6c90ddeaba.json",
+        "sha256": "02dfd8016296eb9a43829c4f2d31b75dabe31b7917de67feaee70ea2cae6e3d9"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-33-449Z-f5f30392-724b-4968-92ba-d6196c5ef487.json",
+        "sha256": "631086ed98a3ba3e7fce7563700a6e415eb72c89fe40a89cf1f654fe8ecef609"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-33-925Z-320b0da6-3629-41ab-87d0-d08684e912db.json",
+        "sha256": "f1abcc4af4bd4c7ec6fa92c5bacfcaeb84cba9a825381a606064d4144131ec50"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-34-618Z-c8b320ba-2590-44d5-954e-a2c141af9535.json",
+        "sha256": "dee8a08e2dbfac20d99894c967573990c4820aa7d67979a90a831c2f6193b6d5"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-35-053Z-2fa7f40d-273a-46dd-beaa-da93e415aec5.json",
+        "sha256": "05ad77232f1bd2192e52c333c7a72ddd9c72be52fc283be5c68f17a8784adc79"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-35-538Z-c80bdb8e-4598-4ff6-b821-9345a16f1f3a.json",
+        "sha256": "bbef255c7fe4956a236eea76500ad6a790c3b88603011c794ac76f09ab01f3e5"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-35-964Z-ba64bcf9-4e7c-44d4-8f31-d9ce9170785c.json",
+        "sha256": "b8334a9378dfbabafe66bde9b12b81d12ed6eed2b9e13f007a7db658db7aa34a"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-36-494Z-914427b1-db19-459e-bbe6-6945a0eae0cf.json",
+        "sha256": "87061a4bd0bca6703c3e004f94cfb76af5783a6beebbd3bf6da118b849c382e4"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-36-924Z-0099d30c-0c5a-454c-9e39-8130a1625e6f.json",
+        "sha256": "fa70dfff229096b876d8662f233a7695c7444eabf5ab6870ff095c277a69cdc2"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-37-408Z-481e0799-4a79-472d-8a0a-7a220cd65df1.json",
+        "sha256": "ced7be147ecd8a07740783de8dc779c5eee38b55a3c9ca9d590441b2d85e527e"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-37-845Z-3b23a2cd-ae8c-4ba5-adcf-f6da47928535.json",
+        "sha256": "9a00ae63e8433b0793a514de2eeda6ab5647790f6cf26300a123d908834f2e53"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-38-301Z-0b6ba9b8-be6c-4eb1-ad11-fc50ad1ce909.json",
+        "sha256": "9def0beb7afbe39c47b7e008e3ee372e12f7c85a04103c86d5373612f78c4828"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-38-843Z-d68fb123-7e63-4bf1-9421-3f807474dc7f.json",
+        "sha256": "2fcc36a26b6a67129317eedcb21d261679986b40131517ba67dd332ac84931d1"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-39-276Z-a7ea4f22-c5b7-4a02-8bc2-855e9113e30b.json",
+        "sha256": "178409e51b6c76ba6ffff797f9c0abf9329f19d48a3bf47d61252cdbb15f41e0"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-39-424Z-01c9b0a3-8c5c-481d-9546-fbf497f5b0f8.json",
+        "sha256": "5aae8f9b358d73acb24b73d4890f736dae99933e77c0bfb4622c82b683d1ead7"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-46-374Z-36fda8b4-8687-4739-b5d0-e14b3c51c78f.json",
+        "sha256": "aafba7207f7bc6241211b5720506657f2b0731caeb05c40c83125ef9dfa0c236"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-46-758Z-8748a5ff-97ec-4d91-85c3-4d7a4616a704.json",
+        "sha256": "6cf8da0f59558868509a1a8c8aa96bc34287faeb5f56fe21ca13080c32c8bdd4"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-47-144Z-118a8b8e-9cb0-4838-a328-4e3ac903b857.json",
+        "sha256": "8a4bb1deb683fa731c82b45a047cdbaa6385278b950e934dfaeb56b2c2151548"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-47-727Z-25f76caf-2b66-4287-8b8d-ffa1ce1c64bd.json",
+        "sha256": "145eca5b17ac5d1d50cefa42e1a9a74717590856c48b464ebd99fd36985b0234"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-48-153Z-335c6ea9-08a0-4b2d-8b57-5fb4cdd86f25.json",
+        "sha256": "3b208a697661f15ece8bb177e7d760303a455e9dd30011bd39246d1458fc910f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-48-608Z-6279282d-8d94-43d7-95ce-28e222d4d2c2.json",
+        "sha256": "78482c9ec301a28e2b2c0690174c65034e1ac3a1a39fffc03b82286fb43d73cf"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-48-995Z-2050bb09-ae83-40bc-8d94-08402a88f90b.json",
+        "sha256": "470aa9573404cc61b2edef8d95c1fd308fdcff2ee09b61fa4bb80ad50f3cda21"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-49-410Z-6f59e8b9-0370-4c68-a56c-ac7b48e548d6.json",
+        "sha256": "13089a0c30bf8fb114cfc00a7bc62603e2baa280f5b40822fd12c0dd6b52a65b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-49-867Z-9c4a0f57-087f-4765-8f59-904e2aa1dc84.json",
+        "sha256": "0c399a7106cd5d51d6abde8dac65dd1cef629f039422b644dbb1a4a907ac1328"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-50-274Z-cf7abea2-5d23-4f70-ab9e-b5836c1c4521.json",
+        "sha256": "d82efe804e524e8466d89ac22dd58bb8901cd1473cfb30743c3b9416175928da"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-50-769Z-94fe4de6-1a32-47fe-9673-592f843ed59c.json",
+        "sha256": "422bd252642deb50a7a0d6804f30051a3226f9a4194e54d0c64bf5ba58135ae4"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-51-191Z-817f389e-8c77-4d1f-b510-bb1585b0d55e.json",
+        "sha256": "ef5d2b44e308f428d25d465e7f7ead49d3eeb37612f26994922b0f083df748a4"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-51-603Z-c3b55f02-55ea-4329-b04b-e785c22d58fe.json",
+        "sha256": "47ed6add9bf0095d1fe4817e370c53052fc812b78152909d11c2b079046c6daa"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-52-010Z-913d0ada-9b07-4484-bee0-2a93e7b8b5b6.json",
+        "sha256": "4b464eb0d65ac11001262f40573b8359a62d745c971919e9f51e6ce79fee74a7"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-52-482Z-e4ca22f9-253a-48e0-b469-c841a5f080e0.json",
+        "sha256": "c751b5d85a8c926d8f7cc081ffc5a34b61e6f3f9bfcede4d7d3144b11a0877ce"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-52-871Z-19118c66-627d-4675-ad9d-4e69d821f500.json",
+        "sha256": "9bc112c51ba986b65f55bc3f9b25882598832166550d2f2e6505c3ba01653da3"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-53-326Z-943a4bdc-025d-4afa-b138-dd6502166dd1.json",
+        "sha256": "a1adf7aae68ea506dfd31953f7f62df8de1a6f757513b931e7a5fb12708c6bbf"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-53-774Z-84a1391f-5673-41f3-8356-0bb56f850662.json",
+        "sha256": "aaa20bf828007956ab88937b428c718069f3ec748f3cdbfca54166003f2ec655"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-53-890Z-bf3dd5c0-8ba7-4dd3-9d1b-52dc55f22309.json",
+        "sha256": "3337b1d655c7d91d8bf0363b5e82800153afa715da798422af8b3e562cef7fed"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-04-136Z-25d48b71-a847-45cb-aa45-4bc8b5353773.json",
+        "sha256": "3807155f153e5e90b97b30e2fe1d7b3c8a63ef6d054b0f239595bcb85ebc03dd"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-04-668Z-b6654a5b-ac33-44f2-949d-8518ca4be01f.json",
+        "sha256": "7efc4aa9511cea07aecac16a8da0d52cd2802fb3d53d71341c3bb445141e1fd6"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-05-262Z-17ac779e-9fe4-45c9-b17c-4b542fa2a6c3.json",
+        "sha256": "b497585bc35a6bd58a50244057d0712128a204881f579447dfe7ad3473da5553"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-05-964Z-d4b5e788-969b-4417-83d8-2ad45bb9b848.json",
+        "sha256": "fb662316cfeb715559230d447218a48c78ee2e82b7ad97878556ca391e332a2f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-06-474Z-59f431f2-56df-45d4-9997-ecbeeacdc929.json",
+        "sha256": "f58f2f06524e2c18edc5f51c2ba911673368fb643778e04f8cb1e01392141f13"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-06-922Z-b03e844f-cbfb-4ff9-84ca-12ba15671e8f.json",
+        "sha256": "c926b1f202713762222cf20fc9f8a55ef4954dbd67398582ef94608ab7f2705d"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-07-360Z-466b86c5-3257-430a-a59e-bee4e4785a2e.json",
+        "sha256": "922f10ccd8eeceff822cd5dc4a441bd35e79aa5ac0eea9e1d4b0f44745a292eb"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-07-905Z-41da6c16-378d-4482-888d-4745c8bdba4e.json",
+        "sha256": "1b4638d173b014b8beb5258909acc42fc11b5d299df41359e61131083410d763"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-08-350Z-6c4852b4-f367-44ff-8d06-04caa463cabe.json",
+        "sha256": "6dc5980ad93ed2141b6a554bbe4fe07d087dcce5cadea3ed90b9a16829eb9507"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-08-858Z-916b4f27-4be5-40ab-9c2f-876fcacc0b10.json",
+        "sha256": "9fd8f68fa67ee97f2f571c4749fde34c7915fc6b5d5aa74b16f87c78de3f223b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-09-324Z-83ec951d-b6b9-4d1c-b2b9-e889a5f6e2a9.json",
+        "sha256": "d9cecd95ce56dc51ec6a1d8aaa084d5e6fd0f72f40d111a7d6e0905d0cfe1b13"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-09-799Z-2434ab9c-2de3-4232-9f12-a63f6cbe3560.json",
+        "sha256": "53b98df6d94b56c84156ef20480bc348e53d577a93c5ba093e7a27c17b8ec6ec"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-10-272Z-8ea6c9e7-7cab-4a12-b58c-4539cd9d2a78.json",
+        "sha256": "4b94ea393311c795b4286a94692ad838161a8fd0f30c8f8ee71bddb021a04009"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-23-366Z-9e21850f-d13e-4968-b404-e832772538a3.json",
+        "sha256": "501d3bcf6daf4e05fc699225787ed2a3b34b1a378fda37647e59f459939b8c9d"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-23-846Z-3724e128-5a73-4755-a67e-688a8bc46bc8.json",
+        "sha256": "57bc6693af75f194524e0a22e7d0f471539cfbce8c2246a12fb82d491814c490"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-24-238Z-86844e9e-fb27-4bef-9cf8-d89638537acd.json",
+        "sha256": "97c140f9de589be5e5b7272a307c4002fc56de60de96e4fa0b1d32ca178b45f5"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-24-641Z-40d4ae9f-058a-4150-8424-bb4f97fa2d75.json",
+        "sha256": "8cce4cd7c8134395ee470e8da20714b8bc5fff2e83895330eb34b30b9e6be4d3"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-25-079Z-944d5589-840d-41f2-a1e1-5a5165ab70d3.json",
+        "sha256": "6cf9790c44c00ee08bc260df47d8178f598056b860e14fc973e726e23d2e055e"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-25-456Z-6bf16079-72cd-4924-8c55-c37af34d17ff.json",
+        "sha256": "02e2aa45f268d2430c560322619bb9ab27e299aff41db1de0e2eb53bdcd323d8"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-25-941Z-4bd63e66-68df-400f-a753-b002da4d16c9.json",
+        "sha256": "553e8ac651a22eaf0ed33c95591213b871379a279d18853e7cf70ca36fb5b025"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-26-330Z-240bc7a0-6f9b-4644-b2ea-169bb80a9a3f.json",
+        "sha256": "c071c622d132897a2b4b138c87dcd0e6b47aa7cfea5e26a62a32ce067247eb70"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-26-747Z-066f59af-b632-4d21-8b9c-87764fd42388.json",
+        "sha256": "3ba07b9d684ec7318224d641265dd7c0a9a7b9b882f8199b6971ba221fcc0761"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-27-198Z-1395ae0b-697a-4184-a879-39925b7b94d1.json",
+        "sha256": "37e0094253cd5097cc378b6e90d5a9b66166be666a76c4a576a0ef8bd847462a"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-27-587Z-eb92cb30-12f9-42dd-8135-dfc867eb7512.json",
+        "sha256": "7149d32b2b2cf2cdd8ad4396f57e9d2d9dc4160840c4a5c1e005fd86b97c449f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-27-971Z-1815e90d-4ba3-4fda-96a3-c20daac25224.json",
+        "sha256": "691a779e30157a4a20212720511b18b676cb02dfdf39b46b41ad305921372b4f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-28-376Z-13d690f1-4f01-4bea-a44b-2a8b2762fb7e.json",
+        "sha256": "49cf5c5e7931fe7bc4012eae65020b19bb31a35434c0c73966554fa74dfd086b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-44-55-956Z-dda6efcc-8f9e-40b6-bad1-726fb700c816.json",
+        "sha256": "08c39afda1946aa091cdd25ee765363e1040149c86fbb977b043d7be614cafc5"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-44-56-510Z-f214e74f-c71f-4d30-996d-689268a56c7b.json",
+        "sha256": "67e9206c13620dbe2268731bbd9087bfa20b9dccd80001679155d9cece2a0e9c"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-44-57-229Z-9189f6dc-999f-41ef-a450-349895fdf76a.json",
+        "sha256": "f2b59b8eba8a086ea3de70d8e62f0a331df1691e2ba9885456df63e1345e1e28"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-45-10-833Z-3718a842-856b-4357-b953-9f2e78bbf058.json",
+        "sha256": "e68d4413b66e052c8dea362820f8d46799c2a4a003171bd86d89ee41727e4bcb"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-45-11-275Z-0cf3c9ff-627c-4c79-9809-d60d01f1cdfa.json",
+        "sha256": "be6e00fef5a92234f3dbf888bd24d80281405c67daba020971041fe1aa465483"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-45-11-888Z-08316c6e-e8a0-4306-a449-9a13dcdb882a.json",
+        "sha256": "7c0d62d42dde961e0a22919c4305d0368fb5f9b04e79fd767e4c0999131ed0c1"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-45-12-400Z-0f121414-93ce-48c1-a92b-c4dbfb38a7d9.json",
+        "sha256": "50e75241c69e82ea56085b4e720dc1985f40f10fcf0d60e4e31e8394743d2baf"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-45-13-014Z-6d08495b-20a0-40e2-8d74-3af5a099311c.json",
+        "sha256": "3e53e711ef06e0a81f6f34288c3dd62705188522f2760351d69763611fd7fba3"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-45-13-481Z-fd8cd4ba-4758-477a-9b1b-4a62d9a7a3e7.json",
+        "sha256": "d4472e0efdd61b4cffc1436f349eb10d2359dab9655234375536e8b67d17ec81"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-45-13-999Z-2c3635dc-8b92-4bae-a6aa-041ffb968ac4.json",
+        "sha256": "a70272fd02987c31c6d578948912a849de32611ac81491e0ad009756c01d798f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-45-14-449Z-b6265402-879f-430e-ace6-25ce86b2f1cc.json",
+        "sha256": "2066de20cc68ee17e4a0c4e08ed32e2b46d66d87d1fee0113b2a670038eff2c0"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-45-15-127Z-8e2a0ced-51c9-4b5c-b4a4-4b451d34d6a4.json",
+        "sha256": "ba163bf379b3eb1a7d959396a4d46e5b89903bb410f803b871790562ed45f5c9"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-45-15-618Z-63893c87-ac3c-4f4a-8261-b5e87cfe4c2a.json",
+        "sha256": "2576f6c35eb7e7ababd667f89d3046fe7dceee53b60b701e522946047f90415d"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-16-695Z-4d4a0c8f-d71a-45c3-8f2e-1f3f21cb937f.json",
+        "sha256": "a193e0c8337604abac751832614d796052753855ac8a5d1cdbe0edd7308df0b9"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-17-125Z-134df082-7fba-4f42-8baa-1d500b7db75c.json",
+        "sha256": "f0c775aae61d5ed58996f02064a946e1fa610df6701f5817ade516799bde7334"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-17-583Z-50174a0d-9dea-46f1-95fa-d95d213d8747.json",
+        "sha256": "5d2f531dba918a6005b454dcace9ba03f7fc2d30bcd95d8e7da7bb176deae143"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-28-939Z-8943e15c-2e25-43d4-8449-2e456b391af7.json",
+        "sha256": "ec2487399ec9598d8ae20f2c7a8c1745209f97cc71f8e0b94299360d463509d8"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-29-329Z-cae2154b-bdd8-45df-99a5-5dfd934543a5.json",
+        "sha256": "de490d2d35b72668f25de9deadef10dadda76b82aa30025e5d6acf7914f634f6"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-29-838Z-2d91c867-9010-4996-84b0-8b749a2ce419.json",
+        "sha256": "09c7083c704c40cb567c06de7d39d7f6c2e12e88168f6900dd00af584fb79266"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-30-319Z-54ada7a3-4e63-4057-b711-569195c91e4d.json",
+        "sha256": "b86ffc7494758b735f886e2610e7f1f27598180f449e754d3f72d6d522e93672"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-30-849Z-ded03a48-017d-41f9-9fde-28d4e9ca6aba.json",
+        "sha256": "4532b032b0ddad561e3767f097695315537505f2d4859ce2e239e57245af9c74"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-31-221Z-410872b4-c612-4c45-bd79-6fe5a39e07f6.json",
+        "sha256": "ff4260ea79007076683cf905c1bfad26259da4365a7d88f0d9558f21d74b95c2"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-31-682Z-fd092808-d9c1-46d6-9b83-8da21961786e.json",
+        "sha256": "aaee8065d2ba2966d3a14ecefc9094314fed6afecb31cc886c7e664a7a59ce17"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-32-120Z-af9051fd-e424-4fac-af0a-ad0428993eb8.json",
+        "sha256": "16438d72fc1a2936bb7225165a50cd3d7c027e8a60cd95b8ad17e99d83b54a8d"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-32-570Z-7642b4f6-31df-4123-87d0-91c591c8e236.json",
+        "sha256": "aa335f7011d9b9782f88d7a57d36856f483a4023ff63ecaca07db8fec59f37df"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-33-030Z-1eb81a01-5e73-491e-8285-860677cf23b7.json",
+        "sha256": "090185a2875129518803f4bf435df5d56c1d12c53af1a77ada512c5e8c2b84f4"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-007-2026-10-19T16-45-15-766Z-1c824b5a-007f-4612-a48d-39bb96007f40.json",
+        "sha256": "0b70b81b3ce3af84e971e3e4564988dd48f03d4cef12e500fa29bdb08070bb73"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-007-2026-10-19T16-45-15-971Z-70ac7da5-65a1-4b51-b541-4de134da7041.json",
+        "sha256": "b2588493b38be5de28c3f7640eb6caeceb178304522ec5b110f82464d072a51d"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-007-2026-10-19T16-45-16-102Z-31122f34-98df-4df9-8d57-1f15c42f3bbc.json",
+        "sha256": "7e85538ec1150a37cd0baab2a90d98e7e508764d45da0dfbaf54b98aea54c29e"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-007-2026-10-19T16-54-33-160Z-2d0fab7f-18c5-4c44-a2a1-7bc1487e80f4.json",
+        "sha256": "44324d19aa5acdfc9ec646f7e7e0fd4e4f415ebe0dc15160a44dd2e534315696"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-007-2026-10-19T16-54-33-271Z-42a4d224-0a6c-4d54-b927-5b42e4671af5.json",
+        "sha256": "0b0f8e2b225e30aa6d9e8c9cd0f5c6a12546abebfc8f45413c73c9ae98babac3"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-007-2026-10-19T16-54-33-385Z-881722fb-5a2c-4359-918e-3df71ac97333.json",
+        "sha256": "a313ea3e9309a5ee3a523057f268acced067d35ba4d1a41a1ed364ceb727a748"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-008-2026-10-19T16-45-20-367Z-d08f0c80-b04e-4b67-9c7e-c71bdea4b5ce.json",
+        "sha256": "198de00b4bab7c0b3c7271ecbdb69453b4b9b33a63279aa3b729faad3a669900"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-008-2026-10-19T16-54-37-336Z-de806771-143b-4fd5-8724-0650f86ceb90.json",
+        "sha256": "6a1b376567db70e23b134196b8f821727d8e6804aedbcad3cecd617516d71b74"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-009-2026-10-19T16-45-20-926Z-bd1cecae-2735-4ac8-943e-0378533a61cb.json",
+        "sha256": "77be74424d3d4dd534f515a3f2021d1a726fcd151b1027488e82bb3ad2b50ad0"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-009-2026-10-19T16-45-21-512Z-7bebb0e1-44b4-4711-bb6c-a420e7bb6c4e.json",
+        "sha256": "4b4d37f37386f4f3e6fa214209d1a12cfa04d267460854c78c3bd08c522a2a29"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-009-2026-10-19T16-45-22-086Z-0463fbeb-10b7-42b1-9b18-b01c363122f5.json",
+        "sha256": "e32aabbb422c0707ff8f2f4dac05d13dcbbe824d6691bd53fe0374cee777c63b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-009-2026-10-19T16-45-22-553Z-711ad620-2b43-4ad5-bc5b-706a2f4f1346.json",
+        "sha256": "083891e9bb9951bfc1767776a5f1c4dfc252ecd44b1ae07026fcd2077efb95ca"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-009-2026-10-19T16-45-23-216Z-9e310df5-b627-4664-a283-8d7b062b4bcb.json",
+        "sha256": "d7e1635f25d4e7524cc48f613291c625c0ab7d41035d9df3187a8cfbcd7fa68b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-009-2026-10-19T16-54-37-833Z-1c5c76e7-ae6d-4dc9-8bbe-849038fc8005.json",
+        "sha256": "f58d465c2229e78795eb0f14aeea47c7d24ded45acfdbff6c88e20b96d5340cb"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-009-2026-10-19T16-54-38-316Z-a004c549-2946-4f53-a57e-b804aa9ea8c2.json",
+        "sha256": "6b6d2f8130884ad9e044579b143e11ba077b08f6564417557bc3693d58e0df1e"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-009-2026-10-19T16-54-38-741Z-26107b61-6776-4b2c-b9d3-9d1aa178a68d.json",
+        "sha256": "abec45f934eabba029c5695e4fe17ba5d79fd789bbbea896f27bdecf0dfd3032"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-009-2026-10-19T16-54-39-201Z-caa43480-dd4e-40d0-98f6-15f26b272eb9.json",
+        "sha256": "655bd930bb2c6b0a62241a3f441bf511113ec3ac692566ee68449643220c2c50"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-009-2026-10-19T16-54-39-663Z-e29c0f66-b295-40ce-8c52-8488dce2ebd3.json",
+        "sha256": "a3204a8938fbe3700297629029b19538f993330e6fa442bb1a3d1e449bb7dd31"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-45-27-080Z-35b8fc7e-359c-4762-b754-aeb5ac14a0cf.json",
+        "sha256": "4137d2c7906388731272fbfa06064fa982bf5ec7a6cf5b88e86fcb34a435a2ab"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-45-27-208Z-af94681a-d65f-460c-a163-d3cc3c9b4d58.json",
+        "sha256": "cdbd806d95390ad504edb9e960321eec2b2cec5699479f09ac4c20d25e286af8"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-45-27-321Z-01d9e9ea-05cc-4173-9371-886b3fbf83ec.json",
+        "sha256": "64ec8a9d4dd40ae3b13008efc8ef4294d589e77153c678da17dc4d4f2e0c1cff"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-45-27-430Z-22bf55d2-048b-4cb0-8950-cf93b6c89aa9.json",
+        "sha256": "bff668040cf0c33448d0dd68685918e6dfb559a7f57d0683482c1e1459ea0f24"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-45-27-531Z-c7fd1ef5-356f-4538-ae40-043b739a095f.json",
+        "sha256": "7a860ea4173bd8be98aac6b75c472f5cc6719cb94062e7c90866991e2cc24480"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-45-27-644Z-fea1855c-cfec-49bc-bfdf-22e568f1b069.json",
+        "sha256": "410529daaaef2732f479156c56e7a94dc6b6df0d241c3a67a9250f85b77e0d67"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-45-27-760Z-416a465d-5539-4481-ab65-9cb2a65af7b6.json",
+        "sha256": "b68fa8fda466061600797a5b9f3ce61b45d3a76a56ee11b42f28d8011eb6e96d"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-45-27-867Z-ee2391f8-7f8e-4591-ae7e-d6d50579dcca.json",
+        "sha256": "cb11334c5aaae1917079d58efe74dbafb348c607e021ffd01cbbd161f53fc310"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-45-28-020Z-c0edd8f6-793a-4b1d-96b9-9e143925bb72.json",
+        "sha256": "8881f45e9f60cfc0e969101986ff5b0179f1d98a3bdcbb4b475dda69adf0aa5b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-45-28-211Z-83c9c8fb-403a-4faf-a789-8aaf20c495bc.json",
+        "sha256": "5a0be456ecae15c6e9b07d6aa4effe001b3dd4cc8b04450e188b29d7ef343366"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-54-42-720Z-0d854446-e926-4e2a-8e46-e7ff3e8c668f.json",
+        "sha256": "f16f0bd6e293d205c7c749f12e2e28f751f4f89762a4a8c3d0d9b49fee35faca"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-54-42-926Z-4acd4f56-9734-41cc-9a1e-f2d8735b62e4.json",
+        "sha256": "8409c599f4709346295d5ce63ef151a559d62f6240990edc172d40cab77c6770"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-54-43-058Z-28245b2d-2449-4895-a407-a30c32cedd41.json",
+        "sha256": "04d5f6d709ff8ff8721328987295708b093c6438a7e2ea97754c610f54e2dec8"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-54-43-188Z-e48b8ca8-bbcb-4b63-afd4-f9a06c94f7c5.json",
+        "sha256": "51280606ce9690b69344cdecd05bbd921b56e98ae679de5df9b2149c5d724364"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-54-43-310Z-6adfd0af-7227-4d3a-be57-a2c89885efc7.json",
+        "sha256": "67146984fcb02e22618f808fc8851a92ea278505e5cfcf8b6d08879c296e1e59"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-54-43-430Z-3a6754c7-77e8-400f-ac3f-eddd73946716.json",
+        "sha256": "e936e1ded46e8ea5a86f0d426ad78391a0f096639dbf6f8888b1e25195196118"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-54-43-553Z-941eb448-811f-4641-b76d-1f89779bb4f0.json",
+        "sha256": "6431fcadbc2b3c80688bab62c9e1e61616490f42d556cbfb0e6061e5f21aebd6"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-54-43-681Z-2abb5ad8-d867-41d7-8161-ed92ce3f3351.json",
+        "sha256": "a3af36c37e0a8f46e6d0058b4d54ab2a87d4e2c79478015baad28d837cce1821"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-54-43-823Z-aa519abd-6ad0-4ec4-bc23-07d3124cf9ab.json",
+        "sha256": "abd1aec3250bdf74f527ea74687c3afb54ea40447101125eb2c7e8896ba9ae0c"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-54-43-979Z-ed1a47ea-40d7-4b2f-818b-51a7fd380dc5.json",
+        "sha256": "8a0eac766ea43973ca32f9dfa4490cc09e8d0ec800f2dbedf1df512310f9f398"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-011-2026-10-19T16-45-28-397Z-bd274dc9-af1b-4250-908e-6161918a387c.json",
+        "sha256": "bfc131f45e50679b443e87e3c59d2e52a06aca136a045f521c5ca13730f687a3"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-011-2026-10-19T16-54-44-188Z-584509f1-5c7e-4bf0-bfa9-5b85b19417d9.json",
+        "sha256": "73479277df251ab2cfe5b07558d1fe147004d53ac2e52db18944e7905e8a4846"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-012-2026-10-19T16-45-30-162Z-ef8aded4-2f80-45b0-a631-84561e22006a.json",
+        "sha256": "28475db381b9a44161d0c766595be213e109973f5634861a737f95816310fc17"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-012-2026-10-19T16-54-45-920Z-fff1a504-c456-454c-8f56-b2a3e5404f2c.json",
+        "sha256": "f00bec7f042a0a3fa4b89aaf0b9b70577c6dc2a7ff5af5f73526d63a6b2c8fe2"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-013-2026-10-19T16-45-26-948Z-d85f86a6-9f5c-4dfa-8042-ab2bc466197f.json",
+        "sha256": "2a92b96606b827c74d2d9ad80b5bdb2946155145327c2da972eb416cd6a09101"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-013-2026-10-19T16-54-42-594Z-4f46b0d9-49ce-4e69-8d55-174a11c9257c.json",
+        "sha256": "4340e275e2727d2579ff2acbafafb4b8ebe4ac6a14d48d028cea803ceb072a27"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-014-2026-10-19T16-44-57-826Z-21c4e1ba-2557-40c0-88a9-adcbc0335fd1.json",
+        "sha256": "a76feaee7c10b756c550142d1b00ec2d9172505b9aaef17c6d923b2ce54010af"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-014-2026-10-19T16-44-58-479Z-9709894f-8aa5-40d1-bc01-ddfdab95ffe5.json",
+        "sha256": "dfc9eab290aadd28225037fbae3ab9b6a552b4f7929516cc36c6939f8a942286"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-014-2026-10-19T16-44-59-004Z-7ee946ab-bc62-492f-8583-792921ae88e6.json",
+        "sha256": "0338ccab12f418c94a8ac763b182a8204592e086fc27a608bd8ea3519a1bd3ad"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-014-2026-10-19T16-54-18-138Z-fe4db0ad-d4c2-4635-987f-f1bffc838a31.json",
+        "sha256": "c5d05e5ed6638513f43e5065678857311a694defb8f7a6e21012bffb08f986cc"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-014-2026-10-19T16-54-18-641Z-5aa129e1-ab88-462a-8dd2-6151a1c40c01.json",
+        "sha256": "53feea91145d8bd6420eb75f7e4e7c82339eb12959e6be04c2b52e4440742bbe"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-014-2026-10-19T16-54-19-093Z-a97e3502-4463-4e22-ae49-1d780068b68a.json",
+        "sha256": "6d9c77795fd21bdcbaf17804876ff4709d89b8072d7e27240ea2840701c6231d"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-015-2026-10-19T16-44-54-813Z-4d3fc76e-785d-4060-aa53-9c596031fe09.json",
+        "sha256": "0b63ff36688fe2769e6839128aae3c0ca83f3977b008652a543e8b13f4056b46"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-015-2026-10-19T16-44-59-400Z-287d0c87-4ff2-4fa3-957f-93927a8d7b2e.json",
+        "sha256": "729bfbfbf6bf1ae134e97d82a6f3e220ef881ed997df3e18905e785ce2bd20ff"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-015-2026-10-19T16-44-59-831Z-5d5841c6-1371-4635-872c-b78d83f410a0.json",
+        "sha256": "a5923b2d963ce6a14023da5e8295d2d1833780ffb2fa2ef215164fbfe1cc3d2f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-015-2026-10-19T16-45-00-235Z-5e805e91-3725-4495-98bc-34f940770624.json",
+        "sha256": "2981169cc185f80823f077e81c47dad0deaa08e0f27e1908f6bab532b05ff3fb"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-015-2026-10-19T16-45-00-651Z-d5ccf6c0-c7e5-4e3e-ad55-8e4640676379.json",
+        "sha256": "7a1baa6f7ab97fce97fa7e7e803699b80e1e28bb03cbd2e6e3450504df598db1"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-015-2026-10-19T16-54-15-790Z-5d5bd0b1-4c54-44c4-926c-9277dd1552b7.json",
+        "sha256": "351a83cf12a705dd51466d35beb9b4e0e150d5e718e991ef2d4827021b1cf339"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-015-2026-10-19T16-54-19-473Z-30c090cb-a834-434b-8839-1bf48e3a21fc.json",
+        "sha256": "e960ff82a287450b0d59b1377e08a45e23d73caf060a94ca261d89e2b893a940"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-015-2026-10-19T16-54-19-936Z-b2ef6395-9267-4e57-9d36-b36519ed65ad.json",
+        "sha256": "1121439e5fa427914abdbd3d569d99922a801baa88b232ff5d90b631cfb719a1"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-015-2026-10-19T16-54-20-329Z-d7b2b89e-39fa-4b5a-bffb-1b7f3d5aede5.json",
+        "sha256": "51b30588d47c52e964b07220149d86bcfe8938d9b16772d7aa65a44782c7fac1"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-015-2026-10-19T16-54-20-762Z-1bac89ce-37db-4b95-892c-a317f7cc6ba5.json",
+        "sha256": "56b1a0709248b5b7f7790ff63eeb8a75c3eeac728d2c17e0d32dff7c0c31d531"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-016-2026-10-19T16-45-03-633Z-80b194cb-fd1d-434b-a189-815dfd734c4a.json",
+        "sha256": "98c417f108296e32c727d34922730896ac2c59006848874d7f612d61fcb294d4"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-016-2026-10-19T16-54-22-949Z-d8c4636f-4404-4c2c-9e2a-f3fe3714eb51.json",
+        "sha256": "3f74dc7d022597f1940cbc3693751ef39ed75834480bb733fc6e1f8d69966cf7"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-CARRIER-BOUNDARY-2026-10-19T16-48-17-717Z-2389ffbe-1fec-401e-9b17-5ad0ec69386d.json",
+        "sha256": "87a056b196723005fe1115251a9b8e68e25589412805f41c167d6a160b5bf751"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-CARRIER-BOUNDARY-2026-10-19T16-48-17-986Z-36d52dbb-f353-4577-9171-7c4b491547bd.json",
+        "sha256": "4b8c0cc88070860a57598f1a526994a82e8daa5ab4863ac033675f28d94b359e"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-CARRIER-BOUNDARY-2026-10-19T16-48-20-118Z-3cc97034-e320-41e4-8b35-86ecb3c1bf4b.json",
+        "sha256": "2e41c9127115812aebf8cc8e4dde4b027362a459ae685949454f1a9272663bfe"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-CARRIER-BOUNDARY-2026-10-19T16-56-40-463Z-070a7e7c-3ee0-422f-b0da-30202ca6c579.json",
+        "sha256": "694b826cf14fe65e8853c63a62c280f7234c5893f05460eb2f8fba51eb8ff049"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-CARRIER-BOUNDARY-2026-10-19T16-56-40-693Z-cd4919cb-01c4-4092-b1a3-101cfd8cfb26.json",
+        "sha256": "785ecbdb2d0d11856778892d6e606cbd32aec1d19b6734e41440267d8a6ea27f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-CARRIER-BOUNDARY-2026-10-19T16-56-43-022Z-b7a0247d-6be0-452d-b587-96a8740f7abd.json",
+        "sha256": "6e42f5e75a4655e4d96af4bb41fc27d406f0d8afc8d103af06f075c72d9dc79c"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-TRIGGER-BOUNDARY-2026-10-19T16-48-18-145Z-480701ea-6312-471a-8462-d0a7e937f82b.json",
+        "sha256": "fff78fee92696726e1d0e0fcaf7285427306222f2b7502587c08d4d39d40c631"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-TRIGGER-BOUNDARY-2026-10-19T16-56-40-866Z-50e2e089-9211-42ff-b74e-4ab8525e43de.json",
+        "sha256": "113ba3162eb9d1fc91d6acb84dd5af9baf9cd55bfb0f849028e6be05838765d5"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/authoring-lUIpLVVQ.mjs",
+        "sha256": "5a1a46631e3867b5ed5684311fd768192a3ca1c30bf412130d56b0f147ef38a6"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/authoring-lUIpLVVQ.mjs.map",
+        "sha256": "ba46ce0936e6499bc578315dc11388685c9ecb9544950931d12a07b6ff705e74"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/cli.d.mts",
+        "sha256": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/cli.d.mts.map",
+        "sha256": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/cli.mjs",
+        "sha256": "ba1c21b918cd547a141b51704f5afbc0080b6aec2e911e3af4ba0fce2fa48afa"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/cli.mjs.map",
+        "sha256": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/index.d.mts",
+        "sha256": "750e98e889960586244eb444e4804015ec1778068477028cba03a31a91485a4b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/index.d.mts.map",
+        "sha256": "24cbd12c51f2654e0b434f6e40fc92ed746e79c79d4b733287663b7e0b2e2bee"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/index.mjs",
+        "sha256": "a3423d496aa7bbc3c8df8927644856d5c2a25d4b14472ea94b444acf116636c7"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/index.mjs.map",
+        "sha256": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/operations-CcVPhKUn.mjs",
+        "sha256": "dd075a35bf0178a0419e8025fffef59a8996671bff781588af2e67e8b8bc8161"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/operations-CcVPhKUn.mjs.map",
+        "sha256": "e7b65bca71c86eceaf49435206d86cfd9ea5f84520a21e5182cb0b544d07220c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/workspace-api.d.mts",
+        "sha256": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/workspace-api.d.mts.map",
+        "sha256": "5c00024325238da7b6368529ed69e33839a8a4f0baeed1eb2e79f65c877ebbe8"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/workspace-api.mjs",
+        "sha256": "9ea67671b14ec09e935fc9df5aacb852ccbdb37361fc3c06b99b1d0c4d0240c5"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/declarations.ts",
+        "sha256": "a773bba2f8016d64f81a352da4050aa8c2e83b2cba353fe49fe5a953072eaf78"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/index.ts",
+        "sha256": "45d6f03be8e26f0f19abb5cea7f9a7a971846296e3c0f3b809feb7de3af049ef"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/references.ts",
+        "sha256": "b3f3cefa64f45da752a8f58bc6eca2d92bb6b30773be42f51036fd60df9c89de"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/shared.ts",
+        "sha256": "3865ac8c4b3768c96038a323a02cf30c33edd9f330544bd6cd2b204d2841408e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/cli.ts",
+        "sha256": "34c6e77e91a45126b1a2c5b15621f79241a98bab081924d2fbd535c5996fd4b0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/actor/authoring.ts",
+        "sha256": "adc9b6aa805739dad7594246236f6314cc8a08299f1bd323b8ae729cf6b2fdf3"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/actor/decompile.ts",
+        "sha256": "2e83a179cabb9ae19ff9207904c822bb84c6b5bc45581386d2aca7b1b005b56d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/audio/authoring.ts",
+        "sha256": "08a68ae8b97095ec1c3a6d8517ed5649eb79ffb1b66f59aa34a7506356e0e513"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/audio/decompile.ts",
+        "sha256": "18acdf8e035ad2b8f3879622e18c39a7cde1e6279c14013fca2e6dbd0edb3811"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/battle/authoring.ts",
+        "sha256": "a5249dd85dde78f2f0183d33a9a79d69bca93e88b5d2f0404f9005a25f115377"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/battle/decompile.ts",
+        "sha256": "4da781567fb9baf2580ec050564d66506d542890dfab3a6966eef1c008ac44b0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/enemy/authoring.ts",
+        "sha256": "3ff830df557837e08ed73054eb47085cd0ba262e1aad746defc05578a14ce602"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/enemy/decompile.ts",
+        "sha256": "334fc1efeda29f27cf9a7e504501ea7e693fb9b041a96bb827c90ec957ff2cd2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/flow/authoring.ts",
+        "sha256": "2781ac07a176994435f124947fb0ac9c1873a3c37ea4b61b5f5fc0c35cabfc40"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/flow/decompile.ts",
+        "sha256": "db0508df65d743ada28e4b175d85cfbfa6a70a0547ff17cc2ecc2ab9a0feac31"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/flow/validation.ts",
+        "sha256": "d88ca16a1e3d2c688a6876ae041bc772c125eda0b1cf2e818b8ec55c29090dad"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/map/authoring.ts",
+        "sha256": "985f89d88a2460b0af605f3fb8282847dd48e4d5d6e13821ae430966a53c4006"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/map/decompile.ts",
+        "sha256": "4155ac5891314141271b6e80f4b11924e584ef1efcf6e83b125b7e60196e2ce0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/message/authoring.ts",
+        "sha256": "76bfc91b2a89a8c62546542396ff47c8baf9f13d54c1c1ba5a0b58031b413d68"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/message/decompile.ts",
+        "sha256": "174c78169c65eec74592a466381b97e083688c691381e470b0a707dd47273a24"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/authoring.ts",
+        "sha256": "af1985013fa73af61d72cc440de0f83d99f78c94da4744f3a7ab1d7b56daf909"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/compile.ts",
+        "sha256": "8491f60e066d618bb076e3e03774b9332000f8be6f5c81a05ceb2aa03e2d0e15"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/decompile.ts",
+        "sha256": "016e07bdd681af3aaaf70ae5141afc6255598453c2ce43a6c34a3d44c38ba6c3"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/page.ts",
+        "sha256": "ead6952e28f64bd25ba6fbd55d9be36f09ddadca5967ec4ddd7722ee1e18ceac"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/types.ts",
+        "sha256": "de4a2cb691fc6a8697ba91a2a831eaf17e1c15e541da4a2893f902f30a3a01b8"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/validation.ts",
+        "sha256": "41bd3a1a11691f40f0583a7d7a2e22533883404379b35897dc74eb31096d2755"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/screen/authoring.ts",
+        "sha256": "c0557c79496cb70c7a4d67fa61008a6e189b9df86f7cb408b36048b89aff63dc"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/screen/compile.ts",
+        "sha256": "a1c68cb63a4e6fe9ad2de3f45f51101f2e4fa6656fd865ac3bbbf485c78edc80"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/screen/decompile.ts",
+        "sha256": "38e4c759cf9f51c5ab49ea0f33d79c9a2af1060156102e7198541ac2e529567b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/system/authoring.ts",
+        "sha256": "71b37822f2d2abd58349a1ea7eed84fea0c886cf8045beb6341dbfba2c02814d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/system/decompile.ts",
+        "sha256": "56c3cba9e576bd289050463bfe2d284c39d54196fcf5fa59a8dde3ccdc33ad77"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/authoring.ts",
+        "sha256": "a2bbedd0a2d9aacb7e3eb2772e4f7431c49ccef39166cc74f4b615a6494a3f22"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/compile.ts",
+        "sha256": "9e4a295fac91434e34e28bd3c84b9b5a5dc526685f821f574582e7ac22bb4c27"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/decompile.ts",
+        "sha256": "c32df1e9d77b36d30fd135bc6c8919f0cf84a19acaf6a86d3e66d700762b9773"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/validation.ts",
+        "sha256": "8996604b8bfcb1fd9ba8a5100b8bd598e720aad9b946d001e77e89ddf5609867"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+        "sha256": "a4c0bde1fc71eb3074a245c6255cf0dc7bec86dd8b3f4a27b4388d5dfa21dd45"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/events.ts",
+        "sha256": "f5ab237240ed7e698a6b386135b8c5a41d05ee52fc99a1ef62bce44fdc1abfd2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/branches.ts",
+        "sha256": "44f965a1c5ea89cdf03fca12e3a49c2bce866efa9e6dc97ffa32c45a51f4d606"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/conditions.ts",
+        "sha256": "4b44eb3bb078dc6dd9a996ba7ac8aac5dbc6cc4a4151763ff9dc6c21d786e990"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/media.ts",
+        "sha256": "9bc3cc0ec9fd97a6368711dc4e73cba05dc4abaee7697624132577bb465e3e68"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/targets.ts",
+        "sha256": "11c907ed9a847ba54fdc222c7d04757e1b0d74205c7111426e4fec8d80be7ce2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/types.ts",
+        "sha256": "b81ac88b5778268997bce55af43dc0953b5cee48625180f58733cfdde6ae91a1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/core.ts",
+        "sha256": "c6a020c7eb5f987f883488b955f4dae2d5550d93a21272284939d54a04bb98b0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/dispatch.ts",
+        "sha256": "7024e6d242f1c42d5fb4ff13dc906e8110e1485f31fb4f7ec136a871725e1f30"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/map-page.ts",
+        "sha256": "05a14de564f72e81566bf5db192a38c71c9595e21abfa9181b49a12b724c751b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/project.ts",
+        "sha256": "35e720a3e5f0b860f3669da6829a652ec94509d79fe94e1240ff91d4ee5870b9"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/types.ts",
+        "sha256": "01dc14767746b1067ddc101f6acd5ea23247b6557a59e0c0cb467dd1f3903aa3"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/battle-page-defaults.ts",
+        "sha256": "4a6d7b43e65b2316987b846253c93504f85ac8e341901d3e47236c99de91027b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/command.ts",
+        "sha256": "78179b216cd325b34fe0783a2ca62a8a7790f15b4e126c9e0d160947700c2c6f"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/declarations.ts",
+        "sha256": "b0b1dd048040394dd8ef95fe080046a6b1541d44194d490dfa0ede891dd6a781"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/references.ts",
+        "sha256": "44874ce22c90697572c8bd777f0a8070bcf89b556247072964ac59246761fc44"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/types.ts",
+        "sha256": "5327c422c15864473a2b77938e10199e01ae0ed49399f37397cbd93ced3d16eb"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/index.ts",
+        "sha256": "cac51b3cd154629880f6b30aaf8b54a8f1aecee91bb26182ebfd7ccdb3c90157"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/map-event/native.ts",
+        "sha256": "a87ca1545e80ecd25205f6e7fb40a48d977317b93da65de8053afcaacf611384"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/map-event/page.ts",
+        "sha256": "9251557930e667e258c6259c58e787cdeccd22e96dc5f0225947a98d35d275ed"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/map-event/validation.ts",
+        "sha256": "e2dddc54dff942929af1f58dd6e48305e9d774c8cfb5a4c58af39e08e3937805"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/json-values.ts",
+        "sha256": "7d9f2a485a689dc159327f859a8cae48307b88294bea78aa2a81452813730af8"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/map-event-diff.ts",
+        "sha256": "7055058d85ef232a8ad2f94e9a3634ef709c5d352283ac1678f4dc03836be992"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/materialization.ts",
+        "sha256": "e52781cb2bccb01c58ac6c1ff0f069906980efce0a123b04348f4f18d80734d4"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/project.ts",
+        "sha256": "1176a155e53c9f4383e03bbe3a3f7e13565a96d5eb47b3ac6fc58002ae91cd74"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/structured-diff.ts",
+        "sha256": "4af2dfd1fb0e57c2d440b64a90fdbdfd1e88f02fffe6ff33c6f12eac64ff8590"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/writer.ts",
+        "sha256": "d9ebfc5636d430eb7c94ecca75c4a40127e592e92bcd303cc73ed59cde674c80"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/battle-pages.ts",
+        "sha256": "e8bb5f47b3ad4c6d09c3df5f09785bc64e6704b8f458e0253f5a3e3953a20c8b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/command-errors.ts",
+        "sha256": "d3da622a5d9616fd54f83415ec3782c45f54f95a3285d3525f1ddcf71f7deb9a"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/command-structure.ts",
+        "sha256": "e75f7edfa9b9fd520eeb7f4b42b4e110bc2a533fe3fd365c78750ecd226df6d4"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/commands.ts",
+        "sha256": "630b5b4355a03ffef0c18b65b480a0d9d0ea6910a5408cdbf1d55c30a7d9de4c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/common-events.ts",
+        "sha256": "dd331ebf8a13c720464cc96843ba4a8b69a2b6196ee740791ad7a4788ad89e34"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/compile-output.ts",
+        "sha256": "921536abaed802c2f030229f0ff72e3037aba9a6855abc9dcd7e47d1f4857681"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/compiled-commands.ts",
+        "sha256": "54ac1cd1aef427fc8af3681b8d5a6907a2b2e336727ba790ad7e44a5467fae94"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/declarations.ts",
+        "sha256": "d7428305b08f45f2203aa37ffb5b3a1c3506730870a01171574cc10f0624f671"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/dsl-command-inputs.ts",
+        "sha256": "73457080d5dd553ba488acfab6f517c792e40d5f845ac6e66bde8d97cded1d5b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/identities.ts",
+        "sha256": "8d43c5417552dc7e1b6c5a5c3c423d3571d22277d719bf10f34f555ef39bf2b1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/inspection.ts",
+        "sha256": "10a9923ffca925eb65ea7254a1d940c6580a3a60f3b7a14a4862cf08d11453e1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/native-command-inputs.ts",
+        "sha256": "d56f4dfe5960a92107fcde60d1ad795b35b0afb4825e1becf6145f502f7e1051"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/native-context-references.ts",
+        "sha256": "7ddd26656a02361bf2ea5c7ecfc10ca8a32d5d0a22a37ba36cabb168ce2c680d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/native-parameters.ts",
+        "sha256": "67c16ddb33e864fb2cd2055134f05152e228f2cc646fadf9d05d2a5dad0f47ba"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/native-references.ts",
+        "sha256": "34ab7b62af6418491d00f3325fca6c843f2010e4170a24ec57cc8d6099a945b7"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/references.ts",
+        "sha256": "01c968b0619bcaf4a1251a4e00932657823229362a7d722148d274cf37c23dfd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/shared.ts",
+        "sha256": "6ad13ecbedcc6cf7fb3565ffcdfd919f8fadad1430eccbbcfd845af7e927af14"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/snapshot.ts",
+        "sha256": "b29956e100eb586e389ed69bd7d9b6603452b6a7f8371aa895e53193628ed4cd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/staged-graph.ts",
+        "sha256": "eb93aeb3a16a413f74719a42394fd0883365d735a9c0c6139295569505408693"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/types.ts",
+        "sha256": "df660ce939aa4e7924d4f98a54d63cb14cb3c637c48e53215477e0282c3f27dd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "sha256": "735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/checks.ts",
+        "sha256": "dd02c917b0ed530fcbb8d3458802d5d230def90388d6bf488e849f2934688692"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/config.ts",
+        "sha256": "3700d64dfaf53fe1e99beb91bf8a54032c8a01372f25b579cdddf2ab683fd84b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/decompile-publication.ts",
+        "sha256": "e70dcce23f98167dc53e908b3242a0a61a5fd1f7f92b2df6f700e91433faf185"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/definition-identities.ts",
+        "sha256": "f9048d155cc06fa5770e6b26cae9fac58255dc1668b0a416fbb4578149db3b41"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/definitions.ts",
+        "sha256": "642fdd2fc21b59d6ffb59f01bd61fbb0bca4e26ee2eab4c3d659a4077f901ed1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/guards.ts",
+        "sha256": "cec835079aba4c1c61d4a28f224fd7ac7617063568b05156a84cc08896e0ed89"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/operation-lock.ts",
+        "sha256": "c39e910339321f63786bec52cf40fa5e9c114a259f8bbc0dc7842b29660866cd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/operations.ts",
+        "sha256": "a5d8a46bd2fb28a09e2724028c7e9800d2ee23deed6e5e6a84196fb76b1ccead"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/push-recovery.ts",
+        "sha256": "4eb0a680285f3e7532891cff2aedc3433f067fb36ccf8d4c63b3975b66c97a76"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/push.ts",
+        "sha256": "4a68f891cce5431344921baf4c9c0f3e3617c704c305732fa13b17825e74a25a"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/source-discovery.ts",
+        "sha256": "aeec16adb3208ea5d89666c051064e3251defd8ef8bae48ac6fa12bebc7b98e0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/state.ts",
+        "sha256": "c493c31c466b7d49b86a9bdd45ad563963c67f3c9e4c5a28b1f1f3b54ebbf216"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts",
+        "sha256": "636eb126175e90cb0134e523bc9f11d5ac04dcd68326d8596e4b10931231bc8f"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/types.ts",
+        "sha256": "f046ebe39de38d590d78bb0aa00f5c3f03a117f972f9aec6f49fa5f7275023fb"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/common-native-boundaries.test.ts",
+        "sha256": "753086580887ae763c959668b376897171e9d22231cea8f7ca25eb9d61255db7"
+      }
+    ]
+  },
+  "fixture": {
+    "path": ".scratch/complete-mv-events-implementation/evidence/23-history/e1-identity-recheck-v3.json",
+    "sha256": "d3975b3c81f3c00a1bcdd87f2ac98ab4cd813efab5ac93002a8766e9df9033fa"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "node": "v22.23.0",
+    "vitest": "4.1.9 (actual linked current source and built runs)",
+    "typescript": "5.9.3",
+    "package": "0.1.2",
+    "native": {
+      "method": "reverse-engineering",
+      "mv": "Identified MV1.6.1 editor / VS_FIXEDFILEINFO 1.6.1.0",
+      "runtime": "not-executed by E1 verifier; allocated game pairs recorded separately",
+      "nwjs": "not-executed by E1 verifier",
+      "tools": {
+        "verifier": "mv23-e1-recheck-v3.cjs read-only full stored/decoded identity recheck",
+        "rea": "Retained ev_b8067f7657b1ddb9b5509bb30f4e70e609bc89a84c5111b35af88e3cb87f39bd; reused, no newly invented observation"
+      },
+      "artifacts": [
+        {
+          "path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/RPGMV.exe",
+          "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281"
+        },
+        {
+          "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-23\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\23-history\\mv23-review-e1-delivery-identity-v1.json",
+          "sha256": "1bc3e3608413face7cbf528cb2c9d1e44b98059137be18de7b958415ff7a1b7c"
+        }
+      ]
+    }
+  },
+  "stages": [
+    "Reuse identified factory/load/edit/serialize/E117 code facts",
+    "Fresh read-only binary/resource identity recheck",
+    "Current independent complete Common expected literals compared through actual source Workspace operations",
+    "Fresh build and actual built Workspace/CLI Windows baseline",
+    "Link exact 100 source and 100 built standard executions across16 Common requirements"
+  ],
+  "expected": "Five required Common owned fields, independent saved switch while trigger none, exact array capacity/null slots and explicit E117 target; compare independent product roundtrip cases without claiming editor UI timing",
+  "actual": {
+    "freshIdentity": ".scratch/complete-mv-events-implementation/evidence/23-history/mv23-review-e1-delivery-identity-v1.json",
+    "originalFixture": {
+      "path": ".scratch/complete-mv-events-implementation/evidence/23-history/e1-identity-recheck-v3.json",
+      "sha256": "d3975b3c81f3c00a1bcdd87f2ac98ab4cd813efab5ac93002a8766e9df9033fa"
+    },
+    "codeFactMatrix": ".scratch/complete-mv-events-implementation/evidence/23-common-event-roundtrip.md",
+    "sourceRuns": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-001-2026-10-19T16-45-46-725Z-c407253c-03b0-4f59-89f4-2f228c3bd68a.json",
+        "sha256": "f58854e3af1ef36dd50a2b8768ef3401037a552ee30769871d2415caff911dbb"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-002-2026-10-19T16-45-46-076Z-f1c24caf-d24f-4043-9da8-685fb8804d2e.json",
+        "sha256": "4eeb8ad119970f6905d145abf674cc100ea26af6cf58b1b9a1fbd8067bb12b3a"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-42-531Z-fac6f88a-efe4-4a64-bd7e-4c48ac5eb4a9.json",
+        "sha256": "3a540abf009012d3350430d8b16442f950b16f8a6961ffedb54f8446c02eb993"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-42-333Z-08388fef-1727-4e13-aff7-6a6cf956bf02.json",
+        "sha256": "5914a1b2846bd61ee6ceb33d0a12a1931eb4e86d4e84b88cbdb65ac209337057"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-42-177Z-b2aa0dc2-e930-4b54-a143-3bcf46c2fdc9.json",
+        "sha256": "d328fb9afabaab98d02093e379fc434dce65aa78de283ee7b498cfa0cfa92243"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-42-040Z-b35f6aa8-8bc5-45b3-af81-24d939cc255c.json",
+        "sha256": "7811f97acfa185ce19fd9d753ecff71dd86c067905868adc63576dfe568ced5b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-41-926Z-bb6e7017-0a57-4818-9478-c4ffbd3b64ee.json",
+        "sha256": "eddd4f4ceb3862a77e9f0e89bc4e82c1089a684352ba3ccf06af29808da58129"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-41-797Z-b9e69e76-0cf5-45bc-a3c9-066eab60305d.json",
+        "sha256": "b71b448b0db8121b4e32d6836b4d52ab0b1fdf588734542424a02bd9a32b586a"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-41-609Z-ac1cda54-c41d-45e9-8f2e-6fa203b06c8d.json",
+        "sha256": "870354bdebf4c2ad0cb6feef6cf7f430038d48a3eb8b765943280dd53fee8641"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-41-398Z-8ee20b88-41bd-43cd-91a8-fa45b8e5431a.json",
+        "sha256": "1cfbfbd41d3a0c61f93cbec65bf7d77ceededfba36b29b1ea6f9d71f14b1e254"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-41-244Z-d9dfd41d-20f6-4738-a380-1bd539c20c7d.json",
+        "sha256": "9eed9446ce7b9ce29a5413ee85937975049238431cff308573d7946b0ce23014"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-41-124Z-e65fa4cb-42ce-4b56-a3bc-c667fde6a601.json",
+        "sha256": "6625957d2f8b32f84e27e8e8fa8d0bfb3bde0bfd68397d1058804bc7d16efd8b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-41-010Z-9ce8dc34-bcb8-4862-a738-7ee845eeecca.json",
+        "sha256": "aada8f078b5f3c13572a5186003b5fb3d027bab5bd8da4d8f2333f074e0266a4"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-40-895Z-da2fc409-7f5a-46af-865b-f83f78204099.json",
+        "sha256": "a6761591c259b94d558d54815b9e7afb077b14f5a6deba3265b64026f82ad2cc"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-40-765Z-392463cf-3088-4567-995f-cd26e78d20f3.json",
+        "sha256": "45fb18fc26c1c638b3dbd40dcfb7780cdbcae46cd11f55f20b217ea8473c7049"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-40-593Z-41e84a39-8bda-4803-9172-048ed8a1167f.json",
+        "sha256": "dc31a90b32e47612669f56b2985c4d965723dc52c8039251567d97bfc285ec0f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-40-399Z-a687726e-d7e6-4e65-85e6-630393a76639.json",
+        "sha256": "1a2b04699047f877f3acdc8490ad764ec08566dc487aadec3ddd10c9feae991c"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-40-227Z-f6d8c076-0cb9-411b-b044-a5323d833872.json",
+        "sha256": "04b53a7bb83dd308bebe01d308cb6b108d224e419b0520519d55b2221bd6dec3"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-40-111Z-203e3cbd-49cd-466f-842e-a029323f0af1.json",
+        "sha256": "d8af5a3a853b82a6f187a9c2aafacfebfc6af08b3ed2f2d44c5385c3c9c06633"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-39-994Z-02e24952-707a-4cdb-8025-14ad777782d1.json",
+        "sha256": "a8cadc4228700b3ebb33aa04fe48fe7db10eafe6847d7cdaec5a652580ba45f9"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-39-869Z-c847a272-37d8-44c4-a108-8fae980ba60c.json",
+        "sha256": "ef836e061d940ba9d5e83b0ba595db700468398baddc945d5fa2e87f5045dc75"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-39-761Z-3c763376-9034-4cc2-a299-acbf3631c197.json",
+        "sha256": "d20d6c069be94eab22db8e22e655a062104a1914cde116d685c825fccd5318a3"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-39-651Z-b7c19854-aab7-4929-8a3f-a37638b94163.json",
+        "sha256": "8e7e64b2050fc83c39e6942961a12b9cbf85c44af1f89a75965f022a4b25ee06"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-45-39-535Z-b4d45900-8c94-4157-b994-ee9b6b828d6a.json",
+        "sha256": "2d803891efb6a54eac6013fe8508230449038076dd5359614f117404182d4ad0"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-39-424Z-01c9b0a3-8c5c-481d-9546-fbf497f5b0f8.json",
+        "sha256": "5aae8f9b358d73acb24b73d4890f736dae99933e77c0bfb4622c82b683d1ead7"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-39-276Z-a7ea4f22-c5b7-4a02-8bc2-855e9113e30b.json",
+        "sha256": "178409e51b6c76ba6ffff797f9c0abf9329f19d48a3bf47d61252cdbb15f41e0"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-38-843Z-d68fb123-7e63-4bf1-9421-3f807474dc7f.json",
+        "sha256": "2fcc36a26b6a67129317eedcb21d261679986b40131517ba67dd332ac84931d1"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-38-301Z-0b6ba9b8-be6c-4eb1-ad11-fc50ad1ce909.json",
+        "sha256": "9def0beb7afbe39c47b7e008e3ee372e12f7c85a04103c86d5373612f78c4828"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-37-845Z-3b23a2cd-ae8c-4ba5-adcf-f6da47928535.json",
+        "sha256": "9a00ae63e8433b0793a514de2eeda6ab5647790f6cf26300a123d908834f2e53"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-37-408Z-481e0799-4a79-472d-8a0a-7a220cd65df1.json",
+        "sha256": "ced7be147ecd8a07740783de8dc779c5eee38b55a3c9ca9d590441b2d85e527e"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-36-924Z-0099d30c-0c5a-454c-9e39-8130a1625e6f.json",
+        "sha256": "fa70dfff229096b876d8662f233a7695c7444eabf5ab6870ff095c277a69cdc2"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-36-494Z-914427b1-db19-459e-bbe6-6945a0eae0cf.json",
+        "sha256": "87061a4bd0bca6703c3e004f94cfb76af5783a6beebbd3bf6da118b849c382e4"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-35-964Z-ba64bcf9-4e7c-44d4-8f31-d9ce9170785c.json",
+        "sha256": "b8334a9378dfbabafe66bde9b12b81d12ed6eed2b9e13f007a7db658db7aa34a"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-35-538Z-c80bdb8e-4598-4ff6-b821-9345a16f1f3a.json",
+        "sha256": "bbef255c7fe4956a236eea76500ad6a790c3b88603011c794ac76f09ab01f3e5"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-35-053Z-2fa7f40d-273a-46dd-beaa-da93e415aec5.json",
+        "sha256": "05ad77232f1bd2192e52c333c7a72ddd9c72be52fc283be5c68f17a8784adc79"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-34-618Z-c8b320ba-2590-44d5-954e-a2c141af9535.json",
+        "sha256": "dee8a08e2dbfac20d99894c967573990c4820aa7d67979a90a831c2f6193b6d5"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-33-925Z-320b0da6-3629-41ab-87d0-d08684e912db.json",
+        "sha256": "f1abcc4af4bd4c7ec6fa92c5bacfcaeb84cba9a825381a606064d4144131ec50"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-33-449Z-f5f30392-724b-4968-92ba-d6196c5ef487.json",
+        "sha256": "631086ed98a3ba3e7fce7563700a6e415eb72c89fe40a89cf1f654fe8ecef609"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-32-880Z-a4ed4a79-d126-4695-81d3-aa6c90ddeaba.json",
+        "sha256": "02dfd8016296eb9a43829c4f2d31b75dabe31b7917de67feaee70ea2cae6e3d9"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-32-365Z-ce9c0139-d904-4a89-9b79-c54399ca28fe.json",
+        "sha256": "dbf41793e788292d0037d957c87ed48100dd234cfdb8b6e1b56260838b6baaad"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-31-856Z-cc38537e-cbcb-4dd0-af9f-dbfe89b19fb0.json",
+        "sha256": "f69797f949377300e5e60907f9d86474363a0089b7a9b72ed511ae76197df4fc"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-31-265Z-e5892973-ef40-4a09-8e13-e53138128e0a.json",
+        "sha256": "6935e35825d6eef23454897a0fcb05f4a15bbcc4d1dc9a08fe20a573326adbe9"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-45-30-632Z-178f3877-6c2d-47d5-b938-be368f2758cc.json",
+        "sha256": "2e1f52002b76419625af4fdf1f1b40cc9e6bebb1a5a6180ff2821634aa35ac0e"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-012-2026-10-19T16-45-30-162Z-ef8aded4-2f80-45b0-a631-84561e22006a.json",
+        "sha256": "28475db381b9a44161d0c766595be213e109973f5634861a737f95816310fc17"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-011-2026-10-19T16-45-28-397Z-bd274dc9-af1b-4250-908e-6161918a387c.json",
+        "sha256": "bfc131f45e50679b443e87e3c59d2e52a06aca136a045f521c5ca13730f687a3"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-45-28-211Z-83c9c8fb-403a-4faf-a789-8aaf20c495bc.json",
+        "sha256": "5a0be456ecae15c6e9b07d6aa4effe001b3dd4cc8b04450e188b29d7ef343366"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-45-28-020Z-c0edd8f6-793a-4b1d-96b9-9e143925bb72.json",
+        "sha256": "8881f45e9f60cfc0e969101986ff5b0179f1d98a3bdcbb4b475dda69adf0aa5b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-45-27-867Z-ee2391f8-7f8e-4591-ae7e-d6d50579dcca.json",
+        "sha256": "cb11334c5aaae1917079d58efe74dbafb348c607e021ffd01cbbd161f53fc310"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-45-27-760Z-416a465d-5539-4481-ab65-9cb2a65af7b6.json",
+        "sha256": "b68fa8fda466061600797a5b9f3ce61b45d3a76a56ee11b42f28d8011eb6e96d"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-45-27-644Z-fea1855c-cfec-49bc-bfdf-22e568f1b069.json",
+        "sha256": "410529daaaef2732f479156c56e7a94dc6b6df0d241c3a67a9250f85b77e0d67"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-45-27-531Z-c7fd1ef5-356f-4538-ae40-043b739a095f.json",
+        "sha256": "7a860ea4173bd8be98aac6b75c472f5cc6719cb94062e7c90866991e2cc24480"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-45-27-430Z-22bf55d2-048b-4cb0-8950-cf93b6c89aa9.json",
+        "sha256": "bff668040cf0c33448d0dd68685918e6dfb559a7f57d0683482c1e1459ea0f24"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-45-27-321Z-01d9e9ea-05cc-4173-9371-886b3fbf83ec.json",
+        "sha256": "64ec8a9d4dd40ae3b13008efc8ef4294d589e77153c678da17dc4d4f2e0c1cff"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-45-27-208Z-af94681a-d65f-460c-a163-d3cc3c9b4d58.json",
+        "sha256": "cdbd806d95390ad504edb9e960321eec2b2cec5699479f09ac4c20d25e286af8"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-45-27-080Z-35b8fc7e-359c-4762-b754-aeb5ac14a0cf.json",
+        "sha256": "4137d2c7906388731272fbfa06064fa982bf5ec7a6cf5b88e86fcb34a435a2ab"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-013-2026-10-19T16-45-26-948Z-d85f86a6-9f5c-4dfa-8042-ab2bc466197f.json",
+        "sha256": "2a92b96606b827c74d2d9ad80b5bdb2946155145327c2da972eb416cd6a09101"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-009-2026-10-19T16-45-23-216Z-9e310df5-b627-4664-a283-8d7b062b4bcb.json",
+        "sha256": "d7e1635f25d4e7524cc48f613291c625c0ab7d41035d9df3187a8cfbcd7fa68b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-009-2026-10-19T16-45-22-553Z-711ad620-2b43-4ad5-bc5b-706a2f4f1346.json",
+        "sha256": "083891e9bb9951bfc1767776a5f1c4dfc252ecd44b1ae07026fcd2077efb95ca"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-009-2026-10-19T16-45-22-086Z-0463fbeb-10b7-42b1-9b18-b01c363122f5.json",
+        "sha256": "e32aabbb422c0707ff8f2f4dac05d13dcbbe824d6691bd53fe0374cee777c63b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-009-2026-10-19T16-45-21-512Z-7bebb0e1-44b4-4711-bb6c-a420e7bb6c4e.json",
+        "sha256": "4b4d37f37386f4f3e6fa214209d1a12cfa04d267460854c78c3bd08c522a2a29"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-009-2026-10-19T16-45-20-926Z-bd1cecae-2735-4ac8-943e-0378533a61cb.json",
+        "sha256": "77be74424d3d4dd534f515a3f2021d1a726fcd151b1027488e82bb3ad2b50ad0"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-008-2026-10-19T16-45-20-367Z-d08f0c80-b04e-4b67-9c7e-c71bdea4b5ce.json",
+        "sha256": "198de00b4bab7c0b3c7271ecbdb69453b4b9b33a63279aa3b729faad3a669900"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-007-2026-10-19T16-45-16-102Z-31122f34-98df-4df9-8d57-1f15c42f3bbc.json",
+        "sha256": "7e85538ec1150a37cd0baab2a90d98e7e508764d45da0dfbaf54b98aea54c29e"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-007-2026-10-19T16-45-15-971Z-70ac7da5-65a1-4b51-b541-4de134da7041.json",
+        "sha256": "b2588493b38be5de28c3f7640eb6caeceb178304522ec5b110f82464d072a51d"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-007-2026-10-19T16-45-15-766Z-1c824b5a-007f-4612-a48d-39bb96007f40.json",
+        "sha256": "0b70b81b3ce3af84e971e3e4564988dd48f03d4cef12e500fa29bdb08070bb73"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-45-15-618Z-63893c87-ac3c-4f4a-8261-b5e87cfe4c2a.json",
+        "sha256": "2576f6c35eb7e7ababd667f89d3046fe7dceee53b60b701e522946047f90415d"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-45-15-127Z-8e2a0ced-51c9-4b5c-b4a4-4b451d34d6a4.json",
+        "sha256": "ba163bf379b3eb1a7d959396a4d46e5b89903bb410f803b871790562ed45f5c9"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-45-14-449Z-b6265402-879f-430e-ace6-25ce86b2f1cc.json",
+        "sha256": "2066de20cc68ee17e4a0c4e08ed32e2b46d66d87d1fee0113b2a670038eff2c0"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-45-13-999Z-2c3635dc-8b92-4bae-a6aa-041ffb968ac4.json",
+        "sha256": "a70272fd02987c31c6d578948912a849de32611ac81491e0ad009756c01d798f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-45-13-481Z-fd8cd4ba-4758-477a-9b1b-4a62d9a7a3e7.json",
+        "sha256": "d4472e0efdd61b4cffc1436f349eb10d2359dab9655234375536e8b67d17ec81"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-45-13-014Z-6d08495b-20a0-40e2-8d74-3af5a099311c.json",
+        "sha256": "3e53e711ef06e0a81f6f34288c3dd62705188522f2760351d69763611fd7fba3"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-45-12-400Z-0f121414-93ce-48c1-a92b-c4dbfb38a7d9.json",
+        "sha256": "50e75241c69e82ea56085b4e720dc1985f40f10fcf0d60e4e31e8394743d2baf"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-45-11-888Z-08316c6e-e8a0-4306-a449-9a13dcdb882a.json",
+        "sha256": "7c0d62d42dde961e0a22919c4305d0368fb5f9b04e79fd767e4c0999131ed0c1"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-45-11-275Z-0cf3c9ff-627c-4c79-9809-d60d01f1cdfa.json",
+        "sha256": "be6e00fef5a92234f3dbf888bd24d80281405c67daba020971041fe1aa465483"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-45-10-833Z-3718a842-856b-4357-b953-9f2e78bbf058.json",
+        "sha256": "e68d4413b66e052c8dea362820f8d46799c2a4a003171bd86d89ee41727e4bcb"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-10-272Z-8ea6c9e7-7cab-4a12-b58c-4539cd9d2a78.json",
+        "sha256": "4b94ea393311c795b4286a94692ad838161a8fd0f30c8f8ee71bddb021a04009"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-09-799Z-2434ab9c-2de3-4232-9f12-a63f6cbe3560.json",
+        "sha256": "53b98df6d94b56c84156ef20480bc348e53d577a93c5ba093e7a27c17b8ec6ec"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-09-324Z-83ec951d-b6b9-4d1c-b2b9-e889a5f6e2a9.json",
+        "sha256": "d9cecd95ce56dc51ec6a1d8aaa084d5e6fd0f72f40d111a7d6e0905d0cfe1b13"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-08-858Z-916b4f27-4be5-40ab-9c2f-876fcacc0b10.json",
+        "sha256": "9fd8f68fa67ee97f2f571c4749fde34c7915fc6b5d5aa74b16f87c78de3f223b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-08-350Z-6c4852b4-f367-44ff-8d06-04caa463cabe.json",
+        "sha256": "6dc5980ad93ed2141b6a554bbe4fe07d087dcce5cadea3ed90b9a16829eb9507"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-07-905Z-41da6c16-378d-4482-888d-4745c8bdba4e.json",
+        "sha256": "1b4638d173b014b8beb5258909acc42fc11b5d299df41359e61131083410d763"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-07-360Z-466b86c5-3257-430a-a59e-bee4e4785a2e.json",
+        "sha256": "922f10ccd8eeceff822cd5dc4a441bd35e79aa5ac0eea9e1d4b0f44745a292eb"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-06-922Z-b03e844f-cbfb-4ff9-84ca-12ba15671e8f.json",
+        "sha256": "c926b1f202713762222cf20fc9f8a55ef4954dbd67398582ef94608ab7f2705d"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-06-474Z-59f431f2-56df-45d4-9997-ecbeeacdc929.json",
+        "sha256": "f58f2f06524e2c18edc5f51c2ba911673368fb643778e04f8cb1e01392141f13"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-05-964Z-d4b5e788-969b-4417-83d8-2ad45bb9b848.json",
+        "sha256": "fb662316cfeb715559230d447218a48c78ee2e82b7ad97878556ca391e332a2f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-05-262Z-17ac779e-9fe4-45c9-b17c-4b542fa2a6c3.json",
+        "sha256": "b497585bc35a6bd58a50244057d0712128a204881f579447dfe7ad3473da5553"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-04-668Z-b6654a5b-ac33-44f2-949d-8518ca4be01f.json",
+        "sha256": "7efc4aa9511cea07aecac16a8da0d52cd2802fb3d53d71341c3bb445141e1fd6"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-45-04-136Z-25d48b71-a847-45cb-aa45-4bc8b5353773.json",
+        "sha256": "3807155f153e5e90b97b30e2fe1d7b3c8a63ef6d054b0f239595bcb85ebc03dd"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-016-2026-10-19T16-45-03-633Z-80b194cb-fd1d-434b-a189-815dfd734c4a.json",
+        "sha256": "98c417f108296e32c727d34922730896ac2c59006848874d7f612d61fcb294d4"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-015-2026-10-19T16-45-00-651Z-d5ccf6c0-c7e5-4e3e-ad55-8e4640676379.json",
+        "sha256": "7a1baa6f7ab97fce97fa7e7e803699b80e1e28bb03cbd2e6e3450504df598db1"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-015-2026-10-19T16-45-00-235Z-5e805e91-3725-4495-98bc-34f940770624.json",
+        "sha256": "2981169cc185f80823f077e81c47dad0deaa08e0f27e1908f6bab532b05ff3fb"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-015-2026-10-19T16-44-59-831Z-5d5841c6-1371-4635-872c-b78d83f410a0.json",
+        "sha256": "a5923b2d963ce6a14023da5e8295d2d1833780ffb2fa2ef215164fbfe1cc3d2f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-015-2026-10-19T16-44-59-400Z-287d0c87-4ff2-4fa3-957f-93927a8d7b2e.json",
+        "sha256": "729bfbfbf6bf1ae134e97d82a6f3e220ef881ed997df3e18905e785ce2bd20ff"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-014-2026-10-19T16-44-59-004Z-7ee946ab-bc62-492f-8583-792921ae88e6.json",
+        "sha256": "0338ccab12f418c94a8ac763b182a8204592e086fc27a608bd8ea3519a1bd3ad"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-014-2026-10-19T16-44-58-479Z-9709894f-8aa5-40d1-bc01-ddfdab95ffe5.json",
+        "sha256": "dfc9eab290aadd28225037fbae3ab9b6a552b4f7929516cc36c6939f8a942286"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-014-2026-10-19T16-44-57-826Z-21c4e1ba-2557-40c0-88a9-adcbc0335fd1.json",
+        "sha256": "a76feaee7c10b756c550142d1b00ec2d9172505b9aaef17c6d923b2ce54010af"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-44-57-229Z-9189f6dc-999f-41ef-a450-349895fdf76a.json",
+        "sha256": "f2b59b8eba8a086ea3de70d8e62f0a331df1691e2ba9885456df63e1345e1e28"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-44-56-510Z-f214e74f-c71f-4d30-996d-689268a56c7b.json",
+        "sha256": "67e9206c13620dbe2268731bbd9087bfa20b9dccd80001679155d9cece2a0e9c"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-44-55-956Z-dda6efcc-8f9e-40b6-bad1-726fb700c816.json",
+        "sha256": "08c39afda1946aa091cdd25ee765363e1040149c86fbb977b043d7be614cafc5"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-015-2026-10-19T16-44-54-813Z-4d3fc76e-785d-4060-aa53-9c596031fe09.json",
+        "sha256": "0b63ff36688fe2769e6839128aae3c0ca83f3977b008652a543e8b13f4056b46"
+      }
+    ],
+    "builtRuns": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-001-2026-10-19T16-55-00-541Z-3b4f56e7-3f98-411f-8d53-be0a80f9c127.json",
+        "sha256": "d2bda78d811660e6b8c95c68bfaf38915c9e3b241d1105739bb71a2bffbd00de"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-002-2026-10-19T16-54-59-904Z-e4ababab-e96e-4d84-a131-c47978dc7626.json",
+        "sha256": "32d6b0acf0daaa62f35b8bf50cdf16a1a5f5c94fc9487ae76be50f79cc357e95"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-57-067Z-5e6b2a8e-40e7-47eb-936e-d4132ccd2fc3.json",
+        "sha256": "671e29071ae16fc0d5ad58d0c6997d0690eb95ffcc0ad8adc50f8c07308328e7"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-56-907Z-145594fd-a256-4320-b33a-50e1165e6dca.json",
+        "sha256": "557e2d7b1158ca762735d274f74268e88ddd009172b4c85fe76958c776357cda"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-56-781Z-c3c9b804-9dda-4996-b105-81dc958c4145.json",
+        "sha256": "da5ffe2fc1551bb856ac540f39835e8f106d7c964e607682afe5b4b8bb13e8fa"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-56-657Z-1d98f538-0039-43d1-87d8-cbddeddf68b4.json",
+        "sha256": "703cd99355a98b9f212a5eb6670afc3c85603e0df88c075775e4b4caef86ae98"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-56-528Z-e20bc9f9-2e7b-42ce-b7e6-c7de000a1e59.json",
+        "sha256": "faeb3716abcbdce379cd1b45e07425d202c7bff652e73c20136d187cc8318878"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-56-415Z-f3068bd3-99a9-47ee-adf6-24544d1b2b41.json",
+        "sha256": "7b8abdc581bb1218f11a7075dac6a6a19c704e570361fd72446947864c7d0f33"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-56-293Z-2026c58a-8d12-48ce-9960-5112a16a6a6f.json",
+        "sha256": "f2b600bf720b6aabd200b65f1d14b1811b142bb12bd659e7e935d2711f40a771"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-56-172Z-4c3e0179-5cff-4d5d-b9be-1573104ef9e3.json",
+        "sha256": "dcf62a200b4944402c09632c9fde74af29b439ca0b35027eb00ff486e30ca5c4"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-56-040Z-97b3873c-0cbc-4a41-87b1-6cc957e9e40f.json",
+        "sha256": "aa577f7ef222931d631eece72f5151e1efa834f8d34e33432d8a0c5550fb1f12"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-55-919Z-d5f48e09-1323-4d6c-b2be-907157f95d3c.json",
+        "sha256": "ef33c3c75c2d16a070398ec9ed2e57bd5ee2bb14595fecc7bb180c7b54baf956"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-55-776Z-4c6ca1c2-5c3e-4b82-9519-c47e5afa7fac.json",
+        "sha256": "42c108470fd20d50525c28e63054906a29c594e59604884e71d513b7682e9f90"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-55-656Z-a501b91f-ee2a-43ae-989b-aab2dfd41fb7.json",
+        "sha256": "75d4f85ff50ec867d2f529e6e6592c717e23f0cadb4becfc208af595a65e8be6"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-55-511Z-69b4014a-bb78-4437-8196-ed46bf5f3462.json",
+        "sha256": "673ba2ad5517da0f95b263028e5340460a633eadab373185346cfa8d4025ad3b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-55-322Z-c2c4039f-a5b7-4cbe-86c9-bea2759ce5c6.json",
+        "sha256": "b0221ca5b7b9c55bfe4de959c33e9146a89aa16e51bc94b271cf3495c3f1dad8"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-55-136Z-e6759da2-4d4d-4a0a-8e7a-93c63e94c8b9.json",
+        "sha256": "97ffc7614341f93dae0ca73ecd5edf2f40ed4395f88757b716791efcc3b53b2b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-54-994Z-6d86c7d1-93cd-4927-bfcc-4647ef00ac70.json",
+        "sha256": "9a38438e95c5dec910adb952e6590c4b417646f9ecf2cfc858b50c3835465747"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-54-857Z-1f8e39a7-fba4-40d3-bfdf-e69934e6a327.json",
+        "sha256": "595cc0232a31581e6da93121a53de22c1da22ee9ad949b5545838693ac5d7e59"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-54-708Z-c7119eae-a048-410a-a561-7f08ac47375e.json",
+        "sha256": "31b18e518b6dada500d63b5c4a6d40c823ff0c1ca182dde7b4e1e7aed41acc35"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-54-561Z-dfcd8c13-368f-49b9-9130-a03384221ae0.json",
+        "sha256": "6e32c317d9eddfdc0f355a4019c737f7f1bfd8b7d5f51469e1367d40dbbc2648"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-54-409Z-5b3b8df7-0d53-4c5b-a478-99d938cd573c.json",
+        "sha256": "0b0cffa93a9c7d251a8c7163bfb15c99ddc927e8d59e89f8d4981c66c1d2fa45"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-54-198Z-1e183613-5501-4211-855c-83877752ba5c.json",
+        "sha256": "291552d57ed1c5faaf6646ccc57a11000b01b29408becd666da733c6a3b65add"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-003-2026-10-19T16-54-54-015Z-07f9c354-11ee-404a-8246-cab47a062798.json",
+        "sha256": "deb9f38298bb14c1f9e330dbf5ceab4fbc63a06d70cb029f20fa8e96273efa92"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-53-890Z-bf3dd5c0-8ba7-4dd3-9d1b-52dc55f22309.json",
+        "sha256": "3337b1d655c7d91d8bf0363b5e82800153afa715da798422af8b3e562cef7fed"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-53-774Z-84a1391f-5673-41f3-8356-0bb56f850662.json",
+        "sha256": "aaa20bf828007956ab88937b428c718069f3ec748f3cdbfca54166003f2ec655"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-53-326Z-943a4bdc-025d-4afa-b138-dd6502166dd1.json",
+        "sha256": "a1adf7aae68ea506dfd31953f7f62df8de1a6f757513b931e7a5fb12708c6bbf"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-52-871Z-19118c66-627d-4675-ad9d-4e69d821f500.json",
+        "sha256": "9bc112c51ba986b65f55bc3f9b25882598832166550d2f2e6505c3ba01653da3"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-52-482Z-e4ca22f9-253a-48e0-b469-c841a5f080e0.json",
+        "sha256": "c751b5d85a8c926d8f7cc081ffc5a34b61e6f3f9bfcede4d7d3144b11a0877ce"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-52-010Z-913d0ada-9b07-4484-bee0-2a93e7b8b5b6.json",
+        "sha256": "4b464eb0d65ac11001262f40573b8359a62d745c971919e9f51e6ce79fee74a7"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-51-603Z-c3b55f02-55ea-4329-b04b-e785c22d58fe.json",
+        "sha256": "47ed6add9bf0095d1fe4817e370c53052fc812b78152909d11c2b079046c6daa"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-51-191Z-817f389e-8c77-4d1f-b510-bb1585b0d55e.json",
+        "sha256": "ef5d2b44e308f428d25d465e7f7ead49d3eeb37612f26994922b0f083df748a4"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-50-769Z-94fe4de6-1a32-47fe-9673-592f843ed59c.json",
+        "sha256": "422bd252642deb50a7a0d6804f30051a3226f9a4194e54d0c64bf5ba58135ae4"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-50-274Z-cf7abea2-5d23-4f70-ab9e-b5836c1c4521.json",
+        "sha256": "d82efe804e524e8466d89ac22dd58bb8901cd1473cfb30743c3b9416175928da"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-49-867Z-9c4a0f57-087f-4765-8f59-904e2aa1dc84.json",
+        "sha256": "0c399a7106cd5d51d6abde8dac65dd1cef629f039422b644dbb1a4a907ac1328"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-49-410Z-6f59e8b9-0370-4c68-a56c-ac7b48e548d6.json",
+        "sha256": "13089a0c30bf8fb114cfc00a7bc62603e2baa280f5b40822fd12c0dd6b52a65b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-48-995Z-2050bb09-ae83-40bc-8d94-08402a88f90b.json",
+        "sha256": "470aa9573404cc61b2edef8d95c1fd308fdcff2ee09b61fa4bb80ad50f3cda21"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-48-608Z-6279282d-8d94-43d7-95ce-28e222d4d2c2.json",
+        "sha256": "78482c9ec301a28e2b2c0690174c65034e1ac3a1a39fffc03b82286fb43d73cf"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-48-153Z-335c6ea9-08a0-4b2d-8b57-5fb4cdd86f25.json",
+        "sha256": "3b208a697661f15ece8bb177e7d760303a455e9dd30011bd39246d1458fc910f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-47-727Z-25f76caf-2b66-4287-8b8d-ffa1ce1c64bd.json",
+        "sha256": "145eca5b17ac5d1d50cefa42e1a9a74717590856c48b464ebd99fd36985b0234"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-47-144Z-118a8b8e-9cb0-4838-a328-4e3ac903b857.json",
+        "sha256": "8a4bb1deb683fa731c82b45a047cdbaa6385278b950e934dfaeb56b2c2151548"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-46-758Z-8748a5ff-97ec-4d91-85c3-4d7a4616a704.json",
+        "sha256": "6cf8da0f59558868509a1a8c8aa96bc34287faeb5f56fe21ca13080c32c8bdd4"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-004-2026-10-19T16-54-46-374Z-36fda8b4-8687-4739-b5d0-e14b3c51c78f.json",
+        "sha256": "aafba7207f7bc6241211b5720506657f2b0731caeb05c40c83125ef9dfa0c236"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-012-2026-10-19T16-54-45-920Z-fff1a504-c456-454c-8f56-b2a3e5404f2c.json",
+        "sha256": "f00bec7f042a0a3fa4b89aaf0b9b70577c6dc2a7ff5af5f73526d63a6b2c8fe2"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-011-2026-10-19T16-54-44-188Z-584509f1-5c7e-4bf0-bfa9-5b85b19417d9.json",
+        "sha256": "73479277df251ab2cfe5b07558d1fe147004d53ac2e52db18944e7905e8a4846"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-54-43-979Z-ed1a47ea-40d7-4b2f-818b-51a7fd380dc5.json",
+        "sha256": "8a0eac766ea43973ca32f9dfa4490cc09e8d0ec800f2dbedf1df512310f9f398"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-54-43-823Z-aa519abd-6ad0-4ec4-bc23-07d3124cf9ab.json",
+        "sha256": "abd1aec3250bdf74f527ea74687c3afb54ea40447101125eb2c7e8896ba9ae0c"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-54-43-681Z-2abb5ad8-d867-41d7-8161-ed92ce3f3351.json",
+        "sha256": "a3af36c37e0a8f46e6d0058b4d54ab2a87d4e2c79478015baad28d837cce1821"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-54-43-553Z-941eb448-811f-4641-b76d-1f89779bb4f0.json",
+        "sha256": "6431fcadbc2b3c80688bab62c9e1e61616490f42d556cbfb0e6061e5f21aebd6"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-54-43-430Z-3a6754c7-77e8-400f-ac3f-eddd73946716.json",
+        "sha256": "e936e1ded46e8ea5a86f0d426ad78391a0f096639dbf6f8888b1e25195196118"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-54-43-310Z-6adfd0af-7227-4d3a-be57-a2c89885efc7.json",
+        "sha256": "67146984fcb02e22618f808fc8851a92ea278505e5cfcf8b6d08879c296e1e59"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-54-43-188Z-e48b8ca8-bbcb-4b63-afd4-f9a06c94f7c5.json",
+        "sha256": "51280606ce9690b69344cdecd05bbd921b56e98ae679de5df9b2149c5d724364"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-54-43-058Z-28245b2d-2449-4895-a407-a30c32cedd41.json",
+        "sha256": "04d5f6d709ff8ff8721328987295708b093c6438a7e2ea97754c610f54e2dec8"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-54-42-926Z-4acd4f56-9734-41cc-9a1e-f2d8735b62e4.json",
+        "sha256": "8409c599f4709346295d5ce63ef151a559d62f6240990edc172d40cab77c6770"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-010-2026-10-19T16-54-42-720Z-0d854446-e926-4e2a-8e46-e7ff3e8c668f.json",
+        "sha256": "f16f0bd6e293d205c7c749f12e2e28f751f4f89762a4a8c3d0d9b49fee35faca"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-013-2026-10-19T16-54-42-594Z-4f46b0d9-49ce-4e69-8d55-174a11c9257c.json",
+        "sha256": "4340e275e2727d2579ff2acbafafb4b8ebe4ac6a14d48d028cea803ceb072a27"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-009-2026-10-19T16-54-39-663Z-e29c0f66-b295-40ce-8c52-8488dce2ebd3.json",
+        "sha256": "a3204a8938fbe3700297629029b19538f993330e6fa442bb1a3d1e449bb7dd31"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-009-2026-10-19T16-54-39-201Z-caa43480-dd4e-40d0-98f6-15f26b272eb9.json",
+        "sha256": "655bd930bb2c6b0a62241a3f441bf511113ec3ac692566ee68449643220c2c50"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-009-2026-10-19T16-54-38-741Z-26107b61-6776-4b2c-b9d3-9d1aa178a68d.json",
+        "sha256": "abec45f934eabba029c5695e4fe17ba5d79fd789bbbea896f27bdecf0dfd3032"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-009-2026-10-19T16-54-38-316Z-a004c549-2946-4f53-a57e-b804aa9ea8c2.json",
+        "sha256": "6b6d2f8130884ad9e044579b143e11ba077b08f6564417557bc3693d58e0df1e"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-009-2026-10-19T16-54-37-833Z-1c5c76e7-ae6d-4dc9-8bbe-849038fc8005.json",
+        "sha256": "f58d465c2229e78795eb0f14aeea47c7d24ded45acfdbff6c88e20b96d5340cb"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-008-2026-10-19T16-54-37-336Z-de806771-143b-4fd5-8724-0650f86ceb90.json",
+        "sha256": "6a1b376567db70e23b134196b8f821727d8e6804aedbcad3cecd617516d71b74"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-007-2026-10-19T16-54-33-385Z-881722fb-5a2c-4359-918e-3df71ac97333.json",
+        "sha256": "a313ea3e9309a5ee3a523057f268acced067d35ba4d1a41a1ed364ceb727a748"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-007-2026-10-19T16-54-33-271Z-42a4d224-0a6c-4d54-b927-5b42e4671af5.json",
+        "sha256": "0b0f8e2b225e30aa6d9e8c9cd0f5c6a12546abebfc8f45413c73c9ae98babac3"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-007-2026-10-19T16-54-33-160Z-2d0fab7f-18c5-4c44-a2a1-7bc1487e80f4.json",
+        "sha256": "44324d19aa5acdfc9ec646f7e7e0fd4e4f415ebe0dc15160a44dd2e534315696"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-33-030Z-1eb81a01-5e73-491e-8285-860677cf23b7.json",
+        "sha256": "090185a2875129518803f4bf435df5d56c1d12c53af1a77ada512c5e8c2b84f4"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-32-570Z-7642b4f6-31df-4123-87d0-91c591c8e236.json",
+        "sha256": "aa335f7011d9b9782f88d7a57d36856f483a4023ff63ecaca07db8fec59f37df"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-32-120Z-af9051fd-e424-4fac-af0a-ad0428993eb8.json",
+        "sha256": "16438d72fc1a2936bb7225165a50cd3d7c027e8a60cd95b8ad17e99d83b54a8d"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-31-682Z-fd092808-d9c1-46d6-9b83-8da21961786e.json",
+        "sha256": "aaee8065d2ba2966d3a14ecefc9094314fed6afecb31cc886c7e664a7a59ce17"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-31-221Z-410872b4-c612-4c45-bd79-6fe5a39e07f6.json",
+        "sha256": "ff4260ea79007076683cf905c1bfad26259da4365a7d88f0d9558f21d74b95c2"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-30-849Z-ded03a48-017d-41f9-9fde-28d4e9ca6aba.json",
+        "sha256": "4532b032b0ddad561e3767f097695315537505f2d4859ce2e239e57245af9c74"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-30-319Z-54ada7a3-4e63-4057-b711-569195c91e4d.json",
+        "sha256": "b86ffc7494758b735f886e2610e7f1f27598180f449e754d3f72d6d522e93672"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-29-838Z-2d91c867-9010-4996-84b0-8b749a2ce419.json",
+        "sha256": "09c7083c704c40cb567c06de7d39d7f6c2e12e88168f6900dd00af584fb79266"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-29-329Z-cae2154b-bdd8-45df-99a5-5dfd934543a5.json",
+        "sha256": "de490d2d35b72668f25de9deadef10dadda76b82aa30025e5d6acf7914f634f6"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-28-939Z-8943e15c-2e25-43d4-8449-2e456b391af7.json",
+        "sha256": "ec2487399ec9598d8ae20f2c7a8c1745209f97cc71f8e0b94299360d463509d8"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-28-376Z-13d690f1-4f01-4bea-a44b-2a8b2762fb7e.json",
+        "sha256": "49cf5c5e7931fe7bc4012eae65020b19bb31a35434c0c73966554fa74dfd086b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-27-971Z-1815e90d-4ba3-4fda-96a3-c20daac25224.json",
+        "sha256": "691a779e30157a4a20212720511b18b676cb02dfdf39b46b41ad305921372b4f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-27-587Z-eb92cb30-12f9-42dd-8135-dfc867eb7512.json",
+        "sha256": "7149d32b2b2cf2cdd8ad4396f57e9d2d9dc4160840c4a5c1e005fd86b97c449f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-27-198Z-1395ae0b-697a-4184-a879-39925b7b94d1.json",
+        "sha256": "37e0094253cd5097cc378b6e90d5a9b66166be666a76c4a576a0ef8bd847462a"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-26-747Z-066f59af-b632-4d21-8b9c-87764fd42388.json",
+        "sha256": "3ba07b9d684ec7318224d641265dd7c0a9a7b9b882f8199b6971ba221fcc0761"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-26-330Z-240bc7a0-6f9b-4644-b2ea-169bb80a9a3f.json",
+        "sha256": "c071c622d132897a2b4b138c87dcd0e6b47aa7cfea5e26a62a32ce067247eb70"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-25-941Z-4bd63e66-68df-400f-a753-b002da4d16c9.json",
+        "sha256": "553e8ac651a22eaf0ed33c95591213b871379a279d18853e7cf70ca36fb5b025"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-25-456Z-6bf16079-72cd-4924-8c55-c37af34d17ff.json",
+        "sha256": "02e2aa45f268d2430c560322619bb9ab27e299aff41db1de0e2eb53bdcd323d8"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-25-079Z-944d5589-840d-41f2-a1e1-5a5165ab70d3.json",
+        "sha256": "6cf9790c44c00ee08bc260df47d8178f598056b860e14fc973e726e23d2e055e"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-24-641Z-40d4ae9f-058a-4150-8424-bb4f97fa2d75.json",
+        "sha256": "8cce4cd7c8134395ee470e8da20714b8bc5fff2e83895330eb34b30b9e6be4d3"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-24-238Z-86844e9e-fb27-4bef-9cf8-d89638537acd.json",
+        "sha256": "97c140f9de589be5e5b7272a307c4002fc56de60de96e4fa0b1d32ca178b45f5"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-23-846Z-3724e128-5a73-4755-a67e-688a8bc46bc8.json",
+        "sha256": "57bc6693af75f194524e0a22e7d0f471539cfbce8c2246a12fb82d491814c490"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-005-2026-10-19T16-54-23-366Z-9e21850f-d13e-4968-b404-e832772538a3.json",
+        "sha256": "501d3bcf6daf4e05fc699225787ed2a3b34b1a378fda37647e59f459939b8c9d"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-016-2026-10-19T16-54-22-949Z-d8c4636f-4404-4c2c-9e2a-f3fe3714eb51.json",
+        "sha256": "3f74dc7d022597f1940cbc3693751ef39ed75834480bb733fc6e1f8d69966cf7"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-015-2026-10-19T16-54-20-762Z-1bac89ce-37db-4b95-892c-a317f7cc6ba5.json",
+        "sha256": "56b1a0709248b5b7f7790ff63eeb8a75c3eeac728d2c17e0d32dff7c0c31d531"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-015-2026-10-19T16-54-20-329Z-d7b2b89e-39fa-4b5a-bffb-1b7f3d5aede5.json",
+        "sha256": "51b30588d47c52e964b07220149d86bcfe8938d9b16772d7aa65a44782c7fac1"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-015-2026-10-19T16-54-19-936Z-b2ef6395-9267-4e57-9d36-b36519ed65ad.json",
+        "sha256": "1121439e5fa427914abdbd3d569d99922a801baa88b232ff5d90b631cfb719a1"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-015-2026-10-19T16-54-19-473Z-30c090cb-a834-434b-8839-1bf48e3a21fc.json",
+        "sha256": "e960ff82a287450b0d59b1377e08a45e23d73caf060a94ca261d89e2b893a940"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-014-2026-10-19T16-54-19-093Z-a97e3502-4463-4e22-ae49-1d780068b68a.json",
+        "sha256": "6d9c77795fd21bdcbaf17804876ff4709d89b8072d7e27240ea2840701c6231d"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-014-2026-10-19T16-54-18-641Z-5aa129e1-ab88-462a-8dd2-6151a1c40c01.json",
+        "sha256": "53feea91145d8bd6420eb75f7e4e7c82339eb12959e6be04c2b52e4440742bbe"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-014-2026-10-19T16-54-18-138Z-fe4db0ad-d4c2-4635-987f-f1bffc838a31.json",
+        "sha256": "c5d05e5ed6638513f43e5065678857311a694defb8f7a6e21012bffb08f986cc"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-17-583Z-50174a0d-9dea-46f1-95fa-d95d213d8747.json",
+        "sha256": "5d2f531dba918a6005b454dcace9ba03f7fc2d30bcd95d8e7da7bb176deae143"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-17-125Z-134df082-7fba-4f42-8baa-1d500b7db75c.json",
+        "sha256": "f0c775aae61d5ed58996f02064a946e1fa610df6701f5817ade516799bde7334"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-006-2026-10-19T16-54-16-695Z-4d4a0c8f-d71a-45c3-8f2e-1f3f21cb937f.json",
+        "sha256": "a193e0c8337604abac751832614d796052753855ac8a5d1cdbe0edd7308df0b9"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-015-2026-10-19T16-54-15-790Z-5d5bd0b1-4c54-44c4-926c-9277dd1552b7.json",
+        "sha256": "351a83cf12a705dd51466d35beb9b4e0e150d5e718e991ef2d4827021b1cf339"
+      }
+    ],
+    "sourceCount": 100,
+    "builtCount": 100,
+    "requirementCount": 16,
+    "boundarySource": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-CARRIER-BOUNDARY-2026-10-19T16-48-20-118Z-3cc97034-e320-41e4-8b35-86ecb3c1bf4b.json",
+        "sha256": "2e41c9127115812aebf8cc8e4dde4b027362a459ae685949454f1a9272663bfe"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-TRIGGER-BOUNDARY-2026-10-19T16-48-18-145Z-480701ea-6312-471a-8462-d0a7e937f82b.json",
+        "sha256": "fff78fee92696726e1d0e0fcaf7285427306222f2b7502587c08d4d39d40c631"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-CARRIER-BOUNDARY-2026-10-19T16-48-17-986Z-36d52dbb-f353-4577-9171-7c4b491547bd.json",
+        "sha256": "4b8c0cc88070860a57598f1a526994a82e8daa5ab4863ac033675f28d94b359e"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-CARRIER-BOUNDARY-2026-10-19T16-48-17-717Z-2389ffbe-1fec-401e-9b17-5ad0ec69386d.json",
+        "sha256": "87a056b196723005fe1115251a9b8e68e25589412805f41c167d6a160b5bf751"
+      }
+    ],
+    "boundaryBuilt": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-CARRIER-BOUNDARY-2026-10-19T16-56-43-022Z-b7a0247d-6be0-452d-b587-96a8740f7abd.json",
+        "sha256": "6e42f5e75a4655e4d96af4bb41fc27d406f0d8afc8d103af06f075c72d9dc79c"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-TRIGGER-BOUNDARY-2026-10-19T16-56-40-866Z-50e2e089-9211-42ff-b74e-4ab8525e43de.json",
+        "sha256": "113ba3162eb9d1fc91d6acb84dd5af9baf9cd55bfb0f849028e6be05838765d5"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-CARRIER-BOUNDARY-2026-10-19T16-56-40-693Z-cd4919cb-01c4-4092-b1a3-101cfd8cfb26.json",
+        "sha256": "785ecbdb2d0d11856778892d6e606cbd32aec1d19b6734e41440267d8a6ea27f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-CARRIER-BOUNDARY-2026-10-19T16-56-40-463Z-070a7e7c-3ee0-422f-b0da-30202ca6c579.json",
+        "sha256": "694b826cf14fe65e8853c63a62c280f7234c5893f05460eb2f8fba51eb8ff049"
+      }
+    ],
+    "boundarySourceCount": 4,
+    "boundaryBuiltCount": 4,
+    "allPassed": true,
+    "limitations": "Editor static code facts and conditional deductions only; no UI signals/focus/timing or human image/audio observation. Native game pairs are independent game-observation records."
+  },
+  "difference": null
+}

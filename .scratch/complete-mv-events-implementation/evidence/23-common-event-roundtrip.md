@@ -1,6 +1,6 @@
 # 23 — Common Event 完整往返
 
-此前59d274e的READY被独立审查拒绝合并：实际公开产品仍接受CommonEvents空数组并补null，以及将trigger -0重写为0。票已重开，正在按真实反例补拒绝边界与完整复验。以下保留此前实际通过的场景和原始失败，不把它们误称完整验收。
+此前59d274e的READY被独立审查拒绝合并，原因是CommonEvents空数组补null及trigger -0重写为0。两处入口边界现已按公开Workspace red→green修复，修正候选重新完成全量检查、新构建、四组实际原生配对和完整built baseline；本票再次交付。旧候选、旧native、失败和审计保持原字节，不把它们升级成新候选证据。
 
 ## 产品与独立预期
 
@@ -54,7 +54,7 @@ E117 Q710524 stored840 / decoded836 / plaintext，decoded SHA256 `6e3cfa0ad6ea40
 
 `mv23-boundary-undefined-red.json` 是移除 domain 上层验证而尚未接入 validation 收集时的实际red：公开收集拒绝与 none undefined 两项失败，active undefined 两项已正确。`mv23-boundary-undefined-green.json` 四项通过。首轮完整 focused `mv23-boundary-undefined-focused.json` 142通过/3失败：三项旧 staged-graph 断言仍要求原非结构化 E117 消息整串，已改为同时要求 `MV-E117-REFERENCE`、精确 `commands[0].commonEvent` 和原始 Unknown/Ambiguous 细节。最终 `mv23-boundary-undefined-focused-final.json` 145/145通过，包括 Common100、公开DSL、真实定义loader、staged graph与证据索引。typecheck/lint/format通过，仅22原历史工具warning未变。此轮未执行full/build/native，票仍claimed。
 
-## 实际集成与完整检查
+## 首轮候选的实际集成与完整检查（已退回）
 
 实际24集成 `8617d815750631d00a8b60b2410d9e5420da4e16`、实际25集成 `233db5420d6cf83da0220c6aa5aed56626798f39` 已合入；23合并提交为 `e199e958c9c1adc48c8ccbf21718a8a39789fa8a`，相对25的独立语义增量为唯一 Compile Contract `mv-1.6.1/8`。本次实际构建/四组原生执行来自干净候选 `b2c301d2dc19cc25a2265a6aa152f119d2367463`。继承完整 Map、Common、System、Troops 输出与既有安全约束。
 
@@ -62,7 +62,7 @@ E117 Q710524 stored840 / decoded836 / plaintext，decoded SHA256 `6e3cfa0ad6ea40
 
 后续 `pnpm check` 36文件、625/625通过；`pnpm build` 通过并生成15个真实 dist 文件；`pnpm --filter rpgmaker-event-dsl test:windows-baseline` 13文件、348/348通过。Windows10.0.19045、工具Node22.23.0、pnpm10.33.0、Vitest4.1.9、TypeScript5.9.3；默认2 workers、原始deadline未改。仅既有22历史工具 no-unused-expressions warning 保持。完整原始日志按字节保存于23-history。Common100项在完整source和实际built轮分别通过，标准执行结果从真实默认输出 test-results/mv-evidence 原字节追加；不重写之前的成功或失败。
 
-## R1/R4 完整产品与原生配对
+## R1/R4 完整产品与原生配对（首轮，已退回候选）
 
 四组是本票分配的交付执行，均使用完整独立原生输入，没有 plumbing/narrow 模式。每组真实执行 built public init→Clone→Decompile→正式源码修改→Check→Compile→Diff→Push，再以两个 fresh NativeProfile 和唯一 appName 启动实际 MV1.6.1 / NW.js0.29.0 / Chromium65.0.3325.146 / embedded Node9.7.1。每侧15项验证均为true，严格 boolean semantic comparator 为true。操作者为 Codex Ticket23 native delivery operator。
 
@@ -77,7 +77,7 @@ E117 Q710524 stored840 / decoded836 / plaintext，decoded SHA256 `6e3cfa0ad6ea40
 
 完整pair-result含首方数据，保留在以上外部原始run。Git仅保存原创scenario/harness与安全摘要；摘要有原始路径/长度/哈希、完整carrier哈希、源/产物清单、过程身份和自创trace，没有复制首方数据库全文或loaded数据。冻结v5 helper SHA256 `68b74b84bc597402ca437f3d5a045a89044f35e7c3a46dca73ded77a3d39cdf8`，新delivery adapter仅注释和purpose metadata变更，SHA256 `c616e8a8c2320766468ca3167249214af66ea6d996eed6bb745f8ab346cfc4f5`。所有preparation结果和旧工具仍保持原字节；此四组没有替代最终52–54或宣称完整R1/R4全部场景。
 
-## 当前 E1 产品比较与产物身份
+## 首轮 E1 产品比较与产物身份
 
 MV-S5-COMMON-E1追加当前交付结果：2026-10-19T16:12:50Z再次只读验证同一编辑器、34个资源及E117/picker，fresh identity JSON SHA256 `c6dd39475a45148ebfaf0b0c31b85a5cb8c64478bb2a5d41526cd3bd916fe87a`。保留原E1 fixture与此前执行不动，当前结果链接Common16组的100个source和100个built实际标准记录，对照上述工厂/独立开关/加载/编辑/序列化/E117事实。资源全文继续只在外部；没有新增UI、Qt信号时序或人工听觉/图像观察声明。
 
@@ -87,14 +87,43 @@ MV-S5-COMMON-E1追加当前交付结果：2026-10-19T16:12:50Z再次只读验证
 
 ## 证据追加与复现
 
-`23-history/mv23-final-immutable-build-audit-v1.json` 给出完整审计：原210行和实际24/25集成带来的既有requirement对象不变；e199e95已捕获的全部旧证据（除当前汇总报告/README/index）按原始Git blob逐字节保持；本票仅追加4个native requirements和新的真实执行，既有E1 fixture不改。首次交付保存所有历史red、误前提失败和更正后的green，未把失败结果标成成功。
+`23-history/mv23-final-immutable-build-audit-v1.json` 给出完整审计：原210行不变；e199e95是23合入25后的自身checkpoint，268行含23先前17行，该checkpoint已捕获的全部旧证据（除当前汇总报告/README/index）按原始Git blob逐字节保持；本票仅追加4个native requirements和新的真实执行，既有E1 fixture不改。首次交付保存所有历史red、误前提失败和更正后的green，未把失败结果标成成功。
 
 复现先使用上述Node22.23.0置于PATH，运行pnpm check、pnpm build及完整built baseline。再执行23-history中四个delivery scenario，显式传入 `--repo=<references所在根> --packageRoot=<本候选实际新构建package> --seedRoot=<MV1.6.1 NewData> --host=<NW.js game.exe> --outputRoot=<新的外部父目录>`，每次创建新UUID目录，保留fresh profile。不得覆盖旧run或直接复制generated到Game来替代Push。公开README、package README、示例和Event Authoring Skill的当前Common/E117 API已同步，无旧位置参数别名。
 
-最终验收索引为272行，Common本票21行；Common标准结果将在本次E1追加后达到805份，旧结果保留其原状态。实际执行构建另完整保存在 `C:/Users/Shuen/.codex/tmp/mv23-executed-build-preserved-031c8c33-43e8-4295-99b4-c2afadf4056f`，97个source与15个dist均与四组原生捕获逐文件相同，provenance见23-history/mv23-executed-build-preservation-v1.json。
+首轮候选验收索引为272行，Common本票21行；Common标准结果将在本次E1追加后达到805份，旧结果保留其原状态。实际执行构建另完整保存在 `C:/Users/Shuen/.codex/tmp/mv23-executed-build-preserved-031c8c33-43e8-4295-99b4-c2afadf4056f`，97个source与15个dist均与四组原生捕获逐文件相同，provenance见23-history/mv23-executed-build-preservation-v1.json。
 
 ## 独立审查退回后的边界修复
 
 MV-S5-COMMON-CARRIER-BOUNDARY 与 MV-S5-COMMON-TRIGGER-BOUNDARY 使用新的独立字面量测试文件，不修改之前272个requirement对象或原有fixture。原READY提交59d274e和四组native记录保持不变；此前97源码/15产物外部freeze已逐文件核验。三份merger原始结果和reproducer按原字节追加保存，普通[null]控制仍应no-op。修复和全量重新交付尚待完成。
 
 诊断已在source公开Workspace形成red3/1control、green7/7（含索引3项）：readCommonEvents在遍历前校验必有null槽0，trigger -0按Object.is局部拒绝，describeValue准确保留actual -0；没有改变通用JSON的负零表达。每个拒绝重复两次，对源码/完整Game/Workspace/Snapshot/manifest/config/Discovery比较不变。新的普通[null]经Decompile→Check→Compile→Diff→Push字节no-op。实际主integration233db54具有251个requirement；e199e95是23自行合入25后的checkpoint，其268包含23先前17行，不能称为主integration既有268。旧audit原字节保留，后续审计分别比较这两个basis和本票59d274e的272行。
+
+## 复审修复候选的最终交付
+
+正确区分三个basis：实际主integration `233db5420d6cf83da0220c6aa5aed56626798f39` 有251个requirement；`e199e95` 是23自己合入25后的268行checkpoint，包含本票先前17行；被退回的 `59d274e` 有272行，包含本票21行。本轮只追加2个独立回归requirement，当前274=实际主integration251+本票23；旧272行对象及全部旧fixture/结果/native工具保持。最终audit v2分别核对实际主integration251和其历史blob、自身268及被退回272 basis，没有把本票记录算作主集成。
+
+修复提交 `59de6e9745ce1508299ff5acbbf80c59fbf2c9b3` 局部修改readCommonEvents：遍历前要求存在null槽0，避免空数组绕过；categorical trigger明确Object.is拒绝-0，原describeValue保留actual `-0`。无通用JSON -0禁令、无归一化、无扩大类别或绕过隔离发布。新增独立测试不修改原Common100 fixture；red实际3失败/1普通[null]控制通过，green7/7（含索引3），后续全量629/629。两处真实静默重写和另一个槽0诊断案例分别通过同一公开Workspace重试2次；失败前后完整源码/配置/Discovery/Game/Workspace/Snapshot/manifest业务字节不变。[null]正常经实际Decompile→Check→Compile→Diff→Push且字节no-op。merger原始脚本和三个result按原字节保存于23-history，原路径保留外部。
+
+当前候选 `59de6e9745ce1508299ff5acbbf80c59fbf2c9b3` 在新构建及四次实际配对捕获时gitStatus均为空。`pnpm check` 37文件629/629通过；fresh `pnpm build` 15文件通过；完整built Windows baseline 14文件352/352通过。Windows/Node22.23.0/pnpm10.33.0/Vitest4.1.9/TypeScript5.9.3、默认2 workers及原deadline保持。原始日志为mv23-review-*-final-v1.txt。历史原创工具的两项unused-vars和22历史unused-expression warning保留，lint退出0。
+
+| 当前实际配对 | 完整原始外部run | pair-result SHA256 |
+| --- | --- | --- |
+| MV-S5-COMMON-R1-TRIGGERS | `C:\Users\Shuen\.codex\tmp\mv23-r1-map-common-delivery-v1-7ee2af75-51bf-43e0-a704-b35551bc6568` | `457b50df045eb21ccf072c347d9d2360e019116c66d04204d647bd2a6e9f78fa` |
+| MV-S5-COMMON-R1-PARALLEL | `C:\Users\Shuen\.codex\tmp\mv23-r1-shared-parallel-delivery-v1-a7f6f5fb-27b9-40a5-90b5-e3b4bca915fb` | `39738c1d27141020e719f1c497563e42696c4446a51bdfe8e424aae03fad4986` |
+| MV-S5-COMMON-R1-AUTORUN | `C:\Users\Shuen\.codex\tmp\mv23-r1-low-autorun-delivery-v1-97afb370-cf1d-4515-8a57-2f7806c29f3d` | `08336cbb54d036cd3ac82f19dbf3b268bc0b54b936ef02517ea813b131863e23` |
+| MV-S5-COMMON-R4-CONTEXT | `C:\Users\Shuen\.codex\tmp\mv23-r4-common-context-delivery-v1-a3da72cd-5408-4880-8367-81669331aa6b` | `9f6d07a68c3605f21b0112abfc6f4af89b36f11da8c53ddd2fce03751b30417f` |
+
+四组重新使用原始独立完整fixture与原delivery-v1工具，不重用旧游戏结果：Map/Common触发各10项；shared Parallel同帧启动、A等待60帧关21、B后续从不执行并观察150帧；最低ID Autorun；相同Common从Map7及真实Troop Battle调用，身份7/0、character7/null、地图selfA true而零事件selfA false，正常胜利返回Map。全部15完整disk carrier、实际完整loaded carrier、真实owned source编辑和Push安装、fresh profile/独立进程/PID/PPID/cwd/host/modules/七engine、空stdout/stderr/exit0和严格boolean语义比较均通过。R4还证明实际Troop owned注释移除安装；不使用外部name/members伪造变更。安全摘要追加新UUID，含首方DB的原报告和游戏沙箱只在外部。
+
+当前source97文件fingerprint `71b81c61c14e6850bcde4fb6d63a64eb2bdac445df4e0fb9c18867f01b07b3f5`；dist15文件fingerprint `38b15fcf80d82448beaea685cd38ed7c6f5f08d45af65333631232ade1f124df`；API wrapper `9ea67671b14ec09e935fc9df5aacb852ccbdb37361fc3c06b99b1d0c4d0240c5`。最终审计比较完整成员集合和每个文件字节，涵盖CLI/API/operations/chunks/types/maps。此前b2c301d的97/15 freeze在修前核验，本轮实际构建另写新外部不可变archive，不覆盖旧archive或旧provenance。
+
+E1再次只读核验同一编辑器34份资源及E117/picker，fresh identity JSON SHA256 `1bc3e3608413face7cbf528cb2c9d1e44b98059137be18de7b958415ff7a1b7c`；开始时间2026-10-19T16:44:12.699Z，原E1 fixture仍原字节。新E1执行链接当前100个source和100个built Common16组执行，并额外链接2个新边界requirement的4个source和4个built标准执行。它仍是编辑器代码事实/有条件推导与实际产品比较，无UI/Qt时序/人工听觉或图像观察宣称。此轮仅重新关闭23，最终49–55仍另行。
+
+当前Common标准结果在本次E1追加后共1026份，保留旧失败原状态。修正候选完整source97/dist15 freeze位于 `C:/Users/Shuen/.codex/tmp/mv23-review-executed-build-preserved-471f85cc-617a-4ab6-9260-2749e36fe234`，provenance见23-history/mv23-review-executed-build-preservation-v2.json；旧freeze不变。审计见23-history/mv23-review-final-immutable-build-audit-v2.json。
+
+审查者原始built公开reproducer在当前新dist重新运行三种模式：[]与trigger -0均得到精确MV-COMMON-EVENT且businessStateUnchanged=true，[null]保留deepEqual=true。三个新原始结果分别为：
+
+- empty: `C:\Users\Shuen\.codex\tmp\mv23-merger-common-empty-1f40debb-adfe-40b2-ac04-e9ef9ff19d9f\result.json`，SHA256 `2ea021b47f984f51994d28ef265392d3f94becc8264bd1c8c90d6b45786fe82c`；原字节副本23-history/mv23-review-merger-recheck-empty-original-result.json
+- null-only: `C:\Users\Shuen\.codex\tmp\mv23-merger-common-null-only-4f0f0027-c9c2-4c43-a5ee-268b84fea96f\result.json`，SHA256 `23480dd87fc42bf6066ee22dd720c4ee53dc4464f66b1b81b7c02ea2e0019967`；原字节副本23-history/mv23-review-merger-recheck-null-only-original-result.json
+- negative-zero-trigger: `C:\Users\Shuen\.codex\tmp\mv23-merger-common-negative-zero-trigger-f4811bbc-0bd8-4650-b9b9-78dba7d9b053\result.json`，SHA256 `fe4f9ed5793b3c3b683f8715ca272fa20126eb1f70f55b3e5792f72cd28a4256`；原字节副本23-history/mv23-review-merger-recheck-negative-zero-trigger-original-result.json

@@ -1,0 +1,496 @@
+{
+  "ready": "59de6e9745ce1508299ff5acbbf80c59fbf2c9b3",
+  "safeSummariesComplete": true,
+  "sourceFiles": 97,
+  "distFiles": 15,
+  "sourceFingerprint": "71b81c61c14e6850bcde4fb6d63a64eb2bdac445df4e0fb9c18867f01b07b3f5",
+  "distFingerprint": "38b15fcf80d82448beaea685cd38ed7c6f5f08d45af65333631232ade1f124df",
+  "preservation": "C:/Users/Shuen/.codex/tmp/mv23-review-executed-build-preserved-471f85cc-617a-4ab6-9260-2749e36fe234",
+  "pairs": [
+    {
+      "run": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-map-common-delivery-v1-7ee2af75-51bf-43e0-a704-b35551bc6568",
+      "rawSha256": "457b50df045eb21ccf072c347d9d2360e019116c66d04204d647bd2a6e9f78fa",
+      "safe": "native-r1-triggers-7ee2af75-51bf-43e0-a704-b35551bc6568-safe-summary.json",
+      "sourceFiles": 97,
+      "distFiles": 15,
+      "completeDiskCarriers": 15,
+      "publication": [
+        "Map001.json",
+        "CommonEvents.json"
+      ],
+      "sides": [
+        {
+          "name": "literal",
+          "pid": 4716,
+          "ppid": 22460,
+          "profile": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-map-common-delivery-v1-7ee2af75-51bf-43e0-a704-b35551bc6568\\literal\\Game\\NativeProfile",
+          "loadedCarriers": [
+            "Map001.json",
+            "CommonEvents.json",
+            "System.json"
+          ],
+          "validations": 15,
+          "actual": [
+            {
+              "id": "action",
+              "eventId": 1,
+              "mapId": 1,
+              "pageIndex": 0,
+              "inBattle": false
+            },
+            {
+              "id": "player-touch",
+              "eventId": 2,
+              "mapId": 1,
+              "pageIndex": 0,
+              "inBattle": false
+            },
+            {
+              "id": "event-touch",
+              "eventId": 3,
+              "mapId": 1,
+              "pageIndex": 0,
+              "inBattle": false
+            },
+            {
+              "id": "autorun",
+              "eventId": 4,
+              "mapId": 1,
+              "pageIndex": 0,
+              "inBattle": false
+            },
+            {
+              "id": "parallel",
+              "eventId": 5,
+              "mapId": 1,
+              "pageIndex": 0,
+              "inBattle": false
+            },
+            {
+              "id": "highest-page-low",
+              "eventId": 6,
+              "mapId": 1,
+              "pageIndex": 0,
+              "inBattle": false
+            },
+            {
+              "id": "highest-page-high",
+              "eventId": 6,
+              "mapId": 1,
+              "pageIndex": 1,
+              "inBattle": false
+            },
+            {
+              "id": "common-none-called",
+              "eventId": 7,
+              "mapId": 1,
+              "pageIndex": 0,
+              "inBattle": false
+            },
+            {
+              "id": "common-autorun",
+              "eventId": 0,
+              "mapId": 1,
+              "pageIndex": null,
+              "inBattle": false
+            },
+            {
+              "id": "common-parallel",
+              "eventId": 0,
+              "mapId": 1,
+              "pageIndex": null,
+              "inBattle": false
+            }
+          ]
+        },
+        {
+          "name": "compiled",
+          "pid": 26320,
+          "ppid": 43036,
+          "profile": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-map-common-delivery-v1-7ee2af75-51bf-43e0-a704-b35551bc6568\\compiled\\Game\\NativeProfile",
+          "loadedCarriers": [
+            "Map001.json",
+            "CommonEvents.json",
+            "System.json"
+          ],
+          "validations": 15,
+          "actual": [
+            {
+              "id": "action",
+              "eventId": 1,
+              "mapId": 1,
+              "pageIndex": 0,
+              "inBattle": false
+            },
+            {
+              "id": "player-touch",
+              "eventId": 2,
+              "mapId": 1,
+              "pageIndex": 0,
+              "inBattle": false
+            },
+            {
+              "id": "event-touch",
+              "eventId": 3,
+              "mapId": 1,
+              "pageIndex": 0,
+              "inBattle": false
+            },
+            {
+              "id": "autorun",
+              "eventId": 4,
+              "mapId": 1,
+              "pageIndex": 0,
+              "inBattle": false
+            },
+            {
+              "id": "parallel",
+              "eventId": 5,
+              "mapId": 1,
+              "pageIndex": 0,
+              "inBattle": false
+            },
+            {
+              "id": "highest-page-low",
+              "eventId": 6,
+              "mapId": 1,
+              "pageIndex": 0,
+              "inBattle": false
+            },
+            {
+              "id": "highest-page-high",
+              "eventId": 6,
+              "mapId": 1,
+              "pageIndex": 1,
+              "inBattle": false
+            },
+            {
+              "id": "common-none-called",
+              "eventId": 7,
+              "mapId": 1,
+              "pageIndex": 0,
+              "inBattle": false
+            },
+            {
+              "id": "common-autorun",
+              "eventId": 0,
+              "mapId": 1,
+              "pageIndex": null,
+              "inBattle": false
+            },
+            {
+              "id": "common-parallel",
+              "eventId": 0,
+              "mapId": 1,
+              "pageIndex": null,
+              "inBattle": false
+            }
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "run": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-shared-parallel-delivery-v1-a7f6f5fb-27b9-40a5-90b5-e3b4bca915fb",
+      "rawSha256": "39738c1d27141020e719f1c497563e42696c4446a51bdfe8e424aae03fad4986",
+      "safe": "native-r1-parallel-a7f6f5fb-27b9-40a5-90b5-e3b4bca915fb-safe-summary.json",
+      "sourceFiles": 97,
+      "distFiles": 15,
+      "completeDiskCarriers": 15,
+      "publication": [
+        "CommonEvents.json"
+      ],
+      "sides": [
+        {
+          "name": "literal",
+          "pid": 10068,
+          "ppid": 34272,
+          "profile": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-shared-parallel-delivery-v1-a7f6f5fb-27b9-40a5-90b5-e3b4bca915fb\\literal\\Game\\NativeProfile",
+          "loadedCarriers": [
+            "Map001.json",
+            "CommonEvents.json",
+            "System.json"
+          ],
+          "validations": 15,
+          "actual": {
+            "order": [
+              "A-start",
+              "B-start",
+              "A-end"
+            ],
+            "contexts": [
+              {
+                "eventId": 0,
+                "mapId": 1,
+                "inBattle": false,
+                "switch21": true
+              },
+              {
+                "eventId": 0,
+                "mapId": 1,
+                "inBattle": false,
+                "switch21": true
+              },
+              {
+                "eventId": 0,
+                "mapId": 1,
+                "inBattle": false,
+                "switch21": true
+              }
+            ],
+            "AWaitDelta": 60,
+            "BStartedSameFrame": true,
+            "BEndCount": 0,
+            "switch21": false,
+            "AInactive": true,
+            "BInactive": true,
+            "noneSwitch9": false,
+            "observedPastBDeadline": true
+          }
+        },
+        {
+          "name": "compiled",
+          "pid": 16708,
+          "ppid": 35864,
+          "profile": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-shared-parallel-delivery-v1-a7f6f5fb-27b9-40a5-90b5-e3b4bca915fb\\compiled\\Game\\NativeProfile",
+          "loadedCarriers": [
+            "Map001.json",
+            "CommonEvents.json",
+            "System.json"
+          ],
+          "validations": 15,
+          "actual": {
+            "order": [
+              "A-start",
+              "B-start",
+              "A-end"
+            ],
+            "contexts": [
+              {
+                "eventId": 0,
+                "mapId": 1,
+                "inBattle": false,
+                "switch21": true
+              },
+              {
+                "eventId": 0,
+                "mapId": 1,
+                "inBattle": false,
+                "switch21": true
+              },
+              {
+                "eventId": 0,
+                "mapId": 1,
+                "inBattle": false,
+                "switch21": true
+              }
+            ],
+            "AWaitDelta": 60,
+            "BStartedSameFrame": true,
+            "BEndCount": 0,
+            "switch21": false,
+            "AInactive": true,
+            "BInactive": true,
+            "noneSwitch9": false,
+            "observedPastBDeadline": true
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "run": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-low-autorun-delivery-v1-97afb370-cf1d-4515-8a57-2f7806c29f3d",
+      "rawSha256": "08336cbb54d036cd3ac82f19dbf3b268bc0b54b936ef02517ea813b131863e23",
+      "safe": "native-r1-autorun-97afb370-cf1d-4515-8a57-2f7806c29f3d-safe-summary.json",
+      "sourceFiles": 97,
+      "distFiles": 15,
+      "completeDiskCarriers": 15,
+      "publication": [
+        "CommonEvents.json"
+      ],
+      "sides": [
+        {
+          "name": "literal",
+          "pid": 33616,
+          "ppid": 22680,
+          "profile": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-low-autorun-delivery-v1-97afb370-cf1d-4515-8a57-2f7806c29f3d\\literal\\Game\\NativeProfile",
+          "loadedCarriers": [
+            "Map001.json",
+            "CommonEvents.json",
+            "System.json"
+          ],
+          "validations": 15,
+          "actual": {
+            "trace": [
+              {
+                "id": "low1",
+                "eventId": 0,
+                "mapId": 1,
+                "inBattle": false
+              }
+            ],
+            "switch21": false,
+            "mapInterpreterRunning": false,
+            "inactiveSavedSwitch9": 9,
+            "noneSwitch9": false,
+            "observedFramesAtLeast": 150
+          }
+        },
+        {
+          "name": "compiled",
+          "pid": 8768,
+          "ppid": 16648,
+          "profile": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-low-autorun-delivery-v1-97afb370-cf1d-4515-8a57-2f7806c29f3d\\compiled\\Game\\NativeProfile",
+          "loadedCarriers": [
+            "Map001.json",
+            "CommonEvents.json",
+            "System.json"
+          ],
+          "validations": 15,
+          "actual": {
+            "trace": [
+              {
+                "id": "low1",
+                "eventId": 0,
+                "mapId": 1,
+                "inBattle": false
+              }
+            ],
+            "switch21": false,
+            "mapInterpreterRunning": false,
+            "inactiveSavedSwitch9": 9,
+            "noneSwitch9": false,
+            "observedFramesAtLeast": 150
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "run": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r4-common-context-delivery-v1-a3da72cd-5408-4880-8367-81669331aa6b",
+      "rawSha256": "9f6d07a68c3605f21b0112abfc6f4af89b36f11da8c53ddd2fce03751b30417f",
+      "safe": "native-r4-context-a3da72cd-5408-4880-8367-81669331aa6b-safe-summary.json",
+      "sourceFiles": 97,
+      "distFiles": 15,
+      "completeDiskCarriers": 15,
+      "publication": [
+        "Map001.json",
+        "CommonEvents.json",
+        "Troops.json"
+      ],
+      "sides": [
+        {
+          "name": "literal",
+          "pid": 9480,
+          "ppid": 32948,
+          "profile": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r4-common-context-delivery-v1-a3da72cd-5408-4880-8367-81669331aa6b\\literal\\Game\\NativeProfile",
+          "loadedCarriers": [
+            "Map001.json",
+            "CommonEvents.json",
+            "System.json",
+            "Troops.json"
+          ],
+          "validations": 15,
+          "actual": {
+            "contexts": [
+              {
+                "mapId": 1,
+                "eventId": 7,
+                "inBattle": false,
+                "characterEventId": 7,
+                "characterPosition": [
+                  10,
+                  6
+                ],
+                "mapSelfA": true,
+                "zeroSelfA": false
+              },
+              {
+                "mapId": 1,
+                "eventId": 0,
+                "inBattle": true,
+                "characterEventId": null,
+                "characterPosition": null,
+                "mapSelfA": true,
+                "zeroSelfA": false
+              }
+            ],
+            "mapTraces": [
+              "before-call",
+              "after-call",
+              "after-battle"
+            ],
+            "victoryCount": 1,
+            "returned": true,
+            "realBattle": true,
+            "savedNoneSwitch9": 9,
+            "traceCounts": {
+              "map": 3,
+              "common": 2
+            }
+          }
+        },
+        {
+          "name": "compiled",
+          "pid": 33544,
+          "ppid": 41008,
+          "profile": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r4-common-context-delivery-v1-a3da72cd-5408-4880-8367-81669331aa6b\\compiled\\Game\\NativeProfile",
+          "loadedCarriers": [
+            "Map001.json",
+            "CommonEvents.json",
+            "System.json",
+            "Troops.json"
+          ],
+          "validations": 15,
+          "actual": {
+            "contexts": [
+              {
+                "mapId": 1,
+                "eventId": 7,
+                "inBattle": false,
+                "characterEventId": 7,
+                "characterPosition": [
+                  10,
+                  6
+                ],
+                "mapSelfA": true,
+                "zeroSelfA": false
+              },
+              {
+                "mapId": 1,
+                "eventId": 0,
+                "inBattle": true,
+                "characterEventId": null,
+                "characterPosition": null,
+                "mapSelfA": true,
+                "zeroSelfA": false
+              }
+            ],
+            "mapTraces": [
+              "before-call",
+              "after-call",
+              "after-battle"
+            ],
+            "victoryCount": 1,
+            "returned": true,
+            "realBattle": true,
+            "savedNoneSwitch9": 9,
+            "traceCounts": {
+              "map": 3,
+              "common": 2
+            }
+          }
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "e1": {
+    "targetSha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+    "resources": 34,
+    "extra": 2,
+    "identitySha256": "c6dd39475a45148ebfaf0b0c31b85a5cb8c64478bb2a5d41526cd3bd916fe87a",
+    "staticReverseOnly": true
+  },
+  "passed": true
+}

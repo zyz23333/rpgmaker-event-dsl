@@ -1,0 +1,17 @@
+const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const root=process.argv[2],temp='C:/Users/Shuen/.codex/tmp',base=path.join(root,'.scratch/complete-mv-events-implementation/evidence'),history=path.join(base,'23-history'),sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+function preserve(source,target){const bytes=fs.readFileSync(source);if(fs.existsSync(target))assert.equal(sha(fs.readFileSync(target)),sha(bytes));else fs.writeFileSync(target,bytes,{flag:'wx'});}
+function run(name,args=[]){process.stdout.write(cp.execFileSync(process.execPath,[path.join(temp,name),root,...args],{cwd:root,encoding:'utf8',windowsHide:true}));}
+for(const name of ['mv23-review-check-final-v1','mv23-review-build-final-v1','mv23-review-windows-baseline-final-v1'])preserve(path.join(temp,name+'.log'),path.join(history,name+'.txt'));
+const rechecks=[];for(const mode of ['empty','null-only','negative-zero-trigger']){const s=JSON.parse(fs.readFileSync(path.join(temp,'mv23-review-merger-recheck-'+mode+'-v1.json'),'utf8'));if(mode==='null-only'){assert.equal(s.actual.ok,true);assert.equal(s.actual.deepEqual,true);}else{assert.equal(s.actual.ok,false);assert.equal(s.actual.businessStateUnchanged,true);}const bytes=fs.readFileSync(s.resultFile),name='mv23-review-merger-recheck-'+mode+'-original-result.json';preserve(s.resultFile,path.join(history,name));rechecks.push({mode,raw:s.resultFile,sha256:sha(bytes),saved:name});}
+const identity=JSON.parse(fs.readFileSync(path.join(temp,'mv23-review-e1-identity-rerun-v1.json'),'utf8'));assert.equal(identity.passed,true);preserve(path.join(identity.output,'identity-recheck.json'),path.join(history,'mv23-review-e1-delivery-identity-v1.json'));
+for(const name of ['mv23-prepare-review-final-tools-v1.cjs','mv23-review-final-audit-v2.cjs','mv23-review-record-e1-final-v2.cjs','mv23-review-preserve-executed-build-v2.cjs','mv23-review-update-report-final-v2.cjs','mv23-review-finish-evidence-v2.cjs'])preserve(path.join(temp,name),path.join(history,name));
+run('mv23-review-update-report-final-v2.cjs');
+const names=['r1-triggers','r1-parallel','r1-autorun','r4-context'],suffixes=['R1-TRIGGERS','R1-PARALLEL','R1-AUTORUN','R4-CONTEXT'],runs=[];
+for(let i=0;i<names.length;i++){const r=JSON.parse(fs.readFileSync(path.join(temp,'mv23-review-'+names[i]+'-actual-v1.json'),'utf8'));assert.equal(r.passed,true);runs.push(r.root);run('mv23-register-native-v1.cjs',[r.root,suffixes[i]]);}
+run('mv23-index-and-archive.cjs');
+const existing=fs.readdirSync(path.join(base,'results')).filter(n=>n.startsWith('MV-S5-COMMON-')).length,preservation=JSON.parse(fs.readFileSync(path.join(temp,'mv23-review-executed-build-preservation-v2.json'),'utf8'));
+fs.appendFileSync(path.join(base,'23-common-event-roundtrip.md'),`\n当前Common标准结果在本次E1追加后共${existing+1}份，保留旧失败原状态。修正候选完整source97/dist15 freeze位于 \`${preservation.archive}\`，provenance见23-history/mv23-review-executed-build-preservation-v2.json；旧freeze不变。审计见23-history/mv23-review-final-immutable-build-audit-v2.json。\n`);
+fs.appendFileSync(path.join(base,'23-common-event-roundtrip.md'),'\n审查者原始built公开reproducer在当前新dist重新运行三种模式：[]与trigger -0均得到精确MV-COMMON-EVENT且businessStateUnchanged=true，[null]保留deepEqual=true。三个新原始结果分别为：\n\n'+rechecks.map(r=>`- ${r.mode}: \`${r.raw}\`，SHA256 \`${r.sha256}\`；原字节副本23-history/${r.saved}`).join('\n')+'\n');
+run('mv23-review-record-e1-final-v2.cjs');
+run('mv23-review-final-audit-v2.cjs',runs);

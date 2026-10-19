@@ -1,0 +1,130 @@
+{
+  "root": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-shared-parallel-delivery-v1-a7f6f5fb-27b9-40a5-90b5-e3b4bca915fb",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-shared-parallel-delivery-v1-a7f6f5fb-27b9-40a5-90b5-e3b4bca915fb\\compiled\\Workspace",
+    "files": {
+      "CommonEvents.json": {
+        "beforePushSha256": "7aea2153e2ef86f813bc2e457fc6be9a7a1c513f7962c18a8a2c147b68d73bce",
+        "generatedSha256": "bc313710bb1bdd529c35e3f94d698f8d06f6650f31b02cadb6d3fd486de99ccd",
+        "afterPushSha256": "bc313710bb1bdd529c35e3f94d698f8d06f6650f31b02cadb6d3fd486de99ccd",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "order": [
+          "A-start",
+          "B-start",
+          "A-end"
+        ],
+        "contexts": [
+          {
+            "eventId": 0,
+            "mapId": 1,
+            "inBattle": false,
+            "switch21": true
+          },
+          {
+            "eventId": 0,
+            "mapId": 1,
+            "inBattle": false,
+            "switch21": true
+          },
+          {
+            "eventId": 0,
+            "mapId": 1,
+            "inBattle": false,
+            "switch21": true
+          }
+        ],
+        "AWaitDelta": 60,
+        "BStartedSameFrame": true,
+        "BEndCount": 0,
+        "switch21": false,
+        "AInactive": true,
+        "BInactive": true,
+        "noneSwitch9": false,
+        "observedPastBDeadline": true
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "order": [
+          "A-start",
+          "B-start",
+          "A-end"
+        ],
+        "contexts": [
+          {
+            "eventId": 0,
+            "mapId": 1,
+            "inBattle": false,
+            "switch21": true
+          },
+          {
+            "eventId": 0,
+            "mapId": 1,
+            "inBattle": false,
+            "switch21": true
+          },
+          {
+            "eventId": 0,
+            "mapId": 1,
+            "inBattle": false,
+            "switch21": true
+          }
+        ],
+        "AWaitDelta": 60,
+        "BStartedSameFrame": true,
+        "BEndCount": 0,
+        "switch21": false,
+        "AInactive": true,
+        "BInactive": true,
+        "noneSwitch9": false,
+        "observedPastBDeadline": true
+      },
+      "error": null
+    }
+  }
+}
