@@ -1,0 +1,400 @@
+{
+  "purpose": "Preserve original pre25 Common checkpoint source bytes before merge/rebuild; first23 build had no prior local dist",
+  "recordedAt": "2026-10-19T16:12:50.608Z",
+  "copiedDirectoryBirthTime": "2026-10-19T16:09:52.279Z",
+  "originalRoot": "C:/Users/Shuen/.codex/worktrees/mv-ticket-23/rpgmaker-event-dsl",
+  "originalPackage": "packages/rpgmaker-event-dsl",
+  "revision": "fd3b6a2c69fdbd7ca78db30bac00a773b271fef7",
+  "originalStatus": "clean (observed immediately before archive/merge)",
+  "archive": "C:/Users/Shuen/.codex/tmp/mv23-pre25-build-archive-69f738cf-d009-4200-ad34-ece3249e37c8",
+  "source": {
+    "files": [
+      {
+        "path": "authoring/declarations.ts",
+        "sha256": "dc99cb8bffa73f69c376e95ddf6e4c31097bf3ca6d265c86e7088b7bfc21ee96"
+      },
+      {
+        "path": "authoring/index.ts",
+        "sha256": "85c54c7ef6b2bab2932ac6e4a6cc60594e8c662dc9b7e46b63a34fe2d75c3755"
+      },
+      {
+        "path": "authoring/references.ts",
+        "sha256": "b3f3cefa64f45da752a8f58bc6eca2d92bb6b30773be42f51036fd60df9c89de"
+      },
+      {
+        "path": "authoring/shared.ts",
+        "sha256": "3865ac8c4b3768c96038a323a02cf30c33edd9f330544bd6cd2b204d2841408e"
+      },
+      {
+        "path": "cli.ts",
+        "sha256": "34c6e77e91a45126b1a2c5b15621f79241a98bab081924d2fbd535c5996fd4b0"
+      },
+      {
+        "path": "commands/actor/authoring.ts",
+        "sha256": "adc9b6aa805739dad7594246236f6314cc8a08299f1bd323b8ae729cf6b2fdf3"
+      },
+      {
+        "path": "commands/actor/decompile.ts",
+        "sha256": "2e83a179cabb9ae19ff9207904c822bb84c6b5bc45581386d2aca7b1b005b56d"
+      },
+      {
+        "path": "commands/audio/authoring.ts",
+        "sha256": "08a68ae8b97095ec1c3a6d8517ed5649eb79ffb1b66f59aa34a7506356e0e513"
+      },
+      {
+        "path": "commands/audio/decompile.ts",
+        "sha256": "18acdf8e035ad2b8f3879622e18c39a7cde1e6279c14013fca2e6dbd0edb3811"
+      },
+      {
+        "path": "commands/battle/authoring.ts",
+        "sha256": "a5249dd85dde78f2f0183d33a9a79d69bca93e88b5d2f0404f9005a25f115377"
+      },
+      {
+        "path": "commands/battle/decompile.ts",
+        "sha256": "4da781567fb9baf2580ec050564d66506d542890dfab3a6966eef1c008ac44b0"
+      },
+      {
+        "path": "commands/enemy/authoring.ts",
+        "sha256": "3ff830df557837e08ed73054eb47085cd0ba262e1aad746defc05578a14ce602"
+      },
+      {
+        "path": "commands/enemy/decompile.ts",
+        "sha256": "334fc1efeda29f27cf9a7e504501ea7e693fb9b041a96bb827c90ec957ff2cd2"
+      },
+      {
+        "path": "commands/flow/authoring.ts",
+        "sha256": "2781ac07a176994435f124947fb0ac9c1873a3c37ea4b61b5f5fc0c35cabfc40"
+      },
+      {
+        "path": "commands/flow/decompile.ts",
+        "sha256": "db0508df65d743ada28e4b175d85cfbfa6a70a0547ff17cc2ecc2ab9a0feac31"
+      },
+      {
+        "path": "commands/flow/validation.ts",
+        "sha256": "d88ca16a1e3d2c688a6876ae041bc772c125eda0b1cf2e818b8ec55c29090dad"
+      },
+      {
+        "path": "commands/map/authoring.ts",
+        "sha256": "985f89d88a2460b0af605f3fb8282847dd48e4d5d6e13821ae430966a53c4006"
+      },
+      {
+        "path": "commands/map/decompile.ts",
+        "sha256": "4155ac5891314141271b6e80f4b11924e584ef1efcf6e83b125b7e60196e2ce0"
+      },
+      {
+        "path": "commands/message/authoring.ts",
+        "sha256": "76bfc91b2a89a8c62546542396ff47c8baf9f13d54c1c1ba5a0b58031b413d68"
+      },
+      {
+        "path": "commands/message/decompile.ts",
+        "sha256": "174c78169c65eec74592a466381b97e083688c691381e470b0a707dd47273a24"
+      },
+      {
+        "path": "commands/movement/authoring.ts",
+        "sha256": "af1985013fa73af61d72cc440de0f83d99f78c94da4744f3a7ab1d7b56daf909"
+      },
+      {
+        "path": "commands/movement/compile.ts",
+        "sha256": "8491f60e066d618bb076e3e03774b9332000f8be6f5c81a05ceb2aa03e2d0e15"
+      },
+      {
+        "path": "commands/movement/decompile.ts",
+        "sha256": "016e07bdd681af3aaaf70ae5141afc6255598453c2ce43a6c34a3d44c38ba6c3"
+      },
+      {
+        "path": "commands/movement/page.ts",
+        "sha256": "ead6952e28f64bd25ba6fbd55d9be36f09ddadca5967ec4ddd7722ee1e18ceac"
+      },
+      {
+        "path": "commands/movement/types.ts",
+        "sha256": "de4a2cb691fc6a8697ba91a2a831eaf17e1c15e541da4a2893f902f30a3a01b8"
+      },
+      {
+        "path": "commands/movement/validation.ts",
+        "sha256": "41bd3a1a11691f40f0583a7d7a2e22533883404379b35897dc74eb31096d2755"
+      },
+      {
+        "path": "commands/screen/authoring.ts",
+        "sha256": "c0557c79496cb70c7a4d67fa61008a6e189b9df86f7cb408b36048b89aff63dc"
+      },
+      {
+        "path": "commands/screen/compile.ts",
+        "sha256": "a1c68cb63a4e6fe9ad2de3f45f51101f2e4fa6656fd865ac3bbbf485c78edc80"
+      },
+      {
+        "path": "commands/screen/decompile.ts",
+        "sha256": "38e4c759cf9f51c5ab49ea0f33d79c9a2af1060156102e7198541ac2e529567b"
+      },
+      {
+        "path": "commands/system/authoring.ts",
+        "sha256": "71b37822f2d2abd58349a1ea7eed84fea0c886cf8045beb6341dbfba2c02814d"
+      },
+      {
+        "path": "commands/system/decompile.ts",
+        "sha256": "56c3cba9e576bd289050463bfe2d284c39d54196fcf5fa59a8dde3ccdc33ad77"
+      },
+      {
+        "path": "commands/variables/authoring.ts",
+        "sha256": "a2bbedd0a2d9aacb7e3eb2772e4f7431c49ccef39166cc74f4b615a6494a3f22"
+      },
+      {
+        "path": "commands/variables/compile.ts",
+        "sha256": "9e4a295fac91434e34e28bd3c84b9b5a5dc526685f821f574582e7ac22bb4c27"
+      },
+      {
+        "path": "commands/variables/decompile.ts",
+        "sha256": "c32df1e9d77b36d30fd135bc6c8919f0cf84a19acaf6a86d3e66d700762b9773"
+      },
+      {
+        "path": "commands/variables/validation.ts",
+        "sha256": "8996604b8bfcb1fd9ba8a5100b8bd598e720aad9b946d001e77e89ddf5609867"
+      },
+      {
+        "path": "compiler/dispatch.ts",
+        "sha256": "8fa56908f9467fa839a6cef2de10b9fc23deea94b6e49d4311824215e58be6cd"
+      },
+      {
+        "path": "compiler/events.ts",
+        "sha256": "611a096d8c5ee6768430af77007eeb2c60e7ba3d937384659182a286a06e74e9"
+      },
+      {
+        "path": "compiler/shared/branches.ts",
+        "sha256": "44f965a1c5ea89cdf03fca12e3a49c2bce866efa9e6dc97ffa32c45a51f4d606"
+      },
+      {
+        "path": "compiler/shared/conditions.ts",
+        "sha256": "4b44eb3bb078dc6dd9a996ba7ac8aac5dbc6cc4a4151763ff9dc6c21d786e990"
+      },
+      {
+        "path": "compiler/shared/media.ts",
+        "sha256": "9bc3cc0ec9fd97a6368711dc4e73cba05dc4abaee7697624132577bb465e3e68"
+      },
+      {
+        "path": "compiler/shared/targets.ts",
+        "sha256": "11c907ed9a847ba54fdc222c7d04757e1b0d74205c7111426e4fec8d80be7ce2"
+      },
+      {
+        "path": "compiler/types.ts",
+        "sha256": "b81ac88b5778268997bce55af43dc0953b5cee48625180f58733cfdde6ae91a1"
+      },
+      {
+        "path": "decompiler/core.ts",
+        "sha256": "157fa318c41656f93e08f556aaac271667cf2536e35e089a84469b211b9e74b9"
+      },
+      {
+        "path": "decompiler/dispatch.ts",
+        "sha256": "7024e6d242f1c42d5fb4ff13dc906e8110e1485f31fb4f7ec136a871725e1f30"
+      },
+      {
+        "path": "decompiler/map-page.ts",
+        "sha256": "05a14de564f72e81566bf5db192a38c71c9595e21abfa9181b49a12b724c751b"
+      },
+      {
+        "path": "decompiler/project.ts",
+        "sha256": "53b5e31a086f4c866dd32b1f778722a8b68a9668e8cff2cf3d0671017e06ff98"
+      },
+      {
+        "path": "decompiler/types.ts",
+        "sha256": "01dc14767746b1067ddc101f6acd5ea23247b6557a59e0c0cb467dd1f3903aa3"
+      },
+      {
+        "path": "domain/command.ts",
+        "sha256": "78179b216cd325b34fe0783a2ca62a8a7790f15b4e126c9e0d160947700c2c6f"
+      },
+      {
+        "path": "domain/declarations.ts",
+        "sha256": "17d5dd2630b09b1bc851fce3e365d9620a766a56b91d7b2841164384ffd9b558"
+      },
+      {
+        "path": "domain/references.ts",
+        "sha256": "44874ce22c90697572c8bd777f0a8070bcf89b556247072964ac59246761fc44"
+      },
+      {
+        "path": "domain/types.ts",
+        "sha256": "1c9caf0c03768d910a9ef504d184df22ce42a30ac4dd3ce387b489718ead5e01"
+      },
+      {
+        "path": "index.ts",
+        "sha256": "cac51b3cd154629880f6b30aaf8b54a8f1aecee91bb26182ebfd7ccdb3c90157"
+      },
+      {
+        "path": "map-event/native.ts",
+        "sha256": "a87ca1545e80ecd25205f6e7fb40a48d977317b93da65de8053afcaacf611384"
+      },
+      {
+        "path": "map-event/page.ts",
+        "sha256": "9251557930e667e258c6259c58e787cdeccd22e96dc5f0225947a98d35d275ed"
+      },
+      {
+        "path": "map-event/validation.ts",
+        "sha256": "e2dddc54dff942929af1f58dd6e48305e9d774c8cfb5a4c58af39e08e3937805"
+      },
+      {
+        "path": "project-data/json-values.ts",
+        "sha256": "7d9f2a485a689dc159327f859a8cae48307b88294bea78aa2a81452813730af8"
+      },
+      {
+        "path": "project-data/map-event-diff.ts",
+        "sha256": "7055058d85ef232a8ad2f94e9a3634ef709c5d352283ac1678f4dc03836be992"
+      },
+      {
+        "path": "project-data/materialization.ts",
+        "sha256": "9c9f1d81e6a5dcd4806e6b3b5abefbadb892098827af4aecde7d8385e6e69efc"
+      },
+      {
+        "path": "project-data/project.ts",
+        "sha256": "1176a155e53c9f4383e03bbe3a3f7e13565a96d5eb47b3ac6fc58002ae91cd74"
+      },
+      {
+        "path": "project-data/structured-diff.ts",
+        "sha256": "46413df2ec2a13a7ba4061a292c8d38b6f19b48c0cd59e9e550f5cdce474f301"
+      },
+      {
+        "path": "project-data/writer.ts",
+        "sha256": "d9ebfc5636d430eb7c94ecca75c4a40127e592e92bcd303cc73ed59cde674c80"
+      },
+      {
+        "path": "validation/command-errors.ts",
+        "sha256": "d3da622a5d9616fd54f83415ec3782c45f54f95a3285d3525f1ddcf71f7deb9a"
+      },
+      {
+        "path": "validation/command-structure.ts",
+        "sha256": "e75f7edfa9b9fd520eeb7f4b42b4e110bc2a533fe3fd365c78750ecd226df6d4"
+      },
+      {
+        "path": "validation/commands.ts",
+        "sha256": "630b5b4355a03ffef0c18b65b480a0d9d0ea6910a5408cdbf1d55c30a7d9de4c"
+      },
+      {
+        "path": "validation/common-events.ts",
+        "sha256": "dd331ebf8a13c720464cc96843ba4a8b69a2b6196ee740791ad7a4788ad89e34"
+      },
+      {
+        "path": "validation/compile-output.ts",
+        "sha256": "bbe1faaa27e862b43bae560fa783cff1bb93ac5c256d0a03f30f5399a33b0007"
+      },
+      {
+        "path": "validation/compiled-commands.ts",
+        "sha256": "908e8183bdab925c9e4115841f8cadabc1734eb63c835d8dc14f6a11087c02f7"
+      },
+      {
+        "path": "validation/declarations.ts",
+        "sha256": "d7428305b08f45f2203aa37ffb5b3a1c3506730870a01171574cc10f0624f671"
+      },
+      {
+        "path": "validation/dsl-command-inputs.ts",
+        "sha256": "73457080d5dd553ba488acfab6f517c792e40d5f845ac6e66bde8d97cded1d5b"
+      },
+      {
+        "path": "validation/identities.ts",
+        "sha256": "6b82bd78ba09de67b5f58294eb2b0678260bc5a9076e74702cf2a5b4571d2265"
+      },
+      {
+        "path": "validation/inspection.ts",
+        "sha256": "10a9923ffca925eb65ea7254a1d940c6580a3a60f3b7a14a4862cf08d11453e1"
+      },
+      {
+        "path": "validation/native-command-inputs.ts",
+        "sha256": "d56f4dfe5960a92107fcde60d1ad795b35b0afb4825e1becf6145f502f7e1051"
+      },
+      {
+        "path": "validation/native-context-references.ts",
+        "sha256": "7ddd26656a02361bf2ea5c7ecfc10ca8a32d5d0a22a37ba36cabb168ce2c680d"
+      },
+      {
+        "path": "validation/native-parameters.ts",
+        "sha256": "67c16ddb33e864fb2cd2055134f05152e228f2cc646fadf9d05d2a5dad0f47ba"
+      },
+      {
+        "path": "validation/native-references.ts",
+        "sha256": "34ab7b62af6418491d00f3325fca6c843f2010e4170a24ec57cc8d6099a945b7"
+      },
+      {
+        "path": "validation/references.ts",
+        "sha256": "01c968b0619bcaf4a1251a4e00932657823229362a7d722148d274cf37c23dfd"
+      },
+      {
+        "path": "validation/shared.ts",
+        "sha256": "6ad13ecbedcc6cf7fb3565ffcdfd919f8fadad1430eccbbcfd845af7e927af14"
+      },
+      {
+        "path": "validation/snapshot.ts",
+        "sha256": "b29956e100eb586e389ed69bd7d9b6603452b6a7f8371aa895e53193628ed4cd"
+      },
+      {
+        "path": "validation/staged-graph.ts",
+        "sha256": "68a730be7e030a6c81eb2c4797420b3d438925df05165e50deccd9648b3802ac"
+      },
+      {
+        "path": "validation/types.ts",
+        "sha256": "3b85e09236ca8db6899dd606d7190c074c6a302f2dc299a1b3a208da2eec0397"
+      },
+      {
+        "path": "workspace/checks.ts",
+        "sha256": "dd02c917b0ed530fcbb8d3458802d5d230def90388d6bf488e849f2934688692"
+      },
+      {
+        "path": "workspace/config.ts",
+        "sha256": "3700d64dfaf53fe1e99beb91bf8a54032c8a01372f25b579cdddf2ab683fd84b"
+      },
+      {
+        "path": "workspace/decompile-publication.ts",
+        "sha256": "e70dcce23f98167dc53e908b3242a0a61a5fd1f7f92b2df6f700e91433faf185"
+      },
+      {
+        "path": "workspace/definition-identities.ts",
+        "sha256": "5276cfbbc378fbcaaf41db0075b4f1574d0ad11d76dc14555810e22aad64cec5"
+      },
+      {
+        "path": "workspace/definitions.ts",
+        "sha256": "642fdd2fc21b59d6ffb59f01bd61fbb0bca4e26ee2eab4c3d659a4077f901ed1"
+      },
+      {
+        "path": "workspace/guards.ts",
+        "sha256": "cec835079aba4c1c61d4a28f224fd7ac7617063568b05156a84cc08896e0ed89"
+      },
+      {
+        "path": "workspace/operation-lock.ts",
+        "sha256": "c39e910339321f63786bec52cf40fa5e9c114a259f8bbc0dc7842b29660866cd"
+      },
+      {
+        "path": "workspace/operations.ts",
+        "sha256": "a5d8a46bd2fb28a09e2724028c7e9800d2ee23deed6e5e6a84196fb76b1ccead"
+      },
+      {
+        "path": "workspace/push-recovery.ts",
+        "sha256": "827d7896162e6d0f06c2833361fce5cc3fcda3a248e66bdf674e8d4d04eca284"
+      },
+      {
+        "path": "workspace/push.ts",
+        "sha256": "e409843d5737e0d2df52edff5429de7ede6a6dab106013f4335a27815d0b05a9"
+      },
+      {
+        "path": "workspace/source-discovery.ts",
+        "sha256": "aeec16adb3208ea5d89666c051064e3251defd8ef8bae48ac6fa12bebc7b98e0"
+      },
+      {
+        "path": "workspace/state.ts",
+        "sha256": "c493c31c466b7d49b86a9bdd45ad563963c67f3c9e4c5a28b1f1f3b54ebbf216"
+      },
+      {
+        "path": "workspace/type-inputs.ts",
+        "sha256": "3ec1894a16c1007adf7e767e6de2a7d2fc86f9b913994b3d0e8f858efeeca842"
+      },
+      {
+        "path": "workspace/types.ts",
+        "sha256": "f046ebe39de38d590d78bb0aa00f5c3f03a117f972f9aec6f49fa5f7275023fb"
+      },
+      {
+        "path": "workspace-api.ts",
+        "sha256": "735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2"
+      }
+    ],
+    "fingerprint": "c6d44ff2c57c8b7b652604d34fa116ebb450877a8826d062443fe6bac66c4efe",
+    "allEqualOriginalGitBlobs": true
+  },
+  "dist": {
+    "absentBeforeFirst23Build": true
+  },
+  "limitation": "This archive identifies the premerge checkpoint. It does not relabel any previous source or native execution as a new build."
+}

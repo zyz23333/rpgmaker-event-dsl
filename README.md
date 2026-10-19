@@ -170,6 +170,19 @@ export const introCommonEvent = commonEvent({
 When compiled, `introCommonEvent` becomes a `CommonEvents.json` entry, and its
 `showText(...)` command becomes RPG Maker MV's raw text command records.
 
+Common Events require an explicit positive `id`, exact `name`, `trigger`, and
+`commands` array, which may be empty. Names may be empty or duplicated; references
+by name require exactly one current declaration. Use
+`callCommonEvent({ commonEvent: commonEventRef({ id: 1 }) })` to call one.
+
+`trigger: "autorun"` and `"parallel"` require a `switch: switchRef(...)`. The same
+field preserves an independent saved switch when the trigger is `"none"`. Omitting
+it, including explicit `switch: undefined`, for `"none"` writes the fixed saved
+default `switchId: 1`; an explicit reference
+always follows ordinary Switch existence and capacity rules. Common Events inherit
+their invocation context and require no map or battle declaration. Removing a
+Common Event leaves a null ID hole and requires a destructive Push.
+
 DSL source files are discovered from the workspace config. By default, files under `src/`
 are treated as DSL declaration files when they match names like `**/*.events.ts` or
 `**/*.dsl.ts`.
@@ -443,6 +456,14 @@ The saved route is preserved and checked even when the Page selects fixed, rando
 or approach movement. Its `wait` flag remains saved data; interpreter waiting applies
 when a route is used by Set Movement Route.
 
+All 45 movement instructions have formal parameter validation. Route `wait` uses
+explicit frames, `changeImage` uses nullable `character` plus independent
+`characterIndex`, `changeBlendMode` uses normal/additive/multiply/screen symbols,
+and route `playSe` requires its complete nullable-asset audio object. M45 preserves
+one complete string, including CR/LF and trailing whitespace, and remains gated
+even when empty or inactive. See the [movement parameter reference](packages/rpgmaker-event-dsl/README.md#movement-routes)
+for every instruction and accepted range.
+
 Project data references use helpers such as `switchRef(...)`, `variableRef(...)`,
 `actorRef(...)`, `skillRef(...)`, and `tilesetRef(...)`. Asset parameters use no-scan
 Asset References instead: `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)`
@@ -519,7 +540,7 @@ export const doorEvent = mapEvent({
       },
       commands: [
         showText({ lines: ["The door is open."] }),
-        callCommonEvent(commonEventRef({ id: 1 })),
+        callCommonEvent({ commonEvent: commonEventRef({ id: 1 }) }),
       ],
     }),
   ],

@@ -1,0 +1,49 @@
+const fs=require('node:fs');
+const cp=require('node:child_process');
+const path=require('node:path');
+const crypto=require('node:crypto');
+const assert=require('node:assert/strict');
+const root='C:/Users/Shuen/.codex/worktrees/mv-ticket-33/rpgmaker-event-dsl';
+const evidence=path.join(root,'.scratch/complete-mv-events-implementation/evidence');
+const incoming='205334338d8e64e3d00e485849c9ddf67bd7e3b1';
+const checkpoint='59e0d8d4d4fc9bee67dcc0b590d3738b2713ac05';
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const git=(args,other={})=>cp.execFileSync('git',args,{cwd:root,encoding:'utf8',maxBuffer:64*1024*1024,...other});
+const indexName='.scratch/complete-mv-events-implementation/evidence/requirements.json';
+const indexText=fs.readFileSync(path.join(root,indexName),'utf8'),index=JSON.parse(indexText);
+const incomingText=git(['show',incoming+':'+indexName]);
+const incomingRows=JSON.parse(incomingText).requirements;
+const ownRows=JSON.parse(git(['show',checkpoint+':'+indexName])).requirements.filter(x=>x.id.startsWith('MV-S6-MOVEMENT-'));
+assert.equal(incomingRows.length,274);assert.equal(ownRows.length,12);assert.equal(index.requirements.length,286);
+assert.deepEqual(index.requirements.slice(0,274),incomingRows);assert.deepEqual(index.requirements.slice(274),ownRows);
+assert.ok(indexText.startsWith(incomingText.slice(0,incomingText.lastIndexOf('\n  ]'))));
+const blobs=git(['ls-tree','-r',incoming,'.scratch/complete-mv-events-implementation/evidence']).trim().split('\n').map(x=>{const m=x.match(/^\d+ blob (\w+)\t(.+)$/);return m&&{hash:m[1],path:m[2]};}).filter(Boolean).filter(x=>/\/(?:results|[^/]*history)\//.test(x.path));
+const hashes=git(['hash-object','--stdin-paths'],{input:blobs.map(x=>x.path).join('\n')+'\n'}).trim().split('\n');
+assert.equal(hashes.length,blobs.length);blobs.forEach((b,i)=>assert.equal(hashes[i],b.hash,b.path));
+for(let start=0;start<blobs.length;start+=32){
+const group=blobs.slice(start,start+32);
+const batch=cp.execFileSync("git",["cat-file","--batch"],{cwd:root,input:group.map(x=>x.hash).join("\n")+"\n",maxBuffer:256*1024*1024,windowsHide:true});
+let cursor=0;
+for(const blob of group){const lineEnd=batch.indexOf(10,cursor);assert.ok(lineEnd>cursor);const header=batch.subarray(cursor,lineEnd).toString("utf8").split(" ");assert.equal(header[0],blob.hash);assert.equal(header[1],"blob");const count=Number(header[2]);cursor=lineEnd+1;assert.ok(fs.readFileSync(path.join(root,blob.path)).equals(batch.subarray(cursor,cursor+count)),"Exact inherited blob bytes "+blob.path);cursor+=count+1;}
+assert.equal(cursor,batch.length);
+}
+assert.equal(sha(fs.readFileSync(path.join(evidence,'33-history/tools-and-logs/mv-native-pair-support-v5.cjs'))),'68b74b84bc597402ca437f3d5a045a89044f35e7c3a46dca73ded77a3d39cdf8');
+assert.equal(sha(fs.readFileSync(path.join(root,'packages/rpgmaker-event-dsl/test/support/movement-instruction-fixtures.ts'))),'4c0e39bd366faceeb1fb3b00433afd25a4f034925eb9e1e3075b21f99ed322dc');
+assert.equal(sha(fs.readFileSync(path.join(root,'packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/movement-saved-numbers.json'))),'dc54a131301a4abd5b149dc2833d5c8f549a6dafaa0a365c1d0542062c5f3923');
+assert.equal(sha(fs.readFileSync(path.join(evidence,'33-history/provenance/movement-saved-numbers-preformat.json'))),'0bf625fe1fb14a6ae9f4ddf5fb260d18faa50d5ce843cc0da35ea813f2e470fd');
+const frozen=JSON.parse(fs.readFileSync(path.join(evidence,'33-history/provenance/final-product-preserved-manifest.json')));
+for(const kind of ['src','dist'])for(const entry of frozen.fingerprints[kind].entries)assert.equal(sha(fs.readFileSync(path.join(root,'packages/rpgmaker-event-dsl',kind,entry.path))),entry.sha256,'Frozen actual '+kind+' current correspondence');
+const safeFiles=fs.readdirSync(path.join(evidence,'33-history/native')).filter(x=>x.endsWith('-safe-summary.json'));
+const productSummaries=safeFiles.map(x=>JSON.parse(fs.readFileSync(path.join(evidence,'33-history/native',x)))).filter(x=>x.build);
+assert.equal(productSummaries.length,2);
+for(const r of productSummaries){assert.equal(r.passed,true);assert.equal(r.runtimeComparison,true);assert.deepEqual(r.build.source,frozen.fingerprints.src);assert.deepEqual(r.build.dist,frozen.fingerprints.dist);assert.equal(r.build.gitHead,frozen.gitHead);assert.equal(r.build.gitStatus,'');assert.equal(r.completeCarrierComparison.files.length,15);assert.equal(r.completeGeneratedCarrierComparison.files.length,4);for(const s of Object.values(r.sides)){assert.equal(s.passed,true);assert.equal(Object.values(s.validation).every(x=>x===true),true);}}
+const results=fs.readdirSync(path.join(evidence,'results')).filter(x=>x.startsWith('MV-S6-MOVEMENT-')).map(name=>({name,value:JSON.parse(fs.readFileSync(path.join(evidence,'results',name)))}));
+const coverage=ownRows.map(row=>{const records=results.filter(x=>x.value.requirementId===row.id);assert.ok(records.some(x=>x.value.status==='passed'),row.id);return{id:row.id,records:records.length,passed:records.filter(x=>x.value.status==='passed').length,failed:records.filter(x=>x.value.status==='failed').length};});
+const rawArchived=JSON.parse(fs.readFileSync(path.join(evidence,'33-history/archive-manifest-v1.json')));
+for(const entry of [...rawArchived.entries,...rawArchived.results])assert.equal(sha(fs.readFileSync(path.join(root,entry.archive))),entry.sha256,'Original archive bytes '+entry.archive);
+const provenance=JSON.parse(fs.readFileSync(path.join(evidence,'33-history/review-record-provenance-v1.json')));
+for(const r of provenance.records){assert.equal(sha(fs.readFileSync(path.join(root,r.original.archive))),r.original.sha256);assert.equal(sha(fs.readFileSync(path.join(root,r.derivative.path))),r.derivative.sha256);}
+git(['merge-base','--is-ancestor',incoming,'HEAD']);
+const audit={purpose:'Final33 append-only and actual-product correspondence audit; allocated evidence only',at:new Date().toISOString(),incoming,checkpoint,head:git(['rev-parse','HEAD']).trim(),contract:'mv-1.6.1/9',requirements:{incomingPreserved:274,ownPreserved:12,total:286,incomingPrefixBytesPreserved:true},inheritedCapturedBlobsUnchanged:blobs.length,originalMovementFixtureUnchanged:true,originalPreformatAndCurrentFixtureIdentitiesPreserved:true,actualSource:{files:frozen.fingerprints.src.entries.length,sha256:frozen.fingerprints.src.sha256},actualDist:{files:frozen.fingerprints.dist.entries.length,sha256:frozen.fingerprints.dist.sha256},twoNativeProductPairsMatchFrozenProduct:true,coverage,originalArchiveEntriesVerified:rawArchived.entries.length,originalResultsVerified:rawArchived.results.length,reviewOriginalsAndDerivativesVerified:provenance.records.length,passed:true};
+fs.writeFileSync(path.join(evidence,'33-history/final-delivery-audit-v2.json'),JSON.stringify(audit,null,2)+'\n',{flag:'wx'});
+console.log(JSON.stringify(audit,null,2));

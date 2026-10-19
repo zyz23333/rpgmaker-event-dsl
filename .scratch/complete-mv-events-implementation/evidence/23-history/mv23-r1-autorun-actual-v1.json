@@ -1,0 +1,90 @@
+{
+  "root": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-low-autorun-delivery-v1-42804e8d-2483-42e5-962d-f62467d630b3",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-low-autorun-delivery-v1-42804e8d-2483-42e5-962d-f62467d630b3\\compiled\\Workspace",
+    "files": {
+      "CommonEvents.json": {
+        "beforePushSha256": "ae3a57c08d97f7e338265dd2b84c57213d6248e0cc0921d11acfa03fcbd2700e",
+        "generatedSha256": "8e461a92694cadec979eb1e78c993e384b5957067cc8aa99cad286e07c2e7cad",
+        "afterPushSha256": "8e461a92694cadec979eb1e78c993e384b5957067cc8aa99cad286e07c2e7cad",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "trace": [
+          {
+            "id": "low1",
+            "eventId": 0,
+            "mapId": 1,
+            "inBattle": false
+          }
+        ],
+        "switch21": false,
+        "mapInterpreterRunning": false,
+        "inactiveSavedSwitch9": 9,
+        "noneSwitch9": false,
+        "observedFramesAtLeast": 150
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "trace": [
+          {
+            "id": "low1",
+            "eventId": 0,
+            "mapId": 1,
+            "inBattle": false
+          }
+        ],
+        "switch21": false,
+        "mapInterpreterRunning": false,
+        "inactiveSavedSwitch9": 9,
+        "noneSwitch9": false,
+        "observedFramesAtLeast": 150
+      },
+      "error": null
+    }
+  }
+}

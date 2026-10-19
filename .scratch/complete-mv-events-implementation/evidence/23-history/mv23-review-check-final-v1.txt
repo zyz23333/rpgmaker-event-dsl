@@ -1,0 +1,38 @@
+
+> rpgmaker-event-dsl-workspace@0.0.0 check C:\Users\Shuen\.codex\worktrees\mv-ticket-23\rpgmaker-event-dsl
+> pnpm typecheck && pnpm lint && pnpm format:check && pnpm test
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 typecheck C:\Users\Shuen\.codex\worktrees\mv-ticket-23\rpgmaker-event-dsl
+> pnpm -r typecheck
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl typecheck$ tsc -p tsconfig.json --noEmit
+packages/rpgmaker-event-dsl typecheck: Done
+
+> rpgmaker-event-dsl-workspace@0.0.0 lint C:\Users\Shuen\.codex\worktrees\mv-ticket-23\rpgmaker-event-dsl
+> oxlint .
+
+.scratch/complete-mv-events-implementation/evidence/23-history/mv23-delivery-preflight-v1.cjs:1:29: warning eslint(no-unused-vars): Variable 'fsp' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/23-history/mv23-register-native-v1.cjs:1:107: warning eslint(no-unused-vars): Variable 'cp' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/22-history/original-held-reproduction.cjs:89:61: warning eslint(no-unused-expressions): Expected expression to be used help: Consider using this expression or removing it
+
+> rpgmaker-event-dsl-workspace@0.0.0 format:check C:\Users\Shuen\.codex\worktrees\mv-ticket-23\rpgmaker-event-dsl
+> oxfmt --ignore-path .oxfmtignore --check package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rpgmaker-event-dsl
+
+Checking formatting...
+
+All matched files use the correct format.
+Finished in 416ms on 174 files using 20 threads.
+
+> rpgmaker-event-dsl-workspace@0.0.0 test C:\Users\Shuen\.codex\worktrees\mv-ticket-23\rpgmaker-event-dsl
+> pnpm -r test
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl test$ vitest run
+packages/rpgmaker-event-dsl test:  RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-23/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+packages/rpgmaker-event-dsl test:  Test Files  37 passed (37)
+packages/rpgmaker-event-dsl test:       Tests  629 passed (629)
+packages/rpgmaker-event-dsl test:    Start at  00:43:29
+packages/rpgmaker-event-dsl test:    Duration  296.71s (transform 1.38s, setup 0ms, import 13.35s, tests 574.15s, environment 3ms)
+packages/rpgmaker-event-dsl test: Done

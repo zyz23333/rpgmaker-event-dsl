@@ -141,7 +141,7 @@ describe("collectDslOwnedDeclarations", () => {
         name: "Beta",
         trigger: "none",
         switch: switchRef({ id: 1 }),
-        commands: [callCommonEvent(commonEventRef({ name: "SomeCommonEvent" }))],
+        commands: [callCommonEvent({ commonEvent: commonEventRef({ name: "SomeCommonEvent" }) })],
       }),
       gamma: switchDefinition({
         id: 2,
@@ -243,7 +243,7 @@ describe("collectDslOwnedDeclarations", () => {
         route: {
           commands: [
             { kind: "moveDown" },
-            { kind: "routeWait", frames: 15 },
+            { kind: "wait", frames: 15 },
             { kind: "switchOn", switch: switchRef({ id: 1 }) },
             { kind: "script", script: scriptInput({ code: "this.moveForward();" }) },
           ],

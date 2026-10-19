@@ -10,6 +10,8 @@ import { assertMapEventInput, assertMapPageInput } from "../map-event/validation
 import type { ReferenceResolver } from "../validation/types.js";
 import { commonEventTriggerToCode, compileNodes, type RawEventCommand } from "./dispatch.js";
 import { compilePageMovement } from "../commands/movement/page.js";
+import { assertCommonEventInput } from "../validation/common-events.js";
+
 import { assertBattlePageInput } from "../validation/battle-pages.js";
 
 export function compileBattlePage(page: BattleEventPage, resolver: ReferenceResolver) {
@@ -111,6 +113,7 @@ export function compileCommonEvent(
   definition: CommonEventDefinition,
   options: { nextId: number; resolver: ReferenceResolver },
 ): CompiledCommonEvent {
+  assertCommonEventInput(definition, true);
   return {
     id: options.nextId,
     name: definition.name,

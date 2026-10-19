@@ -3,7 +3,8 @@ import { basename, dirname, matchesGlob, relative, resolve } from "node:path";
 import * as ts from "typescript";
 
 import * as dsl from "../authoring/index.js";
-import { collectDslOwnedDeclarations, type DslOwnedDeclaration } from "../domain/declarations.js";
+import type { DslOwnedDeclaration } from "../domain/declarations.js";
+import { collectDslOwnedDeclarations } from "../validation/declarations.js";
 import { TypeInputCapture } from "./type-inputs.js";
 
 export { discoverDefinitionFiles, type DefinitionSourceDiscovery } from "./source-discovery.js";
