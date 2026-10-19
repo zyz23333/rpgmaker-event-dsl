@@ -411,29 +411,44 @@ it("requires complete own native fields and dense authored lists without silentl
     undefined,
     new Array(1),
     [null],
-    [{ kind: "invented" }],
     [{ kind: "rawDslCommand", code: 999, parameters: [], extra: true }],
   ]) {
-    const graph = buildStagedDataGraph({
-      declarations: [
-        commonEvent({
-          trigger: "none",
-          id: 1,
-          name: "Bad declarations",
-          commands: commands as never,
-        }),
-      ],
-    });
-    expect(validateStagedDataGraph(graph, { scriptEnabled: true }).issues).toContainEqual(
-      expect.objectContaining({
-        level: "error",
+    try {
+      commonEvent({
+        trigger: "none",
+        id: 1,
+        name: "Bad declarations",
+        commands: commands as never,
+      });
+      expect.fail("Expected invalid Common Event commands to fail at the authoring boundary");
+    } catch (error) {
+      expect(error).toMatchObject({
+        code: "MV-COMMON-EVENT",
         stage: "compile",
         identity: "commonEvent:1",
-        dslPath: expect.stringContaining("commands"),
-        code: expect.stringMatching(/^MV-/),
-      }),
-    );
+        location: { dslPath: "commonEvent.commands" },
+      });
+    }
   }
+  const graph = buildStagedDataGraph({
+    declarations: [
+      commonEvent({
+        trigger: "none",
+        id: 1,
+        name: "Unknown command kind",
+        commands: [{ kind: "invented" }] as never,
+      }),
+    ],
+  });
+  expect(validateStagedDataGraph(graph, { scriptEnabled: true }).issues).toContainEqual(
+    expect.objectContaining({
+      level: "error",
+      stage: "compile",
+      identity: "commonEvent:1",
+      dslPath: expect.stringContaining("commands"),
+      code: expect.stringMatching(/^MV-/),
+    }),
+  );
   expect(() => rawDslCommand({ code: 999, parameters: [], extra: true } as never)).toThrow(
     /MV-DSL-SHAPE/,
   );
