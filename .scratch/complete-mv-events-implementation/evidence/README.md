@@ -344,3 +344,6 @@ Ticket22 verifies Interrupted Push content recovery through the public Workspace
 | MV-S4-RECOVERY-016 | all-Snapshot abandonment completes retirement before any new write (%s) | synthetic-support | Windows public API/CLI and actual filesystem/process boundary |
 | MV-S4-RECOVERY-017 | recognizes an independently preconstructed committed manifest without rerecording basis | synthetic-support | Windows public API/CLI and actual filesystem/process boundary |
 | MV-S4-RECOVERY-018 | rejects byte-corrupt metadata even when replacement decoding produces identical fields (%s) | synthetic-support | Windows public API/CLI and raw metadata bytes |
+| MV-S4-RECOVERY-019 | refuses pending replacement after its original bytes are captured | synthetic-support | Windows public API and actual held filesystem/process boundary |
+
+Ticket22 records [the frozen recovery protocol, actual red/green runs and byte-preserved evidence](22-interrupted-push-content-recovery.md). Historical failures and superseded passes keep their original status and provenance; native execution remains `not-executed`.

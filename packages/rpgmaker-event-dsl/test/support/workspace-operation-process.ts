@@ -48,6 +48,7 @@ export function startWorkspaceOperation(
       | "push-before-capture"
       | "push-capture-restore"
       | "push-generated-capture"
+      | "push-pending-capture"
       | "push-snapshot-installed"
       | "push-manifest-installed"
       | "push-snapshot-candidate"

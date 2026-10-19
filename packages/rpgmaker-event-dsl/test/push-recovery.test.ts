@@ -21,6 +21,35 @@ const local = (s: WindowsSandbox, name: string) =>
   join(s.workspaceRoot, ".rpgmaker-event-dsl", name);
 const live = (s: WindowsSandbox, name: string) => join(s.workspaceRoot, "Game/data", name);
 const hash = (value: Uint8Array) => createHash("sha256").update(value).digest("hex");
+
+it("MV-S4-RECOVERY-019: refuses pending replacement after its original bytes are captured", async () => {
+  await evidence("MV-S4-RECOVERY-019", async (s, observations) => {
+    const { old, generated } = await prepare(s);
+    await preconstruct(s, generated, old);
+    for (const [name, bytes] of generated) await writeFile(live(s, name), bytes);
+    const path = local(s, "pending-push/pending-push.json");
+    const child = startWorkspaceOperation(s, {
+      operation: "push",
+      boundary: "push-pending-capture",
+    });
+    try {
+      await child.waitFor("checkpoint");
+      const changed = JSON.parse(await readFile(path, "utf8"));
+      changed.version = 999;
+      await writeFile(path, JSON.stringify(changed));
+      const before = await observe(s);
+      observations.push({ before });
+      child.send("release");
+      const result = await child.waitFor("result");
+      observations.push({ result });
+      expect(result.ok).toBe(false);
+      expect(result.message).toMatch(/Interrupted Push/u);
+      expect(await observe(s)).toStrictEqual(before);
+    } finally {
+      await child.stop();
+    }
+  });
+}, 30000);
 type CorruptPending = {
   version: number;
   projectRootBinding: string;

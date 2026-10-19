@@ -36,6 +36,11 @@ fs.readFile = async function (path, ...args) {
   }
   const content = await readFile(path, ...args);
   if (
+    options.boundary === "push-pending-capture" &&
+    resolve(String(path)) === resolve(options.pendingPath, "pending-push.json")
+  )
+    await checkpoint();
+  if (
     options.boundary === "push-generated-capture" &&
     resolve(String(path)) === options.generatedCapturePath
   )

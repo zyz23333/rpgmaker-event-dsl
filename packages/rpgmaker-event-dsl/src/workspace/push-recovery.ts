@@ -12,7 +12,7 @@ import { assertProjectRootBinding, readCurrentSnapshotFileHashes } from "./check
 import type { LoadedWorkspace } from "./config.js";
 import {
   collectStandardProjectDataSnapshotPlan,
-  readPendingPush,
+  readPendingPushEvidence,
   readSyncManifest,
   writeSyncManifest,
   type PendingPush,
@@ -146,11 +146,11 @@ async function resolvePending(input: {
   statePaths: WorkspaceStatePaths;
 }): Promise<void> {
   const paths = input.statePaths;
-  const pending = await readPendingPush(paths.pendingPushManifestPath);
-  if (pending === null) return;
+  const evidence = await readPendingPushEvidence(paths.pendingPushManifestPath);
+  if (evidence === null) return;
+  const { pending, bytes: pendingBytes } = evidence;
   if (pending.projectRootBinding !== input.workspace.projectRootBinding)
     fail("Project Root Binding mismatch; return to the original configured target before recovery");
-  const pendingBytes = await readFile(paths.pendingPushManifestPath);
   const original = pending.originalManifest;
   assertProjectRootBinding(
     original,

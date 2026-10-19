@@ -191,11 +191,16 @@ export async function readSyncManifest(manifestPath: string): Promise<SyncManife
 }
 
 export async function readPendingPush(manifestPath: string): Promise<PendingPush | null> {
+  return (await readPendingPushEvidence(manifestPath))?.pending ?? null;
+}
+
+export async function readPendingPushEvidence(
+  manifestPath: string,
+): Promise<{ pending: PendingPush; bytes: Buffer } | null> {
   try {
-    const rawManifest = new TextDecoder("utf-8", { fatal: true, ignoreBOM: true }).decode(
-      await readFile(manifestPath),
-    );
-    return pendingPushSchema.parse(JSON.parse(rawManifest));
+    const bytes = await readFile(manifestPath);
+    const rawManifest = new TextDecoder("utf-8", { fatal: true, ignoreBOM: true }).decode(bytes);
+    return { pending: pendingPushSchema.parse(JSON.parse(rawManifest)), bytes };
   } catch (error) {
     if (isMissingFileError(error)) {
       const directory = await stat(dirname(manifestPath)).catch((directoryError: unknown) => {

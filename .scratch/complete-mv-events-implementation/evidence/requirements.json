@@ -8064,6 +8064,51 @@
       },
       "slice": "22 / S4c",
       "required": true
+    },
+    {
+      "id": "MV-S4-RECOVERY-019",
+      "title": "refuses pending replacement after its original bytes are captured",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/22-interrupted-push-content-recovery.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Actual public Push child held after its first completed pending read, externally replace on-disk metadata with unknown version999 before returning original Buffer.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Reject changed pending evidence without advancing Snapshot or Sync Manifest, preserve all current business state and unknown pending bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "MV-S4-RECOVERY-019: refuses pending replacement after its original bytes are captured"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "22 / S4c",
+      "required": true
     }
   ]
 }
