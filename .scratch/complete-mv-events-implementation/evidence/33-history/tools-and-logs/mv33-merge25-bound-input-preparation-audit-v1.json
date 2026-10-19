@@ -1,0 +1,71 @@
+{
+  "purpose": "Static input-binding preparation only; no product build or native process executed",
+  "cases": [
+    {
+      "scenario": "mv33-r1-route-waits-delivery-v2",
+      "independentFixture": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-native-bound-inputs-v1-5df265bb-3672-4269-8367-dbc7565b3678\\r1-independent-input.json",
+        "sha256": "8f274066974cb47a1aedd8b286db301f14f8fcd76b7dd25f88e047c5315f2fb1"
+      },
+      "predicates": 13,
+      "completeGeneratedCarriers": [
+        "CommonEvents.json",
+        "Map001.json",
+        "System.json",
+        "Troops.json"
+      ],
+      "completeInputs": 15,
+      "observerSha256": "551d9aa2c9ac43526deac0e753c5a53ff6cfed5b04ef0e49a1776b5345a8a92f"
+    },
+    {
+      "scenario": "mv33-r6-r7-movement-delivery-v3",
+      "independentFixture": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-native-bound-inputs-v1-5df265bb-3672-4269-8367-dbc7565b3678\\r6-r7-independent-input.json",
+        "sha256": "9b004a42c429b56935f0a239ee36bb426a81465b9cedd2a84a8316d099a1b0d2"
+      },
+      "predicates": 19,
+      "completeGeneratedCarriers": [
+        "CommonEvents.json",
+        "Map001.json",
+        "System.json",
+        "Troops.json"
+      ],
+      "completeInputs": 15,
+      "observerSha256": "341c04d41871c5b2a2c26b6564243a531020e7ede5c071e4178f9a7f2d2bcb80"
+    }
+  ],
+  "tools": [
+    {
+      "path": "mv-native-pair-support-v5.cjs",
+      "sha256": "68b74b84bc597402ca437f3d5a045a89044f35e7c3a46dca73ded77a3d39cdf8"
+    },
+    {
+      "path": "mv33-native-pair-delivery-v1.cjs",
+      "sha256": "2893bbb9627d90c45cd2d8a837294732647f1ca02cc391acbff90bed3acf648a"
+    },
+    {
+      "path": "mv33-native-pair-delivery-v2.cjs",
+      "sha256": "8296e5a2d33b14f4b77296e6bae2197e8afb655b07c5061766b07b6fbca77ac9"
+    },
+    {
+      "path": "mv33-bound-native-scenarios-v1.cjs",
+      "sha256": "3179a284922cae892598fa07a282fe0e49caf7e79c1239c60c91a89c71fba0fc"
+    },
+    {
+      "path": "mv33-r1-route-waits-delivery-v1.cjs",
+      "sha256": "de0848a8d54244cf3d89d9e2da4f266845f76c14c81a6ebfecb6f5ed3ea45ba1"
+    },
+    {
+      "path": "mv33-r1-route-waits-delivery-v2.cjs",
+      "sha256": "560013d025ef3088882953b46e933116f4dc13950536ea38abc5966f71c286ce"
+    },
+    {
+      "path": "mv33-r6-r7-movement-delivery-v2.cjs",
+      "sha256": "24d954c2ab23b2adcd522a391145bd2ecdf302d691fb05d4b6f780bb9d0372ca"
+    },
+    {
+      "path": "mv33-r6-r7-movement-delivery-v3.cjs",
+      "sha256": "57b781e134f52a1ebeb347d856eefd381a1574ebf92a0cf03eea357a959e5545"
+    }
+  ]
+}

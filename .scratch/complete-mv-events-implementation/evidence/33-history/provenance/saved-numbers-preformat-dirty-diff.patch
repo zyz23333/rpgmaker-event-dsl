@@ -1,0 +1,479 @@
+diff --git a/.scratch/complete-mv-events-implementation/evidence/33-movement-instructions.md b/.scratch/complete-mv-events-implementation/evidence/33-movement-instructions.md
+index c934b5c..b173cb5 100644
+--- a/.scratch/complete-mv-events-implementation/evidence/33-movement-instructions.md
++++ b/.scratch/complete-mv-events-implementation/evidence/33-movement-instructions.md
+@@ -83,3 +83,77 @@ The corrected v2 strict19/19 literal preparation is
+ These originals stay outside Git. The final pairs will use the actual merged25
+ integration, reconciled compile contract and this ticket's new actual build;
+ literal preparation does not count as product or final native acceptance.
++
++## Ticket25 actual integration checkpoint
++
++Merge7fe5ea6 includes actual integration233db5420d6cf83da0220c6aa5aed56626798f39.
++Its251 requirements retain their exact object values and order; ticket33's original
++eight rows were appended, retaining all234 objects from the prior33 checkpoint.
++The merge changed only the two append conflicts in the evidence index. Typecheck
++passed and all five affected actual source Workspace cases passed in29.69seconds,
++with the original30second case deadlines and two workers. Their original output
++is `C:/Users/Shuen/.codex/tmp/mv33-merge25-workspace-original.log` and the typecheck
++log is `C:/Users/Shuen/.codex/tmp/mv33-merge25-typecheck-original.log`.
++No movement source or matrix fixture adaptation was needed. The semantic contract
++remains `/7`; no ticket33 build or native product execution has been performed.
++Ticket23 is finishing its allocated broad checks before33 reconciles the next
++actual integration tip and final contract.
++
++## Native delivery input bindings
++
++MV-S6-MOVEMENT-009 and MV-S6-MOVEMENT-010 append separately bound allocated native
++delivery inputs without changing the original006/007 obligations or captured
++results. The safe fixture is `fixtures/33-movement-native-bindings-v1.json`; it
++contains hashes, carrier names and independent boolean predicates, with all
++first-party complete carrier bytes remaining in the identified external bundles.
++
++The new R1 adapter is `C:/Users/Shuen/.codex/tmp/mv33-r1-route-waits-delivery-v2.cjs`;
++the new R6/R7 adapter is `C:/Users/Shuen/.codex/tmp/mv33-r6-r7-movement-delivery-v3.cjs`.
++They share `mv33-bound-native-scenarios-v1.cjs` and separately versioned
++`mv33-native-pair-delivery-v2.cjs`. Their only fixture/observer change adds the
++unchanged complete seed Troops carrier and actual `$dataTroops` capture. They
++retain the original13/19 behavior predicates, normal Scene scheduling and all
++strict frozen-v5 process/profile/engine/disk/output/exit checks. The new helper
++also checks each of the15 complete JSON inputs against the independently frozen
++identities before the compiled side's intentional name difference, verifies
++exactly the four required generated Map/Common/System/Troops carriers against
++the frozen literals, and copies original binding/tool bytes into each fresh run.
++It does not derive any expected value from compiler output.
++
++Static syntax and binding audits pass. This is preparation only: both new native
++product pairs remain pending the final integrated contract and actual ticket33
++build. The immutable external bundle directory is
++`C:/Users/Shuen/.codex/tmp/mv33-native-bound-inputs-v1-5df265bb-3672-4269-8367-dbc7565b3678/`.
++The audit is `C:/Users/Shuen/.codex/tmp/mv33-merge25-bound-input-preparation-audit-v1.json`.
++R1 bundle SHA256 is `8f274066974cb47a1aedd8b286db301f14f8fcd76b7dd25f88e047c5315f2fb1`;
++R6/R7 bundle SHA256 is `9b004a42c429b56935f0a239ee36bb426a81465b9cedd2a84a8316d099a1b0d2`.
++No previous adapter, run, input, captured result or requirement object was changed.
++
++## Scoped negative-zero saved values
++
++MV-S6-MOVEMENT-011 and MV-S6-MOVEMENT-012 follow the accepted design13 boundary:
++its explicit negative-zero rejection for the two faceIndex and four direct-coordinate
++families does not extend to relative movement or other JSON numbers. The movement
++integer validator already accepts negative zero for M14 x/y, M41 characterIndex,
++M42 opacity and M44 volume/pan, but string interpolation in the decompiler lost
++the sign. Four actual public Workspace red runs independently reproduced that
++loss from native JSON written by the existing lossless literal renderer. Each
++scoped fix then passed actual Decompile, source evaluation, Check, Compile, Diff,
++real owned-name Push and complete15-carrier strict comparison. The original red
++and green outputs remain external as `mv33-negative-zero-*-original.log`.
++
++M43 uses formal blend symbols and cannot reconstruct a native negative-zero code.
++Its two independent actual Workspace red cases incorrectly published source for
++both page and forced inputs. The scoped native M43 check now rejects that value
++with MV-MOVEMENT-PARAMETER, exact native path and actual `-0`, preserving complete
++Workspace state. The first post-fix test incorrectly expected error location
++fields at the Error's top level; that harness failure is retained. The corrected
++test checks the existing `error.location` object and retains both precise paths
++and the `-0` actual value. No product assertion, deadline or domain was weakened.
++
++The independent literal fixture `movement-saved-numbers.json` additionally separates
++the x/y signs and checks None/named image and SE forms. All existing captured
++fixtures/results and the original45-instruction table remain unchanged. Current
++typecheck passes; final combined focused/index and full source/built verification
++remain to be recorded after the final integrated candidate. No native execution
++or ordinary editor creation of negative zero is claimed by these synthetic cases.
+diff --git a/.scratch/complete-mv-events-implementation/evidence/README.md b/.scratch/complete-mv-events-implementation/evidence/README.md
+index d1c263f..e86bdc9 100644
+--- a/.scratch/complete-mv-events-implementation/evidence/README.md
++++ b/.scratch/complete-mv-events-implementation/evidence/README.md
+@@ -419,3 +419,10 @@ Ticket24 adds [complete Map Event pages and exact saved state](24-map-event-full
+ | MV-S6-MOVEMENT-006 | Actual normal-Scene autonomous and forced route waiting with Parallel | R1; [record](33-movement-instructions.md) |
+ | MV-S6-MOVEMENT-007 | Actual movement None image/SE and complete M45 single-slot execution | R1/R6/R7; [record](33-movement-instructions.md) |
+ | MV-S6-MOVEMENT-008 | Same-identity E3/E5 movement resources and product comparison | E3/E5; [record](33-movement-instructions.md) |
++
++| Requirement | Case | Scope |
++| --- | --- | --- |
++| MV-S6-MOVEMENT-009 | R1 immutable complete native input binding | R1; [record](33-movement-instructions.md#native-delivery-input-bindings) |
++| MV-S6-MOVEMENT-010 | R6/R7 immutable complete native input binding | R1/R6/R7; [record](33-movement-instructions.md#native-delivery-input-bindings) |
++| MV-S6-MOVEMENT-011 | Preserve accepted negative-zero saved movement numbers through actual Workspace installation | Public source/built Workspace API; [record](33-movement-instructions.md#scoped-negative-zero-saved-values) |
++| MV-S6-MOVEMENT-012 | Reject negative-zero categorical M43 before source publication | Public source/built Workspace API; [record](33-movement-instructions.md#scoped-negative-zero-saved-values) |
+diff --git a/.scratch/complete-mv-events-implementation/evidence/requirements.json b/.scratch/complete-mv-events-implementation/evidence/requirements.json
+index 406b650..3eff84c 100644
+--- a/.scratch/complete-mv-events-implementation/evidence/requirements.json
++++ b/.scratch/complete-mv-events-implementation/evidence/requirements.json
+@@ -12442,6 +12442,196 @@
+       },
+       "slice": "33 / S6 all movement instructions",
+       "required": true
++    },
++    {
++      "id": "MV-S6-MOVEMENT-009",
++      "title": "R1 immutable complete native input binding",
++      "sources": [
++        {
++          "path": ".scratch/complete-mv-events-implementation/issues/33-movement-all-45-instructions.md",
++          "section": "## Acceptance criteria"
++        },
++        {
++          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
++          "section": "### T3 — 夹具、索引和结果"
++        }
++      ],
++      "dimensions": [
++        "A3",
++        "A5",
++        "A6",
++        "A7",
++        "A8"
++      ],
++      "classifications": [
++        "positive",
++        "combination"
++      ],
++      "sourceKind": "game-observation",
++      "input": "Original13 native wait/Parallel predicates; a frozen independently authored route fixture plus unchanged seed Troops; all15 native JSON input identities and all4 mandatory generated carriers.",
++      "fixture": {
++        "path": ".scratch/complete-mv-events-implementation/evidence/fixtures/33-movement-native-bindings-v1.json",
++        "sha256": "ea4b12d3a32520111d6e49b2f06aab838bc3604781789e825c8c450998c7ba80"
++      },
++      "expected": "A fresh allocated actual built public Workspace product pair consumes the exact bound external independent input bytes; original predicates remain intact; complete Map/Common/System/Troops generated, installed and loaded values match. Strict v5 process/profile/engine/disk/output/exit and all15 carrier comparisons pass.",
++      "review": {
++        "path": ".scratch/complete-mv-events-implementation/evidence/33-movement-instructions.md",
++        "section": "Native delivery input bindings"
++      },
++      "nativeGroups": [
++        "R1"
++      ],
++      "execution": {
++        "environment": "Windows / Node22 tooling; identified MV1.6.1/NW0.29.0 actual native product pair",
++        "owner": "Codex evidence review",
++        "layer": "game-observation"
++      },
++      "slice": "33 / S6 separately bound allocated native delivery",
++      "required": true
++    },
++    {
++      "id": "MV-S6-MOVEMENT-010",
++      "title": "R6/R7 immutable complete native input binding",
++      "sources": [
++        {
++          "path": ".scratch/complete-mv-events-implementation/issues/33-movement-all-45-instructions.md",
++          "section": "## Acceptance criteria"
++        },
++        {
++          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
++          "section": "### T3 — 夹具、索引和结果"
++        }
++      ],
++      "dimensions": [
++        "A3",
++        "A5",
++        "A6",
++        "A7",
++        "A8"
++      ],
++      "classifications": [
++        "positive",
++        "combination"
++      ],
++      "sourceKind": "game-observation",
++      "input": "Original19 movement None, actual signal and full single-slot script predicates; separately frozen independently authored input plus unchanged seed Troops; all15 input identities and all4 mandatory generated carriers.",
++      "fixture": {
++        "path": ".scratch/complete-mv-events-implementation/evidence/fixtures/33-movement-native-bindings-v1.json",
++        "sha256": "ea4b12d3a32520111d6e49b2f06aab838bc3604781789e825c8c450998c7ba80"
++      },
++      "expected": "A fresh allocated actual built public Workspace product pair consumes the exact bound external independent input bytes; original predicates remain intact; complete Map/Common/System/Troops generated, installed and loaded values match. Strict v5 process/profile/engine/disk/output/exit and all15 carrier comparisons pass.",
++      "review": {
++        "path": ".scratch/complete-mv-events-implementation/evidence/33-movement-instructions.md",
++        "section": "Native delivery input bindings"
++      },
++      "nativeGroups": [
++        "R1",
++        "R6",
++        "R7"
++      ],
++      "execution": {
++        "environment": "Windows / Node22 tooling; identified MV1.6.1/NW0.29.0 actual native product pair",
++        "owner": "Codex evidence review",
++        "layer": "game-observation"
++      },
++      "slice": "33 / S6 separately bound allocated native delivery",
++      "required": true
++    },
++    {
++      "id": "MV-S6-MOVEMENT-011",
++      "title": "Preserve accepted negative-zero saved movement numbers through public Workspace installation",
++      "sources": [
++        {
++          "path": ".scratch/complete-mv-events/issues/13-native-value-domain-boundaries.md",
++          "section": "### 共同范围与精确数值域"
++        },
++        {
++          "path": ".scratch/complete-mv-events-implementation/issues/33-movement-all-45-instructions.md",
++          "section": "## Acceptance criteria"
++        }
++      ],
++      "dimensions": [
++        "A1",
++        "A2",
++        "A3",
++        "A5",
++        "A6",
++        "A8"
++      ],
++      "classifications": [
++        "positive",
++        "boundary",
++        "combination"
++      ],
++      "sourceKind": "synthetic-support",
++      "input": "Independent native JSON literals for M14 x/y independently, M41 None/named index, M42 opacity, M44 None/named volume/pan; original -0 is written without JSON.stringify normalization in both autonomous and forced routes.",
++      "fixture": {
++        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/movement-saved-numbers.json",
++        "sha256": "0bf625fe1fb14a6ae9f4ddf5fb260d18faa50d5ce843cc0da35ea813f2e470fd"
++      },
++      "expected": "Actual Decompile emits -0, Discovery evaluates formal source, Check/Compile retain it, real owned name Diff/Push installs the exact generated carrier, and all15 complete carriers deepStrictEqual independent literals. No unrelated numeric domain is widened.",
++      "test": {
++        "path": "packages/rpgmaker-event-dsl/test/movement-instructions-workspace.test.ts",
++        "name": "MV-S6-MOVEMENT-011:"
++      },
++      "nativeGroups": [
++        "E3",
++        "E5"
++      ],
++      "execution": {
++        "environment": "Windows / Node22 source and actual built Workspace API",
++        "owner": "Codex automated verification",
++        "layer": "Actual public Workspace API and complete filesystem values"
++      },
++      "slice": "33 / S6 scoped saved-number correction",
++      "required": true
++    },
++    {
++      "id": "MV-S6-MOVEMENT-012",
++      "title": "Reject native negative-zero M43 categorical codes without partial publication",
++      "sources": [
++        {
++          "path": ".scratch/complete-mv-events/issues/13-native-value-domain-boundaries.md",
++          "section": "### 共同范围与精确数值域"
++        },
++        {
++          "path": ".scratch/complete-mv-events-implementation/issues/33-movement-all-45-instructions.md",
++          "section": "## Acceptance criteria"
++        }
++      ],
++      "dimensions": [
++        "A1",
++        "A3",
++        "A5",
++        "A6",
++        "A8"
++      ],
++      "classifications": [
++        "negative",
++        "boundary"
++      ],
++      "sourceKind": "synthetic-rejection",
++      "input": "Exact native M43 [-0] in separate autonomous and forced routes, with independent intact mirrors; this symbolic blend model cannot faithfully reconstruct native negative zero.",
++      "fixture": {
++        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/movement-saved-numbers.json",
++        "sha256": "0bf625fe1fb14a6ae9f4ddf5fb260d18faa50d5ce843cc0da35ea813f2e470fd"
++      },
++      "expected": "Public Decompile rejects MV-MOVEMENT-PARAMETER with precise native path and actual -0 before source publication; complete Workspace state is unchanged. Other accepted numeric -0 values remain supported.",
++      "test": {
++        "path": "packages/rpgmaker-event-dsl/test/movement-instructions-workspace.test.ts",
++        "name": "MV-S6-MOVEMENT-012:"
++      },
++      "nativeGroups": [
++        "E3",
++        "E5"
++      ],
++      "execution": {
++        "environment": "Windows / Node22 source and actual built Workspace API",
++        "owner": "Codex automated verification",
++        "layer": "Actual public Workspace API and complete filesystem rejection state"
++      },
++      "slice": "33 / S6 scoped saved-number correction",
++      "required": true
+     }
+   ]
+ }
+diff --git a/packages/rpgmaker-event-dsl/src/commands/movement/decompile.ts b/packages/rpgmaker-event-dsl/src/commands/movement/decompile.ts
+index 30514c9..09bced1 100644
+--- a/packages/rpgmaker-event-dsl/src/commands/movement/decompile.ts
++++ b/packages/rpgmaker-event-dsl/src/commands/movement/decompile.ts
+@@ -10,6 +10,7 @@ import {
+ } from "../../decompiler/core.js";
+ import { vehicleFromCode } from "../flow/decompile.js";
+ import { assertNativeMovementRoute, assertNativeMovementRecord } from "./validation.js";
++import { renderJsonValue } from "../../project-data/json-values.js";
+ 
+ export function renderTransferPlayer(
+   command: RawEventCommand,
+@@ -335,7 +336,7 @@ function renderMoveRouteInstruction(
+     case 14:
+       return typeof parameters[0] === "number" && typeof parameters[1] === "number"
+         ? {
+-            expression: `{ kind: "jump", x: ${parameters[0]}, y: ${parameters[1]} }`,
++            expression: `{ kind: "jump", x: ${renderJsonValue(parameters[0])}, y: ${renderJsonValue(parameters[1])} }`,
+             helperNames: [],
+           }
+         : null;
+@@ -397,13 +398,16 @@ function renderMoveRouteInstruction(
+     case 41:
+       return typeof parameters[0] === "string" && typeof parameters[1] === "number"
+         ? {
+-            expression: `{ kind: "changeImage", character: ${parameters[0] === "" ? "null" : `imageAsset({ folder: "characters", name: ${literal(parameters[0])} })`}, characterIndex: ${parameters[1]} }`,
++            expression: `{ kind: "changeImage", character: ${parameters[0] === "" ? "null" : `imageAsset({ folder: "characters", name: ${literal(parameters[0])} })`}, characterIndex: ${renderJsonValue(parameters[1])} }`,
+             helperNames: parameters[0] === "" ? [] : ["imageAsset"],
+           }
+         : null;
+     case 42:
+       return typeof parameters[0] === "number"
+-        ? { expression: `{ kind: "changeOpacity", opacity: ${parameters[0]} }`, helperNames: [] }
++        ? {
++            expression: `{ kind: "changeOpacity", opacity: ${renderJsonValue(parameters[0])} }`,
++            helperNames: [],
++          }
+         : null;
+     case 43:
+       return isBlendMode(parameters[0])
+@@ -499,7 +503,7 @@ export function renderMoveRoutePlaySe(
+   }
+ 
+   return {
+-    expression: `{ kind: "playSe", audio: { asset: ${audio.name === "" ? "null" : `audioAsset({ folder: "se", name: ${literal(audio.name)} })`}, volume: ${audio.volume}, pitch: ${audio.pitch}, pan: ${audio.pan} } }`,
++    expression: `{ kind: "playSe", audio: { asset: ${audio.name === "" ? "null" : `audioAsset({ folder: "se", name: ${literal(audio.name)} })`}, volume: ${renderJsonValue(audio.volume)}, pitch: ${renderJsonValue(audio.pitch)}, pan: ${renderJsonValue(audio.pan)} } }`,
+     helperNames: audio.name === "" ? [] : ["audioAsset"],
+   };
+ }
+diff --git a/packages/rpgmaker-event-dsl/src/commands/movement/validation.ts b/packages/rpgmaker-event-dsl/src/commands/movement/validation.ts
+index ebf9a71..78a5f33 100644
+--- a/packages/rpgmaker-event-dsl/src/commands/movement/validation.ts
++++ b/packages/rpgmaker-event-dsl/src/commands/movement/validation.ts
+@@ -191,7 +191,19 @@ export function assertNativeMovementRecord(
+   if (item.code === 30) integer(parameters[0], 1, 5, at(location, ".parameters[0]"));
+   if (item.code === 41) integer(parameters[1], 0, 7, at(location, ".parameters[1]"));
+   if (item.code === 42) integer(parameters[0], 0, 255, at(location, ".parameters[0]"));
+-  if (item.code === 43) integer(parameters[0], 0, 3, at(location, ".parameters[0]"));
++  if (item.code === 43) {
++    integer(parameters[0], 0, 3, at(location, ".parameters[0]"));
++    if (Object.is(parameters[0], -0))
++      fail(
++        "Movement blend mode requires a code with an exact symbolic representation.",
++        {
++          ...at(location, ".parameters[0]"),
++          expected: "0, 1, 2 or 3 excluding negative zero",
++          actual: "-0",
++        },
++        "MV-MOVEMENT-PARAMETER",
++      );
++  }
+   if (item.code === 44) {
+     const audio = parameters[0] as Record<string, unknown>;
+     integer(audio.volume, 0, 100, at(location, ".parameters[0].volume"));
+diff --git a/packages/rpgmaker-event-dsl/test/movement-instructions-workspace.test.ts b/packages/rpgmaker-event-dsl/test/movement-instructions-workspace.test.ts
+index b7e6392..3fc800a 100644
+--- a/packages/rpgmaker-event-dsl/test/movement-instructions-workspace.test.ts
++++ b/packages/rpgmaker-event-dsl/test/movement-instructions-workspace.test.ts
+@@ -4,6 +4,7 @@ import { expect, it } from "vitest";
+ import { workspaceApiEntry } from "./support/workspace-operation-process.js";
+ import { discoverDefinitionFiles, loadDefinitionFile } from "../src/workspace/definitions.js";
+ import { getWorkspaceStatePaths } from "../src/workspace/state.js";
++import { renderJsonValue } from "../src/project-data/json-values.js";
+ import {
+   createMinimalProject,
+   runCli,
+@@ -30,6 +31,15 @@ const discovery = {
+   sourceInclude: ["**/*.events.ts", "**/*.dsl.ts"],
+   sourceExclude: [],
+ };
++const savedNumbers: {
++  accepted: { label: string; native: unknown; sourceFields: string[] }[];
++  rejected: { native: unknown };
++} = JSON.parse(
++  await readFile(
++    new URL("./fixtures/mv-evidence/movement-saved-numbers.json", import.meta.url),
++    "utf8",
++  ),
++);
+ 
+ async function withMovementEvidence(
+   id: string,
+@@ -124,7 +134,7 @@ async function prepare(workspaceRoot: string, pages: unknown[]) {
+     join(workspaceRoot, "Game/data/MapInfos.json"),
+     JSON.stringify([null, { id: 1, name: "Movement Map" }]),
+   );
+-  await writeFile(join(workspaceRoot, "Game/data/Map001.json"), JSON.stringify(carrier));
++  await writeFile(join(workspaceRoot, "Game/data/Map001.json"), renderJsonValue(carrier));
+   const systemPath = join(workspaceRoot, "Game/data/System.json");
+   const system = JSON.parse(await readFile(systemPath, "utf8"));
+   system.switches = ["", "Named", "", "Last"];
+@@ -203,6 +213,40 @@ it("MV-S6-MOVEMENT-001: evaluates all45 native records with every finite shell a
+   });
+ }, 30_000);
+ 
++it.each(savedNumbers.accepted)(
++  "MV-S6-MOVEMENT-011: $label preserves negative-zero saved parameters through actual Workspace source evaluation and installation",
++  async ({ native, sourceFields }) => {
++    await withMovementEvidence("011", "movement-negative-zero", async ({ workspaceRoot }) => {
++      const carrier = await prepare(workspaceRoot, [nativePage([native])]);
++      const original = (await state(workspaceRoot)).project!;
++      expect(original["Map001.json"]).toContain("-0");
++      await decompileWorkspace({ workspaceRoot });
++      const sourcePath = join(workspaceRoot, "src/decompiled/maps/Map001.events.ts");
++      const source = await readFile(sourcePath, "utf8");
++      for (const field of sourceFields) expect(source).toContain(field);
++      await compileWorkspace({ workspaceRoot, check: true });
++      await compileWorkspace({ workspaceRoot, check: false });
++      const generated = join(
++        getWorkspaceStatePaths(workspaceRoot).generatedProjectDataDirectory,
++        "Map001.json",
++      );
++      expect(JSON.parse(await readFile(generated, "utf8"))).toStrictEqual(carrier);
++      await writeFile(sourcePath, source.replace("Complete blank", "Negative zero installed"));
++      await compileWorkspace({ workspaceRoot, check: false });
++      expect(await diffWorkspace({ workspaceRoot })).toContain("Negative zero installed");
++      await pushWorkspace({ workspaceRoot, allowDestructive: false });
++      carrier.events[1]!.name = "Negative zero installed";
++      const actual = (await state(workspaceRoot)).project!;
++      expect(Object.keys(actual)).toHaveLength(15);
++      for (const [file, bytes] of Object.entries(original))
++        expect(JSON.parse(actual[file]!)).toStrictEqual(
++          file === "Map001.json" ? carrier : JSON.parse(bytes as string),
++        );
++    });
++  },
++  30_000,
++);
++
+ it("MV-S6-MOVEMENT-002: retains empty and CR LF M45 source while closed Gate warns on Decompile and rejects Check Compile including a fixed route", async () => {
+   await withMovementEvidence("002", "movement-gate", async (sandbox) => {
+     const { workspaceRoot } = sandbox;
+@@ -301,3 +345,28 @@ it.each([
+   },
+   30_000,
+ );
++
++it.each(["page", "forced"] as const)(
++  "MV-S6-MOVEMENT-012: rejects a negative-zero symbolic M43 value in the %s route before source publication",
++  async (entrance) => {
++    await withMovementEvidence("012", "movement-negative-zero-blend", async ({ workspaceRoot }) => {
++      const page = nativePage([savedNumbers.rejected.native]);
++      if (entrance === "forced") page.moveRoute = structuredClone(blankPage.moveRoute);
++      await prepare(workspaceRoot, [page]);
++      const before = await state(workspaceRoot);
++      await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatchObject({
++        code: "MV-MOVEMENT-PARAMETER",
++        identity: "map:1/event:1",
++        location: {
++          nativePath:
++            entrance === "page"
++              ? "pages[0].moveRoute.list[0].parameters[0]"
++              : "pages[0].list[0].parameters[1].list[0].parameters[0]",
++          actual: "-0",
++        },
++      });
++      expect(await state(workspaceRoot)).toStrictEqual(before);
++    });
++  },
++  30_000,
++);

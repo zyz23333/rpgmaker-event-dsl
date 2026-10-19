@@ -7,7 +7,6 @@ import type {
 } from "../../domain/types.js";
 import type { ReferenceResolver } from "../../validation/types.js";
 import { vehicleToCode } from "../../compiler/shared/conditions.js";
-import { compileAudioPayload } from "../../compiler/shared/media.js";
 import { assertMovementRoute, assertNativeMovementRecord } from "./validation.js";
 import type { NativeMovementRecord } from "./types.js";
 export type { NativeMovementRecord } from "./types.js";
@@ -149,7 +148,7 @@ function compileMoveRouteInstruction(
       return { code: 13, parameters: [] };
     case "jump":
       return { code: 14, parameters: [command.x, command.y] };
-    case "routeWait":
+    case "wait":
       return { code: 15, parameters: [command.frames] };
     case "turnDown":
       return { code: 16, parameters: [] };
@@ -192,15 +191,25 @@ function compileMoveRouteInstruction(
     case "transparent":
       return { code: command.enabled ? 39 : 40, parameters: [] };
     case "changeImage":
-      return { code: 41, parameters: [command.image.name, command.index] };
+      return { code: 41, parameters: [command.character?.name ?? "", command.characterIndex] };
     case "changeOpacity":
       return { code: 42, parameters: [command.opacity] };
     case "changeBlendMode":
-      return { code: 43, parameters: [command.blendMode] };
+      return {
+        code: 43,
+        parameters: [["normal", "additive", "multiply", "screen"].indexOf(command.blendMode)],
+      };
     case "playSe":
       return {
         code: 44,
-        parameters: [compileAudioPayload(command.audio)],
+        parameters: [
+          {
+            name: command.audio.asset?.name ?? "",
+            volume: command.audio.volume,
+            pitch: command.audio.pitch,
+            pan: command.audio.pan,
+          },
+        ],
       };
     case "script":
       return { code: 45, parameters: [command.script.code] };

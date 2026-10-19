@@ -1,0 +1,30 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-33/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/mv-evidence.test.ts (3 tests | 1 failed) 13896ms
+   × validates the evidence index, source references, fixture hashes, test links, and recorded runs 10008ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/mv-evidence.test.ts > validates the evidence index, source references, fixture hashes, test links, and recorded runs
+Error: Test timed out in 10000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ test/mv-evidence.test.ts:17:1
+     15| import { recordEvidence, validateRequirements } from "./support/mv-evi…
+     16|
+     17| it("validates the evidence index, source references, fixture hashes, t…
+       | ^
+     18|   await validateRequirements();
+     19| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 344 passed (345)
+   Start at  23:50:19
+   Duration  37.12s (transform 1.33s, setup 0ms, import 4.55s, tests 49.36s, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-33\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/movement-instructions.test.ts test/movement-instructions-workspace.test.ts test/mv-evidence.test.ts

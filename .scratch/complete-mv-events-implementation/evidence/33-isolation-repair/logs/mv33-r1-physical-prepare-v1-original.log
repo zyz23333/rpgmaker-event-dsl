@@ -1,0 +1,11 @@
+{
+  "root": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-route-waits-delivery-v3-5a6fe076-00f7-4764-b7e2-12a798b989ac",
+  "passed": false,
+  "error": {
+    "message": "EEXIST: file already exists, open 'C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-route-waits-delivery-v3-5a6fe076-00f7-4764-b7e2-12a798b989ac\\literal\\Game\\package.json'",
+    "stack": "Error: EEXIST: file already exists, open 'C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-route-waits-delivery-v3-5a6fe076-00f7-4764-b7e2-12a798b989ac\\literal\\Game\\package.json'\n    at async open (node:internal/fs/promises:639:25)\n    at async Object.writeFile (node:internal/fs/promises:1222:14)\n    at async Object.runPair (C:\\Users\\Shuen\\.codex\\tmp\\mv33-native-pair-delivery-v3.cjs:129:7)"
+  },
+  "sides": {
+    "literal": {}
+  }
+}

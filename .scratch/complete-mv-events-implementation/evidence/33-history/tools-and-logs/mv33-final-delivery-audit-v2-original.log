@@ -1,0 +1,104 @@
+{
+  "purpose": "Final33 append-only and actual-product correspondence audit; allocated evidence only",
+  "at": "2026-10-19T17:23:13.092Z",
+  "incoming": "205334338d8e64e3d00e485849c9ddf67bd7e3b1",
+  "checkpoint": "59e0d8d4d4fc9bee67dcc0b590d3738b2713ac05",
+  "head": "c20c471481fcfa8b4c705f3a082b9613d82d60e8",
+  "contract": "mv-1.6.1/9",
+  "requirements": {
+    "incomingPreserved": 274,
+    "ownPreserved": 12,
+    "total": 286,
+    "incomingPrefixBytesPreserved": true
+  },
+  "inheritedCapturedBlobsUnchanged": 2594,
+  "originalMovementFixtureUnchanged": true,
+  "originalPreformatAndCurrentFixtureIdentitiesPreserved": true,
+  "actualSource": {
+    "files": 97,
+    "sha256": "4424a4d9826432e056354ce93a342886c39bf52d74d3a304a8a6f8ed116e0567"
+  },
+  "actualDist": {
+    "files": 15,
+    "sha256": "d830ac065741f364a7d748ca94557da83b005b0d7e66cfcded929eac65f23506"
+  },
+  "twoNativeProductPairsMatchFrozenProduct": true,
+  "coverage": [
+    {
+      "id": "MV-S6-MOVEMENT-001",
+      "records": 4,
+      "passed": 4,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-002",
+      "records": 4,
+      "passed": 4,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-003",
+      "records": 4,
+      "passed": 4,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-004",
+      "records": 8,
+      "passed": 8,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-005",
+      "records": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-006",
+      "records": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-007",
+      "records": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-008",
+      "records": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-009",
+      "records": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-010",
+      "records": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-011",
+      "records": 28,
+      "passed": 28,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-012",
+      "records": 8,
+      "passed": 8,
+      "failed": 0
+    }
+  ],
+  "originalArchiveEntriesVerified": 92,
+  "originalResultsVerified": 58,
+  "reviewOriginalsAndDerivativesVerified": 6,
+  "passed": true
+}

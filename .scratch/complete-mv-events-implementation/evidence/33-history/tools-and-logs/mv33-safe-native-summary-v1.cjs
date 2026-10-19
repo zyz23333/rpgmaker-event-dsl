@@ -1,0 +1,21 @@
+const fs=require('node:fs');
+const path=require('node:path');
+const crypto=require('node:crypto');
+const assert=require('node:assert/strict');
+const root='C:/Users/Shuen/.codex/worktrees/mv-ticket-33/rpgmaker-event-dsl';
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const run=process.argv[2];
+assert.ok(run);
+const pair=path.join(run,'pair-result.json'),literal=path.join(run,'literal-result.json');
+const rawPath=fs.existsSync(pair)?pair:literal;
+const raw=fs.readFileSync(rawPath),r=JSON.parse(raw);
+function runtimeSummary(native){if(!native)return native;const out=structuredClone(native);const runtime=out['runtime-result.json']?.value;if(runtime){runtime.loadedHashes=Object.fromEntries(Object.entries(runtime.loaded||{}).map(([name,value])=>[name,sha(JSON.stringify(value))]));delete runtime.loaded;}return out;}
+let sides={};
+if(r.sides)for(const [name,s]of Object.entries(r.sides))sides[name]={project:s.project,observerSha256:s.observerSha256,native:runtimeSummary(s.native),diskInputUnchanged:s.diskInputUnchanged,validation:s.validation,passed:s.passed};
+else sides.literal={project:r.project,native:runtimeSummary({launch:r.launch,exit:r.exit,'runtime-result.json':r['runtime-result.json'],'runtime-process-identity.json':r['runtime-process-identity.json'],'stdout.txt':r['stdout.txt'],'stderr.txt':r['stderr.txt']}),validation:r.validation,passed:r.passed};
+const safe={purpose:r.purpose,raw:{path:rawPath,sha256:sha(raw),bytes:raw.length},startedAt:r.startedAt,completedAt:r.completedAt,node:r.node,toolNode:r.toolNode,options:r.options,lifecycle:r.lifecycle,build:r.build,nativeIdentity:r.nativeIdentity,inputBinding:r.inputBinding,sourceEdits:r.sourceEdits,sources:r.sources,checkStateUnchanged:r.checkStateUnchanged,completeGeneratedCarrierComparison:r.completeGeneratedCarrierComparison,completeCarrierComparison:r.completeCarrierComparison,publication:r.publication,workspaceState:r.workspaceState,sides,runtimeComparison:r.runtimeComparison,passed:r.passed,error:r.error,redaction:'First-party complete native database values, engine/runtime, image/audio files and captured float samples remain only in the immutable external sandbox. This safe derivative retains exact raw hashes, complete carrier identities, all actual predicates, passive measurements/hashes, source/dist fingerprints and process/profile/engine/output/exit identities.'};
+if(r.build){for(const part of ['source','dist'])for(const entry of r.build[part].entries)assert.equal(sha(fs.readFileSync(path.join(root,'packages/rpgmaker-event-dsl',part==='source'?'src':'dist',entry.path))),entry.sha256,'Actual executed current '+part+' correspondence: '+entry.path);safe.currentProductCorrespondence={source:true,dist:true};}else safe.literalToolIdentity={tooling:r.tooling,scenarioSha256:r.scenarioSha256,harnessSha256:r.harnessSha256};
+const out=path.join(root,'.scratch/complete-mv-events-implementation/evidence/33-history/native');fs.mkdirSync(out,{recursive:true});
+const filename=path.basename(run)+'-safe-summary.json';
+fs.writeFileSync(path.join(out,filename),JSON.stringify(safe,null,2)+'\n',{flag:'wx'});
+console.log(JSON.stringify({file:path.join(out,filename),sha256:sha(fs.readFileSync(path.join(out,filename))),passed:r.passed,raw:safe.raw}));

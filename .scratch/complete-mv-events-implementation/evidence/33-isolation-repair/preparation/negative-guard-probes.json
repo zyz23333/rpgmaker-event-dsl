@@ -1,0 +1,171 @@
+{
+  "purpose": "Negative physical isolation guards exercised only in fresh synthetic temporary trees; no reference/seed/game mutation",
+  "at": "2026-10-19T17:53:35.055Z",
+  "root": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-isolation-guard-probes-v1-aad84c44-8643-409d-be9b-d3138d891b67",
+  "probes": [
+    {
+      "name": "junction root refused before write",
+      "passed": true,
+      "error": "Physical root cannot resolve through any alias: C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-isolation-guard-probes-v1-aad84c44-8643-409d-be9b-d3138d891b67\\junction\n+ actual - expected\n\n+ 'c:/users/shuen/.codex/tmp/mv33-physical-isolation-guard-probes-v1-aad84c44-8643-409d-be9b-d3138d891b67/source'\n- 'c:/users/shuen/.codex/tmp/mv33-physical-isolation-guard-probes-v1-aad84c44-8643-409d-be9b-d3138d891b67/junction'\n"
+    },
+    {
+      "name": "junction source physical copy refused",
+      "passed": true,
+      "error": "Physical root cannot resolve through any alias: C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-isolation-guard-probes-v1-aad84c44-8643-409d-be9b-d3138d891b67\\junction\n+ actual - expected\n\n+ 'c:/users/shuen/.codex/tmp/mv33-physical-isolation-guard-probes-v1-aad84c44-8643-409d-be9b-d3138d891b67/source'\n- 'c:/users/shuen/.codex/tmp/mv33-physical-isolation-guard-probes-v1-aad84c44-8643-409d-be9b-d3138d891b67/junction'\n"
+    },
+    {
+      "name": "same physical root refused",
+      "passed": true,
+      "error": "Data roots must be independent and non-nested: b / a"
+    },
+    {
+      "name": "nested roots refused",
+      "passed": true,
+      "error": "Data roots must be independent and non-nested: b / a"
+    },
+    {
+      "name": "hardlink count refused before write",
+      "passed": true,
+      "error": "Refuse hardlinked data entry: C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-isolation-guard-probes-v1-aad84c44-8643-409d-be9b-d3138d891b67\\hard\\alias.json\n\n2n !== 1n\n"
+    },
+    {
+      "name": "hardlinked carrier write refused",
+      "passed": true,
+      "error": "Refuse hardlinked data entry: C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-isolation-guard-probes-v1-aad84c44-8643-409d-be9b-d3138d891b67\\hard\\alias.json\n\n2n !== 1n\n"
+    },
+    {
+      "name": "physical copy identities independent and destination write preserves source",
+      "passed": true
+    }
+  ],
+  "copy": {
+    "source": {
+      "root": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-isolation-guard-probes-v1-aad84c44-8643-409d-be9b-d3138d891b67\\source",
+      "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-isolation-guard-probes-v1-aad84c44-8643-409d-be9b-d3138d891b67\\source",
+      "entries": [
+        {
+          "path": ".",
+          "kind": "directory",
+          "dev": "233706315",
+          "ino": "562949956124121",
+          "nlink": "1"
+        },
+        {
+          "path": "carrier.json",
+          "kind": "file",
+          "dev": "233706315",
+          "ino": "281474979413466",
+          "nlink": "1",
+          "bytes": 9,
+          "sha256": "25718360e05d3c2d0963d1381e9dd4dae5fca789244ee4b9f861adcc0cc96218"
+        }
+      ],
+      "files": [
+        {
+          "path": "carrier.json",
+          "bytes": 9,
+          "sha256": "25718360e05d3c2d0963d1381e9dd4dae5fca789244ee4b9f861adcc0cc96218"
+        }
+      ],
+      "sha256": "3f88e3347c46bb3099fb0f0f401f1753cfbfb0db8b7e4d676dbcf7deb42ef623"
+    },
+    "destination": {
+      "root": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-isolation-guard-probes-v1-aad84c44-8643-409d-be9b-d3138d891b67\\copy",
+      "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-isolation-guard-probes-v1-aad84c44-8643-409d-be9b-d3138d891b67\\copy",
+      "entries": [
+        {
+          "path": ".",
+          "kind": "directory",
+          "dev": "233706315",
+          "ino": "281474979413472",
+          "nlink": "1"
+        },
+        {
+          "path": "carrier.json",
+          "kind": "file",
+          "dev": "233706315",
+          "ino": "281474979413473",
+          "nlink": "1",
+          "bytes": 9,
+          "sha256": "25718360e05d3c2d0963d1381e9dd4dae5fca789244ee4b9f861adcc0cc96218"
+        }
+      ],
+      "files": [
+        {
+          "path": "carrier.json",
+          "bytes": 9,
+          "sha256": "25718360e05d3c2d0963d1381e9dd4dae5fca789244ee4b9f861adcc0cc96218"
+        }
+      ],
+      "sha256": "3f88e3347c46bb3099fb0f0f401f1753cfbfb0db8b7e4d676dbcf7deb42ef623"
+    },
+    "passed": true
+  },
+  "pair": {
+    "at": "2026-10-19T17:53:35.048Z",
+    "passed": true,
+    "trees": {
+      "source": {
+        "root": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-isolation-guard-probes-v1-aad84c44-8643-409d-be9b-d3138d891b67\\source",
+        "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-isolation-guard-probes-v1-aad84c44-8643-409d-be9b-d3138d891b67\\source",
+        "entries": [
+          {
+            "path": ".",
+            "kind": "directory",
+            "dev": "233706315",
+            "ino": "562949956124121",
+            "nlink": "1"
+          },
+          {
+            "path": "carrier.json",
+            "kind": "file",
+            "dev": "233706315",
+            "ino": "281474979413466",
+            "nlink": "1",
+            "bytes": 9,
+            "sha256": "25718360e05d3c2d0963d1381e9dd4dae5fca789244ee4b9f861adcc0cc96218"
+          }
+        ],
+        "files": [
+          {
+            "path": "carrier.json",
+            "bytes": 9,
+            "sha256": "25718360e05d3c2d0963d1381e9dd4dae5fca789244ee4b9f861adcc0cc96218"
+          }
+        ],
+        "sha256": "3f88e3347c46bb3099fb0f0f401f1753cfbfb0db8b7e4d676dbcf7deb42ef623"
+      },
+      "copy": {
+        "root": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-isolation-guard-probes-v1-aad84c44-8643-409d-be9b-d3138d891b67\\copy",
+        "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-isolation-guard-probes-v1-aad84c44-8643-409d-be9b-d3138d891b67\\copy",
+        "entries": [
+          {
+            "path": ".",
+            "kind": "directory",
+            "dev": "233706315",
+            "ino": "281474979413472",
+            "nlink": "1"
+          },
+          {
+            "path": "carrier.json",
+            "kind": "file",
+            "dev": "233706315",
+            "ino": "281474979413473",
+            "nlink": "1",
+            "bytes": 9,
+            "sha256": "25718360e05d3c2d0963d1381e9dd4dae5fca789244ee4b9f861adcc0cc96218"
+          }
+        ],
+        "files": [
+          {
+            "path": "carrier.json",
+            "bytes": 9,
+            "sha256": "25718360e05d3c2d0963d1381e9dd4dae5fca789244ee4b9f861adcc0cc96218"
+          }
+        ],
+        "sha256": "3f88e3347c46bb3099fb0f0f401f1753cfbfb0db8b7e4d676dbcf7deb42ef623"
+      }
+    }
+  },
+  "passed": true
+}

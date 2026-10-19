@@ -1,0 +1,46 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-33/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/movement-instructions.test.ts (13 tests | 6 failed | 7 skipped) 16ms
+   × M14 rejects jump outside its independent relative-coordinate domain (-100,0) in formal, native and known raw 10ms
+   × M14 rejects jump outside its independent relative-coordinate domain (100,0) in formal, native and known raw 1ms
+   × M14 rejects jump outside its independent relative-coordinate domain (0.5,0) in formal, native and known raw 1ms
+   × M14 rejects jump outside its independent relative-coordinate domain (0,-100) in formal, native and known raw 1ms
+   × M14 rejects jump outside its independent relative-coordinate domain (0,100) in formal, native and known raw 1ms
+   × M14 rejects jump outside its independent relative-coordinate domain (0,0.5) in formal, native and known raw 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/movement-instructions.test.ts > M14 rejects jump outside its independent relative-coordinate domain (-100,0) in formal, native and known raw
+ FAIL  test/movement-instructions.test.ts > M14 rejects jump outside its independent relative-coordinate domain (100,0) in formal, native and known raw
+ FAIL  test/movement-instructions.test.ts > M14 rejects jump outside its independent relative-coordinate domain (0.5,0) in formal, native and known raw
+ FAIL  test/movement-instructions.test.ts > M14 rejects jump outside its independent relative-coordinate domain (0,-100) in formal, native and known raw
+ FAIL  test/movement-instructions.test.ts > M14 rejects jump outside its independent relative-coordinate domain (0,100) in formal, native and known raw
+ FAIL  test/movement-instructions.test.ts > M14 rejects jump outside its independent relative-coordinate domain (0,0.5) in formal, native and known raw
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/movement-instructions.test.ts:73:65
+     71|   "M14 rejects jump outside its independent relative-coordinate domain…
+     72|   (x, y) => {
+     73|     expect(() => compileInstructions([{ kind: "jump", x, y }])).toThro…
+       |                                                                 ^
+     74|     const movement = { code: 14, parameters: [x, y] };
+     75|     const route = { list: [movement, { code: 0 }], repeat: false, skip…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  6 failed | 7 skipped (13)
+   Start at  23:22:24
+   Duration  1.66s (transform 600ms, setup 0ms, import 1.46s, tests 16ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-33\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/movement-instructions.test.ts -t M14 rejects
