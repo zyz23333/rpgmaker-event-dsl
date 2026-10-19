@@ -32,7 +32,7 @@ finalization should retain one copy.
 External execution root is
 `M:/Shuen/Codex/mv-events-implementation-20261020/ticket39-temp`; Node22.23.0,
 original2 workers, original10s defaults and these tests' existing30s limits remain
-in use. No deadline or evidence helper has been changed. Logs01–16 preserve eight
+in use. The original focused runs changed no deadline or evidence helper. Logs01–16 preserve eight
 sequential real product red→green slices: BGM None, original helper input, exact
 native fields, remaining complete Audio families, seconds fades, parameterless
 operations, original Audio Asset input and actual known-raw field paths. Log17 is
@@ -111,13 +111,44 @@ The current executed capture-v5 has173 inputs, fingerprint
 Final focused source validation passes11 files/449 tests:8 lightweight files/427
 tests in log47, the3 owned Workspace tests in log48, and2 related Workspace
 files/19 tests in log49. Current package typecheck,35-file scoped lint and42-file
-scoped format check also pass. Source/test/config have remained unchanged since
-this capture. The original premerge failures and every earlier input/result stay
+scoped format check also pass. Product source has remained unchanged since
+this capture; the later shared evidence helper adoption is recorded below. The original premerge failures and every earlier input/result stay
 preserved; no evidence, fixture pin, worker limit or timeout was weakened.
 
 Full checks, fresh build, actual built Audio Workspace execution, an own relative
 semantic contract increment, E4/R6 allocated acceptance, independent review/merge
 and ticket closure remain finalizer obligations. This is a DEV handoff, not READY.
+
+## Final shared helper and index execution
+
+After the449-test execution, only the explicitly released shared evidence helper
+commit b066c624 was adopted at3a70b05: bounded result reads32 and requirement-ID
+Map lookup, with every schema/hash/link/history validation retained. Current
+package typecheck and helper lint/format pass in logs52–54. All100 product source
+files are byte-identical to the449-test execution; their fingerprint is
+`abe373f247077dd30695f14db4c5af659856f141533a68a20004fe880cfb3daa`.
+The449 tests were not rerun after this evidence-only helper adoption.
+
+Final capture-v6 freezes173 current inputs, fingerprint
+`2a4189ee846da92e78a2c59acc7abec9f774f7c86f9950108ede89b33275075a`.
+Log56 preserves the first full mv-evidence file: the public index timed out at
+the original10000ms; its two actual Workspace/loss-detector cases passed. The
+subsequent public-index-only run, log58, passes the full current6468-result
+history at8.13s under the same original10000ms, same helper and same capture.
+No implementation, evidence reduction, worker change or timeout adjustment
+occurred between these runs; the timing cause is not established. The first
+timeout remains a recorded verification incident and is not relabeled passed.
+
+The38 owned/related raw machine results comprise37 passes and the preserved
+Workspace003 test-premise failure. All have native not-executed. Six exact
+captures, every closed raw log, the helper before/after proofs, merge receipt,
+old metadata bytes and tools are append-only archived. Immutable manifest-v3
+maps1152 memberships to330 unique targets; earlier manifests remain unchanged.
+Final provenance-v2 distinguishes the449 executed product identity from the
+current helper/index execution. Staged and postcommit audits independently
+compare incoming rows/history, current capture, physical external originals and
+candidate Git blobs before the external clean DEV handoff. This remains claimed
+and inherits contract12; final acceptance obligations above still apply.
 
 ## E4 pending reverse-engineering comparison
 

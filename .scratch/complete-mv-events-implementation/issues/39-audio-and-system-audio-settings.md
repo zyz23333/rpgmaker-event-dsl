@@ -59,3 +59,9 @@ checkpoint 5f1c690 合入实际 post26 73504ec，继承契约 /12；原314行保
 通过。全部原始失败和输入/输出保留，详见
 [开发记录](../evidence/39-audio-and-system-audio-dev-checkpoint.md)。本票保持 claimed；
 full/build/built、相对契约递增、E4/R6、独立复核与最终关闭仍待 finalization，未声称 READY。
+
+最终证据 helper 经单独授权合入；449 tests 的全部100个产品源文件字节不变，
+未把旧449执行冒称为新 helper 下重跑。capture-v6 下原始完整 mv-evidence 的索引
+先触发原10s超时、另2案通过；随后相同输入的公开索引单案在原10s内8.13s通过。
+两次原日志并存，不推定耗时根因、不放宽门槛。38条原始结果（37 pass、1已保留
+测试前提 fail）及6份输入捕获完整归档，详情见开发记录的最终 helper/index 章节。
