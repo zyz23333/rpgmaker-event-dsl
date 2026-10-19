@@ -1,6 +1,6 @@
 # 16: Workspace 操作互斥
 
-Status: ready-for-agent
+Status: resolved
 Blocked by: 12
 Stage: S4a
 Created: 2026-10-19
@@ -20,18 +20,18 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 ## Acceptance criteria
 
-- [ ] Clone/Pull/Decompile/Compile/Check/Diff/Push 对同 Workspace 互斥，争用立即拒绝，不排队；不同 Workspace 可独立运行。
-- [ ] 真实子进程验证运行中竞争、可证明失效锁清理、进程中断及锁与 pending 独立性；不新增跨机器锁。
-- [ ] 在 API 与 CLI 层都不能读取另一操作的中间状态；检查失败保留用户内容及 pending。
+- [x] Clone/Pull/Decompile/Compile/Check/Diff/Push 对同 Workspace 互斥，争用立即拒绝，不排队；不同 Workspace 可独立运行。
+- [x] 真实子进程验证运行中竞争、可证明失效锁清理、进程中断及锁与 pending 独立性；不新增跨机器锁。
+- [x] 在 API 与 CLI 层都不能读取另一操作的中间状态；检查失败保留用户内容及 pending。
 
 ### 共通要求（限本票适用范围）
 
-- [ ] 按规格 I1–I12 和对应完整参数附表实现；正式编写、编译、反编译、验证、已知 raw 及适用 Workspace 路径一起交付，实际发现并求值生成源码，预期独立于待测编译器。
-- [ ] 对本票拥有的字段/模式/枚举/None/独立保存值/默认/正负边界及已知相互作用建案例；完整比较键存在性、数组长度/顺序、页序、值、镜像、CR 和非激活配置。
-- [ ] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
-- [ ] 产品变更执行 Windows / Node 22 全量适用检查与构建；安全票同时验证用户可观察的源码、项目、Snapshot、manifest、Discovery 集合和诊断状态。
-- [ ] 本票分配的必要编辑器/游戏场景取得实际证据后才关闭；最终回归另外执行。原生版本、runtime/NW.js、步骤、输入身份、操作者、预期/实际与原始结果可追踪。
-- [ ] 同步受影响的当前公开 API 文档、示例及编写指南；不保留旧 API 别名或迁移说明，不分发首方编辑器、runtime/源码或本地游戏资产。
+- [x] 按规格 I1–I12 和对应完整参数附表实现；正式编写、编译、反编译、验证、已知 raw 及适用 Workspace 路径一起交付，实际发现并求值生成源码，预期独立于待测编译器。
+- [x] 对本票拥有的字段/模式/枚举/None/独立保存值/默认/正负边界及已知相互作用建案例；完整比较键存在性、数组长度/顺序、页序、值、镜像、CR 和非激活配置。
+- [x] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
+- [x] 产品变更执行 Windows / Node 22 全量适用检查与构建；安全票同时验证用户可观察的源码、项目、Snapshot、manifest、Discovery 集合和诊断状态。
+- [x] 本票分配的必要编辑器/游戏场景取得实际证据后才关闭；最终回归另外执行。原生版本、runtime/NW.js、步骤、输入身份、操作者、预期/实际与原始结果可追踪。
+- [x] 同步受影响的当前公开 API 文档、示例及编写指南；不保留旧 API 别名或迁移说明，不分发首方编辑器、runtime/源码或本地游戏资产。
 
 ## Verification
 
@@ -47,3 +47,13 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 - [实施规格](../complete-mv-events-implementation-spec.md)：I12、T1、T5；完整契约与未在本票重复列出的参数规则以规格及其规范附表为准。
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
+
+## Outcome
+
+2026-10-19 完成。本票在所有工作流入口读取配置/状态前取得同一 Workspace 的 Windows 内核独占文件句柄，包含 Check、Diff 和公开 freshness 查询；API 与 CLI 共享同一实现，争用立即报忙。同一目录的真实 junction 别名互斥，不同 Workspace 独立。正常返回、抛错和进程死亡均释放句柄；持久锁文件保留，不按 PID/mtime 删除旧 pathname，从机制上避免多 stale-cleaner 删除新 owner 的竞态。锁模块不读取或清理 pending；非 Push 始终保留并拒绝 pending，只有 Push 执行原内容恢复流程。
+
+[验收报告](../evidence/16-workspace-operation-locking.md) 和索引 `MV-S4-LOCK-001..004` 覆盖64个 API 竞争组合、七条实际 CLI 竞争、同进程并发、真实 Snapshot 发布空档、junction、独立 Workspace、SIGTERM、未捕获异常、六进程同时竞争遗留文件，以及实际 Interrupted Push 和检查失败的完整状态保护。输入为独立 synthetic-support，所有结果为 `native: not-executed`；本票未认领命令族或独立 E/R 场景。
+
+产品与当前公开文档、包 README、agent 编写流程参考一同交付；无公开测试 API。首次 Windows / Node22 全 `pnpm check`（20 files /165 tests）、build、构建后 baseline（3 files /8 tests）通过。提交5c82d3a后合入最新集成9556622为87bca8b；两次同时全并发复验各有一个已有用例超时，报告保留失败事实。按集成安排限制workers至2后，等价check全部静态阶段和完整suite（20/165）、重新build及构建后baseline（3/8）全部通过，未放宽原timeout或断言。合并前后各八份通过机器结果与两份早期失败结果均已归档。
+
+最终结果入库后，索引/schema 与基础往返校验 pnpm --filter rpgmaker-event-dsl test --maxWorkers=2 test/mv-evidence.test.ts 通过（1 file /3 tests）。
