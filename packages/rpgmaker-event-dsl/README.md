@@ -204,6 +204,19 @@ to an empty filename.
 Empty Asset Reference names and unknown command fields fail validation. Asset
 references preserve names without checking image directories or file sizes.
 
+`changeSaveAccess`, `changeMenuAccess`, `changeEncounter` and
+`changeFormationAccess` require `{ enabled: boolean }`; each encodes false as
+native 0 and true as native 1. Changing encounters also resets the encounter
+count. `changeWindowColor({ tone: { red: 12, green: -24, blue: 36, gray: 113 } })`
+requires all four named fields. RGB components are integers −255..255 and gray
+is integer 0..255. Hidden gray and numeric negative zero remain saved. Tone has
+no array alias, missing-component repair or project-dependent default.
+
+`openMenuScreen()`, `openSaveScreen()`, `gameOver()` and
+`returnToTitleScreen()` take no inputs. Menu and Save open on the map even when
+ordinary access is disabled and skip in battle. Game Over and Title transition
+from map or battle without a dead-actor precondition or automatic save.
+
 Clone and Pull capture exact UTF-8 file bytes, their hashes and the map collection
 selected by the same MapInfos input. Invalid collections, missing registered maps,
 malformed carriers and undecodable bytes fail explicitly. An observed input or

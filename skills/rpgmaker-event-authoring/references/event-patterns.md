@@ -77,6 +77,21 @@ seconds field even when it is zero. Numeric seconds preserve negative zero;
 native categorical action codes reject it. Recognized raw Timer records receive
 the same slot and range checks.
 
+Use `changeSaveAccess({ enabled })`, `changeMenuAccess({ enabled })`,
+`changeEncounter({ enabled })` and `changeFormationAccess({ enabled })` with an
+explicit Boolean. All four encode false as native 0 and true as native 1;
+encounter changes also reset the encounter count. Give `changeWindowColor` a
+required named Tone object `{ red, green, blue, gray }`: RGB integers −255..255,
+gray integer 0..255. Preserve hidden gray and numeric negative zero. Choose the
+color explicitly instead of relying on the project's current window tone.
+
+Use `openMenuScreen()`, `openSaveScreen()`, `gameOver()` and
+`returnToTitleScreen()` without inputs. Menu and Save open on a map even when
+their ordinary access is disabled; they skip in battle. Game Over and Title
+transition from map and battle. Game Over needs no dead-actor condition. Check
+the event's intended continuation around these scene transitions, and perform
+actual save experiments only in an isolated temporary game project.
+
 Use `loop({ body: { commands: [...] } })` for repeated work and `breakLoop()`
 inside its body to finish it. `body.commands` is required. The optional
 `body.endMarker` defaults to `"present"`; use `"absent"` only when preserving

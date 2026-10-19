@@ -22,6 +22,11 @@ import {
 import { CommandStructureError } from "./command-structure.js";
 import { assertDslCommandList } from "./dsl-command-inputs.js";
 import { assertMapAppearanceInput } from "../commands/map/validation.js";
+import {
+  assertSystemAccessInput,
+  assertWindowColorInput,
+} from "../commands/movement/access-validation.js";
+import { assertSceneCommandInput } from "../commands/system/validation.js";
 
 type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
@@ -60,6 +65,9 @@ export function validateNodes(
     const nodePath = `${options.path ?? "commands"}[${nodeIndex}]`;
     try {
       assertMapAppearanceInput(node.kind, node, nodePath, true, resolver);
+      assertSystemAccessInput(node.kind, node, nodePath, true);
+      assertWindowColorInput(node.kind, node, nodePath, true);
+      assertSceneCommandInput(node.kind, node, nodePath);
     } catch (error) {
       if (error instanceof CommandStructureError)
         issues.push(error.issue(options.identity ?? "event", "compile"));

@@ -73,7 +73,7 @@ export type {
   ChangeBattleBgmDslCommand,
   ChangeClassDslCommand,
   ChangeDefeatMeDslCommand,
-  ChangeEncounterDisableDslCommand,
+  ChangeEncounterDslCommand,
   ChangeEnemyHpDslCommand,
   ChangeEnemyMpDslCommand,
   ChangeEnemyStateDslCommand,

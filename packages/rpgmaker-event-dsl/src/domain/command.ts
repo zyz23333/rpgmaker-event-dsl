@@ -55,7 +55,7 @@ export type DslCommand =
   | ChangeVictoryMeDslCommand
   | ChangeSaveAccessDslCommand
   | ChangeMenuAccessDslCommand
-  | ChangeEncounterDisableDslCommand
+  | ChangeEncounterDslCommand
   | ChangeFormationAccessDslCommand
   | ChangeWindowColorDslCommand
   | ChangeDefeatMeDslCommand
@@ -330,9 +330,9 @@ export type ChangeMenuAccessDslCommand = {
   enabled: boolean;
 };
 
-export type ChangeEncounterDisableDslCommand = {
-  kind: "changeEncounterDisable";
-  disabled: boolean;
+export type ChangeEncounterDslCommand = {
+  kind: "changeEncounter";
+  enabled: boolean;
 };
 
 export type ChangeFormationAccessDslCommand = {
@@ -342,7 +342,7 @@ export type ChangeFormationAccessDslCommand = {
 
 export type ChangeWindowColorDslCommand = {
   kind: "changeWindowColor";
-  tone: ToneInput;
+  tone: Extract<ToneInput, { red: number }>;
 };
 
 export type ChangeDefeatMeDslCommand = {

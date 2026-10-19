@@ -146,6 +146,31 @@ Asset Reference name is invalid. Tilesets must exist in the Snapshot and have no
 None value. Asset filenames are preserved without scanning local image files;
 a valid reference does not guarantee that MV can load its images.
 
+System access commands each require an explicit Boolean `enabled`:
+
+```ts
+changeSaveAccess({ enabled: false });
+changeMenuAccess({ enabled: true });
+changeEncounter({ enabled: false });
+changeFormationAccess({ enabled: true });
+changeWindowColor({ tone: { red: 12, green: -24, blue: 36, gray: 113 } });
+openMenuScreen();
+openSaveScreen();
+gameOver();
+returnToTitleScreen();
+```
+
+All four access commands encode false as native 0 and true as native 1.
+Changing encounters also resets MV's encounter count. Window color requires all
+four named Tone fields: RGB integers −255..255 and gray integer 0..255. Preserve
+gray even though the window editor hides it, and preserve numeric negative zero
+in Tone components. Color comes from the declaration; compilation does not read
+`System.windowTone` as a default. The four scene commands take no inputs.
+Open Menu and Open Save run on the map even when ordinary menu/save access is
+disabled, and skip in battle. Game Over and Return to Title transition from both
+map and battle; Game Over does not require dead actors. These commands do not
+add an automatic save operation.
+
 ## Writing Your First DSL File
 
 A DSL file is a TypeScript file that exports RPG Maker MV declarations. For example,

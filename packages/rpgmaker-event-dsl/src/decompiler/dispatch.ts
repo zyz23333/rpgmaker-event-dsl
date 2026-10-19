@@ -571,7 +571,7 @@ export function renderSimpleCommand(
     case 135:
       return renderBooleanSystemCommand(command, "changeMenuAccess", "enabled", false);
     case 136:
-      return renderBooleanSystemCommand(command, "changeEncounterDisable", "disabled", true);
+      return renderBooleanSystemCommand(command, "changeEncounter", "enabled", false);
     case 137:
       return renderBooleanSystemCommand(command, "changeFormationAccess", "enabled", false);
     case 138:

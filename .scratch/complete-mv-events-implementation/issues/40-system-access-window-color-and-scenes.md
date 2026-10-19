@@ -1,6 +1,6 @@
 # 40: 系统访问、窗口色与场景
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 23
 Stage: S6
 Created: 2026-10-19
@@ -50,3 +50,15 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [系统、地图与表现参数附表](../../complete-mv-events/research/command-parameters/visual-map.md)。
 - [角色、战斗与场景参数附表](../../complete-mv-events/research/command-parameters/actors-battle.md)。
+
+## Comments
+
+### 2026-10-20 — 领取 focused DEV
+
+以实际集成 73504ec28bad98ae424a9d452f68774b009579d0、契约 mv-1.6.1/12、原有 314 条验收要求为基线，按已接受 T1 公共边界与 TDD 实施。先交付本票 focused DEV；完整检查、构建、E4 最终逆向产品比较、R6 实际游戏运行与关闭仍由统一验收完成。不会以静态/合成结果替代实际游戏证据。
+
+### 2026-10-20 — focused DEV 定向验证
+
+专有命令单元及既有回归四文件实际通过 30／30，包 TypeScript 与专有静态检查通过。010–024 的 15 个独立 Workspace 案例也已实际执行通过，涵盖真实 Discovery、已发布源码求值、Check、正式表达与已知 raw 的 Compile／Diff／真实 Push，以及源码或原生失败时完整文件状态保全和陈旧输出拒绝。全部使用原 10 秒 case 期限与两个 worker；名称筛选 skip 未计为通过。
+
+共享证据 helper 的唯一获准更新为本树提交 6ba40682006c7c95101a4edd9c66e3d77e2ee92a，原 30 个 dirty 文件逐字节保全。完整输入身份、历史失败与五批 Workspace 日志见[本票证据记录](../evidence/40-system-access-window-color-and-scenes.md)。最新实际集成、Tone 统一、全量／构建／built、最终 E4 比较和真实 R6 尚待统一验收；本票保持 claimed，未据定向结果关闭。

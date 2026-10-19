@@ -11,7 +11,7 @@ import {
   changeBattleBgm,
   changeClass,
   changeDefeatMe,
-  changeEncounterDisable,
+  changeEncounter,
   changeEnemyHp,
   changeEnemyMp,
   changeEnemyState,
@@ -212,9 +212,11 @@ describe("collectDslOwnedDeclarations", () => {
     ).toBe("changeVictoryMe");
     expect(changeSaveAccess({ enabled: true }).kind).toBe("changeSaveAccess");
     expect(changeMenuAccess({ enabled: false }).kind).toBe("changeMenuAccess");
-    expect(changeEncounterDisable({ disabled: true }).kind).toBe("changeEncounterDisable");
+    expect(changeEncounter({ enabled: false }).kind).toBe("changeEncounter");
     expect(changeFormationAccess({ enabled: true }).kind).toBe("changeFormationAccess");
-    expect(changeWindowColor({ tone: [0, 0, 0, 0] }).kind).toBe("changeWindowColor");
+    expect(changeWindowColor({ tone: { red: 0, green: 0, blue: 0, gray: 0 } }).kind).toBe(
+      "changeWindowColor",
+    );
     expect(
       changeDefeatMe({ audio: { asset: audioAsset({ folder: "me", name: "Defeat1" }) } }).kind,
     ).toBe("changeDefeatMe");

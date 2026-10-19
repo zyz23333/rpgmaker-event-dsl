@@ -537,3 +537,37 @@ Ticket24's supplemental numeric correction now has current contract `mv-1.6.1/11
 Ticket26 now has current contract `mv-1.6.1/12` delivery evidence: full source42 files/1069 tests, fresh15-file build, built Windows18 files/455 tests, and actual E4 comparison of14 independent scenarios/10 negative cases passed. The [current Timer report](26-timer-saved-slot-roundtrip.md#最终化构建与-e4-产品比较--mv-16112) and [26-final-history](26-final-history/README.md) preserve actual source/dist identities, the original full-check failures and exact closed captures. E4 verifies current10 resource identities against the bounded05 REA report and exercises real built public Workspace writes across complete15 carriers; it does not claim editor UI or game execution. The original checklist rows and their pending-at-DEV wording are historical and unchanged; final50 and52–54 remain separate.
 
 Ticket26 final closure audit passed:314 requirements retain the complete incoming300 prefix and own288 rows,6084 historical raw blobs/prefixes remain exact,1507 initial archive source/copy pairs match, and189 actual/physically retained execution inputs (including15 dist files) remain unchanged. The original10-second selected evidence-index test passed in4.11 seconds. Closed captures are appended through26-final-history/post-archive-index-v1.json; the initial archive map is immutable. Ticket26 is resolved under the allocated E4 boundary.
+
+| MV-S6-SYSTEM-SCENES-001 | Four explicit E134–137 access flags; independent false-zero/true-one saved slots | 40 focused DEV; source automation, no native claim |
+
+| MV-S6-SYSTEM-SCENES-002 | rejects missing or nonboolean access flags and unsupported own shapes before projection | 40 focused DEV; source automation, no native claim |
+
+| MV-S6-SYSTEM-SCENES-003 | requires exact named window Tone fields and preserves hidden gray and numeric negative zero | 40 focused DEV; source automation, no native claim |
+
+| MV-S6-SYSTEM-SCENES-004 | validates exact native access flag slots before decompilation or known raw compilation | 40 focused DEV; source automation, no native claim |
+
+| MV-S6-SYSTEM-SCENES-005 | validates exact native Window Tone shape and ranges while preserving all numeric zero signs | 40 focused DEV; source automation, no native claim |
+
+| MV-S6-SYSTEM-SCENES-006 | decompiles all access flags with explicit booleans and only the new Encounter helper | 40 focused DEV; source automation, no native claim |
+
+| MV-S6-SYSTEM-SCENES-007 | decompiles Window Tone as four explicit named fields including hidden gray and negative zero | 40 focused DEV; source automation, no native claim |
+
+| MV-S6-SYSTEM-SCENES-008 | requires zero scene helper inputs and exact direct command fields | 40 focused DEV; source automation, no native claim |
+
+| MV-S6-SYSTEM-SCENES-009 | accepts only empty saved scene slots through native and both known raw compilation inputs | 40 focused DEV; source automation, no native claim |
+
+| MV-S6-SYSTEM-SCENES-010 | decompiles full native carriers and evaluates discovered formal source with read-only Check | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-011 | compiles all generated carriers and really pushes independent formal edits in all three event containers | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-012 | evaluates every known raw command in three containers and really pushes exact independent saved state | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-013 | rejects helper local-const extra access fields before projection and preserves complete stale Workspace state | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-014 | rejects nested spread Tone extras before projection and preserves complete stale Workspace state | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-015 | rejects runtime scene inputs from a typed local helper alias and preserves complete stale Workspace state | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-016 | rejects directly constructed nonboolean access state with exact identity and authored slot | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-017 | rejects directly constructed missing hidden gray with exact map identity and authored Tone field | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-018 | rejects known raw categorical negative zero with exact authored slot and preserves stale guards | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-019 | rejects known raw out-of-range Window Tone with exact nested authored slot and preserves stale guards | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-020 | rejects known raw scene extra slots with exact troop authored path and preserves stale guards | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-021 | rejects native common access negative zero before any source publication with complete state preserved | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-022 | rejects native map Window Tone bounds before any source publication with exact nested slot | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-023 | rejects native troop scene extra slots before any source publication with complete state preserved | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-024 | rejects direct scene unknown fields under an assertion with exact map authored path | 40 focused DEV; source Workspace automation, no native claim |

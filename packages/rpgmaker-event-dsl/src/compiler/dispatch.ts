@@ -5,6 +5,11 @@ import { assertControlTimerInput } from "../commands/variables/validation.js";
 import { assertDslCommandList } from "../validation/dsl-command-inputs.js";
 import { assertMapAppearanceInput } from "../commands/map/validation.js";
 import {
+  assertSystemAccessInput,
+  assertWindowColorInput,
+} from "../commands/movement/access-validation.js";
+import { assertSceneCommandInput } from "../commands/system/validation.js";
+import {
   resolveCommonEventCall,
   assertLoopCommand,
   assertParameterlessFlowCommand,
@@ -124,6 +129,9 @@ export function compileNodes(
 
   for (const [nodeIndex, node] of nodes.entries()) {
     assertMapAppearanceInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
+    assertSystemAccessInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true);
+    assertWindowColorInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true);
+    assertSceneCommandInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
     const outputStart = output.length;
     switch (node.kind) {
       case "showText":
@@ -393,11 +401,11 @@ export function compileNodes(
           parameters: [node.enabled ? 1 : 0],
         });
         break;
-      case "changeEncounterDisable":
+      case "changeEncounter":
         output.push({
           code: 136,
           indent,
-          parameters: [node.disabled ? 0 : 1],
+          parameters: [node.enabled ? 1 : 0],
         });
         break;
       case "changeFormationAccess":
