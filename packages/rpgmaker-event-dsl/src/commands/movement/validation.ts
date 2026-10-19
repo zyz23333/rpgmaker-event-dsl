@@ -78,6 +78,45 @@ const parameterCounts = new Map([
   [45, 1],
 ]);
 
+function at(location: Location, suffix: string): Location {
+  return {
+    ...(location.nativePath === undefined ? {} : { nativePath: location.nativePath + suffix }),
+    ...(location.dslPath === undefined ? {} : { dslPath: location.dslPath + suffix }),
+  };
+}
+
+function integer(value: unknown, minimum: number, maximum: number, location: Location): void {
+  if (!Number.isInteger(value) || (value as number) < minimum || (value as number) > maximum)
+    fail(
+      "Movement parameter is outside its accepted integer domain.",
+      {
+        ...location,
+        expected: `integer ${minimum}..${maximum}`,
+        actual: describeValue(value),
+      },
+      "MV-MOVEMENT-PARAMETER",
+    );
+}
+
+function asset(
+  value: unknown,
+  category: "image" | "audio",
+  folder: string,
+  location: Location,
+): void {
+  if (value === null) return;
+  const input = record(value, location);
+  keys(input, ["kind", "category", "folder", "name"], location);
+  if (
+    input.kind !== "asset" ||
+    input.category !== category ||
+    input.folder !== folder ||
+    typeof input.name !== "string" ||
+    input.name.length === 0
+  )
+    fail(`Movement asset requires a nonempty ${category}/${folder} reference or null.`, location);
+}
+
 export function assertNativeMovementRecord(
   value: unknown,
   location: Location,
@@ -140,6 +179,24 @@ export function assertNativeMovementRecord(
       fail("Movement image requires its name and index.", location);
   } else if (!parameters.every((value) => typeof value === "number" && Number.isFinite(value))) {
     fail("Movement numeric parameter slots require finite numbers.", location);
+  }
+  if (item.code === 14) {
+    integer(parameters[0], -99, 99, at(location, ".parameters[0]"));
+    integer(parameters[1], -99, 99, at(location, ".parameters[1]"));
+  }
+  if (item.code === 15) integer(parameters[0], 1, 999, at(location, ".parameters[0]"));
+  if (item.code === 27 || item.code === 28)
+    integer(parameters[0], 1, Number.MAX_SAFE_INTEGER, at(location, ".parameters[0]"));
+  if (item.code === 29) integer(parameters[0], 1, 6, at(location, ".parameters[0]"));
+  if (item.code === 30) integer(parameters[0], 1, 5, at(location, ".parameters[0]"));
+  if (item.code === 41) integer(parameters[1], 0, 7, at(location, ".parameters[1]"));
+  if (item.code === 42) integer(parameters[0], 0, 255, at(location, ".parameters[0]"));
+  if (item.code === 43) integer(parameters[0], 0, 3, at(location, ".parameters[0]"));
+  if (item.code === 44) {
+    const audio = parameters[0] as Record<string, unknown>;
+    integer(audio.volume, 0, 100, at(location, ".parameters[0].volume"));
+    integer(audio.pitch, 50, 150, at(location, ".parameters[0].pitch"));
+    integer(audio.pan, -100, 100, at(location, ".parameters[0].pan"));
   }
 }
 
@@ -247,7 +304,7 @@ const instructionFields: Record<string, readonly string[]> = {
   moveForward: [],
   moveBackward: [],
   jump: ["x", "y"],
-  routeWait: ["frames"],
+  wait: ["frames"],
   turnDown: [],
   turnLeft: [],
   turnRight: [],
@@ -268,7 +325,7 @@ const instructionFields: Record<string, readonly string[]> = {
   directionFix: ["enabled"],
   through: ["enabled"],
   transparent: ["enabled"],
-  changeImage: ["image", "index"],
+  changeImage: ["character", "characterIndex"],
   changeOpacity: ["opacity"],
   changeBlendMode: ["blendMode"],
   playSe: ["audio"],
@@ -304,6 +361,79 @@ export function assertMovementRoute(value: unknown, path: string): asserts value
     keys(command, ["kind", "savedShape", ...fields], location);
     if (fields.some((field) => command[field] === undefined))
       fail("Movement instruction is missing a required field.", location);
+    const domains: Record<string, readonly (readonly [string, number, number])[]> = {
+      jump: [
+        ["x", -99, 99],
+        ["y", -99, 99],
+      ],
+      wait: [["frames", 1, 999]],
+      changeSpeed: [["speed", 1, 6]],
+      changeFrequency: [["frequency", 1, 5]],
+      changeImage: [["characterIndex", 0, 7]],
+      changeOpacity: [["opacity", 0, 255]],
+    };
+    for (const [field, minimum, maximum] of domains[command.kind as string] ?? [])
+      integer(command[field], minimum, maximum, at(location, `.${field}`));
+    if (
+      command.kind === "changeBlendMode" &&
+      !["normal", "additive", "multiply", "screen"].includes(command.blendMode as string)
+    )
+      fail(
+        "Movement blend mode requires an explicit symbol.",
+        {
+          ...at(location, ".blendMode"),
+          expected: "normal/additive/multiply/screen",
+          actual: describeValue(command.blendMode),
+        },
+        "MV-MOVEMENT-PARAMETER",
+      );
+    if (
+      ["walkAnimation", "stepAnimation", "directionFix", "through", "transparent"].includes(
+        command.kind as string,
+      ) &&
+      typeof command.enabled !== "boolean"
+    )
+      fail("Movement state flags require an explicit boolean.", at(location, ".enabled"));
+    if (command.kind === "changeImage")
+      asset(command.character, "image", "characters", at(location, ".character"));
+    if (command.kind === "switchOn" || command.kind === "switchOff") {
+      const referenceLocation = at(location, ".switch");
+      const reference = record(command.switch, referenceLocation);
+      const byId = Object.hasOwn(reference, "id");
+      keys(reference, byId ? ["kind", "id"] : ["kind", "name"], referenceLocation);
+      if (
+        reference.kind !== "switch" ||
+        (byId
+          ? typeof reference.id !== "number"
+          : typeof reference.name !== "string" || reference.name.length === 0)
+      )
+        fail(
+          "Movement switch requires exactly one switch ID or name reference.",
+          referenceLocation,
+        );
+    }
+    if (command.kind === "playSe") {
+      const audioLocation = at(location, ".audio");
+      const audio = record(command.audio, audioLocation);
+      keys(audio, ["asset", "volume", "pitch", "pan"], audioLocation);
+      if (
+        ["asset", "volume", "pitch", "pan"].some(
+          (field) => !Object.hasOwn(audio, field) || audio[field] === undefined,
+        )
+      )
+        fail("Movement SE requires asset, volume, pitch and pan.", audioLocation);
+      asset(audio.asset, "audio", "se", at(audioLocation, ".asset"));
+      integer(audio.volume, 0, 100, at(audioLocation, ".volume"));
+      integer(audio.pitch, 50, 150, at(audioLocation, ".pitch"));
+      integer(audio.pan, -100, 100, at(audioLocation, ".pan"));
+    }
+    if (command.kind === "script") {
+      const scriptLocation = at(location, ".script");
+      const script = record(command.script, scriptLocation);
+      keys(script, ["kind", "code"], scriptLocation);
+      if (script.kind !== "scriptInput" || typeof script.code !== "string")
+        fail("Movement Script requires Script Input with its complete string.", scriptLocation);
+    }
     if (command.savedShape !== undefined) {
       const shape = record(command.savedShape, location);
       keys(shape, ["indent"], location);

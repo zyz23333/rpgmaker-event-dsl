@@ -1,6 +1,6 @@
 # 33: 45 类移动指令完整契约
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 09, 24
 Stage: S6
 Created: 2026-10-19
@@ -52,6 +52,10 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [移动指令参数附表](../../complete-mv-events/research/command-parameters/movement.md)：逐码参数与共享路线保存形态。
 
 ## Comments
+
+### 2026-10-19 — implementation claim
+
+Claimed on codex/mv-ticket-33 in the separate managed worktree, clean at actual merged integration8617d815750631d00a8b60b2410d9e5420da4e16. Dependencies09/24 are resolved. Implementation uses the already accepted T1 public DSL/compiler/Staged Data Graph and actual Workspace API/CLI seams, independent native expectations and narrow red→green slices. This ticket owns all45movement instructions across page and205routes plus its allocated E3/E5/R1/R6/R7 evidence. Prior ticket24 worktree/build/evidence remains unchanged; broad checks are coordinated with root.
 
 ### 2026-10-19 — 继承已接受的有限 zero 状态
 

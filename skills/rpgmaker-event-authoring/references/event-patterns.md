@@ -58,6 +58,7 @@ Use supported helpers for RPG Maker MV editor command families. Representative g
 Continuation commands are not standalone authoring units. Keep text continuations inside `showText(...)` or `showScrollingText(...)`, choice branches inside `showChoices(...)`, battle result branches inside `battleProcessing(...)`, shop goods inside `shopProcessing(...)`, script continuations inside `script(...)`, and move route command objects inside `setMovementRoute(...)`.
 
 Use `setMovementRoute({ target, route: { commands: [...], repeat?, skippable?, wait?, terminator? } })`.
+Read `movement-routes.md` for the complete instruction fields and parameter domains.
 The shared Movement Route requires `commands`, even when empty, and defaults its
 flags to true/false/false. Preserve a native nonterminal indent with
 `savedShape: { indent: "null" }` or `{ indent: "zero" }`; absent is the default.

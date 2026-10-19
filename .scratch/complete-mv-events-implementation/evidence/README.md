@@ -371,3 +371,16 @@ Ticket24 adds [complete Map Event pages and exact saved state](24-map-event-full
 | Requirement | Obligation | Evidence kind | Required layer |
 | --- | --- | --- | --- |
 | MV-S5-MAP-011 | Reject missing mandatory native event slot0 on a late Map without publishing or changing complete Workspace state | synthetic-rejection | Actual source/built Workspace API |
+
+## Ticket33 — all45 movement instructions
+
+| Requirement | Case | Scope |
+| --- | --- | --- |
+| MV-S6-MOVEMENT-001 | All45 finite movement shells and parameter cases through actual Workspace installation | E3/E5; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-002 | M45 closed Gate warning and recovery across fixed and forced routes | E5/R7; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-003 | Evaluated untyped movement fields reach real product validation | Product; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-004 | Late malformed saved route and exact mirror publication atomicity | Product; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-005 | All45 authoring/compiler/native/known-raw parameter and shape matrix | E3/E5; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-006 | Actual normal-Scene autonomous and forced route waiting with Parallel | R1; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-007 | Actual movement None image/SE and complete M45 single-slot execution | R1/R6/R7; [record](33-movement-instructions.md) |
+| MV-S6-MOVEMENT-008 | Same-identity E3/E5 movement resources and product comparison | E3/E5; [record](33-movement-instructions.md) |

@@ -36,19 +36,43 @@ export function inspectNativeRouteInputs(
   options: NativeInputOptions,
   dslPath?: string,
 ): ValidationIssue[] {
-  return options.scriptEnabled
-    ? []
-    : route.list.flatMap((record, index) =>
-        record.code === 45
-          ? [
-              scriptGateIssue(
-                `${path}.list[${index}].parameters[0]`,
-                options,
-                dslPath ? `${dslPath}.commands[${index}].script.code` : undefined,
-              ),
-            ]
-          : [],
-      );
+  return route.list.flatMap((record, index) => {
+    if (record.code !== 45) return [];
+    const native = `${path}.list[${index}].parameters[0]`;
+    const authored = dslPath ? `${dslPath}.commands[${index}].script.code` : undefined;
+    return [
+      ...movementStringRisk(record.parameters![0] as string, native, options, authored),
+      ...(options.scriptEnabled ? [] : [scriptGateIssue(native, options, authored)]),
+    ];
+  });
+}
+
+function movementStringRisk(
+  value: string,
+  nativePath: string,
+  options: NativeInputOptions,
+  dslPath?: string,
+): ValidationIssue[] {
+  if (!value.includes("\n") && !value.includes("\r")) return [];
+  const reasons = [
+    ...(value.includes("\n") ? ["LF exceeds the native single-line input"] : []),
+    ...(value.includes("\r")
+      ? ["CR preservation on parameter reconfirmation needs native verification"]
+      : []),
+  ];
+  return [
+    {
+      code: "MV-MOVEMENT-TEXT-RISK",
+      level: "warning",
+      stage: options.stage,
+      identity: options.identity,
+      nativePath,
+      ...(dslPath === undefined ? {} : { dslPath }),
+      expected: "Complete saved single-slot text retained; parameter reconfirmation may differ",
+      actual: JSON.stringify(value),
+      message: `${options.stage} warning ${options.identity}: MV-MOVEMENT-TEXT-RISK at ${nativePath}: ${reasons.join("; ")}. Saved text is retained exactly.`,
+    },
+  ];
 }
 
 // Called only after the complete known structure and saved envelopes are validated.
@@ -61,6 +85,35 @@ export function inspectNativeCommandInputs(
   for (const [index, command] of commands.entries()) {
     const path = `${options.prefix ?? ""}list[${index}]`;
     const origin = options.origins?.get(command);
+    if (command.code === 205) {
+      const route = command.parameters[1] as NativeMovementRoute;
+      for (const [routeIndex, record] of route.list.entries())
+        if (record.code === 45)
+          issues.push(
+            ...movementStringRisk(
+              record.parameters![0] as string,
+              `${path}.parameters[1].list[${routeIndex}].parameters[0]`,
+              options,
+              origin
+                ? origin.path +
+                    (origin.kind === "rawDslCommand"
+                      ? `.parameters[1].list[${routeIndex}].parameters[0]`
+                      : `.route.commands[${routeIndex}].script.code`)
+                : undefined,
+            ),
+          );
+    }
+    if (command.code === 505 && (command.parameters[0] as { code: number }).code === 45)
+      issues.push(
+        ...movementStringRisk(
+          (command.parameters[0] as { parameters: string[] }).parameters[0]!,
+          `${path}.parameters[0].parameters[0]`,
+          options,
+          origin?.kind === "rawDslCommand"
+            ? `${origin.path}.parameters[0].parameters[0]`
+            : undefined,
+        ),
+      );
     if (!isKnownCommandCode(command.code))
       issues.push({
         code: "MV-UNKNOWN-COMMAND",

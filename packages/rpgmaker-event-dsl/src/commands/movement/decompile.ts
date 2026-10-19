@@ -341,7 +341,7 @@ function renderMoveRouteInstruction(
         : null;
     case 15:
       return typeof parameters[0] === "number"
-        ? { expression: `{ kind: "routeWait", frames: ${parameters[0]} }`, helperNames: [] }
+        ? { expression: `{ kind: "wait", frames: ${parameters[0]} }`, helperNames: [] }
         : null;
     case 27:
     case 28: {
@@ -397,8 +397,8 @@ function renderMoveRouteInstruction(
     case 41:
       return typeof parameters[0] === "string" && typeof parameters[1] === "number"
         ? {
-            expression: `{ kind: "changeImage", image: imageAsset({ folder: "characters", name: ${literal(parameters[0])} }), index: ${parameters[1]} }`,
-            helperNames: ["imageAsset"],
+            expression: `{ kind: "changeImage", character: ${parameters[0] === "" ? "null" : `imageAsset({ folder: "characters", name: ${literal(parameters[0])} })`}, characterIndex: ${parameters[1]} }`,
+            helperNames: parameters[0] === "" ? [] : ["imageAsset"],
           }
         : null;
     case 42:
@@ -408,7 +408,7 @@ function renderMoveRouteInstruction(
     case 43:
       return isBlendMode(parameters[0])
         ? {
-            expression: `{ kind: "changeBlendMode", blendMode: ${parameters[0]} }`,
+            expression: `{ kind: "changeBlendMode", blendMode: ${literal(["normal", "additive", "multiply", "screen"][parameters[0]])} }`,
             helperNames: [],
           }
         : null;
@@ -499,8 +499,8 @@ export function renderMoveRoutePlaySe(
   }
 
   return {
-    expression: `{ kind: "playSe", audio: { asset: audioAsset({ folder: "se", name: ${literal(audio.name)} }), volume: ${audio.volume}, pitch: ${audio.pitch}, pan: ${audio.pan} } }`,
-    helperNames: ["audioAsset"],
+    expression: `{ kind: "playSe", audio: { asset: ${audio.name === "" ? "null" : `audioAsset({ folder: "se", name: ${literal(audio.name)} })`}, volume: ${audio.volume}, pitch: ${audio.pitch}, pan: ${audio.pan} } }`,
+    helperNames: audio.name === "" ? [] : ["audioAsset"],
   };
 }
 

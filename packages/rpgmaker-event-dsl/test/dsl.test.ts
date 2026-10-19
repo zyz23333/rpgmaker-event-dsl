@@ -246,7 +246,7 @@ describe("collectDslOwnedDeclarations", () => {
         route: {
           commands: [
             { kind: "moveDown" },
-            { kind: "routeWait", frames: 15 },
+            { kind: "wait", frames: 15 },
             { kind: "switchOn", switch: switchRef({ id: 1 }) },
             { kind: "script", script: scriptInput({ code: "this.moveForward();" }) },
           ],

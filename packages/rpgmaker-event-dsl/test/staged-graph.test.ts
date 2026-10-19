@@ -482,8 +482,8 @@ describe("validateDslOwnedDeclarations", () => {
                   { kind: "switchOn", switch: switchRef({ id: 1 }) },
                   {
                     kind: "changeImage",
-                    image: imageAsset({ folder: "characters", name: "Actor1" }),
-                    index: 0,
+                    character: imageAsset({ folder: "characters", name: "Actor1" }),
+                    characterIndex: 0,
                   },
                 ],
               },
