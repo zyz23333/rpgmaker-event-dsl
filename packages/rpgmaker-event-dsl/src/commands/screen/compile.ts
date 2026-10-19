@@ -1,6 +1,7 @@
 import type {
   CommandPosition,
-  PicturePosition,
+  PictureOrigin,
+  PictureDisplayInput,
   ShowBalloonIconDslCommand,
   ToneInput,
   ColorInput,
@@ -49,8 +50,12 @@ export function compileColor(color: ColorInput): [number, number, number, number
     : [color[0], color[1], color[2], color[3]];
 }
 
-export function pictureOriginToCode(origin: PicturePosition["origin"]): number {
+export function pictureOriginToCode(origin: PictureOrigin): number {
   return origin === "center" ? 1 : 0;
+}
+
+export function pictureBlendToCode(blend: PictureDisplayInput["blendMode"]): number {
+  return ["normal", "additive", "multiply", "screen"].indexOf(blend);
 }
 
 export function compilePicturePosition(

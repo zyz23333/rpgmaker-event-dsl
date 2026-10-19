@@ -3,6 +3,8 @@ import type { ReferenceResolver } from "../validation/types.js";
 import type { RawEventCommand, CommandOrigins } from "./types.js";
 import { assertDslCommandList } from "../validation/dsl-command-inputs.js";
 import { assertMapAppearanceInput } from "../commands/map/validation.js";
+import { assertPictureInput } from "../commands/screen/picture-inputs.js";
+import { assertPictureReferences } from "../commands/screen/picture-references.js";
 import {
   resolveCommonEventCall,
   assertLoopCommand,
@@ -27,6 +29,7 @@ import {
   compileTone,
   compileColor,
   pictureOriginToCode,
+  pictureBlendToCode,
   compilePicturePosition,
   weatherEffectToCode,
 } from "../commands/screen/compile.js";
@@ -122,6 +125,7 @@ export function compileNodes(
   const output: RawEventCommand[] = [];
 
   for (const [nodeIndex, node] of nodes.entries()) {
+    assertPictureInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     assertMapAppearanceInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     const outputStart = output.length;
     switch (node.kind) {
@@ -970,13 +974,13 @@ export function compileNodes(
           indent,
           parameters: [
             node.pictureId,
-            node.image.name,
-            pictureOriginToCode(node.position.origin),
+            node.image === null ? "" : node.image.name,
+            pictureOriginToCode(node.origin),
             ...compilePicturePosition(node.position, resolver),
-            node.scaleX ?? 100,
-            node.scaleY ?? 100,
-            node.opacity ?? 255,
-            node.blendMode ?? 0,
+            node.scaleX,
+            node.scaleY,
+            node.opacity,
+            pictureBlendToCode(node.blendMode),
           ],
         });
         break;
@@ -987,14 +991,14 @@ export function compileNodes(
           parameters: [
             node.pictureId,
             0,
-            pictureOriginToCode(node.position.origin),
+            pictureOriginToCode(node.origin),
             ...compilePicturePosition(node.position, resolver),
-            node.scaleX ?? 100,
-            node.scaleY ?? 100,
-            node.opacity ?? 255,
-            node.blendMode ?? 0,
+            node.scaleX,
+            node.scaleY,
+            node.opacity,
+            pictureBlendToCode(node.blendMode),
             node.duration,
-            node.wait ?? false,
+            node.wait,
           ],
         });
         break;
@@ -1009,7 +1013,7 @@ export function compileNodes(
         output.push({
           code: 234,
           indent,
-          parameters: [node.pictureId, compileTone(node.tone), node.duration, node.wait ?? false],
+          parameters: [node.pictureId, compileTone(node.tone), node.duration, node.wait],
         });
         break;
       case "erasePicture":
@@ -1141,6 +1145,9 @@ export function compileNodes(
         });
         break;
       case "rawDslCommand":
+        assertPictureReferences(node.code, node.parameters, resolver, {
+          dslPath: `${sourcePath}[${nodeIndex}]`,
+        });
         if (node.code === 205 || node.code === 505)
           assertNativeMovementCommandParameters(node.code, node.parameters, {
             dslPath: `${sourcePath}[${nodeIndex}]`,

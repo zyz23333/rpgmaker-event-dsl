@@ -1,6 +1,6 @@
 # 38: Picture 完整参数
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 23
 Stage: S6
 Created: 2026-10-19
@@ -49,3 +49,9 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [系统、地图与表现参数附表](../../complete-mv-events/research/command-parameters/visual-map.md)。
+
+## Comments
+
+### 2026-10-20 — Focused DEV claim
+
+Claimed on codex/mv-ticket-38 at actual integration38542767606ff9712e45d2a8e4894558e3a7d385. Worktree is manually Git-registered on M, not app-attached. T1 seams are already approved; use narrow red→green vertical slices. All new temporary data/results/logs/captures live in ticket38-temp on M. This is focused DEV only: full/build/built/native/contract delivery/READY/resolved and independent merger remain pending. Native R6 will run later in root serial queue. Normative Tone is named red/green/blue/gray, no tuple alias; preserve37 ownership.

@@ -399,6 +399,41 @@ Decompile publishes source; their diagnostic identifies the event and native
 list position. Internal command-family renderers also accept command fragments,
 which are not complete saved event lists.
 
+## Picture commands
+
+Picture commands require complete display settings:
+
+```ts
+showPicture({
+  pictureId: 1,
+  image: null,
+  origin: "center",
+  position: { kind: "direct", x: -120, y: 90 },
+  scaleX: -100,
+  scaleY: 100,
+  opacity: 255,
+  blendMode: "normal",
+});
+tintPicture({
+  pictureId: 1,
+  tone: { red: -255, green: 0, blue: 255, gray: 0 },
+  duration: 30,
+  wait: false,
+});
+```
+
+Picture IDs 1..100 select runtime slots, including unshown slots. Show's `image`
+is a `pictures` Asset Reference or explicit `null`; None retains a complete Picture.
+`erasePicture({ pictureId })` erases it. Asset files and dimensions are not scanned.
+Show and Move require top-level `origin` (`upperLeft` or `center`), `position`,
+`scaleX`, `scaleY`, `opacity` and named `blendMode` (`normal`, `additive`, `multiply`,
+`screen`). Direct coordinates are integers −9999..9999; variables mode uses two
+existing variable references. Scales are integers −2000..2000, including negative
+flips; opacity is integer 0..255. Numeric saved zero retains its sign.
+Move has no image field and requires duration 1..999 and explicit Boolean `wait`.
+Rotate speed is integer −90..90, including zero to stop. Tint requires named RGB
+integers −255..255, gray 0..255, duration 1..999 and explicit Boolean `wait`.
+
 ## Push safety
 
 Push checks raw bytes across all 14 standard database files and every map registered

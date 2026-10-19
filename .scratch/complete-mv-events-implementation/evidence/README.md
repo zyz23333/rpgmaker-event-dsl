@@ -496,3 +496,19 @@ Ticket36 map appearance cases use independent complete saved literals and actual
 | MV-S6-MAP-APPEARANCE-007 | preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push | synthetic-support | Public source/built Workspace; literal signed-zero carrier and Object.is assertions |
 
 Ticket36 allocated delivery is complete on contract `mv-1.6.1/10`: current source40 files/987 tests, fresh build, built Windows16 files/373 tests,9 exact E6 resource checks and10 physically isolated current-built/native pairs (20 game sides) passed. The [current delivery record](36-map-appearance-settings.md#final-current-delivery--contract-mv-16110) and `36-history/` preserve actual source/dist identities, rejected/incomplete attempts, original captures and safe native projections. All286 incoming rows/history bytes are preserved; final49–55 remain separate.
+
+Ticket38 focused DEV uses independent Picture literals and actual Workspace operations. Full/build/built/native remain pending.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-PICTURE-001 | Complete Picture public command and native parameter domains | synthetic-support | Public command and actual Workspace source/filesystem boundary |
+| MV-S6-PICTURE-002 | Complete Picture matrix through actual Workspace and real Push | synthetic-support | Public command and actual Workspace source/filesystem boundary |
+| MV-S6-PICTURE-003 | Actual Picture helper/direct/nested fields reject projection loss | synthetic-rejection | Public command and actual Workspace source/filesystem boundary |
+| MV-S6-PICTURE-004 | Picture malformed native and known raw refusal preserves complete state | synthetic-rejection | Public command and actual Workspace source/filesystem boundary |
+| MV-S6-PICTURE-005 | Picture signed numeric zero through formal direct and raw real Push | synthetic-support | Public command and actual Workspace source/filesystem boundary |
+| MV-S6-PICTURE-006 | Picture current public types reject incomplete and legacy forms | synthetic-rejection | Public command and actual Workspace source/filesystem boundary |
+| MV-S6-PICTURE-R6 | Picture allocated R6 actual current built game validation pending | game-observation | Pending actual current built product and literal native game pair |
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-PICTURE-007 | Picture Map and Battle page carriers preserve complete inactive state | synthetic-support | Public Workspace and complete carrier/state assertions |

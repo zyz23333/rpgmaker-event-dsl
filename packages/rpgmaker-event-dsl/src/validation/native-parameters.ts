@@ -2,6 +2,7 @@ import { CommandStructureError } from "./command-errors.js";
 import { renderJsonValue } from "../project-data/json-values.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
 import { assertNativeMapAppearanceParameters } from "../commands/map/native-validation.js";
+import { assertNativePictureParameters } from "../commands/screen/picture-native.js";
 
 // Shared saved-slot envelopes. Family validators retain ownership of semantic ranges,
 // references and mode-specific saved values; this table is not full family acceptance.
@@ -140,6 +141,10 @@ export function assertNativeCommandParameters(
   path: string,
 ): void {
   if (!isKnownCommandCode(code)) return;
+  if (code >= 231 && code <= 235) {
+    assertNativePictureParameters(code, parameters, path);
+    return;
+  }
   assertNativeMapAppearanceParameters(code, parameters, path);
   try {
     assertNativeSwitchCommand(code, parameters);
@@ -273,7 +278,6 @@ export function assertNativeCommandParameters(
   }
   if (code === 124) oneOf(0, [0, 1]);
   if (code === 402) integer(0, 0);
-  if (code === 232) oneOf(1, [0]);
   if (code === 302 || code === 605) {
     oneOf(0, [0, 1, 2]);
     oneOf(2, [0, 1]);
@@ -320,7 +324,6 @@ export function assertNativeCommandParameters(
     [138, 0],
     [223, 0],
     [224, 0],
-    [234, 1],
   ] as const)
     if (code === event)
       slot(
