@@ -1,6 +1,6 @@
 # 19: Compile／Check 完整输出与发布
 
-Status: claimed
+Status: resolved
 Blocked by: 15, 18
 Stage: S4b
 Created: 2026-10-19
@@ -20,18 +20,18 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 ## Acceptance criteria
 
-- [ ] Compile 与 Check 都完成同样的物化、结构、引用和 Gate 验证；Check 不发布、不更新业务状态、不建立 Freshness。
-- [ ] 校验失败不发布新输出；generated/manifest 发布失败可以使旧输出失效，但 Diff/Push 必须拒绝不完整或不 fresh 产物。
-- [ ] 用真实临时文件系统和确定性失败核对源码、Snapshot、Project Root、产物与元数据状态；重新成功 Compile 可恢复。
+- [x] Compile 与 Check 都完成同样的物化、结构、引用和 Gate 验证；Check 不发布、不更新业务状态、不建立 Freshness。
+- [x] 校验失败不发布新输出；generated/manifest 发布失败可以使旧输出失效，但 Diff/Push 必须拒绝不完整或不 fresh 产物。
+- [x] 用真实临时文件系统和确定性失败核对源码、Snapshot、Project Root、产物与元数据状态；重新成功 Compile 可恢复。
 
 ### 共通要求（限本票适用范围）
 
-- [ ] 按规格 I1–I12 和对应完整参数附表实现；正式编写、编译、反编译、验证、已知 raw 及适用 Workspace 路径一起交付，实际发现并求值生成源码，预期独立于待测编译器。
-- [ ] 对本票拥有的字段/模式/枚举/None/独立保存值/默认/正负边界及已知相互作用建案例；完整比较键存在性、数组长度/顺序、页序、值、镜像、CR 和非激活配置。
-- [ ] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
-- [ ] 产品变更执行 Windows / Node 22 全量适用检查与构建；安全票同时验证用户可观察的源码、项目、Snapshot、manifest、Discovery 集合和诊断状态。
-- [ ] 本票分配的必要编辑器/游戏场景取得实际证据后才关闭；最终回归另外执行。原生版本、runtime/NW.js、步骤、输入身份、操作者、预期/实际与原始结果可追踪。
-- [ ] 同步受影响的当前公开 API 文档、示例及编写指南；不保留旧 API 别名或迁移说明，不分发首方编辑器、runtime/源码或本地游戏资产。
+- [x] 按规格 I1–I12 和对应完整参数附表实现；正式编写、编译、反编译、验证、已知 raw 及适用 Workspace 路径一起交付，实际发现并求值生成源码，预期独立于待测编译器。
+- [x] 对本票拥有的字段/模式/枚举/None/独立保存值/默认/正负边界及已知相互作用建案例；完整比较键存在性、数组长度/顺序、页序、值、镜像、CR 和非激活配置。
+- [x] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
+- [x] 产品变更执行 Windows / Node 22 全量适用检查与构建；安全票同时验证用户可观察的源码、项目、Snapshot、manifest、Discovery 集合和诊断状态。
+- [x] 本票分配的必要编辑器/游戏场景取得实际证据后才关闭；最终回归另外执行。原生版本、runtime/NW.js、步骤、输入身份、操作者、预期/实际与原始结果可追踪。
+- [x] 同步受影响的当前公开 API 文档、示例及编写指南；不保留旧 API 别名或迁移说明，不分发首方编辑器、runtime/源码或本地游戏资产。
 
 ## Verification
 
@@ -48,3 +48,11 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 - [实施规格](../complete-mv-events-implementation-spec.md)：I9、I11、T1、T5；完整契约与未在本票重复列出的参数规则以规格及其规范附表为准。
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
+
+## Outcome
+
+已交付完整纯内存 Compile Output 候选：Check 与 Compile 共享物化、严格 JSON 序列化、结构、固定引用与递归 Gate 校验。Check 无候选文件或业务状态更新，维持原 Freshness；Compile 在生成目录安装前及 manifest 提交前重查18的捕获输入。Diff／Push 从 Snapshot 独立推导完整 owned 文件集合，并对实际 Buffer 做 SHA256，拒绝少报、自报额外域、实际多余／损坏／缺失文件及发布失败后的 stale 状态。成功 Compile 可恢复；Project Root、Snapshot 与源码保持。唯一编译契约版本为 `mv-1.6.1/3`。
+
+产品／测试提交 `5d541e98ab7f10d3808214a9ec9281f49cf49001`，基于并已合入最新集成 `1e6b3f4fbf8259bba421b2d85b78ae2a9b29cba6`。Windows／Node22.23.0 正常 `pnpm check` 27 files／260 tests、fresh `pnpm build`、正常 built Windows baseline 6 files／35 tests均通过；24份新原始记录入库后索引／schema／独立往返3 tests再次通过。新增9项要求，旧151项语义及既有证据不改；18份最终源码／构建passed及6份原failed记录原样保留。
+
+详细矩阵、真实red→green、fingerprint及范围限制见[19验收报告](../evidence/19-compile-check-and-output-publication.md)。本票没有分配独立原生场景，记录均为 `native: not-executed`；23–25完整容器、21 Drift、22恢复及最终E／R回归仍属各自工单。
