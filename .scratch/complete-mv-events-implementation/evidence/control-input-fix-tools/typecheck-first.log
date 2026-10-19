@@ -1,0 +1,27 @@
+
+> rpgmaker-event-dsl@0.1.2 typecheck C:\Users\Shuen\.codex\worktrees\mv-control-input-fix\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> tsc -p tsconfig.json --noEmit
+
+src/commands/variables/switch-inputs.ts(13,33): error TS2339: Property 'from' does not exist on type 'object & Record<"kind", unknown>'.
+src/commands/variables/switch-inputs.ts(14,33): error TS2339: Property 'to' does not exist on type 'object & Record<"kind", unknown>'.
+test/control-input-boundaries.test.ts(56,48): error TS2345: Argument of type '({ code: 121 | 123; indent: number; parameters: readonly [1, 1, 0] | readonly ["A", 0]; } | { code: number; indent: number; parameters: never[]; })[]' is not assignable to parameter of type 'readonly RawEventCommand[]'.
+  Type '{ code: 121 | 123; indent: number; parameters: readonly [1, 1, 0] | readonly ["A", 0]; } | { code: number; indent: number; parameters: never[]; }' is not assignable to type 'RawEventCommand'.
+    Type '{ code: 121 | 123; indent: number; parameters: readonly [1, 1, 0] | readonly ["A", 0]; }' is not assignable to type 'RawEventCommand'.
+      Types of property 'parameters' are incompatible.
+        Type 'readonly [1, 1, 0] | readonly ["A", 0]' is not assignable to type 'unknown[]'.
+          The type 'readonly [1, 1, 0]' is 'readonly' and cannot be assigned to the mutable type 'unknown[]'.
+test/control-input-boundaries.test.ts(57,48): error TS2345: Argument of type '({ code: 121 | 123; indent: number; parameters: readonly [1, 1, 0] | readonly ["A", 0]; } | { code: number; indent: number; parameters: never[]; })[]' is not assignable to parameter of type 'readonly RawEventCommand[]'.
+  Type '{ code: 121 | 123; indent: number; parameters: readonly [1, 1, 0] | readonly ["A", 0]; } | { code: number; indent: number; parameters: never[]; }' is not assignable to type 'RawEventCommand'.
+    Type '{ code: 121 | 123; indent: number; parameters: readonly [1, 1, 0] | readonly ["A", 0]; }' is not assignable to type 'RawEventCommand'.
+      Types of property 'parameters' are incompatible.
+        Type 'readonly [1, 1, 0] | readonly ["A", 0]' is not assignable to type 'unknown[]'.
+          The type 'readonly [1, 1, 0]' is 'readonly' and cannot be assigned to the mutable type 'unknown[]'.
+test/control-input-boundaries.test.ts(58,48): error TS2345: Argument of type '({ code: 121 | 123; indent: number; parameters: readonly [1, 1, 0] | readonly ["A", 0]; } | { code: number; indent: number; parameters: never[]; })[]' is not assignable to parameter of type 'readonly RawEventCommand[]'.
+  Type '{ code: 121 | 123; indent: number; parameters: readonly [1, 1, 0] | readonly ["A", 0]; } | { code: number; indent: number; parameters: never[]; }' is not assignable to type 'RawEventCommand'.
+    Type '{ code: 121 | 123; indent: number; parameters: readonly [1, 1, 0] | readonly ["A", 0]; }' is not assignable to type 'RawEventCommand'.
+      Types of property 'parameters' are incompatible.
+        Type 'readonly [1, 1, 0] | readonly ["A", 0]' is not assignable to type 'unknown[]'.
+          The type 'readonly [1, 1, 0]' is 'readonly' and cannot be assigned to the mutable type 'unknown[]'.
+C:\Users\Shuen\.codex\worktrees\mv-control-input-fix\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 typecheck: `tsc -p tsconfig.json --noEmit`
+Exit status 2

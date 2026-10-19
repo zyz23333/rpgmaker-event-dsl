@@ -1,0 +1,466 @@
+{
+  "createdAt": "2026-10-19T19:57:25.642Z",
+  "purpose": "Exact self-authored control-input correction tools, original failed/passed raw logs, checks and immutable source snapshot manifests. Full source snapshot files and retained sandboxes remain external on M; no first-party target code/runtime/assets.",
+  "files": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/append-requirements-v1.cjs",
+      "sha256": "217eef8b85f1f4e439c6c87d52ea35d851f38edacaa6b571fad1aceca6506abd",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/append-requirements-v1.cjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/append-requirements-v2.cjs",
+      "sha256": "78f42ad005445d4506f664fe67ca351d2b95cffda2aa0f03fdf386f2c66d6c6b",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/append-requirements-v2.cjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/archive-tools-v1.cjs",
+      "sha256": "9755c33be509305325edd28ed14c0582ca51abd436481a6b7aefddec646abff3",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/archive-tools-v1.cjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/audit-and-freeze-v1-output.log",
+      "sha256": "b17807cf4f3a76b0792d954f105f7ca97180b166efbb5bf056076d42a39a4421",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/audit-and-freeze-v1-output.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/audit-and-freeze-v1.cjs",
+      "sha256": "a7d709a812bac8ffecc8cfffe2bd282306881a0fd5be6a705f6cb8b858b8b753",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/audit-and-freeze-v1.cjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/direct-fields-green-driver.log",
+      "sha256": "0188277ce6a51aa89b65d1dc4f06f2b1d3382ec2b4b4aa5eb4934c0401ef2aa5",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/direct-fields-green-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/direct-fields-green-freeze.log",
+      "sha256": "320bd9da25f261aad552088018dd989f97ab47b4702d393573ca4c6cdfd78943",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/direct-fields-green-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/direct-fields-green.log",
+      "sha256": "16cbdb15dbdd1b916102805e2d4c68f4feec9e33ed9a050458bc15cc9dd58eb2",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/direct-fields-green.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/direct-fields-red-driver.log",
+      "sha256": "5d495862b4c380a0a2c74340463386aa649623e69976fe037c9af8abdcc57bde",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/direct-fields-red-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/direct-fields-red-freeze.log",
+      "sha256": "74861b8e481740aafb8062b2c387ab7049b9d3813dd3ad4d841d26bf3c076ec2",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/direct-fields-red-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/direct-fields-red.log",
+      "sha256": "93e298d6acffea0f9148636511b31d20a04ea39009a10d3b57422dd7270c12b5",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/direct-fields-red.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/final-focused-capture-driver.log",
+      "sha256": "8f002f25b92b7ea05dfce159d7ce2bc08c8b3958320fcddd70981ae9defbca31",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/final-focused-capture-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/final-focused-capture-freeze.log",
+      "sha256": "4afceca0f1126f028ab95435dd73b8a31ee6b1e4499914d2fa3f6f93d64e4280",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/final-focused-capture-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/final-focused-capture.log",
+      "sha256": "80ebccbebcdffc7e4cd7cc139e00a00480a89e7948727bcd8e884c175962af7d",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/final-focused-capture.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/format-final.log",
+      "sha256": "3b2993e841abb7df79437acbac0d46b3828eb81131fbd535e433188216e4f1e4",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/format-final.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/format-first.log",
+      "sha256": "4cc1d7f4979204bb660dd4e194fc1dabf1db7af2677b6d4ff499207f0cac8aa0",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/format-first.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/format-readme-final.log",
+      "sha256": "4fa52d0f3514d32e38c4a340b909232970b21867ab3688142bc3794287313cca",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/format-readme-final.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/format-related.log",
+      "sha256": "d2254fae694c66066f3973f47e294f4d7f36517e841a3ce80c0b02798254bed4",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/format-related.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/freeze-inputs.cjs",
+      "sha256": "b9a91cb1ed007fa57ffe56ff0ae8c4982fdc3bcab7ded96bd7f2f4980a5983ec",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/freeze-inputs.cjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/helper-fields-green-driver.log",
+      "sha256": "c7be95f6d25e69d063fba91d0f405f322b020881bc8da63f91d83ec39d706f69",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/helper-fields-green-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/helper-fields-green-freeze.log",
+      "sha256": "c2f3aa60a6647133adb54467a393b74dcad459928a08e2227399bf16139437b1",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/helper-fields-green-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/helper-fields-green.log",
+      "sha256": "da3f76afff6b597bbdd658dd2ce3b4f6c0a9588fd6fa4b268985ed6b6676da92",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/helper-fields-green.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/helper-fields-red-driver.log",
+      "sha256": "32caca310980b63847b175453173053c98df98cf41099532d21f44dc61580cba",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/helper-fields-red-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/helper-fields-red-freeze.log",
+      "sha256": "1ec5cf0699d7dfb4747242ffb6685fe8d4d502e15b3ad3291119b4bb68f71340",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/helper-fields-red-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/helper-fields-red.log",
+      "sha256": "9bff52260de136632ae64d8348789fd658c61d5c079327706b951d257c339eda",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/helper-fields-red.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/lint-final.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/lint-final.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/nested-reference-green-driver.log",
+      "sha256": "b13226f330382ca59d232e5fb78c6da90d25b906b898711e824028eb7f9e1802",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/nested-reference-green-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/nested-reference-green-freeze.log",
+      "sha256": "e61c5bf19a9fc9c1abe81cbf38c9cf76dd6e604579acaee586e63552cfc52717",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/nested-reference-green-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/nested-reference-green.log",
+      "sha256": "c8562cfacfcbfee262ac331a881ebbcc9b4cdcc7f4e0e183cea5679ea42c4909",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/nested-reference-green.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/nested-reference-red-driver.log",
+      "sha256": "6325ab7f816fc9c46ab51fd5c79787ac0ae35e41d4228eeb3b1987925c147c9c",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/nested-reference-red-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/nested-reference-red-freeze.log",
+      "sha256": "93ba300f1964b51b9b887f323e4acec772303139be0e262e00334321d59d18a3",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/nested-reference-red-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/nested-reference-red.log",
+      "sha256": "fa2b8c141102bd44a393ff01eb55a2744115755ee5e1e615c131dc2c6df01f71",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/nested-reference-red.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/owned-corrected-driver.log",
+      "sha256": "f331bcce5221fabe5ae0eee67cfaa3ee82bb273be83c7bc13357808a34edb7d1",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/owned-corrected-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/owned-corrected-freeze.log",
+      "sha256": "72ff92926389eb38bb038a887246bd3d1d85f8988bfa73702787fd1dcea6c730",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/owned-corrected-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/owned-corrected.log",
+      "sha256": "f1e6bd43899817a01a2854bf53b824916983d9ce5febb4e96d5b9a7216f4ebe3",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/owned-corrected.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/owned-first-driver.log",
+      "sha256": "e2243c35fc0bac6ce4b1e9efd41ae36becde90a609396048cac4afd72b32f48f",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/owned-first-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/owned-first-freeze.log",
+      "sha256": "d11f1e1c56a7b83368d99774f109d9f8c01134ea3c222beaa789a488bf812620",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/owned-first-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/owned-first.log",
+      "sha256": "29a615b91744f9edffa37269efed1829ecbad7d45fddc9b75b03086ea6b9da75",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/owned-first.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/postcopy-evidence-index-driver.log",
+      "sha256": "49f78c18bc56c4125b861b607bff51c6de98dd5aaba1e0343ec3f8c73c2b3dd5",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/postcopy-evidence-index-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/postcopy-evidence-index-freeze.log",
+      "sha256": "ca8c33f57c4783f72155c66edc5c82ce8eb75a263b7eed68d0d4b097f565ede0",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/postcopy-evidence-index-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/postcopy-evidence-index.log",
+      "sha256": "4450508ee90a6b2a731e5287b7dc60091ddff7fa31d2cf28c4d5ec4c95ea7cfd",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/postcopy-evidence-index.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/reference-helper-green-driver.log",
+      "sha256": "8c594a51b5ea15f210c6d801c47236369bef075a81b6bb5b244040970d499ec3",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/reference-helper-green-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/reference-helper-green-freeze.log",
+      "sha256": "18977e521463095ab586b2693a9e72943d0e59bd491fdc145c48c2b0fbb2abab",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/reference-helper-green-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/reference-helper-green.log",
+      "sha256": "4dee8440a803ca635942b74b5210f8922f45fa2bd34b0068b03d43c002b16739",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/reference-helper-green.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/reference-helper-red-driver.log",
+      "sha256": "6a3e096443875cdb8a2189568c77ebf774053f89d22eec4affa6176da1e9b5a3",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/reference-helper-red-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/reference-helper-red-freeze.log",
+      "sha256": "c94a739cc54323c3adc3a805f2cfa03664456dd344bf86c35800c6f8ccafc24d",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/reference-helper-red-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/reference-helper-red.log",
+      "sha256": "8309ab4b50c1ada9fd85fd7f472ec00821917c9e90c59f1c9f3b381913160469",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/reference-helper-red.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/related-corrected-driver.log",
+      "sha256": "c887f33bd7127036e0cdb1894a8a03225a50fe10e11380b07a1fd4f57d37eae3",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/related-corrected-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/related-corrected-freeze.log",
+      "sha256": "325e6f9b700ae9727d4a5d12eb24c13c3bc091065f488a4bfef189d5d41326f1",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/related-corrected-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/related-corrected.log",
+      "sha256": "48cce1ab7106ea9d0662d1953daa90b60a13a204b1f5b86eb22fd9b702414a68",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/related-corrected.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/related-first-driver.log",
+      "sha256": "e32643919239501fa6e87a431e6fbc7a02ba55e4f22cc880d166e15ffae6c30c",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/related-first-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/related-first-freeze.log",
+      "sha256": "2be28c3998a0533ed9234b2b40a8e23fb34f733793872456d656ecf659eefade",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/related-first-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/related-first.log",
+      "sha256": "aacec700e6903cfa089f6ee3e7ef9d744660572035b7b0768bff6319853a33c3",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/related-first.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/run-focused.ps1",
+      "sha256": "880440a6220d4f4e3dd424eb8e7b2d4389d79eea0a47f24206eb06953d859808",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/run-focused.ps1"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/run-slice.ps1",
+      "sha256": "e202fe569f40ebb3807e82d52e2ba81f0a01d5b68fc643c16a39d0f012eb1ad7",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/run-slice.ps1"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/scoped-checks-final.json",
+      "sha256": "e05f49b86e95e8dd5df77035b9c14e8a6b470bcff15ffcb60686bdea85cc8514",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/scoped-checks-final.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/switch-negative-zero-green-driver.log",
+      "sha256": "48b096926171c047a4b0d6bb69a867e3139986b218dcb8d060406661f0773579",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/switch-negative-zero-green-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/switch-negative-zero-green-freeze.log",
+      "sha256": "3a8d4731d29c3b89b3c901ffa2515924ad9f7edafee34d7be735a997923100b9",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/switch-negative-zero-green-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/switch-negative-zero-green.log",
+      "sha256": "9552c83b308335ff77c11d3016c2d06c31edda7d6945c14c543dc8b2e9269ec3",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/switch-negative-zero-green.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/switch-negative-zero-red-driver.log",
+      "sha256": "fe432731db618c313a13a7b8e4add44a82cc017429050ac68c4369556ab7e930",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/switch-negative-zero-red-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/switch-negative-zero-red.log",
+      "sha256": "fe432731db618c313a13a7b8e4add44a82cc017429050ac68c4369556ab7e930",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/switch-negative-zero-red.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/typecheck-corrected.log",
+      "sha256": "9f84e1167e4930b23435844bfd5c0e8848e693c65aad234bf8b3647761d6cc99",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/typecheck-corrected.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/typecheck-final.log",
+      "sha256": "9f84e1167e4930b23435844bfd5c0e8848e693c65aad234bf8b3647761d6cc99",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/typecheck-final.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/typecheck-first.log",
+      "sha256": "114bd8596e3c23f0a787d669fe6e465c97cc57b247f702fbc43f8149786df859",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/typecheck-first.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/verify-staged-v1.cjs",
+      "sha256": "6209cee8563a4c621e7ac380d78c658f70bf7c0c4cb8679f3965cf11adae42c2",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/verify-staged-v1.cjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/whitespace-final.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/whitespace-final.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/workspace-first-driver.log",
+      "sha256": "fef7e029ce316cf05370bf50ba9cb12174c72a69d138b960f3ffcd1dd3600d67",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/workspace-first-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/workspace-first-freeze.log",
+      "sha256": "483dd031a4af8646e2c4a83a905c9d31071d0f80bd3eeba7d80f4012fd2b70a1",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/workspace-first-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/workspace-first-registered-driver.log",
+      "sha256": "b8dd666cadcf2fb9abea570964f4a90fc0bfc445e3056accb9da2649cc45986d",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/workspace-first-registered-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/workspace-first-registered-freeze.log",
+      "sha256": "940463be79a8a32ff05ffcfed2bf80e04788d237bbc1315cf9a2e993fcf7e1e5",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/workspace-first-registered-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/workspace-first-registered.log",
+      "sha256": "e99c41ce6dd25f3608e54dc892ce21a9f045457da0b7b9002331bb82d2aafc1d",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/workspace-first-registered.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/workspace-first.log",
+      "sha256": "4a1f1903a0385839378b4eacb3a29974ce5450d82ef43cc7512defc35da4dbcf",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/workspace-first.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/snapshot-manifests/direct-fields-green.json",
+      "sha256": "83566124ac3eb36d0f81fdba256c012d1e9b2c9c47cc4d3cccc8315e4d8a4368",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/source-snapshots/direct-fields-green/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/snapshot-manifests/direct-fields-red.json",
+      "sha256": "733e3a2baa3357efd9fe6cd710eca3c422930164b74b2eae6210c3f3698d050f",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/source-snapshots/direct-fields-red/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/snapshot-manifests/final-focused-capture.json",
+      "sha256": "a14ae35b4504c0b9be70a7c19b5e48508a634bf4e3742fd12862c52401ac9444",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/source-snapshots/final-focused-capture/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/snapshot-manifests/helper-fields-green.json",
+      "sha256": "0634bead31027ac6468667a290d9bbed33e4f9c49e6d503da55c3afa1e8eb769",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/source-snapshots/helper-fields-green/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/snapshot-manifests/helper-fields-red.json",
+      "sha256": "aab415a1de68be5c91878c6b8368c498b11f561395fc0d30d7b36dc90e86f516",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/source-snapshots/helper-fields-red/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/snapshot-manifests/nested-reference-green.json",
+      "sha256": "8bd72d191ac48733a3db3e2076c4bc32cd2c09c88e4532f0411377ed76d2790e",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/source-snapshots/nested-reference-green/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/snapshot-manifests/nested-reference-red.json",
+      "sha256": "614979a8d0446a14b851a213e3a1da261fbeae3671befc770f7854830450d7b7",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/source-snapshots/nested-reference-red/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/snapshot-manifests/owned-corrected.json",
+      "sha256": "358a2d8102874d83c26a5a70fd995f1cfc1cb9a9ba605da0801c559760cef9de",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/source-snapshots/owned-corrected/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/snapshot-manifests/owned-first.json",
+      "sha256": "afde8a043bffde1ba20f23bd0a5a201fd49bbffefe3f0e7df62f91433a288a02",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/source-snapshots/owned-first/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/snapshot-manifests/postcopy-evidence-index.json",
+      "sha256": "a2f29e9ec551827069048afab3e3eb87b8435b536ef93a64b93d613e73d1ebee",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/source-snapshots/postcopy-evidence-index/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/snapshot-manifests/reference-helper-green.json",
+      "sha256": "308ead4da9c2cef66ba22b4987a4ec5a7920ee8611a885189eaa73740fd12e74",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/source-snapshots/reference-helper-green/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/snapshot-manifests/reference-helper-red.json",
+      "sha256": "2e6991ce1f2b4d8cc589b3c21576f855fff124de5075e36efb7fc799bb980832",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/source-snapshots/reference-helper-red/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/snapshot-manifests/related-corrected.json",
+      "sha256": "9393f921fcd560ac90351102c53904787c0522cec1b0de90d74f78002ac871e1",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/source-snapshots/related-corrected/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/snapshot-manifests/related-first.json",
+      "sha256": "2cb41b5f3f84f3cf8dd0dc776aa332bd694c6689ddf6b3e570e3eee73636eb40",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/source-snapshots/related-first/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/snapshot-manifests/switch-negative-zero-green.json",
+      "sha256": "7c7a0f3e06a7d0f383ec0f08e96662562e924e7e6948babdeb9ea857981cff3c",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/source-snapshots/switch-negative-zero-green/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/snapshot-manifests/switch-negative-zero-red-original.json",
+      "sha256": "e0096a598fe9a8851c128e5e926c8a2d74ee550494ebd5500e11b97092a4d1b8",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/source-snapshots/switch-negative-zero-red-original/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/snapshot-manifests/workspace-first.json",
+      "sha256": "d6aa980edf41f199033917fee6333f7d6dabee06135d8b5162cb08595f1a7907",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/source-snapshots/workspace-first/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/snapshot-manifests/workspace-first-registered.json",
+      "sha256": "b8461cf7e2bfc976fd0d789426e61d152ae8617238afbbe5d86c567fb7230006",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/source-snapshots/workspace-first-registered/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/final-source-freeze-manifest.json",
+      "sha256": "d3209a7bda23d1ba6b88494a685d9139eb9193f4254d54501d2682a3db5777b6",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/control-input-fix-temp/final-actual3854-source-freeze/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-tools/.gitattributes",
+      "sha256": "ef5c230f4d8b87142cf574d3b391a2b4ac5ccaf1776980fac2bd8cb3305cdc06",
+      "original": "self-authored archive byte-preservation rule"
+    }
+  ]
+}

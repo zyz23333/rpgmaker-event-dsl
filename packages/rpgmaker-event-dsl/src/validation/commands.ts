@@ -13,6 +13,7 @@ import type { ReferenceResolver, ValidationIssue } from "./types.js";
 import { captureReferenceIssue } from "./shared.js";
 import { isReferenceValue } from "./inspection.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
+import { assertSwitchCommandInput } from "../commands/variables/switch-inputs.js";
 import { assertNativeContextReferences } from "./native-context-references.js";
 import { resolveCommonEventCall, assertLoopCommand } from "../commands/flow/validation.js";
 import {
@@ -60,6 +61,7 @@ export function validateNodes(
     const nodePath = `${options.path ?? "commands"}[${nodeIndex}]`;
     try {
       assertMapAppearanceInput(node.kind, node, nodePath, true, resolver);
+      assertSwitchCommandInput(node.kind, node, nodePath);
     } catch (error) {
       if (error instanceof CommandStructureError)
         issues.push(error.issue(options.identity ?? "event", "compile"));

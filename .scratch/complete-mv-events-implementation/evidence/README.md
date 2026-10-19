@@ -496,3 +496,15 @@ Ticket36 map appearance cases use independent complete saved literals and actual
 | MV-S6-MAP-APPEARANCE-007 | preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push | synthetic-support | Public source/built Workspace; literal signed-zero carrier and Object.is assertions |
 
 Ticket36 allocated delivery is complete on contract `mv-1.6.1/10`: current source40 files/987 tests, fresh build, built Windows16 files/373 tests,9 exact E6 resource checks and10 physically isolated current-built/native pairs (20 game sides) passed. The [current delivery record](36-map-appearance-settings.md#final-current-delivery--contract-mv-16110) and `36-history/` preserve actual source/dist identities, rejected/incomplete attempts, original captures and safe native projections. All286 incoming rows/history bytes are preserved; final49–55 remain separate.
+
+Supplementary S3 / Loop strict authored-input correction remains focused DEV on contract10; final delivery is pending.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S3-INPUT-001 | Public command boundaries refuse discarded fields and symbolic negative zero | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-002 | Actual local, spread, asserted and direct source fields refuse before output | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-003 | All fifteen reference constructors preserve valid controls and reject discarded source fields | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-004 | Nested direct switch references and ranges refuse excess and ambiguous fields | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-005 | Native categorical signed zero refuses before publication while positive-zero controls roundtrip | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-006 | Evaluated known raw categorical signed zero reports its precise authored slot | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-007 | Pending final integrated source/build/built and impacted R1/R3 validation | synthetic-support | Not executed: final integrated delivery and native normal-Scene game regression |

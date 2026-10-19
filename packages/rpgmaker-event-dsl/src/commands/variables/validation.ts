@@ -1,4 +1,5 @@
 import type { ReferenceResolver } from "../../validation/types.js";
+import { describeValue } from "../../project-data/json-values.js";
 
 export function assertNativeSwitchCommand(
   code: number,
@@ -13,9 +14,9 @@ export function assertNativeSwitchCommand(
     );
   }
   const operation = parameters[code === 121 ? 2 : 1];
-  if (operation !== 0 && operation !== 1) {
+  if (Object.is(operation, -0) || (operation !== 0 && operation !== 1)) {
     throw new Error(
-      `${label}-VALUE parameters[${code === 121 ? 2 : 1}]: expected native ON 0 or OFF 1; received ${JSON.stringify(operation)}.`,
+      `${label}-VALUE parameters[${code === 121 ? 2 : 1}]: expected native ON 0 or OFF 1, excluding negative zero; received ${describeValue(operation)}.`,
     );
   }
   if (code === 123) {
