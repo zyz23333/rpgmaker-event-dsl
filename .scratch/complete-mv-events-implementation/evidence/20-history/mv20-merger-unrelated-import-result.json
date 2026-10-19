@@ -1,0 +1,11 @@
+{
+  "root": "C:/Users/Shuen/.codex/tmp/mv20-merger-unrelated-import-7dea5c4b-2be0-4c0c-bd4f-d75690919791",
+  "node": "v22.23.0",
+  "packageRoot": "C:/Users/Shuen/.codex/worktrees/mv-ticket-20/rpgmaker-event-dsl/packages/rpgmaker-event-dsl",
+  "source": "import { commonEvent, nonexistentCommand } from \"rpgmaker-event-dsl\";\nexport const existing = commonEvent({id:99,name:\"Existing\",trigger:\"none\",commands:[nonexistentCommand({})]});\n",
+  "actual": {
+    "ok": false,
+    "message": "MV-DECOMPILE-IDENTITY C:\\Users\\Shuen\\.codex\\tmp\\mv20-merger-unrelated-import-7dea5c4b-2be0-4c0c-bd4f-d75690919791\\src\\existing.events.ts: Unknown DSL helper nonexistentCommand."
+  },
+  "expected": "Success: existing Entry Identity commonEvent:99 is reliably known, candidate commonEvent:1 does not collide; unrelated missing command import must not trigger full old-source type/reference validation."
+}

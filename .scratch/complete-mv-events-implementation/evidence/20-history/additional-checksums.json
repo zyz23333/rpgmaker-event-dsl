@@ -1,0 +1,70 @@
+[
+  {
+    "file": "mv20-build.txt",
+    "sha256": "206750ebbe4d6e2ac08897b068c7f4d53cfbddecef8e75e2d26a2b5036a25049"
+  },
+  {
+    "file": "mv20-cross-volume-public-workspace-result.json",
+    "sha256": "e7da739ee83e665d7cb0023d9ca4f61b528c7957b39c6aae94e05ee94e075833"
+  },
+  {
+    "file": "mv20-cross-volume-workspace.mjs",
+    "sha256": "51a924c6cfde1df919393de5df41b6bd54bf473b0bf4d24bab242cd0ca6f123f"
+  },
+  {
+    "file": "mv20-destination-red.json",
+    "sha256": "ca0e2b8c4bb80a8bf86b99e9fcebbf42091605f27ffbea636cd92e471672d3a3"
+  },
+  {
+    "file": "mv20-discovery-red.json",
+    "sha256": "05fd00275f02481a5df9e983362029fdaffce6b491443567a5ad641c06f51752"
+  },
+  {
+    "file": "mv20-existing-workflow-check.json",
+    "sha256": "dc8f646aa0244e1f6e21b1db3eb066bab54c87bf65dffc4641fc311b2a468173"
+  },
+  {
+    "file": "mv20-final-location-green.json",
+    "sha256": "caf11845fa31c59177be45f9a3a871bc56b20351269c756cd4b3b503c6ae2789"
+  },
+  {
+    "file": "mv20-final-location-red.json",
+    "sha256": "bcb76bb9e5a75392cc63824b6eee89930c861a5e4febfdb027f2c8a15cbcc613"
+  },
+  {
+    "file": "mv20-full-check-after-spread.txt",
+    "sha256": "08933fb30af609837f7e5c367c4f8d069d4ba9d2657330f5c8317a2ed1c7576f"
+  },
+  {
+    "file": "mv20-full-check-final.txt",
+    "sha256": "f40cfc270ceafa0d040a1233587f0e23d7f656ca3ebfb6bf16ade72336753cd5"
+  },
+  {
+    "file": "mv20-full-check-first.txt",
+    "sha256": "de4d952c7fc1cd48b32f61bf266758a26f98aff8203911472cfe22a5d1239ae9"
+  },
+  {
+    "file": "mv20-helper-spread-green.json",
+    "sha256": "07c9a4b76f77a1bce7c3a56db49e9f2681fafdcfe6fdeee249550d37e0574189"
+  },
+  {
+    "file": "mv20-helper-spread-red.json",
+    "sha256": "0f0028b8770387d4884dc8574b225e8909e6f3ef1c4095e5c76ce6c52137cda6"
+  },
+  {
+    "file": "mv20-identity-red.json",
+    "sha256": "e3d41b86caafda94096c56f95b757ce42d4f90b26c56ee57c3416e3324793193"
+  },
+  {
+    "file": "mv20-identity-spread-red.json",
+    "sha256": "da42a832f39023d4695a7c50e6be1854c7d34cd3a986e6bc436ac81da5b0943d"
+  },
+  {
+    "file": "mv20-path-swap-red.json",
+    "sha256": "f8c7309887802ffdbc3d5a9046b10ee1344bbf397dead8b8f9509c3dcb8c3961"
+  },
+  {
+    "file": "mv20-preconditions-fixed.json",
+    "sha256": "10ed1fe5fad5d9b03286cb39e96130bbc8a72f53a1c78f2a1db1e586feda6cf8"
+  }
+]

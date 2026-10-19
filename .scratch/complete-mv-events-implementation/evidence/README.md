@@ -278,7 +278,7 @@ Ticket19 adds complete Compile Output validation and publication safety cases; a
 
 [Ticket19验收报告](19-compile-check-and-output-publication.md)记录完整候选、发布故障、字节完整性、9项源码／构建矩阵、4个产品红灯与2个测试预期错误；全部本票机器记录为native not-executed。
 
-Ticket20 adds complete isolated Decompile directory publication. All cases record native:not-executed.
+Ticket20 adds [complete isolated Decompile directory publication acceptance](20-decompile-complete-directory-publication.md), including 33 source and 33 own-worktree built passed records, retained failed history, and an actual C:/F: cross-volume rejection supplement. All cases record native:not-executed.
 
 | Requirement | Obligation | Evidence kind | Required layer |
 | --- | --- | --- | --- |
