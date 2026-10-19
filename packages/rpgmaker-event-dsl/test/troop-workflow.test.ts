@@ -6,6 +6,7 @@ import { expect, it } from "vitest";
 import { createMinimalProject } from "./support/windows-sandbox.js";
 import { workspaceApiEntry } from "./support/workspace-operation-process.js";
 import { getWorkspaceStatePaths } from "../src/workspace/state.js";
+import { discoverDefinitionFiles } from "../src/workspace/definitions.js";
 
 const {
   cloneWorkspace,
@@ -89,6 +90,28 @@ async function fixture() {
 async function json(path: string) {
   return JSON.parse(await readFile(path, "utf8"));
 }
+async function tree(root: string): Promise<Record<string, string>> {
+  const result: Record<string, string> = {};
+  for (const entry of await readdir(root, { withFileTypes: true }).catch(() => [])) {
+    if (entry.name === "operation.lock") continue;
+    const path = join(root, entry.name);
+    if (entry.isDirectory())
+      for (const [name, bytes] of Object.entries(await tree(path)))
+        result[entry.name + "/" + name] = bytes;
+    else result[entry.name] = (await readFile(path)).toString("hex");
+  }
+  return result;
+}
+async function observe(workspaceRoot: string) {
+  const config = await readFile(join(workspaceRoot, "rpgmaker-event-dsl.config.json"), "utf8");
+  return {
+    source: await tree(join(workspaceRoot, "src")),
+    project: await tree(join(workspaceRoot, "Game")),
+    state: await tree(join(workspaceRoot, ".rpgmaker-event-dsl")),
+    config,
+    discovery: await discoverDefinitionFiles(workspaceRoot, JSON.parse(config)),
+  };
+}
 
 it("materializes every actual Troop carrier and resets omitted pages to the exact Blank", async () => {
   return verifyTroopEvidence("MV-S5-TROOP-WORKSPACE-001", async () => {
@@ -136,6 +159,112 @@ it("decompiles all actual Troops including Blank and roundtrips complete inactiv
       expectedTroops: troops,
       actualGenerated: await json(join(paths.generatedProjectDataDirectory, "Troops.json")),
     };
+  });
+});
+
+it("treats every optional Battle Page condition slot explicitly undefined as omission through public Check and Compile", async () => {
+  return verifyTroopEvidence("MV-S5-TROOP-WORKSPACE-002", async () => {
+    const { workspaceRoot, troops, paths } = await fixture();
+    await decompileWorkspace({ workspaceRoot });
+    const sourcePath = join(workspaceRoot, "src/decompiled/troop-events.events.ts");
+    await writeFile(
+      sourcePath,
+      (await readFile(sourcePath, "utf8")).replace(
+        "battlePage({",
+        "battlePage({ conditions: { turnEnd: undefined, turn: undefined, enemy: undefined, actor: undefined, switch: undefined }, span: undefined,",
+      ),
+    );
+    const before = await observe(workspaceRoot);
+    await compileWorkspace({ workspaceRoot, check: true });
+    expect(await observe(workspaceRoot)).toStrictEqual(before);
+    await compileWorkspace({ workspaceRoot, check: false });
+    expect(await json(join(paths.generatedProjectDataDirectory, "Troops.json"))).toStrictEqual(
+      troops,
+    );
+    return {
+      before,
+      generatedTroops: await json(join(paths.generatedProjectDataDirectory, "Troops.json")),
+    };
+  });
+});
+
+it("preserves native negative zero in every saved Battle Page numeric condition through Decompile and public Compile", async () => {
+  return verifyTroopEvidence("MV-S5-TROOP-WORKSPACE-002", async () => {
+    const { workspaceRoot, troops, paths } = await fixture();
+    const fields = [
+      "turnA",
+      "turnB",
+      "enemyIndex",
+      "enemyHp",
+      "actorId",
+      "actorHp",
+      "switchId",
+    ] as const;
+    let nativeText = JSON.stringify(troops);
+    for (const field of fields)
+      nativeText = nativeText.replace(
+        `"${field}":${defaultPage.conditions[field]}`,
+        `"${field}":-0`,
+      );
+    await writeFile(join(workspaceRoot, "Game/data/Troops.json"), nativeText);
+    const expectedTroops = JSON.parse(nativeText);
+    for (const field of fields)
+      expect(Object.is(expectedTroops[1].pages[0].conditions[field], -0)).toBe(true);
+    await pullWorkspace({ workspaceRoot });
+    const before = await observe(workspaceRoot);
+    await decompileWorkspace({ workspaceRoot });
+    const afterDecompile = await observe(workspaceRoot);
+    expect(afterDecompile.project).toStrictEqual(before.project);
+    expect(afterDecompile.state).toStrictEqual(before.state);
+    expect(afterDecompile.config).toBe(before.config);
+    expect(Object.keys(before.source)).toEqual([]);
+    expect(afterDecompile.discovery).toContain(
+      join(workspaceRoot, "src/decompiled/troop-events.events.ts"),
+    );
+    const source = await readFile(
+      join(workspaceRoot, "src/decompiled/troop-events.events.ts"),
+      "utf8",
+    );
+    await compileWorkspace({ workspaceRoot, check: true });
+    expect(await observe(workspaceRoot)).toStrictEqual(afterDecompile);
+    await compileWorkspace({ workspaceRoot, check: false });
+    const generated = await json(join(paths.generatedProjectDataDirectory, "Troops.json"));
+    expect(generated).toStrictEqual(expectedTroops);
+    for (const field of fields)
+      expect(Object.is(generated[1].pages[0].conditions[field], -0)).toBe(true);
+    expect(source).toContain("a: -0, b: -0");
+    expect(source).toContain("actorRef({ id: -0 })");
+    expect(await diffWorkspace({ workspaceRoot, short: true })).toContain("No changes.");
+    return {
+      nativeText,
+      source,
+      afterDecompile,
+      generatedNegativeZeroFields: fields.filter((field) =>
+        Object.is(generated[1].pages[0].conditions[field], -0),
+      ),
+    };
+  });
+});
+
+it("rejects native negative-zero Battle Event Span before publication without changing complete Workspace state", async () => {
+  return verifyTroopEvidence("MV-S5-TROOP-WORKSPACE-005", async () => {
+    const { workspaceRoot, troops } = await fixture();
+    await writeFile(join(workspaceRoot, "src/keeper.events.ts"), "export const unrelated = 1;\n");
+    await compileWorkspace({ workspaceRoot, check: false });
+    await writeFile(
+      join(workspaceRoot, "Game/data/Troops.json"),
+      JSON.stringify(troops).replace('"span":0', '"span":-0'),
+    );
+    await pullWorkspace({ workspaceRoot });
+    const before = await observe(workspaceRoot);
+    await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatchObject({
+      code: "MV-BATTLE-PAGE-INPUT",
+      stage: "decompile",
+      identity: "troop:1",
+      location: { nativePath: "pages[0].span", actual: "-0" },
+    });
+    expect(await observe(workspaceRoot)).toStrictEqual(before);
+    return { nativeSpan: "-0", before };
   });
 });
 

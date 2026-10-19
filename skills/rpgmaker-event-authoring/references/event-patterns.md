@@ -6,7 +6,9 @@ pages in the declaration. `commands` is required; pages are nonempty and have no
 Span is battle/turn/moment, default battle. Optional condition slots are `turnEnd`,
 `turn: { enabled, a, b }`, `enemy: { enabled, index, hpAtMost }`,
 `actor: { enabled, ref, hpAtMost }` and `switch: { enabled, ref }`. Each provided slot
-is complete. Keep inactive saved values, validate A/B 0..9999 and HP 0..100, and use
+is complete; optional `undefined` means omission. Keep inactive saved values,
+including negative zero in numeric conditions. Native span is exactly 0/1/2 and
+rejects negative zero. Validate A/B 0..9999 and HP 0..100, and use
 raw enemy member positions including hidden members. Enabled enemy conditions check
 every member's Enemy reference. Disabled explicit actor/switch IDs may retain zero
 or a missing target; names and command references retain ordinary resolution.

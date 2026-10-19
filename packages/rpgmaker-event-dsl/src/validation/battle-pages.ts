@@ -138,9 +138,9 @@ export function assertBattlePageInput(
     [],
     `${path}.conditions`,
   );
-  if ("turnEnd" in conditions) boolean(conditions.turnEnd, `${path}.conditions.turnEnd`);
+  if (conditions.turnEnd !== undefined) boolean(conditions.turnEnd, `${path}.conditions.turnEnd`);
   for (const slot of ["turn", "enemy", "actor", "switch"] as const) {
-    if (!(slot in conditions)) continue;
+    if (conditions[slot] === undefined) continue;
     const slotPath = `${path}.conditions.${slot}`;
     const fields =
       slot === "turn"
@@ -268,7 +268,8 @@ export function assertNativeBattlePages(
         Number.MAX_SAFE_INTEGER,
         `${path}.conditions.switchId`,
       );
-      integer(page.span, 0, 2, `${path}.span`);
+      if (![0, 1, 2].some((span) => Object.is(page.span, span)))
+        fail(`${path}.span`, "native span 0, 1 or 2", page.span);
       if (!Array.isArray(page.list)) fail(`${path}.list`, "complete command list", page.list);
       if (c.actorValid)
         resolveSavedReference(

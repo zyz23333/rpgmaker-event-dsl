@@ -282,22 +282,24 @@ function renderTroopEventsSource(
         const c = page.conditions;
         const slots: string[] = [];
         if (c.turnEnding) slots.push("turnEnd: true");
-        if (c.turnValid || c.turnA !== 0 || c.turnB !== 0)
-          slots.push(`turn: { enabled: ${c.turnValid}, a: ${c.turnA}, b: ${c.turnB} }`);
-        if (c.enemyValid || c.enemyIndex !== 0 || c.enemyHp !== 50)
+        if (c.turnValid || !Object.is(c.turnA, 0) || !Object.is(c.turnB, 0))
           slots.push(
-            `enemy: { enabled: ${c.enemyValid}, index: ${c.enemyIndex}, hpAtMost: ${c.enemyHp} }`,
+            `turn: { enabled: ${c.turnValid}, a: ${literal(c.turnA)}, b: ${literal(c.turnB)} }`,
+          );
+        if (c.enemyValid || !Object.is(c.enemyIndex, 0) || c.enemyHp !== 50)
+          slots.push(
+            `enemy: { enabled: ${c.enemyValid}, index: ${literal(c.enemyIndex)}, hpAtMost: ${literal(c.enemyHp)} }`,
           );
         if (c.actorValid || c.actorId !== 1 || c.actorHp !== 50) {
           helpers.add("actorRef");
           slots.push(
-            `actor: { enabled: ${c.actorValid}, ref: actorRef({ id: ${c.actorId} }), hpAtMost: ${c.actorHp} }`,
+            `actor: { enabled: ${c.actorValid}, ref: actorRef({ id: ${literal(c.actorId)} }), hpAtMost: ${literal(c.actorHp)} }`,
           );
         }
         if (c.switchValid || c.switchId !== 1) {
           helpers.add("switchRef");
           slots.push(
-            `switch: { enabled: ${c.switchValid}, ref: switchRef({ id: ${c.switchId} }) }`,
+            `switch: { enabled: ${c.switchValid}, ref: switchRef({ id: ${literal(c.switchId)} }) }`,
           );
         }
         for (const name of renderDecompiledCommandList(page.list).helperNames) helpers.add(name);
