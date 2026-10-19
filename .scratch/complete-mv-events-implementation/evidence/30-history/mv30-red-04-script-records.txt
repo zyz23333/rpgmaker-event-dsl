@@ -1,0 +1,40 @@
+
+> rpgmaker-event-dsl@0.1.2 test C:\Users\Shuen\.codex\worktrees\mv-ticket-30\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> vitest run "test/label-script-plugin.test.ts"
+
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-30/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/label-script-plugin.test.ts (4 tests | 1 failed) 22ms
+   × splits Script only on LF and refuses a thirteenth physical record in formal and known raw input 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/label-script-plugin.test.ts > splits Script only on LF and refuses a thirteenth physical record in formal and known raw input
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/label-script-plugin.test.ts:40:105
+     38|   expect(renderDecompiledCommandList(twelve).source).toContain('code: …
+     39|   const thirteen = [...twelve, { code: 655, indent: 0, parameters: [""…
+     40|   expect(() => compileCommonEvent(event([script({ code: "\n".repeat(12…
+       |                                                                                                         ^
+     41|   expect(() => compileCommonEvent(event(thirteen.map(rawDslCommand)), …
+     42|   expect(() => renderDecompiledCommandList(thirteen)).toThrow(/MV-SCRI…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  02:07:59
+   Duration  1.31s (transform 394ms, setup 0ms, import 1.13s, tests 22ms, environment 0ms)
+
+C:\Users\Shuen\.codex\worktrees\mv-ticket-30\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run "test/label-script-plugin.test.ts"`
+Exit status 1

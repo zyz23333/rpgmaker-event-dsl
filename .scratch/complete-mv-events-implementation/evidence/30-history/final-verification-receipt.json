@@ -1,0 +1,46 @@
+{
+  "createdAt": "2026-10-19T18:28:40.151Z",
+  "classification": "focused synthetic DEV verification; ticket remains claimed; no READY/native/broad/build/contract claim",
+  "sourceBase": "4f4eb765a7e8027ce633c48fbcbb48f092409bc6",
+  "sourceBaseWasDirty": true,
+  "capturedTestOnlyChange": "packages/rpgmaker-event-dsl/test/movement-route.test.ts: commands[1] expectation refined to commands[1].parameters",
+  "productSourceUnchangedFromBase": true,
+  "sourceFingerprint": "82e8160167de946cdd4bfc71615cd06607dd24d946809a5c84502d43371c7b1e",
+  "capturedSourceFilesChecked": 165,
+  "capturedWorkingAndFrozenBytesExact": true,
+  "finalFourResultBlobsExact": true,
+  "allSixteenResultBlobsAndEarlierLogsExact": true,
+  "audit": {
+    "path": ".scratch/complete-mv-events-implementation/evidence/30-history/dev-history-audit.json",
+    "sha256": "93eaa61577e63a15ba63dc7d5867ac00df4aac714526482b2b87c925226ae837"
+  },
+  "finalSourceFreeze": {
+    "path": "C:/Users/Shuen/.codex/tmp/mv30-frozen-dev-source-v4/manifest.json",
+    "sha256": "0432ee81c63a0389c6ecce465384e8058e9b466185917a9853c45952192bb058"
+  },
+  "finalIndexVerification": {
+    "log": ".scratch/complete-mv-events-implementation/evidence/30-history/mv30-index-final.txt",
+    "originalLog": "C:/Users/Shuen/.codex/tmp/mv30-index-final.txt",
+    "sha256": "2f922423182d8b716959f6d1c782ad87049c9028086f69512a929da93c8a588f",
+    "selectedTestsPassed": 1,
+    "notSelected": 2,
+    "testsSeconds": 2.18,
+    "totalSeconds": 3.77,
+    "originalDeadlineMs": 10000,
+    "originalTwoWorkerConfiguration": true,
+    "deadlineOrWorkerConfigurationChanged": false
+  },
+  "dist": "not built; no dist existed in this worktree",
+  "compileContract": "mv-1.6.1/9 unchanged",
+  "pending": [
+    "latest integration composition",
+    "authorized contract increment",
+    "full pnpm check",
+    "build",
+    "built Windows baseline",
+    "E5 final built product comparison",
+    "R3/R7 hardened isolated native pairs",
+    "final 49–55 obligations",
+    "independent Standards/Spec review"
+  ]
+}

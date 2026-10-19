@@ -1,0 +1,292 @@
+{
+  "baseline": "c2a40a41c094ccdda47faccd4399891952739008",
+  "createdAt": "2026-10-19T18:24:47.199Z",
+  "ticketStatus": "claimed / DEV only",
+  "contractVersion": "mv-1.6.1/9 unchanged",
+  "inheritedRequirements": 286,
+  "appendedRequirements": 7,
+  "totalRequirements": 293,
+  "inheritedRequirementPrefixByteIdentical": true,
+  "inheritedReadmePrefixByteIdentical": true,
+  "inheritedEvidenceBlobsChecked": 2989,
+  "inheritedEvidenceBlobsExact": true,
+  "appendedResultFiles": 16,
+  "latestFourResults": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/MV-S6-TEXT-001-2026-10-19T18-23-03-503Z-cfab24c0-5971-405e-9652-2eef662dfcd9.json",
+      "sha256": "43769aa4a8b051035c6ef959fee824808b6800df6c1989f7a14008c44171c6fd",
+      "status": "passed",
+      "requirementId": "MV-S6-TEXT-001",
+      "fingerprint": "82e8160167de946cdd4bfc71615cd06607dd24d946809a5c84502d43371c7b1e",
+      "revision": "4f4eb765a7e8027ce633c48fbcbb48f092409bc6",
+      "classification": "actual synthetic source-product result; native not executed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/MV-S6-TEXT-002-2026-10-19T18-23-04-014Z-160efdc9-46ef-4b75-9162-bd153a8274df.json",
+      "sha256": "b6f6535ebdf8959cdda51cca0426684397b5044ec167c9746acd0d46681e6ffe",
+      "status": "passed",
+      "requirementId": "MV-S6-TEXT-002",
+      "fingerprint": "82e8160167de946cdd4bfc71615cd06607dd24d946809a5c84502d43371c7b1e",
+      "revision": "4f4eb765a7e8027ce633c48fbcbb48f092409bc6",
+      "classification": "actual synthetic source-product result; native not executed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/MV-S6-TEXT-003-2026-10-19T18-23-13-674Z-637feefe-41e8-4fab-ac50-92a582cc9248.json",
+      "sha256": "892ddacaec6bfaa31be8e40dde32dc064a18a268f4f221bcbcbd72f205c1b1f0",
+      "status": "passed",
+      "requirementId": "MV-S6-TEXT-003",
+      "fingerprint": "82e8160167de946cdd4bfc71615cd06607dd24d946809a5c84502d43371c7b1e",
+      "revision": "4f4eb765a7e8027ce633c48fbcbb48f092409bc6",
+      "classification": "actual synthetic source-product result; native not executed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/MV-S6-TEXT-004-2026-10-19T18-23-19-614Z-4ec549a2-4778-4c37-bf49-4da0376b1bbd.json",
+      "sha256": "c703b263c8bbc030c5934dab58198d53e08db8580d16d67932f7f29a8d96247a",
+      "status": "passed",
+      "requirementId": "MV-S6-TEXT-004",
+      "fingerprint": "82e8160167de946cdd4bfc71615cd06607dd24d946809a5c84502d43371c7b1e",
+      "revision": "4f4eb765a7e8027ce633c48fbcbb48f092409bc6",
+      "classification": "actual synthetic source-product result; native not executed"
+    }
+  ],
+  "allResultFiles": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/MV-S6-TEXT-001-2026-10-19T18-11-42-805Z-06b0b654-4352-4b91-9060-8cdc9587f096.json",
+      "sha256": "198915364baccf3a29a4c9b1984ad1fdc18a48cd028edae4ecffa373e687e719",
+      "status": "failed",
+      "requirementId": "MV-S6-TEXT-001",
+      "fingerprint": "bb9cc7a5393f319d801eb90f4ac1bc884b3ef809615d8680b2153fe99d20da2c",
+      "revision": "205334338d8e64e3d00e485849c9ddf67bd7e3b1",
+      "classification": "test comparator premise error: generated directory contains only owned carriers; retained as actual failed test, not a product failure"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/MV-S6-TEXT-002-2026-10-19T18-11-43-102Z-9207dba3-d285-44d8-a292-40a06c87bb68.json",
+      "sha256": "09543252517a23dadb503f99fefb52a66da25b0f0be46a87e6186d429302662d",
+      "status": "passed",
+      "requirementId": "MV-S6-TEXT-002",
+      "fingerprint": "bb9cc7a5393f319d801eb90f4ac1bc884b3ef809615d8680b2153fe99d20da2c",
+      "revision": "205334338d8e64e3d00e485849c9ddf67bd7e3b1",
+      "classification": "actual synthetic source-product result; native not executed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/MV-S6-TEXT-003-2026-10-19T18-11-49-876Z-2b2d82ce-3771-4fa8-90c5-bd13abe8a78f.json",
+      "sha256": "a2d309b4647f85f2935b30ca83d11c10d194a039a5e181a82e1b18355fd77833",
+      "status": "passed",
+      "requirementId": "MV-S6-TEXT-003",
+      "fingerprint": "bb9cc7a5393f319d801eb90f4ac1bc884b3ef809615d8680b2153fe99d20da2c",
+      "revision": "205334338d8e64e3d00e485849c9ddf67bd7e3b1",
+      "classification": "actual synthetic source-product result; native not executed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/MV-S6-TEXT-004-2026-10-19T18-11-53-038Z-51bbd9ce-2af0-464b-9551-a9787e07d1be.json",
+      "sha256": "bfdf8ae18e2342d6d528c2cbe81f15fdb191ba634a8f71bb58aaeadc092256df",
+      "status": "passed",
+      "requirementId": "MV-S6-TEXT-004",
+      "fingerprint": "bb9cc7a5393f319d801eb90f4ac1bc884b3ef809615d8680b2153fe99d20da2c",
+      "revision": "205334338d8e64e3d00e485849c9ddf67bd7e3b1",
+      "classification": "actual synthetic source-product result; native not executed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/MV-S6-TEXT-001-2026-10-19T18-13-17-274Z-19aca498-6eb4-40e4-94b2-0b0548b4155f.json",
+      "sha256": "4912994abb9550c9a37a3410270fc10ce4d1608c287847e90c40459395047781",
+      "status": "passed",
+      "requirementId": "MV-S6-TEXT-001",
+      "fingerprint": "a81c9a13211d251f454fb78df3e93fea653c1e315a576bef968018a3c1d29f23",
+      "revision": "205334338d8e64e3d00e485849c9ddf67bd7e3b1",
+      "classification": "actual synthetic source-product result; native not executed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/MV-S6-TEXT-002-2026-10-19T18-13-17-662Z-738355e1-ade9-4226-a614-5cbc4748c83a.json",
+      "sha256": "0a6a716f34f8ca5d3739e919850d36b7a553552fb459baa366e651de16dabeb1",
+      "status": "passed",
+      "requirementId": "MV-S6-TEXT-002",
+      "fingerprint": "a81c9a13211d251f454fb78df3e93fea653c1e315a576bef968018a3c1d29f23",
+      "revision": "205334338d8e64e3d00e485849c9ddf67bd7e3b1",
+      "classification": "actual synthetic source-product result; native not executed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/MV-S6-TEXT-003-2026-10-19T18-13-24-994Z-a242d891-06c3-4c19-b5a6-0579d54e26aa.json",
+      "sha256": "f3ee3cbc364d86d9c54a38c5701fda4422d5636a0cd6309b385e1a1750555e2a",
+      "status": "passed",
+      "requirementId": "MV-S6-TEXT-003",
+      "fingerprint": "a81c9a13211d251f454fb78df3e93fea653c1e315a576bef968018a3c1d29f23",
+      "revision": "205334338d8e64e3d00e485849c9ddf67bd7e3b1",
+      "classification": "actual synthetic source-product result; native not executed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/MV-S6-TEXT-004-2026-10-19T18-13-28-209Z-b3758065-b7cf-407c-abbc-2e6853b05926.json",
+      "sha256": "84080b5079cbef1deb06f14e9aae6e000112ba7b601859c587373e449a0451c0",
+      "status": "passed",
+      "requirementId": "MV-S6-TEXT-004",
+      "fingerprint": "a81c9a13211d251f454fb78df3e93fea653c1e315a576bef968018a3c1d29f23",
+      "revision": "205334338d8e64e3d00e485849c9ddf67bd7e3b1",
+      "classification": "actual synthetic source-product result; native not executed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/MV-S6-TEXT-001-2026-10-19T18-21-14-861Z-6eb77e75-77be-45cc-8b93-9a4eea801e39.json",
+      "sha256": "fc07398ee5e30e2563111ecb9b3744ee040626c34f8441f47631f70f65d871c6",
+      "status": "passed",
+      "requirementId": "MV-S6-TEXT-001",
+      "fingerprint": "21623c1aaec1c2de8a2cdc54f797b066902b68a9efe634330b63e90c358652da",
+      "revision": "4f4eb765a7e8027ce633c48fbcbb48f092409bc6",
+      "classification": "actual synthetic source-product result; native not executed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/MV-S6-TEXT-002-2026-10-19T18-21-15-332Z-9a84537e-4cd5-4712-a8af-ea6833483c7a.json",
+      "sha256": "47044f19eb6b58be555195cd0573d3638074e3217c5914d6bbd1c5937fca7dfe",
+      "status": "passed",
+      "requirementId": "MV-S6-TEXT-002",
+      "fingerprint": "21623c1aaec1c2de8a2cdc54f797b066902b68a9efe634330b63e90c358652da",
+      "revision": "4f4eb765a7e8027ce633c48fbcbb48f092409bc6",
+      "classification": "actual synthetic source-product result; native not executed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/MV-S6-TEXT-003-2026-10-19T18-21-25-536Z-7b2beb6d-6c50-49d6-bfd3-8aa02037226f.json",
+      "sha256": "5abd31c294a8c741ca6aed83cccf6bd20996bd53dce766c0f5afd43d0c3f5a9c",
+      "status": "passed",
+      "requirementId": "MV-S6-TEXT-003",
+      "fingerprint": "21623c1aaec1c2de8a2cdc54f797b066902b68a9efe634330b63e90c358652da",
+      "revision": "4f4eb765a7e8027ce633c48fbcbb48f092409bc6",
+      "classification": "actual synthetic source-product result; native not executed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/MV-S6-TEXT-004-2026-10-19T18-21-31-814Z-d68dc1ad-13eb-499c-8160-a8a16bbdf418.json",
+      "sha256": "20b1867c9802fcfa810f762dada45dfca76ef676d836c20f34794ecb7d30f85e",
+      "status": "passed",
+      "requirementId": "MV-S6-TEXT-004",
+      "fingerprint": "21623c1aaec1c2de8a2cdc54f797b066902b68a9efe634330b63e90c358652da",
+      "revision": "4f4eb765a7e8027ce633c48fbcbb48f092409bc6",
+      "classification": "actual synthetic source-product result; native not executed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/MV-S6-TEXT-001-2026-10-19T18-23-03-503Z-cfab24c0-5971-405e-9652-2eef662dfcd9.json",
+      "sha256": "43769aa4a8b051035c6ef959fee824808b6800df6c1989f7a14008c44171c6fd",
+      "status": "passed",
+      "requirementId": "MV-S6-TEXT-001",
+      "fingerprint": "82e8160167de946cdd4bfc71615cd06607dd24d946809a5c84502d43371c7b1e",
+      "revision": "4f4eb765a7e8027ce633c48fbcbb48f092409bc6",
+      "classification": "actual synthetic source-product result; native not executed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/MV-S6-TEXT-002-2026-10-19T18-23-04-014Z-160efdc9-46ef-4b75-9162-bd153a8274df.json",
+      "sha256": "b6f6535ebdf8959cdda51cca0426684397b5044ec167c9746acd0d46681e6ffe",
+      "status": "passed",
+      "requirementId": "MV-S6-TEXT-002",
+      "fingerprint": "82e8160167de946cdd4bfc71615cd06607dd24d946809a5c84502d43371c7b1e",
+      "revision": "4f4eb765a7e8027ce633c48fbcbb48f092409bc6",
+      "classification": "actual synthetic source-product result; native not executed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/MV-S6-TEXT-003-2026-10-19T18-23-13-674Z-637feefe-41e8-4fab-ac50-92a582cc9248.json",
+      "sha256": "892ddacaec6bfaa31be8e40dde32dc064a18a268f4f221bcbcbd72f205c1b1f0",
+      "status": "passed",
+      "requirementId": "MV-S6-TEXT-003",
+      "fingerprint": "82e8160167de946cdd4bfc71615cd06607dd24d946809a5c84502d43371c7b1e",
+      "revision": "4f4eb765a7e8027ce633c48fbcbb48f092409bc6",
+      "classification": "actual synthetic source-product result; native not executed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/MV-S6-TEXT-004-2026-10-19T18-23-19-614Z-4ec549a2-4778-4c37-bf49-4da0376b1bbd.json",
+      "sha256": "c703b263c8bbc030c5934dab58198d53e08db8580d16d67932f7f29a8d96247a",
+      "status": "passed",
+      "requirementId": "MV-S6-TEXT-004",
+      "fingerprint": "82e8160167de946cdd4bfc71615cd06607dd24d946809a5c84502d43371c7b1e",
+      "revision": "4f4eb765a7e8027ce633c48fbcbb48f092409bc6",
+      "classification": "actual synthetic source-product result; native not executed"
+    }
+  ],
+  "logs": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/mv30-red-01-label.txt",
+      "sha256": "011297bb99b89068ca79072743151e1cbf0faca5a1f2f62defc0ba0e8e0c9ab2"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/mv30-red-02-plugin.txt",
+      "sha256": "37dcd06e2d59ef38140dbdc9fe0c64cab411448f9034f416c95a3d437457402f"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/mv30-red-03-shape.txt",
+      "sha256": "b0b83e6bc4ba32f05f535ab3868dc2a4af6cc48a052da24749c521c4ee8f6b23"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/mv30-red-04-script-records.txt",
+      "sha256": "fecd0cdc7cd4b636b5f44145a25d20431f4e6757a95fb5166108990c463c1c6a"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/mv30-red-05-label-diagnostics.txt",
+      "sha256": "a1e9c5809ca943f9a9f37e8b4684bc607ba3f237f383eeaafc1a3e2637dbf9e6"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/mv30-red-06-paths.txt",
+      "sha256": "bf8aaf53850b104631fd79076f4989e8ff26d717439204c7fdbcec77751a9ff0"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/mv30-workspace-first-run.txt",
+      "sha256": "a41c52957e7b326f38f01b4ca06dd611c91a13a2392e9b77f58c92ade9565223"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/mv30-workspace-v2.txt",
+      "sha256": "2dd934bb6941c233abc00ad2a1d1deeb430bddc6a750664cd334fe8c2cd969f7"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/mv30-focused-related-v1.txt",
+      "sha256": "51057ce969b1bea014854f6857863588d6a49a9c01041688e77e670d024596f3"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/mv30-focused-related-v2.txt",
+      "sha256": "8cde5d07bc06f6aed3dcb8d193e47bb051c2fcc15bf6917582df573edef57d3c"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/mv30-index-standalone-v1.txt",
+      "sha256": "a4ceb4552dcc2ec3ea3f523ea4a3b95ca051433b4762087a252b939214e1fef1"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/mv30-focused-final-v1.txt",
+      "sha256": "91d089499d8adffd1997fca03ad0846b3b7702e2ee0d9c2782aa8b08347fa5fc"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/mv30-focused-final-paths.txt",
+      "sha256": "d6582a2b4487dbb575909e9330c80c5fa141ac385883e5942e6a2472aeca39e5"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/mv30-workspace-final-v4.txt",
+      "sha256": "84b92792320a0ad1e99501d694197a14441b0a1763634b787cb0e476251df3a3"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/mv30-typecheck-final.txt",
+      "sha256": "a7b1d55a565fbc3b106541ad0874c97bb9729fd297aaeb09e9a173bb348ec558"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/mv30-lint-final.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/30-history/mv30-format-final.txt",
+      "sha256": "c0a90f7caec4263377ab27fa360eba8e3a2e0a5192295f6e4abb7a9f3fb28f97"
+    }
+  ],
+  "freezes": [
+    {
+      "path": "C:/Users/Shuen/.codex/tmp/mv30-frozen-dev-source-v1/manifest.json",
+      "sha256": "15f5963a852fe8cb8620c9c52a6a84344b7cb8cc3777dbe5d5cede8afae439e5"
+    },
+    {
+      "path": "C:/Users/Shuen/.codex/tmp/mv30-frozen-dev-source-v2/manifest.json",
+      "sha256": "4bdc1ae32927379baefd6aa4f611483880e60ca5309b5d8cbb1099c1d9180369"
+    },
+    {
+      "path": "C:/Users/Shuen/.codex/tmp/mv30-frozen-related-source-v1/manifest.json",
+      "sha256": "214464da10329ce8d13335b054a5c5eb62af822841fe7fd8c5a86869740031a3"
+    },
+    {
+      "path": "C:/Users/Shuen/.codex/tmp/mv30-frozen-dev-source-v3/manifest.json",
+      "sha256": "2e17e209b17022d7f26092cb89d59b9715abb740502d74bb5517ef8a9baa5a13"
+    },
+    {
+      "path": "C:/Users/Shuen/.codex/tmp/mv30-frozen-dev-source-v4/manifest.json",
+      "sha256": "0432ee81c63a0389c6ecce465384e8058e9b466185917a9853c45952192bb058"
+    }
+  ],
+  "native": "not executed; E5/R3/R7 pending",
+  "broad": "not executed; root serializes latest integration finalization"
+}

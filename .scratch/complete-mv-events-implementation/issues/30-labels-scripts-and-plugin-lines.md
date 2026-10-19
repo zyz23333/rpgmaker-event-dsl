@@ -50,3 +50,19 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [核心指令参数附表](../../complete-mv-events/research/command-parameters/core.md)。
+
+## Comments
+
+### 2026-10-20 — Focused DEV checkpoint; acceptance remains pending
+
+Claimed in dedicated `codex/mv-ticket-30` worktree at actual integration `2053343`,
+then merged actual incoming `c2a40a4` (ticket 33 / contract 9) before handoff.
+Named Label/Jump, complete Plugin Line, strict own-field input checks, LF-only 1–12
+Script groups and exact per-list Label/string-risk diagnostics are implemented.
+Synthetic source-product Workspace checks and focused validation passed as detailed
+in [the durable DEV report](../evidence/30-text-dev-checkpoint.md). All existing
+requirements/history/result blobs are preserved; new executions append unique blobs.
+
+This is **claimed / DEV only**, not READY or resolved. Full checks/build/built baseline,
+contract increment on latest integration, allocated E5 product comparison and actual
+R3/R7 game pairs remain mandatory in the root's serialized finalization queue.
