@@ -1183,11 +1183,12 @@ describe("push workflow", () => {
     expect(await readFile(statePaths.syncManifestPath, "utf8")).toBe(manifestBefore);
   });
 
-  it("checks Project Drift only for affected Project Data files", async () => {
+  it("checks standard Project Drift beyond affected files while excluding plugin data", async () => {
     const workspaceRoot = await createClonedWorkspaceWithSource(buildCompleteCoverageSource());
     const projectRoot = createProjectRootFixture(workspaceRoot);
 
     await compileWorkspace({ workspaceRoot, check: false });
+    const actorsBefore = await readFile(join(projectRoot, "data", "Actors.json"));
     await writeFile(
       join(projectRoot, "data", "Actors.json"),
       JSON.stringify([null, { id: 1, name: "Edited Hero" }]),
@@ -1199,9 +1200,16 @@ describe("push workflow", () => {
       "utf8",
     );
 
+    await expect(pushWorkspace({ workspaceRoot, allowDestructive: false })).rejects.toThrow(
+      "Project Drift detected before push for Actors.json. Run pull first.",
+    );
+    await writeFile(join(projectRoot, "data", "Actors.json"), actorsBefore);
     await expect(
       pushWorkspace({ workspaceRoot, allowDestructive: false }),
     ).resolves.toBeUndefined();
+    expect(await readFile(join(projectRoot, "data", "PluginData.json"), "utf8")).toBe(
+      JSON.stringify({ edited: true }),
+    );
 
     await writeFile(
       join(workspaceRoot, "src", "events.events.ts"),
