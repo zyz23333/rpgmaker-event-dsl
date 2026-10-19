@@ -1,6 +1,7 @@
 import { CommandStructureError } from "./command-errors.js";
 import { renderJsonValue } from "../project-data/json-values.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
+import { assertNativeControlVariables } from "../commands/variables/control-variables.js";
 
 // Shared saved-slot envelopes. Family validators retain ownership of semantic ranges,
 // references and mode-specific saved values; this table is not full family acceptance.
@@ -139,6 +140,7 @@ export function assertNativeCommandParameters(
   path: string,
 ): void {
   if (!isKnownCommandCode(code)) return;
+  if (code === 122) assertNativeControlVariables(parameters, path);
   try {
     assertNativeSwitchCommand(code, parameters);
   } catch (error) {

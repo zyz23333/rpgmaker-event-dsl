@@ -6,6 +6,7 @@ import { compilePageMovement } from "../commands/movement/page.js";
 import { validateNativeMovementRouteInputs } from "../commands/movement/validation.js";
 import { inspectNativeCommandReferences } from "./native-references.js";
 import type { RawEventCommand, CommandOrigins } from "../compiler/types.js";
+import type { VariableInputContext } from "../commands/variables/diagnostics.js";
 
 export function validateCompiledCommandLists(
   graph: StagedDataGraph,
@@ -13,6 +14,15 @@ export function validateCompiledCommandLists(
   options: { scriptEnabled: boolean },
 ): void {
   for (const declaration of graph.declarations) {
+    const variableContext: VariableInputContext = {};
+    if (declaration.kind === "troopEvent") {
+      const members = graph.snapshotTroops?.find(({id}) => id === declaration.troopId)?.members;
+      if (Array.isArray(members)) variableContext.troopMemberCount = members.length;
+    }
+    if (declaration.kind === "mapEvent") {
+      const map = graph.snapshotMaps?.find(({id}) => id === declaration.mapId);
+      if (map) variableContext.mapEventIds = [...graph.mapEventsByIdentity.values()].filter(({mapId}) => mapId === declaration.mapId).map(({id}) => id);
+    }
     const lists =
       declaration.kind === "commonEvent"
         ? [
@@ -83,6 +93,7 @@ export function validateCompiledCommandLists(
             identity: list.identity,
             prefix,
             origins,
+            variableContext,
           }),
         );
         issues.push(

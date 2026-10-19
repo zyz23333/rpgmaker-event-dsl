@@ -1,6 +1,6 @@
 # 31: Control Variables 全操作数
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 09, 23, 25
 Stage: S6
 Created: 2026-10-19

@@ -170,19 +170,19 @@ export type ControlVariablesGameDataOperand =
   | {
       kind: "gameData";
       source: "enemy";
-      enemyIndex: number;
+      enemy: RuntimeSelector<"enemy", "enemy"> & { index: number };
       value: "hp" | "mp" | "mhp" | "mmp" | "atk" | "def" | "mat" | "mdf" | "agi" | "luk";
     }
   | {
       kind: "gameData";
       source: "character";
-      characterId: number;
+      target: CharacterRuntimeSelector;
       value: "mapX" | "mapY" | "direction" | "screenX" | "screenY";
     }
   | {
       kind: "gameData";
       source: "party";
-      memberIndex: number;
+      member: RuntimeSelector<"party", "member"> & { index: number };
     }
   | {
       kind: "gameData";

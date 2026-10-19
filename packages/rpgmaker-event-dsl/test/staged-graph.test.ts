@@ -282,7 +282,7 @@ describe("validateDslOwnedDeclarations", () => {
             controlVariables({
               variable: variableRef({ name: "Snapshot Variable" }),
               operation: "set",
-              value: 1,
+              value: {kind: "constant", value: 1},
             }),
           ],
         }),
