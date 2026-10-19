@@ -10,6 +10,8 @@ import type {
   SnapshotMapValidationEntry,
   SnapshotReferenceInput,
   SnapshotReferenceSource,
+  SnapshotTroopValidationEntry,
+  SnapshotTilesetValidationEntry,
   StagedDataGraph,
   ValidationIssue,
   ValidationResult,
@@ -84,6 +86,9 @@ export function buildStagedDataGraph(input: {
   declarations: readonly DslOwnedDeclaration[];
   snapshotReferences?: SnapshotReferenceInput;
   snapshotMaps?: readonly SnapshotMapValidationEntry[];
+  snapshotTroops?: readonly SnapshotTroopValidationEntry[];
+  snapshotTilesets?: readonly SnapshotTilesetValidationEntry[];
+  snapshotEquipmentTypes?: unknown;
 }): StagedDataGraph {
   const declarations = [...input.declarations];
   const mapEventsByIdentity = new Map<string, MapEventDefinition>();
@@ -120,6 +125,11 @@ export function buildStagedDataGraph(input: {
     switchesById,
     variablesById,
     ...(input.snapshotMaps === undefined ? {} : { snapshotMaps: input.snapshotMaps }),
+    ...(input.snapshotTroops === undefined ? {} : { snapshotTroops: input.snapshotTroops }),
+    ...(input.snapshotTilesets === undefined ? {} : { snapshotTilesets: input.snapshotTilesets }),
+    ...("snapshotEquipmentTypes" in input
+      ? { snapshotEquipmentTypes: input.snapshotEquipmentTypes }
+      : {}),
     resolver: createReferenceResolver(scopes),
   };
 }

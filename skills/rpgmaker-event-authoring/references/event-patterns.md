@@ -53,6 +53,11 @@ names. Author switch ranges in ascending order, including both endpoints, and gi
 `controlSwitches` and `controlSelfSwitch` an explicit Boolean `value`. Self-switch
 letters are A–D; a Common Event called from a Map Event inherits the caller's identity.
 
+Resolve fixed Animation, Tileset and Enemy targets against the captured Snapshot.
+Use `pull` after database changes, then validate again; use explicit IDs for existing
+empty-name targets. Enemy positions and dynamic equipment candidates keep their
+Runtime Selector meaning even when a fixed project target cannot be inferred.
+
 Use Asset Reference helpers for files, not Project Data Reference helpers. `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)` are no-scan filename-stem references; they do not validate that a file exists on disk.
 
 Use `script(...)` and `scriptInput(...)` for short RPG Maker MV JavaScript only when the Workspace Script Command Gate allows it and ordinary event commands are not enough. The gate also applies to Conditional Branch script conditions, Control Variables script operands, and Set Movement Route script subcommands.

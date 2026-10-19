@@ -53,20 +53,20 @@ export type SnapshotReferenceInput = {
 };
 
 export type SnapshotReferenceSource = {
-  actors?: readonly (Record<string, unknown> | null | undefined)[];
-  animations?: readonly (Record<string, unknown> | null | undefined)[];
-  armors?: readonly (Record<string, unknown> | null | undefined)[];
-  classes?: readonly (Record<string, unknown> | null | undefined)[];
-  commonEvents?: readonly (Record<string, unknown> | null | undefined)[];
-  enemies?: readonly (Record<string, unknown> | null | undefined)[];
-  items?: readonly (Record<string, unknown> | null | undefined)[];
+  actors?: readonly unknown[];
+  animations?: readonly unknown[];
+  armors?: readonly unknown[];
+  classes?: readonly unknown[];
+  commonEvents?: readonly unknown[];
+  enemies?: readonly unknown[];
+  items?: readonly unknown[];
   mapInfos?: readonly MapInfoEntry[];
-  skills?: readonly (Record<string, unknown> | null | undefined)[];
-  states?: readonly (Record<string, unknown> | null | undefined)[];
-  tilesets?: readonly (Record<string, unknown> | null | undefined)[];
-  troops?: readonly (Record<string, unknown> | null | undefined)[];
+  skills?: readonly unknown[];
+  states?: readonly unknown[];
+  tilesets?: readonly unknown[];
+  troops?: readonly unknown[];
   system?: Record<string, unknown>;
-  weapons?: readonly (Record<string, unknown> | null | undefined)[];
+  weapons?: readonly unknown[];
 };
 
 export type CommandInputPrimitiveInspection = {
@@ -80,11 +80,32 @@ export type SnapshotMapValidationEntry = {
   id: number;
   width?: number;
   height?: number;
+  tilesetId?: unknown;
   eventLocations: readonly {
     eventId: number;
     x: number;
     y: number;
   }[];
+};
+
+// External carrier fields stay uninterpreted until an owned consumer needs them.
+// In particular, a hidden or missing-Enemy member must not be filtered or rebound.
+export type SnapshotTroopValidationEntry = {
+  id: number;
+  members?: unknown;
+};
+
+export type SnapshotTilesetValidationEntry = {
+  id: number;
+  tilesetNames?: unknown;
+};
+
+export type SnapshotValidationInput = {
+  references: SnapshotReferenceInput;
+  maps: readonly SnapshotMapValidationEntry[];
+  troops: readonly SnapshotTroopValidationEntry[];
+  tilesets: readonly SnapshotTilesetValidationEntry[];
+  equipmentTypes?: unknown;
 };
 
 export type StagedDataGraph = {
@@ -94,6 +115,9 @@ export type StagedDataGraph = {
   switchesById: Map<number, SwitchDefinition>;
   variablesById: Map<number, VariableDefinition>;
   snapshotMaps?: readonly SnapshotMapValidationEntry[];
+  snapshotTroops?: readonly SnapshotTroopValidationEntry[];
+  snapshotTilesets?: readonly SnapshotTilesetValidationEntry[];
+  snapshotEquipmentTypes?: unknown;
   resolver: ReferenceResolver;
 };
 

@@ -27,6 +27,7 @@ import {
 import { renderCommands } from "./dispatch.js";
 import { renderDecompiledCommandList } from "./dispatch.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
+import { assertNativeContextReferences } from "../validation/native-context-references.js";
 import { buildSnapshotReferenceInput, buildStagedDataGraph } from "../validation/staged-graph.js";
 import type { ReferenceResolver } from "../validation/types.js";
 import type { RawEventCommand } from "./types.js";
@@ -64,7 +65,12 @@ async function buildDecompiledSourceFiles(
   const system = await readSnapshotObject(options.statePaths, "System.json");
   const resolver = buildStagedDataGraph({
     declarations: [],
-    snapshotReferences: buildSnapshotReferenceInput({ system }),
+    snapshotReferences: buildSnapshotReferenceInput({
+      system,
+      animations: await readSnapshotArray(options.statePaths, "Animations.json"),
+      tilesets: await readSnapshotArray(options.statePaths, "Tilesets.json"),
+      enemies: await readSnapshotArray(options.statePaths, "Enemies.json"),
+    }),
   }).resolver;
 
   for (const mapInfo of mapInfos) {
@@ -73,7 +79,7 @@ async function buildDecompiledSourceFiles(
     const events = readMapEvents(mapData);
     for (const event of events) {
       for (const [pageIndex, page] of event.pages.entries()) {
-        assertSwitchReferences(
+        assertSnapshotReferences(
           normalizeCommandList(page.list),
           `map ${mapInfo.id} event ${event.id}.pages[${pageIndex}].list`,
           resolver,
@@ -90,7 +96,7 @@ async function buildDecompiledSourceFiles(
     await readSnapshotArray(options.statePaths, "CommonEvents.json"),
   );
   for (const event of commonEvents)
-    assertSwitchReferences(
+    assertSnapshotReferences(
       normalizeCommandList(event.list),
       `common event ${event.id}.list`,
       resolver,
@@ -108,7 +114,7 @@ async function buildDecompiledSourceFiles(
   return files.sort((left, right) => left.path.localeCompare(right.path));
 }
 
-function assertSwitchReferences(
+function assertSnapshotReferences(
   commands: readonly RawEventCommand[],
   identity: string,
   resolver: ReferenceResolver,
@@ -116,6 +122,7 @@ function assertSwitchReferences(
   for (const [index, command] of commands.entries()) {
     try {
       assertNativeSwitchCommand(command.code, command.parameters, resolver);
+      assertNativeContextReferences(command.code, command.parameters, resolver);
     } catch (error) {
       throw new Error(
         `decompile ${identity}[${index}]: ${error instanceof Error ? error.message : String(error)}`,

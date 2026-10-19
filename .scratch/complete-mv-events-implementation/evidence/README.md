@@ -92,3 +92,13 @@ Ticket04 findings: [movement paths, counterexample and accepted finite zero amen
 Ticket 06 adds [Transfer initialization and mode review](06-transfer-defaults-reverse.md) and [selected artifact/resource identities](06-resource-identities.json). A new same-install Menu native constructor/property chain supports the inherited first-item inference. Project-selected mapM and explicit coordinate0 are distinguished from fixed direction/fade defaults. Its10 review records do not establish ticket34/50 product comparison or actual game execution.
 
 Ticket 11 adds [System-slot and native switch acceptance](11-system-slots-and-native-switches.md), including real Workspace extension/name removal and four actual MV game processes comparing independent literal inputs with compiled output. These results cover its bounded R1 slice; final integrated native regression remains required.
+
+Ticket12 adds captured Snapshot assembly and bounded existing-command validation. Actual Troop page/selector binding remains with25/48; complete command-family parameter acceptance and game execution remain with their assigned later tickets.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S3-CONTEXT-001 | resolves empty-name external targets through actual Snapshot and evaluated Decompiled Source | automated synthetic | actual Workspace / captured Snapshot adapter |
+| MV-S3-CONTEXT-002 | assembles ordered hidden and missing-Enemy members, map tiles and all equipment slots from a captured Snapshot | automated synthetic | actual Workspace / captured Snapshot adapter |
+| MV-S3-CONTEXT-003 | checks fixed external references while retaining unknown-caller runtime selectors | automated synthetic | actual Workspace / captured Snapshot adapter |
+| MV-S3-CONTEXT-004 | rejects missing native external targets before publishing any Decompiled Source | automated synthetic | actual Workspace / captured Snapshot adapter |
+| MV-S3-CONTEXT-005 | uses captured map dimensions and event positions for actual Workspace placement diagnostics | automated synthetic | actual Workspace / captured Snapshot adapter |
