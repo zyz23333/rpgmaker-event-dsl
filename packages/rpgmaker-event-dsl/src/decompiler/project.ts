@@ -9,7 +9,6 @@ import {
   formatMapFileName,
   indentLines,
   literal,
-  mapPageTriggerFromCode,
   normalizeCommandList,
   readCommonEvents,
   readMapEvents,
@@ -20,7 +19,6 @@ import {
   readSnapshotObject,
   renderEmptyModule,
   renderEventImport,
-  renderPageConditions,
 } from "./core.js";
 import { renderCommands } from "./dispatch.js";
 import { renderDecompiledCommandList } from "./dispatch.js";
@@ -44,6 +42,7 @@ import { renderMovementRoute } from "../commands/movement/decompile.js";
 import { validateNativeMovementRouteInputs } from "../commands/movement/validation.js";
 import { inspectNativeCommandReferences } from "../validation/native-references.js";
 import { CommandStructureError } from "../validation/command-errors.js";
+import { renderMapPageSettings } from "./map-page.js";
 
 export type DecompileFile = {
   content: string;
@@ -290,6 +289,7 @@ function renderMapSource(mapInfo: MapInfoEntry, events: readonly SnapshotMapEven
   mapId: ${mapInfo.id},
   id: ${event.id},
   name: ${literal(event.name)},
+${event.note === "" ? "" : `  note: ${literal(event.note)},\n`}\
   x: ${event.x},
   y: ${event.y},
   pages: [
@@ -307,6 +307,7 @@ ${indentLines(event.pages.map(renderPage).join(",\n"), 4)}
     ),
     ...events.flatMap((event) =>
       event.pages.flatMap((page) => [
+        ...(page.image.characterName === "" ? [] : ["imageAsset"]),
         ...renderDecompiledCommandList(normalizeCommandList(page.list)).helperNames,
         ...(page.movement ? (renderMovementRoute(page.movement.route)?.helperNames ?? []) : []),
       ]),
@@ -382,9 +383,9 @@ function renderSystemSource(system: Record<string, unknown>): string {
 
 function renderPage(page: SnapshotMapEventPage): string {
   return `page({
-  conditions: ${renderPageConditions(page.conditions)},
-  trigger: ${literal(mapPageTriggerFromCode(page.trigger))},
-${page.movement ? `  movement: { type: ${literal(page.movement.type)}, speed: ${page.movement.speed}, frequency: ${page.movement.frequency}, route: ${renderMovementRoute(page.movement.route)!.expression} },\n` : ""}\
+${renderMapPageSettings(page)
+  .map((field) => `  ${field}\n`)
+  .join("")}\
   commands: [
 ${indentLines(renderCommands(normalizeCommandList(page.list)), 4)}
   ],

@@ -1,0 +1,51 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-24/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/map-event-workspace.test.ts > MV-S5-MAP-011: rejects a late Map with an empty native events array without publishing or changing complete Workspace state
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-empty-events-E5H6Bm
+
+ ❯ test/map-event-workspace.test.ts (75 tests | 1 failed | 74 skipped) 1551ms
+   × MV-S5-MAP-011: rejects a late Map with an empty native events array without publishing or changing complete Workspace state 1550ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-event-workspace.test.ts > MV-S5-MAP-011: rejects a late Map with an empty native events array without publishing or changing complete Workspace state
+AssertionError: expected Error: Decompile destination already exis… to match object { code: 'MV-MAP-EVENT-SHAPE', …(3) }
+
+- Expected
++ Received
+
+- {
+-   "code": "MV-MAP-EVENT-SHAPE",
+-   "identity": "map:2",
+-   "location": {
+-     "nativePath": "events",
+-   },
+-   "stage": "decompile",
++ Error {
++   "message": "Decompile destination already exists: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\map-native-empty-events-E5H6Bm\\最小 Workspace with spaces\\src\\decompiled",
+  }
+
+ ❯ test/map-event-workspace.test.ts:205:56
+
+    203|     expect(before.discovery).not.toHaveLength(0);
+    204|     expect(before.generated).not.toBeNull();
+    205|     await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatc…
+       |                                                        ^
+    206|       code: "MV-MAP-EVENT-SHAPE",
+    207|       stage: "decompile",
+ Test Files  1 failed (1)
+      Tests  1 failed | 74 skipped (75)
+   Start at  22:41:55
+   Duration  3.14s (transform 509ms, setup 0ms, import 1.44s, tests 1.55s, environment 0ms)
+
+ ❯ test/map-event-workspace.test.ts:49:7
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ withMapEvidence test/map-event-workspace.test.ts:45:3
+ ❯ test/map-event-workspace.test.ts:179:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/map-event-workspace.test.ts -t MV-S5-MAP-011

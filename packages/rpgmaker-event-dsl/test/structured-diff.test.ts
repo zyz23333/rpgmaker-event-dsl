@@ -75,7 +75,8 @@ describe("buildStructuredDiffReport", () => {
         entries: [
           {
             change: "changed",
-            detail: "Generated entry differs from snapshot entry.",
+            detail:
+              'Generated entry differs from snapshot entry.\n  - name: "Snapshot Gate" -> "Changed Gate"',
             destructive: false,
             identity: "mapId 1, eventId 1",
             projectDataFile: "Map001.json",

@@ -1,0 +1,210 @@
+{
+  "root": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-r1-map-common-delivery-v1-d23f3eb6-91da-4d09-a76c-69ed88601377",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-r1-map-common-delivery-v1-d23f3eb6-91da-4d09-a76c-69ed88601377\\compiled\\Workspace",
+    "files": {
+      "Map001.json": {
+        "beforePushSha256": "a4b6e16509994de4ea27e3e81de4529b33c0139ba1919653e452e712eeb81447",
+        "generatedSha256": "aa1773c547c846e773905f1a05f3896017352196d3e3029fd4d3b850c95d4db5",
+        "afterPushSha256": "aa1773c547c846e773905f1a05f3896017352196d3e3029fd4d3b850c95d4db5",
+        "actualReplacementProven": true
+      },
+      "CommonEvents.json": {
+        "beforePushSha256": "2962199112ecf71537006f567bd78a66eba65347ef85930e60c8f85b872e2e44",
+        "generatedSha256": "77d8b781d4c7cb091881568e7496547fc4b6315b7618990e2a95536d6949566d",
+        "afterPushSha256": "77d8b781d4c7cb091881568e7496547fc4b6315b7618990e2a95536d6949566d",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": [
+        {
+          "id": "action",
+          "eventId": 1,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "player-touch",
+          "eventId": 2,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "event-touch",
+          "eventId": 3,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "autorun",
+          "eventId": 4,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "parallel",
+          "eventId": 5,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "highest-page-low",
+          "eventId": 6,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "highest-page-high",
+          "eventId": 6,
+          "mapId": 1,
+          "pageIndex": 1,
+          "inBattle": false
+        },
+        {
+          "id": "common-none-called",
+          "eventId": 7,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "common-autorun",
+          "eventId": 0,
+          "mapId": 1,
+          "pageIndex": null,
+          "inBattle": false
+        },
+        {
+          "id": "common-parallel",
+          "eventId": 0,
+          "mapId": 1,
+          "pageIndex": null,
+          "inBattle": false
+        }
+      ],
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": [
+        {
+          "id": "action",
+          "eventId": 1,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "player-touch",
+          "eventId": 2,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "event-touch",
+          "eventId": 3,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "autorun",
+          "eventId": 4,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "parallel",
+          "eventId": 5,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "highest-page-low",
+          "eventId": 6,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "highest-page-high",
+          "eventId": 6,
+          "mapId": 1,
+          "pageIndex": 1,
+          "inBattle": false
+        },
+        {
+          "id": "common-none-called",
+          "eventId": 7,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "common-autorun",
+          "eventId": 0,
+          "mapId": 1,
+          "pageIndex": null,
+          "inBattle": false
+        },
+        {
+          "id": "common-parallel",
+          "eventId": 0,
+          "mapId": 1,
+          "pageIndex": null,
+          "inBattle": false
+        }
+      ],
+      "error": null
+    }
+  }
+}

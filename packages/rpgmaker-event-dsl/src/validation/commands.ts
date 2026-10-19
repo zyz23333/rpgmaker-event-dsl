@@ -840,37 +840,15 @@ export function validateCondition(
   resolver: ReferenceResolver,
   issues: ValidationIssue[],
 ): void {
-  if (condition.actor) {
-    const actorRef = condition.actor;
-    captureReferenceIssue(() => resolver.resolveReference(actorRef), issues);
-  }
-  if (condition.item) {
-    const itemRef = condition.item;
-    captureReferenceIssue(() => resolver.resolveReference(itemRef), issues);
-  }
-  if (condition.switch1) {
-    const switchRef = condition.switch1;
-    captureReferenceIssue(() => resolver.resolveReference(switchRef), issues);
-  }
-  if (condition.switch2) {
-    const switchRef = condition.switch2;
-    captureReferenceIssue(() => resolver.resolveReference(switchRef), issues);
-  }
-  if (condition.variable) {
-    const variableCondition = condition.variable;
-    captureReferenceIssue(() => resolver.resolveReference(variableCondition.ref), issues);
-    if (variableCondition.operator !== "ge") {
-      issues.push({
-        level: "error",
-        message: 'Map Event Page variable conditions only support operator "ge".',
-      });
-    }
-    if (typeof variableCondition.value !== "number" || !Number.isFinite(variableCondition.value)) {
-      issues.push({
-        level: "error",
-        message: "Map Event Page variable conditions require a finite numeric value.",
-      });
-    }
+  for (const slot of [
+    condition.actor,
+    condition.item,
+    condition.switch1,
+    condition.switch2,
+    condition.variable,
+  ]) {
+    if (slot && (slot.enabled || !("id" in slot.ref)))
+      captureReferenceIssue(() => resolver.resolveReference(slot.ref), issues);
   }
 }
 

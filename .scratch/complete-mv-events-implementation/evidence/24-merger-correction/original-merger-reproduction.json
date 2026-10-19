@@ -1,0 +1,30 @@
+{
+  "root": "C:/Users/Shuen/.codex/tmp/mv24-merger-empty-events-815eca02-b838-4338-a910-568094aaaa65",
+  "node": "v22.23.0",
+  "packageRoot": "C:/Users/Shuen/.codex/worktrees/mv-ticket-24/rpgmaker-event-dsl/packages/rpgmaker-event-dsl",
+  "actual": {
+    "ok": true,
+    "original": {
+      "width": 17,
+      "height": 13,
+      "tilesetId": 1,
+      "events": [],
+      "external": {
+        "preserve": true
+      }
+    },
+    "generated": {
+      "width": 17,
+      "height": 13,
+      "tilesetId": 1,
+      "events": [
+        null
+      ],
+      "external": {
+        "preserve": true
+      }
+    },
+    "diff": "Structured Diff Report\n\nAffected Project Data Files:\n- Map001.json\n\nDestructive Changes: no"
+  },
+  "expected": "Either preserve complete native events array shape exactly or reject unsupported missing mandatory slot zero before source publication."
+}

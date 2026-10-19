@@ -216,7 +216,7 @@ export const rewardChestEvent = mapEvent({
   pages: [
     page({
       conditions: {
-        selfSwitch: "A",
+        selfSwitch: { enabled: true, value: "A" },
       },
       commands: [showText({ lines: ["The chest is empty."] })],
     }),

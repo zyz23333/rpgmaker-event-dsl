@@ -1,3 +1,4 @@
+import { blankEvent, blankPage } from "./support/map-event-fixtures.js";
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
@@ -114,7 +115,11 @@ async function writeProjectFixture(
   if (overrides?.secondMap === true) {
     await writeFile(
       join(dataDirectory, "Map002.json"),
-      JSON.stringify({ id: 2, events: [null, { id: 1, name: "Snapshot Only" }], note: "keep" }),
+      JSON.stringify({
+        id: 2,
+        events: [null, { ...blankEvent, name: "Snapshot Only" }],
+        note: "keep",
+      }),
       "utf8",
     );
   }
@@ -267,11 +272,14 @@ describe("decompile workflow", () => {
           {
             id: 1,
             name: "Gate",
+            note: "",
             x: 4,
             y: 5,
             pages: [
               {
+                ...blankPage,
                 conditions: {
+                  ...blankPage.conditions,
                   switch1Id: 1,
                   switch1Valid: true,
                 },
@@ -1458,6 +1466,7 @@ export declare function mapEvent(input: {
   name: string;
   x: number;
   y: number;
+  note?: string;
   pages: readonly unknown[];
 }): { kind: "mapEvent"; mapId: number; id: number; name: string; x: number; y: number; pages: readonly unknown[] };
 export declare function page(input: {

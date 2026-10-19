@@ -166,29 +166,28 @@ it("MV-S4-OUTPUT-004: Check validates a complete candidate in memory and leaves 
     expect(JSON.parse(await readFile(join(generatedRoot, "Map001.json"), "utf8"))).toEqual({
       id: 1,
       opaque: { kept: [null, 1, "CR\r"] },
-      // Ticket 19 exercises the existing minimal page carrier. Ticket 24 owns its
-      // complete native fields and defaults; this literal does not accept that work.
       events: [
         null,
         {
           id: 1,
           name: "Placed",
+          note: "",
           x: 0,
           y: 0,
           pages: [
             {
               conditions: {
-                actorId: 0,
+                actorId: 1,
                 actorValid: false,
-                itemId: 0,
+                itemId: 1,
                 itemValid: false,
                 selfSwitchCh: "A",
                 selfSwitchValid: false,
-                switch1Id: 0,
+                switch1Id: 1,
                 switch1Valid: false,
-                switch2Id: 0,
+                switch2Id: 1,
                 switch2Valid: false,
-                variableId: 0,
+                variableId: 1,
                 variableValid: false,
                 variableValue: 0,
               },
@@ -204,7 +203,7 @@ it("MV-S4-OUTPUT-004: Check validates a complete candidate in memory and leaves 
               },
               moveSpeed: 3,
               moveType: 0,
-              priorityType: 1,
+              priorityType: 0,
               stepAnime: false,
               through: false,
               trigger: 0,
@@ -408,7 +407,9 @@ it("MV-S4-OUTPUT-002: Check and Compile reject invalid emitted JSON without publ
     );
     for (const check of [true, false]) {
       const before = await observe(sandbox.workspaceRoot);
-      await expect(api.compileWorkspace({ ...sandbox, check })).rejects.toThrow(/output|JSON/iu);
+      await expect(api.compileWorkspace({ ...sandbox, check })).rejects.toThrow(
+        /output|JSON|MV-MAP-PAGE-INPUT/iu,
+      );
       expect(await observe(sandbox.workspaceRoot)).toEqual(before);
     }
   });

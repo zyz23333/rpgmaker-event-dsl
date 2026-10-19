@@ -1,0 +1,67 @@
+{
+  "purpose": "Original cdae5f8 candidate dist preserved before merger correction rebuild",
+  "revision": "cdae5f8046a79ea926c90ecc68855c74d08b870d",
+  "at": "2026-10-19T14:41:54.659Z",
+  "files": [
+    {
+      "path": "authoring-B-L5uSZh.mjs",
+      "sha256": "16d0cf8fef8966872cb12a9b79f94ab9fad8b96f448ed0481bc4e98d785d9c73"
+    },
+    {
+      "path": "authoring-B-L5uSZh.mjs.map",
+      "sha256": "33504f5af789cc432948e2e0961b8a3a97bba19026e62080d423a6232a35ebb9"
+    },
+    {
+      "path": "cli.d.mts",
+      "sha256": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee"
+    },
+    {
+      "path": "cli.d.mts.map",
+      "sha256": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c"
+    },
+    {
+      "path": "cli.mjs",
+      "sha256": "6ff299041425ed2abefbbc15fa9530ac3ef6e2d10863a574ddaec1f9c7adfaaa"
+    },
+    {
+      "path": "cli.mjs.map",
+      "sha256": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8"
+    },
+    {
+      "path": "index.d.mts",
+      "sha256": "dfd9f6e95195bc6d0aff08bb4cc168e2b3cf70ebe960cc86126e04f8b128807f"
+    },
+    {
+      "path": "index.d.mts.map",
+      "sha256": "15bf226c5bf21ab6c9794cce02a6fc2c512dc5f6bc54fbc43fd20d8353a8214c"
+    },
+    {
+      "path": "index.mjs",
+      "sha256": "f568858bb7245ed3ae7a41e7958d652877fdaa5b653c9fc41f5a91a39210cbca"
+    },
+    {
+      "path": "index.mjs.map",
+      "sha256": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36"
+    },
+    {
+      "path": "operations-9ESIs8lS.mjs",
+      "sha256": "895317e7b6c6140deb7aee611947caef1b4c3c1d33ea699d7cafa06a3e307226"
+    },
+    {
+      "path": "operations-9ESIs8lS.mjs.map",
+      "sha256": "94de1e5add1c9da23d82b6b4555bb2ca8992843779812d33bb6b86d55ee5692c"
+    },
+    {
+      "path": "workspace-api.d.mts",
+      "sha256": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594"
+    },
+    {
+      "path": "workspace-api.d.mts.map",
+      "sha256": "5c00024325238da7b6368529ed69e33839a8a4f0baeed1eb2e79f65c877ebbe8"
+    },
+    {
+      "path": "workspace-api.mjs",
+      "sha256": "c0d0d1930135f308cf380603a0b1ce8e1a7a9aef4c85c09b9dd872639cbb2471"
+    }
+  ]
+}

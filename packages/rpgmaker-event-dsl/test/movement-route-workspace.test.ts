@@ -1,3 +1,4 @@
+import { blankPage } from "./support/map-event-fixtures.js";
 import { readFile, readdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { expect, it } from "vitest";
@@ -76,11 +77,12 @@ it("rejects unknown movement codes in a noncustom Autonomous Movement saved rout
           {
             id: 1,
             name: "Inactive route",
+            note: "",
             x: 0,
             y: 0,
             pages: [
               {
-                conditions: {},
+                ...blankPage,
                 moveType: 0,
                 moveRoute: {
                   list: [{ code: 99 }, { code: 0 }],
