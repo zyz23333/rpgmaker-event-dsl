@@ -53,6 +53,17 @@ async function resolvePendingInterruptedPushForPush(input: {
     return;
   }
 
+  if (pendingPush.projectRootBinding !== input.workspace.projectRootBinding) {
+    throw new Error(
+      "Project Root Binding mismatch for Interrupted Push. Return to the original configured target before recovery.",
+    );
+  }
+  const manifest = await assertProjectDataSnapshotExists(
+    input.statePaths,
+    "Interrupted Push recovery",
+    input.workspace.projectRootBinding,
+  );
+  assertPendingMetadataConsistent(pendingPush, manifest);
   const states = await classifyInterruptedPushFiles({
     dataDirectory: input.workspace.dataDirectory,
     pendingPush,
@@ -63,7 +74,7 @@ async function resolvePendingInterruptedPushForPush(input: {
   if (stateSet.size === 1 && stateSet.has("generated")) {
     await completeInterruptedPush({
       affectedFiles: pendingPush.affectedFiles.map(({ relativePath }) => relativePath),
-      manifest: await assertProjectDataSnapshotExists(input.statePaths, "push"),
+      manifest,
       statePaths: input.statePaths,
     });
     await rm(input.statePaths.pendingPushDirectory, { force: true, recursive: true });
@@ -82,6 +93,31 @@ async function resolvePendingInterruptedPushForPush(input: {
       ...states.map(({ relativePath, state }) => `- ${relativePath}: ${state}`),
     ].join("\n"),
   );
+}
+
+function assertPendingMetadataConsistent(pending: PendingPush, manifest: SyncManifest): void {
+  const snapshotHashes = new Map(
+    manifest.snapshotFiles.map((entry) => [entry.relativePath, entry.hash]),
+  );
+  const generatedHashes = new Map(
+    (manifest.generatedFiles ?? []).map((entry) => [entry.relativePath, entry.hash]),
+  );
+  const seen = new Set<string>();
+  for (const entry of pending.affectedFiles) {
+    if (
+      seen.has(entry.relativePath) ||
+      !isSafeProjectDataFileName(entry.relativePath) ||
+      entry.backupRelativePath !== entry.relativePath ||
+      entry.snapshotHash !== snapshotHashes.get(entry.relativePath) ||
+      entry.generatedHash !== generatedHashes.get(entry.relativePath) ||
+      entry.backupHash !== entry.snapshotHash
+    ) {
+      throw new Error(
+        `Interrupted Push metadata is inconsistent for ${entry.relativePath}. Recovery stopped without changes.`,
+      );
+    }
+    seen.add(entry.relativePath);
+  }
 }
 
 async function createPendingPushState(input: {
@@ -134,9 +170,10 @@ async function createPendingPushState(input: {
     await writeFile(
       resolve(tempDirectory, "pending-push.json"),
       writeStableJson({
+        projectRootBinding: input.manifest.projectRootBinding,
         affectedFiles,
         startedAt: new Date().toISOString(),
-        version: 1,
+        version: 2,
       }),
       "utf8",
     );
@@ -360,7 +397,11 @@ async function pushWorkspaceUnlocked(options: PushWorkspaceOptions): Promise<voi
 
   await resolvePendingInterruptedPushForPush({ workspace, statePaths });
 
-  const manifest = await assertProjectDataSnapshotExists(statePaths, commandName);
+  const manifest = await assertProjectDataSnapshotExists(
+    statePaths,
+    commandName,
+    workspace.projectRootBinding,
+  );
 
   await assertGeneratedProjectDataIntegrity(statePaths, manifest, commandName);
   await assertGeneratedProjectDataFresh({
@@ -457,6 +498,7 @@ async function assertGeneratedProjectDataFresh(input: {
   if (
     input.manifest.compileBaseline === undefined ||
     !(await isCompileBaselineFresh({
+      projectRootBinding: input.workspace.projectRootBinding,
       baseline: input.manifest.compileBaseline,
       config: input.workspace.config,
       snapshotFiles,
@@ -672,6 +714,7 @@ function rewriteCompileBaselineSnapshotFiles(
   snapshotFiles: readonly FileHashEntry[],
 ): CompileBaseline {
   const baselineWithoutHash = {
+    projectRootBinding: baseline.projectRootBinding,
     config: baseline.config,
     snapshotFiles: [...snapshotFiles],
     sourceFiles: baseline.sourceFiles,

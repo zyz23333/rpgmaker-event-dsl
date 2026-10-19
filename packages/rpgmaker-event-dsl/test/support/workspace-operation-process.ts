@@ -27,7 +27,13 @@ export function startWorkspaceOperation(
   input: {
     operation: WorkspaceOperation;
     mode?: "api" | "cli";
-    boundary?: "config" | "snapshot-publication" | "before-project-write";
+    boundary?:
+      | "config"
+      | "snapshot-publication"
+      | "before-project-write"
+      | "snapshot-capture"
+      | "snapshot-manifest-failure";
+    captureFile?: string;
     barrier?: boolean;
   },
 ) {
@@ -58,7 +64,14 @@ export function startWorkspaceOperation(
           ".rpgmaker-event-dsl",
           "project-data-snapshot",
         ),
+        manifestPath: resolve(sandbox.workspaceRoot, ".rpgmaker-event-dsl", "sync-manifest.json"),
         projectFile: resolve(sandbox.workspaceRoot, "Game", "data", "CommonEvents.json"),
+        capturePath: resolve(
+          sandbox.workspaceRoot,
+          "Game",
+          "data",
+          input.captureFile ?? "Actors.json",
+        ),
       }),
     },
   });
@@ -86,6 +99,7 @@ export function startWorkspaceOperation(
         signal,
         stdout,
         stderr,
+        ipcMessages: messages,
       });
       done({ exitCode, signal });
     });

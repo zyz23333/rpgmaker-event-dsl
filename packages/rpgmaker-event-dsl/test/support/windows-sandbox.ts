@@ -16,6 +16,7 @@ export type ProcessResult = {
   signal: string | null;
   stdout: string;
   stderr: string;
+  ipcMessages?: unknown[];
 };
 
 export type WindowsSandbox = {

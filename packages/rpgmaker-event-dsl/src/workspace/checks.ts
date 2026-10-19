@@ -1,9 +1,8 @@
-import { readFile, stat } from "node:fs/promises";
-import { resolve } from "node:path";
+import { stat } from "node:fs/promises";
 
 import type { FileHashEntry } from "../project-data/materialization.js";
 import {
-  hashUtf8Content,
+  collectStandardProjectDataSnapshotPlan,
   readSyncManifest,
   type SyncManifest,
   type WorkspaceStatePaths,
@@ -13,6 +12,7 @@ import { isMissingFileError } from "./guards.js";
 export async function assertProjectDataSnapshotExists(
   statePaths: WorkspaceStatePaths,
   commandName: string,
+  projectRootBinding: string,
 ): Promise<SyncManifest> {
   const manifest = await readSyncManifest(statePaths.syncManifestPath);
   if (manifest === null) {
@@ -37,21 +37,48 @@ export async function assertProjectDataSnapshotExists(
     );
   }
 
+  assertProjectRootBinding(manifest, projectRootBinding, commandName);
+  const current = await readCurrentSnapshotFileHashes(statePaths, manifest.snapshotFiles).catch(
+    (error: unknown) => {
+      throw new Error(
+        `Unknown or inconsistent Snapshot before ${commandName}. Run pull to capture it again.`,
+        { cause: error },
+      );
+    },
+  );
+  const expected = [...manifest.snapshotFiles].sort((left, right) =>
+    left.relativePath.localeCompare(right.relativePath),
+  );
+  if (JSON.stringify(current) !== JSON.stringify(expected)) {
+    throw new Error(
+      `Unknown or inconsistent Snapshot before ${commandName}. Run pull to capture it again.`,
+    );
+  }
   return manifest;
+}
+
+export function assertProjectRootBinding(
+  manifest: SyncManifest,
+  projectRootBinding: string,
+  commandName: string,
+): void {
+  if (
+    manifest.projectRootBinding !== projectRootBinding ||
+    (manifest.compileBaseline !== undefined &&
+      manifest.compileBaseline.projectRootBinding !== projectRootBinding)
+  ) {
+    throw new Error(
+      `Project Root Binding mismatch before ${commandName}. Run pull explicitly to establish the configured target when no Interrupted Push is pending.`,
+    );
+  }
 }
 
 export async function readCurrentSnapshotFileHashes(
   statePaths: WorkspaceStatePaths,
-  snapshotFiles: readonly FileHashEntry[],
+  _snapshotFiles: readonly FileHashEntry[],
 ): Promise<FileHashEntry[]> {
-  const entries = await Promise.all(
-    snapshotFiles.map(async ({ relativePath }) => ({
-      hash: hashUtf8Content(
-        await readFile(resolve(statePaths.projectDataSnapshotDirectory, relativePath), "utf8"),
-      ),
-      relativePath,
-    })),
+  const files = await collectStandardProjectDataSnapshotPlan(
+    statePaths.projectDataSnapshotDirectory,
   );
-
-  return entries.sort((left, right) => left.relativePath.localeCompare(right.relativePath));
+  return files.map(({ hash, relativePath }) => ({ hash, relativePath }));
 }

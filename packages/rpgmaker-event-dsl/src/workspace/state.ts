@@ -32,11 +32,32 @@ export const standardDatabaseFileNames = [
   "Weapons.json",
 ] as const;
 
+const hashSchema = z.string().regex(/^[a-f0-9]{64}$/u);
+const projectDataFileNameSchema = z
+  .string()
+  .refine(
+    (name) =>
+      (standardDatabaseFileNames as readonly string[]).includes(name) ||
+      (/^Map\d{3,}\.json$/u.test(name) &&
+        Number.isSafeInteger(Number(name.slice(3, -5))) &&
+        Number(name.slice(3, -5)) > 0 &&
+        formatMapFileName(Number(name.slice(3, -5))) === name),
+  );
+const projectDataHashSchema = z
+  .object({ hash: hashSchema, relativePath: projectDataFileNameSchema })
+  .strict();
+const projectDataHashesSchema = z
+  .array(projectDataHashSchema)
+  .refine((files) => new Set(files.map(({ relativePath }) => relativePath)).size === files.length);
+
 export const syncManifestSchema = z
   .object({
+    version: z.literal(1),
+    projectRootBinding: z.string().min(1),
     compileBaseline: z
       .object({
-        hash: z.string().min(1),
+        projectRootBinding: z.string().min(1),
+        hash: hashSchema,
         config: z
           .object({
             scriptEnabled: z.boolean(),
@@ -45,18 +66,11 @@ export const syncManifestSchema = z
             sourceRoot: z.string().min(1),
           })
           .strict(),
-        snapshotFiles: z.array(
-          z
-            .object({
-              hash: z.string().min(1),
-              relativePath: z.string().min(1),
-            })
-            .strict(),
-        ),
+        snapshotFiles: projectDataHashesSchema,
         sourceFiles: z.array(
           z
             .object({
-              hash: z.string().min(1),
+              hash: hashSchema,
               relativePath: z.string().min(1),
             })
             .strict(),
@@ -64,44 +78,33 @@ export const syncManifestSchema = z
       })
       .strict()
       .optional(),
-    generatedFiles: z
-      .array(
-        z
-          .object({
-            hash: z.string().min(1),
-            relativePath: z.string().min(1),
-          })
-          .strict(),
-      )
-      .optional(),
-    snapshotFiles: z.array(
-      z
-        .object({
-          hash: z.string().min(1),
-          relativePath: z.string().min(1),
-        })
-        .strict(),
+    generatedFiles: projectDataHashesSchema.optional(),
+    snapshotFiles: projectDataHashesSchema.refine((files) =>
+      standardDatabaseFileNames.every((name) =>
+        files.some(({ relativePath }) => relativePath === name),
+      ),
     ),
   })
   .strict();
 
 export const pendingPushSchema = z
   .object({
+    projectRootBinding: z.string().min(1),
     affectedFiles: z
       .array(
         z
           .object({
-            backupHash: z.string().min(1),
-            backupRelativePath: z.string().min(1),
-            generatedHash: z.string().min(1),
-            relativePath: z.string().min(1),
-            snapshotHash: z.string().min(1),
+            backupHash: hashSchema,
+            backupRelativePath: projectDataFileNameSchema,
+            generatedHash: hashSchema,
+            relativePath: projectDataFileNameSchema,
+            snapshotHash: hashSchema,
           })
           .strict(),
       )
       .min(1),
     startedAt: z.string().min(1),
-    version: z.literal(1),
+    version: z.literal(2),
   })
   .strict();
 
@@ -121,6 +124,7 @@ export type PendingPush = z.infer<typeof pendingPushSchema>;
 export type SnapshotFilePlan = {
   relativePath: string;
   sourcePath: string;
+  content: Buffer;
   hash: string;
 };
 
@@ -161,7 +165,10 @@ export async function readSyncManifest(manifestPath: string): Promise<SyncManife
       return null;
     }
 
-    throw error;
+    throw new Error(
+      `Unknown or corrupt Sync Manifest at ${manifestPath}. Run pull to establish a new Snapshot when no Interrupted Push is pending.`,
+      { cause: error },
+    );
   }
 }
 
@@ -171,10 +178,20 @@ export async function readPendingPush(manifestPath: string): Promise<PendingPush
     return pendingPushSchema.parse(JSON.parse(rawManifest));
   } catch (error) {
     if (isMissingFileError(error)) {
-      return null;
+      const directory = await stat(dirname(manifestPath)).catch((directoryError: unknown) => {
+        if (isMissingFileError(directoryError)) return null;
+        throw directoryError;
+      });
+      if (directory === null) return null;
+      throw new Error(
+        `Interrupted Push state is incomplete: missing ${manifestPath}. Recovery stopped without changes.`,
+        { cause: error },
+      );
     }
-
-    throw error;
+    throw new Error(
+      `Unknown or corrupt Interrupted Push state at ${manifestPath}. Recovery stopped without changes.`,
+      { cause: error },
+    );
   }
 }
 
@@ -185,33 +202,45 @@ export async function writeSyncManifest(
   await mkdir(dirname(manifestPath), { recursive: true });
 
   const tempManifestPath = `${manifestPath}.tmp-${process.pid}-${randomUUID()}`;
-  await writeFile(tempManifestPath, writeStableJson(manifest), "utf8");
-  await rm(manifestPath, { force: true });
-  await rename(tempManifestPath, manifestPath);
+  try {
+    await writeFile(tempManifestPath, writeStableJson(manifest), "utf8");
+    await rename(tempManifestPath, manifestPath);
+  } finally {
+    await rm(tempManifestPath, { force: true });
+  }
 }
 
 export async function captureStandardProjectDataSnapshot(options: {
   dataDirectory: string;
+  projectRootBinding: string;
   statePaths: WorkspaceStatePaths;
+  assertWorkspaceUnchanged: () => Promise<void>;
 }): Promise<SyncManifest> {
   const snapshotPlan = await collectStandardProjectDataSnapshotPlan(options.dataDirectory);
-
-  await writeSnapshotState(options.statePaths, snapshotPlan);
-
-  return {
+  const manifest: SyncManifest = {
+    version: 1,
+    projectRootBinding: options.projectRootBinding,
     snapshotFiles: snapshotPlan
       .map(({ hash, relativePath }) => ({ hash, relativePath }))
       .sort((left, right) => left.relativePath.localeCompare(right.relativePath)),
   };
+  await writeSnapshotState(
+    options.statePaths,
+    snapshotPlan,
+    manifest,
+    options.assertWorkspaceUnchanged,
+  );
+  return manifest;
 }
 
 export async function collectStandardProjectDataSnapshotPlan(
   dataDirectory: string,
 ): Promise<SnapshotFilePlan[]> {
   const mapInfosPath = resolve(dataDirectory, "MapInfos.json");
-  const mapInfosRaw = await readFile(mapInfosPath, "utf8");
-  const mapInfos = parseMapInfos(mapInfosRaw);
-  const mapFileNames = new Set(mapInfos.map((entry) => formatMapFileName(entry.id)));
+  const mapInfosRaw = await readFile(mapInfosPath);
+  const mapFileNames = parseMapInfos(decodeProjectData(mapInfosRaw, "MapInfos.json")).map(
+    ({ id }) => formatMapFileName(id),
+  );
 
   const fileNames = [...standardDatabaseFileNames, ...mapFileNames];
 
@@ -221,8 +250,10 @@ export async function collectStandardProjectDataSnapshotPlan(
     const sourcePath = resolve(dataDirectory, fileName);
     await assertReadableFile(sourcePath);
 
-    const rawContent = await readFile(sourcePath, "utf8");
+    const rawContent = fileName === "MapInfos.json" ? mapInfosRaw : await readFile(sourcePath);
+    assertProjectDataCarrier(decodeProjectData(rawContent, fileName), fileName);
     snapshotPlan.push({
+      content: rawContent,
       hash: hashContent(rawContent),
       relativePath: toPosixPath(fileName),
       sourcePath,
@@ -233,9 +264,32 @@ export async function collectStandardProjectDataSnapshotPlan(
   return snapshotPlan;
 }
 
+function assertProjectDataCarrier(content: string, fileName: string): void {
+  try {
+    const value: unknown = JSON.parse(content);
+    const object = typeof value === "object" && value !== null && !Array.isArray(value);
+    if (
+      fileName === "System.json"
+        ? object
+        : fileName.startsWith("Map") && fileName !== "MapInfos.json"
+          ? object && "events" in value && Array.isArray(value.events)
+          : Array.isArray(value)
+    )
+      return;
+    throw new Error("Unexpected carrier shape");
+  } catch (error) {
+    throw new Error(
+      `Cannot safely locate Project data carrier in ${fileName}. Snapshot capture stopped without publication.`,
+      { cause: error },
+    );
+  }
+}
+
 async function writeSnapshotState(
   statePaths: WorkspaceStatePaths,
   snapshotPlan: readonly SnapshotFilePlan[],
+  manifest: SyncManifest,
+  assertWorkspaceUnchanged: () => Promise<void>,
 ): Promise<void> {
   const tempSnapshotDirectory = resolve(
     statePaths.workspaceStateDirectory,
@@ -250,22 +304,37 @@ async function writeSnapshotState(
     for (const filePlan of snapshotPlan) {
       const destinationPath = resolve(tempSnapshotDirectory, filePlan.relativePath);
       await mkdir(dirname(destinationPath), { recursive: true });
-      await writeFile(destinationPath, await readFile(filePlan.sourcePath, "utf8"), "utf8");
+      await writeFile(destinationPath, filePlan.content);
     }
 
-    await replaceDirectory(tempSnapshotDirectory, statePaths.projectDataSnapshotDirectory);
-    await writeSyncManifest(statePaths.syncManifestPath, {
-      snapshotFiles: snapshotPlan
-        .map(({ hash, relativePath }) => ({ hash, relativePath }))
-        .sort((left, right) => left.relativePath.localeCompare(right.relativePath)),
-    });
+    for (const filePlan of snapshotPlan) {
+      const current = await readFile(filePlan.sourcePath).catch((error: unknown) => {
+        throw new Error(
+          `Project data changed during Snapshot capture: ${filePlan.relativePath}. Run clone or pull again.`,
+          { cause: error },
+        );
+      });
+      if (!current.equals(filePlan.content)) {
+        throw new Error(
+          `Project data changed during Snapshot capture: ${filePlan.relativePath}. Run clone or pull again.`,
+        );
+      }
+    }
+    await assertWorkspaceUnchanged();
+    await replaceDirectory(tempSnapshotDirectory, statePaths.projectDataSnapshotDirectory, () =>
+      writeSyncManifest(statePaths.syncManifestPath, manifest),
+    );
   } catch (error) {
     await rm(tempSnapshotDirectory, { force: true, recursive: true });
     throw error;
   }
 }
 
-async function replaceDirectory(sourceDirectory: string, targetDirectory: string): Promise<void> {
+async function replaceDirectory(
+  sourceDirectory: string,
+  targetDirectory: string,
+  publishManifest: () => Promise<void>,
+): Promise<void> {
   const targetExists = await exists(targetDirectory);
   const backupDirectory = targetExists
     ? `${targetDirectory}.bak-${process.pid}-${randomUUID()}`
@@ -278,11 +347,11 @@ async function replaceDirectory(sourceDirectory: string, targetDirectory: string
 
   try {
     await rename(sourceDirectory, targetDirectory);
+    await publishManifest();
   } catch (error) {
+    await rm(targetDirectory, { force: true, recursive: true });
     if (backupDirectory !== null) {
-      await rm(targetDirectory, { force: true, recursive: true });
       await rename(backupDirectory, targetDirectory);
-      await rm(backupDirectory, { force: true, recursive: true });
     }
 
     throw error;
@@ -301,8 +370,19 @@ async function assertReadableFile(filePath: string): Promise<void> {
   }
 }
 
-function hashContent(content: string): string {
-  return createHash("sha256").update(content, "utf8").digest("hex");
+function decodeProjectData(content: Buffer, relativePath: string): string {
+  try {
+    return new TextDecoder("utf-8", { fatal: true, ignoreBOM: true }).decode(content);
+  } catch (error) {
+    throw new Error(
+      `Invalid UTF-8 Project data: ${relativePath}. Snapshot capture stopped without publication.`,
+      { cause: error },
+    );
+  }
+}
+
+function hashContent(content: string | Buffer): string {
+  return createHash("sha256").update(content).digest("hex");
 }
 
 export function hashUtf8Content(content: string): string {
