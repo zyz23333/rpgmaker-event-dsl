@@ -11,6 +11,7 @@ export default defineConfig({
       "test/cli-entry.test.ts",
       "test/workspace-locking.test.ts",
       "test/snapshot-binding.test.ts",
+      "test/compile-inputs.test.ts",
     ],
     env: { MV_CLI_ENTRY: "built" },
   },

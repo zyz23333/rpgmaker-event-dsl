@@ -1,6 +1,6 @@
 # 18: 编译输入捕获与 Freshness
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 17
 Stage: S4a
 Created: 2026-10-19

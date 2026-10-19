@@ -17,3 +17,13 @@ The captured inputs used for validation, generation, and hashes must agree. An o
 Push checks the complete standard file set before the first replacement, checks each affected file's expected old contents at replacement, and checks the complete set again before refreshing synchronization metadata. The final expected state is generated content for written files and the original snapshot content for all others. A detected change before writing prevents writes; after writing has begun it leaves an Interrupted Push instead of silently absorbing external edits or rolling back the entire project. Understood recovery may record already completed writes, after which ordinary drift and freshness checks still prohibit new writes against changed assumptions. These are explicit check points, not a guarantee that an external editor cannot save after the last check or that the project is atomically isolated throughout Push.
 
 The complete contract was confirmed on 2026-10-18 in [the Workspace integration decision](../../.scratch/complete-mv-events/issues/07-workspace-domain-integration.md#answer). This refines ADR 0003 and ADR 0006 without claiming implementation or execution of the planned safety checks.
+
+The implementation owns Compile Contract Version in one internal constant,
+`src/workspace/type-inputs.ts`. Every later change to DSL types, validation, Compiler
+Defaults or generated semantics must update that value relative to the current
+integration version. Parallel tickets must reconcile their versions at integration;
+two independent changes choosing the same next value cannot make old output current.
+The version is tool-maintained rather than inferred from Git state or runtime source
+hashes. Recorded TypeScript reads and resolution lookups supplement the version and
+include missing candidates and directory sets, so unchanged previously loaded files
+alone do not establish freshness.

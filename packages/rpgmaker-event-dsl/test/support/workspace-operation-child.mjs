@@ -8,6 +8,7 @@ const options = JSON.parse(process.env.MV_OPERATION_CHILD);
 const readFile = fs.readFile;
 const rename = fs.rename;
 let reached = false;
+let inputReads = 0;
 async function checkpoint() {
   if (reached) return;
   reached = true;
@@ -28,6 +29,13 @@ fs.readFile = async function (path, ...args) {
     await checkpoint();
   }
   const content = await readFile(path, ...args);
+  if (
+    options.boundary === "input-validation" &&
+    resolve(String(path)) === options.inputPath &&
+    ++inputReads === 2
+  ) {
+    await checkpoint();
+  }
   if (options.boundary === "snapshot-capture" && resolve(String(path)) === options.capturePath) {
     await checkpoint();
   }
