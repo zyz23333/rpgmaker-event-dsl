@@ -1,6 +1,6 @@
 # 26: Timer 完整槽位往返
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 05, 23
 Stage: S6
 Created: 2026-10-19
@@ -50,3 +50,17 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [核心指令参数附表](../../complete-mv-events/research/command-parameters/core.md)。
+
+## Comments
+
+### 2026-10-20 — DEV / focused 实施认领
+
+独立工作树 `C:/Users/Shuen/.codex/worktrees/mv-ticket-26/rpgmaker-event-dsl` 从实际集成提交 `205334338d8e64e3d00e485849c9ddf67bd7e3b1` 建立，起始状态干净，分支 `codex/mv-ticket-26`；05/23 已 resolved。按 implement-spec 与 tdd 在已批准的 T1 公共接口建立窄 red→green，用独立原生参数数组验证 Timer 完整保存槽位。准备笔记在仓库外 `C:/Users/Shuen/.codex/tmp/mv26-timer-preparation-20261020.md`。
+
+本阶段仅聚焦开发测试、相关类型与 lint 检查；全量检查、构建、built baseline、最终契约版本增量与 E4 实际产品比较等待协调槽。本记录不代表 resolved、READY、编辑器 UI 或游戏验收通过；旧 requirements 与历史结果保持。
+
+### 2026-10-20 — DEV checkpoint 验证与交接
+
+已交付有限Timer类型/helper/编译/反编译/正式及已知raw校验、精确负零渲染、raw槽位诊断路径、三容器真实Workspace及完整15个carrier比较、文档和编写指南。实际窄red→green及测试前提错误均留存于[实施记录](../evidence/26-timer-saved-slot-roundtrip.md)和[原始历史](../evidence/26-history/README.md)。
+
+聚焦Timer60例通过；相关5文件91例通过；末次Timer+索引2文件63例通过，追加最终化E4待执行行后索引单例再次通过。包类型与改动TS的lint通过。新增13条自动化与1条待最终化E4，requirements共288行，归档120个source通过记录、29个原始日志；原274行深度相等、2,722个旧历史文件及旧README前缀字节一致。保留claimed，未运行broad/build/built/native、未最终bump Compile Contract、未resolved/READY。后续须获取实际最新集成与最终化槽后再执行这些完成门槛。

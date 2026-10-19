@@ -441,3 +441,31 @@ Ticket24 adds [complete Map Event pages and exact saved state](24-map-event-full
 
 | MV-S5-COMMON-CARRIER-BOUNDARY | Reject missing or nonnull Common reserved slot0 and preserve ordinary null-only carrier | synthetic-rejection | Actual public Workspace native carrier boundary |
 | MV-S5-COMMON-TRIGGER-BOUNDARY | Reject categorical Common trigger negative zero with exact diagnostic and unchanged complete business state | synthetic-rejection | Actual public Workspace native carrier boundary |
+
+| MV-S6-TIMER-001 | authored Stop preserves absent, undefined, zero and nonzero slots | synthetic-support | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-002 | independently saved slots roundtrip all three containers and install exact complete carriers | synthetic-support | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-003 | numeric negative zero survives actual generated source and complete native installation | synthetic-support | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-004 | invalid authored seconds fails Check and Compile without changing business state | synthetic-rejection | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-005 | invalid native seconds has a precise diagnostic before publication | synthetic-rejection | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-006 | public helper rejects invalid untyped Timer input | synthetic-rejection | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-007 | native and known raw reject the same malformed saved slots | synthetic-rejection | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-008 | command compilation rejects non-JSON array values without normalizing | synthetic-rejection | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-009 | real loader rejects extra fields from a structurally typed local const | synthetic-rejection | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-010 | real loader validates untyped source-local values | synthetic-rejection | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-011 | actual loader rejects an undefined known raw saved slot before any business write | synthetic-rejection | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-012 | valid known raw slots compile and Push complete three-container state | synthetic-support | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-013 | public types reject incomplete or invalid authored Timer input | synthetic-rejection | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-E4-COMPARE | Allocated E4 actual candidate built Timer output versus independent REA saved-slot contract | reverse-engineering-observation | Not executed at focused checkpoint; finalization required |

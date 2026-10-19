@@ -69,6 +69,14 @@ Shopkeepers use `shopProcessing(...)`. Event-driven battles use `battleProcessin
 
 ## DSL Command Selection
 
+Use `controlTimer({ action: "start", seconds })` with explicit integer seconds
+0..5999. For Stop, choose the saved shape intentionally:
+`controlTimer({ action: "stop" })` (or `seconds: undefined`) omits the seconds
+slot; explicit `seconds: 0` and nonzero seconds retain it. Keep a decompiled Stop
+seconds field even when it is zero. Numeric seconds preserve negative zero;
+native categorical action codes reject it. Recognized raw Timer records receive
+the same slot and range checks.
+
 Use `loop({ body: { commands: [...] } })` for repeated work and `breakLoop()`
 inside its body to finish it. `body.commands` is required. The optional
 `body.endMarker` defaults to `"present"`; use `"absent"` only when preserving

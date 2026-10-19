@@ -1,6 +1,7 @@
 import type { CommonEventDefinition, DslCommand } from "../domain/types.js";
 import type { ReferenceResolver } from "../validation/types.js";
 import type { RawEventCommand, CommandOrigins } from "./types.js";
+import { assertControlTimerInput } from "../commands/variables/validation.js";
 import { assertDslCommandList } from "../validation/dsl-command-inputs.js";
 import {
   resolveCommonEventCall,
@@ -300,10 +301,16 @@ export function compileNodes(
         });
         break;
       case "controlTimer":
+        assertControlTimerInput(node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 124,
           indent,
-          parameters: node.action === "start" ? [0, node.seconds] : [1, 0],
+          parameters:
+            node.action === "start"
+              ? [0, node.seconds]
+              : node.seconds === undefined
+                ? [1]
+                : [1, node.seconds],
         });
         break;
       case "changeGold":

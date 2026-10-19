@@ -1,0 +1,401 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-26/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (empty)
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\timer-invalid-saved-slots-lOUeMW
+
+stderr | test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (missing Start seconds)
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\timer-invalid-saved-slots-zOMoz5
+
+stderr | test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (extra Start slot)
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\timer-invalid-saved-slots-Z3gOvb
+
+stderr | test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (extra Stop slot)
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\timer-invalid-saved-slots-dU9YLC
+
+stderr | test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (null seconds)
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\timer-invalid-saved-slots-Pbx1GB
+
+stderr | test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (string seconds)
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\timer-invalid-saved-slots-XkmNq8
+
+stderr | test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (boolean seconds)
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\timer-invalid-saved-slots-DVuCFw
+
+stderr | test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (negative seconds)
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\timer-invalid-saved-slots-Pkwjju
+
+stderr | test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (fractional seconds)
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\timer-invalid-saved-slots-5FrzIn
+
+stderr | test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (above maximum)
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\timer-invalid-saved-slots-HjpOls
+
+stderr | test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (negative-zero action)
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\timer-invalid-saved-slots-QU9U9E
+
+stderr | test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (unknown action)
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\timer-invalid-saved-slots-CBdR9a
+
+stderr | test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (string action)
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\timer-invalid-saved-slots-8Z3iRJ
+
+stderr | test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (null action)
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\timer-invalid-saved-slots-Oe66gf
+
+ ❯ test/timer-workspace.test.ts (46 tests | 17 failed) 16347ms
+   × MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (empty) 408ms
+   × MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (missing Start seconds) 470ms
+   × MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (extra Start slot) 564ms
+   × MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (extra Stop slot) 408ms
+   × MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (null seconds) 360ms
+   × MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (string seconds) 350ms
+   × MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (boolean seconds) 541ms
+   × MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (negative seconds) 404ms
+   × MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (fractional seconds) 331ms
+   × MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (above maximum) 368ms
+   × MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (negative-zero action) 331ms
+   × MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (unknown action) 504ms
+   × MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (string action) 448ms
+   × MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (null action) 570ms
+   × MV-S6-TIMER-008: known raw rejects non-JSON array values without normalizing (undefined array element) 2ms
+   × MV-S6-TIMER-008: known raw rejects non-JSON array values without normalizing (sparse array slot) 1ms
+   × MV-S6-TIMER-008: known raw rejects non-JSON array values without normalizing (nonfinite seconds) 0ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 17 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (empty)
+AssertionError: expected 'compile --check validation failed:\n-…' to contain 'rawDslCommand'
+
+- Expected
++ Received
+
+- rawDslCommand
++ compile --check validation failed:
++ - compile error commonEvent:1: MV-E124-ACTION: Invalid native Timer action. (commands[0]); expected Start 0 or Stop 1, excluding categorical negative zero; actual undefined
+
+ ❯ test/timer-workspace.test.ts:337:42
+    335|       expect(failure).toBeInstanceOf(Error);
+    336|       expect((failure as Error).message).toContain(code);
+    337|       expect((failure as Error).message).toContain("rawDslCommand");
+       |                                          ^
+    338|     }
+    339|     expect(await observe(s.workspaceRoot)).toStrictEqual(rawBefore);
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/timer-workspace.test.ts:315:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/17]⎯
+
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (missing Start seconds)
+AssertionError: expected 'compile --check validation failed:\n-…' to contain 'rawDslCommand'
+
+- Expected
++ Received
+
+- rawDslCommand
++ compile --check validation failed:
++ - compile error commonEvent:1: MV-E124-PARAMETERS: Invalid Timer saved slot count. (commands[0]); expected Start exactly two saved slots; Stop exactly one or two saved slots; actual [0]
+
+ ❯ test/timer-workspace.test.ts:337:42
+    335|       expect(failure).toBeInstanceOf(Error);
+    336|       expect((failure as Error).message).toContain(code);
+    337|       expect((failure as Error).message).toContain("rawDslCommand");
+       |                                          ^
+    338|     }
+    339|     expect(await observe(s.workspaceRoot)).toStrictEqual(rawBefore);
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/timer-workspace.test.ts:315:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/17]⎯
+
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (extra Start slot)
+AssertionError: expected 'compile --check validation failed:\n-…' to contain 'rawDslCommand'
+
+- Expected
++ Received
+
+- rawDslCommand
++ compile --check validation failed:
++ - compile error commonEvent:1: MV-E124-PARAMETERS: Invalid Timer saved slot count. (commands[0]); expected Start exactly two saved slots; Stop exactly one or two saved slots; actual [0,83,0]
+
+ ❯ test/timer-workspace.test.ts:337:42
+    335|       expect(failure).toBeInstanceOf(Error);
+    336|       expect((failure as Error).message).toContain(code);
+    337|       expect((failure as Error).message).toContain("rawDslCommand");
+       |                                          ^
+    338|     }
+    339|     expect(await observe(s.workspaceRoot)).toStrictEqual(rawBefore);
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/timer-workspace.test.ts:315:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/17]⎯
+
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (extra Stop slot)
+AssertionError: expected 'compile --check validation failed:\n-…' to contain 'rawDslCommand'
+
+- Expected
++ Received
+
+- rawDslCommand
++ compile --check validation failed:
++ - compile error commonEvent:1: MV-E124-PARAMETERS: Invalid Timer saved slot count. (commands[0]); expected Start exactly two saved slots; Stop exactly one or two saved slots; actual [1,83,0]
+
+ ❯ test/timer-workspace.test.ts:337:42
+    335|       expect(failure).toBeInstanceOf(Error);
+    336|       expect((failure as Error).message).toContain(code);
+    337|       expect((failure as Error).message).toContain("rawDslCommand");
+       |                                          ^
+    338|     }
+    339|     expect(await observe(s.workspaceRoot)).toStrictEqual(rawBefore);
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/timer-workspace.test.ts:315:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/17]⎯
+
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (null seconds)
+AssertionError: expected 'compile --check validation failed:\n-…' to contain 'rawDslCommand'
+
+- Expected
++ Received
+
+- rawDslCommand
++ compile --check validation failed:
++ - compile error commonEvent:1: MV-E124-SECONDS: Invalid Timer saved seconds. (commands[0]); expected integer 0..5999; actual null
+
+ ❯ test/timer-workspace.test.ts:337:42
+    335|       expect(failure).toBeInstanceOf(Error);
+    336|       expect((failure as Error).message).toContain(code);
+    337|       expect((failure as Error).message).toContain("rawDslCommand");
+       |                                          ^
+    338|     }
+    339|     expect(await observe(s.workspaceRoot)).toStrictEqual(rawBefore);
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/timer-workspace.test.ts:315:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/17]⎯
+
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (string seconds)
+AssertionError: expected 'compile --check validation failed:\n-…' to contain 'rawDslCommand'
+
+- Expected
++ Received
+
+- rawDslCommand
++ compile --check validation failed:
++ - compile error commonEvent:1: MV-E124-SECONDS: Invalid Timer saved seconds. (commands[0]); expected integer 0..5999; actual "83"
+
+ ❯ test/timer-workspace.test.ts:337:42
+    335|       expect(failure).toBeInstanceOf(Error);
+    336|       expect((failure as Error).message).toContain(code);
+    337|       expect((failure as Error).message).toContain("rawDslCommand");
+       |                                          ^
+    338|     }
+    339|     expect(await observe(s.workspaceRoot)).toStrictEqual(rawBefore);
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/timer-workspace.test.ts:315:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/17]⎯
+
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (boolean seconds)
+AssertionError: expected 'compile --check validation failed:\n-…' to contain 'rawDslCommand'
+
+- Expected
++ Received
+
+- rawDslCommand
++ compile --check validation failed:
++ - compile error commonEvent:1: MV-E124-SECONDS: Invalid Timer saved seconds. (commands[0]); expected integer 0..5999; actual false
+
+ ❯ test/timer-workspace.test.ts:337:42
+    335|       expect(failure).toBeInstanceOf(Error);
+    336|       expect((failure as Error).message).toContain(code);
+    337|       expect((failure as Error).message).toContain("rawDslCommand");
+       |                                          ^
+    338|     }
+    339|     expect(await observe(s.workspaceRoot)).toStrictEqual(rawBefore);
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/timer-workspace.test.ts:315:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/17]⎯
+
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (negative seconds)
+AssertionError: expected 'compile --check validation failed:\n-…' to contain 'rawDslCommand'
+
+- Expected
++ Received
+
+- rawDslCommand
++ compile --check validation failed:
++ - compile error commonEvent:1: MV-E124-SECONDS: Invalid Timer saved seconds. (commands[0]); expected integer 0..5999; actual -1
+
+ ❯ test/timer-workspace.test.ts:337:42
+    335|       expect(failure).toBeInstanceOf(Error);
+    336|       expect((failure as Error).message).toContain(code);
+    337|       expect((failure as Error).message).toContain("rawDslCommand");
+       |                                          ^
+    338|     }
+    339|     expect(await observe(s.workspaceRoot)).toStrictEqual(rawBefore);
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/timer-workspace.test.ts:315:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/17]⎯
+
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (fractional seconds)
+AssertionError: expected 'compile --check validation failed:\n-…' to contain 'rawDslCommand'
+
+- Expected
++ Received
+
+- rawDslCommand
++ compile --check validation failed:
++ - compile error commonEvent:1: MV-E124-SECONDS: Invalid Timer saved seconds. (commands[0]); expected integer 0..5999; actual 0.5
+
+ ❯ test/timer-workspace.test.ts:337:42
+    335|       expect(failure).toBeInstanceOf(Error);
+    336|       expect((failure as Error).message).toContain(code);
+    337|       expect((failure as Error).message).toContain("rawDslCommand");
+       |                                          ^
+    338|     }
+    339|     expect(await observe(s.workspaceRoot)).toStrictEqual(rawBefore);
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/timer-workspace.test.ts:315:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/17]⎯
+
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (above maximum)
+AssertionError: expected 'compile --check validation failed:\n-…' to contain 'rawDslCommand'
+
+- Expected
++ Received
+
+- rawDslCommand
++ compile --check validation failed:
++ - compile error commonEvent:1: MV-E124-SECONDS: Invalid Timer saved seconds. (commands[0]); expected integer 0..5999; actual 6000
+
+ ❯ test/timer-workspace.test.ts:337:42
+    335|       expect(failure).toBeInstanceOf(Error);
+    336|       expect((failure as Error).message).toContain(code);
+    337|       expect((failure as Error).message).toContain("rawDslCommand");
+       |                                          ^
+    338|     }
+    339|     expect(await observe(s.workspaceRoot)).toStrictEqual(rawBefore);
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/timer-workspace.test.ts:315:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/17]⎯
+
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (negative-zero action)
+AssertionError: expected 'compile --check validation failed:\n-…' to contain 'rawDslCommand'
+
+- Expected
++ Received
+
+- rawDslCommand
++ compile --check validation failed:
++ - compile error commonEvent:1: MV-E124-ACTION: Invalid native Timer action. (commands[0]); expected Start 0 or Stop 1, excluding categorical negative zero; actual -0
+
+ ❯ test/timer-workspace.test.ts:337:42
+    335|       expect(failure).toBeInstanceOf(Error);
+    336|       expect((failure as Error).message).toContain(code);
+    337|       expect((failure as Error).message).toContain("rawDslCommand");
+       |                                          ^
+    338|     }
+    339|     expect(await observe(s.workspaceRoot)).toStrictEqual(rawBefore);
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/timer-workspace.test.ts:315:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/17]⎯
+
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (unknown action)
+AssertionError: expected 'compile --check validation failed:\n-…' to contain 'rawDslCommand'
+
+- Expected
++ Received
+
+- rawDslCommand
++ compile --check validation failed:
++ - compile error commonEvent:1: MV-E124-ACTION: Invalid native Timer action. (commands[0]); expected Start 0 or Stop 1, excluding categorical negative zero; actual 2
+
+ ❯ test/timer-workspace.test.ts:337:42
+    335|       expect(failure).toBeInstanceOf(Error);
+    336|       expect((failure as Error).message).toContain(code);
+    337|       expect((failure as Error).message).toContain("rawDslCommand");
+       |                                          ^
+    338|     }
+    339|     expect(await observe(s.workspaceRoot)).toStrictEqual(rawBefore);
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/timer-workspace.test.ts:315:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/17]⎯
+
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (string action)
+AssertionError: expected 'compile --check validation failed:\n-…' to contain 'rawDslCommand'
+
+- Expected
++ Received
+
+- rawDslCommand
++ compile --check validation failed:
++ - compile error commonEvent:1: MV-E124-ACTION: Invalid native Timer action. (commands[0]); expected Start 0 or Stop 1, excluding categorical negative zero; actual "start"
+
+ ❯ test/timer-workspace.test.ts:337:42
+    335|       expect(failure).toBeInstanceOf(Error);
+    336|       expect((failure as Error).message).toContain(code);
+    337|       expect((failure as Error).message).toContain("rawDslCommand");
+       |                                          ^
+    338|     }
+    339|     expect(await observe(s.workspaceRoot)).toStrictEqual(rawBefore);
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/timer-workspace.test.ts:315:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/17]⎯
+
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-007: native and known raw reject the same malformed saved slots (null action)
+AssertionError: expected 'compile --check validation failed:\n-…' to contain 'rawDslCommand'
+
+- Expected
++ Received
+
+- rawDslCommand
++ compile --check validation failed:
++ - compile error commonEvent:1: MV-E124-ACTION: Invalid native Timer action. (commands[0]); expected Start 0 or Stop 1, excluding categorical negative zero; actual null
+
+ ❯ test/timer-workspace.test.ts:337:42
+    335|       expect(failure).toBeInstanceOf(Error);
+    336|       expect((failure as Error).message).toContain(code);
+    337|       expect((failure as Error).message).toContain("rawDslCommand");
+       |                                          ^
+    338|     }
+    339|     expect(await observe(s.workspaceRoot)).toStrictEqual(rawBefore);
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/timer-workspace.test.ts:315:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/17]⎯
+
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-008: known raw rejects non-JSON array values without normalizing (undefined array element)
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-008: known raw rejects non-JSON array values without normalizing (sparse array slot)
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-008: known raw rejects non-JSON array values without normalizing (nonfinite seconds)
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/timer-workspace.test.ts:348:67
+    346|   ["nonfinite seconds", [0, Infinity]],
+    347| ] as const)("MV-S6-TIMER-008: known raw rejects non-JSON array values …
+    348|   expect(() => rawDslCommand({ code: 124, parameters } as never)).toTh…
+       |                                                                   ^
+    349| });
+    350|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/17]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  17 failed | 29 passed (46)
+   Start at  01:16:53
+   Duration  18.26s (transform 628ms, setup 0ms, import 1.71s, tests 16.35s, environment 0ms)
+

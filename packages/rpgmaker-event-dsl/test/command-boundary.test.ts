@@ -20,7 +20,7 @@ it("reports the real raw source position before a native record exists", () => {
   const issue = validateStagedDataGraph(buildStagedDataGraph({ declarations: [invalid] }), {
     scriptEnabled: true,
   }).issues.find((candidate) => candidate.code === "MV-COMMAND-ENVELOPE");
-  expect(issue).toMatchObject({ dslPath: "commands[1]" });
+  expect(issue).toMatchObject({ dslPath: "commands[1].parameters" });
   expect(issue?.nativePath).toBeUndefined();
 });
 
@@ -338,7 +338,6 @@ it("rejects misleading array prototypes and negative zero in the known movement 
 
 it("reports currently unrepresented known saved variants instead of silently dropping their slots", () => {
   for (const list of [
-    [{ code: 124, indent: 0, parameters: [1, 83] }],
     [
       { code: 101, indent: 0, parameters: ["", 3, 0, 2] },
       { code: 401, indent: 0, parameters: [""] },

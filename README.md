@@ -161,6 +161,14 @@ always follows ordinary Switch existence and capacity rules. Common Events inher
 their invocation context and require no map or battle declaration. Removing a
 Common Event leaves a null ID hole and requires a destructive Push.
 
+`controlTimer({ action: "start", seconds: 83 })` starts the timer; Start requires
+integer seconds in 0..5999. Stop preserves its independent saved seconds slot:
+`controlTimer({ action: "stop" })` and explicit `seconds: undefined` produce `[1]`,
+while `seconds: 0` and `seconds: 83` produce `[1,0]` and `[1,83]`. Decompile retains
+a present slot even when its value is zero. Numeric seconds preserve negative zero;
+the native action code is categorical and rejects negative zero. The same saved
+slot shapes and range apply to recognized raw Timer commands.
+
 DSL source files are discovered from the workspace config. By default, files under `src/`
 are treated as DSL declaration files when they match names like `**/*.events.ts` or
 `**/*.dsl.ts`.

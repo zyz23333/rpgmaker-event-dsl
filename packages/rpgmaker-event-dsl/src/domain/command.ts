@@ -270,6 +270,7 @@ export type ControlTimerDslCommand =
   | {
       kind: "controlTimer";
       action: "stop";
+      seconds?: number;
     };
 
 export type ChangeGoldDslCommand = {
