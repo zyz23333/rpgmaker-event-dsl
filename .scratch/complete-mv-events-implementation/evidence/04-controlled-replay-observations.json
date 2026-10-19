@@ -1,0 +1,732 @@
+{
+  "method": "Exact extracted JavaScript function replay in Node vm; QML wrappers, native Clipboard, UI signals and file I/O are not executed. UI/model/helper methods are inert stubs; list state, ECMAScript arithmetic and JSON use unchanged extracted functions.",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.0"
+  },
+  "nativeTargetSha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+  "snippets": [
+    {
+      "resource": "movement-list",
+      "marker": "function insertMovementData(",
+      "startLine": 169,
+      "endLine": 181,
+      "sha256": "0e1220dc37daffe8cc0f4005c08ae3c56b7ec01d2457db688bda0e4d613b7e76"
+    },
+    {
+      "resource": "movement-list",
+      "marker": "function copy(",
+      "startLine": 134,
+      "endLine": 137,
+      "sha256": "abe4fcae0895425c8978c3982ce2b84ac57a4fcaccdadff356276200e6614556"
+    },
+    {
+      "resource": "movement-list",
+      "marker": "function paste(",
+      "startLine": 139,
+      "endLine": 146,
+      "sha256": "4d6dfe146249672d9c447cf282bd03090aa10ce53f3f7d7a6368f3eab5f96fe6"
+    },
+    {
+      "resource": "movement-list",
+      "marker": "function remove(",
+      "startLine": 148,
+      "endLine": 154,
+      "sha256": "7d7cf3e2167d1a1c33c90d875b042cccacb19c79443adeb67a064156d9c3ba33"
+    },
+    {
+      "resource": "movement-list",
+      "marker": "function replace(",
+      "startLine": 160,
+      "endLine": 167,
+      "sha256": "5f8f56d6c2c31979fbc30450315bc5a57c95f5db56642dabe7e75db21007fb53"
+    },
+    {
+      "resource": "data",
+      "marker": "function clone(",
+      "startLine": 482,
+      "endLine": 484,
+      "sha256": "37ddf1c3a36e68411e38d02681a8d8385e0b622a8fa301acafb586a25d02178f"
+    },
+    {
+      "resource": "movement-base",
+      "marker": "function makeSimpleMovementData(",
+      "startLine": 22,
+      "endLine": 24,
+      "sha256": "1119aadf21212b319fc0df7adc57b52ef70857a3d51cec97df86a705060c80ec"
+    },
+    {
+      "resource": "wait",
+      "marker": "onSave:",
+      "startLine": 27,
+      "endLine": 31,
+      "sha256": "6ec123dd6567f15be73c85caa873abb448e4fa123c07ae100bce0831a30968f5"
+    },
+    {
+      "resource": "route205",
+      "marker": "onSave:",
+      "startLine": 33,
+      "endLine": 47,
+      "sha256": "e42d7d3e1a992d4e258d1d014f1c7245ef48bb3aabe757823f1db579a748dad0"
+    },
+    {
+      "resource": "event-base",
+      "marker": "function makeCommand(",
+      "startLine": 27,
+      "endLine": 29,
+      "sha256": "844bdf8080cb34ea26f4691d32d1574adb899a1f86d19df0925108c2d5ba0ff7"
+    },
+    {
+      "resource": "event-list",
+      "marker": "function insertEventData(",
+      "startLine": 435,
+      "endLine": 448,
+      "sha256": "474cbf65811bab028adc003eb05a69832b34c7740d71348d2a095392fdf30dbc"
+    },
+    {
+      "resource": "event-list",
+      "marker": "function copy(",
+      "startLine": 398,
+      "endLine": 401,
+      "sha256": "abe4fcae0895425c8978c3982ce2b84ac57a4fcaccdadff356276200e6614556"
+    },
+    {
+      "resource": "event-list",
+      "marker": "function paste(",
+      "startLine": 403,
+      "endLine": 410,
+      "sha256": "80451176c789fb14939ea690a3449cf250313db26197e2e9d448f7a29b4fe408"
+    }
+  ],
+  "observations": [
+    {
+      "case": "no-parameters fresh insertion",
+      "records": [
+        {
+          "keys": [
+            "code",
+            "indent"
+          ],
+          "indent": "NaN"
+        },
+        {
+          "keys": [
+            "code",
+            "parameters"
+          ],
+          "indent": "absent"
+        }
+      ],
+      "saved": [
+        {
+          "code": 1,
+          "indent": null
+        },
+        {
+          "code": 0,
+          "parameters": []
+        }
+      ]
+    },
+    {
+      "case": "no-parameters reload or route-dialog clone then copy/paste before null",
+      "records": [
+        {
+          "keys": [
+            "code",
+            "indent"
+          ],
+          "indent": 0
+        },
+        {
+          "keys": [
+            "code",
+            "indent"
+          ],
+          "indent": null
+        },
+        {
+          "keys": [
+            "code",
+            "parameters"
+          ],
+          "indent": "absent"
+        }
+      ],
+      "saved": [
+        {
+          "code": 1,
+          "indent": 0
+        },
+        {
+          "code": 1,
+          "indent": null
+        },
+        {
+          "code": 0,
+          "parameters": []
+        }
+      ]
+    },
+    {
+      "case": "no-parameters paste same clipboard before M0 with absent indent",
+      "records": [
+        {
+          "keys": [
+            "code",
+            "indent"
+          ],
+          "indent": 0
+        },
+        {
+          "keys": [
+            "code",
+            "indent"
+          ],
+          "indent": null
+        },
+        {
+          "keys": [
+            "code",
+            "indent"
+          ],
+          "indent": "NaN"
+        },
+        {
+          "keys": [
+            "code",
+            "parameters"
+          ],
+          "indent": "absent"
+        }
+      ],
+      "saved": [
+        {
+          "code": 1,
+          "indent": 0
+        },
+        {
+          "code": 1,
+          "indent": null
+        },
+        {
+          "code": 1,
+          "indent": null
+        },
+        {
+          "code": 0,
+          "parameters": []
+        }
+      ]
+    },
+    {
+      "case": "no-parameters E205/505 complete-object mirror",
+      "saved": [
+        {
+          "code": 205,
+          "indent": 0,
+          "parameters": [
+            0,
+            {
+              "list": [
+                {
+                  "code": 1,
+                  "indent": 0
+                },
+                {
+                  "code": 1,
+                  "indent": null
+                },
+                {
+                  "code": 1,
+                  "indent": null
+                },
+                {
+                  "code": 0,
+                  "parameters": []
+                }
+              ],
+              "repeat": false,
+              "skippable": false,
+              "wait": true
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 1,
+              "indent": 0
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 1,
+              "indent": null
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 1,
+              "indent": null
+            }
+          ]
+        }
+      ],
+      "mirrorEqual": true,
+      "noM0Mirror": true
+    },
+    {
+      "case": "no-parameters whole E205 group event-list copy/paste",
+      "saved": [
+        {
+          "code": 205,
+          "indent": 0,
+          "parameters": [
+            0,
+            {
+              "list": [
+                {
+                  "code": 1,
+                  "indent": 0
+                },
+                {
+                  "code": 1,
+                  "indent": null
+                },
+                {
+                  "code": 1,
+                  "indent": null
+                },
+                {
+                  "code": 0,
+                  "parameters": []
+                }
+              ],
+              "repeat": false,
+              "skippable": false,
+              "wait": true
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 1,
+              "indent": 0
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 1,
+              "indent": null
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 1,
+              "indent": null
+            }
+          ]
+        }
+      ],
+      "nestedEnvelopeEqual": true
+    },
+    {
+      "case": "parameters fresh insertion",
+      "records": [
+        {
+          "keys": [
+            "code",
+            "parameters",
+            "indent"
+          ],
+          "indent": "NaN"
+        },
+        {
+          "keys": [
+            "code",
+            "parameters"
+          ],
+          "indent": "absent"
+        }
+      ],
+      "saved": [
+        {
+          "code": 15,
+          "parameters": [
+            60
+          ],
+          "indent": null
+        },
+        {
+          "code": 0,
+          "parameters": []
+        }
+      ]
+    },
+    {
+      "case": "parameters reload or route-dialog clone then copy/paste before null",
+      "records": [
+        {
+          "keys": [
+            "code",
+            "parameters",
+            "indent"
+          ],
+          "indent": 0
+        },
+        {
+          "keys": [
+            "code",
+            "parameters",
+            "indent"
+          ],
+          "indent": null
+        },
+        {
+          "keys": [
+            "code",
+            "parameters"
+          ],
+          "indent": "absent"
+        }
+      ],
+      "saved": [
+        {
+          "code": 15,
+          "parameters": [
+            60
+          ],
+          "indent": 0
+        },
+        {
+          "code": 15,
+          "parameters": [
+            60
+          ],
+          "indent": null
+        },
+        {
+          "code": 0,
+          "parameters": []
+        }
+      ]
+    },
+    {
+      "case": "parameters paste same clipboard before M0 with absent indent",
+      "records": [
+        {
+          "keys": [
+            "code",
+            "parameters",
+            "indent"
+          ],
+          "indent": 0
+        },
+        {
+          "keys": [
+            "code",
+            "parameters",
+            "indent"
+          ],
+          "indent": null
+        },
+        {
+          "keys": [
+            "code",
+            "parameters",
+            "indent"
+          ],
+          "indent": "NaN"
+        },
+        {
+          "keys": [
+            "code",
+            "parameters"
+          ],
+          "indent": "absent"
+        }
+      ],
+      "saved": [
+        {
+          "code": 15,
+          "parameters": [
+            60
+          ],
+          "indent": 0
+        },
+        {
+          "code": 15,
+          "parameters": [
+            60
+          ],
+          "indent": null
+        },
+        {
+          "code": 15,
+          "parameters": [
+            60
+          ],
+          "indent": null
+        },
+        {
+          "code": 0,
+          "parameters": []
+        }
+      ]
+    },
+    {
+      "case": "parameter confirmation rebuilds record before replacement",
+      "records": [
+        {
+          "keys": [
+            "code",
+            "parameters",
+            "indent"
+          ],
+          "indent": "NaN"
+        },
+        {
+          "keys": [
+            "code",
+            "parameters",
+            "indent"
+          ],
+          "indent": null
+        },
+        {
+          "keys": [
+            "code",
+            "parameters",
+            "indent"
+          ],
+          "indent": "NaN"
+        },
+        {
+          "keys": [
+            "code",
+            "parameters"
+          ],
+          "indent": "absent"
+        }
+      ],
+      "saved": [
+        {
+          "code": 15,
+          "parameters": [
+            60
+          ],
+          "indent": null
+        },
+        {
+          "code": 15,
+          "parameters": [
+            60
+          ],
+          "indent": null
+        },
+        {
+          "code": 15,
+          "parameters": [
+            60
+          ],
+          "indent": null
+        },
+        {
+          "code": 0,
+          "parameters": []
+        }
+      ]
+    },
+    {
+      "case": "parameters E205/505 complete-object mirror",
+      "saved": [
+        {
+          "code": 205,
+          "indent": 0,
+          "parameters": [
+            0,
+            {
+              "list": [
+                {
+                  "code": 15,
+                  "parameters": [
+                    60
+                  ],
+                  "indent": null
+                },
+                {
+                  "code": 15,
+                  "parameters": [
+                    60
+                  ],
+                  "indent": null
+                },
+                {
+                  "code": 15,
+                  "parameters": [
+                    60
+                  ],
+                  "indent": null
+                },
+                {
+                  "code": 0,
+                  "parameters": []
+                }
+              ],
+              "repeat": false,
+              "skippable": false,
+              "wait": true
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 15,
+              "parameters": [
+                60
+              ],
+              "indent": null
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 15,
+              "parameters": [
+                60
+              ],
+              "indent": null
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 15,
+              "parameters": [
+                60
+              ],
+              "indent": null
+            }
+          ]
+        }
+      ],
+      "mirrorEqual": true,
+      "noM0Mirror": true
+    },
+    {
+      "case": "parameters whole E205 group event-list copy/paste",
+      "saved": [
+        {
+          "code": 205,
+          "indent": 0,
+          "parameters": [
+            0,
+            {
+              "list": [
+                {
+                  "code": 15,
+                  "parameters": [
+                    60
+                  ],
+                  "indent": null
+                },
+                {
+                  "code": 15,
+                  "parameters": [
+                    60
+                  ],
+                  "indent": null
+                },
+                {
+                  "code": 15,
+                  "parameters": [
+                    60
+                  ],
+                  "indent": null
+                },
+                {
+                  "code": 0,
+                  "parameters": []
+                }
+              ],
+              "repeat": false,
+              "skippable": false,
+              "wait": true
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 15,
+              "parameters": [
+                60
+              ],
+              "indent": null
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 15,
+              "parameters": [
+                60
+              ],
+              "indent": null
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 15,
+              "parameters": [
+                60
+              ],
+              "indent": null
+            }
+          ]
+        }
+      ],
+      "nestedEnvelopeEqual": true
+    }
+  ]
+}

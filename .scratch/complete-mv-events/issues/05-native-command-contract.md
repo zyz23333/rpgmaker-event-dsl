@@ -125,7 +125,7 @@ Change Equipment 的 actor 是固定项目引用；slotIndex 为零起始，合�
 
 沿用共享 `{commands,repeat?,skippable?,wait?}`，commands 必填且可空；命令形状为 `setMovementRoute({target,route})`。所有保存路线都完整校验，即使自主移动不是 custom。移动子指令使用 kind 对象列表：routeWait 改为 `{kind:"wait",frames}`；jump x/y 为相对位移；walkAnimation/stepAnimation/directionFix/through/transparent 使用 enabled；其他方向/转向 kind 沿用已有表达。
 
-12号票Q4将共享路线补为`{commands,repeat?,skippable?,wait?,terminator?}`：`terminator.parameters`为absent/empty、默认empty且M0缺indent；普通指令`savedShape.indent`为absent/null、默认absent。无参指令固定缺parameters，有参指令生成精确数组，未获支持外壳不能通过交叉组合放行。Q1另接受Stop的可选seconds，省略缺槽，显式0保留，存在秒数为整数0..5999。
+12号票Q4将共享路线补为`{commands,repeat?,skippable?,wait?,terminator?}`：`terminator.parameters`为absent/empty、默认empty且M0缺indent。Q4原先仅允许普通指令`savedShape.indent`为absent/null；同日用户接受实施04代码反例所需的有限zero修订后，当前契约为absent/null/zero、默认absent，zero直接编码0且显式反编译，其他数字拒绝。无参指令固定缺parameters，有参指令生成精确数组，未获支持外壳不能通过交叉组合放行；完整205/505对象镜像规则不变。当前权威契约与修订出处见[12号票Answer](12-native-saved-shape-model.md#answer)。Q1另接受Stop的可选seconds，省略缺槽，显式0保留，存在秒数为整数0..5999。
 
 changeImage 使用 character 与 characterIndex，character 为 characters 类素材或 null，index 为整数 0–7；空图或大人物图的非零 index 独立保留。blendMode 为 normal/additive/multiply/screen，与图片指令共用。路线继续复用 Script Input、SE 素材和开关引用，未列数值范围须进入参数证据表。
 
