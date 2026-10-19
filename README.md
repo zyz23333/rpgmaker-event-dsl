@@ -2,6 +2,9 @@
 
 RPG Maker Event DSL lets you write RPG Maker MV game logic as TypeScript code.
 
+Windows is the supported platform for the current stage. Node.js 22 is the runtime
+and CI baseline.
+
 Instead of creating every event through repeated clicks in the RPG Maker MV editor, you
 can describe supported switches, variables, common events, and map events in source
 files. The tool turns those files into RPG Maker MV project data after you review what

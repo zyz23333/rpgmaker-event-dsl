@@ -10,6 +10,7 @@ Status: resolved
 
 ## Notes
 
+- 平台范围按用户最新要求限定为 Windows / Node 22；Linux、macOS 等其他平台的支持、CI 与兼容验收不纳入本阶段。验收决策和实施规格已同步，Windows 文件系统与 E1–E7/R1–R7 必验保留。
 - 用户于 2026-10-18 确认范围：Map Event、Common Event、敌群战斗事件、全部原生事件页属性、地图事件备注及全部原生事件指令。
 - 用户确认：所有合法原生形态必须有正式 Event DSL 表达与反编译支持；`rawDslCommand` 不得充当原生功能未实现的长期替代。Script Input 和原生 Plugin DSL Command 使用各自正式 helper。
 - 用户确认：`decompile → compile → push` 对支持范围内原生事件保持解析后的保存结构和值，目前只允许 JSON 文本表示差异。具体未知数据、raw、脚本/引用校验、LF/CR 映射及失败契约已由 [06](issues/06-semantic-roundtrip-policy.md#answer) 和 [ADR 0012](../../docs/adr/0012-event-saved-state-roundtrip-boundary.md) 最终确认，禁止静默丢失或自动修复。
@@ -48,7 +49,7 @@ Status: resolved
 
 - [原生控件范围与保存值的支持边界如何划定](issues/13-native-value-domain-boundaries.md#answer)：经两轮Q1–Q8及最终确认，已确定faceIndex与E201/202/203/285直接坐标的0..2,147,483,647整数域和负零拒绝；不扫描素材，非None大索引与固定/运行地图采用准确warning；完整字符串保留CR/LF/尾部字符，并按原生单行/两行控件给重确认风险提示；EXP常量1..9,999,999，帮助差异交真实验收。ADR0011/0012、参数表及验收输入已同步；实施与真实验收尚未执行。
 
-- [如何证明 MV 事件支持完整并划定实施顺序](issues/08-completion-evidence-and-sequencing.md#answer)：经三轮Q1–Q12及最终确认，已确定逐项契约覆盖、独立原生/合成证据、E1–E7编辑器与R1–R7游戏必验组、Linux/Windows及原生执行责任、三层故障验证、S0–S7实施依赖和按影响复验规则；区分设计完成、切片合入与完整支持声明。方案已定，产品实现与真实验收仍待执行。
+- [如何证明 MV 事件支持完整并划定实施顺序](issues/08-completion-evidence-and-sequencing.md#answer)：经三轮Q1–Q12及最终确认，已确定逐项契约覆盖、独立原生/合成证据、E1–E7编辑器与R1–R7游戏必验组、Windows及原生执行责任、三层故障验证、S0–S7实施依赖和按影响复验规则；区分设计完成、切片合入与完整支持声明。方案已定，产品实现与真实验收仍待执行。
 
 ## Not yet specified
 
@@ -67,3 +68,11 @@ Status: resolved
 ### 2026-10-19 — 决策地图完成
 
 用户最终确认[如何证明 MV 事件支持完整并划定实施顺序](issues/08-completion-evidence-and-sequencing.md#answer)的完整契约与完成边界，并确认关闭该票和更新地图。全部 13 张决策票均已 resolved，地图达到“足以编写实施规格”的目的，状态更新为 resolved。已核对决策索引和票据状态；本次完成的是设计路线，原生前置实验、产品实现、自动化和编辑器/游戏验收按已确定方案进入后续阶段，没有在本轮被记为通过。
+
+### 2026-10-19 — 实施规格发布
+
+已按 to-spec 将全部已决契约、逐参数附表、测试边界与 S0–S7 依赖整理为[MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-implementation/complete-mv-events-implementation-spec.md)，状态为 ready-for-agent。后续通过 to-tickets 在独立实施 effort 中拆分任务，原十三张设计票保持 resolved。规格发布不表示原生前置实验、产品实现或自动化/编辑器/游戏验收已完成。
+
+### 2026-10-19 — 平台范围收敛到 Windows
+
+用户要求当前只支持 Windows，已同步验收方案的正式 Answer、实施规格、任务确认记录和正式任务，CI 改为 Windows / Node 22。保留历史讨论作为来源记录；当前不承担 Linux 等其他平台的兼容和验收要求。事件能力范围、55 张任务的依赖和原生验收要求保持不变，地图状态仍为 resolved。

@@ -20,6 +20,8 @@ generated output, and workspace format may change before `1.0.0`.
 
 ## Install
 
+The current stage supports Windows, with Node.js 22 as the runtime and CI baseline.
+
 ```bash
 npm install --save-dev rpgmaker-event-dsl
 ```
