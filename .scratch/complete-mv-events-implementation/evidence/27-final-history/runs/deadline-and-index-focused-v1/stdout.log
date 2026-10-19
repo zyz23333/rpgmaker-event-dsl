@@ -1,0 +1,14 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-27-final/packages/rpgmaker-event-dsl
+
+ ❯ test/mv-evidence.test.ts (3 tests | 1 failed | 2 skipped) 10008ms
+   × validates the evidence index, source references, fixture hashes, test links, and recorded runs 10007ms
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 1 passed | 34 skipped (36)
+   Start at  05:57:48
+   Duration  11.54s (transform 773ms, setup 0ms, import 2.75s, tests 13.97s, environment 0ms)
+
+undefined
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-27-final\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/decompile-publication.test.ts test/mv-evidence.test.ts -t MV-S4-DECOMPILE-015|validates the evidence index

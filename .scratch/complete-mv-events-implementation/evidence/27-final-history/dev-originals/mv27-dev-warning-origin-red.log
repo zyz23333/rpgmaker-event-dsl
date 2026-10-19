@@ -1,0 +1,56 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-27/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/choices.test.ts (65 tests | 1 failed | 64 skipped) 14ms
+   × locates preserved out-of-count saved indices in formal and raw source fields 13ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/choices.test.ts > locates preserved out-of-count saved indices in formal and raw source fields
+AssertionError: expected [ { …(2) }, { …(2) }, { …(2) }, …(1) ] to deeply equal [ { …(2) }, { …(2) }, { …(2) }, …(1) ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "dslPath": "commands[0].cancel.index",
++     "dslPath": "commands[0].cancel",
+      "nativePath": "list[0].parameters[1]",
+    },
+    {
+-     "dslPath": "commands[0].defaultChoice.index",
++     "dslPath": "commands[0].defaultChoice",
+      "nativePath": "list[0].parameters[2]",
+    },
+    {
+-     "dslPath": "commands[1].parameters[1]",
++     "dslPath": "commands[1].cancel",
+      "nativePath": "list[4].parameters[1]",
+    },
+    {
+-     "dslPath": "commands[1].parameters[2]",
++     "dslPath": "commands[1].defaultChoice",
+      "nativePath": "list[4].parameters[2]",
+    },
+  ]
+
+ ❯ test/choices.test.ts:169:116
+    167|   const issues = validateDslOwnedDeclarations([event],{scriptEnabled:f…
+    168|   expect(issues.filter(issue=>issue.level==="error")).toEqual([]);
+    169|   expect(issues.filter(issue=>issue.code==="MV-CHOICE-INDEX").map(({ds…
+       |                                                                                                                    ^
+    170|     {dslPath:"commands[0].cancel.index",nativePath:"list[0].parameters…
+    171|     {dslPath:"commands[0].defaultChoice.index",nativePath:"list[0].par…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 64 skipped (65)
+   Start at  01:30:01
+   Duration  1.31s (transform 384ms, setup 0ms, import 1.13s, tests 14ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-27\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/choices.test.ts -t locates preserved

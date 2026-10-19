@@ -1,0 +1,39 @@
+{
+  "at": "2026-10-19T22:35:45.424Z",
+  "receipts": {
+    "fullcheck-v2": {
+      "files": "44",
+      "tests": "1153",
+      "duration": "411.46s (transform 1.37s, setup 0ms, import 16.21s, tests 777.64s, environment 3ms)"
+    },
+    "built-windows-v1": {
+      "files": "19",
+      "tests": "474",
+      "duration": "331.25s (transform 1.13s, setup 0ms, import 8.35s, tests 650.89s, environment 1ms)"
+    }
+  },
+  "resources": 13,
+  "E2": "e2-built-v2-49375d67-9448-474c-8545-29a21edeed9c",
+  "R3": {
+    "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket27-final/choices-physical-v1-native-index-e9e43f74-a0b1-43b6-bce2-1b1c0adb2ad8.json",
+    "sha256": "0a002ff3de31e8056932576fb41a82f423a5475089ac7feb8b483df2e059e643"
+  },
+  "independentNativeAudit": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\independent-native-audit-v2-50d48d8a-3d3c-4402-891a-faee1e5014c4.json",
+    "sha256": "776c8dc01547bee9d134265d7e79a35e8f3647c3755a172e36d2e1d185be16d9"
+  },
+  "changes": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-choices-complete-branches.md",
+      "beforeSha256": "040c00475a361863a8b5a6a6a45e65a5dbd6b2f284af534e12ac8c343cb3d7aa",
+      "afterSha256": "cd4eea2e55526c46a2c4ee91f98b05d40d0f1550b8dc2222e4776853f8bd9093",
+      "originalPrefixExact": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/README.md",
+      "beforeSha256": "c58f0ca6085c34a13427c17692ca0482a81689ee21e35000922fc2a069c5f72e",
+      "afterSha256": "1baaf234182e8f668cd7583dcf981e61aa5ba6c7c9fc39544c3cc31ff785004d",
+      "originalPrefixExact": true
+    }
+  ]
+}

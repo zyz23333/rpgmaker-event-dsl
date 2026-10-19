@@ -1,0 +1,448 @@
+{
+  "file": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\worktrees\\mv-ticket-27-final\\.scratch\\complete-mv-events-implementation\\evidence\\27-final-history\\archive-index-v1.json",
+  "archived": 3030,
+  "external": 64,
+  "counts": {
+    "automatic": {
+      "affected-focused-v1": {
+        "count": 84,
+        "passed": 84,
+        "failed": 0
+      },
+      "build-v1": {
+        "count": 0,
+        "passed": 0,
+        "failed": 0
+      },
+      "built-windows-v1": {
+        "count": 472,
+        "passed": 472,
+        "failed": 0
+      },
+      "deadline-and-index-focused-v1": {
+        "count": 1,
+        "passed": 1,
+        "failed": 0
+      },
+      "fullcheck-v1": {
+        "count": 555,
+        "passed": 554,
+        "failed": 1
+      },
+      "fullcheck-v2": {
+        "count": 555,
+        "passed": 555,
+        "failed": 0
+      },
+      "index-helper-format-v1": {
+        "count": 0,
+        "passed": 0,
+        "failed": 0
+      },
+      "index-helper-lint-v1": {
+        "count": 0,
+        "passed": 0,
+        "failed": 0
+      },
+      "index-helper-type-v1": {
+        "count": 0,
+        "passed": 0,
+        "failed": 0
+      },
+      "index-rolling-focused-v1": {
+        "count": 0,
+        "passed": 0,
+        "failed": 0
+      },
+      "known-raw-original-failure-v1": {
+        "count": 0,
+        "passed": 0,
+        "failed": 0
+      },
+      "known-raw-original-failure-v2": {
+        "count": 11,
+        "passed": 0,
+        "failed": 11
+      },
+      "precise-format-write-v1": {
+        "count": 0,
+        "passed": 0,
+        "failed": 0
+      },
+      "scoped-format-check-v1": {
+        "count": 0,
+        "passed": 0,
+        "failed": 0
+      },
+      "scoped-format-write-v1": {
+        "count": 0,
+        "passed": 0,
+        "failed": 0
+      },
+      "scoped-lint-v1": {
+        "count": 0,
+        "passed": 0,
+        "failed": 0
+      },
+      "scoped-typecheck-v1": {
+        "count": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "runs": {
+      "affected-focused-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T21:48:37.190Z",
+        "completedAt": "2026-10-19T21:49:06.801Z"
+      },
+      "archive-capture-v1": {
+        "exitCode": 1,
+        "startedAt": "2026-10-19T22:37:25.020Z",
+        "completedAt": "2026-10-19T22:38:06.487Z"
+      },
+      "build-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T22:12:50.662Z",
+        "completedAt": "2026-10-19T22:12:53.186Z"
+      },
+      "built-windows-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T22:12:58.880Z",
+        "completedAt": "2026-10-19T22:18:30.976Z"
+      },
+      "deadline-and-index-focused-v1": {
+        "exitCode": 1,
+        "startedAt": "2026-10-19T21:57:47.538Z",
+        "completedAt": "2026-10-19T21:58:00.076Z"
+      },
+      "e2-launch-v2": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T22:18:59.640Z",
+        "completedAt": "2026-10-19T22:19:03.387Z"
+      },
+      "e2-serialization-probe-v2": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T22:12:30.222Z",
+        "completedAt": "2026-10-19T22:12:30.422Z"
+      },
+      "final-report-append-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T22:35:45.021Z",
+        "completedAt": "2026-10-19T22:35:45.431Z"
+      },
+      "fullcheck-v1": {
+        "exitCode": 1,
+        "startedAt": "2026-10-19T21:49:51.967Z",
+        "completedAt": "2026-10-19T21:57:11.610Z"
+      },
+      "fullcheck-v2": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T22:05:26.568Z",
+        "completedAt": "2026-10-19T22:12:23.798Z"
+      },
+      "index-helper-format-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T22:03:23.188Z",
+        "completedAt": "2026-10-19T22:03:24.066Z"
+      },
+      "index-helper-lint-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T22:03:23.198Z",
+        "completedAt": "2026-10-19T22:03:23.864Z"
+      },
+      "index-helper-type-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T22:03:23.188Z",
+        "completedAt": "2026-10-19T22:03:27.275Z"
+      },
+      "index-profile-capture-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T21:59:46.725Z",
+        "completedAt": "2026-10-19T21:59:57.625Z"
+      },
+      "index-profile-capture-v2": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T22:03:35.819Z",
+        "completedAt": "2026-10-19T22:03:40.515Z"
+      },
+      "index-rolling-focused-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T22:03:50.780Z",
+        "completedAt": "2026-10-19T22:03:57.422Z"
+      },
+      "known-raw-original-failure-v1": {
+        "exitCode": 1,
+        "startedAt": "2026-10-19T21:47:49.548Z",
+        "completedAt": "2026-10-19T21:47:52.440Z"
+      },
+      "known-raw-original-failure-v2": {
+        "exitCode": 1,
+        "startedAt": "2026-10-19T21:48:17.269Z",
+        "completedAt": "2026-10-19T21:48:20.038Z"
+      },
+      "native-audit-report-append-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T22:36:09.757Z",
+        "completedAt": "2026-10-19T22:36:09.993Z"
+      },
+      "native-freeze-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T22:19:18.992Z",
+        "completedAt": "2026-10-19T22:19:26.811Z"
+      },
+      "native-game-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T22:25:12.337Z",
+        "completedAt": "2026-10-19T22:32:21.996Z"
+      },
+      "native-independent-audit-v1": {
+        "exitCode": 1,
+        "startedAt": "2026-10-19T22:32:35.196Z",
+        "completedAt": "2026-10-19T22:32:37.435Z"
+      },
+      "native-independent-audit-v2": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T22:33:31.096Z",
+        "completedAt": "2026-10-19T22:33:40.419Z"
+      },
+      "native-prepare-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T22:19:44.766Z",
+        "completedAt": "2026-10-19T22:23:07.658Z"
+      },
+      "native-safe-summaries-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T22:35:21.615Z",
+        "completedAt": "2026-10-19T22:35:22.252Z"
+      },
+      "precise-format-write-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T21:48:36.008Z",
+        "completedAt": "2026-10-19T21:48:36.681Z"
+      },
+      "prepare-bindings-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T22:23:48.479Z",
+        "completedAt": "2026-10-19T22:23:48.945Z"
+      },
+      "retain-index-profile-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T22:00:37.942Z",
+        "completedAt": "2026-10-19T22:01:19.589Z"
+      },
+      "scoped-format-check-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T21:30:16.917Z",
+        "completedAt": "2026-10-19T21:30:26.181Z"
+      },
+      "scoped-format-write-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T21:28:55.515Z",
+        "completedAt": "2026-10-19T21:28:56.223Z"
+      },
+      "scoped-lint-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T21:30:06.399Z",
+        "completedAt": "2026-10-19T21:30:13.862Z"
+      },
+      "scoped-typecheck-v1": {
+        "exitCode": 0,
+        "startedAt": "2026-10-19T21:28:43.325Z",
+        "completedAt": "2026-10-19T21:28:46.606Z"
+      }
+    },
+    "frozenSets": {
+      "affected-inputs-v1": {
+        "files": 178,
+        "groups": {
+          "source": {
+            "count": 100,
+            "fingerprint": "567135a047c0a242fd9bfb6dce085f36ff326f3cee95dc47ace4fbb7c84bb245"
+          },
+          "tests": {
+            "count": 64,
+            "fingerprint": "47b48287cdd544a0e878fe5bb0dcfb24d18f43f62cef4ee45f90f46302cc6ff0"
+          },
+          "dist": {
+            "count": 0,
+            "fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          },
+          "all": {
+            "count": 178,
+            "fingerprint": "879bb4ac8396454bdb2d71ae5b2a2793256bd2dc9ef6595cf8153ecf1cd98dd7"
+          }
+        }
+      },
+      "built-inputs-v1": {
+        "files": 193,
+        "groups": {
+          "source": {
+            "count": 100,
+            "fingerprint": "567135a047c0a242fd9bfb6dce085f36ff326f3cee95dc47ace4fbb7c84bb245"
+          },
+          "tests": {
+            "count": 64,
+            "fingerprint": "d4280cda4862aa40d5b22243ab5bfccfea1a882886cf3a7e99e7e243b4d4d4f9"
+          },
+          "dist": {
+            "count": 15,
+            "fingerprint": "9799d19c80499725762a3dac89e88184cde51b69edc6e0d90d58025d38974fe8"
+          },
+          "all": {
+            "count": 193,
+            "fingerprint": "c7b16a16ace681cb2bbbd61d92039b19cea1fd3392c9b4723bc8ef6b1dbd682a"
+          }
+        }
+      },
+      "merged-preparation-inputs-v1": {
+        "files": 177,
+        "groups": {
+          "source": {
+            "count": 100,
+            "fingerprint": "567135a047c0a242fd9bfb6dce085f36ff326f3cee95dc47ace4fbb7c84bb245"
+          },
+          "tests": {
+            "count": 63,
+            "fingerprint": "c716a74e3f9ca6583d9502a4f8329f52657b357ac9036911d231c2bcbbecfb8c"
+          },
+          "dist": {
+            "count": 0,
+            "fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          },
+          "all": {
+            "count": 177,
+            "fingerprint": "b77b0265b62a4702dc79d1a3faad403f112b0fa79efe3931b77f5339ed5c9e19"
+          }
+        }
+      },
+      "optimized-dirty-inputs-v1": {
+        "files": 178,
+        "groups": {
+          "source": {
+            "count": 100,
+            "fingerprint": "567135a047c0a242fd9bfb6dce085f36ff326f3cee95dc47ace4fbb7c84bb245"
+          },
+          "tests": {
+            "count": 64,
+            "fingerprint": "d4280cda4862aa40d5b22243ab5bfccfea1a882886cf3a7e99e7e243b4d4d4f9"
+          },
+          "dist": {
+            "count": 0,
+            "fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          },
+          "all": {
+            "count": 178,
+            "fingerprint": "f2e07e6b648e350e355f2ef60eb2e06ccd6417211b90a80b50147a052f795783"
+          }
+        }
+      },
+      "pre-full-inputs-v1": {
+        "files": 178,
+        "groups": {
+          "source": {
+            "count": 100,
+            "fingerprint": "567135a047c0a242fd9bfb6dce085f36ff326f3cee95dc47ace4fbb7c84bb245"
+          },
+          "tests": {
+            "count": 64,
+            "fingerprint": "47b48287cdd544a0e878fe5bb0dcfb24d18f43f62cef4ee45f90f46302cc6ff0"
+          },
+          "dist": {
+            "count": 0,
+            "fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          },
+          "all": {
+            "count": 178,
+            "fingerprint": "879bb4ac8396454bdb2d71ae5b2a2793256bd2dc9ef6595cf8153ecf1cd98dd7"
+          }
+        }
+      },
+      "pre-full-inputs-v2": {
+        "files": 178,
+        "groups": {
+          "source": {
+            "count": 100,
+            "fingerprint": "567135a047c0a242fd9bfb6dce085f36ff326f3cee95dc47ace4fbb7c84bb245"
+          },
+          "tests": {
+            "count": 64,
+            "fingerprint": "d4280cda4862aa40d5b22243ab5bfccfea1a882886cf3a7e99e7e243b4d4d4f9"
+          },
+          "dist": {
+            "count": 0,
+            "fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          },
+          "all": {
+            "count": 178,
+            "fingerprint": "f2e07e6b648e350e355f2ef60eb2e06ccd6417211b90a80b50147a052f795783"
+          }
+        }
+      },
+      "precheck-inputs-v1": {
+        "files": 178,
+        "groups": {
+          "source": {
+            "count": 100,
+            "fingerprint": "567135a047c0a242fd9bfb6dce085f36ff326f3cee95dc47ace4fbb7c84bb245"
+          },
+          "tests": {
+            "count": 64,
+            "fingerprint": "82027d658e2050f58e7e9de7e1d8cf1da98b49d06eeff7cde291600e661b0f77"
+          },
+          "dist": {
+            "count": 0,
+            "fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          },
+          "all": {
+            "count": 178,
+            "fingerprint": "d9319b293043145df2ebd5e9dc4f04e5fdc1ebb1ecd1da48083c8aaca71bbb01"
+          }
+        }
+      },
+      "precheck-inputs-v2": {
+        "files": 178,
+        "groups": {
+          "source": {
+            "count": 100,
+            "fingerprint": "567135a047c0a242fd9bfb6dce085f36ff326f3cee95dc47ace4fbb7c84bb245"
+          },
+          "tests": {
+            "count": 64,
+            "fingerprint": "d85a101d3cac43b637637e564b2c087e110fe9da76f9f439c29a265bada94ff1"
+          },
+          "dist": {
+            "count": 0,
+            "fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          },
+          "all": {
+            "count": 178,
+            "fingerprint": "f58750395ba86a316b225349b81d1a809fe951010d9e63f03530577a557f0d5d"
+          }
+        }
+      },
+      "precheck-inputs-v3": {
+        "files": 178,
+        "groups": {
+          "source": {
+            "count": 100,
+            "fingerprint": "567135a047c0a242fd9bfb6dce085f36ff326f3cee95dc47ace4fbb7c84bb245"
+          },
+          "tests": {
+            "count": 64,
+            "fingerprint": "70593fdbc13a04b79f11951bef4bed1918c62a61c0e20194a5ae8730a8935e85"
+          },
+          "dist": {
+            "count": 0,
+            "fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          },
+          "all": {
+            "count": 178,
+            "fingerprint": "0d706919f29246e4d521d61229e09d5eff5d22e41166604ce0b373b86f375077"
+          }
+        }
+      }
+    },
+    "historicalLogs": 45
+  }
+}

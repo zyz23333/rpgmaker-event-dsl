@@ -1,0 +1,50 @@
+{
+  "at": "2026-10-19T21:22:31.024Z",
+  "incoming": "73504ec28bad98ae424a9d452f68774b009579d0",
+  "files": [
+    {
+      "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+      "conflictCount": 1,
+      "beforeSha256": "73dd1339833ad5f1b6313a667c295b8baf9a0d9afd45d6e5533903191956860b",
+      "afterSha256": "47deff411f5a295ae77a75555d09cd9bd00757a9b68b40afe9118373202a1c2b",
+      "policy": "Keep both independent owned capabilities without domain change"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/commands.ts",
+      "conflictCount": 1,
+      "beforeSha256": "f03202eb71c02f9a31741b43d32410fe81bec50dde863feca560caed355597b7",
+      "afterSha256": "8bc990fb54a7646a6a4933d966a44aa1ee1622285bb9504e40194153961b8fb9",
+      "policy": "Keep both independent owned capabilities without domain change"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/native-command-inputs.ts",
+      "conflictCount": 1,
+      "beforeSha256": "2c5683241e8947f5d4af69283527db1735222e937cacdd7a3d484b547f645379",
+      "afterSha256": "600d16bfa6c5b90d761a3b5dc1cec851a2211170655e14b2c3131ee30c41dbad",
+      "policy": "Keep both independent owned capabilities without domain change"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/vitest.windows.config.ts",
+      "conflictCount": 1,
+      "beforeSha256": "58332919e7c8a0dcef29cb925c9f584d7dbb1ea4fb05aba3a9c41efb80447a60",
+      "afterSha256": "da1cd385f48753dcc25b3a8cdf6f119cf2170d67987d0eaf86b613d768ed6afe",
+      "policy": "Keep both independent owned capabilities without domain change"
+    },
+    {
+      "path": "skills/rpgmaker-event-authoring/references/event-patterns.md",
+      "conflictCount": 1,
+      "beforeSha256": "cc5ac7222f7c7fde3ca47cb9f85e9f6d985ce82f1219be596b5e18a8a2fb80e9",
+      "afterSha256": "65128dcb82325e7241311932ebffe5d6da7a31dc06887ee901affb536bdf87e1",
+      "policy": "Keep both independent owned capabilities without domain change"
+    }
+  ],
+  "requirements": {
+    "incoming": 314,
+    "ownOriginal": 274,
+    "current": 314,
+    "allIncomingFieldsExact": true,
+    "allOldRowsDeepEqual": true
+  },
+  "incomingEvidenceReadmeRawExact": true,
+  "policy": "Retain Choices and Map appearance imports, all choice-index and movement-string warnings, both built Workspace test files, and both current authoring guides"
+}

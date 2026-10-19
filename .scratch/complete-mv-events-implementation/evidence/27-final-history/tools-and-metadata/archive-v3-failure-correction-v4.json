@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-19T22:40:06.072Z",
+  "original": {
+    "tool": "archive-final-v3.cjs",
+    "sha256": "069e418fcd50889e422f2d938c9ff23ccf757738c4394107dcd63630e79f2f9d",
+    "capture": "archive-capture-v1",
+    "exitCode": 1,
+    "error": "EISDIR while treating historical public Workspace src dependency junction as a regular file; no archive index was emitted"
+  },
+  "derived": {
+    "tool": "archive-final-v4.cjs",
+    "sha256": "54e984852542ff3d515f8e3d442ecfec680b27fe04c17edc73945f73e6a746a8",
+    "capture": "archive-capture-v2",
+    "scope": "Exactly14 source-consumption junctions under two original C public audit directories bind metadata without traversal. All regular evidence, both98-file consumed source freezes, current193 executed inputs and6native tools are retained and checked; existing partial copies reused only on complete Buffer equality, never overwritten or deleted."
+  },
+  "postArchive": {
+    "tool": "post-archive-v2.cjs",
+    "sha256": "7e00bf85acc578eaab5688c68d422016e5ea3f32fd3959963b819c91c6d007b0"
+  },
+  "finalAudit": {
+    "tool": "audit-final-v3.cjs",
+    "sha256": "19e7f4110cd4ab6e52655d5767d1aa79dcaeacaa2555932028298df057643f0d",
+    "extra": "Read back all14 exact junction metadata and196 retained historical consumed source files"
+  }
+}

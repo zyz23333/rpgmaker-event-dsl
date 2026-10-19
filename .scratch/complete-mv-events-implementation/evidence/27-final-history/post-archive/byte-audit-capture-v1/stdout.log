@@ -1,0 +1,45 @@
+{
+  "file": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-byte-audit-v1.json",
+  "passed": true,
+  "requirements": {
+    "incoming": 314,
+    "own": 274,
+    "current": 328,
+    "incomingPrefixDeepEqual": true,
+    "ownRowsDeepEqual": true
+  },
+  "history": {
+    "memberships": {
+      "73504ec28bad98ae424a9d452f68774b009579d0": 7610,
+      "4f78bef151f21235cac4342aba7bac7cce6e55cd": 2722
+    },
+    "uniqueFiles": 7610
+  },
+  "archived": {
+    "count": 3030,
+    "sourceAndCopyExact": true,
+    "indexSha256": "4bbf15f37debaee09a9ef4c24fea2ae5e46b4e1db4de989ac5ee57010824955f"
+  },
+  "bindings": {
+    "manifestSha256": "09f22289e1086dc9abecaaa01b8b6fd30f55cf79cf7b5738d28ef367ff2cc5c7",
+    "groups": {
+      "source": {
+        "count": 100,
+        "fingerprint": "567135a047c0a242fd9bfb6dce085f36ff326f3cee95dc47ace4fbb7c84bb245"
+      },
+      "tests": {
+        "count": 64,
+        "fingerprint": "d4280cda4862aa40d5b22243ab5bfccfea1a882886cf3a7e99e7e243b4d4d4f9"
+      },
+      "dist": {
+        "count": 15,
+        "fingerprint": "9799d19c80499725762a3dac89e88184cde51b69edc6e0d90d58025d38974fe8"
+      },
+      "all": {
+        "count": 193,
+        "fingerprint": "c7b16a16ace681cb2bbbd61d92039b19cea1fd3392c9b4723bc8ef6b1dbd682a"
+      }
+    },
+    "currentAndPhysicalRetainedExact": true
+  }
+}

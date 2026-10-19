@@ -1,0 +1,14 @@
+{
+  "phase": "completed",
+  "elapsedMs": 5702.1203000000005,
+  "requirementsMs": 116.4623,
+  "listMs": 40.871399999999994,
+  "readMs": 2546.2181000000205,
+  "jsonMs": 2116.218500000025,
+  "schemaMs": 468.6468999999808,
+  "fingerprintMs": 326.5976000000296,
+  "otherMs": 9.311799999961522,
+  "results": 8109,
+  "characters": 1407766770,
+  "awaitedReads": 8109
+}

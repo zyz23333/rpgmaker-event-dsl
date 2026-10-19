@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-19T22:36:09.988Z",
+  "failureCorrection": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\audit-native-v2.cjs",
+    "sha256": "e07746d1855419bc1649c491a79306285c56c872d52982710ae53af58d05e190",
+    "boundedChange": "Only compiled/data/Map001.json current inode binds to final full data isolation checkpoint plus actual publication afterPush SHA, and must differ from initial. All other initial entries remain exact dev+inode; all current data retain final checkpoint exact dev/inode/nlink/bytes assertions; no product/tool/input changes."
+  },
+  "ownAuditPassed": true,
+  "rootAuditPassed": true,
+  "changes": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-choices-complete-branches.md",
+      "beforeSha256": "cd4eea2e55526c46a2c4ee91f98b05d40d0f1550b8dc2222e4776853f8bd9093",
+      "afterSha256": "137d4cf6468482f838699598b676902e48716aab9111f34e113150cb56e174a4",
+      "originalPrefixExact": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/README.md",
+      "beforeSha256": "1baaf234182e8f668cd7583dcf981e61aa5ba6c7c9fc39544c3cc31ff785004d",
+      "afterSha256": "7b3142c0ac4093262a3e8595ab941a2b5f9dd52ca34764db5e8ca3c151c58003",
+      "originalPrefixExact": true
+    },
+    {
+      "path": ".gitattributes",
+      "beforeSha256": "c8dabe4e0dac69178cc5fb7454be257a4c193a91fa1c5a09889ef4eba8021533",
+      "afterSha256": "61e6eb276306ab22f7fd7c98fa61a4febff9e46673da57a87aa97149bc05757b",
+      "originalPrefixExact": true
+    }
+  ]
+}

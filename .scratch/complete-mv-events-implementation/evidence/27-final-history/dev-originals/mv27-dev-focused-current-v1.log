@@ -1,0 +1,116 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-27/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/choices.test.ts (64 tests | 5 failed) 46ms
+   × rejects unsupported 403 saved slots undefined 6ms
+   × rejects unsupported 403 saved slots 6 1ms
+   × rejects unsupported 403 saved slots 5 1ms
+   × rejects unsupported 403 saved slots 6 1ms
+   × rejects unsupported 403 saved slots 6 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/choices.test.ts > rejects unsupported 403 saved slots undefined
+AssertionError: expected error to match asymmetric matcher
+
+- Expected
++ Received
+
+- ObjectContaining {
+-   "code": "MV-COMMAND-PARAMETERS",
++ CommandStructureError {
++   "message": "MV-COMMAND-ENVELOPE: A required command field is missing or undefined. at list[5].parameters; expected present native field with a defined value; actual undefined",
++   "code": "MV-COMMAND-ENVELOPE",
++   "detail": "A required command field is missing or undefined.",
++   "location": {
++     "actual": "undefined",
++     "expected": "present native field with a defined value",
++     "nativePath": "list[5].parameters",
++   },
++   "identity": undefined,
++   "stage": undefined,
+  }
+
+ ❯ test/choices.test.ts:156:49
+    154|   const list=structuredClone(nativeChoices);list[0]!.parameters[1]=-2;
+    155|   list.splice(5,0,{code:403,indent:0,parameters},{code:0,indent:1,para…
+    156|   expect(()=>renderDecompiledCommandList(list)).toThrow(expect.objectC…
+       |                                                 ^
+    157| });
+    158|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  test/choices.test.ts > rejects unsupported 403 saved slots 6
+ FAIL  test/choices.test.ts > rejects unsupported 403 saved slots 6
+ FAIL  test/choices.test.ts > rejects unsupported 403 saved slots 6
+AssertionError: expected error to match asymmetric matcher
+
+- Expected
++ Received
+
+- ObjectContaining {
+-   "code": "MV-COMMAND-PARAMETERS",
++ CommandStructureError {
++   "message": "MV-COMMAND-ENVELOPE: parameters must be an array and cannot be missing. at list[5].parameters; expected dense parameter array; actual 6",
++   "code": "MV-COMMAND-ENVELOPE",
++   "detail": "parameters must be an array and cannot be missing.",
++   "location": {
++     "actual": "6",
++     "expected": "dense parameter array",
++     "nativePath": "list[5].parameters",
++   },
++   "identity": undefined,
++   "stage": undefined,
+  }
+
+ ❯ test/choices.test.ts:156:49
+    154|   const list=structuredClone(nativeChoices);list[0]!.parameters[1]=-2;
+
+    155|   list.splice(5,0,{code:403,indent:0,parameters},{code:0,indent:1,para…
+    156|   expect(()=>renderDecompiledCommandList(list)).toThrow(expect.objectC…
+       |                                                 ^
+    157| });
+    158|
+ Test Files  1 failed | 7 passed (8)
+      Tests  5 failed | 112 passed (117)
+   Start at  01:27:26
+   Duration  24.55s (transform 842ms, setup 0ms, import 3.95s, tests 36.19s, environment 1ms)
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  test/choices.test.ts > rejects unsupported 403 saved slots 5
+AssertionError: expected error to match asymmetric matcher
+
+- Expected
++ Received
+
+- ObjectContaining {
+-   "code": "MV-COMMAND-PARAMETERS",
++ CommandStructureError {
++   "message": "MV-COMMAND-ENVELOPE: parameters must be an array and cannot be missing. at list[5].parameters; expected dense parameter array; actual 5",
++   "code": "MV-COMMAND-ENVELOPE",
++   "detail": "parameters must be an array and cannot be missing.",
++   "location": {
++     "actual": "5",
++     "expected": "dense parameter array",
++     "nativePath": "list[5].parameters",
++   },
++   "identity": undefined,
++   "stage": undefined,
+  }
+
+ ❯ test/choices.test.ts:156:49
+    154|   const list=structuredClone(nativeChoices);list[0]!.parameters[1]=-2;
+    155|   list.splice(5,0,{code:403,indent:0,parameters},{code:0,indent:1,para…
+    156|   expect(()=>renderDecompiledCommandList(list)).toThrow(expect.objectC…
+       |                                                 ^
+    157| });
+    158|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-27\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/choices.test.ts test/choices-workspace.test.ts test/definitions.test.ts test/dsl.test.ts test/events.test.ts test/decompiler.test.ts test/command-boundary.test.ts test/command-boundary-workspace.test.ts

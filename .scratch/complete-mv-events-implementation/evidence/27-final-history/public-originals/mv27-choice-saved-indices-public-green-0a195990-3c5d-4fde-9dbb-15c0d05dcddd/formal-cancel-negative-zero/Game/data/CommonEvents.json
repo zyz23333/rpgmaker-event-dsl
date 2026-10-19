@@ -1,0 +1,47 @@
+[
+  null,
+  {
+    "id":1,
+    "name":"Independent saved choice indices",
+    "trigger":0,
+    "switchId":1,
+    "list":[
+      {
+        "code":102,
+        "indent":0,
+        "parameters":[
+          [
+            ""
+          ],
+          -0,
+          0,
+          2,
+          0
+        ]
+      },
+      {
+        "code":402,
+        "indent":0,
+        "parameters":[
+          0,
+          ""
+        ]
+      },
+      {
+        "code":0,
+        "indent":1,
+        "parameters":[]
+      },
+      {
+        "code":404,
+        "indent":0,
+        "parameters":[]
+      },
+      {
+        "code":0,
+        "indent":0,
+        "parameters":[]
+      }
+    ]
+  }
+]
