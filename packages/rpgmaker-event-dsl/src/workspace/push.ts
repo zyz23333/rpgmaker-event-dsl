@@ -1,4 +1,5 @@
 import { mkdir, readFile, rename, rm, stat, writeFile } from "node:fs/promises";
+import { withWorkspaceOperationLock } from "./operation-lock.js";
 import { dirname, resolve } from "node:path";
 import { randomUUID } from "node:crypto";
 
@@ -345,6 +346,14 @@ export async function readJsonFiles(
 }
 
 export async function pushWorkspace(options: PushWorkspaceOptions): Promise<void> {
+  await withWorkspaceOperationLock(
+    options.workspaceRoot,
+    options.allowDestructive ? "push --allow-destructive" : "push",
+    () => pushWorkspaceUnlocked(options),
+  );
+}
+
+async function pushWorkspaceUnlocked(options: PushWorkspaceOptions): Promise<void> {
   const commandName = options.allowDestructive ? "push --allow-destructive" : "push";
   const workspace = await loadWorkspace(options.workspaceRoot);
   const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);

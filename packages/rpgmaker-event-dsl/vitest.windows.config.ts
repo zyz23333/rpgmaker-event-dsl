@@ -6,7 +6,11 @@ export default defineConfig({
   ...baseConfig,
   test: {
     ...baseConfig.test,
-    include: ["test/windows-baseline.test.ts", "test/cli-entry.test.ts"],
+    include: [
+      "test/windows-baseline.test.ts",
+      "test/cli-entry.test.ts",
+      "test/workspace-locking.test.ts",
+    ],
     env: { MV_CLI_ENTRY: "built" },
   },
 });

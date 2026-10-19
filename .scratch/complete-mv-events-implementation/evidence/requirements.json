@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "scope": "Ticket01 seeds, ticket02 Windows baseline, tickets03–07 native reverse-engineering/accepted finite contracts, ticket11 System/switches, ticket12 captured map/battle context and ticket13 Loop/Break/Exit. Not complete105+45 or final E1–E7/R1–R7 acceptance.",
+  "scope": "Ticket01 seeds, ticket02 Windows baseline, tickets03–07 native reverse-engineering/accepted finite contracts, ticket11 System/switches, ticket12 captured map/battle context and ticket13 Loop/Break/Exit. Not complete105+45 or final E1–E7/R1–R7 acceptance. Ticket16 adds Windows Workspace operation locking and interruption/pending independence.",
   "requirements": [
     {
       "id": "MV-S0-CE-001",
@@ -3250,6 +3250,182 @@
       },
       "slice": "12 / S3",
       "required": true
+    },
+    {
+      "title": "Same Workspace public API and CLI immediate contention matrix",
+      "execution": {
+        "environment": "Windows / Node22",
+        "layer": "Real filesystem and public API/CLI child processes",
+        "owner": "Automated test runner"
+      },
+      "classifications": [
+        "positive",
+        "negative",
+        "combination"
+      ],
+      "input": "Independent common event Project Root; real child process holds an operation before configuration read; all public operations compete.",
+      "sources": [
+        {
+          "section": "### I12",
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md"
+        },
+        {
+          "section": "## Acceptance criteria",
+          "path": ".scratch/complete-mv-events-implementation/issues/16-workspace-operation-locking.md"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A7"
+      ],
+      "sourceKind": "synthetic-support",
+      "id": "MV-S4-LOCK-001",
+      "slice": "16 / S4a",
+      "nativeGroups": [],
+      "test": {
+        "name": "MV-S4-LOCK-001: excludes every Workspace API and CLI operation before mutable reads",
+        "path": "packages/rpgmaker-event-dsl/test/workspace-locking.test.ts"
+      },
+      "expected": "Every competitor immediately reports busy while owner remains blocked; no mutable state is read and complete user content remains unchanged.",
+      "required": true,
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      }
+    },
+    {
+      "title": "hides Snapshot publication gaps and aliases while other Workspaces operate",
+      "execution": {
+        "environment": "Windows / Node22",
+        "layer": "Real filesystem and public API/CLI child processes",
+        "owner": "Automated test runner"
+      },
+      "classifications": [
+        "positive",
+        "negative",
+        "combination"
+      ],
+      "input": "hides Snapshot publication gaps and aliases while other Workspaces operate. Independent synthetic project plus IPC-controlled real filesystem boundary.",
+      "sources": [
+        {
+          "section": "### I12",
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md"
+        },
+        {
+          "section": "## Acceptance criteria",
+          "path": ".scratch/complete-mv-events-implementation/issues/16-workspace-operation-locking.md"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A7"
+      ],
+      "sourceKind": "synthetic-support",
+      "id": "MV-S4-LOCK-002",
+      "slice": "16 / S4a",
+      "nativeGroups": [],
+      "test": {
+        "name": "MV-S4-LOCK-002: hides Snapshot publication gaps and aliases while other Workspaces operate",
+        "path": "packages/rpgmaker-event-dsl/test/workspace-locking.test.ts"
+      },
+      "expected": "hides Snapshot publication gaps and aliases while other Workspaces operate. Complete source, Project Root, Snapshot, manifest, Discovery, Generated and pending assertions.",
+      "required": true,
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      }
+    },
+    {
+      "title": "recovers kernel leases after interruption and crash without stale-cleaner races",
+      "execution": {
+        "environment": "Windows / Node22",
+        "layer": "Real filesystem and public API/CLI child processes",
+        "owner": "Automated test runner"
+      },
+      "classifications": [
+        "positive",
+        "negative",
+        "combination"
+      ],
+      "input": "recovers kernel leases after interruption and crash without stale-cleaner races. Independent synthetic project plus IPC-controlled real filesystem boundary.",
+      "sources": [
+        {
+          "section": "### I12",
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md"
+        },
+        {
+          "section": "## Acceptance criteria",
+          "path": ".scratch/complete-mv-events-implementation/issues/16-workspace-operation-locking.md"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A7"
+      ],
+      "sourceKind": "synthetic-support",
+      "id": "MV-S4-LOCK-003",
+      "slice": "16 / S4a",
+      "nativeGroups": [],
+      "test": {
+        "name": "MV-S4-LOCK-003: recovers kernel leases after interruption and crash without stale-cleaner races",
+        "path": "packages/rpgmaker-event-dsl/test/workspace-locking.test.ts"
+      },
+      "expected": "recovers kernel leases after interruption and crash without stale-cleaner races. Complete source, Project Root, Snapshot, manifest, Discovery, Generated and pending assertions.",
+      "required": true,
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      }
+    },
+    {
+      "title": "preserves Interrupted Push independently of abandoned locks and failed checks",
+      "execution": {
+        "environment": "Windows / Node22",
+        "layer": "Real filesystem and public API/CLI child processes",
+        "owner": "Automated test runner"
+      },
+      "classifications": [
+        "positive",
+        "negative",
+        "combination"
+      ],
+      "input": "preserves Interrupted Push independently of abandoned locks and failed checks. Independent synthetic project plus IPC-controlled real filesystem boundary.",
+      "sources": [
+        {
+          "section": "### I12",
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md"
+        },
+        {
+          "section": "## Acceptance criteria",
+          "path": ".scratch/complete-mv-events-implementation/issues/16-workspace-operation-locking.md"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A7"
+      ],
+      "sourceKind": "synthetic-support",
+      "id": "MV-S4-LOCK-004",
+      "slice": "16 / S4a",
+      "nativeGroups": [],
+      "test": {
+        "name": "MV-S4-LOCK-004: preserves Interrupted Push independently of abandoned locks and failed checks",
+        "path": "packages/rpgmaker-event-dsl/test/workspace-locking.test.ts"
+      },
+      "expected": "preserves Interrupted Push independently of abandoned locks and failed checks. Complete source, Project Root, Snapshot, manifest, Discovery, Generated and pending assertions.",
+      "required": true,
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      }
     }
   ]
 }

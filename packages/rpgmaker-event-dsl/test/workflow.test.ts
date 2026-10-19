@@ -630,11 +630,14 @@ export const caller = {
     );
     const statePaths = getWorkspaceStatePaths(workspaceRoot);
     const manifestBefore = await readFile(statePaths.syncManifestPath, "utf8");
+    const stateFilesBefore = (await readdir(statePaths.workspaceStateDirectory)).sort();
 
     await compileWorkspace({ workspaceRoot, check: true });
 
     expect(await readFile(statePaths.syncManifestPath, "utf8")).toBe(manifestBefore);
+    expect((await readdir(statePaths.workspaceStateDirectory)).sort()).toEqual(stateFilesBefore);
     expect((await readdir(statePaths.workspaceStateDirectory)).sort()).toEqual([
+      "operation.lock",
       "project-data-snapshot",
       "sync-manifest.json",
     ]);
