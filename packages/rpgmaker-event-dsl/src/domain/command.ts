@@ -374,7 +374,19 @@ export type ScrollMapDslCommand = {
   speed: number;
 };
 
-export type MoveRouteCommand =
+export type MoveRouteCommand = MoveRouteInstruction & {
+  savedShape?: { indent?: "absent" | "null" | "zero" };
+};
+
+export type MovementRoute = {
+  commands: readonly MoveRouteCommand[];
+  repeat?: boolean;
+  skippable?: boolean;
+  wait?: boolean;
+  terminator?: { parameters?: "absent" | "empty" };
+};
+
+type MoveRouteInstruction =
   | { kind: "moveDown" }
   | { kind: "moveLeft" }
   | { kind: "moveRight" }
@@ -419,10 +431,7 @@ export type MoveRouteCommand =
 export type SetMovementRouteDslCommand = {
   kind: "setMovementRoute";
   target: CharacterRuntimeSelector;
-  route: readonly MoveRouteCommand[];
-  repeat?: boolean;
-  skippable?: boolean;
-  wait?: boolean;
+  route: MovementRoute;
 };
 
 export type GetOnOffVehicleDslCommand = {

@@ -427,7 +427,7 @@ export const movementStationEvent = mapEvent({
         }),
         setMovementRoute({
           target: currentEvent,
-          route: [
+          route: { commands: [
             { kind: "turnDown" },
             { kind: "moveForward" },
             { kind: "routeWait", frames: 10 },
@@ -437,6 +437,7 @@ export const movementStationEvent = mapEvent({
           ],
           skippable: true,
           wait: true,
+          },
         }),
         showBalloonIcon({
           target: playerCharacter,

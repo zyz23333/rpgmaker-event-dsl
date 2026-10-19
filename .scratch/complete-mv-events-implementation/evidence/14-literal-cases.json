@@ -1,0 +1,91 @@
+[
+  {
+    "eventId": 1,
+    "frames": 90,
+    "expected": {
+      "switches": [
+        true,
+        true,
+        true
+      ],
+      "running": false,
+      "forcing": false,
+      "x": 0,
+      "y": 0,
+      "direction": 6
+    }
+  },
+  {
+    "eventId": 3,
+    "frames": 90,
+    "first": {
+      "switches": [
+        false,
+        false,
+        true
+      ],
+      "running": false,
+      "forcing": true
+    },
+    "expected": {
+      "switches": [
+        true,
+        false,
+        true
+      ],
+      "running": false,
+      "forcing": false,
+      "x": 0,
+      "y": 0,
+      "direction": 2
+    }
+  },
+  {
+    "eventId": 4,
+    "frames": 90,
+    "expected": {
+      "switches": [
+        true,
+        false,
+        false
+      ],
+      "running": true,
+      "forcing": true,
+      "x": 0,
+      "y": 0,
+      "direction": 2
+    }
+  },
+  {
+    "eventId": 5,
+    "frames": 90,
+    "expected": {
+      "switches": [
+        false,
+        false,
+        false
+      ],
+      "running": true,
+      "forcing": true,
+      "x": 0,
+      "y": 0,
+      "direction": 4
+    }
+  },
+  {
+    "eventId": 6,
+    "frames": 90,
+    "expected": {
+      "switches": [
+        true,
+        false,
+        true
+      ],
+      "running": false,
+      "forcing": false,
+      "x": 0,
+      "y": 0,
+      "direction": 6
+    }
+  }
+]

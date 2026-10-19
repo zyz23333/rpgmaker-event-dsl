@@ -111,6 +111,33 @@ or inconsistent pending state is preserved for manual correction.
 self-switch letters are A–D. A Common Event called by a Map Event inherits its
 caller identity for self switches.
 
+## Movement Routes
+
+```ts
+import { setMovementRoute } from "rpgmaker-event-dsl";
+
+const routeCommand = setMovementRoute({
+  target: { kind: "runtimeSelector", scope: "character", target: "player" },
+  route: {
+    commands: [{ kind: "turnDown" }, { kind: "jump", x: 0, y: 1, savedShape: { indent: "null" } }],
+    repeat: false,
+    wait: true,
+  },
+});
+```
+
+The shared `MovementRoute` type requires `commands`, including an empty array.
+Its flags default to repeat=true, skippable=false and wait=false. Each instruction's
+optional `savedShape.indent` is `"absent"` by default, `"null"` for native null,
+or `"zero"` for native numeric 0. Parameterless instructions omit parameters.
+The route's `terminator.parameters` is `"empty"` by default or `"absent"`;
+its sole final M0 has no indent and produces no 505. Empty saved descriptors and
+optional undefined fields use these defaults. Set Movement Route owns all 505
+continuations and validates their complete ordered objects, preserving missing keys,
+null, zero and nested audio values. Conflicting mirrors, unknown movement codes,
+extra fields and unsupported envelopes fail. Recognized raw routes retain switch
+reference and Script Command Gate validation.
+
 ## Loop and event processing
 
 ```ts

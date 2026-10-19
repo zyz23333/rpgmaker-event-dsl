@@ -130,6 +130,7 @@ export type {
   LoopDslCommand,
   MovePictureDslCommand,
   MoveRouteCommand,
+  MovementRoute,
   NameInputProcessingDslCommand,
   OpenMenuScreenDslCommand,
   OpenSaveScreenDslCommand,

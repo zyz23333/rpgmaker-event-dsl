@@ -243,15 +243,17 @@ describe("collectDslOwnedDeclarations", () => {
     expect(
       setMovementRoute({
         target: { kind: "runtimeSelector", scope: "character", target: "player" },
-        route: [
-          { kind: "moveDown" },
-          { kind: "routeWait", frames: 15 },
-          { kind: "switchOn", switch: switchRef({ id: 1 }) },
-          { kind: "script", script: scriptInput({ code: "this.moveForward();" }) },
-        ],
-        repeat: false,
-        skippable: true,
-        wait: true,
+        route: {
+          commands: [
+            { kind: "moveDown" },
+            { kind: "routeWait", frames: 15 },
+            { kind: "switchOn", switch: switchRef({ id: 1 }) },
+            { kind: "script", script: scriptInput({ code: "this.moveForward();" }) },
+          ],
+          repeat: false,
+          skippable: true,
+          wait: true,
+        },
       }).kind,
     ).toBe("setMovementRoute");
     expect(changeTransparency({ transparent: true }).kind).toBe("changeTransparency");

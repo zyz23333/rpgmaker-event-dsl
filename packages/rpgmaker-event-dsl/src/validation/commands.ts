@@ -2,7 +2,7 @@ import type {
   ConditionalBranchCondition,
   DslCommand,
   EventPage,
-  MoveRouteCommand,
+  MovementRoute,
   PageConditions,
   ReferenceKind,
   ReferenceValue,
@@ -15,6 +15,11 @@ import { isReferenceValue } from "./inspection.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
 import { assertNativeContextReferences } from "./native-context-references.js";
 import { assertLoopCommand } from "../commands/flow/validation.js";
+import {
+  assertSetMovementRoute,
+  validateNativeMovementRouteInputs,
+} from "../commands/movement/validation.js";
+import { CommandStructureError } from "./command-structure.js";
 
 type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
@@ -204,8 +209,32 @@ export function validateNodes(
       validateEventLocationDestination(node.destination, resolver, issues);
     }
     if (node.kind === "setMovementRoute") {
+      try {
+        assertSetMovementRoute(node, nodePath);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        continue;
+      }
       validateCharacterRuntimeSelector(node.target, "Set Movement Route target", issues);
-      validateMoveRouteCommands(node.route, resolver, options, issues);
+      validateMoveRouteCommands(node.route, resolver, childOptions("route"), issues);
+    }
+    if (node.kind === "rawDslCommand" && node.code === 205) {
+      try {
+        validateNativeMovementRouteInputs(
+          node.parameters?.[1],
+          resolver,
+          {
+            ...options,
+            dslPath: `${nodePath}.parameters[1]`,
+            nativePath: `${nodePath}.parameters[1]`,
+          },
+          issues,
+        );
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+      }
     }
     if (node.kind === "showAnimation") {
       validateCharacterRuntimeSelector(node.target, "Show Animation target", issues);
@@ -377,12 +406,12 @@ export function validateCommandPosition(
 }
 
 export function validateMoveRouteCommands(
-  route: readonly MoveRouteCommand[],
+  route: MovementRoute,
   resolver: ReferenceResolver,
-  options: { scriptEnabled: boolean },
+  options: CommandValidationOptions,
   issues: ValidationIssue[],
 ): void {
-  for (const command of route) {
+  for (const [index, command] of route.commands.entries()) {
     if (command.kind === "switchOn" || command.kind === "switchOff") {
       captureReferenceIssue(() => resolver.resolveReference(command.switch), issues);
     }
@@ -390,6 +419,10 @@ export function validateMoveRouteCommands(
     if (command.kind === "script" && !options.scriptEnabled) {
       issues.push({
         level: "error",
+        code: "MV-MOVEMENT-SCRIPT",
+        stage: "compile",
+        ...(options.identity === undefined ? {} : { identity: options.identity }),
+        dslPath: `${options.path ?? "route"}.commands[${index}].script`,
         message: "Set Movement Route script commands require explicit config enablement.",
       });
     }

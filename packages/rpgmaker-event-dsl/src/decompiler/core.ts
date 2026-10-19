@@ -4,6 +4,7 @@ import { resolve } from "node:path";
 import type { WorkspaceStatePaths } from "../workspace/state.js";
 import type { RawEventCommand } from "../compiler/types.js";
 import type { SnapshotCommonEvent, SnapshotMapEvent, SnapshotMapEventPage } from "./types.js";
+import { assertNativeMovementRoute } from "../commands/movement/validation.js";
 import {
   CommandStructureError,
   inspectCommandListStructure,
@@ -133,6 +134,21 @@ export function readMapEventPages(value: unknown, identity?: string): SnapshotMa
     }
 
     const record = entry as Record<string, unknown>;
+    if (Object.hasOwn(record, "moveRoute")) {
+      try {
+        assertNativeMovementRoute(record.moveRoute, `pages[${pageIndex}].moveRoute`);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          throw new CommandStructureError(
+            error.code,
+            error.detail,
+            error.location,
+            identity,
+            "decompile",
+          );
+        throw error;
+      }
+    }
     return [
       {
         conditions:

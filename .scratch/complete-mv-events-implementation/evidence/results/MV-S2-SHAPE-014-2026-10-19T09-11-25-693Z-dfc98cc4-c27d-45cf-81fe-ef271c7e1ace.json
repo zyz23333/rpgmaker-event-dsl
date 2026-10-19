@@ -1,0 +1,3244 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-S2-SHAPE-014",
+  "runId": "2026-10-19T09-11-25-693Z-dfc98cc4-c27d-45cf-81fe-ef271c7e1ace",
+  "status": "passed",
+  "startedAt": "2026-10-19T09:08:23.790Z",
+  "completedAt": "2026-10-19T09:11:25.693Z",
+  "operator": "Codex ticket14 implementer /root/ticket_01",
+  "source": {
+    "revision": "dad1fd42e34b2ffc1c97abb90cd7beccc9c76eb0",
+    "fingerprint": "c1073d600e15f91556b9f1c691f8c8ea57007192143dab367a144622d26be917",
+    "files": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/14-built-workspace-report.json",
+        "sha256": "e7fef77fcaff3f5e0eae16c9a0ff413c72c15fb19100cc5ebe4e002c9d7fdf2f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/14-compiled-cases.json",
+        "sha256": "8a427fbf79236317b3c51b838f30c8df54218ce190588c32b5b8891ccb6d3302"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/14-compiled-common-events.json",
+        "sha256": "02949c2181117041344274a9eae576f0683e5599a215732d264c04f8689d0b71"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/14-compiled-observer.js",
+        "sha256": "896026e5909c49ca989a2578fddbd302d9da0dfe1d6e48b57fb4863b9f611bc2"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/14-compiled-run-identity.json",
+        "sha256": "deeca58c6e4fbdf26515229d8b7b4776848445d4d21f297a6e436d9603d5c6fc"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/14-compiled-runtime-result.json",
+        "sha256": "be7ecaaae67fd4c526b5a36c78b831ca92749f16809e6fc0085199f5ad989537"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/14-compiled-stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/14-compiled-stdout.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/14-literal-cases.json",
+        "sha256": "8a427fbf79236317b3c51b838f30c8df54218ce190588c32b5b8891ccb6d3302"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/14-literal-observer.js",
+        "sha256": "5d085a46fb83a6254eeeff35e007d5036729aec89f33009971627387aef265d8"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/14-literal-run-identity.json",
+        "sha256": "2a00a62d0216b2ac36e5564711fc4a3a0bd842201c797861056b7ab3e9951eea"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/14-literal-runtime-result.json",
+        "sha256": "5c94dfe7a5002441c073e7093b30b8f7bf2e6ba51ff3ab1c3c1c87eae75b9783"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/14-literal-stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/14-literal-stdout.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/14-movement-native-runner.cjs",
+        "sha256": "53f8ba5073af5e0587010aeac680e82f8e6e481d503207956eca73b3430f3a6c"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/14-record-acceptance.mjs",
+        "sha256": "d98127d273d7fb8fafb7cf2778c163b7950b5b53540d75726afa37b1a939f3aa"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/14-vitest-report.json",
+        "sha256": "44f975dda80ab23234c6442394f5b4f88451111cd6e77f3fe26588b2c0c1c7ef"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+        "sha256": "9bef288664b4db8ab9bc8b76a87431eea4cc6b97541278908ed3d23606328b76"
+      },
+      {
+        "path": "package.json",
+        "sha256": "770e4e3a85243faa5f7a4e029097699e7c024f0655342a18bd47d507bf7af8b4"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/declarations.ts",
+        "sha256": "86e765bd32bef9addbaa8bd0970968e0355786772de92761707bd066a4e929a9"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/index.ts",
+        "sha256": "1e6d9a397120f5984e91eda0d37f6a1ce2c83d2014aa4d410b95c45f0409bb5a"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/references.ts",
+        "sha256": "395ebe2dd50f9890ec2f6f0f2b602af20ab8cc825a78d8bd3aaaae5b241c3ca1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/shared.ts",
+        "sha256": "3865ac8c4b3768c96038a323a02cf30c33edd9f330544bd6cd2b204d2841408e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/cli.ts",
+        "sha256": "34c6e77e91a45126b1a2c5b15621f79241a98bab081924d2fbd535c5996fd4b0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/actor/authoring.ts",
+        "sha256": "adc9b6aa805739dad7594246236f6314cc8a08299f1bd323b8ae729cf6b2fdf3"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/actor/decompile.ts",
+        "sha256": "2e83a179cabb9ae19ff9207904c822bb84c6b5bc45581386d2aca7b1b005b56d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/audio/authoring.ts",
+        "sha256": "08a68ae8b97095ec1c3a6d8517ed5649eb79ffb1b66f59aa34a7506356e0e513"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/audio/decompile.ts",
+        "sha256": "18acdf8e035ad2b8f3879622e18c39a7cde1e6279c14013fca2e6dbd0edb3811"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/battle/authoring.ts",
+        "sha256": "a5249dd85dde78f2f0183d33a9a79d69bca93e88b5d2f0404f9005a25f115377"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/battle/decompile.ts",
+        "sha256": "4da781567fb9baf2580ec050564d66506d542890dfab3a6966eef1c008ac44b0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/enemy/authoring.ts",
+        "sha256": "3ff830df557837e08ed73054eb47085cd0ba262e1aad746defc05578a14ce602"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/enemy/decompile.ts",
+        "sha256": "334fc1efeda29f27cf9a7e504501ea7e693fb9b041a96bb827c90ec957ff2cd2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/flow/authoring.ts",
+        "sha256": "5948d34cb26d81e3a72973a88b742a78b3928b7d4dc4c67b41ecca1e212f6d0f"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/flow/decompile.ts",
+        "sha256": "db0508df65d743ada28e4b175d85cfbfa6a70a0547ff17cc2ecc2ab9a0feac31"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/flow/validation.ts",
+        "sha256": "e53e420b6f56e26e85e7df6db53c48365002450aefb13fbae50b21141e2adc70"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/map/authoring.ts",
+        "sha256": "985f89d88a2460b0af605f3fb8282847dd48e4d5d6e13821ae430966a53c4006"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/map/decompile.ts",
+        "sha256": "4155ac5891314141271b6e80f4b11924e584ef1efcf6e83b125b7e60196e2ce0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/message/authoring.ts",
+        "sha256": "76bfc91b2a89a8c62546542396ff47c8baf9f13d54c1c1ba5a0b58031b413d68"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/message/decompile.ts",
+        "sha256": "88c685d032c2be77e1e02548c5d500e6a2ceaf012d583d78d9cb0270fc841f13"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/authoring.ts",
+        "sha256": "af1985013fa73af61d72cc440de0f83d99f78c94da4744f3a7ab1d7b56daf909"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/compile.ts",
+        "sha256": "8491f60e066d618bb076e3e03774b9332000f8be6f5c81a05ceb2aa03e2d0e15"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/decompile.ts",
+        "sha256": "016e07bdd681af3aaaf70ae5141afc6255598453c2ce43a6c34a3d44c38ba6c3"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/types.ts",
+        "sha256": "de4a2cb691fc6a8697ba91a2a831eaf17e1c15e541da4a2893f902f30a3a01b8"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/validation.ts",
+        "sha256": "05e623a70501eb28faecf6e0e484533b639785f4c69633372765bff1627ceea9"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/screen/authoring.ts",
+        "sha256": "c0557c79496cb70c7a4d67fa61008a6e189b9df86f7cb408b36048b89aff63dc"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/screen/compile.ts",
+        "sha256": "a1c68cb63a4e6fe9ad2de3f45f51101f2e4fa6656fd865ac3bbbf485c78edc80"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/screen/decompile.ts",
+        "sha256": "38e4c759cf9f51c5ab49ea0f33d79c9a2af1060156102e7198541ac2e529567b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/system/authoring.ts",
+        "sha256": "71b37822f2d2abd58349a1ea7eed84fea0c886cf8045beb6341dbfba2c02814d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/system/decompile.ts",
+        "sha256": "1f9e4bd405d96c789cf96d7845467cd36556faba32052325b194ba17560a572f"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/authoring.ts",
+        "sha256": "a2bbedd0a2d9aacb7e3eb2772e4f7431c49ccef39166cc74f4b615a6494a3f22"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/compile.ts",
+        "sha256": "9e4a295fac91434e34e28bd3c84b9b5a5dc526685f821f574582e7ac22bb4c27"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/decompile.ts",
+        "sha256": "c32df1e9d77b36d30fd135bc6c8919f0cf84a19acaf6a86d3e66d700762b9773"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/validation.ts",
+        "sha256": "8996604b8bfcb1fd9ba8a5100b8bd598e720aad9b946d001e77e89ddf5609867"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+        "sha256": "f29ba83dadc9620f24b1cda8736f01a682c872db2e5f8a526eb45267675fce34"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/events.ts",
+        "sha256": "43dcaa099109897010052b625891cb4a549a2d777f9344d80824a98717af81ce"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/branches.ts",
+        "sha256": "680a3dd02dec313a2a210856242084f475959fb10e039c3a33aab3974b0d7cb4"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/conditions.ts",
+        "sha256": "1aa14baa863b1bffbfa0432d909d40c8d97b0dd9831194c3aca07400f33a8471"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/media.ts",
+        "sha256": "9bc3cc0ec9fd97a6368711dc4e73cba05dc4abaee7697624132577bb465e3e68"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/targets.ts",
+        "sha256": "11c907ed9a847ba54fdc222c7d04757e1b0d74205c7111426e4fec8d80be7ce2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/types.ts",
+        "sha256": "f6bec07249a0bc1ae7fc71a53c15e930316cfe349cc45d16266a41dc58ff98fa"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/core.ts",
+        "sha256": "cae080f87b9b61a9ed9489df07b8458c61ee473ae540dbf604b8557053dbe117"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/dispatch.ts",
+        "sha256": "2eae3c15083ee2376330dd52e91fea31b92adcd880b198bbda184e5a075fc1cc"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/project.ts",
+        "sha256": "f2cd5bc612888f88fe67eb2386648fdf1ad4ae82c43342fdc4f78aeae1a62667"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/types.ts",
+        "sha256": "ca2934d7b3ec09156b0be631144a61fc598e0a2f21e1bbb726957a933a0df919"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/command.ts",
+        "sha256": "7b2699a1b7b6ecf75658b9d71bec1213fa922f430bb2b08b5650a76229449c61"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/declarations.ts",
+        "sha256": "6ba959332d6682fe9889923a7f7e9443aa90126be5d0bb817cffca7a3e633f24"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/references.ts",
+        "sha256": "ac64bf1b231e8600f42b9c3cd1b12d1a2603817f6e314901ddeb50b74d455b74"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/types.ts",
+        "sha256": "e39be10ffe4a55f747427b319534c0ecb124a56e66814c0378e266786b6d8088"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/index.ts",
+        "sha256": "cac51b3cd154629880f6b30aaf8b54a8f1aecee91bb26182ebfd7ccdb3c90157"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/materialization.ts",
+        "sha256": "f17b912588a758dfd20ffdc4b4d6f5a789c546a26b5d4a715c921503e99374b5"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/project.ts",
+        "sha256": "2e97bcd8a40b10db11c9baec2db408f65dfeb996f8a0db4f153b9a4d1908c5e8"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/structured-diff.ts",
+        "sha256": "8c55e87136e3658ce4fd08e6e924a188dc3823e7c960f5bbc517aecb9beefc79"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/writer.ts",
+        "sha256": "0ca90b5d2df8d19c02c528edc690a3d47378368f1cd9207b92becacf5c227e9e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/command-errors.ts",
+        "sha256": "3f129e0f9e48c3ed5fab6c14d46f152097397a00719371284498420e2ede1417"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/command-structure.ts",
+        "sha256": "5ababed46ab0cec1335f72eb8ae2b42a84ed6d880c44f833bc3d7053c4ae2ffe"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/commands.ts",
+        "sha256": "9276ed3c5172117eb4347b93eff17bd0928c1ce3c5a16f0f952c19905c8bb011"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/compiled-commands.ts",
+        "sha256": "da76eeadfd811d2dbc6dffc9f9df50f3e91c40eb42babaff27e703c4e4770204"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/identities.ts",
+        "sha256": "a0d6f2bf47eb740b91086ab677d4887f5cf536132063da323d6d68a10f83b189"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/inspection.ts",
+        "sha256": "10a9923ffca925eb65ea7254a1d940c6580a3a60f3b7a14a4862cf08d11453e1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/native-context-references.ts",
+        "sha256": "7ddd26656a02361bf2ea5c7ecfc10ca8a32d5d0a22a37ba36cabb168ce2c680d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/references.ts",
+        "sha256": "fe3a8c5bbe7dd5e7c666788cc7f9c2cc49f8fcf8d7ec4aa8d966fefc039c5f4b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/shared.ts",
+        "sha256": "8fb0ce36eba0efaaf92c5f99f73b05dc17a6776d3041a8b211fa1b647adc08b2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/snapshot.ts",
+        "sha256": "b29956e100eb586e389ed69bd7d9b6603452b6a7f8371aa895e53193628ed4cd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/staged-graph.ts",
+        "sha256": "10484bbb955bd5c14d5a355b20e5f801085f562c3bb9db69759006b84eb9d963"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/types.ts",
+        "sha256": "745573eaf62a1df1820ca2997ccd18c2bc2e2dc6f06ea949ca5a052f61086c4c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "sha256": "735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/checks.ts",
+        "sha256": "2aaf445528038cdb866e42d0a21fd823f496cd566966f52d6129c91175fc0c2d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/config.ts",
+        "sha256": "d0bf53b5736657e1a23724f7fdc957093039343730c00ace04d5f9012140ec87"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/definitions.ts",
+        "sha256": "f9af859d87c4db12e2e857cc546ef6d538d193c09b07746ea896c4a3333c743b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/guards.ts",
+        "sha256": "cec835079aba4c1c61d4a28f224fd7ac7617063568b05156a84cc08896e0ed89"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/operation-lock.ts",
+        "sha256": "c39e910339321f63786bec52cf40fa5e9c114a259f8bbc0dc7842b29660866cd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/operations.ts",
+        "sha256": "4e3797d1fcd33d5738e45aa2d4554d1ec3ad98b2c5cd60cf2345e9963493666a"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/push.ts",
+        "sha256": "f1be414d5de49a57b93f9ee1eb19e68d5be4da11cc61eb71aab54faa6492be1d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/state.ts",
+        "sha256": "5188dac57c7d9d701b3b96ee32359a09e1f93abcc7251801b73d9723621323fb"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/types.ts",
+        "sha256": "f046ebe39de38d590d78bb0aa00f5c3f03a117f972f9aec6f49fa5f7275023fb"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/architecture.test.ts",
+        "sha256": "3229d46f278ed361e8629291203e60e26486ca88441aaabf879121214572e9cd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/cli-entry.test.ts",
+        "sha256": "6dd400343ebc7d3341911a43f261cc9752ae1c4e99fb915acdf5feea183e93d5"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/cli.test.ts",
+        "sha256": "6640d901282cf3f76178d5bba1e72f1f6059280096f4ef3b22493f8a647a840a"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/decompiler.test.ts",
+        "sha256": "c46f85adde3143df25290cb6689ef3306e3a9a34957bb1faf3a38c036f9fe573"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/definitions.test.ts",
+        "sha256": "c47465a9e43c13883c1a99da46d37be3d181556ccdd5803b16c7a9614b95fe06"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/dsl.test.ts",
+        "sha256": "0e261988bb3cc21beceee7e6797bbc2a3f548e2ea5b29bd19fbf2e2ded1736da"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/events.test.ts",
+        "sha256": "11e5ae1bc01183cc04fb979f108025fc0d39efda05ccd67c0e1f6002fab9ae76"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/loop-cases.json",
+        "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-battle-context-project.json",
+        "sha256": "bf4ca095b5d86c9824ce36c0c30113871d56a22032a4a1c4d3eb33af75a80864"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/movement-route-cases.json",
+        "sha256": "c5f48d068f867f56817a9f65f3ed70c79c1c69c9534468ced3f3fdd35e0fec4c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-slots-project.json",
+        "sha256": "eae9d3c30c431a9a66a2af6e822100309da6920f794ba34b84fea15566bdde38"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/index.test.ts",
+        "sha256": "9afd6a1323db0d41f32ae8047dff223f2dd96d4050ae260d4dfda638741e9211"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/loop-workspace.test.ts",
+        "sha256": "3f55ecd96db02b50e6da388b2f4475ba9679d9b4141d16ad1dacea6eeb5c44e3"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/loop.test.ts",
+        "sha256": "b14987d6276708589f845fce296542307e99c3a0ae8b34a15b5603a1c9c53fe6"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/movement-route-workspace.test.ts",
+        "sha256": "c54980ee5b7bece88884871ce6e56212393173f87a318dcf42b2ea2905d1d882"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/movement-route.test.ts",
+        "sha256": "45af7e3da737b883c7d28bddedef95809e9356a87eab4019c5995074be5c2331"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/mv-evidence.test.ts",
+        "sha256": "5d158ea357c657807c3101a2896c71ce9fbc24b08263727d1ead3d85a98c03f5"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/project.test.ts",
+        "sha256": "c43c6a1193d093e53e847de47d45554673795de729575fd7a7e21c9a91190025"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/snapshot-context.test.ts",
+        "sha256": "42ff8917a671abb9919ff1ece095f107a645b36e1235e6e69ce478c17c1cecd7"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/staged-graph.test.ts",
+        "sha256": "9cfd68fe790f2351a4e313c07616a47c81b87c4565cb81840243d01c95607302"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/structured-diff.test.ts",
+        "sha256": "b7d65f0b7b077100788abef652d0befd9a107694f14435c5fa7ce5239e036f67"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/mv-evidence.ts",
+        "sha256": "ae82454a6ba72ee174b81b5b3dd8b1f5c0875a18034ffff1b2219bd3e8db7b07"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/windows-sandbox.ts",
+        "sha256": "082558694016f8a2bbf9aa8ed9c06c0b5531c79492d1872af7245b9d274011c8"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+        "sha256": "034757d85ff5970a280c86f82b671c7ddcf364d73439806fc3b72e14c43ec59b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/workspace-operation-process.ts",
+        "sha256": "ddfae68459d50d632f33e5e2d50066fbfa8be411289c1f4b81e6c2561d0d8c3d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/system-slots.test.ts",
+        "sha256": "95ec634605f67d38f87a29d9b714c3e08e965c3e9f32ae167c7ece9036ed004e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/windows-baseline.test.ts",
+        "sha256": "3b06218264c3c651a956b982a282b096fe557ca999ff88b81ada3dd02343df87"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/workflow.test.ts",
+        "sha256": "6b953b9eaa8a9b3470d0949086c50994e2eabdb5ed880eb77de3c7eb62b6df3e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/workspace-locking.test.ts",
+        "sha256": "54e51682c54551ae568a7861bbe5a309242a094b16008ea2ecebf98baeedd492"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/workspace.test.ts",
+        "sha256": "9d6c6e6be74210fbd74f13c545286be7bc9da40c8d2d1c04c72533e310f3d9bf"
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "sha256": "4f685f5fccae0de0bef4666fb12f314fd0b26ae81ac68a26cc90cf2dd247c5b5"
+      }
+    ]
+  },
+  "fixture": {
+    "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/movement-route-cases.json",
+    "sha256": "c5f48d068f867f56817a9f65f3ed70c79c1c69c9534468ced3f3fdd35e0fec4c"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "node": "v22.23.0",
+    "vitest": "4.1.9",
+    "typescript": "5.9.3",
+    "package": "0.1.2",
+    "native": "not-executed"
+  },
+  "stages": [
+    "actual command and Staged Data Graph tests",
+    "actual Workspace Discovery/typecheck/evaluation",
+    "source and built Windows CLI processes",
+    "all linked product assertions executed"
+  ],
+  "expected": "Unknown movement code, extra fields, forbidden parameters, numeric indent, wrong arity, malformed M0, sparse/undefined and invalid authored saved descriptors fail.",
+  "actual": {
+    "product": {
+      "numTotalTestSuites": 44,
+      "numPassedTestSuites": 44,
+      "numFailedTestSuites": 0,
+      "numPendingTestSuites": 0,
+      "numTotalTests": 215,
+      "numPassedTests": 215,
+      "numFailedTests": 0,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "snapshot": {
+        "added": 0,
+        "failure": false,
+        "filesAdded": 0,
+        "filesRemoved": 0,
+        "filesRemovedList": [],
+        "filesUnmatched": 0,
+        "filesUpdated": 0,
+        "matched": 0,
+        "total": 0,
+        "unchecked": 0,
+        "uncheckedKeysByFile": [],
+        "unmatched": 0,
+        "updated": 0,
+        "didUpdate": false
+      },
+      "startTime": 1792400903790,
+      "success": true,
+      "testResults": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "module architecture"
+              ],
+              "fullName": "module architecture keeps the migrated source tree acyclic and free of transitional facades",
+              "status": "passed",
+              "title": "keeps the migrated source tree acyclic and free of transitional facades",
+              "duration": 156.56060000000002,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "module architecture"
+              ],
+              "fullName": "module architecture keeps command-family modules below their dispatchers",
+              "status": "passed",
+              "title": "keeps command-family modules below their dispatchers",
+              "duration": 73.8551,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400967611,
+          "endTime": 1792400967841.855,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/architecture.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "CLI entrypoint"
+              ],
+              "fullName": "CLI entrypoint prints help when executed directly",
+              "status": "passed",
+              "title": "prints help when executed directly",
+              "duration": 835.0154,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "CLI entrypoint"
+              ],
+              "fullName": "CLI entrypoint MV-S0-WIN-JUNCTION-001: executes CLI through a mandatory Windows directory junction",
+              "status": "passed",
+              "title": "MV-S0-WIN-JUNCTION-001: executes CLI through a mandatory Windows directory junction",
+              "duration": 739.0839999999998,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "CLI entrypoint"
+              ],
+              "fullName": "CLI entrypoint initializes a workspace from the init command",
+              "status": "passed",
+              "title": "initializes a workspace from the init command",
+              "duration": 693.7798999999998,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400964932,
+          "endTime": 1792400967200.7798,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/cli-entry.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "createCli"
+              ],
+              "fullName": "createCli declares the first-version command surface without implementing workflows",
+              "status": "passed",
+              "title": "declares the first-version command surface without implementing workflows",
+              "duration": 2.902499999999918,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "createCli"
+              ],
+              "fullName": "createCli declares workspace compile and push safety options",
+              "status": "passed",
+              "title": "declares workspace compile and push safety options",
+              "duration": 1.335999999999899,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400970218,
+          "endTime": 1792400970222.336,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/cli.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "decompiler command list rendering"
+              ],
+              "fullName": "decompiler command list rendering renders supported command helpers and deterministic imports from the same command pass",
+              "status": "passed",
+              "title": "renders supported command helpers and deterministic imports from the same command pass",
+              "duration": 10.720100000000002,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "decompiler command list rendering"
+              ],
+              "fullName": "decompiler command list rendering renders text and comment continuations as parent-owned helpers",
+              "status": "passed",
+              "title": "renders text and comment continuations as parent-owned helpers",
+              "duration": 0.4146000000000072,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "decompiler command list rendering"
+              ],
+              "fullName": "decompiler command list rendering renders message commands and continuations as supported helpers",
+              "status": "passed",
+              "title": "renders message commands and continuations as supported helpers",
+              "duration": 0.5279000000000167,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "decompiler command list rendering"
+              ],
+              "fullName": "decompiler command list rendering renders Conditional Branch continuations as a parent-owned helper",
+              "status": "passed",
+              "title": "renders Conditional Branch continuations as a parent-owned helper",
+              "duration": 0.34960000000000946,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "decompiler command list rendering"
+              ],
+              "fullName": "decompiler command list rendering renders supported Conditional Branch condition categories",
+              "status": "passed",
+              "title": "renders supported Conditional Branch condition categories",
+              "duration": 0.36099999999999,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "decompiler command list rendering"
+              ],
+              "fullName": "decompiler command list rendering renders Scene Control, Actor, Enemy, Advanced, and continuation commands",
+              "status": "passed",
+              "title": "renders Scene Control, Actor, Enemy, Advanced, and continuation commands",
+              "duration": 1.0021999999999878,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "decompiler command list rendering"
+              ],
+              "fullName": "decompiler command list rendering falls back to rawDslCommand for malformed supported command shapes",
+              "status": "passed",
+              "title": "falls back to rawDslCommand for malformed supported command shapes",
+              "duration": 0.28369999999998186,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "decompiler command list rendering"
+              ],
+              "fullName": "decompiler command list rendering keeps every top-level MV editor command family off raw decompile fallback",
+              "status": "passed",
+              "title": "keeps every top-level MV editor command family off raw decompile fallback",
+              "duration": 7.1489999999999725,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "decompiler command list rendering"
+              ],
+              "fullName": "decompiler command list rendering keeps every Set Movement Route subcommand off raw decompile fallback",
+              "status": "passed",
+              "title": "keeps every Set Movement Route subcommand off raw decompile fallback",
+              "duration": 2.7094000000000165,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400968061,
+          "endTime": 1792400968084.7095,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/decompiler.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "loadDefinitionFile"
+              ],
+              "fullName": "loadDefinitionFile loads a named Event Definition from a TypeScript module",
+              "status": "passed",
+              "title": "loads a named Event Definition from a TypeScript module",
+              "duration": 637.1926000000001,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "loadDefinitionFile"
+              ],
+              "fullName": "loadDefinitionFile loads DSL-owned declarations from a TypeScript module",
+              "status": "passed",
+              "title": "loads DSL-owned declarations from a TypeScript module",
+              "duration": 425.3681999999999,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "loadDefinitionFile"
+              ],
+              "fullName": "loadDefinitionFile preserves nested array literals in DSL command input",
+              "status": "passed",
+              "title": "preserves nested array literals in DSL command input",
+              "duration": 534.8632,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "loadDefinitionFile"
+              ],
+              "fullName": "loadDefinitionFile evaluates imported message command helpers",
+              "status": "passed",
+              "title": "evaluates imported message command helpers",
+              "duration": 367.8704,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "loadDefinitionFile"
+              ],
+              "fullName": "loadDefinitionFile rejects default exports with a TypeScript diagnostics error",
+              "status": "passed",
+              "title": "rejects default exports with a TypeScript diagnostics error",
+              "duration": 348.26219999999967,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "discoverDefinitionFiles"
+              ],
+              "fullName": "discoverDefinitionFiles discovers DSL declaration files from sourceRoot and ignores helper modules",
+              "status": "passed",
+              "title": "discovers DSL declaration files from sourceRoot and ignores helper modules",
+              "duration": 9.286099999999806,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400964052,
+          "endTime": 1792400966375.2861,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/definitions.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "collectDslOwnedDeclarations"
+              ],
+              "fullName": "collectDslOwnedDeclarations collects named DSL-owned declarations",
+              "status": "passed",
+              "title": "collects named DSL-owned declarations",
+              "duration": 2.561700000000002,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "collectDslOwnedDeclarations"
+              ],
+              "fullName": "collectDslOwnedDeclarations rejects default exports",
+              "status": "passed",
+              "title": "rejects default exports",
+              "duration": 0.5660999999999774,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "collectDslOwnedDeclarations"
+              ],
+              "fullName": "collectDslOwnedDeclarations builds the new command helpers as structured DSL commands",
+              "status": "passed",
+              "title": "builds the new command helpers as structured DSL commands",
+              "duration": 5.076300000000003,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "collectDslOwnedDeclarations"
+              ],
+              "fullName": "collectDslOwnedDeclarations distinguishes asset, project data, runtime selector, and script primitives",
+              "status": "passed",
+              "title": "distinguishes asset, project data, runtime selector, and script primitives",
+              "duration": 1.1210999999999842,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "collectDslOwnedDeclarations"
+              ],
+              "fullName": "collectDslOwnedDeclarations requires explicit identities for event definitions",
+              "status": "passed",
+              "title": "requires explicit identities for event definitions",
+              "duration": 0.6236999999999853,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400969651,
+          "endTime": 1792400969661.6238,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/dsl.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "compileMapEvent"
+              ],
+              "fullName": "compileMapEvent does not add an empty plugin argument",
+              "status": "passed",
+              "title": "does not add an empty plugin argument",
+              "duration": 2.6052999999999997,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "compileMapEvent"
+              ],
+              "fullName": "compileMapEvent compiles core MV command helpers into raw commands",
+              "status": "passed",
+              "title": "compiles core MV command helpers into raw commands",
+              "duration": 4.23769999999999,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "compileMapEvent"
+              ],
+              "fullName": "compileMapEvent compiles direct Transfer Player destinations with resolved map references",
+              "status": "passed",
+              "title": "compiles direct Transfer Player destinations with resolved map references",
+              "duration": 0.20190000000002328,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "compileMapEvent"
+              ],
+              "fullName": "compileMapEvent compiles MV Character and Screen command helpers into raw parameters",
+              "status": "passed",
+              "title": "compiles MV Character and Screen command helpers into raw parameters",
+              "duration": 0.7817000000000007,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "compileMapEvent"
+              ],
+              "fullName": "compileMapEvent compiles MV Audio, Video, System, and Map command helpers into raw parameters",
+              "status": "passed",
+              "title": "compiles MV Audio, Video, System, and Map command helpers into raw parameters",
+              "duration": 0.8525999999999954,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "compileMapEvent"
+              ],
+              "fullName": "compileMapEvent compiles MV Conditional Branch condition categories into raw parameters",
+              "status": "passed",
+              "title": "compiles MV Conditional Branch condition categories into raw parameters",
+              "duration": 0.7745000000000175,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "compileMapEvent"
+              ],
+              "fullName": "compileMapEvent compiles MV Scene Control, Actor, Enemy, and Advanced command helpers",
+              "status": "passed",
+              "title": "compiles MV Scene Control, Actor, Enemy, and Advanced command helpers",
+              "duration": 1.4052000000000078,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400969438,
+          "endTime": 1792400969449.4053,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/events.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "runtime baseline"
+              ],
+              "fullName": "runtime baseline records the architecture choices required by the first slice",
+              "status": "passed",
+              "title": "records the architecture choices required by the first slice",
+              "duration": 1.358000000000061,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "runtime baseline"
+              ],
+              "fullName": "runtime baseline exports only the MV-aligned plural control helper names",
+              "status": "passed",
+              "title": "exports only the MV-aligned plural control helper names",
+              "duration": 0.8145000000000664,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "runtime baseline"
+              ],
+              "fullName": "runtime baseline keeps Workspace operations on the explicit Workspace entry point",
+              "status": "passed",
+              "title": "keeps Workspace operations on the explicit Workspace entry point",
+              "duration": 0.19310000000007221,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400970755,
+          "endTime": 1792400970758.193,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/index.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [],
+              "fullName": "round trips complete Loop saved lists through actual Discovery, Check, Compile, Diff and Push",
+              "status": "passed",
+              "title": "round trips complete Loop saved lists through actual Discovery, Check, Compile, Diff and Push",
+              "duration": 2844.6485000000002,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects malformed known native flow before publishing any source and preserves project and snapshot",
+              "status": "passed",
+              "title": "rejects malformed known native flow before publishing any source and preserves project and snapshot",
+              "duration": 67.97249999999985,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400961795,
+          "endTime": 1792400964706.9724,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/loop-workspace.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects extra authored fields on parameterless breakLoop",
+              "status": "passed",
+              "title": "rejects extra authored fields on parameterless breakLoop",
+              "duration": 3.0741999999999905,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects extra authored fields on parameterless exitEventProcessing",
+              "status": "passed",
+              "title": "rejects extra authored fields on parameterless exitEventProcessing",
+              "duration": 0.2775000000000034,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "reports the complete DSL path for an invalid Loop inside another parent's body",
+              "status": "passed",
+              "title": "reports the complete DSL path for an invalid Loop inside another parent's body",
+              "duration": 0.4656999999999982,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "accepts a handwritten complete event terminator without introducing a second code zero",
+              "status": "passed",
+              "title": "accepts a handwritten complete event terminator without introducing a second code zero",
+              "duration": 0.918500000000023,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects malformed known raw envelopes without coercion before Check or Compile",
+              "status": "passed",
+              "title": "rejects malformed known raw envelopes without coercion before Check or Compile",
+              "duration": 0.5392999999999972,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects malformed known raw envelopes without coercion before Check or Compile",
+              "status": "passed",
+              "title": "rejects malformed known raw envelopes without coercion before Check or Compile",
+              "duration": 0.21609999999998308,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects malformed known raw envelopes without coercion before Check or Compile",
+              "status": "passed",
+              "title": "rejects malformed known raw envelopes without coercion before Check or Compile",
+              "duration": 0.17279999999999518,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects malformed known raw envelopes without coercion before Check or Compile",
+              "status": "passed",
+              "title": "rejects malformed known raw envelopes without coercion before Check or Compile",
+              "duration": 0.16740000000001487,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects malformed known raw envelopes without coercion before Check or Compile",
+              "status": "passed",
+              "title": "rejects malformed known raw envelopes without coercion before Check or Compile",
+              "duration": 0.3797999999999888,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "recognizes a nested Loop marker without truncating its containing conditional fragment",
+              "status": "passed",
+              "title": "recognizes a nested Loop marker without truncating its containing conditional fragment",
+              "duration": 8.392600000000016,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "recursively validates Script Command Gate and contextual switch references inside Loop",
+              "status": "passed",
+              "title": "recursively validates Script Command Gate and contextual switch references inside Loop",
+              "duration": 0.9539000000000044,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects invalid Loop body '.body' through the public validation seam",
+              "status": "passed",
+              "title": "rejects invalid Loop body '.body' through the public validation seam",
+              "duration": 0.31759999999999877,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects invalid Loop body '.body' through the public validation seam",
+              "status": "passed",
+              "title": "rejects invalid Loop body '.body' through the public validation seam",
+              "duration": 0.17889999999999873,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects invalid Loop body '.body' through the public validation seam",
+              "status": "passed",
+              "title": "rejects invalid Loop body '.body' through the public validation seam",
+              "duration": 0.1307999999999936,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects invalid Loop body '.body.commands' through the public validation seam",
+              "status": "passed",
+              "title": "rejects invalid Loop body '.body.commands' through the public validation seam",
+              "duration": 0.11709999999999354,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects invalid Loop body '.body.commands' through the public validation seam",
+              "status": "passed",
+              "title": "rejects invalid Loop body '.body.commands' through the public validation seam",
+              "duration": 0.12480000000002178,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects invalid Loop body '.body' through the public validation seam",
+              "status": "passed",
+              "title": "rejects invalid Loop body '.body' through the public validation seam",
+              "duration": 0.11889999999999645,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects invalid Loop body '.body.endMarker' through the public validation seam",
+              "status": "passed",
+              "title": "rejects invalid Loop body '.body.endMarker' through the public validation seam",
+              "duration": 0.11200000000002319,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects invalid Loop body '.body.commands[0]' through the public validation seam",
+              "status": "passed",
+              "title": "rejects invalid Loop body '.body.commands[0]' through the public validation seam",
+              "duration": 0.12489999999999668,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects invalid Loop body '.body.commands[0]' through the public validation seam",
+              "status": "passed",
+              "title": "rejects invalid Loop body '.body.commands[0]' through the public validation seam",
+              "duration": 0.1547999999999945,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects invalid Loop body '.body.commands[0]' through the public validation seam",
+              "status": "passed",
+              "title": "rejects invalid Loop body '.body.commands[0]' through the public validation seam",
+              "duration": 0.12749999999999773,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "compiles an empty Loop with its own Body End Marker and a distinct event terminator",
+              "status": "passed",
+              "title": "compiles an empty Loop with its own Body End Marker and a distinct event terminator",
+              "duration": 0.17960000000002196,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "warns about formal and raw Break Loop outside a Loop while preserving native output",
+              "status": "passed",
+              "title": "warns about formal and raw Break Loop outside a Loop while preserving native output",
+              "duration": 0.5122000000000071,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "checks the final declared body state after formal and raw records are combined",
+              "status": "passed",
+              "title": "checks the final declared body state after formal and raw records are combined",
+              "duration": 0.97229999999999,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects 'orphan close' in known raw output and native decompilation with an exact location",
+              "status": "passed",
+              "title": "rejects 'orphan close' in known raw output and native decompilation with an exact location",
+              "duration": 0.42079999999998563,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects 'missing close' in known raw output and native decompilation with an exact location",
+              "status": "passed",
+              "title": "rejects 'missing close' in known raw output and native decompilation with an exact location",
+              "duration": 0.2856000000000165,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects 'extra known parameter' in known raw output and native decompilation with an exact location",
+              "status": "passed",
+              "title": "rejects 'extra known parameter' in known raw output and native decompilation with an exact location",
+              "duration": 0.25020000000000664,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects 'wrong child indent' in known raw output and native decompilation with an exact location",
+              "status": "passed",
+              "title": "rejects 'wrong child indent' in known raw output and native decompilation with an exact location",
+              "duration": 0.5191000000000088,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects 'middle child marker' in known raw output and native decompilation with an exact location",
+              "status": "passed",
+              "title": "rejects 'middle child marker' in known raw output and native decompilation with an exact location",
+              "duration": 0.30740000000000123,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects 'empty missing marker' in known raw output and native decompilation with an exact location",
+              "status": "passed",
+              "title": "rejects 'empty missing marker' in known raw output and native decompilation with an exact location",
+              "duration": 0.27240000000000464,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects an empty Loop whose declared Body End Marker is absent before Compile or Check",
+              "status": "passed",
+              "title": "rejects an empty Loop whose declared Body End Marker is absent before Compile or Check",
+              "duration": 0.3224999999999909,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "preserves an absent outer Loop marker independently of the inner Loop marker and Exit",
+              "status": "passed",
+              "title": "preserves an absent outer Loop marker independently of the inner Loop marker and Exit",
+              "duration": 0.750899999999973,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400968309,
+          "endTime": 1792400968331.751,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/loop.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects unknown movement codes in a noncustom Autonomous Movement saved route",
+              "status": "passed",
+              "title": "rejects unknown movement codes in a noncustom Autonomous Movement saved route",
+              "duration": 2.125099999999975,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "round trips independent Movement Routes through actual Discovery, evaluation, Check, Compile, Diff and Push",
+              "status": "passed",
+              "title": "round trips independent Movement Routes through actual Discovery, evaluation, Check, Compile, Diff and Push",
+              "duration": 4762.9791000000005,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects a native Movement Route mirror conflict before publishing source and preserves all workspace state",
+              "status": "passed",
+              "title": "rejects a native Movement Route mirror conflict before publishing source and preserves all workspace state",
+              "duration": 67.54179999999997,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "checks and compiles Movement Routes through separate actual Windows CLI processes",
+              "status": "passed",
+              "title": "checks and compiles Movement Routes through separate actual Windows CLI processes",
+              "duration": 3646.5067,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "preserves source, project, snapshot, manifest, generated data and Discovery after route Check and Compile failures",
+              "status": "passed",
+              "title": "preserves source, project, snapshot, manifest, generated data and Discovery after route Check and Compile failures",
+              "duration": 7666.8876,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400942274,
+          "endTime": 1792400958420.8877,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/movement-route-workspace.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [],
+              "fullName": "preserves route flags repeat=false skippable=false wait=false without runtime-based normalization",
+              "status": "passed",
+              "title": "preserves route flags repeat=false skippable=false wait=false without runtime-based normalization",
+              "duration": 3.4359000000000037,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "preserves route flags repeat=false skippable=false wait=true without runtime-based normalization",
+              "status": "passed",
+              "title": "preserves route flags repeat=false skippable=false wait=true without runtime-based normalization",
+              "duration": 0.31819999999999027,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "preserves route flags repeat=false skippable=true wait=false without runtime-based normalization",
+              "status": "passed",
+              "title": "preserves route flags repeat=false skippable=true wait=false without runtime-based normalization",
+              "duration": 0.2231999999999914,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "preserves route flags repeat=false skippable=true wait=true without runtime-based normalization",
+              "status": "passed",
+              "title": "preserves route flags repeat=false skippable=true wait=true without runtime-based normalization",
+              "duration": 0.2571999999999832,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "preserves route flags repeat=true skippable=false wait=false without runtime-based normalization",
+              "status": "passed",
+              "title": "preserves route flags repeat=true skippable=false wait=false without runtime-based normalization",
+              "duration": 0.7737999999999943,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "preserves route flags repeat=true skippable=false wait=true without runtime-based normalization",
+              "status": "passed",
+              "title": "preserves route flags repeat=true skippable=false wait=true without runtime-based normalization",
+              "duration": 0.15229999999999677,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "preserves route flags repeat=true skippable=true wait=false without runtime-based normalization",
+              "status": "passed",
+              "title": "preserves route flags repeat=true skippable=true wait=false without runtime-based normalization",
+              "duration": 0.2283999999999935,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "preserves route flags repeat=true skippable=true wait=true without runtime-based normalization",
+              "status": "passed",
+              "title": "preserves route flags repeat=true skippable=true wait=true without runtime-based normalization",
+              "duration": 0.13160000000002015,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "compiles a shared Movement Route with exact defaults, record envelopes and 505 mirrors",
+              "status": "passed",
+              "title": "compiles a shared Movement Route with exact defaults, record envelopes and 505 mirrors",
+              "duration": 0.8820999999999799,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "validates Script Gate and switch references in recognized raw 205 and 505 routes",
+              "status": "passed",
+              "title": "validates Script Gate and switch references in recognized raw 205 and 505 routes",
+              "duration": 1.6891000000000247,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects extra array keys in recognized raw movement parameters before compilation can copy the array",
+              "status": "passed",
+              "title": "rejects extra array keys in recognized raw movement parameters before compilation can copy the array",
+              "duration": 0.4682999999999993,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects a complete 205/505 mirror difference: missing mirror",
+              "status": "passed",
+              "title": "rejects a complete 205/505 mirror difference: missing mirror",
+              "duration": 0.6812999999999931,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects a complete 205/505 mirror difference: wrong outer indent",
+              "status": "passed",
+              "title": "rejects a complete 205/505 mirror difference: wrong outer indent",
+              "duration": 0.1494000000000142,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects a complete 205/505 mirror difference: extra mirror",
+              "status": "passed",
+              "title": "rejects a complete 205/505 mirror difference: extra mirror",
+              "duration": 0.19079999999999586,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects a complete 205/505 mirror difference: wrong order",
+              "status": "passed",
+              "title": "rejects a complete 205/505 mirror difference: wrong order",
+              "duration": 0.133199999999988,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects a complete 205/505 mirror difference: missing versus null",
+              "status": "passed",
+              "title": "rejects a complete 205/505 mirror difference: missing versus null",
+              "duration": 0.15569999999999595,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects a complete 205/505 mirror difference: null versus zero",
+              "status": "passed",
+              "title": "rejects a complete 205/505 mirror difference: null versus zero",
+              "duration": 0.11400000000000432,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects a complete 205/505 mirror difference: nested value",
+              "status": "passed",
+              "title": "rejects a complete 205/505 mirror difference: nested value",
+              "duration": 0.10850000000002069,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects a complete 205/505 mirror difference: nested extra key",
+              "status": "passed",
+              "title": "rejects a complete 205/505 mirror difference: nested extra key",
+              "duration": 0.14580000000000837,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects a complete 205/505 mirror difference: mirror array length",
+              "status": "passed",
+              "title": "rejects a complete 205/505 mirror difference: mirror array length",
+              "duration": 0.18080000000000496,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects a missing, duplicate, nonfinal or malformed route terminator []",
+              "status": "passed",
+              "title": "rejects a missing, duplicate, nonfinal or malformed route terminator []",
+              "duration": 0.157100000000014,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects a missing, duplicate, nonfinal or malformed route terminator [ { code: +0 }, { code: +0 } ]",
+              "status": "passed",
+              "title": "rejects a missing, duplicate, nonfinal or malformed route terminator [ { code: +0 }, { code: +0 } ]",
+              "duration": 0.08700000000001751,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects a missing, duplicate, nonfinal or malformed route terminator [ { code: +0, indent: null } ]",
+              "status": "passed",
+              "title": "rejects a missing, duplicate, nonfinal or malformed route terminator [ { code: +0, indent: null } ]",
+              "duration": 0.06720000000001392,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects a missing, duplicate, nonfinal or malformed route terminator [ { code: +0, indent: +0 } ]",
+              "status": "passed",
+              "title": "rejects a missing, duplicate, nonfinal or malformed route terminator [ { code: +0, indent: +0 } ]",
+              "duration": 0.06069999999999709,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects a missing, duplicate, nonfinal or malformed route terminator [ { code: +0, parameters: [ 1 ] } ]",
+              "status": "passed",
+              "title": "rejects a missing, duplicate, nonfinal or malformed route terminator [ { code: +0, parameters: [ 1 ] } ]",
+              "duration": 0.07439999999999714,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects a missing, duplicate, nonfinal or malformed route terminator [ { code: 1 } ]",
+              "status": "passed",
+              "title": "rejects a missing, duplicate, nonfinal or malformed route terminator [ { code: 1 } ]",
+              "duration": 0.061900000000008504,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects a missing, duplicate, nonfinal or malformed route terminator [ { code: +0, parameters: undefined } ]",
+              "status": "passed",
+              "title": "rejects a missing, duplicate, nonfinal or malformed route terminator [ { code: +0, parameters: undefined } ]",
+              "duration": 0.06299999999998818,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "preserves the finite absent indent state on both parameter families",
+              "status": "passed",
+              "title": "preserves the finite absent indent state on both parameter families",
+              "duration": 0.2687000000000239,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "preserves the finite null indent state on both parameter families",
+              "status": "passed",
+              "title": "preserves the finite null indent state on both parameter families",
+              "duration": 0.13560000000001082,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "preserves the finite zero indent state on both parameter families",
+              "status": "passed",
+              "title": "preserves the finite zero indent state on both parameter families",
+              "duration": 0.08959999999999013,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "uses fixed defaults for omitted, empty and optional undefined saved descriptors",
+              "status": "passed",
+              "title": "uses fixed defaults for omitted, empty and optional undefined saved descriptors",
+              "duration": 0.3049000000000035,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects an unsupported native movement envelope {\"code\":46}",
+              "status": "passed",
+              "title": "rejects an unsupported native movement envelope {\"code\":46}",
+              "duration": 0.16389999999998395,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects an unsupported native movement envelope {\"code\":1,\"parameters\":[]}",
+              "status": "passed",
+              "title": "rejects an unsupported native movement envelope {\"code\":1,\"parameters\":[]}",
+              "duration": 0.10859999999999559,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects an unsupported native movement envelope {\"code\":1,\"indent\":1}",
+              "status": "passed",
+              "title": "rejects an unsupported native movement envelope {\"code\":1,\"indent\":1}",
+              "duration": 0.08699999999998909,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects an unsupported native movement envelope {\"code\":1,\"indent\":\"zero\"}",
+              "status": "passed",
+              "title": "rejects an unsupported native movement envelope {\"code\":1,\"indent\":\"zero\"}",
+              "duration": 0.07480000000001041,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects an unsupported native movement envelope {\"code\":1,\"extra\":true}",
+              "status": "passed",
+              "title": "rejects an unsupported native movement envelope {\"code\":1,\"extra\":true}",
+              "duration": 0.07310000000001082,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects an unsupported native movement envelope {\"code\":15}",
+              "status": "passed",
+              "title": "rejects an unsupported native movement envelope {\"code\":15}",
+              "duration": 0.1459000000000117,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects an unsupported native movement envelope {\"code\":15,\"parameters\":[1,2]}",
+              "status": "passed",
+              "title": "rejects an unsupported native movement envelope {\"code\":15,\"parameters\":[1,2]}",
+              "duration": 0.08240000000000691,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects malformed authored shared route state {\"commands\":[],\"repeat\":0} at the DSL location",
+              "status": "passed",
+              "title": "rejects malformed authored shared route state {\"commands\":[],\"repeat\":0} at the DSL location",
+              "duration": 0.42900000000000205,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects malformed authored shared route state {\"commands\":[],\"terminator\":{\"indent\":\"null\"}} at the DSL location",
+              "status": "passed",
+              "title": "rejects malformed authored shared route state {\"commands\":[],\"terminator\":{\"indent\":\"null\"}} at the DSL location",
+              "duration": 0.2740999999999758,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects malformed authored shared route state {\"commands\":[{\"kind\":\"moveDown\",\"savedShape\":{\"indent\":0}}]} at the DSL location",
+              "status": "passed",
+              "title": "rejects malformed authored shared route state {\"commands\":[{\"kind\":\"moveDown\",\"savedShape\":{\"indent\":0}}]} at the DSL location",
+              "duration": 0.23810000000000286,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects malformed authored shared route state {\"commands\":[{\"kind\":\"moveDown\",\"parameters\":[]}]} at the DSL location",
+              "status": "passed",
+              "title": "rejects malformed authored shared route state {\"commands\":[{\"kind\":\"moveDown\",\"parameters\":[]}]} at the DSL location",
+              "duration": 0.23990000000000578,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects malformed authored shared route state {\"commands\":[{\"kind\":\"raw\",\"code\":1}]} at the DSL location",
+              "status": "passed",
+              "title": "rejects malformed authored shared route state {\"commands\":[{\"kind\":\"raw\",\"code\":1}]} at the DSL location",
+              "duration": 0.17709999999999582,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects malformed authored shared route state {\"commands\":[null]} at the DSL location",
+              "status": "passed",
+              "title": "rejects malformed authored shared route state {\"commands\":[null]} at the DSL location",
+              "duration": 0.17960000000002196,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "decompiles explicit null/zero envelopes and an absent M0 parameter key without exposing 505",
+              "status": "passed",
+              "title": "decompiles explicit null/zero envelopes and an absent M0 parameter key without exposing 505",
+              "duration": 0.6802999999999884,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400968555,
+          "endTime": 1792400968570.6804,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/movement-route.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [],
+              "fullName": "validates the evidence index, source references, fixture hashes, test links, and recorded runs",
+              "status": "passed",
+              "title": "validates the evidence index, source references, fixture hashes, test links, and recorded runs",
+              "duration": 308.1584,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "MV-S0-CE-001: discovers and evaluates Decompiled Source against independent saved data",
+              "status": "passed",
+              "title": "MV-S0-CE-001: discovers and evaluates Decompiled Source against independent saved data",
+              "duration": 3382.2158999999997,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "MV-S0-COMPARE-001: rejects every saved-state loss without normalizing either side",
+              "status": "passed",
+              "title": "MV-S0-COMPARE-001: rejects every saved-state loss without normalizing either side",
+              "duration": 46.89019999999982,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400966899,
+          "endTime": 1792400970635.8901,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/mv-evidence.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "project loading helpers"
+              ],
+              "fullName": "project loading helpers parses map infos into a name index",
+              "status": "passed",
+              "title": "parses map infos into a name index",
+              "duration": 2.049999999999983,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400970801,
+          "endTime": 1792400970803.05,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/project.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [],
+              "fullName": "MV-S3-CONTEXT-001: resolves empty-name external targets through actual Snapshot and evaluated Decompiled Source",
+              "status": "passed",
+              "title": "MV-S3-CONTEXT-001: resolves empty-name external targets through actual Snapshot and evaluated Decompiled Source",
+              "duration": 4604.6631,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "MV-S3-CONTEXT-004: rejects missing native external targets before publishing any Decompiled Source",
+              "status": "passed",
+              "title": "MV-S3-CONTEXT-004: rejects missing native external targets before publishing any Decompiled Source",
+              "duration": 253.91469999999936,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "MV-S3-CONTEXT-003: checks fixed external references while retaining unknown-caller runtime selectors",
+              "status": "passed",
+              "title": "MV-S3-CONTEXT-003: checks fixed external references while retaining unknown-caller runtime selectors",
+              "duration": 18613.2916,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "MV-S3-CONTEXT-002: assembles ordered hidden and missing-Enemy members, map tiles and all equipment slots from a captured Snapshot",
+              "status": "passed",
+              "title": "MV-S3-CONTEXT-002: assembles ordered hidden and missing-Enemy members, map tiles and all equipment slots from a captured Snapshot",
+              "duration": 106.84170000000086,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "MV-S3-CONTEXT-005: uses captured map dimensions and event positions for actual Workspace placement diagnostics",
+              "status": "passed",
+              "title": "MV-S3-CONTEXT-005: uses captured map dimensions and event positions for actual Workspace placement diagnostics",
+              "duration": 2301.8712000000014,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400904951,
+          "endTime": 1792400930832.871,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/snapshot-context.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations validates Map Event placement against snapshot map metadata",
+              "status": "passed",
+              "title": "validates Map Event placement against snapshot map metadata",
+              "duration": 3.3048,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations rejects out-of-bounds coordinates and warns on occupied coordinates",
+              "status": "passed",
+              "title": "rejects out-of-bounds coordinates and warns on occupied coordinates",
+              "duration": 0.882000000000005,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations rejects Page variable conditions that RPG Maker MV cannot represent",
+              "status": "passed",
+              "title": "rejects Page variable conditions that RPG Maker MV cannot represent",
+              "duration": 0.3620999999999981,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations rejects duplicate Common Event, Switch, and Variable ids",
+              "status": "passed",
+              "title": "rejects duplicate Common Event, Switch, and Variable ids",
+              "duration": 0.39179999999998927,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations rejects duplicate Map Event identity only within the same map",
+              "status": "passed",
+              "title": "rejects duplicate Map Event identity only within the same map",
+              "duration": 1.0999999999999943,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations allows duplicate Display Names when they are not referenced by name",
+              "status": "passed",
+              "title": "allows duplicate Display Names when they are not referenced by name",
+              "duration": 0.2300999999999931,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations rejects missing and ambiguous name-based references in the visible scope",
+              "status": "passed",
+              "title": "rejects missing and ambiguous name-based references in the visible scope",
+              "duration": 0.7322999999999809,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations rejects explicit id references that are absent from the visible scope",
+              "status": "passed",
+              "title": "rejects explicit id references that are absent from the visible scope",
+              "duration": 0.3475999999999999,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations does not fall back to snapshot entries for DSL-owned domains",
+              "status": "passed",
+              "title": "does not fall back to snapshot entries for DSL-owned domains",
+              "duration": 0.7417999999999836,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations resolves external references against the snapshot indexes",
+              "status": "passed",
+              "title": "resolves external references against the snapshot indexes",
+              "duration": 0.3440999999999974,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations rejects ambiguous external name references from snapshot indexes",
+              "status": "passed",
+              "title": "rejects ambiguous external name references from snapshot indexes",
+              "duration": 0.43010000000001014,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations does not inspect Raw DSL Command parameters as project references",
+              "status": "passed",
+              "title": "does not inspect Raw DSL Command parameters as project references",
+              "duration": 0.26959999999999695,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations does not treat random variable operands as variable references",
+              "status": "passed",
+              "title": "does not treat random variable operands as variable references",
+              "duration": 0.20239999999998304,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations rejects Control Variables script operands when scripts are disabled",
+              "status": "passed",
+              "title": "rejects Control Variables script operands when scripts are disabled",
+              "duration": 0.1893000000000029,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations inspects command input primitives recursively without conflating categories",
+              "status": "passed",
+              "title": "inspects command input primitives recursively without conflating categories",
+              "duration": 0.6687000000000012,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations validates Movement command references without resolving runtime selectors",
+              "status": "passed",
+              "title": "validates Movement command references without resolving runtime selectors",
+              "duration": 1.2404000000000224,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations rejects Set Movement Route script commands when scripts are disabled",
+              "status": "passed",
+              "title": "rejects Set Movement Route script commands when scripts are disabled",
+              "duration": 0.3137000000000114,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations validates Set Movement Route runtime selector and switch references",
+              "status": "passed",
+              "title": "validates Set Movement Route runtime selector and switch references",
+              "duration": 0.24049999999999727,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations validates Character command runtime selectors and animation references",
+              "status": "passed",
+              "title": "validates Character command runtime selectors and animation references",
+              "duration": 0.28360000000000696,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations validates Screen picture variable positions without scanning image assets",
+              "status": "passed",
+              "title": "validates Screen picture variable positions without scanning image assets",
+              "duration": 0.41509999999999536,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations rejects invalid Set Event Location character runtime selectors",
+              "status": "passed",
+              "title": "rejects invalid Set Event Location character runtime selectors",
+              "duration": 0.17049999999997567,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations rejects missing variable references in Movement variable destinations",
+              "status": "passed",
+              "title": "rejects missing variable references in Movement variable destinations",
+              "duration": 0.20989999999997622,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations validates troop references without treating random encounters as references",
+              "status": "passed",
+              "title": "validates troop references without treating random encounters as references",
+              "duration": 0.45830000000000837,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations rejects unreachable Battle Processing result branches",
+              "status": "passed",
+              "title": "rejects unreachable Battle Processing result branches",
+              "duration": 0.19429999999999836,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations validates Change Equipment native MV ids without equipment database references",
+              "status": "passed",
+              "title": "validates Change Equipment native MV ids without equipment database references",
+              "duration": 0.1886000000000081,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations rejects Conditional Branch script conditions when scripts are disabled",
+              "status": "passed",
+              "title": "rejects Conditional Branch script conditions when scripts are disabled",
+              "duration": 0.2822999999999922,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations validates Project Data References inside Conditional Branch conditions",
+              "status": "passed",
+              "title": "validates Project Data References inside Conditional Branch conditions",
+              "duration": 0.32280000000000086,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations resolves new Conditional Branch external reference scopes from snapshot input",
+              "status": "passed",
+              "title": "resolves new Conditional Branch external reference scopes from snapshot input",
+              "duration": 0.17130000000000223,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations validates Change Tileset through tileset project data references only",
+              "status": "passed",
+              "title": "validates Change Tileset through tileset project data references only",
+              "duration": 0.35599999999999454,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations validates enemy database references while keeping enemy targets as runtime selectors",
+              "status": "passed",
+              "title": "validates enemy database references while keeping enemy targets as runtime selectors",
+              "duration": 0.44650000000001455,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "validateDslOwnedDeclarations"
+              ],
+              "fullName": "validateDslOwnedDeclarations enforces the schema-first Script command gate",
+              "status": "passed",
+              "title": "enforces the schema-first Script command gate",
+              "duration": 0.17219999999997526,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400969031,
+          "endTime": 1792400969046.4465,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/staged-graph.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "buildStructuredDiffReport"
+              ],
+              "fullName": "buildStructuredDiffReport classifies owned event and system entries by domain and identity",
+              "status": "passed",
+              "title": "classifies owned event and system entries by domain and identity",
+              "duration": 8.058599999999984,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "renderStructuredDiffReport"
+              ],
+              "fullName": "renderStructuredDiffReport renders stable human-readable output and omits unchanged entries by default",
+              "status": "passed",
+              "title": "renders stable human-readable output and omits unchanged entries by default",
+              "duration": 0.3083000000000027,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "renderStructuredDiffReport"
+              ],
+              "fullName": "renderStructuredDiffReport renders a summary with affected Project Data Files",
+              "status": "passed",
+              "title": "renders a summary with affected Project Data Files",
+              "duration": 0.2085999999999899,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "renderStructuredDiffReport"
+              ],
+              "fullName": "renderStructuredDiffReport renders a file-filtered view with filtered and overall destructive status",
+              "status": "passed",
+              "title": "renders a file-filtered view with filtered and overall destructive status",
+              "duration": 0.15969999999998663,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "renderStructuredDiffReport"
+              ],
+              "fullName": "renderStructuredDiffReport renders an empty file-filtered result",
+              "status": "passed",
+              "title": "renders an empty file-filtered result",
+              "duration": 0.15930000000000177,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "deriveAffectedProjectDataFiles"
+              ],
+              "fullName": "deriveAffectedProjectDataFiles derives files from carrier-level generated and snapshot differences",
+              "status": "passed",
+              "title": "derives files from carrier-level generated and snapshot differences",
+              "duration": 0.1821000000000197,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400969211,
+          "endTime": 1792400969220.2085,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/structured-diff.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [],
+              "fullName": "MV-S3-SLOTS-003: rejects missing native switch references before publishing Decompiled Source",
+              "status": "passed",
+              "title": "MV-S3-SLOTS-003: rejects missing native switch references before publishing Decompiled Source",
+              "duration": 137.8392,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "MV-S3-SWITCH-001: validates formal and recognized raw switch commands without normalizing malformed native input",
+              "status": "passed",
+              "title": "MV-S3-SWITCH-001: validates formal and recognized raw switch commands without normalizing malformed native input",
+              "duration": 54.560299999999984,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "MV-S3-SLOTS-002: separates actual empty-name IDs, unnamed slots and DSL-only name resolution",
+              "status": "passed",
+              "title": "MV-S3-SLOTS-002: separates actual empty-name IDs, unnamed slots and DSL-only name resolution",
+              "duration": 71.18470000000002,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "MV-S3-SLOTS-001: preserves unnamed System capacity through real Workspace roundtrip and name removal",
+              "status": "passed",
+              "title": "MV-S3-SLOTS-001: preserves unnamed System capacity through real Workspace roundtrip and name removal",
+              "duration": 4265.434,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400959063,
+          "endTime": 1792400963592.434,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/system-slots.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [],
+              "fullName": "MV-S0-WIN-CLI-001: runs the minimal Workspace through actual Windows CLI processes",
+              "status": "passed",
+              "title": "MV-S0-WIN-CLI-001: runs the minimal Workspace through actual Windows CLI processes",
+              "duration": 9254.7518,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400951958,
+          "endTime": 1792400961212.7517,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/windows-baseline.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "workspace snapshot workflow"
+              ],
+              "fullName": "workspace snapshot workflow clones the standard MV snapshot and writes snapshot hashes",
+              "status": "passed",
+              "title": "clones the standard MV snapshot and writes snapshot hashes",
+              "duration": 63.603399999999965,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "workspace snapshot workflow"
+              ],
+              "fullName": "workspace snapshot workflow fails clone when MapInfos references a missing map file",
+              "status": "passed",
+              "title": "fails clone when MapInfos references a missing map file",
+              "duration": 18.2414,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "workspace snapshot workflow"
+              ],
+              "fullName": "workspace snapshot workflow refreshes the snapshot on pull without touching non-standard project files",
+              "status": "passed",
+              "title": "refreshes the snapshot on pull without touching non-standard project files",
+              "duration": 66.28809999999999,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "decompile workflow"
+              ],
+              "fullName": "decompile workflow fails when no Project Data Snapshot exists",
+              "status": "passed",
+              "title": "fails when no Project Data Snapshot exists",
+              "duration": 12.510700000000043,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "decompile workflow"
+              ],
+              "fullName": "decompile workflow writes the fixed source layout with explicit Entry Identity and raw command fallback",
+              "status": "passed",
+              "title": "writes the fixed source layout with explicit Entry Identity and raw command fallback",
+              "duration": 2004.6073,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "decompile workflow"
+              ],
+              "fullName": "decompile workflow preflights all target files and fails before writing when any output exists",
+              "status": "passed",
+              "title": "preflights all target files and fails before writing when any output exists",
+              "duration": 32.54589999999962,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "compile --check workflow"
+              ],
+              "fullName": "compile --check workflow fails before source evaluation when no Project Data Snapshot exists",
+              "status": "passed",
+              "title": "fails before source evaluation when no Project Data Snapshot exists",
+              "duration": 10.841899999999896,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "compile --check workflow"
+              ],
+              "fullName": "compile --check workflow discovers configured DSL declaration files and validates same-run references",
+              "status": "passed",
+              "title": "discovers configured DSL declaration files and validates same-run references",
+              "duration": 433.2775999999999,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "compile --check workflow"
+              ],
+              "fullName": "compile --check workflow rejects duplicate Entry Identity",
+              "status": "passed",
+              "title": "rejects duplicate Entry Identity",
+              "duration": 398.65599999999995,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "compile --check workflow"
+              ],
+              "fullName": "compile --check workflow rejects ambiguous name references",
+              "status": "passed",
+              "title": "rejects ambiguous name references",
+              "duration": 406.92610000000013,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "compile --check workflow"
+              ],
+              "fullName": "compile --check workflow rejects missing Explicit ID References",
+              "status": "passed",
+              "title": "rejects missing Explicit ID References",
+              "duration": 449.84300000000076,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "compile --check workflow"
+              ],
+              "fullName": "compile --check workflow enforces Script Command Gate",
+              "status": "passed",
+              "title": "enforces Script Command Gate",
+              "duration": 517.9331999999995,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "compile --check workflow"
+              ],
+              "fullName": "compile --check workflow does not write Generated Project Data or update manifest freshness metadata",
+              "status": "passed",
+              "title": "does not write Generated Project Data or update manifest freshness metadata",
+              "duration": 408.78099999999995,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "compile workflow"
+              ],
+              "fullName": "compile workflow fails before source evaluation when no Project Data Snapshot exists",
+              "status": "passed",
+              "title": "fails before source evaluation when no Project Data Snapshot exists",
+              "duration": 8.184400000000096,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "compile workflow"
+              ],
+              "fullName": "compile workflow writes complete Generated Project Data carriers without mutating Project Root or snapshot",
+              "status": "passed",
+              "title": "writes complete Generated Project Data carriers without mutating Project Root or snapshot",
+              "duration": 393.6949999999997,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "compile workflow"
+              ],
+              "fullName": "compile workflow records generated output hashes and Compile Baseline freshness metadata",
+              "status": "passed",
+              "title": "records generated output hashes and Compile Baseline freshness metadata",
+              "duration": 1395.3588999999993,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "diff workflow"
+              ],
+              "fullName": "diff workflow fails when Generated Project Data is missing",
+              "status": "passed",
+              "title": "fails when Generated Project Data is missing",
+              "duration": 25.452699999999822,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "diff workflow"
+              ],
+              "fullName": "diff workflow fails when Generated Project Data is stale",
+              "status": "passed",
+              "title": "fails when Generated Project Data is stale",
+              "duration": 380.9532999999992,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "diff workflow"
+              ],
+              "fullName": "diff workflow compares Generated Project Data with the Project Data Snapshot without reading Project Root",
+              "status": "passed",
+              "title": "compares Generated Project Data with the Project Data Snapshot without reading Project Root",
+              "duration": 656.0222000000003,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "diff workflow"
+              ],
+              "fullName": "diff workflow renders a short Diff summary with Affected Project Data Files",
+              "status": "passed",
+              "title": "renders a short Diff summary with Affected Project Data Files",
+              "duration": 743.4233999999997,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "diff workflow"
+              ],
+              "fullName": "diff workflow filters Diff output by Project Data File",
+              "status": "passed",
+              "title": "filters Diff output by Project Data File",
+              "duration": 745.8307999999997,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "diff workflow"
+              ],
+              "fullName": "diff workflow renders an empty filtered Diff for a known Project Data File with no changes",
+              "status": "passed",
+              "title": "renders an empty filtered Diff for a known Project Data File with no changes",
+              "duration": 811.3631000000005,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "diff workflow"
+              ],
+              "fullName": "diff workflow rejects unknown or unsafe Diff file filters",
+              "status": "passed",
+              "title": "rejects unknown or unsafe Diff file filters",
+              "duration": 776.2093000000004,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "push workflow"
+              ],
+              "fullName": "push workflow fails when Generated Project Data is missing",
+              "status": "passed",
+              "title": "fails when Generated Project Data is missing",
+              "duration": 37.35580000000118,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "push workflow"
+              ],
+              "fullName": "push workflow fails when Generated Project Data is stale",
+              "status": "passed",
+              "title": "fails when Generated Project Data is stale",
+              "duration": 861.719000000001,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "push workflow"
+              ],
+              "fullName": "push workflow fails when Generated Project Data hashes do not match the Sync Manifest",
+              "status": "passed",
+              "title": "fails when Generated Project Data hashes do not match the Sync Manifest",
+              "duration": 756.0240000000013,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "push workflow"
+              ],
+              "fullName": "push workflow reports Project Drift when an affected Project Root file is missing",
+              "status": "passed",
+              "title": "reports Project Drift when an affected Project Root file is missing",
+              "duration": 845.8464999999997,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "push workflow"
+              ],
+              "fullName": "push workflow checks Project Drift only for affected Project Data files",
+              "status": "passed",
+              "title": "checks Project Drift only for affected Project Data files",
+              "duration": 1563.7713000000003,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "push workflow"
+              ],
+              "fullName": "push workflow rejects destructive changes unless explicitly allowed",
+              "status": "passed",
+              "title": "rejects destructive changes unless explicitly allowed",
+              "duration": 915.1832000000013,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "push workflow"
+              ],
+              "fullName": "push workflow writes affected Project Root data and refreshes affected Snapshot and Manifest",
+              "status": "passed",
+              "title": "writes affected Project Root data and refreshes affected Snapshot and Manifest",
+              "duration": 1035.9827000000005,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "push workflow"
+              ],
+              "fullName": "push workflow stops non-Push commands when an Interrupted Push is pending",
+              "status": "passed",
+              "title": "stops non-Push commands when an Interrupted Push is pending",
+              "duration": 741.0279999999984,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "push workflow"
+              ],
+              "fullName": "push workflow completes an all-generated Interrupted Push during push",
+              "status": "passed",
+              "title": "completes an all-generated Interrupted Push during push",
+              "duration": 882.0457000000024,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "push workflow"
+              ],
+              "fullName": "push workflow abandons an all-snapshot Interrupted Push and continues normal push",
+              "status": "passed",
+              "title": "abandons an all-snapshot Interrupted Push and continues normal push",
+              "duration": 831.6860000000015,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "push workflow"
+              ],
+              "fullName": "push workflow stops push for mixed or missing Interrupted Push file states",
+              "status": "passed",
+              "title": "stops push for mixed or missing Interrupted Push file states",
+              "duration": 880.0335000000014,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400931610,
+          "endTime": 1792400951724.0334,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/workflow.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [],
+              "fullName": "MV-S4-LOCK-001: excludes every Workspace API and CLI operation before mutable reads",
+              "status": "passed",
+              "title": "MV-S4-LOCK-001: excludes every Workspace API and CLI operation before mutable reads",
+              "duration": 13633.2958,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "MV-S4-LOCK-002: hides Snapshot publication gaps and aliases while other Workspaces operate",
+              "status": "passed",
+              "title": "MV-S4-LOCK-002: hides Snapshot publication gaps and aliases while other Workspaces operate",
+              "duration": 7907.623100000001,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "MV-S4-LOCK-003: recovers kernel leases after interruption and crash without stale-cleaner races",
+              "status": "passed",
+              "title": "MV-S4-LOCK-003: recovers kernel leases after interruption and crash without stale-cleaner races",
+              "duration": 7806.567299999999,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "MV-S4-LOCK-004: preserves Interrupted Push independently of abandoned locks and failed checks",
+              "status": "passed",
+              "title": "MV-S4-LOCK-004: preserves Interrupted Push independently of abandoned locks and failed checks",
+              "duration": 7434.575499999999,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400904946,
+          "endTime": 1792400941728.5754,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/workspace-locking.test.ts"
+        },
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "loadWorkspace"
+              ],
+              "fullName": "loadWorkspace loads a workspace config and resolves the project root relative to the workspace root",
+              "status": "passed",
+              "title": "loads a workspace config and resolves the project root relative to the workspace root",
+              "duration": 7.776500000000027,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "loadWorkspace"
+              ],
+              "fullName": "loadWorkspace rejects configs that still include removed legacy workflow fields",
+              "status": "passed",
+              "title": "rejects configs that still include removed legacy workflow fields",
+              "duration": 2.9555000000000007,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "loadWorkspace"
+              ],
+              "fullName": "loadWorkspace rejects a project root without an RPG Maker project marker",
+              "status": "passed",
+              "title": "rejects a project root without an RPG Maker project marker",
+              "duration": 1.8316000000000088,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "initWorkspace"
+              ],
+              "fullName": "initWorkspace creates the workspace structure and writes a workspace config",
+              "status": "passed",
+              "title": "creates the workspace structure and writes a workspace config",
+              "duration": 7.633499999999998,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [
+                "initWorkspace"
+              ],
+              "fullName": "initWorkspace refuses to overwrite an existing workspace config",
+              "status": "passed",
+              "title": "refuses to overwrite an existing workspace config",
+              "duration": 2.7998999999999796,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792400968798,
+          "endTime": 1792400968821.7998,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/workspace.test.ts"
+        }
+      ]
+    },
+    "builtWorkspace": {
+      "numTotalTestSuites": 1,
+      "numPassedTestSuites": 1,
+      "numFailedTestSuites": 0,
+      "numPendingTestSuites": 0,
+      "numTotalTests": 5,
+      "numPassedTests": 5,
+      "numFailedTests": 0,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "snapshot": {
+        "added": 0,
+        "failure": false,
+        "filesAdded": 0,
+        "filesRemoved": 0,
+        "filesRemovedList": [],
+        "filesUnmatched": 0,
+        "filesUpdated": 0,
+        "matched": 0,
+        "total": 0,
+        "unchecked": 0,
+        "uncheckedKeysByFile": [],
+        "unmatched": 0,
+        "updated": 0,
+        "didUpdate": false
+      },
+      "startTime": 1792401041516,
+      "success": true,
+      "testResults": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects unknown movement codes in a noncustom Autonomous Movement saved route",
+              "status": "passed",
+              "title": "rejects unknown movement codes in a noncustom Autonomous Movement saved route",
+              "duration": 1.7558999999998832,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "round trips independent Movement Routes through actual Discovery, evaluation, Check, Compile, Diff and Push",
+              "status": "passed",
+              "title": "round trips independent Movement Routes through actual Discovery, evaluation, Check, Compile, Diff and Push",
+              "duration": 3776.1559999999995,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "rejects a native Movement Route mirror conflict before publishing source and preserves all workspace state",
+              "status": "passed",
+              "title": "rejects a native Movement Route mirror conflict before publishing source and preserves all workspace state",
+              "duration": 77.86310000000049,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "checks and compiles Movement Routes through separate actual Windows CLI processes",
+              "status": "passed",
+              "title": "checks and compiles Movement Routes through separate actual Windows CLI processes",
+              "duration": 2322.1565,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            },
+            {
+              "ancestorTitles": [],
+              "fullName": "preserves source, project, snapshot, manifest, generated data and Discovery after route Check and Compile failures",
+              "status": "passed",
+              "title": "preserves source, project, snapshot, manifest, generated data and Discovery after route Check and Compile failures",
+              "duration": 6500.0688,
+              "failureMessages": [],
+              "meta": {},
+              "tags": []
+            }
+          ],
+          "startTime": 1792401042732,
+          "endTime": 1792401055410.0688,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-14/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/movement-route-workspace.test.ts"
+        }
+      ]
+    }
+  },
+  "difference": null
+}
