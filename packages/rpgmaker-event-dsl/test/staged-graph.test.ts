@@ -470,14 +470,16 @@ describe("validateDslOwnedDeclarations", () => {
             }),
             setMovementRoute({
               target: { kind: "runtimeSelector", scope: "character", target: "event", id: 99 },
-              route: [
-                { kind: "switchOn", switch: switchRef({ id: 1 }) },
-                {
-                  kind: "changeImage",
-                  image: imageAsset({ folder: "characters", name: "Actor1" }),
-                  index: 0,
-                },
-              ],
+              route: {
+                commands: [
+                  { kind: "switchOn", switch: switchRef({ id: 1 }) },
+                  {
+                    kind: "changeImage",
+                    image: imageAsset({ folder: "characters", name: "Actor1" }),
+                    index: 0,
+                  },
+                ],
+              },
             }),
           ],
         }),
@@ -503,7 +505,11 @@ describe("validateDslOwnedDeclarations", () => {
           commands: [
             setMovementRoute({
               target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
-              route: [{ kind: "script", script: scriptInput({ code: "this.moveForward();" }) }],
+              route: {
+                commands: [
+                  { kind: "script", script: scriptInput({ code: "this.moveForward();" }) },
+                ],
+              },
             }),
           ],
         }),
@@ -530,7 +536,7 @@ describe("validateDslOwnedDeclarations", () => {
                 scope: "player",
                 target: "current",
               } as never,
-              route: [{ kind: "switchOff", switch: switchRef({ id: 99 }) }],
+              route: { commands: [{ kind: "switchOff", switch: switchRef({ id: 99 }) }] },
             }),
           ],
         }),

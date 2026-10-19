@@ -9,6 +9,7 @@ import {
   readPositiveInteger,
 } from "../../decompiler/core.js";
 import { vehicleFromCode } from "../flow/decompile.js";
+import { assertNativeMovementRoute, assertNativeMovementRecord } from "./validation.js";
 
 export function renderTransferPlayer(
   command: RawEventCommand,
@@ -164,28 +165,37 @@ export function renderSetMovementRoute(
     return null;
   }
 
-  const renderedRoute = renderMoveRouteCommands(routeRecord.list);
-  if (renderedRoute === null) {
-    return null;
-  }
-
-  const fields = [
-    `target: ${target.expression}`,
-    `route: [${renderedRoute.expressions.join(", ")}]`,
-  ];
-  if (!routeRecord.repeat) {
-    fields.push("repeat: false");
-  }
-  if (routeRecord.skippable) {
-    fields.push("skippable: true");
-  }
-  if (routeRecord.wait) {
-    fields.push("wait: true");
-  }
+  const renderedRoute = renderMovementRoute(routeRecord);
+  if (renderedRoute === null) return null;
 
   return {
-    expression: `setMovementRoute({ ${fields.join(", ")} })`,
+    expression: `setMovementRoute({ target: ${target.expression}, route: ${renderedRoute.expression} })`,
     helperNames: ["setMovementRoute", ...renderedRoute.helperNames],
+  };
+}
+
+export function renderMovementRoute(
+  route: unknown,
+): { expression: string; helperNames: string[] } | null {
+  assertNativeMovementRoute(route, "moveRoute");
+  const renderedRoute = renderMoveRouteCommands(route.list);
+  if (renderedRoute === null) return null;
+
+  const fields = [`commands: [${renderedRoute.expressions.join(", ")}]`];
+  if (!route.repeat) {
+    fields.push("repeat: false");
+  }
+  if (route.skippable) {
+    fields.push("skippable: true");
+  }
+  if (route.wait) {
+    fields.push("wait: true");
+  }
+  if (renderedRoute.terminator !== undefined) fields.push(renderedRoute.terminator);
+
+  return {
+    expression: `{ ${fields.join(", ")} }`,
+    helperNames: renderedRoute.helperNames,
   };
 }
 
@@ -245,9 +255,13 @@ export function renderChangePlayerFollowers(
 
 export function renderMoveRouteCommands(
   commands: readonly unknown[],
-): { expressions: string[]; helperNames: string[] } | null {
+): { expressions: string[]; helperNames: string[]; terminator?: string } | null {
   const expressions: string[] = [];
   const helperNames = new Set<string>();
+  assertNativeMovementRoute(
+    { list: commands, repeat: true, skippable: false, wait: false },
+    "moveRoute",
+  );
 
   for (const command of commands) {
     if (!command || typeof command !== "object" || Array.isArray(command)) {
@@ -256,7 +270,10 @@ export function renderMoveRouteCommands(
 
     const record = command as Record<string, unknown>;
     if (record.code === 0) {
-      if (!Array.isArray(record.parameters) || record.parameters.length !== 0) {
+      if (
+        Object.hasOwn(record, "parameters") &&
+        (!Array.isArray(record.parameters) || record.parameters.length !== 0)
+      ) {
         return null;
       }
       continue;
@@ -273,13 +290,38 @@ export function renderMoveRouteCommands(
     }
   }
 
-  return { expressions, helperNames: [...helperNames] };
+  return {
+    expressions,
+    helperNames: [...helperNames],
+    ...(Object.hasOwn(commands.at(-1) as object, "parameters")
+      ? {}
+      : { terminator: 'terminator: { parameters: "absent" }' }),
+  };
 }
 
 export function renderMoveRouteCommand(
   command: Record<string, unknown>,
 ): { expression: string; helperNames: readonly string[] } | null {
-  const parameters = Array.isArray(command.parameters) ? command.parameters : null;
+  assertNativeMovementRecord(command, { nativePath: "moveRoute.list" });
+  const rendered = renderMoveRouteInstruction(command);
+  if (rendered === null) return null;
+  if (command.indent === null || command.indent === 0) {
+    return {
+      ...rendered,
+      expression: `${rendered.expression.slice(0, -2)}, savedShape: { indent: "${command.indent === null ? "null" : "zero"}" } }`,
+    };
+  }
+  return rendered;
+}
+
+function renderMoveRouteInstruction(
+  command: Record<string, unknown>,
+): { expression: string; helperNames: readonly string[] } | null {
+  const parameters = Array.isArray(command.parameters)
+    ? command.parameters
+    : command.parameters === undefined
+      ? []
+      : null;
   if (typeof command.code !== "number" || parameters === null) {
     return null;
   }

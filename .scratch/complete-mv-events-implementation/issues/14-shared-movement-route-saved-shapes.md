@@ -1,6 +1,6 @@
 # 14: 共享 Movement Route 保存形态
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 04, 12
 Stage: S2
 Created: 2026-10-19

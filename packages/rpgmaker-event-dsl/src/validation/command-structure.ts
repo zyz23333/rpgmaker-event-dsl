@@ -1,30 +1,7 @@
-import type { ValidationIssue } from "./types.js";
 import type { RawEventCommand } from "../compiler/types.js";
-
-export class CommandStructureError extends Error {
-  constructor(
-    readonly code: string,
-    readonly detail: string,
-    readonly location: { nativePath?: string; dslPath?: string } = {},
-    readonly identity?: string,
-    readonly stage?: "compile" | "decompile",
-  ) {
-    super(
-      `${identity ? `${identity}: ` : ""}${code}: ${detail}${location.nativePath ? ` at ${location.nativePath}` : ""}${location.dslPath ? ` (${location.dslPath})` : ""}`,
-    );
-  }
-
-  issue(identity: string, stage: "compile" | "decompile"): ValidationIssue {
-    return {
-      level: "error",
-      code: this.code,
-      stage,
-      identity,
-      ...this.location,
-      message: `${identity}: ${this.message}`,
-    };
-  }
-}
+import { assertNativeMovementCommands } from "../commands/movement/validation.js";
+import { CommandStructureError } from "./command-errors.js";
+export { CommandStructureError } from "./command-errors.js";
 
 export function assertNativeCommandEnvelope(
   value: unknown,
@@ -72,6 +49,7 @@ export function inspectCommandListStructure(
       );
     }
   }
+  assertNativeMovementCommands(commands);
   const breaksOutsideLoops: number[] = [];
   const continuationParents = new Map([
     [401, [101, 401]],

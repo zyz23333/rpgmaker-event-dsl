@@ -18,7 +18,6 @@ import type {
   GatherFollowersDslCommand,
   GetOnOffVehicleDslCommand,
   MapDestination,
-  MoveRouteCommand,
   ReferenceValue,
   ScrollMapDslCommand,
   SetEventLocationDslCommand,
@@ -145,26 +144,14 @@ export function scrollMap(input: {
 
 export function setMovementRoute(input: {
   target: CharacterRuntimeSelector;
-  route: readonly MoveRouteCommand[];
-  repeat?: boolean;
-  skippable?: boolean;
-  wait?: boolean;
+  route: SetMovementRouteDslCommand["route"];
 }): SetMovementRouteDslCommand {
   const node: SetMovementRouteDslCommand = {
+    ...input,
     kind: "setMovementRoute",
     target: input.target,
     route: input.route,
   };
-
-  if (input.repeat !== undefined) {
-    node.repeat = input.repeat;
-  }
-  if (input.skippable !== undefined) {
-    node.skippable = input.skippable;
-  }
-  if (input.wait !== undefined) {
-    node.wait = input.wait;
-  }
 
   return node;
 }

@@ -2,11 +2,15 @@ import type {
   CharacterRuntimeSelector,
   DslCommand,
   MoveRouteCommand,
+  MovementRoute,
   VehicleTarget,
 } from "../../domain/types.js";
 import type { ReferenceResolver } from "../../validation/types.js";
 import { vehicleToCode } from "../../compiler/shared/conditions.js";
 import { compileAudioPayload } from "../../compiler/shared/media.js";
+import { assertMovementRoute, assertNativeMovementRecord } from "./validation.js";
+import type { NativeMovementRecord } from "./types.js";
+export type { NativeMovementRecord } from "./types.js";
 
 export function characterSelectorToCode(selector: CharacterRuntimeSelector): number {
   switch (selector.target) {
@@ -72,17 +76,47 @@ export function compileSetEventLocationParameters(
   }
 }
 
-export function compileMoveRouteCommands(
-  route: readonly MoveRouteCommand[],
+export function compileMovementRoute(
+  route: MovementRoute,
   resolver: ReferenceResolver,
-): Array<{ code: number; parameters: unknown[] }> {
+  path = "route",
+) {
+  assertMovementRoute(route, path);
+  return {
+    list: compileMoveRouteCommands(route, resolver, path),
+    repeat: route.repeat ?? true,
+    skippable: route.skippable ?? false,
+    wait: route.wait ?? false,
+  };
+}
+
+export function compileMoveRouteCommands(
+  route: MovementRoute,
+  resolver: ReferenceResolver,
+  path = "route",
+): NativeMovementRecord[] {
   return [
-    ...route.map((command) => compileMoveRouteCommand(command, resolver)),
-    { code: 0, parameters: [] },
+    ...route.commands.map((command, index) =>
+      compileMoveRouteCommand(command, resolver, `${path}.commands[${index}]`),
+    ),
+    route.terminator?.parameters === "absent" ? { code: 0 } : { code: 0, parameters: [] },
   ];
 }
 
 export function compileMoveRouteCommand(
+  command: MoveRouteCommand,
+  resolver: ReferenceResolver,
+  path = "route.commands",
+): NativeMovementRecord {
+  const record: NativeMovementRecord = compileMoveRouteInstruction(command, resolver);
+  if (record.parameters?.length === 0) delete record.parameters;
+  if (command.savedShape?.indent === "null") record.indent = null;
+  if (command.savedShape?.indent === "zero") record.indent = 0;
+  assertNativeMovementRecord(record, { dslPath: path });
+  return record;
+}
+
+function compileMoveRouteInstruction(
   command: MoveRouteCommand,
   resolver: ReferenceResolver,
 ): { code: number; parameters: unknown[] } {
