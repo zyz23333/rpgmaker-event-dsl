@@ -1,0 +1,220 @@
+{
+  "initial": {
+    "switches": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "selfSwitches": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "steps": [
+    {
+      "code": 121,
+      "state": {
+        "switches": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "selfSwitches": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "code": 121,
+      "state": {
+        "switches": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "selfSwitches": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "code": 123,
+      "state": {
+        "switches": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "selfSwitches": [
+          true,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "code": 123,
+      "state": {
+        "switches": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "selfSwitches": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "code": 123,
+      "state": {
+        "switches": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "selfSwitches": [
+          false,
+          true,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "code": 123,
+      "state": {
+        "switches": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "selfSwitches": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "code": 123,
+      "state": {
+        "switches": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "selfSwitches": [
+          false,
+          false,
+          true,
+          false
+        ]
+      }
+    },
+    {
+      "code": 123,
+      "state": {
+        "switches": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "selfSwitches": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "code": 123,
+      "state": {
+        "switches": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "selfSwitches": [
+          false,
+          false,
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "code": 123,
+      "state": {
+        "switches": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "selfSwitches": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "code": 0,
+      "state": {
+        "switches": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "selfSwitches": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    }
+  ],
+  "final": {
+    "switches": [
+      true,
+      false,
+      true,
+      false
+    ],
+    "selfSwitches": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "isRunning": false
+}

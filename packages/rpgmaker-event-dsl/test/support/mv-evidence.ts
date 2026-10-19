@@ -220,6 +220,11 @@ export async function recordEvidence(input: {
   actual: unknown;
   error?: unknown;
 }): Promise<void> {
+  const requirement = (await readRequirements()).requirements.find(
+    ({ id }) => id === input.requirementId,
+  );
+  if (requirement === undefined)
+    throw new Error(`Unknown evidence requirement: ${input.requirementId}`);
   const require = createRequire(import.meta.url);
   const toolVersion = (name: string): string =>
     (require(`${name}/package.json`) as { version: string }).version;
@@ -267,7 +272,10 @@ export async function recordEvidence(input: {
       fingerprint: sha256(JSON.stringify(files)),
       files,
     },
-    fixture: { path: fixturePath, sha256: sha256(await readFile(repositoryPath(fixturePath))) },
+    fixture: {
+      path: requirement.fixture.path,
+      sha256: sha256(await readFile(repositoryPath(requirement.fixture.path))),
+    },
     environment: {
       platform: process.platform,
       architecture: arch(),

@@ -1,4 +1,5 @@
 import type { DecompiledCommandListRendering, RawEventCommand, RenderedCommand } from "./types.js";
+import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
 import {
   isItemType,
   isSelfSwitch,
@@ -307,6 +308,7 @@ export function renderCommandAt(
 }
 
 export function renderSimpleOrRawCommand(command: RawEventCommand, index: number): RenderedCommand {
+  assertNativeSwitchCommand(command.code, command.parameters);
   const helper = renderSimpleCommand(command);
 
   if (helper !== null) {

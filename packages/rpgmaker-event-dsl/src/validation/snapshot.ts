@@ -23,9 +23,9 @@ export function readObjectReferenceEntries(
     }
 
     const id = readPositiveInteger(value.id);
-    const name = readNonEmptyString(value.name);
+    const name = typeof value.name === "string" ? value.name : "";
 
-    return id === null || name === null ? [] : [{ id, name }];
+    return id === null ? [] : [{ id, name }];
   });
 }
 
