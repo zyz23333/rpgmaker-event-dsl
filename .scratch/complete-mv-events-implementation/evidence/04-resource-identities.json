@@ -1,0 +1,227 @@
+{
+  "formatVersion": 1,
+  "kind": "Original selected shipped-artifact identities and conditional replay metadata; not editor UI capture or actual game execution",
+  "artifacts": [
+    {
+      "path": "references/RPGMV/RPGMV.exe",
+      "bytes": 19595264,
+      "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+      "records": [
+        {
+          "name": "template",
+          "offset": 346222,
+          "stored": 2617,
+          "encoding": "zlib",
+          "decodedBytes": 11436,
+          "sha256": "52fd4ca2a3f178712d94467c5770919cf716882e2ebc9a57bde0a963e9447165"
+        },
+        {
+          "name": "layout",
+          "offset": 665677,
+          "stored": 992,
+          "encoding": "zlib",
+          "decodedBytes": 3578,
+          "sha256": "199459336be17ccb510d1912ef53648342e8903ea95d84b59275f6bcbf4b135e"
+        },
+        {
+          "name": "movement-list",
+          "offset": 672838,
+          "stored": 1325,
+          "encoding": "zlib",
+          "decodedBytes": 4997,
+          "sha256": "2180bf600ca5a34ebbf35f65a343ca95be10055e3abcc7561efd5bc4fab8f51e"
+        },
+        {
+          "name": "movement-base",
+          "offset": 683357,
+          "stored": 528,
+          "encoding": "plain",
+          "decodedBytes": 524,
+          "sha256": "5f8ef1afae81820acbf38a4160b725efee36476bc6c555576f3b15796e9340ce"
+        },
+        {
+          "name": "route205",
+          "offset": 771946,
+          "stored": 1393,
+          "encoding": "plain",
+          "decodedBytes": 1389,
+          "sha256": "95cf5319c62eeacfbea61afa69a05be5d5788e5b795f34f776a791adcab44615"
+        },
+        {
+          "name": "page",
+          "offset": 701512,
+          "stored": 1784,
+          "encoding": "zlib",
+          "decodedBytes": 7813,
+          "sha256": "d3f53b2536e23bb60f8b080f1692cec652262688cd20dd5184de5773dc9c3b15"
+        },
+        {
+          "name": "data",
+          "offset": 909009,
+          "stored": 4291,
+          "encoding": "zlib",
+          "decodedBytes": 24761,
+          "sha256": "9ce1877d3eac47699a558ada219ec4f217dbc4f215531a7f65ccacd8169c4f93"
+        },
+        {
+          "name": "event-list",
+          "offset": 667573,
+          "stored": 3694,
+          "encoding": "zlib",
+          "decodedBytes": 17486,
+          "sha256": "bbc1e26fa83771fc56581b1dc34ec762b3789444dacef76cb24334834e17e82c"
+        },
+        {
+          "name": "event-base",
+          "offset": 686141,
+          "stored": 939,
+          "encoding": "plain",
+          "decodedBytes": 935,
+          "sha256": "740d0c01de598e2a55b58f67f975a30e2d3c8c96de36eb8ff15c3dd4d6ad2780"
+        },
+        {
+          "name": "wait",
+          "offset": 808067,
+          "stored": 708,
+          "encoding": "plain",
+          "decodedBytes": 704,
+          "sha256": "a7a02f3ae66eb20bdfc9339a9835fedb46fcc8c589de3bda2d672866b57f53a3"
+        },
+        {
+          "name": "dialog",
+          "offset": 656916,
+          "stored": 1086,
+          "encoding": "plain",
+          "decodedBytes": 1082,
+          "sha256": "0152387fa661f0e67f45b989248c60142881526cda1f31898e29c0e03366fbf7"
+        },
+        {
+          "name": "move-speed",
+          "offset": 806586,
+          "stored": 674,
+          "encoding": "plain",
+          "decodedBytes": 670,
+          "sha256": "66bdf50a2c8bc37b37e902c011e6c28df349be085a0ed06a96d166fd667697c5"
+        },
+        {
+          "name": "move-se",
+          "offset": 813249,
+          "stored": 1063,
+          "encoding": "plain",
+          "decodedBytes": 1059,
+          "sha256": "63fdec340ab13fe0c143552d98ef6645b1c26bbfcff5806f1bda1e4cf50b7292"
+        },
+        {
+          "name": "checkbox",
+          "offset": 893754,
+          "stored": 1005,
+          "encoding": "zlib",
+          "decodedBytes": 3826,
+          "sha256": "13ce867d2bf5d9081e234e2cc4b3330a59fad91ed351baddec15b6a553376467"
+        },
+        {
+          "name": "route-dialog",
+          "offset": 653645,
+          "stored": 927,
+          "encoding": "plain",
+          "decodedBytes": 923,
+          "sha256": "6343dfa083bf2e1451a5af7867664957f4696bf7f950d8751857f108faee3456"
+        },
+        {
+          "name": "movement-dialog",
+          "offset": 685092,
+          "stored": 1049,
+          "encoding": "plain",
+          "decodedBytes": 1045,
+          "sha256": "382dc3b59de7d967c897dcf0f7fafce0c7ed19598e07f3f357d16f8a8a827b69"
+        },
+        {
+          "name": "movement-codes",
+          "offset": 913300,
+          "stored": 1270,
+          "encoding": "zlib",
+          "decodedBytes": 5566,
+          "sha256": "0858eff5ff54f87975a9ac93bc93d8c79f2a62d137c87e49b5a6818970f87670"
+        }
+      ]
+    },
+    {
+      "path": "references/RPGMV/QtQuick/Controls/qtquickcontrolsplugin.dll",
+      "bytes": 780288,
+      "sha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+      "records": [
+        {
+          "offset": 290172,
+          "stored": 7338,
+          "compressed": false,
+          "decoded": 7334,
+          "sha256": "5334c4d26069acd2e7445be4e78e8d0749f376ec21d33200c350226b7a64d17a"
+        },
+        {
+          "offset": 300501,
+          "stored": 5585,
+          "compressed": false,
+          "decoded": 5581,
+          "sha256": "2fa2bb063b151e5da6ef8943ecfabd1fc67845ca1f07fbc8a367d9ef15b87390"
+        }
+      ]
+    }
+  ],
+  "priorReaEvidence": [
+    {
+      "id": "ev_007ba386e622855bf771049084c3103afebbcc6b5d813f18c441f3ecf1d16d24",
+      "scope": "Previously retained PE resource inventory, with original report VS_VERSION_INFO parsing identifying MV FileVersion1.6.1.0/ProductVersion1.6.1; reused, not freshly requested in this task; no execution or publication-origin proof"
+    }
+  ],
+  "localRawEvidence": {
+    "directory": "C:/Users/Shuen/.codex/research-evidence/mv-editor-04-20261019",
+    "decodeScript": {
+      "path": "C:/Users/Shuen/.codex/research-evidence/mv-editor-04-decode.cjs",
+      "sha256": "b4d7a1e009f374004085133664321a06b5b0b450f6f8d3a65511967fa016a193"
+    },
+    "resourceManifest": {
+      "path": "C:/Users/Shuen/.codex/research-evidence/mv-editor-04-20261019/resource-manifest.json",
+      "sha256": "4f99b1ab2dc58b0f4289370a2d30c9a7192e60144906351503ecf469be365ed4"
+    },
+    "controlledReplayScript": {
+      "path": "C:/Users/Shuen/.codex/research-evidence/mv-editor-04-controlled-replay.cjs",
+      "sha256": "4dcefd2ae0d242ddaa6373aee8df545bb2b79545309f658be5f10b47357b0bd3"
+    },
+    "controlledReplay": {
+      "path": "C:/Users/Shuen/.codex/research-evidence/mv-editor-04-20261019/controlled-replay.json",
+      "sha256": "1f19103b5e4fdfe3b118b52554fd5fc8ebb29775223191f571661776c9c1f89c"
+    }
+  },
+  "limitations": [
+    "Decoded target source remains outside repository; resource role names are inferred from full text, not recovered qrc tree names",
+    "Only selected exact JavaScript functions were replayed under Node22, with UI/model/Clipboard I/O stubbed; this is not Qt engine/UI or game execution",
+    "Numeric0 was a conditional native-code counterexample to original ADR0015; the user accepted only the finite zero contract amendment on2026-10-19. Product implementation and actual game acceptance are not established by this evidence."
+  ],
+  "acceptedContract": {
+    "date": "2026-10-19",
+    "provenance": "Direct user response in the implementation session, forwarded by the primary agent to ticket04",
+    "userResponse": "接受有限 zero 状态（推荐）",
+    "nonterminalIndent": {
+      "symbols": [
+        "absent",
+        "null",
+        "zero"
+      ],
+      "default": "absent",
+      "zeroEncoding": 0,
+      "decompile": "null and numeric0 must retain explicit savedShape states",
+      "otherNumbers": "rejected"
+    },
+    "unchanged": [
+      "Parameterless instructions omit parameters",
+      "Parameterized instructions retain complete semantic parameter arrays",
+      "M0 has no indent and only absent/empty parameters",
+      "505 mirrors each complete nonterminal object in205; no M0 mirror",
+      "Unknown-data and all other validation boundaries"
+    ],
+    "authoritativeDecision": ".scratch/complete-mv-events/issues/12-native-saved-shape-model.md#answer",
+    "adr": "docs/adr/0015-bounded-native-saved-shape.md",
+    "productImplementation": "not-implemented-by-ticket04",
+    "actualGameAcceptance": "not-executed"
+  }
+}

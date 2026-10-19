@@ -20,8 +20,8 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 ## Acceptance criteria
 
-- [ ] 45 个移动 code 各参数模式、枚举、值域、无参外壳和保存形态逐项有独立测试，不能仅用每 code 一个例子签收。
-- [ ] 页路线与强制路线共用模型、准确 defaults/M0/505；非 custom 保存路线仍作引用和 Script Command Gate 校验。
+- [ ] 45 个移动 code 各参数模式、枚举、值域、无参外壳和保存形态逐项有独立测试，不能仅用每 code 一个例子签收；两种路线入口覆盖indent缺失/null/0的独立预期，并拒绝其他数字与不允许的parameters/indent组合。
+- [ ] 页路线与强制路线共用模型、准确 defaults/M0/505；savedShape.indent为absent/null/zero，默认absent，zero直接编码0且显式反编译，M0缺indent，505逐项镜像完整非终止对象；非 custom 保存路线仍作引用和 Script Command Gate 校验。
 - [ ] M45 完整单槽字符串与 None 素材、音频独立值一并验证；取得 E3/E5、R1/R6/R7 相关产品证据。
 
 ### 共通要求（限本票适用范围）
@@ -50,3 +50,9 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [移动指令参数附表](../../complete-mv-events/research/command-parameters/movement.md)：逐码参数与共享路线保存形态。
+
+## Comments
+
+### 2026-10-19 — 继承已接受的有限 zero 状态
+
+用户对04原生clone + copy/paste反例回复“接受有限 zero 状态（推荐）”；当前契约以[04报告](../evidence/04-movement-records-and-mirrors-reverse.md#契约比较与已接受修订)、ADR0015及权威决定票12 Answer为准。本票继承14的共享外壳实现并负责全部45码在页/205两入口的覆盖；04的逆向证据与契约批准不计作本票产品或游戏验收。

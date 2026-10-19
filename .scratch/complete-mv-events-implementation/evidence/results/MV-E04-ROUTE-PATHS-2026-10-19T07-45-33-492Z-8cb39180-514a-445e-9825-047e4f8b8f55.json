@@ -1,0 +1,507 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-E04-ROUTE-PATHS",
+  "runId": "2026-10-19T07-45-33-492Z-8cb39180-514a-445e-9825-047e4f8b8f55",
+  "status": "passed",
+  "startedAt": "2026-10-19T07:41:02.966Z",
+  "completedAt": "2026-10-19T07:45:33.492Z",
+  "operator": "Codex ticket04 reverse-engineering analyst; accepted-domain decision supplied directly by the user",
+  "source": {
+    "revision": "b78a0d109f9b25a3fff58d0dc842c18b96c1ed32",
+    "fingerprint": "ceedb1f8fc892dad195d6380a2e32d40f20d55ad23016efa6957ea5c15017ea9",
+    "files": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+        "sha256": "79e21430d8886d465cd2307bf45905e5ca9faaf1b1504712c2482ced89f7fcaf"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/04-controlled-replay-observations.json",
+        "sha256": "1f19103b5e4fdfe3b118b52554fd5fc8ebb29775223191f571661776c9c1f89c"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/04-movement-records-and-mirrors-reverse.md",
+        "sha256": "dbdd18695268c81251c98fdd280fb819a20af60537369447a0b7ea75d2fcf4cf"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json",
+        "sha256": "21e980a7fc17f4229855c7e67f94591050e1980b6541a30317994b93e60df2b3"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/README.md",
+        "sha256": "cb1fb4465781d08f7476404cf67a95a484e1da252db3524d7d65b207ee1b5302"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+        "sha256": "9874a05f52cedd73fd8863f7e6fb9b5f45f89dafc56b17972c5bf9c0822de893"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/issues/04-native-movement-records-and-mirrors.md",
+        "sha256": "6eb74c94acc10362423d08d9affb83551f4dc8b55d5f57f617d87aac1d00bc55"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/issues/14-shared-movement-route-saved-shapes.md",
+        "sha256": "1c61e8434054f0bb5e3c4e72070a655ef8910001af4b037272642e55b44289aa"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/issues/33-movement-all-45-instructions.md",
+        "sha256": "5280e007b4c637a673dd980f3fba8bc693bc1cceea380a1259aaddb312efaf3e"
+      },
+      {
+        "path": ".scratch/complete-mv-events/issues/03-map-event-page-model.md",
+        "sha256": "4cc7e64dbbf5993b536463aaa59a335cb679569ee1efa8663dce2e46cc7eed1e"
+      },
+      {
+        "path": ".scratch/complete-mv-events/issues/05-native-command-contract.md",
+        "sha256": "9e1b17c7c0c99a59acb516bbb91cac8c5fd5a0bee78179311788ed0f2a87c677"
+      },
+      {
+        "path": ".scratch/complete-mv-events/issues/12-native-saved-shape-model.md",
+        "sha256": "eed7d01fb9b8cd750c9d891b9467200041850f4568b1519aab90af1b0a922ae3"
+      },
+      {
+        "path": ".scratch/complete-mv-events/research/command-parameters/index.md",
+        "sha256": "75b48da363fc65baaa6965d06a449471504537b8a7f2bd3e4a4cb453a791f8bd"
+      },
+      {
+        "path": ".scratch/complete-mv-events/research/command-parameters/movement.md",
+        "sha256": "e0fc17ff12d3327e36392860adac0e89be147f02e987bed560939a540316385c"
+      },
+      {
+        "path": "docs/adr/0015-bounded-native-saved-shape.md",
+        "sha256": "2f3a063e3b7887e0f49f1af01d4886f91628e3a77e4e7e296efc4fdfc6c06205"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/mv-evidence.ts",
+        "sha256": "7e14773299798de5347de616ccbd2ae0bccef32cd96ea20f344476d11fbeff96"
+      }
+    ]
+  },
+  "fixture": {
+    "path": ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json",
+    "sha256": "21e980a7fc17f4229855c7e67f94591050e1980b6541a30317994b93e60df2b3"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "node": "v22.23.0",
+    "vitest": "not-executed (documentary review record; automated repository checks recorded separately)",
+    "typescript": "not-executed (documentary review record; automated repository checks recorded separately)",
+    "package": "0.1.2",
+    "native": {
+      "method": "reverse-engineering",
+      "mv": "1.6.1 / FileVersion1.6.1.0 (historical real PE evidence reused; same binary SHA256 freshly checked)",
+      "runtime": "not-executed",
+      "nwjs": "not-executed",
+      "tools": {
+        "resourceDecode": "Original Node22.23.0 fs/zlib/crypto strict boundary/length/hash decoder",
+        "conditionalReplay": "Node22.23.0 vm; exact extracted JavaScript with inert UI/model/Clipboard-I/O collaborators",
+        "rea": "Historical genuine PE Evidence ID reused; no new target or evidence requested in ticket04",
+        "contractReview": "Accepted direct user response plus authoritative Answer/ADR/spec and implementation-ticket comparison"
+      },
+      "artifacts": [
+        {
+          "path": "references/RPGMV/RPGMV.exe",
+          "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281"
+        },
+        {
+          "path": "references/RPGMV/QtQuick/Controls/qtquickcontrolsplugin.dll",
+          "sha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6"
+        }
+      ]
+    }
+  },
+  "stages": [
+    "Revalidated selected original binary/resource identities, boundaries and hashes",
+    "Reexecuted original read-only decoder and exact-function conditional replay under Windows/Node22; original output hashes matched",
+    "Reviewed complete initialization/load/edit/save and clipboard paths with code facts separate from conditional inference",
+    "Retained original contract contradiction and recorded the direct user-approved finite zero amendment",
+    "Verified current authoritative contract and later product acceptance responsibility without claiming UI or game execution"
+  ],
+  "expected": "Bounded paths and flags/M0 differences are traced;205 mirrors complete nonterminal objects without anM0 mirror; original target text remains outside repo. No UI/game execution claimed.",
+  "actual": {
+    "artifactVerification": [
+      {
+        "path": "references/RPGMV/RPGMV.exe",
+        "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+        "resources": [
+          {
+            "offset": 346222,
+            "sha256": "52fd4ca2a3f178712d94467c5770919cf716882e2ebc9a57bde0a963e9447165",
+            "status": "matched fresh original binary bytes; no execution"
+          },
+          {
+            "offset": 665677,
+            "sha256": "199459336be17ccb510d1912ef53648342e8903ea95d84b59275f6bcbf4b135e",
+            "status": "matched fresh original binary bytes; no execution"
+          },
+          {
+            "offset": 672838,
+            "sha256": "2180bf600ca5a34ebbf35f65a343ca95be10055e3abcc7561efd5bc4fab8f51e",
+            "status": "matched fresh original binary bytes; no execution"
+          },
+          {
+            "offset": 683357,
+            "sha256": "5f8ef1afae81820acbf38a4160b725efee36476bc6c555576f3b15796e9340ce",
+            "status": "matched fresh original binary bytes; no execution"
+          },
+          {
+            "offset": 771946,
+            "sha256": "95cf5319c62eeacfbea61afa69a05be5d5788e5b795f34f776a791adcab44615",
+            "status": "matched fresh original binary bytes; no execution"
+          },
+          {
+            "offset": 701512,
+            "sha256": "d3f53b2536e23bb60f8b080f1692cec652262688cd20dd5184de5773dc9c3b15",
+            "status": "matched fresh original binary bytes; no execution"
+          },
+          {
+            "offset": 909009,
+            "sha256": "9ce1877d3eac47699a558ada219ec4f217dbc4f215531a7f65ccacd8169c4f93",
+            "status": "matched fresh original binary bytes; no execution"
+          },
+          {
+            "offset": 667573,
+            "sha256": "bbc1e26fa83771fc56581b1dc34ec762b3789444dacef76cb24334834e17e82c",
+            "status": "matched fresh original binary bytes; no execution"
+          },
+          {
+            "offset": 686141,
+            "sha256": "740d0c01de598e2a55b58f67f975a30e2d3c8c96de36eb8ff15c3dd4d6ad2780",
+            "status": "matched fresh original binary bytes; no execution"
+          },
+          {
+            "offset": 808067,
+            "sha256": "a7a02f3ae66eb20bdfc9339a9835fedb46fcc8c589de3bda2d672866b57f53a3",
+            "status": "matched fresh original binary bytes; no execution"
+          },
+          {
+            "offset": 656916,
+            "sha256": "0152387fa661f0e67f45b989248c60142881526cda1f31898e29c0e03366fbf7",
+            "status": "matched fresh original binary bytes; no execution"
+          },
+          {
+            "offset": 806586,
+            "sha256": "66bdf50a2c8bc37b37e902c011e6c28df349be085a0ed06a96d166fd667697c5",
+            "status": "matched fresh original binary bytes; no execution"
+          },
+          {
+            "offset": 813249,
+            "sha256": "63fdec340ab13fe0c143552d98ef6645b1c26bbfcff5806f1bda1e4cf50b7292",
+            "status": "matched fresh original binary bytes; no execution"
+          },
+          {
+            "offset": 893754,
+            "sha256": "13ce867d2bf5d9081e234e2cc4b3330a59fad91ed351baddec15b6a553376467",
+            "status": "matched fresh original binary bytes; no execution"
+          },
+          {
+            "offset": 653645,
+            "sha256": "6343dfa083bf2e1451a5af7867664957f4696bf7f950d8751857f108faee3456",
+            "status": "matched fresh original binary bytes; no execution"
+          },
+          {
+            "offset": 685092,
+            "sha256": "382dc3b59de7d967c897dcf0f7fafce0c7ed19598e07f3f357d16f8a8a827b69",
+            "status": "matched fresh original binary bytes; no execution"
+          },
+          {
+            "offset": 913300,
+            "sha256": "0858eff5ff54f87975a9ac93bc93d8c79f2a62d137c87e49b5a6818970f87670",
+            "status": "matched fresh original binary bytes; no execution"
+          }
+        ]
+      },
+      {
+        "path": "references/RPGMV/QtQuick/Controls/qtquickcontrolsplugin.dll",
+        "sha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+        "resources": [
+          {
+            "offset": 290172,
+            "sha256": "5334c4d26069acd2e7445be4e78e8d0749f376ec21d33200c350226b7a64d17a",
+            "status": "matched fresh original binary bytes; no execution"
+          },
+          {
+            "offset": 300501,
+            "sha256": "2fa2bb063b151e5da6ef8943ecfabd1fc67845ca1f07fbc8a367d9ef15b87390",
+            "status": "matched fresh original binary bytes; no execution"
+          }
+        ]
+      }
+    ],
+    "priorRealReaEvidence": [
+      {
+        "id": "ev_007ba386e622855bf771049084c3103afebbcc6b5d813f18c441f3ecf1d16d24",
+        "scope": "Previously retained PE resource inventory, with original report VS_VERSION_INFO parsing identifying MV FileVersion1.6.1.0/ProductVersion1.6.1; reused, not freshly requested in this task; no execution or publication-origin proof"
+      }
+    ],
+    "rawFirstPartyOutput": "C:/Users/Shuen/.codex/research-evidence/mv-editor-04-20261019",
+    "exactReplaySha256": "1f19103b5e4fdfe3b118b52554fd5fc8ebb29775223191f571661776c9c1f89c",
+    "evidenceBoundary": "Identified shipped-artifact observation and conditional exact-JavaScript-function replay, plus explicit accepted-domain record. Not Qt/UI, native Clipboard, editor disk capture, product roundtrip or game execution.",
+    "notExecuted": [
+      "Qt/QML signal timing",
+      "Native Clipboard I/O",
+      "Editor UI actions and native save capture",
+      "Product zero support implementation or roundtrip",
+      "Final actual R1-R7 game execution"
+    ],
+    "codeObservation": [
+      "Blank-page M0 has parameters[]; new205 M0 omits parameters",
+      "New205 flags false/false/true differ from shared DSL defaults",
+      "Page dialog clones existing list and confirmation forces wait=false",
+      "205 loads only header route, then mirrors complete nonterminal objects to505; no M0 mirror",
+      "Movement insert/replace/copy/paste and outer event-list clipboard paths preserve the documented distinction"
+    ],
+    "conditionalReplay": {
+      "observations": 11,
+      "snippetIdentities": [
+        {
+          "resource": "movement-list",
+          "marker": "function insertMovementData(",
+          "startLine": 169,
+          "endLine": 181,
+          "sha256": "0e1220dc37daffe8cc0f4005c08ae3c56b7ec01d2457db688bda0e4d613b7e76"
+        },
+        {
+          "resource": "movement-list",
+          "marker": "function copy(",
+          "startLine": 134,
+          "endLine": 137,
+          "sha256": "abe4fcae0895425c8978c3982ce2b84ac57a4fcaccdadff356276200e6614556"
+        },
+        {
+          "resource": "movement-list",
+          "marker": "function paste(",
+          "startLine": 139,
+          "endLine": 146,
+          "sha256": "4d6dfe146249672d9c447cf282bd03090aa10ce53f3f7d7a6368f3eab5f96fe6"
+        },
+        {
+          "resource": "movement-list",
+          "marker": "function remove(",
+          "startLine": 148,
+          "endLine": 154,
+          "sha256": "7d7cf3e2167d1a1c33c90d875b042cccacb19c79443adeb67a064156d9c3ba33"
+        },
+        {
+          "resource": "movement-list",
+          "marker": "function replace(",
+          "startLine": 160,
+          "endLine": 167,
+          "sha256": "5f8f56d6c2c31979fbc30450315bc5a57c95f5db56642dabe7e75db21007fb53"
+        },
+        {
+          "resource": "data",
+          "marker": "function clone(",
+          "startLine": 482,
+          "endLine": 484,
+          "sha256": "37ddf1c3a36e68411e38d02681a8d8385e0b622a8fa301acafb586a25d02178f"
+        },
+        {
+          "resource": "movement-base",
+          "marker": "function makeSimpleMovementData(",
+          "startLine": 22,
+          "endLine": 24,
+          "sha256": "1119aadf21212b319fc0df7adc57b52ef70857a3d51cec97df86a705060c80ec"
+        },
+        {
+          "resource": "wait",
+          "marker": "onSave:",
+          "startLine": 27,
+          "endLine": 31,
+          "sha256": "6ec123dd6567f15be73c85caa873abb448e4fa123c07ae100bce0831a30968f5"
+        },
+        {
+          "resource": "route205",
+          "marker": "onSave:",
+          "startLine": 33,
+          "endLine": 47,
+          "sha256": "e42d7d3e1a992d4e258d1d014f1c7245ef48bb3aabe757823f1db579a748dad0"
+        },
+        {
+          "resource": "event-base",
+          "marker": "function makeCommand(",
+          "startLine": 27,
+          "endLine": 29,
+          "sha256": "844bdf8080cb34ea26f4691d32d1574adb899a1f86d19df0925108c2d5ba0ff7"
+        },
+        {
+          "resource": "event-list",
+          "marker": "function insertEventData(",
+          "startLine": 435,
+          "endLine": 448,
+          "sha256": "474cbf65811bab028adc003eb05a69832b34c7740d71348d2a095392fdf30dbc"
+        },
+        {
+          "resource": "event-list",
+          "marker": "function copy(",
+          "startLine": 398,
+          "endLine": 401,
+          "sha256": "abe4fcae0895425c8978c3982ce2b84ac57a4fcaccdadff356276200e6614556"
+        },
+        {
+          "resource": "event-list",
+          "marker": "function paste(",
+          "startLine": 403,
+          "endLine": 410,
+          "sha256": "80451176c789fb14939ea690a3449cf250313db26197e2e9d448f7a29b4fe408"
+        }
+      ],
+      "mirrors": [
+        {
+          "case": "no-parameters E205/505 complete-object mirror",
+          "saved": [
+            {
+              "code": 205,
+              "indent": 0,
+              "parameters": [
+                0,
+                {
+                  "list": [
+                    {
+                      "code": 1,
+                      "indent": 0
+                    },
+                    {
+                      "code": 1,
+                      "indent": null
+                    },
+                    {
+                      "code": 1,
+                      "indent": null
+                    },
+                    {
+                      "code": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "repeat": false,
+                  "skippable": false,
+                  "wait": true
+                }
+              ]
+            },
+            {
+              "code": 505,
+              "indent": 0,
+              "parameters": [
+                {
+                  "code": 1,
+                  "indent": 0
+                }
+              ]
+            },
+            {
+              "code": 505,
+              "indent": 0,
+              "parameters": [
+                {
+                  "code": 1,
+                  "indent": null
+                }
+              ]
+            },
+            {
+              "code": 505,
+              "indent": 0,
+              "parameters": [
+                {
+                  "code": 1,
+                  "indent": null
+                }
+              ]
+            }
+          ],
+          "mirrorEqual": true,
+          "noM0Mirror": true
+        },
+        {
+          "case": "parameters E205/505 complete-object mirror",
+          "saved": [
+            {
+              "code": 205,
+              "indent": 0,
+              "parameters": [
+                0,
+                {
+                  "list": [
+                    {
+                      "code": 15,
+                      "parameters": [
+                        60
+                      ],
+                      "indent": null
+                    },
+                    {
+                      "code": 15,
+                      "parameters": [
+                        60
+                      ],
+                      "indent": null
+                    },
+                    {
+                      "code": 15,
+                      "parameters": [
+                        60
+                      ],
+                      "indent": null
+                    },
+                    {
+                      "code": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "repeat": false,
+                  "skippable": false,
+                  "wait": true
+                }
+              ]
+            },
+            {
+              "code": 505,
+              "indent": 0,
+              "parameters": [
+                {
+                  "code": 15,
+                  "parameters": [
+                    60
+                  ],
+                  "indent": null
+                }
+              ]
+            },
+            {
+              "code": 505,
+              "indent": 0,
+              "parameters": [
+                {
+                  "code": 15,
+                  "parameters": [
+                    60
+                  ],
+                  "indent": null
+                }
+              ]
+            },
+            {
+              "code": 505,
+              "indent": 0,
+              "parameters": [
+                {
+                  "code": 15,
+                  "parameters": [
+                    60
+                  ],
+                  "indent": null
+                }
+              ]
+            }
+          ],
+          "mirrorEqual": true,
+          "noM0Mirror": true
+        }
+      ]
+    }
+  },
+  "difference": null
+}

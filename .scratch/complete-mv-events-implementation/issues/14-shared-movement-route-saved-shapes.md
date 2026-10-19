@@ -20,8 +20,8 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 ## Acceptance criteria
 
-- [ ] E205 target 与共享路线分开；flags true/false/false、逐类 savedShape、M0 terminator 和准确省略规则可完整往返。
-- [ ] 以无参、有参和嵌套数据代表验证完整 205/505 镜像，未知移动码、不允许的 parameters/indent 组合、额外键和镜像冲突明确拒绝。
+- [ ] E205 target 与共享路线分开；flags true/false/false、逐类 savedShape、M0 terminator 和准确省略规则可完整往返。非终止项的 indent 有 absent/null/zero 三态，默认 absent；null/zero分别直接编码null/0且反编译显式保留，拒绝其他数字，M0仍缺indent。
+- [ ] 以独立于待测编译器的无参、有参和嵌套数据代表验证完整 205/505 镜像；缺indent/null/0分别建样本，任何完整对象差异均拒绝。未知移动码、不允许的 parameters/indent 组合、额外键和镜像冲突明确拒绝。
 - [ ] 提供 Map Page 可复用的同一路线能力；本票负责共享外壳和 E205，45 类移动参数的完整签收归 33，避免重复记完成。
 
 ### 共通要求（限本票适用范围）
@@ -51,3 +51,9 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [系统、地图与表现参数附表](../../complete-mv-events/research/command-parameters/visual-map.md)。
 - [移动指令参数附表](../../complete-mv-events/research/command-parameters/movement.md)：逐码参数与共享路线保存形态。
+
+## Comments
+
+### 2026-10-19 — 04 原生反例的有限 zero 契约已接受
+
+用户回复“接受有限 zero 状态（推荐）”。[04 报告](../evidence/04-movement-records-and-mirrors-reverse.md#契约比较与已接受修订)、[ADR0015](../../../docs/adr/0015-bounded-native-saved-shape.md)和权威决定票12已同步非终止项zero状态；无参缺parameters、有参完整语义数组、M0两态和完整505镜像均不变。本票负责产品实现、独立fixture及真实编反编译往返，04的条件复算与契约记录不计本票完成。
