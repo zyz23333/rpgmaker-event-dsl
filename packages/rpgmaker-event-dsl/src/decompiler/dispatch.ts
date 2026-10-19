@@ -450,13 +450,19 @@ export function renderSimpleCommand(
       const seconds = command.parameters[1];
       if (action === 0 && typeof seconds === "number") {
         return {
-          expression: `controlTimer({ action: "start", seconds: ${seconds} })`,
+          expression: `controlTimer({ action: "start", seconds: ${literal(seconds)} })`,
           helperNames: ["controlTimer"],
         };
       }
       if (action === 1 && command.parameters.length === 1) {
         return {
           expression: `controlTimer({ action: "stop" })`,
+          helperNames: ["controlTimer"],
+        };
+      }
+      if (action === 1 && command.parameters.length === 2 && typeof seconds === "number") {
+        return {
+          expression: `controlTimer({ action: "stop", seconds: ${literal(seconds)} })`,
           helperNames: ["controlTimer"],
         };
       }

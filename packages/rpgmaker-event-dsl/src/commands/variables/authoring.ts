@@ -18,6 +18,7 @@ import type {
   ScriptOperand,
   TransferPlayerDslCommand,
 } from "../../domain/types.js";
+import { assertControlTimerInput } from "./validation.js";
 
 export function transferPlayer(input: {
   destination: MapDestination;
@@ -80,18 +81,14 @@ export function controlSelfSwitch(input: {
 }
 
 export function controlTimer(
-  input: { action: "start"; seconds: number } | { action: "stop" },
+  input: { action: "start"; seconds: number } | { action: "stop"; seconds?: number },
 ): ControlTimerDslCommand {
-  return input.action === "start"
-    ? {
-        kind: "controlTimer",
-        action: input.action,
-        seconds: input.seconds,
-      }
-    : {
-        kind: "controlTimer",
-        action: input.action,
-      };
+  assertControlTimerInput(input, "controlTimer", false);
+  if (input.action === "start")
+    return { kind: "controlTimer", action: "start", seconds: input.seconds };
+  return input.seconds === undefined
+    ? { kind: "controlTimer", action: "stop" }
+    : { kind: "controlTimer", action: "stop", seconds: input.seconds };
 }
 
 export function changeGold(input: {

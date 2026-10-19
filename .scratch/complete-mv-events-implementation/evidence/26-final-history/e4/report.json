@@ -1,0 +1,846 @@
+{
+  "startedAt": "2026-10-19T20:56:33.066Z",
+  "run": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-built-v1-40a30aa1-bda9-4d6e-99ee-f09ae3be2e02",
+  "kind": "Actual built public product versus same-identity bounded REA contract; synthetic inputs, no editor UI or game observation",
+  "tool": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-built-comparison-v1.mjs",
+    "sha256": "1439a01bbfca830f9f1f8b244b5f78f83773674b64ca41939d3d5edd5e3e8ffa"
+  },
+  "git": {
+    "head": "3c7aad677b489dec22d1ff21ba4c94272e47fea8",
+    "status": ""
+  },
+  "environment": {
+    "node": "v22.23.0",
+    "nodePath": "C:\\Users\\Shuen\\AppData\\Local\\pnpm-cache\\dlx\\e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7\\1a152fc0f14-2f10\\node_modules\\.pnpm\\node@22.23.0\\node_modules\\node\\bin\\node.exe",
+    "nodeSha256": "17347995af08dadcc73a1a154f0942559fbc3f37b9ba57d4576b4d2bcb2834a2",
+    "platform": "win32",
+    "TEMP": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-launch-v1\\temp",
+    "TMP": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-launch-v1\\temp"
+  },
+  "steps": [
+    {
+      "name": "Built public init and Clone complete independent15 carriers",
+      "startedAt": "2026-10-19T20:56:33.565Z",
+      "completedAt": "2026-10-19T20:56:33.609Z",
+      "passed": true,
+      "result": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-built-v1-40a30aa1-bda9-4d6e-99ee-f09ae3be2e02\\positive\\Workspace with spaces"
+    },
+    {
+      "name": "Built public Decompile publishes complete formal source",
+      "startedAt": "2026-10-19T20:56:33.613Z",
+      "completedAt": "2026-10-19T20:56:34.328Z",
+      "passed": true
+    },
+    {
+      "name": "Built public Check uses actual generated source without business writes",
+      "startedAt": "2026-10-19T20:56:34.337Z",
+      "completedAt": "2026-10-19T20:56:34.890Z",
+      "passed": true
+    },
+    {
+      "name": "Formal source edit for all3 owned carriers",
+      "startedAt": "2026-10-19T20:56:34.894Z",
+      "completedAt": "2026-10-19T20:56:34.896Z",
+      "passed": true,
+      "result": [
+        "decompiled/common-events.events.ts",
+        "decompiled/maps/Map001.events.ts",
+        "decompiled/system.dsl.ts",
+        "decompiled/troop-events.events.ts"
+      ]
+    },
+    {
+      "name": "Built public Check evaluates edited formal source without business writes",
+      "startedAt": "2026-10-19T20:56:34.906Z",
+      "completedAt": "2026-10-19T20:56:35.441Z",
+      "passed": true
+    },
+    {
+      "name": "Built public Compile materializes complete4 independent expected carriers",
+      "startedAt": "2026-10-19T20:56:35.446Z",
+      "completedAt": "2026-10-19T20:56:35.975Z",
+      "passed": true
+    },
+    {
+      "name": "Built public Diff shows actual owned changes",
+      "startedAt": "2026-10-19T20:56:35.977Z",
+      "completedAt": "2026-10-19T20:56:36.004Z",
+      "passed": true,
+      "result": "Structured Diff Summary\n\nMap Event: 1 changed\nCommon Event: 1 changed\nTroop Event: 1 changed\n\nAffected Project Data Files:\n- CommonEvents.json\n- Map001.json\n- Troops.json\n\nDestructive Changes: no"
+    },
+    {
+      "name": "Built public real Push installs all3 owned carrier differences",
+      "startedAt": "2026-10-19T20:56:36.004Z",
+      "completedAt": "2026-10-19T20:56:36.101Z",
+      "passed": true
+    }
+  ],
+  "negative": [
+    {
+      "kind": "native",
+      "parameters": "[0]",
+      "diagnostic": "decompile error commonEvent:1: MV-E124-PARAMETERS: Invalid Timer saved slot count. at list[0].parameters; expected Start exactly two saved slots; Stop exactly one or two saved slots; actual [0]",
+      "unchangedCompleteBusinessState": true,
+      "before": {
+        "config": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a",
+        "source": {},
+        "project": {
+          "data/Actors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Animations.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Armors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Classes.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/CommonEvents.json": "eeeece79dc5265ee8fa1a737dded9086e86202320221cf175a7c74fea0109c5c",
+          "data/Enemies.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Items.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Map001.json": "6fba36dee08df5a0b01a029dec0f4f655dedd5d70ccc5ae5304a8aef1e9e24b1",
+          "data/MapInfos.json": "cd1b85270ef389fa786e3e61f0d2a6e84ac730402882c5f1ca138bfa5fd6f554",
+          "data/Skills.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/States.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/System.json": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606",
+          "data/Tilesets.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Troops.json": "bc43a9210022ee64ce8902b390a3c5fc244be03ceb98bb47ec175c49c003f626",
+          "data/Weapons.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "Game.rpgproject": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+        },
+        "state": {
+          "project-data-snapshot/Actors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Animations.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Armors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Classes.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/CommonEvents.json": "eeeece79dc5265ee8fa1a737dded9086e86202320221cf175a7c74fea0109c5c",
+          "project-data-snapshot/Enemies.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Items.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Map001.json": "6fba36dee08df5a0b01a029dec0f4f655dedd5d70ccc5ae5304a8aef1e9e24b1",
+          "project-data-snapshot/MapInfos.json": "cd1b85270ef389fa786e3e61f0d2a6e84ac730402882c5f1ca138bfa5fd6f554",
+          "project-data-snapshot/Skills.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/States.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/System.json": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606",
+          "project-data-snapshot/Tilesets.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Troops.json": "bc43a9210022ee64ce8902b390a3c5fc244be03ceb98bb47ec175c49c003f626",
+          "project-data-snapshot/Weapons.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "sync-manifest.json": "84696516dea489324372b772694d3cfdfc422d8ebd8ac8c04d7f468c92ca78ef"
+        }
+      },
+      "passed": true,
+      "workspace": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-built-v1-40a30aa1-bda9-4d6e-99ee-f09ae3be2e02\\invalid-native-0\\Workspace with spaces"
+    },
+    {
+      "kind": "native",
+      "parameters": "[1,null]",
+      "diagnostic": "decompile error commonEvent:1: MV-E124-SECONDS: Invalid Timer saved seconds. at list[0].parameters[1]; expected integer 0..5999; actual null",
+      "unchangedCompleteBusinessState": true,
+      "before": {
+        "config": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a",
+        "source": {},
+        "project": {
+          "data/Actors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Animations.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Armors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Classes.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/CommonEvents.json": "3bd335b8f9e10d94fd69881257f9559623447a1724a7578548c744237cc9d491",
+          "data/Enemies.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Items.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Map001.json": "61ef1549c9f3bc6ac1300a6c42440532a6310b1f938692602fb45377f9deeb4d",
+          "data/MapInfos.json": "cd1b85270ef389fa786e3e61f0d2a6e84ac730402882c5f1ca138bfa5fd6f554",
+          "data/Skills.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/States.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/System.json": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606",
+          "data/Tilesets.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Troops.json": "32a065ed16881c09fb15ccb7671f1cd577c7601f70b41a437a8156d79d47682a",
+          "data/Weapons.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "Game.rpgproject": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+        },
+        "state": {
+          "project-data-snapshot/Actors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Animations.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Armors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Classes.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/CommonEvents.json": "3bd335b8f9e10d94fd69881257f9559623447a1724a7578548c744237cc9d491",
+          "project-data-snapshot/Enemies.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Items.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Map001.json": "61ef1549c9f3bc6ac1300a6c42440532a6310b1f938692602fb45377f9deeb4d",
+          "project-data-snapshot/MapInfos.json": "cd1b85270ef389fa786e3e61f0d2a6e84ac730402882c5f1ca138bfa5fd6f554",
+          "project-data-snapshot/Skills.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/States.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/System.json": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606",
+          "project-data-snapshot/Tilesets.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Troops.json": "32a065ed16881c09fb15ccb7671f1cd577c7601f70b41a437a8156d79d47682a",
+          "project-data-snapshot/Weapons.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "sync-manifest.json": "d4122a98e3a3434dcfc6f8cafd48fd8eb246b78087ddf67ac2ecee6ef7da93c2"
+        }
+      },
+      "passed": true,
+      "workspace": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-built-v1-40a30aa1-bda9-4d6e-99ee-f09ae3be2e02\\invalid-native-1\\Workspace with spaces"
+    },
+    {
+      "kind": "native",
+      "parameters": "[1,6000]",
+      "diagnostic": "decompile error commonEvent:1: MV-E124-SECONDS: Invalid Timer saved seconds. at list[0].parameters[1]; expected integer 0..5999; actual 6000",
+      "unchangedCompleteBusinessState": true,
+      "before": {
+        "config": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a",
+        "source": {},
+        "project": {
+          "data/Actors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Animations.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Armors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Classes.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/CommonEvents.json": "343a8ffe1ffc48a0b3f7b13995cf2b62f48c1950d8eeccc2ce8f12d8e7b56203",
+          "data/Enemies.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Items.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Map001.json": "8f4cd1cddfdc3d2de66a4e6f3f34ac5efdcc6164721634f2c4343fcc7f5e901e",
+          "data/MapInfos.json": "cd1b85270ef389fa786e3e61f0d2a6e84ac730402882c5f1ca138bfa5fd6f554",
+          "data/Skills.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/States.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/System.json": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606",
+          "data/Tilesets.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Troops.json": "ac85ac0a67ffe1512085287db553b3304418c05457e0940f3fbf8bc828b80033",
+          "data/Weapons.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "Game.rpgproject": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+        },
+        "state": {
+          "project-data-snapshot/Actors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Animations.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Armors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Classes.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/CommonEvents.json": "343a8ffe1ffc48a0b3f7b13995cf2b62f48c1950d8eeccc2ce8f12d8e7b56203",
+          "project-data-snapshot/Enemies.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Items.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Map001.json": "8f4cd1cddfdc3d2de66a4e6f3f34ac5efdcc6164721634f2c4343fcc7f5e901e",
+          "project-data-snapshot/MapInfos.json": "cd1b85270ef389fa786e3e61f0d2a6e84ac730402882c5f1ca138bfa5fd6f554",
+          "project-data-snapshot/Skills.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/States.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/System.json": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606",
+          "project-data-snapshot/Tilesets.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Troops.json": "ac85ac0a67ffe1512085287db553b3304418c05457e0940f3fbf8bc828b80033",
+          "project-data-snapshot/Weapons.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "sync-manifest.json": "08fc614b6e56b42ab40a4e0fac9895d91c7b2514c3e3bc6eea6d6f4b2eb8ebfd"
+        }
+      },
+      "passed": true,
+      "workspace": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-built-v1-40a30aa1-bda9-4d6e-99ee-f09ae3be2e02\\invalid-native-2\\Workspace with spaces"
+    },
+    {
+      "kind": "native",
+      "parameters": "[0,-1]",
+      "diagnostic": "decompile error commonEvent:1: MV-E124-SECONDS: Invalid Timer saved seconds. at list[0].parameters[1]; expected integer 0..5999; actual -1",
+      "unchangedCompleteBusinessState": true,
+      "before": {
+        "config": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a",
+        "source": {},
+        "project": {
+          "data/Actors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Animations.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Armors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Classes.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/CommonEvents.json": "789885e15033e9e39863207ffd4628f385c38467a0f5b0ff329ae780b2a5afbc",
+          "data/Enemies.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Items.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Map001.json": "bb8cab634b6eb023b023f5c4842a4ec02cb7648675a62c46be54336d5e9f79ca",
+          "data/MapInfos.json": "cd1b85270ef389fa786e3e61f0d2a6e84ac730402882c5f1ca138bfa5fd6f554",
+          "data/Skills.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/States.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/System.json": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606",
+          "data/Tilesets.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Troops.json": "d5e96756bb643636603f30ed302088109c0d6187ab33eb9266c6e834636d551c",
+          "data/Weapons.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "Game.rpgproject": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+        },
+        "state": {
+          "project-data-snapshot/Actors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Animations.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Armors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Classes.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/CommonEvents.json": "789885e15033e9e39863207ffd4628f385c38467a0f5b0ff329ae780b2a5afbc",
+          "project-data-snapshot/Enemies.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Items.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Map001.json": "bb8cab634b6eb023b023f5c4842a4ec02cb7648675a62c46be54336d5e9f79ca",
+          "project-data-snapshot/MapInfos.json": "cd1b85270ef389fa786e3e61f0d2a6e84ac730402882c5f1ca138bfa5fd6f554",
+          "project-data-snapshot/Skills.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/States.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/System.json": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606",
+          "project-data-snapshot/Tilesets.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Troops.json": "d5e96756bb643636603f30ed302088109c0d6187ab33eb9266c6e834636d551c",
+          "project-data-snapshot/Weapons.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "sync-manifest.json": "c7943810a2be1e45baf8d0479d7ffdec894ca07d79003b1d11ad6ce9786887e1"
+        }
+      },
+      "passed": true,
+      "workspace": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-built-v1-40a30aa1-bda9-4d6e-99ee-f09ae3be2e02\\invalid-native-3\\Workspace with spaces"
+    },
+    {
+      "kind": "native",
+      "parameters": "[0,0.5]",
+      "diagnostic": "decompile error commonEvent:1: MV-E124-SECONDS: Invalid Timer saved seconds. at list[0].parameters[1]; expected integer 0..5999; actual 0.5",
+      "unchangedCompleteBusinessState": true,
+      "before": {
+        "config": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a",
+        "source": {},
+        "project": {
+          "data/Actors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Animations.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Armors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Classes.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/CommonEvents.json": "9b9f1804ac47ebd40e55ad4b1a7c21da68d9b1120a0d616a50756028bcf92bd3",
+          "data/Enemies.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Items.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Map001.json": "cce60352aeca97db2e84957ccae6e9e79c4cf5ffb6b8e0b97d955f3e9c50e2de",
+          "data/MapInfos.json": "cd1b85270ef389fa786e3e61f0d2a6e84ac730402882c5f1ca138bfa5fd6f554",
+          "data/Skills.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/States.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/System.json": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606",
+          "data/Tilesets.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Troops.json": "ecb283e54bf162389b360f809f20ea812525ecae10cabb8ec36b868bc22cac0c",
+          "data/Weapons.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "Game.rpgproject": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+        },
+        "state": {
+          "project-data-snapshot/Actors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Animations.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Armors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Classes.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/CommonEvents.json": "9b9f1804ac47ebd40e55ad4b1a7c21da68d9b1120a0d616a50756028bcf92bd3",
+          "project-data-snapshot/Enemies.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Items.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Map001.json": "cce60352aeca97db2e84957ccae6e9e79c4cf5ffb6b8e0b97d955f3e9c50e2de",
+          "project-data-snapshot/MapInfos.json": "cd1b85270ef389fa786e3e61f0d2a6e84ac730402882c5f1ca138bfa5fd6f554",
+          "project-data-snapshot/Skills.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/States.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/System.json": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606",
+          "project-data-snapshot/Tilesets.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Troops.json": "ecb283e54bf162389b360f809f20ea812525ecae10cabb8ec36b868bc22cac0c",
+          "project-data-snapshot/Weapons.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "sync-manifest.json": "09f1c1994f669802b19d01ed8802260458ac569385371bccba5b6a460e55d7db"
+        }
+      },
+      "passed": true,
+      "workspace": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-built-v1-40a30aa1-bda9-4d6e-99ee-f09ae3be2e02\\invalid-native-4\\Workspace with spaces"
+    },
+    {
+      "kind": "native",
+      "parameters": "[1,0,83]",
+      "diagnostic": "decompile error commonEvent:1: MV-E124-PARAMETERS: Invalid Timer saved slot count. at list[0].parameters; expected Start exactly two saved slots; Stop exactly one or two saved slots; actual [1,0,83]",
+      "unchangedCompleteBusinessState": true,
+      "before": {
+        "config": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a",
+        "source": {},
+        "project": {
+          "data/Actors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Animations.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Armors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Classes.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/CommonEvents.json": "3c6301fb6ee6115d0e98bc45eb77c537ce66ef2f83661a24b09531f5a69c6e33",
+          "data/Enemies.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Items.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Map001.json": "0758da8e7cf6a9fd0fda7ecd05e596ee1012c781b91f1f737cf3ecf9e61ef938",
+          "data/MapInfos.json": "cd1b85270ef389fa786e3e61f0d2a6e84ac730402882c5f1ca138bfa5fd6f554",
+          "data/Skills.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/States.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/System.json": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606",
+          "data/Tilesets.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Troops.json": "26ce11df3b4028d40219e63d5df0d2c7b55fe435d57f3743179e068c557b565d",
+          "data/Weapons.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "Game.rpgproject": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+        },
+        "state": {
+          "project-data-snapshot/Actors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Animations.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Armors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Classes.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/CommonEvents.json": "3c6301fb6ee6115d0e98bc45eb77c537ce66ef2f83661a24b09531f5a69c6e33",
+          "project-data-snapshot/Enemies.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Items.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Map001.json": "0758da8e7cf6a9fd0fda7ecd05e596ee1012c781b91f1f737cf3ecf9e61ef938",
+          "project-data-snapshot/MapInfos.json": "cd1b85270ef389fa786e3e61f0d2a6e84ac730402882c5f1ca138bfa5fd6f554",
+          "project-data-snapshot/Skills.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/States.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/System.json": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606",
+          "project-data-snapshot/Tilesets.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Troops.json": "26ce11df3b4028d40219e63d5df0d2c7b55fe435d57f3743179e068c557b565d",
+          "project-data-snapshot/Weapons.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "sync-manifest.json": "9e38c4040b30a87d4cf6428bbc0f01ea6938091f00eb2629187224dedc78bd7a"
+        }
+      },
+      "passed": true,
+      "workspace": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-built-v1-40a30aa1-bda9-4d6e-99ee-f09ae3be2e02\\invalid-native-5\\Workspace with spaces"
+    },
+    {
+      "kind": "native",
+      "parameters": "[-0,83]",
+      "diagnostic": "decompile error commonEvent:1: MV-E124-ACTION: Invalid native Timer action. at list[0].parameters[0]; expected Start 0 or Stop 1, excluding categorical negative zero; actual -0",
+      "unchangedCompleteBusinessState": true,
+      "before": {
+        "config": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a",
+        "source": {},
+        "project": {
+          "data/Actors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Animations.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Armors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Classes.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/CommonEvents.json": "62e2ddb2140ab07f9794c4e9bb84754ec8b5f23b6e0cb02310faf23671285901",
+          "data/Enemies.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Items.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Map001.json": "b7ffa9d478f57fd948e0a393998367ef199fa676538de47acc68bb1179baa860",
+          "data/MapInfos.json": "cd1b85270ef389fa786e3e61f0d2a6e84ac730402882c5f1ca138bfa5fd6f554",
+          "data/Skills.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/States.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/System.json": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606",
+          "data/Tilesets.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Troops.json": "272e3e3d9ee011e059816533b57a3a119332cf2d0003da49b116fb0d45d6aa3c",
+          "data/Weapons.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "Game.rpgproject": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+        },
+        "state": {
+          "project-data-snapshot/Actors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Animations.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Armors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Classes.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/CommonEvents.json": "62e2ddb2140ab07f9794c4e9bb84754ec8b5f23b6e0cb02310faf23671285901",
+          "project-data-snapshot/Enemies.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Items.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Map001.json": "b7ffa9d478f57fd948e0a393998367ef199fa676538de47acc68bb1179baa860",
+          "project-data-snapshot/MapInfos.json": "cd1b85270ef389fa786e3e61f0d2a6e84ac730402882c5f1ca138bfa5fd6f554",
+          "project-data-snapshot/Skills.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/States.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/System.json": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606",
+          "project-data-snapshot/Tilesets.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Troops.json": "272e3e3d9ee011e059816533b57a3a119332cf2d0003da49b116fb0d45d6aa3c",
+          "project-data-snapshot/Weapons.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "sync-manifest.json": "feac909547471e41598afb7a3a67048339da37a5362b79c2af220ad4597940cd"
+        }
+      },
+      "passed": true,
+      "workspace": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-built-v1-40a30aa1-bda9-4d6e-99ee-f09ae3be2e02\\invalid-native-6\\Workspace with spaces"
+    },
+    {
+      "kind": "native",
+      "parameters": "[2,83]",
+      "diagnostic": "decompile error commonEvent:1: MV-E124-ACTION: Invalid native Timer action. at list[0].parameters[0]; expected Start 0 or Stop 1, excluding categorical negative zero; actual 2",
+      "unchangedCompleteBusinessState": true,
+      "before": {
+        "config": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a",
+        "source": {},
+        "project": {
+          "data/Actors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Animations.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Armors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Classes.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/CommonEvents.json": "04cf90ee24dd33b74d6db702b3ed9c5ff871bedd52d28289f78f3f1d8969c7cf",
+          "data/Enemies.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Items.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Map001.json": "e259b92890e62ce26b7d9b069b13736b206a0ed60f765c8d3b72d7106dea45a6",
+          "data/MapInfos.json": "cd1b85270ef389fa786e3e61f0d2a6e84ac730402882c5f1ca138bfa5fd6f554",
+          "data/Skills.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/States.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/System.json": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606",
+          "data/Tilesets.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "data/Troops.json": "93bbd40b66ef729812225e6ecd920a649e5a0225ab6ed7b4ff4e4c2d5fba4c16",
+          "data/Weapons.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "Game.rpgproject": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+        },
+        "state": {
+          "project-data-snapshot/Actors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Animations.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Armors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Classes.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/CommonEvents.json": "04cf90ee24dd33b74d6db702b3ed9c5ff871bedd52d28289f78f3f1d8969c7cf",
+          "project-data-snapshot/Enemies.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Items.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Map001.json": "e259b92890e62ce26b7d9b069b13736b206a0ed60f765c8d3b72d7106dea45a6",
+          "project-data-snapshot/MapInfos.json": "cd1b85270ef389fa786e3e61f0d2a6e84ac730402882c5f1ca138bfa5fd6f554",
+          "project-data-snapshot/Skills.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/States.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/System.json": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606",
+          "project-data-snapshot/Tilesets.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "project-data-snapshot/Troops.json": "93bbd40b66ef729812225e6ecd920a649e5a0225ab6ed7b4ff4e4c2d5fba4c16",
+          "project-data-snapshot/Weapons.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "sync-manifest.json": "cb413fc407e5769b018f9658ba6ba3ad38248f0f7fb8d2fa709d729fc3d8b607"
+        }
+      },
+      "passed": true,
+      "workspace": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-built-v1-40a30aa1-bda9-4d6e-99ee-f09ae3be2e02\\invalid-native-7\\Workspace with spaces"
+    },
+    {
+      "kind": "actual-authored-loader",
+      "expression": "controlTimer({action:\"stop\",seconds:6000})",
+      "diagnostics": [
+        "TypeScript diagnostics failed for M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-built-v1-40a30aa1-bda9-4d6e-99ee-f09ae3be2e02\\invalid-authored-0\\Workspace with spaces\\src\\decompiled\\common-events.events.ts:\n- MV-E124-SECONDS: Invalid Timer saved seconds. (controlTimer.seconds); expected integer 0..5999; required for Start, optional for Stop; actual 6000",
+        "TypeScript diagnostics failed for M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-built-v1-40a30aa1-bda9-4d6e-99ee-f09ae3be2e02\\invalid-authored-0\\Workspace with spaces\\src\\decompiled\\common-events.events.ts:\n- MV-E124-SECONDS: Invalid Timer saved seconds. (controlTimer.seconds); expected integer 0..5999; required for Start, optional for Stop; actual 6000"
+      ],
+      "unchangedCompleteBusinessState": true,
+      "passed": true,
+      "workspace": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-built-v1-40a30aa1-bda9-4d6e-99ee-f09ae3be2e02\\invalid-authored-0\\Workspace with spaces"
+    },
+    {
+      "kind": "actual-authored-loader",
+      "expression": "rawDslCommand({code:124,parameters:[1,null]})",
+      "diagnostics": [
+        "compile --check validation failed:\n- compile error commonEvent:1: MV-E124-SECONDS: Invalid Timer saved seconds. (commands[0].parameters[1]); expected integer 0..5999; actual null",
+        "compile validation failed:\n- compile error commonEvent:1: MV-E124-SECONDS: Invalid Timer saved seconds. (commands[0].parameters[1]); expected integer 0..5999; actual null"
+      ],
+      "unchangedCompleteBusinessState": true,
+      "passed": true,
+      "workspace": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-built-v1-40a30aa1-bda9-4d6e-99ee-f09ae3be2e02\\invalid-authored-1\\Workspace with spaces"
+    }
+  ],
+  "frozenManifest": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\built-inputs-v1\\manifest.json",
+    "sha256": "7cb11d23ed5b954fe3831f83c5c354552029cf83b421a91c70605f0cc6716760",
+    "groups": {
+      "source": {
+        "count": 99,
+        "fingerprint": "2fe2c69db4583c49d68af70d3ed3af703d38a6428bda3ba7b0c1429f6475e613"
+      },
+      "tests": {
+        "count": 61,
+        "fingerprint": "1dcae4b6f043c3ec1a56a10aff823379c1164a27c6c5033ceec515e813505802"
+      },
+      "dist": {
+        "count": 15,
+        "fingerprint": "5342718948fcdbf73210a3d1f49153e3f16b30ddd8eeaaf2075e7d962483efe9"
+      },
+      "all": {
+        "count": 189,
+        "fingerprint": "ff26c6971616a1a96fd6f3412628d4819fa6e2b608331285970503fb9bcdd022"
+      }
+    }
+  },
+  "reusedRea": {
+    "metadataPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\worktrees\\mv-ticket-26-final\\.scratch\\complete-mv-events-implementation\\evidence\\05-resource-identities.json",
+    "metadataSha256": "0c76a701cbcba666d01731e7b5e465d9a52ff2eb206476837675eb90b07d34a4",
+    "identities": [
+      {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\RPGMV.exe",
+        "bytes": 19595264,
+        "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+        "records": [
+          {
+            "name": "timer",
+            "offset": 793186,
+            "stored": 586,
+            "decodedBytes": 2048,
+            "sha256": "095449887fbb1f73c8a292ee6c304256cb5cd422f7901a53b3acf16a290cd670",
+            "passed": true
+          },
+          {
+            "name": "operation",
+            "offset": 680842,
+            "stored": 1335,
+            "decodedBytes": 1331,
+            "sha256": "0d87a64dcdc267fcbce7aca42df12a3b665df6153be84b5701eade6113ed8cc8",
+            "passed": true
+          },
+          {
+            "name": "base",
+            "offset": 686141,
+            "stored": 939,
+            "decodedBytes": 935,
+            "sha256": "740d0c01de598e2a55b58f67f975a30e2d3c8c96de36eb8ff15c3dd4d6ad2780",
+            "passed": true
+          },
+          {
+            "name": "dialog",
+            "offset": 656916,
+            "stored": 1086,
+            "decodedBytes": 1082,
+            "sha256": "0152387fa661f0e67f45b989248c60142881526cda1f31898e29c0e03366fbf7",
+            "passed": true
+          },
+          {
+            "name": "data",
+            "offset": 909009,
+            "stored": 4291,
+            "decodedBytes": 24761,
+            "sha256": "9ce1877d3eac47699a558ada219ec4f217dbc4f215531a7f65ccacd8169c4f93",
+            "passed": true
+          },
+          {
+            "name": "spinbox",
+            "offset": 875471,
+            "stored": 1735,
+            "decodedBytes": 7183,
+            "sha256": "a94b75dfca7ceb95315d38a3897e8c389a96d71f56696329f0cf8edd20535984",
+            "passed": true
+          },
+          {
+            "name": "picker",
+            "offset": 679418,
+            "stored": 1424,
+            "decodedBytes": 7863,
+            "sha256": "8e83b762134d12696649e6302adec9f40bbad7618b2c9cbff5ad945f005dd829",
+            "passed": true
+          },
+          {
+            "name": "list",
+            "offset": 667573,
+            "stored": 3694,
+            "decodedBytes": 17486,
+            "sha256": "bbc1e26fa83771fc56581b1dc34ec762b3789444dacef76cb24334834e17e82c",
+            "passed": true
+          },
+          {
+            "name": "modal",
+            "offset": 878315,
+            "stored": 1884,
+            "decodedBytes": 8437,
+            "sha256": "875ac97ba5e20ab1a457399321e9621d3b56a698aaeeadc78c9584f3b69a970e",
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\QtQuick\\Controls\\qtquickcontrolsplugin.dll",
+        "bytes": 780288,
+        "sha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+        "records": [
+          {
+            "name": "qt-spinbox",
+            "offset": 160589,
+            "stored": 3826,
+            "decodedBytes": 13133,
+            "sha256": "4b98b9d85a651cbe2f47e4abf7efaf67a25b9b942f5441b77cc5faae9643e0ca",
+            "passed": true
+          }
+        ],
+        "passed": true
+      }
+    ],
+    "existingEvidenceIds": [
+      {
+        "id": "ev_007ba386e622855bf771049084c3103afebbcc6b5d813f18c441f3ecf1d16d24",
+        "role": "Historical PE version identity; identical EXE SHA256 freshly verified; not retrieved from current REA session"
+      },
+      {
+        "id": "ev_0abda227cbae2d1ac569a8e0af403fc960727b39b3d337287fe4165a16926d1d",
+        "role": "Historical bundled native SpinBox constructor; identical DLL SHA256 freshly verified; Ghidra 12.1.4 analysis reused, not rerun"
+      }
+    ],
+    "newEvidenceIdCreated": false,
+    "boundaries": [
+      "Existing matching EXE/Qt identities and complete load/save/container report reused",
+      "Decoded content read only for identity; no eval/QML/native process",
+      "New Stop/default initialization deductions remain conditional, container/onSave logic remains static fact",
+      "TkoolAPI disk success/Qt timing/editor UI/game not established by this comparison"
+    ]
+  },
+  "independentScenarios": [
+    {
+      "id": "MV-E05-NEW-STOP",
+      "parameters": [
+        1
+      ],
+      "evidence": "Conditional new empty parameters then Stop onSave",
+      "slotCount": 1,
+      "secondSlotPresent": false,
+      "secondSlotNegativeZero": false
+    },
+    {
+      "id": "MV-E05-SAVED-START-ZERO",
+      "parameters": [
+        1,
+        0
+      ],
+      "evidence": "Saved Start0 reloaded then Stop; p1 retained",
+      "slotCount": 2,
+      "secondSlotPresent": true,
+      "secondSlotNegativeZero": false
+    },
+    {
+      "id": "MV-E05-SAVED-START-NONZERO",
+      "parameters": [
+        1,
+        83
+      ],
+      "evidence": "Saved Start83 reloaded then Stop; p1 retained",
+      "slotCount": 2,
+      "secondSlotPresent": true,
+      "secondSlotNegativeZero": false
+    },
+    {
+      "id": "MV-E05-STOP-RECONFIRM-ABSENT",
+      "parameters": [
+        1
+      ],
+      "evidence": "Existing Stop one-slot load/save retains absence",
+      "slotCount": 1,
+      "secondSlotPresent": false,
+      "secondSlotNegativeZero": false
+    },
+    {
+      "id": "MV-E05-STOP-RECONFIRM-ZERO",
+      "parameters": [
+        1,
+        0
+      ],
+      "evidence": "Existing Stop0 load/save retains p1",
+      "slotCount": 2,
+      "secondSlotPresent": true,
+      "secondSlotNegativeZero": false
+    },
+    {
+      "id": "MV-E05-STOP-RECONFIRM-NONZERO",
+      "parameters": [
+        1,
+        83
+      ],
+      "evidence": "Existing Stop83 load/save retains p1",
+      "slotCount": 2,
+      "secondSlotPresent": true,
+      "secondSlotNegativeZero": false
+    },
+    {
+      "id": "MV-E05-UNSAVED-TOGGLE",
+      "parameters": [
+        1
+      ],
+      "evidence": "Conditional unconfirmed new Start83 toggled Stop; no p1 yet",
+      "slotCount": 1,
+      "secondSlotPresent": false,
+      "secondSlotNegativeZero": false
+    },
+    {
+      "id": "MV-E05-CONTAINER-ABSENT",
+      "parameters": [
+        1
+      ],
+      "evidence": "Container stringify preserves one-slot Stop",
+      "slotCount": 1,
+      "secondSlotPresent": false,
+      "secondSlotNegativeZero": false
+    },
+    {
+      "id": "MV-E05-CONTAINER-ZERO",
+      "parameters": [
+        1,
+        0
+      ],
+      "evidence": "Container stringify preserves two-slot Stop0",
+      "slotCount": 2,
+      "secondSlotPresent": true,
+      "secondSlotNegativeZero": false
+    },
+    {
+      "id": "MV-E05-CONTAINER-NONZERO",
+      "parameters": [
+        1,
+        83
+      ],
+      "evidence": "Container stringify preserves two-slot Stop83",
+      "slotCount": 2,
+      "secondSlotPresent": true,
+      "secondSlotNegativeZero": false
+    },
+    {
+      "id": "MV-E05-START-BOUNDS-ZERO",
+      "parameters": [
+        0,
+        0
+      ],
+      "evidence": "Independent control/domain lower bound",
+      "slotCount": 2,
+      "secondSlotPresent": true,
+      "secondSlotNegativeZero": false
+    },
+    {
+      "id": "MV-E05-START-BOUNDS-MAX",
+      "parameters": [
+        0,
+        5999
+      ],
+      "evidence": "Independent 99minutes59seconds upper bound",
+      "slotCount": 2,
+      "secondSlotPresent": true,
+      "secondSlotNegativeZero": false
+    },
+    {
+      "id": "SYNTHETIC-STOP-NUMERIC-NEGATIVE-ZERO",
+      "parameters": [
+        1,
+        0
+      ],
+      "evidence": "Accepted numeric saved-value capability; no editor-origin claim",
+      "slotCount": 2,
+      "secondSlotPresent": true,
+      "secondSlotNegativeZero": true
+    },
+    {
+      "id": "SYNTHETIC-START-NUMERIC-NEGATIVE-ZERO",
+      "parameters": [
+        0,
+        0
+      ],
+      "evidence": "Accepted numeric saved-value capability; no editor-origin claim",
+      "slotCount": 2,
+      "secondSlotPresent": true,
+      "secondSlotNegativeZero": true
+    }
+  ],
+  "inputCarriers": {
+    "Actors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+    "Animations.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+    "Armors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+    "Classes.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+    "CommonEvents.json": "f38b9b2349d7e63645ef8d4a48951ab98f84036e6858f3cbe8e62404d07f93e8",
+    "Enemies.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+    "Items.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+    "Map001.json": "70324901c930fb7f7ed168e9deb906c423cafad96793397149d6fb00785f7569",
+    "MapInfos.json": "cd1b85270ef389fa786e3e61f0d2a6e84ac730402882c5f1ca138bfa5fd6f554",
+    "Skills.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+    "States.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+    "System.json": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606",
+    "Tilesets.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+    "Troops.json": "32ce662a227d76f5fd082e7017cc9e5b302f01be0d64e88db1196fb83d304f2f",
+    "Weapons.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+  },
+  "generatedCarriers": {
+    "CommonEvents.json": "4d71d1d2a09cc8dab6b2733e2ed742ad682d8962429138f71a6242a21abbb4f2",
+    "Map001.json": "a82fe2f95144ff9cf3549eb4174cc05b988f379b57130035c104ec120c78ea81",
+    "System.json": "885a4070c7aa732e7ffc24745e3816c26ea49ab10a0e4284e10cdf70ee64d32d",
+    "Troops.json": "e17059dbc03bf3355798585eb3e6eb7cb14d8ae6d792d3557d17ca2d4dd1396e"
+  },
+  "diff": "Structured Diff Summary\n\nMap Event: 1 changed\nCommon Event: 1 changed\nTroop Event: 1 changed\n\nAffected Project Data Files:\n- CommonEvents.json\n- Map001.json\n- Troops.json\n\nDestructive Changes: no",
+  "positive": {
+    "passed": true,
+    "sourcePaths": [
+      "decompiled/common-events.events.ts",
+      "decompiled/maps/Map001.events.ts",
+      "decompiled/system.dsl.ts",
+      "decompiled/troop-events.events.ts"
+    ],
+    "inputCarrierCount": 15,
+    "generatedCarrierCount": 4,
+    "liveCarrierCount": 15,
+    "completeCarrierEquality": true,
+    "exactSlotPresence": true,
+    "objectIsNegativeZero": true,
+    "checkBusinessStateUnchanged": true,
+    "actualOwnedChanges": [
+      "CommonEvents.json name",
+      "Map001.json event name",
+      "Troops.json owned Comment"
+    ],
+    "workspace": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-built-v1-40a30aa1-bda9-4d6e-99ee-f09ae3be2e02\\positive\\Workspace with spaces",
+    "liveHashes": {
+      "Actors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "Animations.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "Armors.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "Classes.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "CommonEvents.json": "4d71d1d2a09cc8dab6b2733e2ed742ad682d8962429138f71a6242a21abbb4f2",
+      "Enemies.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "Items.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "Map001.json": "a82fe2f95144ff9cf3549eb4174cc05b988f379b57130035c104ec120c78ea81",
+      "MapInfos.json": "cd1b85270ef389fa786e3e61f0d2a6e84ac730402882c5f1ca138bfa5fd6f554",
+      "Skills.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "States.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "System.json": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606",
+      "Tilesets.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "Troops.json": "e17059dbc03bf3355798585eb3e6eb7cb14d8ae6d792d3557d17ca2d4dd1396e",
+      "Weapons.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    }
+  },
+  "finalProductBindingsUnchanged": true,
+  "passed": true,
+  "completedAt": "2026-10-19T20:56:39.049Z"
+}

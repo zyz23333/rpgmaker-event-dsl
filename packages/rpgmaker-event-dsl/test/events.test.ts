@@ -413,7 +413,7 @@ describe("compileMapEvent", () => {
       parameters: [1, 1, 0, 4, "$gameParty.gold()"],
     });
     expect(commands[22]).toEqual({ code: 124, indent: 0, parameters: [0, 45] });
-    expect(commands[23]).toEqual({ code: 124, indent: 0, parameters: [1, 0] });
+    expect(commands[23]).toEqual({ code: 124, indent: 0, parameters: [1] });
     expect(commands[24]).toEqual({ code: 125, indent: 0, parameters: [1, 1, 1] });
     expect(commands[25]).toEqual({ code: 126, indent: 0, parameters: [1, 1, 0, 1] });
     expect(commands[26]).toEqual({ code: 127, indent: 0, parameters: [1, 0, 1, 1, true] });

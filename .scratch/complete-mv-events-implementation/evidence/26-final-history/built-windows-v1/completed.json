@@ -1,0 +1,37 @@
+{
+  "label": "built-windows-v1",
+  "cwd": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-26-final",
+  "command": "C:\\Users\\Shuen\\AppData\\Local\\pnpm-cache\\dlx\\e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7\\1a152fc0f14-2f10\\node_modules\\.pnpm\\node@22.23.0\\node_modules\\node\\bin\\node.exe",
+  "args": [
+    "C:/Users/Shuen/AppData/Local/node/corepack/v1/pnpm/10.33.0/bin/pnpm.cjs",
+    "--filter",
+    "rpgmaker-event-dsl",
+    "test:windows-baseline"
+  ],
+  "pnpm": "C:/Users/Shuen/AppData/Local/node/corepack/v1/pnpm/10.33.0/bin/pnpm.cjs",
+  "startedAt": "2026-10-19T20:50:51.690Z",
+  "node": "v22.23.0",
+  "nodeSha256": "17347995af08dadcc73a1a154f0942559fbc3f37b9ba57d4576b4d2bcb2834a2",
+  "head": "3c7aad677b489dec22d1ff21ba4c94272e47fea8",
+  "status": "",
+  "environment": {
+    "TEMP": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\built-windows-v1\\temp",
+    "TMP": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\built-windows-v1\\temp",
+    "MV_WINDOWS_TEST_OUTPUT": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\built-windows-v1\\windows-sandboxes",
+    "MV_EVIDENCE_OUTPUT": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\built-windows-v1\\results",
+    "MV_KEEP_WINDOWS_SANDBOXES": "1"
+  },
+  "completedAt": "2026-10-19T20:56:09.824Z",
+  "exitCode": 0,
+  "signal": null,
+  "headAfter": "3c7aad677b489dec22d1ff21ba4c94272e47fea8",
+  "statusAfter": "",
+  "stdout.log": {
+    "bytes": 503,
+    "sha256": "9f7062ac44878b1034f263e5af2e7b31c6845f8f0dcf28b8f53ae8d883f8905a"
+  },
+  "stderr.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

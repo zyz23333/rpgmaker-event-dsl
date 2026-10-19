@@ -1,6 +1,9 @@
 import { CommandStructureError } from "./command-errors.js";
 import { renderJsonValue } from "../project-data/json-values.js";
-import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
+import {
+  assertNativeSwitchCommand,
+  assertNativeTimerParameters,
+} from "../commands/variables/validation.js";
 import { assertNativeMapAppearanceParameters } from "../commands/map/native-validation.js";
 import { assertNativePictureParameters } from "../commands/screen/picture-native.js";
 
@@ -145,6 +148,10 @@ export function assertNativeCommandParameters(
     assertNativePictureParameters(code, parameters, path);
     return;
   }
+  if (code === 124) {
+    assertNativeTimerParameters(parameters, path);
+    return;
+  }
   assertNativeMapAppearanceParameters(code, parameters, path);
   try {
     assertNativeSwitchCommand(code, parameters);
@@ -190,7 +197,6 @@ export function assertNativeCommandParameters(
       ({ 0: "nnnnn", 1: "nnnnn", 2: "nnnnnn", 3: "nnnnnnn", 4: "nnnns" } as Record<number, string>)[
         parameters[3] as number
       ] ?? "?";
-  if (code === 124) signature = parameters[0] === 1 && parameters.length === 1 ? "n" : "nn";
   const matches = (value: unknown, kind: string) =>
     kind === "x" ||
     (kind === "n"
@@ -276,7 +282,6 @@ export function assertNativeCommandParameters(
     oneOf(2, [0, 1, 2, 3, 4, 5]);
     if (parameters[3] === 3) oneOf(4, [0, 1, 2, 3, 4, 5, 6, 7]);
   }
-  if (code === 124) oneOf(0, [0, 1]);
   if (code === 402) integer(0, 0);
   if (code === 302 || code === 605) {
     oneOf(0, [0, 1, 2]);

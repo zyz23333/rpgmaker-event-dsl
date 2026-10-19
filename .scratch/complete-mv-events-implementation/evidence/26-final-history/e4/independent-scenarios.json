@@ -1,0 +1,152 @@
+[
+  {
+    "id": "MV-E05-NEW-STOP",
+    "parameters": [
+      1
+    ],
+    "evidence": "Conditional new empty parameters then Stop onSave",
+    "slotCount": 1,
+    "secondSlotPresent": false,
+    "secondSlotNegativeZero": false
+  },
+  {
+    "id": "MV-E05-SAVED-START-ZERO",
+    "parameters": [
+      1,
+      0
+    ],
+    "evidence": "Saved Start0 reloaded then Stop; p1 retained",
+    "slotCount": 2,
+    "secondSlotPresent": true,
+    "secondSlotNegativeZero": false
+  },
+  {
+    "id": "MV-E05-SAVED-START-NONZERO",
+    "parameters": [
+      1,
+      83
+    ],
+    "evidence": "Saved Start83 reloaded then Stop; p1 retained",
+    "slotCount": 2,
+    "secondSlotPresent": true,
+    "secondSlotNegativeZero": false
+  },
+  {
+    "id": "MV-E05-STOP-RECONFIRM-ABSENT",
+    "parameters": [
+      1
+    ],
+    "evidence": "Existing Stop one-slot load/save retains absence",
+    "slotCount": 1,
+    "secondSlotPresent": false,
+    "secondSlotNegativeZero": false
+  },
+  {
+    "id": "MV-E05-STOP-RECONFIRM-ZERO",
+    "parameters": [
+      1,
+      0
+    ],
+    "evidence": "Existing Stop0 load/save retains p1",
+    "slotCount": 2,
+    "secondSlotPresent": true,
+    "secondSlotNegativeZero": false
+  },
+  {
+    "id": "MV-E05-STOP-RECONFIRM-NONZERO",
+    "parameters": [
+      1,
+      83
+    ],
+    "evidence": "Existing Stop83 load/save retains p1",
+    "slotCount": 2,
+    "secondSlotPresent": true,
+    "secondSlotNegativeZero": false
+  },
+  {
+    "id": "MV-E05-UNSAVED-TOGGLE",
+    "parameters": [
+      1
+    ],
+    "evidence": "Conditional unconfirmed new Start83 toggled Stop; no p1 yet",
+    "slotCount": 1,
+    "secondSlotPresent": false,
+    "secondSlotNegativeZero": false
+  },
+  {
+    "id": "MV-E05-CONTAINER-ABSENT",
+    "parameters": [
+      1
+    ],
+    "evidence": "Container stringify preserves one-slot Stop",
+    "slotCount": 1,
+    "secondSlotPresent": false,
+    "secondSlotNegativeZero": false
+  },
+  {
+    "id": "MV-E05-CONTAINER-ZERO",
+    "parameters": [
+      1,
+      0
+    ],
+    "evidence": "Container stringify preserves two-slot Stop0",
+    "slotCount": 2,
+    "secondSlotPresent": true,
+    "secondSlotNegativeZero": false
+  },
+  {
+    "id": "MV-E05-CONTAINER-NONZERO",
+    "parameters": [
+      1,
+      83
+    ],
+    "evidence": "Container stringify preserves two-slot Stop83",
+    "slotCount": 2,
+    "secondSlotPresent": true,
+    "secondSlotNegativeZero": false
+  },
+  {
+    "id": "MV-E05-START-BOUNDS-ZERO",
+    "parameters": [
+      0,
+      0
+    ],
+    "evidence": "Independent control/domain lower bound",
+    "slotCount": 2,
+    "secondSlotPresent": true,
+    "secondSlotNegativeZero": false
+  },
+  {
+    "id": "MV-E05-START-BOUNDS-MAX",
+    "parameters": [
+      0,
+      5999
+    ],
+    "evidence": "Independent 99minutes59seconds upper bound",
+    "slotCount": 2,
+    "secondSlotPresent": true,
+    "secondSlotNegativeZero": false
+  },
+  {
+    "id": "SYNTHETIC-STOP-NUMERIC-NEGATIVE-ZERO",
+    "parameters": [
+      1,
+      0
+    ],
+    "evidence": "Accepted numeric saved-value capability; no editor-origin claim",
+    "slotCount": 2,
+    "secondSlotPresent": true,
+    "secondSlotNegativeZero": true
+  },
+  {
+    "id": "SYNTHETIC-START-NUMERIC-NEGATIVE-ZERO",
+    "parameters": [
+      0,
+      0
+    ],
+    "evidence": "Accepted numeric saved-value capability; no editor-origin claim",
+    "slotCount": 2,
+    "secondSlotPresent": true,
+    "secondSlotNegativeZero": true
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "file": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\final-byte-audit-v1.json",
+  "passed": true,
+  "requirements": {
+    "incoming": 300,
+    "own": 288,
+    "current": 314,
+    "incomingPrefixDeepEqual": true,
+    "ownRowsDeepEqual": true
+  },
+  "history": {
+    "memberships": {
+      "888b95019192806b88c73d7804f0662e4cce7e8b": 5929,
+      "f27ee63f95f65b59a738460615c95b9afdf53e60": 2877
+    },
+    "uniqueFiles": 6084
+  },
+  "archived": {
+    "count": 1507,
+    "sourceAndCopyExact": true,
+    "indexSha256": "51945899dd178b2997fd104c9b179c32d9fa28047a83466f7cdcde808ba620f3"
+  },
+  "bindings": {
+    "manifestSha256": "7cb11d23ed5b954fe3831f83c5c354552029cf83b421a91c70605f0cc6716760",
+    "groups": {
+      "source": {
+        "count": 99,
+        "fingerprint": "2fe2c69db4583c49d68af70d3ed3af703d38a6428bda3ba7b0c1429f6475e613"
+      },
+      "tests": {
+        "count": 61,
+        "fingerprint": "1dcae4b6f043c3ec1a56a10aff823379c1164a27c6c5033ceec515e813505802"
+      },
+      "dist": {
+        "count": 15,
+        "fingerprint": "5342718948fcdbf73210a3d1f49153e3f16b30ddd8eeaaf2075e7d962483efe9"
+      },
+      "all": {
+        "count": 189,
+        "fingerprint": "ff26c6971616a1a96fd6f3412628d4819fa6e2b608331285970503fb9bcdd022"
+      }
+    },
+    "currentAndPhysicalRetainedExact": true
+  }
+}

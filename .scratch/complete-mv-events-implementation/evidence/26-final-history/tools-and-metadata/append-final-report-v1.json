@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-19T20:58:20.751Z",
+  "rows": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-timer-saved-slot-roundtrip.md",
+      "beforeBytes": 6700,
+      "beforeSha256": "3b66e9399d9b18983bda4587175347b88d40ff53e4fe642e1cb04929dffae949",
+      "appendedBytes": 4281,
+      "appendedSha256": "304d411ff4eea0993e6afd747375a847565d3b4c23a7cc3d448908fdcf43e18d",
+      "afterBytes": 10981,
+      "afterSha256": "c95d934f55503052628a42116ab0de9a9a15ae7c9b82af4ebb356f28607c3116",
+      "prefixExact": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/README.md",
+      "beforeBytes": 86823,
+      "beforeSha256": "969e10508e44d7a6959fa20e8185fe62cd3af895ff489fbd2da7b14e4ac2cb5c",
+      "appendedBytes": 814,
+      "appendedSha256": "cfa8d572b8693578758277c8f5b92eb621588937ad3191834cb6fe230eff50f0",
+      "afterBytes": 87637,
+      "afterSha256": "21f57abaf749944a4a0e25289cabcf1766c2ab0f48a9b33c49db05f1ed91abab",
+      "prefixExact": true
+    }
+  ]
+}
