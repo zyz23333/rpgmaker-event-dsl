@@ -57,6 +57,7 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 ### 2026-10-19 — 04 原生反例的有限 zero 契约已接受
 
 用户回复“接受有限 zero 状态（推荐）”。[04 报告](../evidence/04-movement-records-and-mirrors-reverse.md#契约比较与已接受修订)、[ADR0015](../../../docs/adr/0015-bounded-native-saved-shape.md)和权威决定票12已同步非终止项zero状态；无参缺parameters、有参完整语义数组、M0两态和完整505镜像均不变。本票负责产品实现、独立fixture及真实编反编译往返，04的条件复算与契约记录不计本票完成。
+
 ### 2026-10-19 — 实现与验收完成
 
 已交付共享 `MovementRoute`、E205 的独立 target、true/false/false 默认 flags、非终止记录 absent/null/zero 三态、唯一 M0 两种 parameters 形态，以及按完整对象、顺序和外层 indent 核对的 E205/E505 镜像。参数键存在性、额外字段、未知移动码、原始数组、recognized raw 引用与嵌套 Script Gate 均在规范化或复制之前验证；原生 Map Page 路线读取和默认页复用同一 codec。公开 API、示例及编写指南已同步，无旧路线数组或外层 flags 别名。

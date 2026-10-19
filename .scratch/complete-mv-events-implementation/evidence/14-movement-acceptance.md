@@ -38,13 +38,13 @@ Actual engine: MV 1.6.1, NW.js 0.29.0, embedded Node 9.7.1, Chromium 65.0.3325.1
 
 Each case is observed after 90 actual frames. All five pass in each process:
 
-| Case | Independently expected observation |
-| --- | --- |
-| Envelope matrix, wait=true | Absent/null/zero records, both parameter families, audio and CRLF M45 execute; switches 1/2/3 true, direction 6, position 0/0, interpreter stopped and forcing false. |
-| Nonblocking, wait=false | Immediately after interpreter update: switch 3 true, switch 1 false, interpreter stopped while forcing remains true. At 90 frames switch 1 true and forcing false. |
-| repeat=true and wait=true | Switch 1 true but switch 3 false; interpreter and forcing remain active. Flags are preserved without rewriting the intended wait. |
-| Blocked move-left, skippable=false | At the left boundary, position remains 0/0 and direction 4; both switches 1/3 false and interpreter/forcing remain active. |
-| Blocked move-left, skippable=true | The failed move is skipped; direction becomes 6, switches 1/3 true, position remains 0/0, interpreter stops and forcing ends. |
+| Case                               | Independently expected observation                                                                                                                                    |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Envelope matrix, wait=true         | Absent/null/zero records, both parameter families, audio and CRLF M45 execute; switches 1/2/3 true, direction 6, position 0/0, interpreter stopped and forcing false. |
+| Nonblocking, wait=false            | Immediately after interpreter update: switch 3 true, switch 1 false, interpreter stopped while forcing remains true. At 90 frames switch 1 true and forcing false.    |
+| repeat=true and wait=true          | Switch 1 true but switch 3 false; interpreter and forcing remain active. Flags are preserved without rewriting the intended wait.                                     |
+| Blocked move-left, skippable=false | At the left boundary, position remains 0/0 and direction 4; both switches 1/3 false and interpreter/forcing remain active.                                            |
+| Blocked move-left, skippable=true  | The failed move is skipped; direction becomes 6, switches 1/3 true, position remains 0/0, interpreter stops and forcing ends.                                         |
 
 Raw run directories: `C:/Users/Shuen/.codex/tmp/mv-ticket14-native-20261019-01` and `...-02`. Both passed; 02 is the final record after fixture formatting, with exact current fixture hash. The actual compiled input is retained at `.../mv-ticket14-workspaces/movement-roundtrip-T67mBd/最小 Workspace with spaces/.rpgmaker-event-dsl/generated-project-data/CommonEvents.json`. Source and built Workspace reports were rerun after the final product checks. Both native processes exit 0 normally; stdout/stderr and complete metadata are retained in `14-{literal,compiled}-*` artifacts.
 
