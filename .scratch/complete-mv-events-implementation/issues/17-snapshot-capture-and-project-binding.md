@@ -1,6 +1,6 @@
 # 17: Snapshot 一致捕获与目标绑定
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 16
 Stage: S4a
 Created: 2026-10-19

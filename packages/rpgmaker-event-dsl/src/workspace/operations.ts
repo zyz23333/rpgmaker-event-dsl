@@ -36,7 +36,7 @@ import {
   deriveAffectedProjectDataFiles,
   renderStructuredDiffReport,
 } from "../project-data/structured-diff.js";
-import { loadWorkspace } from "./config.js";
+import { assertWorkspaceUnchanged, loadWorkspace } from "./config.js";
 import { withWorkspaceOperationLock } from "./operation-lock.js";
 import {
   assertKnownSafeProjectDataFile,
@@ -44,7 +44,11 @@ import {
   assertNoPendingInterruptedPushForNonPush,
   readJsonFiles,
 } from "./push.js";
-import { assertProjectDataSnapshotExists, readCurrentSnapshotFileHashes } from "./checks.js";
+import {
+  assertProjectDataSnapshotExists,
+  assertProjectRootBinding,
+  readCurrentSnapshotFileHashes,
+} from "./checks.js";
 import type {
   CompileWorkspaceOptions,
   DiffWorkspaceOptions,
@@ -71,9 +75,16 @@ async function captureWorkspaceSnapshot(
   const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
 
   await assertNoPendingInterruptedPushForNonPush({ statePaths, commandName });
+  if (commandName === "clone") {
+    const manifest = await readSyncManifest(statePaths.syncManifestPath);
+    if (manifest !== null)
+      assertProjectRootBinding(manifest, workspace.projectRootBinding, commandName);
+  }
   await captureStandardProjectDataSnapshot({
     dataDirectory: workspace.dataDirectory,
+    projectRootBinding: workspace.projectRootBinding,
     statePaths,
+    assertWorkspaceUnchanged: () => assertWorkspaceUnchanged(workspace, commandName),
   });
 }
 
@@ -88,7 +99,7 @@ async function decompileWorkspaceUnlocked(options: WorkspaceCommandOptions): Pro
   const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
 
   await assertNoPendingInterruptedPushForNonPush({ statePaths, commandName: "decompile" });
-  await assertProjectDataSnapshotExists(statePaths, "decompile");
+  await assertProjectDataSnapshotExists(statePaths, "decompile", workspace.projectRootBinding);
   await decompileProjectDataSnapshot({
     sourceRoot: workspace.config.sourceRoot,
     statePaths,
@@ -110,7 +121,11 @@ async function compileWorkspaceUnlocked(options: CompileWorkspaceOptions): Promi
   const commandName = options.check ? "compile --check" : "compile";
 
   await assertNoPendingInterruptedPushForNonPush({ statePaths, commandName });
-  const manifest = await assertProjectDataSnapshotExists(statePaths, commandName);
+  const manifest = await assertProjectDataSnapshotExists(
+    statePaths,
+    commandName,
+    workspace.projectRootBinding,
+  );
   const definitionInput = await loadDiscoveredDefinitionInput(workspace.workspaceRoot, {
     sourceRoot: workspace.config.sourceRoot,
     sourceInclude: workspace.config.sourceInclude,
@@ -152,6 +167,7 @@ async function compileWorkspaceUnlocked(options: CompileWorkspaceOptions): Promi
     statePaths,
   });
   const compileBaseline = await buildCompileBaseline({
+    projectRootBinding: workspace.projectRootBinding,
     config: workspace.config,
     snapshotFiles,
     sourceFiles: definitionInput.files,
@@ -187,6 +203,9 @@ async function isGeneratedProjectDataFreshUnlocked(
   });
   const manifest = await readSyncManifest(statePaths.syncManifestPath);
 
+  if (manifest !== null)
+    assertProjectRootBinding(manifest, workspace.projectRootBinding, "isGeneratedProjectDataFresh");
+
   if (manifest?.compileBaseline === undefined) {
     return false;
   }
@@ -199,6 +218,7 @@ async function isGeneratedProjectDataFreshUnlocked(
   const snapshotFiles = await readCurrentSnapshotFileHashes(statePaths, manifest.snapshotFiles);
 
   return isCompileBaselineFresh({
+    projectRootBinding: workspace.projectRootBinding,
     baseline: manifest.compileBaseline,
     config: workspace.config,
     snapshotFiles,
@@ -377,7 +397,11 @@ async function diffWorkspaceUnlocked(options: DiffWorkspaceOptions): Promise<str
   const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
 
   await assertNoPendingInterruptedPushForNonPush({ statePaths, commandName: "diff" });
-  const manifest = await assertProjectDataSnapshotExists(statePaths, "diff");
+  const manifest = await assertProjectDataSnapshotExists(
+    statePaths,
+    "diff",
+    workspace.projectRootBinding,
+  );
 
   await assertGeneratedProjectDataIntegrity(statePaths, manifest, "diff");
 
@@ -391,6 +415,7 @@ async function diffWorkspaceUnlocked(options: DiffWorkspaceOptions): Promise<str
   if (
     manifest.compileBaseline === undefined ||
     !(await isCompileBaselineFresh({
+      projectRootBinding: workspace.projectRootBinding,
       baseline: manifest.compileBaseline,
       config: workspace.config,
       snapshotFiles,

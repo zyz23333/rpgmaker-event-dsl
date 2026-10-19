@@ -37,6 +37,7 @@ export type MaterializedCompileOutput = {
 };
 
 export type CompileBaselineInput = {
+  projectRootBinding: string;
   workspaceRoot: string;
   config: WorkspaceConfig;
   sourceFiles: readonly string[];
@@ -116,6 +117,7 @@ export async function buildCompileBaseline(input: CompileBaselineInput): Promise
     sourceRoot: input.config.sourceRoot,
   };
   const baselineWithoutHash = {
+    projectRootBinding: input.projectRootBinding,
     config,
     snapshotFiles,
     sourceFiles,
@@ -128,6 +130,7 @@ export async function buildCompileBaseline(input: CompileBaselineInput): Promise
 }
 
 export async function isCompileBaselineFresh(input: {
+  projectRootBinding: string;
   baseline: CompileBaseline;
   workspaceRoot: string;
   config: WorkspaceConfig;

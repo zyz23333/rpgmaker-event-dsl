@@ -183,3 +183,20 @@ Ticket16 adds [Workspace operation lock acceptance](16-workspace-operation-locki
 | MV-S4-LOCK-002 | hides Snapshot publication gaps and aliases while other Workspaces operate | synthetic-support | Windows public API and real child processes |
 | MV-S4-LOCK-003 | recovers kernel leases after interruption and crash without stale-cleaner races | synthetic-support | Windows public API and real child processes |
 | MV-S4-LOCK-004 | preserves Interrupted Push independently of abandoned locks and failed checks | synthetic-support | Windows public API and real child processes |
+
+Ticket17 adds [Snapshot capture and Project Root Binding acceptance](17-snapshot-capture-and-project-binding.md).
+These cases execute actual public Workspace operations and filesystem boundaries;
+all record `native: not-executed`. Final E/R validation remains assigned to later tickets.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S4-SNAPSHOT-001 | Clone and Pull reject observed content, collection, deletion and configuration changes before publication | synthetic-support | Windows public API and actual child process |
+| MV-S4-SNAPSHOT-002 | Pending remains bound to its original target, then recovers after returning there | synthetic-support | Windows public API/CLI and interrupted actual Push |
+| MV-S4-SNAPSHOT-003 | All target consumers reject wrong binding; explicit Pull rebinds and invalidates output; canonical aliases remain valid | synthetic-support | Windows public API/CLI and junction |
+| MV-S4-SNAPSHOT-004 | Exact original bytes and hash agree; undecodable UTF-8 is rejected without publication | synthetic-support | Windows public API and byte-level comparison |
+| MV-S4-SNAPSHOT-005 | Unsafe MapInfos never filters into a partial Snapshot; registered maps are complete and unrelated files excluded | synthetic-support | Windows public API and independent collection cases |
+| MV-S4-SNAPSHOT-006 | Manifest installation failure restores previous complete Snapshot and metadata | synthetic-support | Actual filesystem rename failure in a real child |
+| MV-S4-SNAPSHOT-007 | Unknown, corrupt, incomplete and unsafe Snapshot metadata stops before output publication | synthetic-support | Windows public API/CLI and file-state comparison |
+| MV-S4-SNAPSHOT-008 | Snapshot set/content must agree with its captured manifest before consumption | synthetic-support | Windows public API and byte-level corruption |
+| MV-S4-SNAPSHOT-009 | Invalid standard carriers and registered map event locations stop explicitly | synthetic-support | Windows public API and independent malformed carriers |
+| MV-S4-SNAPSHOT-010 | Unknown/inconsistent pending formats and corrupt backup/generated evidence remain intact | synthetic-support | Windows public API/CLI, interrupted actual Push and successful generated-state recovery |

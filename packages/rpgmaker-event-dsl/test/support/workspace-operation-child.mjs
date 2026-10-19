@@ -27,9 +27,19 @@ fs.readFile = async function (path, ...args) {
   if (options.boundary === "config" && resolve(String(path)) === options.configPath) {
     await checkpoint();
   }
-  return readFile(path, ...args);
+  const content = await readFile(path, ...args);
+  if (options.boundary === "snapshot-capture" && resolve(String(path)) === options.capturePath) {
+    await checkpoint();
+  }
+  return content;
 };
 fs.rename = async function (source, target) {
+  if (
+    options.boundary === "snapshot-manifest-failure" &&
+    resolve(String(target)) === options.manifestPath
+  ) {
+    throw new Error("Controlled Snapshot manifest publication failure");
+  }
   if (
     (options.boundary === "snapshot-publication" &&
       resolve(String(target)) === options.snapshotPath &&

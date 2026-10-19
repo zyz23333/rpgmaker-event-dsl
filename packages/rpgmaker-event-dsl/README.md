@@ -94,6 +94,18 @@ records and before Decompile publishes source. Runtime enemy positions and dynam
 equipment candidates retain their selector meaning. Capture database changes with
 `pull` before compiling against them.
 
+Clone and Pull capture exact UTF-8 file bytes, their hashes and the map collection
+selected by the same MapInfos input. Invalid collections, missing registered maps,
+malformed carriers and undecodable bytes fail explicitly. An observed input or
+configuration change before publication requires a rerun. A manifest installation
+failure during publication restores the previous Snapshot and manifest.
+
+Snapshot and Compile Baseline bind to the canonical Project Root path. Changing
+`projectRoot` requires an explicit `pull`, then a new compile; ordinary commands reject
+the old binding. Junction aliases to the same target are accepted. A pending Interrupted
+Push must first be recovered by Push against its original target. Unknown, incomplete
+or inconsistent pending state is preserved for manual correction.
+
 `controlSwitches` ranges include both endpoints and reject reversed order.
 `controlSwitches` and `controlSelfSwitch` require an explicit Boolean `value`;
 self-switch letters are A–D. A Common Event called by a Map Event inherits its

@@ -10,6 +10,7 @@ export default defineConfig({
       "test/windows-baseline.test.ts",
       "test/cli-entry.test.ts",
       "test/workspace-locking.test.ts",
+      "test/snapshot-binding.test.ts",
     ],
     env: { MV_CLI_ENTRY: "built" },
   },
