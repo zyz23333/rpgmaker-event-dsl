@@ -88,6 +88,8 @@ Every saved route is validated, including fixed/random/approach pages, and route
 scripts require the Script Command Gate even when empty or inactive. Decompile
 emits only fields whose saved values differ from defaults and always emits commands.
 Missing, mistyped or unknown owned native fields fail before source publication.
+The native `events` array must contain its required `null` slot zero; an empty
+array fails with a located Map shape diagnostic before any candidate is published.
 Diff reports zero-based native paths and one-based page positions. Push preserves
 external Map fields and null holes; removing an event nulls its slot and uses the
 existing Destructive Push guard.

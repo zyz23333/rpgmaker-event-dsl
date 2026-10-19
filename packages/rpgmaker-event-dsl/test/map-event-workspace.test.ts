@@ -1,4 +1,4 @@
-import { readFile, readdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { expect, it } from "vitest";
 import { workspaceApiEntry } from "./support/workspace-operation-process.js";
@@ -38,6 +38,7 @@ const evidenceCases: Record<string, string> = {
   "map-native-required": "MV-S5-MAP-007",
   "map-fixed-route-gate": "MV-S5-MAP-008",
   "map-route-reference": "MV-S5-MAP-009",
+  "map-native-empty-events": "MV-S5-MAP-011",
 };
 
 async function withMapEvidence(label: string, body: (sandbox: WindowsSandbox) => Promise<void>) {
@@ -173,6 +174,47 @@ it("rejects a malformed late native page without publishing any candidate or cha
     expect(await state(workspaceRoot)).toStrictEqual(before);
   });
 });
+
+it("MV-S5-MAP-011: rejects a late Map with an empty native events array without publishing or changing complete Workspace state", async () => {
+  await withMapEvidence("map-native-empty-events", async ({ workspaceRoot }) => {
+    await prepareMap(workspaceRoot);
+    await mkdir(join(workspaceRoot, "src"), { recursive: true });
+    await writeFile(
+      join(workspaceRoot, "src/keeper.events.ts"),
+      'import { commonEvent } from "rpgmaker-event-dsl";\nexport const keeper = commonEvent({ id: 99, name: "Existing source stays exact", trigger: "none", commands: [] });\n',
+    );
+    await compileWorkspace({ workspaceRoot, check: false });
+    const mapPath = join(workspaceRoot, "Game/data/Map001.json");
+    const changedMap = JSON.parse(await readFile(mapPath, "utf8"));
+    changedMap.events[1].name = "Earlier valid candidate must not publish";
+    await writeFile(mapPath, JSON.stringify(changedMap));
+    await writeFile(
+      join(workspaceRoot, "Game/data/Map002.json"),
+      JSON.stringify({
+        width: 17,
+        height: 13,
+        tilesetId: 1,
+        events: [],
+        external: { preserved: true },
+      }),
+    );
+    await writeFile(
+      join(workspaceRoot, "Game/data/MapInfos.json"),
+      JSON.stringify([null, { id: 1, name: "First" }, { id: 2, name: "Late empty" }]),
+    );
+    await cloneWorkspace({ workspaceRoot });
+    const before = await state(workspaceRoot);
+    expect(before.discovery).not.toHaveLength(0);
+    expect(before.generated).not.toBeNull();
+    await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatchObject({
+      code: "MV-MAP-EVENT-SHAPE",
+      stage: "decompile",
+      identity: "map:2",
+      location: { nativePath: "events" },
+    });
+    expect(await state(workspaceRoot)).toStrictEqual(before);
+  });
+}, 30_000);
 
 it("preserves disabled condition settings, independent images and every saved page field", async () => {
   await withMapEvidence("map-page-full", async ({ workspaceRoot }) => {

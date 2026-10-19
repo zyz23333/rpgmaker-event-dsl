@@ -94,7 +94,19 @@ export function readMapEvents(
   mapData: Record<string, unknown>,
   mapId?: number,
 ): SnapshotMapEvent[] {
-  assertNativeMapEvents(mapData.events);
+  try {
+    assertNativeMapEvents(mapData.events);
+  } catch (error) {
+    if (error instanceof CommandStructureError)
+      throw new CommandStructureError(
+        error.code,
+        error.detail,
+        error.location,
+        `map:${mapId ?? "?"}`,
+        "decompile",
+      );
+    throw error;
+  }
   return mapData.events.flatMap((entry, index) => {
     if (entry === null) return [];
     const identity = `map:${mapId ?? "?"}/event:${index}`;

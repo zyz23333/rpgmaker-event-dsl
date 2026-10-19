@@ -1,0 +1,4 @@
+# Preserve exact original log, report and tool bytes for this corrective run.
+* -text
+# Raw command logs retain original CRLF, trailing spaces and final blank lines.
+*.log -whitespace

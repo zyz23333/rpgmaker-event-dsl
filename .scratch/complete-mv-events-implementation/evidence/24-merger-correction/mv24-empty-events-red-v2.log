@@ -1,0 +1,45 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-24/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/map-event-workspace.test.ts > MV-S5-MAP-011: rejects a late Map with an empty native events array without publishing or changing complete Workspace state
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-empty-events-SXgN6L
+
+ ❯ test/map-event-workspace.test.ts (75 tests | 1 failed | 74 skipped) 1278ms
+   × MV-S5-MAP-011: rejects a late Map with an empty native events array without publishing or changing complete Workspace state 1277ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-event-workspace.test.ts > MV-S5-MAP-011: rejects a late Map with an empty native events array without publishing or changing complete Workspace state
+AssertionError: promise resolved "undefined" instead of rejecting
+
+- Expected:
+Error {
+  "message": "rejected promise",
+}
+
++ Received:
+undefined
+
+ ❯ test/map-event-workspace.test.ts:209:56
+
+    207|     expect(before.discovery).not.toHaveLength(0);
+    208|     expect(before.generated).not.toBeNull();
+    209|     await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatc…
+       |                                                        ^
+    210|       code: "MV-MAP-EVENT-SHAPE",
+    211|       stage: "decompile",
+ Test Files  1 failed (1)
+      Tests  1 failed | 74 skipped (75)
+   Start at  22:43:04
+   Duration  2.85s (transform 519ms, setup 0ms, import 1.42s, tests 1.28s, environment 0ms)
+
+ ❯ test/map-event-workspace.test.ts:49:7
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ withMapEvidence test/map-event-workspace.test.ts:45:3
+ ❯ test/map-event-workspace.test.ts:179:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/map-event-workspace.test.ts -t MV-S5-MAP-011

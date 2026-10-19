@@ -367,3 +367,7 @@ Ticket24 adds [complete Map Event pages and exact saved state](24-map-event-full
 | MV-S5-MAP-E6 | Ticket24 E6 allocated representative evidence | reverse-engineering-observation | Identified resource/product comparison or actual native pair |
 | MV-S5-MAP-R1-TRIGGERS | Ticket24 R1-TRIGGERS allocated representative evidence | game-observation | Identified resource/product comparison or actual native pair |
 | MV-S5-MAP-R1-ROUTES | Ticket24 R1-ROUTES allocated representative evidence | game-observation | Identified resource/product comparison or actual native pair |
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S5-MAP-011 | Reject missing mandatory native event slot0 on a late Map without publishing or changing complete Workspace state | synthetic-rejection | Actual source/built Workspace API |

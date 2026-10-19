@@ -132,8 +132,13 @@ export function assertNativeMapPages(value: unknown): asserts value is unknown[]
 }
 
 export function assertNativeMapEvents(value: unknown): asserts value is unknown[] {
-  if (!Array.isArray(value))
-    fail("events", "dense event array with null holes", value, "MV-MAP-EVENT-SHAPE");
+  if (!Array.isArray(value) || value.length === 0)
+    fail(
+      "events",
+      "nonempty dense event array with required null slot zero",
+      value,
+      "MV-MAP-EVENT-SHAPE",
+    );
   for (let index = 0; index < value.length; index++) {
     if (!Object.hasOwn(value, index) || (index === 0 && value[index] !== null))
       fail(

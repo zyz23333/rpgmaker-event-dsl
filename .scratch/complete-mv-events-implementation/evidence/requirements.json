@@ -8854,6 +8854,50 @@
       "nativeGroups": [
         "R1"
       ]
+    },
+    {
+      "id": "MV-S5-MAP-011",
+      "title": "Reject empty native event arrays before late-candidate publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I2"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/24-map-event-full-pages-and-note.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Existing published valid Map/source/generated output, earlier Map changed to a valid new candidate, later Map002 has events:[] with external carrier; actual Clone and Decompile.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-event-fixtures.ts",
+        "sha256": "778c8dc026e49f65905eacb06353abbedc8889f8a63dd7ae620dff9fae809f5e"
+      },
+      "expected": "Reject missing mandatory null slot0 with located Map shape diagnostic before source publication; source, Project Root, descriptor, Snapshot, generated output, config, manifest and Discovery remain exactly unchanged.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-event-workspace.test.ts",
+        "name": "MV-S5-MAP-011: rejects a late Map with an empty native events array without publishing or changing complete Workspace state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and built API",
+        "owner": "Codex automated verification",
+        "layer": "Actual public Workspace API and real filesystem complete-state comparison"
+      },
+      "slice": "24 / S5 merger correction",
+      "required": true
     }
   ]
 }

@@ -52,6 +52,8 @@ autorun and intentional parallel behavior using normal MV flow.
 Decompile emits only settings that fixed defaults can reconstruct exactly and
 always emits commands. Keep nondefault disabled slots, unused image fields and
 noncustom routes. Native missing/wrong/unknown owned fields cause a located error
-before source publication. Review Diff's native `pages[0]` paths and human page 1
+before source publication. The native `events` array requires its `null` slot zero;
+an empty array is rejected without publishing earlier valid candidates.
+Review Diff's native `pages[0]` paths and human page 1
 positions; page order and count are meaningful. Entry Removal nulls the event slot
 and requires the existing reviewed Destructive Push authorization.
