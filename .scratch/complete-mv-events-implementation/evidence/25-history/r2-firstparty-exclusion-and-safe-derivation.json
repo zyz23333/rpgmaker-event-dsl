@@ -1,0 +1,24 @@
+{
+  "purpose": "Exact unpublished copies containing first-party full carrier arrays are retained externally; safe derived publication preserves actual failed status, error, build and all carrier identities",
+  "at": "2026-10-19T16:03:04.240Z",
+  "movedCopies": [
+    {
+      "originalWorktreePath": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-25\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\results\\MV-S5-TROOP-R2-2026-10-19T15-29-42-303Z-49837cc8-58b8-4742-849a-72328d6a408d.json",
+      "externalCopy": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-firstparty-excluded-copies-e0f61e4d-9a68-4501-9817-31ed617c4256\\MV-S5-TROOP-R2-2026-10-19T15-29-42-303Z-49837cc8-58b8-4742-849a-72328d6a408d.json",
+      "sha256": "f0ee1a7a2c3789dc2477ea741f4c6cac614f297cb9b2e7500f0764be49bc5aad",
+      "bytes": 9411594
+    },
+    {
+      "originalWorktreePath": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-25\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\25-history\\r2-pre-game-failure-original.json",
+      "externalCopy": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-firstparty-excluded-copies-e0f61e4d-9a68-4501-9817-31ed617c4256\\r2-pre-game-failure-original.json",
+      "sha256": "007947e96718ca56b880231115ad6698f7660f2bab39cb7cb877ab8e21941bdc",
+      "bytes": 8641970
+    }
+  ],
+  "safeDerivedResult": {
+    "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-25\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\results\\MV-S5-TROOP-R2-2026-10-19T16-03-04-238Z-safe-derived-c2104b96-db02-42fa-9303-f2c2536527c4.json",
+    "sha256": "92f978de1ef89f24108805f669c69406c8b31250fce0648e1a5bba5f9d1dd4a5"
+  },
+  "originalArchiveMap": "25-history/archive-origin-map.json remains byte-unchanged; its r2-pre-game-failure-original.json item is retained only externally, not included in Git",
+  "safeDerivedFields": "Original source/dist membership, source fingerprint, fixture binding, timestamps, status failed, error and native not-executed preserved; first-party carrier values omitted, all carrier hashes kept"
+}

@@ -1,8 +1,59 @@
+import type {
+  BattleEventPage,
+  CommonEventDefinition,
+  EventPage,
+  MapEventDefinition,
+  ReferenceValue,
+} from "../domain/types.js";
+import { blankBattleEventPage } from "../domain/battle-page-defaults.js";
 import { assertMapEventInput, assertMapPageInput } from "../map-event/validation.js";
-import type { CommonEventDefinition, EventPage, MapEventDefinition } from "../domain/types.js";
 import type { ReferenceResolver } from "../validation/types.js";
 import { commonEventTriggerToCode, compileNodes, type RawEventCommand } from "./dispatch.js";
 import { compilePageMovement } from "../commands/movement/page.js";
+import { assertBattlePageInput } from "../validation/battle-pages.js";
+
+export function compileBattlePage(page: BattleEventPage, resolver: ReferenceResolver) {
+  assertBattlePageInput(page, resolver);
+  const defaults = blankBattleEventPage();
+  const conditions = page.conditions ?? {};
+  const savedId = (ref: ReferenceValue<"actor"> | ReferenceValue<"switch">, enabled: boolean) =>
+    !enabled && "id" in ref ? ref.id : resolver.resolveReference(ref);
+  return {
+    conditions: {
+      ...defaults.conditions,
+      ...(conditions.turnEnd === undefined ? {} : { turnEnding: conditions.turnEnd }),
+      ...(conditions.turn === undefined
+        ? {}
+        : {
+            turnValid: conditions.turn.enabled,
+            turnA: conditions.turn.a,
+            turnB: conditions.turn.b,
+          }),
+      ...(conditions.enemy === undefined
+        ? {}
+        : {
+            enemyValid: conditions.enemy.enabled,
+            enemyIndex: conditions.enemy.index,
+            enemyHp: conditions.enemy.hpAtMost,
+          }),
+      ...(conditions.actor === undefined
+        ? {}
+        : {
+            actorValid: conditions.actor.enabled,
+            actorId: savedId(conditions.actor.ref, conditions.actor.enabled),
+            actorHp: conditions.actor.hpAtMost,
+          }),
+      ...(conditions.switch === undefined
+        ? {}
+        : {
+            switchValid: conditions.switch.enabled,
+            switchId: savedId(conditions.switch.ref, conditions.switch.enabled),
+          }),
+    },
+    span: page.span === undefined || page.span === "battle" ? 0 : page.span === "turn" ? 1 : 2,
+    list: compileNodes(page.commands, 0, resolver),
+  };
+}
 import { compilePageSettings } from "../map-event/page.js";
 
 export type ProjectEventData = {

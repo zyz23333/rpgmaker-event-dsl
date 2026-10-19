@@ -18,6 +18,7 @@ const opaque = { opaque: true } as const;
 const declarationKinds: Record<string, string> = {
   mapEvent: "mapEvent",
   commonEvent: "commonEvent",
+  troopEvent: "troopEvent",
   switchDefinition: "switchDefinition",
   variableDefinition: "variableDefinition",
 };
@@ -194,7 +195,9 @@ export function definitionIdentities(filePath: string, text: string): string[] {
         field: (key) =>
           key === "kind"
             ? kind
-            : key === "id" || (kind === "mapEvent" && key === "mapId")
+            : key === "id" ||
+                (kind === "mapEvent" && key === "mapId") ||
+                (kind === "troopEvent" && key === "troopId")
               ? read(input, key)
               : missing,
       };
@@ -207,7 +210,7 @@ export function definitionIdentities(filePath: string, text: string): string[] {
     if (!value || typeof value !== "object" || !("object" in value)) continue;
     const kind = read(value, "kind");
     if (typeof kind !== "string" || !Object.values(declarationKinds).includes(kind)) continue;
-    const id = read(value, "id"),
+    const id = read(value, kind === "troopEvent" ? "troopId" : "id"),
       mapId = kind === "mapEvent" ? read(value, "mapId") : undefined;
     if (
       !Number.isSafeInteger(id) ||

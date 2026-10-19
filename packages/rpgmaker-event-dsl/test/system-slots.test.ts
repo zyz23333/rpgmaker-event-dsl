@@ -476,9 +476,17 @@ export const unnamedReferences = commonEvent({ id: 2, name: "Unnamed references"
       ).toEqual([
         "src/decompiled/common-events.events.ts",
         "src/decompiled/system.dsl.ts",
+        "src/decompiled/troop-events.events.ts",
         "src/unnamed.events.ts",
       ]);
-      expect(manifest.generatedFiles).toEqual(
+      expect(
+        manifest.generatedFiles.map(({ relativePath }: { relativePath: string }) => relativePath),
+      ).toEqual(["CommonEvents.json", "System.json", "Troops.json"]);
+      expect(
+        manifest.generatedFiles.filter(
+          ({ relativePath }: { relativePath: string }) => relativePath !== "Troops.json",
+        ),
+      ).toEqual(
         manifest.snapshotFiles.filter(({ relativePath }: { relativePath: string }) =>
           ["CommonEvents.json", "System.json"].includes(relativePath),
         ),

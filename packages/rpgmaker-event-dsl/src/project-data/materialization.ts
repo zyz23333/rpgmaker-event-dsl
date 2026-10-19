@@ -8,8 +8,10 @@ import type {
   MapEventDefinition,
   SwitchDefinition,
   VariableDefinition,
+  TroopEventDefinition,
 } from "../domain/types.js";
-import { compileCommonEvent, compileMapEvent } from "../compiler/events.js";
+import { compileBattlePage, compileCommonEvent, compileMapEvent } from "../compiler/events.js";
+import { blankBattleEventPage } from "../domain/battle-page-defaults.js";
 import { parseMapInfos } from "./project.js";
 import type { ReferenceResolver } from "../validation/types.js";
 import {
@@ -62,6 +64,7 @@ export async function expectedCompileOutputFileNames(
   return [
     "CommonEvents.json",
     "System.json",
+    "Troops.json",
     ...parseMapInfos(await readSnapshotFile(statePaths, "MapInfos.json")).map(({ id }) =>
       formatMapFileName(id),
     ),
@@ -73,6 +76,36 @@ export async function buildCompileOutput(
 ): Promise<CompileOutputCandidate> {
   const mapInfos = parseMapInfos(await readSnapshotFile(options.statePaths, "MapInfos.json"));
   const files = new Map<string, unknown>();
+  const troopDefinitions = new Map(
+    options.declarations
+      .filter(
+        (declaration): declaration is TroopEventDefinition => declaration.kind === "troopEvent",
+      )
+      .map((declaration) => [declaration.troopId, declaration]),
+  );
+  files.set(
+    "Troops.json",
+    (await readSnapshotArray(options.statePaths, "Troops.json")).map((entry, index) => {
+      if (entry === null) return null;
+      if (
+        !entry ||
+        typeof entry !== "object" ||
+        Array.isArray(entry) ||
+        (entry as { id?: unknown }).id !== index ||
+        index <= 0
+      )
+        throw new Error(
+          `Snapshot Troops.json[${index}]: expected actual Troop with positive matching ID or null.`,
+        );
+      const definition = troopDefinitions.get(index);
+      return {
+        ...entry,
+        pages: definition
+          ? definition.pages.map((page) => compileBattlePage(page, options.resolver))
+          : [blankBattleEventPage()],
+      };
+    }),
+  );
 
   for (const mapInfo of mapInfos) {
     const relativePath = formatMapFileName(mapInfo.id);

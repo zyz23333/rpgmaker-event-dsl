@@ -478,7 +478,9 @@ export function compileNodes(
           );
           if (node.lose.length === 0) output.push({ code: 0, indent: indent + 1, parameters: [] });
         }
-        output.push({ code: 604, indent, parameters: [] });
+        if (node.canEscape || node.canLose || node.win || node.escape || node.lose) {
+          output.push({ code: 604, indent, parameters: [] });
+        }
         break;
       case "script":
         output.push({

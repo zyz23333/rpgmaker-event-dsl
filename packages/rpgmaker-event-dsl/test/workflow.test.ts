@@ -391,6 +391,7 @@ describe("decompile workflow", () => {
       join(workspaceRoot, "src", "decompiled", "maps", "Map001.events.ts"),
       join(workspaceRoot, "src", "decompiled", "maps", "Map002.events.ts"),
       join(workspaceRoot, "src", "decompiled", "system.dsl.ts"),
+      join(workspaceRoot, "src", "decompiled", "troop-events.events.ts"),
     ]);
 
     const declarations = (
@@ -813,6 +814,7 @@ export const gate = {
       "CommonEvents.json",
       "Map001.json",
       "System.json",
+      "Troops.json",
     ]);
     expect(manifest?.generatedFiles?.every((entry) => /^[0-9a-f]{64}$/u.test(entry.hash))).toBe(
       true,

@@ -154,12 +154,9 @@ describe("collectDslOwnedDeclarations", () => {
     });
 
     expect(definitions).toHaveLength(4);
-    expect(definitions.map((definition) => definition.name)).toEqual([
-      "Alpha",
-      "Beta",
-      "Gamma Switch",
-      "Delta Variable",
-    ]);
+    expect(
+      definitions.map((definition) => definition.kind !== "troopEvent" && definition.name),
+    ).toEqual(["Alpha", "Beta", "Gamma Switch", "Delta Variable"]);
   });
   it("rejects default exports", () => {
     expect(() =>

@@ -61,6 +61,18 @@ async function createContextProject(workspaceRoot: string) {
       "utf8",
     ),
   );
+  // The frozen S3 fixture treated Troops as external. Supply the now-owned complete
+  // default page independently; preserve the original historical fixture bytes.
+  const troopFixture = JSON.parse(
+    await readFile(
+      new URL("./fixtures/mv-evidence/troop-event-project.json", import.meta.url),
+      "utf8",
+    ),
+  );
+  fixture.projectFiles["Troops.json"] = fixture.projectFiles["Troops.json"].map(
+    (troop: Record<string, unknown> | null) =>
+      troop === null ? null : { ...troop, pages: [structuredClone(troopFixture.defaultPage)] },
+  );
   for (const [name, value] of Object.entries(fixture.projectFiles))
     await writeFile(join(workspaceRoot, "Game", "data", name), JSON.stringify(value));
   await initWorkspace({ workspaceRoot, projectRoot: "./Game" });

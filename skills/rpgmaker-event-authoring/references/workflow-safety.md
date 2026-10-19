@@ -73,3 +73,9 @@ If Push reports Project Drift, stop. Refresh with Pull only when the user wants 
 Do not treat "compile", "check", "preview", "show diff", or "prepare" as Push approval.
 
 Run `push --allow-destructive` only after the user explicitly confirms the destructive entries shown by Diff.
+
+Troop Event declarations own all battle pages of an existing troop. Omitting one or
+replacing it with the exact single default page resets a nonblank event and requires
+the same destructive review. Review the global Diff status even when filtering another
+file; filters never remove the global Reset gate. Partial page deletion leaving a
+nonblank event is an ordinary content edit. Troop carrier fields remain external.
