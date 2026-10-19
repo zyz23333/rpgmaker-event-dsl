@@ -27,17 +27,14 @@ export function assertMapAppearanceInput(
       if (
         boolean
           ? typeof value !== "boolean"
-          : !Number.isSafeInteger(value) ||
-            Object.is(value, -0) ||
-            (value as number) < -32 ||
-            (value as number) > 32
+          : !Number.isSafeInteger(value) || (value as number) < -32 || (value as number) > 32
       )
         throw new CommandStructureError(
           "MV-E284-INPUT",
           "Invalid independently saved parallax configuration.",
           {
             dslPath: `${path}.${field}`,
-            expected: boolean ? "boolean" : "integer -32..32, excluding negative zero",
+            expected: boolean ? "boolean" : "integer -32..32",
             actual: describeValue(value),
           },
         );

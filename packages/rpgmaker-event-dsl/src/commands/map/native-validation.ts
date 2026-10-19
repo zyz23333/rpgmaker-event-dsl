@@ -49,10 +49,9 @@ export function assertNativeMapAppearanceParameters(
       slot(
         index,
         Number.isSafeInteger(parameters[index]) &&
-          !Object.is(parameters[index], -0) &&
           (parameters[index] as number) >= -32 &&
           (parameters[index] as number) <= 32,
-        "integer -32..32, excluding negative zero",
+        "integer -32..32",
       );
   }
 }

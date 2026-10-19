@@ -50,7 +50,7 @@ export function renderChangeParallax(
   }
 
   return {
-    expression: `changeParallax({ image: ${imageName === "" ? "null" : `imageAsset({ folder: "parallaxes", name: ${literal(imageName)} })`}, loopX: ${loopX}, loopY: ${loopY}, sx: ${sx}, sy: ${sy} })`,
+    expression: `changeParallax({ image: ${imageName === "" ? "null" : `imageAsset({ folder: "parallaxes", name: ${literal(imageName)} })`}, loopX: ${loopX}, loopY: ${loopY}, sx: ${literal(sx)}, sy: ${literal(sy)} })`,
     helperNames: ["changeParallax", ...(imageName === "" ? [] : ["imageAsset"])],
   };
 }

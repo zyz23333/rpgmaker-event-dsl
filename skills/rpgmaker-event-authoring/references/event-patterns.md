@@ -112,8 +112,9 @@ give `changeTileset` an existing `tilesetRef` without None. Give `changeBattleBa
 both independent fields: `battleback1` uses `battlebacks1`, `battleback2` uses
 `battlebacks2`, and either may be explicit `null`. Give `changeParallax` all five
 fields: an image in `parallaxes` or `null`, Boolean `loopX` and `loopY`, and integer
-`sx` and `sy` in −32..32. Keep saved speeds when a loop is disabled or the image is
-None. Preserve filenames exactly; use `null` for None and nonempty Asset Reference
+`sx` and `sy` in −32..32. Preserve negative zero in both speed slots. Keep saved
+speeds when a loop is disabled or the image is None. Preserve filenames exactly;
+use `null` for None and nonempty Asset Reference
 names for actual files. Check intentional missing assets in the game: the Workspace
 does not scan asset files or infer that a valid Tileset reference guarantees loading.
 

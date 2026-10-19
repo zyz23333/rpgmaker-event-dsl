@@ -138,8 +138,9 @@ changeParallax({ image: null, loopX: false, loopY: true, sx: 32, sy: -32 });
 
 The two battle background slots are independent. Explicit `null` means None and
 compiles to an empty filename; it differs from MV's internal automatic background
-state. Parallax requires all five fields. Each speed is an integer from −32 to 32
-and remains saved while its loop is disabled or its image is None. Use the exact
+state. Parallax requires all five fields. Each speed is an integer from −32 to 32,
+preserves negative zero, and remains saved while its loop is disabled or its image
+is None. Use the exact
 `battlebacks1`, `battlebacks2` and `parallaxes` folders for each image slot; an empty
 Asset Reference name is invalid. Tilesets must exist in the Snapshot and have no
 None value. Asset filenames are preserved without scanning local image files;

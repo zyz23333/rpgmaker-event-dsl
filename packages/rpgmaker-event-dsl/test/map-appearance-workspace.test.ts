@@ -69,6 +69,135 @@ const saved: SavedCommand[] = JSON.parse(
   ),
 ).commands;
 
+it("MV-S6-MAP-APPEARANCE-007: preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push", async () => {
+  const nativeText = await readFile(
+    new URL("./fixtures/mv-evidence/map-parallax-negative-zero.json", import.meta.url),
+    "utf8",
+  );
+  const expressions = [
+    "changeParallax({ image: null, loopX: false, loopY: false, sx: -0, sy: 0 })",
+    'changeParallax({ image: imageAsset({ folder: "parallaxes", name: "Sky" }), loopX: true, loopY: false, sx: 0, sy: -0 })',
+    "changeParallax({ image: null, loopX: false, loopY: true, sx: -0, sy: -0 })",
+  ];
+  const rawExpressions = [
+    'rawDslCommand({ code: 284, parameters: ["", false, false, -0, 0] })',
+    'rawDslCommand({ code: 284, parameters: ["Sky", true, false, 0, -0] })',
+    'rawDslCommand({ code: 284, parameters: ["", false, true, -0, -0] })',
+  ];
+  const signs = [
+    [true, false],
+    [false, true],
+    [true, true],
+  ];
+  const assertSigns = (commands: SavedCommand[]) => {
+    for (const [index, [sx, sy]] of signs.entries()) {
+      expect(Object.is(commands[index]!.parameters[3], -0)).toBe(sx);
+      expect(Object.is(commands[index]!.parameters[4], -0)).toBe(sy);
+      expect(Object.is(commands[index]!.parameters[3], 0)).toBe(!sx);
+      expect(Object.is(commands[index]!.parameters[4], 0)).toBe(!sy);
+    }
+  };
+  const failures: string[] = [];
+  try {
+    const command = changeParallax({
+      image: null,
+      loopX: false,
+      loopY: false,
+      sx: -0,
+      sy: -0,
+    });
+    expect(Object.is(command.sx, -0)).toBe(true);
+    expect(Object.is(command.sy, -0)).toBe(true);
+  } catch (error) {
+    failures.push(`public helper: ${error instanceof Error ? error.stack : String(error)}`);
+  }
+  for (const origin of ["formal", "raw", "native"] as const) {
+    try {
+      await withWindowsSandbox(`map-parallax-signed-zero-${origin}`, async ({ workspaceRoot }) => {
+        const expected = JSON.parse(nativeText);
+        assertSigns(expected.events[1].pages[0].list);
+        await createMinimalProject(workspaceRoot);
+        await writeFile(
+          join(workspaceRoot, "Game/data/MapInfos.json"),
+          '[null,{"id":1,"name":"Map"}]',
+        );
+        await writeFile(
+          join(workspaceRoot, "Game/data/Map001.json"),
+          origin === "native" ? nativeText : nativeText.replaceAll("-0", "0"),
+        );
+        await initWorkspace({ workspaceRoot, projectRoot: "./Game" });
+        await cloneWorkspace({ workspaceRoot });
+        await decompileWorkspace({ workspaceRoot });
+        const sourcePath = join(workspaceRoot, "src/decompiled/maps/Map001.events.ts");
+        let source = await readFile(sourcePath, "utf8");
+        for (const [index, expression] of expressions.entries()) {
+          if (origin === "native") expect(source).toContain(expression);
+          else {
+            const baseline = expression.replaceAll("-0", "0");
+            expect(source).toContain(baseline);
+            source = source.replace(
+              baseline,
+              origin === "raw"
+                ? rawExpressions[index]!
+                : `({ kind: "changeParallax", ${expression.slice("changeParallax({ ".length, -3)} } as never)`,
+            );
+          }
+        }
+        if (origin === "raw")
+          source = `import { rawDslCommand } from "rpgmaker-event-dsl";\n${source}`;
+        await writeFile(sourcePath, source);
+        const files = await discoverDefinitionFiles(workspaceRoot, discovery);
+        expect(files).toContain(sourcePath);
+        const definitions = (
+          await Promise.all(files.map((file) => loadDefinitionFile(file)))
+        ).flat();
+        const event = definitions.find((value) => value.kind === "mapEvent");
+        if (!event || event.kind !== "mapEvent") throw new Error("Missing discovered Map Event");
+        const actual = event.pages[0]!.commands.slice(0, 3).map((command) => {
+          if (command.kind === "changeParallax")
+            return { code: 284, indent: 0, parameters: ["", false, false, command.sx, command.sy] };
+          if (command.kind === "rawDslCommand")
+            return {
+              code: command.code,
+              indent: command.indent ?? 0,
+              parameters: [...command.parameters],
+            };
+          throw new Error(`Unexpected evaluated command ${command.kind}`);
+        });
+        assertSigns(actual);
+        const beforeCheck = await state(workspaceRoot);
+        await compileWorkspace({ workspaceRoot, check: true });
+        expect(await state(workspaceRoot)).toStrictEqual(beforeCheck);
+        await compileWorkspace({ workspaceRoot, check: false });
+        const generatedPath = join(
+          getWorkspaceStatePaths(workspaceRoot).generatedProjectDataDirectory,
+          "Map001.json",
+        );
+        const generated = JSON.parse(await readFile(generatedPath, "utf8"));
+        expect(generated).toStrictEqual(expected);
+        assertSigns(generated.events[1].pages[0].list);
+        await writeFile(
+          sourcePath,
+          source.replace("Parallax signed zero", "Signed zero installed"),
+        );
+        await compileWorkspace({ workspaceRoot, check: true });
+        await compileWorkspace({ workspaceRoot, check: false });
+        expect(await diffWorkspace({ workspaceRoot })).toContain("Map001.json");
+        await pushWorkspace({ workspaceRoot, allowDestructive: false });
+        expected.events[1].name = "Signed zero installed";
+        const installed = JSON.parse(
+          await readFile(join(workspaceRoot, "Game/data/Map001.json"), "utf8"),
+        );
+        expect(installed).toStrictEqual(expected);
+        assertSigns(installed.events[1].pages[0].list);
+      });
+    } catch (error) {
+      failures.push(`${origin}: ${error instanceof Error ? error.stack : String(error)}`);
+    }
+  }
+  if (failures.length > 0) throw new Error(failures.join("\n\n"));
+}, 60_000);
+
 async function prepare(workspaceRoot: string, list: SavedCommand[] = saved) {
   await createMinimalProject(workspaceRoot);
   const carrier = {
@@ -223,7 +352,7 @@ it("MV-S6-MAP-APPEARANCE-005: requires all E284 fields and enforces saved speed 
     expect(() => changeParallax(missing as never)).toThrow(/MV-E284-INPUT/);
   }
   for (const field of ["sx", "sy"])
-    for (const value of [-33, 33, 0.5, NaN, Infinity, -Infinity, -0])
+    for (const value of [-33, 33, 0.5, NaN, Infinity, -Infinity])
       expect(() => changeParallax({ ...good, [field]: value })).toThrow(/MV-E284-INPUT/);
   for (const field of ["loopX", "loopY"])
     expect(() => changeParallax({ ...good, [field]: 0 } as never)).toThrow(/MV-E284-INPUT/);

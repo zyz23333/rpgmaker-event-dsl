@@ -180,8 +180,9 @@ an existing Snapshot Tileset and has no None value. `changeBattleBack({ battleba
 battleback2 })` requires both independent slots, each an image Asset Reference in
 `battlebacks1` or `battlebacks2` respectively, or explicit `null` for None.
 `changeParallax({ image: null, loopX: false, loopY: true, sx: 32, sy: -32 })`
-requires all five fields. Its image uses `parallaxes`; integer speeds −32..32 remain
-saved with looping disabled or image None. None compiles to an empty filename.
+requires all five fields. Its image uses `parallaxes`; integer speeds −32..32 preserve
+negative zero and remain saved with looping disabled or image None. None compiles
+to an empty filename.
 Empty Asset Reference names and unknown command fields fail validation. Asset
 references preserve names without checking image directories or file sizes.
 

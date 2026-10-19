@@ -423,3 +423,7 @@ Ticket36 map appearance cases use independent complete saved literals and actual
 | MV-S6-MAP-APPEARANCE-E6 | Ticket36 allocated E6 identified map appearance resources and actual product comparison | reverse-engineering-observation | Exact resource identity plus actual current built product/literal native pairs |
 | MV-S6-MAP-APPEARANCE-R6 | Ticket36 allocated R6 current built normal-Scene map appearance and eight Battle background pairs | game-observation | Exact resource identity plus actual current built product/literal native pairs |
 | MV-S6-MAP-APPEARANCE-R6-MISSING | Ticket36 allocated actual missing-Tileset-image Loading Error and E282 stall pair | game-observation | Exact resource identity plus actual current built product/literal native pairs |
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-MAP-APPEARANCE-007 | preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push | synthetic-support | Public source/built Workspace; literal signed-zero carrier and Object.is assertions |
