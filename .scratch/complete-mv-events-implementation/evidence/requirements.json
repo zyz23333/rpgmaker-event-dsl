@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "scope": "Ticket 01 automated seeds, ticket 02 Windows automation baseline, and tickets 03/05 editor reverse-engineering obligations. This is not the complete 105+45 or E1-E7/R1-R7 acceptance matrix.",
+  "scope": "Ticket 01 automated seeds, ticket 02 Windows automation baseline, and tickets 03/05/06 editor reverse-engineering obligations. This is not the complete 105+45 or E1-E7/R1-R7 acceptance matrix.",
   "requirements": [
     {
       "id": "MV-S0-CE-001",
@@ -19,8 +19,17 @@
           "section": "## Acceptance criteria"
         }
       ],
-      "dimensions": ["A1", "A3", "A5", "A7"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "synthetic-support",
       "input": "One self-authored Common Event, inactive default switchId, Show Text with literal CR and trailing empty continuation, Comment with trailing empty continuation, final code 0; minimal independent standard project data.",
       "fixture": {
@@ -54,8 +63,15 @@
           "section": "## Acceptance criteria"
         }
       ],
-      "dimensions": ["A3", "A5", "A6"],
-      "classifications": ["negative", "boundary"],
+      "dimensions": [
+        "A3",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "negative",
+        "boundary"
+      ],
       "sourceKind": "synthetic-rejection",
       "input": "Independent copies with one mutation each: final 0 removed, indent key removed, CR removed, trailing empty text record removed, inactive switchId changed, leading null removed, empty array changed to null, external unknown field removed.",
       "fixture": {
@@ -89,8 +105,15 @@
           "section": "## Acceptance criteria"
         }
       ],
-      "dimensions": ["A2", "A3"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "reverse-engineering-observation",
       "input": "Fresh or empty Conditional, Choices and enabled Battle result bodies",
       "fixture": {
@@ -102,7 +125,10 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/03-branches-and-battle-reverse.md",
         "section": "## 保存结构结果与推导"
       },
-      "nativeGroups": ["E2", "E4"],
+      "nativeGroups": [
+        "E2",
+        "E4"
+      ],
       "execution": {
         "environment": "Windows; identified MV 1.6.1 editor and bundled Qt artifacts; no editor UI/game execution",
         "owner": "Codex reverse-engineering analyst; reproducible local resource extraction",
@@ -124,8 +150,15 @@
           "section": "## Acceptance criteria"
         }
       ],
-      "dimensions": ["A2", "A3"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "static-inference",
       "input": "Existing valid nonempty Conditional, Choices and Battle bodies with and without trailing body0",
       "fixture": {
@@ -137,7 +170,10 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/03-branches-and-battle-reverse.md",
         "section": "## 保存结构结果与推导"
       },
-      "nativeGroups": ["E2", "E4"],
+      "nativeGroups": [
+        "E2",
+        "E4"
+      ],
       "execution": {
         "environment": "Windows; identified MV 1.6.1 editor and bundled Qt artifacts; no editor UI/game execution",
         "owner": "Codex reverse-engineering analyst; reproducible local resource extraction",
@@ -159,8 +195,15 @@
           "section": "## Acceptance criteria"
         }
       ],
-      "dimensions": ["A2", "A3"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "static-inference",
       "input": "A valid body containing deeper commands, branch records and nested markers",
       "fixture": {
@@ -172,7 +215,10 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/03-branches-and-battle-reverse.md",
         "section": "## 保存结构结果与推导"
       },
-      "nativeGroups": ["E2", "E4"],
+      "nativeGroups": [
+        "E2",
+        "E4"
+      ],
       "execution": {
         "environment": "Windows; identified MV 1.6.1 editor and bundled Qt artifacts; no editor UI/game execution",
         "owner": "Codex reverse-engineering analyst; reproducible local resource extraction",
@@ -194,8 +240,15 @@
           "section": "## Acceptance criteria"
         }
       ],
-      "dimensions": ["A2", "A3"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "reverse-engineering-observation",
       "input": "Conditional save with no Else, empty Else, nonempty Else, or Create Else unchecked",
       "fixture": {
@@ -207,7 +260,10 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/03-branches-and-battle-reverse.md",
         "section": "## 保存结构结果与推导"
       },
-      "nativeGroups": ["E2", "E4"],
+      "nativeGroups": [
+        "E2",
+        "E4"
+      ],
       "execution": {
         "environment": "Windows; identified MV 1.6.1 editor and bundled Qt artifacts; no editor UI/game execution",
         "owner": "Codex reverse-engineering analyst; reproducible local resource extraction",
@@ -229,8 +285,15 @@
           "section": "## Acceptance criteria"
         }
       ],
-      "dimensions": ["A2", "A3"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "reverse-engineering-observation",
       "input": "New empty Loop, insertion before body0, ordinary deletion, and existing marker-absent input",
       "fixture": {
@@ -242,7 +305,10 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/03-branches-and-battle-reverse.md",
         "section": "## 保存结构结果与推导"
       },
-      "nativeGroups": ["E2", "E4"],
+      "nativeGroups": [
+        "E2",
+        "E4"
+      ],
       "execution": {
         "environment": "Windows; identified MV 1.6.1 editor and bundled Qt artifacts; no editor UI/game execution",
         "owner": "Codex reverse-engineering analyst; reproducible local resource extraction",
@@ -264,8 +330,15 @@
           "section": "## Acceptance criteria"
         }
       ],
-      "dimensions": ["A2", "A3"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "reverse-engineering-observation",
       "input": "1..6 Choices with ordered text fields and their branch bodies",
       "fixture": {
@@ -277,7 +350,10 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/03-branches-and-battle-reverse.md",
         "section": "## 保存结构结果与推导"
       },
-      "nativeGroups": ["E2", "E4"],
+      "nativeGroups": [
+        "E2",
+        "E4"
+      ],
       "execution": {
         "environment": "Windows; identified MV 1.6.1 editor and bundled Qt artifacts; no editor UI/game execution",
         "owner": "Codex reverse-engineering analyst; reproducible local resource extraction",
@@ -299,8 +375,15 @@
           "section": "## Acceptance criteria"
         }
       ],
-      "dimensions": ["A2", "A3"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "static-inference",
       "input": "Cancel Branch from a normal at-most-six-item choices array",
       "fixture": {
@@ -312,7 +395,10 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/03-branches-and-battle-reverse.md",
         "section": "## 保存结构结果与推导"
       },
-      "nativeGroups": ["E2", "E4"],
+      "nativeGroups": [
+        "E2",
+        "E4"
+      ],
       "execution": {
         "environment": "Windows; identified MV 1.6.1 editor and bundled Qt artifacts; no editor UI/game execution",
         "owner": "Codex reverse-engineering analyst; reproducible local resource extraction",
@@ -334,8 +420,15 @@
           "section": "## Acceptance criteria"
         }
       ],
-      "dimensions": ["A2", "A3"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "static-inference",
       "input": "Existing one-item Choices loaded into a fresh component with default second-field No; cancel position beyond existing item count",
       "fixture": {
@@ -347,7 +440,10 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/03-branches-and-battle-reverse.md",
         "section": "## 保存结构结果与推导"
       },
-      "nativeGroups": ["E2", "E4"],
+      "nativeGroups": [
+        "E2",
+        "E4"
+      ],
       "execution": {
         "environment": "Windows; identified MV 1.6.1 editor and bundled Qt artifacts; no editor UI/game execution",
         "owner": "Codex reverse-engineering analyst; reproducible local resource extraction",
@@ -369,8 +465,15 @@
           "section": "## Acceptance criteria"
         }
       ],
-      "dimensions": ["A2", "A3"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "reverse-engineering-observation",
       "input": "All blank fields, middle blank, trailing empty and trailing whitespace",
       "fixture": {
@@ -382,7 +485,10 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/03-branches-and-battle-reverse.md",
         "section": "## 保存结构结果与推导"
       },
-      "nativeGroups": ["E2", "E4"],
+      "nativeGroups": [
+        "E2",
+        "E4"
+      ],
       "execution": {
         "environment": "Windows; identified MV 1.6.1 editor and bundled Qt artifacts; no editor UI/game execution",
         "owner": "Codex reverse-engineering analyst; reproducible local resource extraction",
@@ -404,8 +510,15 @@
           "section": "## Acceptance criteria"
         }
       ],
-      "dimensions": ["A2", "A3"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "static-inference",
       "input": "New null eventData and fresh editor CheckBox instances using bundled Qt",
       "fixture": {
@@ -417,7 +530,10 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/03-branches-and-battle-reverse.md",
         "section": "## 保存结构结果与推导"
       },
-      "nativeGroups": ["E2", "E4"],
+      "nativeGroups": [
+        "E2",
+        "E4"
+      ],
       "execution": {
         "environment": "Windows; identified MV 1.6.1 editor and bundled Qt artifacts; no editor UI/game execution",
         "owner": "Codex reverse-engineering analyst; reproducible local resource extraction",
@@ -439,8 +555,15 @@
           "section": "## Acceptance criteria"
         }
       ],
-      "dimensions": ["A2", "A3"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "reverse-engineering-observation",
       "input": "FF,TF,FT,TT flags with empty/nonempty/nested result bodies and explicit flag disabling",
       "fixture": {
@@ -452,7 +575,10 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/03-branches-and-battle-reverse.md",
         "section": "## 保存结构结果与推导"
       },
-      "nativeGroups": ["E2", "E4"],
+      "nativeGroups": [
+        "E2",
+        "E4"
+      ],
       "execution": {
         "environment": "Windows; identified MV 1.6.1 editor and bundled Qt artifacts; no editor UI/game execution",
         "owner": "Codex reverse-engineering analyst; reproducible local resource extraction",
@@ -478,8 +604,16 @@
           "section": "## Acceptance criteria"
         }
       ],
-      "dimensions": ["A5", "A7", "A8"],
-      "classifications": ["positive", "negative", "combination"],
+      "dimensions": [
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "combination"
+      ],
       "sourceKind": "synthetic-support",
       "input": "The independent Common Event fixture reconstructed in a unique Windows directory containing Chinese characters and spaces. Real Node CLI processes perform init, clone, decompile, check, compile, diff and push, then edit source and push a replacement. Built verification resolves actual emitted package declarations.",
       "fixture": {
@@ -513,8 +647,13 @@
           "section": "## Acceptance criteria"
         }
       ],
-      "dimensions": ["A8"],
-      "classifications": ["positive", "combination"],
+      "dimensions": [
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "combination"
+      ],
       "sourceKind": "synthetic-support",
       "input": "A real Windows directory junction aliases the source or built CLI directory. The aliased entry is executed by a separate Node process from a unique Unicode and space-containing Workspace directory.",
       "fixture": {
@@ -552,8 +691,15 @@
           "section": "### E124 — Control Timer（发现正常保存形态，新增设计依赖）"
         }
       ],
-      "dimensions": ["A2", "A3"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "reverse-engineering-observation",
       "input": "Start with minutes0..99 and seconds0..59",
       "fixture": {
@@ -565,7 +711,9 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/05-timer-stop-reverse.md",
         "section": "## 保存结构结果与推导"
       },
-      "nativeGroups": ["E4"],
+      "nativeGroups": [
+        "E4"
+      ],
       "execution": {
         "environment": "Windows; identified MV1.6.1 editor and bundled Qt artifacts; no editor UI/game execution",
         "owner": "Codex reverse-engineering analyst; reproducible local resource extraction",
@@ -591,8 +739,15 @@
           "section": "### E124 — Control Timer（发现正常保存形态，新增设计依赖）"
         }
       ],
-      "dimensions": ["A2", "A3"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "static-inference",
       "input": "Fresh null input with unchanged Start and successfully initialized bundled controls",
       "fixture": {
@@ -604,7 +759,9 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/05-timer-stop-reverse.md",
         "section": "## 保存结构结果与推导"
       },
-      "nativeGroups": ["E4"],
+      "nativeGroups": [
+        "E4"
+      ],
       "execution": {
         "environment": "Windows; identified MV1.6.1 editor and bundled Qt artifacts; no editor UI/game execution",
         "owner": "Codex reverse-engineering analyst; reproducible local resource extraction",
@@ -630,8 +787,15 @@
           "section": "### E124 — Control Timer（发现正常保存形态，新增设计依赖）"
         }
       ],
-      "dimensions": ["A2", "A3"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "static-inference",
       "input": "Fresh null eventData; choose Stop then confirm for the first time",
       "fixture": {
@@ -643,7 +807,9 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/05-timer-stop-reverse.md",
         "section": "## 保存结构结果与推导"
       },
-      "nativeGroups": ["E4"],
+      "nativeGroups": [
+        "E4"
+      ],
       "execution": {
         "environment": "Windows; identified MV1.6.1 editor and bundled Qt artifacts; no editor UI/game execution",
         "owner": "Codex reverse-engineering analyst; reproducible local resource extraction",
@@ -669,8 +835,15 @@
           "section": "### E124 — Control Timer（发现正常保存形态，新增设计依赖）"
         }
       ],
-      "dimensions": ["A2", "A3"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "static-inference",
       "input": "Previously confirmed Start[0,0], reopen parameter dialog and choose Stop",
       "fixture": {
@@ -682,7 +855,9 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/05-timer-stop-reverse.md",
         "section": "## 保存结构结果与推导"
       },
-      "nativeGroups": ["E4"],
+      "nativeGroups": [
+        "E4"
+      ],
       "execution": {
         "environment": "Windows; identified MV1.6.1 editor and bundled Qt artifacts; no editor UI/game execution",
         "owner": "Codex reverse-engineering analyst; reproducible local resource extraction",
@@ -708,8 +883,15 @@
           "section": "### E124 — Control Timer（发现正常保存形态，新增设计依赖）"
         }
       ],
-      "dimensions": ["A2", "A3"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "static-inference",
       "input": "Previously confirmed Start[0,83], reopen parameter dialog and choose Stop",
       "fixture": {
@@ -721,7 +903,9 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/05-timer-stop-reverse.md",
         "section": "## 保存结构结果与推导"
       },
-      "nativeGroups": ["E4"],
+      "nativeGroups": [
+        "E4"
+      ],
       "execution": {
         "environment": "Windows; identified MV1.6.1 editor and bundled Qt artifacts; no editor UI/game execution",
         "owner": "Codex reverse-engineering analyst; reproducible local resource extraction",
@@ -747,8 +931,15 @@
           "section": "### E124 — Control Timer（发现正常保存形态，新增设计依赖）"
         }
       ],
-      "dimensions": ["A2", "A3"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "static-inference",
       "input": "Existing Stop[1], [1,0], and[1,83]; reopen and keep Stop",
       "fixture": {
@@ -760,7 +951,9 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/05-timer-stop-reverse.md",
         "section": "## 保存结构结果与推导"
       },
-      "nativeGroups": ["E4"],
+      "nativeGroups": [
+        "E4"
+      ],
       "execution": {
         "environment": "Windows; identified MV1.6.1 editor and bundled Qt artifacts; no editor UI/game execution",
         "owner": "Codex reverse-engineering analyst; reproducible local resource extraction",
@@ -786,8 +979,15 @@
           "section": "### E124 — Control Timer（发现正常保存形态，新增设计依赖）"
         }
       ],
-      "dimensions": ["A2", "A3"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "static-inference",
       "input": "New dialog; input83 in Start; select Stop before the first confirmation",
       "fixture": {
@@ -799,7 +999,9 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/05-timer-stop-reverse.md",
         "section": "## 保存结构结果与推导"
       },
-      "nativeGroups": ["E4"],
+      "nativeGroups": [
+        "E4"
+      ],
       "execution": {
         "environment": "Windows; identified MV1.6.1 editor and bundled Qt artifacts; no editor UI/game execution",
         "owner": "Codex reverse-engineering analyst; reproducible local resource extraction",
@@ -825,8 +1027,15 @@
           "section": "### E124 — Control Timer（发现正常保存形态，新增设计依赖）"
         }
       ],
-      "dimensions": ["A2", "A3"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "reverse-engineering-observation",
       "input": "Existing Stop[1], [1,0], and[1,83] without parameter-dialog reconfirmation",
       "fixture": {
@@ -838,7 +1047,9 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/05-timer-stop-reverse.md",
         "section": "## 保存结构结果与推导"
       },
-      "nativeGroups": ["E4"],
+      "nativeGroups": [
+        "E4"
+      ],
       "execution": {
         "environment": "Windows; identified MV1.6.1 editor and bundled Qt artifacts; no editor UI/game execution",
         "owner": "Codex reverse-engineering analyst; reproducible local resource extraction",
@@ -864,8 +1075,15 @@
           "section": "### E124 — Control Timer（发现正常保存形态，新增设计依赖）"
         }
       ],
-      "dimensions": ["A2", "A3"],
-      "classifications": ["positive", "boundary", "combination"],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
       "sourceKind": "static-inference",
       "input": "Fresh instance loads Stop83 then user explicitly selects Start and confirms",
       "fixture": {
@@ -877,13 +1095,495 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/05-timer-stop-reverse.md",
         "section": "## 保存结构结果与推导"
       },
-      "nativeGroups": ["E4"],
+      "nativeGroups": [
+        "E4"
+      ],
       "execution": {
         "environment": "Windows; identified MV1.6.1 editor and bundled Qt artifacts; no editor UI/game execution",
         "owner": "Codex reverse-engineering analyst; reproducible local resource extraction",
         "layer": "Read-only resource identity and complete initialization/load/edit-confirm/container serialization path review"
       },
       "slice": "05 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E06-NEW-CONTEXT",
+      "title": "Direct location initialization separates project map from explicit zero coordinates",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/06-native-transfer-defaults.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E201 — Transfer Player"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "New null Transfer eventData and project currentMapId context",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-resource-identities.json",
+        "sha256": "96f6962c20c5dcada743c634779d0c2cd8393c4802d617b645bdf1260873bf9b"
+      },
+      "expected": "Direct is explicitly checked, mapId binds currentMapId, and x/y are explicitly0. Project editMapId and map tree selection supply M; no map1 or DSL destination default follows.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-transfer-defaults-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": [
+        "E4"
+      ],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI/game execution",
+        "owner": "Codex reverse-engineering analyst; reproducible resource extraction and same-DLL native analysis",
+        "layer": "Read-only initialization/load/edit-confirm/container serialization review and native property-default chain"
+      },
+      "slice": "06 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E06-QT-FIRST-ITEM",
+      "title": "Bundled Menu and ComboBox first-selection initialization",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/06-native-transfer-defaults.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E201 — Transfer Player"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "static-inference",
+      "input": "New direction/fade controls with no currentIndex override",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-resource-identities.json",
+        "sha256": "96f6962c20c5dcada743c634779d0c2cd8393c4802d617b645bdf1260873bf9b"
+      },
+      "expected": "Same-DLL Menu constructor initializes selectedIndex=-1; bundled ComboBox completion changes -1 to0. When initialized model and text are ready, first items are Retain/Black. Qt runtime timing remains conditional.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-transfer-defaults-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": [
+        "E4"
+      ],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI/game execution",
+        "owner": "Codex reverse-engineering analyst; reproducible resource extraction and same-DLL native analysis",
+        "layer": "Read-only initialization/load/edit-confirm/container serialization review and native property-default chain"
+      },
+      "slice": "06 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E06-NEW-DIRECT",
+      "title": "New direct Transfer six-slot default inference",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/06-native-transfer-defaults.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E201 — Transfer Player"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "static-inference",
+      "input": "Existing project mapM, fresh Transfer, unchanged controls and normal completed initialization",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-resource-identities.json",
+        "sha256": "96f6962c20c5dcada743c634779d0c2cd8393c4802d617b645bdf1260873bf9b"
+      },
+      "expected": "Conditional saved parameters are[0,M,0,0,0,0]. M is explicit project context and is not a universal Compiler Default or actual UI capture.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-transfer-defaults-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": [
+        "E4"
+      ],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI/game execution",
+        "owner": "Codex reverse-engineering analyst; reproducible resource extraction and same-DLL native analysis",
+        "layer": "Read-only initialization/load/edit-confirm/container serialization review and native property-default chain"
+      },
+      "slice": "06 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E06-NEW-VARIABLES",
+      "title": "New variable Transfer uses three explicitly initialized variable controls",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/06-native-transfer-defaults.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E201 — Transfer Player"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "static-inference",
+      "input": "Fresh Transfer toggled to Variables without selecting different variables",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-resource-identities.json",
+        "sha256": "96f6962c20c5dcada743c634779d0c2cd8393c4802d617b645bdf1260873bf9b"
+      },
+      "expected": "GameVariableBox explicitly initializes variableId1. With normal completed initialization and unchanged direction/fade, saved array is[1,1,1,1,0,0]. This does not guarantee project references exist or permit DSL omission.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-transfer-defaults-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": [
+        "E4"
+      ],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI/game execution",
+        "owner": "Codex reverse-engineering analyst; reproducible resource extraction and same-DLL native analysis",
+        "layer": "Read-only initialization/load/edit-confirm/container serialization review and native property-default chain"
+      },
+      "slice": "06 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E06-DIRECT-LOAD",
+      "title": "Existing direct location is reloaded separately from new defaults",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/06-native-transfer-defaults.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E201 — Transfer Player"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "static-inference",
+      "input": "Independent existing valid six-slot[0,7,83,92,8,2]; load and confirm unchanged without opening child location picker",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-resource-identities.json",
+        "sha256": "96f6962c20c5dcada743c634779d0c2cd8393c4802d617b645bdf1260873bf9b"
+      },
+      "expected": "Setup assigns map7/x83/y92, Up and None. With model/text readiness, confirmation retains the exact six-slot input; no map-size clamp appears in this load path. This is not a UI-created sample.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-transfer-defaults-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": [
+        "E4"
+      ],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI/game execution",
+        "owner": "Codex reverse-engineering analyst; reproducible resource extraction and same-DLL native analysis",
+        "layer": "Read-only initialization/load/edit-confirm/container serialization review and native property-default chain"
+      },
+      "slice": "06 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E06-VARIABLES-LOAD",
+      "title": "Existing variable location reloads variable identities and nondefault options",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/06-native-transfer-defaults.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E201 — Transfer Player"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "static-inference",
+      "input": "Independent existing valid six-slot[1,3,4,5,6,1]; load and confirm unchanged",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-resource-identities.json",
+        "sha256": "96f6962c20c5dcada743c634779d0c2cd8393c4802d617b645bdf1260873bf9b"
+      },
+      "expected": "Setup assigns variable IDs3/4/5, Right and White. With model/text readiness, confirmation retains the exact six-slot input. Future variable values are not predicted or treated as direct coordinates.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-transfer-defaults-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": [
+        "E4"
+      ],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI/game execution",
+        "owner": "Codex reverse-engineering analyst; reproducible resource extraction and same-DLL native analysis",
+        "layer": "Read-only initialization/load/edit-confirm/container serialization review and native property-default chain"
+      },
+      "slice": "06 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E06-MODE-SWITCH",
+      "title": "Mode switching reads the selected location controls",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/06-native-transfer-defaults.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E201 — Transfer Player"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Explicit toggles between Direct and Variables with active destination changes",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-resource-identities.json",
+        "sha256": "96f6962c20c5dcada743c634779d0c2cd8393c4802d617b645bdf1260873bf9b"
+      },
+      "expected": "Group_Location reads three fields only from the selected mode; Transfer writes all six known slots. Inactive UI memory has no extra native saved slots. Explicit editing may change destination.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-transfer-defaults-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": [
+        "E4"
+      ],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI/game execution",
+        "owner": "Codex reverse-engineering analyst; reproducible resource extraction and same-DLL native analysis",
+        "layer": "Read-only initialization/load/edit-confirm/container serialization review and native property-default chain"
+      },
+      "slice": "06 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E06-DIRECTION-FADE",
+      "title": "Direction and fade saved mappings are independent",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/06-native-transfer-defaults.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E201 — Transfer Player"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Five valid direction values and three valid fade values including Retain and None",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-resource-identities.json",
+        "sha256": "96f6962c20c5dcada743c634779d0c2cd8393c4802d617b645bdf1260873bf9b"
+      },
+      "expected": "Direction maps0/2/4/6/8, fade maps0/1/2. Retain0 and black0 match the accepted fixed defaults; only exact0 can be omitted on decompilation. No malformed-index tolerance becomes product support.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-transfer-defaults-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": [
+        "E4"
+      ],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI/game execution",
+        "owner": "Codex reverse-engineering analyst; reproducible resource extraction and same-DLL native analysis",
+        "layer": "Read-only initialization/load/edit-confirm/container serialization review and native property-default chain"
+      },
+      "slice": "06 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E06-LOCATION-EDIT",
+      "title": "Child location picker has separate init and explicit confirmation path",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/06-native-transfer-defaults.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E201 — Transfer Player"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Open location picker; retain original map or actively select another map/tile",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-resource-identities.json",
+        "sha256": "96f6962c20c5dcada743c634779d0c2cd8393c4802d617b645bdf1260873bf9b"
+      },
+      "expected": "Child init copies existing map/x/y. Root updates from a one-cell cursor and child OK writes location back. Map load and complete cursor-signal timing remain unobserved.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-transfer-defaults-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": [
+        "E4"
+      ],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI/game execution",
+        "owner": "Codex reverse-engineering analyst; reproducible resource extraction and same-DLL native analysis",
+        "layer": "Read-only initialization/load/edit-confirm/container serialization review and native property-default chain"
+      },
+      "slice": "06 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E06-CONTAINER",
+      "title": "Container serialization preserves existing Transfer parameters",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/06-native-transfer-defaults.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E201 — Transfer Player"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Existing direct and variable six-slot Transfers; save event container without parameter reconfirmation",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-resource-identities.json",
+        "sha256": "96f6962c20c5dcada743c634779d0c2cd8393c4802d617b645bdf1260873bf9b"
+      },
+      "expected": "Read stringify paths do not execute Transfer onLoad/onSave, so retain all six saved values and do not replace location with current-map defaults. No actual disk write is claimed.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-transfer-defaults-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": [
+        "E4"
+      ],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI/game execution",
+        "owner": "Codex reverse-engineering analyst; reproducible resource extraction and same-DLL native analysis",
+        "layer": "Read-only initialization/load/edit-confirm/container serialization review and native property-default chain"
+      },
+      "slice": "06 / S1",
       "required": true
     }
   ]

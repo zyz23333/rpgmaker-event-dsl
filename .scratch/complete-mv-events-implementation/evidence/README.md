@@ -2,7 +2,7 @@
 
 `requirements.json` describes obligations. `results/` contains immutable, machine-produced run records. A requirement does not acquire a passing status merely because it appears in this index. The ordinary test suite validates the index schema, unique IDs, fixture hashes, source sections, test links, checklist completeness and recorded run references.
 
-This index contains ticket 01 automated seeds, ticket 02 Windows automation baseline, and tickets 03/05 reverse-engineering obligations; it is not the complete command or native acceptance matrix. Later tickets add their own stable case IDs and independent input/expected data. Per the user's revised acceptance, editor validation uses REA reverse engineering while final actual game runs remain required. These native evidence groups remain unexecuted by this fixture; its synthetic project context is sufficient for Workspace data operations and is not claimed to be a playable MV project.
+This index contains ticket 01 automated seeds, ticket 02 Windows automation baseline, and tickets 03/05/06 reverse-engineering obligations; it is not the complete command or native acceptance matrix. Later tickets add their own stable case IDs and independent input/expected data. Per the user's revised acceptance, editor validation uses REA reverse engineering while final actual game runs remain required. These native evidence groups remain unexecuted by this fixture; its synthetic project context is sufficient for Workspace data operations and is not claimed to be a playable MV project.
 
 | Requirement       | Obligation                                                                                                        | Evidence kind       | Required layer                                |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------- | --------------------------------------------- |
@@ -24,6 +24,8 @@ This index contains ticket 01 automated seeds, ticket 02 Windows automation base
 
 Ticket 02 extends the seed with the [Windows baseline and required filesystem responsibility matrix](windows-baseline.md). The additional cases establish the automation foundation; later safety tickets still own their fault and concurrency obligations.
 
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
 | MV-E05-START-BOUNDS | Start two slots and supported seconds bounds | reverse-engineering-observation | identified editor resources and bounded code-path review |
 | MV-E05-START-DEFAULT | New Start default from identified bundled controls | static-inference | identified editor resources and bounded code-path review |
 | MV-E05-NEW-STOP | New Stop has one parameter slot | static-inference | identified editor resources and bounded code-path review |
@@ -33,6 +35,19 @@ Ticket 02 extends the seed with the [Windows baseline and required filesystem re
 | MV-E05-UNSAVED-TOGGLE | Unsaved Start controls do not create a Stop seconds slot | static-inference | identified editor resources and bounded code-path review |
 | MV-E05-CONTAINER | Container serialization retains Timer slot structure | reverse-engineering-observation | identified editor resources and bounded code-path review |
 | MV-E05-START-REEDIT | Explicit switch back to Start uses current controls | static-inference | identified editor resources and bounded code-path review |
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-E06-NEW-CONTEXT | Direct location initialization separates project map from explicit zero coordinates | reverse-engineering-observation | identified editor/Qt initialization and bounded code-path review |
+| MV-E06-QT-FIRST-ITEM | Bundled Menu and ComboBox first-selection initialization | static-inference | identified editor/Qt initialization and bounded code-path review |
+| MV-E06-NEW-DIRECT | New direct Transfer six-slot default inference | static-inference | identified editor/Qt initialization and bounded code-path review |
+| MV-E06-NEW-VARIABLES | New variable Transfer uses three explicitly initialized variable controls | static-inference | identified editor/Qt initialization and bounded code-path review |
+| MV-E06-DIRECT-LOAD | Existing direct location is reloaded separately from new defaults | static-inference | identified editor/Qt initialization and bounded code-path review |
+| MV-E06-VARIABLES-LOAD | Existing variable location reloads variable identities and nondefault options | static-inference | identified editor/Qt initialization and bounded code-path review |
+| MV-E06-MODE-SWITCH | Mode switching reads the selected location controls | reverse-engineering-observation | identified editor/Qt initialization and bounded code-path review |
+| MV-E06-DIRECTION-FADE | Direction and fade saved mappings are independent | reverse-engineering-observation | identified editor/Qt initialization and bounded code-path review |
+| MV-E06-LOCATION-EDIT | Child location picker has separate init and explicit confirmation path | reverse-engineering-observation | identified editor/Qt initialization and bounded code-path review |
+| MV-E06-CONTAINER | Container serialization preserves existing Transfer parameters | reverse-engineering-observation | identified editor/Qt initialization and bounded code-path review |
 
 ## Reproduce
 
@@ -59,3 +74,5 @@ Ticket 03 records identified shipped-artifact resource reads and analyst code-pa
 For these records `passed` means the bounded editor code-review obligation was completed with the report’s stated conditions and limits. The actual field separates code observation, conditional inference and unknowns; `runtime`, `nwjs`, and automated test-runner fields explicitly say `not-executed` where no such run occurred. It does not indicate editor UI or game execution, product roundtrip success, or final candidate acceptance. Binary/resource digests were computed from the selected local bytes; raw first-party text remains only in the named local evidence directory.
 
 Ticket 05 adds [Timer slot review](05-timer-stop-reverse.md) and [selected resource identities](05-resource-identities.json). The missing slot, present zero and present83 cases are distinct; the retained83 path requires a previously confirmed Start. The new unsaved-dialog toggle has its own case. These E4 code-review obligations do not establish ticket26/50 product verification or R1-R7 game execution.
+
+Ticket 06 adds [Transfer initialization and mode review](06-transfer-defaults-reverse.md) and [selected artifact/resource identities](06-resource-identities.json). A new same-install Menu native constructor/property chain supports the inherited first-item inference. Project-selected mapM and explicit coordinate0 are distinguished from fixed direction/fade defaults. Its10 review records do not establish ticket34/50 product comparison or actual game execution.
