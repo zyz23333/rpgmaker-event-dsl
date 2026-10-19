@@ -1,0 +1,275 @@
+
+> rpgmaker-event-dsl-workspace@0.0.0 check M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-26-final
+> pnpm typecheck && pnpm lint && pnpm format:check && pnpm test
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 typecheck M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-26-final
+> pnpm -r typecheck
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl typecheck$ tsc -p tsconfig.json --noEmit
+packages/rpgmaker-event-dsl typecheck: Done
+
+> rpgmaker-event-dsl-workspace@0.0.0 lint M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-26-final
+> oxlint .
+
+.scratch/complete-mv-events-implementation/evidence/23-history/mv23-delivery-preflight-v1.cjs:1:29: warning eslint(no-unused-vars): Variable 'fsp' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-archive-delivery-v2.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-metadata-check-record-v1.cjs:2:94: warning eslint(no-unused-vars): Variable 'assert' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/map24-index-ordered-prefetch-audit-v1.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-physical-delivery-v3.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/22-history/original-held-reproduction.cjs:89:61: warning eslint(no-unused-expressions): Expected expression to be used help: Consider using this expression or removing it
+.scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/map24-resource-revalidation-derived-v1.cjs:3:7: warning eslint(no-unused-vars): Variable 'repo' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-audit-v2.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/profile-index-instrumented-08b1be0a-7d85-4f4c-8ca1-0bb3bc4b779c.mts:7:10: warning eslint(no-unused-vars): Identifier 'fileURLToPath' is imported but never used. help: Consider removing this import.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-physical-delivery-v4.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-audit-v1.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-archive-delivery-v1.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/23-history/mv23-register-native-v1.cjs:1:107: warning eslint(no-unused-vars): Variable 'cp' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/native-audit-v1.cjs:2:85: warning eslint(no-unused-vars): Variable 'cp' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/native-audit-v1.cjs:34:87: warning eslint(no-unused-vars): Parameter 'frame' is declared but never used. Unused parameters should start with a '_'. help: Consider removing this parameter.
+
+> rpgmaker-event-dsl-workspace@0.0.0 format:check M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-26-final
+> oxfmt --ignore-path .oxfmtignore --check package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rpgmaker-event-dsl
+
+Checking formatting...
+
+All matched files use the correct format.
+Finished in 432ms on 187 files using 20 threads.
+
+> rpgmaker-event-dsl-workspace@0.0.0 test M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-26-final
+> pnpm -r test
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl test$ vitest run
+packages/rpgmaker-event-dsl test:  RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-26-final/packages/rpgmaker-event-dsl
+packages/rpgmaker-event-dsl test:  ❯ test/loop.test.ts (32 tests | 6 failed) 34ms
+packages/rpgmaker-event-dsl test:    × rejects malformed known raw envelopes without coercion before Check or Compile 5ms
+packages/rpgmaker-event-dsl test:    × rejects malformed known raw envelopes without coercion before Check or Compile 1ms
+packages/rpgmaker-event-dsl test:    × rejects malformed known raw envelopes without coercion before Check or Compile 1ms
+packages/rpgmaker-event-dsl test:    × rejects malformed known raw envelopes without coercion before Check or Compile 1ms
+packages/rpgmaker-event-dsl test:    × rejects malformed known raw envelopes without coercion before Check or Compile 1ms
+packages/rpgmaker-event-dsl test:    × rejects 'extra known parameter' in known raw output and native decompilation with an exact location 1ms
+packages/rpgmaker-event-dsl test:  ❯ test/movement-route.test.ts (45 tests | 1 failed) 43ms
+packages/rpgmaker-event-dsl test:    × rejects extra array keys in recognized raw movement parameters before compilation can copy the array 6ms
+packages/rpgmaker-event-dsl test:  ❯ test/mv-evidence.test.ts (3 tests | 1 failed) 14679ms
+packages/rpgmaker-event-dsl test:    × validates the evidence index, source references, fixture hashes, test links, and recorded runs 10004ms
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/loop.test.ts > rejects malformed known raw envelopes without coercion before Check or Compile
+packages/rpgmaker-event-dsl test: AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+packages/rpgmaker-event-dsl test: - Expected:
+packages/rpgmaker-event-dsl test: ObjectContaining {
+packages/rpgmaker-event-dsl test:   "code": "MV-COMMAND-ENVELOPE",
+packages/rpgmaker-event-dsl test:   "dslPath": "commands[0]",
+packages/rpgmaker-event-dsl test: }
+packages/rpgmaker-event-dsl test: + Received:
+packages/rpgmaker-event-dsl test: [
+packages/rpgmaker-event-dsl test:   {
+packages/rpgmaker-event-dsl test:     "actual": "undefined",
+packages/rpgmaker-event-dsl test:     "code": "MV-COMMAND-ENVELOPE",
+packages/rpgmaker-event-dsl test:     "dslPath": "commands[0].parameters",
+packages/rpgmaker-event-dsl test:     "expected": "present native field with a defined value",
+packages/rpgmaker-event-dsl test:     "identity": "commonEvent:1",
+packages/rpgmaker-event-dsl test:     "level": "error",
+packages/rpgmaker-event-dsl test:     "message": "compile error commonEvent:1: MV-COMMAND-ENVELOPE: A required command field is missing or undefined. (commands[0].parameters); expected present native field with a defined value; actual undefined",
+packages/rpgmaker-event-dsl test:     "stage": "compile",
+packages/rpgmaker-event-dsl test:   },
+packages/rpgmaker-event-dsl test: ]
+packages/rpgmaker-event-dsl test:  ❯ test/loop.test.ts:83:82
+packages/rpgmaker-event-dsl test:      81|     commands: [{ kind: "rawDslCommand", code: 113, ...input } as never…
+packages/rpgmaker-event-dsl test:      82|   });
+packages/rpgmaker-event-dsl test:      83|   expect(validateDslOwnedDeclarations([event], { scriptEnabled: false …
+packages/rpgmaker-event-dsl test:        |                                                                                  ^
+packages/rpgmaker-event-dsl test:      84|     expect.objectContaining({ code: "MV-COMMAND-ENVELOPE", dslPath: "c…
+packages/rpgmaker-event-dsl test:      85|   );
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/loop.test.ts > rejects malformed known raw envelopes without coercion before Check or Compile
+packages/rpgmaker-event-dsl test: AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+packages/rpgmaker-event-dsl test: - Expected:
+packages/rpgmaker-event-dsl test: ObjectContaining {
+packages/rpgmaker-event-dsl test:   "code": "MV-COMMAND-ENVELOPE",
+packages/rpgmaker-event-dsl test:   "dslPath": "commands[0]",
+packages/rpgmaker-event-dsl test: }
+packages/rpgmaker-event-dsl test: + Received:
+packages/rpgmaker-event-dsl test: [
+packages/rpgmaker-event-dsl test:   {
+packages/rpgmaker-event-dsl test:     "actual": "null",
+packages/rpgmaker-event-dsl test:     "code": "MV-COMMAND-ENVELOPE",
+packages/rpgmaker-event-dsl test:     "dslPath": "commands[0].parameters",
+packages/rpgmaker-event-dsl test:     "expected": "dense parameter array",
+packages/rpgmaker-event-dsl test:     "identity": "commonEvent:1",
+packages/rpgmaker-event-dsl test:     "level": "error",
+packages/rpgmaker-event-dsl test:     "message": "compile error commonEvent:1: MV-COMMAND-ENVELOPE: parameters must be an array and cannot be missing. (commands[0].parameters); expected dense parameter array; actual null",
+packages/rpgmaker-event-dsl test:     "stage": "compile",
+packages/rpgmaker-event-dsl test:   },
+packages/rpgmaker-event-dsl test: ]
+packages/rpgmaker-event-dsl test:  ❯ test/loop.test.ts:83:82
+packages/rpgmaker-event-dsl test:      81|     commands: [{ kind: "rawDslCommand", code: 113, ...input } as never…
+packages/rpgmaker-event-dsl test:      82|   });
+packages/rpgmaker-event-dsl test:      83|   expect(validateDslOwnedDeclarations([event], { scriptEnabled: false …
+packages/rpgmaker-event-dsl test:        |                                                                                  ^
+packages/rpgmaker-event-dsl test:      84|     expect.objectContaining({ code: "MV-COMMAND-ENVELOPE", dslPath: "c…
+packages/rpgmaker-event-dsl test:      85|   );
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/loop.test.ts > rejects malformed known raw envelopes without coercion before Check or Compile
+packages/rpgmaker-event-dsl test: AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+packages/rpgmaker-event-dsl test: - Expected:
+packages/rpgmaker-event-dsl test: ObjectContaining {
+packages/rpgmaker-event-dsl test:   "code": "MV-COMMAND-ENVELOPE",
+packages/rpgmaker-event-dsl test:   "dslPath": "commands[0]",
+packages/rpgmaker-event-dsl test: }
+packages/rpgmaker-event-dsl test: + Received:
+packages/rpgmaker-event-dsl test: [
+packages/rpgmaker-event-dsl test:   {
+packages/rpgmaker-event-dsl test:     "actual": "\"\"",
+packages/rpgmaker-event-dsl test:     "code": "MV-COMMAND-ENVELOPE",
+packages/rpgmaker-event-dsl test:     "dslPath": "commands[0].parameters",
+packages/rpgmaker-event-dsl test:     "expected": "dense parameter array",
+packages/rpgmaker-event-dsl test:     "identity": "commonEvent:1",
+packages/rpgmaker-event-dsl test:     "level": "error",
+packages/rpgmaker-event-dsl test:     "message": "compile error commonEvent:1: MV-COMMAND-ENVELOPE: parameters must be an array and cannot be missing. (commands[0].parameters); expected dense parameter array; actual \"\"",
+packages/rpgmaker-event-dsl test:     "stage": "compile",
+packages/rpgmaker-event-dsl test:   },
+packages/rpgmaker-event-dsl test: ]
+packages/rpgmaker-event-dsl test:  ❯ test/loop.test.ts:83:82
+packages/rpgmaker-event-dsl test:      81|     commands: [{ kind: "rawDslCommand", code: 113, ...input } as never…
+packages/rpgmaker-event-dsl test:      82|   });
+packages/rpgmaker-event-dsl test:      83|   expect(validateDslOwnedDeclarations([event], { scriptEnabled: false …
+packages/rpgmaker-event-dsl test:        |                                                                                  ^
+packages/rpgmaker-event-dsl test:      84|     expect.objectContaining({ code: "MV-COMMAND-ENVELOPE", dslPath: "c…
+packages/rpgmaker-event-dsl test:      85|   );
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/loop.test.ts > rejects malformed known raw envelopes without coercion before Check or Compile
+packages/rpgmaker-event-dsl test: AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+packages/rpgmaker-event-dsl test: - Expected:
+packages/rpgmaker-event-dsl test: ObjectContaining {
+packages/rpgmaker-event-dsl test:   "code": "MV-COMMAND-ENVELOPE",
+packages/rpgmaker-event-dsl test:   "dslPath": "commands[0]",
+packages/rpgmaker-event-dsl test: }
+packages/rpgmaker-event-dsl test: + Received:
+packages/rpgmaker-event-dsl test: [
+packages/rpgmaker-event-dsl test:   {
+packages/rpgmaker-event-dsl test:     "actual": "null",
+packages/rpgmaker-event-dsl test:     "code": "MV-COMMAND-ENVELOPE",
+packages/rpgmaker-event-dsl test:     "dslPath": "commands[0].indent",
+packages/rpgmaker-event-dsl test:     "expected": "nonnegative safe integer, excluding negative zero",
+packages/rpgmaker-event-dsl test:     "identity": "commonEvent:1",
+packages/rpgmaker-event-dsl test:     "level": "error",
+packages/rpgmaker-event-dsl test:     "message": "compile error commonEvent:1: MV-COMMAND-ENVELOPE: indent must be a nonnegative safe integer. (commands[0].indent); expected nonnegative safe integer, excluding negative zero; actual null",
+packages/rpgmaker-event-dsl test:     "stage": "compile",
+packages/rpgmaker-event-dsl test:   },
+packages/rpgmaker-event-dsl test: ]
+packages/rpgmaker-event-dsl test:  ❯ test/loop.test.ts:83:82
+packages/rpgmaker-event-dsl test:      81|     commands: [{ kind: "rawDslCommand", code: 113, ...input } as never…
+packages/rpgmaker-event-dsl test:      82|   });
+packages/rpgmaker-event-dsl test:      83|   expect(validateDslOwnedDeclarations([event], { scriptEnabled: false …
+packages/rpgmaker-event-dsl test:        |                                                                                  ^
+packages/rpgmaker-event-dsl test:      84|     expect.objectContaining({ code: "MV-COMMAND-ENVELOPE", dslPath: "c…
+packages/rpgmaker-event-dsl test:      85|   );
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/loop.test.ts > rejects malformed known raw envelopes without coercion before Check or Compile
+packages/rpgmaker-event-dsl test: AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+packages/rpgmaker-event-dsl test: - Expected:
+packages/rpgmaker-event-dsl test: ObjectContaining {
+packages/rpgmaker-event-dsl test:   "code": "MV-COMMAND-ENVELOPE",
+packages/rpgmaker-event-dsl test:   "dslPath": "commands[0]",
+packages/rpgmaker-event-dsl test: }
+packages/rpgmaker-event-dsl test: + Received:
+packages/rpgmaker-event-dsl test: [
+packages/rpgmaker-event-dsl test:   {
+packages/rpgmaker-event-dsl test:     "actual": "-1",
+packages/rpgmaker-event-dsl test:     "code": "MV-COMMAND-ENVELOPE",
+packages/rpgmaker-event-dsl test:     "dslPath": "commands[0].indent",
+packages/rpgmaker-event-dsl test:     "expected": "nonnegative safe integer, excluding negative zero",
+packages/rpgmaker-event-dsl test:     "identity": "commonEvent:1",
+packages/rpgmaker-event-dsl test:     "level": "error",
+packages/rpgmaker-event-dsl test:     "message": "compile error commonEvent:1: MV-COMMAND-ENVELOPE: indent must be a nonnegative safe integer. (commands[0].indent); expected nonnegative safe integer, excluding negative zero; actual -1",
+packages/rpgmaker-event-dsl test:     "stage": "compile",
+packages/rpgmaker-event-dsl test:   },
+packages/rpgmaker-event-dsl test: ]
+packages/rpgmaker-event-dsl test:  ❯ test/loop.test.ts:83:82
+packages/rpgmaker-event-dsl test:      81|     commands: [{ kind: "rawDslCommand", code: 113, ...input } as never…
+packages/rpgmaker-event-dsl test:      82|   });
+packages/rpgmaker-event-dsl test:      83|   expect(validateDslOwnedDeclarations([event], { scriptEnabled: false …
+packages/rpgmaker-event-dsl test:        |                                                                                  ^
+packages/rpgmaker-event-dsl test:      84|     expect.objectContaining({ code: "MV-COMMAND-ENVELOPE", dslPath: "c…
+packages/rpgmaker-event-dsl test:      85|   );
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/8]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/loop.test.ts > rejects 'extra known parameter' in known raw output and native decompilation with an exact location
+packages/rpgmaker-event-dsl test: AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+packages/rpgmaker-event-dsl test: - Expected:
+packages/rpgmaker-event-dsl test: ObjectContaining {
+packages/rpgmaker-event-dsl test:   "dslPath": "commands[0]",
+packages/rpgmaker-event-dsl test:   "identity": "commonEvent:1",
+packages/rpgmaker-event-dsl test:   "level": "error",
+packages/rpgmaker-event-dsl test: }
+packages/rpgmaker-event-dsl test: + Received:
+packages/rpgmaker-event-dsl test: [
+packages/rpgmaker-event-dsl test:   {
+packages/rpgmaker-event-dsl test:     "actual": "[1]",
+packages/rpgmaker-event-dsl test:     "code": "MV-COMMAND-PARAMETERS",
+packages/rpgmaker-event-dsl test:     "dslPath": "commands[0].parameters",
+packages/rpgmaker-event-dsl test:     "expected": "E113 saved slots []",
+packages/rpgmaker-event-dsl test:     "identity": "commonEvent:1",
+packages/rpgmaker-event-dsl test:     "level": "error",
+packages/rpgmaker-event-dsl test:     "message": "compile error commonEvent:1: MV-COMMAND-PARAMETERS: Known command parameters do not match their native contract. (commands[0].parameters); expected E113 saved slots []; actual [1]",
+packages/rpgmaker-event-dsl test:     "stage": "compile",
+packages/rpgmaker-event-dsl test:   },
+packages/rpgmaker-event-dsl test: ]
+packages/rpgmaker-event-dsl test:  ❯ test/loop.test.ts:306:84
+packages/rpgmaker-event-dsl test:     304|     });
+packages/rpgmaker-event-dsl test:     305|     expect(() => compileCommonEvent(event, { nextId: 1, resolver })).t…
+packages/rpgmaker-event-dsl test:     306|     expect(validateDslOwnedDeclarations([event], { scriptEnabled: fals…
+packages/rpgmaker-event-dsl test:        |                                                                                    ^
+packages/rpgmaker-event-dsl test:     307|       expect.objectContaining({
+packages/rpgmaker-event-dsl test:     308|         level: "error",
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/8]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/movement-route.test.ts > rejects extra array keys in recognized raw movement parameters before compilation can copy the array
+packages/rpgmaker-event-dsl test: AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+packages/rpgmaker-event-dsl test: - Expected:
+packages/rpgmaker-event-dsl test: ObjectContaining {
+packages/rpgmaker-event-dsl test:   "code": "MV-STRICT-JSON",
+packages/rpgmaker-event-dsl test:   "dslPath": "commands[1]",
+packages/rpgmaker-event-dsl test: }
+packages/rpgmaker-event-dsl test: + Received:
+packages/rpgmaker-event-dsl test: [
+packages/rpgmaker-event-dsl test:   {
+packages/rpgmaker-event-dsl test:     "actual": "array with extra properties",
+packages/rpgmaker-event-dsl test:     "code": "MV-STRICT-JSON",
+packages/rpgmaker-event-dsl test:     "dslPath": "commands[1].parameters",
+packages/rpgmaker-event-dsl test:     "expected": "strict representable JSON",
+packages/rpgmaker-event-dsl test:     "identity": "commonEvent:1",
+packages/rpgmaker-event-dsl test:     "level": "error",
+packages/rpgmaker-event-dsl test:     "message": "compile error commonEvent:1: MV-STRICT-JSON: Expected strict representable JSON; received array with extra properties at list[0].parameters. (commands[1].parameters); expected strict representable JSON; actual array with extra properties",
+packages/rpgmaker-event-dsl test:     "stage": "compile",
+packages/rpgmaker-event-dsl test:   },
+packages/rpgmaker-event-dsl test: ]
+packages/rpgmaker-event-dsl test:  ❯ test/movement-route.test.ts:169:82
+packages/rpgmaker-event-dsl test:     167|     ],
+packages/rpgmaker-event-dsl test:     168|   });
+packages/rpgmaker-event-dsl test:     169|   expect(validateDslOwnedDeclarations([event], { scriptEnabled: false …
+packages/rpgmaker-event-dsl test:        |                                                                                  ^
+packages/rpgmaker-event-dsl test:     170|     expect.objectContaining({ code: "MV-STRICT-JSON", dslPath: "comman…
+packages/rpgmaker-event-dsl test:     171|   );
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/8]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/mv-evidence.test.ts > validates the evidence index, source references, fixture hashes, test links, and recorded runs
+packages/rpgmaker-event-dsl test: Error: Test timed out in 10000ms.
+packages/rpgmaker-event-dsl test: If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+packages/rpgmaker-event-dsl test:  ❯ test/mv-evidence.test.ts:17:1
+packages/rpgmaker-event-dsl test:      15| import { recordEvidence, validateRequirements } from "./support/mv-evi…
+packages/rpgmaker-event-dsl test:      16|
+packages/rpgmaker-event-dsl test:      17| it("validates the evidence index, source references, fixture hashes, t…
+packages/rpgmaker-event-dsl test:        | ^
+packages/rpgmaker-event-dsl test:      18|   await validateRequirements();
+packages/rpgmaker-event-dsl test:      19| });
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/8]⎯
+packages/rpgmaker-event-dsl test:  Test Files  3 failed | 39 passed (42)
+packages/rpgmaker-event-dsl test:       Tests  8 failed | 1061 passed (1069)
+packages/rpgmaker-event-dsl test:    Start at  04:33:18
+packages/rpgmaker-event-dsl test:    Duration  391.00s (transform 1.36s, setup 0ms, import 15.63s, tests 759.86s, environment 3ms)
+packages/rpgmaker-event-dsl test: Failed
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-26-final\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run`
+Exit status 1
+ ELIFECYCLE  Test failed. See above for more details.
+ ELIFECYCLE  Command failed with exit code 1.

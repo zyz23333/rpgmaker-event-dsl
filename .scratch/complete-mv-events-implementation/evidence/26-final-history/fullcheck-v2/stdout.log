@@ -1,0 +1,50 @@
+
+> rpgmaker-event-dsl-workspace@0.0.0 check M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-26-final
+> pnpm typecheck && pnpm lint && pnpm format:check && pnpm test
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 typecheck M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-26-final
+> pnpm -r typecheck
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl typecheck$ tsc -p tsconfig.json --noEmit
+packages/rpgmaker-event-dsl typecheck: Done
+
+> rpgmaker-event-dsl-workspace@0.0.0 lint M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-26-final
+> oxlint .
+
+.scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/map24-resource-revalidation-derived-v1.cjs:3:7: warning eslint(no-unused-vars): Variable 'repo' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/23-history/mv23-register-native-v1.cjs:1:107: warning eslint(no-unused-vars): Variable 'cp' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-audit-v1.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/profile-index-instrumented-08b1be0a-7d85-4f4c-8ca1-0bb3bc4b779c.mts:7:10: warning eslint(no-unused-vars): Identifier 'fileURLToPath' is imported but never used. help: Consider removing this import.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-physical-delivery-v4.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-physical-delivery-v3.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/23-history/mv23-delivery-preflight-v1.cjs:1:29: warning eslint(no-unused-vars): Variable 'fsp' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/map24-index-ordered-prefetch-audit-v1.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/native-audit-v1.cjs:2:85: warning eslint(no-unused-vars): Variable 'cp' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/native-audit-v1.cjs:34:87: warning eslint(no-unused-vars): Parameter 'frame' is declared but never used. Unused parameters should start with a '_'. help: Consider removing this parameter.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-metadata-check-record-v1.cjs:2:94: warning eslint(no-unused-vars): Variable 'assert' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-audit-v2.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-archive-delivery-v1.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/22-history/original-held-reproduction.cjs:89:61: warning eslint(no-unused-expressions): Expected expression to be used help: Consider using this expression or removing it
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-archive-delivery-v2.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+
+> rpgmaker-event-dsl-workspace@0.0.0 format:check M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-26-final
+> oxfmt --ignore-path .oxfmtignore --check package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rpgmaker-event-dsl
+
+Checking formatting...
+
+All matched files use the correct format.
+Finished in 400ms on 187 files using 20 threads.
+
+> rpgmaker-event-dsl-workspace@0.0.0 test M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-26-final
+> pnpm -r test
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl test$ vitest run
+packages/rpgmaker-event-dsl test:  RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-26-final/packages/rpgmaker-event-dsl
+packages/rpgmaker-event-dsl test:  Test Files  42 passed (42)
+packages/rpgmaker-event-dsl test:       Tests  1069 passed (1069)
+packages/rpgmaker-event-dsl test:    Start at  04:41:44
+packages/rpgmaker-event-dsl test:    Duration  387.59s (transform 1.33s, setup 0ms, import 15.19s, tests 753.61s, environment 3ms)
+packages/rpgmaker-event-dsl test: Done
