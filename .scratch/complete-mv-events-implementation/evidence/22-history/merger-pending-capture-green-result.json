@@ -1,0 +1,17 @@
+{
+  "root": "C:/Users/Shuen/.codex/tmp/mv22-merger-pending-capture-35fc7589-9ddc-4d5a-ae00-5186d27793fe",
+  "node": "v22.23.0",
+  "packageRoot": "C:/Users/Shuen/.codex/worktrees/mv-ticket-22/rpgmaker-event-dsl/packages/rpgmaker-event-dsl",
+  "injected": true,
+  "reads": 2,
+  "actual": {
+    "ok": false,
+    "message": "Interrupted Push recovery metadata changed before publication. Recovery stopped without changes to the Project Root."
+  },
+  "pendingAfter": {
+    "version": 999,
+    "sha256": "13daef82fff86d3643da6d5110573fcfe429406a58ef189c069c29ddde346e09"
+  },
+  "snapshotEqualsGenerated": false,
+  "expected": "Reject observed pending replacement with unknown version999, preserve authoritative pending evidence and original synchronization metadata."
+}

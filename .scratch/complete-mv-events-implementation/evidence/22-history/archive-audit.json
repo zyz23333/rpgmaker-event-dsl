@@ -1,0 +1,1348 @@
+{
+  "base": "a64dc2e0fc8b79ff3ddd45ce214fd2ded08b6bf6",
+  "source": {
+    "count": 39,
+    "fingerprints": [
+      "1dd5fde470e43d1b3bad524866212d8b1f28e7c8d19ae7c94c40c268ca12a055"
+    ],
+    "revisions": [
+      "7b2e70235a7e315801aebd9c98f1bfcfb8847ef1"
+    ],
+    "first": "2026-10-19T13:22:07.724Z",
+    "last": "2026-10-19T13:23:42.233Z"
+  },
+  "built": {
+    "count": 39,
+    "fingerprints": [
+      "670be9e1214e92a78e950d13f16834a5f5703e959deccfb157c9dcb8d22191c4"
+    ],
+    "revisions": [
+      "65fa6c200f7b354228a253e2d4d3e219430d7abf"
+    ],
+    "first": "2026-10-19T13:24:21.346Z",
+    "last": "2026-10-19T13:25:52.163Z"
+  },
+  "supersededPassesPreserved": 76,
+  "historicalFailures": 16,
+  "originalRequirementsUnchanged": 191,
+  "addedRequirements": 19,
+  "originalResultBlobsUnchanged": 429,
+  "artifacts": [
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/authoring-8T4079tW.mjs",
+      "sha256": "86d30f81a4c85b0c53fd138bfc8f4048821f2c164420597f1ebf48ec2338086c"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/authoring-8T4079tW.mjs.map",
+      "sha256": "fbbcaa09d7df019bf96e803a1e544e2fea3a37f5be3c719ee6f938fd20ad711b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/cli.d.mts",
+      "sha256": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/cli.d.mts.map",
+      "sha256": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/cli.mjs",
+      "sha256": "803a82926e467b15a88fa0c5c1ecf2df2f0ba4af4193d42f32084601fde956a8"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/cli.mjs.map",
+      "sha256": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/index.d.mts",
+      "sha256": "660c84908a22adf310c650697b8045b4b094dcaf082ebe81269287a14ccd3823"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/index.d.mts.map",
+      "sha256": "dff7697372861248a7d097d20cb1656a8b7421f711caf2305901df53661f0cdb"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/index.mjs",
+      "sha256": "3b1a351ed77ea897b696389f80c40fd7093d53ea88ddf91069df3911102113e7"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/index.mjs.map",
+      "sha256": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/operations-CszINqUu.mjs",
+      "sha256": "691a76e4cfc4a27d3aa85d9db2776b8e1110dcf0a28ff2f37c7063339acd3a0f"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/operations-CszINqUu.mjs.map",
+      "sha256": "620b9cd0f3a6d989c632377b650760b3994aebd1ca377edfafc052551f1b43d8"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/workspace-api.d.mts",
+      "sha256": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/workspace-api.d.mts.map",
+      "sha256": "5c00024325238da7b6368529ed69e33839a8a4f0baeed1eb2e79f65c877ebbe8"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/workspace-api.mjs",
+      "sha256": "23128fc7ea7487020e3679953d920f48fbc8e8dea87c8aa861716ba675205377"
+    }
+  ],
+  "copies": [
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-001-2026-10-19T13-22-14-451Z-18cbf210-2403-4602-b255-55b2008d4430.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-001-2026-10-19T13-22-14-451Z-18cbf210-2403-4602-b255-55b2008d4430.json",
+      "bytes": 918556,
+      "sha256": "8b23ad230bf1f3bb43b75163ac4ee73ac821ea762867b5fb05a773e0fcc103a4"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-002-2026-10-19T13-23-35-106Z-cc5344d7-2fe2-47fb-a7ae-7ee5753a1927.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-002-2026-10-19T13-23-35-106Z-cc5344d7-2fe2-47fb-a7ae-7ee5753a1927.json",
+      "bytes": 695464,
+      "sha256": "d644c3c237cb3120ed4237195387e18a5fb0809a9c333234316caa36bf325710"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-003-2026-10-19T13-23-37-121Z-4283cc61-24a8-42c7-a437-3d69e949cb84.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-003-2026-10-19T13-23-37-121Z-4283cc61-24a8-42c7-a437-3d69e949cb84.json",
+      "bytes": 99856,
+      "sha256": "fb33ec26c4f475b7c5a45a08b866b7b72a91e33837ddde7163aea9c85eba709a"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-004-2026-10-19T13-22-51-862Z-c91ecc03-4e98-4080-883c-c09d80a3dd41.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T13-22-51-862Z-c91ecc03-4e98-4080-883c-c09d80a3dd41.json",
+      "bytes": 693657,
+      "sha256": "d5f8325e16c17bd03a5ef45311d11fe2fbf77b7ba09d7d42f7cf3c9b3e3a4d53"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-004-2026-10-19T13-22-53-747Z-b22d4ec4-38af-4318-858a-548a59187fb3.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T13-22-53-747Z-b22d4ec4-38af-4318-858a-548a59187fb3.json",
+      "bytes": 694499,
+      "sha256": "519eeab396598d17a8addfe037635acf19cacc9753fe149c392a0fd0e4a32992"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-004-2026-10-19T13-22-55-623Z-ca1356ab-9186-4334-b5d4-84d94ca3a4ce.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T13-22-55-623Z-ca1356ab-9186-4334-b5d4-84d94ca3a4ce.json",
+      "bytes": 694607,
+      "sha256": "14497671a981969e9cdde5f60f9de685692de4785b01d10306e5b8295317fb88"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-005-2026-10-19T13-22-57-518Z-041ee874-5cc4-4a19-a872-a1a2db7f5597.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-22-57-518Z-041ee874-5cc4-4a19-a872-a1a2db7f5597.json",
+      "bytes": 693729,
+      "sha256": "ff95c1ed0dbefb4e387aaa70f0def64de0851aea0880722d929e3178ef47ee56"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-005-2026-10-19T13-22-59-536Z-3f92ccbf-c3b9-414b-89c0-6d4b6cc9f316.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-22-59-536Z-3f92ccbf-c3b9-414b-89c0-6d4b6cc9f316.json",
+      "bytes": 694384,
+      "sha256": "1344d1870197b435af254d4451dd090a240af0b0213d33aee5a175a4da53536d"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-005-2026-10-19T13-23-01-406Z-999a7e42-c043-44b6-8a92-edccb0e5ca5d.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-23-01-406Z-999a7e42-c043-44b6-8a92-edccb0e5ca5d.json",
+      "bytes": 693517,
+      "sha256": "25da60f63d398c3bf3868a5f049ea0669fa7e72efe5764a8623b0ae50470ad52"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-005-2026-10-19T13-23-03-304Z-c06ff416-fad5-4525-a85a-74231459d307.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-23-03-304Z-c06ff416-fad5-4525-a85a-74231459d307.json",
+      "bytes": 693676,
+      "sha256": "876db58a7bd51194b4b3141911534434bacdc4a536e08389831ca6e1425c4b06"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-005-2026-10-19T13-23-05-259Z-cf46a8d9-3a3f-4d71-9bd6-ba1cc26e407d.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-23-05-259Z-cf46a8d9-3a3f-4d71-9bd6-ba1cc26e407d.json",
+      "bytes": 693486,
+      "sha256": "26974b67a1690fbb46ada324eb23ec747aaaf910a9bbc0087a7f2ac6505bb6f9"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-005-2026-10-19T13-23-07-162Z-e3c973be-1831-4dd6-b9d2-350c9dbc3582.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-23-07-162Z-e3c973be-1831-4dd6-b9d2-350c9dbc3582.json",
+      "bytes": 693737,
+      "sha256": "5902ab4b0641356e95d514f3ea32555481de7d27449c9e9b183dab94447dde9f"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-005-2026-10-19T13-23-08-983Z-42ec8879-96cf-4ff6-b5e7-8278f40d4eb5.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-23-08-983Z-42ec8879-96cf-4ff6-b5e7-8278f40d4eb5.json",
+      "bytes": 80042,
+      "sha256": "f6237311ef6937648305eba2b299410e01635cc8f052f7bba5d3efcaf207ee8d"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-006-2026-10-19T13-23-10-857Z-d39af86d-4796-45f5-9268-8f00367dd98a.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T13-23-10-857Z-d39af86d-4796-45f5-9268-8f00367dd98a.json",
+      "bytes": 692705,
+      "sha256": "7b56be8e434e6404af20aad2376a61a0a9ada11c9963064767b0f64e2d843dcb"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-006-2026-10-19T13-23-12-788Z-784c7431-0537-41d4-9228-c3bcc1733a47.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T13-23-12-788Z-784c7431-0537-41d4-9228-c3bcc1733a47.json",
+      "bytes": 690845,
+      "sha256": "ecce057324e4277d36df02ef2189b7c9d92bfe97b2994c0a906c6bef081b9028"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-006-2026-10-19T13-23-14-745Z-d8cb6c70-6044-477d-81bf-707e5c590593.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T13-23-14-745Z-d8cb6c70-6044-477d-81bf-707e5c590593.json",
+      "bytes": 690924,
+      "sha256": "7ca13b1284a626cdd1f54f0d35badac47bcd1a76e05e57db7e77c9bfefa542f1"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-006-2026-10-19T13-23-16-724Z-24bc8d36-bc18-43c1-bdc9-0ca4cba6bf6d.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T13-23-16-724Z-24bc8d36-bc18-43c1-bdc9-0ca4cba6bf6d.json",
+      "bytes": 693784,
+      "sha256": "1a87bdfa44ff78faedd30780792857d6a54948e7857bbfd35486b52e0e036be2"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-007-2026-10-19T13-23-21-626Z-d63837c1-3273-45e2-a57f-c03001b0454f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-007-2026-10-19T13-23-21-626Z-d63837c1-3273-45e2-a57f-c03001b0454f.json",
+      "bytes": 473205,
+      "sha256": "de307959f9d42efd7d9e087f3ffdf7952ed511b586ddeeedd80e022e6b0cbda8"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-008-2026-10-19T13-22-18-836Z-a6a48045-38fe-4d86-8b5b-acc1b8dfbda1.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-008-2026-10-19T13-22-18-836Z-a6a48045-38fe-4d86-8b5b-acc1b8dfbda1.json",
+      "bytes": 1815169,
+      "sha256": "ed8887f4d9e7606535e57a19b90f83e80d5ab6b14143fbf08cf37a89be466337"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-009-2026-10-19T13-22-20-762Z-d0d3aaec-8c1d-4879-9512-7fb84f6358ae.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-009-2026-10-19T13-22-20-762Z-d0d3aaec-8c1d-4879-9512-7fb84f6358ae.json",
+      "bytes": 471526,
+      "sha256": "a733964dfe87fc28f0d39053609eb243bed31e2d9f84421bea444665dc83fc86"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-010-2026-10-19T13-22-23-534Z-61c0b6f7-c559-4a25-b5d3-3f51a76a7984.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T13-22-23-534Z-61c0b6f7-c559-4a25-b5d3-3f51a76a7984.json",
+      "bytes": 696058,
+      "sha256": "d88d39ee276572bb39183c85e35597958904cc723a489141014c845a4bb5a7c7"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-010-2026-10-19T13-22-26-178Z-3bfc2874-b27d-45f2-bd7d-bb9994c369e6.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T13-22-26-178Z-3bfc2874-b27d-45f2-bd7d-bb9994c369e6.json",
+      "bytes": 694936,
+      "sha256": "117184b87f08afb0b7296c8d824c6172bb894b013a28c60e26e88174c71d47ca"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-010-2026-10-19T13-22-28-907Z-746b1b3c-5ff6-40de-a480-e099fe8c8f6e.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T13-22-28-907Z-746b1b3c-5ff6-40de-a480-e099fe8c8f6e.json",
+      "bytes": 694937,
+      "sha256": "3b3cd63aef2e83d916fae6c99aff8546199bfacfb4da47aa1f96d9ab64c6412c"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-011-2026-10-19T13-22-31-673Z-ccf4d376-1a32-435c-8b10-f8258b00b181.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-22-31-673Z-ccf4d376-1a32-435c-8b10-f8258b00b181.json",
+      "bytes": 695707,
+      "sha256": "8661e582b3f53d353825c40f935d28943f3971658d54de40fe87643fa5bc1dfa"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-011-2026-10-19T13-22-34-341Z-86d37f5c-53bd-4ad5-bda4-60e1a6b5e30e.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-22-34-341Z-86d37f5c-53bd-4ad5-bda4-60e1a6b5e30e.json",
+      "bytes": 695834,
+      "sha256": "6ec5eaefad9bcca37b149e7b66e0accebc4be8448b1d02eb3119e4583d3ca199"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-011-2026-10-19T13-22-37-032Z-a1bfc047-d057-4df5-beb5-d2609be454df.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-22-37-032Z-a1bfc047-d057-4df5-beb5-d2609be454df.json",
+      "bytes": 695841,
+      "sha256": "59c9a3b2829b2c4ff9b22272414e51a8a3fae3bfdc632449cf58a041354a9c44"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-011-2026-10-19T13-22-40-058Z-b899db16-cfe5-4f0b-a795-da5782004287.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-22-40-058Z-b899db16-cfe5-4f0b-a795-da5782004287.json",
+      "bytes": 695938,
+      "sha256": "d335582b0c94c86a7b003bcdb82967d1825e01bb16600cc24144e53956b8bcfe"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-011-2026-10-19T13-22-42-739Z-a79a5faf-203f-493e-aec9-a611bb39b83e.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-22-42-739Z-a79a5faf-203f-493e-aec9-a611bb39b83e.json",
+      "bytes": 918777,
+      "sha256": "574a99fa717fc8c37ff389cb110f71281dd3d7617771eb9c0f71e4b222f480d9"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-012-2026-10-19T13-22-45-503Z-2dfb91aa-4cb9-46c9-bb70-11b064230dd9.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-012-2026-10-19T13-22-45-503Z-2dfb91aa-4cb9-46c9-bb70-11b064230dd9.json",
+      "bytes": 472469,
+      "sha256": "310cf0cada121e480aa4da187b5704008ec8061ddac2560b60ca712721f532b7"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-013-2026-10-19T13-22-49-905Z-6c992ff0-faaf-453c-9a45-2c58853e4563.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-013-2026-10-19T13-22-49-905Z-6c992ff0-faaf-453c-9a45-2c58853e4563.json",
+      "bytes": 702481,
+      "sha256": "6beb0c7859cb88ff6ecd051c83618ce4818f4cbd6267caa93d741f76fd339fef"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-014-2026-10-19T13-23-18-663Z-c96a522e-a1fb-49e6-90b7-e348e66003bc.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-014-2026-10-19T13-23-18-663Z-c96a522e-a1fb-49e6-90b7-e348e66003bc.json",
+      "bytes": 830838,
+      "sha256": "2fef0ba3b65e16d9729066d52807460519cc97988c4a2f8b75eb092faf5ec336"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-015-2026-10-19T13-22-11-452Z-ac7a24f2-a74a-4133-b95a-1230fa74c7f6.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-015-2026-10-19T13-22-11-452Z-ac7a24f2-a74a-4133-b95a-1230fa74c7f6.json",
+      "bytes": 1801889,
+      "sha256": "ee95e2fa60854dbb68be81a95cc861374d3a3bd44df307defb69fb258f446744"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-016-2026-10-19T13-23-24-447Z-0f2e9241-6816-44fc-9fc0-267f19728d25.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-016-2026-10-19T13-23-24-447Z-0f2e9241-6816-44fc-9fc0-267f19728d25.json",
+      "bytes": 693941,
+      "sha256": "089c1154489c77a7b922cb1b038c444bedf0c75e0643899b43a6ef8f69bcad1f"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-016-2026-10-19T13-23-27-368Z-fcdd689d-eb56-43b1-9239-7cd2d024ea1a.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-016-2026-10-19T13-23-27-368Z-fcdd689d-eb56-43b1-9239-7cd2d024ea1a.json",
+      "bytes": 694038,
+      "sha256": "7a00f57fcd2e80148681065c1533f50c80182ce22fa6343cb2cb8275f9eca357"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-016-2026-10-19T13-23-30-146Z-88ad6627-b919-490b-94e3-250b0f85083f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-016-2026-10-19T13-23-30-146Z-88ad6627-b919-490b-94e3-250b0f85083f.json",
+      "bytes": 916877,
+      "sha256": "f5632aa3e8998ebaf62c1d53d69142cdd60000cc42507630f6ef1702773e8905"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-017-2026-10-19T13-23-32-359Z-18ac7e10-0d3e-4d2c-be79-1a8df5b5fa4f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-017-2026-10-19T13-23-32-359Z-18ac7e10-0d3e-4d2c-be79-1a8df5b5fa4f.json",
+      "bytes": 694429,
+      "sha256": "20436a1310849475537373c7ce1374d300846fa4c88040099f2f8090eb62eff8"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-018-2026-10-19T13-23-39-631Z-c9bd4bb3-81c4-4044-90f7-be1a25c13263.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-018-2026-10-19T13-23-39-631Z-c9bd4bb3-81c4-4044-90f7-be1a25c13263.json",
+      "bytes": 914782,
+      "sha256": "182e245b0b01897d514ac1e52cdfd383584d5bdb71b29ee4b1a3392946466655"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-018-2026-10-19T13-23-42-233Z-597a7147-8dbb-4c53-bab8-464a81955385.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-018-2026-10-19T13-23-42-233Z-597a7147-8dbb-4c53-bab8-464a81955385.json",
+      "bytes": 914770,
+      "sha256": "91619841077a60cb955b35b34454f90ef978861ecebc05bf0fc50ad56bb8ceee"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-source-records\\MV-S4-RECOVERY-019-2026-10-19T13-22-10-130Z-d809ac21-8296-4bcb-84a2-e7eb04b6f3ef.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-019-2026-10-19T13-22-10-130Z-d809ac21-8296-4bcb-84a2-e7eb04b6f3ef.json",
+      "bytes": 833731,
+      "sha256": "b42cc1b20d408501efcfaf36016bf7f908e45da8cc5816d7a250c86093038db2"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-001-2026-10-19T13-24-27-256Z-60a536f9-ce48-46af-9eaa-a4e5d385553f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-001-2026-10-19T13-24-27-256Z-60a536f9-ce48-46af-9eaa-a4e5d385553f.json",
+      "bytes": 657968,
+      "sha256": "45709b7d754c22ba5ecf2147b63c60b48fe90f36d70e27c391f7658ceb730871"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-002-2026-10-19T13-25-45-591Z-966361c4-4f9f-41b3-b585-0cf9c6eeb10f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-002-2026-10-19T13-25-45-591Z-966361c4-4f9f-41b3-b585-0cf9c6eeb10f.json",
+      "bytes": 500119,
+      "sha256": "1ff889adac5811cd36442c6721c448dce7b46c03f62fd3ccb5e45f7b995061db"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-003-2026-10-19T13-25-47-316Z-0ad7d390-c7b5-438f-9c2b-0bc6f38b67c2.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-003-2026-10-19T13-25-47-316Z-0ad7d390-c7b5-438f-9c2b-0bc6f38b67c2.json",
+      "bytes": 102428,
+      "sha256": "fb2d7a62232064571564861d01a2584a2a9a9a4bfe217250dcd53c4a6a93da00"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-004-2026-10-19T13-25-03-205Z-590da20b-d706-46a8-9c64-c68c05029908.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T13-25-03-205Z-590da20b-d706-46a8-9c64-c68c05029908.json",
+      "bytes": 498311,
+      "sha256": "a188eb452e30877a2062a6e49200970f075057859f58b0921151528051700015"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-004-2026-10-19T13-25-05-067Z-29265a08-91d0-40f3-8c05-6e592df24e13.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T13-25-05-067Z-29265a08-91d0-40f3-8c05-6e592df24e13.json",
+      "bytes": 499153,
+      "sha256": "fdc23b6493b4417a0256a37623432c99607b2ba00903aab5a73bdf36587cb921"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-004-2026-10-19T13-25-06-864Z-e5229a2d-7f9d-4e5a-aac6-eb6e05aedec5.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T13-25-06-864Z-e5229a2d-7f9d-4e5a-aac6-eb6e05aedec5.json",
+      "bytes": 499261,
+      "sha256": "0aca967cd021858923b5e4abe3096dda3aebe282ea3018dcc6bef092ca2b43f9"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-005-2026-10-19T13-25-08-793Z-80294fb3-0110-41d7-9ac3-df684d34103c.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-25-08-793Z-80294fb3-0110-41d7-9ac3-df684d34103c.json",
+      "bytes": 498383,
+      "sha256": "86dc0da22150ed926763abee5cd6b0dcbabe8c446bb91348e39a7201597f0b0e"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-005-2026-10-19T13-25-10-857Z-e3f6f513-3ae6-4cf9-9b5a-e6f31d7d70a1.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-25-10-857Z-e3f6f513-3ae6-4cf9-9b5a-e6f31d7d70a1.json",
+      "bytes": 499038,
+      "sha256": "1ef8e46814b9e093aca04b387474d1be3f7798a210113847b974cee3922c8d01"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-005-2026-10-19T13-25-13-011Z-c5a0dd2e-97e7-46b2-a135-56c38cfe03fb.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-25-13-011Z-c5a0dd2e-97e7-46b2-a135-56c38cfe03fb.json",
+      "bytes": 498171,
+      "sha256": "8f0eb17872fd5d7581840bb97e5af9d23c22c0b05e1aac1072e4c4d2336ae1f5"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-005-2026-10-19T13-25-14-747Z-130d6d2a-a4b0-4aa1-b0ac-62e6af2c5be2.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-25-14-747Z-130d6d2a-a4b0-4aa1-b0ac-62e6af2c5be2.json",
+      "bytes": 498330,
+      "sha256": "352fea975defa9529b818907ebb31ad43ae74cebcd1b3995d88d14c594a56764"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-005-2026-10-19T13-25-16-483Z-dc748fdc-a803-4183-9a40-7fe9efbfeb18.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-25-16-483Z-dc748fdc-a803-4183-9a40-7fe9efbfeb18.json",
+      "bytes": 498140,
+      "sha256": "81620f9f1ba83cf282596252613d659a84786a83211afe3d5c1d79effdc9495a"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-005-2026-10-19T13-25-18-298Z-1a787f6e-032c-488f-952e-b399dbde0f84.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-25-18-298Z-1a787f6e-032c-488f-952e-b399dbde0f84.json",
+      "bytes": 498391,
+      "sha256": "c3ea0b5bb110c7ef4f8dc2ab54c29603f95ae99fdd7abca78ddaa9743baf919d"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-005-2026-10-19T13-25-20-112Z-8a8e98fe-9050-4546-94a2-7615f8563317.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-25-20-112Z-8a8e98fe-9050-4546-94a2-7615f8563317.json",
+      "bytes": 82614,
+      "sha256": "72aecfed29c7a1ad9d172f87e7c853b197c0208efe813d6730ab61768ef9a203"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-006-2026-10-19T13-25-22-106Z-3605017b-813e-4df5-a387-0cf20ced23e2.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T13-25-22-106Z-3605017b-813e-4df5-a387-0cf20ced23e2.json",
+      "bytes": 497359,
+      "sha256": "2d8aca08c1df9dc8871f2acceb49bfb212b6a446b1570fb4fc4991f1c4816577"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-006-2026-10-19T13-25-23-855Z-1f41196a-8150-4ed3-b33c-40ff46b4225e.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T13-25-23-855Z-1f41196a-8150-4ed3-b33c-40ff46b4225e.json",
+      "bytes": 495499,
+      "sha256": "ed756864b34fb20fc93cab28ca2eab1e19e6b74564dfa95b5fb6dbb2c2bce621"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-006-2026-10-19T13-25-25-603Z-0d938e25-d6af-4ba8-b29d-d4b04ac0cb13.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T13-25-25-603Z-0d938e25-d6af-4ba8-b29d-d4b04ac0cb13.json",
+      "bytes": 495578,
+      "sha256": "7f149c4e0947544b9049d910ec45a71d306421450b176ef87069ec853bbcb52d"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-006-2026-10-19T13-25-27-497Z-18349035-b8f6-47f2-8c9c-f1dc8b4f1877.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T13-25-27-497Z-18349035-b8f6-47f2-8c9c-f1dc8b4f1877.json",
+      "bytes": 498438,
+      "sha256": "e46cdb7bb22c5c633beee58da19324dd497d28d74d5ee9c3f29c7af5d1b897a3"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-007-2026-10-19T13-25-32-257Z-c0d0ee70-d698-4bc9-adc0-c132b8c876d7.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-007-2026-10-19T13-25-32-257Z-c0d0ee70-d698-4bc9-adc0-c132b8c876d7.json",
+      "bytes": 342965,
+      "sha256": "93335aa103dc5127f041805734b511a6010d919bced3cbc305703ddf15560846"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-008-2026-10-19T13-24-31-149Z-84918a32-5aaa-40a2-8911-a7bea7bd19e2.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-008-2026-10-19T13-24-31-149Z-84918a32-5aaa-40a2-8911-a7bea7bd19e2.json",
+      "bytes": 1286493,
+      "sha256": "791adb130ac4d2d681621e1064a1ddd4e9187f06023c64625c4702957b1103b6"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-009-2026-10-19T13-24-33-132Z-167a37ef-5e3d-4bd0-8173-add103c4c1b9.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-009-2026-10-19T13-24-33-132Z-167a37ef-5e3d-4bd0-8173-add103c4c1b9.json",
+      "bytes": 341286,
+      "sha256": "0626a62d67a44ee3d86569101eff812693ad540a4a5b1c110fa28f7e9418cdc5"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-010-2026-10-19T13-24-35-710Z-4d1e340d-eb00-4e01-acdd-2789d77c456d.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T13-24-35-710Z-4d1e340d-eb00-4e01-acdd-2789d77c456d.json",
+      "bytes": 500712,
+      "sha256": "25300ed81abca09a6b2442fec71686d252327cacba7fc759d18cb1d75c9862a3"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-010-2026-10-19T13-24-38-290Z-6742b5d9-5d15-49dd-b823-381a30876c4f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T13-24-38-290Z-6742b5d9-5d15-49dd-b823-381a30876c4f.json",
+      "bytes": 499590,
+      "sha256": "647e6b4da0ca5e7e0d5178e9a0c31aa02e5fa1f58190013b09850986ab0d5808"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-010-2026-10-19T13-24-40-850Z-92f467d5-d1b4-4083-a947-780f2b796535.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T13-24-40-850Z-92f467d5-d1b4-4083-a947-780f2b796535.json",
+      "bytes": 499591,
+      "sha256": "5f6bdab6eebce66af626de006cb4afaa279ec1027286d25e54f75690c4fd9b38"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-011-2026-10-19T13-24-43-435Z-fdf71ded-59bd-4729-93ee-e7aa1ad60a43.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-24-43-435Z-fdf71ded-59bd-4729-93ee-e7aa1ad60a43.json",
+      "bytes": 500361,
+      "sha256": "d1ecd2479249825168c985c0a7d21a4efc25f92bd7943c063f7f2487baead021"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-011-2026-10-19T13-24-45-975Z-adf19291-1fec-4fcd-b510-9db85fc09827.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-24-45-975Z-adf19291-1fec-4fcd-b510-9db85fc09827.json",
+      "bytes": 500488,
+      "sha256": "ca7d3ea1ebf80f9774aea2ea45332052aeab8c3c6f35cd2bc774d8ceb8295d21"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-011-2026-10-19T13-24-48-683Z-df8151db-6518-4413-a5f3-af30c26d345e.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-24-48-683Z-df8151db-6518-4413-a5f3-af30c26d345e.json",
+      "bytes": 500495,
+      "sha256": "da1028a6f8fa18747ffdd5dfa76684e67d5c5185483095c748f4bf214076ddad"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-011-2026-10-19T13-24-51-317Z-6929b0d1-6732-4182-bdd5-9aa3af3976a0.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-24-51-317Z-6929b0d1-6732-4182-bdd5-9aa3af3976a0.json",
+      "bytes": 500592,
+      "sha256": "e817c3789329268de9864c9e76d3fc0a9332041b5bd462200b2494efe2440288"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-011-2026-10-19T13-24-54-298Z-10088911-9c76-40ad-981f-7c196ae3f716.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-24-54-298Z-10088911-9c76-40ad-981f-7c196ae3f716.json",
+      "bytes": 655725,
+      "sha256": "10d684298cfb9494d14dd6acb0daaf7da58217be77f158907ba377c190a70943"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-012-2026-10-19T13-24-57-297Z-cf5119ea-3978-451e-a538-063d2ed9af16.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-012-2026-10-19T13-24-57-297Z-cf5119ea-3978-451e-a538-063d2ed9af16.json",
+      "bytes": 342230,
+      "sha256": "ddca71099424088d8671db76d084b47e08a4b32521240fbe0c86c43347ae1286"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-013-2026-10-19T13-25-01-266Z-9ea8f1c2-f531-4ba3-ab4e-3572689e59e3.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-013-2026-10-19T13-25-01-266Z-9ea8f1c2-f531-4ba3-ab4e-3572689e59e3.json",
+      "bytes": 507212,
+      "sha256": "9a2ae2eb0b6effb10a4864eb2be487694f286861a366506ae746da207f63d8c2"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-014-2026-10-19T13-25-29-327Z-ee2a4d70-0b0d-4a72-b2d2-ade9d8c1fa51.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-014-2026-10-19T13-25-29-327Z-ee2a4d70-0b0d-4a72-b2d2-ade9d8c1fa51.json",
+      "bytes": 594306,
+      "sha256": "8bfdaf9fc4e9ed1252d89d47766b9c5ca607d339d843bd25bc18c13dd2618adf"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-015-2026-10-19T13-24-24-728Z-dcf71dd9-76a7-41ea-9d6f-029878ddfe8f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-015-2026-10-19T13-24-24-728Z-dcf71dd9-76a7-41ea-9d6f-029878ddfe8f.json",
+      "bytes": 1273213,
+      "sha256": "3cae519413009d035dfd9aa3567326537944115ea7627121a7bb1d7c03a2dc80"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-016-2026-10-19T13-25-34-882Z-44bdddda-17b8-45c3-ad43-9e5ff9a2e1e4.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-016-2026-10-19T13-25-34-882Z-44bdddda-17b8-45c3-ad43-9e5ff9a2e1e4.json",
+      "bytes": 498595,
+      "sha256": "e984b5fa18afdbcaa0de64cf667b4c8a5754275c4aad07788733fa6aa43c9830"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-016-2026-10-19T13-25-37-607Z-357837c1-b920-4760-8dca-548601bbfb02.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-016-2026-10-19T13-25-37-607Z-357837c1-b920-4760-8dca-548601bbfb02.json",
+      "bytes": 498692,
+      "sha256": "dabd42919bc7fe884374565d2dc6cd999b6fa6e2caf322f39c042ce7a8b97bce"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-016-2026-10-19T13-25-40-724Z-f75f3311-55f5-4d4f-9be2-36b4306e8d40.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-016-2026-10-19T13-25-40-724Z-f75f3311-55f5-4d4f-9be2-36b4306e8d40.json",
+      "bytes": 653825,
+      "sha256": "7e452d02dd7f26e08add5fb39808c3cfa5f381a73203d5d5af1b5f406c5c966b"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-017-2026-10-19T13-25-42-901Z-e7d37274-7e72-4496-b953-d766870f549a.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-017-2026-10-19T13-25-42-901Z-e7d37274-7e72-4496-b953-d766870f549a.json",
+      "bytes": 499083,
+      "sha256": "7dea616f5c6142f148fb13ceb4dafc307fecf63cc54c6e3a49b1d5dfb3081133"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-018-2026-10-19T13-25-49-744Z-de0e8c9f-05b7-45dd-aef2-778701883d3d.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-018-2026-10-19T13-25-49-744Z-de0e8c9f-05b7-45dd-aef2-778701883d3d.json",
+      "bytes": 651730,
+      "sha256": "6afd913e57d1f6e0fc24ac09e47c94f8ab6f315fd50b739191d2f39e42733055"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-018-2026-10-19T13-25-52-163Z-155f27bc-14de-4989-8f62-de0c87b6adee.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-018-2026-10-19T13-25-52-163Z-155f27bc-14de-4989-8f62-de0c87b6adee.json",
+      "bytes": 651718,
+      "sha256": "5adc779073d2c050f396913beaece6f6cf41d09f108ee9ee973aa30ad0b961e0"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-final-built-records\\MV-S4-RECOVERY-019-2026-10-19T13-24-23-490Z-762f64f7-3f8c-4544-aa5d-0f8198785800.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-019-2026-10-19T13-24-23-490Z-762f64f7-3f8c-4544-aa5d-0f8198785800.json",
+      "bytes": 597200,
+      "sha256": "8b9ad6b32213d1139958abd91d35194ec6af0605f3bcc36728521efdb918e28b"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-001-2026-10-19T13-09-03-506Z-2697908c-c345-493b-9c6f-1c584710d244.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-001-2026-10-19T13-09-03-506Z-2697908c-c345-493b-9c6f-1c584710d244.json",
+      "bytes": 918556,
+      "sha256": "67186ecc5f42dc0aa8babfc22c3928f2e85498cf7de622ea1487b3758cc41fb7"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-002-2026-10-19T13-09-56-450Z-4c4f19c3-676c-44e2-bc38-87f7481d9194.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-002-2026-10-19T13-09-56-450Z-4c4f19c3-676c-44e2-bc38-87f7481d9194.json",
+      "bytes": 695465,
+      "sha256": "7bb51fd748990a85ace2af36ef09c97544d1df327790183d2375a6c1600defee"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-003-2026-10-19T13-09-57-621Z-d2f0eb77-1631-41fc-a950-d5763e6cf1d4.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-003-2026-10-19T13-09-57-621Z-d2f0eb77-1631-41fc-a950-d5763e6cf1d4.json",
+      "bytes": 99856,
+      "sha256": "3b1761b54c0cb47c7f423193fcb31439963b8ef799f4f055392c3bb57ec7f353"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-004-2026-10-19T13-09-30-200Z-acee00c1-07c1-43c4-aae7-d08bc7a43b47.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T13-09-30-200Z-acee00c1-07c1-43c4-aae7-d08bc7a43b47.json",
+      "bytes": 693657,
+      "sha256": "1773254023d167617967bb0572e613cfabd197cc90371ff0d44fb79c8aacc780"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-004-2026-10-19T13-09-31-302Z-0afa1916-48f3-4c70-8956-f1fb91e80287.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T13-09-31-302Z-0afa1916-48f3-4c70-8956-f1fb91e80287.json",
+      "bytes": 694499,
+      "sha256": "75c995f824b8a77fc9c9ac6d50ebe637f3ef5afaf72b0ea2669ce6a800f7a2de"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-004-2026-10-19T13-09-32-399Z-09f58b57-8a23-4ba3-a44f-7d9c97f9e95b.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T13-09-32-399Z-09f58b57-8a23-4ba3-a44f-7d9c97f9e95b.json",
+      "bytes": 694607,
+      "sha256": "0afa60c0759f9f9f55847d45561d72732738933428166e38bc515c3df5ae4988"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-005-2026-10-19T13-09-33-548Z-879b5435-b0ad-4dbc-a3c0-2a93b741ff9b.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-09-33-548Z-879b5435-b0ad-4dbc-a3c0-2a93b741ff9b.json",
+      "bytes": 693729,
+      "sha256": "64d42aa10c531c64d874aeed7e973a634f53449b385943e83dddf97bdab8a7dc"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-005-2026-10-19T13-09-34-626Z-e7228f4a-d46f-4a6d-9854-7904d008601c.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-09-34-626Z-e7228f4a-d46f-4a6d-9854-7904d008601c.json",
+      "bytes": 694384,
+      "sha256": "cb066d89cc588dd12496ec11c5f8fc4b545286330afc747b7f0dc431838f3c26"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-005-2026-10-19T13-09-35-730Z-238bf88f-f044-4b7b-9fc2-014a8cf97378.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-09-35-730Z-238bf88f-f044-4b7b-9fc2-014a8cf97378.json",
+      "bytes": 693517,
+      "sha256": "6aaa57d0959c516e2eaaf3350ff616bbaec4dd906f36749ae65fb6173ac2aab1"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-005-2026-10-19T13-09-36-862Z-9bc9b990-a829-4dc8-bcd1-ef08065a30b8.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-09-36-862Z-9bc9b990-a829-4dc8-bcd1-ef08065a30b8.json",
+      "bytes": 693676,
+      "sha256": "ad5130ec8d519c9c646ac1d7c7e9f5722f08d97b0d30383b31d3b6aa513e2825"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-005-2026-10-19T13-09-37-971Z-ea03c6f8-e095-412d-820f-73aa2d2a9710.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-09-37-971Z-ea03c6f8-e095-412d-820f-73aa2d2a9710.json",
+      "bytes": 693486,
+      "sha256": "5f27a44ac01cc0670f511d370f82a6e7b135fcaee02d357d3816a55219ce053a"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-005-2026-10-19T13-09-39-033Z-25eda4a0-5dce-4eaa-8ef6-15959667375d.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-09-39-033Z-25eda4a0-5dce-4eaa-8ef6-15959667375d.json",
+      "bytes": 693737,
+      "sha256": "e9df14a26437cf54dccd3485035847c16c79381dfed40045c77efa9a1f70ba6a"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-005-2026-10-19T13-09-40-102Z-aad6ce37-d68e-4b61-af3a-f89156774ddf.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-09-40-102Z-aad6ce37-d68e-4b61-af3a-f89156774ddf.json",
+      "bytes": 80042,
+      "sha256": "7e9cb74e37712da8d4d5b43f32fec45cf3aecf4da2bc293c5f49f2c198e88f17"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-006-2026-10-19T13-09-41-235Z-14e7cdef-d580-4f45-ad90-2ed1b6b5222d.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T13-09-41-235Z-14e7cdef-d580-4f45-ad90-2ed1b6b5222d.json",
+      "bytes": 692705,
+      "sha256": "1eccaacf9583fe277fe4313f66ae6ea672f8f97bb5014ca6a24a2d6410ca4883"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-006-2026-10-19T13-09-42-344Z-c8750c43-3b4d-4814-b8a5-653cb8034dc8.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T13-09-42-344Z-c8750c43-3b4d-4814-b8a5-653cb8034dc8.json",
+      "bytes": 690845,
+      "sha256": "2699d23721212a9c3aecfe6fd0170953e439e4a39264d3c49800ff2f41320b99"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-006-2026-10-19T13-09-43-451Z-80995aed-96e7-4c39-8eb0-ae5928c22028.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T13-09-43-451Z-80995aed-96e7-4c39-8eb0-ae5928c22028.json",
+      "bytes": 690924,
+      "sha256": "4a994a48d30eee8a446ae2919fe4f4039d1cee6036400f71945b7d198868b15e"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-006-2026-10-19T13-09-44-654Z-f2a530d6-c39e-4883-83f6-cc55cf5492f9.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T13-09-44-654Z-f2a530d6-c39e-4883-83f6-cc55cf5492f9.json",
+      "bytes": 693784,
+      "sha256": "a1568a3f1fb791aa7a180461ec23ee9cf2926c39e4b40d3bf92dc1461f457047"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-007-2026-10-19T13-09-47-397Z-be1fc54a-fd0f-4133-bc4c-90e91573701e.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-007-2026-10-19T13-09-47-397Z-be1fc54a-fd0f-4133-bc4c-90e91573701e.json",
+      "bytes": 473205,
+      "sha256": "3d57530a262f78669ba149ccc22ada361c267d205a8cedc7cb99dac5468e543e"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-008-2026-10-19T13-09-07-237Z-49845457-93b3-4902-a560-8ff87303237e.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-008-2026-10-19T13-09-07-237Z-49845457-93b3-4902-a560-8ff87303237e.json",
+      "bytes": 1815169,
+      "sha256": "72f8bf9d68e76f1b5e6381cde2069d882ae7f3ce5b09d7a69346f5fef161a8a8"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-009-2026-10-19T13-09-08-483Z-08377df9-1e1c-4f2b-81e8-1c970d7ff852.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-009-2026-10-19T13-09-08-483Z-08377df9-1e1c-4f2b-81e8-1c970d7ff852.json",
+      "bytes": 471526,
+      "sha256": "c6b37f036b6dc95bf1d6b32726270c4edd9b9e6496249667c3abfc515c0a7095"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-010-2026-10-19T13-09-10-504Z-dec15e78-c89d-423a-9908-795fb64be289.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T13-09-10-504Z-dec15e78-c89d-423a-9908-795fb64be289.json",
+      "bytes": 696058,
+      "sha256": "95d665a24a64737ce72e4141e86aa7dbb2cb6e5085acb7875527a841b82187c6"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-010-2026-10-19T13-09-12-485Z-32f0ae89-4362-41eb-a9cf-cf5d5d590f00.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T13-09-12-485Z-32f0ae89-4362-41eb-a9cf-cf5d5d590f00.json",
+      "bytes": 694936,
+      "sha256": "a052b320878704cafe290839c27f4c3e28aec5c31a721774121d35d49a782416"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-010-2026-10-19T13-09-14-348Z-c046f8d5-cec4-4572-9afe-88f6178f6cc1.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T13-09-14-348Z-c046f8d5-cec4-4572-9afe-88f6178f6cc1.json",
+      "bytes": 694937,
+      "sha256": "746d320216dd92e476ea7cb6f92659b7ce237fb3d6b7c025469a3972378af5e0"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-011-2026-10-19T13-09-16-279Z-d3224e96-da67-4844-ba26-47ac1b9d25ec.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-09-16-279Z-d3224e96-da67-4844-ba26-47ac1b9d25ec.json",
+      "bytes": 695707,
+      "sha256": "05f7e2f2ebaa48406aabfb34b69569f76487e75136123553368d4e9e0b873793"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-011-2026-10-19T13-09-18-165Z-bd1b47b4-3746-4ce4-9bbb-900f20369ffd.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-09-18-165Z-bd1b47b4-3746-4ce4-9bbb-900f20369ffd.json",
+      "bytes": 695834,
+      "sha256": "83c0274b4f2d111ff565d39caa167081d463dade681ffffb126d623ec19d1f18"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-011-2026-10-19T13-09-20-015Z-21865b1f-5467-4180-9703-d09f6cfdb8f2.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-09-20-015Z-21865b1f-5467-4180-9703-d09f6cfdb8f2.json",
+      "bytes": 695841,
+      "sha256": "2839628da56179981397e1970de11245a7a14c98196dd2f95ff1c6cc2c30cc07"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-011-2026-10-19T13-09-21-849Z-67c63f2d-9e3f-4a56-be81-f276c4ca7625.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-09-21-849Z-67c63f2d-9e3f-4a56-be81-f276c4ca7625.json",
+      "bytes": 695938,
+      "sha256": "b868f2cb5cc4add29048ee677ac8b6a42d130400f9a41cc09c9e6afdf877792b"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-011-2026-10-19T13-09-23-712Z-665d3754-b419-4009-a83a-0fb1a7e09205.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-09-23-712Z-665d3754-b419-4009-a83a-0fb1a7e09205.json",
+      "bytes": 918777,
+      "sha256": "b576b44af3f871bea13e9950f984a41091e093bd35a97d824319e3beb39cbc20"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-012-2026-10-19T13-09-25-652Z-cac4cd20-b278-42b2-8fed-7a2c065e26b4.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-012-2026-10-19T13-09-25-652Z-cac4cd20-b278-42b2-8fed-7a2c065e26b4.json",
+      "bytes": 472470,
+      "sha256": "a2d2311f741d93cd65b6990a46f74544ece7c46493e124fd6231a1a0839e41ad"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-013-2026-10-19T13-09-29-032Z-f5dd5d77-9b25-4374-a4f9-0610ab250027.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-013-2026-10-19T13-09-29-032Z-f5dd5d77-9b25-4374-a4f9-0610ab250027.json",
+      "bytes": 702489,
+      "sha256": "47522ddd64620d13c8d21c5e283b3b30705de19e654ec028aa492e854a10ee5e"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-014-2026-10-19T13-09-45-709Z-3f803d74-dd8c-4291-9e89-d8f61a1200bc.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-014-2026-10-19T13-09-45-709Z-3f803d74-dd8c-4291-9e89-d8f61a1200bc.json",
+      "bytes": 830838,
+      "sha256": "e822686970b39a579d1ddd9cb846a6b4fdc25bbd9ca1f86947e09b755052ea25"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-015-2026-10-19T13-09-00-479Z-87c8a2f8-fddd-43d7-a531-4a51f8152eb3.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-015-2026-10-19T13-09-00-479Z-87c8a2f8-fddd-43d7-a531-4a51f8152eb3.json",
+      "bytes": 1801889,
+      "sha256": "39cd8f41d81c7296d5d26f3314937867e6eb8b5a993d39a5ca80d8888b71e2b5"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-016-2026-10-19T13-09-49-327Z-fae27707-a183-4ed2-bb5a-a7b6861a22b6.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-016-2026-10-19T13-09-49-327Z-fae27707-a183-4ed2-bb5a-a7b6861a22b6.json",
+      "bytes": 693941,
+      "sha256": "900c11d06db2f71ee1c10a80cfb719353beab7061ed96ffd4a34f4307d4462cf"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-016-2026-10-19T13-09-51-275Z-dd47273f-4f2b-4c2f-8a6b-b4cd73f25974.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-016-2026-10-19T13-09-51-275Z-dd47273f-4f2b-4c2f-8a6b-b4cd73f25974.json",
+      "bytes": 694038,
+      "sha256": "6ec4cd2594425a611338cb091bed1cd70a243aaedfbe13eb881e030bf50c515c"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-016-2026-10-19T13-09-53-217Z-b021c6ad-9eb4-42e9-b4d7-713279fd90d1.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-016-2026-10-19T13-09-53-217Z-b021c6ad-9eb4-42e9-b4d7-713279fd90d1.json",
+      "bytes": 916877,
+      "sha256": "b7c2fefac0b69e2e479982fc1e07f79111b4da6adbacfcdb067d8ece146d1743"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-017-2026-10-19T13-09-54-518Z-9a54e911-ada0-42bc-828c-57c54ad2caac.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-017-2026-10-19T13-09-54-518Z-9a54e911-ada0-42bc-828c-57c54ad2caac.json",
+      "bytes": 694429,
+      "sha256": "0039e76673d2662edb4e5a43dd6355c8b8aad0d90e21b2caea276166623a858e"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-018-2026-10-19T13-09-59-081Z-65441e41-4c39-4100-b59c-917477b09ca4.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-018-2026-10-19T13-09-59-081Z-65441e41-4c39-4100-b59c-917477b09ca4.json",
+      "bytes": 914782,
+      "sha256": "27532ff02137e4bc8ffe39903d236ca9c9623eeffbbc98f931cf2d2b0cd13894"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-source-records\\MV-S4-RECOVERY-018-2026-10-19T13-10-00-501Z-f010827b-0824-4eca-99d3-35242208c591.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-018-2026-10-19T13-10-00-501Z-f010827b-0824-4eca-99d3-35242208c591.json",
+      "bytes": 914770,
+      "sha256": "b5759ad9365dc0ef6ebffd06b65600b430f8ea4cedfb462738e1bf4e5050b57c"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-001-2026-10-19T13-11-42-279Z-5d59487a-3313-4406-82d4-2fec55bbf328.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-001-2026-10-19T13-11-42-279Z-5d59487a-3313-4406-82d4-2fec55bbf328.json",
+      "bytes": 657968,
+      "sha256": "a35d725772e23d4ed3bb487ba48d9d8a7f8b2404fa17a16b4618be09151e63a1"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-002-2026-10-19T13-12-39-130Z-9bf82573-456f-448a-abba-27179fd9557a.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-002-2026-10-19T13-12-39-130Z-9bf82573-456f-448a-abba-27179fd9557a.json",
+      "bytes": 500119,
+      "sha256": "8af19376bcfa57a23b3049ab41df524f1d885c0a446249dc76e0d699e5446e48"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-003-2026-10-19T13-12-40-644Z-051c7179-7baa-45dc-b7af-1f723e5bea75.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-003-2026-10-19T13-12-40-644Z-051c7179-7baa-45dc-b7af-1f723e5bea75.json",
+      "bytes": 102428,
+      "sha256": "9f52550c3df3c40cf9f8f42a4a343ac77fca7cc98768a301b9bdbe3fd5b9f48b"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-004-2026-10-19T13-12-10-854Z-4f8fe5a0-a8b0-453a-b048-03262e482c62.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T13-12-10-854Z-4f8fe5a0-a8b0-453a-b048-03262e482c62.json",
+      "bytes": 498311,
+      "sha256": "40fee1e5ec0dc0effd77e00e7435b7c2768271513324df94ea861485cde8a53a"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-004-2026-10-19T13-12-12-049Z-b72695c5-2d64-47df-ad72-9092397cdace.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T13-12-12-049Z-b72695c5-2d64-47df-ad72-9092397cdace.json",
+      "bytes": 499153,
+      "sha256": "826f3cd24e942c6d35ab075a8a911b54ac92918532b988ed56c595b399abdf26"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-004-2026-10-19T13-12-13-164Z-a585d456-b68b-4b30-80e8-e97cd35fbe4f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-004-2026-10-19T13-12-13-164Z-a585d456-b68b-4b30-80e8-e97cd35fbe4f.json",
+      "bytes": 499261,
+      "sha256": "ffcb84f3b8a273eb6fadc97db1b0cf713342c97d305ed0ed2d69870b8404df60"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-005-2026-10-19T13-12-14-252Z-b3c6360e-5049-473c-9d85-286752c2bd03.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-12-14-252Z-b3c6360e-5049-473c-9d85-286752c2bd03.json",
+      "bytes": 498383,
+      "sha256": "f3dfb88bed688abf7b3a84c7d31755f0ca85124b73cd9c2b05f028892822a95c"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-005-2026-10-19T13-12-15-373Z-8d723e9a-2b75-411e-8777-97da42f008cf.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-12-15-373Z-8d723e9a-2b75-411e-8777-97da42f008cf.json",
+      "bytes": 499038,
+      "sha256": "278644d8fe0b9b9e3f97bae3221b026f586dc4a1eab5b011ce0aa5d293dc9908"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-005-2026-10-19T13-12-16-564Z-a15f286e-c47d-45b4-8caf-09c6ed0c1004.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-12-16-564Z-a15f286e-c47d-45b4-8caf-09c6ed0c1004.json",
+      "bytes": 498171,
+      "sha256": "954f432ec3639e58fa34b28ab809385e2a69e94826790494eb7a3779ac441320"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-005-2026-10-19T13-12-17-645Z-2e50b977-97d3-4a4c-b11f-a82d3a83b285.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-12-17-645Z-2e50b977-97d3-4a4c-b11f-a82d3a83b285.json",
+      "bytes": 498330,
+      "sha256": "8d1d871220f879f8142d4b91770b4618004862c398750d2e7feacc13cf1dc1fc"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-005-2026-10-19T13-12-18-972Z-908abebf-8911-42c5-939b-f1a044a6e218.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-12-18-972Z-908abebf-8911-42c5-939b-f1a044a6e218.json",
+      "bytes": 498140,
+      "sha256": "e50443eff5822fe378d87666506fdd391432405bdbc387cfd7abd1f3f51a978e"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-005-2026-10-19T13-12-20-089Z-8011e7c7-3b63-434b-bd14-461fbe5376f2.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-12-20-089Z-8011e7c7-3b63-434b-bd14-461fbe5376f2.json",
+      "bytes": 498391,
+      "sha256": "86d449202ceae7c216a6f597be3355c2e78949c3dba217395a7f6939e172391b"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-005-2026-10-19T13-12-21-220Z-fa5dafee-1fbc-4fdd-829d-4823f9a29196.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T13-12-21-220Z-fa5dafee-1fbc-4fdd-829d-4823f9a29196.json",
+      "bytes": 82614,
+      "sha256": "ecac2a5f8ad4a37eff9d31f05ab545714c37431749b0c9e5616a4e4408b03edb"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-006-2026-10-19T13-12-22-380Z-0428073f-b968-4bee-abf8-d9b11b052c79.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T13-12-22-380Z-0428073f-b968-4bee-abf8-d9b11b052c79.json",
+      "bytes": 497359,
+      "sha256": "ff73927c9120b204bf19ea47ee4aa4811cebf3e83ce826e0e6d812c5d8c15961"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-006-2026-10-19T13-12-23-496Z-45e9b564-9d03-4d9b-8b6f-b178d20d057f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T13-12-23-496Z-45e9b564-9d03-4d9b-8b6f-b178d20d057f.json",
+      "bytes": 495499,
+      "sha256": "7de928f3c064c4382e928f0043d83ff710e649755798106980c47d06d72d3f1c"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-006-2026-10-19T13-12-24-662Z-18ff29e9-8ed6-4a74-b031-257f6e60ace6.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T13-12-24-662Z-18ff29e9-8ed6-4a74-b031-257f6e60ace6.json",
+      "bytes": 495578,
+      "sha256": "e9cfea962d62c0d398b6c27966dc7ce84da554f3939a2a21c4e53950abf35884"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-006-2026-10-19T13-12-25-854Z-6fd20252-d380-49ed-93e1-943400af5f24.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T13-12-25-854Z-6fd20252-d380-49ed-93e1-943400af5f24.json",
+      "bytes": 498438,
+      "sha256": "8aa8590fa218a5f02aa2dd07b722e187fa4da88af4e4b4118036c44e2254be8f"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-007-2026-10-19T13-12-29-051Z-89cc9a66-c747-4de1-98bf-2a298365ce69.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-007-2026-10-19T13-12-29-051Z-89cc9a66-c747-4de1-98bf-2a298365ce69.json",
+      "bytes": 342965,
+      "sha256": "cf7aa65b6cb623ca8a53eba5468a1fcb6fe797cbb62d0ad169860a618f34e1bc"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-008-2026-10-19T13-11-46-488Z-180f8f31-4964-4c68-97ca-9d868b8ee731.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-008-2026-10-19T13-11-46-488Z-180f8f31-4964-4c68-97ca-9d868b8ee731.json",
+      "bytes": 1286491,
+      "sha256": "0e0810bcfa44c1256f8972a62b99f4f3670d20211bdaa79daffe2626b7b7902d"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-009-2026-10-19T13-11-47-756Z-d763aae2-93ce-449c-9e4c-05a1715d0619.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-009-2026-10-19T13-11-47-756Z-d763aae2-93ce-449c-9e4c-05a1715d0619.json",
+      "bytes": 341286,
+      "sha256": "fa7a280894346c131e3461cbba6541afdd3bbf002a63cae27127eba3a148c1f3"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-010-2026-10-19T13-11-50-257Z-e1458b7f-9b3a-420b-a11c-63191911aa43.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T13-11-50-257Z-e1458b7f-9b3a-420b-a11c-63191911aa43.json",
+      "bytes": 500712,
+      "sha256": "dee2cf2b33f7c18508fee8f07c60633ce3bc2babe378e1b7c9b00d03aa462b95"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-010-2026-10-19T13-11-52-474Z-ebe88a36-7c31-40d0-9a98-bcdf6150544b.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T13-11-52-474Z-ebe88a36-7c31-40d0-9a98-bcdf6150544b.json",
+      "bytes": 499590,
+      "sha256": "a10b389b2c927e16d1387206bec0cc749060556286f6e243cec204338b040745"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-010-2026-10-19T13-11-54-391Z-86e899cd-0da7-4f69-8ba1-ad673734af46.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T13-11-54-391Z-86e899cd-0da7-4f69-8ba1-ad673734af46.json",
+      "bytes": 499591,
+      "sha256": "1eed9def7e7e407bb5f958b4909a6446342efd0d3148ec351f3b4afcc1802615"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-011-2026-10-19T13-11-56-313Z-dedb9b73-8d8b-4673-88f2-7e299710f49c.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-11-56-313Z-dedb9b73-8d8b-4673-88f2-7e299710f49c.json",
+      "bytes": 500361,
+      "sha256": "9212310ca6125a17fcccf6deab2974f91d083b724ecd119d4801804acc33fb36"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-011-2026-10-19T13-11-58-405Z-a9c8671d-ef49-4251-a2ed-1c7d7ee335bd.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-11-58-405Z-a9c8671d-ef49-4251-a2ed-1c7d7ee335bd.json",
+      "bytes": 500488,
+      "sha256": "fd6ba41b0721adadc0d661a2e614db57d10dcca088fb18cfe2d923779ae74411"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-011-2026-10-19T13-12-00-546Z-32af7a1e-9ac2-4682-a435-7128c89277a7.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-12-00-546Z-32af7a1e-9ac2-4682-a435-7128c89277a7.json",
+      "bytes": 500495,
+      "sha256": "5a86fc2f5e4f3229d4e16b40c2f815e9531f47b3b8724cdec0a0a90bd7fbd664"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-011-2026-10-19T13-12-02-593Z-9bb65816-192c-4e19-a97b-40b2ecfc71e8.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-12-02-593Z-9bb65816-192c-4e19-a97b-40b2ecfc71e8.json",
+      "bytes": 500592,
+      "sha256": "8d6bd4d923033ac0fd8c764b104ebcae3ccea918d8b90f7710fd1d146193fc56"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-011-2026-10-19T13-12-04-468Z-34c417b1-94b8-4e7c-935f-86ce9d64c7a2.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-011-2026-10-19T13-12-04-468Z-34c417b1-94b8-4e7c-935f-86ce9d64c7a2.json",
+      "bytes": 655725,
+      "sha256": "d21f826c5f477066f2c1010f1c37d2b99728a07e90181de407fd068827e61a07"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-012-2026-10-19T13-12-06-510Z-98bb6d0e-699c-4391-8c3f-b1089720b5be.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-012-2026-10-19T13-12-06-510Z-98bb6d0e-699c-4391-8c3f-b1089720b5be.json",
+      "bytes": 342230,
+      "sha256": "83571b481437a9917c9a96a7030b9f8db5587fd7ec669e6a8842e5e25a7b0cdf"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-013-2026-10-19T13-12-09-693Z-2fa9ce7e-54fc-4f10-b7ab-8ec4f062c4bc.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-013-2026-10-19T13-12-09-693Z-2fa9ce7e-54fc-4f10-b7ab-8ec4f062c4bc.json",
+      "bytes": 507212,
+      "sha256": "23e6ea00aee96ef8cb7bf193e9a8a60f122a9c04ae6659c8336825d28ed14c63"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-014-2026-10-19T13-12-26-881Z-46c493ff-8f1b-4fcd-8041-f51a5a5e7ff9.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-014-2026-10-19T13-12-26-881Z-46c493ff-8f1b-4fcd-8041-f51a5a5e7ff9.json",
+      "bytes": 594306,
+      "sha256": "05ffd53db17c7ec03c367588d9e438159e331dabac46135111d5c11c33182bd2"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-015-2026-10-19T13-11-39-451Z-be8947a0-3f73-4bfa-82a3-2806ebd5e2ed.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-015-2026-10-19T13-11-39-451Z-be8947a0-3f73-4bfa-82a3-2806ebd5e2ed.json",
+      "bytes": 1273213,
+      "sha256": "a57a9943bbc829f237fd52e37433ee49ad8c4e97b05301baf5050fcdafd8f3dc"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-016-2026-10-19T13-12-31-246Z-990de325-8386-446c-8362-d75aba80ccdc.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-016-2026-10-19T13-12-31-246Z-990de325-8386-446c-8362-d75aba80ccdc.json",
+      "bytes": 498595,
+      "sha256": "fbdea1f8c6dfc9bf54a83399130d72f03b65493668a8b376fad4e3c571147580"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-016-2026-10-19T13-12-33-274Z-16aa1f9b-858b-4755-8a13-4ea31ce1b343.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-016-2026-10-19T13-12-33-274Z-16aa1f9b-858b-4755-8a13-4ea31ce1b343.json",
+      "bytes": 498692,
+      "sha256": "124d406ff6da4f90b31d8c643f687a9fd2d1f8495b4a8b443b20f86da0d640ac"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-016-2026-10-19T13-12-35-211Z-be4f8cc6-ce06-4c1d-ad6d-0dc038ab1361.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-016-2026-10-19T13-12-35-211Z-be4f8cc6-ce06-4c1d-ad6d-0dc038ab1361.json",
+      "bytes": 653825,
+      "sha256": "7a7b2172f7730cd78c643045d3fcb5236dd01428199243ed1a905e2121905fdc"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-017-2026-10-19T13-12-36-675Z-571305ec-229c-410b-a5a7-cb4ac3c8f322.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-017-2026-10-19T13-12-36-675Z-571305ec-229c-410b-a5a7-cb4ac3c8f322.json",
+      "bytes": 499083,
+      "sha256": "12d89f38c95795bfce0a1a1481a5684192d7ce0052d70aebca4478e136492478"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-018-2026-10-19T13-12-42-306Z-c1f2b5a5-9322-4d40-beaf-6e6b077e1cc6.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-018-2026-10-19T13-12-42-306Z-c1f2b5a5-9322-4d40-beaf-6e6b077e1cc6.json",
+      "bytes": 651730,
+      "sha256": "1c16ff58ba773e401ca9d0a004f01328ee65b15ce6efeb71980d7c7a201247bd"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-built-records\\MV-S4-RECOVERY-018-2026-10-19T13-12-43-893Z-18ec974c-925d-43bb-8460-ea87254e5ff8.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-018-2026-10-19T13-12-43-893Z-18ec974c-925d-43bb-8460-ea87254e5ff8.json",
+      "bytes": 651718,
+      "sha256": "ea9c6662a4e9b51d1fdee336c1bad6a12f662a65e57fba1b54c51922f0096c6f"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-001-2026-10-19T12-34-32-154Z-f37a8c70-c1ef-4188-8d1f-29bb130e31d4.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-001-2026-10-19T12-34-32-154Z-f37a8c70-c1ef-4188-8d1f-29bb130e31d4.json",
+      "bytes": 471494,
+      "sha256": "a5b10dc95613bf92bfba29265d2bbb1fb21e16af13d7a72dd9613b85c053c1cc"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-001-2026-10-19T12-38-26-190Z-4f7422fd-7b3b-4f7a-94ae-0634fc06d924.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-001-2026-10-19T12-38-26-190Z-4f7422fd-7b3b-4f7a-94ae-0634fc06d924.json",
+      "bytes": 464454,
+      "sha256": "6fc372417d1a2519a5f2dc55cc39dc7ef088c4dbf1dfe13a8c5d39ec7d24d307"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-001-2026-10-19T12-41-58-943Z-52e4f4ec-bd75-49b3-876a-5b54f2ca9001.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-001-2026-10-19T12-41-58-943Z-52e4f4ec-bd75-49b3-876a-5b54f2ca9001.json",
+      "bytes": 465419,
+      "sha256": "1f61779a19444350b610fbb68e4cecdb445254dcda8aba12637ddc053f599107"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-002-2026-10-19T12-35-50-689Z-cf664a64-7299-4632-9966-d9b0033045ea.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-002-2026-10-19T12-35-50-689Z-cf664a64-7299-4632-9966-d9b0033045ea.json",
+      "bytes": 471718,
+      "sha256": "321a3feb3b673365325073508eef0dabb61e7b51807155295a6e3af7aa09d82b"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-002-2026-10-19T12-38-28-198Z-f5caf54e-1ac9-43fd-ab7a-20f7f3f3a2b0.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-002-2026-10-19T12-38-28-198Z-f5caf54e-1ac9-43fd-ab7a-20f7f3f3a2b0.json",
+      "bytes": 464454,
+      "sha256": "5abd852ef3b4f938b2b980c4efba3e4a220c4fab739c06b1057dbb645ec43a25"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-002-2026-10-19T12-42-00-834Z-3e8845e3-4775-4b48-b1a0-29253bbfa558.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-002-2026-10-19T12-42-00-834Z-3e8845e3-4775-4b48-b1a0-29253bbfa558.json",
+      "bytes": 465419,
+      "sha256": "36641a146284e4447bf583b0e9e7690e3400d610fe8b6884b7127c0f1338ed0e"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-003-2026-10-19T12-45-30-653Z-37f94c8c-8938-434d-b827-b7d5baea87ba.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-003-2026-10-19T12-45-30-653Z-37f94c8c-8938-434d-b827-b7d5baea87ba.json",
+      "bytes": 93837,
+      "sha256": "48304194587fc933deaa1e74576b5f764b419fe54d615c8437284180b29fb13e"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-006-2026-10-19T12-48-19-880Z-2ac2b8b2-503b-490a-a4b4-5ee5e50341fd.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T12-48-19-880Z-2ac2b8b2-503b-490a-a4b4-5ee5e50341fd.json",
+      "bytes": 691810,
+      "sha256": "db9c70dbbf2daee9be03083a8d981a49f496513ac947f750451740ccfc1a6d8f"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-006-2026-10-19T12-48-21-685Z-23f22964-8480-44b2-9066-964ab526cd16.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-006-2026-10-19T12-48-21-685Z-23f22964-8480-44b2-9066-964ab526cd16.json",
+      "bytes": 691889,
+      "sha256": "ad42debf2c481be5baa5bc82f680803cd785c71d6af301c18bbbffec19d34bd4"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-010-2026-10-19T12-51-09-740Z-a3c1a41a-bbbd-4890-9fa0-3781ff9f9047.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T12-51-09-740Z-a3c1a41a-bbbd-4890-9fa0-3781ff9f9047.json",
+      "bytes": 920083,
+      "sha256": "5524bbb9777a056aa3807efa8fd08ebb0068b0edd69d5e7e4dcddc152e53dac1"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-014-2026-10-19T12-49-24-008Z-6ba2464d-d58c-4ca3-a536-8291c3d7a78f.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-014-2026-10-19T12-49-24-008Z-6ba2464d-d58c-4ca3-a536-8291c3d7a78f.json",
+      "bytes": 651943,
+      "sha256": "0c7cf2e0dff1310e52e2830a28f50fd8db50722f7daaf089a2c3bf9c8bbb19cb"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-015-2026-10-19T12-55-47-645Z-e7f9e845-85ec-4e97-ac75-643e50fd393a.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-015-2026-10-19T12-55-47-645Z-e7f9e845-85ec-4e97-ac75-643e50fd393a.json",
+      "bytes": 914792,
+      "sha256": "e6e02f71d8ad236902cd901fa93d1b5eab92ac462baea00e932300143b54bc42"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-018-2026-10-19T13-04-31-367Z-43723bf8-5c40-4f1c-a026-759e3c0d2c78.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-018-2026-10-19T13-04-31-367Z-43723bf8-5c40-4f1c-a026-759e3c0d2c78.json",
+      "bytes": 694033,
+      "sha256": "b89d381bbe57f953712c3903fe9ee7464bb9b929e7a4340a3d855f89f1d2b65e"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-018-2026-10-19T13-04-33-134Z-c2cf0f9c-906a-426c-86cd-b3bb677014c4.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-018-2026-10-19T13-04-33-134Z-c2cf0f9c-906a-426c-86cd-b3bb677014c4.json",
+      "bytes": 694021,
+      "sha256": "b698f367fe9e6e308afe185d258e58c89afe736e6a1b718501cbca1988dd673e"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-019-2026-10-19T13-16-26-488Z-693ecfaf-310c-4387-989d-ddd3771f62f9.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-019-2026-10-19T13-16-26-488Z-693ecfaf-310c-4387-989d-ddd3771f62f9.json",
+      "bytes": 834159,
+      "sha256": "71ce7865c2c40315232d92f1cf855e82b5d44f4457cbee10b7d716163e80fb71"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-22\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S4-RECOVERY-019-2026-10-19T13-17-18-184Z-73983543-a838-4f82-9d31-e76c69d99db6.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-019-2026-10-19T13-17-18-184Z-73983543-a838-4f82-9d31-e76c69d99db6.json",
+      "bytes": 653565,
+      "sha256": "aa90ddd7271ad773f9af4e10cbf064a5a11ef9eca521b6cda2326aa86b08e6f0"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-build-final.txt",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-build-final.txt",
+      "bytes": 2531,
+      "sha256": "e559396b86cac08addbb8ee2490026108d504c81249a623ad4c35850ee3ea854"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-built-final.txt",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-built-final.txt",
+      "bytes": 486,
+      "sha256": "e24366f7060d12e51ea8d4a0d47f8b6f310b2e8fe0f1ccc7c9cb899265f22420"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-build-final.txt",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-capture-build-final.txt",
+      "bytes": 2589,
+      "sha256": "8b903992e32da995979a976b90b327053ea7c4102af7cfac021ce4ad2e53b752"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-built-final.txt",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-capture-built-final.txt",
+      "bytes": 486,
+      "sha256": "a1fb8c17934a1d2a1211df428f3f5ad0163fcdec511f83d28a692bcd588bc1e5"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-capture-check-final.txt",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-capture-check-final.txt",
+      "bytes": 1703,
+      "sha256": "ae2d361c161a28a114d3fddc2ca7c9d5762e87b55c751a7ccc6986f5ba4c6794"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-check-final.txt",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-check-final.txt",
+      "bytes": 1703,
+      "sha256": "5dfeef244f63342724bd3b145aa0babb1dbf877faab265aebda0e408af0f8fc3"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-check-first.txt",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-check-first.txt",
+      "bytes": 1633,
+      "sha256": "d9079470a6678820079dffcf3ed2687fbd8c3ca83301849da067e49af927c151"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-check-second.txt",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-check-second.txt",
+      "bytes": 7371,
+      "sha256": "fda243ec5241805102dc9cb7ea2e8bf18db3ddcc35acb2138c6a05e62a4c4360"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-committed-green.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-committed-green.json",
+      "bytes": 2153,
+      "sha256": "1d73d4cae5dcc29f24c16c1d096ba29e70b8d11a51ca87854deacfff84ec1425"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-committed-red.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-committed-red.json",
+      "bytes": 2925,
+      "sha256": "da6206e619b7929081856b2c0d56e77a6a7c278cc1cf64f699a1f074ff48cfe2"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-expanded-first.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-expanded-first.json",
+      "bytes": 11855,
+      "sha256": "09cef4e68f7ed534bc22e766750b29d3654f56a72258da6c4db7e7035b3cc152"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-final-matrix-workflow.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-final-matrix-workflow.json",
+      "bytes": 22873,
+      "sha256": "1b79b7f5c257d5509886cd6de5d6d9d3b7c0a2257e04a3803727914ebd233f4b"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-first-two-fixed.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-first-two-fixed.json",
+      "bytes": 2144,
+      "sha256": "180b7f32dcdb428aded5dbf258b8ba9841a0a3ab24fee26ccb4844b4cf09f19a"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-first-two-fixed2.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-first-two-fixed2.json",
+      "bytes": 1358,
+      "sha256": "f72afb34d537fa834fe662e1b6a35b4ca5946b4ecf4eb7e77bfbb187382bebc5"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-incomplete-A-green.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-incomplete-A-green.json",
+      "bytes": 6213,
+      "sha256": "08895be1eb5544e8524316a1a2878dfd6e90decfe81eddea539a7b497d752cbd"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-incomplete-A-red.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-incomplete-A-red.json",
+      "bytes": 7666,
+      "sha256": "4aac44b132fd674546d411ebb9becd382153a38aa8e52887c94cf656f6bf5cbe"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-matrix-first.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-matrix-first.json",
+      "bytes": 8339,
+      "sha256": "2760734e6268419aa55cbb0f55478aaf9b0f18a93685905ad6243d6cbf507a23"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-metadata-bytes-green.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-metadata-bytes-green.json",
+      "bytes": 12526,
+      "sha256": "d8fa3b23a722fe6d7a25e138c5de0c00db1bee38aa708b8c8cacb9322c96e309"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-metadata-bytes-red.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-metadata-bytes-red.json",
+      "bytes": 15318,
+      "sha256": "be5bc3536cf21494261362fd657dc812f0fbe24df0cdeb9f1e912a36019bb762"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-missing-evidence-red.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-missing-evidence-red.json",
+      "bytes": 11866,
+      "sha256": "386b3aea54e7f681a80d6279ff9f94eaf2f1316562fd4b18900ae51edb4cc00d"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-old-basis-green.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-old-basis-green.json",
+      "bytes": 1690,
+      "sha256": "66aa8db44de2eca573803da590128a9e4050b96c9c253363ea07babe211f0e9e"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-old-basis-red-executed.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-old-basis-red-executed.json",
+      "bytes": 2574,
+      "sha256": "7822cbe78d9ac84c4c0366733f84ee0c7004263d3e77f8deaef02f4d3d95b53f"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-old-basis-red-valid.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-old-basis-red-valid.json",
+      "bytes": 3134,
+      "sha256": "77edbe4d1f3c545f0f5a9657984708c270e79e5fc78c2b99d327e061c60aee6c"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-old-basis-red.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-old-basis-red.json",
+      "bytes": 778,
+      "sha256": "c62b31c40ba48b1f4758f8d995ae7bb5d08998b6dff06866453a292c90bcf1a1"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-partial-green.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-partial-green.json",
+      "bytes": 1026,
+      "sha256": "f5e657164cf8b7e9037f390e08f2a0e665a7ab3ebdb418b7adfc05fb58cdd0cf"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-partial-red.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-partial-red.json",
+      "bytes": 2622,
+      "sha256": "fcd70da60b1679a45c391abc643877b596a934edc80dbf285addf5707a019f80"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-pending-capture-green.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-pending-capture-green.json",
+      "bytes": 12783,
+      "sha256": "b4805e265651aad178048615491e47d9c88c314112015cf5598803f5b5e4a2db"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-pending-capture-red-valid.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-pending-capture-red-valid.json",
+      "bytes": 13772,
+      "sha256": "e5387771348a4e3c6a32cf642dcff5b13747423a28b6ba181e0d658c20bed24d"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-pending-capture-red.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/mv22-pending-capture-red.json",
+      "bytes": 13683,
+      "sha256": "28052a4dafa7d6b5c6f96f13e71012d9bd28d47fd65434d8248c2326d5c6e785"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-archive-evidence.cjs",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/archive-evidence.cjs",
+      "bytes": 6238,
+      "sha256": "436a60f7dabf3b4c0627e28eeb9fa4183c96c9eb39c6ae1c287d2594ce82845c"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv-partial-snapshot-recovery-held-preparation.cjs",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/original-held-reproduction.cjs",
+      "bytes": 9027,
+      "sha256": "9f615dc0bd9fb3359cc7d5604d49e9e7a111cf757a1b38b6cdd8639107bbd22d"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv-partial-snapshot-recovery-preparation-ccb9fce9-41ec-4b74-b186-cb4bf0016713\\reproduction-result.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/original-held-reproduction-result.json",
+      "bytes": 19178,
+      "sha256": "dce9fc8ed6730b90ea7a0c3118e290f7db91538b6cd72548e781f9f9ad94bec9"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-pre-capture-dist\\artifact-manifest.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/pre-capture-dist-artifact-manifest.json",
+      "bytes": 2355,
+      "sha256": "fb7811bbfa020740dc1f40f7456be8e1c95c91a15004f3aab451fe0f4b70c8cf"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-merger-pending-capture-49cfda5a-f51a-49c7-ac33-59254e25bcea\\result.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/merger-initial-invalid-fixture-result.json",
+      "bytes": 79314,
+      "sha256": "024f69268e8bdc98249e2d5ac077e5869552de8e88801843e44e13213115ca29"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-merger-pending-capture-49cfda5a-f51a-49c7-ac33-59254e25bcea\\reproduction-script.cjs",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/merger-initial-invalid-fixture-script.cjs",
+      "bytes": 4357,
+      "sha256": "c81f81c941ae4a5dcd1e28ab8e35efc6917dbdd1d82e0d577e6d9be4140d1968"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-merger-pending-capture-5d8f97de-0ccc-41da-87c9-b04aa0652629\\result.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/merger-pending-capture-product-red-result.json",
+      "bytes": 525,
+      "sha256": "abd5eaf2a7aaaf6d64d75855142a8a2a27a5ea3e3d03fabcaf5a3168040af815"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-merger-pending-capture-5d8f97de-0ccc-41da-87c9-b04aa0652629\\reproduction-script.cjs",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/merger-pending-capture-product-red-script.cjs",
+      "bytes": 4560,
+      "sha256": "2edc0ac8b24f482d8039c6abc77bced69a25245935da5d355f5a4357295b8879"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-merger-pending-capture-35fc7589-9ddc-4d5a-ae00-5186d27793fe\\result.json",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/merger-pending-capture-green-result.json",
+      "bytes": 764,
+      "sha256": "f45aa921a677d4ecd1721d9719c59bd3bf5496e34faa9957ae995b8bcf6466e2"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv22-merger-pending-capture-35fc7589-9ddc-4d5a-ae00-5186d27793fe\\reproduction-script.cjs",
+      "target": ".scratch/complete-mv-events-implementation/evidence/22-history/merger-pending-capture-green-script.cjs",
+      "bytes": 4560,
+      "sha256": "2edc0ac8b24f482d8039c6abc77bced69a25245935da5d355f5a4357295b8879"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+
+> rpgmaker-event-dsl-workspace@0.0.0 check C:\Users\Shuen\.codex\worktrees\mv-ticket-22\rpgmaker-event-dsl
+> pnpm typecheck && pnpm lint && pnpm format:check && pnpm test
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 typecheck C:\Users\Shuen\.codex\worktrees\mv-ticket-22\rpgmaker-event-dsl
+> pnpm -r typecheck
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl typecheck$ tsc -p tsconfig.json --noEmit
+packages/rpgmaker-event-dsl typecheck: Done
+
+> rpgmaker-event-dsl-workspace@0.0.0 lint C:\Users\Shuen\.codex\worktrees\mv-ticket-22\rpgmaker-event-dsl
+> oxlint .
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 format:check C:\Users\Shuen\.codex\worktrees\mv-ticket-22\rpgmaker-event-dsl
+> oxfmt --ignore-path .oxfmtignore --check package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rpgmaker-event-dsl
+
+Checking formatting...
+
+All matched files use the correct format.
+Finished in 419ms on 155 files using 20 threads.
+
+> rpgmaker-event-dsl-workspace@0.0.0 test C:\Users\Shuen\.codex\worktrees\mv-ticket-22\rpgmaker-event-dsl
+> pnpm -r test
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl test$ vitest run
+packages/rpgmaker-event-dsl test:  RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-22/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+packages/rpgmaker-event-dsl test:  ❯ test/workflow.test.ts (34 tests | 3 failed) 12679ms
+packages/rpgmaker-event-dsl test:      × completes an all-generated Interrupted Push during push 523ms
+packages/rpgmaker-event-dsl test:      × abandons an all-snapshot Interrupted Push and continues normal push 452ms
+packages/rpgmaker-event-dsl test:      × stops push for mixed or missing Interrupted Push file states 479ms
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/workflow.test.ts > push workflow > completes an all-generated Interrupted Push during push
+packages/rpgmaker-event-dsl test: Error: Interrupted Push affected file set is inconsistent with the original operation. Recovery stopped without changes to the Project Root.
+packages/rpgmaker-event-dsl test:  ❯ fail src/workspace/push-recovery.ts:37:9
+packages/rpgmaker-event-dsl test:      35| const manifestEvidenceHash = (manifest: SyncManifest) => hash(writeSta…
+packages/rpgmaker-event-dsl test:      36| function fail(detail: string): never {
+packages/rpgmaker-event-dsl test:      37|   throw new Error(
+packages/rpgmaker-event-dsl test:        |         ^
+packages/rpgmaker-event-dsl test:      38|     `Interrupted Push ${detail}. Recovery stopped without changes to t…
+packages/rpgmaker-event-dsl test:      39|   );
+packages/rpgmaker-event-dsl test:  ❯ resolvePending src/workspace/push-recovery.ts:249:5
+packages/rpgmaker-event-dsl test:  ❯ resolvePendingInterruptedPushForPush src/workspace/push-recovery.ts:134:5
+packages/rpgmaker-event-dsl test:  ❯ pushWorkspaceUnlocked src/workspace/push.ts:155:3
+packages/rpgmaker-event-dsl test:  ❯ withWorkspaceOperationLock src/workspace/operation-lock.ts:45:12
+packages/rpgmaker-event-dsl test:  ❯ pushWorkspace src/workspace/push.ts:143:3
+packages/rpgmaker-event-dsl test:  ❯ test/workflow.test.ts:1335:5
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/workflow.test.ts > push workflow > abandons an all-snapshot Interrupted Push and continues normal push
+packages/rpgmaker-event-dsl test: Error: Interrupted Push affected file set is inconsistent with the original operation. Recovery stopped without changes to the Project Root.
+packages/rpgmaker-event-dsl test:  ❯ fail src/workspace/push-recovery.ts:37:9
+packages/rpgmaker-event-dsl test:      35| const manifestEvidenceHash = (manifest: SyncManifest) => hash(writeSta…
+packages/rpgmaker-event-dsl test:      36| function fail(detail: string): never {
+packages/rpgmaker-event-dsl test:      37|   throw new Error(
+packages/rpgmaker-event-dsl test:        |         ^
+packages/rpgmaker-event-dsl test:      38|     `Interrupted Push ${detail}. Recovery stopped without changes to t…
+packages/rpgmaker-event-dsl test:      39|   );
+packages/rpgmaker-event-dsl test:  ❯ resolvePending src/workspace/push-recovery.ts:249:5
+packages/rpgmaker-event-dsl test:  ❯ resolvePendingInterruptedPushForPush src/workspace/push-recovery.ts:134:5
+packages/rpgmaker-event-dsl test:  ❯ pushWorkspaceUnlocked src/workspace/push.ts:155:3
+packages/rpgmaker-event-dsl test:  ❯ withWorkspaceOperationLock src/workspace/operation-lock.ts:45:12
+packages/rpgmaker-event-dsl test:  ❯ pushWorkspace src/workspace/push.ts:143:3
+packages/rpgmaker-event-dsl test:  ❯ test/workflow.test.ts:1353:5
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/workflow.test.ts > push workflow > stops push for mixed or missing Interrupted Push file states
+packages/rpgmaker-event-dsl test: AssertionError: expected [Function] to throw error including 'Interrupted Push cannot be recovered …' but got 'Interrupted Push affected file set is…'
+packages/rpgmaker-event-dsl test: - Expected
+packages/rpgmaker-event-dsl test: + Received
+packages/rpgmaker-event-dsl test: - Interrupted Push cannot be recovered automatically.
+packages/rpgmaker-event-dsl test: - Restore affected Project Root files to either the pending backup state or Generated Project Data, then run push again.
+packages/rpgmaker-event-dsl test: - - Map001.json: generated
+packages/rpgmaker-event-dsl test: - - System.json: missing
+packages/rpgmaker-event-dsl test: + Interrupted Push affected file set is inconsistent with the original operation. Recovery stopped without changes to the Project Root.
+packages/rpgmaker-event-dsl test:  ❯ test/workflow.test.ts:1377:76
+packages/rpgmaker-event-dsl test:     1375|     await rm(join(projectRoot, "data", "System.json"), { force: true }…
+packages/rpgmaker-event-dsl test:     1376|
+packages/rpgmaker-event-dsl test:     1377|     await expect(pushWorkspace({ workspaceRoot, allowDestructive: fals…
+packages/rpgmaker-event-dsl test:        |                                                                            ^
+packages/rpgmaker-event-dsl test:     1378|       [
+packages/rpgmaker-event-dsl test:     1379|         "Interrupted Push cannot be recovered automatically.",
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+packages/rpgmaker-event-dsl test:  Test Files  1 failed | 29 passed (30)
+packages/rpgmaker-event-dsl test:       Tests  3 failed | 342 passed (345)
+packages/rpgmaker-event-dsl test:    Start at  20:56:18
+packages/rpgmaker-event-dsl test:    Duration  266.64s (transform 1.43s, setup 0ms, import 11.47s, tests 516.82s, environment 2ms)
+packages/rpgmaker-event-dsl test: Failed
+C:\Users\Shuen\.codex\worktrees\mv-ticket-22\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run`
+Exit status 1
+ ELIFECYCLE  Test failed. See above for more details.
+ ELIFECYCLE  Command failed with exit code 1.

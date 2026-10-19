@@ -1,0 +1,80 @@
+{
+  "productTip": "7b2e70235a7e315801aebd9c98f1bfcfb8847ef1",
+  "files": [
+    {
+      "name": "authoring-8T4079tW.mjs",
+      "bytes": 66176,
+      "sha256": "86d30f81a4c85b0c53fd138bfc8f4048821f2c164420597f1ebf48ec2338086c"
+    },
+    {
+      "name": "authoring-8T4079tW.mjs.map",
+      "bytes": 149847,
+      "sha256": "fbbcaa09d7df019bf96e803a1e544e2fea3a37f5be3c719ee6f938fd20ad711b"
+    },
+    {
+      "name": "cli.d.mts",
+      "bytes": 298,
+      "sha256": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee"
+    },
+    {
+      "name": "cli.d.mts.map",
+      "bytes": 163,
+      "sha256": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c"
+    },
+    {
+      "name": "cli.mjs",
+      "bytes": 3223,
+      "sha256": "2a2bcbc17bc4ffd89cb566d510ce65eda52a53697f4a2587b16949e116367f23"
+    },
+    {
+      "name": "cli.mjs.map",
+      "bytes": 5726,
+      "sha256": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8"
+    },
+    {
+      "name": "index.d.mts",
+      "bytes": 51617,
+      "sha256": "660c84908a22adf310c650697b8045b4b094dcaf082ebe81269287a14ccd3823"
+    },
+    {
+      "name": "index.d.mts.map",
+      "bytes": 24677,
+      "sha256": "dff7697372861248a7d097d20cb1656a8b7421f711caf2305901df53661f0cdb"
+    },
+    {
+      "name": "index.mjs",
+      "bytes": 4975,
+      "sha256": "3b1a351ed77ea897b696389f80c40fd7093d53ea88ddf91069df3911102113e7"
+    },
+    {
+      "name": "index.mjs.map",
+      "bytes": 452,
+      "sha256": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36"
+    },
+    {
+      "name": "operations-C2k8cH6C.mjs",
+      "bytes": 317561,
+      "sha256": "6669b17f0cb52c68102e5cc23d2ccc091b2e68e130eccd58857e40efd4246744"
+    },
+    {
+      "name": "operations-C2k8cH6C.mjs.map",
+      "bytes": 652898,
+      "sha256": "6c5638e612cca89df63344e4017b49b296e1b021c31c1b866edb2f528b3d6cf5"
+    },
+    {
+      "name": "workspace-api.d.mts",
+      "bytes": 2267,
+      "sha256": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594"
+    },
+    {
+      "name": "workspace-api.d.mts.map",
+      "bytes": 1043,
+      "sha256": "5c00024325238da7b6368529ed69e33839a8a4f0baeed1eb2e79f65c877ebbe8"
+    },
+    {
+      "name": "workspace-api.mjs",
+      "bytes": 416,
+      "sha256": "437ea9b032459f74e19c40762c689e96688f4a7006addf40aaa41254ffcffdd4"
+    }
+  ]
+}
