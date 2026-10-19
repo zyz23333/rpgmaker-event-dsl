@@ -1,0 +1,18 @@
+Auto-merging .gitattributes
+CONFLICT (content): Merge conflict in .gitattributes
+Auto-merging .scratch/complete-mv-events-implementation/evidence/README.md
+CONFLICT (content): Merge conflict in .scratch/complete-mv-events-implementation/evidence/README.md
+Auto-merging .scratch/complete-mv-events-implementation/evidence/requirements.json
+CONFLICT (content): Merge conflict in .scratch/complete-mv-events-implementation/evidence/requirements.json
+Auto-merging README.md
+Auto-merging packages/rpgmaker-event-dsl/README.md
+Auto-merging packages/rpgmaker-event-dsl/src/compiler/dispatch.ts
+Auto-merging packages/rpgmaker-event-dsl/src/domain/command.ts
+Auto-merging packages/rpgmaker-event-dsl/src/validation/dsl-command-inputs.ts
+CONFLICT (content): Merge conflict in packages/rpgmaker-event-dsl/src/validation/dsl-command-inputs.ts
+Auto-merging packages/rpgmaker-event-dsl/src/validation/native-parameters.ts
+CONFLICT (content): Merge conflict in packages/rpgmaker-event-dsl/src/validation/native-parameters.ts
+Auto-merging packages/rpgmaker-event-dsl/test/events.test.ts
+Auto-merging packages/rpgmaker-event-dsl/vitest.windows.config.ts
+Auto-merging skills/rpgmaker-event-authoring/references/event-patterns.md
+Automatic merge failed; fix conflicts and then commit the result.

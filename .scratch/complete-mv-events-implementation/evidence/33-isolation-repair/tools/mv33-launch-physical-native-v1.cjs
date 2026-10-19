@@ -1,0 +1,32 @@
+'use strict';
+const fs=require('node:fs/promises');
+const path=require('node:path');
+const cp=require('node:child_process');
+const crypto=require('node:crypto');
+const assert=require('node:assert/strict');
+const isolation=require('./mv33-physical-isolation-v1.cjs');
+async function main(){
+  const id=process.argv[2];assert.ok(['r1','r6-r7'].includes(id));
+  const helper=path.join(__dirname,'mv33-native-pair-delivery-v4.cjs'),guard=path.join(__dirname,'mv33-physical-isolation-v1.cjs');
+  assert.equal(isolation.sha(await fs.readFile(helper)),'b02e87e37829523e70cfa7e2e4a0cbd15474dfc196c4acbff9e4ce5669a26d01');
+  assert.equal(isolation.sha(await fs.readFile(guard)),'22719922029ef212ff34058fead532a3523d96fcb3d649e51bc081dc9b43d786');
+  const gate=path.join(__dirname,'mv33-root-physical-gate-audit-476d3333-b4d1-4a62-b3c2-88497b1331da.json');
+  assert.equal(isolation.sha(await fs.readFile(gate)),'81e123744285f70e47af759f527de63759aa9682f66fb8b4ed0ffef6217c07d1');
+  const pointer=JSON.parse(await fs.readFile(path.join(__dirname,'mv33-physical-seed-v3-pointer.json'),'utf8'));
+  const manifestBytes=await fs.readFile(pointer.manifest);assert.equal(isolation.sha(manifestBytes),pointer.manifestSha256);const manifest=JSON.parse(manifestBytes);
+  const root=path.join(__dirname,'mv33-physical-native-launch-'+id+'-v1-'+crypto.randomUUID());await fs.mkdir(root);
+  const record={purpose:'Root-authorized new native pair with complete physical reference and seed before/after protection',at:new Date().toISOString(),id,root,gate:{path:gate,sha256:isolation.sha(await fs.readFile(gate)),operatorRelease:'Root explicit native gate RELEASED for33 replacement pairs, physical helperv4/guardv1/restored seedv3'},seedManifest:{path:pointer.manifest,sha256:pointer.manifestSha256},before:{},passed:false};
+  record.before.reference=await isolation.physicalTree(pointer.reference);record.before.seed=await isolation.physicalTree(pointer.seedRoot);
+  assert.deepEqual(record.before.reference,manifest.copy.source);assert.deepEqual(record.before.seed,manifest.fullSeed);
+  await fs.writeFile(path.join(root,'before-launch.json'),JSON.stringify(record,null,2)+'\n',{flag:'wx'});
+  const scenario=path.join(__dirname,id==='r1'?'mv33-r1-route-waits-delivery-v4.cjs':'mv33-r6-r7-movement-delivery-v5.cjs');
+  const execution=cp.spawnSync(process.execPath,[scenario,'--mode=native','--nativeGateRelease='+gate+' SHA81e123744285f70e47af759f527de63759aa9682f66fb8b4ed0ffef6217c07d1 explicitRootRelease'],{encoding:'utf8',windowsHide:true,timeout:300000,maxBuffer:16*1024*1024});
+  await fs.writeFile(path.join(root,'stdout-original.txt'),execution.stdout||'',{flag:'wx'});await fs.writeFile(path.join(root,'stderr-original.txt'),execution.stderr||'',{flag:'wx'});
+  record.execution={status:execution.status,signal:execution.signal,error:execution.error?.message,scenario,stdout:path.join(root,'stdout-original.txt'),stderr:path.join(root,'stderr-original.txt')};
+  record.after={reference:await isolation.physicalTree(pointer.reference),seed:await isolation.physicalTree(pointer.seedRoot)};
+  assert.deepEqual(record.after.reference,record.before.reference,'Full1100 reference files changed');assert.deepEqual(record.after.seed,record.before.seed,'Full1101 seed files changed');
+  record.fullReferenceUnchanged=true;record.fullSeedUnchanged=true;record.passed=execution.status===0&&!execution.error;record.completedAt=new Date().toISOString();
+  const result=path.join(root,'result.json');await fs.writeFile(result,JSON.stringify(record,null,2)+'\n',{flag:'wx'});console.log(execution.stdout||'');console.log(JSON.stringify({result,sha256:isolation.sha(await fs.readFile(result)),passed:record.passed,fullReferenceFiles:record.after.reference.files.length,fullSeedFiles:record.after.seed.files.length},null,2));
+  if(!record.passed)process.exitCode=1;
+}
+main().catch(error=>{console.error(error.stack||error);process.exitCode=1;});

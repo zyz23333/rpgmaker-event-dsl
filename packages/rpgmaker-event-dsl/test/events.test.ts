@@ -326,7 +326,7 @@ describe("compileMapEvent", () => {
                     { kind: "moveForward" },
                     { kind: "moveBackward" },
                     { kind: "jump", x: 2, y: -1 },
-                    { kind: "routeWait", frames: 15 },
+                    { kind: "wait", frames: 15 },
                     { kind: "turnDown" },
                     { kind: "turnLeft" },
                     { kind: "turnRight" },
@@ -354,14 +354,19 @@ describe("compileMapEvent", () => {
                     { kind: "transparent", enabled: false },
                     {
                       kind: "changeImage",
-                      image: imageAsset({ folder: "characters", name: "Actor1" }),
-                      index: 3,
+                      character: imageAsset({ folder: "characters", name: "Actor1" }),
+                      characterIndex: 3,
                     },
                     { kind: "changeOpacity", opacity: 128 },
-                    { kind: "changeBlendMode", blendMode: 1 },
+                    { kind: "changeBlendMode", blendMode: "additive" },
                     {
                       kind: "playSe",
-                      audio: { asset: audioAsset({ folder: "se", name: "Cursor1" }), volume: 80 },
+                      audio: {
+                        asset: audioAsset({ folder: "se", name: "Cursor1" }),
+                        volume: 80,
+                        pitch: 100,
+                        pan: 0,
+                      },
                     },
                     { kind: "script", script: scriptInput({ code: "this.moveForward();" }) },
                   ],
@@ -413,7 +418,7 @@ describe("compileMapEvent", () => {
       parameters: [1, 1, 0, 4, "$gameParty.gold()"],
     });
     expect(commands[22]).toEqual({ code: 124, indent: 0, parameters: [0, 45] });
-    expect(commands[23]).toEqual({ code: 124, indent: 0, parameters: [1, 0] });
+    expect(commands[23]).toEqual({ code: 124, indent: 0, parameters: [1] });
     expect(commands[24]).toEqual({ code: 125, indent: 0, parameters: [1, 1, 1] });
     expect(commands[25]).toEqual({ code: 126, indent: 0, parameters: [1, 1, 0, 1] });
     expect(commands[26]).toEqual({ code: 127, indent: 0, parameters: [1, 0, 1, 1, true] });

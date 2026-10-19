@@ -528,6 +528,7 @@ export const partyStateStationEvent = mapEvent({
         }),
         controlTimer({ action: "start", seconds: 30 }),
         controlTimer({ action: "stop" }),
+        controlTimer({ action: "stop", seconds: 30 }),
         rawDslCommand({
           code: 108,
           parameters: ["Unknown raw commands remain explicit in the sample workspace."],

@@ -1,0 +1,141 @@
+{
+  "purpose": "Append-only retest classification then actual physically independent replacement acceptance. All original recorder outputs are byte-preserved; derivative native/fixture/source enrichment is explicit; historical results untouched.",
+  "at": "2026-10-19T17:59:13.691Z",
+  "rawOutput": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-isolation-recorder-originals-0516053f-8355-4d6f-ab99-f07131b07152",
+  "oldRecords": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-006-2026-10-19T17-22-13-772Z-4e8ec62d-d557-43ca-9f61-fd4ba3c51579.json",
+      "sha256": "c8cdf9c683344154761534edb6188b9f6ebe8ad4ff319bfe089708e193895aab",
+      "runId": "2026-10-19T17-22-13-772Z-4e8ec62d-d557-43ca-9f61-fd4ba3c51579"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-007-2026-10-19T17-22-13-831Z-ea326519-b23f-41e4-b97f-11bddd14ddbf.json",
+      "sha256": "9b8d7f316d9973717edc7cb98889bc2b37bd2931bb9cf3ad655bc76e26dca0d6",
+      "runId": "2026-10-19T17-22-13-831Z-ea326519-b23f-41e4-b97f-11bddd14ddbf"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-009-2026-10-19T17-22-13-946Z-7d822f65-5042-48f0-be55-73d1b341d5c2.json",
+      "sha256": "3ba9de715be86dfc0549ba24b40448fb2e2f6ad47474db5009bcf9724f0b72c3",
+      "runId": "2026-10-19T17-22-13-946Z-7d822f65-5042-48f0-be55-73d1b341d5c2"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-010-2026-10-19T17-22-14-011Z-a339d307-125a-4edd-a2e8-c68fe2dba5ae.json",
+      "sha256": "9a4560460371317b6e8e6e07697adc6eb492f933e2e6dd9a08d98e0b5960c001",
+      "runId": "2026-10-19T17-22-14-011Z-a339d307-125a-4edd-a2e8-c68fe2dba5ae"
+    }
+  ],
+  "records": [
+    {
+      "id": "MV-S6-MOVEMENT-006",
+      "status": "retest-required",
+      "original": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-isolation-recorder-originals-0516053f-8355-4d6f-ab99-f07131b07152\\MV-S6-MOVEMENT-006-2026-10-19T17-59-13-246Z-cc2082da-71df-4f05-b8fc-7fd6ed4deea1.json",
+        "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/recorder-originals/MV-S6-MOVEMENT-006-2026-10-19T17-59-13-246Z-cc2082da-71df-4f05-b8fc-7fd6ed4deea1.json",
+        "sha256": "b5d9853a4a69f26caa715a6ccc61a9d62fe727b2cc7448792dd09bdf0b1a66f3"
+      },
+      "derivative": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-006-2026-10-19T17-59-13-246Z-cc2082da-71df-4f05-b8fc-7fd6ed4deea1.json",
+        "sha256": "5dd4ce4a3f4083637f906834046cc9cf8ae47ccb435ea973ffa764c04e03ea24"
+      },
+      "native": "not-executed"
+    },
+    {
+      "id": "MV-S6-MOVEMENT-007",
+      "status": "retest-required",
+      "original": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-isolation-recorder-originals-0516053f-8355-4d6f-ab99-f07131b07152\\MV-S6-MOVEMENT-007-2026-10-19T17-59-13-311Z-70a4030e-c34d-4f58-b2cf-847e84d49f8f.json",
+        "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/recorder-originals/MV-S6-MOVEMENT-007-2026-10-19T17-59-13-311Z-70a4030e-c34d-4f58-b2cf-847e84d49f8f.json",
+        "sha256": "f2d1f2b3e925dae188cae5c31ca40ad92cee8dc87e4a114de58e17a0d497d0d7"
+      },
+      "derivative": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-007-2026-10-19T17-59-13-311Z-70a4030e-c34d-4f58-b2cf-847e84d49f8f.json",
+        "sha256": "7cfd892082828ed9ee71dbe7fd8c75f764ddc99e5c66a5210f5d87a090d24f67"
+      },
+      "native": "not-executed"
+    },
+    {
+      "id": "MV-S6-MOVEMENT-009",
+      "status": "retest-required",
+      "original": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-isolation-recorder-originals-0516053f-8355-4d6f-ab99-f07131b07152\\MV-S6-MOVEMENT-009-2026-10-19T17-59-13-368Z-b4a1095f-f843-41d3-afeb-9ae26129ed5a.json",
+        "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/recorder-originals/MV-S6-MOVEMENT-009-2026-10-19T17-59-13-368Z-b4a1095f-f843-41d3-afeb-9ae26129ed5a.json",
+        "sha256": "0a3018ecfd7bf71fd8a23074a1666c6a81c3c70f30db887b2e8caf05540ab3be"
+      },
+      "derivative": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-009-2026-10-19T17-59-13-368Z-b4a1095f-f843-41d3-afeb-9ae26129ed5a.json",
+        "sha256": "9459c4e45d2f3b71e648a98e22d07799e2c962796de743ddffe88f0f9e32aff6"
+      },
+      "native": "not-executed"
+    },
+    {
+      "id": "MV-S6-MOVEMENT-010",
+      "status": "retest-required",
+      "original": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-isolation-recorder-originals-0516053f-8355-4d6f-ab99-f07131b07152\\MV-S6-MOVEMENT-010-2026-10-19T17-59-13-418Z-14c6dc4a-11a8-4f63-8c95-f56537f89d4c.json",
+        "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/recorder-originals/MV-S6-MOVEMENT-010-2026-10-19T17-59-13-418Z-14c6dc4a-11a8-4f63-8c95-f56537f89d4c.json",
+        "sha256": "44d73009b5a87888fbee5579b10dad20499fb9beb8cdcaf5ea05ffe83964265c"
+      },
+      "derivative": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-010-2026-10-19T17-59-13-418Z-14c6dc4a-11a8-4f63-8c95-f56537f89d4c.json",
+        "sha256": "963d51bc86e10c518f78269333c51ca02e700c1eb3dbca13e548dc647434307d"
+      },
+      "native": "not-executed"
+    },
+    {
+      "id": "MV-S6-MOVEMENT-006",
+      "status": "passed",
+      "original": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-isolation-recorder-originals-0516053f-8355-4d6f-ab99-f07131b07152\\MV-S6-MOVEMENT-006-2026-10-19T17-59-13-463Z-ac2002fd-1b03-4207-a429-3ea981ff7f64.json",
+        "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/recorder-originals/MV-S6-MOVEMENT-006-2026-10-19T17-59-13-463Z-ac2002fd-1b03-4207-a429-3ea981ff7f64.json",
+        "sha256": "e3263a074b2fdbdde2caacd453b09311c0e6849c61ba1840e0e75c83524a77fa"
+      },
+      "derivative": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-006-2026-10-19T17-59-13-463Z-ac2002fd-1b03-4207-a429-3ea981ff7f64.json",
+        "sha256": "061c6ba0638a14c2a97b5d22e2e67f3e64a90ac212a3fd409f7b0ffac64dae72"
+      },
+      "native": "game"
+    },
+    {
+      "id": "MV-S6-MOVEMENT-007",
+      "status": "passed",
+      "original": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-isolation-recorder-originals-0516053f-8355-4d6f-ab99-f07131b07152\\MV-S6-MOVEMENT-007-2026-10-19T17-59-13-522Z-62a9b882-7110-4ffb-98be-0a0e86204449.json",
+        "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/recorder-originals/MV-S6-MOVEMENT-007-2026-10-19T17-59-13-522Z-62a9b882-7110-4ffb-98be-0a0e86204449.json",
+        "sha256": "13b1c1e4fc4cd1b336a340827aaa3a81072e59dc5511ab9f306978c71087be8f"
+      },
+      "derivative": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-007-2026-10-19T17-59-13-522Z-62a9b882-7110-4ffb-98be-0a0e86204449.json",
+        "sha256": "6f15c18824084c40bb7e5596c9b2bfd825ce32d167f0e5c927ead5bafdb42e17"
+      },
+      "native": "game"
+    },
+    {
+      "id": "MV-S6-MOVEMENT-009",
+      "status": "passed",
+      "original": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-isolation-recorder-originals-0516053f-8355-4d6f-ab99-f07131b07152\\MV-S6-MOVEMENT-009-2026-10-19T17-59-13-582Z-7a0d91a0-3efd-43f0-9724-6efbc9dd61ec.json",
+        "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/recorder-originals/MV-S6-MOVEMENT-009-2026-10-19T17-59-13-582Z-7a0d91a0-3efd-43f0-9724-6efbc9dd61ec.json",
+        "sha256": "4e39601950dc3357179b331ba40310fc5b745f0487c4195cf66ed5bfe4cb8759"
+      },
+      "derivative": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-009-2026-10-19T17-59-13-582Z-7a0d91a0-3efd-43f0-9724-6efbc9dd61ec.json",
+        "sha256": "618efe512e0a8765c9aefa472efdb8e886eceee4bf7afaf7faae5a850172cbaf"
+      },
+      "native": "game"
+    },
+    {
+      "id": "MV-S6-MOVEMENT-010",
+      "status": "passed",
+      "original": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-isolation-recorder-originals-0516053f-8355-4d6f-ab99-f07131b07152\\MV-S6-MOVEMENT-010-2026-10-19T17-59-13-642Z-bc87ff3c-4dd7-4216-bcd1-3964168e8c0e.json",
+        "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/recorder-originals/MV-S6-MOVEMENT-010-2026-10-19T17-59-13-642Z-bc87ff3c-4dd7-4216-bcd1-3964168e8c0e.json",
+        "sha256": "dea64ffa2d0c7ae220cf30d15fc739361282df0bea77d1560541bf77af80af0a"
+      },
+      "derivative": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-010-2026-10-19T17-59-13-642Z-bc87ff3c-4dd7-4216-bcd1-3964168e8c0e.json",
+        "sha256": "e9cab6d9994b8e6cbf93407fc74beeac1539d8d778b0e3aed511477087f673c6"
+      },
+      "native": "game"
+    }
+  ]
+}

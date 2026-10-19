@@ -1,0 +1,21 @@
+
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+Error [TransformError]: Transform failed with 1 error:
+C:\Users\Shuen\.codex\tmp\mv33-record-isolation-repair-v1.ts:21:855: ERROR: "await" can only be used inside an "async" function
+    at failureErrorWithLog (F:\Shuen\RPG\rpgmaker-event-dsl\node_modules\.pnpm\esbuild@0.28.1\node_modules\esbuild\lib\main.js:1748:15)
+    at F:\Shuen\RPG\rpgmaker-event-dsl\node_modules\.pnpm\esbuild@0.28.1\node_modules\esbuild\lib\main.js:1017:50
+    at responseCallbacks.<computed> (F:\Shuen\RPG\rpgmaker-event-dsl\node_modules\.pnpm\esbuild@0.28.1\node_modules\esbuild\lib\main.js:884:9)
+    at handleIncomingPacket (F:\Shuen\RPG\rpgmaker-event-dsl\node_modules\.pnpm\esbuild@0.28.1\node_modules\esbuild\lib\main.js:939:12)
+    at Socket.readFromStdout (F:\Shuen\RPG\rpgmaker-event-dsl\node_modules\.pnpm\esbuild@0.28.1\node_modules\esbuild\lib\main.js:862:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+
+Node.js v22.23.0
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-33\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: tsx C:/Users/Shuen/.codex/tmp/mv33-record-isolation-repair-v1.mts C:/Users/Shuen/.codex/tmp/mv33-r1-route-waits-delivery-v4-ae8c1388-ee47-42c1-b943-a3c71d226ea4 C:/Users/Shuen/.codex/tmp/mv33-r6-r7-movement-delivery-v5-6e6ae105-ea4a-4170-810e-406cbfd881c2

@@ -12,13 +12,14 @@ export function renderMapPageSettings(page: SnapshotMapEventPage): string[] {
     image.push(
       `character: imageAsset({ folder: "characters", name: ${literal(page.image.characterName)} })`,
     );
-  if (page.image.characterIndex !== 0) image.push(`characterIndex: ${page.image.characterIndex}`);
-  if (page.image.tileId !== 0) image.push(`tileId: ${page.image.tileId}`);
+  if (!Object.is(page.image.characterIndex, 0))
+    image.push(`characterIndex: ${literal(page.image.characterIndex)}`);
+  if (!Object.is(page.image.tileId, 0)) image.push(`tileId: ${literal(page.image.tileId)}`);
   if (page.image.direction !== 2)
     image.push(
       `direction: ${literal(pageDirections[nativeDirections.indexOf(page.image.direction as 2)])}`,
     );
-  if (page.image.pattern !== 0) image.push(`pattern: ${page.image.pattern}`);
+  if (!Object.is(page.image.pattern, 0)) image.push(`pattern: ${literal(page.image.pattern)}`);
   if (image.length) fields.push(`image: { ${image.join(", ")} },`);
   const movement: string[] = [];
   if (page.movement) {

@@ -1,0 +1,10 @@
+{
+  "seedRoot": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-native-seed-v1-f2200e0d-4c38-45c8-b97d-35042ecdf246",
+  "originalSeed": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/NewData",
+  "asset": {
+    "source": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\audio\\bgm\\Battle1.ogg",
+    "sourceSha256": "8bc028844de7792a07f36c4e080dfc2a585ee3f1a126074a1ef9e2c2408a98e7",
+    "destination": "audio/se/Movement33LongControl.ogg"
+  },
+  "method": "Original engine/images/BGM/BGS/ME and private copied SE directory; long control is an identified unmodified local copy. No writes through reference junctions."
+}

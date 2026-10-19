@@ -1,0 +1,2 @@
+# Preserve original hashed execution bytes, including CRLF and captured whitespace.
+* -text -whitespace

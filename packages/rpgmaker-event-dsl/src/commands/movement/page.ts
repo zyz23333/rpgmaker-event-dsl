@@ -96,7 +96,11 @@ export function readNativePageMovement(
         {
           nativePath: `${path}.${field}`,
           expected: `integer ${minimum}..${maximum}`,
-          actual: Object.hasOwn(page, field) ? String(value) : "<missing>",
+          actual: Object.hasOwn(page, field)
+            ? Object.is(value, -0)
+              ? "-0"
+              : String(value)
+            : "<missing>",
         },
       );
   }

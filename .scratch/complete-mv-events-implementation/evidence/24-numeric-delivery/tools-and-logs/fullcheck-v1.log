@@ -1,0 +1,64 @@
+
+> rpgmaker-event-dsl-workspace@0.0.0 check C:\Users\Shuen\.codex\worktrees\mv-map-numeric-fix\rpgmaker-event-dsl
+> pnpm typecheck && pnpm lint && pnpm format:check && pnpm test
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 typecheck C:\Users\Shuen\.codex\worktrees\mv-map-numeric-fix\rpgmaker-event-dsl
+> pnpm -r typecheck
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl typecheck$ tsc -p tsconfig.json --noEmit
+packages/rpgmaker-event-dsl typecheck: Done
+
+> rpgmaker-event-dsl-workspace@0.0.0 lint C:\Users\Shuen\.codex\worktrees\mv-map-numeric-fix\rpgmaker-event-dsl
+> oxlint .
+
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-archive-delivery-v2.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/23-history/mv23-delivery-preflight-v1.cjs:1:29: warning eslint(no-unused-vars): Variable 'fsp' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-audit-v1.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-archive-delivery-v1.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/23-history/mv23-register-native-v1.cjs:1:107: warning eslint(no-unused-vars): Variable 'cp' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-audit-v2.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-metadata-check-record-v1.cjs:2:94: warning eslint(no-unused-vars): Variable 'assert' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-physical-delivery-v4.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-physical-delivery-v3.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/22-history/original-held-reproduction.cjs:89:61: warning eslint(no-unused-expressions): Expected expression to be used help: Consider using this expression or removing it
+
+> rpgmaker-event-dsl-workspace@0.0.0 format:check C:\Users\Shuen\.codex\worktrees\mv-map-numeric-fix\rpgmaker-event-dsl
+> oxfmt --ignore-path .oxfmtignore --check package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rpgmaker-event-dsl
+
+Checking formatting...
+
+All matched files use the correct format.
+Finished in 504ms on 185 files using 20 threads.
+
+> rpgmaker-event-dsl-workspace@0.0.0 test C:\Users\Shuen\.codex\worktrees\mv-map-numeric-fix\rpgmaker-event-dsl
+> pnpm -r test
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl test$ vitest run
+packages/rpgmaker-event-dsl test:  RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-map-numeric-fix/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+packages/rpgmaker-event-dsl test:  ❯ test/mv-evidence.test.ts (3 tests | 1 failed) 13576ms
+packages/rpgmaker-event-dsl test:    × validates the evidence index, source references, fixture hashes, test links, and recorded runs 10005ms
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/mv-evidence.test.ts > validates the evidence index, source references, fixture hashes, test links, and recorded runs
+packages/rpgmaker-event-dsl test: Error: Test timed out in 10000ms.
+packages/rpgmaker-event-dsl test: If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+packages/rpgmaker-event-dsl test:  ❯ test/mv-evidence.test.ts:17:1
+packages/rpgmaker-event-dsl test:      15| import { recordEvidence, validateRequirements } from "./support/mv-evi…
+packages/rpgmaker-event-dsl test:      16|
+packages/rpgmaker-event-dsl test:      17| it("validates the evidence index, source references, fixture hashes, t…
+packages/rpgmaker-event-dsl test:        | ^
+packages/rpgmaker-event-dsl test:      18|   await validateRequirements();
+packages/rpgmaker-event-dsl test:      19| });
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+packages/rpgmaker-event-dsl test:  Test Files  1 failed | 40 passed (41)
+packages/rpgmaker-event-dsl test:       Tests  1 failed | 1008 passed (1009)
+packages/rpgmaker-event-dsl test:    Start at  03:27:10
+packages/rpgmaker-event-dsl test:    Duration  421.60s (transform 1.71s, setup 0ms, import 16.58s, tests 819.65s, environment 3ms)
+packages/rpgmaker-event-dsl test: Failed
+C:\Users\Shuen\.codex\worktrees\mv-map-numeric-fix\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run`
+Exit status 1
+ ELIFECYCLE  Test failed. See above for more details.
+ ELIFECYCLE  Command failed with exit code 1.

@@ -1,0 +1,37 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-33/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/movement-instructions.test.ts (7 tests | 1 failed | 6 skipped) 7ms
+   × M44 preserves None and independent explicitly supplied SE values 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/movement-instructions.test.ts > M44 preserves None and independent explicitly supplied SE values
+TypeError: Cannot read properties of null (reading 'name')
+ ❯ compileAudioPayload src/compiler/shared/media.ts:11:23
+      9| } {
+     10|   return {
+     11|     name: audio.asset.name,
+       |                       ^
+     12|     volume: audio.volume ?? 90,
+     13|     pitch: audio.pitch ?? 100,
+ ❯ compileMoveRouteInstruction src/commands/movement/compile.ts:203:22
+ ❯ compileMoveRouteCommand src/commands/movement/compile.ts:111:40
+ ❯ src/commands/movement/compile.ts:100:7
+ ❯ compileMoveRouteCommands src/commands/movement/compile.ts:99:23
+ ❯ compileMovementRoute src/commands/movement/compile.ts:86:11
+ ❯ compileNodes src/compiler/dispatch.ts:560:23
+ ❯ compileCommonEvent src/compiler/events.ts:68:11
+ ❯ compileInstructions test/movement-instructions.test.ts:17:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 skipped (7)
+   Start at  23:20:52
+   Duration  682ms (transform 235ms, setup 0ms, import 520ms, tests 7ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-33\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/movement-instructions.test.ts -t M44

@@ -1,6 +1,7 @@
 import type {
   ActorCommandTarget,
   ActorParameter,
+  AudioAssetReference,
   AudioPayload,
   BattlerCommandTarget,
   CharacterRuntimeSelector,
@@ -274,6 +275,7 @@ export type ControlTimerDslCommand =
   | {
       kind: "controlTimer";
       action: "stop";
+      seconds?: number;
     };
 
 export type ChangeGoldDslCommand = {
@@ -405,7 +407,7 @@ type MoveRouteInstruction =
   | { kind: "moveForward" }
   | { kind: "moveBackward" }
   | { kind: "jump"; x: number; y: number }
-  | { kind: "routeWait"; frames: number }
+  | { kind: "wait"; frames: number }
   | { kind: "turnDown" }
   | { kind: "turnLeft" }
   | { kind: "turnRight" }
@@ -426,10 +428,13 @@ type MoveRouteInstruction =
   | { kind: "directionFix"; enabled: boolean }
   | { kind: "through"; enabled: boolean }
   | { kind: "transparent"; enabled: boolean }
-  | { kind: "changeImage"; image: ImageAssetReference; index: number }
+  | { kind: "changeImage"; character: ImageAssetReference | null; characterIndex: number }
   | { kind: "changeOpacity"; opacity: number }
-  | { kind: "changeBlendMode"; blendMode: 0 | 1 | 2 | 3 }
-  | { kind: "playSe"; audio: AudioPayload }
+  | { kind: "changeBlendMode"; blendMode: "normal" | "additive" | "multiply" | "screen" }
+  | {
+      kind: "playSe";
+      audio: { asset: AudioAssetReference | null; volume: number; pitch: number; pan: number };
+    }
   | { kind: "script"; script: ScriptInput };
 
 export type SetMovementRouteDslCommand = {
@@ -633,17 +638,17 @@ export type ChangeTilesetDslCommand = {
 
 export type ChangeBattleBackDslCommand = {
   kind: "changeBattleBack";
-  battleback1: ImageAssetReference;
-  battleback2: ImageAssetReference;
+  battleback1: ImageAssetReference | null;
+  battleback2: ImageAssetReference | null;
 };
 
 export type ChangeParallaxDslCommand = {
   kind: "changeParallax";
-  image: ImageAssetReference;
-  loopX?: boolean;
-  loopY?: boolean;
-  sx?: number;
-  sy?: number;
+  image: ImageAssetReference | null;
+  loopX: boolean;
+  loopY: boolean;
+  sx: number;
+  sy: number;
 };
 
 export type GetLocationInfoDslCommand = {

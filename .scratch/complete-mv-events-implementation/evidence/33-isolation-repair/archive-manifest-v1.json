@@ -1,0 +1,298 @@
+{
+  "purpose": "Append-only33 native isolation repair archive. Tools/logs/metadata are preserved; no first-party engine/data/audio carriers are included. Old33-history/results remain untouched.",
+  "at": "2026-10-19T17:58:44.025Z",
+  "root": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-33\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\33-isolation-repair",
+  "records": [
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-isolation-v1.cjs",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/tools/mv33-physical-isolation-v1.cjs",
+      "bytes": 4920,
+      "sha256": "22719922029ef212ff34058fead532a3523d96fcb3d649e51bc081dc9b43d786"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-prepare-physical-seed-v2.cjs",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/tools/mv33-prepare-physical-seed-v2.cjs",
+      "bytes": 2250,
+      "sha256": "96df050f68eec114f316eece1c8209f1c1b04b41e1a8102f74c3e82fd69e005a"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-prepare-physical-seed-v3.cjs",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/tools/mv33-prepare-physical-seed-v3.cjs",
+      "bytes": 3542,
+      "sha256": "b22817d643ddd22020c350265835055fb269f7aadbeb9e7ebcb426fcc1b6935d"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-make-isolated-pair-helper-v3.cjs",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/tools/mv33-make-isolated-pair-helper-v3.cjs",
+      "bytes": 6401,
+      "sha256": "5bd775bdcb1d476f9653d051830e59008c58f729f946a061fbb293828a7fcbaa"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-make-isolated-pair-helper-v4.cjs",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/tools/mv33-make-isolated-pair-helper-v4.cjs",
+      "bytes": 2562,
+      "sha256": "098918cfd3786bf7c7be5d3f50e895523c3ccb6d9f44b8b1cbedb94e0afb3e48"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-native-pair-delivery-v3.cjs",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/tools/mv33-native-pair-delivery-v3.cjs",
+      "bytes": 20002,
+      "sha256": "0189d3661b400dc0625af101b4416a1b94bbffe6943549923a1a5c699594369c"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-native-pair-delivery-v4.cjs",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/tools/mv33-native-pair-delivery-v4.cjs",
+      "bytes": 20057,
+      "sha256": "b02e87e37829523e70cfa7e2e4a0cbd15474dfc196c4acbff9e4ce5669a26d01"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-bound-native-scenarios-v2.cjs",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/tools/mv33-bound-native-scenarios-v2.cjs",
+      "bytes": 2039,
+      "sha256": "708557d163f566e9499cc01bf13224ddc4f4cbb27811903f123a7d55192efdbb"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-bound-native-scenarios-v3.cjs",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/tools/mv33-bound-native-scenarios-v3.cjs",
+      "bytes": 2039,
+      "sha256": "6802ff14b4d339b224e3b33116c6978d6cdfc86ccbb4d336853c12a9683e9d2d"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-route-waits-delivery-v3.cjs",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/tools/mv33-r1-route-waits-delivery-v3.cjs",
+      "bytes": 154,
+      "sha256": "9608d2e9876300beeb166136492641da704ff6e0c31486b032f0739025249c0e"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-route-waits-delivery-v4.cjs",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/tools/mv33-r1-route-waits-delivery-v4.cjs",
+      "bytes": 154,
+      "sha256": "55fa83601d6868cd50270e0710b4a8c637db2cffb091aaa94002c38fc27198a0"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v4.cjs",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/tools/mv33-r6-r7-movement-delivery-v4.cjs",
+      "bytes": 157,
+      "sha256": "b82fe6d39ebbe0799c3b9101b1c0b43f0035e169f6a1aa428be976ab2e6fc238"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v5.cjs",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/tools/mv33-r6-r7-movement-delivery-v5.cjs",
+      "bytes": 157,
+      "sha256": "65e82a0f86e901a79c6e996d462f7922ff031f8ed5e427e47fb10d27631aaae5"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-isolation-guard-probes-v1.cjs",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/tools/mv33-physical-isolation-guard-probes-v1.cjs",
+      "bytes": 2924,
+      "sha256": "a4c923f9aed32afac0a8b202812d374ed045ae983c643c0ab676761aebf52564"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-launch-physical-native-v1.cjs",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/tools/mv33-launch-physical-native-v1.cjs",
+      "bytes": 3918,
+      "sha256": "55ed0d2c2ebd8d02fba5d6e2bf516aaeac88a05f46e145a1369d1d364dc0e173"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-archive-isolation-repair-v1.cjs",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/tools/mv33-archive-isolation-repair-v1.cjs",
+      "bytes": 8546,
+      "sha256": "f4721a8e42c1887ddde8f62c13078247a2fda268e2035173416872eff45f6532"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-seed-v2-preparation-original.log",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/logs/mv33-physical-seed-v2-preparation-original.log",
+      "bytes": 571,
+      "sha256": "4f6f831e8b84ad35437a66583c3f0e1d211f39d2b882728812d77bfde925de8f"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-seed-v3-preparation-original.log",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/logs/mv33-physical-seed-v3-preparation-original.log",
+      "bytes": 857,
+      "sha256": "e48d04cb1a1a6cbf459f2e9a9125c14c25e4f77dcc3fa059812372ccd3b86f87"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-physical-prepare-v1-original.log",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/logs/mv33-r1-physical-prepare-v1-original.log",
+      "bytes": 792,
+      "sha256": "f563e052b483eec5c1314216406f1039f22cc7fd3a93fa5f0c6fba163120de27"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-physical-prepare-v2-original.log",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/logs/mv33-r1-physical-prepare-v2-original.log",
+      "bytes": 823,
+      "sha256": "85eaef95748dc4f3c28765c71238686b5d4e8f4fe9dfc7395f96e3cd1b9c91b1"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-physical-prepare-v1-original.log",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/logs/mv33-r6-r7-physical-prepare-v1-original.log",
+      "bytes": 3073,
+      "sha256": "fe34ae8e60ee99ccaab045ba39325d8be806adcd9eed7fcb23b46630b4cfe9e4"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-isolation-guard-probes-v1-original.log",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/logs/mv33-physical-isolation-guard-probes-v1-original.log",
+      "bytes": 256,
+      "sha256": "6283bdc531c9e8b513111d2907522d35f311da494269a0184940f1b66d1c2fa3"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-physical-native-v1-original.log",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/logs/mv33-r1-physical-native-v1-original.log",
+      "bytes": 3484,
+      "sha256": "3d108bc261152c4f968626e966ea5be065bb4c3e3e6ff31e7f37cc8b6f993e61"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-physical-native-v1-original.log",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/logs/mv33-r6-r7-physical-native-v1-original.log",
+      "bytes": 3997,
+      "sha256": "a99f524f89c1b50c8b901e25c8739ca36d91d10724d9778c0a09e6902d843c14"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-native-isolation-repair-guide-20261020.md",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/incident/root-guide.md",
+      "bytes": 5730,
+      "sha256": "f3273dc6622de600563070038e1c61817f9e90eee9eea284a75f2ecb602298ed"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-merger-native-isolation-finding-a75f9dde-a015-4825-aae2-2da8cc0b0a13.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/incident/independent-finding.json",
+      "bytes": 23796,
+      "sha256": "869cd7de4d3baa727e99ccfc909fabe378afc707d23d1b3aacaf0c49956634c6"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-merger-related-native-copy-scope-ce265bd2-404a-400b-8fe5-b02cfd26051c.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/incident/related-copy-scope.json",
+      "bytes": 18885,
+      "sha256": "14a8da7a8771b307df6c10485bac0d76e77f773c857ebea19f3d5e661f821a8f"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-merger-isolation-preserved-e26de23e-aacc-481a-a2d8-c6db192b7304\\manifest.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/incident/preserved-originals-manifest.json",
+      "bytes": 988725,
+      "sha256": "e4b50fddc26dc78f82ee6e2e15d928c98147ed97c0d0ec068f309d71d8bb4eea"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-merger-metadata-audit-ee8a22a1-3ee1-4c6d-bbea-9050906befad.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/incident/prior-metadata-audit.json",
+      "bytes": 3529,
+      "sha256": "49ea7798632c1f12371d4ef0aa90a7e000092399c371bb50a465d08579c88f15"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv-native-reference-restoration-dc5069b8-0cf6-4c1d-8162-1187fc40a301\\result.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/incident/reference-restoration-result.json",
+      "bytes": 6178,
+      "sha256": "879e83cfd01dd8022487aa571fc29fb75eeed001855d20e784d3306defa0b9b0"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv-native-reference-provenance-audit-25000417-5679-4cb9-a191-039ec145d5d1\\audit.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/incident/reference-provenance-audit.json",
+      "bytes": 40713,
+      "sha256": "798aa34f3545798890c092fdb213369b93070299cae9a9943270242970d30396"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-root-physical-gate-audit-476d3333-b4d1-4a62-b3c2-88497b1331da.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/incident/root-physical-gate-audit.json",
+      "bytes": 25779,
+      "sha256": "81e123744285f70e47af759f527de63759aa9682f66fb8b4ed0ffef6217c07d1"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-seed-v3-pointer.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/preparation/restored-seed-pointer.json",
+      "bytes": 842,
+      "sha256": "740251ca82136ebba486b8c15a978a88a912bcea481548f50849a5a28b2989ae"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-seed-v2-pointer.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/preparation/interim-seed-pointer.json",
+      "bytes": 561,
+      "sha256": "dd1cf98df97e5cf3c47182ad2f318ed92fafbbedc8fc40a23e4cd6693d77284b"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-isolation-guard-probes-v1-aad84c44-8643-409d-be9b-d3138d891b67\\result.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/preparation/negative-guard-probes.json",
+      "bytes": 6745,
+      "sha256": "f2e284efa61130a3a36605de02b1035781eeb951bb7ae13bc6f7bcc70f4a7989"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-seed-v2-d96b8e8c-982f-4171-85ae-9a60bb32a4b7\\manifest.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/preparation/interim-seed-manifest.json",
+      "bytes": 1564597,
+      "sha256": "a67444c40035979c0c6c6354e461d24eb8f0d438106d9a63fbdf99172877687b"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-seed-v3-689e0dc7-1d2a-43e0-9556-d72b3b7df789\\manifest.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/preparation/restored-seed-manifest.json",
+      "bytes": 1565176,
+      "sha256": "a5feaeadb730f63d5615ad627e1a2df35870a09471c5f330862486456a78ac74"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-route-waits-delivery-v4-f2a43840-8e7c-411d-b907-c269a4ad2764\\physical-isolation-proof.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/preparation/r1-prepare-physical-isolation-proof.json",
+      "bytes": 816704,
+      "sha256": "42b311694c3cdc25d6077fb83dac0c92d769940032961ea613f5f2e83e40b419"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v5-ea3e1ced-fa1d-4845-b94a-74b6155b1990\\physical-isolation-proof.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/preparation/r6-r7-prepare-physical-isolation-proof.json",
+      "bytes": 816704,
+      "sha256": "59a9411f2b5724b536d93c2a6526f53c0939fbc4f0d830c092c90bc732079966"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-route-waits-delivery-v4-ae8c1388-ee47-42c1-b943-a3c71d226ea4\\pair-result.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/native/r1-native-safe-summary.json",
+      "bytes": 36858,
+      "sha256": "7f57b1e807594dca824721560fe90bb4aab0267986409c59b52ff1bc77197807",
+      "derivative": true,
+      "originalSha256": "9a83d2df58c68b21cacabf48c26438c1113561f7a23c4fec66df5e69dd6fdad4"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-route-waits-delivery-v4-ae8c1388-ee47-42c1-b943-a3c71d226ea4\\physical-isolation-proof.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/native/r1-native-physical-isolation-proof.json",
+      "bytes": 817135,
+      "sha256": "245f2c5222dbf1eb747bb6c44b5c8a7806e6fb18e1757202304009a78a62e8fe"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-route-waits-delivery-v4-ae8c1388-ee47-42c1-b943-a3c71d226ea4\\pair-result.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/native/r1-native-complete-isolation-checkpoints.json",
+      "bytes": 960250,
+      "sha256": "221abc65e929aaf98a85187d191e77a95dcd0615c2721ae22ada77de017d164c",
+      "derivative": true,
+      "originalSha256": "9a83d2df58c68b21cacabf48c26438c1113561f7a23c4fec66df5e69dd6fdad4"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v5-6e6ae105-ea4a-4170-810e-406cbfd881c2\\pair-result.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/native/r6-r7-native-safe-summary.json",
+      "bytes": 37560,
+      "sha256": "173ab93f5174e4174bae5dfaa2f7413da47b8508b186a245caa89c4e4e2bbbec",
+      "derivative": true,
+      "originalSha256": "705aa02d3bd675a32538d834ea86fb0eb6132db8772ea10e1ea68b2b27ee86bd"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v5-6e6ae105-ea4a-4170-810e-406cbfd881c2\\physical-isolation-proof.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/native/r6-r7-native-physical-isolation-proof.json",
+      "bytes": 816703,
+      "sha256": "aa4ea8c5e47f78e0c0a4cb33478b3d97bc993cd9940e4614299f2ce125f5ebb7"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v5-6e6ae105-ea4a-4170-810e-406cbfd881c2\\pair-result.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/native/r6-r7-native-complete-isolation-checkpoints.json",
+      "bytes": 959754,
+      "sha256": "ae20b7de2873c3e368cc1498cca14870a5fe9a0a54b290c5457c3ab394e926c1",
+      "derivative": true,
+      "originalSha256": "705aa02d3bd675a32538d834ea86fb0eb6132db8772ea10e1ea68b2b27ee86bd"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-native-launch-r1-v1-22cfa57d-1c77-4d70-8a62-c9bb4854241b\\result.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/native/r1-complete-reference-seed-protection.json",
+      "bytes": 2108265,
+      "sha256": "25b1e463f421625e586e6387dbdfd0304731ad21619dd2ccd078963fa02ff759"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-native-launch-r6-r7-v1-83c24d57-f320-463f-8539-e326cef77ed0\\result.json",
+      "archive": ".scratch/complete-mv-events-implementation/evidence/33-isolation-repair/native/r6-r7-complete-reference-seed-protection.json",
+      "bytes": 2108277,
+      "sha256": "482c5b66659b08cf67d25be11fb0dfd50599fd194878de6c0fcd1616630bff6c"
+    }
+  ],
+  "passed": true
+}

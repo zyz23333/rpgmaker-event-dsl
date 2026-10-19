@@ -8,6 +8,10 @@ command families rather than every helper. It includes message, flow control, sw
 variables, party, movement, screen, audio, map, battle, actor, enemy, plugin, script, and
 explicit unknown raw command examples.
 
+Timer Start requires seconds in 0..5999. Stop without seconds preserves an absent
+saved slot; the example also shows an explicit saved Stop value. Keep that value
+when decompiling even though Stop does not consume it during game execution.
+
 It also defines a Troop Event for the existing troop ID 1. Its ordered pages run a
 message at turn zero once per battle. `troopEvent` replaces only the complete page
 list; the troop's name, members, positions and other carrier fields stay external.

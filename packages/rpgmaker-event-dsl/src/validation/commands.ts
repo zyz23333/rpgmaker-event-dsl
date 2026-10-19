@@ -22,6 +22,7 @@ import {
 import { CommandStructureError } from "./command-structure.js";
 import { assertDslCommandList } from "./dsl-command-inputs.js";
 import { assertShowChoicesInput } from "../commands/message/validation.js";
+import { assertMapAppearanceInput } from "../commands/map/validation.js";
 
 type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
@@ -58,6 +59,14 @@ export function validateNodes(
   }
   for (const [nodeIndex, node] of nodes.entries()) {
     const nodePath = `${options.path ?? "commands"}[${nodeIndex}]`;
+    try {
+      assertMapAppearanceInput(node.kind, node, nodePath, true, resolver);
+    } catch (error) {
+      if (error instanceof CommandStructureError)
+        issues.push(error.issue(options.identity ?? "event", "compile"));
+      else throw error;
+      continue;
+    }
     const childOptions = (field: string): CommandValidationOptions => ({
       ...options,
       path: `${nodePath}.${field}`,

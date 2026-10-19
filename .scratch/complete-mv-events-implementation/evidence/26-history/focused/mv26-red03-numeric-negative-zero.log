@@ -1,0 +1,52 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-26/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/timer-workspace.test.ts > MV-S6-TIMER-003: numeric negative zero survives actual generated source and complete native installation
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\timer-numeric-negative-zero-f8m3Ud
+
+ ❯ test/timer-workspace.test.ts (3 tests | 1 failed | 2 skipped) 1148ms
+   × MV-S6-TIMER-003: numeric negative zero survives actual generated source and complete native installation 1147ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-003: numeric negative zero survives actual generated source and complete native installation
+AssertionError: expected 'import { commonEvent, controlTimer } …' to contain 'controlTimer({ action: "start", secon…'
+
+- Expected
++ Received
+
+- controlTimer({ action: "start", seconds: -0 })
++ import { commonEvent, controlTimer } from "rpgmaker-event-dsl";
++
++ export const commonEventSavedTimer001 = commonEvent({
++   id: 1,
++   name: "Saved Timer",
++   trigger: "none",
++   commands: [
++     controlTimer({ action: "start", seconds: 0 }),
++     controlTimer({ action: "start", seconds: 5999 }),
++     controlTimer({ action: "stop" }),
++     controlTimer({ action: "stop", seconds: 0 }),
++     controlTimer({ action: "stop", seconds: 83 }),
++   ],
++ });
++
+
+ ❯ test/timer-workspace.test.ts:203:24
+
+    201|       const source = await readFile(path, "utf8");
+    202|       if (source.includes("controlTimer")) {
+    203|         expect(source).toContain('controlTimer({ action: "start", seco…
+       |                        ^
+    204|         expect(source).toContain('controlTimer({ action: "stop", secon…
+    205|       }
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 skipped (3)
+   Start at  01:11:56
+   Duration  3.01s (transform 617ms, setup 0ms, import 1.66s, tests 1.15s, environment 0ms)
+
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/timer-workspace.test.ts:180:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

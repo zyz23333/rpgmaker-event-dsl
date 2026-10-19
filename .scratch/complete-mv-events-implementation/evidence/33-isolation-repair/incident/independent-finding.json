@@ -1,0 +1,470 @@
+{
+  "purpose": "Independent merger33 finding: native data directory links violate independent pair isolation and retained raw data identities. Read-only observation; all original paths preserved.",
+  "at": "2026-10-19T17:40:41.943Z",
+  "ready": "588f586d15a684d64dd828f4e63a54d4ca5bc657",
+  "primary": "205334338d8e64e3d00e485849c9ddf67bd7e3b1",
+  "candidateClean": true,
+  "primaryClean": true,
+  "metadataAudit": "C:/Users/Shuen/.codex/tmp/mv33-merger-metadata-audit-ee8a22a1-3ee1-4c6d-bbea-9050906befad.json",
+  "pairs": [
+    {
+      "scenario": "mv33-r1-route-waits-delivery-v2",
+      "raw": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-route-waits-delivery-v2-38b51944-87cf-44e7-8a77-172a6facab53\\pair-result.json",
+      "rawSha256": "93eecb8bd7afd44f518905c0644920686b5e83ccc6f213c0e54f513c38f4f65b",
+      "seed": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-native-seed-v1-f2200e0d-4c38-45c8-b97d-35042ecdf246/data",
+        "symlink": true,
+        "linkTarget": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data",
+        "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data"
+      },
+      "sides": [
+        {
+          "side": "literal",
+          "dataDirectory": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-route-waits-delivery-v2-38b51944-87cf-44e7-8a77-172a6facab53\\literal\\Game/data",
+          "symlink": true,
+          "linkTarget": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data",
+          "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data",
+          "completeCarrierCount": 15,
+          "mismatches": [
+            {
+              "file": "Map001.json",
+              "recordedSha256": "1663467fe8e45e93facfdecc5d869cb74a3beb36d5370eac3a977a70c69ce42b",
+              "currentSha256": "43647aeac010c4300d9e293a57bb76e7c8fd4979fb93c951208ca1b676b18b52",
+              "matches": false
+            }
+          ],
+          "carriers": [
+            {
+              "file": "Actors.json",
+              "recordedSha256": "782f49f5bb2cb5a02f34f891f513f93783762e3a16091a6fd09d43bdfaead7ed",
+              "currentSha256": "782f49f5bb2cb5a02f34f891f513f93783762e3a16091a6fd09d43bdfaead7ed",
+              "matches": true
+            },
+            {
+              "file": "Animations.json",
+              "recordedSha256": "e3f0e4ba8c72e493eea5fd5db2a714723d9f350bfc78e160ed40742d647b21da",
+              "currentSha256": "e3f0e4ba8c72e493eea5fd5db2a714723d9f350bfc78e160ed40742d647b21da",
+              "matches": true
+            },
+            {
+              "file": "Armors.json",
+              "recordedSha256": "7b5cb0e7c19646d4fd0f698c1ba844eee76fa04a92efe68015eb688d36dcc68e",
+              "currentSha256": "7b5cb0e7c19646d4fd0f698c1ba844eee76fa04a92efe68015eb688d36dcc68e",
+              "matches": true
+            },
+            {
+              "file": "Classes.json",
+              "recordedSha256": "500d7510ef6b2215fa8c2ba69748603cab0d2fe3bfed402dee26b91bd4658d2f",
+              "currentSha256": "500d7510ef6b2215fa8c2ba69748603cab0d2fe3bfed402dee26b91bd4658d2f",
+              "matches": true
+            },
+            {
+              "file": "CommonEvents.json",
+              "recordedSha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+              "currentSha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+              "matches": true
+            },
+            {
+              "file": "Enemies.json",
+              "recordedSha256": "848b0827d7a1ccb6440592e2965f0b0e110d3a83eb0fef3b41eb32e18cabda4d",
+              "currentSha256": "848b0827d7a1ccb6440592e2965f0b0e110d3a83eb0fef3b41eb32e18cabda4d",
+              "matches": true
+            },
+            {
+              "file": "Items.json",
+              "recordedSha256": "b8b3344c8b5d3534707eb1d273c5b152a36ecb8e0dd567c0f1cd0923e49a408d",
+              "currentSha256": "b8b3344c8b5d3534707eb1d273c5b152a36ecb8e0dd567c0f1cd0923e49a408d",
+              "matches": true
+            },
+            {
+              "file": "Map001.json",
+              "recordedSha256": "1663467fe8e45e93facfdecc5d869cb74a3beb36d5370eac3a977a70c69ce42b",
+              "currentSha256": "43647aeac010c4300d9e293a57bb76e7c8fd4979fb93c951208ca1b676b18b52",
+              "matches": false
+            },
+            {
+              "file": "MapInfos.json",
+              "recordedSha256": "d1f6336147136c2fc68e55b60d6d1a356e8170e4d0a0c4471d12e45264f16536",
+              "currentSha256": "d1f6336147136c2fc68e55b60d6d1a356e8170e4d0a0c4471d12e45264f16536",
+              "matches": true
+            },
+            {
+              "file": "Skills.json",
+              "recordedSha256": "b6c7d7dee520581a2a1b62ae06f75764d52620943531244b467fbed17bf0f36a",
+              "currentSha256": "b6c7d7dee520581a2a1b62ae06f75764d52620943531244b467fbed17bf0f36a",
+              "matches": true
+            },
+            {
+              "file": "States.json",
+              "recordedSha256": "25344e6d723dbaf1f5476aba83117be6e5e1d65ae9fcecd4aec53d63c01ee579",
+              "currentSha256": "25344e6d723dbaf1f5476aba83117be6e5e1d65ae9fcecd4aec53d63c01ee579",
+              "matches": true
+            },
+            {
+              "file": "System.json",
+              "recordedSha256": "c5a95c39aa1f5ecad4f4a30100da6922edf62f84351c0fa08ef91af1d64aca74",
+              "currentSha256": "c5a95c39aa1f5ecad4f4a30100da6922edf62f84351c0fa08ef91af1d64aca74",
+              "matches": true
+            },
+            {
+              "file": "Tilesets.json",
+              "recordedSha256": "06df3bf126c9e4e304646ad03ae72ce495aa7f4654b2ca198a215a08554ad554",
+              "currentSha256": "06df3bf126c9e4e304646ad03ae72ce495aa7f4654b2ca198a215a08554ad554",
+              "matches": true
+            },
+            {
+              "file": "Troops.json",
+              "recordedSha256": "446aa046e637de0712741d51ff2c038fb6e665c000c1e8e41e268333814cb4ee",
+              "currentSha256": "446aa046e637de0712741d51ff2c038fb6e665c000c1e8e41e268333814cb4ee",
+              "matches": true
+            },
+            {
+              "file": "Weapons.json",
+              "recordedSha256": "6e301f0a754c00473595e09ef5274f5ad1cabe188d1bb082fa9c80682c9d4b4f",
+              "currentSha256": "6e301f0a754c00473595e09ef5274f5ad1cabe188d1bb082fa9c80682c9d4b4f",
+              "matches": true
+            }
+          ]
+        },
+        {
+          "side": "compiled",
+          "dataDirectory": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-route-waits-delivery-v2-38b51944-87cf-44e7-8a77-172a6facab53\\compiled\\Game/data",
+          "symlink": true,
+          "linkTarget": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data",
+          "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data",
+          "completeCarrierCount": 15,
+          "mismatches": [
+            {
+              "file": "Map001.json",
+              "recordedSha256": "1663467fe8e45e93facfdecc5d869cb74a3beb36d5370eac3a977a70c69ce42b",
+              "currentSha256": "43647aeac010c4300d9e293a57bb76e7c8fd4979fb93c951208ca1b676b18b52",
+              "matches": false
+            }
+          ],
+          "carriers": [
+            {
+              "file": "Actors.json",
+              "recordedSha256": "782f49f5bb2cb5a02f34f891f513f93783762e3a16091a6fd09d43bdfaead7ed",
+              "currentSha256": "782f49f5bb2cb5a02f34f891f513f93783762e3a16091a6fd09d43bdfaead7ed",
+              "matches": true
+            },
+            {
+              "file": "Animations.json",
+              "recordedSha256": "e3f0e4ba8c72e493eea5fd5db2a714723d9f350bfc78e160ed40742d647b21da",
+              "currentSha256": "e3f0e4ba8c72e493eea5fd5db2a714723d9f350bfc78e160ed40742d647b21da",
+              "matches": true
+            },
+            {
+              "file": "Armors.json",
+              "recordedSha256": "7b5cb0e7c19646d4fd0f698c1ba844eee76fa04a92efe68015eb688d36dcc68e",
+              "currentSha256": "7b5cb0e7c19646d4fd0f698c1ba844eee76fa04a92efe68015eb688d36dcc68e",
+              "matches": true
+            },
+            {
+              "file": "Classes.json",
+              "recordedSha256": "500d7510ef6b2215fa8c2ba69748603cab0d2fe3bfed402dee26b91bd4658d2f",
+              "currentSha256": "500d7510ef6b2215fa8c2ba69748603cab0d2fe3bfed402dee26b91bd4658d2f",
+              "matches": true
+            },
+            {
+              "file": "CommonEvents.json",
+              "recordedSha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+              "currentSha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+              "matches": true
+            },
+            {
+              "file": "Enemies.json",
+              "recordedSha256": "848b0827d7a1ccb6440592e2965f0b0e110d3a83eb0fef3b41eb32e18cabda4d",
+              "currentSha256": "848b0827d7a1ccb6440592e2965f0b0e110d3a83eb0fef3b41eb32e18cabda4d",
+              "matches": true
+            },
+            {
+              "file": "Items.json",
+              "recordedSha256": "b8b3344c8b5d3534707eb1d273c5b152a36ecb8e0dd567c0f1cd0923e49a408d",
+              "currentSha256": "b8b3344c8b5d3534707eb1d273c5b152a36ecb8e0dd567c0f1cd0923e49a408d",
+              "matches": true
+            },
+            {
+              "file": "Map001.json",
+              "recordedSha256": "1663467fe8e45e93facfdecc5d869cb74a3beb36d5370eac3a977a70c69ce42b",
+              "currentSha256": "43647aeac010c4300d9e293a57bb76e7c8fd4979fb93c951208ca1b676b18b52",
+              "matches": false
+            },
+            {
+              "file": "MapInfos.json",
+              "recordedSha256": "d1f6336147136c2fc68e55b60d6d1a356e8170e4d0a0c4471d12e45264f16536",
+              "currentSha256": "d1f6336147136c2fc68e55b60d6d1a356e8170e4d0a0c4471d12e45264f16536",
+              "matches": true
+            },
+            {
+              "file": "Skills.json",
+              "recordedSha256": "b6c7d7dee520581a2a1b62ae06f75764d52620943531244b467fbed17bf0f36a",
+              "currentSha256": "b6c7d7dee520581a2a1b62ae06f75764d52620943531244b467fbed17bf0f36a",
+              "matches": true
+            },
+            {
+              "file": "States.json",
+              "recordedSha256": "25344e6d723dbaf1f5476aba83117be6e5e1d65ae9fcecd4aec53d63c01ee579",
+              "currentSha256": "25344e6d723dbaf1f5476aba83117be6e5e1d65ae9fcecd4aec53d63c01ee579",
+              "matches": true
+            },
+            {
+              "file": "System.json",
+              "recordedSha256": "c5a95c39aa1f5ecad4f4a30100da6922edf62f84351c0fa08ef91af1d64aca74",
+              "currentSha256": "c5a95c39aa1f5ecad4f4a30100da6922edf62f84351c0fa08ef91af1d64aca74",
+              "matches": true
+            },
+            {
+              "file": "Tilesets.json",
+              "recordedSha256": "06df3bf126c9e4e304646ad03ae72ce495aa7f4654b2ca198a215a08554ad554",
+              "currentSha256": "06df3bf126c9e4e304646ad03ae72ce495aa7f4654b2ca198a215a08554ad554",
+              "matches": true
+            },
+            {
+              "file": "Troops.json",
+              "recordedSha256": "446aa046e637de0712741d51ff2c038fb6e665c000c1e8e41e268333814cb4ee",
+              "currentSha256": "446aa046e637de0712741d51ff2c038fb6e665c000c1e8e41e268333814cb4ee",
+              "matches": true
+            },
+            {
+              "file": "Weapons.json",
+              "recordedSha256": "6e301f0a754c00473595e09ef5274f5ad1cabe188d1bb082fa9c80682c9d4b4f",
+              "currentSha256": "6e301f0a754c00473595e09ef5274f5ad1cabe188d1bb082fa9c80682c9d4b4f",
+              "matches": true
+            }
+          ]
+        }
+      ],
+      "recordedRuntimePassed": true,
+      "strictIsolation": false
+    },
+    {
+      "scenario": "mv33-r6-r7-movement-delivery-v3",
+      "raw": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v3-0c4fb8b9-edd2-47b6-a2eb-1d5d9a86678b\\pair-result.json",
+      "rawSha256": "f6432b46fb5b37e23099fea82e71ce36b821a32334061f1803e94c514671f8fb",
+      "seed": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-native-seed-v1-f2200e0d-4c38-45c8-b97d-35042ecdf246/data",
+        "symlink": true,
+        "linkTarget": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data",
+        "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data"
+      },
+      "sides": [
+        {
+          "side": "literal",
+          "dataDirectory": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v3-0c4fb8b9-edd2-47b6-a2eb-1d5d9a86678b\\literal\\Game/data",
+          "symlink": true,
+          "linkTarget": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data",
+          "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data",
+          "completeCarrierCount": 15,
+          "mismatches": [],
+          "carriers": [
+            {
+              "file": "Actors.json",
+              "recordedSha256": "782f49f5bb2cb5a02f34f891f513f93783762e3a16091a6fd09d43bdfaead7ed",
+              "currentSha256": "782f49f5bb2cb5a02f34f891f513f93783762e3a16091a6fd09d43bdfaead7ed",
+              "matches": true
+            },
+            {
+              "file": "Animations.json",
+              "recordedSha256": "e3f0e4ba8c72e493eea5fd5db2a714723d9f350bfc78e160ed40742d647b21da",
+              "currentSha256": "e3f0e4ba8c72e493eea5fd5db2a714723d9f350bfc78e160ed40742d647b21da",
+              "matches": true
+            },
+            {
+              "file": "Armors.json",
+              "recordedSha256": "7b5cb0e7c19646d4fd0f698c1ba844eee76fa04a92efe68015eb688d36dcc68e",
+              "currentSha256": "7b5cb0e7c19646d4fd0f698c1ba844eee76fa04a92efe68015eb688d36dcc68e",
+              "matches": true
+            },
+            {
+              "file": "Classes.json",
+              "recordedSha256": "500d7510ef6b2215fa8c2ba69748603cab0d2fe3bfed402dee26b91bd4658d2f",
+              "currentSha256": "500d7510ef6b2215fa8c2ba69748603cab0d2fe3bfed402dee26b91bd4658d2f",
+              "matches": true
+            },
+            {
+              "file": "CommonEvents.json",
+              "recordedSha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+              "currentSha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+              "matches": true
+            },
+            {
+              "file": "Enemies.json",
+              "recordedSha256": "848b0827d7a1ccb6440592e2965f0b0e110d3a83eb0fef3b41eb32e18cabda4d",
+              "currentSha256": "848b0827d7a1ccb6440592e2965f0b0e110d3a83eb0fef3b41eb32e18cabda4d",
+              "matches": true
+            },
+            {
+              "file": "Items.json",
+              "recordedSha256": "b8b3344c8b5d3534707eb1d273c5b152a36ecb8e0dd567c0f1cd0923e49a408d",
+              "currentSha256": "b8b3344c8b5d3534707eb1d273c5b152a36ecb8e0dd567c0f1cd0923e49a408d",
+              "matches": true
+            },
+            {
+              "file": "Map001.json",
+              "recordedSha256": "43647aeac010c4300d9e293a57bb76e7c8fd4979fb93c951208ca1b676b18b52",
+              "currentSha256": "43647aeac010c4300d9e293a57bb76e7c8fd4979fb93c951208ca1b676b18b52",
+              "matches": true
+            },
+            {
+              "file": "MapInfos.json",
+              "recordedSha256": "d1f6336147136c2fc68e55b60d6d1a356e8170e4d0a0c4471d12e45264f16536",
+              "currentSha256": "d1f6336147136c2fc68e55b60d6d1a356e8170e4d0a0c4471d12e45264f16536",
+              "matches": true
+            },
+            {
+              "file": "Skills.json",
+              "recordedSha256": "b6c7d7dee520581a2a1b62ae06f75764d52620943531244b467fbed17bf0f36a",
+              "currentSha256": "b6c7d7dee520581a2a1b62ae06f75764d52620943531244b467fbed17bf0f36a",
+              "matches": true
+            },
+            {
+              "file": "States.json",
+              "recordedSha256": "25344e6d723dbaf1f5476aba83117be6e5e1d65ae9fcecd4aec53d63c01ee579",
+              "currentSha256": "25344e6d723dbaf1f5476aba83117be6e5e1d65ae9fcecd4aec53d63c01ee579",
+              "matches": true
+            },
+            {
+              "file": "System.json",
+              "recordedSha256": "c5a95c39aa1f5ecad4f4a30100da6922edf62f84351c0fa08ef91af1d64aca74",
+              "currentSha256": "c5a95c39aa1f5ecad4f4a30100da6922edf62f84351c0fa08ef91af1d64aca74",
+              "matches": true
+            },
+            {
+              "file": "Tilesets.json",
+              "recordedSha256": "06df3bf126c9e4e304646ad03ae72ce495aa7f4654b2ca198a215a08554ad554",
+              "currentSha256": "06df3bf126c9e4e304646ad03ae72ce495aa7f4654b2ca198a215a08554ad554",
+              "matches": true
+            },
+            {
+              "file": "Troops.json",
+              "recordedSha256": "446aa046e637de0712741d51ff2c038fb6e665c000c1e8e41e268333814cb4ee",
+              "currentSha256": "446aa046e637de0712741d51ff2c038fb6e665c000c1e8e41e268333814cb4ee",
+              "matches": true
+            },
+            {
+              "file": "Weapons.json",
+              "recordedSha256": "6e301f0a754c00473595e09ef5274f5ad1cabe188d1bb082fa9c80682c9d4b4f",
+              "currentSha256": "6e301f0a754c00473595e09ef5274f5ad1cabe188d1bb082fa9c80682c9d4b4f",
+              "matches": true
+            }
+          ]
+        },
+        {
+          "side": "compiled",
+          "dataDirectory": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v3-0c4fb8b9-edd2-47b6-a2eb-1d5d9a86678b\\compiled\\Game/data",
+          "symlink": true,
+          "linkTarget": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data",
+          "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data",
+          "completeCarrierCount": 15,
+          "mismatches": [],
+          "carriers": [
+            {
+              "file": "Actors.json",
+              "recordedSha256": "782f49f5bb2cb5a02f34f891f513f93783762e3a16091a6fd09d43bdfaead7ed",
+              "currentSha256": "782f49f5bb2cb5a02f34f891f513f93783762e3a16091a6fd09d43bdfaead7ed",
+              "matches": true
+            },
+            {
+              "file": "Animations.json",
+              "recordedSha256": "e3f0e4ba8c72e493eea5fd5db2a714723d9f350bfc78e160ed40742d647b21da",
+              "currentSha256": "e3f0e4ba8c72e493eea5fd5db2a714723d9f350bfc78e160ed40742d647b21da",
+              "matches": true
+            },
+            {
+              "file": "Armors.json",
+              "recordedSha256": "7b5cb0e7c19646d4fd0f698c1ba844eee76fa04a92efe68015eb688d36dcc68e",
+              "currentSha256": "7b5cb0e7c19646d4fd0f698c1ba844eee76fa04a92efe68015eb688d36dcc68e",
+              "matches": true
+            },
+            {
+              "file": "Classes.json",
+              "recordedSha256": "500d7510ef6b2215fa8c2ba69748603cab0d2fe3bfed402dee26b91bd4658d2f",
+              "currentSha256": "500d7510ef6b2215fa8c2ba69748603cab0d2fe3bfed402dee26b91bd4658d2f",
+              "matches": true
+            },
+            {
+              "file": "CommonEvents.json",
+              "recordedSha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+              "currentSha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+              "matches": true
+            },
+            {
+              "file": "Enemies.json",
+              "recordedSha256": "848b0827d7a1ccb6440592e2965f0b0e110d3a83eb0fef3b41eb32e18cabda4d",
+              "currentSha256": "848b0827d7a1ccb6440592e2965f0b0e110d3a83eb0fef3b41eb32e18cabda4d",
+              "matches": true
+            },
+            {
+              "file": "Items.json",
+              "recordedSha256": "b8b3344c8b5d3534707eb1d273c5b152a36ecb8e0dd567c0f1cd0923e49a408d",
+              "currentSha256": "b8b3344c8b5d3534707eb1d273c5b152a36ecb8e0dd567c0f1cd0923e49a408d",
+              "matches": true
+            },
+            {
+              "file": "Map001.json",
+              "recordedSha256": "43647aeac010c4300d9e293a57bb76e7c8fd4979fb93c951208ca1b676b18b52",
+              "currentSha256": "43647aeac010c4300d9e293a57bb76e7c8fd4979fb93c951208ca1b676b18b52",
+              "matches": true
+            },
+            {
+              "file": "MapInfos.json",
+              "recordedSha256": "d1f6336147136c2fc68e55b60d6d1a356e8170e4d0a0c4471d12e45264f16536",
+              "currentSha256": "d1f6336147136c2fc68e55b60d6d1a356e8170e4d0a0c4471d12e45264f16536",
+              "matches": true
+            },
+            {
+              "file": "Skills.json",
+              "recordedSha256": "b6c7d7dee520581a2a1b62ae06f75764d52620943531244b467fbed17bf0f36a",
+              "currentSha256": "b6c7d7dee520581a2a1b62ae06f75764d52620943531244b467fbed17bf0f36a",
+              "matches": true
+            },
+            {
+              "file": "States.json",
+              "recordedSha256": "25344e6d723dbaf1f5476aba83117be6e5e1d65ae9fcecd4aec53d63c01ee579",
+              "currentSha256": "25344e6d723dbaf1f5476aba83117be6e5e1d65ae9fcecd4aec53d63c01ee579",
+              "matches": true
+            },
+            {
+              "file": "System.json",
+              "recordedSha256": "c5a95c39aa1f5ecad4f4a30100da6922edf62f84351c0fa08ef91af1d64aca74",
+              "currentSha256": "c5a95c39aa1f5ecad4f4a30100da6922edf62f84351c0fa08ef91af1d64aca74",
+              "matches": true
+            },
+            {
+              "file": "Tilesets.json",
+              "recordedSha256": "06df3bf126c9e4e304646ad03ae72ce495aa7f4654b2ca198a215a08554ad554",
+              "currentSha256": "06df3bf126c9e4e304646ad03ae72ce495aa7f4654b2ca198a215a08554ad554",
+              "matches": true
+            },
+            {
+              "file": "Troops.json",
+              "recordedSha256": "446aa046e637de0712741d51ff2c038fb6e665c000c1e8e41e268333814cb4ee",
+              "currentSha256": "446aa046e637de0712741d51ff2c038fb6e665c000c1e8e41e268333814cb4ee",
+              "matches": true
+            },
+            {
+              "file": "Weapons.json",
+              "recordedSha256": "6e301f0a754c00473595e09ef5274f5ad1cabe188d1bb082fa9c80682c9d4b4f",
+              "currentSha256": "6e301f0a754c00473595e09ef5274f5ad1cabe188d1bb082fa9c80682c9d4b4f",
+              "matches": true
+            }
+          ]
+        }
+      ],
+      "recordedRuntimePassed": true,
+      "strictIsolation": false
+    }
+  ],
+  "allFourSideDirectoriesResolveToOneReferenceDirectory": true,
+  "sharedReferenceDataDirectory": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data",
+  "cause": "Seed data is a junction to shipped NewData/data; fs.cp without dereference preserves it as a symbolic link. Literal/compiled paths share that target, so fixture writes, seedDifference and public Push change the same data. Later pair writes overwrite earlier retained disk inputs.",
+  "finding": {
+    "priority": "P1",
+    "file": ".scratch/complete-mv-events-implementation/evidence/33-history/tools-and-logs/mv33-native-pair-delivery-v2.cjs",
+    "behavior": "Neither pair establishes independently isolated literal and compiled game carriers; R1 retained Map bytes no longer equal recorded hashes. Reference NewData/data was used as the write target.",
+    "required": "Preserve original failed runs and current reference state. Use versioned tooling and copied non-link seed/data and literal/compiled/data directories; guard distinct real paths and unchanged literal/seed hashes across compilation and Push. Rebind and rerun only the two affected actual pairs against the unchanged full product freeze; publish append-only invalidation/correction provenance and update claims. Do not restore, delete or overwrite old evidence."
+  },
+  "passed": false,
+  "merged": false
+}

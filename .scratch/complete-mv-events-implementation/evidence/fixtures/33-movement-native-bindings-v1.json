@@ -1,0 +1,201 @@
+{
+  "formatVersion": 1,
+  "purpose": "Ticket33 allocated native input binding; no native execution or final acceptance claimed",
+  "seedIdentityFile": "mv33-native-seed-v1.json",
+  "cases": [
+    {
+      "id": "r1",
+      "scenario": "mv33-r1-route-waits-delivery-v2",
+      "priorScenario": "mv33-r1-route-waits-delivery-v1",
+      "externalBundlePath": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-native-bound-inputs-v1-5df265bb-3672-4269-8367-dbc7565b3678\\r1-independent-input.json",
+      "externalBundleSha256": "8f274066974cb47a1aedd8b286db301f14f8fcd76b7dd25f88e047c5315f2fb1",
+      "sourceAdapter": {
+        "path": "mv33-r1-route-waits-delivery-v1.cjs",
+        "sha256": "de0848a8d54244cf3d89d9e2da4f266845f76c14c81a6ebfecb6f5ed3ea45ba1"
+      },
+      "behaviorPredicates": {
+        "allMarkersOnce": true,
+        "inactiveSavedRouteNeverRuns": true,
+        "fixedPageRetainsInitialLocation": true,
+        "customRouteExecutesNatively": true,
+        "autonomousWaitDoesNotBlockMain": true,
+        "parallelDuringAutonomous": true,
+        "forcedNoWaitReturnsSameFrame": true,
+        "forcedRouteStartsAfterContinuation": true,
+        "forcedNoWaitMovesAndFinishes": true,
+        "forcedWaitFinishesBeforeContinuation": true,
+        "forcedWaitIncludesMovementAndDelay": true,
+        "parallelDuringForcedWait": true,
+        "finished": true
+      },
+      "expectedGeneratedCarriers": [
+        "CommonEvents.json",
+        "Map001.json",
+        "System.json",
+        "Troops.json"
+      ],
+      "completeInputIdentities": [
+        {
+          "path": "Actors.json",
+          "sha256": "cb250040e5f127988fb82d32649397ee4da04c70bfb6236f8319e417cac9ece9"
+        },
+        {
+          "path": "Animations.json",
+          "sha256": "67d774aea92d25f66a92979f6a1ee455f576a949c4ee044dcec1c52a2772d895"
+        },
+        {
+          "path": "Armors.json",
+          "sha256": "96b77533659178f113d8329d031d50aa06e463df0be3c0700f24130d980e26c2"
+        },
+        {
+          "path": "Classes.json",
+          "sha256": "29518d3fcd2be52b175757093702a4b9f0ae4d383c446c531077464a2ba36939"
+        },
+        {
+          "path": "CommonEvents.json",
+          "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+        },
+        {
+          "path": "Enemies.json",
+          "sha256": "c8106b50933c15b56e5d9f6e951408c184e1f3c2f111756837b8055dee0bdb11"
+        },
+        {
+          "path": "Items.json",
+          "sha256": "cb5200f75c50c84f2ad7789e57c6ee804a243919eefa2f06d9a78cca4ff5b846"
+        },
+        {
+          "path": "Map001.json",
+          "sha256": "06928f94b24a34a6be3848e3bd3e8f26a51ddd5329c1368c4f22f575fc99abb8"
+        },
+        {
+          "path": "MapInfos.json",
+          "sha256": "ea51b07bb4bcfc1f14ef77a2990cc3fe10cd21898cb12e0e15cee4d2bdfea62e"
+        },
+        {
+          "path": "Skills.json",
+          "sha256": "c59b37d42f6faabfb9a5fd4debc18d3fb7ebc3fa0d1f392e5d0977870cc3c069"
+        },
+        {
+          "path": "States.json",
+          "sha256": "d218dbaccd0a12ce8d6bf826f959a8cb7171c8a2b5d657e887629bd8fa3f5113"
+        },
+        {
+          "path": "System.json",
+          "sha256": "a1bbce50f624b6ebb760e98dbaa8092e20c2e9454f57425a2acd7933e9ed9c20"
+        },
+        {
+          "path": "Tilesets.json",
+          "sha256": "da1862335181363247384cbd580e7b8c84a72071013371fb52c4cdac690dadfe"
+        },
+        {
+          "path": "Troops.json",
+          "sha256": "a3068ee6a6d014166653f4307ee809d5f621978462063d771863038691248a3c"
+        },
+        {
+          "path": "Weapons.json",
+          "sha256": "8fb42bc2c67d3f0a0c583cc2060fd623241dcb73062fbac325f0b3b8023d3662"
+        }
+      ]
+    },
+    {
+      "id": "r6-r7",
+      "scenario": "mv33-r6-r7-movement-delivery-v3",
+      "priorScenario": "mv33-r6-r7-movement-delivery-v2",
+      "externalBundlePath": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-native-bound-inputs-v1-5df265bb-3672-4269-8367-dbc7565b3678\\r6-r7-independent-input.json",
+      "externalBundleSha256": "9b004a42c429b56935f0a239ee36bb426a81465b9cedd2a84a8316d099a1b0d2",
+      "sourceAdapter": {
+        "path": "mv33-r6-r7-movement-delivery-v2.cjs",
+        "sha256": "24d954c2ab23b2adcd522a391145bd2ecdf302d691fb05d4b6f780bb9d0372ca"
+      },
+      "behaviorPredicates": {
+        "allMarkersOnce": true,
+        "inactiveSavedRouteNeverRuns": true,
+        "fixedPageRetainsInitialLocation": true,
+        "customRouteExecutesNatively": true,
+        "autonomousWaitDoesNotBlockMain": true,
+        "parallelDuringAutonomous": true,
+        "forcedNoWaitReturnsSameFrame": true,
+        "forcedRouteStartsAfterContinuation": true,
+        "forcedNoWaitMovesAndFinishes": true,
+        "forcedWaitFinishesBeforeContinuation": true,
+        "forcedWaitIncludesMovementAndDelay": true,
+        "parallelDuringForcedWait": true,
+        "finished": true,
+        "singleSlotScriptInBothEntrances": true,
+        "scriptThisBinding": true,
+        "noneImageKeepsIndex": true,
+        "noneSeKeepsBufferPlaying": true,
+        "realAudioSignalBeforeAfterNone": true,
+        "routeSavedStateFlags": true
+      },
+      "expectedGeneratedCarriers": [
+        "CommonEvents.json",
+        "Map001.json",
+        "System.json",
+        "Troops.json"
+      ],
+      "completeInputIdentities": [
+        {
+          "path": "Actors.json",
+          "sha256": "cb250040e5f127988fb82d32649397ee4da04c70bfb6236f8319e417cac9ece9"
+        },
+        {
+          "path": "Animations.json",
+          "sha256": "67d774aea92d25f66a92979f6a1ee455f576a949c4ee044dcec1c52a2772d895"
+        },
+        {
+          "path": "Armors.json",
+          "sha256": "96b77533659178f113d8329d031d50aa06e463df0be3c0700f24130d980e26c2"
+        },
+        {
+          "path": "Classes.json",
+          "sha256": "29518d3fcd2be52b175757093702a4b9f0ae4d383c446c531077464a2ba36939"
+        },
+        {
+          "path": "CommonEvents.json",
+          "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+        },
+        {
+          "path": "Enemies.json",
+          "sha256": "c8106b50933c15b56e5d9f6e951408c184e1f3c2f111756837b8055dee0bdb11"
+        },
+        {
+          "path": "Items.json",
+          "sha256": "cb5200f75c50c84f2ad7789e57c6ee804a243919eefa2f06d9a78cca4ff5b846"
+        },
+        {
+          "path": "Map001.json",
+          "sha256": "5a5b9ef766e9abf59c210b37d1d496bfca9c9cbb501633572d2c9058255c4b3f"
+        },
+        {
+          "path": "MapInfos.json",
+          "sha256": "ea51b07bb4bcfc1f14ef77a2990cc3fe10cd21898cb12e0e15cee4d2bdfea62e"
+        },
+        {
+          "path": "Skills.json",
+          "sha256": "c59b37d42f6faabfb9a5fd4debc18d3fb7ebc3fa0d1f392e5d0977870cc3c069"
+        },
+        {
+          "path": "States.json",
+          "sha256": "d218dbaccd0a12ce8d6bf826f959a8cb7171c8a2b5d657e887629bd8fa3f5113"
+        },
+        {
+          "path": "System.json",
+          "sha256": "a1bbce50f624b6ebb760e98dbaa8092e20c2e9454f57425a2acd7933e9ed9c20"
+        },
+        {
+          "path": "Tilesets.json",
+          "sha256": "da1862335181363247384cbd580e7b8c84a72071013371fb52c4cdac690dadfe"
+        },
+        {
+          "path": "Troops.json",
+          "sha256": "a3068ee6a6d014166653f4307ee809d5f621978462063d771863038691248a3c"
+        },
+        {
+          "path": "Weapons.json",
+          "sha256": "8fb42bc2c67d3f0a0c583cc2060fd623241dcb73062fbac325f0b3b8023d3662"
+        }
+      ]
+    }
+  ]
+}

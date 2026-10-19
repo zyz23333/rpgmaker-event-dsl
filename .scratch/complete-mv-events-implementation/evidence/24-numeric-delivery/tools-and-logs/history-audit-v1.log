@@ -1,0 +1,7 @@
+AssertionError [ERR_ASSERTION]: External original M:\Shuen\Codex\mv-events-implementation-20261020\map24-final\archive-delivery-v1.log
++ actual - expected
+
++ '8769c3649b85945fa758dd99eedd293e5d6e7cb0a31a28e00b52886eac920b1f'
+- 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+
+    at run (M:\Shuen\Codex\mv-events-implementation-20261020\map24-final\map24-audit-history-v1.cjs:8:286)

@@ -9,6 +9,9 @@ export default defineConfig({
     include: [
       "test/windows-baseline.test.ts",
       "test/map-event-workspace.test.ts",
+      "test/map-page-numeric-workspace.test.ts",
+      "test/map-appearance-workspace.test.ts",
+      "test/movement-instructions-workspace.test.ts",
       "test/cli-entry.test.ts",
       "test/workspace-locking.test.ts",
       "test/snapshot-binding.test.ts",
@@ -20,6 +23,7 @@ export default defineConfig({
       "test/common-event-workspace.test.ts",
       "test/common-native-boundaries.test.ts",
       "test/choices-workspace.test.ts",
+      "test/timer-workspace.test.ts",
 
       "test/troop-safety.test.ts",
       "test/troop-workflow.test.ts",

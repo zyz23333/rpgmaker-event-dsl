@@ -1,0 +1,152 @@
+{
+  "purpose": "Fresh build writes physically to M; C package dist is only a consumer junction. Prior C dist was absent, so no ignored bytes or aliases were removed. Dependencies are read through a separate declared junction.",
+  "at": "2026-10-19T19:43:40.477Z",
+  "priorDist": {
+    "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist",
+    "absent": true
+  },
+  "dist": {
+    "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist",
+    "target": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist",
+    "realPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist"
+  },
+  "dependencies": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\node_modules",
+    "target": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\node_modules",
+    "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\node_modules"
+  },
+  "entries": [
+    {
+      "path": "authoring-D0b1TW44.mjs",
+      "logical": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\authoring-D0b1TW44.mjs",
+      "physicalPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist\\authoring-D0b1TW44.mjs",
+      "bytes": 82791,
+      "sha256": "e4de92d498ad66e109375fc31806e0b0dd7b1a9b88cd831b6d7ce199dd603dac"
+    },
+    {
+      "path": "authoring-D0b1TW44.mjs.map",
+      "logical": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\authoring-D0b1TW44.mjs.map",
+      "physicalPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist\\authoring-D0b1TW44.mjs.map",
+      "bytes": 186816,
+      "sha256": "386eef6fe60cade4a791c4226c65acafaaa38aa4562348bccb7a4494135ce1c1"
+    },
+    {
+      "path": "cli.d.mts",
+      "logical": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\cli.d.mts",
+      "physicalPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist\\cli.d.mts",
+      "bytes": 298,
+      "sha256": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee"
+    },
+    {
+      "path": "cli.d.mts.map",
+      "logical": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\cli.d.mts.map",
+      "physicalPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist\\cli.d.mts.map",
+      "bytes": 258,
+      "sha256": "2541b588426dadf97aa6f93fde6a8fddf6f93ec5fa2d7fb8665c8fc2affcbbf8"
+    },
+    {
+      "path": "cli.mjs",
+      "logical": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\cli.mjs",
+      "physicalPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist\\cli.mjs",
+      "bytes": 3223,
+      "sha256": "bc7d4fa9dc5bc62cb6ddbd87efb9ee2d842507e7f307d26262452b1b4ce7f20c"
+    },
+    {
+      "path": "cli.mjs.map",
+      "logical": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\cli.mjs.map",
+      "physicalPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist\\cli.mjs.map",
+      "bytes": 5821,
+      "sha256": "759d2274ec6cfa1534c62dca301fb408fa24d7f5494b5de1cab3cfd703cbc1bb"
+    },
+    {
+      "path": "index.d.mts",
+      "logical": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\index.d.mts",
+      "physicalPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist\\index.d.mts",
+      "bytes": 53576,
+      "sha256": "20139a1936ec769790ac184cc6794d81ff1387e6db56e16f926ca39e70b88119"
+    },
+    {
+      "path": "index.d.mts.map",
+      "logical": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\index.d.mts.map",
+      "physicalPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist\\index.d.mts.map",
+      "bytes": 27396,
+      "sha256": "bbfb39e0d24f45fd90a77d443c3ebca2db6085afcafd8d9a818540f50f9c1f89"
+    },
+    {
+      "path": "index.mjs",
+      "logical": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\index.mjs",
+      "physicalPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist\\index.mjs",
+      "bytes": 5036,
+      "sha256": "234674fe0733d85c02df0d1b6e044cd4dc328739b49e20a624c2ed93cd4d4837"
+    },
+    {
+      "path": "index.mjs.map",
+      "logical": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\index.mjs.map",
+      "physicalPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist\\index.mjs.map",
+      "bytes": 547,
+      "sha256": "06cf543f211b801d3e5259195f3802f19e59755e7c408cf74fcd482a54effe34"
+    },
+    {
+      "path": "operations-BfAhz6MG.mjs",
+      "logical": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\operations-BfAhz6MG.mjs",
+      "physicalPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist\\operations-BfAhz6MG.mjs",
+      "bytes": 356829,
+      "sha256": "b3fc65e7301df4ffe3b9b595dc72e9dd719a59eb7a033396befe8b049e8d0771"
+    },
+    {
+      "path": "operations-BfAhz6MG.mjs.map",
+      "logical": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\operations-BfAhz6MG.mjs.map",
+      "physicalPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist\\operations-BfAhz6MG.mjs.map",
+      "bytes": 738181,
+      "sha256": "ecf5a5970ba461a15c8a37926d7562e1bf7b41e4337d5679d9495bb9cdfb9140"
+    },
+    {
+      "path": "workspace-api.d.mts",
+      "logical": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\workspace-api.d.mts",
+      "physicalPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist\\workspace-api.d.mts",
+      "bytes": 2267,
+      "sha256": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594"
+    },
+    {
+      "path": "workspace-api.d.mts.map",
+      "logical": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\workspace-api.d.mts.map",
+      "physicalPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist\\workspace-api.d.mts.map",
+      "bytes": 1423,
+      "sha256": "661ba732b05a67b027c03941810a745565aaf2a573fe4bc6d41d6c0e3f49ae83"
+    },
+    {
+      "path": "workspace-api.mjs",
+      "logical": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\workspace-api.mjs",
+      "physicalPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist\\workspace-api.mjs",
+      "bytes": 416,
+      "sha256": "1235095bc70fa01bb2dd505624993746771528a30e9fd1b03da603d3f825415d"
+    }
+  ],
+  "localImportEdges": [
+    {
+      "from": "cli.mjs",
+      "specifier": "./operations-BfAhz6MG.mjs",
+      "physicalPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist\\operations-BfAhz6MG.mjs",
+      "sha256": "b3fc65e7301df4ffe3b9b595dc72e9dd719a59eb7a033396befe8b049e8d0771"
+    },
+    {
+      "from": "index.mjs",
+      "specifier": "./authoring-D0b1TW44.mjs",
+      "physicalPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist\\authoring-D0b1TW44.mjs",
+      "sha256": "e4de92d498ad66e109375fc31806e0b0dd7b1a9b88cd831b6d7ce199dd603dac"
+    },
+    {
+      "from": "operations-BfAhz6MG.mjs",
+      "specifier": "./authoring-D0b1TW44.mjs",
+      "physicalPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist\\authoring-D0b1TW44.mjs",
+      "sha256": "e4de92d498ad66e109375fc31806e0b0dd7b1a9b88cd831b6d7ce199dd603dac"
+    },
+    {
+      "from": "workspace-api.mjs",
+      "specifier": "./operations-BfAhz6MG.mjs",
+      "physicalPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\dist\\operations-BfAhz6MG.mjs",
+      "sha256": "b3fc65e7301df4ffe3b9b595dc72e9dd719a59eb7a033396befe8b049e8d0771"
+    }
+  ],
+  "passed": true
+}

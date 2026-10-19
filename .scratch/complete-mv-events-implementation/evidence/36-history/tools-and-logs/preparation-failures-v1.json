@@ -1,0 +1,36 @@
+{
+  "purpose": "Preserved preparation infrastructure failures; no product or native-game pass claimed",
+  "at": "2026-10-19T18:48:58.010Z",
+  "attempts": [
+    {
+      "tooling": "Default Node24",
+      "error": "Entry assertion rejected Node24; expected Node22",
+      "artifact": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv36-final-prepare-v3-node24-rejected.log",
+        "sha256": "405342d0a408b0aaaa11338ab96ebe1157e6d9fcad4f8192af54a329acc190d6"
+      },
+      "nativeExecution": "not-executed",
+      "productConclusion": "none"
+    },
+    {
+      "tooling": "Node22.23.0",
+      "error": "C drive ENOSPC while writing pair result; incomplete preparation",
+      "artifact": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv36-final-prepare-v3.log",
+        "sha256": "30c7e1bb110ee4400d293e41a53bae6837b50e7b4bbf5bc9c942477b003aae55"
+      },
+      "partialRoot": "C:\\Users\\Shuen\\.codex\\tmp\\mv36-map-physical-delivery-v3-prepare-70823e20-5f05-4389-861b-48a328f702df",
+      "partialReport": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "nativeExecution": "not-executed",
+      "productConclusion": "none"
+    }
+  ],
+  "relocation": {
+    "path": "M:/Shuen/Codex/mv-events-implementation-20261020/disk-recovery-v1/relocation-index.json",
+    "sha256": "c86e9d99f20b9ffe7c7391e7b86372dfba293c9ba25d39115377d0d9343b1930"
+  },
+  "recovery": "Root verified each original byte before relocating ended captures/partial root and retaining original paths as junctions. Reference/private seed/product freeze unchanged. M v4 independently starts new seed/input/pair roots."
+}

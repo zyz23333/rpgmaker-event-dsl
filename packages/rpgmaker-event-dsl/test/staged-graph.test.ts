@@ -501,8 +501,8 @@ describe("validateDslOwnedDeclarations", () => {
                   { kind: "switchOn", switch: switchRef({ id: 1 }) },
                   {
                     kind: "changeImage",
-                    image: imageAsset({ folder: "characters", name: "Actor1" }),
-                    index: 0,
+                    character: imageAsset({ folder: "characters", name: "Actor1" }),
+                    characterIndex: 0,
                   },
                 ],
               },
@@ -978,8 +978,18 @@ describe("validateDslOwnedDeclarations", () => {
     );
 
     expect(validResult.issues).toEqual([]);
-    expect(missingResult.issues.map((issue) => issue.message)).toContain(
-      "MV-E282-REFERENCE validation map 1 event 1.pages[0].commands[0].tileset: Unknown tileset reference id: 99",
+    expect(missingResult.issues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          level: "error",
+          code: "MV-E282-REFERENCE",
+          stage: "compile",
+          dslPath: "pages[0].commands[0].tileset",
+          expected: "existing tileset in the Project Data Snapshot",
+          actual: expect.stringContaining("99"),
+          message: expect.stringContaining("Unknown tileset reference id: 99"),
+        }),
+      ]),
     );
   });
 

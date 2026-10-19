@@ -1,0 +1,402 @@
+{
+  "at": "2026-10-19T17:30:32.666Z",
+  "worktree": "C:/Users/Shuen/.codex/worktrees/mv-ticket-26/rpgmaker-event-dsl",
+  "base": "205334338d8e64e3d00e485849c9ddf67bd7e3b1",
+  "gitStatus": " M .gitattributes\n M .scratch/complete-mv-events-implementation/evidence/README.md\n M .scratch/complete-mv-events-implementation/evidence/requirements.json\n M .scratch/complete-mv-events-implementation/issues/26-timer-saved-slot-roundtrip.md\n M README.md\n M example/full-event/README.md\n M example/full-event/src/full-event.events.ts\n M packages/rpgmaker-event-dsl/README.md\n M packages/rpgmaker-event-dsl/src/commands/variables/authoring.ts\n M packages/rpgmaker-event-dsl/src/commands/variables/validation.ts\n M packages/rpgmaker-event-dsl/src/compiler/dispatch.ts\n M packages/rpgmaker-event-dsl/src/decompiler/dispatch.ts\n M packages/rpgmaker-event-dsl/src/domain/command.ts\n M packages/rpgmaker-event-dsl/src/validation/dsl-command-inputs.ts\n M packages/rpgmaker-event-dsl/src/validation/native-parameters.ts\n M packages/rpgmaker-event-dsl/test/command-boundary.test.ts\n M packages/rpgmaker-event-dsl/test/events.test.ts\n M packages/rpgmaker-event-dsl/vitest.windows.config.ts\n M skills/rpgmaker-event-authoring/references/event-patterns.md\n?? .scratch/complete-mv-events-implementation/evidence/26-history/\n?? .scratch/complete-mv-events-implementation/evidence/26-timer-saved-slot-roundtrip.md\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-001-2026-10-19T17-24-40-405Z-c706edbc-75ef-40f5-bfa8-79d1ad101a99.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-001-2026-10-19T17-27-10-854Z-aaa4a88f-f690-4e18-bc7f-66684e11a631.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-002-2026-10-19T17-24-43-828Z-c8fb3c2e-14bd-40d9-aaed-60eba43afb1f.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-002-2026-10-19T17-27-14-621Z-b0a43878-7b1e-4eb1-9927-d8b151d551cc.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-003-2026-10-19T17-24-55-355Z-4177f2d0-03d7-442a-9559-8e37787975f7.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-003-2026-10-19T17-27-26-766Z-5dfa00d1-51b2-4d19-a96f-f956ee514f52.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-004-2026-10-19T17-24-44-270Z-c489ebe5-57d9-45c4-a4bf-ed7b3b521290.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-004-2026-10-19T17-24-44-775Z-95c1de3d-8f7a-456c-9283-9374b9331259.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-004-2026-10-19T17-27-15-304Z-ab974add-5084-4fa1-ac14-05c11c0771d8.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-004-2026-10-19T17-27-15-860Z-6087c362-94cd-46c0-929e-3eb2f2be13cd.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-005-2026-10-19T17-24-52-704Z-4fc57b15-00f7-411c-8a31-3fd988a41503.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-005-2026-10-19T17-24-52-855Z-8cf2298b-5b17-4445-8a38-1b44f6c2a8bb.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-005-2026-10-19T17-24-52-981Z-7e5ea909-dbe9-4995-bc84-b4d1b489e48f.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-005-2026-10-19T17-27-24-176Z-85a97ad7-3cee-4365-b206-7e0884591556.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-005-2026-10-19T17-27-24-320Z-50b74295-7594-40c9-9c40-94a45cb2f47d.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-005-2026-10-19T17-27-24-466Z-5e08d891-e646-4c94-a6e1-220351d6b4f4.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-24-55-423Z-2d1b4d54-de65-44d7-b802-b680feb17586.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-24-55-490Z-5714bc58-a863-4481-9f92-6d82b6dad67b.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-24-55-559Z-f3ae62e7-be25-4a42-976a-7b96e580e48f.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-24-55-658Z-71d001f3-6acd-45bb-a0d5-d63ac759d0a3.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-24-55-727Z-467010e6-7f21-4974-9bec-62996356e2a0.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-24-55-795Z-5e17934a-d6d7-4784-aa95-3d576244b6fe.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-24-55-850Z-8620b61e-22d2-4bcc-a39e-9eac0492dc42.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-24-55-911Z-d7cf390d-7507-427c-8fd3-be9abbd242c9.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-24-55-968Z-9c4dbe1b-0350-4e58-a5a1-da4ab2c94e68.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-24-56-017Z-a5c19d7f-6f02-44c7-bf0c-fb944dc6738c.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-24-56-055Z-afc421bc-5cd7-4dac-bda5-5f9ee4bdbd05.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-24-56-103Z-ad27d2d4-5636-41f6-8d73-eef478abfe5e.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-24-56-165Z-29fc18b4-64dd-49b1-9dc4-4825f40fb3d3.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-24-56-220Z-85411373-f891-45ba-82c0-979307a09200.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-24-56-279Z-0dadf9dc-252d-48c5-838a-071a03b36c49.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-24-56-336Z-9af68af5-0325-47ee-9c91-338c60a92be1.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-24-56-396Z-4a748a7e-d01b-446c-852a-7534819fa945.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-24-56-447Z-576660b0-a5b0-484b-9fe9-08a01d889617.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-24-56-486Z-b7db0bf9-b075-431f-a6b6-621ab1c47340.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-27-26-803Z-9597929e-87d1-4484-ad3b-b24a65de18bd.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-27-26-841Z-1b43cb50-6be6-4df4-8104-dc7ab7be951f.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-27-26-882Z-c20533f0-3093-4fa5-80a6-89a2b933dabd.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-27-26-922Z-1491cd52-e91e-432d-afca-de1db19ff9fe.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-27-26-964Z-c1b70afa-6ad7-4c2b-8f92-bcb320a0d3a8.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-27-27-005Z-6898990d-2c86-4d34-836a-acee56c5ad4d.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-27-27-045Z-75a582c2-2607-4990-8610-9fb5f9bb5b34.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-27-27-083Z-fc8c0107-51cb-4953-a0ed-055c9a5da5a9.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-27-27-120Z-ab5ebb56-3217-4e8d-8823-8113a7a5a754.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-27-27-163Z-f6231ead-e761-415d-99d9-fc4e496b25d1.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-27-27-204Z-eb8b8dc8-d840-4897-b90b-a3bff7bd77b0.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-27-27-242Z-e36c14bb-9b0a-4b84-a539-21177e7820a5.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-27-27-282Z-b6be5a3e-5e77-424a-b82e-dc7bfec0b3e4.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-27-27-327Z-81312f72-5307-4315-9d78-39151c49ece1.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-27-27-365Z-0544c8b2-e757-4687-a076-bbb67512f880.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-27-27-404Z-110f7558-119d-44f1-ad66-5b11f143c3d9.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-27-27-438Z-9e06cea2-50ac-46f2-95cc-6f236f4792f0.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-27-27-478Z-25ef7e86-3199-48fc-9c71-1d03412f21ea.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-006-2026-10-19T17-27-27-516Z-b1dd69d9-53c7-4732-ac24-ce8f59b047f7.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-24-56-995Z-c9646cbb-b714-4ec0-a23e-bcaa657635ba.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-24-57-521Z-45c3f157-fe89-4b66-acba-c24cd5a405e3.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-24-58-200Z-6b0bb268-55a8-46dd-a4ea-69d0fb6ee52b.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-24-58-997Z-e506be52-bd2f-4831-9f80-1cce33bab61a.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-24-59-511Z-9526a272-aed7-4f6c-8622-b5fa9fa01d39.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-25-00-061Z-c990a6a6-eeb3-430f-9069-93be1873d960.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-25-00-553Z-f1e6aa93-df43-471b-a2f6-e7f3fa26fda2.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-25-01-145Z-34d10187-bf22-43ce-94c1-a5d961366bd2.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-25-01-656Z-d5a94ece-75b4-44c7-a284-b3236cc469aa.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-25-02-247Z-e6920d99-368c-47fe-a4e9-5b6f56837730.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-25-02-808Z-cc7f3256-22ff-42b5-bd7f-a0fd95ca4048.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-25-03-302Z-6a78bb4a-9fdd-4f6f-a751-c2f0eea46d62.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-25-03-835Z-e0ae70f8-f8c5-424b-ace9-27f81cda31ae.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-25-04-355Z-8042a69e-cb1b-4989-b5b6-b52c821366e3.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-27-28-186Z-93084aa6-ae9f-4fcb-9f97-118ba09d945a.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-27-28-726Z-fd97d368-c4c2-406c-b288-bcf91d1ca987.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-27-29-291Z-173c8cb6-8d9c-4fc4-8c14-dc1db0ed2c27.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-27-30-100Z-e353e457-2015-4d28-9579-3b8db071bf1e.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-27-30-718Z-bd125933-db27-4cb2-bd87-b792687bd179.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-27-31-407Z-7a982c5b-be3a-4693-830d-d170535ab44d.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-27-32-140Z-30122667-b442-4ddd-b954-e7182838cca0.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-27-32-769Z-3f2062ab-34a3-4cf4-a759-09a2f1006ed3.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-27-33-456Z-cd491713-cabd-4b51-be95-5c1e51d1300e.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-27-34-136Z-55f9d6cb-af09-48c7-af04-08f22dd86968.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-27-34-734Z-5dd8bf06-5f81-45dc-8506-e8334f9c0e46.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-27-35-451Z-6660f48d-58ac-40c1-a8a5-a1205d270219.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-27-36-122Z-efcde2d8-69a2-4ebc-9efe-8633812b400f.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-007-2026-10-19T17-27-36-830Z-63896dcb-9253-4ddc-a56b-7b460618e5d1.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-008-2026-10-19T17-25-04-391Z-586f9cff-7c0e-4d1b-8c64-b598d2574766.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-008-2026-10-19T17-25-04-426Z-3c2e4ab5-a85c-4993-aca2-801cf909c95d.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-008-2026-10-19T17-25-04-462Z-5c77bba6-15f9-44b0-a311-04062a855950.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-008-2026-10-19T17-27-36-900Z-bc0d6f46-ac07-4968-a5c4-82cd5ca7a252.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-008-2026-10-19T17-27-36-962Z-3e9597df-b5f9-4992-8fe0-845abe9771a9.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-008-2026-10-19T17-27-37-029Z-1a0f7110-e8d9-4a73-b3b2-82268c680944.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-009-2026-10-19T17-25-04-918Z-dcec46c3-a5e6-476f-97c4-56ab3125c350.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-009-2026-10-19T17-25-05-346Z-37c971d3-97a5-492c-bc20-c32a05aa4c86.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-009-2026-10-19T17-27-37-550Z-4d2fd7ab-24c9-4ad5-9740-87b6d42934a4.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-009-2026-10-19T17-27-38-029Z-b2426654-a564-4e9e-96b9-1b1e64db4735.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-010-2026-10-19T17-24-45-170Z-7f20f764-fc6f-4822-9ca1-6da6cbc1dbd5.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-010-2026-10-19T17-24-45-655Z-b716a73a-3e43-4e94-8e8d-266ed007653a.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-010-2026-10-19T17-24-46-065Z-f3cf5407-faf8-4271-ab57-35ffde19e241.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-010-2026-10-19T17-24-46-526Z-d1a2721b-f13b-4d99-a532-67f2460c6779.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-010-2026-10-19T17-24-46-935Z-ea80e07b-b776-49ff-82c9-680e4a7210c6.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-010-2026-10-19T17-24-47-356Z-cc353d31-aefb-4146-9ecd-d3331aba20a2.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-010-2026-10-19T17-24-47-797Z-397833de-142f-4734-81ea-39d8251f827d.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-010-2026-10-19T17-24-48-215Z-f739acca-55e5-4f55-94ba-5937ffb5fc5a.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-010-2026-10-19T17-24-48-673Z-96932d2b-eaf8-43aa-a7a0-856baaea635e.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-010-2026-10-19T17-27-16-349Z-913612ba-24f5-4739-a7ac-6f5d178a4c2e.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-010-2026-10-19T17-27-16-787Z-b210450f-6f2e-4140-9bd5-7126b5680d7f.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-010-2026-10-19T17-27-17-291Z-19e50579-64bb-4452-9a36-c3f31929c239.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-010-2026-10-19T17-27-17-869Z-af3a3917-c073-4f7a-9519-e6d2023931c2.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-010-2026-10-19T17-27-18-330Z-85c107e8-3c87-44c0-92c3-8a863a2079cc.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-010-2026-10-19T17-27-18-808Z-336e1d36-d42b-48ef-a743-48f818b95f70.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-010-2026-10-19T17-27-19-249Z-93b9af44-c83c-4267-aae6-ca81faec111f.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-010-2026-10-19T17-27-19-708Z-b4f6a903-7633-4084-9d92-11f2393bac86.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-010-2026-10-19T17-27-20-173Z-ae732fc1-829b-46e2-b350-19c93023be35.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-011-2026-10-19T17-24-49-103Z-5189639a-855d-4b30-8c52-187ce2222221.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-011-2026-10-19T17-27-20-624Z-ca460379-532f-478a-8ca9-c4dacad9ef41.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-012-2026-10-19T17-24-51-119Z-45dacfeb-bc61-48a3-83e0-33ce96231020.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-012-2026-10-19T17-27-22-646Z-ad3c5b9e-f3bb-4430-a48d-c35b5ce63998.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-013-2026-10-19T17-24-51-654Z-22c9a2e9-fb20-43d9-90cb-035a33685407.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-013-2026-10-19T17-24-52-104Z-c016801b-c329-4427-908c-4a102677ee91.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-013-2026-10-19T17-24-52-534Z-76384654-acd9-4bf8-acdb-746ece6ce91d.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-013-2026-10-19T17-27-23-123Z-287e27d3-b600-43e3-8fbe-1a065afed61d.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-013-2026-10-19T17-27-23-565Z-4e6a8e8b-5b4d-489b-b7f0-ec648b907067.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-013-2026-10-19T17-27-24-051Z-ee06e702-93be-4297-baa4-a4db985dd7c1.json\n?? packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/timer-saved-slots.json\n?? packages/rpgmaker-event-dsl/test/timer-workspace.test.ts\n",
+  "scope": "Dirty DEV source checkpoint before commit; no candidate build or dist produced",
+  "source": {
+    "files": [
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/declarations.ts",
+        "sha256": "a773bba2f8016d64f81a352da4050aa8c2e83b2cba353fe49fe5a953072eaf78"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/index.ts",
+        "sha256": "45d6f03be8e26f0f19abb5cea7f9a7a971846296e3c0f3b809feb7de3af049ef"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/references.ts",
+        "sha256": "b3f3cefa64f45da752a8f58bc6eca2d92bb6b30773be42f51036fd60df9c89de"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/shared.ts",
+        "sha256": "3865ac8c4b3768c96038a323a02cf30c33edd9f330544bd6cd2b204d2841408e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/cli.ts",
+        "sha256": "34c6e77e91a45126b1a2c5b15621f79241a98bab081924d2fbd535c5996fd4b0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/actor/authoring.ts",
+        "sha256": "adc9b6aa805739dad7594246236f6314cc8a08299f1bd323b8ae729cf6b2fdf3"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/actor/decompile.ts",
+        "sha256": "2e83a179cabb9ae19ff9207904c822bb84c6b5bc45581386d2aca7b1b005b56d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/audio/authoring.ts",
+        "sha256": "08a68ae8b97095ec1c3a6d8517ed5649eb79ffb1b66f59aa34a7506356e0e513"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/audio/decompile.ts",
+        "sha256": "18acdf8e035ad2b8f3879622e18c39a7cde1e6279c14013fca2e6dbd0edb3811"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/battle/authoring.ts",
+        "sha256": "a5249dd85dde78f2f0183d33a9a79d69bca93e88b5d2f0404f9005a25f115377"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/battle/decompile.ts",
+        "sha256": "4da781567fb9baf2580ec050564d66506d542890dfab3a6966eef1c008ac44b0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/enemy/authoring.ts",
+        "sha256": "3ff830df557837e08ed73054eb47085cd0ba262e1aad746defc05578a14ce602"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/enemy/decompile.ts",
+        "sha256": "334fc1efeda29f27cf9a7e504501ea7e693fb9b041a96bb827c90ec957ff2cd2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/flow/authoring.ts",
+        "sha256": "2781ac07a176994435f124947fb0ac9c1873a3c37ea4b61b5f5fc0c35cabfc40"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/flow/decompile.ts",
+        "sha256": "db0508df65d743ada28e4b175d85cfbfa6a70a0547ff17cc2ecc2ab9a0feac31"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/flow/validation.ts",
+        "sha256": "d88ca16a1e3d2c688a6876ae041bc772c125eda0b1cf2e818b8ec55c29090dad"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/map/authoring.ts",
+        "sha256": "985f89d88a2460b0af605f3fb8282847dd48e4d5d6e13821ae430966a53c4006"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/map/decompile.ts",
+        "sha256": "4155ac5891314141271b6e80f4b11924e584ef1efcf6e83b125b7e60196e2ce0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/message/authoring.ts",
+        "sha256": "76bfc91b2a89a8c62546542396ff47c8baf9f13d54c1c1ba5a0b58031b413d68"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/message/decompile.ts",
+        "sha256": "174c78169c65eec74592a466381b97e083688c691381e470b0a707dd47273a24"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/authoring.ts",
+        "sha256": "af1985013fa73af61d72cc440de0f83d99f78c94da4744f3a7ab1d7b56daf909"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/compile.ts",
+        "sha256": "8491f60e066d618bb076e3e03774b9332000f8be6f5c81a05ceb2aa03e2d0e15"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/decompile.ts",
+        "sha256": "016e07bdd681af3aaaf70ae5141afc6255598453c2ce43a6c34a3d44c38ba6c3"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/page.ts",
+        "sha256": "ead6952e28f64bd25ba6fbd55d9be36f09ddadca5967ec4ddd7722ee1e18ceac"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/types.ts",
+        "sha256": "de4a2cb691fc6a8697ba91a2a831eaf17e1c15e541da4a2893f902f30a3a01b8"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/validation.ts",
+        "sha256": "41bd3a1a11691f40f0583a7d7a2e22533883404379b35897dc74eb31096d2755"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/screen/authoring.ts",
+        "sha256": "c0557c79496cb70c7a4d67fa61008a6e189b9df86f7cb408b36048b89aff63dc"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/screen/compile.ts",
+        "sha256": "a1c68cb63a4e6fe9ad2de3f45f51101f2e4fa6656fd865ac3bbbf485c78edc80"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/screen/decompile.ts",
+        "sha256": "38e4c759cf9f51c5ab49ea0f33d79c9a2af1060156102e7198541ac2e529567b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/system/authoring.ts",
+        "sha256": "71b37822f2d2abd58349a1ea7eed84fea0c886cf8045beb6341dbfba2c02814d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/system/decompile.ts",
+        "sha256": "56c3cba9e576bd289050463bfe2d284c39d54196fcf5fa59a8dde3ccdc33ad77"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/authoring.ts",
+        "sha256": "c5e3192fd67cf9ad90af5674cb3fa075f02c384d8ba4c940acb33a1b5a558b20"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/compile.ts",
+        "sha256": "9e4a295fac91434e34e28bd3c84b9b5a5dc526685f821f574582e7ac22bb4c27"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/decompile.ts",
+        "sha256": "c32df1e9d77b36d30fd135bc6c8919f0cf84a19acaf6a86d3e66d700762b9773"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/validation.ts",
+        "sha256": "1aa2cac6ed73280624b426973daf2ec09b762a71eef8c83ca1a3f8e61787c6d4"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+        "sha256": "095c4ff9f804554d2f1283975867656b891f8e3b3cd34fd627793778fa1648fe"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/events.ts",
+        "sha256": "f5ab237240ed7e698a6b386135b8c5a41d05ee52fc99a1ef62bce44fdc1abfd2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/branches.ts",
+        "sha256": "44f965a1c5ea89cdf03fca12e3a49c2bce866efa9e6dc97ffa32c45a51f4d606"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/conditions.ts",
+        "sha256": "4b44eb3bb078dc6dd9a996ba7ac8aac5dbc6cc4a4151763ff9dc6c21d786e990"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/media.ts",
+        "sha256": "9bc3cc0ec9fd97a6368711dc4e73cba05dc4abaee7697624132577bb465e3e68"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/targets.ts",
+        "sha256": "11c907ed9a847ba54fdc222c7d04757e1b0d74205c7111426e4fec8d80be7ce2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/types.ts",
+        "sha256": "b81ac88b5778268997bce55af43dc0953b5cee48625180f58733cfdde6ae91a1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/core.ts",
+        "sha256": "c6a020c7eb5f987f883488b955f4dae2d5550d93a21272284939d54a04bb98b0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/dispatch.ts",
+        "sha256": "9f37e856a2ee19381477e69e9a08c17461f8c49a36de446323ec3c4da91225fb"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/map-page.ts",
+        "sha256": "05a14de564f72e81566bf5db192a38c71c9595e21abfa9181b49a12b724c751b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/project.ts",
+        "sha256": "35e720a3e5f0b860f3669da6829a652ec94509d79fe94e1240ff91d4ee5870b9"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/types.ts",
+        "sha256": "01dc14767746b1067ddc101f6acd5ea23247b6557a59e0c0cb467dd1f3903aa3"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/battle-page-defaults.ts",
+        "sha256": "4a6d7b43e65b2316987b846253c93504f85ac8e341901d3e47236c99de91027b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/command.ts",
+        "sha256": "0df8271ded61b1250f01b41992d6df423c0b0396b6660f18b499cc96a4172391"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/declarations.ts",
+        "sha256": "b0b1dd048040394dd8ef95fe080046a6b1541d44194d490dfa0ede891dd6a781"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/references.ts",
+        "sha256": "44874ce22c90697572c8bd777f0a8070bcf89b556247072964ac59246761fc44"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/types.ts",
+        "sha256": "5327c422c15864473a2b77938e10199e01ae0ed49399f37397cbd93ced3d16eb"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/index.ts",
+        "sha256": "cac51b3cd154629880f6b30aaf8b54a8f1aecee91bb26182ebfd7ccdb3c90157"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/map-event/native.ts",
+        "sha256": "a87ca1545e80ecd25205f6e7fb40a48d977317b93da65de8053afcaacf611384"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/map-event/page.ts",
+        "sha256": "9251557930e667e258c6259c58e787cdeccd22e96dc5f0225947a98d35d275ed"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/map-event/validation.ts",
+        "sha256": "e2dddc54dff942929af1f58dd6e48305e9d774c8cfb5a4c58af39e08e3937805"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/json-values.ts",
+        "sha256": "7d9f2a485a689dc159327f859a8cae48307b88294bea78aa2a81452813730af8"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/map-event-diff.ts",
+        "sha256": "7055058d85ef232a8ad2f94e9a3634ef709c5d352283ac1678f4dc03836be992"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/materialization.ts",
+        "sha256": "e52781cb2bccb01c58ac6c1ff0f069906980efce0a123b04348f4f18d80734d4"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/project.ts",
+        "sha256": "1176a155e53c9f4383e03bbe3a3f7e13565a96d5eb47b3ac6fc58002ae91cd74"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/structured-diff.ts",
+        "sha256": "4af2dfd1fb0e57c2d440b64a90fdbdfd1e88f02fffe6ff33c6f12eac64ff8590"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/writer.ts",
+        "sha256": "d9ebfc5636d430eb7c94ecca75c4a40127e592e92bcd303cc73ed59cde674c80"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/battle-pages.ts",
+        "sha256": "e8bb5f47b3ad4c6d09c3df5f09785bc64e6704b8f458e0253f5a3e3953a20c8b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/command-errors.ts",
+        "sha256": "d3da622a5d9616fd54f83415ec3782c45f54f95a3285d3525f1ddcf71f7deb9a"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/command-structure.ts",
+        "sha256": "e75f7edfa9b9fd520eeb7f4b42b4e110bc2a533fe3fd365c78750ecd226df6d4"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/commands.ts",
+        "sha256": "630b5b4355a03ffef0c18b65b480a0d9d0ea6910a5408cdbf1d55c30a7d9de4c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/common-events.ts",
+        "sha256": "dd331ebf8a13c720464cc96843ba4a8b69a2b6196ee740791ad7a4788ad89e34"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/compile-output.ts",
+        "sha256": "921536abaed802c2f030229f0ff72e3037aba9a6855abc9dcd7e47d1f4857681"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/compiled-commands.ts",
+        "sha256": "54ac1cd1aef427fc8af3681b8d5a6907a2b2e336727ba790ad7e44a5467fae94"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/declarations.ts",
+        "sha256": "d7428305b08f45f2203aa37ffb5b3a1c3506730870a01171574cc10f0624f671"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/dsl-command-inputs.ts",
+        "sha256": "cc6e0d4a69d7d4185d68a441ecf5f30569d024963fc7e9981cc807a6e3c25c6a"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/identities.ts",
+        "sha256": "8d43c5417552dc7e1b6c5a5c3c423d3571d22277d719bf10f34f555ef39bf2b1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/inspection.ts",
+        "sha256": "10a9923ffca925eb65ea7254a1d940c6580a3a60f3b7a14a4862cf08d11453e1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/native-command-inputs.ts",
+        "sha256": "d56f4dfe5960a92107fcde60d1ad795b35b0afb4825e1becf6145f502f7e1051"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/native-context-references.ts",
+        "sha256": "7ddd26656a02361bf2ea5c7ecfc10ca8a32d5d0a22a37ba36cabb168ce2c680d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/native-parameters.ts",
+        "sha256": "b7dce81b5997b18d62f00bf6aca085782544499d9ac995ba9d0221596e2b0353"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/native-references.ts",
+        "sha256": "34ab7b62af6418491d00f3325fca6c843f2010e4170a24ec57cc8d6099a945b7"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/references.ts",
+        "sha256": "01c968b0619bcaf4a1251a4e00932657823229362a7d722148d274cf37c23dfd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/shared.ts",
+        "sha256": "6ad13ecbedcc6cf7fb3565ffcdfd919f8fadad1430eccbbcfd845af7e927af14"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/snapshot.ts",
+        "sha256": "b29956e100eb586e389ed69bd7d9b6603452b6a7f8371aa895e53193628ed4cd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/staged-graph.ts",
+        "sha256": "eb93aeb3a16a413f74719a42394fd0883365d735a9c0c6139295569505408693"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/types.ts",
+        "sha256": "df660ce939aa4e7924d4f98a54d63cb14cb3c637c48e53215477e0282c3f27dd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "sha256": "735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/checks.ts",
+        "sha256": "dd02c917b0ed530fcbb8d3458802d5d230def90388d6bf488e849f2934688692"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/config.ts",
+        "sha256": "3700d64dfaf53fe1e99beb91bf8a54032c8a01372f25b579cdddf2ab683fd84b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/decompile-publication.ts",
+        "sha256": "e70dcce23f98167dc53e908b3242a0a61a5fd1f7f92b2df6f700e91433faf185"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/definition-identities.ts",
+        "sha256": "f9048d155cc06fa5770e6b26cae9fac58255dc1668b0a416fbb4578149db3b41"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/definitions.ts",
+        "sha256": "642fdd2fc21b59d6ffb59f01bd61fbb0bca4e26ee2eab4c3d659a4077f901ed1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/guards.ts",
+        "sha256": "cec835079aba4c1c61d4a28f224fd7ac7617063568b05156a84cc08896e0ed89"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/operation-lock.ts",
+        "sha256": "c39e910339321f63786bec52cf40fa5e9c114a259f8bbc0dc7842b29660866cd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/operations.ts",
+        "sha256": "a5d8a46bd2fb28a09e2724028c7e9800d2ee23deed6e5e6a84196fb76b1ccead"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/push-recovery.ts",
+        "sha256": "4eb0a680285f3e7532891cff2aedc3433f067fb36ccf8d4c63b3975b66c97a76"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/push.ts",
+        "sha256": "4a68f891cce5431344921baf4c9c0f3e3617c704c305732fa13b17825e74a25a"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/source-discovery.ts",
+        "sha256": "aeec16adb3208ea5d89666c051064e3251defd8ef8bae48ac6fa12bebc7b98e0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/state.ts",
+        "sha256": "c493c31c466b7d49b86a9bdd45ad563963c67f3c9e4c5a28b1f1f3b54ebbf216"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts",
+        "sha256": "636eb126175e90cb0134e523bc9f11d5ac04dcd68326d8596e4b10931231bc8f"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/types.ts",
+        "sha256": "f046ebe39de38d590d78bb0aa00f5c3f03a117f972f9aec6f49fa5f7275023fb"
+      }
+    ],
+    "fingerprint": "f4d381676efe01adffd0de7c39700148987bdd92f29af7f57f6f73ff2cdf22b4"
+  },
+  "dist": "not-built",
+  "compileContract": "unchanged from actual base; no final increment"
+}
