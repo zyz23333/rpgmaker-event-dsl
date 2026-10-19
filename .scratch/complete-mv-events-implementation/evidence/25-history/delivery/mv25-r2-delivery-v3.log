@@ -1,0 +1,288 @@
+{
+  "root": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-normal-scene-product-pair-delivery-v3-4794fb92-35c7-41e8-971e-281e23a172c7",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-normal-scene-product-pair-delivery-v3-4794fb92-35c7-41e8-971e-281e23a172c7\\compiled\\Workspace",
+    "files": {
+      "Map001.json": {
+        "beforePushSha256": "d1438213e2011ad36809f58db1d391b90fbc58f3cf46b030631bec0b05e38e06",
+        "generatedSha256": "263147f70b8f69af774f35a007ac820d87465fa3128eb881a901d450d51017bd",
+        "afterPushSha256": "263147f70b8f69af774f35a007ac820d87465fa3128eb881a901d450d51017bd",
+        "actualReplacementProven": true
+      },
+      "Troops.json": {
+        "beforePushSha256": "17ffaa3f04ed899e7a71828c9f84332f7d9666111ee59a93dd9b3a0df521e387",
+        "generatedSha256": "72296807cdc86d4438e190ded844546d9b9dc1bbc52df73cd758d8ad20401e00",
+        "afterPushSha256": "72296807cdc86d4438e190ded844546d9b9dc1bbc52df73cd758d8ad20401e00",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "trace": [
+          {
+            "id": "turn-zero-first",
+            "turn": 0,
+            "phase": "start"
+          },
+          {
+            "id": "turn-zero-following",
+            "turn": 0,
+            "phase": "start"
+          },
+          {
+            "id": "battle-span",
+            "turn": 1,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "turn-span",
+            "turn": 1,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "moment-repeat",
+            "turn": 1,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "moment-repeat",
+            "turn": 1,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "moment-first",
+            "turn": 1,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "moment-following",
+            "turn": 1,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "odd-turns",
+            "turn": 1,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "even-turns",
+            "turn": 2,
+            "phase": "turn"
+          },
+          {
+            "id": "exact-turn-two",
+            "turn": 2,
+            "phase": "turn"
+          },
+          {
+            "id": "turn-span",
+            "turn": 2,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "all-conditions-true",
+            "turn": 2,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "turn-span",
+            "turn": 3,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "odd-turns",
+            "turn": 3,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "finish-turn-three",
+            "turn": 3,
+            "phase": "turnEnd"
+          }
+        ],
+        "momentCounter": 2,
+        "neverSeen": [],
+        "guardInputTurns": [
+          0,
+          1,
+          2
+        ],
+        "allTroopContext": true,
+        "mapOrder": [
+          "before-battle",
+          "after-battle"
+        ],
+        "mapAfterIsNormal": true,
+        "switches": [
+          true,
+          true,
+          false,
+          false,
+          false,
+          false
+        ],
+        "winCount": 1,
+        "enemyDead": true,
+        "partyAlive": true,
+        "finalTurn": 3,
+        "mapStopped": true,
+        "realBattleSeen": true
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "trace": [
+          {
+            "id": "turn-zero-first",
+            "turn": 0,
+            "phase": "start"
+          },
+          {
+            "id": "turn-zero-following",
+            "turn": 0,
+            "phase": "start"
+          },
+          {
+            "id": "battle-span",
+            "turn": 1,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "turn-span",
+            "turn": 1,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "moment-repeat",
+            "turn": 1,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "moment-repeat",
+            "turn": 1,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "moment-first",
+            "turn": 1,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "moment-following",
+            "turn": 1,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "odd-turns",
+            "turn": 1,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "even-turns",
+            "turn": 2,
+            "phase": "turn"
+          },
+          {
+            "id": "exact-turn-two",
+            "turn": 2,
+            "phase": "turn"
+          },
+          {
+            "id": "turn-span",
+            "turn": 2,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "all-conditions-true",
+            "turn": 2,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "turn-span",
+            "turn": 3,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "odd-turns",
+            "turn": 3,
+            "phase": "turnEnd"
+          },
+          {
+            "id": "finish-turn-three",
+            "turn": 3,
+            "phase": "turnEnd"
+          }
+        ],
+        "momentCounter": 2,
+        "neverSeen": [],
+        "guardInputTurns": [
+          0,
+          1,
+          2
+        ],
+        "allTroopContext": true,
+        "mapOrder": [
+          "before-battle",
+          "after-battle"
+        ],
+        "mapAfterIsNormal": true,
+        "switches": [
+          true,
+          true,
+          false,
+          false,
+          false,
+          false
+        ],
+        "winCount": 1,
+        "enemyDead": true,
+        "partyAlive": true,
+        "finalTurn": 3,
+        "mapStopped": true,
+        "realBattleSeen": true
+      },
+      "error": null
+    }
+  }
+}

@@ -7,7 +7,7 @@ and CI baseline.
 
 Instead of creating every event through repeated clicks in the RPG Maker MV editor, you
 can describe supported switches, variables, common events, and map events in source
-files. The tool turns those files into RPG Maker MV project data after you review what
+files, including troop battle events. The tool turns those files into RPG Maker MV project data after you review what
 will change.
 
 This makes RPG Maker MV logic easier to search, copy, review, refactor, and reuse. It
@@ -70,9 +70,30 @@ The same mapping applies to larger RPG Maker MV structures:
 - `commonEvent(...)` becomes an entry in `CommonEvents.json`.
 - `mapEvent(...)` becomes an event inside a `Map###.json` file.
 - `page(...)` becomes an RPG Maker MV event page.
+- `troopEvent({ troopId, pages })` owns the ordered battle event pages of an existing
+  troop; `battlePage({ conditions?, span?, commands })` describes one battle page.
 - `switchDefinition(...)` and `variableDefinition(...)` describe named project IDs.
 - References such as `switchRef({ id: 1 })` compile back to the numeric IDs that RPG
   Maker MV expects.
+
+Troop Event ownership covers the complete `pages` array. Compilation always emits
+`Troops.json`, retaining each actual troop's ID, name, members, positions, hidden flags
+and other carrier data. An omitted Troop Event declaration produces one exact default
+page, just like `troopEvent({ troopId, pages: [battlePage({ commands: [] })] })`.
+Replacing a nonblank Troop Event with that state is a destructive **Troop Event Reset**
+and requires `push --allow-destructive` after review. Deleting some pages while leaving
+a nonblank event is an ordinary content edit. A troop itself is never removed by this
+ownership model.
+
+Battle pages accept `span: "battle" | "turn" | "moment"` (default `"battle"`).
+Optional condition slots are `turnEnd`, `turn: { enabled, a, b }`,
+`enemy: { enabled, index, hpAtMost }`, `actor: { enabled, ref, hpAtMost }` and
+`switch: { enabled, ref }`. Provided slots are complete objects. Saved values remain
+validated and preserved while a slot is disabled. Disabled explicit actor/switch IDs
+may retain zero or a missing target; names still resolve normally. Enabled enemy
+conditions use the raw member position and validate every member's Enemy reference,
+including hidden and nonselected members. Pages stay nonempty and in authored order;
+more than 20 pages warns and preserves all pages.
 
 Switch and variable IDs can refer to unnamed System slots. Their final capacity is
 the larger of the Snapshot capacity and the highest ID declared by

@@ -1,0 +1,11 @@
+'use strict';
+const fs=require('node:fs/promises'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+(async()=>{
+ const root=__dirname,oldPath=path.join(root,'mv-native-pair-support-v5.cjs'),newPath=path.join(root,'mv-native-pair-support-v6-delivery.cjs');
+ const oldBytes=await fs.readFile(oldPath),old=oldBytes.toString(),from="purpose:'Preparation only; not final candidate or ticket acceptance'",to="purpose:'Ticket25 allocated R2 delivery comparison; final integrated regression remains separate'";
+ assert.equal(old.split(from).length,2);const next=old.replace(from,to);assert.equal(next.replace(to,from),old);
+ await fs.writeFile(newPath,next,{flag:'wx'});
+ const audit={purpose:'Exact purpose-only harness revision; original v5 bytes remain unchanged',old:{path:oldPath,sha256:sha(oldBytes),bytes:oldBytes.length},revision:{path:newPath,sha256:sha(next),bytes:Buffer.byteLength(next)},onlyReplacement:{from,to},oldBytesStillEqual:sha(await fs.readFile(oldPath))===sha(oldBytes),reverseReplacementEqualsEntireOriginal:next.replace(to,from)===old};
+ await fs.writeFile(path.join(root,'mv25-r2-delivery-helper-revision-audit.json'),JSON.stringify(audit,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify(audit,null,2));
+})().catch(e=>{console.error(e);process.exitCode=1;});

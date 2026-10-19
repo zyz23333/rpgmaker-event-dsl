@@ -1,0 +1,60 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/troop-workflow.test.ts (36 tests | 1 failed | 35 skipped) 2213ms
+   × preserves native negative zero in every saved Battle Page numeric condition through Decompile and public Compile 2212ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/troop-workflow.test.ts > preserves native negative zero in every saved Battle Page numeric condition through Decompile and public Compile
+AssertionError: expected [ null, …(2) ] to strictly equal [ null, …(2) ]
+
+- Expected
++ Received
+
+@@ -11,20 +11,20 @@
+      "members": [],
+      "name": "",
+      "pages": [
+        {
+          "conditions": {
+-           "actorHp": -0,
+-           "actorId": -0,
++           "actorHp": 0,
++           "actorId": 0,
+            "actorValid": false,
+-           "enemyHp": -0,
+-           "enemyIndex": -0,
++           "enemyHp": 0,
++           "enemyIndex": 0,
+            "enemyValid": false,
+-           "switchId": -0,
++           "switchId": 0,
+            "switchValid": false,
+-           "turnA": -0,
+-           "turnB": -0,
++           "turnA": 0,
++           "turnB": 0,
+            "turnEnding": false,
+            "turnValid": false,
+          },
+          "list": [
+            {
+
+ ❯ test/troop-workflow.test.ts:210:23
+    208|     await compileWorkspace({ workspaceRoot, check: false });
+    209|     const generated = await json(join(paths.generatedProjectDataDirect…
+    210|     expect(generated).toStrictEqual(expectedTroops);
+       |                       ^
+    211|     for (const field of fields) expect(Object.is(generated[1].pages[0]…
+    212|     expect(source).toContain("a: -0, b: -0");
+ ❯ verifyTroopEvidence test/support/troop-evidence.ts:11:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 35 skipped (36)
+   Start at  23:01:53
+   Duration  3.83s (transform 551ms, setup 0ms, import 1.45s, tests 2.21s, environment 0ms)
+

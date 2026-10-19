@@ -161,7 +161,11 @@ fs.writeFile = async function (path, ...args) {
     throw new Error("Controlled Decompile candidate write failure");
   if (
     options.boundary === "generated-write-failure" &&
-    String(path).includes("generated-project-data.tmp-")
+    String(path).includes("generated-project-data.tmp-") &&
+    (!options.captureFile ||
+      String(path)
+        .replaceAll("\\", "/")
+        .endsWith("/" + options.captureFile))
   )
     throw new Error("Controlled generated candidate write failure");
   const result = await writeFile(path, ...args);

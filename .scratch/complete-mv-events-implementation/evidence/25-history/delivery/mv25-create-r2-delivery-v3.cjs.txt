@@ -1,0 +1,9 @@
+'use strict';
+const fs=require('node:fs/promises'),path=require('node:path'),assert=require('node:assert/strict');
+(async()=>{
+ const original=await fs.readFile(path.join(__dirname,'mv25-r2-normal-scene-product-pair-delivery-v2.cjs'),'utf8');
+ const from="scenario.slug='mv25-r2-normal-scene-product-pair-delivery-v2'",to="scenario.slug='mv25-r2-normal-scene-product-pair-delivery-v3'";assert.equal(original.split(from).length,2);
+ const next=original.replace(from,to);assert.equal(next.replace(to,from),original);
+ await fs.writeFile(path.join(__dirname,'mv25-r2-normal-scene-product-pair-delivery-v3.cjs'),next,{flag:'wx'});
+ console.log('Created new delivery-v3 runner; same guard-only fixture and purpose-only helper, no raw path or E604 insertion in expected data.');
+})().catch(e=>{console.error(e);process.exitCode=1;});

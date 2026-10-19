@@ -1,0 +1,7 @@
+'use strict';
+const fs=require('node:fs/promises'),path=require('node:path'),assert=require('node:assert/strict');
+(async()=>{
+ const[root,...directories]=process.argv.slice(2),to=path.join(root,'.scratch/complete-mv-events-implementation/evidence/results'),rows=[];
+ for(const dir of directories)for(const name of await fs.readdir(dir)){if(!name.startsWith('MV-S5-TROOP-')||!name.endsWith('.json'))continue;const input=path.join(dir,name),value=JSON.parse(await fs.readFile(input,'utf8'));assert.equal(value.requirementId.startsWith('MV-S5-TROOP-'),true);await fs.copyFile(input,path.join(to,name),require('node:fs').constants.COPYFILE_EXCL);rows.push({origin:input,name,status:value.status,requirementId:value.requirementId});}
+ console.log(JSON.stringify({copied:rows.length,counts:Object.fromEntries(['passed','failed'].map(s=>[s,rows.filter(r=>r.status===s).length])),rows},null,2));
+})().catch(e=>{console.error(e);process.exitCode=1;});

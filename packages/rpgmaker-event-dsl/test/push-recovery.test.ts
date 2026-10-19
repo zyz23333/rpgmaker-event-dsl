@@ -1,3 +1,4 @@
+import { verifyTroopEvidence } from "./support/troop-evidence.js";
 import { createHash } from "node:crypto";
 import { lstat, mkdir, readFile, readdir, readlink, rename, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -21,6 +22,67 @@ const local = (s: WindowsSandbox, name: string) =>
   join(s.workspaceRoot, ".rpgmaker-event-dsl", name);
 const live = (s: WindowsSandbox, name: string) => join(s.workspaceRoot, "Game/data", name);
 const hash = (value: Uint8Array) => createHash("sha256").update(value).digest("hex");
+
+it.each(["mv-1.6.1/5", "mv-1.6.1/6", "mv-1.6.1/7", "unknown-contract", "incomplete-prior-set"])(
+  "recognizes the bounded pre-Troops complete output set: %s",
+  async (contract) => {
+    return verifyTroopEvidence("MV-S5-TROOP-PRIOR-001", async () => {
+      let finalObservation: unknown;
+
+      await withWindowsSandbox("mv25-prior-set", async (s) => {
+        const { old, generated } = await prepare(s);
+        old.generatedFiles = old.generatedFiles.filter(
+          (entry: { relativePath: string }) => entry.relativePath !== "Troops.json",
+        );
+        await rm(local(s, "generated-project-data/Troops.json"));
+        old.compileBaseline.compileContractVersion =
+          contract === "incomplete-prior-set" ? "mv-1.6.1/5" : contract;
+        if (contract === "incomplete-prior-set") {
+          old.generatedFiles = old.generatedFiles.filter(
+            (entry: { relativePath: string }) => entry.relativePath !== "System.json",
+          );
+          generated.delete("System.json");
+          await rm(local(s, "generated-project-data/System.json"));
+        }
+        const { hash: _hash, ...basis } = old.compileBaseline;
+        old.compileBaseline.hash = hash(Buffer.from(writeStableJson(basis)));
+        await writeFile(local(s, "sync-manifest.json"), writeStableJson(old));
+        await preconstruct(s, generated, old);
+        for (const [name, bytes] of generated) await writeFile(live(s, name), bytes);
+        const before = await observe(s);
+        if (contract !== "mv-1.6.1/5" && contract !== "mv-1.6.1/6") {
+          await expect(api.pushWorkspace({ ...s, allowDestructive: false })).rejects.toThrow(
+            /Interrupted Push.*file set/s,
+          );
+          expect(await observe(s)).toStrictEqual(before);
+        } else {
+          await expect(api.pushWorkspace({ ...s, allowDestructive: false })).rejects.toThrow(
+            /stale|integrity/i,
+          );
+          const final = await manifest(s);
+          expect(final.generatedFiles).toStrictEqual(old.generatedFiles);
+          expect(final.compileBaseline).toMatchObject({
+            ...basis,
+            snapshotFiles: final.snapshotFiles,
+          });
+          for (const [name, bytes] of generated)
+            expect(await readFile(local(s, "project-data-snapshot/" + name))).toEqual(bytes);
+          expect(await readFile(live(s, "Troops.json"))).toEqual(
+            Buffer.from(JSON.stringify([null])),
+          );
+          await expect(lstat(local(s, "pending-push"))).rejects.toThrow();
+          expect((await observe(s)).source).toStrictEqual(before.source);
+          expect(await api.isGeneratedProjectDataFresh(s)).toBe(false);
+        }
+
+        finalObservation = await observe(s);
+      });
+
+      return { contract, finalObservation };
+    });
+  },
+  30000,
+);
 
 it("MV-S4-RECOVERY-019: refuses pending replacement after its original bytes are captured", async () => {
   await evidence("MV-S4-RECOVERY-019", async (s, observations) => {

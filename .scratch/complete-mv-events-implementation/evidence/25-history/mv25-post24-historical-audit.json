@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-19T15:16:11.931Z",
+  "base": "520a2e5d3a034299bedf8d1051b8559da2d3e648",
+  "oldRequirementRows": 210,
+  "addedRequirementRows": 37,
+  "historicalRowsDeepEqual": true,
+  "historicalCaptureBytesUnchanged": true,
+  "addedCapturedFiles": 322,
+  "trackedStatus": " M .scratch/complete-mv-events-implementation/evidence/25-troop-event-ownership-and-reset.md\n M .scratch/complete-mv-events-implementation/evidence/README.md\n M .scratch/complete-mv-events-implementation/evidence/requirements.json\n M packages/rpgmaker-event-dsl/src/workspace/push-recovery.ts\n M packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts\n M packages/rpgmaker-event-dsl/test/push-recovery.test.ts\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-PRIOR-001-2026-10-19T15-14-08-922Z-69c4320b-a6da-4f7c-866d-05a4ef0bd53a.json\n"
+}

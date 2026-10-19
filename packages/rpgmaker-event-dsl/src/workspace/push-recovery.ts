@@ -209,9 +209,19 @@ async function resolvePending(input: {
   const expectedSnapshot = new Map(snapshot.map((entry) => [entry.relativePath, entry.hash]));
   const expectedNames = await expectedCompileOutputFileNames(paths);
   const listed = original.generatedFiles.map((entry) => entry.relativePath).sort();
+  // Before Troop ownership, /1 through /6 emitted the complete Common/System/Map
+  // set. Its v3 frozen evidence is understood without inventing a Troops output
+  // or upgrading the original compilation basis. Every other subset still fails.
+  const priorContract = baseline.compileContractVersion;
+  const understoodPriorSet =
+    (priorContract === undefined || /^mv-1\.6\.1\/[1-6]$/u.test(priorContract)) &&
+    same(
+      listed,
+      expectedNames.filter((name) => name !== "Troops.json"),
+    );
   const actualEntries = await readdir(paths.generatedProjectDataDirectory, { withFileTypes: true });
   if (
-    !same(listed, expectedNames) ||
+    (!same(listed, expectedNames) && !understoodPriorSet) ||
     !same(actualEntries.map((entry) => entry.name).sort(), listed) ||
     actualEntries.some((entry) => !entry.isFile())
   )

@@ -1,0 +1,31 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/troop-workflow.test.ts (35 tests | 1 failed | 34 skipped) 1415ms
+   × treats every optional Battle Page condition slot explicitly undefined as omission through public Check and Compile 1414ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/troop-workflow.test.ts > treats every optional Battle Page condition slot explicitly undefined as omission through public Check and Compile
+Error: compile --check validation failed:
+- compile error troop:1: MV-BATTLE-PAGE-INPUT: pages[0].conditions.turnEnd: expected boolean; actual absent/undefined.
+ ❯ compileWorkspaceUnlocked src/workspace/operations.ts:259:11
+    257|     console.error(issue.message);
+    258|   if (errors.length > 0) {
+    259|     throw new Error(
+       |           ^
+    260|       [`${commandName} validation failed:`, ...errors.map((issue) => `…
+    261|         "\n",
+ ❯ withWorkspaceOperationLock src/workspace/operation-lock.ts:45:12
+ ❯ compileWorkspace src/workspace/operations.ts:215:3
+ ❯ test/troop-workflow.test.ts:178:5
+ ❯ verifyTroopEvidence test/support/troop-evidence.ts:11:14
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 34 skipped (35)
+   Start at  23:00:38
+   Duration  2.95s (transform 464ms, setup 0ms, import 1.39s, tests 1.41s, environment 0ms)
+

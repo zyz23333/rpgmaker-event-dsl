@@ -8,6 +8,11 @@ command families rather than every helper. It includes message, flow control, sw
 variables, party, movement, screen, audio, map, battle, actor, enemy, plugin, script, and
 explicit unknown raw command examples.
 
+It also defines a Troop Event for the existing troop ID 1. Its ordered pages run a
+message at turn zero once per battle. `troopEvent` replaces only the complete page
+list; the troop's name, members, positions and other carrier fields stay external.
+Adjust the existing troop ID before using the example in your project.
+
 ## Config
 
 `rpgmaker-event-dsl.config.template.json` shows the required config shape. It uses
@@ -65,6 +70,11 @@ pnpm run diff
 `clone` captures a Standard Project Data Snapshot. `compile --check` validates without
 writing Generated Project Data. `compile` writes Generated Project Data in the workspace,
 and `diff` compares it with the snapshot.
+
+The source represents complete owned domains. Existing troops omitted from source
+receive one exact default Battle Event Page. A nonblank-to-Blank change is reported
+as a destructive Troop Event Reset, including when a file filter hides its details.
+For an existing project, Decompile its complete data before editing the declarations.
 
 Run `push` only when the configured Project Root is safe to modify:
 

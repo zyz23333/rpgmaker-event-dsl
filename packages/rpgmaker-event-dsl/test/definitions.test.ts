@@ -36,7 +36,7 @@ export const gate = entry;
 
     const definitions = await loadDefinitionFile(file);
     expect(definitions).toHaveLength(1);
-    expect(definitions[0]?.name).toBe("Gate");
+    expect(definitions[0]?.kind !== "troopEvent" && definitions[0]?.name).toBe("Gate");
   });
 
   it("loads DSL-owned declarations from a TypeScript module", async () => {

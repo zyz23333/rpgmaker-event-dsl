@@ -1,0 +1,36 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/troop-workflow.test.ts (37 tests | 1 failed | 36 skipped) 1209ms
+   × rejects native negative-zero Battle Event Span before publication without changing complete Workspace state 1208ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/troop-workflow.test.ts > rejects native negative-zero Battle Event Span before publication without changing complete Workspace state
+AssertionError: promise resolved "undefined" instead of rejecting
+
+- Expected:
+Error {
+  "message": "rejected promise",
+}
+
++ Received:
+undefined
+
+ ❯ test/troop-workflow.test.ts:230:56
+
+    228|     await pullWorkspace({ workspaceRoot });
+    229|     const before = await observe(workspaceRoot);
+    230|     await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatc…
+       |                                                        ^
+    231|       code: "MV-BATTLE-PAGE-INPUT",
+    232|       stage: "decompile",
+ ❯ verifyTroopEvidence test/support/troop-evidence.ts:11:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 36 skipped (37)
+   Start at  23:03:23
+   Duration  2.67s (transform 473ms, setup 0ms, import 1.31s, tests 1.21s, environment 0ms)
+

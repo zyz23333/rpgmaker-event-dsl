@@ -1,0 +1,52 @@
+{
+  "purpose": "Observed cross-run expected-input difference only; no author or cause attribution",
+  "capturedAt": "2026-10-19T15:57:14.051Z",
+  "before": {
+    "path": "C:/Users/Shuen/.codex/tmp/mv25-r2-normal-scene-product-pair-delivery-v2-ef1553d5-540c-4a11-885b-a470911a6032/independent-fixture.json",
+    "sha256": "b28f3df718d46ab3c30ba315ac12f40d12e73b047766f9d795acff7c68541ad0"
+  },
+  "after": {
+    "path": "C:/Users/Shuen/.codex/tmp/mv25-r2-normal-scene-product-pair-delivery-v3-4794fb92-35c7-41e8-971e-281e23a172c7/independent-fixture.json",
+    "sha256": "670b97f0824af7224c408c2bceee9d7e022d3f4971049f1f7a8b21b4a8abac0c"
+  },
+  "changedPaths": [
+    "fixture.carriers.CommonEvents.json.1",
+    "fixture.carriers.CommonEvents.json.2",
+    "fixture.carriers.CommonEvents.json.3",
+    "fixture.carriers.CommonEvents.json.4"
+  ],
+  "commonEntries": [
+    {
+      "id": 1,
+      "beforeParsedEntrySha256": "24347b572ce98c1f8eb4a5d6b72688c8f118d7c145e46747b89e2c6cbae4619c",
+      "afterParsedEntrySha256": null,
+      "currentParsedEntrySha256": null
+    },
+    {
+      "id": 2,
+      "beforeParsedEntrySha256": "0b3f2ac1f66e0ed30f902dc89231f5dd189ae6aab3bc309b26ad3dfac3d60e84",
+      "afterParsedEntrySha256": null,
+      "currentParsedEntrySha256": null
+    },
+    {
+      "id": 3,
+      "beforeParsedEntrySha256": "2dbb85ebd17a72d8a2f2741881f9cfebc200a44e9207a3580fd18ccec525aa33",
+      "afterParsedEntrySha256": null,
+      "currentParsedEntrySha256": null
+    },
+    {
+      "id": 4,
+      "beforeParsedEntrySha256": "766203ffecb4605574af27bb51e5d214058dc28a993da302707520b559d49d87",
+      "afterParsedEntrySha256": null,
+      "currentParsedEntrySha256": null
+    }
+  ],
+  "currentSourceFile": {
+    "path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/NewData/data/CommonEvents.json",
+    "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+    "bytes": 11,
+    "mtimeUtc": "2026-10-19T15:47:26.617Z",
+    "birthtimeUtc": "2026-10-18T10:27:05.348Z"
+  },
+  "limits": "Observed frozen expected carriers differ at these four Common Event entries. Current file identity/time are a later read, not an event log or author attribution. V4 instead binds the exact first failed R2 frozen complete input; only audited guard lists change."
+}

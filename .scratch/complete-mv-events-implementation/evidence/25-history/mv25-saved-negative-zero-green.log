@@ -1,0 +1,39 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/troop-workflow.test.ts (36 tests | 1 failed | 35 skipped) 2758ms
+   × preserves native negative zero in every saved Battle Page numeric condition through Decompile and public Compile 2757ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/troop-workflow.test.ts > preserves native negative zero in every saved Battle Page numeric condition through Decompile and public Compile
+AssertionError: expected 'Structured Diff Report\n\nAffected Pr…' to contain 'No changes.'
+
+- Expected
++ Received
+
+- No changes.
++ Structured Diff Report
++
++ Affected Project Data Files:
++ - none
++
++ Destructive Changes: no
+
+ ❯ test/troop-workflow.test.ts:214:52
+
+    212|     expect(source).toContain("a: -0, b: -0");
+    213|     expect(source).toContain("actorRef({ id: -0 })");
+    214|     expect(await diffWorkspace({ workspaceRoot })).toContain("No chang…
+       |                                                    ^
+    215|     return { nativeText, source, afterDecompile, generatedNegativeZero…
+    216|   });
+ ❯ verifyTroopEvidence test/support/troop-evidence.ts:11:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 35 skipped (36)
+   Start at  23:02:19
+   Duration  4.25s (transform 482ms, setup 0ms, import 1.34s, tests 2.76s, environment 0ms)
+
