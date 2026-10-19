@@ -66,6 +66,12 @@ key; the default is an empty array. Let the parent produce the sole M0 and exact
 505 mirrors. Keep route Script Inputs intentional under the Workspace's Script
 Command Gate, including recognized raw routes.
 
+For Page Autonomous Movement, use `movement: { type?, speed?, frequency?, route? }`
+inside `page(...)`. Type is fixed/random/approach/custom and defaults to fixed; speed
+is integer 1..6 and frequency is integer 1..5, both defaulting to 3. The saved route
+uses the shared model and defaults to empty. Preserve it even when movement is not
+custom; inactive saved scripts and switch references still receive validation.
+
 Use reference helpers instead of bare numeric IDs when referring to project data. Prefer `{ id: number }` when identity is known; use `{ name: string }` only when the Display Name resolves unambiguously.
 
 Switch and variable names resolve only from unique DSL declarations. Use explicit IDs
@@ -83,12 +89,17 @@ Runtime Selector meaning even when a fixed project target cannot be inferred.
 
 Use Asset Reference helpers for files, not Project Data Reference helpers. `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)` are no-scan filename-stem references; they do not validate that a file exists on disk.
 
-Use `script(...)` and `scriptInput(...)` for short RPG Maker MV JavaScript only when the Workspace Script Command Gate allows it and ordinary event commands are not enough. The gate also applies to Conditional Branch script conditions, Control Variables script operands, and Set Movement Route script subcommands.
+Use `script(...)` and `scriptInput(...)` for short RPG Maker MV JavaScript only when the Workspace Script Command Gate allows it and ordinary event commands are not enough. The Gate also checks Conditional Branch script conditions, Control Variables script operands, Set Movement Route script subcommands and mirrors, and saved Page routes in every movement mode. Empty and unreachable scripts still count. With the Gate closed, Decompile warns while generating source; Check and Compile reject current declarations containing scripts. Remove the actual scripts or enable the Gate deliberately before compiling.
 
 Use `pluginCommand(...)` only when the plugin command is grounded in user intent, existing project usage, or plugin documentation. The DSL models MV's native plugin command string; plugin-specific argument schemas are outside this helper's validation boundary.
 
 Use `rawDslCommand(...)` for a genuinely unknown command with a valid record envelope
 and surrounding structure. Recognized native parameters and references retain their
 normal validation; report malformed known commands instead of using raw as a fallback.
+Keep raw parameters as strict JSON data. Preserve CR/CRLF, negative zero, null,
+empty containers and own keys exactly. Do not use undefined, array holes, non-finite
+numbers, accessors, custom prototypes or extra raw envelope fields. An explicit raw
+indent of zero is absolute. Let formal owners generate their continuations and mirrors;
+handwritten raw records must still form a valid complete structure.
 Confirm code, parameters, and indentation from project data, Decompiled Source, nearby
 examples, or reliable MV command mapping.

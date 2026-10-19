@@ -203,7 +203,20 @@ export function readRawCommandList(
       throw new CommandStructureError(
         error.code,
         error.detail,
-        { ...error.location, nativePath: nativePrefix + error.location.nativePath },
+        {
+          ...error.location,
+          ...(error.location.nativePath
+            ? { nativePath: nativePrefix + error.location.nativePath }
+            : {}),
+          ...(error.location.relatedLocations
+            ? {
+                relatedLocations: error.location.relatedLocations.map((related) => ({
+                  ...related,
+                  ...(related.nativePath ? { nativePath: nativePrefix + related.nativePath } : {}),
+                })),
+              }
+            : {}),
+        },
         identity,
         "decompile",
       );

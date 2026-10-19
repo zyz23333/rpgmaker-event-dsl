@@ -2,9 +2,80 @@ import { expect, it } from "vitest";
 import { commonEvent, rawDslCommand, mapEvent, page } from "../src/index.js";
 import { compileCommonEvent, compileMapEvent } from "../src/compiler/events.js";
 import { renderDecompiledCommandList } from "../src/decompiler/dispatch.js";
+import { readRawCommandList } from "../src/decompiler/core.js";
 import { buildStagedDataGraph, validateStagedDataGraph } from "../src/validation/staged-graph.js";
 
 const resolver = buildStagedDataGraph({ declarations: [] }).resolver;
+
+it("reports the real raw source position before a native record exists", () => {
+  const invalid = commonEvent({
+    id: 1,
+    name: "Second raw record",
+    trigger: "none",
+    commands: [
+      rawDslCommand({ code: 999, parameters: [] }),
+      { kind: "rawDslCommand", code: 230, parameters: null } as never,
+    ],
+  });
+  const issue = validateStagedDataGraph(buildStagedDataGraph({ declarations: [invalid] }), {
+    scriptEnabled: true,
+  }).issues.find((candidate) => candidate.code === "MV-COMMAND-ENVELOPE");
+  expect(issue).toMatchObject({ dslPath: "commands[1]" });
+  expect(issue?.nativePath).toBeUndefined();
+});
+
+it("reports both mirror locations within the correct native Page", () => {
+  const route = {
+    list: [{ code: 1 }, { code: 0 }],
+    repeat: false,
+    skippable: false,
+    wait: false,
+  };
+  try {
+    readRawCommandList(
+      [
+        { code: 205, indent: 0, parameters: [-1, route] },
+        { code: 505, indent: 0, parameters: [{ code: 2 }] },
+        { code: 0, indent: 0, parameters: [] },
+      ],
+      "map:1/event:1",
+      "pages[2].",
+    );
+    expect.fail("Expected mirror mismatch");
+  } catch (error) {
+    expect(error).toMatchObject({
+      location: {
+        nativePath: "pages[2].list[1]",
+        relatedLocations: [
+          expect.objectContaining({ nativePath: "pages[2].list[0].parameters[1].list[0]" }),
+        ],
+      },
+    });
+  }
+});
+
+it("rejects non-data Page movement fields before reading accessors", () => {
+  let reads = 0;
+  const getter = Object.defineProperty({}, "speed", {
+    enumerable: true,
+    get: () => {
+      reads++;
+      return 3;
+    },
+  });
+  for (const movement of [getter, Object.create({ speed: 3 })]) {
+    const declaration = mapEvent({
+      mapId: 1,
+      id: 1,
+      name: "Movement",
+      x: 0,
+      y: 0,
+      pages: [page({ commands: [], movement })],
+    });
+    expect(() => compileMapEvent(declaration, { nextId: 1, resolver })).toThrow(/MV-PAGE-MOVEMENT/);
+  }
+  expect(reads).toBe(0);
+});
 
 it("preserves unknown single-record raw values with explicit absolute zero indentation", () => {
   const command = { code: 999, indent: 0, parameters: [-0, { nested: [null, " \r\n ", -0] }] };

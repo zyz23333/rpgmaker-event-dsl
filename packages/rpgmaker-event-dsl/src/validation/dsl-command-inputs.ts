@@ -57,11 +57,13 @@ export function assertRawDslInput(
       0,
     );
   } catch (error) {
-    if (error instanceof CommandStructureError)
+    if (error instanceof CommandStructureError) {
+      const { nativePath: _nativePath, ...location } = error.location;
       throw new CommandStructureError(error.code, error.detail, {
-        ...error.location,
+        ...location,
         dslPath: path,
       });
+    }
     throw error;
   }
 }

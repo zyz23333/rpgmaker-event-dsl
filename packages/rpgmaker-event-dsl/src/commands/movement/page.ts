@@ -20,12 +20,23 @@ export function compilePageMovement(
         { dslPath: `${path}${field}`, expected, actual: String(actual) },
       );
     };
-    if (!value || typeof value !== "object" || Array.isArray(value))
+    if (
+      !value ||
+      typeof value !== "object" ||
+      Array.isArray(value) ||
+      ![Object.prototype, null].includes(Object.getPrototypeOf(value))
+    )
       fail("", "movement object", value);
     if (
-      Reflect.ownKeys(value).some(
-        (key) => typeof key !== "string" || !["type", "speed", "frequency", "route"].includes(key),
-      )
+      Reflect.ownKeys(value).some((key) => {
+        const descriptor = Object.getOwnPropertyDescriptor(value, key)!;
+        return (
+          typeof key !== "string" ||
+          !["type", "speed", "frequency", "route"].includes(key) ||
+          !("value" in descriptor) ||
+          !descriptor.enumerable
+        );
+      })
     )
       fail("", "type/speed/frequency/route only", "extra field");
     if (value.type !== undefined && !movementTypes.includes(value.type))
