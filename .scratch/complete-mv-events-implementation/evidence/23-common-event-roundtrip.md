@@ -48,4 +48,6 @@ E117 Q710524 stored840 / decoded836 / plaintext，decoded SHA256 `6e3cfa0ad6ea40
 
 ## 尚待交付
 
-等待 24/25 实际合入后 merge 最新 integration，协调 Compile Contract Version，重建实际产物并执行完整 R1 Map/Common、共享 Parallel、低 ID Autorun 与 R4 同一 Common 从 Map/Troop 调用的 literal/compiled 配对。使用 v5 严格布尔比较与 fresh explicit NativeProfile；保留所有15个数据 carrier、loaded 实际输入、真实 Push 安装、host/modules/7engine 哈希、PID/PPID/profile 和日志/退出。随后执行共享槽中的全量 `pnpm check`、build、完整 built Windows baseline，追加真实结果后才更新本票状态。
+已 merge 24 实际集成 `8617d815750631d00a8b60b2410d9e5420da4e16`，本分支整合提交 `87395b468ccceaa6b23d637de551ca7c09371837`。保留 `Snapshot Common` 完整五字段及 24 的完整 Map blank/page/note 夹具；保留原210 requirement对象，并逐对象确认24新增16行未变。两个独立语义增量合并后暂为 Contract `mv-1.6.1/7`。Windows / Node22.23.0 的 `mv23-merge24-focused.json` 实际133/133通过（Common96、workflow34、evidence index3），typecheck通过；没有占用最终广检槽或将此算作原生交付。
+
+等待 25 实际合入后 merge 最新 integration，再协调独立 Contract 增量，重建实际产物并执行完整 R1 Map/Common、共享 Parallel、低 ID Autorun 与 R4 同一 Common 从 Map/Troop 调用的 literal/compiled 配对。四份新 delivery runner 已经完成语法、独立夹具可读性、种子差异 JSON 和正式源码编辑模式预检；这仅是工具预检，没有原生执行或产品验收声明。使用 v5 严格布尔比较与 fresh explicit NativeProfile；保留所有15个数据 carrier、loaded 实际输入、真实 Push 安装、host/modules/7engine 哈希、PID/PPID/profile 和日志/退出。随后执行共享槽中的全量 `pnpm check`、build、完整 built Windows baseline，追加真实结果后才更新本票状态。
