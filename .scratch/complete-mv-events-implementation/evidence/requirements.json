@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "scope": "Ticket01 seeds, ticket02 Windows baseline, tickets03–10 native reverse-engineering/accepted finite contracts, ticket11 System/switches, ticket12 captured map/battle context and ticket13 Loop/Break/Exit. Not complete105+45 or final E1–E7/R1–R7 acceptance. Ticket16 adds Windows Workspace operation locking and interruption/pending independence. Ticket14 adds the shared Movement Route envelope, exact E205/E505 mirrors and assigned actual native route controls.",
+  "scope": "Ticket01 seeds, ticket02 Windows baseline, tickets03–10 native reverse-engineering/accepted finite contracts, ticket11 System/switches, ticket12 captured map/battle context and ticket13 Loop/Break/Exit. Not complete105+45 or final E1–E7/R1–R7 acceptance. Ticket16 adds Windows Workspace operation locking and interruption/pending independence. Ticket14 adds the shared Movement Route envelope, exact E205/E505 mirrors and assigned actual native route controls. Ticket17 adds byte-consistent Snapshot capture and Project Root Binding; full compile-input, Drift and recovery contracts retain their later tickets.",
   "requirements": [
     {
       "id": "MV-S0-CE-001",
@@ -4943,6 +4943,356 @@
         "layer": "Actual Scene_Map and unchanged native engine"
       },
       "slice": "14 / E205 shared route envelope",
+      "required": true
+    },
+    {
+      "id": "MV-S4-SNAPSHOT-001",
+      "title": "rejects Project input changes before Snapshot publication",
+      "sources": [
+        {
+          "section": "### I11",
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md"
+        },
+        {
+          "section": "## Acceptance criteria",
+          "path": ".scratch/complete-mv-events-implementation/issues/17-snapshot-capture-and-project-binding.md"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "rejects Project input changes before Snapshot publication. Independent synthetic project with actual public Workspace operations and controlled real filesystem boundary.",
+      "fixture": {
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1",
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json"
+      },
+      "expected": "rejects Project input changes before Snapshot publication. Full byte-level state, diagnostics and legitimate recovery assertions.",
+      "test": {
+        "name": "MV-S4-SNAPSHOT-001: rejects Project input changes before Snapshot publication",
+        "path": "packages/rpgmaker-event-dsl/test/snapshot-binding.test.ts"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "layer": "Real filesystem and public Workspace API/CLI",
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner"
+      },
+      "slice": "17 / S4a",
+      "required": true
+    },
+    {
+      "id": "MV-S4-SNAPSHOT-002",
+      "title": "preserves pending until Push returns to its original Project Root",
+      "sources": [
+        {
+          "section": "### I11",
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md"
+        },
+        {
+          "section": "## Acceptance criteria",
+          "path": ".scratch/complete-mv-events-implementation/issues/17-snapshot-capture-and-project-binding.md"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "preserves pending until Push returns to its original Project Root. Independent synthetic project with actual public Workspace operations and controlled real filesystem boundary.",
+      "fixture": {
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1",
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json"
+      },
+      "expected": "preserves pending until Push returns to its original Project Root. Full byte-level state, diagnostics and legitimate recovery assertions.",
+      "test": {
+        "name": "MV-S4-SNAPSHOT-002: preserves pending until Push returns to its original Project Root",
+        "path": "packages/rpgmaker-event-dsl/test/snapshot-binding.test.ts"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "layer": "Real filesystem and public Workspace API/CLI",
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner"
+      },
+      "slice": "17 / S4a",
+      "required": true
+    },
+    {
+      "id": "MV-S4-SNAPSHOT-003",
+      "title": "requires explicit Pull when the configured Project Root changes",
+      "sources": [
+        {
+          "section": "### I11",
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md"
+        },
+        {
+          "section": "## Acceptance criteria",
+          "path": ".scratch/complete-mv-events-implementation/issues/17-snapshot-capture-and-project-binding.md"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "requires explicit Pull when the configured Project Root changes. Independent synthetic project with actual public Workspace operations and controlled real filesystem boundary.",
+      "fixture": {
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1",
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json"
+      },
+      "expected": "requires explicit Pull when the configured Project Root changes. Full byte-level state, diagnostics and legitimate recovery assertions.",
+      "test": {
+        "name": "MV-S4-SNAPSHOT-003: requires explicit Pull when the configured Project Root changes",
+        "path": "packages/rpgmaker-event-dsl/test/snapshot-binding.test.ts"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "layer": "Real filesystem and public Workspace API/CLI",
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner"
+      },
+      "slice": "17 / S4a",
+      "required": true
+    },
+    {
+      "id": "MV-S4-SNAPSHOT-004",
+      "title": "rejects undecodable project bytes instead of publishing lossy Snapshot content",
+      "sources": [
+        {
+          "section": "### I11",
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md"
+        },
+        {
+          "section": "## Acceptance criteria",
+          "path": ".scratch/complete-mv-events-implementation/issues/17-snapshot-capture-and-project-binding.md"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "rejects undecodable project bytes instead of publishing lossy Snapshot content. Independent synthetic project with actual public Workspace operations and controlled real filesystem boundary.",
+      "fixture": {
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1",
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json"
+      },
+      "expected": "rejects undecodable project bytes instead of publishing lossy Snapshot content. Full byte-level state, diagnostics and legitimate recovery assertions.",
+      "test": {
+        "name": "MV-S4-SNAPSHOT-004: rejects undecodable project bytes instead of publishing lossy Snapshot content",
+        "path": "packages/rpgmaker-event-dsl/test/snapshot-binding.test.ts"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "layer": "Real filesystem and public Workspace API/CLI",
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner"
+      },
+      "slice": "17 / S4a",
+      "required": true
+    },
+    {
+      "id": "MV-S4-SNAPSHOT-005",
+      "title": "rejects unsafe MapInfos collections instead of silently filtering registered maps",
+      "sources": [
+        {
+          "section": "### I11",
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md"
+        },
+        {
+          "section": "## Acceptance criteria",
+          "path": ".scratch/complete-mv-events-implementation/issues/17-snapshot-capture-and-project-binding.md"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "rejects unsafe MapInfos collections instead of silently filtering registered maps. Independent synthetic project with actual public Workspace operations and controlled real filesystem boundary.",
+      "fixture": {
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1",
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json"
+      },
+      "expected": "rejects unsafe MapInfos collections instead of silently filtering registered maps. Full byte-level state, diagnostics and legitimate recovery assertions.",
+      "test": {
+        "name": "MV-S4-SNAPSHOT-005: rejects unsafe MapInfos collections instead of silently filtering registered maps",
+        "path": "packages/rpgmaker-event-dsl/test/snapshot-binding.test.ts"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "layer": "Real filesystem and public Workspace API/CLI",
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner"
+      },
+      "slice": "17 / S4a",
+      "required": true
+    },
+    {
+      "id": "MV-S4-SNAPSHOT-006",
+      "title": "retains prior Snapshot and manifest when Snapshot publication fails",
+      "sources": [
+        {
+          "section": "### I11",
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md"
+        },
+        {
+          "section": "## Acceptance criteria",
+          "path": ".scratch/complete-mv-events-implementation/issues/17-snapshot-capture-and-project-binding.md"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "retains prior Snapshot and manifest when Snapshot publication fails. Independent synthetic project with actual public Workspace operations and controlled real filesystem boundary.",
+      "fixture": {
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1",
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json"
+      },
+      "expected": "retains prior Snapshot and manifest when Snapshot publication fails. Full byte-level state, diagnostics and legitimate recovery assertions.",
+      "test": {
+        "name": "MV-S4-SNAPSHOT-006: retains prior Snapshot and manifest when Snapshot publication fails",
+        "path": "packages/rpgmaker-event-dsl/test/snapshot-binding.test.ts"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "layer": "Real filesystem and public Workspace API/CLI",
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner"
+      },
+      "slice": "17 / S4a",
+      "required": true
+    },
+    {
+      "id": "MV-S4-SNAPSHOT-007",
+      "title": "rejects unsafe Snapshot metadata before reading or publishing output",
+      "sources": [
+        {
+          "section": "### I11",
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md"
+        },
+        {
+          "section": "## Acceptance criteria",
+          "path": ".scratch/complete-mv-events-implementation/issues/17-snapshot-capture-and-project-binding.md"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "rejects unsafe Snapshot metadata before reading or publishing output. Independent synthetic project with actual public Workspace operations and controlled real filesystem boundary.",
+      "fixture": {
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1",
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json"
+      },
+      "expected": "rejects unsafe Snapshot metadata before reading or publishing output. Full byte-level state, diagnostics and legitimate recovery assertions.",
+      "test": {
+        "name": "MV-S4-SNAPSHOT-007: rejects unsafe Snapshot metadata before reading or publishing output",
+        "path": "packages/rpgmaker-event-dsl/test/snapshot-binding.test.ts"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "layer": "Real filesystem and public Workspace API/CLI",
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner"
+      },
+      "slice": "17 / S4a",
+      "required": true
+    },
+    {
+      "id": "MV-S4-SNAPSHOT-008",
+      "title": "rejects Snapshot content that no longer agrees with its captured manifest",
+      "sources": [
+        {
+          "section": "### I11",
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md"
+        },
+        {
+          "section": "## Acceptance criteria",
+          "path": ".scratch/complete-mv-events-implementation/issues/17-snapshot-capture-and-project-binding.md"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "rejects Snapshot content that no longer agrees with its captured manifest. Independent synthetic project with actual public Workspace operations and controlled real filesystem boundary.",
+      "fixture": {
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1",
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json"
+      },
+      "expected": "rejects Snapshot content that no longer agrees with its captured manifest. Full byte-level state, diagnostics and legitimate recovery assertions.",
+      "test": {
+        "name": "MV-S4-SNAPSHOT-008: rejects Snapshot content that no longer agrees with its captured manifest",
+        "path": "packages/rpgmaker-event-dsl/test/snapshot-binding.test.ts"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "layer": "Real filesystem and public Workspace API/CLI",
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner"
+      },
+      "slice": "17 / S4a",
+      "required": true
+    },
+    {
+      "id": "MV-S4-SNAPSHOT-009",
+      "title": "rejects a registered map whose event carrier cannot be located safely",
+      "sources": [
+        {
+          "section": "### I11",
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md"
+        },
+        {
+          "section": "## Acceptance criteria",
+          "path": ".scratch/complete-mv-events-implementation/issues/17-snapshot-capture-and-project-binding.md"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "rejects a registered map whose event carrier cannot be located safely. Independent synthetic project with actual public Workspace operations and controlled real filesystem boundary.",
+      "fixture": {
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1",
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json"
+      },
+      "expected": "rejects a registered map whose event carrier cannot be located safely. Full byte-level state, diagnostics and legitimate recovery assertions.",
+      "test": {
+        "name": "MV-S4-SNAPSHOT-009: rejects a registered map whose event carrier cannot be located safely",
+        "path": "packages/rpgmaker-event-dsl/test/snapshot-binding.test.ts"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "layer": "Real filesystem and public Workspace API/CLI",
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner"
+      },
+      "slice": "17 / S4a",
+      "required": true
+    },
+    {
+      "id": "MV-S4-SNAPSHOT-010",
+      "title": "preserves unknown or inconsistent Interrupted Push evidence",
+      "sources": [
+        {
+          "section": "### I11",
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md"
+        },
+        {
+          "section": "## Acceptance criteria",
+          "path": ".scratch/complete-mv-events-implementation/issues/17-snapshot-capture-and-project-binding.md"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "preserves unknown or inconsistent Interrupted Push evidence. Independent synthetic project with actual public Workspace operations and controlled real filesystem boundary.",
+      "fixture": {
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1",
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json"
+      },
+      "expected": "preserves unknown or inconsistent Interrupted Push evidence. Full byte-level state, diagnostics and legitimate recovery assertions.",
+      "test": {
+        "name": "MV-S4-SNAPSHOT-010: preserves unknown or inconsistent Interrupted Push evidence",
+        "path": "packages/rpgmaker-event-dsl/test/snapshot-binding.test.ts"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "layer": "Real filesystem and public Workspace API/CLI",
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner"
+      },
+      "slice": "17 / S4a",
       "required": true
     }
   ]

@@ -1501,9 +1501,10 @@ async function writePendingPushFixture(
   await writeFile(
     statePaths.pendingPushManifestPath,
     JSON.stringify({
+      projectRootBinding: (await readSyncManifest(statePaths.syncManifestPath))!.projectRootBinding,
       affectedFiles: entries,
       startedAt: "2026-06-30T00:00:00.000Z",
-      version: 1,
+      version: 2,
     }),
     "utf8",
   );

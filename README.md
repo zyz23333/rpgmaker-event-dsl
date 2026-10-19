@@ -456,6 +456,21 @@ every `Map###.json` referenced by `MapInfos.json`. Non-standard custom `data/*.j
 files are ignored by snapshot, freshness, drift, and push checks in the first workflow
 version.
 
+Clone and Pull copy the exact captured UTF-8 file bytes and hash those same bytes.
+MapInfos determines the complete map collection; invalid or duplicate map identities,
+missing registered files, malformed carriers and undecodable UTF-8 fail explicitly.
+If the project files or Workspace Config change during capture, the operation fails
+before publication and asks you to rerun. A manifest installation failure during
+Snapshot publication restores the previous Snapshot and synchronization metadata.
+
+Snapshot and Compile Baseline retain the canonical Project Root path. After changing
+`projectRoot` in Workspace Config, run an explicit `pull` to establish the new target,
+then compile again. Clone, Check, Decompile, Diff and Push reject an old target binding.
+Directory junction aliases to the same Project Root keep the same binding. If an
+Interrupted Push is pending, restore the original configured target and run Push there
+first. Unknown, incomplete or inconsistent recovery evidence stops without being
+deleted or migrated.
+
 ### Generated Freshness
 
 Generated Freshness is checked before `diff` and `push`. Generated Project Data becomes

@@ -50,6 +50,16 @@ writing commands. Keep `.rpgmaker-event-dsl/operation.lock` in place. Windows re
 the owner's handle after a normal exit or crash, independently of pending Interrupted
 Push state. A pending Interrupted Push remains for Push to resolve.
 
+Snapshot and Compile Baseline bind to the canonical Project Root path. After an
+intentional `projectRoot` change, run an explicit Pull and compile again. A junction
+alias to the same target retains its identity. When Interrupted Push is pending,
+restore the original target and run Push there before switching projects. Preserve
+unknown, incomplete or inconsistent pending evidence for manual correction.
+
+If Clone or Pull reports an input/configuration change during capture, rerun after
+the external edit finishes. Invalid MapInfos collections, missing registered maps,
+malformed carriers and undecodable UTF-8 need correction before capture can succeed.
+
 If the user changed data in the RPG Maker MV editor, run `rpgmaker-event-dsl pull`, then compile, then Diff.
 
 If Diff or Push reports stale Generated Freshness, run compile again before retrying.
