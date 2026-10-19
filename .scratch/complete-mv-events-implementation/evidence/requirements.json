@@ -1,0 +1,80 @@
+{
+  "formatVersion": 1,
+  "scope": "Ticket 01 seed cases only. Other tickets must extend this index; this is not the complete 105+45 or E1-E7/R1-R7 acceptance matrix.",
+  "requirements": [
+    {
+      "id": "MV-S0-CE-001",
+      "title": "Independent Common Event saved-state roundtrip through actual Workspace source evaluation",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T1 — 已确认的测试边界与现有基础"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/01-evidence-index-and-roundtrip-fixture.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "One self-authored Common Event, inactive default switchId, Show Text with literal CR and trailing empty continuation, Comment with trailing empty continuation, final code 0; minimal independent standard project data.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Complete parsed CommonEvents.json and System.json equal the independent fixture. All generated definition files appear in compile manifest Discovery; changing generated source changes compiled event name, then restoration restores exact data. Project Root and complete Snapshot remain unchanged.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/mv-evidence.test.ts",
+        "name": "MV-S0-CE-001: discovers and evaluates Decompiled Source against independent saved data"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; no editor, game runtime, assets, or local references required",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Actual temporary filesystem and public Workspace API"
+      },
+      "slice": "01 / S0",
+      "required": true
+    },
+    {
+      "id": "MV-S0-COMPARE-001",
+      "title": "Strict complete saved-state comparison detects structural and value losses",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T2 — 逐项覆盖矩阵"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/01-evidence-index-and-roundtrip-fixture.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A3", "A5", "A6"],
+      "classifications": ["negative", "boundary"],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent copies with one mutation each: final 0 removed, indent key removed, CR removed, trailing empty text record removed, inactive switchId changed, leading null removed, empty array changed to null, external unknown field removed.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "The identical deepStrictEqual comparator used in the Workspace roundtrip rejects every mutation. Neither operand is filtered or normalized.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/mv-evidence.test.ts",
+        "name": "MV-S0-COMPARE-001: rejects every saved-state loss without normalizing either side"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; independent synthetic JSON only",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Verification harness negative controls"
+      },
+      "slice": "01 / S0",
+      "required": true
+    }
+  ]
+}
