@@ -64,7 +64,13 @@ export function compileControlVariablesParameters(
     ];
   }
 
-  return [startVariableId, endVariableId, operation, 1, resolver.resolveReference(node.value.variable)];
+  return [
+    startVariableId,
+    endVariableId,
+    operation,
+    1,
+    resolver.resolveReference(node.value.variable),
+  ];
 }
 
 export function compileReferenceTargetRange<TKind extends ReferenceKind>(
@@ -107,7 +113,15 @@ export function compileControlVariablesGameDataOperand(
     case "enemy":
       return [4, operand.enemy.index, enemyGameDataValueToCode(operand.value)];
     case "character":
-      return [5, operand.target.target === "player" ? -1 : operand.target.target === "currentEvent" ? 0 : operand.target.id, characterGameDataValueToCode(operand.value)];
+      return [
+        5,
+        operand.target.target === "player"
+          ? -1
+          : operand.target.target === "currentEvent"
+            ? 0
+            : operand.target.id,
+        characterGameDataValueToCode(operand.value),
+      ];
     case "party":
       return [6, operand.member.index, 0];
     case "other":

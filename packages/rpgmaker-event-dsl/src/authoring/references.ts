@@ -10,7 +10,7 @@ import type {
 } from "../domain/types.js";
 import { audioAssetFolders, createReference, imageAssetFolders } from "../domain/references.js";
 import { assertIncluded, assertNonEmptyString } from "./shared.js";
-import { assertRawDslInput } from "../validation/dsl-command-inputs.js";
+import { assertDslObject, assertRawDslInput } from "../validation/dsl-command-inputs.js";
 
 export function rawDslCommand(input: {
   code: number;
@@ -67,6 +67,7 @@ export function movieAsset(input: { name: string }): MovieAssetReference {
 }
 
 export function scriptInput(input: { code: string }): ScriptInput {
+  assertDslObject(input, ["code"], "scriptInput");
   if (typeof input.code !== "string") throw new Error("Script input code must be a string.");
 
   return {

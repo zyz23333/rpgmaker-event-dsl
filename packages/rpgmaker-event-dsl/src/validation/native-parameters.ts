@@ -1,7 +1,7 @@
 import { CommandStructureError } from "./command-errors.js";
 import { renderJsonValue } from "../project-data/json-values.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
-import { assertNativeControlVariables } from "../commands/variables/control-variables.js";
+import { assertNativeControlVariables } from "../commands/variables/native-control-variables.js";
 
 // Shared saved-slot envelopes. Family validators retain ownership of semantic ranges,
 // references and mode-specific saved values; this table is not full family acceptance.

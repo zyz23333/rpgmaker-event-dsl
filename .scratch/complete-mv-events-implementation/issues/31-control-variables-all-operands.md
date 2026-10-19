@@ -51,3 +51,20 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [核心指令参数附表](../../complete-mv-events/research/command-parameters/core.md)。
+
+## Comments
+
+2026-10-20 — Focused synthetic DEV checkpoint on `codex/mv-ticket-31`, after merging
+integration c2a40a41c094ccdda47faccd4399891952739008. The named five-mode E122 model,
+all Game Data source/status cases, strict formal/native/known-raw validation,
+precise input paths, complete Script Input/Gate behavior and contextual warnings
+are implemented. Windows / Node 22.23.0 focused 11 files / 297 tests, package typecheck,
+scoped lint/format and diff checks passed. The standard evidence-index test hit
+its unchanged 10000 ms deadline; its original failure remains recorded for the
+shared performance fix and final rerun. The append-only audit preserves 286
+inherited requirement objects and 2989 inherited evidence file bytes, appends five
+requirements, and records 17 synthetic passes with native not-executed. Contract 9
+is unchanged. This ticket remains claimed: broad/build/built and allocated actual
+E5/R4/R7 acceptance still require the serialized finalization queue. See the
+[DEV record](../evidence/31-control-variables-dev.md) and
+[immutable audit](../evidence/31-control-variables-dev-audit.json).

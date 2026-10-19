@@ -473,3 +473,11 @@ reference/full1101 seed files. Product contract remains `mv-1.6.1/9`; source
 check39files/980tests and built Windows15files/366tests remain applicable to the
 unchanged97-source/15-dist product. All286 requirement objects retain their exact
 bytes and order. Final49–55 remain separate from this allocated delivery.
+
+| Requirement | Case | Scope |
+| --- | --- | --- |
+| MV-S6-VARIABLES-001 | Independent six-operation/five-mode and all Game Data saved-parameter cases | Synthetic DEV; [record](31-control-variables-dev.md) |
+| MV-S6-VARIABLES-002 | Actual source Discovery, Check, Compile, Diff and complete-carrier real Push | Synthetic DEV E5 support; [record](31-control-variables-dev.md) |
+| MV-S6-VARIABLES-003 | Native saved-shape and fixed-reference rejection before source publication | Synthetic DEV rejection; [record](31-control-variables-dev.md) |
+| MV-S6-VARIABLES-004 | Evaluated untyped source and known-raw Gate Check/Compile isolation | Synthetic DEV rejection; [record](31-control-variables-dev.md) |
+| MV-S6-VARIABLES-005 | Final built lifecycle and actual normal-Scene variable runtime observations | Required E5/R4/R7 pending; [record](31-control-variables-dev.md#remaining-finalization) |

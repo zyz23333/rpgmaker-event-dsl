@@ -48,7 +48,9 @@ export function controlSwitches(input: {
   };
 }
 
-export function controlVariables(input: Omit<ControlVariablesDslCommand, "kind">): ControlVariablesDslCommand {
+export function controlVariables(
+  input: Omit<ControlVariablesDslCommand, "kind">,
+): ControlVariablesDslCommand {
   assertControlVariablesInput(input);
   return {
     kind: "controlVariables",

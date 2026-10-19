@@ -2,7 +2,10 @@ import type { RawEventCommand, CommandOrigins } from "../compiler/types.js";
 import type { ValidationIssue } from "./types.js";
 import type { NativeMovementRoute } from "../commands/movement/types.js";
 import { isKnownCommandCode } from "./native-parameters.js";
-import { inspectNativeVariableInputs, type VariableInputContext } from "../commands/variables/diagnostics.js";
+import {
+  inspectNativeVariableInputs,
+  type VariableInputContext,
+} from "../commands/variables/diagnostics.js";
 
 export type NativeInputOptions = {
   identity: string;

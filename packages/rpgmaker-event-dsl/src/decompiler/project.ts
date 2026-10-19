@@ -175,7 +175,7 @@ async function buildDecompiledSourceFiles(
           stage: "decompile" as const,
           scriptEnabled: options.scriptEnabled ?? false,
           prefix: `pages[${pageIndex}].`,
-          variableContext: { mapEventIds: events.map(({id}) => id) },
+          variableContext: { mapEventIds: events.map(({ id }) => id) },
         };
         issues.push(...inspectNativeCommandInputs(page.list ?? [], inputOptions));
         if (page.movement !== undefined) {
@@ -260,7 +260,9 @@ async function buildDecompiledSourceFiles(
           stage: "decompile",
           scriptEnabled: options.scriptEnabled ?? false,
           prefix,
-          variableContext: { troopMemberCount: Array.isArray(troop.members) ? troop.members.length : 0 },
+          variableContext: {
+            troopMemberCount: Array.isArray(troop.members) ? troop.members.length : 0,
+          },
         }),
       );
       const errors = inspectNativeCommandReferences(commands, resolver, {
