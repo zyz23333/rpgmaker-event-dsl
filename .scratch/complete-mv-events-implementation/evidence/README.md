@@ -430,3 +430,11 @@ Ticket24 adds [complete Map Event pages and exact saved state](24-map-event-full
 | MV-S5-TROOP-R2-DELIVERY-003 | Allocated R2 delivery revision 3: complete17-page/three-turn normal Scene/Input literal and formal DSL product pair | game-observation | Explicit version-bound delivery input; original R2 remains separate |
 
 | MV-S5-TROOP-R2-DELIVERY-004 | Allocated R2 delivery revision 4: complete17-page/three-turn normal Scene/Input literal and formal DSL product pair | game-observation | Explicit version-bound delivery input; original R2 remains separate |
+
+| MV-S5-COMMON-R1-TRIGGERS | Complete Map/Common trigger and named E117 runtime pair | game-observation | Actual built Workspace and two fresh normal Scene native processes |
+
+| MV-S5-COMMON-R1-PARALLEL | Shared-switch Common Parallel wait and shutdown runtime pair | game-observation | Actual built Workspace and two fresh normal Scene native processes |
+
+| MV-S5-COMMON-R1-AUTORUN | Lowest active Common Autorun ID selection runtime pair | game-observation | Actual built Workspace and two fresh normal Scene native processes |
+
+| MV-S5-COMMON-R4-CONTEXT | Same Common formal current-event and self-switch behavior from Map and Battle | game-observation | Actual built Workspace and two fresh normal Scene native processes |

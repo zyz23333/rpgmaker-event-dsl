@@ -12856,6 +12856,202 @@
       },
       "slice": "25 / S5",
       "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-R1-TRIGGERS",
+      "title": "Complete Map/Common trigger and named E117 runtime pair",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Independent self-authored complete native carriers, actual built public Workspace source evaluation and real generated installation, followed by two fresh native processes",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-history/mv23-r1-map-common-delivery-v1.cjs",
+        "sha256": "9874c29142146a36317750e06289581979c5243ccbb5e2193ff02ce912f85821"
+      },
+      "expected": "Complete Map/Common trigger and named E117 runtime pair with exact complete disk/loaded carriers, normal Scene/Input scheduling, valid fresh profiles and owned process ancestry, unchanged engine files, empty stdout/stderr and exit0",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-common-event-roundtrip.md",
+        "section": "## R1/R4 完整产品与原生配对"
+      },
+      "nativeGroups": [
+        "R1"
+      ],
+      "execution": {
+        "environment": "Windows / tool Node22.23.0 / MV1.6.1 / actual NW.js fresh native profiles",
+        "owner": "Codex Ticket23 native delivery operator",
+        "layer": "Actual literal/product public Workspace and normal Scene native execution pair"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-R1-PARALLEL",
+      "title": "Shared-switch Common Parallel wait and shutdown runtime pair",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Independent self-authored complete native carriers, actual built public Workspace source evaluation and real generated installation, followed by two fresh native processes",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-history/mv23-r1-shared-parallel-delivery-v1.cjs",
+        "sha256": "f5b785f49fff58802a47a0277e7c155c4066bbed34809a61f6e305d7f2d9e7d0"
+      },
+      "expected": "Shared-switch Common Parallel wait and shutdown runtime pair with exact complete disk/loaded carriers, normal Scene/Input scheduling, valid fresh profiles and owned process ancestry, unchanged engine files, empty stdout/stderr and exit0",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-common-event-roundtrip.md",
+        "section": "## R1/R4 完整产品与原生配对"
+      },
+      "nativeGroups": [
+        "R1"
+      ],
+      "execution": {
+        "environment": "Windows / tool Node22.23.0 / MV1.6.1 / actual NW.js fresh native profiles",
+        "owner": "Codex Ticket23 native delivery operator",
+        "layer": "Actual literal/product public Workspace and normal Scene native execution pair"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-R1-AUTORUN",
+      "title": "Lowest active Common Autorun ID selection runtime pair",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Independent self-authored complete native carriers, actual built public Workspace source evaluation and real generated installation, followed by two fresh native processes",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-history/mv23-r1-low-autorun-delivery-v1.cjs",
+        "sha256": "f458c48f593520d69b7d26c5a4ac2b4393bc6cf1947a7f153f4523940f04b0d8"
+      },
+      "expected": "Lowest active Common Autorun ID selection runtime pair with exact complete disk/loaded carriers, normal Scene/Input scheduling, valid fresh profiles and owned process ancestry, unchanged engine files, empty stdout/stderr and exit0",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-common-event-roundtrip.md",
+        "section": "## R1/R4 完整产品与原生配对"
+      },
+      "nativeGroups": [
+        "R1"
+      ],
+      "execution": {
+        "environment": "Windows / tool Node22.23.0 / MV1.6.1 / actual NW.js fresh native profiles",
+        "owner": "Codex Ticket23 native delivery operator",
+        "layer": "Actual literal/product public Workspace and normal Scene native execution pair"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-R4-CONTEXT",
+      "title": "Same Common formal current-event and self-switch behavior from Map and Battle",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Independent self-authored complete native carriers, actual built public Workspace source evaluation and real generated installation, followed by two fresh native processes",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-history/mv23-r4-common-context-delivery-v1.cjs",
+        "sha256": "f0d2e2116fbc56cce6d646ae04f8a83c729f43cade0dae366d84a1ae1a398af7"
+      },
+      "expected": "Same Common formal current-event and self-switch behavior from Map and Battle with exact complete disk/loaded carriers, normal Scene/Input scheduling, valid fresh profiles and owned process ancestry, unchanged engine files, empty stdout/stderr and exit0",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-common-event-roundtrip.md",
+        "section": "## R1/R4 完整产品与原生配对"
+      },
+      "nativeGroups": [
+        "R4"
+      ],
+      "execution": {
+        "environment": "Windows / tool Node22.23.0 / MV1.6.1 / actual NW.js fresh native profiles",
+        "owner": "Codex Ticket23 native delivery operator",
+        "layer": "Actual literal/product public Workspace and normal Scene native execution pair"
+      },
+      "slice": "23 / S5",
+      "required": true
     }
   ]
 }
