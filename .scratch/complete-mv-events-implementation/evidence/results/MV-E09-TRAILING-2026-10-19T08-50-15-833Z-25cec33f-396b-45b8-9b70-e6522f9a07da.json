@@ -1,0 +1,316 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-E09-TRAILING",
+  "runId": "2026-10-19T08-50-15-833Z-25cec33f-396b-45b8-9b70-e6522f9a07da",
+  "status": "passed",
+  "startedAt": "2026-10-19T08:48:02.611Z",
+  "completedAt": "2026-10-19T08:50:15.833Z",
+  "operator": "Codex ticket09 reverse-engineering analyst; bounded documentary review only",
+  "source": {
+    "revision": "e045ba0579fcfde0d79966bcce727e0dada8a1d4",
+    "fingerprint": "85710619d275f757e40232dcc53407764e63c1869fa7fc9360f00e5a6b3e64cd",
+    "files": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+        "sha256": "529cd52082289febe91a6d7d49007fe4988fdf2a9fecf4101ee7e417519087f7"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json",
+        "sha256": "97cdc3ed7c3a84ce71ebdb00e0036121ec875e3943f8f518fc16e4ef23e4abd6"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-single-slot-strings-and-reconfirmation-reverse.md",
+        "sha256": "b38de9f61fda5360b9fecb0fbe6ec9c5f86607898482adb53f1b6543689d3d2e"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-string-inputs.json",
+        "sha256": "ba14d3eec94112829733c605ff8f9ed516a32c77d95d963b305303dbac38cef7"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/README.md",
+        "sha256": "3cdef2256cf73bb4d9c4a83088670f875b9a726f7bdb7944c2c176ede6bab168"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+        "sha256": "e680bac68f2620b423d69800babf678538625ada8e789d8aeb32e41eb3f566fa"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/issues/09-native-single-slot-strings.md",
+        "sha256": "951a32c53eb8a594aa92115e3123d57d3adbf3bb427ed6bc3e9a04bd3c97d34a"
+      },
+      {
+        "path": ".scratch/complete-mv-events/issues/13-native-value-domain-boundaries.md",
+        "sha256": "82e2bf5ed877b4aded41a13000f74e4788b08d74d2425ef9f5e54b6fc9a9e841"
+      },
+      {
+        "path": ".scratch/complete-mv-events/research/command-contract-editor-evidence.md",
+        "sha256": "f85ca576a2775959f59993596b704da79c88d1a63bef031d1ffe5a912478c627"
+      },
+      {
+        "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+        "sha256": "74053674f88965e086440da20505fc732f6b69c21ec6c3b465ce948774420f79"
+      },
+      {
+        "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+        "sha256": "08ac93c048c86f7edcc27c1ab8aac84301eb32c3f2e965331379f2cb5a714a7b"
+      },
+      {
+        "path": ".scratch/complete-mv-events/research/command-parameters/movement.md",
+        "sha256": "e0fc17ff12d3327e36392860adac0e89be147f02e987bed560939a540316385c"
+      },
+      {
+        "path": "docs/adr/0012-event-saved-state-roundtrip-boundary.md",
+        "sha256": "bf0360517532caaadad221a0479ba2dd1a4c26e4285a2891bf6708925e901528"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/mv-evidence.ts",
+        "sha256": "ae82454a6ba72ee174b81b5b3dd8b1f5c0875a18034ffff1b2219bd3e8db7b07"
+      }
+    ]
+  },
+  "fixture": {
+    "path": ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json",
+    "sha256": "97cdc3ed7c3a84ce71ebdb00e0036121ec875e3943f8f518fc16e4ef23e4abd6"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "node": "v22.23.0",
+    "vitest": "not-executed for this documentary review; separate Windows/Node22 index check passed1 with2 excluded by name filter",
+    "typescript": "not-executed (documentary review)",
+    "package": "0.1.2",
+    "native": {
+      "method": "reverse-engineering",
+      "mv": "1.6.1 / FileVersion1.6.1.0 (historical PE self-report; original EXE SHA256 freshly checked)",
+      "runtime": "not-executed",
+      "nwjs": "not-executed",
+      "tools": {
+        "resourceDecode": "Initial extraction Node v24.14.0 fs/zlib/crypto; final recorder reverified original artifact, outer/compressed/decoded lengths, exact boundaries and SHA256",
+        "nativeAnalysis": "Read-only shipped QML review; no new native session or Qt disassembly; historical PE ID is a reused provenance pointer",
+        "extractedCode": "not-executed",
+        "independentSamples": "12 self-authored original string examples; literal accepted-policy warning reasons; exact fixture bytes, UTF16 lengths and UTF8 digests checked, no native input or product execution",
+        "recorder": "C:/Users/Shuen/.codex/tmp/record-mv09.cjs; SHA256 e876a5511c48ab1985954fdcc608ccaa74ede0f6517dde6829ffae4c5bf13d02"
+      },
+      "artifacts": [
+        {
+          "path": "references/RPGMV/RPGMV.exe",
+          "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281"
+        }
+      ]
+    }
+  },
+  "stages": [
+    "Verified original same-identity editor and28 selected QML resources without executing extracted code",
+    "Read all eight single-slot construction/load/confirmation mappings and complete shared TextEditControl wrapper",
+    "Distinguished direct current-text assignment from line-limit change, width/Qt-lineCount text-change truncation and Return/Tab handling",
+    "Preserved12 independent empty/whitespace/CR/LF/CRLF/trailing/long inputs without preprocessing and checked their exact character identities",
+    "Bounded Qt document/textFormat/lineCount/width/reentry/tab-init unknowns rather than claiming a universal reconfirmation result",
+    "Reused same-identity route/container chains and separated outer confirmation, M45 active editing and movement record envelopes",
+    "Compared unchanged accepted saved-string domain, original-string warning thresholds, no product character cap and independent Script Gate responsibility",
+    "Closed ticket09 bounded native prerequisite only; final product comparison and actual game execution remain separate"
+  ],
+  "expected": "单槽保存器没有四类行记录的裁尾循环；若current text保留则整串读取，超行与Qt转换风险仍独立; 有条件静态推导；尾LF照原串参与warning阈值",
+  "actual": {
+    "reviewInput": "尾空格/Tab/LF/两个LF/CR/CRLF样本",
+    "finding": "单槽保存器没有四类行记录的裁尾循环；若current text保留则整串读取，超行与Qt转换风险仍独立",
+    "evidenceLevelAndLimit": "有条件静态推导；尾LF照原串参与warning阈值",
+    "artifactVerification": [
+      {
+        "path": "references/RPGMV/RPGMV.exe",
+        "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+        "resources": [
+          {
+            "name": "label",
+            "offset": 790356,
+            "sha256": "c074ab7d30a0a2da87162112da6abbcd6ec4772555192b42ad55eae6b5bb2bed",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "jump-label",
+            "offset": 771175,
+            "sha256": "abc5db1a3aea0497fd766badf89af966b77fcd5f5907a9bd39a9b267f679a521",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "actor-name",
+            "offset": 732733,
+            "sha256": "685ded00629658dd89f64342e2fea085d01d7840c39ee4299bda12babe6175bd",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "actor-nickname",
+            "offset": 746793,
+            "sha256": "ac56677374938c7d9e4c43b73ca123d5880bc817a6bce8039d444aae9c75e0b6",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "actor-profile",
+            "offset": 721727,
+            "sha256": "e4b4d61825ecd872d327bf3f329d34b318979c7a35c420b3186607caf7ef96af",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "conditional",
+            "offset": 748645,
+            "sha256": "e94ba6162d753827591839fd6d1aa7d793d40270a6ddbfa5ddbb093476872dcb",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "conditional-script-tab",
+            "offset": 703296,
+            "sha256": "bb9e8fe60880075e0357c3ca10e4e577b463f9d4f566adeef26fd6745bcef9b3",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "variables",
+            "offset": 736003,
+            "sha256": "47268876ada2d3e9f69c748857f9d783fc8c71006b5fc7dc66597f8977c641b8",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "operand",
+            "offset": 683885,
+            "sha256": "bfcb7f528bca2e310e6bfa5216c694d66599e9892ac7d55168f6687f312d09f8",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "movement-script",
+            "offset": 810345,
+            "sha256": "1feccbc5052474e0cabc0470d0a5c82d1c20b0ea27e5b7b0e4a95d4edc2b257e",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "labeled-text-field",
+            "offset": 8799522,
+            "sha256": "20d7752e7a0f74a49842b29e97dee8c59d7b905715e614c495ca5676b8eb8d0b",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "labeled-text-area",
+            "offset": 8800825,
+            "sha256": "57ebdcdf7dc151cfe17903a5699724ad3cea67009e7ade0a33d5d2fdae3c62de",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "text-field",
+            "offset": 877206,
+            "sha256": "4c498faa0ec8d1ded0a1fbd1697978a061999a7961ecfc231be4f5176d775727",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "text-area",
+            "offset": 826857,
+            "sha256": "04e14edf4bb1b0279e8d5dd491b8e113639e2ff996580bcc664b6e368e01e599",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "text-edit",
+            "offset": 866210,
+            "sha256": "12dfecd9a6fdc127a1759552698490bccd5ccf599aa898fd682461f0ed939dad",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "base",
+            "offset": 686141,
+            "sha256": "740d0c01de598e2a55b58f67f975a30e2d3c8c96de36eb8ff15c3dd4d6ad2780",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "dialog",
+            "offset": 656916,
+            "sha256": "0152387fa661f0e67f45b989248c60142881526cda1f31898e29c0e03366fbf7",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "list",
+            "offset": 667573,
+            "sha256": "bbc1e26fa83771fc56581b1dc34ec762b3789444dacef76cb24334834e17e82c",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "picker",
+            "offset": 679418,
+            "sha256": "8e83b762134d12696649e6302adec9f40bbad7618b2c9cbff5ad945f005dd829",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "modal",
+            "offset": 878315,
+            "sha256": "875ac97ba5e20ab1a457399321e9621d3b56a698aaeeadc78c9584f3b69a970e",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "data",
+            "offset": 909009,
+            "sha256": "9ce1877d3eac47699a558ada219ec4f217dbc4f215531a7f65ccacd8169c4f93",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "layout",
+            "offset": 665677,
+            "sha256": "199459336be17ccb510d1912ef53648342e8903ea95d84b59275f6bcbf4b135e",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "movement-list",
+            "offset": 672838,
+            "sha256": "2180bf600ca5a34ebbf35f65a343ca95be10055e3abcc7561efd5bc4fab8f51e",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "movement-base",
+            "offset": 683357,
+            "sha256": "5f8ef1afae81820acbf38a4160b725efee36476bc6c555576f3b15796e9340ce",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "route205",
+            "offset": 771946,
+            "sha256": "95cf5319c62eeacfbea61afa69a05be5d5788e5b795f34f776a791adcab44615",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "page",
+            "offset": 701512,
+            "sha256": "d3f53b2536e23bb60f8b080f1692cec652262688cd20dd5184de5773dc9c3b15",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "route-dialog",
+            "offset": 653645,
+            "sha256": "6343dfa083bf2e1451a5af7867664957f4696bf7f950d8751857f108faee3456",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "movement-dialog",
+            "offset": 685092,
+            "sha256": "382dc3b59de7d967c897dcf0f7fafce0c7ed19598e07f3f357d16f8a8a827b69",
+            "status": "matched original source bytes"
+          }
+        ]
+      }
+    ],
+    "independentInputIdentity": {
+      "path": ".scratch/complete-mv-events-implementation/evidence/09-string-inputs.json",
+      "sha256": "ba14d3eec94112829733c605ff8f9ed516a32c77d95d963b305303dbac38cef7",
+      "count": 12,
+      "status": "exact fixture and character digests match; no product/native input executed"
+    },
+    "reusedEvidence": [
+      {
+        "id": "ev_007ba386e622855bf771049084c3103afebbcc6b5d813f18c441f3ecf1d16d24",
+        "role": "Historical PE self-reported version from editor-serialization/03; same original EXE identity freshly checked, no new native analysis session"
+      }
+    ],
+    "rawFiles": [
+      {
+        "path": "C:/Users/Shuen/.codex/research-evidence/mv-editor-09-20261019/resource-manifest.json",
+        "sha256": "1b25f910f8c69c0898f40d2b01732a1e4df3d6aa3b9965d70184de7c6bfe5b8b"
+      }
+    ],
+    "rawFirstPartyOutput": "C:/Users/Shuen/.codex/research-evidence/mv-editor-09-20261019/",
+    "reviewScope": "Passed means the stated bounded code facts, conditional inferences, exact resource/input identities, residual Qt limits and accepted-contract consistency were reviewed. It does not pass unknown UI confirmation outcomes, ordinary creation of all samples, clipboard/native disk success, product behavior/warnings/Gate, or game execution."
+  },
+  "difference": null
+}
