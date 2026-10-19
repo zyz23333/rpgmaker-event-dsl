@@ -1,0 +1,108 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/map-appearance-workspace.test.ts > MV-S6-MAP-APPEARANCE-007: preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-parallax-signed-zero-formal-JvddLf
+
+stderr | test/map-appearance-workspace.test.ts > MV-S6-MAP-APPEARANCE-007: preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-parallax-signed-zero-raw-mKO4n4
+
+stderr | test/map-appearance-workspace.test.ts > MV-S6-MAP-APPEARANCE-007: preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-parallax-signed-zero-native-RtDT8j
+
+ ❯ test/map-appearance-workspace.test.ts (7 tests | 1 failed | 6 skipped) 7803ms
+   × MV-S6-MAP-APPEARANCE-007: preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push 7802ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-appearance-workspace.test.ts > MV-S6-MAP-APPEARANCE-007: preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push
+Error: public helper: Error: MV-E284-INPUT: Invalid independently saved parallax configuration. (changeParallax.sx); expected integer -32..32, excluding negative zero; actual -0
+    at assertMapAppearanceInput (C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/src/commands/map/validation.ts:35:15)
+    at changeParallax (C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/src/commands/map/authoring.ts:52:3)
+    at C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts:102:21
+    at C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts:39:9
+    at file:///C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/node_modules/.pnpm/@vitest+runner@4.1.9/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20
+
+formal: Error: compile --check validation failed:
+- compile error map 1 event 1: MV-E284-INPUT: Invalid independently saved parallax configuration. (pages[0].commands[0].sx); expected integer -32..32, excluding negative zero; actual -0
+- compile error map 1 event 1: MV-E284-INPUT: Invalid independently saved parallax configuration. (pages[0].commands[1].sy); expected integer -32..32, excluding negative zero; actual -0
+- compile error map 1 event 1: MV-E284-INPUT: Invalid independently saved parallax configuration. (pages[0].commands[2].sx); expected integer -32..32, excluding negative zero; actual -0
+- compile error map:1/event:1: MV-E284-INPUT: Invalid independently saved parallax configuration. (pages[0].commands[0].sx); expected integer -32..32, excluding negative zero; actual -0
+    at compileWorkspaceUnlocked (C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/src/workspace/operations.ts:259:11)
+    at withWorkspaceOperationLock (C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/src/workspace/operation-lock.ts:45:12)
+    at compileWorkspace (C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/src/workspace/operations.ts:215:3)
+    at C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts:169:9
+    at withWindowsSandbox (C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/support/windows-sandbox.ts:56:5)
+    at C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts:116:7
+    at C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts:39:9
+    at file:///C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/node_modules/.pnpm/@vitest+runner@4.1.9/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20
+
+raw: Error: compile --check validation failed:
+- compile error map:1/event:1: MV-E284-PARAMETERS: Invalid saved map appearance parameter. (pages[0].commands[0].parameters[3]); expected integer -32..32, excluding negative zero; actual -0
+    at compileWorkspaceUnlocked (C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/src/workspace/operations.ts:259:11)
+    at withWorkspaceOperationLock (C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/src/workspace/operation-lock.ts:45:12)
+    at compileWorkspace (C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/src/workspace/operations.ts:215:3)
+    at C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts:169:9
+    at withWindowsSandbox (C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/support/windows-sandbox.ts:56:5)
+    at C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts:116:7
+    at C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts:39:9
+    at file:///C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/node_modules/.pnpm/@vitest+runner@4.1.9/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20
+
+native: Error: decompile error map:1/event:1: MV-E284-PARAMETERS: Invalid saved map appearance parameter. at pages[0].list[0].parameters[3]; expected integer -32..32, excluding negative zero; actual -0
+    at C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/src/decompiler/core.ts:127:15
+    at Array.flatMap (<anonymous>)
+    at readMapEvents (C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/src/decompiler/core.ts:110:25)
+    at buildDecompiledSourceFiles (C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/src/decompiler/project.ts:152:20)
+    at decompileProjectDataSnapshot (C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/src/decompiler/project.ts:67:17)
+    at decompileWorkspaceUnlocked (C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/src/workspace/operations.ts:145:3)
+    at withWorkspaceOperationLock (C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/src/workspace/operation-lock.ts:45:12)
+    at decompileWorkspace (C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/src/workspace/operations.ts:117:3)
+    at C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts:130:9
+    at withWindowsSandbox (C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/support/windows-sandbox.ts:56:5)
+ ❯ assertMapAppearanceInput src/commands/map/validation.ts:35:15
+     33|             (value as number) > 32
+     34|       )
+     35|         throw new CommandStructureError(
+       |               ^
+     36|           "MV-E284-INPUT",
+     37|           "Invalid independently saved parallax configuration.",
+ ❯ changeParallax src/commands/map/authoring.ts:52:3
+ ❯ test/map-appearance-workspace.test.ts:102:21
+ ❯ test/map-appearance-workspace.test.ts:39:9
+ ❯ compileWorkspaceUnlocked src/workspace/operations.ts:259:11
+ ❯ withWorkspaceOperationLock src/workspace/operation-lock.ts:45:12
+ ❯ compileWorkspace src/workspace/operations.ts:215:3
+ ❯ test/map-appearance-workspace.test.ts:169:9
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/map-appearance-workspace.test.ts:116:7
+ ❯ test/map-appearance-workspace.test.ts:39:9
+ ❯ compileWorkspaceUnlocked src/workspace/operations.ts:259:11
+ ❯ withWorkspaceOperationLock src/workspace/operation-lock.ts:45:12
+ ❯ compileWorkspace src/workspace/operations.ts:215:3
+ ❯ test/map-appearance-workspace.test.ts:169:9
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/map-appearance-workspace.test.ts:116:7
+ ❯ test/map-appearance-workspace.test.ts:39:9
+ ❯ src/decompiler/core.ts:127:15
+ ❯ readMapEvents src/decompiler/core.ts:110:25
+ ❯ buildDecompiledSourceFiles src/decompiler/project.ts:152:20
+ ❯ decompileProjectDataSnapshot src/decompiler/project.ts:67:17
+ ❯ decompileWorkspaceUnlocked src/workspace/operations.ts:145:3
+ ❯ withWorkspaceOperationLock src/workspace/operation-lock.ts:45:12
+ ❯ decompileWorkspace src/workspace/operations.ts:117:3
+ ❯ test/map-appearance-workspace.test.ts:130:9
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/map-appearance-workspace.test.ts:198:34
+ ❯ test/map-appearance-workspace.test.ts:39:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 skipped (7)
+   Start at  00:19:30
+   Duration  9.89s (transform 696ms, setup 0ms, import 1.89s, tests 7.80s, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-36\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/map-appearance-workspace.test.ts -t MV-S6-MAP-APPEARANCE-007

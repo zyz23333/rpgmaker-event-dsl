@@ -1,0 +1,74 @@
+{
+  "at": "2026-10-19T21:56:28.530Z",
+  "purpose": "Exact26 audit mechanisms with27 identity/count/document substitutions; no audits executed",
+  "replacements": [
+    [
+      "mv-ticket-26-final",
+      "mv-ticket-27-final"
+    ],
+    [
+      "ticket26-final",
+      "ticket27-final"
+    ],
+    [
+      "26-final-history",
+      "27-final-history"
+    ],
+    [
+      "26-timer-saved-slot-roundtrip.md",
+      "27-choices-complete-branches.md"
+    ],
+    [
+      "f27ee63f95f65b59a738460615c95b9afdf53e60",
+      "4f78bef151f21235cac4342aba7bac7cce6e55cd"
+    ],
+    [
+      "888b95019192806b88c73d7804f0662e4cce7e8b",
+      "73504ec28bad98ae424a9d452f68774b009579d0"
+    ],
+    [
+      "requirements-actual888b950-original.json",
+      "requirements-actual73504ec-original.json"
+    ],
+    [
+      "current.requirements.length,314",
+      "current.requirements.length,328"
+    ],
+    [
+      "current.requirements.slice(0,300)",
+      "current.requirements.slice(0,314)"
+    ],
+    [
+      "incoming:300,own:288,current:314",
+      "incoming:314,own:274,current:328"
+    ],
+    [
+      "3c7aad677b489dec22d1ff21ba4c94272e47fea8",
+      "75d750a4a1e5596bda669199e56c62b56905d171"
+    ],
+    [
+      "own26ReportOriginalPrefixExact",
+      "checkpoint27ReportOriginalPrefixExact"
+    ]
+  ],
+  "files": [
+    {
+      "from": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\worktrees\\mv-ticket-27-final\\.scratch\\complete-mv-events-implementation\\evidence\\26-final-history\\tools-and-metadata\\audit-final-v1.cjs",
+      "to": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\audit-final-v1.cjs",
+      "sourceSha256": "1675a0e0223bc0b4e06e10c823c6a2c72556584c2d992fb032ad926834b12e59",
+      "derivedSha256": "beebee3b2261f5e4fdd7a1df876261704bd89c6edae6c7a6cdca78947bb4dc63"
+    },
+    {
+      "from": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\worktrees\\mv-ticket-27-final\\.scratch\\complete-mv-events-implementation\\evidence\\26-final-history\\tools-and-metadata\\post-archive-v1.cjs",
+      "to": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\post-archive-v1.cjs",
+      "sourceSha256": "c44217afe2b488c2e283e4b8ca23ce113afdd918deaf54516e811ee156156f45",
+      "derivedSha256": "410f751602de8c985e55a40d14d7e6af6ec4027e73ff0b106d31673e8eedcf3d"
+    },
+    {
+      "from": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\worktrees\\mv-ticket-27-final\\.scratch\\complete-mv-events-implementation\\evidence\\26-final-history\\tools-and-metadata\\verify-committed-v1.cjs",
+      "to": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\verify-committed-v1.cjs",
+      "sourceSha256": "f887882112fc4f9620c092a9970ac2309777940b3a41f2d17498917923ffddeb",
+      "derivedSha256": "3a0659f00cc125126607a9409f8e4d1ac04bd80a930fdd7ae2a074fe5c59661f"
+    }
+  ]
+}

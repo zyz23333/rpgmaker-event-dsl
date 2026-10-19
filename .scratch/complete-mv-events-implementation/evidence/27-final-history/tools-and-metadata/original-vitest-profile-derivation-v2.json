@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-19T22:48:27.030Z",
+  "purpose": "Fix only original v1 diagnostic plugin path matcher; v1 did not attach and has no phase counters. Original helper and default config remain exact. Version2 requires exact original byte identity and writes attachment receipt plus unique phase timing prefix.",
+  "original": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\worktrees\\mv-ticket-27-final\\packages\\rpgmaker-event-dsl\\test\\support\\mv-evidence.ts",
+    "sha256": "343a11790df3a07ded5b34aa17a2e5fd0fcb7b65e5e25776ee995e6d451fddba"
+  },
+  "instrumented": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\original-vitest-instrumentation-v2.ts.txt",
+    "sha256": "3659a6295f2e89b2478df0a65e4da97d6a8162e59d004e8fa431c31d7e501068"
+  },
+  "config": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\original-vitest-profile-v2.config.mts",
+    "sha256": "7e668029f8d51ad07f3ecd8805cdcef41eaacaad51144835eac566cfb46e8d76"
+  },
+  "attachment": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\original-vitest-profile-transform-attachment-v2.json"
+}

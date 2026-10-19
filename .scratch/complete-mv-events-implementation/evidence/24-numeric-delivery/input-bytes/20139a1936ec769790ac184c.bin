@@ -1,0 +1,1687 @@
+//#region src/domain/references.d.ts
+type ReferenceKind = "actor" | "animation" | "armor" | "class" | "commonEvent" | "enemy" | "item" | "map" | "skill" | "state" | "switch" | "tileset" | "troop" | "variable" | "weapon";
+declare const audioAssetFolders: readonly ["bgm", "bgs", "me", "se"];
+declare const imageAssetFolders: readonly ["animations", "battlebacks1", "battlebacks2", "characters", "enemies", "faces", "parallaxes", "pictures", "sv_actors", "sv_enemies", "system", "tilesets", "titles1", "titles2"];
+type ReferenceValue<TKind extends ReferenceKind> = {
+  id: number;
+  kind: TKind;
+} | {
+  kind: TKind;
+  name: string;
+};
+type AudioAssetFolder = (typeof audioAssetFolders)[number];
+type ImageAssetFolder = (typeof imageAssetFolders)[number];
+type AudioAssetReference = {
+  kind: "asset";
+  category: "audio";
+  folder: AudioAssetFolder;
+  name: string;
+};
+type ImageAssetReference = {
+  kind: "asset";
+  category: "image";
+  folder: ImageAssetFolder;
+  name: string;
+};
+type MovieAssetReference = {
+  kind: "asset";
+  category: "movie";
+  folder: "movies";
+  name: string;
+};
+type AssetReference = AudioAssetReference | ImageAssetReference | MovieAssetReference;
+type RuntimeSelector<TScope extends string = string, TTarget extends string = string> = {
+  kind: "runtimeSelector";
+  scope: TScope;
+  target: TTarget;
+};
+type ScriptInput = {
+  kind: "scriptInput";
+  code: string;
+};
+type ReferenceRange<TKind extends ReferenceKind> = {
+  kind: "referenceRange";
+  from: ReferenceValue<TKind>;
+  to: ReferenceValue<TKind>;
+};
+type NumericRange = {
+  kind: "numericRange";
+  from: number;
+  to: number;
+};
+type ConstantOperand = {
+  kind: "constant";
+  value: number;
+};
+type VariableOperand = {
+  kind: "variable";
+  variable: ReferenceValue<"variable">;
+};
+type RandomOperand = {
+  kind: "random";
+  from: number;
+  to: number;
+};
+type ScriptOperand = {
+  kind: "script";
+  script: ScriptInput;
+};
+type ControlVariablesGameDataOperand = {
+  kind: "gameData";
+  source: "item";
+  item: ReferenceValue<"item">;
+} | {
+  kind: "gameData";
+  source: "weapon";
+  weapon: ReferenceValue<"weapon">;
+} | {
+  kind: "gameData";
+  source: "armor";
+  armor: ReferenceValue<"armor">;
+} | {
+  kind: "gameData";
+  source: "actor";
+  actor: ReferenceValue<"actor">;
+  value: "level" | "exp" | "hp" | "mp" | "mhp" | "mmp" | "atk" | "def" | "mat" | "mdf" | "agi" | "luk";
+} | {
+  kind: "gameData";
+  source: "enemy";
+  enemyIndex: number;
+  value: "hp" | "mp" | "mhp" | "mmp" | "atk" | "def" | "mat" | "mdf" | "agi" | "luk";
+} | {
+  kind: "gameData";
+  source: "character";
+  characterId: number;
+  value: "mapX" | "mapY" | "direction" | "screenX" | "screenY";
+} | {
+  kind: "gameData";
+  source: "party";
+  memberIndex: number;
+} | {
+  kind: "gameData";
+  source: "other";
+  value: "mapId" | "partyMembers" | "gold" | "steps" | "playTime" | "timer" | "saveCount" | "battleCount" | "winCount" | "escapeCount";
+};
+type CommandOperand = ConstantOperand | VariableOperand | RandomOperand | ControlVariablesGameDataOperand | ScriptOperand;
+type OperateValueOperand = number | ReferenceValue<"variable">;
+type OperateValueInput = {
+  operation: "increase" | "decrease";
+  operand: OperateValueOperand;
+};
+type ActorCommandTarget = (RuntimeSelector<"actor", "entireParty"> & {
+  actorId?: never;
+  variable?: never;
+}) | (RuntimeSelector<"actor", "actor"> & {
+  actorId: number;
+  variable?: never;
+}) | (RuntimeSelector<"actor", "actorFromVariable"> & {
+  actorId?: never;
+  variable: ReferenceValue<"variable">;
+});
+type EnemyCommandTarget = (RuntimeSelector<"enemy", "all"> & {
+  index?: never;
+}) | (RuntimeSelector<"enemy", "enemy"> & {
+  index: number;
+});
+type BattlerCommandTarget = (RuntimeSelector<"battler", "enemy"> & {
+  index: number;
+  actorId?: never;
+}) | (RuntimeSelector<"battler", "actor"> & {
+  actorId: number;
+  index?: never;
+});
+type ActorParameter = "mhp" | "mmp" | "atk" | "def" | "mat" | "mdf" | "agi" | "luk";
+type DirectPosition = {
+  kind: "direct";
+  x: number;
+  y: number;
+};
+type VariablePosition = {
+  kind: "variables";
+  x: ReferenceValue<"variable">;
+  y: ReferenceValue<"variable">;
+};
+type CommandPosition = DirectPosition | VariablePosition;
+type VehicleTarget = "boat" | "ship" | "airship";
+type Direction = 2 | 4 | 6 | 8;
+type CharacterRuntimeSelector = (RuntimeSelector<"character", "player"> & {
+  id?: never;
+}) | (RuntimeSelector<"character", "currentEvent"> & {
+  id?: never;
+}) | (RuntimeSelector<"character", "event"> & {
+  id: number;
+});
+type DirectMapDestination = {
+  kind: "direct";
+  map: ReferenceValue<"map">;
+  x: number;
+  y: number;
+};
+type VariableMapDestination = {
+  kind: "variables";
+  map: ReferenceValue<"variable">;
+  x: ReferenceValue<"variable">;
+  y: ReferenceValue<"variable">;
+};
+type MapDestination = DirectMapDestination | VariableMapDestination;
+type DirectEventLocationDestination = {
+  kind: "direct";
+  x: number;
+  y: number;
+};
+type VariableEventLocationDestination = {
+  kind: "variables";
+  x: ReferenceValue<"variable">;
+  y: ReferenceValue<"variable">;
+};
+type ExchangeEventLocationDestination = {
+  kind: "exchange";
+  character: CharacterRuntimeSelector;
+};
+type EventLocationDestination = DirectEventLocationDestination | VariableEventLocationDestination | ExchangeEventLocationDestination;
+type ToneInput = readonly [red: number, green: number, blue: number, gray: number] | {
+  red: number;
+  green: number;
+  blue: number;
+  gray: number;
+};
+type ColorInput = readonly [red: number, green: number, blue: number, alpha: number] | {
+  red: number;
+  green: number;
+  blue: number;
+  alpha: number;
+};
+type AudioPayload = {
+  asset: AudioAssetReference;
+  volume?: number;
+  pitch?: number;
+  pan?: number;
+};
+type LocationInfoType = "terrainTag" | "eventId" | "tileIdLayer1" | "tileIdLayer2" | "tileIdLayer3" | "tileIdLayer4" | "regionId";
+type ConditionalVariableOperator = "eq" | "ge" | "le" | "gt" | "lt" | "ne";
+type ConditionalBranchCondition = {
+  kind: "switch";
+  switch: ReferenceValue<"switch">;
+  value: boolean;
+} | {
+  kind: "variable";
+  variable: ReferenceValue<"variable">;
+  operator: ConditionalVariableOperator;
+  value: number | ReferenceValue<"variable">;
+} | {
+  kind: "selfSwitch";
+  selfSwitch: "A" | "B" | "C" | "D";
+  value: boolean;
+} | {
+  kind: "timer";
+  seconds: number;
+  operator: "ge" | "le";
+} | {
+  kind: "actor";
+  actor: ReferenceValue<"actor">;
+  check: {
+    kind: "inParty";
+  } | {
+    kind: "name";
+    name: string;
+  } | {
+    kind: "class";
+    class: ReferenceValue<"class">;
+  } | {
+    kind: "skill";
+    skill: ReferenceValue<"skill">;
+  } | {
+    kind: "weapon";
+    weapon: ReferenceValue<"weapon">;
+  } | {
+    kind: "armor";
+    armor: ReferenceValue<"armor">;
+  } | {
+    kind: "state";
+    state: ReferenceValue<"state">;
+  };
+} | {
+  kind: "enemy";
+  enemyIndex: number;
+  check: {
+    kind: "appeared";
+  } | {
+    kind: "state";
+    state: ReferenceValue<"state">;
+  };
+} | {
+  kind: "character";
+  characterId: number;
+  direction: 2 | 4 | 6 | 8;
+} | {
+  kind: "gold";
+  amount: number;
+  operator: "ge" | "le" | "lt";
+} | {
+  kind: "item";
+  item: ReferenceValue<"item">;
+} | {
+  kind: "weapon";
+  weapon: ReferenceValue<"weapon">;
+  includeEquipment?: boolean;
+} | {
+  kind: "armor";
+  armor: ReferenceValue<"armor">;
+  includeEquipment?: boolean;
+} | {
+  kind: "button";
+  button: "ok" | "cancel" | "shift" | "down" | "left" | "right" | "up" | "pageup" | "pagedown";
+} | {
+  kind: "script";
+  script: ScriptInput;
+} | {
+  kind: "vehicle";
+  vehicle: "boat" | "ship" | "airship";
+};
+declare function isProjectDataReference(value: unknown): value is ReferenceValue<ReferenceKind>;
+declare function isAssetReference(value: unknown): value is AssetReference;
+declare function isRuntimeSelector(value: unknown): value is RuntimeSelector;
+declare function isScriptInput(value: unknown): value is ScriptInput;
+//#endregion
+//#region src/domain/command.d.ts
+type DslCommand = ShowTextDslCommand | InputNumberDslCommand | SelectItemDslCommand | ShowScrollingTextDslCommand | ConditionalDslCommand | LoopDslCommand | BreakLoopDslCommand | ExitEventProcessingDslCommand | CommonEventDslCommand | LabelDslCommand | JumpToLabelDslCommand | CommentDslCommand | ScriptDslCommand | PluginDslCommand | TransferPlayerDslCommand | ControlSwitchesDslCommand | ControlVariablesDslCommand | ControlSelfSwitchDslCommand | ControlTimerDslCommand | ChangeGoldDslCommand | ChangeItemsDslCommand | ChangeWeaponsDslCommand | ChangeArmorsDslCommand | ChangePartyMemberDslCommand | ChangeBattleBgmDslCommand | ChangeVictoryMeDslCommand | ChangeSaveAccessDslCommand | ChangeMenuAccessDslCommand | ChangeEncounterDisableDslCommand | ChangeFormationAccessDslCommand | ChangeWindowColorDslCommand | ChangeDefeatMeDslCommand | ChangeVehicleBgmDslCommand | SetVehicleLocationDslCommand | SetEventLocationDslCommand | ScrollMapDslCommand | SetMovementRouteDslCommand | GetOnOffVehicleDslCommand | ChangeTransparencyDslCommand | ShowAnimationDslCommand | ShowBalloonIconDslCommand | ChangePlayerFollowersDslCommand | GatherFollowersDslCommand | FadeoutScreenDslCommand | FadeinScreenDslCommand | TintScreenDslCommand | FlashScreenDslCommand | ShakeScreenDslCommand | WaitDslCommand | ShowPictureDslCommand | MovePictureDslCommand | RotatePictureDslCommand | TintPictureDslCommand | ErasePictureDslCommand | SetWeatherEffectDslCommand | PlayBgmDslCommand | FadeoutBgmDslCommand | SaveBgmDslCommand | ResumeBgmDslCommand | PlayBgsDslCommand | FadeoutBgsDslCommand | PlayMeDslCommand | PlaySeDslCommand | StopSeDslCommand | PlayMovieDslCommand | ChangeMapNameDisplayDslCommand | ChangeTilesetDslCommand | ChangeBattleBackDslCommand | ChangeParallaxDslCommand | GetLocationInfoDslCommand | EraseEventDslCommand | BattleProcessingDslCommand | ShowChoicesDslCommand | ShopProcessingDslCommand | NameInputProcessingDslCommand | ChangeHpDslCommand | ChangeMpDslCommand | ChangeStateDslCommand | RecoverAllDslCommand | ChangeExpDslCommand | ChangeLevelDslCommand | ChangeParameterDslCommand | ChangeSkillDslCommand | ChangeEquipmentDslCommand | ChangeNameDslCommand | ChangeClassDslCommand | ChangeActorImagesDslCommand | ChangeVehicleImageDslCommand | ChangeNicknameDslCommand | ChangeProfileDslCommand | ChangeTpDslCommand | ChangeEnemyHpDslCommand | ChangeEnemyMpDslCommand | ChangeEnemyStateDslCommand | EnemyRecoverAllDslCommand | EnemyAppearDslCommand | EnemyTransformDslCommand | ShowBattleAnimationDslCommand | ForceActionDslCommand | AbortBattleDslCommand | ChangeEnemyTpDslCommand | OpenMenuScreenDslCommand | OpenSaveScreenDslCommand | GameOverDslCommand | ReturnToTitleScreenDslCommand | RawDslCommand;
+type ShowTextDslCommand = {
+  kind: "showText";
+  lines: readonly [string, ...string[]];
+  face?: {
+    image: ImageAssetReference;
+    index?: number;
+  };
+  background?: 0 | 1 | 2;
+  positionType?: 0 | 1 | 2;
+};
+type InputNumberDslCommand = {
+  kind: "inputNumber";
+  variable: ReferenceValue<"variable">;
+  digits: number;
+};
+type SelectItemDslCommand = {
+  kind: "selectItem";
+  variable: ReferenceValue<"variable">;
+  itemType?: 1 | 2 | 3 | 4;
+};
+type ShowScrollingTextDslCommand = {
+  kind: "showScrollingText";
+  lines: readonly [string, ...string[]];
+  speed?: number;
+  noFastForward?: boolean;
+};
+type ShowChoicesDslCommand = {
+  kind: "showChoices";
+  choices: readonly [string, ...string[]];
+  branches: readonly [readonly DslCommand[], ...(readonly DslCommand[][])];
+  cancelType?: number;
+  defaultType?: number;
+  positionType?: 0 | 1 | 2;
+  background?: 0 | 1 | 2;
+  cancelBranch?: readonly DslCommand[];
+};
+type ConditionalDslCommand = {
+  kind: "conditional";
+  condition: ConditionalBranchCondition;
+  then: readonly DslCommand[];
+  else?: readonly DslCommand[];
+};
+type ChildCommandBody = {
+  commands: readonly DslCommand[];
+  endMarker?: "present" | "absent";
+};
+type LoopDslCommand = {
+  kind: "loop";
+  body: ChildCommandBody;
+};
+type BreakLoopDslCommand = {
+  kind: "breakLoop";
+};
+type ExitEventProcessingDslCommand = {
+  kind: "exitEventProcessing";
+};
+type CommonEventDslCommand = {
+  kind: "commonEvent";
+  commonEvent: ReferenceValue<"commonEvent">;
+};
+type LabelDslCommand = {
+  kind: "label";
+  name: string;
+};
+type JumpToLabelDslCommand = {
+  kind: "jumpToLabel";
+  name: string;
+};
+type CommentDslCommand = {
+  kind: "comment";
+  lines: readonly [string, ...string[]];
+};
+type ScriptDslCommand = {
+  kind: "script";
+  script: ScriptInput;
+};
+type PluginDslCommand = {
+  kind: "pluginCommand";
+  command: string;
+  args?: readonly string[];
+};
+type TransferPlayerDslCommand = {
+  kind: "transferPlayer";
+  destination: MapDestination;
+  direction?: Direction;
+  fadeType?: 0 | 1 | 2;
+};
+type ControlSwitchesDslCommand = {
+  kind: "controlSwitches";
+  switch: ReferenceValue<"switch"> | ReferenceRange<"switch">;
+  value: boolean;
+};
+type ControlVariablesDslCommand = {
+  kind: "controlVariables";
+  variable: ReferenceValue<"variable"> | ReferenceRange<"variable">;
+  operation: "set" | "add" | "sub" | "mul" | "div" | "mod";
+  value: number | ReferenceValue<"variable"> | RandomOperand | ControlVariablesGameDataOperand | ScriptOperand;
+};
+type ControlSelfSwitchDslCommand = {
+  kind: "controlSelfSwitch";
+  selfSwitch: "A" | "B" | "C" | "D";
+  value: boolean;
+};
+type ControlTimerDslCommand = {
+  kind: "controlTimer";
+  action: "start";
+  seconds: number;
+} | {
+  kind: "controlTimer";
+  action: "stop";
+};
+type ChangeGoldDslCommand = {
+  kind: "changeGold";
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+};
+type ChangeItemsDslCommand = {
+  kind: "changeItems";
+  item: ReferenceValue<"item">;
+  operation: "gain" | "lose";
+  amount: OperateValueOperand;
+};
+type ChangeWeaponsDslCommand = {
+  kind: "changeWeapons";
+  weapon: ReferenceValue<"weapon">;
+  operation: "gain" | "lose";
+  amount: OperateValueOperand;
+  includeEquipment?: boolean;
+};
+type ChangeArmorsDslCommand = {
+  kind: "changeArmors";
+  armor: ReferenceValue<"armor">;
+  operation: "gain" | "lose";
+  amount: OperateValueOperand;
+  includeEquipment?: boolean;
+};
+type ChangePartyMemberDslCommand = {
+  kind: "changePartyMember";
+  actor: ReferenceValue<"actor">;
+  operation: "add" | "remove";
+  initialize?: boolean;
+};
+type ChangeBattleBgmDslCommand = {
+  kind: "changeBattleBgm";
+  audio: AudioPayload;
+};
+type ChangeVictoryMeDslCommand = {
+  kind: "changeVictoryMe";
+  audio: AudioPayload;
+};
+type ChangeSaveAccessDslCommand = {
+  kind: "changeSaveAccess";
+  enabled: boolean;
+};
+type ChangeMenuAccessDslCommand = {
+  kind: "changeMenuAccess";
+  enabled: boolean;
+};
+type ChangeEncounterDisableDslCommand = {
+  kind: "changeEncounterDisable";
+  disabled: boolean;
+};
+type ChangeFormationAccessDslCommand = {
+  kind: "changeFormationAccess";
+  enabled: boolean;
+};
+type ChangeWindowColorDslCommand = {
+  kind: "changeWindowColor";
+  tone: ToneInput;
+};
+type ChangeDefeatMeDslCommand = {
+  kind: "changeDefeatMe";
+  audio: AudioPayload;
+};
+type ChangeVehicleBgmDslCommand = {
+  kind: "changeVehicleBgm";
+  vehicle: VehicleTarget;
+  audio: AudioPayload;
+};
+type SetVehicleLocationDslCommand = {
+  kind: "setVehicleLocation";
+  vehicle: VehicleTarget;
+  destination: MapDestination;
+};
+type SetEventLocationDslCommand = {
+  kind: "setEventLocation";
+  character: CharacterRuntimeSelector;
+  destination: EventLocationDestination;
+  direction?: 0 | Direction;
+};
+type ScrollMapDslCommand = {
+  kind: "scrollMap";
+  direction: Direction;
+  distance: number;
+  speed: number;
+};
+type MoveRouteCommand = MoveRouteInstruction & {
+  savedShape?: {
+    indent?: "absent" | "null" | "zero";
+  };
+};
+type MovementRoute = {
+  commands: readonly MoveRouteCommand[];
+  repeat?: boolean;
+  skippable?: boolean;
+  wait?: boolean;
+  terminator?: {
+    parameters?: "absent" | "empty";
+  };
+};
+type MoveRouteInstruction = {
+  kind: "moveDown";
+} | {
+  kind: "moveLeft";
+} | {
+  kind: "moveRight";
+} | {
+  kind: "moveUp";
+} | {
+  kind: "moveLowerLeft";
+} | {
+  kind: "moveLowerRight";
+} | {
+  kind: "moveUpperLeft";
+} | {
+  kind: "moveUpperRight";
+} | {
+  kind: "moveRandom";
+} | {
+  kind: "moveTowardPlayer";
+} | {
+  kind: "moveAwayFromPlayer";
+} | {
+  kind: "moveForward";
+} | {
+  kind: "moveBackward";
+} | {
+  kind: "jump";
+  x: number;
+  y: number;
+} | {
+  kind: "wait";
+  frames: number;
+} | {
+  kind: "turnDown";
+} | {
+  kind: "turnLeft";
+} | {
+  kind: "turnRight";
+} | {
+  kind: "turnUp";
+} | {
+  kind: "turn90Right";
+} | {
+  kind: "turn90Left";
+} | {
+  kind: "turn180";
+} | {
+  kind: "turn90RightOrLeft";
+} | {
+  kind: "turnRandom";
+} | {
+  kind: "turnTowardPlayer";
+} | {
+  kind: "turnAwayFromPlayer";
+} | {
+  kind: "switchOn";
+  switch: ReferenceValue<"switch">;
+} | {
+  kind: "switchOff";
+  switch: ReferenceValue<"switch">;
+} | {
+  kind: "changeSpeed";
+  speed: number;
+} | {
+  kind: "changeFrequency";
+  frequency: number;
+} | {
+  kind: "walkAnimation";
+  enabled: boolean;
+} | {
+  kind: "stepAnimation";
+  enabled: boolean;
+} | {
+  kind: "directionFix";
+  enabled: boolean;
+} | {
+  kind: "through";
+  enabled: boolean;
+} | {
+  kind: "transparent";
+  enabled: boolean;
+} | {
+  kind: "changeImage";
+  character: ImageAssetReference | null;
+  characterIndex: number;
+} | {
+  kind: "changeOpacity";
+  opacity: number;
+} | {
+  kind: "changeBlendMode";
+  blendMode: "normal" | "additive" | "multiply" | "screen";
+} | {
+  kind: "playSe";
+  audio: {
+    asset: AudioAssetReference | null;
+    volume: number;
+    pitch: number;
+    pan: number;
+  };
+} | {
+  kind: "script";
+  script: ScriptInput;
+};
+type SetMovementRouteDslCommand = {
+  kind: "setMovementRoute";
+  target: CharacterRuntimeSelector;
+  route: MovementRoute;
+};
+type GetOnOffVehicleDslCommand = {
+  kind: "getOnOffVehicle";
+};
+type ChangeTransparencyDslCommand = {
+  kind: "changeTransparency";
+  transparent: boolean;
+};
+type ShowAnimationDslCommand = {
+  kind: "showAnimation";
+  target: CharacterRuntimeSelector;
+  animation: ReferenceValue<"animation">;
+  wait?: boolean;
+};
+type BalloonIcon = "exclamation" | "question" | "musicNote" | "heart" | "anger" | "sweat" | "cobweb" | "silence" | "lightBulb" | "zzz";
+type ShowBalloonIconDslCommand = {
+  kind: "showBalloonIcon";
+  target: CharacterRuntimeSelector;
+  balloon: BalloonIcon | number;
+  wait?: boolean;
+};
+type ChangePlayerFollowersDslCommand = {
+  kind: "changePlayerFollowers";
+  visible: boolean;
+};
+type GatherFollowersDslCommand = {
+  kind: "gatherFollowers";
+};
+type FadeoutScreenDslCommand = {
+  kind: "fadeoutScreen";
+};
+type FadeinScreenDslCommand = {
+  kind: "fadeinScreen";
+};
+type TintScreenDslCommand = {
+  kind: "tintScreen";
+  tone: ToneInput;
+  duration: number;
+  wait?: boolean;
+};
+type FlashScreenDslCommand = {
+  kind: "flashScreen";
+  color: ColorInput;
+  duration: number;
+  wait?: boolean;
+};
+type ShakeScreenDslCommand = {
+  kind: "shakeScreen";
+  power: number;
+  speed: number;
+  duration: number;
+  wait?: boolean;
+};
+type WaitDslCommand = {
+  kind: "wait";
+  frames: number;
+};
+type PictureOrigin = "upperLeft" | "center";
+type PicturePosition = CommandPosition & {
+  origin?: PictureOrigin;
+};
+type PictureDisplayInput = {
+  scaleX?: number;
+  scaleY?: number;
+  opacity?: number;
+  blendMode?: 0 | 1 | 2 | 3;
+};
+type ShowPictureDslCommand = {
+  kind: "showPicture";
+  pictureId: number;
+  image: ImageAssetReference;
+  position: PicturePosition;
+} & PictureDisplayInput;
+type MovePictureDslCommand = {
+  kind: "movePicture";
+  pictureId: number;
+  position: PicturePosition;
+  duration: number;
+  wait?: boolean;
+} & PictureDisplayInput;
+type RotatePictureDslCommand = {
+  kind: "rotatePicture";
+  pictureId: number;
+  speed: number;
+};
+type TintPictureDslCommand = {
+  kind: "tintPicture";
+  pictureId: number;
+  tone: ToneInput;
+  duration: number;
+  wait?: boolean;
+};
+type ErasePictureDslCommand = {
+  kind: "erasePicture";
+  pictureId: number;
+};
+type WeatherEffectType = "none" | "rain" | "storm" | "snow";
+type SetWeatherEffectDslCommand = {
+  kind: "setWeatherEffect";
+  weather: WeatherEffectType;
+  power: number;
+  duration: number;
+  wait?: boolean;
+};
+type PlayBgmDslCommand = {
+  kind: "playBgm";
+  audio: AudioPayload;
+};
+type FadeoutBgmDslCommand = {
+  kind: "fadeoutBgm";
+  duration: number;
+};
+type SaveBgmDslCommand = {
+  kind: "saveBgm";
+};
+type ResumeBgmDslCommand = {
+  kind: "resumeBgm";
+};
+type PlayBgsDslCommand = {
+  kind: "playBgs";
+  audio: AudioPayload;
+};
+type FadeoutBgsDslCommand = {
+  kind: "fadeoutBgs";
+  duration: number;
+};
+type PlayMeDslCommand = {
+  kind: "playMe";
+  audio: AudioPayload;
+};
+type PlaySeDslCommand = {
+  kind: "playSe";
+  audio: AudioPayload;
+};
+type StopSeDslCommand = {
+  kind: "stopSe";
+};
+type PlayMovieDslCommand = {
+  kind: "playMovie";
+  movie: MovieAssetReference;
+};
+type ChangeMapNameDisplayDslCommand = {
+  kind: "changeMapNameDisplay";
+  enabled: boolean;
+};
+type ChangeTilesetDslCommand = {
+  kind: "changeTileset";
+  tileset: ReferenceValue<"tileset">;
+};
+type ChangeBattleBackDslCommand = {
+  kind: "changeBattleBack";
+  battleback1: ImageAssetReference | null;
+  battleback2: ImageAssetReference | null;
+};
+type ChangeParallaxDslCommand = {
+  kind: "changeParallax";
+  image: ImageAssetReference | null;
+  loopX: boolean;
+  loopY: boolean;
+  sx: number;
+  sy: number;
+};
+type GetLocationInfoDslCommand = {
+  kind: "getLocationInfo";
+  variable: ReferenceValue<"variable">;
+  info: LocationInfoType;
+  location: CommandPosition;
+};
+type EraseEventDslCommand = {
+  kind: "eraseEvent";
+};
+type BattleProcessingDslCommand = {
+  kind: "battleProcessing";
+  troop: ReferenceValue<"troop"> | {
+    kind: "troop";
+    variable: ReferenceValue<"variable">;
+  } | {
+    kind: "troop";
+    useRandomEncounter: true;
+  };
+  canEscape?: boolean;
+  canLose?: boolean;
+  win?: readonly DslCommand[];
+  escape?: readonly DslCommand[];
+  lose?: readonly DslCommand[];
+};
+type ShopGoods = {
+  kind: "item" | "weapon" | "armor";
+  item: ReferenceValue<"item"> | ReferenceValue<"weapon"> | ReferenceValue<"armor">;
+  price?: number;
+};
+type ShopProcessingDslCommand = {
+  kind: "shopProcessing";
+  goods: readonly [ShopGoods, ...ShopGoods[]];
+  allowSelling?: boolean;
+};
+type NameInputProcessingDslCommand = {
+  kind: "nameInputProcessing";
+  actor: ReferenceValue<"actor">;
+  maxCharacters: number;
+};
+type ChangeHpDslCommand = {
+  kind: "changeHp";
+  target: ActorCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+  allowDeath?: boolean;
+};
+type ChangeMpDslCommand = {
+  kind: "changeMp";
+  target: ActorCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+};
+type ChangeStateDslCommand = {
+  kind: "changeState";
+  target: ActorCommandTarget;
+  operation: "add" | "remove";
+  state: ReferenceValue<"state">;
+};
+type RecoverAllDslCommand = {
+  kind: "recoverAll";
+  target: ActorCommandTarget;
+};
+type ChangeExpDslCommand = {
+  kind: "changeExp";
+  target: ActorCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+  showLevelUp?: boolean;
+};
+type ChangeLevelDslCommand = {
+  kind: "changeLevel";
+  target: ActorCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+  showLevelUp?: boolean;
+};
+type ChangeParameterDslCommand = {
+  kind: "changeParameter";
+  target: ActorCommandTarget;
+  parameter: ActorParameter;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+};
+type ChangeSkillDslCommand = {
+  kind: "changeSkill";
+  target: ActorCommandTarget;
+  operation: "learn" | "forget";
+  skill: ReferenceValue<"skill">;
+};
+type ChangeEquipmentDslCommand = {
+  kind: "changeEquipment";
+  actor: ReferenceValue<"actor">;
+  equipmentTypeId: number;
+  itemId: number | null;
+};
+type ChangeNameDslCommand = {
+  kind: "changeName";
+  actor: ReferenceValue<"actor">;
+  name: string;
+};
+type ChangeClassDslCommand = {
+  kind: "changeClass";
+  actor: ReferenceValue<"actor">;
+  class: ReferenceValue<"class">;
+  keepExp?: boolean;
+};
+type ChangeActorImagesDslCommand = {
+  kind: "changeActorImages";
+  actor: ReferenceValue<"actor">;
+  character: {
+    image: ImageAssetReference;
+    index: number;
+  };
+  face: {
+    image: ImageAssetReference;
+    index: number;
+  };
+  battler: ImageAssetReference;
+};
+type ChangeVehicleImageDslCommand = {
+  kind: "changeVehicleImage";
+  vehicle: VehicleTarget;
+  image: ImageAssetReference;
+  index: number;
+};
+type ChangeNicknameDslCommand = {
+  kind: "changeNickname";
+  actor: ReferenceValue<"actor">;
+  nickname: string;
+};
+type ChangeProfileDslCommand = {
+  kind: "changeProfile";
+  actor: ReferenceValue<"actor">;
+  profile: string;
+};
+type ChangeTpDslCommand = {
+  kind: "changeTp";
+  target: ActorCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+};
+type ChangeEnemyHpDslCommand = {
+  kind: "changeEnemyHp";
+  target: EnemyCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+  allowDeath?: boolean;
+};
+type ChangeEnemyMpDslCommand = {
+  kind: "changeEnemyMp";
+  target: EnemyCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+};
+type ChangeEnemyStateDslCommand = {
+  kind: "changeEnemyState";
+  target: EnemyCommandTarget;
+  operation: "add" | "remove";
+  state: ReferenceValue<"state">;
+};
+type EnemyRecoverAllDslCommand = {
+  kind: "enemyRecoverAll";
+  target: EnemyCommandTarget;
+};
+type EnemyAppearDslCommand = {
+  kind: "enemyAppear";
+  target: EnemyCommandTarget;
+};
+type EnemyTransformDslCommand = {
+  kind: "enemyTransform";
+  target: EnemyCommandTarget;
+  enemy: ReferenceValue<"enemy">;
+};
+type ShowBattleAnimationDslCommand = {
+  kind: "showBattleAnimation";
+  target: EnemyCommandTarget;
+  animation: ReferenceValue<"animation">;
+};
+type ForceActionDslCommand = {
+  kind: "forceAction";
+  subject: BattlerCommandTarget;
+  skill: ReferenceValue<"skill">;
+  targetIndex: number;
+};
+type AbortBattleDslCommand = {
+  kind: "abortBattle";
+};
+type ChangeEnemyTpDslCommand = {
+  kind: "changeEnemyTp";
+  target: EnemyCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+};
+type OpenMenuScreenDslCommand = {
+  kind: "openMenuScreen";
+};
+type OpenSaveScreenDslCommand = {
+  kind: "openSaveScreen";
+};
+type GameOverDslCommand = {
+  kind: "gameOver";
+};
+type ReturnToTitleScreenDslCommand = {
+  kind: "returnToTitleScreen";
+};
+type RawDslCommand = {
+  kind: "rawDslCommand";
+  code: number;
+  indent?: number;
+  parameters: readonly unknown[];
+};
+//#endregion
+//#region src/domain/declarations.d.ts
+type DslOwnedDeclaration = MapEventDefinition | CommonEventDefinition | TroopEventDefinition | SwitchDefinition | VariableDefinition;
+type EventDefinition = MapEventDefinition | CommonEventDefinition | TroopEventDefinition;
+type TroopEventDefinition = {
+  kind: "troopEvent";
+  troopId: number;
+  pages: readonly [BattleEventPage, ...BattleEventPage[]];
+};
+type BattleEventPage = {
+  conditions?: BattlePageConditions;
+  span?: "battle" | "turn" | "moment";
+  commands: readonly DslCommand[];
+};
+type BattlePageConditions = {
+  turnEnd?: boolean;
+  turn?: {
+    enabled: boolean;
+    a: number;
+    b: number;
+  };
+  enemy?: {
+    enabled: boolean;
+    index: number;
+    hpAtMost: number;
+  };
+  actor?: {
+    enabled: boolean;
+    ref: ReferenceValue<"actor">;
+    hpAtMost: number;
+  };
+  switch?: {
+    enabled: boolean;
+    ref: ReferenceValue<"switch">;
+  };
+};
+type SwitchDefinition = {
+  kind: "switchDefinition";
+  id: number;
+  name: string;
+};
+type VariableDefinition = {
+  kind: "variableDefinition";
+  id: number;
+  name: string;
+};
+type MapEventDefinition = {
+  kind: "mapEvent";
+  mapId: number;
+  id: number;
+  name: string;
+  x: number;
+  y: number;
+  note?: string;
+  pages: readonly [EventPage, ...EventPage[]];
+};
+type CommonEventInput = {
+  id: number;
+  name: string;
+  commands: readonly DslCommand[];
+} & ({
+  trigger: "none";
+  switch?: ReferenceValue<"switch">;
+} | {
+  trigger: "autorun" | "parallel";
+  switch: ReferenceValue<"switch">;
+});
+type CommonEventDefinition = CommonEventInput & {
+  kind: "commonEvent";
+};
+type CommonEventTrigger = "none" | "autorun" | "parallel";
+type MapPageTrigger = "action" | "playerTouch" | "eventTouch" | "autorun" | "parallel";
+type EventPage = {
+  conditions: PageConditions;
+  trigger: MapPageTrigger;
+  commands: readonly DslCommand[];
+  movement?: AutonomousMovement;
+  image?: PageImage;
+  priority?: "below" | "same" | "above";
+  options?: PageOptions;
+};
+type PageImage = {
+  character?: ImageAssetReference | null;
+  characterIndex?: number;
+  tileId?: number;
+  direction?: "down" | "left" | "right" | "up";
+  pattern?: number;
+};
+type PageOptions = {
+  walkAnimation?: boolean;
+  stepAnimation?: boolean;
+  directionFix?: boolean;
+  through?: boolean;
+};
+type AutonomousMovement = {
+  type?: "fixed" | "random" | "approach" | "custom";
+  speed?: number;
+  frequency?: number;
+  route?: MovementRoute;
+};
+type PageConditions = {
+  actor?: {
+    enabled: boolean;
+    ref: ReferenceValue<"actor">;
+  };
+  item?: {
+    enabled: boolean;
+    ref: ReferenceValue<"item">;
+  };
+  selfSwitch?: {
+    enabled: boolean;
+    value: "A" | "B" | "C" | "D";
+  };
+  switch1?: {
+    enabled: boolean;
+    ref: ReferenceValue<"switch">;
+  };
+  switch2?: {
+    enabled: boolean;
+    ref: ReferenceValue<"switch">;
+  };
+  variable?: {
+    enabled: boolean;
+    ref: ReferenceValue<"variable">;
+    atLeast: number;
+  };
+};
+declare function isDslOwnedDeclaration(value: unknown): value is DslOwnedDeclaration;
+//#endregion
+//#region src/validation/declarations.d.ts
+declare function collectDslOwnedDeclarations(moduleExports: Record<string, unknown>): DslOwnedDeclaration[];
+//#endregion
+//#region src/authoring/declarations.d.ts
+declare function troopEvent(input: Omit<TroopEventDefinition, "kind">): TroopEventDefinition;
+declare function battlePage(input: BattleEventPage): BattleEventPage;
+declare function mapEvent(input: {
+  mapId: number;
+  id: number;
+  name: string;
+  x: number;
+  y: number;
+  note?: string;
+  pages: readonly [EventPage, ...EventPage[]];
+}): MapEventDefinition;
+declare function commonEvent(input: CommonEventInput): CommonEventDefinition;
+declare function switchDefinition(input: {
+  id: number;
+  name: string;
+}): SwitchDefinition;
+declare function variableDefinition(input: {
+  id: number;
+  name: string;
+}): VariableDefinition;
+declare function page(input: {
+  conditions?: PageConditions;
+  trigger?: MapPageTrigger;
+  commands: readonly DslCommand[];
+  movement?: AutonomousMovement;
+  image?: PageImage;
+  priority?: NonNullable<EventPage["priority"]>;
+  options?: PageOptions;
+}): EventPage;
+//#endregion
+//#region src/commands/message/authoring.d.ts
+declare function showText(input: {
+  lines: readonly [string, ...string[]];
+  face?: {
+    image: ImageAssetReference;
+    index?: number;
+  };
+  background?: 0 | 1 | 2;
+  positionType?: 0 | 1 | 2;
+}): ShowTextDslCommand;
+declare function inputNumber(input: {
+  variable: ReferenceValue<"variable">;
+  digits: number;
+}): InputNumberDslCommand;
+declare function selectItem(input: {
+  variable: ReferenceValue<"variable">;
+  itemType?: 1 | 2 | 3 | 4;
+}): SelectItemDslCommand;
+declare function showScrollingText(input: {
+  lines: readonly [string, ...string[]];
+  speed?: number;
+  noFastForward?: boolean;
+}): ShowScrollingTextDslCommand;
+declare function showChoices(input: {
+  choices: readonly [string, ...string[]];
+  branches: readonly [readonly DslCommand[], ...(readonly DslCommand[][])];
+  cancelType?: number;
+  defaultType?: number;
+  positionType?: 0 | 1 | 2;
+  background?: 0 | 1 | 2;
+  cancelBranch?: readonly DslCommand[];
+}): ShowChoicesDslCommand;
+//#endregion
+//#region src/commands/flow/authoring.d.ts
+declare function conditional(input: {
+  condition: ConditionalBranchCondition;
+  then: readonly DslCommand[];
+  else?: readonly DslCommand[];
+}): ConditionalDslCommand;
+declare function loop(input: {
+  body: LoopDslCommand["body"];
+}): LoopDslCommand;
+declare function breakLoop(): BreakLoopDslCommand;
+declare function exitEventProcessing(): ExitEventProcessingDslCommand;
+declare function callCommonEvent(input: {
+  commonEvent: ReferenceValue<"commonEvent">;
+}): CommonEventDslCommand;
+declare function label(name: string): LabelDslCommand;
+declare function jumpToLabel(name: string): JumpToLabelDslCommand;
+declare function comment(lines: readonly [string, ...string[]]): CommentDslCommand;
+declare function script(input: {
+  code: string;
+} | ScriptInput): ScriptDslCommand;
+declare function pluginCommand(input: {
+  command: string;
+  args?: readonly string[];
+}): PluginDslCommand;
+//#endregion
+//#region src/commands/variables/authoring.d.ts
+declare function transferPlayer(input: {
+  destination: MapDestination;
+  direction?: Direction;
+  fadeType?: 0 | 1 | 2;
+}): TransferPlayerDslCommand;
+declare function controlSwitches(input: {
+  switch: ReferenceValue<"switch"> | ReferenceRange<"switch">;
+  value: boolean;
+}): ControlSwitchesDslCommand;
+declare function controlVariables(input: {
+  variable: ReferenceValue<"variable"> | ReferenceRange<"variable">;
+  operation: "set" | "add" | "sub" | "mul" | "div" | "mod";
+  value: number | ReferenceValue<"variable"> | RandomOperand | ControlVariablesGameDataOperand | ScriptOperand;
+}): ControlVariablesDslCommand;
+declare function controlSelfSwitch(input: {
+  selfSwitch: "A" | "B" | "C" | "D";
+  value: boolean;
+}): ControlSelfSwitchDslCommand;
+declare function controlTimer(input: {
+  action: "start";
+  seconds: number;
+} | {
+  action: "stop";
+}): ControlTimerDslCommand;
+declare function changeGold(input: {
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+}): ChangeGoldDslCommand;
+declare function changeItems(input: {
+  item: ReferenceValue<"item">;
+  operation: "gain" | "lose";
+  amount: OperateValueOperand;
+}): ChangeItemsDslCommand;
+declare function changeWeapons(input: {
+  weapon: ReferenceValue<"weapon">;
+  operation: "gain" | "lose";
+  amount: OperateValueOperand;
+  includeEquipment?: boolean;
+}): ChangeWeaponsDslCommand;
+declare function changeArmors(input: {
+  armor: ReferenceValue<"armor">;
+  operation: "gain" | "lose";
+  amount: OperateValueOperand;
+  includeEquipment?: boolean;
+}): ChangeArmorsDslCommand;
+declare function changePartyMember(input: {
+  actor: ReferenceValue<"actor">;
+  operation: "add" | "remove";
+  initialize?: boolean;
+}): ChangePartyMemberDslCommand;
+//#endregion
+//#region src/commands/movement/authoring.d.ts
+declare function changeBattleBgm(input: {
+  audio: AudioPayload;
+}): ChangeBattleBgmDslCommand;
+declare function changeVictoryMe(input: {
+  audio: AudioPayload;
+}): ChangeVictoryMeDslCommand;
+declare function changeSaveAccess(input: {
+  enabled: boolean;
+}): ChangeSaveAccessDslCommand;
+declare function changeMenuAccess(input: {
+  enabled: boolean;
+}): ChangeMenuAccessDslCommand;
+declare function changeEncounterDisable(input: {
+  disabled: boolean;
+}): ChangeEncounterDisableDslCommand;
+declare function changeFormationAccess(input: {
+  enabled: boolean;
+}): ChangeFormationAccessDslCommand;
+declare function changeWindowColor(input: {
+  tone: ToneInput;
+}): ChangeWindowColorDslCommand;
+declare function changeDefeatMe(input: {
+  audio: AudioPayload;
+}): ChangeDefeatMeDslCommand;
+declare function changeVehicleBgm(input: {
+  vehicle: VehicleTarget;
+  audio: AudioPayload;
+}): ChangeVehicleBgmDslCommand;
+declare function setVehicleLocation(input: {
+  vehicle: VehicleTarget;
+  destination: MapDestination;
+}): SetVehicleLocationDslCommand;
+declare function setEventLocation(input: {
+  character: CharacterRuntimeSelector;
+  destination: EventLocationDestination;
+  direction?: 0 | Direction;
+}): SetEventLocationDslCommand;
+declare function scrollMap(input: {
+  direction: Direction;
+  distance: number;
+  speed: number;
+}): ScrollMapDslCommand;
+declare function setMovementRoute(input: {
+  target: CharacterRuntimeSelector;
+  route: SetMovementRouteDslCommand["route"];
+}): SetMovementRouteDslCommand;
+declare function getOnOffVehicle(): GetOnOffVehicleDslCommand;
+declare function changeTransparency(input: {
+  transparent: boolean;
+}): ChangeTransparencyDslCommand;
+declare function showAnimation(input: {
+  target: CharacterRuntimeSelector;
+  animation: ReferenceValue<"animation">;
+  wait?: boolean;
+}): ShowAnimationDslCommand;
+declare function showBalloonIcon(input: {
+  target: CharacterRuntimeSelector;
+  balloon: BalloonIcon | number;
+  wait?: boolean;
+}): ShowBalloonIconDslCommand;
+declare function changePlayerFollowers(input: {
+  visible: boolean;
+}): ChangePlayerFollowersDslCommand;
+declare function gatherFollowers(): GatherFollowersDslCommand;
+//#endregion
+//#region src/commands/screen/authoring.d.ts
+declare function fadeoutScreen(): FadeoutScreenDslCommand;
+declare function fadeinScreen(): FadeinScreenDslCommand;
+declare function tintScreen(input: {
+  tone: ToneInput;
+  duration: number;
+  wait?: boolean;
+}): TintScreenDslCommand;
+declare function flashScreen(input: {
+  color: ColorInput;
+  duration: number;
+  wait?: boolean;
+}): FlashScreenDslCommand;
+declare function shakeScreen(input: {
+  power: number;
+  speed: number;
+  duration: number;
+  wait?: boolean;
+}): ShakeScreenDslCommand;
+declare function wait(frames: number): WaitDslCommand;
+declare function showPicture(input: {
+  pictureId: number;
+  image: ImageAssetReference;
+  position: PicturePosition;
+} & PictureDisplayInput): ShowPictureDslCommand;
+declare function movePicture(input: {
+  pictureId: number;
+  position: PicturePosition;
+  duration: number;
+  wait?: boolean;
+} & PictureDisplayInput): MovePictureDslCommand;
+declare function rotatePicture(input: {
+  pictureId: number;
+  speed: number;
+}): RotatePictureDslCommand;
+declare function tintPicture(input: {
+  pictureId: number;
+  tone: ToneInput;
+  duration: number;
+  wait?: boolean;
+}): TintPictureDslCommand;
+declare function erasePicture(input: {
+  pictureId: number;
+}): ErasePictureDslCommand;
+declare function setWeatherEffect(input: {
+  weather: WeatherEffectType;
+  power: number;
+  duration: number;
+  wait?: boolean;
+}): SetWeatherEffectDslCommand;
+//#endregion
+//#region src/commands/audio/authoring.d.ts
+declare function playBgm(input: {
+  audio: AudioPayload;
+}): PlayBgmDslCommand;
+declare function fadeoutBgm(input: {
+  duration: number;
+}): FadeoutBgmDslCommand;
+declare function saveBgm(): SaveBgmDslCommand;
+declare function resumeBgm(): ResumeBgmDslCommand;
+declare function playBgs(input: {
+  audio: AudioPayload;
+}): PlayBgsDslCommand;
+declare function fadeoutBgs(input: {
+  duration: number;
+}): FadeoutBgsDslCommand;
+declare function playMe(input: {
+  audio: AudioPayload;
+}): PlayMeDslCommand;
+declare function playSe(input: {
+  audio: AudioPayload;
+}): PlaySeDslCommand;
+declare function stopSe(): StopSeDslCommand;
+declare function playMovie(input: {
+  movie: MovieAssetReference;
+}): PlayMovieDslCommand;
+//#endregion
+//#region src/commands/map/authoring.d.ts
+declare function changeMapNameDisplay(input: {
+  enabled: boolean;
+}): ChangeMapNameDisplayDslCommand;
+declare function changeTileset(input: {
+  tileset: ReferenceValue<"tileset">;
+}): ChangeTilesetDslCommand;
+declare function changeBattleBack(input: {
+  battleback1: ImageAssetReference | null;
+  battleback2: ImageAssetReference | null;
+}): ChangeBattleBackDslCommand;
+declare function changeParallax(input: {
+  image: ImageAssetReference | null;
+  loopX: boolean;
+  loopY: boolean;
+  sx: number;
+  sy: number;
+}): ChangeParallaxDslCommand;
+declare function getLocationInfo(input: {
+  variable: ReferenceValue<"variable">;
+  info: LocationInfoType;
+  location: CommandPosition;
+}): GetLocationInfoDslCommand;
+declare function eraseEvent(): EraseEventDslCommand;
+//#endregion
+//#region src/commands/battle/authoring.d.ts
+declare function battleProcessing(input: {
+  troop: ReferenceValue<"troop"> | {
+    kind: "troop";
+    variable: ReferenceValue<"variable">;
+  } | {
+    kind: "troop";
+    useRandomEncounter: true;
+  };
+  canEscape?: boolean;
+  canLose?: boolean;
+  win?: readonly DslCommand[];
+  escape?: readonly DslCommand[];
+  lose?: readonly DslCommand[];
+}): BattleProcessingDslCommand;
+declare function shopProcessing(input: {
+  goods: readonly [ShopGoods, ...ShopGoods[]];
+  allowSelling?: boolean;
+}): ShopProcessingDslCommand;
+declare function nameInputProcessing(input: {
+  actor: ReferenceValue<"actor">;
+  maxCharacters: number;
+}): NameInputProcessingDslCommand;
+//#endregion
+//#region src/commands/actor/authoring.d.ts
+declare function changeHp(input: {
+  target: ActorCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+  allowDeath?: boolean;
+}): ChangeHpDslCommand;
+declare function changeMp(input: {
+  target: ActorCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+}): ChangeMpDslCommand;
+declare function changeState(input: {
+  target: ActorCommandTarget;
+  operation: "add" | "remove";
+  state: ReferenceValue<"state">;
+}): ChangeStateDslCommand;
+declare function recoverAll(input: {
+  target: ActorCommandTarget;
+}): RecoverAllDslCommand;
+declare function changeExp(input: {
+  target: ActorCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+  showLevelUp?: boolean;
+}): ChangeExpDslCommand;
+declare function changeLevel(input: {
+  target: ActorCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+  showLevelUp?: boolean;
+}): ChangeLevelDslCommand;
+declare function changeParameter(input: {
+  target: ActorCommandTarget;
+  parameter: ActorParameter;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+}): ChangeParameterDslCommand;
+declare function changeSkill(input: {
+  target: ActorCommandTarget;
+  operation: "learn" | "forget";
+  skill: ReferenceValue<"skill">;
+}): ChangeSkillDslCommand;
+declare function changeEquipment(input: {
+  actor: ReferenceValue<"actor">;
+  equipmentTypeId: number;
+  itemId: number | null;
+}): ChangeEquipmentDslCommand;
+declare function changeName(input: {
+  actor: ReferenceValue<"actor">;
+  name: string;
+}): ChangeNameDslCommand;
+declare function changeClass(input: {
+  actor: ReferenceValue<"actor">;
+  class: ReferenceValue<"class">;
+  keepExp?: boolean;
+}): ChangeClassDslCommand;
+declare function changeActorImages(input: {
+  actor: ReferenceValue<"actor">;
+  character: {
+    image: ImageAssetReference;
+    index: number;
+  };
+  face: {
+    image: ImageAssetReference;
+    index: number;
+  };
+  battler: ImageAssetReference;
+}): ChangeActorImagesDslCommand;
+declare function changeVehicleImage(input: {
+  vehicle: VehicleTarget;
+  image: ImageAssetReference;
+  index: number;
+}): ChangeVehicleImageDslCommand;
+declare function changeNickname(input: {
+  actor: ReferenceValue<"actor">;
+  nickname: string;
+}): ChangeNicknameDslCommand;
+declare function changeProfile(input: {
+  actor: ReferenceValue<"actor">;
+  profile: string;
+}): ChangeProfileDslCommand;
+declare function changeTp(input: {
+  target: ActorCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+}): ChangeTpDslCommand;
+//#endregion
+//#region src/commands/enemy/authoring.d.ts
+declare function changeEnemyHp(input: {
+  target: EnemyCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+  allowDeath?: boolean;
+}): ChangeEnemyHpDslCommand;
+declare function changeEnemyMp(input: {
+  target: EnemyCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+}): ChangeEnemyMpDslCommand;
+declare function changeEnemyState(input: {
+  target: EnemyCommandTarget;
+  operation: "add" | "remove";
+  state: ReferenceValue<"state">;
+}): ChangeEnemyStateDslCommand;
+declare function enemyRecoverAll(input: {
+  target: EnemyCommandTarget;
+}): EnemyRecoverAllDslCommand;
+declare function enemyAppear(input: {
+  target: EnemyCommandTarget;
+}): EnemyAppearDslCommand;
+declare function enemyTransform(input: {
+  target: EnemyCommandTarget;
+  enemy: ReferenceValue<"enemy">;
+}): EnemyTransformDslCommand;
+declare function showBattleAnimation(input: {
+  target: EnemyCommandTarget;
+  animation: ReferenceValue<"animation">;
+}): ShowBattleAnimationDslCommand;
+declare function forceAction(input: {
+  subject: BattlerCommandTarget;
+  skill: ReferenceValue<"skill">;
+  targetIndex: number;
+}): ForceActionDslCommand;
+declare function abortBattle(): AbortBattleDslCommand;
+declare function changeEnemyTp(input: {
+  target: EnemyCommandTarget;
+  operation: "gain" | "lose";
+  value: OperateValueOperand;
+}): ChangeEnemyTpDslCommand;
+//#endregion
+//#region src/commands/system/authoring.d.ts
+declare function openMenuScreen(): OpenMenuScreenDslCommand;
+declare function openSaveScreen(): OpenSaveScreenDslCommand;
+declare function gameOver(): GameOverDslCommand;
+declare function returnToTitleScreen(): ReturnToTitleScreenDslCommand;
+//#endregion
+//#region src/authoring/references.d.ts
+declare function rawDslCommand(input: {
+  code: number;
+  indent?: number;
+  parameters: readonly unknown[];
+}): RawDslCommand;
+declare function audioAsset(input: {
+  folder: AudioAssetFolder;
+  name: string;
+}): AudioAssetReference;
+declare function imageAsset(input: {
+  folder: ImageAssetFolder;
+  name: string;
+}): ImageAssetReference;
+declare function movieAsset(input: {
+  name: string;
+}): MovieAssetReference;
+declare function scriptInput(input: {
+  code: string;
+}): ScriptInput;
+declare function actorRef(value: {
+  id: number;
+} | {
+  name: string;
+}): ReferenceValue<"actor">;
+declare function animationRef(value: {
+  id: number;
+} | {
+  name: string;
+}): ReferenceValue<"animation">;
+declare function armorRef(value: {
+  id: number;
+} | {
+  name: string;
+}): ReferenceValue<"armor">;
+declare function classRef(value: {
+  id: number;
+} | {
+  name: string;
+}): ReferenceValue<"class">;
+declare function commonEventRef(value: {
+  id: number;
+} | {
+  name: string;
+}): ReferenceValue<"commonEvent">;
+declare function enemyRef(value: {
+  id: number;
+} | {
+  name: string;
+}): ReferenceValue<"enemy">;
+declare function itemRef(value: {
+  id: number;
+} | {
+  name: string;
+}): ReferenceValue<"item">;
+declare function mapRef(value: {
+  id: number;
+} | {
+  name: string;
+}): ReferenceValue<"map">;
+declare function skillRef(value: {
+  id: number;
+} | {
+  name: string;
+}): ReferenceValue<"skill">;
+declare function stateRef(value: {
+  id: number;
+} | {
+  name: string;
+}): ReferenceValue<"state">;
+declare function switchRef(value: {
+  id: number;
+} | {
+  name: string;
+}): ReferenceValue<"switch">;
+declare function tilesetRef(value: {
+  id: number;
+} | {
+  name: string;
+}): ReferenceValue<"tileset">;
+declare function troopRef(value: {
+  id: number;
+} | {
+  name: string;
+}): ReferenceValue<"troop">;
+declare function variableRef(value: {
+  id: number;
+} | {
+  name: string;
+}): ReferenceValue<"variable">;
+declare function weaponRef(value: {
+  id: number;
+} | {
+  name: string;
+}): ReferenceValue<"weapon">;
+//#endregion
+//#region src/index.d.ts
+declare const runtimeBaseline: {
+  readonly language: "typescript-strict";
+  readonly moduleSystem: "esm-nodenext";
+  readonly packageManager: "pnpm";
+  readonly runtime: "node-22-lts";
+};
+type RuntimeBaseline = typeof runtimeBaseline;
+//#endregion
+export { type AbortBattleDslCommand, type ActorCommandTarget, type ActorParameter, type AssetReference, type AudioAssetFolder, type AudioAssetReference, type AudioPayload, type AutonomousMovement, type BalloonIcon, type BattleEventPage, type BattlePageConditions, type BattleProcessingDslCommand, type BattlerCommandTarget, type BreakLoopDslCommand, type ChangeActorImagesDslCommand, type ChangeArmorsDslCommand, type ChangeBattleBackDslCommand, type ChangeBattleBgmDslCommand, type ChangeClassDslCommand, type ChangeDefeatMeDslCommand, type ChangeEncounterDisableDslCommand, type ChangeEnemyHpDslCommand, type ChangeEnemyMpDslCommand, type ChangeEnemyStateDslCommand, type ChangeEnemyTpDslCommand, type ChangeEquipmentDslCommand, type ChangeExpDslCommand, type ChangeFormationAccessDslCommand, type ChangeGoldDslCommand, type ChangeHpDslCommand, type ChangeItemsDslCommand, type ChangeLevelDslCommand, type ChangeMapNameDisplayDslCommand, type ChangeMenuAccessDslCommand, type ChangeMpDslCommand, type ChangeNameDslCommand, type ChangeNicknameDslCommand, type ChangeParallaxDslCommand, type ChangeParameterDslCommand, type ChangePartyMemberDslCommand, type ChangePlayerFollowersDslCommand, type ChangeProfileDslCommand, type ChangeSaveAccessDslCommand, type ChangeSkillDslCommand, type ChangeStateDslCommand, type ChangeTilesetDslCommand, type ChangeTpDslCommand, type ChangeTransparencyDslCommand, type ChangeVehicleBgmDslCommand, type ChangeVehicleImageDslCommand, type ChangeVictoryMeDslCommand, type ChangeWeaponsDslCommand, type ChangeWindowColorDslCommand, type CharacterRuntimeSelector, type ChildCommandBody, type ColorInput, type CommandOperand, type CommandPosition, type CommentDslCommand, type CommonEventDefinition, type CommonEventDslCommand, type CommonEventTrigger, type ConditionalBranchCondition, type ConditionalDslCommand, type ConditionalVariableOperator, type ConstantOperand, type ControlSelfSwitchDslCommand, type ControlSwitchesDslCommand, type ControlTimerDslCommand, type ControlVariablesDslCommand, type ControlVariablesGameDataOperand, type DirectEventLocationDestination, type DirectMapDestination, type DirectPosition, type Direction, type DslCommand, type DslOwnedDeclaration, type EnemyAppearDslCommand, type EnemyCommandTarget, type EnemyRecoverAllDslCommand, type EnemyTransformDslCommand, type EraseEventDslCommand, type ErasePictureDslCommand, type EventDefinition, type EventLocationDestination, type EventPage, type ExchangeEventLocationDestination, type ExitEventProcessingDslCommand, type FadeinScreenDslCommand, type FadeoutBgmDslCommand, type FadeoutBgsDslCommand, type FadeoutScreenDslCommand, type FlashScreenDslCommand, type ForceActionDslCommand, type GameOverDslCommand, type GatherFollowersDslCommand, type GetLocationInfoDslCommand, type GetOnOffVehicleDslCommand, type ImageAssetFolder, type ImageAssetReference, type InputNumberDslCommand, type JumpToLabelDslCommand, type LabelDslCommand, type LocationInfoType, type LoopDslCommand, type MapDestination, type MapEventDefinition, type MapPageTrigger, type MovePictureDslCommand, type MoveRouteCommand, type MovementRoute, type MovieAssetReference, type NameInputProcessingDslCommand, type NumericRange, type OpenMenuScreenDslCommand, type OpenSaveScreenDslCommand, type OperateValueInput, type OperateValueOperand, type PageConditions, type PageImage, type PageOptions, type PictureDisplayInput, type PictureOrigin, type PicturePosition, type PlayBgmDslCommand, type PlayBgsDslCommand, type PlayMeDslCommand, type PlayMovieDslCommand, type PlaySeDslCommand, type PluginDslCommand, type RandomOperand, type RawDslCommand, type RecoverAllDslCommand, type ReferenceKind, type ReferenceRange, type ReferenceValue, type ResumeBgmDslCommand, type ReturnToTitleScreenDslCommand, type RotatePictureDslCommand, RuntimeBaseline, type RuntimeSelector, type SaveBgmDslCommand, type ScriptDslCommand, type ScriptInput, type ScriptOperand, type ScrollMapDslCommand, type SelectItemDslCommand, type SetEventLocationDslCommand, type SetMovementRouteDslCommand, type SetVehicleLocationDslCommand, type SetWeatherEffectDslCommand, type ShakeScreenDslCommand, type ShopGoods, type ShopProcessingDslCommand, type ShowAnimationDslCommand, type ShowBalloonIconDslCommand, type ShowBattleAnimationDslCommand, type ShowChoicesDslCommand, type ShowPictureDslCommand, type ShowScrollingTextDslCommand, type ShowTextDslCommand, type StopSeDslCommand, type SwitchDefinition, type TintPictureDslCommand, type TintScreenDslCommand, type ToneInput, type TransferPlayerDslCommand, type TroopEventDefinition, type VariableDefinition, type VariableEventLocationDestination, type VariableMapDestination, type VariableOperand, type VariablePosition, type VehicleTarget, type WaitDslCommand, type WeatherEffectType, abortBattle, actorRef, animationRef, armorRef, audioAsset, battlePage, battleProcessing, breakLoop, callCommonEvent, changeActorImages, changeArmors, changeBattleBack, changeBattleBgm, changeClass, changeDefeatMe, changeEncounterDisable, changeEnemyHp, changeEnemyMp, changeEnemyState, changeEnemyTp, changeEquipment, changeExp, changeFormationAccess, changeGold, changeHp, changeItems, changeLevel, changeMapNameDisplay, changeMenuAccess, changeMp, changeName, changeNickname, changeParallax, changeParameter, changePartyMember, changePlayerFollowers, changeProfile, changeSaveAccess, changeSkill, changeState, changeTileset, changeTp, changeTransparency, changeVehicleBgm, changeVehicleImage, changeVictoryMe, changeWeapons, changeWindowColor, classRef, collectDslOwnedDeclarations, comment, commonEvent, commonEventRef, conditional, controlSelfSwitch, controlSwitches, controlTimer, controlVariables, enemyAppear, enemyRecoverAll, enemyRef, enemyTransform, eraseEvent, erasePicture, exitEventProcessing, fadeinScreen, fadeoutBgm, fadeoutBgs, fadeoutScreen, flashScreen, forceAction, gameOver, gatherFollowers, getLocationInfo, getOnOffVehicle, imageAsset, inputNumber, isAssetReference, isDslOwnedDeclaration, isProjectDataReference, isRuntimeSelector, isScriptInput, itemRef, jumpToLabel, label, loop, mapEvent, mapRef, movePicture, movieAsset, nameInputProcessing, openMenuScreen, openSaveScreen, page, playBgm, playBgs, playMe, playMovie, playSe, pluginCommand, rawDslCommand, recoverAll, resumeBgm, returnToTitleScreen, rotatePicture, runtimeBaseline, saveBgm, script, scriptInput, scrollMap, selectItem, setEventLocation, setMovementRoute, setVehicleLocation, setWeatherEffect, shakeScreen, shopProcessing, showAnimation, showBalloonIcon, showBattleAnimation, showChoices, showPicture, showScrollingText, showText, skillRef, stateRef, stopSe, switchDefinition, switchRef, tilesetRef, tintPicture, tintScreen, transferPlayer, troopEvent, troopRef, variableDefinition, variableRef, wait, weaponRef };
+//# sourceMappingURL=index.d.mts.map

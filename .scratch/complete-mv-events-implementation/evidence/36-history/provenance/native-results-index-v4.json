@@ -1,0 +1,61 @@
+{
+  "purpose": "Ticket36 exact physical delivery results",
+  "at": "2026-10-19T19:03:31.117Z",
+  "pointer": {
+    "manifest": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\manifest.json",
+    "sha256": "658dc83c6de9e6df6c79dea6d0907419221b101eca132b39c9f25cc29062b947",
+    "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254"
+  },
+  "results": [
+    {
+      "case": "map",
+      "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-map-physical-delivery-v4-native-71eacccd-4ee0-4bac-86ed-b261398122da",
+      "passed": true
+    },
+    {
+      "case": "battle-overworld-both",
+      "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-both-physical-delivery-v4-native-54d8a5a4-11d3-4464-a4ce-d0e19f89f5cc",
+      "passed": true
+    },
+    {
+      "case": "battle-overworld-only1",
+      "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-only1-physical-delivery-v4-native-b561b261-80fb-4ecb-96eb-cc4e158534cc",
+      "passed": true
+    },
+    {
+      "case": "battle-overworld-only2",
+      "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-only2-physical-delivery-v4-native-a9afda03-ed78-405e-8df1-3b63d399bad7",
+      "passed": true
+    },
+    {
+      "case": "battle-overworld-none",
+      "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-none-physical-delivery-v4-native-ac8ea888-3411-43f1-9208-7fdc21443e66",
+      "passed": true
+    },
+    {
+      "case": "battle-ordinary-both",
+      "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-both-physical-delivery-v4-native-069385b9-327d-41af-8bb3-36365fff59f3",
+      "passed": true
+    },
+    {
+      "case": "battle-ordinary-only1",
+      "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-only1-physical-delivery-v4-native-db481685-441f-4844-8932-16d7b2c5d082",
+      "passed": true
+    },
+    {
+      "case": "battle-ordinary-only2",
+      "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-only2-physical-delivery-v4-native-5d53a19f-7d2f-40b7-813f-8f2ba814bb2d",
+      "passed": true
+    },
+    {
+      "case": "battle-ordinary-none",
+      "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-none-physical-delivery-v4-native-0ff6fc7d-458d-495f-8be5-8a96f2ba3083",
+      "passed": true
+    },
+    {
+      "case": "missing-tileset",
+      "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-missing-tileset-physical-delivery-v4-native-cdc47d24-b531-4c7a-8c56-e3df86ebb451",
+      "passed": true
+    }
+  ]
+}

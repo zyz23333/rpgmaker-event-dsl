@@ -1,0 +1,244 @@
+{
+  "at": "2026-10-19T22:23:48.928Z",
+  "purpose": "Prepare-only pointer summary for root independent read-only release audit; explicitly no game pass or root release claimed",
+  "pointer": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-physical-inputs-v1-pointer.json",
+    "sha256": "6dfde71c2e61f2b866859b9158375a0c8beb2d476f3fd8531dea7024fca914fc"
+  },
+  "manifest": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-physical-inputs-v1-a57d9d5d-2d29-4dc6-9fc2-3ca4451d6fe8\\manifest.json",
+    "sha256": "617c8bb17f07e058bd8b082010e0512413439dbda22d833b3e43f83a6f5785fd"
+  },
+  "index": {
+    "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket27-final/choices-physical-v1-prepare-index-ecc03ff1-d9bf-4cc2-b0e8-806b2dc67c2e.json",
+    "sha256": "d61527a521eebddafc6f12619d465573259654e051e94cb95300c0ea0a3aecea"
+  },
+  "build": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\built-inputs-v1\\manifest.json",
+    "sha256": "09f22289e1086dc9abecaaa01b8b6fd30f55cf79cf7b5738d28ef367ff2cc5c7",
+    "groups": {
+      "source": {
+        "count": 100,
+        "fingerprint": "567135a047c0a242fd9bfb6dce085f36ff326f3cee95dc47ace4fbb7c84bb245"
+      },
+      "tests": {
+        "count": 64,
+        "fingerprint": "d4280cda4862aa40d5b22243ab5bfccfea1a882886cf3a7e99e7e243b4d4d4f9"
+      },
+      "dist": {
+        "count": 15,
+        "fingerprint": "9799d19c80499725762a3dac89e88184cde51b69edc6e0d90d58025d38974fe8"
+      },
+      "all": {
+        "count": 193,
+        "fingerprint": "c7b16a16ace681cb2bbbd61d92039b19cea1fd3392c9b4723bc8ef6b1dbd682a"
+      }
+    }
+  },
+  "tools": [
+    {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-physical-delivery-v1.cjs",
+      "sha256": "841f14c60fe9c746053a338c3bd8520a1d46200656e494dbda926c0ca6752a09"
+    },
+    {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-json-v1.cjs",
+      "sha256": "f56dbcd4e0896e0ae91fa7b44fe53338aaae7db30f80be5c2a4fd7026ce8bc13"
+    },
+    {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\mv33-physical-isolation-v1.cjs",
+      "sha256": "22719922029ef212ff34058fead532a3523d96fcb3d649e51bc081dc9b43d786"
+    },
+    {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-independent-cases-v1.cjs",
+      "sha256": "0a10cbc94608cf2be0672815ec59654d0336f14621e523435bb169c0919f4737"
+    },
+    {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-native-pair-adapter-v1.cjs",
+      "sha256": "0daef3e6640af9e962a5d953aca7b2c2d8d195f2297c085c7925ecda61d15647"
+    },
+    {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-scenario-export-v1.cjs",
+      "sha256": "5a51c9e62d8c4b0c24a83b6ffc619771f318a25b294337e66bd293620111563c"
+    }
+  ],
+  "pairs": [
+    {
+      "id": "default-second",
+      "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-default-second-physical-v1-prepare-63a67e10-e1ae-467d-8dc8-e4ba55ded113",
+      "report": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-default-second-physical-v1-prepare-63a67e10-e1ae-467d-8dc8-e4ba55ded113\\preparation-result.json",
+        "sha256": "1d6d7da60ce4d64d54deb1aee2516f86b1a8ecf54b9ed225f041d92084f32d0d"
+      },
+      "dataCheckpoints": 71,
+      "fullProtectedCheckpoints": 6,
+      "generated": {
+        "passed": true,
+        "files": [
+          "CommonEvents.json",
+          "Map001.json",
+          "System.json",
+          "Troops.json"
+        ]
+      },
+      "completeCarriers": 15,
+      "checkStateUnchanged": true,
+      "realPush": true
+    },
+    {
+      "id": "one-choice-cancel-selects-first",
+      "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-one-choice-cancel-selects-first-physical-v1-prepare-4258b627-646e-4d4b-8c30-76b01da7506d",
+      "report": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-one-choice-cancel-selects-first-physical-v1-prepare-4258b627-646e-4d4b-8c30-76b01da7506d\\preparation-result.json",
+        "sha256": "46f7308fe9d887ecab4973d26588f345f48ae56e00823c995d661667a3f5670f"
+      },
+      "dataCheckpoints": 71,
+      "fullProtectedCheckpoints": 6,
+      "generated": {
+        "passed": true,
+        "files": [
+          "CommonEvents.json",
+          "Map001.json",
+          "System.json",
+          "Troops.json"
+        ]
+      },
+      "completeCarriers": 15,
+      "checkStateUnchanged": true,
+      "realPush": true
+    },
+    {
+      "id": "separate-cancel-body",
+      "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-separate-cancel-body-physical-v1-prepare-cff86e77-307d-445a-aab2-d17a3ed8c1b6",
+      "report": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-separate-cancel-body-physical-v1-prepare-cff86e77-307d-445a-aab2-d17a3ed8c1b6\\preparation-result.json",
+        "sha256": "3bd9e61f6e39ee32a2862e84ec129988fd1f5a2dc7bb0cc50f05b7cc4d4709ba"
+      },
+      "dataCheckpoints": 71,
+      "fullProtectedCheckpoints": 6,
+      "generated": {
+        "passed": true,
+        "files": [
+          "CommonEvents.json",
+          "Map001.json",
+          "System.json",
+          "Troops.json"
+        ]
+      },
+      "completeCarriers": 15,
+      "checkStateUnchanged": true,
+      "realPush": true
+    },
+    {
+      "id": "disabled-cancel-keeps-wait",
+      "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-disabled-cancel-keeps-wait-physical-v1-prepare-a74aff62-aec9-4093-b2fc-647dbe48e3c9",
+      "report": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-disabled-cancel-keeps-wait-physical-v1-prepare-a74aff62-aec9-4093-b2fc-647dbe48e3c9\\preparation-result.json",
+        "sha256": "68e8eb13e0ea708b62ce657e44c99316e653012c8de652982c2a6abccc854118"
+      },
+      "dataCheckpoints": 71,
+      "fullProtectedCheckpoints": 6,
+      "generated": {
+        "passed": true,
+        "files": [
+          "CommonEvents.json",
+          "Map001.json",
+          "System.json",
+          "Troops.json"
+        ]
+      },
+      "completeCarriers": 15,
+      "checkStateUnchanged": true,
+      "realPush": true
+    },
+    {
+      "id": "saved-cancel-five-without-403",
+      "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-saved-cancel-five-without-403-physical-v1-prepare-72fcd41f-1f59-4df1-931a-84f9c0817c19",
+      "report": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-saved-cancel-five-without-403-physical-v1-prepare-72fcd41f-1f59-4df1-931a-84f9c0817c19\\preparation-result.json",
+        "sha256": "1939218fb527203099657383bf79ef1b4127210e46c97235ea5212933911bb4d"
+      },
+      "dataCheckpoints": 71,
+      "fullProtectedCheckpoints": 6,
+      "generated": {
+        "passed": true,
+        "files": [
+          "CommonEvents.json",
+          "Map001.json",
+          "System.json",
+          "Troops.json"
+        ]
+      },
+      "completeCarriers": 15,
+      "checkStateUnchanged": true,
+      "realPush": true
+    },
+    {
+      "id": "saved-default-five-needs-navigation",
+      "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-saved-default-five-needs-navigation-physical-v1-prepare-31ef44a3-65e9-478c-bdb3-acfea6c8e0a3",
+      "report": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-saved-default-five-needs-navigation-physical-v1-prepare-31ef44a3-65e9-478c-bdb3-acfea6c8e0a3\\preparation-result.json",
+        "sha256": "9a5d6a48ab0aa08a738c378004924c65ca0405f0ec6936712815daaa53be84c4"
+      },
+      "dataCheckpoints": 71,
+      "fullProtectedCheckpoints": 6,
+      "generated": {
+        "passed": true,
+        "files": [
+          "CommonEvents.json",
+          "Map001.json",
+          "System.json",
+          "Troops.json"
+        ]
+      },
+      "completeCarriers": 15,
+      "checkStateUnchanged": true,
+      "realPush": true
+    },
+    {
+      "id": "no-default-down-selects-first",
+      "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-no-default-down-selects-first-physical-v1-prepare-5b2cec57-42ab-4536-9486-b52401ffd584",
+      "report": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-no-default-down-selects-first-physical-v1-prepare-5b2cec57-42ab-4536-9486-b52401ffd584\\preparation-result.json",
+        "sha256": "fb8b8b2afd37d0a273ad990d7ab8130a7c8461333f7548dd6289c783e6e5c69a"
+      },
+      "dataCheckpoints": 71,
+      "fullProtectedCheckpoints": 6,
+      "generated": {
+        "passed": true,
+        "files": [
+          "CommonEvents.json",
+          "Map001.json",
+          "System.json",
+          "Troops.json"
+        ]
+      },
+      "completeCarriers": 15,
+      "checkStateUnchanged": true,
+      "realPush": true
+    },
+    {
+      "id": "numeric-saved-both-negative-zero",
+      "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-numeric-saved-both-negative-zero-physical-v1-prepare-784a3869-8104-444d-b898-cfc5db34efb9",
+      "report": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-numeric-saved-both-negative-zero-physical-v1-prepare-784a3869-8104-444d-b898-cfc5db34efb9\\preparation-result.json",
+        "sha256": "595098a7170e33f8200b1825a1d308b5fc9a44613e2267587e6835e9441e2bf0"
+      },
+      "dataCheckpoints": 71,
+      "fullProtectedCheckpoints": 6,
+      "generated": {
+        "passed": true,
+        "files": [
+          "CommonEvents.json",
+          "Map001.json",
+          "System.json",
+          "Troops.json"
+        ]
+      },
+      "completeCarriers": 15,
+      "checkStateUnchanged": true,
+      "realPush": true
+    }
+  ],
+  "prepared": true,
+  "nativeExecuted": false
+}

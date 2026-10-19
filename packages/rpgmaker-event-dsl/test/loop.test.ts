@@ -68,25 +68,25 @@ it("accepts a handwritten complete event terminator without introducing a second
 });
 
 it.each([
-  { parameters: undefined },
-  { parameters: null },
-  { parameters: "" },
-  { parameters: [], indent: null },
-  { parameters: [], indent: -1 },
-])("rejects malformed known raw envelopes without coercion before Check or Compile", (input) => {
-  const event = commonEvent({
-    id: 1,
-    name: "Bad raw",
-    trigger: "none",
-    commands: [{ kind: "rawDslCommand", code: 113, ...input } as never],
-  });
-  expect(validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues).toContainEqual(
-    expect.objectContaining({
-      code: "MV-COMMAND-ENVELOPE",
-      dslPath: `commands[0].${"indent" in input ? "indent" : "parameters"}`,
-    }),
-  );
-});
+  [{ parameters: undefined }, "parameters"],
+  [{ parameters: null }, "parameters"],
+  [{ parameters: "" }, "parameters"],
+  [{ parameters: [], indent: null }, "indent"],
+  [{ parameters: [], indent: -1 }, "indent"],
+] as const)(
+  "rejects malformed known raw envelopes without coercion before Check or Compile",
+  (input, field) => {
+    const event = commonEvent({
+      id: 1,
+      name: "Bad raw",
+      trigger: "none",
+      commands: [{ kind: "rawDslCommand", code: 113, ...input } as never],
+    });
+    expect(validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues).toContainEqual(
+      expect.objectContaining({ code: "MV-COMMAND-ENVELOPE", dslPath: `commands[0].${field}` }),
+    );
+  },
+);
 
 it("recognizes a nested Loop marker without truncating its containing conditional fragment", () => {
   const list = [

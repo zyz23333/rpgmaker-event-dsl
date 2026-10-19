@@ -1,0 +1,14 @@
+{
+  "phase": "completed",
+  "elapsedMs": 10416.7919,
+  "requirementsMs": 124.65730000000002,
+  "listMs": 33.76830000000001,
+  "readMs": 7812.6318000000065,
+  "jsonMs": 1777.964400000034,
+  "schemaMs": 380.69209999998503,
+  "fingerprintMs": 268.9006999999714,
+  "otherMs": 8.67670000003136,
+  "results": 6429,
+  "characters": 1170007539,
+  "batches": 201
+}

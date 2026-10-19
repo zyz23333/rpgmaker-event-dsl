@@ -1,0 +1,21 @@
+Map event "R1 route-wait autorun" uses occupied coordinate (0, 0) on map 1.
+Map event "Parallel route-wait counter" uses occupied coordinate (0, 0) on map 1.
+Map event "R1 route-wait autorun" uses occupied coordinate (0, 0) on map 1.
+Map event "Parallel route-wait counter" uses occupied coordinate (0, 0) on map 1.
+{
+  "root": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-route-waits-delivery-v4-f2a43840-8e7c-411d-b907-c269a4ad2764",
+  "prepared": true,
+  "nativeExecution": "not-executed; root native gate not released",
+  "isolation": {
+    "passed": true,
+    "referenceSeedLiteralUnchanged": true,
+    "distinctPhysicalDataRoots": true,
+    "allEntriesRegularAndUnlinked": true,
+    "completeDataFiles": {
+      "reference": 15,
+      "seed": 15,
+      "literal": 15,
+      "compiled": 15
+    }
+  }
+}

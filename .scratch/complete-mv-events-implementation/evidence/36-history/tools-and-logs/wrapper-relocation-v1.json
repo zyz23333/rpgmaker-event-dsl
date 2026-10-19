@@ -1,0 +1,83 @@
+{
+  "purpose": "Versioned output relocation only; no prepare, freeze or native executed",
+  "at": "2026-10-19T18:45:13.154Z",
+  "source": {
+    "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv36-physical-delivery-v3.cjs",
+    "sha256": "217e7ede22190926d4fbccc08e183b9e8cf0f73c917dd61c0c95a79f60ce7155"
+  },
+  "target": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-delivery-v4.cjs",
+    "sha256": "5b399ca456e4baab6306226681cc024e64a5dc2d2124bc47b578b80d998efa3f"
+  },
+  "guard": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv33-physical-isolation-v1.cjs",
+    "sha256": "22719922029ef212ff34058fead532a3523d96fcb3d649e51bc081dc9b43d786"
+  },
+  "changes": [
+    {
+      "before": "const base=__dirname,sha=",
+      "after": "const sourceBase='C:/Users/Shuen/.codex/tmp',base=__dirname,sha=",
+      "count": 1
+    },
+    {
+      "before": "mv36-physical-delivery-v3-pointer.json",
+      "after": "mv36-physical-delivery-v4-pointer.json",
+      "count": 1
+    },
+    {
+      "before": "mv36-physical-inputs-v3-",
+      "after": "mv36-physical-inputs-v4-",
+      "count": 1
+    },
+    {
+      "before": "mv36-native-pair-delivery-v2.cjs",
+      "after": "mv36-native-pair-delivery-v3.cjs",
+      "count": 1
+    },
+    {
+      "before": "Ticket36 physical delivery adapter v2.",
+      "after": "Ticket36 physical delivery adapter v3. Same v2 checks; all new writable delivery paths relocated to M drive.",
+      "count": 1
+    },
+    {
+      "before": "path.join(base,file)",
+      "after": "path.join(sourceBase,file)",
+      "count": 1
+    },
+    {
+      "before": "path.join(base,definition.file)",
+      "after": "path.join(sourceBase,definition.file)",
+      "count": 2
+    },
+    {
+      "before": "path.join(base,'mv33-native-pair-delivery-v4.cjs')",
+      "after": "path.join(sourceBase,'mv33-native-pair-delivery-v4.cjs')",
+      "count": 2
+    },
+    {
+      "before": "path.join(base,'mv33-physical-isolation-v1.cjs')",
+      "after": "path.join(sourceBase,'mv33-physical-isolation-v1.cjs')",
+      "count": 1
+    },
+    {
+      "before": "path.join(base,'mv-native-reference-restoration-dc5069b8-0cf6-4c1d-8162-1187fc40a301/result.json')",
+      "after": "path.join(sourceBase,'mv-native-reference-restoration-dc5069b8-0cf6-4c1d-8162-1187fc40a301/result.json')",
+      "count": 1
+    },
+    {
+      "before": "'-physical-delivery-v3-'",
+      "after": "'-physical-delivery-v4-'",
+      "count": 1
+    },
+    {
+      "before": "mv36-physical-delivery-v3-",
+      "after": "mv36-physical-delivery-v4-",
+      "count": 1
+    },
+    {
+      "before": "async function run(args){await verifyTools();",
+      "after": "async function run(args){assert.equal(path.resolve(process.env.TEMP).toLowerCase(),path.resolve(base,'Temp').toLowerCase(),'Tool TEMP must be isolated on M drive');assert.equal(path.resolve(process.env.TMP).toLowerCase(),path.resolve(base,'Temp').toLowerCase(),'Tool TMP must be isolated on M drive');await verifyTools();",
+      "count": 1
+    }
+  ]
+}

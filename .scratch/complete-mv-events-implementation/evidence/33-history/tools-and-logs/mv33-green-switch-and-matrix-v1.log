@@ -1,0 +1,119 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-33/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/movement-instructions.test.ts (331 tests | 45 failed) 169ms
+   × 'M1' rejects malformed native shells, fields and slots through Decompile and recognized raw 7ms
+   × 'M2' rejects malformed native shells, fields and slots through Decompile and recognized raw 2ms
+   × 'M3' rejects malformed native shells, fields and slots through Decompile and recognized raw 2ms
+   × 'M4' rejects malformed native shells, fields and slots through Decompile and recognized raw 2ms
+   × 'M5' rejects malformed native shells, fields and slots through Decompile and recognized raw 2ms
+   × 'M6' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M7' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M8' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M9' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M10' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M11' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M12' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M13' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M14' rejects malformed native shells, fields and slots through Decompile and recognized raw 2ms
+   × 'M15' rejects malformed native shells, fields and slots through Decompile and recognized raw 2ms
+   × 'M16' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M17' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M18' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M19' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M20' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M21' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M22' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M23' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M24' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M25' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M26' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M27' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M28' rejects malformed native shells, fields and slots through Decompile and recognized raw 2ms
+   × 'M29' rejects malformed native shells, fields and slots through Decompile and recognized raw 2ms
+   × 'M30' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M31' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M32' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M33' rejects malformed native shells, fields and slots through Decompile and recognized raw 2ms
+   × 'M34' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M35' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M36' rejects malformed native shells, fields and slots through Decompile and recognized raw 3ms
+   × 'M37' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M38' rejects malformed native shells, fields and slots through Decompile and recognized raw 2ms
+   × 'M39' rejects malformed native shells, fields and slots through Decompile and recognized raw 2ms
+   × 'M40' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M41' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M42' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M43' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M44' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+   × 'M45' rejects malformed native shells, fields and slots through Decompile and recognized raw 1ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 45 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/movement-instructions.test.ts > 'M1' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M2' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M3' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M4' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M5' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M6' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M7' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M8' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M9' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M10' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M11' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M12' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M13' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M14' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M15' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M16' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M17' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M18' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M19' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M20' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M21' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M22' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M23' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M24' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M25' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M26' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M27' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M28' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M29' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M30' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M31' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M32' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M33' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M34' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M35' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M36' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M37' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M38' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M39' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M40' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M41' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M42' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M43' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M44' rejects malformed native shells, fields and slots through Decompile and recognized raw
+ FAIL  test/movement-instructions.test.ts > 'M45' rejects malformed native shells, fields and slots through Decompile and recognized raw
+AssertionError: expected [Function] to throw error matching /MV-MOVEMENT-SHAPE/ but got 'MV-STRICT-JSON: Expected strict repre…'
+
+- Expected:
+/MV-MOVEMENT-SHAPE/
+
++ Received:
+"MV-STRICT-JSON: Expected strict representable JSON; received undefined at list[0].parameters[1].list[0].indent. at list[0].parameters[1].list[0].indent; expected strict representable JSON; actual undefined"
+
+ ❯ test/movement-instructions.test.ts:76:57
+
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/45]⎯
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  45 failed | 347 passed (392)
+   Start at  23:37:39
+   Duration  1.53s (transform 590ms, setup 0ms, import 2.04s, tests 246ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-33\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/movement-instructions.test.ts test/movement-route.test.ts test/events.test.ts test/decompiler.test.ts

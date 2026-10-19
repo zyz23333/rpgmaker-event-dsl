@@ -338,7 +338,6 @@ it("rejects misleading array prototypes and negative zero in the known movement 
 
 it("reports currently unrepresented known saved variants instead of silently dropping their slots", () => {
   for (const list of [
-    [{ code: 124, indent: 0, parameters: [1, 83] }],
     [
       { code: 101, indent: 0, parameters: ["", 3, 0, 2] },
       { code: 401, indent: 0, parameters: [""] },

@@ -1,0 +1,21 @@
+node:fs:736
+  return binding.read(fd, buffer, offset, length, position);
+                 ^
+
+Error: EISDIR: illegal operation on a directory, read
+    at Object.readSync (node:fs:736:18)
+    at tryReadSync (node:fs:416:20)
+    at Object.readFileSync (node:fs:470:19)
+    at copy (M:\Shuen\Codex\mv-events-implementation-20261020\ticket27-final\archive-final-v3.cjs:4:39)
+    at Object.<anonymous> (M:\Shuen\Codex\mv-events-implementation-20261020\ticket27-final\archive-final-v3.cjs:16:236)
+    at Module._compile (node:internal/modules/cjs/loader:1781:14)
+    at Object..js (node:internal/modules/cjs/loader:1913:10)
+    at Module.load (node:internal/modules/cjs/loader:1505:32)
+    at Function._load (node:internal/modules/cjs/loader:1309:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19) {
+  errno: -4068,
+  code: 'EISDIR',
+  syscall: 'read'
+}
+
+Node.js v22.23.0

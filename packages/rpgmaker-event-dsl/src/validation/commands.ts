@@ -25,6 +25,8 @@ import {
   assertConditionalCommand,
   inspectConditionalReferences,
 } from "../commands/flow/conditional-validation.js";
+import { assertShowChoicesInput } from "../commands/message/validation.js";
+import { assertMapAppearanceInput } from "../commands/map/validation.js";
 
 type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
@@ -61,6 +63,14 @@ export function validateNodes(
   }
   for (const [nodeIndex, node] of nodes.entries()) {
     const nodePath = `${options.path ?? "commands"}[${nodeIndex}]`;
+    try {
+      assertMapAppearanceInput(node.kind, node, nodePath, true, resolver);
+    } catch (error) {
+      if (error instanceof CommandStructureError)
+        issues.push(error.issue(options.identity ?? "event", "compile"));
+      else throw error;
+      continue;
+    }
     const childOptions = (field: string): CommandValidationOptions => ({
       ...options,
       path: `${nodePath}.${field}`,
@@ -211,18 +221,22 @@ export function validateNodes(
     if (node.kind === "inputNumber" || node.kind === "selectItem") {
       captureReferenceIssue(() => resolver.resolveReference(node.variable), issues);
     }
-    if (node.kind === "showChoices" && node.branches.length !== node.choices.length) {
-      issues.push({
-        level: "error",
-        message: "Show Choices branches must match the choice count.",
-      });
-    }
     if (node.kind === "showChoices") {
-      for (const [branchIndex, branch] of node.branches.entries()) {
-        validateNodes(branch, resolver, childOptions(`branches[${branchIndex}]`), issues);
+      try {
+        assertShowChoicesInput(node, nodePath);
+      } catch {
+        continue;
       }
-      if (node.cancelBranch) {
-        validateNodes(node.cancelBranch, resolver, childOptions("cancelBranch"), issues);
+      for (const [branchIndex, branch] of node.choices.entries()) {
+        validateNodes(
+          branch.commands,
+          resolver,
+          childOptions(`choices[${branchIndex}].commands`),
+          issues,
+        );
+      }
+      if (node.cancel?.kind === "branch") {
+        validateNodes(node.cancel.commands, resolver, childOptions("cancel.commands"), issues);
       }
     }
     if (node.kind === "commonEvent") {

@@ -1,0 +1,25 @@
+{
+  "purpose": "Exact outside-origin copies staged for append-only current Map24 delivery; no first-party carrier or runtime bytes",
+  "copies": [
+    {
+      "source": "M:/Shuen/Codex/mv-events-implementation-20261020/map24-merger/map24-independent-native-audit-1ff2e28e-b540-407d-9e43-868d81e84dea.json",
+      "staged": "M:/Shuen/Codex/mv-events-implementation-20261020/map24-final/map24-independent-native-audit-1ff2e28e-b540-407d-9e43-868d81e84dea.json",
+      "sha256": "22a6458a04f7305cadca1de2e1b313571d00051d47facbe9e5993e78e95cdc32"
+    },
+    {
+      "source": "M:/Shuen/Codex/mv-events-implementation-20261020/map24-merger/native-audit-v1.cjs",
+      "staged": "M:/Shuen/Codex/mv-events-implementation-20261020/map24-final/native-audit-v1.cjs",
+      "sha256": "1ceaf02e1e0f533f9ea44ba40d04dbf212575c5fab4cba2cb0a1da1965ddaa1c"
+    },
+    {
+      "source": "M:/Shuen/Codex/mv-events-implementation-20261020/root-audits/map24-root-physical-release-audit-4014fab2-dfb8-4581-97de-316964f7e478.json",
+      "staged": "M:/Shuen/Codex/mv-events-implementation-20261020/map24-final/map24-root-physical-release-audit-4014fab2-dfb8-4581-97de-316964f7e478.json",
+      "sha256": "86f3f8a156a90053be3710d6330d5fc3cdbdcaf3def4389af87df4f378942bd6"
+    },
+    {
+      "source": "M:/Shuen/Codex/mv-events-implementation-20261020/root-audits/map24-input-v1-v2-comparison-e414dfdf-2c51-4e29-9206-62efcf303073.json",
+      "staged": "M:/Shuen/Codex/mv-events-implementation-20261020/map24-final/map24-input-v1-v2-comparison-e414dfdf-2c51-4e29-9206-62efcf303073.json",
+      "sha256": "e01699d70950589e654c70317db433c55f7d48873fe0fb64cd80c4ad0a1506d7"
+    }
+  ]
+}

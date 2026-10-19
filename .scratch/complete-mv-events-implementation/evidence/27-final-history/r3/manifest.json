@@ -1,0 +1,89 @@
+{
+  "purpose": "Exact native safe projections; raw external reports remain immutable",
+  "index": {
+    "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket27-final/choices-physical-v1-native-index-e9e43f74-a0b1-43b6-bce2-1b1c0adb2ad8.json",
+    "sha256": "0a002ff3de31e8056932576fb41a82f423a5475089ac7feb8b483df2e059e643"
+  },
+  "results": [
+    {
+      "case": "default-second",
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\safe-native-summaries-v1\\default-second-safe-summary.json",
+      "sha256": "fb83b306cd270f989cea6409d95ea2225fdeb35aae46f8855eaea7206b2f3ddf",
+      "raw": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-default-second-physical-v1-native-82c4bf7c-fb97-4a21-b723-8f149ce0837b\\pair-result.json",
+        "sha256": "324355ce16a1ce56c3004a78b890482c8f3504076aa0fe3e0264c757c863d23a",
+        "bytes": 11921247
+      }
+    },
+    {
+      "case": "one-choice-cancel-selects-first",
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\safe-native-summaries-v1\\one-choice-cancel-selects-first-safe-summary.json",
+      "sha256": "84c166a5e3257f60f742106a5a08f323c8ca5861aae1633f90434e8beb03e04b",
+      "raw": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-one-choice-cancel-selects-first-physical-v1-native-2295e258-16ff-4d63-bd75-ff993907ab8a\\pair-result.json",
+        "sha256": "f682a875974fc444f5e56bc7ccd1725f52785eec663f3a369af7e3488e095c76",
+        "bytes": 11925087
+      }
+    },
+    {
+      "case": "separate-cancel-body",
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\safe-native-summaries-v1\\separate-cancel-body-safe-summary.json",
+      "sha256": "5fde21a2025aa9ae169ced170bed8f92fe2e01d14cea1821025af562078f310b",
+      "raw": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-separate-cancel-body-physical-v1-native-5f331fa8-3360-4936-86c5-70729873b707\\pair-result.json",
+        "sha256": "0810a9f639e6f74bd971dee11c1cb392e14f30e4d6d0f7003f3787aeb3e93c27",
+        "bytes": 11923542
+      }
+    },
+    {
+      "case": "disabled-cancel-keeps-wait",
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\safe-native-summaries-v1\\disabled-cancel-keeps-wait-safe-summary.json",
+      "sha256": "51aecd739c6eb855fe897093b5cfe4e38b0b9994ef25ba16817b3747b4e77239",
+      "raw": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-disabled-cancel-keeps-wait-physical-v1-native-3c053881-8984-490a-8ffc-eb488fe87395\\pair-result.json",
+        "sha256": "a805543e7eb3b3d878a8aa9a8044dfd47b4f9a9117eac924ec3ce21b56140db4",
+        "bytes": 11924981
+      }
+    },
+    {
+      "case": "saved-cancel-five-without-403",
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\safe-native-summaries-v1\\saved-cancel-five-without-403-safe-summary.json",
+      "sha256": "1c8c789653a6cc9bce8272cb75e3a09a62375258ae78ffb5266213336873c8c1",
+      "raw": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-saved-cancel-five-without-403-physical-v1-native-4f0ee9e5-a30d-4e4b-b768-513ebf802b06\\pair-result.json",
+        "sha256": "9cdc20a73e8d532b97d1cef3dd2f186616bf25845053d0a499229dce00ba4815",
+        "bytes": 11925260
+      }
+    },
+    {
+      "case": "saved-default-five-needs-navigation",
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\safe-native-summaries-v1\\saved-default-five-needs-navigation-safe-summary.json",
+      "sha256": "d7cf7689902149d9d07c85ab8073f0dd64bfe4ccf9f3a267514537fdf2bb213c",
+      "raw": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-saved-default-five-needs-navigation-physical-v1-native-ac6960b6-3fd6-433e-a847-13579e03f500\\pair-result.json",
+        "sha256": "a76891f03ccc01d31a81e5d7a2cd60745769aee13c619657b6c930bf442673f9",
+        "bytes": 11927586
+      }
+    },
+    {
+      "case": "no-default-down-selects-first",
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\safe-native-summaries-v1\\no-default-down-selects-first-safe-summary.json",
+      "sha256": "d917159dcd6e6c0b3697462a6b1a522cc6250710fc387ee1f4ef9a89351bbeec",
+      "raw": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-no-default-down-selects-first-physical-v1-native-454b83d1-4fa1-44d9-b476-97be43e52404\\pair-result.json",
+        "sha256": "b7de0001fac780013774ee8f0479a27920273ca1bba1bd2e6bbad555a6e90550",
+        "bytes": 11925504
+      }
+    },
+    {
+      "case": "numeric-saved-both-negative-zero",
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\safe-native-summaries-v1\\numeric-saved-both-negative-zero-safe-summary.json",
+      "sha256": "75cd30fab2382d44e19d07058d12a4fbfe229ed05d985c1b95d309bfc46ae638",
+      "raw": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-numeric-saved-both-negative-zero-physical-v1-native-f362c699-8a10-4825-a4cf-83858f71d8f8\\pair-result.json",
+        "sha256": "f8187d8f1e3c246c409d44d2c55c72134a4e0d7c65c1bac98e101783be355961",
+        "bytes": 11925381
+      }
+    }
+  ]
+}

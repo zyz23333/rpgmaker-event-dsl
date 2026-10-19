@@ -1,0 +1,30 @@
+decompile warning map:1/event:1: MV-MOVEMENT-TEXT-RISK at pages[0].list[17].parameters[1].list[33].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+decompile warning map:1/event:1: MV-MOVEMENT-TEXT-RISK at pages[0].list[51].parameters[0].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+decompile warning map:1/event:3: MV-MOVEMENT-TEXT-RISK at pages[0].moveRoute.list[5].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+Map event "R1 route-wait autorun" uses occupied coordinate (0, 0) on map 1.
+Map event "Parallel route-wait counter" uses occupied coordinate (0, 0) on map 1.
+compile warning map:1/event:1: MV-MOVEMENT-TEXT-RISK at pages[0].list[17].parameters[1].list[33].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+compile warning map:1/event:1: MV-MOVEMENT-TEXT-RISK at pages[0].list[51].parameters[0].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+compile warning map:1/event:3: MV-MOVEMENT-TEXT-RISK at pages[0].moveRoute.list[5].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+Map event "R1 route-wait autorun" uses occupied coordinate (0, 0) on map 1.
+Map event "Parallel route-wait counter" uses occupied coordinate (0, 0) on map 1.
+compile warning map:1/event:1: MV-MOVEMENT-TEXT-RISK at pages[0].list[17].parameters[1].list[33].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+compile warning map:1/event:1: MV-MOVEMENT-TEXT-RISK at pages[0].list[51].parameters[0].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+compile warning map:1/event:3: MV-MOVEMENT-TEXT-RISK at pages[0].moveRoute.list[5].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+{
+  "root": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v5-ea3e1ced-fa1d-4845-b94a-74b6155b1990",
+  "prepared": true,
+  "nativeExecution": "not-executed; root native gate not released",
+  "isolation": {
+    "passed": true,
+    "referenceSeedLiteralUnchanged": true,
+    "distinctPhysicalDataRoots": true,
+    "allEntriesRegularAndUnlinked": true,
+    "completeDataFiles": {
+      "reference": 15,
+      "seed": 15,
+      "literal": 15,
+      "compiled": 15
+    }
+  }
+}

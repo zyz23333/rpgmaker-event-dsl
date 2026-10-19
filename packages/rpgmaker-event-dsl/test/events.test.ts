@@ -190,10 +190,15 @@ describe("compileMapEvent", () => {
                 positionType: 0,
               }),
               showChoices({
-                choices: ["Yes", "No"],
-                branches: [[wait(10)], [eraseEvent()]],
-                cancelType: 1,
-                cancelBranch: [showText({ lines: ["Canceled"] })],
+                choices: [
+                  { text: "Yes", commands: [wait(10)], endMarker: "absent" },
+                  { text: "No", commands: [eraseEvent()], endMarker: "absent" },
+                ],
+                cancel: {
+                  kind: "branch",
+                  commands: [showText({ lines: ["Canceled"] })],
+                  endMarker: "absent",
+                },
               }),
               inputNumber({ variable: variableRef({ name: "Count" }), digits: 3 }),
               selectItem({ variable: variableRef({ name: "Count" }), itemType: 1 }),
@@ -321,7 +326,7 @@ describe("compileMapEvent", () => {
                     { kind: "moveForward" },
                     { kind: "moveBackward" },
                     { kind: "jump", x: 2, y: -1 },
-                    { kind: "routeWait", frames: 15 },
+                    { kind: "wait", frames: 15 },
                     { kind: "turnDown" },
                     { kind: "turnLeft" },
                     { kind: "turnRight" },
@@ -349,14 +354,19 @@ describe("compileMapEvent", () => {
                     { kind: "transparent", enabled: false },
                     {
                       kind: "changeImage",
-                      image: imageAsset({ folder: "characters", name: "Actor1" }),
-                      index: 3,
+                      character: imageAsset({ folder: "characters", name: "Actor1" }),
+                      characterIndex: 3,
                     },
                     { kind: "changeOpacity", opacity: 128 },
-                    { kind: "changeBlendMode", blendMode: 1 },
+                    { kind: "changeBlendMode", blendMode: "additive" },
                     {
                       kind: "playSe",
-                      audio: { asset: audioAsset({ folder: "se", name: "Cursor1" }), volume: 80 },
+                      audio: {
+                        asset: audioAsset({ folder: "se", name: "Cursor1" }),
+                        volume: 80,
+                        pitch: 100,
+                        pan: 0,
+                      },
                     },
                     { kind: "script", script: scriptInput({ code: "this.moveForward();" }) },
                   ],
@@ -389,7 +399,7 @@ describe("compileMapEvent", () => {
     expect(commands[5]).toEqual({ code: 230, indent: 1, parameters: [10] });
     expect(commands[6]).toEqual({ code: 402, indent: 0, parameters: [1, "No"] });
     expect(commands[7]).toEqual({ code: 214, indent: 1, parameters: [] });
-    expect(commands[8]).toEqual({ code: 403, indent: 0, parameters: [] });
+    expect(commands[8]).toEqual({ code: 403, indent: 0, parameters: [6, null] });
     expect(commands[9]).toEqual({ code: 101, indent: 1, parameters: ["", 0, 0, 2] });
     expect(commands[10]).toEqual({ code: 401, indent: 1, parameters: ["Canceled"] });
     expect(commands[11]).toEqual({ code: 103, indent: 0, parameters: [1, 3] });
@@ -408,7 +418,7 @@ describe("compileMapEvent", () => {
       parameters: [1, 1, 0, 4, "$gameParty.gold()"],
     });
     expect(commands[22]).toEqual({ code: 124, indent: 0, parameters: [0, 45] });
-    expect(commands[23]).toEqual({ code: 124, indent: 0, parameters: [1, 0] });
+    expect(commands[23]).toEqual({ code: 124, indent: 0, parameters: [1] });
     expect(commands[24]).toEqual({ code: 125, indent: 0, parameters: [1, 1, 1] });
     expect(commands[25]).toEqual({ code: 126, indent: 0, parameters: [1, 1, 0, 1] });
     expect(commands[26]).toEqual({ code: 127, indent: 0, parameters: [1, 0, 1, 1, true] });

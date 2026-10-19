@@ -1,0 +1,39 @@
+{
+  "at": "2026-10-19T21:01:57.317Z",
+  "gates": {
+    "fullcheck": "fullcheck-v2 exit0:42files/1069tests",
+    "build": "build-v1 exit0:15freshdistfiles",
+    "built": "built-windows-v1 exit0:18files/455tests",
+    "E4": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-E4-COMPARE-2026-10-19T20-56-39-049Z-527878eb-359c-496b-81b6-032b30c0ba77.json",
+    "index": "final-index-v1 exit0:1pass/2filtered;4.11s test at original10s limit",
+    "byteAuditPassed": true
+  },
+  "mutations": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-timer-saved-slot-roundtrip.md",
+      "beforeSha256": "c95d934f55503052628a42116ab0de9a9a15ae7c9b82af4ebb356f28607c3116",
+      "afterSha256": "3e24689c3938096508e8d6d546e1db14574ea593440871d40bfc2506bbffc5cc",
+      "originalPrefixExact": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/README.md",
+      "beforeSha256": "21f57abaf749944a4a0e25289cabcf1766c2ab0f48a9b33c49db05f1ed91abab",
+      "afterSha256": "50206cb40b4020a2310f1de2435db910a2e821dd2415c5aa40e9660ffbd8a4f5",
+      "originalPrefixExact": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-final-history/README.md",
+      "beforeSha256": "452b37ed903feeb2b274c5ae14f0764f1685263d5d09348f805a469daba8de4b",
+      "afterSha256": "1df6b5c2527256ce055236c682e44d78b0c484b7915870a74d9cb4b5d2055406",
+      "originalPrefixExact": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/issues/26-timer-saved-slot-roundtrip.md",
+      "beforeSha256": "ce3f849bbc1a43d6e9f573bfabda4a2126dedd7c7cb03c6c655ae85f5aa2c8db",
+      "afterSha256": "a47f1f0413b7386fa35dd336d4244555005fa177015117b8d8ed8896d6ed1ab7",
+      "acceptanceChecked": 9,
+      "status": "resolved",
+      "oldCommentsRetained": true
+    }
+  ]
+}

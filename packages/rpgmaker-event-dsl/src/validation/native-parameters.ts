@@ -1,7 +1,11 @@
 import { CommandStructureError } from "./command-errors.js";
 import { renderJsonValue } from "../project-data/json-values.js";
-import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
 import { assertNativeConditionalParameters } from "../commands/flow/conditional-validation.js";
+import {
+  assertNativeSwitchCommand,
+  assertNativeTimerParameters,
+} from "../commands/variables/validation.js";
+import { assertNativeMapAppearanceParameters } from "../commands/map/native-validation.js";
 
 // Shared saved-slot envelopes. Family validators retain ownership of semantic ranges,
 // references and mode-specific saved values; this table is not full family acceptance.
@@ -114,7 +118,7 @@ const signatures: Record<number, string> = {
   356: "s",
   401: "s",
   402: "ns",
-  403: "",
+  403: "nx",
   404: "",
   405: "s",
   408: "s",
@@ -144,6 +148,11 @@ export function assertNativeCommandParameters(
     assertNativeConditionalParameters(parameters, path);
     return;
   }
+  if (code === 124) {
+    assertNativeTimerParameters(parameters, path);
+    return;
+  }
+  assertNativeMapAppearanceParameters(code, parameters, path);
   try {
     assertNativeSwitchCommand(code, parameters);
   } catch (error) {
@@ -164,7 +173,6 @@ export function assertNativeCommandParameters(
       ({ 0: "nnnnn", 1: "nnnnn", 2: "nnnnnn", 3: "nnnnnnn", 4: "nnnns" } as Record<number, string>)[
         parameters[3] as number
       ] ?? "?";
-  if (code === 124) signature = parameters[0] === 1 && parameters.length === 1 ? "n" : "nn";
   const matches = (value: unknown, kind: string) =>
     kind === "x" ||
     (kind === "n"
@@ -223,8 +231,20 @@ export function assertNativeCommandParameters(
     slot(
       0,
       (parameters[0] as unknown[]).every((value) => typeof value === "string") &&
-        (parameters[0] as unknown[]).length > 0,
-      "nonempty string choices",
+        (parameters[0] as unknown[]).length > 0 &&
+        (parameters[0] as unknown[]).length <= 6,
+      "1..6 string choices",
+    );
+    // These explicit numeric saved indices retain -0; symbolic selectors below cannot.
+    slot(
+      1,
+      [-2, -1, 0, 1, 2, 3, 4, 5].includes(parameters[1] as number),
+      "cancel mode -2, -1 or numeric choice index 0..5",
+    );
+    slot(
+      2,
+      [-1, 0, 1, 2, 3, 4, 5].includes(parameters[2] as number),
+      "default none -1 or numeric choice index 0..5",
     );
     oneOf(3, [0, 1, 2]);
     oneOf(4, [0, 1, 2]);
@@ -233,8 +253,11 @@ export function assertNativeCommandParameters(
     oneOf(2, [0, 1, 2, 3, 4, 5]);
     if (parameters[3] === 3) oneOf(4, [0, 1, 2, 3, 4, 5, 6, 7]);
   }
-  if (code === 124) oneOf(0, [0, 1]);
   if (code === 402) integer(0, 0);
+  if (code === 403) {
+    oneOf(0, [6]);
+    oneOf(1, [null]);
+  }
   if (code === 232) oneOf(1, [0]);
   if (code === 302 || code === 605) {
     oneOf(0, [0, 1, 2]);

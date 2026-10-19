@@ -1,0 +1,771 @@
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-map-physical-delivery-v4-native-71eacccd-4ee0-4bac-86ed-b261398122da",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-map-physical-delivery-v4-native-71eacccd-4ee0-4bac-86ed-b261398122da\\compiled\\Workspace",
+    "files": {
+      "CommonEvents.json": {
+        "beforePushSha256": "dbe3ddbbc168d860b7d1dc58437761114f2eeceeb253bb6a974558b38d8abf55",
+        "generatedSha256": "0aaab272347d09efb4b0d7ae702b0caf68932f38401cf611474d337c2f209164",
+        "afterPushSha256": "0aaab272347d09efb4b0d7ae702b0caf68932f38401cf611474d337c2f209164",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "savedStates": true,
+        "tilesetSpritesMatch": true,
+        "fixedParallaxDoesNotScroll": true,
+        "enabledParallaxScrolls": true,
+        "noneKeepsIndependentValues": true,
+        "loadedParallaxBitmapReady": true,
+        "allFourCaptures": true,
+        "finished": true
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "savedStates": true,
+        "tilesetSpritesMatch": true,
+        "fixedParallaxDoesNotScroll": true,
+        "enabledParallaxScrolls": true,
+        "noneKeepsIndependentValues": true,
+        "loadedParallaxBitmapReady": true,
+        "allFourCaptures": true,
+        "finished": true
+      },
+      "error": null
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-both-physical-delivery-v4-native-54d8a5a4-11d3-4464-a4ce-d0e19f89f5cc",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-both-physical-delivery-v4-native-54d8a5a4-11d3-4464-a4ce-d0e19f89f5cc\\compiled\\Workspace",
+    "files": {
+      "CommonEvents.json": {
+        "beforePushSha256": "2913218fa73b308d25ecafc70b8c0170e1a45d17fd20c6fa9c4f3f0a32a8acd0",
+        "generatedSha256": "2197e6d304764cbac5841f38285f9b8a11cdb446dd65227b36f3bcc3b85aa9d6",
+        "afterPushSha256": "2197e6d304764cbac5841f38285f9b8a11cdb446dd65227b36f3bcc3b85aa9d6",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "realBattleScene": true,
+        "backgroundNamesExact": true,
+        "back1BitmapMatchesNone": true,
+        "back2BitmapMatchesNone": true,
+        "troop1": true,
+        "unmodifiedSavedCommandInput": true
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "realBattleScene": true,
+        "backgroundNamesExact": true,
+        "back1BitmapMatchesNone": true,
+        "back2BitmapMatchesNone": true,
+        "troop1": true,
+        "unmodifiedSavedCommandInput": true
+      },
+      "error": null
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-only1-physical-delivery-v4-native-b561b261-80fb-4ecb-96eb-cc4e158534cc",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-only1-physical-delivery-v4-native-b561b261-80fb-4ecb-96eb-cc4e158534cc\\compiled\\Workspace",
+    "files": {
+      "CommonEvents.json": {
+        "beforePushSha256": "9df44a7e50b816564cb4bcbc941b105a1e83714519381d79d4baf4f858b5edf2",
+        "generatedSha256": "1262c6c181354709964d1adeb81fdc3853d6e487226aa8e0d1a5c446bc1eae5a",
+        "afterPushSha256": "1262c6c181354709964d1adeb81fdc3853d6e487226aa8e0d1a5c446bc1eae5a",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "realBattleScene": true,
+        "backgroundNamesExact": true,
+        "back1BitmapMatchesNone": true,
+        "back2BitmapMatchesNone": true,
+        "troop1": true,
+        "unmodifiedSavedCommandInput": true
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "realBattleScene": true,
+        "backgroundNamesExact": true,
+        "back1BitmapMatchesNone": true,
+        "back2BitmapMatchesNone": true,
+        "troop1": true,
+        "unmodifiedSavedCommandInput": true
+      },
+      "error": null
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-only2-physical-delivery-v4-native-a9afda03-ed78-405e-8df1-3b63d399bad7",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-only2-physical-delivery-v4-native-a9afda03-ed78-405e-8df1-3b63d399bad7\\compiled\\Workspace",
+    "files": {
+      "CommonEvents.json": {
+        "beforePushSha256": "fe27239d0c45cc7343b9b3edba42ed23c356a25344ec0e1dbf459a9783ea0c55",
+        "generatedSha256": "60bfceeeea56289c0f0c6f51f5660576ee191aa8df1fa7fc9c347a5207703421",
+        "afterPushSha256": "60bfceeeea56289c0f0c6f51f5660576ee191aa8df1fa7fc9c347a5207703421",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "realBattleScene": true,
+        "backgroundNamesExact": true,
+        "back1BitmapMatchesNone": true,
+        "back2BitmapMatchesNone": true,
+        "troop1": true,
+        "unmodifiedSavedCommandInput": true
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "realBattleScene": true,
+        "backgroundNamesExact": true,
+        "back1BitmapMatchesNone": true,
+        "back2BitmapMatchesNone": true,
+        "troop1": true,
+        "unmodifiedSavedCommandInput": true
+      },
+      "error": null
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-none-physical-delivery-v4-native-ac8ea888-3411-43f1-9208-7fdc21443e66",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-none-physical-delivery-v4-native-ac8ea888-3411-43f1-9208-7fdc21443e66\\compiled\\Workspace",
+    "files": {
+      "CommonEvents.json": {
+        "beforePushSha256": "d42d78bec86831818991cdf4f2507e09b9961a777b27651784ac9dcafafa8ff2",
+        "generatedSha256": "c30efdc341b1e962f01e7ffc4e3bacd625e9524ea92ecc6cfd4c0f02a25e9c6a",
+        "afterPushSha256": "c30efdc341b1e962f01e7ffc4e3bacd625e9524ea92ecc6cfd4c0f02a25e9c6a",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "realBattleScene": true,
+        "backgroundNamesExact": true,
+        "back1BitmapMatchesNone": true,
+        "back2BitmapMatchesNone": true,
+        "troop1": true,
+        "unmodifiedSavedCommandInput": true
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "realBattleScene": true,
+        "backgroundNamesExact": true,
+        "back1BitmapMatchesNone": true,
+        "back2BitmapMatchesNone": true,
+        "troop1": true,
+        "unmodifiedSavedCommandInput": true
+      },
+      "error": null
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-both-physical-delivery-v4-native-069385b9-327d-41af-8bb3-36365fff59f3",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-both-physical-delivery-v4-native-069385b9-327d-41af-8bb3-36365fff59f3\\compiled\\Workspace",
+    "files": {
+      "CommonEvents.json": {
+        "beforePushSha256": "2913218fa73b308d25ecafc70b8c0170e1a45d17fd20c6fa9c4f3f0a32a8acd0",
+        "generatedSha256": "2197e6d304764cbac5841f38285f9b8a11cdb446dd65227b36f3bcc3b85aa9d6",
+        "afterPushSha256": "2197e6d304764cbac5841f38285f9b8a11cdb446dd65227b36f3bcc3b85aa9d6",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "realBattleScene": true,
+        "backgroundNamesExact": true,
+        "back1BitmapMatchesNone": true,
+        "back2BitmapMatchesNone": true,
+        "troop1": true,
+        "unmodifiedSavedCommandInput": true
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "realBattleScene": true,
+        "backgroundNamesExact": true,
+        "back1BitmapMatchesNone": true,
+        "back2BitmapMatchesNone": true,
+        "troop1": true,
+        "unmodifiedSavedCommandInput": true
+      },
+      "error": null
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-only1-physical-delivery-v4-native-db481685-441f-4844-8932-16d7b2c5d082",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-only1-physical-delivery-v4-native-db481685-441f-4844-8932-16d7b2c5d082\\compiled\\Workspace",
+    "files": {
+      "CommonEvents.json": {
+        "beforePushSha256": "9df44a7e50b816564cb4bcbc941b105a1e83714519381d79d4baf4f858b5edf2",
+        "generatedSha256": "1262c6c181354709964d1adeb81fdc3853d6e487226aa8e0d1a5c446bc1eae5a",
+        "afterPushSha256": "1262c6c181354709964d1adeb81fdc3853d6e487226aa8e0d1a5c446bc1eae5a",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "realBattleScene": true,
+        "backgroundNamesExact": true,
+        "back1BitmapMatchesNone": true,
+        "back2BitmapMatchesNone": true,
+        "troop1": true,
+        "unmodifiedSavedCommandInput": true
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "realBattleScene": true,
+        "backgroundNamesExact": true,
+        "back1BitmapMatchesNone": true,
+        "back2BitmapMatchesNone": true,
+        "troop1": true,
+        "unmodifiedSavedCommandInput": true
+      },
+      "error": null
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-only2-physical-delivery-v4-native-5d53a19f-7d2f-40b7-813f-8f2ba814bb2d",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-only2-physical-delivery-v4-native-5d53a19f-7d2f-40b7-813f-8f2ba814bb2d\\compiled\\Workspace",
+    "files": {
+      "CommonEvents.json": {
+        "beforePushSha256": "fe27239d0c45cc7343b9b3edba42ed23c356a25344ec0e1dbf459a9783ea0c55",
+        "generatedSha256": "60bfceeeea56289c0f0c6f51f5660576ee191aa8df1fa7fc9c347a5207703421",
+        "afterPushSha256": "60bfceeeea56289c0f0c6f51f5660576ee191aa8df1fa7fc9c347a5207703421",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "realBattleScene": true,
+        "backgroundNamesExact": true,
+        "back1BitmapMatchesNone": true,
+        "back2BitmapMatchesNone": true,
+        "troop1": true,
+        "unmodifiedSavedCommandInput": true
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "realBattleScene": true,
+        "backgroundNamesExact": true,
+        "back1BitmapMatchesNone": true,
+        "back2BitmapMatchesNone": true,
+        "troop1": true,
+        "unmodifiedSavedCommandInput": true
+      },
+      "error": null
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-none-physical-delivery-v4-native-0ff6fc7d-458d-495f-8be5-8a96f2ba3083",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-none-physical-delivery-v4-native-0ff6fc7d-458d-495f-8be5-8a96f2ba3083\\compiled\\Workspace",
+    "files": {
+      "CommonEvents.json": {
+        "beforePushSha256": "d42d78bec86831818991cdf4f2507e09b9961a777b27651784ac9dcafafa8ff2",
+        "generatedSha256": "c30efdc341b1e962f01e7ffc4e3bacd625e9524ea92ecc6cfd4c0f02a25e9c6a",
+        "afterPushSha256": "c30efdc341b1e962f01e7ffc4e3bacd625e9524ea92ecc6cfd4c0f02a25e9c6a",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "realBattleScene": true,
+        "backgroundNamesExact": true,
+        "back1BitmapMatchesNone": true,
+        "back2BitmapMatchesNone": true,
+        "troop1": true,
+        "unmodifiedSavedCommandInput": true
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "realBattleScene": true,
+        "backgroundNamesExact": true,
+        "back1BitmapMatchesNone": true,
+        "back2BitmapMatchesNone": true,
+        "troop1": true,
+        "unmodifiedSavedCommandInput": true
+      },
+      "error": null
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-missing-tileset-physical-delivery-v4-native-cdc47d24-b531-4c7a-8c56-e3df86ebb451",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-missing-tileset-physical-delivery-v4-native-cdc47d24-b531-4c7a-8c56-e3df86ebb451\\compiled\\Workspace",
+    "files": {
+      "CommonEvents.json": {
+        "beforePushSha256": "ff534dc1156da59882b3aacb73f94f6e5b17dd1aeab5f4bc2ef3a6cd4b95ff4e",
+        "generatedSha256": "c91d78538e238126399d1502e842500f92f8c7d9b817c768101cbc31eea4cdad",
+        "afterPushSha256": "c91d78538e238126399d1502e842500f92f8c7d9b817c768101cbc31eea4cdad",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "normalMapScene": true,
+        "originalTilesetRetained": true,
+        "requestedTilesetExists": true,
+        "actualImageAbsent": true,
+        "nativeLoadingError": true,
+        "nativeRetryPending": true,
+        "commonInterpreterStalled": true,
+        "followingSwitchNotExecuted": true,
+        "stableErrorObserved": true
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "normalMapScene": true,
+        "originalTilesetRetained": true,
+        "requestedTilesetExists": true,
+        "actualImageAbsent": true,
+        "nativeLoadingError": true,
+        "nativeRetryPending": true,
+        "commonInterpreterStalled": true,
+        "followingSwitchNotExecuted": true,
+        "stableErrorObserved": true
+      },
+      "error": null
+    }
+  }
+}
+{"index":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-delivery-v4-native-index-328547d4-390b-4dd1-8005-4ddb9308951a.json","results":[{"case":"map","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-map-physical-delivery-v4-native-71eacccd-4ee0-4bac-86ed-b261398122da","passed":true},{"case":"battle-overworld-both","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-both-physical-delivery-v4-native-54d8a5a4-11d3-4464-a4ce-d0e19f89f5cc","passed":true},{"case":"battle-overworld-only1","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-only1-physical-delivery-v4-native-b561b261-80fb-4ecb-96eb-cc4e158534cc","passed":true},{"case":"battle-overworld-only2","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-only2-physical-delivery-v4-native-a9afda03-ed78-405e-8df1-3b63d399bad7","passed":true},{"case":"battle-overworld-none","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-none-physical-delivery-v4-native-ac8ea888-3411-43f1-9208-7fdc21443e66","passed":true},{"case":"battle-ordinary-both","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-both-physical-delivery-v4-native-069385b9-327d-41af-8bb3-36365fff59f3","passed":true},{"case":"battle-ordinary-only1","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-only1-physical-delivery-v4-native-db481685-441f-4844-8932-16d7b2c5d082","passed":true},{"case":"battle-ordinary-only2","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-only2-physical-delivery-v4-native-5d53a19f-7d2f-40b7-813f-8f2ba814bb2d","passed":true},{"case":"battle-ordinary-none","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-none-physical-delivery-v4-native-0ff6fc7d-458d-495f-8be5-8a96f2ba3083","passed":true},{"case":"missing-tileset","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-missing-tileset-physical-delivery-v4-native-cdc47d24-b531-4c7a-8c56-e3df86ebb451","passed":true}]}

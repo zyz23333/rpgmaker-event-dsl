@@ -1,0 +1,13 @@
+
+> rpgmaker-event-dsl@0.1.2 test:windows-baseline M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-26-final\packages\rpgmaker-event-dsl
+> vitest run --config vitest.windows.config.ts
+
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-26-final/packages/rpgmaker-event-dsl
+
+
+ Test Files  18 passed (18)
+      Tests  455 passed (455)
+   Start at  04:50:52
+   Duration  317.30s (transform 1.09s, setup 0ms, import 8.07s, tests 622.20s, environment 1ms)
+

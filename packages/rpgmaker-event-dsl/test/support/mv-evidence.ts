@@ -138,6 +138,16 @@ function repositoryPath(path: string): string {
 
 export async function validateRequirements(): Promise<void> {
   const index = await readRequirements();
+  const artifactBytes = new Map<string, Promise<Buffer>>();
+  const readArtifact = (path: string): Promise<Buffer> => {
+    const resolved = repositoryPath(path);
+    let bytes = artifactBytes.get(resolved);
+    if (bytes === undefined) {
+      bytes = readFile(resolved);
+      artifactBytes.set(resolved, bytes);
+    }
+    return bytes;
+  };
   const ids = new Set<string>();
   const checklist = await readFile(join(evidenceRoot, "README.md"), "utf8");
   const listedIds = [...checklist.matchAll(/^\|\s*(MV-[A-Z0-9-]+)\s*\|/gmu)].map(
@@ -150,24 +160,24 @@ export async function validateRequirements(): Promise<void> {
       throw new Error(`Missing human checklist entry: ${requirement.id}`);
     }
     for (const source of requirement.sources) {
-      if (!(await readFile(repositoryPath(source.path), "utf8")).includes(source.section)) {
+      if (!(await readArtifact(source.path)).toString("utf8").includes(source.section)) {
         throw new Error(`Missing source section: ${source.path} / ${source.section}`);
       }
     }
-    const fixtureHash = sha256(await readFile(repositoryPath(requirement.fixture.path)));
+    const fixtureHash = sha256(await readArtifact(requirement.fixture.path));
     if (fixtureHash !== requirement.fixture.sha256) {
       throw new Error(`Fixture hash differs for ${requirement.id}: ${fixtureHash}`);
     }
     if (requirement.test !== undefined) {
       if (
-        !(await readFile(repositoryPath(requirement.test.path), "utf8")).includes(
-          requirement.test.name,
-        )
+        !(await readArtifact(requirement.test.path))
+          .toString("utf8")
+          .includes(requirement.test.name)
       ) {
         throw new Error(`Missing test case: ${requirement.id}`);
       }
     } else if (requirement.review !== undefined) {
-      const review = await readFile(repositoryPath(requirement.review.path), "utf8");
+      const review = (await readArtifact(requirement.review.path)).toString("utf8");
       if (!review.includes(requirement.review.section) || !review.includes(requirement.id)) {
         throw new Error(`Missing documentary review section or case: ${requirement.id}`);
       }
@@ -177,11 +187,26 @@ export async function validateRequirements(): Promise<void> {
     throw new Error("Human checklist has missing, duplicate, or unknown requirement IDs");
   }
   const resultsRoot = join(evidenceRoot, "results");
+  const requirementsById = new Map(
+    index.requirements.map((requirement) => [requirement.id, requirement]),
+  );
   const runIds = new Set<string>();
-  for (const path of await listFiles(resultsRoot)) {
-    if (!path.endsWith(".json")) continue;
-    const result = resultSchema.parse(JSON.parse(await readFile(path, "utf8")));
-    const requirement = index.requirements.find(({ id }) => id === result.requirementId);
+  const resultPaths = (await listFiles(resultsRoot)).filter((path) => path.endsWith(".json"));
+  const resultReadWindow = 32;
+  const readResult = (path: string): Promise<PromiseSettledResult<string>> =>
+    readFile(path, "utf8").then(
+      (value) => ({ status: "fulfilled", value }),
+      (reason: unknown) => ({ status: "rejected", reason }),
+    );
+  const reads = resultPaths.slice(0, resultReadWindow).map(readResult);
+  for (const [position, path] of resultPaths.entries()) {
+    const slot = position % resultReadWindow;
+    const content = await reads[slot]!;
+    const nextPath = resultPaths[position + resultReadWindow];
+    if (nextPath !== undefined) reads[slot] = readResult(nextPath);
+    if (content.status === "rejected") throw content.reason;
+    const result = resultSchema.parse(JSON.parse(content.value));
+    const requirement = requirementsById.get(result.requirementId);
     if (requirement === undefined)
       throw new Error(`Result references unknown requirement: ${path}`);
     if (runIds.has(result.runId)) throw new Error(`Duplicate run ID: ${path}`);

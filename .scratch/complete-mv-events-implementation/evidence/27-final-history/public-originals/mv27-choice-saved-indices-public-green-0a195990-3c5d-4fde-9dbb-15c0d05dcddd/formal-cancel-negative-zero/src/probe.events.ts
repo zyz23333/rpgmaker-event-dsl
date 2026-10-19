@@ -1,0 +1,1 @@
+import {commonEvent,showChoices} from "rpgmaker-event-dsl";export const probe=commonEvent({id:1,name:"Independent saved choice indices",trigger:"none",commands:[showChoices({choices:[{text:"",commands:[]}],cancel:{kind:"choice",index:-0},defaultChoice:{kind:"choice",index:0}})]});

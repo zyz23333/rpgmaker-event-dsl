@@ -1,0 +1,115 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-26/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/timer-workspace.test.ts > MV-S6-TIMER-005: invalid native seconds has a precise diagnostic before publication (CommonEvents.json)
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\timer-invalid-native-seconds-4lJ0qa
+
+stderr | test/timer-workspace.test.ts > MV-S6-TIMER-005: invalid native seconds has a precise diagnostic before publication (Map001.json)
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\timer-invalid-native-seconds-m1djtV
+
+stderr | test/timer-workspace.test.ts > MV-S6-TIMER-005: invalid native seconds has a precise diagnostic before publication (Troops.json)
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\timer-invalid-native-seconds-dctEhf
+
+ ❯ test/timer-workspace.test.ts (8 tests | 3 failed | 5 skipped) 1122ms
+   × MV-S6-TIMER-005: invalid native seconds has a precise diagnostic before publication (CommonEvents.json) 540ms
+   × MV-S6-TIMER-005: invalid native seconds has a precise diagnostic before publication (Map001.json) 294ms
+   × MV-S6-TIMER-005: invalid native seconds has a precise diagnostic before publication (Troops.json) 288ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-005: invalid native seconds has a precise diagnostic before publication (CommonEvents.json)
+AssertionError: expected Error: TypeScript diagnostics failed for … to match object { code: 'MV-E124-SECONDS', …(3) }
+
+- Expected
++ Received
+
+- {
+-   "code": "MV-E124-SECONDS",
+-   "identity": "commonEvent:1",
+-   "location": {
+-     "nativePath": "list[0].parameters[1]",
+-   },
+-   "stage": "decompile",
++ Error {
++   "message": "TypeScript diagnostics failed for C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\timer-invalid-native-seconds-4lJ0qa\\最小 Workspace with spaces\\src\\decompiled\\common-events.events.ts:
++ - MV-E124-SECONDS: Invalid Timer saved seconds. (controlTimer.seconds); expected integer 0..5999; required for Start, optional for Stop; actual 6000",
+  }
+
+ ❯ test/timer-workspace.test.ts:211:46
+    209|       await api.pullWorkspace(s);
+    210|       const before = await observe(s.workspaceRoot);
+    211|       await expect(api.decompileWorkspace(s)).rejects.toMatchObject({
+       |                                              ^
+    212|         code: "MV-E124-SECONDS",
+    213|         stage: "decompile",
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/timer-workspace.test.ts:205:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-005: invalid native seconds has a precise diagnostic before publication (Map001.json)
+AssertionError: expected Error: TypeScript diagnostics failed for … to match object { code: 'MV-E124-SECONDS', …(3) }
+
+- Expected
++ Received
+
+- {
+-   "code": "MV-E124-SECONDS",
+-   "identity": "map:1/event:1",
+-   "location": {
+-     "nativePath": "pages[0].list[0].parameters[1]",
+-   },
+-   "stage": "decompile",
++ Error {
++   "message": "TypeScript diagnostics failed for C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\timer-invalid-native-seconds-m1djtV\\最小 Workspace with spaces\\src\\decompiled\\maps\\Map001.events.ts:
++ - MV-E124-SECONDS: Invalid Timer saved seconds. (controlTimer.seconds); expected integer 0..5999; required for Start, optional for Stop; actual 6000",
+  }
+
+ ❯ test/timer-workspace.test.ts:211:46
+    209|       await api.pullWorkspace(s);
+    210|       const before = await observe(s.workspaceRoot);
+    211|       await expect(api.decompileWorkspace(s)).rejects.toMatchObject({
+       |                                              ^
+    212|         code: "MV-E124-SECONDS",
+    213|         stage: "decompile",
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/timer-workspace.test.ts:205:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-005: invalid native seconds has a precise diagnostic before publication (Troops.json)
+AssertionError: expected Error: TypeScript diagnostics failed for … to match object { code: 'MV-E124-SECONDS', …(3) }
+
+- Expected
++ Received
+
+- {
+-   "code": "MV-E124-SECONDS",
+-   "identity": "troop:1",
+-   "location": {
+-     "nativePath": "pages[0].list[0].parameters[1]",
+-   },
+-   "stage": "decompile",
++ Error {
++   "message": "TypeScript diagnostics failed for C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\timer-invalid-native-seconds-dctEhf\\最小 Workspace with spaces\\src\\decompiled\\troop-events.events.ts:
++ - MV-E124-SECONDS: Invalid Timer saved seconds. (controlTimer.seconds); expected integer 0..5999; required for Start, optional for Stop; actual 6000",
+  }
+
+ ❯ test/timer-workspace.test.ts:211:46
+    209|       await api.pullWorkspace(s);
+    210|       const before = await observe(s.workspaceRoot);
+    211|       await expect(api.decompileWorkspace(s)).rejects.toMatchObject({
+       |                                              ^
+    212|         code: "MV-E124-SECONDS",
+    213|         stage: "decompile",
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/timer-workspace.test.ts:205:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 5 skipped (8)
+   Start at  01:14:44
+   Duration  2.67s (transform 485ms, setup 0ms, import 1.38s, tests 1.12s, environment 0ms)
+

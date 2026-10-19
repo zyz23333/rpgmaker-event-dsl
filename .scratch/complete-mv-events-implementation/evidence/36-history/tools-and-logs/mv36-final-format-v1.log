@@ -1,0 +1,8 @@
+
+> rpgmaker-event-dsl-workspace@0.0.0 format:check C:\Users\Shuen\.codex\worktrees\mv-ticket-36\rpgmaker-event-dsl
+> oxfmt --ignore-path .oxfmtignore --check package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rpgmaker-event-dsl
+
+Checking formatting...
+
+All matched files use the correct format.
+Finished in 749ms on 183 files using 20 threads.

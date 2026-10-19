@@ -1,0 +1,797 @@
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-default-second-physical-v1-native-82c4bf7c-fb97-4a21-b723-8f149ce0837b",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-default-second-physical-v1-native-82c4bf7c-fb97-4a21-b723-8f149ce0837b\\compiled\\Workspace",
+    "files": {
+      "Map001.json": {
+        "beforePushSha256": "56ee3ef7af21ac438f4c0426bfa6f535dc9dbfd14b7a01cf503193d7ba4817b8",
+        "generatedSha256": "ccdc691e6cfb71ca5e0fb1eba8a4727ef7ef0f8fb35c07ed2f6b6640ca92eaba",
+        "afterPushSha256": "ccdc691e6cfb71ca5e0fb1eba8a4727ef7ef0f8fb35c07ed2f6b6640ca92eaba",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "value": 2,
+        "complete": 1,
+        "started": 1,
+        "remainsRunning": false,
+        "choice": {
+          "savedDefault": 1,
+          "nativeDefault": 1,
+          "savedCancel": -1,
+          "nativeCancel": -1,
+          "index": 1
+        },
+        "waitingChecks": [],
+        "savedSigns": {
+          "cancel": false,
+          "defaultChoice": false
+        }
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "value": 2,
+        "complete": 1,
+        "started": 1,
+        "remainsRunning": false,
+        "choice": {
+          "savedDefault": 1,
+          "nativeDefault": 1,
+          "savedCancel": -1,
+          "nativeCancel": -1,
+          "index": 1
+        },
+        "waitingChecks": [],
+        "savedSigns": {
+          "cancel": false,
+          "defaultChoice": false
+        }
+      },
+      "error": null
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-one-choice-cancel-selects-first-physical-v1-native-2295e258-16ff-4d63-bd75-ff993907ab8a",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-one-choice-cancel-selects-first-physical-v1-native-2295e258-16ff-4d63-bd75-ff993907ab8a\\compiled\\Workspace",
+    "files": {
+      "Map001.json": {
+        "beforePushSha256": "3f027930f55bbc14ba4d943bc1579ae880aa9395954139f97ae684f2a9a6286a",
+        "generatedSha256": "6f957ceeacdbaf3bc13bb8f8eef7217faf02a89ccf6d5f64c62fabcb5f1946b1",
+        "afterPushSha256": "6f957ceeacdbaf3bc13bb8f8eef7217faf02a89ccf6d5f64c62fabcb5f1946b1",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "value": 1,
+        "complete": 1,
+        "started": 1,
+        "remainsRunning": false,
+        "choice": {
+          "savedDefault": 0,
+          "nativeDefault": 0,
+          "savedCancel": 0,
+          "nativeCancel": 0,
+          "index": 0
+        },
+        "waitingChecks": [],
+        "savedSigns": {
+          "cancel": false,
+          "defaultChoice": false
+        }
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "value": 1,
+        "complete": 1,
+        "started": 1,
+        "remainsRunning": false,
+        "choice": {
+          "savedDefault": 0,
+          "nativeDefault": 0,
+          "savedCancel": 0,
+          "nativeCancel": 0,
+          "index": 0
+        },
+        "waitingChecks": [],
+        "savedSigns": {
+          "cancel": false,
+          "defaultChoice": false
+        }
+      },
+      "error": null
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-separate-cancel-body-physical-v1-native-5f331fa8-3360-4936-86c5-70729873b707",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-separate-cancel-body-physical-v1-native-5f331fa8-3360-4936-86c5-70729873b707\\compiled\\Workspace",
+    "files": {
+      "Map001.json": {
+        "beforePushSha256": "64a35f783701db34852ba966d74e88486ac69e3908cf573d47d1258ec7b623eb",
+        "generatedSha256": "e599e923342e41fb265cdc5050d597e8df617c06b6667551ce3b034ca2b7cdb8",
+        "afterPushSha256": "e599e923342e41fb265cdc5050d597e8df617c06b6667551ce3b034ca2b7cdb8",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "value": 9,
+        "complete": 1,
+        "started": 1,
+        "remainsRunning": false,
+        "choice": {
+          "savedDefault": 0,
+          "nativeDefault": 0,
+          "savedCancel": -2,
+          "nativeCancel": -2,
+          "index": 0
+        },
+        "waitingChecks": [],
+        "savedSigns": {
+          "cancel": false,
+          "defaultChoice": false
+        }
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "value": 9,
+        "complete": 1,
+        "started": 1,
+        "remainsRunning": false,
+        "choice": {
+          "savedDefault": 0,
+          "nativeDefault": 0,
+          "savedCancel": -2,
+          "nativeCancel": -2,
+          "index": 0
+        },
+        "waitingChecks": [],
+        "savedSigns": {
+          "cancel": false,
+          "defaultChoice": false
+        }
+      },
+      "error": null
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-disabled-cancel-keeps-wait-physical-v1-native-3c053881-8984-490a-8ffc-eb488fe87395",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-disabled-cancel-keeps-wait-physical-v1-native-3c053881-8984-490a-8ffc-eb488fe87395\\compiled\\Workspace",
+    "files": {
+      "Map001.json": {
+        "beforePushSha256": "086be0b72f44637f71941bc98341b3692a3974d913bcf1bf87f375a5a4f9ff90",
+        "generatedSha256": "a133330eb720fb7984d064b8fb0920a5d5b4e324ec3609c827a425e5d3672f44",
+        "afterPushSha256": "a133330eb720fb7984d064b8fb0920a5d5b4e324ec3609c827a425e5d3672f44",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "value": 1,
+        "complete": 1,
+        "started": 1,
+        "remainsRunning": false,
+        "choice": {
+          "savedDefault": 0,
+          "nativeDefault": 0,
+          "savedCancel": -1,
+          "nativeCancel": -1,
+          "index": 0
+        },
+        "waitingChecks": [
+          {
+            "running": true,
+            "messageBusy": true,
+            "value": 0,
+            "complete": 0
+          }
+        ],
+        "savedSigns": {
+          "cancel": false,
+          "defaultChoice": false
+        }
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "value": 1,
+        "complete": 1,
+        "started": 1,
+        "remainsRunning": false,
+        "choice": {
+          "savedDefault": 0,
+          "nativeDefault": 0,
+          "savedCancel": -1,
+          "nativeCancel": -1,
+          "index": 0
+        },
+        "waitingChecks": [
+          {
+            "running": true,
+            "messageBusy": true,
+            "value": 0,
+            "complete": 0
+          }
+        ],
+        "savedSigns": {
+          "cancel": false,
+          "defaultChoice": false
+        }
+      },
+      "error": null
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-saved-cancel-five-without-403-physical-v1-native-4f0ee9e5-a30d-4e4b-b768-513ebf802b06",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-saved-cancel-five-without-403-physical-v1-native-4f0ee9e5-a30d-4e4b-b768-513ebf802b06\\compiled\\Workspace",
+    "files": {
+      "Map001.json": {
+        "beforePushSha256": "7af1a0f9f93e0fee1b354cb256e34c00f6f365e24697b500131ae34d8166f8bb",
+        "generatedSha256": "7d6b75fcdfa3bdf781f28dd60765ddbcdb991366884a8416beaca4dd4dabbd44",
+        "afterPushSha256": "7d6b75fcdfa3bdf781f28dd60765ddbcdb991366884a8416beaca4dd4dabbd44",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "value": 0,
+        "complete": 1,
+        "started": 1,
+        "remainsRunning": false,
+        "choice": {
+          "savedDefault": 0,
+          "nativeDefault": 0,
+          "savedCancel": 5,
+          "nativeCancel": -2,
+          "index": 0
+        },
+        "waitingChecks": [],
+        "savedSigns": {
+          "cancel": false,
+          "defaultChoice": false
+        }
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "value": 0,
+        "complete": 1,
+        "started": 1,
+        "remainsRunning": false,
+        "choice": {
+          "savedDefault": 0,
+          "nativeDefault": 0,
+          "savedCancel": 5,
+          "nativeCancel": -2,
+          "index": 0
+        },
+        "waitingChecks": [],
+        "savedSigns": {
+          "cancel": false,
+          "defaultChoice": false
+        }
+      },
+      "error": null
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-saved-default-five-needs-navigation-physical-v1-native-ac6960b6-3fd6-433e-a847-13579e03f500",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-saved-default-five-needs-navigation-physical-v1-native-ac6960b6-3fd6-433e-a847-13579e03f500\\compiled\\Workspace",
+    "files": {
+      "Map001.json": {
+        "beforePushSha256": "83f188b535e52e68f8b78f655d4433ffdd13ff3be7cdf510a20aa13fb3ee814b",
+        "generatedSha256": "e0d4430e4d2c935aa30a68a84c2fc849ce155d67064157cca733fc92f513bfa0",
+        "afterPushSha256": "e0d4430e4d2c935aa30a68a84c2fc849ce155d67064157cca733fc92f513bfa0",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "value": 1,
+        "complete": 1,
+        "started": 1,
+        "remainsRunning": false,
+        "choice": {
+          "savedDefault": 5,
+          "nativeDefault": 5,
+          "savedCancel": -1,
+          "nativeCancel": -1,
+          "index": 5
+        },
+        "waitingChecks": [
+          {
+            "running": true,
+            "messageBusy": true,
+            "value": 0,
+            "complete": 0
+          }
+        ],
+        "savedSigns": {
+          "cancel": false,
+          "defaultChoice": false
+        }
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "value": 1,
+        "complete": 1,
+        "started": 1,
+        "remainsRunning": false,
+        "choice": {
+          "savedDefault": 5,
+          "nativeDefault": 5,
+          "savedCancel": -1,
+          "nativeCancel": -1,
+          "index": 5
+        },
+        "waitingChecks": [
+          {
+            "running": true,
+            "messageBusy": true,
+            "value": 0,
+            "complete": 0
+          }
+        ],
+        "savedSigns": {
+          "cancel": false,
+          "defaultChoice": false
+        }
+      },
+      "error": null
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-no-default-down-selects-first-physical-v1-native-454b83d1-4fa1-44d9-b476-97be43e52404",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-no-default-down-selects-first-physical-v1-native-454b83d1-4fa1-44d9-b476-97be43e52404\\compiled\\Workspace",
+    "files": {
+      "Map001.json": {
+        "beforePushSha256": "613f24b5e2246040ecd6db1ed868a7cd35f7456eb7ce3742cbd1681a78017c44",
+        "generatedSha256": "31a0a6033a83ea6a93579ac60a64e4a31b7387e0a315385993894043d0666a86",
+        "afterPushSha256": "31a0a6033a83ea6a93579ac60a64e4a31b7387e0a315385993894043d0666a86",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "value": 1,
+        "complete": 1,
+        "started": 1,
+        "remainsRunning": false,
+        "choice": {
+          "savedDefault": -1,
+          "nativeDefault": -1,
+          "savedCancel": -1,
+          "nativeCancel": -1,
+          "index": -1
+        },
+        "waitingChecks": [],
+        "savedSigns": {
+          "cancel": false,
+          "defaultChoice": false
+        }
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "value": 1,
+        "complete": 1,
+        "started": 1,
+        "remainsRunning": false,
+        "choice": {
+          "savedDefault": -1,
+          "nativeDefault": -1,
+          "savedCancel": -1,
+          "nativeCancel": -1,
+          "index": -1
+        },
+        "waitingChecks": [],
+        "savedSigns": {
+          "cancel": false,
+          "defaultChoice": false
+        }
+      },
+      "error": null
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-numeric-saved-both-negative-zero-physical-v1-native-f362c699-8a10-4825-a4cf-83858f71d8f8",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-numeric-saved-both-negative-zero-physical-v1-native-f362c699-8a10-4825-a4cf-83858f71d8f8\\compiled\\Workspace",
+    "files": {
+      "Map001.json": {
+        "beforePushSha256": "0330257b7f2a5b54d9106b829d9859626d1b1aaebf20a03abaae58ac7976f6f7",
+        "generatedSha256": "7747e18bdc67e997aeaa6574ffed368021621ea89933a7ab52ab15c09ae2ef65",
+        "afterPushSha256": "7747e18bdc67e997aeaa6574ffed368021621ea89933a7ab52ab15c09ae2ef65",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "value": 1,
+        "complete": 1,
+        "started": 1,
+        "remainsRunning": false,
+        "choice": {
+          "savedDefault": 0,
+          "nativeDefault": 0,
+          "savedCancel": 0,
+          "nativeCancel": 0,
+          "index": 0
+        },
+        "waitingChecks": [],
+        "savedSigns": {
+          "cancel": true,
+          "defaultChoice": true
+        }
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "value": 1,
+        "complete": 1,
+        "started": 1,
+        "remainsRunning": false,
+        "choice": {
+          "savedDefault": 0,
+          "nativeDefault": 0,
+          "savedCancel": 0,
+          "nativeCancel": 0,
+          "index": 0
+        },
+        "waitingChecks": [],
+        "savedSigns": {
+          "cancel": true,
+          "defaultChoice": true
+        }
+      },
+      "error": null
+    }
+  }
+}
+{"index":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-physical-v1-native-index-e9e43f74-a0b1-43b6-bce2-1b1c0adb2ad8.json","results":[{"id":"default-second","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-default-second-physical-v1-native-82c4bf7c-fb97-4a21-b723-8f149ce0837b","prepared":false,"passed":true},{"id":"one-choice-cancel-selects-first","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-one-choice-cancel-selects-first-physical-v1-native-2295e258-16ff-4d63-bd75-ff993907ab8a","prepared":false,"passed":true},{"id":"separate-cancel-body","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-separate-cancel-body-physical-v1-native-5f331fa8-3360-4936-86c5-70729873b707","prepared":false,"passed":true},{"id":"disabled-cancel-keeps-wait","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-disabled-cancel-keeps-wait-physical-v1-native-3c053881-8984-490a-8ffc-eb488fe87395","prepared":false,"passed":true},{"id":"saved-cancel-five-without-403","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-saved-cancel-five-without-403-physical-v1-native-4f0ee9e5-a30d-4e4b-b768-513ebf802b06","prepared":false,"passed":true},{"id":"saved-default-five-needs-navigation","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-saved-default-five-needs-navigation-physical-v1-native-ac6960b6-3fd6-433e-a847-13579e03f500","prepared":false,"passed":true},{"id":"no-default-down-selects-first","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-no-default-down-selects-first-physical-v1-native-454b83d1-4fa1-44d9-b476-97be43e52404","prepared":false,"passed":true},{"id":"numeric-saved-both-negative-zero","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-numeric-saved-both-negative-zero-physical-v1-native-f362c699-8a10-4825-a4cf-83858f71d8f8","prepared":false,"passed":true}]}

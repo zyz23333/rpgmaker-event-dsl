@@ -1,0 +1,42 @@
+{
+  "at": "2026-10-19T22:51:43.541Z",
+  "executedInputCount": 193,
+  "sourceDistGroups": {
+    "source": {
+      "count": 100,
+      "fingerprint": "567135a047c0a242fd9bfb6dce085f36ff326f3cee95dc47ace4fbb7c84bb245"
+    },
+    "tests": {
+      "count": 64,
+      "fingerprint": "d4280cda4862aa40d5b22243ab5bfccfea1a882886cf3a7e99e7e243b4d4d4f9"
+    },
+    "dist": {
+      "count": 15,
+      "fingerprint": "9799d19c80499725762a3dac89e88184cde51b69edc6e0d90d58025d38974fe8"
+    },
+    "all": {
+      "count": 193,
+      "fingerprint": "c7b16a16ace681cb2bbbd61d92039b19cea1fd3392c9b4723bc8ef6b1dbd682a"
+    }
+  },
+  "nativeFrozenTools": 6,
+  "allCurrentExecutedBytesExact": true,
+  "commands": [
+    {
+      "args": [
+        "lint"
+      ],
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "args": [
+        "format:check"
+      ],
+      "exitCode": 0,
+      "signal": null
+    }
+  ],
+  "diffCheckExit": 0,
+  "passed": true
+}

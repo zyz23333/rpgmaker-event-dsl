@@ -10,8 +10,10 @@ import type {
   LocationInfoType,
   ReferenceValue,
 } from "../../domain/types.js";
+import { assertMapAppearanceInput } from "./validation.js";
 
 export function changeMapNameDisplay(input: { enabled: boolean }): ChangeMapNameDisplayDslCommand {
+  assertMapAppearanceInput("changeMapNameDisplay", input, "changeMapNameDisplay");
   return {
     kind: "changeMapNameDisplay",
     enabled: input.enabled,
@@ -21,6 +23,7 @@ export function changeMapNameDisplay(input: { enabled: boolean }): ChangeMapName
 export function changeTileset(input: {
   tileset: ReferenceValue<"tileset">;
 }): ChangeTilesetDslCommand {
+  assertMapAppearanceInput("changeTileset", input, "changeTileset");
   return {
     kind: "changeTileset",
     tileset: input.tileset,
@@ -28,9 +31,10 @@ export function changeTileset(input: {
 }
 
 export function changeBattleBack(input: {
-  battleback1: ImageAssetReference;
-  battleback2: ImageAssetReference;
+  battleback1: ImageAssetReference | null;
+  battleback2: ImageAssetReference | null;
 }): ChangeBattleBackDslCommand {
+  assertMapAppearanceInput("changeBattleBack", input, "changeBattleBack");
   return {
     kind: "changeBattleBack",
     battleback1: input.battleback1,
@@ -39,29 +43,21 @@ export function changeBattleBack(input: {
 }
 
 export function changeParallax(input: {
-  image: ImageAssetReference;
-  loopX?: boolean;
-  loopY?: boolean;
-  sx?: number;
-  sy?: number;
+  image: ImageAssetReference | null;
+  loopX: boolean;
+  loopY: boolean;
+  sx: number;
+  sy: number;
 }): ChangeParallaxDslCommand {
+  assertMapAppearanceInput("changeParallax", input, "changeParallax");
   const node: ChangeParallaxDslCommand = {
     kind: "changeParallax",
     image: input.image,
+    loopX: input.loopX,
+    loopY: input.loopY,
+    sx: input.sx,
+    sy: input.sy,
   };
-
-  if (input.loopX !== undefined) {
-    node.loopX = input.loopX;
-  }
-  if (input.loopY !== undefined) {
-    node.loopY = input.loopY;
-  }
-  if (input.sx !== undefined) {
-    node.sx = input.sx;
-  }
-  if (input.sy !== undefined) {
-    node.sy = input.sy;
-  }
 
   return node;
 }

@@ -1,0 +1,392 @@
+{
+  "purpose": "Read-only scope audit after33 isolation finding. Shared fs.cp without dereference is conditional on seed/data being a reparse point. Only concrete retained sides are classified below; no unsupported claim that older pairs are bad.",
+  "at": "2026-10-19T17:42:18.214Z",
+  "helpers": [
+    {
+      "name": "mv-native-pair-support-v5.cjs",
+      "path": "C:/Users/Shuen/.codex/tmp/mv-native-pair-support-v5.cjs",
+      "sha256": "68b74b84bc597402ca437f3d5a045a89044f35e7c3a46dca73ded77a3d39cdf8",
+      "copyCalls": [
+        {
+          "line": 90,
+          "text": "await fs.cp(path.join(options.seedRoot,'data'),path.join(project,'data'),{recursive:true,errorOnExist:true,force:false});"
+        }
+      ]
+    },
+    {
+      "name": "mv-native-literal-support-v4.cjs",
+      "path": "C:/Users/Shuen/.codex/tmp/mv-native-literal-support-v4.cjs",
+      "sha256": "9855efaa2afddccbd2c334b2f769c29354c25ba97ad63dc92e7e310d2c841140",
+      "copyCalls": [
+        {
+          "line": 24,
+          "text": "const project=path.join(root,'Game');report.project=project;await fs.mkdir(project);await fs.cp(path.join(options.seedRoot,'data'),path.join(project,'data'),{recursive:true,errorOnExist:true,force:false});for(const name of ['js','img','audio','fonts','icon'])await fs.symlink(path.join(options.seedRoot,name),path.join(project,name),'junction');for(const[file,value]of Object.entries(expected.carriers))await fs.writeFile(path.join(project,'data',file),JSON.stringify(value,null,2)+'\\n');"
+        }
+      ]
+    },
+    {
+      "name": "mv23-native-pair-support-delivery-v1.cjs",
+      "path": "C:/Users/Shuen/.codex/tmp/mv23-native-pair-support-delivery-v1.cjs",
+      "sha256": "c616e8a8c2320766468ca3167249214af66ea6d996eed6bb745f8ab346cfc4f5",
+      "copyCalls": [
+        {
+          "line": 90,
+          "text": "await fs.cp(path.join(options.seedRoot,'data'),path.join(project,'data'),{recursive:true,errorOnExist:true,force:false});"
+        }
+      ]
+    },
+    {
+      "name": "mv33-native-pair-delivery-v2.cjs",
+      "path": "C:/Users/Shuen/.codex/tmp/mv33-native-pair-delivery-v2.cjs",
+      "sha256": "8296e5a2d33b14f4b77296e6bae2197e8afb655b07c5061766b07b6fbca77ac9",
+      "copyCalls": [
+        {
+          "line": 98,
+          "text": "await fs.cp(path.join(options.seedRoot,'data'),path.join(project,'data'),{recursive:true,errorOnExist:true,force:false});"
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "ticket": 23,
+      "summary": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\23-history\\native-r1-autorun-42804e8d-2483-42e5-962d-f62467d630b3-safe-summary.json",
+      "raw": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-low-autorun-delivery-v1-42804e8d-2483-42e5-962d-f62467d630b3\\pair-result.json",
+      "scenario": "mv23-r1-low-autorun-delivery-v1",
+      "passed": true,
+      "seed": {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/NewData/data",
+        "exists": true,
+        "symlink": false,
+        "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data"
+      },
+      "sides": [
+        {
+          "side": "literal",
+          "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-low-autorun-delivery-v1-42804e8d-2483-42e5-962d-f62467d630b3\\literal\\Game/data",
+          "exists": true,
+          "symlink": false,
+          "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-low-autorun-delivery-v1-42804e8d-2483-42e5-962d-f62467d630b3\\literal\\Game\\data",
+          "carriersCompared": 15,
+          "mismatches": []
+        },
+        {
+          "side": "compiled",
+          "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-low-autorun-delivery-v1-42804e8d-2483-42e5-962d-f62467d630b3\\compiled\\Game/data",
+          "exists": true,
+          "symlink": false,
+          "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-low-autorun-delivery-v1-42804e8d-2483-42e5-962d-f62467d630b3\\compiled\\Game\\data",
+          "carriersCompared": 15,
+          "mismatches": []
+        }
+      ],
+      "sharedSides": false
+    },
+    {
+      "ticket": 23,
+      "summary": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\23-history\\native-r1-autorun-97afb370-cf1d-4515-8a57-2f7806c29f3d-safe-summary.json",
+      "raw": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-low-autorun-delivery-v1-97afb370-cf1d-4515-8a57-2f7806c29f3d\\pair-result.json",
+      "scenario": "mv23-r1-low-autorun-delivery-v1",
+      "passed": true,
+      "seed": {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/NewData/data",
+        "exists": true,
+        "symlink": false,
+        "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data"
+      },
+      "sides": [
+        {
+          "side": "literal",
+          "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-low-autorun-delivery-v1-97afb370-cf1d-4515-8a57-2f7806c29f3d\\literal\\Game/data",
+          "exists": true,
+          "symlink": false,
+          "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-low-autorun-delivery-v1-97afb370-cf1d-4515-8a57-2f7806c29f3d\\literal\\Game\\data",
+          "carriersCompared": 15,
+          "mismatches": []
+        },
+        {
+          "side": "compiled",
+          "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-low-autorun-delivery-v1-97afb370-cf1d-4515-8a57-2f7806c29f3d\\compiled\\Game/data",
+          "exists": true,
+          "symlink": false,
+          "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-low-autorun-delivery-v1-97afb370-cf1d-4515-8a57-2f7806c29f3d\\compiled\\Game\\data",
+          "carriersCompared": 15,
+          "mismatches": []
+        }
+      ],
+      "sharedSides": false
+    },
+    {
+      "ticket": 23,
+      "summary": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\23-history\\native-r1-parallel-a7f6f5fb-27b9-40a5-90b5-e3b4bca915fb-safe-summary.json",
+      "raw": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-shared-parallel-delivery-v1-a7f6f5fb-27b9-40a5-90b5-e3b4bca915fb\\pair-result.json",
+      "scenario": "mv23-r1-shared-parallel-delivery-v1",
+      "passed": true,
+      "seed": {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/NewData/data",
+        "exists": true,
+        "symlink": false,
+        "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data"
+      },
+      "sides": [
+        {
+          "side": "literal",
+          "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-shared-parallel-delivery-v1-a7f6f5fb-27b9-40a5-90b5-e3b4bca915fb\\literal\\Game/data",
+          "exists": true,
+          "symlink": false,
+          "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-shared-parallel-delivery-v1-a7f6f5fb-27b9-40a5-90b5-e3b4bca915fb\\literal\\Game\\data",
+          "carriersCompared": 15,
+          "mismatches": []
+        },
+        {
+          "side": "compiled",
+          "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-shared-parallel-delivery-v1-a7f6f5fb-27b9-40a5-90b5-e3b4bca915fb\\compiled\\Game/data",
+          "exists": true,
+          "symlink": false,
+          "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-shared-parallel-delivery-v1-a7f6f5fb-27b9-40a5-90b5-e3b4bca915fb\\compiled\\Game\\data",
+          "carriersCompared": 15,
+          "mismatches": []
+        }
+      ],
+      "sharedSides": false
+    },
+    {
+      "ticket": 23,
+      "summary": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\23-history\\native-r1-parallel-ebd1f9b6-f612-412e-8590-8ef2df5fb794-safe-summary.json",
+      "raw": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-shared-parallel-delivery-v1-ebd1f9b6-f612-412e-8590-8ef2df5fb794\\pair-result.json",
+      "scenario": "mv23-r1-shared-parallel-delivery-v1",
+      "passed": true,
+      "seed": {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/NewData/data",
+        "exists": true,
+        "symlink": false,
+        "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data"
+      },
+      "sides": [
+        {
+          "side": "literal",
+          "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-shared-parallel-delivery-v1-ebd1f9b6-f612-412e-8590-8ef2df5fb794\\literal\\Game/data",
+          "exists": true,
+          "symlink": false,
+          "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-shared-parallel-delivery-v1-ebd1f9b6-f612-412e-8590-8ef2df5fb794\\literal\\Game\\data",
+          "carriersCompared": 15,
+          "mismatches": []
+        },
+        {
+          "side": "compiled",
+          "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-shared-parallel-delivery-v1-ebd1f9b6-f612-412e-8590-8ef2df5fb794\\compiled\\Game/data",
+          "exists": true,
+          "symlink": false,
+          "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-shared-parallel-delivery-v1-ebd1f9b6-f612-412e-8590-8ef2df5fb794\\compiled\\Game\\data",
+          "carriersCompared": 15,
+          "mismatches": []
+        }
+      ],
+      "sharedSides": false
+    },
+    {
+      "ticket": 23,
+      "summary": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\23-history\\native-r1-triggers-7ee2af75-51bf-43e0-a704-b35551bc6568-safe-summary.json",
+      "raw": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-map-common-delivery-v1-7ee2af75-51bf-43e0-a704-b35551bc6568\\pair-result.json",
+      "scenario": "mv23-r1-map-common-delivery-v1",
+      "passed": true,
+      "seed": {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/NewData/data",
+        "exists": true,
+        "symlink": false,
+        "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data"
+      },
+      "sides": [
+        {
+          "side": "literal",
+          "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-map-common-delivery-v1-7ee2af75-51bf-43e0-a704-b35551bc6568\\literal\\Game/data",
+          "exists": true,
+          "symlink": false,
+          "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-map-common-delivery-v1-7ee2af75-51bf-43e0-a704-b35551bc6568\\literal\\Game\\data",
+          "carriersCompared": 15,
+          "mismatches": []
+        },
+        {
+          "side": "compiled",
+          "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-map-common-delivery-v1-7ee2af75-51bf-43e0-a704-b35551bc6568\\compiled\\Game/data",
+          "exists": true,
+          "symlink": false,
+          "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-map-common-delivery-v1-7ee2af75-51bf-43e0-a704-b35551bc6568\\compiled\\Game\\data",
+          "carriersCompared": 15,
+          "mismatches": []
+        }
+      ],
+      "sharedSides": false
+    },
+    {
+      "ticket": 23,
+      "summary": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\23-history\\native-r1-triggers-f37e5c81-73c8-43a3-94f7-f076cc2fc1cc-safe-summary.json",
+      "raw": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-map-common-delivery-v1-f37e5c81-73c8-43a3-94f7-f076cc2fc1cc\\pair-result.json",
+      "scenario": "mv23-r1-map-common-delivery-v1",
+      "passed": true,
+      "seed": {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/NewData/data",
+        "exists": true,
+        "symlink": false,
+        "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data"
+      },
+      "sides": [
+        {
+          "side": "literal",
+          "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-map-common-delivery-v1-f37e5c81-73c8-43a3-94f7-f076cc2fc1cc\\literal\\Game/data",
+          "exists": true,
+          "symlink": false,
+          "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-map-common-delivery-v1-f37e5c81-73c8-43a3-94f7-f076cc2fc1cc\\literal\\Game\\data",
+          "carriersCompared": 15,
+          "mismatches": []
+        },
+        {
+          "side": "compiled",
+          "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-map-common-delivery-v1-f37e5c81-73c8-43a3-94f7-f076cc2fc1cc\\compiled\\Game/data",
+          "exists": true,
+          "symlink": false,
+          "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r1-map-common-delivery-v1-f37e5c81-73c8-43a3-94f7-f076cc2fc1cc\\compiled\\Game\\data",
+          "carriersCompared": 15,
+          "mismatches": []
+        }
+      ],
+      "sharedSides": false
+    },
+    {
+      "ticket": 23,
+      "summary": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\23-history\\native-r4-context-0cc306f2-661c-444f-b58c-0e008da0ac0d-safe-summary.json",
+      "raw": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r4-common-context-delivery-v1-0cc306f2-661c-444f-b58c-0e008da0ac0d\\pair-result.json",
+      "scenario": "mv23-r4-common-context-delivery-v1",
+      "passed": true,
+      "seed": {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/NewData/data",
+        "exists": true,
+        "symlink": false,
+        "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data"
+      },
+      "sides": [
+        {
+          "side": "literal",
+          "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r4-common-context-delivery-v1-0cc306f2-661c-444f-b58c-0e008da0ac0d\\literal\\Game/data",
+          "exists": true,
+          "symlink": false,
+          "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r4-common-context-delivery-v1-0cc306f2-661c-444f-b58c-0e008da0ac0d\\literal\\Game\\data",
+          "carriersCompared": 15,
+          "mismatches": []
+        },
+        {
+          "side": "compiled",
+          "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r4-common-context-delivery-v1-0cc306f2-661c-444f-b58c-0e008da0ac0d\\compiled\\Game/data",
+          "exists": true,
+          "symlink": false,
+          "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r4-common-context-delivery-v1-0cc306f2-661c-444f-b58c-0e008da0ac0d\\compiled\\Game\\data",
+          "carriersCompared": 15,
+          "mismatches": []
+        }
+      ],
+      "sharedSides": false
+    },
+    {
+      "ticket": 23,
+      "summary": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\23-history\\native-r4-context-a3da72cd-5408-4880-8367-81669331aa6b-safe-summary.json",
+      "raw": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r4-common-context-delivery-v1-a3da72cd-5408-4880-8367-81669331aa6b\\pair-result.json",
+      "scenario": "mv23-r4-common-context-delivery-v1",
+      "passed": true,
+      "seed": {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/NewData/data",
+        "exists": true,
+        "symlink": false,
+        "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data"
+      },
+      "sides": [
+        {
+          "side": "literal",
+          "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r4-common-context-delivery-v1-a3da72cd-5408-4880-8367-81669331aa6b\\literal\\Game/data",
+          "exists": true,
+          "symlink": false,
+          "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r4-common-context-delivery-v1-a3da72cd-5408-4880-8367-81669331aa6b\\literal\\Game\\data",
+          "carriersCompared": 15,
+          "mismatches": []
+        },
+        {
+          "side": "compiled",
+          "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r4-common-context-delivery-v1-a3da72cd-5408-4880-8367-81669331aa6b\\compiled\\Game/data",
+          "exists": true,
+          "symlink": false,
+          "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r4-common-context-delivery-v1-a3da72cd-5408-4880-8367-81669331aa6b\\compiled\\Game\\data",
+          "carriersCompared": 15,
+          "mismatches": []
+        }
+      ],
+      "sharedSides": false
+    },
+    {
+      "ticket": 24,
+      "summary": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\24-history\\native-routes-safe-summary.json",
+      "raw": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-r1-route-waits-delivery-v1-f419b3d4-4dc0-488f-bf2c-77f69b75b90b\\pair-result.json",
+      "scenario": "mv24-r1-route-waits-delivery-v1",
+      "passed": true,
+      "seed": {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData/data",
+        "exists": true,
+        "symlink": false,
+        "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data"
+      },
+      "sides": [
+        {
+          "side": "literal",
+          "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-r1-route-waits-delivery-v1-f419b3d4-4dc0-488f-bf2c-77f69b75b90b\\literal\\Game/data",
+          "exists": true,
+          "symlink": false,
+          "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-r1-route-waits-delivery-v1-f419b3d4-4dc0-488f-bf2c-77f69b75b90b\\literal\\Game\\data",
+          "carriersCompared": 15,
+          "mismatches": []
+        },
+        {
+          "side": "compiled",
+          "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-r1-route-waits-delivery-v1-f419b3d4-4dc0-488f-bf2c-77f69b75b90b\\compiled\\Game/data",
+          "exists": true,
+          "symlink": false,
+          "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-r1-route-waits-delivery-v1-f419b3d4-4dc0-488f-bf2c-77f69b75b90b\\compiled\\Game\\data",
+          "carriersCompared": 15,
+          "mismatches": []
+        }
+      ],
+      "sharedSides": false
+    },
+    {
+      "ticket": 24,
+      "summary": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\24-history\\native-triggers-safe-summary.json",
+      "raw": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-r1-map-common-delivery-v1-d23f3eb6-91da-4d09-a76c-69ed88601377\\pair-result.json",
+      "scenario": "mv24-r1-map-common-delivery-v1",
+      "passed": true,
+      "seed": {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData/data",
+        "exists": true,
+        "symlink": false,
+        "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data"
+      },
+      "sides": [
+        {
+          "side": "literal",
+          "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-r1-map-common-delivery-v1-d23f3eb6-91da-4d09-a76c-69ed88601377\\literal\\Game/data",
+          "exists": true,
+          "symlink": false,
+          "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-r1-map-common-delivery-v1-d23f3eb6-91da-4d09-a76c-69ed88601377\\literal\\Game\\data",
+          "carriersCompared": 15,
+          "mismatches": []
+        },
+        {
+          "side": "compiled",
+          "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-r1-map-common-delivery-v1-d23f3eb6-91da-4d09-a76c-69ed88601377\\compiled\\Game/data",
+          "exists": true,
+          "symlink": false,
+          "realPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-r1-map-common-delivery-v1-d23f3eb6-91da-4d09-a76c-69ed88601377\\compiled\\Game\\data",
+          "carriersCompared": 15,
+          "mismatches": []
+        }
+      ],
+      "sharedSides": false
+    }
+  ]
+}

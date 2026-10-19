@@ -1,0 +1,16 @@
+{
+  "source": {
+    "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\test\\support\\mv-evidence.ts",
+    "sha256": "cb43d7bd2c6295f695a3c1a570fd8b3f648daaf981feb9923683631983bea76d",
+    "snapshot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\profile-index-original-cb43d7bd2c6295f695a3c1a570fd8b3f648daaf981feb9923683631983bea76d.ts"
+  },
+  "instrumented": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\profile-index-instrumented-08b1be0a-7d85-4f4c-8ca1-0bb3bc4b779c.mts",
+    "sha256": "f88486b63decd818c6e656ad2503097beaa9fc81069c6e929fce65f645223978"
+  },
+  "at": "2026-10-19T19:34:42.813Z",
+  "node": "C:\\Users\\Shuen\\AppData\\Local\\pnpm-cache\\dlx\\e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7\\1a152fc0f14-2f10\\node_modules\\.pnpm\\node@22.23.0\\node_modules\\node\\bin\\node.exe",
+  "status": 0,
+  "stdout": "{\"sourcePath\":\"C:\\\\Users\\\\Shuen\\\\.codex\\\\worktrees\\\\mv-map-numeric-fix\\\\rpgmaker-event-dsl\\\\packages\\\\rpgmaker-event-dsl\\\\test\\\\support\\\\mv-evidence.ts\",\"sourceSha256\":\"cb43d7bd2c6295f695a3c1a570fd8b3f648daaf981feb9923683631983bea76d\",\"totalMs\":16163.1513,\"requirementMs\":101.77750000000003,\"listMs\":21.746200000000044,\"resultMs\":16026.479,\"resultReadMs\":14541.830700000024,\"resultParseMs\":1214.4438999999672,\"resultCheckMs\":259.9172000000208,\"resultCount\":3631,\"requirements\":300}\n",
+  "stderr": ""
+}

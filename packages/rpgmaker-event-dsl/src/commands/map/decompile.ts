@@ -22,8 +22,11 @@ export function renderChangeBattleBack(
   return typeof battleback1 !== "string" || typeof battleback2 !== "string"
     ? null
     : {
-        expression: `changeBattleBack({ battleback1: imageAsset({ folder: "battlebacks1", name: ${literal(battleback1)} }), battleback2: imageAsset({ folder: "battlebacks2", name: ${literal(battleback2)} }) })`,
-        helperNames: ["changeBattleBack", "imageAsset"],
+        expression: `changeBattleBack({ battleback1: ${battleback1 === "" ? "null" : `imageAsset({ folder: "battlebacks1", name: ${literal(battleback1)} })`}, battleback2: ${battleback2 === "" ? "null" : `imageAsset({ folder: "battlebacks2", name: ${literal(battleback2)} })`} })`,
+        helperNames: [
+          "changeBattleBack",
+          ...(battleback1 !== "" || battleback2 !== "" ? ["imageAsset"] : []),
+        ],
       };
 }
 
@@ -46,23 +49,9 @@ export function renderChangeParallax(
     return null;
   }
 
-  const fields = [`image: imageAsset({ folder: "parallaxes", name: ${literal(imageName)} })`];
-  if (loopX) {
-    fields.push("loopX: true");
-  }
-  if (loopY) {
-    fields.push("loopY: true");
-  }
-  if (sx !== 0) {
-    fields.push(`sx: ${sx}`);
-  }
-  if (sy !== 0) {
-    fields.push(`sy: ${sy}`);
-  }
-
   return {
-    expression: `changeParallax({ ${fields.join(", ")} })`,
-    helperNames: ["changeParallax", "imageAsset"],
+    expression: `changeParallax({ image: ${imageName === "" ? "null" : `imageAsset({ folder: "parallaxes", name: ${literal(imageName)} })`}, loopX: ${loopX}, loopY: ${loopY}, sx: ${literal(sx)}, sy: ${literal(sy)} })`,
+    helperNames: ["changeParallax", ...(imageName === "" ? [] : ["imageAsset"])],
   };
 }
 

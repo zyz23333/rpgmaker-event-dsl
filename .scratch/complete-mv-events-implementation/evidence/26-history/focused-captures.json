@@ -1,0 +1,163 @@
+{
+  "capturedAt": "2026-10-19T17:28:44.448Z",
+  "base": "205334338d8e64e3d00e485849c9ddf67bd7e3b1",
+  "scope": "Focused source development only; raw failed/green/harness premise logs preserved; no broad/build/built/native execution",
+  "files": [
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-dependencies-install.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-dependencies-install.log",
+      "sha256": "641280b7de1d96c3ff057f67a92ac11ff2883c4f958a21eeef9ce6a1683968b0",
+      "bytes": 1374
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-focused-checkpoint-suite-first.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-focused-checkpoint-suite-first.log",
+      "sha256": "671ee39675b888694c08797c62699c9360d081f5f184245a8489970e7f6515b4",
+      "bytes": 288
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-focused-complete-first.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-focused-complete-first.log",
+      "sha256": "d7ef8dd64cc8c3537048b2b2ac5535b9a6e87003f58795b5aac5df1fd49ca8d7",
+      "bytes": 21714
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-focused-complete-second.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-focused-complete-second.log",
+      "sha256": "6fddef1d5638a242736221b60a9d7154c453beddb1cb2686a054494e25b3125a",
+      "bytes": 288
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-focused-final-evidence-run.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-focused-final-evidence-run.log",
+      "sha256": "96ac869048945cb63bea67c44c39f27bfd5234dd58d06ea418394153e52009c4",
+      "bytes": 288
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-focused-lint-first.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-focused-lint-first.log",
+      "sha256": "fbc51c8e4ed691ec286c96a15e3974397e3d4e206fbf10ec061e52a069d94744",
+      "bytes": 181
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-focused-typecheck-first.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-focused-typecheck-first.log",
+      "sha256": "180a9a09fb3427d558a63a908dc3ea9a5dfa130a48974e1b1e1699f8e9cc5370",
+      "bytes": 167
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-focused-typecheck-second.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-focused-typecheck-second.log",
+      "sha256": "180a9a09fb3427d558a63a908dc3ea9a5dfa130a48974e1b1e1699f8e9cc5370",
+      "bytes": 167
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-green01-authored-slots-corrected-oracle.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-green01-authored-slots-corrected-oracle.log",
+      "sha256": "ed5dbbd40f9f200f7cdada6601ea941a2e6ced1e26e9a2d242d4dde5d0062117",
+      "bytes": 1630
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-green01-authored-slots-final.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-green01-authored-slots-final.log",
+      "sha256": "9e5bee99667e14cce11a70cbfaeb9cd153756c77b74b91f21f758ab05b339287",
+      "bytes": 284
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-green01-authored-slots.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-green01-authored-slots.log",
+      "sha256": "4f3435b2467abd6040e9d205f07eabf5e73c8e9c9884d555adeede7d1fa253dc",
+      "bytes": 1800
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-green02-native-slots-corrected-diff.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-green02-native-slots-corrected-diff.log",
+      "sha256": "8ba123478d7db08c2328463d4e8eb98aa4a0c193d5ca78655957b2592d8942b8",
+      "bytes": 2599
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-green02-native-slots-final.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-green02-native-slots-final.log",
+      "sha256": "ebb5d0a26af3c26c2afbdff25bf957bba518669300b343bed44eae1642e99183",
+      "bytes": 296
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-green02-native-slots.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-green02-native-slots.log",
+      "sha256": "aac71c3c8bffd2d7bca11df75b921faa9341166c537664b04c95632191d18b36",
+      "bytes": 1801
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-green03-numeric-negative-zero.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-green03-numeric-negative-zero.log",
+      "sha256": "2ac22399a6b25dd58e638f652ebd3f6770f97149823f7ffd5190a8b47757665b",
+      "bytes": 296
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-green04-authored-validation.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-green04-authored-validation.log",
+      "sha256": "d752eb255e988c6bc09d9115f637977b1108c4155c5deeef1214a583e74f22a0",
+      "bytes": 296
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-green05-native-validation.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-green05-native-validation.log",
+      "sha256": "51e8a0be70161601c9579d1a9a44f86d309f101107ce55950b052a72521d7c7b",
+      "bytes": 296
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-green06-raw-diagnostic-slot-path.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-green06-raw-diagnostic-slot-path.log",
+      "sha256": "e270710f10b0b09c99ce24efecf0bed41cd067512da7ac9a3bbf58bfb46088e3",
+      "bytes": 299
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-red01-authored-slots-executed.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-red01-authored-slots-executed.log",
+      "sha256": "6d72ae24efc4b2d73753a5b0b8ecb68236873b989ab082843fa1add15736f8ea",
+      "bytes": 2636
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-red01-authored-slots.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-red01-authored-slots.log",
+      "sha256": "0e9c8d1fd9c4b5b0266b21a5b2d6159911dc695c024ea099fcf892a5f6c6042d",
+      "bytes": 177
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-red02-native-slots.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-red02-native-slots.log",
+      "sha256": "8e3a4a751d48f75944f6c45432b74d4e31770c4fd66e20c1a3d7f41b53b7d76f",
+      "bytes": 2136
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-red03-numeric-negative-zero.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-red03-numeric-negative-zero.log",
+      "sha256": "671aa1556099236b5fdccaef3361723cb04c77c7b9432b704a232651e3d069c2",
+      "bytes": 2234
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-red04-authored-validation.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-red04-authored-validation.log",
+      "sha256": "35298d2c4e595cc24abc2691ad078b72a1bd42f0f80b63bde40f1dbc6b814a5d",
+      "bytes": 2541
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-red05-native-validation.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-red05-native-validation.log",
+      "sha256": "e77da2c0be9937f414228a1ec9ccd0ed7b574bc7e4bc64fa9402bec0e3f1cec1",
+      "bytes": 5875
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-red06-raw-diagnostic-slot-path.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-red06-raw-diagnostic-slot-path.log",
+      "sha256": "27d0f3b8a498b9a5c634d8fb81a696818ff09d49852e5fa9ced3b9fa4f4dfb82",
+      "bytes": 20822
+    },
+    {
+      "source": "C:/Users/Shuen/.codex/tmp/mv26-related-regression-first.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/26-history/focused/mv26-related-regression-first.log",
+      "sha256": "d3cb987f683009add9c1e06d8f9e6f9e51d7e895106067328bb212b9be3d6b21",
+      "bytes": 3099
+    }
+  ]
+}

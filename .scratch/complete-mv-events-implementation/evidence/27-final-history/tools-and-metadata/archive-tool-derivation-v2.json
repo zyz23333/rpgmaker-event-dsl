@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-19T22:03:09.862Z",
+  "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\archive-final-v1.cjs",
+  "target": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\archive-final-v2.cjs",
+  "sourceSha256": "e2fc48c074fc13e392c768b273adc59f7a1ca3f44793009454b67ca057f168c8",
+  "derivedSha256": "0159b3da4e2ddfe9a336a9c4e6c840b446afe056727c2a3bb20823649d6fd033",
+  "purpose": "Preserve unexecuted original archive draft, require actual successful fullv2 while retaining failed original fullv1 and focused index timeout"
+}

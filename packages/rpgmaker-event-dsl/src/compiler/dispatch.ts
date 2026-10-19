@@ -1,7 +1,10 @@
 import type { CommonEventDefinition, DslCommand } from "../domain/types.js";
 import type { ReferenceResolver } from "../validation/types.js";
 import type { RawEventCommand, CommandOrigins } from "./types.js";
+import { assertControlTimerInput } from "../commands/variables/validation.js";
 import { assertDslCommandList } from "../validation/dsl-command-inputs.js";
+import { assertShowChoicesInput } from "../commands/message/validation.js";
+import { assertMapAppearanceInput } from "../commands/map/validation.js";
 import {
   assertConditionalCommand,
   assertConditionalBodyOutput,
@@ -126,6 +129,7 @@ export function compileNodes(
   const output: RawEventCommand[] = [];
 
   for (const [nodeIndex, node] of nodes.entries()) {
+    assertMapAppearanceInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     const outputStart = output.length;
     switch (node.kind) {
       case "showText":
@@ -311,10 +315,16 @@ export function compileNodes(
         });
         break;
       case "controlTimer":
+        assertControlTimerInput(node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 124,
           indent,
-          parameters: node.action === "start" ? [0, node.seconds] : [1, 0],
+          parameters:
+            node.action === "start"
+              ? [0, node.seconds]
+              : node.seconds === undefined
+                ? [1]
+                : [1, node.seconds],
         });
         break;
       case "changeGold":
@@ -674,15 +684,20 @@ export function compileNodes(
         });
         break;
       case "showChoices":
+        assertShowChoicesInput(node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 102,
           indent,
           parameters: [
-            node.choices,
-            node.cancelBranch === undefined ? (node.cancelType ?? -1) : -2,
-            node.defaultType ?? 0,
-            node.positionType ?? 2,
-            node.background ?? 0,
+            node.choices.map((choice) => choice.text),
+            node.cancel?.kind === "branch"
+              ? -2
+              : node.cancel?.kind === "disabled"
+                ? -1
+                : (node.cancel?.index ?? 1),
+            node.defaultChoice?.kind === "none" ? -1 : (node.defaultChoice?.index ?? 0),
+            { left: 0, center: 1, right: 2 }[node.position ?? "right"],
+            { window: 0, dim: 1, transparent: 2 }[node.background ?? "window"],
           ],
         });
         output.push(
@@ -1128,20 +1143,14 @@ export function compileNodes(
         output.push({
           code: 283,
           indent,
-          parameters: [node.battleback1.name, node.battleback2.name],
+          parameters: [node.battleback1?.name ?? "", node.battleback2?.name ?? ""],
         });
         break;
       case "changeParallax":
         output.push({
           code: 284,
           indent,
-          parameters: [
-            node.image.name,
-            node.loopX ?? false,
-            node.loopY ?? false,
-            node.sx ?? 0,
-            node.sy ?? 0,
-          ],
+          parameters: [node.image?.name ?? "", node.loopX, node.loopY, node.sx, node.sy],
         });
         break;
       case "getLocationInfo":
