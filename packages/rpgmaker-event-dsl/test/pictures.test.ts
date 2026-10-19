@@ -9,6 +9,7 @@ import {
   erasePicture,
   variableRef,
   rawDslCommand,
+  imageAsset,
 } from "../src/index.js";
 import { compileCommonEvent } from "../src/compiler/events.js";
 import { renderDecompiledCommandList } from "../src/decompiler/dispatch.js";
@@ -29,7 +30,9 @@ function it(name: string, verify: () => void) {
       throw error;
     } finally {
       await recordEvidence({
-        requirementId: "MV-S6-PICTURE-001",
+        requirementId: name.startsWith("rejects imageAsset input fields before projection")
+          ? "MV-S6-PICTURE-008"
+          : "MV-S6-PICTURE-001",
         startedAt,
         stages: [
           "Independent complete native expectations",
@@ -43,6 +46,25 @@ function it(name: string, verify: () => void) {
     }
   });
 }
+it("rejects imageAsset input fields before projection while retaining exact valid filename values", () => {
+  for (const input of [
+    { folder: "pictures", name: "No scan", unexpected: true },
+    { folder: "faces", name: "CR\rname", unexpected: true },
+  ])
+    expect(() => imageAsset(input as never)).toThrow("MV-DSL-SHAPE");
+  expect(imageAsset({ folder: "pictures", name: "CR\rname" })).toStrictEqual({
+    kind: "asset",
+    category: "image",
+    folder: "pictures",
+    name: "CR\rname",
+  });
+  expect(imageAsset({ folder: "faces", name: "No scan" })).toStrictEqual({
+    kind: "asset",
+    category: "image",
+    folder: "faces",
+    name: "No scan",
+  });
+});
 it("requires every owned Picture input field at helper and direct-node boundaries", () => {
   const display = {
     pictureId: 1,

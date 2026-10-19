@@ -205,6 +205,38 @@ const helpers = [
   ["tintPicture", "{pictureId:100,tone:{red:0,green:0,blue:0,gray:0},duration:1,wait:false}"],
   ["erasePicture", "{pictureId:100}"],
 ] as const;
+const imageAssetSourceForms = [
+  ["local", 'const input={folder:"pictures" as const,name:"No scan",unexpected:true};', "input"],
+  ["const", 'const input={folder:"pictures",name:"No scan",unexpected:true} as const;', "input"],
+  [
+    "spread",
+    'const input={folder:"pictures",name:"No scan",unexpected:true} as const;',
+    "{...input}",
+  ],
+  [
+    "cast",
+    'const input={folder:"pictures",name:"No scan",unexpected:true} as const;',
+    "input as never",
+  ],
+] as const;
+for (const [form, setup, expression] of imageAssetSourceForms)
+  evidenceIt(
+    "MV-S6-PICTURE-008",
+    `rejects imageAsset input fields before projection via actual ${form} source`,
+    async () => {
+      await withWindowsSandbox(`picture-asset-input-${form}`, async ({ workspaceRoot: root }) => {
+        await prepare(root);
+        await decompileWorkspace({ workspaceRoot: root });
+        await compileWorkspace({ workspaceRoot: root, check: false });
+        await rejectSource(
+          root,
+          `${imports}${setup}\nconst image=imageAsset(${expression});\nconst command=showPicture({${display},image});\n${declaration}`,
+          "MV-DSL-SHAPE",
+          "imageAsset",
+        );
+      });
+    },
+  );
 evidenceIt(
   "MV-S6-PICTURE-007",
   "preserves Picture commands in Map and Battle pages with inactive saved values and real Push",

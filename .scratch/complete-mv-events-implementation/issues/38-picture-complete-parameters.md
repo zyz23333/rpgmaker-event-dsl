@@ -55,3 +55,54 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 ### 2026-10-20 — Focused DEV claim
 
 Claimed on codex/mv-ticket-38 at actual integration38542767606ff9712e45d2a8e4894558e3a7d385. Worktree is manually Git-registered on M, not app-attached. T1 seams are already approved; use narrow red→green vertical slices. All new temporary data/results/logs/captures live in ticket38-temp on M. This is focused DEV only: full/build/built/native/contract delivery/READY/resolved and independent merger remain pending. Native R6 will run later in root serial queue. Normative Tone is named red/green/blue/gray, no tuple alias; preserve37 ownership.
+
+### 2026-10-20 — Preserved development checkpoint and incoming Map delivery
+
+Initial focused source execution passed12files/179tests on the3854276/contract10
+baseline. Exact execution input bytes and158original result records are preserved
+externally at `M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/premerge-3854-source-freeze`.
+The clean source checkpoint is4d37538; actual Map delivery888b950 was then merged
+as10ef92c, inheriting contract11. Incoming300 requirement objects/raw prefix and
+historical evidence were preserved, followed by this ticket's initial8 rows.
+Commitc1b9777 adds the Picture Workspace test to the built Windows include list.
+Postmerge execution remains pending while ticket26 owns the serial test window.
+
+Root subsequently assigned the shared `imageAsset` constructor's projection
+boundary to this ticket. Requirement008 and five helper/actual source-local,
+const, spread and cast rejection cases are prepared for a distinct red→green
+slice; no implementation or execution is claimed yet. The index now has300
+incoming plus9 owned rows. `movieAsset` and `scriptInput` remain with their
+assigned finalization owners; queued audio/reference changes are not copied here.
+Status remains claimed; full/build/built/R6 and final delivery remain pending.
+
+### 2026-10-20 — imageAsset public constructor original red
+
+The allocated lightweight helper run `image-asset-helper-red-v1` failed as expected
+because the constructor accepted the extra input field. The run preserved its raw
+failure and178 captured execution inputs, fingerprint
+`95e3271bd413b58434d5c953eccf7a3e1bfb3e0c7f8e6ffe80bfdc74dedaa192`.
+Product code remains unchanged so the actual Workspace local/const/spread/cast
+cases can obtain their own original red when the root releases that window.
+No green, postmerge completion or final acceptance is claimed.
+
+### 2026-10-20 — imageAsset source-boundary red→green
+
+`image-asset-workspace-red-v1` preserved four actual Workspace failures for local,
+const, spread and cast input against the same178-file repair-before fingerprint.
+The only product change in this slice adds `assertDslObject` to the original
+`imageAsset` input before folder/name reads and projection. The subsequent
+`image-asset-five-green-v1` run passed all five helper/Workspace cases, preserving
+fingerprint `d525b335ec25e4dc0a25d751c1e56193f62c2fad8853117dc27a875d79e02e08`.
+All execution retained Node22.23.0, two workers and the original ten-second limit.
+The root serial window was released after phase exit0; the larger postmerge
+focused checks, index audit and focused DEV handoff remain pending.
+
+The allocated lightweight static follow-up also passed package typecheck,
+scoped lint/format and whitespace checks. A separate immutable external freeze
+retains the five original failed and five passing result records, nine raw logs
+and all three input snapshots. Manifest SHA256:
+`61b2226b6081124fb0d8b94383a525ed58b326cbc72448c243d290de84032b02`.
+It verified every recorded source hash against the preserved snapshot; the only
+captured input changed between red and green is `references.ts`. Standard record
+source fingerprints and broader pre-run snapshot fingerprints remain separately
+identified in the evidence document. No larger batch/index run is claimed here.

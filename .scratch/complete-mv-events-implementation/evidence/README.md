@@ -521,3 +521,7 @@ Ticket38 focused DEV uses independent Picture literals and actual Workspace oper
 | Requirement | Obligation | Evidence kind | Required layer |
 | --- | --- | --- | --- |
 | MV-S6-PICTURE-007 | Picture Map and Battle page carriers preserve complete inactive state | synthetic-support | Public Workspace and complete carrier/state assertions |
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-PICTURE-008 | imageAsset refuses extra own inputs before projection into Picture values | synthetic-rejection | Public constructor and actual Workspace complete failure-state assertions |
