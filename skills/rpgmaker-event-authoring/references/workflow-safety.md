@@ -44,6 +44,12 @@ Use the command form available in the Workspace when the binary is invoked throu
 
 ## Synchronization
 
+Run Workspace commands sequentially. If any command reports `Workspace is busy`,
+retry after the active operation finishes; Check and Diff share the same lock as
+writing commands. Keep `.rpgmaker-event-dsl/operation.lock` in place. Windows releases
+the owner's handle after a normal exit or crash, independently of pending Interrupted
+Push state. A pending Interrupted Push remains for Push to resolve.
+
 If the user changed data in the RPG Maker MV editor, run `rpgmaker-event-dsl pull`, then compile, then Diff.
 
 If Diff or Push reports stale Generated Freshness, run compile again before retrying.
