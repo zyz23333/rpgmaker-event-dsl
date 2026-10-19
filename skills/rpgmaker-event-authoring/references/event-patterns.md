@@ -121,6 +121,17 @@ Runtime Selector meaning even when a fixed project target cannot be inferred.
 
 Use Asset Reference helpers for files, not Project Data Reference helpers. `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)` are no-scan filename-stem references; they do not validate that a file exists on disk.
 
+For map appearance, give `changeMapNameDisplay` an explicit Boolean `enabled`, and
+give `changeTileset` an existing `tilesetRef` without None. Give `changeBattleBack`
+both independent fields: `battleback1` uses `battlebacks1`, `battleback2` uses
+`battlebacks2`, and either may be explicit `null`. Give `changeParallax` all five
+fields: an image in `parallaxes` or `null`, Boolean `loopX` and `loopY`, and integer
+`sx` and `sy` in −32..32. Preserve negative zero in both speed slots. Keep saved
+speeds when a loop is disabled or the image is None. Preserve filenames exactly;
+use `null` for None and nonempty Asset Reference
+names for actual files. Check intentional missing assets in the game: the Workspace
+does not scan asset files or infer that a valid Tileset reference guarantees loading.
+
 Use `script(...)` and `scriptInput(...)` for short RPG Maker MV JavaScript only when the Workspace Script Command Gate allows it and ordinary event commands are not enough. The Gate also checks Conditional Branch script conditions, Control Variables script operands, Set Movement Route script subcommands and mirrors, and saved Page routes in every movement mode. Empty and unreachable scripts still count. With the Gate closed, Decompile warns while generating source; Check and Compile reject current declarations containing scripts. Remove the actual scripts or enable the Gate deliberately before compiling.
 
 Use `pluginCommand(...)` only when the plugin command is grounded in user intent, existing project usage, or plugin documentation. The DSL models MV's native plugin command string; plugin-specific argument schemas are outside this helper's validation boundary.

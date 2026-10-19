@@ -186,6 +186,18 @@ records and before Decompile publishes source. Runtime enemy positions and dynam
 equipment candidates retain their selector meaning. Capture database changes with
 `pull` before compiling against them.
 
+Map appearance uses explicit saved values. `changeMapNameDisplay({ enabled })`
+requires a Boolean; `changeTileset({ tileset: tilesetRef({ id: 2 }) })` requires
+an existing Snapshot Tileset and has no None value. `changeBattleBack({ battleback1,
+battleback2 })` requires both independent slots, each an image Asset Reference in
+`battlebacks1` or `battlebacks2` respectively, or explicit `null` for None.
+`changeParallax({ image: null, loopX: false, loopY: true, sx: 32, sy: -32 })`
+requires all five fields. Its image uses `parallaxes`; integer speeds −32..32 preserve
+negative zero and remain saved with looping disabled or image None. None compiles
+to an empty filename.
+Empty Asset Reference names and unknown command fields fail validation. Asset
+references preserve names without checking image directories or file sizes.
+
 Clone and Pull capture exact UTF-8 file bytes, their hashes and the map collection
 selected by the same MapInfos input. Invalid collections, missing registered maps,
 malformed carriers and undecodable bytes fail explicitly. An observed input or

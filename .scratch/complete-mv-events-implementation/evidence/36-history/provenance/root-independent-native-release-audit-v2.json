@@ -1,0 +1,349 @@
+{
+  "purpose": "Root independent read-only release audit of ticket36 exact physical prepare-only pairs; no games launched",
+  "at": "2026-10-19T18:52:52.763Z",
+  "index": {
+    "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket36-delivery-v4/mv36-physical-delivery-v4-prepare-index-0ef05557-8dd9-4f5d-aca6-79b7df80a5a5.json",
+    "sha256": "a44d1575cb5b92552b8f849baa029a2bd26da8638308752e9e144db46906519b"
+  },
+  "manifest": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\manifest.json",
+    "sha256": "658dc83c6de9e6df6c79dea6d0907419221b101eca132b39c9f25cc29062b947"
+  },
+  "productFreeze": {
+    "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv36-postbuild-preserved-0428b3c7-8f95-4068-8662-0f338c93c133\\manifest.json",
+    "sha256": "5c874c5ff44a6f1641a610a5afe205fd387d4e87dcde26e94f9fb9050ad70abf"
+  },
+  "preservedFilesVerified": 183,
+  "adapter": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-native-pair-delivery-v3.cjs",
+    "sha256": "8e702d9d5a5900829fd79fce2ae07adad87fa1e130b2783f8f62b6c2befb99cc"
+  },
+  "guard": {
+    "sha256": "22719922029ef212ff34058fead532a3523d96fcb3d649e51bc081dc9b43d786"
+  },
+  "referenceFiles": 1100,
+  "seedFiles": 1100,
+  "cases": [
+    {
+      "case": "map",
+      "revision": "7407e5cefa87639030b0dde6ce56eeb87219924d",
+      "report": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-map-physical-delivery-v4-prepare-cc6bff54-306c-4b88-8ef0-61dbe51a890b\\preparation-result.json",
+        "sha256": "c8ed7e9f79d8872b4b8a0c6971222d3b2c47a268037108ab7657d543e6aaf82c"
+      },
+      "proof": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-map-physical-delivery-v4-prepare-cc6bff54-306c-4b88-8ef0-61dbe51a890b\\physical-isolation-proof.json",
+        "sha256": "48947ac1d61b3d0c0bc7e33ff05a47cd2f81f2c0d32bea1b0109eca4c9087d09"
+      },
+      "input": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\map-independent-input.json",
+        "sha256": "f2b4ccf8297c382f938ca815abd90b2484fc06c38144f36a6f549b2745bbd275"
+      },
+      "source": {
+        "count": 99,
+        "sha256": "964eb1b0a08ac8f5df91c1d44502272f3bab5f9869624a8e5c2e0f65e4e352d9"
+      },
+      "dist": {
+        "count": 15,
+        "sha256": "cbf782693e0da05c182e6f4a4b3ac068ff9e604f1db47d8d51fb96cda10ce509"
+      },
+      "dataCheckpoints": 71,
+      "fullProtectedCheckpoints": 6,
+      "physicalFiles": {
+        "reference": 15,
+        "seed": 15,
+        "literal": 15,
+        "compiled": 15
+      }
+    },
+    {
+      "case": "battle-overworld-both",
+      "revision": "7407e5cefa87639030b0dde6ce56eeb87219924d",
+      "report": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-both-physical-delivery-v4-prepare-eb3f4d93-253e-4746-817a-c35ab6c87f44\\preparation-result.json",
+        "sha256": "d3c13abd1a9f4c0b33ec9fc52ee6882654ad3c5ba7a70450ac43226d4fffba5e"
+      },
+      "proof": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-both-physical-delivery-v4-prepare-eb3f4d93-253e-4746-817a-c35ab6c87f44\\physical-isolation-proof.json",
+        "sha256": "374d9f4f189c333e0a116bf9c91a29d0c116414aa9838071f087254627abac85"
+      },
+      "input": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\battle-overworld-both-independent-input.json",
+        "sha256": "6c489cd704a11888403a578fd222ae5dffd4b429a8d26c74fe530146dbc97628"
+      },
+      "source": {
+        "count": 99,
+        "sha256": "964eb1b0a08ac8f5df91c1d44502272f3bab5f9869624a8e5c2e0f65e4e352d9"
+      },
+      "dist": {
+        "count": 15,
+        "sha256": "cbf782693e0da05c182e6f4a4b3ac068ff9e604f1db47d8d51fb96cda10ce509"
+      },
+      "dataCheckpoints": 71,
+      "fullProtectedCheckpoints": 6,
+      "physicalFiles": {
+        "reference": 15,
+        "seed": 15,
+        "literal": 15,
+        "compiled": 15
+      }
+    },
+    {
+      "case": "battle-overworld-only1",
+      "revision": "7407e5cefa87639030b0dde6ce56eeb87219924d",
+      "report": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-only1-physical-delivery-v4-prepare-69bced22-71fd-4bcb-b920-3fe4e601013e\\preparation-result.json",
+        "sha256": "4b96c80dffd65fd20bbc14b9855d16ccfce5b1637b510c6347b482cbd3610ee1"
+      },
+      "proof": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-only1-physical-delivery-v4-prepare-69bced22-71fd-4bcb-b920-3fe4e601013e\\physical-isolation-proof.json",
+        "sha256": "a5263b1fac2945086a1bc4097d08636ad557dcf9cb7aa7869fe3274c7ddcfe2c"
+      },
+      "input": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\battle-overworld-only1-independent-input.json",
+        "sha256": "23ae1793a218250fda7888f74412952fae38747c1e4666c391246519fa44a61f"
+      },
+      "source": {
+        "count": 99,
+        "sha256": "964eb1b0a08ac8f5df91c1d44502272f3bab5f9869624a8e5c2e0f65e4e352d9"
+      },
+      "dist": {
+        "count": 15,
+        "sha256": "cbf782693e0da05c182e6f4a4b3ac068ff9e604f1db47d8d51fb96cda10ce509"
+      },
+      "dataCheckpoints": 71,
+      "fullProtectedCheckpoints": 6,
+      "physicalFiles": {
+        "reference": 15,
+        "seed": 15,
+        "literal": 15,
+        "compiled": 15
+      }
+    },
+    {
+      "case": "battle-overworld-only2",
+      "revision": "7407e5cefa87639030b0dde6ce56eeb87219924d",
+      "report": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-only2-physical-delivery-v4-prepare-f62dbb31-0181-4d18-b92c-9c670e5338cd\\preparation-result.json",
+        "sha256": "51a1910cf354cccd640f7fde410b5b2ceb5ae72d832f16930a12036f94bbe31a"
+      },
+      "proof": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-only2-physical-delivery-v4-prepare-f62dbb31-0181-4d18-b92c-9c670e5338cd\\physical-isolation-proof.json",
+        "sha256": "70edc4f7044dd8189e1e1a8106509f674e3dc22fe448a02c7664efc62bc2498e"
+      },
+      "input": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\battle-overworld-only2-independent-input.json",
+        "sha256": "91a51b1b1e931b3104a3128f00ae2220a1a52a819e93a97ccad03ee9ccc89db5"
+      },
+      "source": {
+        "count": 99,
+        "sha256": "964eb1b0a08ac8f5df91c1d44502272f3bab5f9869624a8e5c2e0f65e4e352d9"
+      },
+      "dist": {
+        "count": 15,
+        "sha256": "cbf782693e0da05c182e6f4a4b3ac068ff9e604f1db47d8d51fb96cda10ce509"
+      },
+      "dataCheckpoints": 71,
+      "fullProtectedCheckpoints": 6,
+      "physicalFiles": {
+        "reference": 15,
+        "seed": 15,
+        "literal": 15,
+        "compiled": 15
+      }
+    },
+    {
+      "case": "battle-overworld-none",
+      "revision": "7407e5cefa87639030b0dde6ce56eeb87219924d",
+      "report": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-none-physical-delivery-v4-prepare-a98d7884-71aa-48a5-8c50-0659ef1c519b\\preparation-result.json",
+        "sha256": "747b9846487e197e0c1f7eae29a2a3ac22a1d94be82a1c92ba1a5579de2d46bd"
+      },
+      "proof": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-none-physical-delivery-v4-prepare-a98d7884-71aa-48a5-8c50-0659ef1c519b\\physical-isolation-proof.json",
+        "sha256": "d9a54af53d0537b8172daaa6bfd4189347549fc147fcc366f5135697622128cf"
+      },
+      "input": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\battle-overworld-none-independent-input.json",
+        "sha256": "f71b2db5ff743fe4565b0ac4e8b873ec7bd82a98e7f334ed7bce612f1dfcabed"
+      },
+      "source": {
+        "count": 99,
+        "sha256": "964eb1b0a08ac8f5df91c1d44502272f3bab5f9869624a8e5c2e0f65e4e352d9"
+      },
+      "dist": {
+        "count": 15,
+        "sha256": "cbf782693e0da05c182e6f4a4b3ac068ff9e604f1db47d8d51fb96cda10ce509"
+      },
+      "dataCheckpoints": 71,
+      "fullProtectedCheckpoints": 6,
+      "physicalFiles": {
+        "reference": 15,
+        "seed": 15,
+        "literal": 15,
+        "compiled": 15
+      }
+    },
+    {
+      "case": "battle-ordinary-both",
+      "revision": "7407e5cefa87639030b0dde6ce56eeb87219924d",
+      "report": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-both-physical-delivery-v4-prepare-68921840-3770-4b9a-8d58-498db39a20d8\\preparation-result.json",
+        "sha256": "8f6ad50b234ca742d32f2c649ddf7103345d4c1dc9b3af54b6679c6bcd5bf14f"
+      },
+      "proof": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-both-physical-delivery-v4-prepare-68921840-3770-4b9a-8d58-498db39a20d8\\physical-isolation-proof.json",
+        "sha256": "6340ba9f7b674cf80e76a1b7af50281f7410620aa94edadde1352a7cbea218b5"
+      },
+      "input": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\battle-ordinary-both-independent-input.json",
+        "sha256": "e7030e710c7f887cd51f8b1fe22f6bf13f50be35e36e13dbf624e49b2302ef27"
+      },
+      "source": {
+        "count": 99,
+        "sha256": "964eb1b0a08ac8f5df91c1d44502272f3bab5f9869624a8e5c2e0f65e4e352d9"
+      },
+      "dist": {
+        "count": 15,
+        "sha256": "cbf782693e0da05c182e6f4a4b3ac068ff9e604f1db47d8d51fb96cda10ce509"
+      },
+      "dataCheckpoints": 71,
+      "fullProtectedCheckpoints": 6,
+      "physicalFiles": {
+        "reference": 15,
+        "seed": 15,
+        "literal": 15,
+        "compiled": 15
+      }
+    },
+    {
+      "case": "battle-ordinary-only1",
+      "revision": "7407e5cefa87639030b0dde6ce56eeb87219924d",
+      "report": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-only1-physical-delivery-v4-prepare-c7864087-e649-4535-bcd8-dc3133363d76\\preparation-result.json",
+        "sha256": "c3c30f9f5c60d202a5e6ee2b18691b121da2334e3624d7a52084844fb7f68913"
+      },
+      "proof": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-only1-physical-delivery-v4-prepare-c7864087-e649-4535-bcd8-dc3133363d76\\physical-isolation-proof.json",
+        "sha256": "45ce5300d9be832d3fe081228669c3e6ee172ec3f26e5615780284dc72487782"
+      },
+      "input": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\battle-ordinary-only1-independent-input.json",
+        "sha256": "5abb879b63fd637c560c5666e6770c471e6178c2a085d5332f23506577376b0c"
+      },
+      "source": {
+        "count": 99,
+        "sha256": "964eb1b0a08ac8f5df91c1d44502272f3bab5f9869624a8e5c2e0f65e4e352d9"
+      },
+      "dist": {
+        "count": 15,
+        "sha256": "cbf782693e0da05c182e6f4a4b3ac068ff9e604f1db47d8d51fb96cda10ce509"
+      },
+      "dataCheckpoints": 71,
+      "fullProtectedCheckpoints": 6,
+      "physicalFiles": {
+        "reference": 15,
+        "seed": 15,
+        "literal": 15,
+        "compiled": 15
+      }
+    },
+    {
+      "case": "battle-ordinary-only2",
+      "revision": "7407e5cefa87639030b0dde6ce56eeb87219924d",
+      "report": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-only2-physical-delivery-v4-prepare-0656af85-d55b-4f07-8fae-34413ea47fab\\preparation-result.json",
+        "sha256": "bc78e1612348d06e8beae3818998b2239e87172957d8aa0856633bf0159659cf"
+      },
+      "proof": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-only2-physical-delivery-v4-prepare-0656af85-d55b-4f07-8fae-34413ea47fab\\physical-isolation-proof.json",
+        "sha256": "6bea7b474b57730f0518f73ebfe5aa09fe13853ff3a670edd5617a493932c9fb"
+      },
+      "input": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\battle-ordinary-only2-independent-input.json",
+        "sha256": "50424dff58edb3b076ed1f29105cbb2c926448aebd635ffd52dadf2cf272c4cb"
+      },
+      "source": {
+        "count": 99,
+        "sha256": "964eb1b0a08ac8f5df91c1d44502272f3bab5f9869624a8e5c2e0f65e4e352d9"
+      },
+      "dist": {
+        "count": 15,
+        "sha256": "cbf782693e0da05c182e6f4a4b3ac068ff9e604f1db47d8d51fb96cda10ce509"
+      },
+      "dataCheckpoints": 71,
+      "fullProtectedCheckpoints": 6,
+      "physicalFiles": {
+        "reference": 15,
+        "seed": 15,
+        "literal": 15,
+        "compiled": 15
+      }
+    },
+    {
+      "case": "battle-ordinary-none",
+      "revision": "7407e5cefa87639030b0dde6ce56eeb87219924d",
+      "report": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-none-physical-delivery-v4-prepare-ebde6ddd-0a5a-4db6-be4b-faed82834ad7\\preparation-result.json",
+        "sha256": "6f2c256d619e7c825ecdd2a05f571d5079773c1460cb34da7575edd18f1a5e88"
+      },
+      "proof": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-none-physical-delivery-v4-prepare-ebde6ddd-0a5a-4db6-be4b-faed82834ad7\\physical-isolation-proof.json",
+        "sha256": "f3764cedde9d0b0373e4a2ee82452578b09e13eaeeaaf52acf503c82373addb4"
+      },
+      "input": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\battle-ordinary-none-independent-input.json",
+        "sha256": "8a0055dd1266467868b07b85f7701189d3ee78eeb149b3d0aa313319ebc255cf"
+      },
+      "source": {
+        "count": 99,
+        "sha256": "964eb1b0a08ac8f5df91c1d44502272f3bab5f9869624a8e5c2e0f65e4e352d9"
+      },
+      "dist": {
+        "count": 15,
+        "sha256": "cbf782693e0da05c182e6f4a4b3ac068ff9e604f1db47d8d51fb96cda10ce509"
+      },
+      "dataCheckpoints": 71,
+      "fullProtectedCheckpoints": 6,
+      "physicalFiles": {
+        "reference": 15,
+        "seed": 15,
+        "literal": 15,
+        "compiled": 15
+      }
+    },
+    {
+      "case": "missing-tileset",
+      "revision": "7407e5cefa87639030b0dde6ce56eeb87219924d",
+      "report": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-missing-tileset-physical-delivery-v4-prepare-c9d5bd19-b3b6-4866-ac84-9820fdb2437a\\preparation-result.json",
+        "sha256": "50c3cc4a0f456a6f5d00c114250c7b50aab9abe6d99312d5b652b4a7cb124c23"
+      },
+      "proof": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-missing-tileset-physical-delivery-v4-prepare-c9d5bd19-b3b6-4866-ac84-9820fdb2437a\\physical-isolation-proof.json",
+        "sha256": "5861108ebeacf387cdc6bfbb22d7be37d81520d0ca4e5a37a69bbed6f9437989"
+      },
+      "input": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\missing-tileset-independent-input.json",
+        "sha256": "a4e03b1ea762f3e565747c461b899c9ae77c7fadee60e0a9a4416f126936c6e3"
+      },
+      "source": {
+        "count": 99,
+        "sha256": "964eb1b0a08ac8f5df91c1d44502272f3bab5f9869624a8e5c2e0f65e4e352d9"
+      },
+      "dist": {
+        "count": 15,
+        "sha256": "cbf782693e0da05c182e6f4a4b3ac068ff9e604f1db47d8d51fb96cda10ce509"
+      },
+      "dataCheckpoints": 71,
+      "fullProtectedCheckpoints": 6,
+      "physicalFiles": {
+        "reference": 15,
+        "seed": 15,
+        "literal": 15,
+        "compiled": 15
+      }
+    }
+  ],
+  "passed": true
+}

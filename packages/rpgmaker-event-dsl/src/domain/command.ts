@@ -633,17 +633,17 @@ export type ChangeTilesetDslCommand = {
 
 export type ChangeBattleBackDslCommand = {
   kind: "changeBattleBack";
-  battleback1: ImageAssetReference;
-  battleback2: ImageAssetReference;
+  battleback1: ImageAssetReference | null;
+  battleback2: ImageAssetReference | null;
 };
 
 export type ChangeParallaxDslCommand = {
   kind: "changeParallax";
-  image: ImageAssetReference;
-  loopX?: boolean;
-  loopY?: boolean;
-  sx?: number;
-  sy?: number;
+  image: ImageAssetReference | null;
+  loopX: boolean;
+  loopY: boolean;
+  sx: number;
+  sy: number;
 };
 
 export type GetLocationInfoDslCommand = {

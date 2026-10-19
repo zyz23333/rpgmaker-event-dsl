@@ -1,0 +1,197 @@
+{
+  "purpose": "Codex visual inspection of actual native captures; separate from runtime assertions and not a human observation",
+  "at": "2026-10-19T19:06:05.157Z",
+  "operator": "Codex image inspection through view_image",
+  "method": "Viewed two labeled contact sheets covering all24 immutable original PNGs at half resolution; no game rerun or capture alteration",
+  "inputs": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\native-capture-contact-sheet-inputs-v1.json",
+    "sha256": "ec531dafeb2658caeca64f6e8e49d331224329c80020c59d4342cf0e95331cbb"
+  },
+  "captures": [
+    {
+      "Case": "map",
+      "Side": "literal",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-map-physical-delivery-v4-native-71eacccd-4ee0-4bac-86ed-b261398122da\\literal\\Game\\map-appearance-fixed-parallax.png",
+      "Name": "map-appearance-fixed-parallax.png",
+      "Sha256": "5844a90c20448e9f428e3c8e766c9cb8ad20779b3e15ad16e697266f08ded904"
+    },
+    {
+      "Case": "map",
+      "Side": "literal",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-map-physical-delivery-v4-native-71eacccd-4ee0-4bac-86ed-b261398122da\\literal\\Game\\map-appearance-none-with-loop.png",
+      "Name": "map-appearance-none-with-loop.png",
+      "Sha256": "62525bcb3e23a3a05dd211603c56ae609ba2271bf37391e47264a88b54dd9e31"
+    },
+    {
+      "Case": "map",
+      "Side": "literal",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-map-physical-delivery-v4-native-71eacccd-4ee0-4bac-86ed-b261398122da\\literal\\Game\\map-appearance-none-with-saved-speeds.png",
+      "Name": "map-appearance-none-with-saved-speeds.png",
+      "Sha256": "62525bcb3e23a3a05dd211603c56ae609ba2271bf37391e47264a88b54dd9e31"
+    },
+    {
+      "Case": "map",
+      "Side": "literal",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-map-physical-delivery-v4-native-71eacccd-4ee0-4bac-86ed-b261398122da\\literal\\Game\\map-appearance-scrolling-parallax.png",
+      "Name": "map-appearance-scrolling-parallax.png",
+      "Sha256": "bae4f3f545a20ec4934352a897d88914108d1d73a175337a2b8ce86868b6a245"
+    },
+    {
+      "Case": "map",
+      "Side": "compiled",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-map-physical-delivery-v4-native-71eacccd-4ee0-4bac-86ed-b261398122da\\compiled\\Game\\map-appearance-fixed-parallax.png",
+      "Name": "map-appearance-fixed-parallax.png",
+      "Sha256": "5844a90c20448e9f428e3c8e766c9cb8ad20779b3e15ad16e697266f08ded904"
+    },
+    {
+      "Case": "map",
+      "Side": "compiled",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-map-physical-delivery-v4-native-71eacccd-4ee0-4bac-86ed-b261398122da\\compiled\\Game\\map-appearance-none-with-loop.png",
+      "Name": "map-appearance-none-with-loop.png",
+      "Sha256": "62525bcb3e23a3a05dd211603c56ae609ba2271bf37391e47264a88b54dd9e31"
+    },
+    {
+      "Case": "map",
+      "Side": "compiled",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-map-physical-delivery-v4-native-71eacccd-4ee0-4bac-86ed-b261398122da\\compiled\\Game\\map-appearance-none-with-saved-speeds.png",
+      "Name": "map-appearance-none-with-saved-speeds.png",
+      "Sha256": "62525bcb3e23a3a05dd211603c56ae609ba2271bf37391e47264a88b54dd9e31"
+    },
+    {
+      "Case": "map",
+      "Side": "compiled",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-map-physical-delivery-v4-native-71eacccd-4ee0-4bac-86ed-b261398122da\\compiled\\Game\\map-appearance-scrolling-parallax.png",
+      "Name": "map-appearance-scrolling-parallax.png",
+      "Sha256": "05fb403b59beb5513776a52de5106487eac0da6d4a191c6049972e46da2435d4"
+    },
+    {
+      "Case": "battle-overworld-both",
+      "Side": "literal",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-both-physical-delivery-v4-native-54d8a5a4-11d3-4464-a4ce-d0e19f89f5cc\\literal\\Game\\battlebacks.png",
+      "Name": "battlebacks.png",
+      "Sha256": "87b0906c485ffb9ef16df3f317401fa63785b9ea2f5c179096a5a7168034087d"
+    },
+    {
+      "Case": "battle-overworld-both",
+      "Side": "compiled",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-both-physical-delivery-v4-native-54d8a5a4-11d3-4464-a4ce-d0e19f89f5cc\\compiled\\Game\\battlebacks.png",
+      "Name": "battlebacks.png",
+      "Sha256": "1053b15406fd9fa0e05da06c2e4689e70bfe057cb61f9a9c1258d74508a03a55"
+    },
+    {
+      "Case": "battle-overworld-only1",
+      "Side": "literal",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-only1-physical-delivery-v4-native-b561b261-80fb-4ecb-96eb-cc4e158534cc\\literal\\Game\\battlebacks.png",
+      "Name": "battlebacks.png",
+      "Sha256": "f9e46ec33bbceb90e464020e8b64614c71484bb7a70fdfd3e6fe64ad6f9cdcb9"
+    },
+    {
+      "Case": "battle-overworld-only1",
+      "Side": "compiled",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-only1-physical-delivery-v4-native-b561b261-80fb-4ecb-96eb-cc4e158534cc\\compiled\\Game\\battlebacks.png",
+      "Name": "battlebacks.png",
+      "Sha256": "1f968f00513cd6f290d87d5fe749c4965b24c9e7146b996889190ceca678d49e"
+    },
+    {
+      "Case": "battle-overworld-only2",
+      "Side": "literal",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-only2-physical-delivery-v4-native-a9afda03-ed78-405e-8df1-3b63d399bad7\\literal\\Game\\battlebacks.png",
+      "Name": "battlebacks.png",
+      "Sha256": "dccf84c02da2503854c11ae6dd578bb19f9868e57be58019e819679396466248"
+    },
+    {
+      "Case": "battle-overworld-only2",
+      "Side": "compiled",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-only2-physical-delivery-v4-native-a9afda03-ed78-405e-8df1-3b63d399bad7\\compiled\\Game\\battlebacks.png",
+      "Name": "battlebacks.png",
+      "Sha256": "eeda1963fc9ab90fc456ff1d4125afc92010ed5df7e865dc5c025ef0d133e7e8"
+    },
+    {
+      "Case": "battle-overworld-none",
+      "Side": "literal",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-none-physical-delivery-v4-native-ac8ea888-3411-43f1-9208-7fdc21443e66\\literal\\Game\\battlebacks.png",
+      "Name": "battlebacks.png",
+      "Sha256": "28715c82ebe693aa3a1de34ae6a659677919be6b32a4522c5d863b35c927ebb2"
+    },
+    {
+      "Case": "battle-overworld-none",
+      "Side": "compiled",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-none-physical-delivery-v4-native-ac8ea888-3411-43f1-9208-7fdc21443e66\\compiled\\Game\\battlebacks.png",
+      "Name": "battlebacks.png",
+      "Sha256": "a55d7926c0277ff0271564e0c1c3298ae6285d15bc7dd9573456fc6ddf3c316e"
+    },
+    {
+      "Case": "battle-ordinary-both",
+      "Side": "literal",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-both-physical-delivery-v4-native-069385b9-327d-41af-8bb3-36365fff59f3\\literal\\Game\\battlebacks.png",
+      "Name": "battlebacks.png",
+      "Sha256": "48ecf118f3f85f2c698045e71ac8c446fedb7139993650f7b77ac6473ebedca0"
+    },
+    {
+      "Case": "battle-ordinary-both",
+      "Side": "compiled",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-both-physical-delivery-v4-native-069385b9-327d-41af-8bb3-36365fff59f3\\compiled\\Game\\battlebacks.png",
+      "Name": "battlebacks.png",
+      "Sha256": "1005066ab20f9b1d4cf6f2bf7ab6013b65634f54b8e38a4ddbdce2dc7becb3e3"
+    },
+    {
+      "Case": "battle-ordinary-only1",
+      "Side": "literal",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-only1-physical-delivery-v4-native-db481685-441f-4844-8932-16d7b2c5d082\\literal\\Game\\battlebacks.png",
+      "Name": "battlebacks.png",
+      "Sha256": "a30c8823192b2a507727aa38e086a59e3fba763f57158f98ebcebc4c7bfd3d75"
+    },
+    {
+      "Case": "battle-ordinary-only1",
+      "Side": "compiled",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-only1-physical-delivery-v4-native-db481685-441f-4844-8932-16d7b2c5d082\\compiled\\Game\\battlebacks.png",
+      "Name": "battlebacks.png",
+      "Sha256": "05118b394ec614d5d86676f786325d7aec1ccd57a14836bd60751116e954b909"
+    },
+    {
+      "Case": "battle-ordinary-only2",
+      "Side": "literal",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-only2-physical-delivery-v4-native-5d53a19f-7d2f-40b7-813f-8f2ba814bb2d\\literal\\Game\\battlebacks.png",
+      "Name": "battlebacks.png",
+      "Sha256": "da310e5a49efbf40f06fff151bfdbad671a04ed6598140f3c20b4248afae8d94"
+    },
+    {
+      "Case": "battle-ordinary-only2",
+      "Side": "compiled",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-only2-physical-delivery-v4-native-5d53a19f-7d2f-40b7-813f-8f2ba814bb2d\\compiled\\Game\\battlebacks.png",
+      "Name": "battlebacks.png",
+      "Sha256": "07533cb9e04ed47868dde3a5b29683eab25b662b4d37b06410b3821fc9d51c1e"
+    },
+    {
+      "Case": "battle-ordinary-none",
+      "Side": "literal",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-none-physical-delivery-v4-native-0ff6fc7d-458d-495f-8be5-8a96f2ba3083\\literal\\Game\\battlebacks.png",
+      "Name": "battlebacks.png",
+      "Sha256": "a50f6f07a7fb480a5536a0aee4f8f6ce24d6bfa35dcdfb50e5e781f07c3ab7f6"
+    },
+    {
+      "Case": "battle-ordinary-none",
+      "Side": "compiled",
+      "Path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-ordinary-none-physical-delivery-v4-native-0ff6fc7d-458d-495f-8be5-8a96f2ba3083\\compiled\\Game\\battlebacks.png",
+      "Name": "battlebacks.png",
+      "Sha256": "f79d58f4f944fec85f1d86ff55069d3fdec10237d7c0aadaa6e62f3fb9590f34"
+    }
+  ],
+  "contactSheets": [
+    {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\map-native-contact-sheet-v1.png",
+      "sha256": "89eaecbcc2ab1390be8bea46c3497edc2b25200e3c55e02e6c0fb9d0339391f5"
+    },
+    {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\battle-native-contact-sheet-v1.png",
+      "sha256": "33a16bd3901111b5df5b796c497802f8ffc31cdac8b681e5ce1f52016f5f9f98"
+    }
+  ],
+  "observations": {
+    "map": "Both sides show the cloud parallax in the fixed and scrolling captures and the character against the black/None map background in both None captures. The map-name overlay is visible in the scrolling capture. Corresponding literal/compiled categories agree.",
+    "battle": "All eight case pairs show the real Battle command window and troop, with the expected two layers, only floor layer, only building layer, or neither specified layer. Corresponding literal/compiled background categories agree on Overworld and ordinary-map captures.",
+    "differences": "TP values and frame-dependent appearance can differ between independently started battles. No pixel equality or identical RNG state is claimed; actual saved names, native bitmap readiness/dimensions, normal Battle Scene and all allocated runtime predicates are separately verified.",
+    "limit": "Static contact-sheet inspection corroborates appearance categories. Scrolling and inactive saved values rely on the recorded native state traces and assertions. No human visual review or editor UI execution is claimed."
+  },
+  "passed": true
+}

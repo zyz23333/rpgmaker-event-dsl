@@ -1,0 +1,42 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/map-appearance-workspace.test.ts > MV-S6-MAP-APPEARANCE-007: preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-parallax-signed-zero-native-dfJwjs
+
+ ❯ test/map-appearance-workspace.test.ts (7 tests | 1 failed | 6 skipped) 13470ms
+   × MV-S6-MAP-APPEARANCE-007: preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push 13469ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-appearance-workspace.test.ts > MV-S6-MAP-APPEARANCE-007: preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push
+Error: native: AssertionError: expected 'import { changeParallax, imageAsset, …' to contain 'changeParallax({ image: null, loopX: …'
+    at C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts:134:51
+    at withWindowsSandbox (C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/support/windows-sandbox.ts:56:5)
+    at C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts:116:7
+    at C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts:39:9
+    at file:///C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/node_modules/.pnpm/@vitest+runner@4.1.9/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20
+ ❯ test/map-appearance-workspace.test.ts:134:51
+
+    132|         let source = await readFile(sourcePath, "utf8");
+    133|         for (const [index, expression] of expressions.entries()) {
+    134|           if (origin === "native") expect(source).toContain(expression…
+       |                                                   ^
+    135|           else {
+    136|             const baseline = expression.replaceAll("-0", "0");
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 skipped (7)
+   Start at  00:20:01
+   Duration  15.47s (transform 649ms, setup 0ms, import 1.73s, tests 13.47s, environment 0ms)
+
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/map-appearance-workspace.test.ts:116:7
+ ❯ test/map-appearance-workspace.test.ts:39:9
+ ❯ test/map-appearance-workspace.test.ts:198:34
+ ❯ test/map-appearance-workspace.test.ts:39:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-36\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/map-appearance-workspace.test.ts -t MV-S6-MAP-APPEARANCE-007

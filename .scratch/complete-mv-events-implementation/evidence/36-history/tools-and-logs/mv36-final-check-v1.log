@@ -1,0 +1,69 @@
+
+> rpgmaker-event-dsl-workspace@0.0.0 check C:\Users\Shuen\.codex\worktrees\mv-ticket-36\rpgmaker-event-dsl
+> pnpm typecheck && pnpm lint && pnpm format:check && pnpm test
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 typecheck C:\Users\Shuen\.codex\worktrees\mv-ticket-36\rpgmaker-event-dsl
+> pnpm -r typecheck
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl typecheck$ tsc -p tsconfig.json --noEmit
+packages/rpgmaker-event-dsl typecheck: Done
+
+> rpgmaker-event-dsl-workspace@0.0.0 lint C:\Users\Shuen\.codex\worktrees\mv-ticket-36\rpgmaker-event-dsl
+> oxlint .
+
+.scratch/complete-mv-events-implementation/evidence/22-history/original-held-reproduction.cjs:89:61: warning eslint(no-unused-expressions): Expected expression to be used help: Consider using this expression or removing it
+.scratch/complete-mv-events-implementation/evidence/23-history/mv23-delivery-preflight-v1.cjs:1:29: warning eslint(no-unused-vars): Variable 'fsp' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/23-history/mv23-register-native-v1.cjs:1:107: warning eslint(no-unused-vars): Variable 'cp' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+
+> rpgmaker-event-dsl-workspace@0.0.0 format:check C:\Users\Shuen\.codex\worktrees\mv-ticket-36\rpgmaker-event-dsl
+> oxfmt --ignore-path .oxfmtignore --check package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rpgmaker-event-dsl
+
+Checking formatting...
+
+All matched files use the correct format.
+Finished in 440ms on 183 files using 20 threads.
+
+> rpgmaker-event-dsl-workspace@0.0.0 test C:\Users\Shuen\.codex\worktrees\mv-ticket-36\rpgmaker-event-dsl
+> pnpm -r test
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl test$ vitest run
+packages/rpgmaker-event-dsl test:  RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-36/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+packages/rpgmaker-event-dsl test:  ❯ test/staged-graph.test.ts (31 tests | 1 failed) 33ms
+packages/rpgmaker-event-dsl test:      × validates Change Tileset through tileset project data references only 5ms
+packages/rpgmaker-event-dsl test:  ❯ test/mv-evidence.test.ts (3 tests | 1 failed) 13233ms
+packages/rpgmaker-event-dsl test:    × validates the evidence index, source references, fixture hashes, test links, and recorded runs 10006ms
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/mv-evidence.test.ts > validates the evidence index, source references, fixture hashes, test links, and recorded runs
+packages/rpgmaker-event-dsl test: Error: Test timed out in 10000ms.
+packages/rpgmaker-event-dsl test: If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+packages/rpgmaker-event-dsl test:  ❯ test/mv-evidence.test.ts:17:1
+packages/rpgmaker-event-dsl test:      15| import { recordEvidence, validateRequirements } from "./support/mv-evi…
+packages/rpgmaker-event-dsl test:      16|
+packages/rpgmaker-event-dsl test:      17| it("validates the evidence index, source references, fixture hashes, t…
+packages/rpgmaker-event-dsl test:        | ^
+packages/rpgmaker-event-dsl test:      18|   await validateRequirements();
+packages/rpgmaker-event-dsl test:      19| });
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/staged-graph.test.ts > validateDslOwnedDeclarations > validates Change Tileset through tileset project data references only
+packages/rpgmaker-event-dsl test: AssertionError: expected [ …(2) ] to include 'MV-E282-REFERENCE validation map 1 ev…'
+packages/rpgmaker-event-dsl test:  ❯ test/staged-graph.test.ts:981:64
+packages/rpgmaker-event-dsl test:     979|
+packages/rpgmaker-event-dsl test:     980|     expect(validResult.issues).toEqual([]);
+packages/rpgmaker-event-dsl test:     981|     expect(missingResult.issues.map((issue) => issue.message)).toConta…
+packages/rpgmaker-event-dsl test:        |                                                                ^
+packages/rpgmaker-event-dsl test:     982|       "MV-E282-REFERENCE validation map 1 event 1.pages[0].commands[0]…
+packages/rpgmaker-event-dsl test:     983|     );
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+packages/rpgmaker-event-dsl test:  Test Files  2 failed | 38 passed (40)
+packages/rpgmaker-event-dsl test:       Tests  2 failed | 985 passed (987)
+packages/rpgmaker-event-dsl test:    Start at  02:18:02
+packages/rpgmaker-event-dsl test:    Duration  378.30s (transform 1.32s, setup 0ms, import 15.26s, tests 732.38s, environment 3ms)
+packages/rpgmaker-event-dsl test: Failed
+C:\Users\Shuen\.codex\worktrees\mv-ticket-36\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run`
+Exit status 1
+ ELIFECYCLE  Test failed. See above for more details.
+ ELIFECYCLE  Command failed with exit code 1.
