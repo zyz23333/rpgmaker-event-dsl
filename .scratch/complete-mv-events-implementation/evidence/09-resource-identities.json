@@ -1,0 +1,268 @@
+{
+  "formatVersion": 1,
+  "kind": "Selected same-identity shipped QML resources and independent input provenance; not UI capture or executable game fixture",
+  "artifacts": [
+    {
+      "path": "references/RPGMV/RPGMV.exe",
+      "bytes": 19595264,
+      "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+      "records": [
+        {
+          "name": "label",
+          "offset": 790356,
+          "stored": 756,
+          "compressed": false,
+          "decoded": 752,
+          "sha256": "c074ab7d30a0a2da87162112da6abbcd6ec4772555192b42ad55eae6b5bb2bed"
+        },
+        {
+          "name": "jump-label",
+          "offset": 771175,
+          "stored": 771,
+          "compressed": false,
+          "decoded": 767,
+          "sha256": "abc5db1a3aea0497fd766badf89af966b77fcd5f5907a9bd39a9b267f679a521"
+        },
+        {
+          "name": "actor-name",
+          "offset": 732733,
+          "stored": 1018,
+          "compressed": false,
+          "decoded": 1014,
+          "sha256": "685ded00629658dd89f64342e2fea085d01d7840c39ee4299bda12babe6175bd"
+        },
+        {
+          "name": "actor-nickname",
+          "offset": 746793,
+          "stored": 1034,
+          "compressed": false,
+          "decoded": 1030,
+          "sha256": "ac56677374938c7d9e4c43b73ca123d5880bc817a6bce8039d444aae9c75e0b6"
+        },
+        {
+          "name": "actor-profile",
+          "offset": 721727,
+          "stored": 1116,
+          "compressed": false,
+          "decoded": 1112,
+          "sha256": "e4b4d61825ecd872d327bf3f329d34b318979c7a35c420b3186607caf7ef96af"
+        },
+        {
+          "name": "conditional",
+          "offset": 748645,
+          "stored": 1102,
+          "compressed": true,
+          "decoded": 5024,
+          "sha256": "e94ba6162d753827591839fd6d1aa7d793d40270a6ddbfa5ddbb093476872dcb"
+        },
+        {
+          "name": "conditional-script-tab",
+          "offset": 703296,
+          "stored": 1350,
+          "compressed": true,
+          "decoded": 8485,
+          "sha256": "bb9e8fe60880075e0357c3ca10e4e577b463f9d4f566adeef26fd6745bcef9b3"
+        },
+        {
+          "name": "variables",
+          "offset": 736003,
+          "stored": 935,
+          "compressed": true,
+          "decoded": 4527,
+          "sha256": "47268876ada2d3e9f69c748857f9d783fc8c71006b5fc7dc66597f8977c641b8"
+        },
+        {
+          "name": "operand",
+          "offset": 683885,
+          "stored": 1207,
+          "compressed": true,
+          "decoded": 6701,
+          "sha256": "bfcb7f528bca2e310e6bfa5216c694d66599e9892ac7d55168f6687f312d09f8"
+        },
+        {
+          "name": "movement-script",
+          "offset": 810345,
+          "stored": 876,
+          "compressed": false,
+          "decoded": 872,
+          "sha256": "1feccbc5052474e0cabc0470d0a5c82d1c20b0ea27e5b7b0e4a95d4edc2b257e"
+        },
+        {
+          "name": "labeled-text-field",
+          "offset": 8799522,
+          "stored": 389,
+          "compressed": false,
+          "decoded": 385,
+          "sha256": "20d7752e7a0f74a49842b29e97dee8c59d7b905715e614c495ca5676b8eb8d0b"
+        },
+        {
+          "name": "labeled-text-area",
+          "offset": 8800825,
+          "stored": 882,
+          "compressed": false,
+          "decoded": 878,
+          "sha256": "57ebdcdf7dc151cfe17903a5699724ad3cea67009e7ade0a33d5d2fdae3c62de"
+        },
+        {
+          "name": "text-field",
+          "offset": 877206,
+          "stored": 73,
+          "compressed": false,
+          "decoded": 69,
+          "sha256": "4c498faa0ec8d1ded0a1fbd1697978a061999a7961ecfc231be4f5176d775727"
+        },
+        {
+          "name": "text-area",
+          "offset": 826857,
+          "stored": 48,
+          "compressed": false,
+          "decoded": 44,
+          "sha256": "04e14edf4bb1b0279e8d5dd491b8e113639e2ff996580bcc664b6e368e01e599"
+        },
+        {
+          "name": "text-edit",
+          "offset": 866210,
+          "stored": 3005,
+          "compressed": true,
+          "decoded": 14044,
+          "sha256": "12dfecd9a6fdc127a1759552698490bccd5ccf599aa898fd682461f0ed939dad"
+        },
+        {
+          "name": "base",
+          "offset": 686141,
+          "stored": 939,
+          "compressed": false,
+          "decoded": 935,
+          "sha256": "740d0c01de598e2a55b58f67f975a30e2d3c8c96de36eb8ff15c3dd4d6ad2780"
+        },
+        {
+          "name": "dialog",
+          "offset": 656916,
+          "stored": 1086,
+          "compressed": false,
+          "decoded": 1082,
+          "sha256": "0152387fa661f0e67f45b989248c60142881526cda1f31898e29c0e03366fbf7"
+        },
+        {
+          "name": "list",
+          "offset": 667573,
+          "stored": 3694,
+          "compressed": true,
+          "decoded": 17486,
+          "sha256": "bbc1e26fa83771fc56581b1dc34ec762b3789444dacef76cb24334834e17e82c"
+        },
+        {
+          "name": "picker",
+          "offset": 679418,
+          "stored": 1424,
+          "compressed": true,
+          "decoded": 7863,
+          "sha256": "8e83b762134d12696649e6302adec9f40bbad7618b2c9cbff5ad945f005dd829"
+        },
+        {
+          "name": "modal",
+          "offset": 878315,
+          "stored": 1884,
+          "compressed": true,
+          "decoded": 8437,
+          "sha256": "875ac97ba5e20ab1a457399321e9621d3b56a698aaeeadc78c9584f3b69a970e"
+        },
+        {
+          "name": "data",
+          "offset": 909009,
+          "stored": 4291,
+          "compressed": true,
+          "decoded": 24761,
+          "sha256": "9ce1877d3eac47699a558ada219ec4f217dbc4f215531a7f65ccacd8169c4f93"
+        },
+        {
+          "name": "layout",
+          "offset": 665677,
+          "stored": 992,
+          "sha256": "199459336be17ccb510d1912ef53648342e8903ea95d84b59275f6bcbf4b135e",
+          "compressed": true,
+          "decoded": 3578
+        },
+        {
+          "name": "movement-list",
+          "offset": 672838,
+          "stored": 1325,
+          "sha256": "2180bf600ca5a34ebbf35f65a343ca95be10055e3abcc7561efd5bc4fab8f51e",
+          "compressed": true,
+          "decoded": 4997
+        },
+        {
+          "name": "movement-base",
+          "offset": 683357,
+          "stored": 528,
+          "sha256": "5f8ef1afae81820acbf38a4160b725efee36476bc6c555576f3b15796e9340ce",
+          "compressed": false,
+          "decoded": 524
+        },
+        {
+          "name": "route205",
+          "offset": 771946,
+          "stored": 1393,
+          "sha256": "95cf5319c62eeacfbea61afa69a05be5d5788e5b795f34f776a791adcab44615",
+          "compressed": false,
+          "decoded": 1389
+        },
+        {
+          "name": "page",
+          "offset": 701512,
+          "stored": 1784,
+          "sha256": "d3f53b2536e23bb60f8b080f1692cec652262688cd20dd5184de5773dc9c3b15",
+          "compressed": true,
+          "decoded": 7813
+        },
+        {
+          "name": "route-dialog",
+          "offset": 653645,
+          "stored": 927,
+          "sha256": "6343dfa083bf2e1451a5af7867664957f4696bf7f950d8751857f108faee3456",
+          "compressed": false,
+          "decoded": 923
+        },
+        {
+          "name": "movement-dialog",
+          "offset": 685092,
+          "stored": 1049,
+          "sha256": "382dc3b59de7d967c897dcf0f7fafce0c7ed19598e07f3f357d16f8a8a827b69",
+          "compressed": false,
+          "decoded": 1045
+        }
+      ]
+    }
+  ],
+  "independentInputs": {
+    "path": ".scratch/complete-mv-events-implementation/evidence/09-string-inputs.json",
+    "bytes": 16181,
+    "sha256": "ba14d3eec94112829733c605ff8f9ed516a32c77d95d963b305303dbac38cef7",
+    "samples": 12,
+    "execution": "not-executed in editor, extracted code, product or game"
+  },
+  "reusedEvidence": [
+    {
+      "id": "ev_007ba386e622855bf771049084c3103afebbcc6b5d813f18c441f3ecf1d16d24",
+      "role": "Historical PE self-reported version from editor-serialization/03; same original EXE identity freshly checked, no new native analysis session"
+    }
+  ],
+  "reusedReports": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/03-branches-and-battle-reverse.md",
+      "role": "Common event dialog/list/container call-chain identities"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/04-movement-records-and-mirrors-reverse.md",
+      "role": "Movement route load/clone/container/save and outer-envelope distinction; no new replay execution"
+    }
+  ],
+  "execution": {
+    "editor": "not-executed",
+    "extractedCode": "not-executed",
+    "game": "not-executed",
+    "nwjs": "not-executed",
+    "initialResourceDecodeNode": "v24.14.0"
+  },
+  "localRawOutput": "C:/Users/Shuen/.codex/research-evidence/mv-editor-09-20261019/"
+}

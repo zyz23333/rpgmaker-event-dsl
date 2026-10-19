@@ -2,7 +2,7 @@
 
 `requirements.json` describes obligations. `results/` contains immutable, machine-produced run records. A requirement does not acquire a passing status merely because it appears in this index. The ordinary test suite validates the index schema, unique IDs, fixture hashes, source sections, test links, checklist completeness and recorded run references.
 
-This index contains ticket 01 automated seeds, ticket 02 Windows automation baseline, tickets 03–07 reverse-engineering obligations and contract review, ticket 11 System-slot/switch coverage, ticket12 captured map/battle context and ticket13 Loop/Break/Exit coverage; it is not the complete command or native acceptance matrix. Later tickets add their own stable case IDs and independent input/expected data. Per the user's revised acceptance, editor validation uses REA reverse engineering while final actual game runs remain required. The Common Event seed itself does not execute these native groups; its synthetic project context is sufficient for Workspace data operations and is not claimed to be a playable MV project.
+This index contains ticket 01 automated seeds, ticket 02 Windows automation baseline, tickets 03–09 reverse-engineering obligations and contract review, ticket 11 System-slot/switch coverage, ticket12 captured map/battle context and ticket13 Loop/Break/Exit coverage; it is not the complete command or native acceptance matrix. Later tickets add their own stable case IDs and independent input/expected data. Per the user's revised acceptance, editor validation uses REA reverse engineering while final actual game runs remain required. The Common Event seed itself does not execute these native groups; its synthetic project context is sufficient for Workspace data operations and is not claimed to be a playable MV project.
 
 | Requirement            | Obligation                                                                                                                                        | Evidence kind                   | Required layer                                               |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------ |
@@ -90,6 +90,43 @@ Ticket 02 extends the seed with the [Windows baseline and required filesystem re
 
 Ticket 13's [acceptance report](13-loop-acceptance.md) records scope, exact test boundaries, native observations, retained failure history and reproduction inputs. Its game result covers the assigned R3 scenarios and an R1 caller-continuation slice; final integrated-candidate regressions remain required.
 
+| Requirement                | Obligation                                                          | Evidence kind                   | Required layer                                       |
+| -------------------------- | ------------------------------------------------------------------- | ------------------------------- | ---------------------------------------------------- |
+| MV-E08-GRID                | Official grid and dynamic picker rows                               | reverse-engineering-observation | identified editor resources; conditional review only |
+| MV-E08-STANDARD            | Standard face sheet selection path                                  | static-inference                | identified editor resources; conditional review only |
+| MV-E08-THIRD-ROW           | Third-row mouse and keyboard selection                              | static-inference                | identified editor resources; conditional review only |
+| MV-E08-E101-LOAD-SAVE      | Show Text face parameter load and save                              | static-inference                | identified editor resources; conditional review only |
+| MV-E08-E322-LOAD-SAVE      | Change Actor Images saved pair and actor refresh                    | static-inference                | identified editor resources; conditional review only |
+| MV-E08-NEW-PROJECT-DEFAULT | New face control and project-dependent actor initial values         | static-inference                | identified editor resources; conditional review only |
+| MV-E08-PREVIEW             | Parent preview inheritance does not clamp saved index               | reverse-engineering-observation | identified editor resources; conditional review only |
+| MV-E08-NONE-PARENT         | None plus independent index in parent reconfirmation                | static-inference                | identified editor resources; conditional review only |
+| MV-E08-NONE-CHILD          | Conditional None confirmation in child picker                       | static-inference                | identified editor resources; conditional review only |
+| MV-E08-SMALLER-ACTIVE      | Active two-row replacement can reset old third-row index            | static-inference                | identified editor resources; conditional review only |
+| MV-E08-SMALLER-INACTIVE    | One-row replacement skips cursor adjustment                         | static-inference                | identified editor resources; conditional review only |
+| MV-E08-ASYNC-MISSING       | Image loading and missing filename limits                           | static-inference                | identified editor resources; conditional review only |
+| MV-E08-CONTAINER           | Container-only serialization preserves face slots                   | reverse-engineering-observation | identified editor resources; conditional review only |
+| MV-E08-FINITE-DOMAIN       | Accepted finite saved-value domain differs from picker reachability | static-inference                | identified editor resources; conditional review only |
+
+| Requirement             | Obligation                                                           | Evidence kind                   | Required layer                                   |
+| ----------------------- | -------------------------------------------------------------------- | ------------------------------- | ------------------------------------------------ |
+| MV-E09-LABEL            | Label single-slot load and save                                      | reverse-engineering-observation | identified editor resources; bounded review only |
+| MV-E09-JUMP-LABEL       | Jump to Label single-slot load and save                              | reverse-engineering-observation | identified editor resources; bounded review only |
+| MV-E09-ACTOR-NAME       | Change Name complete text slot                                       | reverse-engineering-observation | identified editor resources; bounded review only |
+| MV-E09-ACTOR-NICKNAME   | Change Nickname complete text slot                                   | reverse-engineering-observation | identified editor resources; bounded review only |
+| MV-E09-PROFILE          | Profile text slot with two-line control                              | reverse-engineering-observation | identified editor resources; bounded review only |
+| MV-E09-CONDITION-SCRIPT | Conditional Script single text slot                                  | reverse-engineering-observation | identified editor resources; bounded review only |
+| MV-E09-VARIABLE-SCRIPT  | Control Variables Script operand slot                                | reverse-engineering-observation | identified editor resources; bounded review only |
+| MV-E09-MOVEMENT-SCRIPT  | Movement Script text and record-envelope boundary                    | reverse-engineering-observation | identified editor resources; bounded review only |
+| MV-E09-EMPTY-WHITESPACE | Empty and whitespace values versus ordinary input                    | static-inference                | identified editor resources; bounded review only |
+| MV-E09-CONTROL-CHARS    | CR, LF and CRLF load/reconfirmation limits                           | static-inference                | identified editor resources; bounded review only |
+| MV-E09-TRAILING         | Trailing characters and delimiters                                   | static-inference                | identified editor resources; bounded review only |
+| MV-E09-LONG             | Long string and bounded absence of a character cap                   | static-inference                | identified editor resources; bounded review only |
+| MV-E09-LINE-LIMIT       | Line-limit change trigger differs from load                          | reverse-engineering-observation | identified editor resources; bounded review only |
+| MV-E09-INPUT-LIMITS     | Tab, Return and text-change input guards                             | reverse-engineering-observation | identified editor resources; bounded review only |
+| MV-E09-QT-TIMING        | Qt document and signal timing boundaries                             | static-inference                | identified editor resources; bounded review only |
+| MV-E09-CONTAINER        | Container and outer route confirmation keep strings outside TextEdit | reverse-engineering-observation | identified editor resources; bounded review only |
+| MV-E09-WARNING-POLICY   | Accepted original-string warning rules and independent Gate          | static-inference                | identified editor resources; bounded review only |
+
 ## Reproduce
 
 On Windows with Node 22 and dependencies installed, run `pnpm --filter rpgmaker-event-dsl test -- test/mv-evidence.test.ts`. The test reconstructs an independent temporary Project Root from `packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json`, creates a Workspace, clones, decompiles, then invokes Compile Check and Compile. The temporary package exposes the actual repository TypeScript source through a directory junction for type resolution; declarations are not mocked and expected JSON is never produced by the compiler. Source mutation and restoration prove actual evaluation, beyond checking generated source text.
@@ -126,13 +163,17 @@ Ticket 07 adds [Shop/list/defaults and mixed-placeholder review](07-shop-default
 
 Ticket12 adds captured Snapshot assembly and bounded existing-command validation. Actual Troop page/selector binding remains with25/48; complete command-family parameter acceptance and game execution remain with their assigned later tickets.
 
-| Requirement | Obligation | Evidence kind | Required layer |
-| --- | --- | --- | --- |
-| MV-S3-CONTEXT-001 | resolves empty-name external targets through actual Snapshot and evaluated Decompiled Source | automated synthetic | actual Workspace / captured Snapshot adapter |
+| Requirement       | Obligation                                                                                                     | Evidence kind       | Required layer                               |
+| ----------------- | -------------------------------------------------------------------------------------------------------------- | ------------------- | -------------------------------------------- |
+| MV-S3-CONTEXT-001 | resolves empty-name external targets through actual Snapshot and evaluated Decompiled Source                   | automated synthetic | actual Workspace / captured Snapshot adapter |
 | MV-S3-CONTEXT-002 | assembles ordered hidden and missing-Enemy members, map tiles and all equipment slots from a captured Snapshot | automated synthetic | actual Workspace / captured Snapshot adapter |
-| MV-S3-CONTEXT-003 | checks fixed external references while retaining unknown-caller runtime selectors | automated synthetic | actual Workspace / captured Snapshot adapter |
-| MV-S3-CONTEXT-004 | rejects missing native external targets before publishing any Decompiled Source | automated synthetic | actual Workspace / captured Snapshot adapter |
-| MV-S3-CONTEXT-005 | uses captured map dimensions and event positions for actual Workspace placement diagnostics | automated synthetic | actual Workspace / captured Snapshot adapter |
+| MV-S3-CONTEXT-003 | checks fixed external references while retaining unknown-caller runtime selectors                              | automated synthetic | actual Workspace / captured Snapshot adapter |
+| MV-S3-CONTEXT-004 | rejects missing native external targets before publishing any Decompiled Source                                | automated synthetic | actual Workspace / captured Snapshot adapter |
+| MV-S3-CONTEXT-005 | uses captured map dimensions and event positions for actual Workspace placement diagnostics                    | automated synthetic | actual Workspace / captured Snapshot adapter |
+
+Ticket 08 adds [face index, preview, replacement and None review](08-face-index-and-image-replacement-reverse.md) with [resource identities and independent dimension examples](08-resource-identities.json). Its 14 bounded review records preserve third-row 8/11 reachability, active two-row reset, inactive one-row non-reset, independent None index and the 1 ms/missing-file timing limits. Accepted 0..2147483647 saved-value support is distinct from ordinary picker creation; no contract amendment, actual UI/game execution or product pass is claimed.
+
+Ticket 09 adds [single-slot text, input and reconfirmation review](09-single-slot-strings-and-reconfirmation-reverse.md), [28 selected resource identities](09-resource-identities.json), and [12 independent exact-character examples](09-string-inputs.json). Its 17 bounded review records distinguish direct command-slot assignments from shared TextEdit line-limit/change/keyboard handling, Qt timing and CR/CRLF unknowns, and container/outer-route serialization. Original-string warning thresholds remain accepted product choices, with no new length restriction or normalization. No editor UI, extracted-code, product or game execution is claimed.
 
 Ticket16 adds [Workspace operation lock acceptance](16-workspace-operation-locking.md). These are automated synthetic filesystem/process cases; they do not execute the editor or a game.
 
@@ -142,3 +183,4 @@ Ticket16 adds [Workspace operation lock acceptance](16-workspace-operation-locki
 | MV-S4-LOCK-002 | hides Snapshot publication gaps and aliases while other Workspaces operate | synthetic-support | Windows public API and real child processes |
 | MV-S4-LOCK-003 | recovers kernel leases after interruption and crash without stale-cleaner races | synthetic-support | Windows public API and real child processes |
 | MV-S4-LOCK-004 | preserves Interrupted Push independently of abandoned locks and failed checks | synthetic-support | Windows public API and real child processes |
+
