@@ -11,13 +11,13 @@ import type {
   ControlVariablesGameDataOperand,
   Direction,
   MapDestination,
-  OperateValueOperand,
   RandomOperand,
   ReferenceRange,
   ReferenceValue,
   ScriptOperand,
   TransferPlayerDslCommand,
 } from "../../domain/types.js";
+import { assertInventoryInput } from "./inventory-validation.js";
 
 export function transferPlayer(input: {
   destination: MapDestination;
@@ -96,8 +96,9 @@ export function controlTimer(
 
 export function changeGold(input: {
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ChangeGoldDslCommand["value"];
 }): ChangeGoldDslCommand {
+  assertInventoryInput("changeGold", input, "changeGold", false);
   return {
     kind: "changeGold",
     operation: input.operation,
@@ -108,8 +109,9 @@ export function changeGold(input: {
 export function changeItems(input: {
   item: ReferenceValue<"item">;
   operation: "gain" | "lose";
-  amount: OperateValueOperand;
+  amount: ChangeItemsDslCommand["amount"];
 }): ChangeItemsDslCommand {
+  assertInventoryInput("changeItems", input, "changeItems", false);
   return {
     kind: "changeItems",
     item: input.item,
@@ -121,19 +123,17 @@ export function changeItems(input: {
 export function changeWeapons(input: {
   weapon: ReferenceValue<"weapon">;
   operation: "gain" | "lose";
-  amount: OperateValueOperand;
-  includeEquipment?: boolean;
+  amount: ChangeWeaponsDslCommand["amount"];
+  includeEquipment: boolean;
 }): ChangeWeaponsDslCommand {
+  assertInventoryInput("changeWeapons", input, "changeWeapons", false);
   const node: ChangeWeaponsDslCommand = {
     kind: "changeWeapons",
     weapon: input.weapon,
     operation: input.operation,
     amount: input.amount,
+    includeEquipment: input.includeEquipment,
   };
-
-  if (input.includeEquipment !== undefined) {
-    node.includeEquipment = input.includeEquipment;
-  }
 
   return node;
 }
@@ -141,19 +141,17 @@ export function changeWeapons(input: {
 export function changeArmors(input: {
   armor: ReferenceValue<"armor">;
   operation: "gain" | "lose";
-  amount: OperateValueOperand;
-  includeEquipment?: boolean;
+  amount: ChangeArmorsDslCommand["amount"];
+  includeEquipment: boolean;
 }): ChangeArmorsDslCommand {
+  assertInventoryInput("changeArmors", input, "changeArmors", false);
   const node: ChangeArmorsDslCommand = {
     kind: "changeArmors",
     armor: input.armor,
     operation: input.operation,
     amount: input.amount,
+    includeEquipment: input.includeEquipment,
   };
-
-  if (input.includeEquipment !== undefined) {
-    node.includeEquipment = input.includeEquipment;
-  }
 
   return node;
 }
@@ -161,17 +159,15 @@ export function changeArmors(input: {
 export function changePartyMember(input: {
   actor: ReferenceValue<"actor">;
   operation: "add" | "remove";
-  initialize?: boolean;
+  initialize: boolean;
 }): ChangePartyMemberDslCommand {
+  assertInventoryInput("changePartyMember", input, "changePartyMember", false);
   const node: ChangePartyMemberDslCommand = {
     kind: "changePartyMember",
     actor: input.actor,
     operation: input.operation,
+    initialize: input.initialize,
   };
-
-  if (input.initialize !== undefined) {
-    node.initialize = input.initialize;
-  }
 
   return node;
 }

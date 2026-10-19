@@ -21,6 +21,10 @@ import {
 } from "../commands/movement/validation.js";
 import { CommandStructureError } from "./command-structure.js";
 import { assertDslCommandList } from "./dsl-command-inputs.js";
+import {
+  assertInventoryInput,
+  isInventoryCommandKind,
+} from "../commands/variables/inventory-validation.js";
 
 type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
@@ -57,6 +61,16 @@ export function validateNodes(
   }
   for (const [nodeIndex, node] of nodes.entries()) {
     const nodePath = `${options.path ?? "commands"}[${nodeIndex}]`;
+    if (isInventoryCommandKind(node.kind)) {
+      try {
+        assertInventoryInput(node.kind, node, nodePath, true, resolver);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+      }
+      continue;
+    }
     const childOptions = (field: string): CommandValidationOptions => ({
       ...options,
       path: `${nodePath}.${field}`,
@@ -158,34 +172,6 @@ export function validateNodes(
           validateControlVariablesGameDataOperand(node.value, resolver, issues);
         }
       }
-    }
-    if (node.kind === "changeItems") {
-      captureReferenceIssue(() => resolver.resolveReference(node.item), issues);
-      if (isVariableReferenceValue(node.amount)) {
-        const amountRef = node.amount;
-        captureReferenceIssue(() => resolver.resolveReference(amountRef), issues);
-      }
-    }
-    if (node.kind === "changeWeapons") {
-      captureReferenceIssue(() => resolver.resolveReference(node.weapon), issues);
-      if (isVariableReferenceValue(node.amount)) {
-        const amountRef = node.amount;
-        captureReferenceIssue(() => resolver.resolveReference(amountRef), issues);
-      }
-    }
-    if (node.kind === "changeArmors") {
-      captureReferenceIssue(() => resolver.resolveReference(node.armor), issues);
-      if (isVariableReferenceValue(node.amount)) {
-        const amountRef = node.amount;
-        captureReferenceIssue(() => resolver.resolveReference(amountRef), issues);
-      }
-    }
-    if (node.kind === "changeGold" && isVariableReferenceValue(node.value)) {
-      const valueRef = node.value;
-      captureReferenceIssue(() => resolver.resolveReference(valueRef), issues);
-    }
-    if (node.kind === "changePartyMember") {
-      captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
     }
     if (node.kind === "inputNumber" || node.kind === "selectItem") {
       captureReferenceIssue(() => resolver.resolveReference(node.variable), issues);

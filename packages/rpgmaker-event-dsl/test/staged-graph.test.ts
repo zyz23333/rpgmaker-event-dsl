@@ -323,7 +323,11 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Gate",
           commands: [
-            changeItems({ item: itemRef({ name: "Potion" }), operation: "gain", amount: 1 }),
+            changeItems({
+              item: itemRef({ name: "Potion" }),
+              operation: "gain",
+              amount: { kind: "constant", value: 1 },
+            }),
           ],
         }),
       ],
@@ -346,7 +350,11 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Gate",
           commands: [
-            changeItems({ item: itemRef({ name: "Potion" }), operation: "gain", amount: 1 }),
+            changeItems({
+              item: itemRef({ name: "Potion" }),
+              operation: "gain",
+              amount: { kind: "constant", value: 1 },
+            }),
           ],
         }),
       ],
@@ -361,8 +369,13 @@ describe("validateDslOwnedDeclarations", () => {
       },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toContain(
-      "Ambiguous item reference: Potion",
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        level: "error",
+        code: "MV-E126-INPUT",
+        dslPath: "pages[0].commands[0].item",
+        actual: '"Ambiguous item reference: Potion"',
+      }),
     );
   });
 

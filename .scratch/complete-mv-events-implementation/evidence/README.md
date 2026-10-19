@@ -473,3 +473,13 @@ reference/full1101 seed files. Product contract remains `mv-1.6.1/9`; source
 check39files/980tests and built Windows15files/366tests remain applicable to the
 unchanged97-source/15-dist product. All286 requirement objects retain their exact
 bytes and order. Final49–55 remain separate from this allocated delivery.
+
+
+| Requirement | Case | Scope |
+| --- | --- | --- |
+| MV-S6-INVENTORY-001 | Complete native quantity mode and independent flag matrix through actual Workspace publication | Synthetic focused DEV; native:not-executed |
+| MV-S6-INVENTORY-002 | Local const helper and direct node unknown fields fail without changing business state | Synthetic focused DEV; native:not-executed |
+| MV-S6-INVENTORY-003 | Native invalid saved slots fail before source publication including categorical negative zero | Synthetic focused DEV; native:not-executed |
+| MV-S6-INVENTORY-004 | Native fixed references must exist in their real project category before takeover | Synthetic focused DEV; native:not-executed |
+| MV-S6-INVENTORY-005 | Formal helpers, direct nodes, native and recognized raw share complete inventory and party domains | Synthetic focused DEV; native:not-executed |
+| MV-S6-INVENTORY-006 | Same-identity E4/product comparison and actual R4 execution | Pending; [DEV record](32-inventory-party-dev.md#pending-e4r4-acceptance) |
