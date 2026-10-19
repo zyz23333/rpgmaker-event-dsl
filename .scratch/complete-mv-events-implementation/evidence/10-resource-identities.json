@@ -1,0 +1,393 @@
+{
+  "formatVersion": 1,
+  "kind": "Selected same-identity editor/Qt resources, historical and fresh native Evidence identities, and independent literal inputs; not UI capture",
+  "artifacts": [
+    {
+      "path": "references/RPGMV/RPGMV.exe",
+      "bytes": 19595264,
+      "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+      "records": [
+        {
+          "name": "exp",
+          "offset": 803041,
+          "stored": 1424,
+          "compressed": false,
+          "decoded": 1420,
+          "sha256": "9a6970f1405e36836d058459ff1c2fe7fc33d80d033dc3763acbf6a9d23d4ccc"
+        },
+        {
+          "name": "operand",
+          "offset": 683885,
+          "stored": 1207,
+          "compressed": true,
+          "decoded": 6701,
+          "sha256": "bfcb7f528bca2e310e6bfa5216c694d66599e9892ac7d55168f6687f312d09f8"
+        },
+        {
+          "name": "actor-target",
+          "offset": 652278,
+          "stored": 651,
+          "compressed": true,
+          "decoded": 2282,
+          "sha256": "8ab9f2c8845ed4dfea4beff6480f88b74bd939dac582103adbd2bf7d6f468625"
+        },
+        {
+          "name": "game-object",
+          "offset": 607446,
+          "stored": 741,
+          "compressed": true,
+          "decoded": 2580,
+          "sha256": "8c2bc0bf8b611a96c4ab50889c74051e540af35d3ebd553c158081417d05c7bf"
+        },
+        {
+          "name": "operation",
+          "offset": 680842,
+          "stored": 1335,
+          "compressed": false,
+          "decoded": 1331,
+          "sha256": "0d87a64dcdc267fcbce7aca42df12a3b665df6153be84b5701eade6113ed8cc8"
+        },
+        {
+          "name": "base",
+          "offset": 686141,
+          "stored": 939,
+          "compressed": false,
+          "decoded": 935,
+          "sha256": "740d0c01de598e2a55b58f67f975a30e2d3c8c96de36eb8ff15c3dd4d6ad2780"
+        },
+        {
+          "name": "dialog",
+          "offset": 656916,
+          "stored": 1086,
+          "compressed": false,
+          "decoded": 1082,
+          "sha256": "0152387fa661f0e67f45b989248c60142881526cda1f31898e29c0e03366fbf7"
+        },
+        {
+          "name": "data",
+          "offset": 909009,
+          "stored": 4291,
+          "compressed": true,
+          "decoded": 24761,
+          "sha256": "9ce1877d3eac47699a558ada219ec4f217dbc4f215531a7f65ccacd8169c4f93"
+        },
+        {
+          "name": "spinbox",
+          "offset": 875471,
+          "stored": 1735,
+          "compressed": true,
+          "decoded": 7183,
+          "sha256": "a94b75dfca7ceb95315d38a3897e8c389a96d71f56696329f0cf8edd20535984"
+        },
+        {
+          "name": "picker",
+          "offset": 679418,
+          "stored": 1424,
+          "compressed": true,
+          "decoded": 7863,
+          "sha256": "8e83b762134d12696649e6302adec9f40bbad7618b2c9cbff5ad945f005dd829"
+        },
+        {
+          "name": "list",
+          "offset": 667573,
+          "stored": 3694,
+          "compressed": true,
+          "decoded": 17486,
+          "sha256": "bbc1e26fa83771fc56581b1dc34ec762b3789444dacef76cb24334834e17e82c"
+        },
+        {
+          "name": "modal",
+          "offset": 878315,
+          "stored": 1884,
+          "compressed": true,
+          "decoded": 8437,
+          "sha256": "875ac97ba5e20ab1a457399321e9621d3b56a698aaeeadc78c9584f3b69a970e"
+        },
+        {
+          "name": "check",
+          "offset": 893754,
+          "stored": 1005,
+          "compressed": true,
+          "decoded": 3826,
+          "sha256": "13ce867d2bf5d9081e234e2cc4b3330a59fad91ed351baddec15b6a553376467"
+        }
+      ]
+    },
+    {
+      "path": "references/RPGMV/QtQuick/Controls/qtquickcontrolsplugin.dll",
+      "bytes": 780288,
+      "sha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+      "records": [
+        {
+          "name": "qt-spinbox",
+          "offset": 160589,
+          "stored": 3826,
+          "compressed": true,
+          "decoded": 13133,
+          "sha256": "4b98b9d85a651cbe2f47e4abf7efaf67a25b9b942f5441b77cc5faae9643e0ca"
+        },
+        {
+          "offset": 290172,
+          "stored": 7338,
+          "compressed": false,
+          "decoded": 7334,
+          "sha256": "5334c4d26069acd2e7445be4e78e8d0749f376ec21d33200c350226b7a64d17a",
+          "name": "qt-check-box"
+        },
+        {
+          "offset": 300501,
+          "stored": 5585,
+          "compressed": false,
+          "decoded": 5581,
+          "sha256": "2fa2bb063b151e5da6ef8943ecfabd1fc67845ca1f07fbc8a367d9ef15b87390",
+          "name": "qt-abstract-checkable"
+        }
+      ]
+    }
+  ],
+  "help": {
+    "path": "references/RPGMV/Help/page/01_10_05.html",
+    "bytes": 14338,
+    "sha256": "e379f054be2c08d4c1a1ab54538027794aa51d3c6554a217f658dd3c5b51aa5a"
+  },
+  "independentInputs": {
+    "path": ".scratch/complete-mv-events-implementation/evidence/10-exp-inputs.json",
+    "bytes": 3427,
+    "sha256": "d40553226ed6c0fc9226c616724f77c2c269285c9036c48bf4b06dfcd43a2ef6",
+    "samples": 11,
+    "execution": "not-executed in editor, extracted code, product or game"
+  },
+  "reusedEvidence": [
+    {
+      "id": "ev_007ba386e622855bf771049084c3103afebbcc6b5d813f18c441f3ecf1d16d24",
+      "role": "Historical PE self-reported version, original EXE identity freshly checked; not retrieved again"
+    },
+    {
+      "id": "ev_0abda227cbae2d1ac569a8e0af403fc960727b39b3d337287fe4165a16926d1d",
+      "role": "Historical same-DLL constructor; original record/provider/subject identity checked"
+    },
+    {
+      "id": "ev_8afbb164078efb658dc0c010e2df1ab29b438768b6b298f30d7081050a26f2f7",
+      "role": "Historical same-DLL value setter; new assembly refines x86 argument recovery limits"
+    },
+    {
+      "id": "ev_50ea4007ffe961e0cc8548746f1a4767338c610df380759134d2d64f60c9e60f",
+      "role": "Historical same-DLL numeric value getter; original record identity checked"
+    }
+  ],
+  "newEvidence": [
+    {
+      "id": "ev_07f23377552d6397433b795aa5972be0c8c6c9fe5b371c516a4f7464d6d75f86",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x1000d6e0"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "subjectSha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+      "analysisProfile": "e4be421d1cb130970e81b108d97068b73c12565909b409a13178a5c07539573b",
+      "role": "Focused same-DLL range/completion/step review; raw record retained outside Git"
+    },
+    {
+      "id": "ev_2e638e5d3ab3ea0eb2281c23ad528cd0dd9909510aec03a1827a50a858570499",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x10005e10"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "subjectSha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+      "analysisProfile": "e4be421d1cb130970e81b108d97068b73c12565909b409a13178a5c07539573b",
+      "role": "Focused same-DLL range/completion/step review; raw record retained outside Git"
+    },
+    {
+      "id": "ev_411f5fc29e54f8bcd166c7ee8c4ea8e4f520d83236c113292ba33c2ed5561fc5",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x10019f20"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "subjectSha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+      "analysisProfile": "e4be421d1cb130970e81b108d97068b73c12565909b409a13178a5c07539573b",
+      "role": "Focused same-DLL range/completion/step review; raw record retained outside Git"
+    },
+    {
+      "id": "ev_4a5ad2254d2cd3afcb698dba679d6d57e128aa10e2455f81499c673be9b8f888",
+      "operation": "read_bytes",
+      "parameters": {
+        "address": "0x100b0aa8",
+        "length": 100
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "subjectSha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+      "analysisProfile": "e4be421d1cb130970e81b108d97068b73c12565909b409a13178a5c07539573b",
+      "role": "Auxiliary class-name byte observation, not range behavior proof"
+    },
+    {
+      "id": "ev_5e1182f429918d0a5f58f7f0c62c9206b2855a77f9dce3a0aa85c545928d3899",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x1000d640"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "subjectSha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+      "analysisProfile": "e4be421d1cb130970e81b108d97068b73c12565909b409a13178a5c07539573b",
+      "role": "Focused same-DLL range/completion/step review; raw record retained outside Git"
+    },
+    {
+      "id": "ev_614268972718da0dd89280b06ea41cb973aff583f0d5701ec73d0f1e3beccd1c",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x1000d5b0"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "subjectSha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+      "analysisProfile": "e4be421d1cb130970e81b108d97068b73c12565909b409a13178a5c07539573b",
+      "role": "Focused same-DLL range/completion/step review; raw record retained outside Git"
+    },
+    {
+      "id": "ev_839f70686f6e755c40b88e1c5d34a599741ccd3dea33c5989c3e060d4718556d",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x1000d730"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "subjectSha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+      "analysisProfile": "e4be421d1cb130970e81b108d97068b73c12565909b409a13178a5c07539573b",
+      "role": "Focused same-DLL range/completion/step review; raw record retained outside Git"
+    },
+    {
+      "id": "ev_93088e268d2b48d73c480f15086eb91216dd7054e149f782f601f5931898ed42",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x10019e50"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "subjectSha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+      "analysisProfile": "e4be421d1cb130970e81b108d97068b73c12565909b409a13178a5c07539573b",
+      "role": "Focused same-DLL range/completion/step review; raw record retained outside Git"
+    },
+    {
+      "id": "ev_a0a18cc3e6b738ca75aef453783ffa4cb11bf3d7fdfccb495a10104bc7a27405",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x1000d580"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "subjectSha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+      "analysisProfile": "e4be421d1cb130970e81b108d97068b73c12565909b409a13178a5c07539573b",
+      "role": "Focused same-DLL range/completion/step review; raw record retained outside Git"
+    },
+    {
+      "id": "ev_ae1911faa0320479a478eea39337ca236ba0fc7776b209eb89a8076bdcd8637f",
+      "operation": "procedure_assembly",
+      "parameters": {
+        "procedure": "0x1000d830"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "subjectSha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+      "analysisProfile": "e4be421d1cb130970e81b108d97068b73c12565909b409a13178a5c07539573b",
+      "role": "Focused same-DLL range/completion/step review; raw record retained outside Git"
+    },
+    {
+      "id": "ev_bb3b852012c0bdcc01673249e992af4f96b1e21bae04a906ee6b89fe576cf48b",
+      "operation": "read_bytes",
+      "parameters": {
+        "address": "0x1002009c",
+        "length": 68
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "subjectSha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+      "analysisProfile": "e4be421d1cb130970e81b108d97068b73c12565909b409a13178a5c07539573b",
+      "role": "Focused same-DLL range/completion/step review; raw record retained outside Git"
+    },
+    {
+      "id": "ev_fc6339f870d27cadb2d2bc0e3bac7707dab2ad3357187b86f7717a19ac64f3b2",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x1000d50f"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "subjectSha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+      "analysisProfile": "e4be421d1cb130970e81b108d97068b73c12565909b409a13178a5c07539573b",
+      "role": "Auxiliary destructor thunk observation, not range behavior proof"
+    },
+    {
+      "id": "ev_ffa8953da93b0672dca1cffd45d3245ffccf4fa560fddfebdab9b6e1ca9c0973",
+      "operation": "procedure_assembly",
+      "parameters": {
+        "procedure": "0x1000d330"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "subjectSha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+      "analysisProfile": "e4be421d1cb130970e81b108d97068b73c12565909b409a13178a5c07539573b",
+      "role": "Focused same-DLL range/completion/step review; raw record retained outside Git"
+    }
+  ],
+  "reusedReports": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/03-branches-and-battle-reverse.md",
+      "role": "Same-identity container, command dialog, JSON serialization and checkbox defaults"
+    }
+  ],
+  "execution": {
+    "editor": "not-executed",
+    "extractedCode": "not-executed",
+    "product": "not-executed",
+    "game": "not-executed",
+    "nwjs": "not-executed",
+    "initialResourceDecodeNode": "v24.14.0",
+    "nativeAnalysis": "REA6.7.0 / Ghidra12.1.4 / JDK21.0.8; read-only ephemeral DLL analysis, exported13 records and closed target"
+  },
+  "localRawOutput": "C:/Users/Shuen/.codex/research-evidence/mv-editor-10-20261019/"
+}

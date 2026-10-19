@@ -1,0 +1,88 @@
+{
+  "formatVersion": 1,
+  "kind": "Independent literal boundary inputs and conditional expectations, not captured editor data or executable QML",
+  "execution": "not-executed in editor, extracted code, product or game",
+  "samples": [
+    {
+      "id": "new-completed",
+      "path": "fresh parameter dialog",
+      "eventData": null,
+      "expectedParameters": [0, 1, 0, 0, 1, false],
+      "condition": "Normal component completion, no interaction, unchanged project actor1; static constructor/default inference, not a capture"
+    },
+    {
+      "id": "load-upper",
+      "path": "existing numeric constant load then parameter confirmation",
+      "parameters": [0, 1, 0, 0, 9999999, false],
+      "conditionalValue": 9999999,
+      "condition": "SpinBox completed with min1/max9999999"
+    },
+    {
+      "id": "load-over",
+      "path": "injected numeric constant load then parameter confirmation",
+      "parameters": [0, 1, 0, 0, 10000000, false],
+      "conditionalValue": 9999999,
+      "condition": "Synthetic out-of-domain value; completed setter path, not ordinary UI creation"
+    },
+    {
+      "id": "text-upper",
+      "path": "one editor text-change handler",
+      "text": "9999999",
+      "onePassText": "9999999",
+      "onePassCandidate": 9999999,
+      "condition": "Complete ASCII text enters one handler with min1/max9999999/decimals0, no claim about final signal ordering"
+    },
+    {
+      "id": "text-over",
+      "path": "one editor text-change handler",
+      "text": "10000000",
+      "onePassText": "1000000",
+      "onePassCandidate": 1000000,
+      "condition": "Length slice precedes Number/clamp in one handler, no claim that every typing/paste path produces this final value"
+    },
+    {
+      "id": "step-over",
+      "path": "completed value plus step1",
+      "value": 9999999,
+      "step": 1,
+      "conditionalValue": 9999999,
+      "condition": "Native add-step calls same completed value setter"
+    },
+    {
+      "id": "step-under",
+      "path": "completed value minus step1",
+      "value": 1,
+      "step": 1,
+      "conditionalValue": 1,
+      "condition": "Native subtract-step calls same completed value setter"
+    },
+    {
+      "id": "container-over",
+      "path": "container serialization without opening E315",
+      "parameters": [0, 1, 0, 0, 10000000, false],
+      "conditionalSerializedParameters": [0, 1, 0, 0, 10000000, false],
+      "condition": "Synthetic injected command; no code315-specific range pass in inspected JSON serialization; disk success not executed"
+    },
+    {
+      "id": "variable-large",
+      "path": "variable mode save versus future execution",
+      "parameters": [0, 1, 0, 1, 1, false],
+      "runtimeVariableValue": 10000000,
+      "condition": "Saved p4 is variable slot ID1, runtime value is separate and not routed into constant SpinBox"
+    },
+    {
+      "id": "lose-flag",
+      "path": "existing lose plus disabled checked flag",
+      "parameters": [0, 1, 1, 0, 9999999, true],
+      "conditionalParameters": [0, 1, 1, 0, 9999999, true],
+      "condition": "No checkbox change; disabled does not clear checked; independent saved boolean"
+    },
+    {
+      "id": "help-discrepancy",
+      "path": "same-install help statement versus editor property",
+      "helpMaximum": 99999999,
+      "editorMaximum": 9999999,
+      "condition": "Two independent first-party statements, no domain expansion or runtime claim"
+    }
+  ]
+}

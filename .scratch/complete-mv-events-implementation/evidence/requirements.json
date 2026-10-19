@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "scope": "Ticket01 seeds, ticket02 Windows baseline, tickets03–09 native reverse-engineering/accepted finite contracts, ticket11 System/switches, ticket12 captured map/battle context and ticket13 Loop/Break/Exit. Not complete105+45 or final E1–E7/R1–R7 acceptance.",
+  "scope": "Ticket01 seeds, ticket02 Windows baseline, tickets03–10 native reverse-engineering/accepted finite contracts, ticket11 System/switches, ticket12 captured map/battle context and ticket13 Loop/Break/Exit. Not complete105+45 or final E1–E7/R1–R7 acceptance.",
   "requirements": [
     {
       "id": "MV-S0-CE-001",
@@ -3977,6 +3977,552 @@
         "layer": "Construction/load/ordinary input restrictions/parameter confirmation/container and route serialization review"
       },
       "slice": "09 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E10-RANGE",
+      "title": "EXP constant range from editor and bundled native control",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/10-native-exp-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E315 — Change EXP"
+        }
+      ],
+      "dimensions": ["A2", "A3", "A5", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "E315 常量配置",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-resource-identities.json",
+        "sha256": "01d6d24de2d3cdb11c7eceec061f2171dcc87614605f7504b2ee1dab927a0e0c"
+      },
+      "expected": "E315 设 maximum9999999，共用 minimum1，decimals0；帮助不覆盖本体。 本体/同包原生事实，未执行 UI。",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-exp-boundaries-reverse.md",
+        "section": "## 独立样本与逐项复核结果"
+      },
+      "nativeGroups": ["E7"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and bundled Qt; no editor UI, product or game execution",
+        "owner": "Codex reverse-engineering analyst; fresh same-DLL completion/range/step evidence with reused identities",
+        "layer": "Bounded resource/native code review, conditional inputs, saved-slot and container distinction"
+      },
+      "slice": "10 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E10-INITIALIZE",
+      "title": "EXP new-dialog completed initialization",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/10-native-exp-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E315 — Change EXP"
+        }
+      ],
+      "dimensions": ["A2", "A3", "A5", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "新建 null eventData、正常组件完成",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-resource-identities.json",
+        "sha256": "01d6d24de2d3cdb11c7eceec061f2171dcc87614605f7504b2ee1dab927a0e0c"
+      },
+      "expected": "固定 actor1、gain、constant；0 经完成/范围 setter 落实为1；checkbox 初值 false；不新增 Compiler Default。 控件构造条件推导，非首次保存捕获。",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-exp-boundaries-reverse.md",
+        "section": "## 独立样本与逐项复核结果"
+      },
+      "nativeGroups": ["E7"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and bundled Qt; no editor UI, product or game execution",
+        "owner": "Codex reverse-engineering analyst; fresh same-DLL completion/range/step evidence with reused identities",
+        "layer": "Bounded resource/native code review, conditional inputs, saved-slot and container distinction"
+      },
+      "slice": "10 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E10-LOAD-MAX",
+      "title": "Upper constant numeric load and confirmation",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/10-native-exp-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E315 — Change EXP"
+        }
+      ],
+      "dimensions": ["A2", "A3", "A5", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "constant numeric p4=9999999",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-resource-identities.json",
+        "sha256": "01d6d24de2d3cdb11c7eceec061f2171dcc87614605f7504b2ee1dab927a0e0c"
+      },
+      "expected": "setup 赋 value，完成后同范围 setter 保持端点，确认读取当前 numeric value。 本体赋值事实与原生 setter 条件推导。",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-exp-boundaries-reverse.md",
+        "section": "## 独立样本与逐项复核结果"
+      },
+      "nativeGroups": ["E7"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and bundled Qt; no editor UI, product or game execution",
+        "owner": "Codex reverse-engineering analyst; fresh same-DLL completion/range/step evidence with reused identities",
+        "layer": "Bounded resource/native code review, conditional inputs, saved-slot and container distinction"
+      },
+      "slice": "10 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E10-LOAD-OVER",
+      "title": "Injected out-of-domain numeric load versus text input",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/10-native-exp-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E315 — Change EXP"
+        }
+      ],
+      "dimensions": ["A2", "A3", "A5", "A7"],
+      "classifications": ["positive", "boundary", "combination", "negative"],
+      "sourceKind": "static-inference",
+      "input": "注入 constant numeric p4=10000000 后重开参数",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-resource-identities.json",
+        "sha256": "01d6d24de2d3cdb11c7eceec061f2171dcc87614605f7504b2ee1dab927a0e0c"
+      },
+      "expected": "完成后的 setter 候选夹到9999999；若先赋值，complete/边界变更重走 setter；不是文本裁尾路径。 合成域外载入前提，不是普通创建或落盘证明。",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-exp-boundaries-reverse.md",
+        "section": "## 独立样本与逐项复核结果"
+      },
+      "nativeGroups": ["E7"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and bundled Qt; no editor UI, product or game execution",
+        "owner": "Codex reverse-engineering analyst; fresh same-DLL completion/range/step evidence with reused identities",
+        "layer": "Bounded resource/native code review, conditional inputs, saved-slot and container distinction"
+      },
+      "slice": "10 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E10-TEXT-MAX",
+      "title": "Seven-digit text handler boundary",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/10-native-exp-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E315 — Change EXP"
+        }
+      ],
+      "dimensions": ["A2", "A3", "A5", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "完整 ASCII 文本9999999进入一次文本处理",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-resource-identities.json",
+        "sha256": "01d6d24de2d3cdb11c7eceec061f2171dcc87614605f7504b2ee1dab927a0e0c"
+      },
+      "expected": "七位不裁尾，Number候选9999999，位数处理和数值范围一致。 一次处理条件推导，信号最终时序未运行。",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-exp-boundaries-reverse.md",
+        "section": "## 独立样本与逐项复核结果"
+      },
+      "nativeGroups": ["E7"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and bundled Qt; no editor UI, product or game execution",
+        "owner": "Codex reverse-engineering analyst; fresh same-DLL completion/range/step evidence with reused identities",
+        "layer": "Bounded resource/native code review, conditional inputs, saved-slot and container distinction"
+      },
+      "slice": "10 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E10-TEXT-OVER",
+      "title": "Eight-digit text truncation precedes numeric clamp",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/10-native-exp-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E315 — Change EXP"
+        }
+      ],
+      "dimensions": ["A2", "A3", "A5", "A7"],
+      "classifications": ["positive", "boundary", "combination", "negative"],
+      "sourceKind": "static-inference",
+      "input": "完整 ASCII 文本10000000进入一次文本处理",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-resource-identities.json",
+        "sha256": "01d6d24de2d3cdb11c7eceec061f2171dcc87614605f7504b2ee1dab927a0e0c"
+      },
+      "expected": "先取七位1000000，再转换与夹界；不能声称所有 UI 输入都会保存9999999或1000000。 局部处理条件推导，非实际键入/粘贴结果。",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-exp-boundaries-reverse.md",
+        "section": "## 独立样本与逐项复核结果"
+      },
+      "nativeGroups": ["E7"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and bundled Qt; no editor UI, product or game execution",
+        "owner": "Codex reverse-engineering analyst; fresh same-DLL completion/range/step evidence with reused identities",
+        "layer": "Bounded resource/native code review, conditional inputs, saved-slot and container distinction"
+      },
+      "slice": "10 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E10-STEP",
+      "title": "Endpoint increment and decrement use bounded setter",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/10-native-exp-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E315 — Change EXP"
+        }
+      ],
+      "dimensions": ["A2", "A3", "A5", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "完成后上界+step1及下界−step1",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-resource-identities.json",
+        "sha256": "01d6d24de2d3cdb11c7eceec061f2171dcc87614605f7504b2ee1dab927a0e0c"
+      },
+      "expected": "±step 交同 setter，候选10000000/0受边界限制；上下键另有显示 normalize。 同包原生事实与端点条件推导。",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-exp-boundaries-reverse.md",
+        "section": "## 独立样本与逐项复核结果"
+      },
+      "nativeGroups": ["E7"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and bundled Qt; no editor UI, product or game execution",
+        "owner": "Codex reverse-engineering analyst; fresh same-DLL completion/range/step evidence with reused identities",
+        "layer": "Bounded resource/native code review, conditional inputs, saved-slot and container distinction"
+      },
+      "slice": "10 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E10-CONFIRM",
+      "title": "Six current properties saved on parameter confirmation",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/10-native-exp-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E315 — Change EXP"
+        }
+      ],
+      "dimensions": ["A2", "A3", "A5", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "E315 参数 OK",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-resource-identities.json",
+        "sha256": "01d6d24de2d3cdb11c7eceec061f2171dcc87614605f7504b2ee1dab927a0e0c"
+      },
+      "expected": "对话框 save 写当前六属性，p4取numeric value；没有另按帮助解析原文本。 本体确认链事实，focus/OK先后未实际捕获。",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-exp-boundaries-reverse.md",
+        "section": "## 独立样本与逐项复核结果"
+      },
+      "nativeGroups": ["E7"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and bundled Qt; no editor UI, product or game execution",
+        "owner": "Codex reverse-engineering analyst; fresh same-DLL completion/range/step evidence with reused identities",
+        "layer": "Bounded resource/native code review, conditional inputs, saved-slot and container distinction"
+      },
+      "slice": "10 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E10-CONTAINER",
+      "title": "Container serialization does not open the EXP parameter control",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/10-native-exp-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E315 — Change EXP"
+        }
+      ],
+      "dimensions": ["A2", "A3", "A5", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "合法上界或注入10000000，未重开 E315，仅序列化容器",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-resource-identities.json",
+        "sha256": "01d6d24de2d3cdb11c7eceec061f2171dcc87614605f7504b2ee1dab927a0e0c"
+      },
+      "expected": "容器不启动参数控件；JSON 序列化不为315夹界，注入值保留推导不构成正式支持。 既有链和有界序列化事实，未实际磁盘写入。",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-exp-boundaries-reverse.md",
+        "section": "## 独立样本与逐项复核结果"
+      },
+      "nativeGroups": ["E7"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and bundled Qt; no editor UI, product or game execution",
+        "owner": "Codex reverse-engineering analyst; fresh same-DLL completion/range/step evidence with reused identities",
+        "layer": "Bounded resource/native code review, conditional inputs, saved-slot and container distinction"
+      },
+      "slice": "10 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E10-HELP",
+      "title": "Same-install help maximum discrepancy",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/10-native-exp-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E315 — Change EXP"
+        }
+      ],
+      "dimensions": ["A2", "A3", "A5", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "同安装帮助 Operand",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-resource-identities.json",
+        "sha256": "01d6d24de2d3cdb11c7eceec061f2171dcc87614605f7504b2ee1dab927a0e0c"
+      },
+      "expected": "帮助99999999与本体9999999分别留证，未由帮助主动扩域。 首方帮助文本观察，非运行结果。",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-exp-boundaries-reverse.md",
+        "section": "## 独立样本与逐项复核结果"
+      },
+      "nativeGroups": ["E7"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and bundled Qt; no editor UI, product or game execution",
+        "owner": "Codex reverse-engineering analyst; fresh same-DLL completion/range/step evidence with reused identities",
+        "layer": "Bounded resource/native code review, conditional inputs, saved-slot and container distinction"
+      },
+      "slice": "10 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E10-VARIABLE",
+      "title": "Variable slot ID versus runtime operand value",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/10-native-exp-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E315 — Change EXP"
+        }
+      ],
+      "dimensions": ["A2", "A3", "A5", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "operand mode1、p4=变量ID1；变量未来值10000000",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-resource-identities.json",
+        "sha256": "01d6d24de2d3cdb11c7eceec061f2171dcc87614605f7504b2ee1dab927a0e0c"
+      },
+      "expected": "setup/save 使用 variableId，常量控件上限不约束变量运行值。 保存槽事实；运行结果交实际游戏。",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-exp-boundaries-reverse.md",
+        "section": "## 独立样本与逐项复核结果"
+      },
+      "nativeGroups": ["E7"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and bundled Qt; no editor UI, product or game execution",
+        "owner": "Codex reverse-engineering analyst; fresh same-DLL completion/range/step evidence with reused identities",
+        "layer": "Bounded resource/native code review, conditional inputs, saved-slot and container distinction"
+      },
+      "slice": "10 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E10-SHOW-LEVEL-UP",
+      "title": "Disabled Show Level Up remains an independent saved boolean",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/10-native-exp-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E315 — Change EXP"
+        }
+      ],
+      "dimensions": ["A2", "A3", "A5", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "lose+showLevelUp=true",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-resource-identities.json",
+        "sha256": "01d6d24de2d3cdb11c7eceec061f2171dcc87614605f7504b2ee1dab927a0e0c"
+      },
+      "expected": "enabled=false不清除checked；load/save独立恢复/保存p5=true。 本体保存事实，未实际点击 checkbox。",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-exp-boundaries-reverse.md",
+        "section": "## 独立样本与逐项复核结果"
+      },
+      "nativeGroups": ["E7"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and bundled Qt; no editor UI, product or game execution",
+        "owner": "Codex reverse-engineering analyst; fresh same-DLL completion/range/step evidence with reused identities",
+        "layer": "Bounded resource/native code review, conditional inputs, saved-slot and container distinction"
+      },
+      "slice": "10 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E10-TIMING",
+      "title": "Unexecuted text, focus and signal order remains explicit",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/10-native-exp-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E315 — Change EXP"
+        }
+      ],
+      "dimensions": ["A2", "A3", "A5", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "typed text、setter、complete、accepted、OK/focus",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-resource-identities.json",
+        "sha256": "01d6d24de2d3cdb11c7eceec061f2171dcc87614605f7504b2ee1dab927a0e0c"
+      },
+      "expected": "明确区分文本、numeric value与回调；不把ready或原生完成事实扩写成精确UI时序。 未决时序的限定记录通过，未知结果本身未判通过。",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-exp-boundaries-reverse.md",
+        "section": "## 独立样本与逐项复核结果"
+      },
+      "nativeGroups": ["E7"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and bundled Qt; no editor UI, product or game execution",
+        "owner": "Codex reverse-engineering analyst; fresh same-DLL completion/range/step evidence with reused identities",
+        "layer": "Bounded resource/native code review, conditional inputs, saved-slot and container distinction"
+      },
+      "slice": "10 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E10-CONTRACT",
+      "title": "Accepted EXP range consistency and separate product/game obligations",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/10-native-exp-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E315 — Change EXP"
+        }
+      ],
+      "dimensions": ["A2", "A3", "A5", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "已接受常量域与所有上述路径",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-resource-identities.json",
+        "sha256": "01d6d24de2d3cdb11c7eceec061f2171dcc87614605f7504b2ee1dab927a0e0c"
+      },
+      "expected": "无正常原生域外保存反例；无必需保存域的未界定阻塞；若新反例出现仍须重开契约。 有界一致性复核，不代替产品范围诊断、最终E7或R7。",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/10-exp-boundaries-reverse.md",
+        "section": "## 独立样本与逐项复核结果"
+      },
+      "nativeGroups": ["E7"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and bundled Qt; no editor UI, product or game execution",
+        "owner": "Codex reverse-engineering analyst; fresh same-DLL completion/range/step evidence with reused identities",
+        "layer": "Bounded resource/native code review, conditional inputs, saved-slot and container distinction"
+      },
+      "slice": "10 / S1",
       "required": true
     }
   ]
