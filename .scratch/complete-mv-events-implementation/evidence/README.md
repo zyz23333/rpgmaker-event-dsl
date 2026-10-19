@@ -299,6 +299,12 @@ Ticket20 adds [complete isolated Decompile directory publication acceptance](20-
 | MV-S4-DECOMPILE-015 | Unsupported path and actual write or unavailable host failures preserve all business state | synthetic-support | Windows public Workspace and real process/filesystem boundaries |
 | MV-S4-DECOMPILE-016 | Pinned logical junction physical parent and ancestor resist mutation and release after publication | synthetic-support | Windows public Workspace and actual external filesystem operations |
 
+Ticket21 records [full-input byte Drift and non-overwriting Push checks](21-push-full-input-drift-checks.md).
+These synthetic Windows public API/CLI records use actual filesystem and child-process
+boundaries; native execution remains `not-executed` for this ticket.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
 | MV-S4-DRIFT-001 | no-op Push checks every captured standard file and registered map by bytes | synthetic-support | Windows public Workspace API/CLI and real filesystem/process boundaries |
 | MV-S4-DRIFT-002 | live byte corruption cannot pass through replacement UTF8 decoding | synthetic-support | Windows public Workspace API/CLI and real filesystem/process boundaries |
 | MV-S4-DRIFT-003 | semantic Diff ignores key order while preserving saved-value distinctions and byte Drift | synthetic-support | Windows public Workspace API/CLI and real filesystem/process boundaries |
