@@ -1,0 +1,19 @@
+{
+  "purpose": "Exact purpose-only harness revision; original v5 bytes remain unchanged",
+  "old": {
+    "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-native-pair-support-v5.cjs",
+    "sha256": "68b74b84bc597402ca437f3d5a045a89044f35e7c3a46dca73ded77a3d39cdf8",
+    "bytes": 15482
+  },
+  "revision": {
+    "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-native-pair-support-v6-delivery.cjs",
+    "sha256": "96e71548e0414ae3829ac6cbc329013b2a2c546670ee31c1ef71d8eec2a092d4",
+    "bytes": 15511
+  },
+  "onlyReplacement": {
+    "from": "purpose:'Preparation only; not final candidate or ticket acceptance'",
+    "to": "purpose:'Ticket25 allocated R2 delivery comparison; final integrated regression remains separate'"
+  },
+  "oldBytesStillEqual": true,
+  "reverseReplacementEqualsEntireOriginal": true
+}

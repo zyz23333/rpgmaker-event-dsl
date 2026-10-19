@@ -1,0 +1,202 @@
+{
+  "purpose": "Versioned R2 delivery fixture: only auxiliary repeatAfter guard is represented as one saved E355 Script Input under the normal Script Command Gate",
+  "originalScenarioPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-r2-normal-scene-scheduling-native.cjs",
+  "frozenOriginalFixture": {
+    "path": "C:/Users/Shuen/.codex/tmp/mv25-r2-normal-scene-product-pair-160eef49-292f-462b-bc42-b31e73d54a67/independent-fixture.json",
+    "sha256": "b7559a8a9418c07d2fc0cb271c17f728f471c2779865a46dd46a93c91b8eb125",
+    "bytes": 3240498
+  },
+  "mutableSeedDataNotUsedForExpectedCarriers": true,
+  "beforeFixtureSha256": "65bd385832a86f66ac0b87622a4d6ac3beb0d0e54706b710a45342e40a572e2b",
+  "afterFixtureSha256": "119b62030e3af1e177b45a295dd7e8b38bd2286532bab7a1bbe9918c973a9711",
+  "allowedChangedPaths": [
+    "carriers.Troops.json[1].pages[9].list",
+    "loadedCarriers.Troops.json[1].pages[9].list"
+  ],
+  "lists": [
+    {
+      "path": "carriers.Troops.json[1].pages[9].list",
+      "beforeSha256": "f0642f7db3b0b368aaea80f9bbc54af30428d5ad9ef682be55738e08cdfc1b31",
+      "afterSha256": "343f0e7795858ac4aa83d9f0d7efad080a7721112dc730478a705d9a6020736c",
+      "before": [
+        {
+          "code": 355,
+          "indent": 0,
+          "parameters": [
+            "window.r2BattleTrace.push({id:\"moment-repeat\",turn:$gameTroop.turnCount(),phase:BattleManager._phase,frame:Graphics.frameCount,eventId:this._eventId,mapId:this._mapId,inBattle:$gameParty.inBattle(),enemyHp:$gameTroop.members().map(function(e){return e.hp;}),actorHp:$gameParty.members().map(function(a){return a.hp;})});"
+          ]
+        },
+        {
+          "code": 122,
+          "indent": 0,
+          "parameters": [
+            10,
+            10,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "code": 111,
+          "indent": 0,
+          "parameters": [
+            1,
+            10,
+            0,
+            2,
+            1
+          ]
+        },
+        {
+          "code": 121,
+          "indent": 1,
+          "parameters": [
+            6,
+            6,
+            1
+          ]
+        },
+        {
+          "code": 0,
+          "indent": 1,
+          "parameters": []
+        },
+        {
+          "code": 412,
+          "indent": 0,
+          "parameters": []
+        },
+        {
+          "code": 0,
+          "indent": 0,
+          "parameters": []
+        }
+      ],
+      "after": [
+        {
+          "code": 355,
+          "indent": 0,
+          "parameters": [
+            "window.r2BattleTrace.push({id:\"moment-repeat\",turn:$gameTroop.turnCount(),phase:BattleManager._phase,frame:Graphics.frameCount,eventId:this._eventId,mapId:this._mapId,inBattle:$gameParty.inBattle(),enemyHp:$gameTroop.members().map(function(e){return e.hp;}),actorHp:$gameParty.members().map(function(a){return a.hp;})});"
+          ]
+        },
+        {
+          "code": 355,
+          "indent": 0,
+          "parameters": [
+            "var count=$gameVariables.value(10)+1;$gameVariables.setValue(10,count);if(count>=2)$gameSwitches.setValue(6,false);"
+          ]
+        },
+        {
+          "code": 0,
+          "indent": 0,
+          "parameters": []
+        }
+      ]
+    },
+    {
+      "path": "loadedCarriers.Troops.json[1].pages[9].list",
+      "beforeSha256": "f0642f7db3b0b368aaea80f9bbc54af30428d5ad9ef682be55738e08cdfc1b31",
+      "afterSha256": "343f0e7795858ac4aa83d9f0d7efad080a7721112dc730478a705d9a6020736c",
+      "before": [
+        {
+          "code": 355,
+          "indent": 0,
+          "parameters": [
+            "window.r2BattleTrace.push({id:\"moment-repeat\",turn:$gameTroop.turnCount(),phase:BattleManager._phase,frame:Graphics.frameCount,eventId:this._eventId,mapId:this._mapId,inBattle:$gameParty.inBattle(),enemyHp:$gameTroop.members().map(function(e){return e.hp;}),actorHp:$gameParty.members().map(function(a){return a.hp;})});"
+          ]
+        },
+        {
+          "code": 122,
+          "indent": 0,
+          "parameters": [
+            10,
+            10,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "code": 111,
+          "indent": 0,
+          "parameters": [
+            1,
+            10,
+            0,
+            2,
+            1
+          ]
+        },
+        {
+          "code": 121,
+          "indent": 1,
+          "parameters": [
+            6,
+            6,
+            1
+          ]
+        },
+        {
+          "code": 0,
+          "indent": 1,
+          "parameters": []
+        },
+        {
+          "code": 412,
+          "indent": 0,
+          "parameters": []
+        },
+        {
+          "code": 0,
+          "indent": 0,
+          "parameters": []
+        }
+      ],
+      "after": [
+        {
+          "code": 355,
+          "indent": 0,
+          "parameters": [
+            "window.r2BattleTrace.push({id:\"moment-repeat\",turn:$gameTroop.turnCount(),phase:BattleManager._phase,frame:Graphics.frameCount,eventId:this._eventId,mapId:this._mapId,inBattle:$gameParty.inBattle(),enemyHp:$gameTroop.members().map(function(e){return e.hp;}),actorHp:$gameParty.members().map(function(a){return a.hp;})});"
+          ]
+        },
+        {
+          "code": 355,
+          "indent": 0,
+          "parameters": [
+            "var count=$gameVariables.value(10)+1;$gameVariables.setValue(10,count);if(count>=2)$gameSwitches.setValue(6,false);"
+          ]
+        },
+        {
+          "code": 0,
+          "indent": 0,
+          "parameters": []
+        }
+      ]
+    }
+  ],
+  "allOtherFieldsDeepEqual": true,
+  "allOtherFieldsSha256": "cfc2e5ccc4de559a0b425fc85e8f8fbb1428911a5170a66cf0037da8b145a232",
+  "planDeepEqual": true,
+  "conditionsAndSpanDeepEqual": true,
+  "pageCount": 17,
+  "expectedTraceCount": 16,
+  "expectedInputTurns": [
+    0,
+    1,
+    2
+  ],
+  "finalTurn": 3,
+  "expectedMomentCounter": 2,
+  "neverPages": [
+    "all-disabled-never",
+    "and-switch-false-never",
+    "and-enemy-false-never",
+    "and-actor-false-never",
+    "and-turn-false-never"
+  ],
+  "observerFunctionalBytesUnchanged": true,
+  "firstPartyFixturesRetainedExternally": true
+}

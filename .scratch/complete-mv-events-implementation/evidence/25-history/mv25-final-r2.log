@@ -1,0 +1,12 @@
+{
+  "root": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-normal-scene-product-pair-160eef49-292f-462b-bc42-b31e73d54a67",
+  "passed": false,
+  "error": {
+    "message": "decompile error troop:1: MV-COMMAND-UNSUPPORTED: This current child-body helper cannot yet preserve a saved trailing Body End Marker after content. at pages[9].list[4]; expected formal Child Command Body with explicit saved marker; actual {\"code\":0,\"indent\":1,\"parameters\":[]}",
+    "stack": "Error: decompile error troop:1: MV-COMMAND-UNSUPPORTED: This current child-body helper cannot yet preserve a saved trailing Body End Marker after content. at pages[9].list[4]; expected formal Child Command Body with explicit saved marker; actual {\"code\":0,\"indent\":1,\"parameters\":[]}\n    at assertSnapshotRendering (file:///C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/operations-CUcDbfMI.mjs:7054:10)\n    at buildDecompiledSourceFiles (file:///C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/operations-CUcDbfMI.mjs:7002:4)\n    at async decompileProjectDataSnapshot (file:///C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/operations-CUcDbfMI.mjs:6883:16)\n    at async decompileWorkspaceUnlocked (file:///C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/operations-CUcDbfMI.mjs:8664:2)\n    at async withWorkspaceOperationLock (file:///C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/operations-CUcDbfMI.mjs:7817:10)\n    at async Module.decompileWorkspace (file:///C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/operations-CUcDbfMI.mjs:8646:2)\n    at async step (C:\\Users\\Shuen\\.codex\\tmp\\mv-native-pair-support-v5.cjs:73:24)\n    at async Object.runPair (C:\\Users\\Shuen\\.codex\\tmp\\mv-native-pair-support-v5.cjs:112:5)\n    at async C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-normal-scene-product-pair.cjs:23:15"
+  },
+  "sides": {
+    "literal": {},
+    "compiled": {}
+  }
+}

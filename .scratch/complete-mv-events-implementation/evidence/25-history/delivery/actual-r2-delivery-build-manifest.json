@@ -1,0 +1,720 @@
+{
+  "purpose": "Immutable actual dirty integrated25 /7 build after necessary limited unbranched E301 correction; full source/build identities before E1/R2 execution",
+  "capturedAt": "2026-10-19T15:51:52.106Z",
+  "head": "1bda44c433609008f6a69bd048cea5916b381200",
+  "status": " M .scratch/complete-mv-events-implementation/evidence/25-troop-event-ownership-and-reset.md\n M .scratch/complete-mv-events-implementation/evidence/README.md\n M .scratch/complete-mv-events-implementation/evidence/requirements.json\n M .scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md\n M packages/rpgmaker-event-dsl/src/compiler/dispatch.ts\n M packages/rpgmaker-event-dsl/src/workspace/push-recovery.ts\n M packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts\n M packages/rpgmaker-event-dsl/test/push-recovery.test.ts\n M packages/rpgmaker-event-dsl/test/troop-workflow.test.ts\n?? .scratch/complete-mv-events-implementation/evidence/25-history/\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-AUTHOR-001-2026-10-19T15-20-41-686Z-bda066ea-f62e-47c7-9770-b73e033b8d67.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-AUTHOR-002-2026-10-19T15-20-41-735Z-63e52013-c9a2-48b3-97ff-d5d2998379a2.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-AUTHOR-003-2026-10-19T15-20-41-780Z-2f78358c-2e63-4b6b-b1ce-9448cd5eb5c6.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-AUTHOR-004-2026-10-19T15-20-41-824Z-0f7c1ae9-f6c5-4e6f-ab18-b40aad19a340.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-AUTHOR-005-2026-10-19T15-20-41-866Z-2973b500-fea6-4e9a-89dd-66c1b43992b4.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-AUTHOR-006-2026-10-19T15-20-41-908Z-c4f8e5be-3944-4294-a027-5444f497346f.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-AUTHOR-007-2026-10-19T15-20-41-950Z-4434d83d-14f3-4f68-af41-7e8e69c02c2c.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-E1-2026-10-19T15-29-42-904Z-b2d2c538-1752-4fad-be39-ffb599668ec3.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-PRIOR-001-2026-10-19T15-14-08-922Z-69c4320b-a6da-4f7c-866d-05a4ef0bd53a.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-PRIOR-001-2026-10-19T15-20-09-222Z-e1392a35-e7d9-4d6b-b4b9-0209993ad3f8.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-PRIOR-001-2026-10-19T15-20-10-832Z-b2a1fa77-c70f-4d3a-87b5-32613c3b67a6.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-PRIOR-001-2026-10-19T15-20-12-303Z-b4b2079f-f504-474a-99f5-2971841ea66f.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-PRIOR-001-2026-10-19T15-20-13-747Z-198470e0-08b6-452e-9f9f-4210e86e80a2.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-PRIOR-001-2026-10-19T15-20-15-691Z-eb269302-a047-4830-b4e2-01a6236e51dd.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-PRIOR-001-2026-10-19T15-23-32-970Z-fbd43f7e-10a6-4a9c-9aba-8363e21de957.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-PRIOR-001-2026-10-19T15-23-34-396Z-2eaf2962-e3c2-4ffa-b4df-dffccc9ac710.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-PRIOR-001-2026-10-19T15-23-35-703Z-2337df52-685c-46f3-b8e5-c31116b1c297.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-PRIOR-001-2026-10-19T15-23-36-894Z-b503f211-90b1-45d9-b3ac-1e3f21505693.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-PRIOR-001-2026-10-19T15-23-38-649Z-c946bc60-4d25-4a1f-ad3f-61200bd48040.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-PRIOR-003-2026-10-19T15-23-29-795Z-5ab4d742-f1b9-4414-a7b3-195fb12380b2.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-R2-2026-10-19T15-29-42-303Z-49837cc8-58b8-4742-849a-72328d6a408d.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-R2-DELIVERY-002-2026-10-19T15-41-21-215Z-7df67bca-f142-49c5-abbd-cc8588ac492f.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-SAFETY-001-2026-10-19T15-20-01-557Z-c4c413dd-c8ae-422f-9b0d-2948ccb19662.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-SAFETY-001-2026-10-19T15-27-43-365Z-4a6e11ae-df14-48ac-bf8c-3b6ab0222561.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-SAFETY-002-2026-10-19T15-20-04-220Z-73fe6733-6773-49b4-911d-7f4e2b095146.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-SAFETY-002-2026-10-19T15-27-45-270Z-5f2b9aaa-83cf-45db-b755-36d61bf2b6b6.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-SAFETY-003-2026-10-19T15-20-06-583Z-b5078915-25cc-4b69-94be-ab2ec2f7a1ab.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-SAFETY-003-2026-10-19T15-27-46-385Z-958eb46c-1149-4c7e-b833-b3f543d87ef0.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-001-2026-10-19T15-19-19-055Z-c266100d-44b0-433e-abdf-654c5282a4bc.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-001-2026-10-19T15-27-20-928Z-0d65a021-25cb-4f24-8ac7-ecffb3b4ad06.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-002-2026-10-19T15-19-20-626Z-65cd62f2-d625-47fa-a9da-b12634697468.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-002-2026-10-19T15-19-22-382Z-462f197b-02d5-4418-9791-e7118b616d6b.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-002-2026-10-19T15-19-24-182Z-0efe0290-2f5e-4a10-8d89-41b2f9681f88.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-002-2026-10-19T15-27-22-468Z-3213a869-4110-4bec-8e82-40ddc05412ec.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-002-2026-10-19T15-27-24-079Z-32f55532-cfe4-4b6f-805a-1c4c81b9ed04.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-002-2026-10-19T15-27-25-785Z-f603c33e-cef7-466d-a473-fe8f360eb180.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-003-2026-10-19T15-19-25-822Z-3d4b0cd1-cb28-444a-9b4a-2db206bc0054.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-003-2026-10-19T15-27-27-513Z-8ab8b138-480c-4ce8-9fb8-ab896789674b.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-004-2026-10-19T15-19-26-195Z-b5d92a43-5c34-45f6-809d-f8782845c2c6.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-004-2026-10-19T15-27-27-814Z-11d16920-3cab-41f4-bf24-246e86d84336.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-24-471Z-8640c0e4-f8db-4cb8-ab31-a5ba2fae63bb.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-26-361Z-46af388d-49b2-411a-890b-b174ea861a00.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-26-533Z-beff490e-5960-401b-8f91-b5c6c795e1d1.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-26-722Z-0289e32a-b1a6-4326-9aef-b162984fb44b.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-26-933Z-634ee06f-3860-410a-b1e0-1a533a93fe1d.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-27-234Z-24cd2658-4396-4060-b355-07bda6fff2e9.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-27-498Z-942fb694-8bf5-4c18-ac12-f3c26bf2eade.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-27-662Z-1e2b538e-acb3-4052-b146-4caf6198d80e.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-27-821Z-2e7227aa-79e8-4f04-9f49-f10c80341ac8.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-28-099Z-e1925901-fcad-4277-8b17-a6aec0f70988.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-28-362Z-36212bd6-7300-4a86-b399-9f8b924b4628.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-28-634Z-8c61d864-37a9-4ee4-8803-85f05b45fd1a.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-28-792Z-82d19144-bcea-4b8e-9604-65a9633adc0f.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-29-004Z-98649cea-ec31-4b7d-85cd-d89cf5acdfa3.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-29-226Z-15399bbc-4389-4113-8a2c-e8f9234569ee.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-29-429Z-3fa60819-5fb4-4745-a839-1ccc407bdca3.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-29-670Z-321c4597-0f31-484c-95f0-5eebfe715534.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-29-884Z-cc640d09-1966-442c-992f-c0698fb4966d.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-30-152Z-c01a765a-758a-44b8-8204-3066b4262365.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-30-402Z-f80ab079-dce6-4713-b4f9-78c7f5e5bbe6.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-30-651Z-518b3696-721f-4ec2-a609-93ba8777b699.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-30-895Z-42873458-e789-4ddd-9b8e-3aa681c95491.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-31-157Z-43bfd5b8-c93a-48dd-87dd-7e0d24cdc193.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-31-406Z-bb875e68-0e1f-4c10-bea0-02da0bb50fed.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-31-663Z-50c31b41-d8c5-4980-b58f-002767f2f627.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-31-923Z-016234ac-3ce2-4e92-b1a1-484c5c3263ef.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-19-32-174Z-68e7d45b-4270-4d7e-96cf-c8f91d2c0dd9.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-26-076Z-5737adb6-deed-4adc-8918-8690603005f6.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-27-962Z-41529d8c-9a2b-40c3-901f-b635487c1187.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-28-103Z-cbe9d44d-5bb0-40b4-9795-05d0d0492895.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-28-238Z-63e99214-fbb5-444d-b989-bf466b18a57c.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-28-502Z-d8889c9f-5dd9-4823-b6d2-3b604cfcde18.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-28-785Z-335f75ec-b5c1-474e-b5b6-a0d7a6f49423.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-29-067Z-e3ee0acd-09b4-4ee2-9a8e-31ca3f7322a8.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-29-255Z-9c034291-e8f3-4874-a350-153d66eb1f51.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-29-482Z-6e35dff0-6a95-41da-8482-e2c54804329c.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-29-779Z-53b24afa-0c69-4a95-b0ba-29dd169cc903.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-30-044Z-10863c60-2d4a-4f71-82de-63d9c46a6335.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-30-273Z-2d5c7df9-9898-474e-8b86-392c3bfd0e7f.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-30-559Z-875fefa5-0107-45ed-a2e5-9e8ddbd580a9.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-30-843Z-2b81a85e-bcaa-4433-b7e7-2362b8a4c11f.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-31-140Z-bc055a4d-137f-4379-bc64-50d7eb241407.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-31-301Z-33941ed8-ae89-4de8-9856-d0a77007e632.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-31-533Z-467d2684-21c2-413d-bc06-1e0da37a3b2b.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-31-774Z-61b35e80-7b73-436c-8040-971a39518b05.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-32-016Z-f337025d-0336-476a-b37a-3e032b5196d2.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-32-168Z-aef770b5-cc81-42a9-b935-948ed766866e.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-32-330Z-d1928282-3d5c-47b9-b5ae-57e69c811b30.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-32-595Z-2d3a8588-5c2e-42c6-ba9a-7d6437c4f2df.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-32-867Z-1419c9cf-90ac-4ef6-a4c5-b3b1748afdc5.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-33-125Z-636b10b8-a3a9-49df-8fba-939c1d7c3b87.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-33-352Z-a5193e14-fb0c-428c-929f-1555c6bde87f.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-33-616Z-b353926e-a755-450d-b346-83a25b610d6d.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-27-33-901Z-bed21cf5-9650-4052-aaab-d13802e77401.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-19-35-037Z-dbd4da33-f5fd-410e-86f0-894d06ee7444.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-19-37-409Z-e64acc07-c818-4e45-96ca-56139975fa04.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-19-39-518Z-8159694b-3be6-49a6-8f98-813033fda4cd.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-19-41-538Z-bd06165f-3382-4ca8-abcd-6e60e5558a8a.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-27-35-837Z-4f0f259f-ec1f-46ae-9675-1f1b906a9468.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-27-37-679Z-bc6159fd-51c1-4425-b8fb-3d8c08d88b14.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-27-39-419Z-a8265e46-4382-406f-89fe-830a37096f55.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-27-41-347Z-6cecd9b6-ce16-45bc-bd01-e89be6057d05.json\n",
+  "src": [
+    {
+      "path": "authoring/declarations.ts",
+      "sha256": "c07caf6417b8240d09cd83af1a0ea5d70d4e9357c1bda3a0f1b4c4d531611739",
+      "bytes": 2589,
+      "modifiedAt": "2026-10-19T15:12:37.347Z"
+    },
+    {
+      "path": "authoring/index.ts",
+      "sha256": "c920fc2070149aec93f1a110ad5333501972708a6e4fd2dbf9abba5240a562c8",
+      "bytes": 7253,
+      "modifiedAt": "2026-10-19T15:12:37.348Z"
+    },
+    {
+      "path": "authoring/references.ts",
+      "sha256": "b3f3cefa64f45da752a8f58bc6eca2d92bb6b30773be42f51036fd60df9c89de",
+      "bytes": 4125,
+      "modifiedAt": "2026-10-19T13:38:38.384Z"
+    },
+    {
+      "path": "authoring/shared.ts",
+      "sha256": "3865ac8c4b3768c96038a323a02cf30c33edd9f330544bd6cd2b204d2841408e",
+      "bytes": 980,
+      "modifiedAt": "2026-10-19T10:13:23.813Z"
+    },
+    {
+      "path": "cli.ts",
+      "sha256": "34c6e77e91a45126b1a2c5b15621f79241a98bab081924d2fbd535c5996fd4b0",
+      "bytes": 3770,
+      "modifiedAt": "2026-10-19T10:13:23.813Z"
+    },
+    {
+      "path": "commands/actor/authoring.ts",
+      "sha256": "adc9b6aa805739dad7594246236f6314cc8a08299f1bd323b8ae729cf6b2fdf3",
+      "bytes": 5513,
+      "modifiedAt": "2026-10-19T10:13:23.814Z"
+    },
+    {
+      "path": "commands/actor/decompile.ts",
+      "sha256": "2e83a179cabb9ae19ff9207904c822bb84c6b5bc45581386d2aca7b1b005b56d",
+      "bytes": 9328,
+      "modifiedAt": "2026-10-19T10:13:23.814Z"
+    },
+    {
+      "path": "commands/audio/authoring.ts",
+      "sha256": "08a68ae8b97095ec1c3a6d8517ed5649eb79ffb1b66f59aa34a7506356e0e513",
+      "bytes": 1584,
+      "modifiedAt": "2026-10-19T10:13:23.814Z"
+    },
+    {
+      "path": "commands/audio/decompile.ts",
+      "sha256": "18acdf8e035ad2b8f3879622e18c39a7cde1e6279c14013fca2e6dbd0edb3811",
+      "bytes": 2365,
+      "modifiedAt": "2026-10-19T10:13:23.815Z"
+    },
+    {
+      "path": "commands/battle/authoring.ts",
+      "sha256": "a5249dd85dde78f2f0183d33a9a79d69bca93e88b5d2f0404f9005a25f115377",
+      "bytes": 1687,
+      "modifiedAt": "2026-10-19T10:13:23.815Z"
+    },
+    {
+      "path": "commands/battle/decompile.ts",
+      "sha256": "4da781567fb9baf2580ec050564d66506d542890dfab3a6966eef1c008ac44b0",
+      "bytes": 5618,
+      "modifiedAt": "2026-10-19T10:13:23.816Z"
+    },
+    {
+      "path": "commands/enemy/authoring.ts",
+      "sha256": "3ff830df557837e08ed73054eb47085cd0ba262e1aad746defc05578a14ce602",
+      "bytes": 2944,
+      "modifiedAt": "2026-10-19T10:13:23.816Z"
+    },
+    {
+      "path": "commands/enemy/decompile.ts",
+      "sha256": "334fc1efeda29f27cf9a7e504501ea7e693fb9b041a96bb827c90ec957ff2cd2",
+      "bytes": 5242,
+      "modifiedAt": "2026-10-19T10:13:23.816Z"
+    },
+    {
+      "path": "commands/flow/authoring.ts",
+      "sha256": "5948d34cb26d81e3a72973a88b742a78b3928b7d4dc4c67b41ecca1e212f6d0f",
+      "bytes": 2117,
+      "modifiedAt": "2026-10-19T10:13:23.817Z"
+    },
+    {
+      "path": "commands/flow/decompile.ts",
+      "sha256": "db0508df65d743ada28e4b175d85cfbfa6a70a0547ff17cc2ecc2ab9a0feac31",
+      "bytes": 14441,
+      "modifiedAt": "2026-10-19T10:13:23.818Z"
+    },
+    {
+      "path": "commands/flow/validation.ts",
+      "sha256": "e53e420b6f56e26e85e7df6db53c48365002450aefb13fbae50b21141e2adc70",
+      "bytes": 2249,
+      "modifiedAt": "2026-10-19T10:13:23.818Z"
+    },
+    {
+      "path": "commands/map/authoring.ts",
+      "sha256": "985f89d88a2460b0af605f3fb8282847dd48e4d5d6e13821ae430966a53c4006",
+      "bytes": 1862,
+      "modifiedAt": "2026-10-19T10:13:23.818Z"
+    },
+    {
+      "path": "commands/map/decompile.ts",
+      "sha256": "4155ac5891314141271b6e80f4b11924e584ef1efcf6e83b125b7e60196e2ce0",
+      "bytes": 3339,
+      "modifiedAt": "2026-10-19T10:13:23.819Z"
+    },
+    {
+      "path": "commands/message/authoring.ts",
+      "sha256": "76bfc91b2a89a8c62546542396ff47c8baf9f13d54c1c1ba5a0b58031b413d68",
+      "bytes": 2707,
+      "modifiedAt": "2026-10-19T10:13:23.819Z"
+    },
+    {
+      "path": "commands/message/decompile.ts",
+      "sha256": "174c78169c65eec74592a466381b97e083688c691381e470b0a707dd47273a24",
+      "bytes": 8525,
+      "modifiedAt": "2026-10-19T13:38:38.385Z"
+    },
+    {
+      "path": "commands/movement/authoring.ts",
+      "sha256": "af1985013fa73af61d72cc440de0f83d99f78c94da4744f3a7ab1d7b56daf909",
+      "bytes": 4997,
+      "modifiedAt": "2026-10-19T10:13:23.820Z"
+    },
+    {
+      "path": "commands/movement/compile.ts",
+      "sha256": "8491f60e066d618bb076e3e03774b9332000f8be6f5c81a05ceb2aa03e2d0e15",
+      "bytes": 6655,
+      "modifiedAt": "2026-10-19T10:13:23.821Z"
+    },
+    {
+      "path": "commands/movement/decompile.ts",
+      "sha256": "016e07bdd681af3aaaf70ae5141afc6255598453c2ce43a6c34a3d44c38ba6c3",
+      "bytes": 18421,
+      "modifiedAt": "2026-10-19T10:13:23.821Z"
+    },
+    {
+      "path": "commands/movement/page.ts",
+      "sha256": "ead6952e28f64bd25ba6fbd55d9be36f09ddadca5967ec4ddd7722ee1e18ceac",
+      "bytes": 3577,
+      "modifiedAt": "2026-10-19T13:38:38.386Z"
+    },
+    {
+      "path": "commands/movement/types.ts",
+      "sha256": "de4a2cb691fc6a8697ba91a2a831eaf17e1c15e541da4a2893f902f30a3a01b8",
+      "bytes": 226,
+      "modifiedAt": "2026-10-19T10:13:23.821Z"
+    },
+    {
+      "path": "commands/movement/validation.ts",
+      "sha256": "41bd3a1a11691f40f0583a7d7a2e22533883404379b35897dc74eb31096d2755",
+      "bytes": 13255,
+      "modifiedAt": "2026-10-19T13:38:38.386Z"
+    },
+    {
+      "path": "commands/screen/authoring.ts",
+      "sha256": "c0557c79496cb70c7a4d67fa61008a6e189b9df86f7cb408b36048b89aff63dc",
+      "bytes": 3903,
+      "modifiedAt": "2026-10-19T10:13:23.822Z"
+    },
+    {
+      "path": "commands/screen/compile.ts",
+      "sha256": "a1c68cb63a4e6fe9ad2de3f45f51101f2e4fa6656fd865ac3bbbf485c78edc80",
+      "bytes": 1739,
+      "modifiedAt": "2026-10-19T10:13:23.823Z"
+    },
+    {
+      "path": "commands/screen/decompile.ts",
+      "sha256": "38e4c759cf9f51c5ab49ea0f33d79c9a2af1060156102e7198541ac2e529567b",
+      "bytes": 8920,
+      "modifiedAt": "2026-10-19T10:13:23.823Z"
+    },
+    {
+      "path": "commands/system/authoring.ts",
+      "sha256": "71b37822f2d2abd58349a1ea7eed84fea0c886cf8045beb6341dbfba2c02814d",
+      "bytes": 586,
+      "modifiedAt": "2026-10-19T10:13:23.823Z"
+    },
+    {
+      "path": "commands/system/decompile.ts",
+      "sha256": "56c3cba9e576bd289050463bfe2d284c39d54196fcf5fa59a8dde3ccdc33ad77",
+      "bytes": 2258,
+      "modifiedAt": "2026-10-19T13:38:38.387Z"
+    },
+    {
+      "path": "commands/variables/authoring.ts",
+      "sha256": "a2bbedd0a2d9aacb7e3eb2772e4f7431c49ccef39166cc74f4b615a6494a3f22",
+      "bytes": 4093,
+      "modifiedAt": "2026-10-19T10:13:23.824Z"
+    },
+    {
+      "path": "commands/variables/compile.ts",
+      "sha256": "9e4a295fac91434e34e28bd3c84b9b5a5dc526685f821f574582e7ac22bb4c27",
+      "bytes": 5360,
+      "modifiedAt": "2026-10-19T10:13:23.825Z"
+    },
+    {
+      "path": "commands/variables/decompile.ts",
+      "sha256": "c32df1e9d77b36d30fd135bc6c8919f0cf84a19acaf6a86d3e66d700762b9773",
+      "bytes": 10015,
+      "modifiedAt": "2026-10-19T10:13:23.825Z"
+    },
+    {
+      "path": "commands/variables/validation.ts",
+      "sha256": "8996604b8bfcb1fd9ba8a5100b8bd598e720aad9b946d001e77e89ddf5609867",
+      "bytes": 1919,
+      "modifiedAt": "2026-10-19T10:13:23.825Z"
+    },
+    {
+      "path": "compiler/dispatch.ts",
+      "sha256": "a820022ad6546b0cdbd7e7aff4efd7a554d2f3928bf9e086acf3eb6eba6196d7",
+      "bytes": 34809,
+      "modifiedAt": "2026-10-19T15:45:23.825Z"
+    },
+    {
+      "path": "compiler/events.ts",
+      "sha256": "e97b7a17385b5bd4c3a7947cce1c2f7cf3d0f914bd542a2fd7d0b04fc691b19b",
+      "bytes": 4130,
+      "modifiedAt": "2026-10-19T15:13:14.254Z"
+    },
+    {
+      "path": "compiler/shared/branches.ts",
+      "sha256": "44f965a1c5ea89cdf03fca12e3a49c2bce866efa9e6dc97ffa32c45a51f4d606",
+      "bytes": 2356,
+      "modifiedAt": "2026-10-19T13:38:38.388Z"
+    },
+    {
+      "path": "compiler/shared/conditions.ts",
+      "sha256": "4b44eb3bb078dc6dd9a996ba7ac8aac5dbc6cc4a4151763ff9dc6c21d786e990",
+      "bytes": 4270,
+      "modifiedAt": "2026-10-19T13:38:38.389Z"
+    },
+    {
+      "path": "compiler/shared/media.ts",
+      "sha256": "9bc3cc0ec9fd97a6368711dc4e73cba05dc4abaee7697624132577bb465e3e68",
+      "bytes": 1112,
+      "modifiedAt": "2026-10-19T10:13:23.828Z"
+    },
+    {
+      "path": "compiler/shared/targets.ts",
+      "sha256": "11c907ed9a847ba54fdc222c7d04757e1b0d74205c7111426e4fec8d80be7ce2",
+      "bytes": 1314,
+      "modifiedAt": "2026-10-19T10:13:23.828Z"
+    },
+    {
+      "path": "compiler/types.ts",
+      "sha256": "b81ac88b5778268997bce55af43dc0953b5cee48625180f58733cfdde6ae91a1",
+      "bytes": 548,
+      "modifiedAt": "2026-10-19T13:38:38.389Z"
+    },
+    {
+      "path": "decompiler/core.ts",
+      "sha256": "38d94da522cb5569d68b7f76c427998ff60dc814a6288f642c539ba85f2e458f",
+      "bytes": 12659,
+      "modifiedAt": "2026-10-19T15:12:37.350Z"
+    },
+    {
+      "path": "decompiler/dispatch.ts",
+      "sha256": "e7fab66bb4a732546cd9d380360cebb4730c733ea918f8bf6c457b5214a752c0",
+      "bytes": 24850,
+      "modifiedAt": "2026-10-19T13:38:38.391Z"
+    },
+    {
+      "path": "decompiler/map-page.ts",
+      "sha256": "05a14de564f72e81566bf5db192a38c71c9595e21abfa9181b49a12b724c751b",
+      "bytes": 2421,
+      "modifiedAt": "2026-10-19T15:12:37.350Z"
+    },
+    {
+      "path": "decompiler/project.ts",
+      "sha256": "a690c5664687f72efd3ebb599cde203855d864e77589aa205e540a89beab4168",
+      "bytes": 16542,
+      "modifiedAt": "2026-10-19T15:13:14.263Z"
+    },
+    {
+      "path": "decompiler/types.ts",
+      "sha256": "f41ed6747fbaeed8f4ca5cbb93d7682775f9b1abbbd9d83a7f2ac7139fac5631",
+      "bytes": 1310,
+      "modifiedAt": "2026-10-19T15:12:37.351Z"
+    },
+    {
+      "path": "domain/battle-page-defaults.ts",
+      "sha256": "4a6d7b43e65b2316987b846253c93504f85ac8e341901d3e47236c99de91027b",
+      "bytes": 502,
+      "modifiedAt": "2026-10-19T13:42:04.270Z"
+    },
+    {
+      "path": "domain/command.ts",
+      "sha256": "7b2699a1b7b6ecf75658b9d71bec1213fa922f430bb2b08b5650a76229449c61",
+      "bytes": 19834,
+      "modifiedAt": "2026-10-19T10:13:23.831Z"
+    },
+    {
+      "path": "domain/declarations.ts",
+      "sha256": "29f8496d1814adef9b01c983ce754c73ed680f31bb3797f30f827b24ab53f2a2",
+      "bytes": 3866,
+      "modifiedAt": "2026-10-19T15:12:37.352Z"
+    },
+    {
+      "path": "domain/references.ts",
+      "sha256": "44874ce22c90697572c8bd777f0a8070bcf89b556247072964ac59246761fc44",
+      "bytes": 11530,
+      "modifiedAt": "2026-10-19T13:38:38.393Z"
+    },
+    {
+      "path": "domain/types.ts",
+      "sha256": "5327c422c15864473a2b77938e10199e01ae0ed49399f37397cbd93ced3d16eb",
+      "bytes": 4350,
+      "modifiedAt": "2026-10-19T15:12:37.353Z"
+    },
+    {
+      "path": "index.ts",
+      "sha256": "cac51b3cd154629880f6b30aaf8b54a8f1aecee91bb26182ebfd7ccdb3c90157",
+      "bytes": 256,
+      "modifiedAt": "2026-10-19T10:13:23.833Z"
+    },
+    {
+      "path": "map-event/native.ts",
+      "sha256": "a87ca1545e80ecd25205f6e7fb40a48d977317b93da65de8053afcaacf611384",
+      "bytes": 5285,
+      "modifiedAt": "2026-10-19T15:12:37.353Z"
+    },
+    {
+      "path": "map-event/page.ts",
+      "sha256": "9251557930e667e258c6259c58e787cdeccd22e96dc5f0225947a98d35d275ed",
+      "bytes": 2336,
+      "modifiedAt": "2026-10-19T15:12:37.354Z"
+    },
+    {
+      "path": "map-event/validation.ts",
+      "sha256": "e2dddc54dff942929af1f58dd6e48305e9d774c8cfb5a4c58af39e08e3937805",
+      "bytes": 8807,
+      "modifiedAt": "2026-10-19T15:12:37.354Z"
+    },
+    {
+      "path": "project-data/json-values.ts",
+      "sha256": "7d9f2a485a689dc159327f859a8cae48307b88294bea78aa2a81452813730af8",
+      "bytes": 3273,
+      "modifiedAt": "2026-10-19T13:38:38.394Z"
+    },
+    {
+      "path": "project-data/map-event-diff.ts",
+      "sha256": "7055058d85ef232a8ad2f94e9a3634ef709c5d352283ac1678f4dc03836be992",
+      "bytes": 1886,
+      "modifiedAt": "2026-10-19T15:12:37.355Z"
+    },
+    {
+      "path": "project-data/materialization.ts",
+      "sha256": "e52781cb2bccb01c58ac6c1ff0f069906980efce0a123b04348f4f18d80734d4",
+      "bytes": 12751,
+      "modifiedAt": "2026-10-19T14:00:34.331Z"
+    },
+    {
+      "path": "project-data/project.ts",
+      "sha256": "1176a155e53c9f4383e03bbe3a3f7e13565a96d5eb47b3ac6fc58002ae91cd74",
+      "bytes": 7573,
+      "modifiedAt": "2026-10-19T13:38:38.395Z"
+    },
+    {
+      "path": "project-data/structured-diff.ts",
+      "sha256": "4af2dfd1fb0e57c2d440b64a90fdbdfd1e88f02fffe6ff33c6f12eac64ff8590",
+      "bytes": 16147,
+      "modifiedAt": "2026-10-19T15:13:14.264Z"
+    },
+    {
+      "path": "project-data/writer.ts",
+      "sha256": "d9ebfc5636d430eb7c94ecca75c4a40127e592e92bcd303cc73ed59cde674c80",
+      "bytes": 1226,
+      "modifiedAt": "2026-10-19T13:38:38.396Z"
+    },
+    {
+      "path": "validation/battle-pages.ts",
+      "sha256": "e8bb5f47b3ad4c6d09c3df5f09785bc64e6704b8f458e0253f5a3e3953a20c8b",
+      "bytes": 11970,
+      "modifiedAt": "2026-10-19T15:03:37.643Z"
+    },
+    {
+      "path": "validation/command-errors.ts",
+      "sha256": "d3da622a5d9616fd54f83415ec3782c45f54f95a3285d3525f1ddcf71f7deb9a",
+      "bytes": 1124,
+      "modifiedAt": "2026-10-19T13:38:38.397Z"
+    },
+    {
+      "path": "validation/command-structure.ts",
+      "sha256": "e75f7edfa9b9fd520eeb7f4b42b4e110bc2a533fe3fd365c78750ecd226df6d4",
+      "bytes": 11926,
+      "modifiedAt": "2026-10-19T13:38:38.397Z"
+    },
+    {
+      "path": "validation/commands.ts",
+      "sha256": "7e1764aab741c81fe3ad20c775bfd3c9e0dfa416796e15a4d57920020d35d1b7",
+      "bytes": 28419,
+      "modifiedAt": "2026-10-19T15:12:37.356Z"
+    },
+    {
+      "path": "validation/compile-output.ts",
+      "sha256": "921536abaed802c2f030229f0ff72e3037aba9a6855abc9dcd7e47d1f4857681",
+      "bytes": 4714,
+      "modifiedAt": "2026-10-19T14:00:34.330Z"
+    },
+    {
+      "path": "validation/compiled-commands.ts",
+      "sha256": "54ac1cd1aef427fc8af3681b8d5a6907a2b2e336727ba790ad7e44a5467fae94",
+      "bytes": 6045,
+      "modifiedAt": "2026-10-19T14:00:34.329Z"
+    },
+    {
+      "path": "validation/dsl-command-inputs.ts",
+      "sha256": "73457080d5dd553ba488acfab6f517c792e40d5f845ac6e66bde8d97cded1d5b",
+      "bytes": 3398,
+      "modifiedAt": "2026-10-19T13:38:38.399Z"
+    },
+    {
+      "path": "validation/identities.ts",
+      "sha256": "8d43c5417552dc7e1b6c5a5c3c423d3571d22277d719bf10f34f555ef39bf2b1",
+      "bytes": 7330,
+      "modifiedAt": "2026-10-19T15:12:37.357Z"
+    },
+    {
+      "path": "validation/inspection.ts",
+      "sha256": "10a9923ffca925eb65ea7254a1d940c6580a3a60f3b7a14a4862cf08d11453e1",
+      "bytes": 1319,
+      "modifiedAt": "2026-10-19T10:13:23.837Z"
+    },
+    {
+      "path": "validation/native-command-inputs.ts",
+      "sha256": "d56f4dfe5960a92107fcde60d1ad795b35b0afb4825e1becf6145f502f7e1051",
+      "bytes": 4493,
+      "modifiedAt": "2026-10-19T13:38:38.399Z"
+    },
+    {
+      "path": "validation/native-context-references.ts",
+      "sha256": "7ddd26656a02361bf2ea5c7ecfc10ca8a32d5d0a22a37ba36cabb168ce2c680d",
+      "bytes": 1038,
+      "modifiedAt": "2026-10-19T10:13:23.838Z"
+    },
+    {
+      "path": "validation/native-parameters.ts",
+      "sha256": "67c16ddb33e864fb2cd2055134f05152e228f2cc646fadf9d05d2a5dad0f47ba",
+      "bytes": 8306,
+      "modifiedAt": "2026-10-19T13:38:38.400Z"
+    },
+    {
+      "path": "validation/native-references.ts",
+      "sha256": "34ab7b62af6418491d00f3325fca6c843f2010e4170a24ec57cc8d6099a945b7",
+      "bytes": 6121,
+      "modifiedAt": "2026-10-19T13:38:38.401Z"
+    },
+    {
+      "path": "validation/references.ts",
+      "sha256": "fe3a8c5bbe7dd5e7c666788cc7f9c2cc49f8fcf8d7ec4aa8d966fefc039c5f4b",
+      "bytes": 4884,
+      "modifiedAt": "2026-10-19T10:13:23.838Z"
+    },
+    {
+      "path": "validation/shared.ts",
+      "sha256": "8fb0ce36eba0efaaf92c5f99f73b05dc17a6776d3041a8b211fa1b647adc08b2",
+      "bytes": 780,
+      "modifiedAt": "2026-10-19T10:13:23.838Z"
+    },
+    {
+      "path": "validation/snapshot.ts",
+      "sha256": "b29956e100eb586e389ed69bd7d9b6603452b6a7f8371aa895e53193628ed4cd",
+      "bytes": 1693,
+      "modifiedAt": "2026-10-19T10:13:23.839Z"
+    },
+    {
+      "path": "validation/staged-graph.ts",
+      "sha256": "29f45bd715f22321ff8637f9f2a9c980c1679bdf4ba2607e395cc7e4acd817db",
+      "bytes": 8088,
+      "modifiedAt": "2026-10-19T15:13:14.264Z"
+    },
+    {
+      "path": "validation/types.ts",
+      "sha256": "df660ce939aa4e7924d4f98a54d63cb14cb3c637c48e53215477e0282c3f27dd",
+      "bytes": 3989,
+      "modifiedAt": "2026-10-19T13:55:01.888Z"
+    },
+    {
+      "path": "workspace-api.ts",
+      "sha256": "735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2",
+      "bytes": 541,
+      "modifiedAt": "2026-10-19T10:13:23.840Z"
+    },
+    {
+      "path": "workspace/checks.ts",
+      "sha256": "dd02c917b0ed530fcbb8d3458802d5d230def90388d6bf488e849f2934688692",
+      "bytes": 2663,
+      "modifiedAt": "2026-10-19T10:13:23.841Z"
+    },
+    {
+      "path": "workspace/config.ts",
+      "sha256": "3700d64dfaf53fe1e99beb91bf8a54032c8a01372f25b579cdddf2ab683fd84b",
+      "bytes": 4919,
+      "modifiedAt": "2026-10-19T10:13:23.841Z"
+    },
+    {
+      "path": "workspace/decompile-publication.ts",
+      "sha256": "e70dcce23f98167dc53e908b3242a0a61a5fd1f7f92b2df6f700e91433faf185",
+      "bytes": 10415,
+      "modifiedAt": "2026-10-19T13:38:38.403Z"
+    },
+    {
+      "path": "workspace/definition-identities.ts",
+      "sha256": "f9048d155cc06fa5770e6b26cae9fac58255dc1668b0a416fbb4578149db3b41",
+      "bytes": 9217,
+      "modifiedAt": "2026-10-19T14:00:34.328Z"
+    },
+    {
+      "path": "workspace/definitions.ts",
+      "sha256": "4814b554672cb7b70d60a8f9e2abcfae8853368fe73065da36ad0c223dae6fb6",
+      "bytes": 18154,
+      "modifiedAt": "2026-10-19T13:38:38.403Z"
+    },
+    {
+      "path": "workspace/guards.ts",
+      "sha256": "cec835079aba4c1c61d4a28f224fd7ac7617063568b05156a84cc08896e0ed89",
+      "bytes": 246,
+      "modifiedAt": "2026-10-19T10:13:23.842Z"
+    },
+    {
+      "path": "workspace/operation-lock.ts",
+      "sha256": "c39e910339321f63786bec52cf40fa5e9c114a259f8bbc0dc7842b29660866cd",
+      "bytes": 2010,
+      "modifiedAt": "2026-10-19T10:13:23.842Z"
+    },
+    {
+      "path": "workspace/operations.ts",
+      "sha256": "a5d8a46bd2fb28a09e2724028c7e9800d2ee23deed6e5e6a84196fb76b1ccead",
+      "bytes": 22264,
+      "modifiedAt": "2026-10-19T13:38:38.404Z"
+    },
+    {
+      "path": "workspace/push-recovery.ts",
+      "sha256": "4eb0a680285f3e7532891cff2aedc3433f067fb36ccf8d4c63b3975b66c97a76",
+      "bytes": 15257,
+      "modifiedAt": "2026-10-19T15:14:21.584Z"
+    },
+    {
+      "path": "workspace/push.ts",
+      "sha256": "4a68f891cce5431344921baf4c9c0f3e3617c704c305732fa13b17825e74a25a",
+      "bytes": 14577,
+      "modifiedAt": "2026-10-19T13:52:43.162Z"
+    },
+    {
+      "path": "workspace/source-discovery.ts",
+      "sha256": "aeec16adb3208ea5d89666c051064e3251defd8ef8bae48ac6fa12bebc7b98e0",
+      "bytes": 3729,
+      "modifiedAt": "2026-10-19T13:38:38.405Z"
+    },
+    {
+      "path": "workspace/state.ts",
+      "sha256": "c493c31c466b7d49b86a9bdd45ad563963c67f3c9e4c5a28b1f1f3b54ebbf216",
+      "bytes": 14290,
+      "modifiedAt": "2026-10-19T13:38:38.406Z"
+    },
+    {
+      "path": "workspace/type-inputs.ts",
+      "sha256": "3ec1894a16c1007adf7e767e6de2a7d2fc86f9b913994b3d0e8f858efeeca842",
+      "bytes": 5833,
+      "modifiedAt": "2026-10-19T15:14:02.681Z"
+    },
+    {
+      "path": "workspace/types.ts",
+      "sha256": "f046ebe39de38d590d78bb0aa00f5c3f03a117f972f9aec6f49fa5f7275023fb",
+      "bytes": 355,
+      "modifiedAt": "2026-10-19T10:13:23.845Z"
+    }
+  ],
+  "dist": [
+    {
+      "path": "authoring-u02s-XyB.mjs",
+      "sha256": "564373691f120fac021fef6c239952baf9f1ea907f75adcd7b3cb8f5f93ac321",
+      "bytes": 66777,
+      "modifiedAt": "2026-10-19T15:51:33.594Z"
+    },
+    {
+      "path": "authoring-u02s-XyB.mjs.map",
+      "sha256": "d78b7cbedf1727abc128a5e57dc51ecbd278e8074c498b20128d592576c28337",
+      "bytes": 152574,
+      "modifiedAt": "2026-10-19T15:51:33.595Z"
+    },
+    {
+      "path": "cli.d.mts",
+      "sha256": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee",
+      "bytes": 298,
+      "modifiedAt": "2026-10-19T15:51:33.592Z"
+    },
+    {
+      "path": "cli.d.mts.map",
+      "sha256": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c",
+      "bytes": 163,
+      "modifiedAt": "2026-10-19T15:51:33.596Z"
+    },
+    {
+      "path": "cli.mjs",
+      "sha256": "485a5ae33f613cf4fc21cbed14e9958fc7c35cb6d287ff8c4e2a51d265e51762",
+      "bytes": 3223,
+      "modifiedAt": "2026-10-19T15:51:33.593Z"
+    },
+    {
+      "path": "cli.mjs.map",
+      "sha256": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8",
+      "bytes": 5726,
+      "modifiedAt": "2026-10-19T15:51:33.596Z"
+    },
+    {
+      "path": "index.d.mts",
+      "sha256": "4dcc5c4d8dac23b1a80506d7168b56baaccf87622f2ffde6d0717c998f98da22",
+      "bytes": 53320,
+      "modifiedAt": "2026-10-19T15:51:33.593Z"
+    },
+    {
+      "path": "index.d.mts.map",
+      "sha256": "8c21a517f88797ec4fe35756869242533d5520142f708844da7aa9bde209a12f",
+      "bytes": 25603,
+      "modifiedAt": "2026-10-19T15:51:33.596Z"
+    },
+    {
+      "path": "index.mjs",
+      "sha256": "33ec949b955bf3684e99f248c12b3b288747e6ba4615bbe95811579a023987b9",
+      "bytes": 5035,
+      "modifiedAt": "2026-10-19T15:51:33.593Z"
+    },
+    {
+      "path": "index.mjs.map",
+      "sha256": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36",
+      "bytes": 452,
+      "modifiedAt": "2026-10-19T15:51:33.597Z"
+    },
+    {
+      "path": "operations-BzxlXcGx.mjs",
+      "sha256": "df3de2ac991833d0b94c38a117ffd20eeceae63a575a4ab0405ee9ff697e28ce",
+      "bytes": 353080,
+      "modifiedAt": "2026-10-19T15:51:33.595Z"
+    },
+    {
+      "path": "operations-BzxlXcGx.mjs.map",
+      "sha256": "0ae2801e1a59d7b6e22207d4cf54ae690d86117986a766a233b4dbfaff689e2c",
+      "bytes": 725173,
+      "modifiedAt": "2026-10-19T15:51:33.598Z"
+    },
+    {
+      "path": "workspace-api.d.mts",
+      "sha256": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594",
+      "bytes": 2267,
+      "modifiedAt": "2026-10-19T15:51:33.593Z"
+    },
+    {
+      "path": "workspace-api.d.mts.map",
+      "sha256": "5c00024325238da7b6368529ed69e33839a8a4f0baeed1eb2e79f65c877ebbe8",
+      "bytes": 1043,
+      "modifiedAt": "2026-10-19T15:51:33.598Z"
+    },
+    {
+      "path": "workspace-api.mjs",
+      "sha256": "1f9247fb497e99ce2a4c316d75f4f84e9ac44141ad883faa648c74746d2487bd",
+      "bytes": 416,
+      "modifiedAt": "2026-10-19T15:51:33.594Z"
+    }
+  ],
+  "buildInputs": {
+    "package.json": {
+      "sha256": "770e4e3a85243faa5f7a4e029097699e7c024f0655342a18bd47d507bf7af8b4",
+      "bytes": 906
+    },
+    "pnpm-lock.yaml": {
+      "sha256": "4f685f5fccae0de0bef4666fb12f314fd0b26ae81ac68a26cc90cf2dd247c5b5",
+      "bytes": 58603
+    },
+    "tsconfig.base.json": {
+      "sha256": "5b0437fc9ebfe797ceafbe026fb673ade339605add242db2bbe8e6011c2ec63a",
+      "bytes": 705
+    },
+    "packages/rpgmaker-event-dsl/package.json": {
+      "sha256": "2344a542d3836993009639da4efa83e5fb4df1849b026e6f0051648bee4d1a7d",
+      "bytes": 1463
+    },
+    "packages/rpgmaker-event-dsl/tsconfig.json": {
+      "sha256": "103060b50f26a5ee2fa0f8525824e89166f01ad12c8155172b06647bd9810ed6",
+      "bytes": 221
+    },
+    "packages/rpgmaker-event-dsl/tsdown.config.ts": {
+      "sha256": "6456d03b3ab4fba568b1aa7d0f6a95cff987e66939c1644af8fa39b70834b20d",
+      "bytes": 306
+    },
+    "packages/rpgmaker-event-dsl/vitest.config.ts": {
+      "sha256": "205dcf739555549758afcdf2051835bb37173e071987af8de2bc2870e5039e39",
+      "bytes": 240
+    },
+    "packages/rpgmaker-event-dsl/vitest.windows.config.ts": {
+      "sha256": "b647540faab6ab6e2d0a34739c2f673f495c554966a3f0a79682fee4ffba27f8",
+      "bytes": 697
+    }
+  },
+  "sourceFingerprint": "a4d895584ddb9f7e851088090efb79405e2fbd8c0821e2d0a464e71310562a49",
+  "distFingerprint": "ec8cc618394cef4d18c218287f3feef1e0919966de6fa34c63a0aebfd7dc30c7",
+  "priorRecoveryBuild": {
+    "path": "C:/Users/Shuen/.codex/tmp/mv25-contract6-recovery-build-freeze-9ebb4407-d4bf-4926-8dee-e5ee24ccc916",
+    "manifestSha256": "103efd3be29871928603ac48e70a1b4bc187893e3558fa9dcca28b4a9cb8dbd5",
+    "onlyChangedSource": [
+      "compiler/dispatch.ts"
+    ],
+    "exactSingleReplacement": {
+      "from": "        output.push({ code: 604, indent, parameters: [] });",
+      "to": "        if (node.canEscape || node.canLose || node.win || node.escape || node.lose) {\n          output.push({ code: 604, indent, parameters: [] });\n        }"
+    },
+    "other94SourceFilesEqual": true,
+    "allWorkspaceRecoverySourceEqual": true,
+    "oldRecoveryRunNotRelabeledAsNewBuild": true
+  }
+}

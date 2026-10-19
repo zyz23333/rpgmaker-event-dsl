@@ -1,0 +1,14 @@
+'use strict';
+const fs=require('node:fs/promises'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+(async()=>{
+ const fixturePath='C:/Users/Shuen/.codex/tmp/mv25-r2-normal-scene-product-pair-160eef49-292f-462b-bc42-b31e73d54a67/independent-fixture.json',fixtureSha256='b7559a8a9418c07d2fc0cb271c17f728f471c2779865a46dd46a93c91b8eb125';
+ const bytes=await fs.readFile(fixturePath);assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),fixtureSha256);
+ let wrapper=await fs.readFile(path.join(__dirname,'mv25-r2-normal-scene-delivery-fixture-v2.cjs'),'utf8');
+ wrapper=wrapper.replace("const assert=require('node:assert/strict'),crypto=require('node:crypto');","const assert=require('node:assert/strict'),crypto=require('node:crypto'),fs=require('node:fs/promises');");
+ wrapper=wrapper.replace('const before=await base.buildFixture(seedRoot),after=structuredClone(before),paths=',`const originalFixturePath=${JSON.stringify(fixturePath)},originalFixtureSha256=${JSON.stringify(fixtureSha256)},originalBytes=await fs.readFile(originalFixturePath);assert.equal(crypto.createHash('sha256').update(originalBytes).digest('hex'),originalFixtureSha256);\n const before=JSON.parse(originalBytes),after=structuredClone(before),paths=`);
+ wrapper=wrapper.replace("originalScenarioPath:require.resolve('./mv-r2-normal-scene-scheduling-native.cjs'),beforeFixtureSha256", "originalScenarioPath:require.resolve('./mv-r2-normal-scene-scheduling-native.cjs'),frozenOriginalFixture:{path:originalFixturePath,sha256:originalFixtureSha256,bytes:originalBytes.length},mutableSeedDataNotUsedForExpectedCarriers:true,beforeFixtureSha256");
+ assert.ok(!wrapper.includes('await base.buildFixture(seedRoot)'));await fs.writeFile(path.join(__dirname,'mv25-r2-normal-scene-delivery-fixture-v4.cjs'),wrapper,{flag:'wx'});
+ let runner=await fs.readFile(path.join(__dirname,'mv25-r2-normal-scene-product-pair-delivery-v3.cjs'),'utf8');
+ runner=runner.replace("scenario.slug='mv25-r2-normal-scene-product-pair-delivery-v3'","scenario.slug='mv25-r2-normal-scene-product-pair-delivery-v4'").replaceAll('mv25-r2-normal-scene-delivery-fixture-v2.cjs','mv25-r2-normal-scene-delivery-fixture-v4.cjs');
+ await fs.writeFile(path.join(__dirname,'mv25-r2-normal-scene-product-pair-delivery-v4.cjs'),runner,{flag:'wx'});console.log(JSON.stringify({originalFixturePath:fixturePath,originalFixtureSha256:fixtureSha256,wrapper:'mv25-r2-normal-scene-delivery-fixture-v4.cjs',runner:'mv25-r2-normal-scene-product-pair-delivery-v4.cjs'}));
+})().catch(e=>{console.error(e);process.exitCode=1;});

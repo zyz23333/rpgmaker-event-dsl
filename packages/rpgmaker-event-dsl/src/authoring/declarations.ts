@@ -1,5 +1,7 @@
 import type {
   CommonEventDefinition,
+  BattleEventPage,
+  TroopEventDefinition,
   CommonEventTrigger,
   DslCommand,
   EventPage,
@@ -13,6 +15,14 @@ import type {
   SwitchDefinition,
   VariableDefinition,
 } from "../domain/types.js";
+
+export function troopEvent(input: Omit<TroopEventDefinition, "kind">): TroopEventDefinition {
+  return { ...input, kind: "troopEvent" };
+}
+
+export function battlePage(input: BattleEventPage): BattleEventPage {
+  return { ...input };
+}
 
 export function mapEvent(input: {
   mapId: number;

@@ -348,6 +348,31 @@ Ticket22 verifies Interrupted Push content recovery through the public Workspace
 
 Ticket22 records [the frozen recovery protocol, actual red/green runs and byte-preserved evidence](22-interrupted-push-content-recovery.md). Historical failures and superseded passes keep their original status and provenance; native execution remains `not-executed`.
 
+
+Ticket25 records [Troop Event ownership, Reset, complete carrier safety, E1 reverse/product comparison and actual R2](25-troop-event-ownership-and-reset.md). Historical rows and captured result bytes remain unchanged.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S5-TROOP-AUTHOR-001 | authors a Troop Event with one complete fixed-default native Battle Event Page | synthetic-support | Approved authoring/validation and public Workspace API/filesystem boundary |
+| MV-S5-TROOP-AUTHOR-002 | rejects an enabled enemy condition when an earlier hidden member has a missing Enemy | synthetic-support | Approved authoring/validation and public Workspace API/filesystem boundary |
+| MV-S5-TROOP-AUTHOR-003 | preserves inactive saved condition values but rejects malformed inactive slots | synthetic-support | Approved authoring/validation and public Workspace API/filesystem boundary |
+| MV-S5-TROOP-AUTHOR-004 | requires unique existing Troop identities and nonempty ordered pages without an editor ID cap | synthetic-support | Approved authoring/validation and public Workspace API/filesystem boundary |
+| MV-S5-TROOP-AUTHOR-005 | resolves active actor and switch names, keeps inactive ID exceptions local, and validates complete Troop command lists | synthetic-support | Approved authoring/validation and public Workspace API/filesystem boundary |
+| MV-S5-TROOP-AUTHOR-006 | locates an invalid inactive condition at its exact DSL field with expected and actual values | synthetic-support | Approved authoring/validation and public Workspace API/filesystem boundary |
+| MV-S5-TROOP-AUTHOR-007 | locates invalid span and fixed actor references with their saved actual values | synthetic-support | Approved authoring/validation and public Workspace API/filesystem boundary |
+| MV-S5-TROOP-WORKSPACE-001 | materializes every actual Troop carrier and resets omitted pages to the exact Blank | synthetic-support | Approved authoring/validation and public Workspace API/filesystem boundary |
+| MV-S5-TROOP-WORKSPACE-002 | decompiles all actual Troops including Blank and roundtrips complete inactive state and page order | synthetic-support | Approved authoring/validation and public Workspace API/filesystem boundary |
+| MV-S5-TROOP-WORKSPACE-003 | reports omission as Troop Event Reset in every Diff view and gates Push while retaining all carrier fields | synthetic-support | Approved authoring/validation and public Workspace API/filesystem boundary |
+| MV-S5-TROOP-WORKSPACE-004 | rejects an existing Troop source identity before publishing Decompile | synthetic-support | Approved authoring/validation and public Workspace API/filesystem boundary |
+| MV-S5-TROOP-WORKSPACE-005 | rejects %s in native Troop input before source publication | synthetic-support | Approved authoring/validation and public Workspace API/filesystem boundary |
+| MV-S5-TROOP-WORKSPACE-006 | classifies %s by exact page state and compares native positions | synthetic-support | Approved authoring/validation and public Workspace API/filesystem boundary |
+| MV-S5-TROOP-SAFETY-001 | Troops participates in late candidate write failure with no partial publication | synthetic-support | Approved authoring/validation and public Workspace API/filesystem boundary |
+| MV-S5-TROOP-SAFETY-002 | recovers a real interrupted Troops replacement using the complete captured output and unchanged source basis | synthetic-support | Approved authoring/validation and public Workspace API/filesystem boundary |
+| MV-S5-TROOP-SAFETY-003 | rejects Troops carrier drift before Project Root writes | synthetic-support | Approved authoring/validation and public Workspace API/filesystem boundary |
+| MV-S5-TROOP-PRIOR-001 | recognizes the bounded pre-Troops complete output set: %s | synthetic-support | Approved authoring/validation and public Workspace API/filesystem boundary |
+| MV-S5-TROOP-E1 | Allocated E1 reverse code facts and complete independent product comparison | reverse-engineering-observation | Retained artifact review and actual specified boundary |
+| MV-S5-TROOP-R2 | Allocated R2 actual normal Scene/Input literal and formal DSL product pair | game-observation | Retained artifact review and actual specified boundary |
+| MV-S5-TROOP-PRIOR-002 | Actual build22 prior-output-set pending recovered by built25 without new Freshness | synthetic-support | Retained artifact review and actual specified boundary |
 Ticket24 adds [complete Map Event pages and exact saved state](24-map-event-full-pages.md). Native rows close only its allocated representative scenes, not final49–54.
 
 | Requirement | Obligation | Evidence kind | Required layer |
@@ -371,6 +396,16 @@ Ticket24 adds [complete Map Event pages and exact saved state](24-map-event-full
 | Requirement | Obligation | Evidence kind | Required layer |
 | --- | --- | --- | --- |
 | MV-S5-MAP-011 | Reject missing mandatory native event slot0 on a late Map without publishing or changing complete Workspace state | synthetic-rejection | Actual source/built Workspace API |
+
+| MV-S5-TROOP-PRIOR-003 | Authentic actual built24 /6 pending recovered by actual built25 /7 without new Freshness | synthetic-support | Original path-bound public built Workspace API, frozen before/after and complete immutable build provenance |
+
+| MV-S5-TROOP-R2-DELIVERY-002 | Allocated R2 delivery revision 2: complete17-page/three-turn normal Scene/Input literal and formal DSL product pair | game-observation | Explicit version-bound delivery input; original R2 remains separate |
+
+| MV-S5-TROOP-R2-AUXILIARY-E301 | roundtrips an unbranched Battle Processing launch without inventing a result close record | synthetic-support | Public source/built Workspace API; independent complete native literal |
+
+| MV-S5-TROOP-R2-DELIVERY-003 | Allocated R2 delivery revision 3: complete17-page/three-turn normal Scene/Input literal and formal DSL product pair | game-observation | Explicit version-bound delivery input; original R2 remains separate |
+
+| MV-S5-TROOP-R2-DELIVERY-004 | Allocated R2 delivery revision 4: complete17-page/three-turn normal Scene/Input literal and formal DSL product pair | game-observation | Explicit version-bound delivery input; original R2 remains separate |
 
 ## Ticket33 — all45 movement instructions
 

@@ -100,7 +100,13 @@ it("MV-S4-OUTPUT-001: Diff and Push reject omitted owned output domains", async 
     await prepare(sandbox);
     const manifestPath = join(sandbox.workspaceRoot, ".rpgmaker-event-dsl/sync-manifest.json");
     const original = JSON.parse(await readFile(manifestPath, "utf8"));
-    for (const omitted of ["CommonEvents.json", "System.json", "Map001.json", "all"]) {
+    for (const omitted of [
+      "CommonEvents.json",
+      "System.json",
+      "Troops.json",
+      "Map001.json",
+      "all",
+    ]) {
       await writeFile(
         manifestPath,
         JSON.stringify({
@@ -156,12 +162,16 @@ it("MV-S4-OUTPUT-004: Check validates a complete candidate in memory and leaves 
       "CommonEvents.json",
       "Map001.json",
       "System.json",
+      "Troops.json",
     ]);
     expect(JSON.parse(await readFile(join(generatedRoot, "CommonEvents.json"), "utf8"))).toEqual(
       fixture.projectFiles["CommonEvents.json"],
     );
     expect(JSON.parse(await readFile(join(generatedRoot, "System.json"), "utf8"))).toEqual(
       fixture.projectFiles["System.json"],
+    );
+    expect(JSON.parse(await readFile(join(generatedRoot, "Troops.json"), "utf8"))).toEqual(
+      fixture.projectFiles["Troops.json"],
     );
     expect(JSON.parse(await readFile(join(generatedRoot, "Map001.json"), "utf8"))).toEqual({
       id: 1,
@@ -343,7 +353,13 @@ it("MV-S4-OUTPUT-007: integrity rejects missing replaced corrupt and extra claim
         await mkdir(common);
       },
       () => writeFile(common, "[null]"),
-      ...["Actors.json", "Troops.json", "Map999.json"].map((relativePath) => async () => {
+      () => rm(join(generated, "Troops.json")),
+      async () => {
+        await rm(join(generated, "Troops.json"));
+        await mkdir(join(generated, "Troops.json"));
+      },
+      () => writeFile(join(generated, "Troops.json"), "[]"),
+      ...["Actors.json", "Map999.json"].map((relativePath) => async () => {
         const content = relativePath.startsWith("Map") ? '{"events":[null]}' : "[null]";
         await writeFile(join(generated, relativePath), content);
         const manifest = JSON.parse(original);

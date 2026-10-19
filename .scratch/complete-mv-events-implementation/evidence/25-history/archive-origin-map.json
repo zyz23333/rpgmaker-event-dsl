@@ -1,0 +1,198 @@
+{
+  "purpose": "Immutable own product/test evidence through the pre23 R2 dependency; no first-party editor/runtime/source/assets",
+  "capturedAt": "2026-10-19T15:32:29.685Z",
+  "items": [
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-check-initial-2.log",
+      "path": "mv25-check-initial-2.log",
+      "sha256": "12a3d88ecddbb9113f8dd614a94a298ca6deee9a9259d4af9a6a589a4293163b",
+      "bytes": 27923
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-focused-after-initial.log",
+      "path": "mv25-focused-after-initial.log",
+      "sha256": "f78cdf198da2823c20db62328225254adf7cbe65b402f8ed1f7602cdf042ae88",
+      "bytes": 4084
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-last-legacy-fixes.log",
+      "path": "mv25-last-legacy-fixes.log",
+      "sha256": "ae68c11071f74104f428561c334ec2307198e4ba1170101c39794f3ed726edfb",
+      "bytes": 288
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-optional-undefined-red.log",
+      "path": "mv25-optional-undefined-red.log",
+      "sha256": "d9d2e4db476364b08e5b9436b170924c5ed70951a0d9ab3bf262119c9c1a2c9c",
+      "bytes": 1508
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-optional-undefined-green.log",
+      "path": "mv25-optional-undefined-green.log",
+      "sha256": "56fba428a979a07d2806fec251f359719d09c0462f5c3021171786f0a7622115",
+      "bytes": 298
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-saved-negative-zero-red.log",
+      "path": "mv25-saved-negative-zero-red.log",
+      "sha256": "bdab4200008b8249ee25be6914d598e945cd89fef8e97fb54543f95a8738689e",
+      "bytes": 2414
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-saved-negative-zero-red-compile.log",
+      "path": "mv25-saved-negative-zero-red-compile.log",
+      "sha256": "c016c29ce796ec3cb8d372aa220553abfa5ea342beda57faa2ce98f4f6679b72",
+      "bytes": 2129
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-saved-negative-zero-green.log",
+      "path": "mv25-saved-negative-zero-green.log",
+      "sha256": "d46fb37ff3c6574efbd83c75789597de4acbb9802f1de84752aa9c9910b65854",
+      "bytes": 1513
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-saved-negative-zero-green-2.log",
+      "path": "mv25-saved-negative-zero-green-2.log",
+      "sha256": "f6b61e601c0815b81306c461f6063073d6dbbf3deedd1fcb513289e11b918e1d",
+      "bytes": 298
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-span-negative-zero-red.log",
+      "path": "mv25-span-negative-zero-red.log",
+      "sha256": "cce76e7ceda4d73940145420b42c7788d939aa0b745e0224aa032bfa9d15f936",
+      "bytes": 1398
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-span-negative-zero-green.log",
+      "path": "mv25-span-negative-zero-green.log",
+      "sha256": "572f57f0a7d1e665a559c30987d09af7ec5ecae8cdbe26ae47a58a6e5d6f8374",
+      "bytes": 298
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-merger-boundary-focused.log",
+      "path": "mv25-merger-boundary-focused.log",
+      "sha256": "997cbdceb182be28178fa211b6ff5a369a80bad7d561dc724b0de7f63e3d8536",
+      "bytes": 288
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-prior6-red.log",
+      "path": "mv25-prior6-red.log",
+      "sha256": "a09461459fe519f6ce73e32e10c6ae8a17a1f607248f77f812ab775601dd6b3a",
+      "bytes": 1763
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-prior6-green.log",
+      "path": "mv25-prior6-green.log",
+      "sha256": "27470984d08e7aaae7fd11a94197aa2a145a46323f39bfcf5f4775dc6ce972a2",
+      "bytes": 298
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-final-integrated-check.log",
+      "path": "mv25-final-integrated-check.log",
+      "sha256": "86f088122833a590a458af61f2a52cb6318dfc20149f7df26cc2d504fa8b117f",
+      "bytes": 1927
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-final-integrated-build.log",
+      "path": "mv25-final-integrated-build.log",
+      "sha256": "5cd9838337bda810c75cc5c5c0939f887d66dc6de4c57073c7c018c3d0a02ed5",
+      "bytes": 2589
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-final-integrated-built-windows.log",
+      "path": "mv25-final-integrated-built-windows.log",
+      "sha256": "703a0baf29425ca1021f80a63007e814b9ac355dcb974459cd6cfe77e30858d2",
+      "bytes": 488
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-final-e1.log",
+      "path": "mv25-final-e1.log",
+      "sha256": "b3fa4797c7af9ff6365dc0642a5eec7e1f91d87c713772ce6bc7bed2841d527a",
+      "bytes": 302
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-final-r2.log",
+      "path": "mv25-final-r2.log",
+      "sha256": "83024496820f176cd5c5b1d79de59d7e06ce9cd2247ab209035d977a2c7e5c30",
+      "bytes": 2167
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-pre23-delivery-index.log",
+      "path": "mv25-pre23-delivery-index.log",
+      "sha256": "f29d86541f6c0792160e183519555d5b438ba5ea2cca283c2d36a08a21cbdedf",
+      "bytes": 284
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-authentic-contract6-built-result.json",
+      "path": "mv25-authentic-contract6-built-result.json",
+      "sha256": "08163969bc776d342189d87b7f98327bdbad7dc75a78da812b36e5a961f58577",
+      "bytes": 162049
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-authentic-contract6-built-audit.json",
+      "path": "mv25-authentic-contract6-built-audit.json",
+      "sha256": "9aaca775439aacc80db4e3f4e2fe80ca3a094c3837683367fb9738d8b9f88660",
+      "bytes": 2669
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-pre23-product-correspondence.json",
+      "path": "mv25-pre23-product-correspondence.json",
+      "sha256": "509386c2e89e1144ed4ad8831f6604e068a05fec70f70f9af8044411296813ca",
+      "bytes": 32559
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-post24-historical-audit.json",
+      "path": "mv25-post24-historical-audit.json",
+      "sha256": "4d09acc358280b7725816399bf0d332bfa60aabb293582004c8f4ada10150b6f",
+      "bytes": 852
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-authentic-contract6-recovery.cjs",
+      "path": "mv25-authentic-contract6-recovery.cjs.txt",
+      "sha256": "55f0531b209dd52b8d914c8179e7a4ecfaca922d029ec82fdd5107941a217d81",
+      "bytes": 2155
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-authentic-contract6-audit.cjs",
+      "path": "mv25-authentic-contract6-audit.cjs.txt",
+      "sha256": "799227f7dc0c20f9b1e20fd58c35eb9d602e448329f1868ee5966cdbb10b6965",
+      "bytes": 3720
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-freeze-contract6-recovery-build.cjs",
+      "path": "mv25-freeze-contract6-recovery-build.cjs.txt",
+      "sha256": "060bf8aec01ef5468ad79dbe499e1f4a5b839025176add1415dcb956905f31a7",
+      "bytes": 3045
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-record-contract6-result.cjs",
+      "path": "mv25-record-contract6-result.cjs.txt",
+      "sha256": "1a0180ba5ef318be5cf1ad05c364748cf7156adb877716f2895b68889f8c6417",
+      "bytes": 3151
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-record-failed-r2.cjs",
+      "path": "mv25-record-failed-r2.cjs.txt",
+      "sha256": "942cf021c56f38495bb1111517db41a2dcbec4c2c91af0607c9742fe5b664608",
+      "bytes": 2813
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-pre23-product-correspondence.cjs",
+      "path": "mv25-pre23-product-correspondence.cjs.txt",
+      "sha256": "5c7a75a4511ebc8c355bf220833d9b84f0336317b949152f657b21322a88d7c9",
+      "bytes": 2589
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e1-troop-product-030e8427-cc99-455f-8523-053f4fdaae47\\e1-product-result.json",
+      "path": "e1-product-result-original.json",
+      "sha256": "a807b3ed54b43ff7fcc5ac9ad910724ccf5eda2905e4e2eb432e917b65a4ce86",
+      "bytes": 125761
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-normal-scene-product-pair-160eef49-292f-462b-bc42-b31e73d54a67\\pair-result.json",
+      "path": "r2-pre-game-failure-original.json",
+      "sha256": "007947e96718ca56b880231115ad6698f7660f2bab39cb7cb877ab8e21941bdc",
+      "bytes": 8641970
+    }
+  ]
+}

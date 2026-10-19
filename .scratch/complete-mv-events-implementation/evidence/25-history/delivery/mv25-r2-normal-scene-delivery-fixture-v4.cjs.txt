@@ -1,0 +1,25 @@
+'use strict';
+const assert=require('node:assert/strict'),crypto=require('node:crypto'),fs=require('node:fs/promises');
+const base=require('./mv-r2-normal-scene-scheduling-native.cjs');
+const sha=value=>crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex');
+const oldGuard=[{code:122,indent:0,parameters:[10,10,1,0,1]},{code:111,indent:0,parameters:[1,10,0,2,1]},{code:121,indent:1,parameters:[6,6,1]},{code:0,indent:1,parameters:[]},{code:412,indent:0,parameters:[]}];
+const newGuard=[{code:355,indent:0,parameters:['var count=$gameVariables.value(10)+1;$gameVariables.setValue(10,count);if(count>=2)$gameSwitches.setValue(6,false);']}];
+let audit;
+async function buildFixture(seedRoot){
+ const originalFixturePath="C:/Users/Shuen/.codex/tmp/mv25-r2-normal-scene-product-pair-160eef49-292f-462b-bc42-b31e73d54a67/independent-fixture.json",originalFixtureSha256="b7559a8a9418c07d2fc0cb271c17f728f471c2779865a46dd46a93c91b8eb125",originalBytes=await fs.readFile(originalFixturePath);assert.equal(crypto.createHash('sha256').update(originalBytes).digest('hex'),originalFixtureSha256);
+ const before=JSON.parse(originalBytes),after=structuredClone(before),paths=['carriers.Troops.json[1].pages[9].list','loadedCarriers.Troops.json[1].pages[9].list'];
+ assert.equal(before.carriers['Troops.json'][1].pages.length,17);assert.equal(before.plan.expectedTrace.length,16);assert.deepEqual(before.plan.expectedInputTurns,[0,1,2]);assert.equal(before.plan.finalTurn,3);
+ const lists=[];
+ for(const carrier of ['carriers','loadedCarriers']){
+  const old=before[carrier]['Troops.json'][1].pages[9].list;assert.equal(old.length,7);assert.deepEqual(old.slice(1,-1),oldGuard);
+  const next=[structuredClone(old[0]),...structuredClone(newGuard),structuredClone(old.at(-1))];after[carrier]['Troops.json'][1].pages[9].list=next;
+  lists.push({path:carrier+'.Troops.json[1].pages[9].list',beforeSha256:sha(old),afterSha256:sha(next),before:old,after:next});
+ }
+ const maskedBefore=structuredClone(before),maskedAfter=structuredClone(after);
+ for(const carrier of ['carriers','loadedCarriers']){maskedBefore[carrier]['Troops.json'][1].pages[9].list='<audited auxiliary guard list>';maskedAfter[carrier]['Troops.json'][1].pages[9].list='<audited auxiliary guard list>';}
+ assert.deepEqual(maskedAfter,maskedBefore,'Every other fixture field, complete carrier, plan, conditions and span must remain exact');
+ assert.deepEqual(after.plan,base.plan);assert.deepEqual(after.carriers['Troops.json'],after.loadedCarriers['Troops.json']);
+ audit={purpose:'Versioned R2 delivery fixture: only auxiliary repeatAfter guard is represented as one saved E355 Script Input under the normal Script Command Gate',originalScenarioPath:require.resolve('./mv-r2-normal-scene-scheduling-native.cjs'),frozenOriginalFixture:{path:originalFixturePath,sha256:originalFixtureSha256,bytes:originalBytes.length},mutableSeedDataNotUsedForExpectedCarriers:true,beforeFixtureSha256:sha(before),afterFixtureSha256:sha(after),allowedChangedPaths:paths,lists,allOtherFieldsDeepEqual:true,allOtherFieldsSha256:sha(maskedAfter),planDeepEqual:true,conditionsAndSpanDeepEqual:true,pageCount:17,expectedTraceCount:16,expectedInputTurns:after.plan.expectedInputTurns,finalTurn:after.plan.finalTurn,expectedMomentCounter:after.plan.expectedMomentCounter,neverPages:after.plan.never,observerFunctionalBytesUnchanged:true,firstPartyFixturesRetainedExternally:true};
+ return after;
+}
+module.exports={buildFixture,getAudit:()=>audit};
