@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "scope": "Ticket01 seeds, ticket02 Windows baseline, tickets03–10 native reverse-engineering/accepted finite contracts, ticket11 System/switches, ticket12 captured map/battle context and ticket13 Loop/Break/Exit. Not complete105+45 or final E1–E7/R1–R7 acceptance. Ticket16 adds Windows Workspace operation locking and interruption/pending independence. Ticket14 adds the shared Movement Route envelope, exact E205/E505 mirrors and assigned actual native route controls. Ticket17 adds byte-consistent Snapshot capture and Project Root Binding; full compile-input, Drift and recovery contracts retain their later tickets.",
+  "scope": "Ticket01 seeds, ticket02 Windows baseline, tickets03–10 native reverse-engineering/accepted finite contracts, ticket11 System/switches, ticket12 captured map/battle context and ticket13 Loop/Break/Exit. Not complete105+45 or final E1–E7/R1–R7 acceptance. Ticket16 adds Windows Workspace operation locking and interruption/pending independence. Ticket14 adds the shared Movement Route envelope, exact E205/E505 mirrors and assigned actual native route controls. Ticket17 adds byte-consistent Snapshot capture and Project Root Binding; full compile-input, Drift and recovery contracts retain their later tickets. Ticket15 adds finite raw JSON, known-shape failures, recursive Script Gate and a minimum saved Page Autonomous Movement carrier; no complete later-family or final native acceptance is claimed.",
   "requirements": [
     {
       "id": "MV-S0-CE-001",
@@ -5573,6 +5573,286 @@
         "layer": "Public Workspace API/CLI and real filesystem/process boundary"
       },
       "slice": "18 / S4a",
+      "required": true
+    },
+    {
+      "id": "MV-S2-RAW-015",
+      "title": "Finite unknown raw JSON preserves exact parsed values",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/15-raw-validation-and-script-gate.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A6", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Finite unknown raw JSON preserves exact parsed values; original independent literal fixture plus focused malformed and direct-API cases in linked tests.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/command-boundary-cases.json",
+        "sha256": "2bbe5b59b8df23286f616189655e87d898e3524dd63c10466d2a9f2b1b9aaf30"
+      },
+      "expected": "Unknown code999 remains one warned record; explicit absolute indent0, negative zero, own __proto__, null, empty containers, ordered slots and CR/CRLF survive actual source evaluation and complete Project Data comparison.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/command-boundary.test.ts",
+        "name": "preserves unknown single-record raw values with explicit absolute zero indentation"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; native not executed",
+        "owner": "Codex ticket15 implementer /root/ticket_01",
+        "layer": "Actual command, Staged Data Graph, filesystem Workspace and source/built CLI seams"
+      },
+      "slice": "15 / finite raw boundary and recursive Script Gate",
+      "required": true
+    },
+    {
+      "id": "MV-S2-KNOWN-015",
+      "title": "Known raw and formal commands share the boundary",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/15-raw-validation-and-script-gate.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A6", "A7"],
+      "classifications": ["negative", "boundary", "combination"],
+      "sourceKind": "synthetic-rejection",
+      "input": "Known raw and formal commands share the boundary; original independent literal fixture plus focused malformed and direct-API cases in linked tests.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/command-boundary-cases.json",
+        "sha256": "2bbe5b59b8df23286f616189655e87d898e3524dd63c10466d2a9f2b1b9aaf30"
+      },
+      "expected": "Malformed known shapes, unsupported known saved variants, missing/null/undefined, holes, non-finite values, extra fields and unowned continuations fail explicitly; current fixed-reference and coarse family envelopes apply equally to formal and known raw commands. Later full family matrices remain required.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/command-boundary.test.ts",
+        "name": "uses the same known parameter boundary for formal, handwritten raw and native input"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; native not executed",
+        "owner": "Codex ticket15 implementer /root/ticket_01",
+        "layer": "Actual command, Staged Data Graph, filesystem Workspace and source/built CLI seams"
+      },
+      "slice": "15 / finite raw boundary and recursive Script Gate",
+      "required": true
+    },
+    {
+      "id": "MV-S2-MIRROR-015",
+      "title": "Choice and route mirrors retain ownership and both locations",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/15-raw-validation-and-script-gate.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A6", "A7"],
+      "classifications": ["negative", "boundary", "combination"],
+      "sourceKind": "synthetic-rejection",
+      "input": "Choice and route mirrors retain ownership and both locations; original independent literal fixture plus focused malformed and direct-API cases in linked tests.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/command-boundary-cases.json",
+        "sha256": "2bbe5b59b8df23286f616189655e87d898e3524dd63c10466d2a9f2b1b9aaf30"
+      },
+      "expected": "Ordered choice indexes and exact saved text match their102 owner; every205/505 object agrees. Failures report stable code, stage, severity, identity, expected/actual and correctly Page-prefixed physical and related locations.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/command-boundary.test.ts",
+        "name": "rejects orphan continuations and mismatched choice mirrors with both saved locations"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; native not executed",
+        "owner": "Codex ticket15 implementer /root/ticket_01",
+        "layer": "Actual command, Staged Data Graph, filesystem Workspace and source/built CLI seams"
+      },
+      "slice": "15 / finite raw boundary and recursive Script Gate",
+      "required": true
+    },
+    {
+      "id": "MV-S2-GATE-015",
+      "title": "All recognizable physical script positions require the Gate",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/15-raw-validation-and-script-gate.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A6", "A7"],
+      "classifications": ["negative", "boundary", "combination"],
+      "sourceKind": "synthetic-rejection",
+      "input": "All recognizable physical script positions require the Gate; original independent literal fixture plus focused malformed and direct-API cases in linked tests.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/command-boundary-cases.json",
+        "sha256": "2bbe5b59b8df23286f616189655e87d898e3524dd63c10466d2a9f2b1b9aaf30"
+      },
+      "expected": "355/655,111 mode12,122 operand4,205 M45,505 M45 and Page saved routes are scanned regardless of emptiness, reachability or selected movement type; Decompile warns, Check/Compile reject with the Gate closed.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/command-boundary.test.ts",
+        "name": "recursively gates every recognizable native script location including empty raw continuations and mirrors"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; native not executed",
+        "owner": "Codex ticket15 implementer /root/ticket_01",
+        "layer": "Actual command, Staged Data Graph, filesystem Workspace and source/built CLI seams"
+      },
+      "slice": "15 / finite raw boundary and recursive Script Gate",
+      "required": true
+    },
+    {
+      "id": "MV-S2-WORKSPACE-015",
+      "title": "Actual Workspace evaluation and failure state remain exact",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/15-raw-validation-and-script-gate.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A6", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Actual Workspace evaluation and failure state remain exact; original independent literal fixture plus focused malformed and direct-API cases in linked tests.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/command-boundary-cases.json",
+        "sha256": "2bbe5b59b8df23286f616189655e87d898e3524dd63c10466d2a9f2b1b9aaf30"
+      },
+      "expected": "Actual Clone/Decompile/Discovery/typecheck/evaluation/Check/Compile reproduce independent complete CommonEvents and Map data; malformed edited known raw and disabled Gate preserve source, Project Root, Snapshot, Generated, manifest and Discovery byte-for-byte. Malformed native input publishes no source.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/command-boundary-workspace.test.ts",
+        "name": "decompiles with the Gate closed, reports every saved script location, and checks actual evaluated output without changing state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; native not executed",
+        "owner": "Codex ticket15 implementer /root/ticket_01",
+        "layer": "Actual command, Staged Data Graph, filesystem Workspace and source/built CLI seams"
+      },
+      "slice": "15 / finite raw boundary and recursive Script Gate",
+      "required": true
+    },
+    {
+      "id": "MV-S2-CURRENT-SOURCE-015",
+      "title": "Gate checks actual declarations while old Snapshot still contains scripts",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/15-raw-validation-and-script-gate.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A6", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Gate checks actual declarations while old Snapshot still contains scripts; original independent literal fixture plus focused malformed and direct-API cases in linked tests.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/command-boundary-cases.json",
+        "sha256": "2bbe5b59b8df23286f616189655e87d898e3524dd63c10466d2a9f2b1b9aaf30"
+      },
+      "expected": "Removing scripts from actual generated declarations, including a fixed Page saved route, permits closed-Gate Check and Compile; Project Root and Snapshot remain the original script-containing input.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/command-boundary-workspace.test.ts",
+        "name": "checks the current declarations after every script is removed while the old Snapshot still contains scripts"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; native not executed",
+        "owner": "Codex ticket15 implementer /root/ticket_01",
+        "layer": "Actual command, Staged Data Graph, filesystem Workspace and source/built CLI seams"
+      },
+      "slice": "15 / finite raw boundary and recursive Script Gate",
+      "required": true
+    },
+    {
+      "id": "MV-S2-CANDIDATE-015",
+      "title": "Complete owned candidate and unusual data remain usable",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/15-raw-validation-and-script-gate.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A6", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Complete owned candidate and unusual data remain usable; original independent literal fixture plus focused malformed and direct-API cases in linked tests.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/command-boundary-cases.json",
+        "sha256": "2bbe5b59b8df23286f616189655e87d898e3524dd63c10466d2a9f2b1b9aaf30"
+      },
+      "expected": "Common1 calling actual Common2 decompiles and exactly recompiles. Direct and aliased __proto__ named exports are collected by actual Discovery; Array subclasses and known structural negative-zero codes fail before normalization. Page movement accessors are rejected before evaluation.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/command-boundary-workspace.test.ts",
+        "name": "decompiles valid Common Event calls against the complete Snapshot owned candidate"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; native not executed",
+        "owner": "Codex ticket15 implementer /root/ticket_01",
+        "layer": "Actual command, Staged Data Graph, filesystem Workspace and source/built CLI seams"
+      },
+      "slice": "15 / finite raw boundary and recursive Script Gate",
+      "required": true
+    },
+    {
+      "id": "MV-S2-BUILT-015",
+      "title": "Built Windows CLI executes the same boundary workflow",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/15-raw-validation-and-script-gate.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A6", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Built Windows CLI executes the same boundary workflow; original independent literal fixture plus focused malformed and direct-API cases in linked tests.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/command-boundary-cases.json",
+        "sha256": "2bbe5b59b8df23286f616189655e87d898e3524dd63c10466d2a9f2b1b9aaf30"
+      },
+      "expected": "All five boundary Workspace cases execute separate built Windows CLI processes; the complete built Windows baseline including locking, Snapshot binding and compilation-input capture also passes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/command-boundary-workspace.test.ts",
+        "name": "decompiles with the Gate closed, reports every saved script location, and checks actual evaluated output without changing state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; native not executed",
+        "owner": "Codex ticket15 implementer /root/ticket_01",
+        "layer": "Actual command, Staged Data Graph, filesystem Workspace and source/built CLI seams"
+      },
+      "slice": "15 / finite raw boundary and recursive Script Gate",
       "required": true
     }
   ]
