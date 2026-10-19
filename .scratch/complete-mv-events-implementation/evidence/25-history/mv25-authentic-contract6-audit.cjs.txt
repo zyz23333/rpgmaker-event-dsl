@@ -1,0 +1,26 @@
+const fs=require('node:fs/promises'),assert=require('node:assert/strict'),path=require('node:path'),crypto=require('node:crypto');
+const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+(async()=>{
+ const [input,preparationPath,output]=process.argv.slice(2),r=JSON.parse(await fs.readFile(input,'utf8')),prep=JSON.parse(await fs.readFile(preparationPath,'utf8'));
+ assert.equal(prep.passed,true);assert.equal(r.workspaceRoot.replaceAll('\\','/'),prep.workspaceRoot.replaceAll('\\','/'));
+ const frozenRoot=path.join(path.dirname(preparationPath),'before-recovery-original-bytes');
+ for(const [name,observed]of[['src',r.before.source],['Game',r.before.project],['.rpgmaker-event-dsl',r.before.state]]){
+  const entries=prep.frozen[name].entries.filter(e=>e.path!=='operation.lock');
+  assert.deepEqual(Object.keys(observed).sort(),entries.map(e=>e.path).sort(),name+' complete original membership');
+  for(const e of entries){assert.equal(observed[e.path].sha256,e.sha256,name+'/'+e.path+' original bytes');assert.equal(hash(await fs.readFile(path.join(frozenRoot,name,e.path))),e.sha256,name+'/'+e.path+' frozen bytes retained');}
+ }
+ assert.equal(r.before.config,prep.proof.configSha256);assert.equal(r.before.state['pending-push/pending-push.json'].sha256,prep.proof.pendingSha256);
+ assert.deepEqual(r.after.source,r.before.source);assert.deepEqual(r.after.project,r.before.project);assert.equal(r.after.config,r.before.config);
+ assert.deepEqual(r.finalManifest.generatedFiles,r.originalManifest.generatedFiles);
+ const immutable=value=>{const copy=structuredClone(value);delete copy.snapshotFiles;delete copy.hash;return copy;};
+ assert.deepEqual(immutable(r.finalManifest.compileBaseline),immutable(r.originalManifest.compileBaseline));
+ assert.equal(r.finalManifest.compileBaseline.compileContractVersion,'mv-1.6.1/6');
+ assert.deepEqual(r.finalManifest.compileBaseline.snapshotFiles,r.finalManifest.snapshotFiles);
+ assert.equal(r.after.state['project-data-snapshot/CommonEvents.json'].sha256,r.before.project['data/CommonEvents.json'].sha256);
+ assert.ok(Object.keys(r.before.state).some(k=>k.startsWith('pending-push/')));assert.ok(!Object.keys(r.after.state).some(k=>k.startsWith('pending-push/')));
+ for(const [name,file]of Object.entries(r.before.state))if(name!=='sync-manifest.json'&&name!=='project-data-snapshot/CommonEvents.json'&&!name.startsWith('pending-push/'))assert.deepEqual(r.after.state[name],file,name);
+ assert.match(r.push.message,/Generated Project Data integrity.*incomplete or unexpected owned output file set/i);
+ assert.equal(r.actualGeneratedFresh,false);
+ const out={purpose:'Authentic actual built24 contract6 recovery by actual built25 contract7; subsequent ordinary Push integrity rejection retained',passed:true,input,inputSha256:hash(await fs.readFile(input)),preparationPath,preparationSha256:hash(await fs.readFile(preparationPath)),originalFrozenDirectory:path.join(path.dirname(preparationPath),'before-recovery-original-bytes'),entry:r.entry,entrySha256:r.entrySha256,startedAt:r.startedAt,completedAt:r.completedAt,originalContract:'mv-1.6.1/6',currentContract:'mv-1.6.1/7',immutableCompilationBasis:true,sourceProjectConfigBytesUnchanged:true,onlyCompletedCommonSnapshotWriteRecorded:true,pendingRetired:true,oldOutputSetPreserved:true,actualGeneratedFresh:r.actualGeneratedFresh,currentOrdinaryPush:r.push,changedStateFiles:Object.keys(r.before.state).filter(k=>JSON.stringify(r.before.state[k])!==JSON.stringify(r.after.state[k]))};
+ await fs.writeFile(output,JSON.stringify(out,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({output,passed:out.passed,changedStateFiles:out.changedStateFiles}));
+})().catch(e=>{console.error(e);process.exitCode=1;});

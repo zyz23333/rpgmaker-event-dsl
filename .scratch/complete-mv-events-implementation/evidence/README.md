@@ -396,3 +396,13 @@ Ticket24 adds [complete Map Event pages and exact saved state](24-map-event-full
 | Requirement | Obligation | Evidence kind | Required layer |
 | --- | --- | --- | --- |
 | MV-S5-MAP-011 | Reject missing mandatory native event slot0 on a late Map without publishing or changing complete Workspace state | synthetic-rejection | Actual source/built Workspace API |
+
+| MV-S5-TROOP-PRIOR-003 | Authentic actual built24 /6 pending recovered by actual built25 /7 without new Freshness | synthetic-support | Original path-bound public built Workspace API, frozen before/after and complete immutable build provenance |
+
+| MV-S5-TROOP-R2-DELIVERY-002 | Allocated R2 delivery revision 2: complete17-page/three-turn normal Scene/Input literal and formal DSL product pair | game-observation | Explicit version-bound delivery input; original R2 remains separate |
+
+| MV-S5-TROOP-R2-AUXILIARY-E301 | roundtrips an unbranched Battle Processing launch without inventing a result close record | synthetic-support | Public source/built Workspace API; independent complete native literal |
+
+| MV-S5-TROOP-R2-DELIVERY-003 | Allocated R2 delivery revision 3: complete17-page/three-turn normal Scene/Input literal and formal DSL product pair | game-observation | Explicit version-bound delivery input; original R2 remains separate |
+
+| MV-S5-TROOP-R2-DELIVERY-004 | Allocated R2 delivery revision 4: complete17-page/three-turn normal Scene/Input literal and formal DSL product pair | game-observation | Explicit version-bound delivery input; original R2 remains separate |

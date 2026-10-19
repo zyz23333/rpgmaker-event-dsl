@@ -1,0 +1,65 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/troop-workflow.test.ts (36 tests | 1 failed | 35 skipped) 1049ms
+   × preserves native negative zero in every saved Battle Page numeric condition through Decompile and public Compile 1048ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/troop-workflow.test.ts > preserves native negative zero in every saved Battle Page numeric condition through Decompile and public Compile
+AssertionError: expected 'import { actorRef, battlePage, commen…' to contain 'a: -0, b: -0'
+
+- Expected
++ Received
+
+- a: -0, b: -0
++ import { actorRef, battlePage, comment, switchRef, troopEvent } from "rpgmaker-event-dsl";
++
++ export const troopEvent1 = troopEvent({
++   troopId: 1,
++   pages: [
++     battlePage({
++       conditions: { enemy: { enabled: false, index: 0, hpAtMost: 0 }, actor: { enabled: false, ref: actorRef({ id: 0 }), hpAtMost: 0 }, switch: { enabled: false, ref: switchRef({ id: 0 }) } },
++       commands: [
++
++       ],
++     })
++   ],
++ });
++
++ export const troopEvent2 = troopEvent({
++   troopId: 2,
++   pages: [
++     battlePage({
++       conditions: { turn: { enabled: false, a: 8, b: 0 }, enemy: { enabled: false, index: 8, hpAtMost: 12 }, actor: { enabled: false, ref: actorRef({ id: 0 }), hpAtMost: 50 }, switch: { enabled: false, ref: switchRef({ id: 77 }) } },
++       span: "turn",
++       commands: [
++         comment(["owned troop comment"]),
++       ],
++     }),
++     battlePage({
++       commands: [
++
++       ],
++     })
++   ],
++ });
++
+
+ ❯ test/troop-workflow.test.ts:206:20
+    204|     expect(afterDecompile.discovery).toContain(join(workspaceRoot, "sr…
+
+    205|     const source = await readFile(join(workspaceRoot, "src/decompiled/…
+    206|     expect(source).toContain("a: -0, b: -0");
+       |                    ^
+    207|     expect(source).toContain("actorRef({ id: -0 })");
+    208|     await compileWorkspace({ workspaceRoot, check: true });
+ ❯ verifyTroopEvidence test/support/troop-evidence.ts:11:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 35 skipped (36)
+   Start at  23:01:35
+   Duration  2.69s (transform 549ms, setup 0ms, import 1.48s, tests 1.05s, environment 0ms)
+

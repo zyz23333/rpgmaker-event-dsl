@@ -1,0 +1,13 @@
+{
+  "root": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-normal-scene-product-pair-delivery-v2-ef1553d5-540c-4a11-885b-a470911a6032",
+  "passed": false,
+  "error": {
+    "message": "Complete independent generated carrier Map001.json\n+ actual - expected\n... Skipped lines\n\n  {\n    autoplayBgm: false,\n    autoplayBgs: false,\n    battleback1Name: '',\n    battleback2Name: '',\n...\n              {\n+               code: 604,\n+               indent: 0,\n+               parameters: []\n+             },\n+             {\n                code: 355,\n                indent: 0,\n                parameters: [\n                  'window.r2MapTrace.push({id:\"after-battle\",frame:Graphics.frameCount,scene:SceneManager._scene.constructor.name,inBattle:$gameParty.inBattle(),eventId:this._eventId,mapId:this._mapId});'\n                ]\n",
+    "stack": "AssertionError [ERR_ASSERTION]: Complete independent generated carrier Map001.json\n+ actual - expected\n... Skipped lines\n\n  {\n    autoplayBgm: false,\n    autoplayBgs: false,\n    battleback1Name: '',\n    battleback2Name: '',\n...\n              {\n+               code: 604,\n+               indent: 0,\n+               parameters: []\n+             },\n+             {\n                code: 355,\n                indent: 0,\n                parameters: [\n                  'window.r2MapTrace.push({id:\"after-battle\",frame:Graphics.frameCount,scene:SceneManager._scene.constructor.name,inBattle:$gameParty.inBattle(),eventId:this._eventId,mapId:this._mapId});'\n                ]\n\n    at Object.runPair (C:\\Users\\Shuen\\.codex\\tmp\\mv-native-pair-support-v6-delivery.cjs:129:14)\n    at async C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-normal-scene-product-pair-delivery-v2.cjs:20:15"
+  },
+  "checks": true,
+  "sides": {
+    "literal": {},
+    "compiled": {}
+  }
+}

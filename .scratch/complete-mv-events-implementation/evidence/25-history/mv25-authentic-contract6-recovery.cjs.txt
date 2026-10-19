@@ -1,0 +1,12 @@
+const fs = require('node:fs/promises'), path = require('node:path'), cp = require('node:child_process'), crypto = require('node:crypto');
+const {pathToFileURL} = require('node:url');
+const hash = b => crypto.createHash('sha256').update(b).digest('hex');
+async function tree(root) { const out={}; for(const e of await fs.readdir(root,{withFileTypes:true}).catch(()=>[])) { if(e.name==='operation.lock'||e.isSymbolicLink()) continue; const p=path.join(root,e.name); if(e.isDirectory()) { for(const [k,v] of Object.entries(await tree(p))) out[e.name+'/'+k]=v; } else out[e.name]={sha256:hash(await fs.readFile(p)),bytes:(await fs.stat(p)).size}; } return out; }
+(async()=>{
+ const [entry,root,output]=process.argv.slice(2), state=path.join(root,'.rpgmaker-event-dsl');
+ const observe=async()=>({source:await tree(path.join(root,'src')),project:await tree(path.join(root,'Game')),state:await tree(state),config:hash(await fs.readFile(path.join(root,'rpgmaker-event-dsl.config.json')))});
+ const report={purpose:'Actual prior-output-set recovery against public candidate API; no preparation evidence edits',startedAt:new Date().toISOString(),entry,entrySha256:hash(await fs.readFile(entry)),workspaceRoot:root,before:await observe(),originalManifest:JSON.parse(await fs.readFile(path.join(state,'sync-manifest.json'),'utf8'))};
+ const api=await import(pathToFileURL(entry));try{await api.pushWorkspace({workspaceRoot:root});report.push={ok:true};}catch(e){report.push={ok:false,message:String(e),stack:e.stack};}
+ report.finalManifest=JSON.parse(await fs.readFile(path.join(state,'sync-manifest.json'),'utf8'));try{report.actualGeneratedFresh=await api.isGeneratedProjectDataFresh({workspaceRoot:root});}catch(e){report.actualGeneratedFresh={error:String(e)};}report.after=await observe();report.completedAt=new Date().toISOString();
+ await fs.writeFile(output,JSON.stringify(report,null,2)+'\n',{flag:'wx'});process.stdout.write(JSON.stringify({output,push:report.push,beforeStateFiles:Object.keys(report.before.state).length,afterStateFiles:Object.keys(report.after.state).length})+'\n');
+})().catch(e=>{process.stderr.write(e.stack);process.exitCode=1;});

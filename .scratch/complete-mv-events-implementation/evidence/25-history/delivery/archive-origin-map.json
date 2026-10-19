@@ -1,0 +1,234 @@
+{
+  "purpose": "Additional immutable ticket25 delivery execution artifacts after limited existing-contract E301 correction; original25-history32 remain unchanged",
+  "capturedAt": "2026-10-19T15:58:40.295Z",
+  "items": [
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-public-red.log",
+      "path": "mv25-e301-public-red.log",
+      "sha256": "156210017c5ff1eb57e9fed22db32475866539fefe8431b3f6d85c29a34e6ff9",
+      "bytes": 1712
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-public-green.log",
+      "path": "mv25-e301-public-green.log",
+      "sha256": "e39864c4b143d7cb44694cbb2cc5f642baffd18d8a2a9745d6942d2c4ec38d72",
+      "bytes": 298
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-check.log",
+      "path": "mv25-e301-final-check.log",
+      "sha256": "b5ae2f6703d69595f743cf2551db2aad0ef48d093ca10ebade67f6a15503a8d9",
+      "bytes": 1927
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-build.log",
+      "path": "mv25-e301-final-build.log",
+      "sha256": "57b8610c13bf1ea3217b233a674cd0aa3734d742f223f6e7c7e056f919588d96",
+      "bytes": 2589
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-windows.log",
+      "path": "mv25-e301-final-built-windows.log",
+      "sha256": "cee5c097eb26b092c26f551fdac35ca564f52252e5fb844fb4d88c95556357b9",
+      "bytes": 488
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-e1-rerun.log",
+      "path": "mv25-e301-e1-rerun.log",
+      "sha256": "8b50e66a85e0a1f48b24d9cbb763e5a4af7a298d23e233d9917c0647975b5caf",
+      "bytes": 302
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-delivery-v2.log",
+      "path": "mv25-r2-delivery-v2.log",
+      "sha256": "5d3a6b4c8e4644037adc47200faf25cb7e2ca7906621fd9ba4fbabcfa77c1794",
+      "bytes": 1844
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-delivery-v3.log",
+      "path": "mv25-r2-delivery-v3.log",
+      "sha256": "cd10cb05692677f8e6101c64c1450387c3d923debb43074446b8f34cb1173a1a",
+      "bytes": 7447
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-delivery-v4.log",
+      "path": "mv25-r2-delivery-v4.log",
+      "sha256": "f7b4f80dba02b1a17d1bdee83dbe9574f1d7733858575b7e561b5d55946b23f8",
+      "bytes": 7447
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-delivery-helper-revision-audit.json",
+      "path": "mv25-r2-delivery-helper-revision-audit.json",
+      "sha256": "97f758913d67cb4f11907600ed004b22f0ff58aabee4cfca1abf81b571215024",
+      "bytes": 793
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-final-r2-delivery-correspondence.json",
+      "path": "mv25-final-r2-delivery-correspondence.json",
+      "sha256": "804da67eb9a50ee71389c1b5dacd631e9365616d792fe0e1cbcfe8b26aab639b",
+      "bytes": 34164
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-cross-run-input-audit.json",
+      "path": "mv25-r2-cross-run-input-audit.json",
+      "sha256": "1b64f1950ece96834b9cf2f866d82d01ad98c82861691bcf3c6f6d602483c3f2",
+      "bytes": 2282
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-final-schema-copy-audit.json",
+      "path": "mv25-final-schema-copy-audit.json",
+      "sha256": "bf4e8b8ebe3554033e89ba3d9da6af24bb3b5bcf2c89fb3205d56a7e081d84c5",
+      "bytes": 37728
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-create-r2-delivery-revision.cjs",
+      "path": "mv25-create-r2-delivery-revision.cjs.txt",
+      "sha256": "91c5772b75e49a895febf740b8e4c6d6dbbba2cbdee7ee2ce2c286a862d1d874",
+      "bytes": 1392
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-normal-scene-delivery-fixture-v2.cjs",
+      "path": "mv25-r2-normal-scene-delivery-fixture-v2.cjs.txt",
+      "sha256": "8fae77777f9f2178adc1835f1dafd5a866ae5c6cc7941cfdd116fe1ef4f4fb46",
+      "bytes": 2917
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-normal-scene-delivery-fixture-v4.cjs",
+      "path": "mv25-r2-normal-scene-delivery-fixture-v4.cjs.txt",
+      "sha256": "b59f2e14f90689f5baa4e56edb328a4c8f5d12cbfec1a82b63f428141151a2f7",
+      "bytes": 3486
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-normal-scene-product-pair-delivery-v2.cjs",
+      "path": "mv25-r2-normal-scene-product-pair-delivery-v2.cjs.txt",
+      "sha256": "2123611472eb9c84e9390862e970802c7f1a2bf6f63537967180b02fdb2be9fc",
+      "bytes": 4079
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-normal-scene-product-pair-delivery-v3.cjs",
+      "path": "mv25-r2-normal-scene-product-pair-delivery-v3.cjs.txt",
+      "sha256": "564996bb0b0d7ebdc99ea0aeb303eed5401cc11a815bfd07ab3a48ec4908c957",
+      "bytes": 4079
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-normal-scene-product-pair-delivery-v4.cjs",
+      "path": "mv25-r2-normal-scene-product-pair-delivery-v4.cjs.txt",
+      "sha256": "b2b7cdee9bc986672fcf617c1c692f0a8524c8333c93b99df2274032e19e87c0",
+      "bytes": 4079
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-create-r2-delivery-v3.cjs",
+      "path": "mv25-create-r2-delivery-v3.cjs.txt",
+      "sha256": "a3e4f8401892f81458ed8dd0da440ac89d0e53107143a1e7bfa33cba5546149b",
+      "bytes": 828
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-create-r2-delivery-v4.cjs",
+      "path": "mv25-create-r2-delivery-v4.cjs.txt",
+      "sha256": "f79d71e07911b971dd3c6c06bacc436e600fcba12ccd39dac595fe4fcd04e8b0",
+      "bytes": 2607
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-cross-run-input-audit.cjs",
+      "path": "mv25-r2-cross-run-input-audit.cjs.txt",
+      "sha256": "52e12ee193c8999b63d5b34d47708ae94e1211f1d3a8e137d45224a9861cdc6a",
+      "bytes": 2371
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv-native-pair-support-v5.cjs",
+      "path": "mv-native-pair-support-v5.cjs.txt",
+      "sha256": "68b74b84bc597402ca437f3d5a045a89044f35e7c3a46dca73ded77a3d39cdf8",
+      "bytes": 15482
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv-native-pair-support-v6-delivery.cjs",
+      "path": "mv-native-pair-support-v6-delivery.cjs.txt",
+      "sha256": "96e71548e0414ae3829ac6cbc329013b2a2c546670ee31c1ef71d8eec2a092d4",
+      "bytes": 15511
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv-r2-normal-scene-scheduling-native.cjs",
+      "path": "mv-r2-normal-scene-scheduling-native.cjs.txt",
+      "sha256": "98cd24dda9d15488a9d125c3b3ffa50a71e2247602317bbcfde609110b9c7ddd",
+      "bytes": 19796
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-register-r2-delivery-variant.cjs",
+      "path": "mv25-register-r2-delivery-variant.cjs.txt",
+      "sha256": "5bbd41cca4c2290df61676da2a3a66cb50643025b45f7066399c90592c4993ab",
+      "bytes": 2021
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-record-r2-delivery-variant.cjs",
+      "path": "mv25-record-r2-delivery-variant.cjs.txt",
+      "sha256": "fbe1c80fe6de18047647936bf5d7f217690b65233bbf0240a9872ef5f3673394",
+      "bytes": 5350
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-freeze-r2-delivery-build.cjs",
+      "path": "mv25-freeze-r2-delivery-build.cjs.txt",
+      "sha256": "f51725f4055fcf55a32c4bbad4cccfe3b5bccb064193f944791d269d536c8d75",
+      "bytes": 4319
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-final-r2-delivery-correspondence.cjs",
+      "path": "mv25-final-r2-delivery-correspondence.cjs.txt",
+      "sha256": "ad75ddb1da8c52bce54e49f36d58d29ac0a8c44f22e167a4e292c6313816bb37",
+      "bytes": 2749
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-copy-final-r2-schema-results.cjs",
+      "path": "mv25-copy-final-r2-schema-results.cjs.txt",
+      "sha256": "b33b934b4d5f72e010f9d82fd3d5869eee5143218ae9bc62a4cb8b443fa4012e",
+      "bytes": 944
+    },
+    {
+      "origin": "C:/Users/Shuen/.codex/tmp/mv25-final-r2-delivery-v4-correspondence.json",
+      "path": "mv25-final-r2-delivery-v4-correspondence.json",
+      "sha256": "7b43870c15adfa2ae2b04fd1b969b4169dc92e4083a6d71c2fc5f378c9d66bc3",
+      "bytes": 50117
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-delivery-build-freeze-cc689859-ccba-4d53-900d-07b89d46743d\\manifest.json",
+      "path": "actual-r2-delivery-build-manifest.json",
+      "sha256": "2586bed40cded53b7661ffcf8aa4e0f215a47409a51c365448b9154ce4f072f2",
+      "bytes": 41821
+    },
+    {
+      "origin": "C:/Users/Shuen/.codex/tmp/mv25-e1-troop-product-e5d668b3-0a7a-4f39-98dc-2a046c2d5a9a/e1-product-result.json",
+      "path": "actual-e1-rerun-result.json",
+      "sha256": "16b78d4e385676e5c061e7ff16fe4e7a60d1a53dc974733bbfa6dff9b4d60f02",
+      "bytes": 133525
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-normal-scene-product-pair-delivery-v4-04a61a64-5a53-43a9-ba89-9a4c1e35fdd4\\fixture-guard-revision-audit.json",
+      "path": "actual-fixture-guard-revision-audit.json",
+      "sha256": "a28c2885e96a513e97f44056d74d1358cb5bbe970e50ef3468575d6f36c500b1",
+      "bytes": 6115
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-normal-scene-product-pair-delivery-v4-04a61a64-5a53-43a9-ba89-9a4c1e35fdd4\\helper-purpose-revision-audit.json",
+      "path": "actual-helper-purpose-revision-audit.json",
+      "sha256": "97f758913d67cb4f11907600ed004b22f0ff58aabee4cfca1abf81b571215024",
+      "bytes": 793
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-r2-normal-scene-product-pair-delivery-v4-04a61a64-5a53-43a9-ba89-9a4c1e35fdd4\\delivery-assessment.json",
+      "path": "actual-delivery-assessment.json",
+      "sha256": "4112fc7cd22194d020db25fb2b507348f869b9ed770edafde2b692a9afedc50c",
+      "bytes": 9119
+    }
+  ],
+  "derived": [
+    {
+      "path": "native-delivery-summary.json",
+      "source": "C:/Users/Shuen/.codex/tmp/mv25-r2-normal-scene-product-pair-delivery-v4-04a61a64-5a53-43a9-ba89-9a4c1e35fdd4/pair-result.json",
+      "sourceSha256": "82f21e883db2863f972284a36e17400e572f6eebf8ddb6541cab1cc33fd122fb",
+      "omitted": "Complete first-party fixture/carrier arrays and generated first-party content; original whole report kept external"
+    }
+  ],
+  "externalBuildFreeze": "C:/Users/Shuen/.codex/tmp/mv25-r2-delivery-build-freeze-cc689859-ccba-4d53-900d-07b89d46743d",
+  "externalE1": "C:/Users/Shuen/.codex/tmp/mv25-e1-troop-product-e5d668b3-0a7a-4f39-98dc-2a046c2d5a9a/e1-product-result.json",
+  "externalR2": "C:/Users/Shuen/.codex/tmp/mv25-r2-normal-scene-product-pair-delivery-v4-04a61a64-5a53-43a9-ba89-9a4c1e35fdd4/pair-result.json",
+  "externalCorrespondence": "C:/Users/Shuen/.codex/tmp/mv25-final-r2-delivery-v4-correspondence.json"
+}

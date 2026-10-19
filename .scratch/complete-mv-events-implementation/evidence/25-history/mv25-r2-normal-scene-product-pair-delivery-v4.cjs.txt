@@ -1,0 +1,25 @@
+'use strict';
+const fs=require('node:fs/promises'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const support=require('./mv-native-pair-support-v6-delivery.cjs'),base=require('./mv-r2-normal-scene-scheduling-native.cjs'),variant=require('./mv25-r2-normal-scene-delivery-fixture-v4.cjs');
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+async function editSources(workspaceRoot){
+ const changes=[];
+ for(const [relative,marker,replacement]of [['src/decompiled/maps/Map001.events.ts','PAIR-SEED Normal-input R2 battle launch','Normal-input R2 battle launch'],['src/decompiled/troop-events.events.ts','PAIR-SEED owned harmless R2 comment',null]]){
+  const target=path.join(workspaceRoot,relative),before=await fs.readFile(target,'utf8');assert.ok(before.includes(marker),'actual formal source has marker '+relative);
+  const after=replacement===null?before.replace(/^\s*comment\(\["PAIR-SEED owned harmless R2 comment"\]\),?\r?\n/m,''):before.replace(marker,replacement);
+  assert.notEqual(after,before);assert.ok(!after.includes(marker));await fs.writeFile(target,after);changes.push({relative,beforeSha256:sha(before),afterSha256:sha(after),before,after});
+ }
+ return changes;
+}
+(async()=>{
+ const packageRoot=process.argv[2],scenario=base.makeFuturePairScenario(editSources);
+ scenario.slug='mv25-r2-normal-scene-product-pair-delivery-v4';scenario.scriptPath=__filename;scenario.fixture=variant.buildFixture;
+ const dependencies={};for(const name of ['mv-r2-normal-scene-scheduling-native.cjs','mv-native-pair-support-v5.cjs','mv-native-pair-support-v6-delivery.cjs','mv25-r2-normal-scene-delivery-fixture-v4.cjs','mv25-r2-normal-scene-product-pair.cjs','mv25-r2-delivery-helper-revision-audit.json']){const file=path.join(__dirname,name);dependencies[name]={path:file,sha256:sha(await fs.readFile(file))};}
+ scenario.plan={...scenario.plan,purpose:'Ticket25 allocated R2 delivery: actual literal/formal-DSL normal Scene/Input product comparison; narrow auxiliary saved Script guard revision; final52 remains separate',dependencies};
+ const from='R2 independent literal normal Scene/Input control; future Troop product pair deferred',to='Ticket25 allocated R2 delivery normal Scene/Input actual game observation';assert.equal(base.observer.split(from).length,2);scenario.observer=base.observer.replace(from,to);assert.equal(scenario.observer.replace(to,from),base.observer);
+ const report=await support.runPair({packageRoot,seedRoot:'F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/NewData',host:'F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/nwjs-win-test/game.exe',outputRoot:'C:/Users/Shuen/.codex/tmp',timeoutMs:60000},scenario);
+ const audit=variant.getAudit();if(audit)await support.json(path.join(report.root,'fixture-guard-revision-audit.json'),audit);
+ await fs.copyFile(path.join(__dirname,'mv25-r2-delivery-helper-revision-audit.json'),path.join(report.root,'helper-purpose-revision-audit.json'),require('node:fs').constants.COPYFILE_EXCL);
+ for(const [name,item]of Object.entries(dependencies))if(name.endsWith('.cjs'))await fs.copyFile(item.path,path.join(report.root,name),require('node:fs').constants.COPYFILE_EXCL);
+ await support.json(path.join(report.root,'delivery-assessment.json'),{purpose:scenario.plan.purpose,passed:report.passed,at:new Date().toISOString(),sourceLayer:'Fresh explicitly versioned delivery input; old reports, original17-page scenario and original failed R2 requirement/runner bytes unchanged',dependencies,fixtureGuardRevision:audit,observerOnlyPurposeReplacement:{from,to,reverseReplacementEqualsEntireOriginal:true,baseSha256:sha(base.observer),deliverySha256:sha(scenario.observer)},scriptCommandGate:'Actual config.scriptEnabled=true; saved E355 passes public Decompile/Check/Compile, no observer counter/switch manipulation',allocatedTicket:'25',originalConditionalFixture:'Still requires ticket28/48/52 original-input product revalidation; no pass claimed',finalRegression:'52 still required'});
+})().catch(e=>{console.error(e.stack||e);process.exitCode=1;});

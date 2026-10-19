@@ -113,6 +113,41 @@ async function observe(workspaceRoot: string) {
   };
 }
 
+it("roundtrips an unbranched Battle Processing launch without inventing a result close record", async () => {
+  return verifyTroopEvidence("MV-S5-TROOP-R2-AUXILIARY-E301", async () => {
+    const { workspaceRoot, troops, paths } = await fixture();
+    const commonPath = join(workspaceRoot, "Game/data/CommonEvents.json");
+    const commonEvents = await json(commonPath);
+    // Independent native false/false shape from the accepted actors-battle table.
+    commonEvents[1].list = [
+      { code: 301, indent: 0, parameters: [0, 1, false, false] },
+      { code: 108, indent: 0, parameters: ["after the normal battle launch"] },
+      { code: 0, indent: 0, parameters: [] },
+    ];
+    await writeFile(commonPath, JSON.stringify(commonEvents));
+    await pullWorkspace({ workspaceRoot });
+    await decompileWorkspace({ workspaceRoot });
+    const source = await readFile(
+      join(workspaceRoot, "src/decompiled/common-events.events.ts"),
+      "utf8",
+    );
+    expect(source).toContain("battleProcessing({ troop: troopRef({ id: 1 }) })");
+    expect(source).not.toContain("rawDslCommand");
+    const before = await observe(workspaceRoot);
+    await compileWorkspace({ workspaceRoot, check: true });
+    expect(await observe(workspaceRoot)).toEqual(before);
+    await compileWorkspace({ workspaceRoot, check: false });
+    const actual = await json(join(paths.generatedProjectDataDirectory, "CommonEvents.json"));
+    expect(actual).toEqual(commonEvents);
+    expect(await json(join(paths.generatedProjectDataDirectory, "Troops.json"))).toEqual(troops);
+    expect(await json(commonPath)).toEqual(commonEvents);
+    expect(await diffWorkspace({ workspaceRoot, short: true })).toContain("No changes.");
+    await pushWorkspace({ workspaceRoot, allowDestructive: false });
+    expect(await json(commonPath)).toEqual(commonEvents);
+    return { source, expectedCommonEvents: commonEvents, actualCommonEvents: actual };
+  });
+});
+
 it("materializes every actual Troop carrier and resets omitted pages to the exact Blank", async () => {
   return verifyTroopEvidence("MV-S5-TROOP-WORKSPACE-001", async () => {
     const { workspaceRoot, troops, paths } = await fixture();

@@ -11763,6 +11763,249 @@
       },
       "slice": "25 / S5",
       "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-PRIOR-003",
+      "title": "Actual built24 contract6 interrupted prior-output-set recovered by built25 contract7 without new Freshness",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Authentic unmodified built24 contract mv-1.6.1/6 public Push killed after its actual CommonEvents install, original absolute Workspace binding, complete frozen pending/backup/source/project/state/config/build bytes retained externally; no metadata relabeling.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Recover only completed writes, retire authentic pending, preserve original /6 type/source/config/target basis and complete old output set; then reject ordinary current Push without inventing Troops or Freshness.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/25-troop-event-ownership-and-reset.md",
+        "section": "## Actual prior-output-set recovery"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Retained artifact review and actual specified boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-R2-DELIVERY-002",
+      "title": "Allocated R2 delivery revision 2: complete17-page/three-turn normal Scene/Input literal and formal DSL product pair",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Explicit versioned self-authored delivery variant. Original R2 runner and failed record remain unchanged. Revision audit preserves all17pages, every condition/span, independent16trace and3turn Input plan; see report for exact auxiliary saved-list changes.",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/25-history/mv25-r2-normal-scene-product-pair-delivery-v2.cjs.txt",
+        "sha256": "2123611472eb9c84e9390862e970802c7f1a2bf6f63537967180b02fdb2be9fc"
+      },
+      "expected": "Complete independent15disk-carrier and3loaded-carrier comparisons, actual Map+Troops Push, two fresh native processes and original17-page/three-turn scheduling expectations",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/25-troop-event-ownership-and-reset.md",
+        "section": "## R2"
+      },
+      "nativeGroups": [
+        "R2"
+      ],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Retained artifact review and actual specified boundary"
+      },
+      "slice": "25 / S5",
+      "required": false
+    },
+    {
+      "id": "MV-S5-TROOP-R2-AUXILIARY-E301",
+      "title": "roundtrips an unbranched Battle Processing launch without inventing a result close record",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Troop Page literal, formal DSL input and actual Windows Workspace filesystem state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "Accepted false,false E301 has no E604, exact public Workspace roundtrip and no-write Check; no raw fallback",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/troop-workflow.test.ts",
+        "name": "roundtrips an unbranched Battle Processing launch without inventing a result close record"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Approved authoring/validation and public Workspace API/filesystem boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-R2-DELIVERY-003",
+      "title": "Allocated R2 delivery revision 3: complete17-page/three-turn normal Scene/Input literal and formal DSL product pair",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Explicit versioned self-authored delivery variant. Original R2 runner and failed record remain unchanged. Revision audit preserves all17pages, every condition/span, independent16trace and3turn Input plan; see report for exact auxiliary saved-list changes.",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/25-history/mv25-r2-normal-scene-product-pair-delivery-v3.cjs.txt",
+        "sha256": "564996bb0b0d7ebdc99ea0aeb303eed5401cc11a815bfd07ab3a48ec4908c957"
+      },
+      "expected": "Complete independent15disk-carrier and3loaded-carrier comparisons, actual Map+Troops Push, two fresh native processes and original17-page/three-turn scheduling expectations",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/25-troop-event-ownership-and-reset.md",
+        "section": "## R2"
+      },
+      "nativeGroups": [
+        "R2"
+      ],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Retained artifact review and actual specified boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-R2-DELIVERY-004",
+      "title": "Allocated R2 delivery revision 4: complete17-page/three-turn normal Scene/Input literal and formal DSL product pair",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Explicit versioned self-authored delivery variant. Original R2 runner and failed record remain unchanged. Revision audit preserves all17pages, every condition/span, independent16trace and3turn Input plan; see report for exact auxiliary saved-list changes.",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/25-history/mv25-r2-normal-scene-product-pair-delivery-v4.cjs.txt",
+        "sha256": "b2b7cdee9bc986672fcf617c1c692f0a8524c8333c93b99df2274032e19e87c0"
+      },
+      "expected": "Complete independent15disk-carrier and3loaded-carrier comparisons, actual Map+Troops Push, two fresh native processes and original17-page/three-turn scheduling expectations",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/25-troop-event-ownership-and-reset.md",
+        "section": "## R2"
+      },
+      "nativeGroups": [
+        "R2"
+      ],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Retained artifact review and actual specified boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
     }
   ]
 }

@@ -23,7 +23,7 @@ const local = (s: WindowsSandbox, name: string) =>
 const live = (s: WindowsSandbox, name: string) => join(s.workspaceRoot, "Game/data", name);
 const hash = (value: Uint8Array) => createHash("sha256").update(value).digest("hex");
 
-it.each(["mv-1.6.1/5", "mv-1.6.1/6", "unknown-contract", "incomplete-prior-set"])(
+it.each(["mv-1.6.1/5", "mv-1.6.1/6", "mv-1.6.1/7", "unknown-contract", "incomplete-prior-set"])(
   "recognizes the bounded pre-Troops complete output set: %s",
   async (contract) => {
     return verifyTroopEvidence("MV-S5-TROOP-PRIOR-001", async () => {
@@ -50,7 +50,7 @@ it.each(["mv-1.6.1/5", "mv-1.6.1/6", "unknown-contract", "incomplete-prior-set"]
         await preconstruct(s, generated, old);
         for (const [name, bytes] of generated) await writeFile(live(s, name), bytes);
         const before = await observe(s);
-        if (contract !== "mv-1.6.1/5") {
+        if (contract !== "mv-1.6.1/5" && contract !== "mv-1.6.1/6") {
           await expect(api.pushWorkspace({ ...s, allowDestructive: false })).rejects.toThrow(
             /Interrupted Push.*file set/s,
           );
