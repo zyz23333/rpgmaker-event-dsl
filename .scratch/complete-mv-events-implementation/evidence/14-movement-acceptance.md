@@ -19,10 +19,12 @@ Workspace roundtrip performs Clone → Decompile → actual Discovery/load → C
 Windows Node 22.23.0 verification:
 
 - Typecheck, lint and format checks pass.
-- Full suite passes with two workers; final counts are recorded in the ticket. Default full concurrency previously exceeded the pre-existing S0 Workspace test's 10-second timeout; the bounded-worker rerun retained all assertions. The new multi-operation Workspace cases have a 30-second timeout because they perform repeated real TypeScript checks.
+- Full joint suite passes with two workers: 215 tests in 22 files after merging ticket16. The original 50 Movement Route cases remain included. Default full concurrency previously exceeded the pre-existing S0 Workspace test's 10-second timeout; the bounded-worker rerun retained all assertions. The new multi-operation Workspace cases have a 30-second timeout because they perform repeated real TypeScript checks.
 - `pnpm build` passes.
-- Built Windows CLI baseline passes all four tests, and all five Movement Route Workspace tests also pass against the built package. Their separate actual CLI processes run Decompile, Check and Compile.
+- Built Windows CLI verification passes eight tests across three files, including ticket16 locking; all five Movement Route Workspace tests also pass against the built package. Their separate actual CLI processes run Decompile, Check and Compile.
 - A source-graph cycle exposed by the architecture test was corrected by moving `CommandStructureError` to the shared leaf `validation/command-errors.ts` and native movement types to their own leaf. The original error export remains available from command-structure. Both architecture checks pass.
+
+The final product verification ran at `dad1fd4` with integration `b2f2acd` merged. The retained reports are [full joint suite](14-vitest-report.json), [built Windows CLI and locking](14-built-baseline-report.json), and [built Movement Route Workspace](14-built-workspace-report.json). The native fixture and executed CommonEvents remain byte-identical to the independently expected input across these product checks.
 
 The recorder `14-record-acceptance.mjs` validates actual Vitest reports, native fixture hashes, exact executed inputs and all independently expected native states before producing requirement results. Eight requirements and immutable result records link these executions. No not-executed or failed run is promoted to passed.
 
