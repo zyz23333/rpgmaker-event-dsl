@@ -13778,6 +13778,476 @@
       },
       "slice": "33 / S6 scoped saved-number correction",
       "required": true
+    },
+    {
+      "id": "MV-S6-MAP-APPEARANCE-001",
+      "title": "preserves independent None and inactive map appearance values through discovered source and real Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E281"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/36-map-appearance-settings.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete Map page, two actual Snapshot Tilesets including an empty-name ID, E281–284 saved literals and explicit untyped/helper/native/raw rejection cases.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-appearance-cases.json",
+        "sha256": "5095b3be404a9d0025157989cf465cc0c88e96616ea5d6ba892242e35623790f"
+      },
+      "expected": "preserves independent None and inactive map appearance values through discovered source and real Push",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts",
+        "name": "MV-S6-MAP-APPEARANCE-001: preserves independent None and inactive map appearance values through discovered source and real Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API",
+        "owner": "Codex automated verification",
+        "layer": "Public helpers and actual Workspace native/source/filesystem boundary"
+      },
+      "slice": "36 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-MAP-APPEARANCE-006",
+      "title": "rejects malformed known native and raw appearance slots at their actual native and authored paths",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E281"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/36-map-appearance-settings.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent complete Map page, two actual Snapshot Tilesets including an empty-name ID, E281–284 saved literals and explicit untyped/helper/native/raw rejection cases.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-appearance-cases.json",
+        "sha256": "5095b3be404a9d0025157989cf465cc0c88e96616ea5d6ba892242e35623790f"
+      },
+      "expected": "rejects malformed known native and raw appearance slots at their actual native and authored paths",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts",
+        "name": "MV-S6-MAP-APPEARANCE-006: rejects malformed known native and raw appearance slots at their actual native and authored paths"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API",
+        "owner": "Codex automated verification",
+        "layer": "Public helpers and actual Workspace native/source/filesystem boundary"
+      },
+      "slice": "36 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-MAP-APPEARANCE-005",
+      "title": "requires all E284 fields and enforces saved speed bounds even with None and disabled looping",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E281"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/36-map-appearance-settings.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent complete Map page, two actual Snapshot Tilesets including an empty-name ID, E281–284 saved literals and explicit untyped/helper/native/raw rejection cases.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-appearance-cases.json",
+        "sha256": "5095b3be404a9d0025157989cf465cc0c88e96616ea5d6ba892242e35623790f"
+      },
+      "expected": "requires all E284 fields and enforces saved speed bounds even with None and disabled looping",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts",
+        "name": "MV-S6-MAP-APPEARANCE-005: requires all E284 fields and enforces saved speed bounds even with None and disabled looping"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API",
+        "owner": "Codex automated verification",
+        "layer": "Public helpers and actual Workspace native/source/filesystem boundary"
+      },
+      "slice": "36 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-MAP-APPEARANCE-004",
+      "title": "requires both independent E283 asset-or-None slots with exact folders and nonempty names",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E281"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/36-map-appearance-settings.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent complete Map page, two actual Snapshot Tilesets including an empty-name ID, E281–284 saved literals and explicit untyped/helper/native/raw rejection cases.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-appearance-cases.json",
+        "sha256": "5095b3be404a9d0025157989cf465cc0c88e96616ea5d6ba892242e35623790f"
+      },
+      "expected": "requires both independent E283 asset-or-None slots with exact folders and nonempty names",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts",
+        "name": "MV-S6-MAP-APPEARANCE-004: requires both independent E283 asset-or-None slots with exact folders and nonempty names"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API",
+        "owner": "Codex automated verification",
+        "layer": "Public helpers and actual Workspace native/source/filesystem boundary"
+      },
+      "slice": "36 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-MAP-APPEARANCE-003",
+      "title": "rejects E282 None, zero, wrong scope and absent actual Tilesets with precise source paths",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E281"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/36-map-appearance-settings.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent complete Map page, two actual Snapshot Tilesets including an empty-name ID, E281–284 saved literals and explicit untyped/helper/native/raw rejection cases.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-appearance-cases.json",
+        "sha256": "5095b3be404a9d0025157989cf465cc0c88e96616ea5d6ba892242e35623790f"
+      },
+      "expected": "rejects E282 None, zero, wrong scope and absent actual Tilesets with precise source paths",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts",
+        "name": "MV-S6-MAP-APPEARANCE-003: rejects E282 None, zero, wrong scope and absent actual Tilesets with precise source paths"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API",
+        "owner": "Codex automated verification",
+        "layer": "Public helpers and actual Workspace native/source/filesystem boundary"
+      },
+      "slice": "36 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-MAP-APPEARANCE-002",
+      "title": "rejects missing and untyped E281 values and helper unknown fields without changing complete Workspace state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E281"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/36-map-appearance-settings.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent complete Map page, two actual Snapshot Tilesets including an empty-name ID, E281–284 saved literals and explicit untyped/helper/native/raw rejection cases.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-appearance-cases.json",
+        "sha256": "5095b3be404a9d0025157989cf465cc0c88e96616ea5d6ba892242e35623790f"
+      },
+      "expected": "rejects missing and untyped E281 values and helper unknown fields without changing complete Workspace state",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts",
+        "name": "MV-S6-MAP-APPEARANCE-002: rejects missing and untyped E281 values and helper unknown fields without changing complete Workspace state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API",
+        "owner": "Codex automated verification",
+        "layer": "Public helpers and actual Workspace native/source/filesystem boundary"
+      },
+      "slice": "36 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-MAP-APPEARANCE-E6",
+      "title": "Ticket36 allocated E6 identified map appearance resources and actual product comparison",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E281"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/36-map-appearance-settings.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Independent complete Map page, two actual Snapshot Tilesets including an empty-name ID, E281–284 saved literals and explicit untyped/helper/native/raw rejection cases.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-appearance-cases.json",
+        "sha256": "5095b3be404a9d0025157989cf465cc0c88e96616ea5d6ba892242e35623790f"
+      },
+      "expected": "Ticket36 allocated E6 identified map appearance resources and actual product comparison",
+      "nativeGroups": [
+        "E6"
+      ],
+      "execution": {
+        "environment": "Actual identified MV1.6.1 editor resources / native NW0.29.0 and Node22 tooling",
+        "owner": "Codex automated verification",
+        "layer": "Exact resource identity plus actual current built product/literal native pairs"
+      },
+      "slice": "36 / S6",
+      "required": true,
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/36-map-appearance-settings.md",
+        "section": "E6 — identified editor resources and actual product comparison"
+      }
+    },
+    {
+      "id": "MV-S6-MAP-APPEARANCE-R6",
+      "title": "Ticket36 allocated R6 current built normal-Scene map appearance and eight Battle background pairs",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E281"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/36-map-appearance-settings.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Independent complete Map page, two actual Snapshot Tilesets including an empty-name ID, E281–284 saved literals and explicit untyped/helper/native/raw rejection cases.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-appearance-cases.json",
+        "sha256": "5095b3be404a9d0025157989cf465cc0c88e96616ea5d6ba892242e35623790f"
+      },
+      "expected": "Ticket36 allocated R6 current built normal-Scene map appearance and eight Battle background pairs",
+      "nativeGroups": [
+        "R6"
+      ],
+      "execution": {
+        "environment": "Actual identified MV1.6.1 editor resources / native NW0.29.0 and Node22 tooling",
+        "owner": "Codex automated verification",
+        "layer": "Exact resource identity plus actual current built product/literal native pairs"
+      },
+      "slice": "36 / S6",
+      "required": true,
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/36-map-appearance-settings.md",
+        "section": "R6 — current built product pairs"
+      }
+    },
+    {
+      "id": "MV-S6-MAP-APPEARANCE-R6-MISSING",
+      "title": "Ticket36 allocated actual missing-Tileset-image Loading Error and E282 stall pair",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E281"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/36-map-appearance-settings.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Independent complete Map page, two actual Snapshot Tilesets including an empty-name ID, E281–284 saved literals and explicit untyped/helper/native/raw rejection cases.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-appearance-cases.json",
+        "sha256": "5095b3be404a9d0025157989cf465cc0c88e96616ea5d6ba892242e35623790f"
+      },
+      "expected": "Ticket36 allocated actual missing-Tileset-image Loading Error and E282 stall pair",
+      "nativeGroups": [
+        "R6"
+      ],
+      "execution": {
+        "environment": "Actual identified MV1.6.1 editor resources / native NW0.29.0 and Node22 tooling",
+        "owner": "Codex automated verification",
+        "layer": "Exact resource identity plus actual current built product/literal native pairs"
+      },
+      "slice": "36 / S6",
+      "required": true,
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/36-map-appearance-settings.md",
+        "section": "R6 — missing Tileset image behavior"
+      }
+    },
+    {
+      "id": "MV-S6-MAP-APPEARANCE-007",
+      "title": "preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E284"
+        },
+        {
+          "path": ".scratch/complete-mv-events/issues/13-native-value-domain-boundaries.md",
+          "section": "## Answer"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/36-map-appearance-settings.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored complete Map carrier with literal -0 and +0 in both E284 speed slots; explicit image None/asset and inactive loop configurations. Public helper plus independently edited untyped formal and recognized raw sources and native Decompile are each exercised.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-parallax-negative-zero.json",
+        "sha256": "b6cf81c93f03262e75813581f948f12524d5907b642a288073167d75198430d9"
+      },
+      "expected": "Keep each signed zero through actual Discovery/evaluation, Check, Compile, complete carrier output, Diff and real Push; preserve inactive speed values without broadening any enum or ID domain.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts",
+        "name": "MV-S6-MAP-APPEARANCE-007: preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API",
+        "owner": "Codex automated verification",
+        "layer": "Public helpers and actual Workspace native/source/filesystem boundary"
+      },
+      "slice": "36 / S6",
+      "required": true
     }
   ]
 }

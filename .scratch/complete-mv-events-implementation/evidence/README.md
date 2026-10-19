@@ -473,3 +473,26 @@ reference/full1101 seed files. Product contract remains `mv-1.6.1/9`; source
 check39files/980tests and built Windows15files/366tests remain applicable to the
 unchanged97-source/15-dist product. All286 requirement objects retain their exact
 bytes and order. Final49–55 remain separate from this allocated delivery.
+
+Ticket36 map appearance cases use independent complete saved literals and actual Workspace operations.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-MAP-APPEARANCE-001 | preserves independent None and inactive map appearance values through discovered source and real Push | synthetic-support | Public source/built Workspace and complete data/state assertions |
+| MV-S6-MAP-APPEARANCE-006 | rejects malformed known native and raw appearance slots at their actual native and authored paths | synthetic-rejection | Public source/built Workspace and complete data/state assertions |
+| MV-S6-MAP-APPEARANCE-005 | requires all E284 fields and enforces saved speed bounds even with None and disabled looping | synthetic-rejection | Public source/built Workspace and complete data/state assertions |
+| MV-S6-MAP-APPEARANCE-004 | requires both independent E283 asset-or-None slots with exact folders and nonempty names | synthetic-rejection | Public source/built Workspace and complete data/state assertions |
+| MV-S6-MAP-APPEARANCE-003 | rejects E282 None, zero, wrong scope and absent actual Tilesets with precise source paths | synthetic-rejection | Public source/built Workspace and complete data/state assertions |
+| MV-S6-MAP-APPEARANCE-002 | rejects missing and untyped E281 values and helper unknown fields without changing complete Workspace state | synthetic-rejection | Public source/built Workspace and complete data/state assertions |
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-MAP-APPEARANCE-E6 | Ticket36 allocated E6 identified map appearance resources and actual product comparison | reverse-engineering-observation | Exact resource identity plus actual current built product/literal native pairs |
+| MV-S6-MAP-APPEARANCE-R6 | Ticket36 allocated R6 current built normal-Scene map appearance and eight Battle background pairs | game-observation | Exact resource identity plus actual current built product/literal native pairs |
+| MV-S6-MAP-APPEARANCE-R6-MISSING | Ticket36 allocated actual missing-Tileset-image Loading Error and E282 stall pair | game-observation | Exact resource identity plus actual current built product/literal native pairs |
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-MAP-APPEARANCE-007 | preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push | synthetic-support | Public source/built Workspace; literal signed-zero carrier and Object.is assertions |
+
+Ticket36 allocated delivery is complete on contract `mv-1.6.1/10`: current source40 files/987 tests, fresh build, built Windows16 files/373 tests,9 exact E6 resource checks and10 physically isolated current-built/native pairs (20 game sides) passed. The [current delivery record](36-map-appearance-settings.md#final-current-delivery--contract-mv-16110) and `36-history/` preserve actual source/dist identities, rejected/incomplete attempts, original captures and safe native projections. All286 incoming rows/history bytes are preserved; final49–55 remain separate.

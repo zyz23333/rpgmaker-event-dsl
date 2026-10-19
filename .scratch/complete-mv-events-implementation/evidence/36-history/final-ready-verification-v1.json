@@ -1,0 +1,27 @@
+{
+  "purpose": "Final history-only lint after the last original proof tools were archived; prior six-warning check remains unchanged",
+  "at": "2026-10-19T19:12:50.009Z",
+  "lint": {
+    "errors": 0,
+    "warnings": 7,
+    "passed": true,
+    "reason": "Six original unused sync imports plus one original unused assert import in archived proof/check-record tools; no product source/test warnings"
+  },
+  "log": {
+    "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-final-history-lint-v2.log",
+    "path": ".scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-history-lint-v2.log",
+    "sha256": "1122b7e81e314c2748280fc2ee5f5939a15ec5c31316bb9269392a35a0d38cd7"
+  },
+  "finalAppendOnlyAudit": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-final-append-only-audit-v1-2c110a6c-27ee-402b-b837-886ffbea27ec.json",
+    "sha256": "8923e55ad185d5bbd54333f58a23dc4ad95da235b4f5e3f5dbdeb45ee0732550",
+    "checks": 1277,
+    "passed": true
+  },
+  "finalProductMetadataAudit": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-final-audit-v2-134283d4-7f38-433f-979a-b0e361f7e219.json",
+    "sha256": "e57be69b6cad5d22961c3774b3048c7d780e0eaf2c69b0e013f2763e45c96f2d",
+    "originalBlobChecks": 4573,
+    "passed": true
+  }
+}
