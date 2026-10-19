@@ -286,7 +286,7 @@ describe("validateDslOwnedDeclarations", () => {
     expect(result.issues.map((issue) => issue.message)).toEqual(
       expect.arrayContaining([
         "Unknown commonEvent reference: Snapshot Common",
-        "Unknown switch reference: Snapshot Switch",
+        "MV-E121-REFERENCE validation common event 1.commands[1].switch: Unknown switch reference: Snapshot Switch",
         "Unknown variable reference: Snapshot Variable",
       ]),
     );

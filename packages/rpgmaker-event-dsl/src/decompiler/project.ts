@@ -26,6 +26,10 @@ import {
 } from "./core.js";
 import { renderCommands } from "./dispatch.js";
 import { renderDecompiledCommandList } from "./dispatch.js";
+import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
+import { buildSnapshotReferenceInput, buildStagedDataGraph } from "../validation/staged-graph.js";
+import type { ReferenceResolver } from "../validation/types.js";
+import type { RawEventCommand } from "./types.js";
 
 type DecompileFile = {
   content: string;
@@ -57,29 +61,67 @@ async function buildDecompiledSourceFiles(
   const mapInfos = parseMapInfos(await readSnapshotFile(options.statePaths, "MapInfos.json"));
   const outputRoot = resolve(options.workspaceRoot, options.sourceRoot, "decompiled");
   const files: DecompileFile[] = [];
+  const system = await readSnapshotObject(options.statePaths, "System.json");
+  const resolver = buildStagedDataGraph({
+    declarations: [],
+    snapshotReferences: buildSnapshotReferenceInput({ system }),
+  }).resolver;
 
   for (const mapInfo of mapInfos) {
     const mapFileName = formatMapFileName(mapInfo.id);
     const mapData = await readSnapshotObject(options.statePaths, mapFileName);
+    const events = readMapEvents(mapData);
+    for (const event of events) {
+      for (const [pageIndex, page] of event.pages.entries()) {
+        assertSwitchReferences(
+          normalizeCommandList(page.list),
+          `map ${mapInfo.id} event ${event.id}.pages[${pageIndex}].list`,
+          resolver,
+        );
+      }
+    }
     files.push({
-      content: renderMapSource(mapInfo, readMapEvents(mapData)),
+      content: renderMapSource(mapInfo, events),
       path: resolve(outputRoot, "maps", `${mapFileName.slice(0, -".json".length)}.events.ts`),
     });
   }
 
+  const commonEvents = readCommonEvents(
+    await readSnapshotArray(options.statePaths, "CommonEvents.json"),
+  );
+  for (const event of commonEvents)
+    assertSwitchReferences(
+      normalizeCommandList(event.list),
+      `common event ${event.id}.list`,
+      resolver,
+    );
   files.push({
-    content: renderCommonEventsSource(
-      readCommonEvents(await readSnapshotArray(options.statePaths, "CommonEvents.json")),
-    ),
+    content: renderCommonEventsSource(commonEvents),
     path: resolve(outputRoot, "common-events.events.ts"),
   });
 
   files.push({
-    content: renderSystemSource(await readSnapshotObject(options.statePaths, "System.json")),
+    content: renderSystemSource(system),
     path: resolve(outputRoot, "system.dsl.ts"),
   });
 
   return files.sort((left, right) => left.path.localeCompare(right.path));
+}
+
+function assertSwitchReferences(
+  commands: readonly RawEventCommand[],
+  identity: string,
+  resolver: ReferenceResolver,
+) {
+  for (const [index, command] of commands.entries()) {
+    try {
+      assertNativeSwitchCommand(command.code, command.parameters, resolver);
+    } catch (error) {
+      throw new Error(
+        `decompile ${identity}[${index}]: ${error instanceof Error ? error.message : String(error)}`,
+      );
+    }
+  }
 }
 
 async function assertTargetFilesDoNotExist(files: readonly DecompileFile[]): Promise<void> {
