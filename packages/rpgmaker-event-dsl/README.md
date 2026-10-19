@@ -387,6 +387,37 @@ Decompile publishes source; their diagnostic identifies the event and native
 list position. Internal command-family renderers also accept command fragments,
 which are not complete saved event lists.
 
+## Map location commands
+
+`transferPlayer({ destination, direction?, fade? })` and
+`setVehicleLocation({ vehicle, destination })` accept a direct destination
+`{ kind: "direct", map: mapRef({ id: 1 }), x: 4, y: 5 }` or variable references
+`{ kind: "variables", map: variableRef({ id: 1 }), x: variableRef({ id: 2 }), y: variableRef({ id: 3 }) }`.
+Vehicle is `boat`, `ship` or `airship`. Transfer direction is
+`retain/down/left/right/up`, defaulting to `retain`; fade is `black/white/none`,
+defaulting to `black`.
+
+`setEventLocation({ target, destination, direction? })` uses a character Runtime
+Selector for `currentEvent` or a positive `event` ID. Its destination is direct
+numeric `x/y`, variable references `x/y`, or `{ kind: "exchange", target }` with
+the same event selector subset. Direction defaults to `retain` and uses the same
+five named values. A missing runtime event warns without becoming a missing
+Project Data Reference.
+
+`getLocationInfo({ variable, info, location })` writes to an existing Variable
+Slot, including an unnamed slot addressed by ID. Info is
+`terrainTag/eventId/tileLayer1/tileLayer2/tileLayer3/tileLayer4/regionId`;
+location is direct numeric `x/y` or variable references `x/y`.
+
+These four commands' direct coordinates are integers `0..2147483647`, excluding
+negative zero. Fixed-map bounds warnings preserve saved coordinates; current-map
+warnings are conditional on a containing Map Event. Unknown Common Event running
+maps do not trigger bounds warnings by themselves. Terrain and region queries
+return zero outside bounds, tile queries may alias another data-array element,
+and event queries match exact coordinates even outside dimensions. Variable
+references are checked without predicting their runtime values. Transfer during
+battle warns that execution may stall.
+
 ## Push safety
 
 Push checks raw bytes across all 14 standard database files and every map registered

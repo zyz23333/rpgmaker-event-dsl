@@ -10,6 +10,7 @@ import type {
   LocationInfoType,
   ReferenceValue,
 } from "../../domain/types.js";
+import { assertMapLocationInput } from "./location-validation.js";
 
 export function changeMapNameDisplay(input: { enabled: boolean }): ChangeMapNameDisplayDslCommand {
   return {
@@ -71,6 +72,7 @@ export function getLocationInfo(input: {
   info: LocationInfoType;
   location: CommandPosition;
 }): GetLocationInfoDslCommand {
+  assertMapLocationInput("getLocationInfo", input, "getLocationInfo", false);
   return {
     kind: "getLocationInfo",
     variable: input.variable,

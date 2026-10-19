@@ -15,6 +15,8 @@ import type {
   CharacterRuntimeSelector,
   Direction,
   EventLocationDestination,
+  EventRuntimeSelector,
+  LocationDirection,
   GatherFollowersDslCommand,
   GetOnOffVehicleDslCommand,
   MapDestination,
@@ -28,6 +30,7 @@ import type {
   ToneInput,
   VehicleTarget,
 } from "../../domain/types.js";
+import { assertMapLocationInput } from "../map/location-validation.js";
 
 export function changeBattleBgm(input: { audio: AudioPayload }): ChangeBattleBgmDslCommand {
   return {
@@ -104,6 +107,7 @@ export function setVehicleLocation(input: {
   vehicle: VehicleTarget;
   destination: MapDestination;
 }): SetVehicleLocationDslCommand {
+  assertMapLocationInput("setVehicleLocation", input, "setVehicleLocation", false);
   return {
     kind: "setVehicleLocation",
     vehicle: input.vehicle,
@@ -112,13 +116,14 @@ export function setVehicleLocation(input: {
 }
 
 export function setEventLocation(input: {
-  character: CharacterRuntimeSelector;
+  target: EventRuntimeSelector;
   destination: EventLocationDestination;
-  direction?: 0 | Direction;
+  direction?: LocationDirection;
 }): SetEventLocationDslCommand {
+  assertMapLocationInput("setEventLocation", input, "setEventLocation", false);
   const node: SetEventLocationDslCommand = {
     kind: "setEventLocation",
-    character: input.character,
+    target: input.target,
     destination: input.destination,
   };
 

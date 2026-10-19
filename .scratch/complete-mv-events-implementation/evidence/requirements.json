@@ -13778,6 +13778,194 @@
       },
       "slice": "33 / S6 scoped saved-number correction",
       "required": true
+    },
+    {
+      "id": "MV-S6-LOCATION-001",
+      "title": "Complete Location modes through actual Workspace installation",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/34-map-locations-and-location-info.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent literal numeric saved records for 30 Transfer, 6 Vehicle, 15 Event and 14 Location Info combinations, in both Map and Common carriers, plus a harmless actual source name edit.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-location-fixtures.ts",
+        "sha256": "5d2799e1e19cdde07996a5cadf87672e98c05e412b7c693f158f4082131be58c"
+      },
+      "expected": "Actual Discovery/evaluation, Check, Compile, Diff and real Push preserve all independent numeric records and all fifteen complete project carriers; generated output includes all four mandatory owned carriers.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-locations-workspace.test.ts",
+        "name": "round trips all Location modes through actual discovered sources, Check, Compile, Diff and real Push with all fifteen carriers"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source Workspace API; native not-executed",
+        "owner": "Codex focused automated verification",
+        "layer": "Actual public Workspace API and complete filesystem values"
+      },
+      "slice": "34 / S6 focused DEV checkpoint",
+      "required": true
+    },
+    {
+      "id": "MV-S6-LOCATION-002",
+      "title": "Reject evaluated untyped Location sources without changing business state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/34-map-locations-and-location-info.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "All four helpers and direct nodes evaluated from actual local-constant/spread/as-any source containing an extra own field, with complete business state retained.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-location-fixtures.ts",
+        "sha256": "5d2799e1e19cdde07996a5cadf87672e98c05e412b7c693f158f4082131be58c"
+      },
+      "expected": "Check, Compile and Push refuse all eight actual evaluated invalid source forms, preserving source, Project Root, Snapshot, generated output, manifest and Discovery.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-locations-workspace.test.ts",
+        "name": "rejects actual untyped Location sources at Check, Compile and Push without changing complete business state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source Workspace API; native not-executed",
+        "owner": "Codex focused automated verification",
+        "layer": "Actual public Workspace API and complete filesystem values"
+      },
+      "slice": "34 / S6 focused DEV checkpoint",
+      "required": true
+    },
+    {
+      "id": "MV-S6-LOCATION-003",
+      "title": "Reject native Location coordinates and unsupported exchange padding atomically",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/34-map-locations-and-location-info.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent native JSON contains negative-zero Transfer x or unsupported Event exchange padding 42, after an existing successful source publication.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-location-fixtures.ts",
+        "sha256": "5d2799e1e19cdde07996a5cadf87672e98c05e412b7c693f158f4082131be58c"
+      },
+      "expected": "Decompile refuses precise native coordinate and unsupported padding diagnostics before source publication, preserving complete business state and every carrier.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-locations-workspace.test.ts",
+        "name": "refuses native Location coordinate and unsupported exchange states before source publication while retaining every carrier"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source Workspace API; native not-executed",
+        "owner": "Codex focused automated verification",
+        "layer": "Actual public Workspace API and complete filesystem values"
+      },
+      "slice": "34 / S6 focused DEV checkpoint",
+      "required": true
+    },
+    {
+      "id": "MV-S6-LOCATION-004",
+      "title": "Pending final E4/E6 product comparison and R5 native game acceptance",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/34-map-locations-and-location-info.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Final built Location product compared with E4/E6 shipped editor code facts and an independently bound R5 native game product pair; not executed by this DEV checkpoint.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-location-fixtures.ts",
+        "sha256": "5d2799e1e19cdde07996a5cadf87672e98c05e412b7c693f158f4082131be58c"
+      },
+      "expected": "E4/E6 exact target and code evidence compared with final built output; actual hardened R5 game pair exercises direct/variables/exchange/query and controlled battle Transfer, with all physical protection gates. This requirement remains pending.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/34-map-locations-dev-checkpoint.md",
+        "section": "## Pending native comparison and game acceptance"
+      },
+      "nativeGroups": [
+        "E4",
+        "E6",
+        "R5"
+      ],
+      "execution": {
+        "environment": "Pending Windows / Node22 final built Workspace and identified MV1.6.1 native game runtime",
+        "owner": "Codex finalization queue; pending",
+        "layer": "Pending exact REA comparison and actual game product pair"
+      },
+      "slice": "34 / S6 focused DEV checkpoint",
+      "required": true
     }
   ]
 }

@@ -232,7 +232,7 @@ describe("collectDslOwnedDeclarations", () => {
     ).toBe("setVehicleLocation");
     expect(
       setEventLocation({
-        character: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
+        target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
         destination: { kind: "direct", x: 2, y: 3 },
       }).kind,
     ).toBe("setEventLocation");

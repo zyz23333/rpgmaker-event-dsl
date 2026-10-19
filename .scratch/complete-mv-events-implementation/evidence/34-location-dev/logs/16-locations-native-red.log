@@ -1,0 +1,40 @@
+
+> rpgmaker-event-dsl@0.1.2 test C:\Users\Shuen\.codex\worktrees\mv-ticket-34\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> vitest run "test/map-locations.test.ts"
+
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-34/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/map-locations.test.ts (8 tests | 1 failed) 26ms
+   × enforces the same native and known-raw saved slots without silently repairing Event exchange padding 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-locations.test.ts > enforces the same native and known-raw saved slots without silently repairing Event exchange padding
+AssertionError: expected [Function] to throw error matching /parameters\[2\]/ but got 'MV-COMMAND-PARAMETERS: Invalid known …'
+
+- Expected:
+/parameters\[2\]/
+
++ Received:
+"MV-COMMAND-PARAMETERS: Invalid known saved parameter. (commands[0]); expected integer 0..2147483647, excluding negative zero; actual 2147483648"
+
+ ❯ test/map-locations.test.ts:42:80
+     40|     const event = commonEvent({ id:1, name:"Raw reject", trigger:"none…
+     41|     const graph = buildStagedDataGraph({declarations:[event],snapshotR…
+     42|     expect(() => compileCommonEvent(event,{nextId:1,resolver:graph.res…
+       |                                                                                ^
+     43|   }
+     44|   expect(() => readRawCommandList([{code:203,indent:0,parameters:[0,2,…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 7 passed (8)
+   Start at  02:52:11
+   Duration  1.32s (transform 387ms, setup 0ms, import 1.12s, tests 26ms, environment 0ms)
+
+C:\Users\Shuen\.codex\worktrees\mv-ticket-34\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run "test/map-locations.test.ts"`
+Exit status 1

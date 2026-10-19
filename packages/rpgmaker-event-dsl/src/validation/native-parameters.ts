@@ -279,9 +279,13 @@ export function assertNativeCommandParameters(
   }
   if (code === 201) {
     oneOf(0, [0, 1]);
+    integer(1, 1);
     if (parameters[0] === 0) {
-      integer(2, 0);
-      integer(3, 0);
+      integer(2, 0, 2147483647);
+      integer(3, 0, 2147483647);
+    } else {
+      integer(2, 1);
+      integer(3, 1);
     }
     oneOf(4, [0, 2, 4, 6, 8]);
     oneOf(5, [0, 1, 2]);
@@ -289,18 +293,53 @@ export function assertNativeCommandParameters(
   if (code === 202) {
     oneOf(0, [0, 1, 2]);
     oneOf(1, [0, 1]);
+    integer(2, 1);
     if (parameters[1] === 0) {
-      integer(3, 0);
-      integer(4, 0);
+      integer(3, 0, 2147483647);
+      integer(4, 0, 2147483647);
+    } else {
+      integer(3, 1);
+      integer(4, 1);
     }
   }
   if (code === 203) {
+    integer(0, 0);
     oneOf(1, [0, 1, 2]);
     if (parameters[1] === 0) {
+      integer(2, 0, 2147483647);
+      integer(3, 0, 2147483647);
+    } else if (parameters[1] === 1) {
+      integer(2, 1);
+      integer(3, 1);
+    } else {
       integer(2, 0);
-      integer(3, 0);
+      if (!Object.is(parameters[3], 0))
+        throw new CommandStructureError(
+          "MV-E203-UNSUPPORTED",
+          "Unsupported saved exchange padding; only exact positive zero is represented.",
+          {
+            nativePath: `${path}.parameters[3]`,
+            expected: "exact numeric zero",
+            actual: renderJsonValue(parameters[3]),
+          },
+        );
     }
     oneOf(4, [0, 2, 4, 6, 8]);
+  }
+  if (code === 285) {
+    integer(0, 1);
+    oneOf(1, [0, 1, 2, 3, 4, 5, 6]);
+    oneOf(2, [0, 1]);
+    integer(
+      3,
+      parameters[2] === 0 ? 0 : 1,
+      parameters[2] === 0 ? 2147483647 : Number.MAX_SAFE_INTEGER,
+    );
+    integer(
+      4,
+      parameters[2] === 0 ? 0 : 1,
+      parameters[2] === 0 ? 2147483647 : Number.MAX_SAFE_INTEGER,
+    );
   }
   if ([132, 133, 139, 140, 241, 245, 249, 250].includes(code)) {
     const index = code === 140 ? 1 : 0;

@@ -473,3 +473,13 @@ reference/full1101 seed files. Product contract remains `mv-1.6.1/9`; source
 check39files/980tests and built Windows15files/366tests remain applicable to the
 unchanged97-source/15-dist product. All286 requirement objects retain their exact
 bytes and order. Final49–55 remain separate from this allocated delivery.
+
+
+## Ticket34 — focused Map Location development
+
+| Requirement | Case | Scope |
+| --- | --- | --- |
+| MV-S6-LOCATION-001 | Complete Location modes through actual Workspace installation | Synthetic source Workspace; native not executed; [record](34-map-locations-dev-checkpoint.md) |
+| MV-S6-LOCATION-002 | Reject evaluated untyped Location sources without changing business state | Synthetic source Workspace; native not executed; [record](34-map-locations-dev-checkpoint.md) |
+| MV-S6-LOCATION-003 | Reject native Location coordinates and unsupported exchange padding atomically | Synthetic source Workspace; native not executed; [record](34-map-locations-dev-checkpoint.md) |
+| MV-S6-LOCATION-004 | Pending final E4/E6 product comparison and R5 native game acceptance | Pending E4/E6/R5; not executed; [record](34-map-locations-dev-checkpoint.md) |

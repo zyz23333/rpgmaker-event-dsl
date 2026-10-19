@@ -1,6 +1,6 @@
 # 34: 地图位置与 Location Info
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 06, 23, 24
 Stage: S6
 Created: 2026-10-19
@@ -51,3 +51,23 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [系统、地图与表现参数附表](../../complete-mv-events/research/command-parameters/visual-map.md)。
+
+## Comments
+
+2026-10-20 focused DEV checkpoint on actual integration `c2a40a41c094ccdda47faccd4399891952739008`:
+all four Location command modes, named enums/defaults, finite coordinates,
+event-only selectors, precise diagnostics and context warnings implemented.
+Actual source Workspace tests compare 65 independent numeric records through
+Discovery/evaluation, Check, Compile, Diff and real Push with all 15 complete
+carriers; invalid evaluated source and native input preserve complete business
+state. The final related run passed 100 tests / 10 files, package typecheck and
+29-file scoped lint/format passed. The evidence-index selected test timed out at
+its unchanged original 10 seconds; queued ticket 36 cache reconciliation and
+original-deadline rerun remain required. All 286 inherited requirement rows and
+2,989 inherited evidence blobs retain their bytes; four own rows, 21 raw results
+and three exact 166-file input versions were added. See
+[DEV report](../evidence/34-map-locations-dev-checkpoint.md) and
+[history audit](../evidence/34-location-dev-history-audit-v1.json).
+Contract remains `mv-1.6.1/9`; full check/build/built Windows, E4/E6 exact product
+comparison, actual hardened R5 product pair and independent merger are pending.
+Ticket remains claimed, not READY or resolved.

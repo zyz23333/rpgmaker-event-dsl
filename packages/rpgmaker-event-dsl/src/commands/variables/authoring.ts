@@ -9,7 +9,8 @@ import type {
   ControlTimerDslCommand,
   ControlVariablesDslCommand,
   ControlVariablesGameDataOperand,
-  Direction,
+  LocationDirection,
+  TransferFade,
   MapDestination,
   OperateValueOperand,
   RandomOperand,
@@ -18,12 +19,14 @@ import type {
   ScriptOperand,
   TransferPlayerDslCommand,
 } from "../../domain/types.js";
+import { assertMapLocationInput } from "../map/location-validation.js";
 
 export function transferPlayer(input: {
   destination: MapDestination;
-  direction?: Direction;
-  fadeType?: 0 | 1 | 2;
+  direction?: LocationDirection;
+  fade?: TransferFade;
 }): TransferPlayerDslCommand {
+  assertMapLocationInput("transferPlayer", input, "transferPlayer", false);
   const node: TransferPlayerDslCommand = {
     kind: "transferPlayer",
     destination: input.destination,
@@ -32,8 +35,8 @@ export function transferPlayer(input: {
   if (input.direction !== undefined) {
     node.direction = input.direction;
   }
-  if (input.fadeType !== undefined) {
-    node.fadeType = input.fadeType;
+  if (input.fade !== undefined) {
+    node.fade = input.fade;
   }
 
   return node;

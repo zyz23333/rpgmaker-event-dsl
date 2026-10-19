@@ -1,0 +1,23 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const cp = require('node:child_process');
+const crypto = require('node:crypto');
+const assert = require('node:assert/strict');
+const root = 'C:/Users/Shuen/.codex/worktrees/mv-ticket-34/rpgmaker-event-dsl';
+const rel = '.scratch/complete-mv-events-implementation/evidence';
+const git = args => cp.execFileSync('git',['-c','core.longpaths=true',...args],{cwd:root,maxBuffer:20*1024*1024}).toString('utf8');
+const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
+const oid = bytes => crypto.createHash('sha1').update(Buffer.from(`blob ${bytes.length}\0`)).update(bytes).digest('hex');
+const newPaths = git(['diff','--cached','--name-only','--diff-filter=A','-z','--',rel]).split('\0').filter(Boolean);
+const staged = new Map(git(['ls-files','-s','-z','--',rel]).split('\0').filter(Boolean).map(line=>{const [head,file]=line.split('\t');return [file,head.split(' ')[1]];}));
+const receipt = newPaths.map(file=>{
+  const bytes=fs.readFileSync(path.join(root,file));
+  assert.equal(oid(bytes),staged.get(file),`Staged bytes differ: ${file}`);
+  return {path:file,sha256:sha(bytes),gitBlob:staged.get(file),bytes:bytes.length};
+});
+const last = JSON.parse(fs.readFileSync(path.join(root,rel,'results/34-location-dev/MV-S6-LOCATION-003-2026-10-19T19-10-54-291Z-a9f89947-400c-4a5a-b7a1-f14fb9c2bb9f.json')));
+for (const file of last.source.files) assert.equal(sha(fs.readFileSync(path.join(root,file.path))),file.sha256,`Current tested input changed: ${file.path}`);
+const sourceFiles = last.source.files.filter(file=>file.path.startsWith('packages/rpgmaker-event-dsl/src/'));
+const result={formatVersion:1,scope:'Focused DEV byte-preservation proof only; full original-deadline evidence-index test remains timed out',base:'c2a40a41c094ccdda47faccd4399891952739008',testedFingerprint:last.source.fingerprint,currentTestedInputs:last.source.files.length,currentProductSourceFiles:sourceFiles.length,currentTestedInputBytesUnchanged:true,allNewEvidenceStagedBytesExact:true,newEvidenceFiles:receipt.length,receipt};
+fs.writeFileSync(path.join(root,rel,'34-location-dev-staged-audit-v1.json'),JSON.stringify(result,null,2)+'\n',{flag:'wx'});
+console.log(JSON.stringify({newEvidenceFiles:receipt.length,currentTestedInputs:last.source.files.length,currentProductSourceFiles:sourceFiles.length,currentTestedInputBytesUnchanged:true,allNewEvidenceStagedBytesExact:true}));

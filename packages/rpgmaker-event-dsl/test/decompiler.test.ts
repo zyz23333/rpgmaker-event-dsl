@@ -43,7 +43,7 @@ describe("decompiler command list rendering", () => {
         { code: 202, indent: 0, parameters: [2, 0, 12, 4, 5] },
         { code: 203, indent: 0, parameters: [0, 0, 6, 7, 8] },
         { code: 203, indent: 0, parameters: [4, 1, 10, 11, 0] },
-        { code: 203, indent: 0, parameters: [-1, 2, 0, 0, 0] },
+        { code: 203, indent: 0, parameters: [0, 2, 0, 0, 0] },
         { code: 204, indent: 0, parameters: [6, 9, 5] },
         {
           code: 205,
@@ -231,11 +231,11 @@ describe("decompiler command list rendering", () => {
         "changeWindowColor({ tone: [12,-24,36,0] }),",
         'changeDefeatMe({ audio: { asset: audioAsset({ folder: "me", name: "Defeat1" }), volume: 90, pitch: 100, pan: -10 } }),',
         'changeVehicleBgm({ vehicle: "ship", audio: { asset: audioAsset({ folder: "bgm", name: "Ship1" }), volume: 90, pitch: 100, pan: 0 } }),',
-        'transferPlayer({ destination: { kind: "variables", map: variableRef({ id: 9 }), x: variableRef({ id: 10 }), y: variableRef({ id: 11 }) }, direction: 4, fadeType: 1 }),',
+        'transferPlayer({ destination: { kind: "variables", map: variableRef({ id: 9 }), x: variableRef({ id: 10 }), y: variableRef({ id: 11 }) }, direction: "left", fade: "white" }),',
         'setVehicleLocation({ vehicle: "airship", destination: { kind: "direct", map: mapRef({ id: 12 }), x: 4, y: 5 } }),',
-        'setEventLocation({ character: { kind: "runtimeSelector", scope: "character", target: "currentEvent" }, destination: { kind: "direct", x: 6, y: 7 }, direction: 8 }),',
-        'setEventLocation({ character: { kind: "runtimeSelector", scope: "character", target: "event", id: 4 }, destination: { kind: "variables", x: variableRef({ id: 10 }), y: variableRef({ id: 11 }) } }),',
-        'setEventLocation({ character: { kind: "runtimeSelector", scope: "character", target: "player" }, destination: { kind: "exchange", character: { kind: "runtimeSelector", scope: "character", target: "currentEvent" } } }),',
+        'setEventLocation({ target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" }, destination: { kind: "direct", x: 6, y: 7 }, direction: "up" }),',
+        'setEventLocation({ target: { kind: "runtimeSelector", scope: "character", target: "event", id: 4 }, destination: { kind: "variables", x: variableRef({ id: 10 }), y: variableRef({ id: 11 }) } }),',
+        'setEventLocation({ target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" }, destination: { kind: "exchange", target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" } } }),',
         "scrollMap({ direction: 6, distance: 9, speed: 5 }),",
         'setMovementRoute({ target: { kind: "runtimeSelector", scope: "character", target: "event", id: 4 }, route: { commands: [{ kind: "moveDown" }, { kind: "jump", x: 2, y: -1 }, { kind: "wait", frames: 10 }, { kind: "turn90Right" }, { kind: "switchOn", switch: switchRef({ id: 2 }) }, { kind: "switchOff", switch: switchRef({ id: 3 }) }, { kind: "changeSpeed", speed: 5 }, { kind: "changeFrequency", frequency: 4 }, { kind: "walkAnimation", enabled: true }, { kind: "stepAnimation", enabled: false }, { kind: "directionFix", enabled: true }, { kind: "through", enabled: false }, { kind: "transparent", enabled: true }, { kind: "changeImage", character: imageAsset({ folder: "characters", name: "Actor1" }), characterIndex: 3 }, { kind: "changeOpacity", opacity: 128 }, { kind: "changeBlendMode", blendMode: "additive" }, { kind: "playSe", audio: { asset: audioAsset({ folder: "se", name: "Cursor1" }), volume: 80, pitch: 100, pan: 0 } }, { kind: "script", script: scriptInput({ code: "this.moveForward();" }) }], repeat: false, skippable: true, wait: true } }),',
         "getOnOffVehicle(),",
@@ -271,7 +271,7 @@ describe("decompiler command list rendering", () => {
         'changeBattleBack({ battleback1: imageAsset({ folder: "battlebacks1", name: "Grassland" }), battleback2: imageAsset({ folder: "battlebacks2", name: "Forest" }) }),',
         'changeParallax({ image: imageAsset({ folder: "parallaxes", name: "Clouds" }), loopX: true, sx: 2 }),',
         'getLocationInfo({ variable: variableRef({ id: 3 }), info: "regionId", location: { kind: "direct", x: 4, y: 5 } }),',
-        'getLocationInfo({ variable: variableRef({ id: 5 }), info: "tileIdLayer2", location: { kind: "variables", x: variableRef({ id: 10 }), y: variableRef({ id: 11 }) } }),',
+        'getLocationInfo({ variable: variableRef({ id: 5 }), info: "tileLayer2", location: { kind: "variables", x: variableRef({ id: 10 }), y: variableRef({ id: 11 }) } }),',
       ].join("\n"),
     });
   });

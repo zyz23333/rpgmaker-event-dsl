@@ -265,6 +265,8 @@ export type CommandPosition = DirectPosition | VariablePosition;
 export type VehicleTarget = "boat" | "ship" | "airship";
 
 export type Direction = 2 | 4 | 6 | 8;
+export type LocationDirection = "retain" | "down" | "left" | "right" | "up";
+export type TransferFade = "black" | "white" | "none";
 
 export type CharacterRuntimeSelector =
   | (RuntimeSelector<"character", "player"> & {
@@ -276,6 +278,7 @@ export type CharacterRuntimeSelector =
   | (RuntimeSelector<"character", "event"> & {
       id: number;
     });
+export type EventRuntimeSelector = Exclude<CharacterRuntimeSelector, { target: "player" }>;
 
 export type DirectMapDestination = {
   kind: "direct";
@@ -307,7 +310,7 @@ export type VariableEventLocationDestination = {
 
 export type ExchangeEventLocationDestination = {
   kind: "exchange";
-  character: CharacterRuntimeSelector;
+  target: EventRuntimeSelector;
 };
 
 export type EventLocationDestination =
@@ -343,10 +346,10 @@ export type AudioPayload = {
 export type LocationInfoType =
   | "terrainTag"
   | "eventId"
-  | "tileIdLayer1"
-  | "tileIdLayer2"
-  | "tileIdLayer3"
-  | "tileIdLayer4"
+  | "tileLayer1"
+  | "tileLayer2"
+  | "tileLayer3"
+  | "tileLayer4"
   | "regionId";
 
 export type ConditionalVariableOperator = "eq" | "ge" | "le" | "gt" | "lt" | "ne";
