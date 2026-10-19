@@ -41,6 +41,7 @@ export type DecompileProjectDataSnapshotOptions = {
   sourceRoot: string;
   statePaths: WorkspaceStatePaths;
   workspaceRoot: string;
+  assertInputsUnchanged?: () => Promise<void>;
 };
 
 export async function decompileProjectDataSnapshot(
@@ -49,6 +50,7 @@ export async function decompileProjectDataSnapshot(
   const files = await buildDecompiledSourceFiles(options);
 
   await assertTargetFilesDoNotExist(files);
+  await options.assertInputsUnchanged?.();
 
   for (const file of files) {
     await mkdir(dirname(file.path), { recursive: true });

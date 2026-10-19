@@ -5294,6 +5294,286 @@
       },
       "slice": "17 / S4a",
       "required": true
+    },
+    {
+      "id": "MV-S4-INPUT-001",
+      "title": "type dependency content invalidates Generated Freshness and blocks Diff/Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I11"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/18-compile-inputs-and-freshness.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "type dependency content invalidates Generated Freshness and blocks Diff/Push. Actual public Workspace operations, captured dependency bytes and real filesystem/process changes.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "type dependency content invalidates Generated Freshness and blocks Diff/Push. Full source/config/dependency/project/Snapshot/Generated/manifest/Discovery/pending state is compared.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/compile-inputs.test.ts",
+        "name": "MV-S4-INPUT-001: type dependency content invalidates Generated Freshness and blocks Diff/Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "18 / S4a",
+      "required": true
+    },
+    {
+      "id": "MV-S4-INPUT-002",
+      "title": "Compile and Check refuse input changes observed before publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I11"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/18-compile-inputs-and-freshness.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Compile and Check refuse input changes observed before publication. Actual public Workspace operations, captured dependency bytes and real filesystem/process changes.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Compile and Check refuse input changes observed before publication. Full source/config/dependency/project/Snapshot/Generated/manifest/Discovery/pending state is compared.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/compile-inputs.test.ts",
+        "name": "MV-S4-INPUT-002: Compile and Check refuse input changes observed before publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "18 / S4a",
+      "required": true
+    },
+    {
+      "id": "MV-S4-INPUT-003",
+      "title": "resolution lookups and package metadata invalidate unchanged loaded declarations",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I11"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/18-compile-inputs-and-freshness.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "resolution lookups and package metadata invalidate unchanged loaded declarations. Actual public Workspace operations, captured dependency bytes and real filesystem/process changes.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "resolution lookups and package metadata invalidate unchanged loaded declarations. Full source/config/dependency/project/Snapshot/Generated/manifest/Discovery/pending state is compared.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/compile-inputs.test.ts",
+        "name": "MV-S4-INPUT-003: resolution lookups and package metadata invalidate unchanged loaded declarations"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "18 / S4a",
+      "required": true
+    },
+    {
+      "id": "MV-S4-INPUT-004",
+      "title": "Compile and Check refuse changed discovery and Snapshot sets",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I11"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/18-compile-inputs-and-freshness.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Compile and Check refuse changed discovery and Snapshot sets. Actual public Workspace operations, captured dependency bytes and real filesystem/process changes.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Compile and Check refuse changed discovery and Snapshot sets. Full source/config/dependency/project/Snapshot/Generated/manifest/Discovery/pending state is compared.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/compile-inputs.test.ts",
+        "name": "MV-S4-INPUT-004: Compile and Check refuse changed discovery and Snapshot sets"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "18 / S4a",
+      "required": true
+    },
+    {
+      "id": "MV-S4-INPUT-005",
+      "title": "Compile and Check refuse changed configuration target and captured bytes",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I11"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/18-compile-inputs-and-freshness.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Compile and Check refuse changed configuration target and captured bytes. Actual public Workspace operations, captured dependency bytes and real filesystem/process changes.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Compile and Check refuse changed configuration target and captured bytes. Full source/config/dependency/project/Snapshot/Generated/manifest/Discovery/pending state is compared.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/compile-inputs.test.ts",
+        "name": "MV-S4-INPUT-005: Compile and Check refuse changed configuration target and captured bytes"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "18 / S4a",
+      "required": true
+    },
+    {
+      "id": "MV-S4-INPUT-006",
+      "title": "Decompile refuses changed existing source discovery config and Snapshot before publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I11"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/18-compile-inputs-and-freshness.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Decompile refuses changed existing source discovery config and Snapshot before publication. Actual public Workspace operations, captured dependency bytes and real filesystem/process changes.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Decompile refuses changed existing source discovery config and Snapshot before publication. Full source/config/dependency/project/Snapshot/Generated/manifest/Discovery/pending state is compared.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/compile-inputs.test.ts",
+        "name": "MV-S4-INPUT-006: Decompile refuses changed existing source discovery config and Snapshot before publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "18 / S4a",
+      "required": true
+    },
+    {
+      "id": "MV-S4-INPUT-007",
+      "title": "missing old or mismatched contract basis stays stale and Check creates no Freshness",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I11"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/18-compile-inputs-and-freshness.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "missing old or mismatched contract basis stays stale and Check creates no Freshness. Actual public Workspace operations, captured dependency bytes and real filesystem/process changes.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "missing old or mismatched contract basis stays stale and Check creates no Freshness. Full source/config/dependency/project/Snapshot/Generated/manifest/Discovery/pending state is compared.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/compile-inputs.test.ts",
+        "name": "MV-S4-INPUT-007: missing old or mismatched contract basis stays stale and Check creates no Freshness"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "18 / S4a",
+      "required": true
+    },
+    {
+      "id": "MV-S4-INPUT-008",
+      "title": "capturing type dependencies never executes helper values or event JavaScript",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I11"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/18-compile-inputs-and-freshness.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "capturing type dependencies never executes helper values or event JavaScript. Actual public Workspace operations, captured dependency bytes and real filesystem/process changes.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "capturing type dependencies never executes helper values or event JavaScript. Full source/config/dependency/project/Snapshot/Generated/manifest/Discovery/pending state is compared.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/compile-inputs.test.ts",
+        "name": "MV-S4-INPUT-008: capturing type dependencies never executes helper values or event JavaScript"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "18 / S4a",
+      "required": true
     }
   ]
 }

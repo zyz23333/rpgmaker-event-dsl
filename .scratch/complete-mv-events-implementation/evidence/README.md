@@ -232,3 +232,16 @@ all record `native: not-executed`. Final E/R validation remains assigned to late
 | MV-S4-SNAPSHOT-008 | Snapshot set/content must agree with its captured manifest before consumption                                           | synthetic-support | Windows public API and byte-level corruption                                            |
 | MV-S4-SNAPSHOT-009 | Invalid standard carriers and registered map event locations stop explicitly                                            | synthetic-support | Windows public API and independent malformed carriers                                   |
 | MV-S4-SNAPSHOT-010 | Unknown/inconsistent pending formats and corrupt backup/generated evidence remain intact                                | synthetic-support | Windows public API/CLI, interrupted actual Push and successful generated-state recovery |
+
+Ticket18 adds compilation input capture and Generated Freshness cases. These cases record `native: not-executed`; final game validation remains separately assigned.
+
+| Requirement     | Obligation                                                                                 | Evidence kind     | Required layer                                           |
+| --------------- | ------------------------------------------------------------------------------------------ | ----------------- | -------------------------------------------------------- |
+| MV-S4-INPUT-001 | type dependency content invalidates Generated Freshness and blocks Diff/Push               | synthetic-support | Windows public API / real filesystem and child processes |
+| MV-S4-INPUT-002 | Compile and Check refuse input changes observed before publication                         | synthetic-support | Windows public API / real filesystem and child processes |
+| MV-S4-INPUT-003 | resolution lookups and package metadata invalidate unchanged loaded declarations           | synthetic-support | Windows public API / real filesystem and child processes |
+| MV-S4-INPUT-004 | Compile and Check refuse changed discovery and Snapshot sets                               | synthetic-support | Windows public API / real filesystem and child processes |
+| MV-S4-INPUT-005 | Compile and Check refuse changed configuration target and captured bytes                   | synthetic-support | Windows public API / real filesystem and child processes |
+| MV-S4-INPUT-006 | Decompile refuses changed existing source discovery config and Snapshot before publication | synthetic-support | Windows public API / real filesystem and child processes |
+| MV-S4-INPUT-007 | missing old or mismatched contract basis stays stale and Check creates no Freshness        | synthetic-support | Windows public API / real filesystem and child processes |
+| MV-S4-INPUT-008 | capturing type dependencies never executes helper values or event JavaScript               | synthetic-support | Windows public API / real filesystem and child processes |

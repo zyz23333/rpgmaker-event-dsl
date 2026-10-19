@@ -106,6 +106,24 @@ the old binding. Junction aliases to the same target are accepted. A pending Int
 Push must first be recovered by Push against its original target. Unknown, incomplete
 or inconsistent pending state is preserved for manual correction.
 
+Compile captures discovered source bytes and the TypeScript host's actual validation
+inputs, including declaration files, package metadata, module-resolution candidates
+that are currently missing, and relevant directory listings. They join the relevant
+Workspace Config, complete Snapshot file set and content, canonical target and a
+tool-maintained Compile Contract Version in the Compile Baseline. Changing a type
+dependency, adding a higher-priority declaration, or changing these assumptions makes
+Generated Project Data stale; Diff and Push require another successful Compile.
+Missing or mismatched contract metadata also requires Compile. Type validation uses
+the Workspace directory consistently through both the API and CLI.
+
+Validation, source evaluation, generated data and hashes use the same captured source
+and Snapshot bytes. Compile, `compile --check` and Decompile recheck observed content,
+source discovery, configuration and target before publication and fail with a rerun
+diagnostic when they change. Check is read-only and creates no Generated Freshness.
+Type-only imports are validated without executing modules; ordinary helper value
+imports remain unsupported, and event JavaScript remains stored text. These are
+explicit consistency checks; an external editor may still save after the last check.
+
 `controlSwitches` ranges include both endpoints and reject reversed order.
 `controlSwitches` and `controlSelfSwitch` require an explicit Boolean `value`;
 self-switch letters are A–D. A Common Event called by a Map Event inherits its

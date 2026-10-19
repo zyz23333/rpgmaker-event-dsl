@@ -1,7 +1,4 @@
-import { readFile } from "node:fs/promises";
-import { resolve } from "node:path";
-
-import type { WorkspaceStatePaths } from "../workspace/state.js";
+import { readProjectDataSnapshotFile, type WorkspaceStatePaths } from "../workspace/state.js";
 import type { RawEventCommand } from "../compiler/types.js";
 import type { SnapshotCommonEvent, SnapshotMapEvent, SnapshotMapEventPage } from "./types.js";
 import { assertNativeMovementRoute } from "../commands/movement/validation.js";
@@ -242,7 +239,7 @@ export async function readSnapshotFile(
   statePaths: WorkspaceStatePaths,
   relativePath: string,
 ): Promise<string> {
-  return readFile(resolve(statePaths.projectDataSnapshotDirectory, relativePath), "utf8");
+  return readProjectDataSnapshotFile(statePaths, relativePath);
 }
 
 export async function readSnapshotArray(

@@ -14,11 +14,17 @@ import { parseMapInfos } from "./project.js";
 import type { ReferenceResolver } from "../validation/types.js";
 import {
   hashUtf8Content,
+  readProjectDataSnapshotFile,
   type SyncManifest,
   type WorkspaceStatePaths,
 } from "../workspace/state.js";
 import type { WorkspaceConfig } from "../workspace/config.js";
 import { writeStableJson } from "./writer.js";
+import {
+  compileContractVersion,
+  typeInputsUnchanged,
+  type TypeInput,
+} from "../workspace/type-inputs.js";
 
 export type CompileBaseline = NonNullable<SyncManifest["compileBaseline"]>;
 export type FileHashEntry = {
@@ -30,6 +36,7 @@ export type MaterializeCompileOutputOptions = {
   statePaths: WorkspaceStatePaths;
   declarations: readonly DslOwnedDeclaration[];
   resolver: ReferenceResolver;
+  assertInputsUnchanged?: () => Promise<void>;
 };
 
 export type MaterializedCompileOutput = {
@@ -42,6 +49,7 @@ export type CompileBaselineInput = {
   config: WorkspaceConfig;
   sourceFiles: readonly string[];
   sourceFileHashes?: readonly FileHashEntry[];
+  typeInputs?: readonly TypeInput[];
   snapshotFiles: readonly FileHashEntry[];
 };
 
@@ -92,7 +100,7 @@ export async function materializeCompileOutput(
     ),
   );
 
-  return writeGeneratedProjectData(options.statePaths, files);
+  return writeGeneratedProjectData(options.statePaths, files, options.assertInputsUnchanged);
 }
 
 export async function buildCompileBaseline(input: CompileBaselineInput): Promise<CompileBaseline> {
@@ -117,6 +125,8 @@ export async function buildCompileBaseline(input: CompileBaselineInput): Promise
     sourceRoot: input.config.sourceRoot,
   };
   const baselineWithoutHash = {
+    compileContractVersion,
+    typeInputs: [...(input.typeInputs ?? [])],
     projectRootBinding: input.projectRootBinding,
     config,
     snapshotFiles,
@@ -137,8 +147,21 @@ export async function isCompileBaselineFresh(input: {
   sourceFiles: readonly string[];
   snapshotFiles: readonly FileHashEntry[];
 }): Promise<boolean> {
-  const currentBaseline = await buildCompileBaseline(input);
-  return currentBaseline.hash === input.baseline.hash;
+  if (
+    input.baseline.compileContractVersion !== compileContractVersion ||
+    input.baseline.typeInputs === undefined ||
+    !typeInputsUnchanged(input.baseline.typeInputs)
+  )
+    return false;
+  try {
+    const currentBaseline = await buildCompileBaseline({
+      ...input,
+      typeInputs: input.baseline.typeInputs,
+    });
+    return currentBaseline.hash === input.baseline.hash;
+  } catch {
+    return false;
+  }
 }
 
 function materializeMapCarrier(
@@ -212,6 +235,7 @@ function materializeSystemNames(
 async function writeGeneratedProjectData(
   statePaths: WorkspaceStatePaths,
   files: ReadonlyMap<string, unknown>,
+  assertInputsUnchanged?: () => Promise<void>,
 ): Promise<MaterializedCompileOutput> {
   const tempDirectory = resolve(
     statePaths.workspaceStateDirectory,
@@ -238,6 +262,7 @@ async function writeGeneratedProjectData(
       });
     }
 
+    await assertInputsUnchanged?.();
     await replaceDirectory(tempDirectory, statePaths.generatedProjectDataDirectory);
 
     return { generatedFiles };
@@ -251,7 +276,7 @@ async function readSnapshotFile(
   statePaths: WorkspaceStatePaths,
   relativePath: string,
 ): Promise<string> {
-  return readFile(resolve(statePaths.projectDataSnapshotDirectory, relativePath), "utf8");
+  return readProjectDataSnapshotFile(statePaths, relativePath);
 }
 
 async function readSnapshotArray(
