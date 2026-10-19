@@ -347,3 +347,27 @@ Ticket22 verifies Interrupted Push content recovery through the public Workspace
 | MV-S4-RECOVERY-019 | refuses pending replacement after its original bytes are captured | synthetic-support | Windows public API and actual held filesystem/process boundary |
 
 Ticket22 records [the frozen recovery protocol, actual red/green runs and byte-preserved evidence](22-interrupted-push-content-recovery.md). Historical failures and superseded passes keep their original status and provenance; native execution remains `not-executed`.
+
+
+Ticket23 verifies complete Common Event state and E117 through public authoring and Workspace operations. Native evidence is recorded separately in [the Common roundtrip report](23-common-event-roundtrip.md).
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S5-COMMON-001 | evaluates named-object Common calls against complete current declarations | synthetic-support | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-002 | preserves every trigger and independent saved switch through editable source and safe Push | synthetic-support | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-003 | rejects malformed owned Common metadata before any source publication | synthetic-rejection | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-004 | rejects malformed formal Common containers without publishing output | synthetic-rejection | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-005 | rejects invalid E117 shape through real source | synthetic-rejection | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-006 | applies ordinary Switch reference rules | synthetic-support | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-007 | rejects saved Switch references outside actual capacity | synthetic-rejection | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-008 | reports independent saved-field changes and safely removes entries without compacting IDs | synthetic-support | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-009 | resolves E117 only against current complete declarations | synthetic-support | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-010 | rejects malformed late Common command lists | synthetic-rejection | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-011 | existing handwritten declarations cannot repair an incomplete native candidate | synthetic-rejection | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-012 | preserves a distant explicit identity and omitted none default without a picker cap | synthetic-support | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-013 | preserves known calls and opaque raw payloads while the Script Gate remains effective | synthetic-support | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-014 | public types require an active trigger Switch and the named E117 input | synthetic-rejection | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-015 | validates direct exported Common definitions before scope construction | synthetic-rejection | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+| MV-S5-COMMON-016 | preserves caller-dependent current-event operations without inventing a fixed Map context | synthetic-support | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
+
+| MV-S5-COMMON-E1 | Identified editor Common factory/load/edit/save and E117 selection code facts | reverse-engineering-observation | Read-only resource identity and complete Common initialization/load/edit/serialize code review |

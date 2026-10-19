@@ -16,6 +16,7 @@ export default defineConfig({
       "test/decompile-publication.test.ts",
       "test/push-drift.test.ts",
       "test/push-recovery.test.ts",
+      "test/common-event-workspace.test.ts",
     ],
     env: { MV_CLI_ENTRY: "built" },
   },

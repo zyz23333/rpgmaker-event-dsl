@@ -1,0 +1,51 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-23/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/common-event-workspace.test.ts > MV-S5-COMMON-003: rejects malformed owned Common metadata before any source publication (scalar)
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\common-invalid-native-iqPuKC
+
+ ❯ test/common-event-workspace.test.ts (24 tests | 1 failed | 23 skipped) 109ms
+   × MV-S5-COMMON-003: rejects malformed owned Common metadata before any source publication (scalar) 108ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/common-event-workspace.test.ts > MV-S5-COMMON-003: rejects malformed owned Common metadata before any source publication (scalar)
+AssertionError: expected { …(5) } to strictly equal { …(5) }
+
+- Expected
++ Received
+
+@@ -33,10 +33,11 @@
+      "data/Troops.json": "5b6e756c6c5d",
+      "data/Weapons.json": "5b6e756c6c5d",
+    },
+    "source": {},
+    "state": {
++     "decompile-candidates/": "directory",
+      "project-data-snapshot/": "directory",
+      "project-data-snapshot/Actors.json": "5b6e756c6c5d",
+      "project-data-snapshot/Animations.json": "5b6e756c6c5d",
+      "project-data-snapshot/Armors.json": "5b6e756c6c5d",
+      "project-data-snapshot/Classes.json": "5b6e756c6c5d",
+
+ ❯ test/common-event-workspace.test.ts:57:46
+     55|       const before = await observe(s.workspaceRoot);
+     56|       await expect(api.decompileWorkspace(s)).rejects.toThrow(/MV-COMM…
+     57|       expect(await observe(s.workspaceRoot)).toStrictEqual(before);
+       |                                              ^
+     58|     });
+     59|   },
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/common-event-workspace.test.ts:48:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 23 skipped (24)
+   Start at  21:48:14
+   Duration  1.73s (transform 507ms, setup 0ms, import 1.46s, tests 109ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-23\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/common-event-workspace.test.ts -t MV-S5-COMMON-003.*scalar

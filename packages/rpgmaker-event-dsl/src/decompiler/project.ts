@@ -14,7 +14,6 @@ import {
   readCommonEvents,
   readMapEvents,
   readNamedSystemEntries,
-  readPositiveInteger,
   readSnapshotArray,
   readSnapshotFile,
   readSnapshotObject,
@@ -32,7 +31,6 @@ import {
   buildReferenceScope,
   createReferenceResolver,
 } from "../validation/references.js";
-import { readObjectReferenceEntries } from "../validation/snapshot.js";
 import type { ReferenceResolver } from "../validation/types.js";
 import type { ValidationIssue } from "../validation/types.js";
 import type { RawEventCommand } from "./types.js";
@@ -121,6 +119,7 @@ async function buildDecompiledSourceFiles(
     unknown[],
     unknown[],
   ];
+  const commonEvents = readCommonEvents(commonEventsInput);
   const scopes = buildReferenceScopes({
     declarations: [],
     snapshotReferences: buildSnapshotReferenceInput({
@@ -142,8 +141,27 @@ async function buildDecompiledSourceFiles(
   });
   // Decompile's entire owned candidate comes from this captured Snapshot. Compile's
   // resolver continues to take Common Events exclusively from actual declarations.
-  scopes.commonEvent = buildReferenceScope(readObjectReferenceEntries(commonEventsInput));
+  scopes.commonEvent = buildReferenceScope(commonEvents, true);
   const resolver = createReferenceResolver(scopes);
+  for (const event of commonEvents) {
+    // none's omitted authoring switch reconstructs the fixed saved default 1.
+    if (event.trigger === 0 && event.switchId === 1) continue;
+    try {
+      resolver.resolveReference({ kind: "switch", id: event.switchId });
+    } catch (error) {
+      throw new CommandStructureError(
+        "MV-COMMON-REFERENCE",
+        error instanceof Error ? error.message : String(error),
+        {
+          nativePath: `CommonEvents[${event.id}].switchId`,
+          expected: "existing System Switch slot",
+          actual: String(event.switchId),
+        },
+        `commonEvent:${event.id}`,
+        "decompile",
+      );
+    }
+  }
 
   for (const mapInfo of mapInfos) {
     const mapFileName = formatMapFileName(mapInfo.id);
@@ -189,9 +207,6 @@ async function buildDecompiledSourceFiles(
     });
   }
 
-  const commonEvents = readCommonEvents(
-    await readSnapshotArray(options.statePaths, "CommonEvents.json"),
-  );
   for (const event of commonEvents) {
     issues.push(
       ...inspectNativeCommandInputs(event.list ?? [], {
@@ -325,9 +340,9 @@ function renderCommonEventsSource(events: readonly SnapshotCommonEvent[]): strin
       const exportName = names.create("commonEvent", event.name, event.id);
       const trigger = commonEventTriggerFromCode(event.trigger);
       const switchLine =
-        trigger === "none"
+        trigger === "none" && event.switchId === 1
           ? ""
-          : `\n  switch: switchRef({ id: ${readPositiveInteger(event.switchId) ?? 1} }),`;
+          : `\n  switch: switchRef({ id: ${event.switchId} }),`;
 
       return `export const ${exportName} = commonEvent({
   id: ${event.id},
@@ -342,9 +357,7 @@ ${indentLines(renderCommands(normalizeCommandList(event.list)), 4)}
 
   return `${renderEventImport([
     "commonEvent",
-    ...(events.some((event) => commonEventTriggerFromCode(event.trigger) !== "none")
-      ? ["switchRef"]
-      : []),
+    ...(events.some((event) => event.trigger !== 0 || event.switchId !== 1) ? ["switchRef"] : []),
     ...events.flatMap(
       (event) => renderDecompiledCommandList(normalizeCommandList(event.list)).helperNames,
     ),

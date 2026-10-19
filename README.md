@@ -127,6 +127,18 @@ export const introCommonEvent = commonEvent({
 When compiled, `introCommonEvent` becomes a `CommonEvents.json` entry, and its
 `showText(...)` command becomes RPG Maker MV's raw text command records.
 
+Common Events require an explicit positive `id`, exact `name`, `trigger`, and
+`commands` array, which may be empty. Names may be empty or duplicated; references
+by name require exactly one current declaration. Use
+`callCommonEvent({ commonEvent: commonEventRef({ id: 1 }) })` to call one.
+
+`trigger: "autorun"` and `"parallel"` require a `switch: switchRef(...)`. The same
+field preserves an independent saved switch when the trigger is `"none"`. Omitting
+it for `"none"` writes the fixed saved default `switchId: 1`; an explicit reference
+always follows ordinary Switch existence and capacity rules. Common Events inherit
+their invocation context and require no map or battle declaration. Removing a
+Common Event leaves a null ID hole and requires a destructive Push.
+
 DSL source files are discovered from the workspace config. By default, files under `src/`
 are treated as DSL declaration files when they match names like `**/*.events.ts` or
 `**/*.dsl.ts`.
@@ -476,7 +488,7 @@ export const doorEvent = mapEvent({
       },
       commands: [
         showText({ lines: ["The door is open."] }),
-        callCommonEvent(commonEventRef({ id: 1 })),
+        callCommonEvent({ commonEvent: commonEventRef({ id: 1 }) }),
       ],
     }),
   ],

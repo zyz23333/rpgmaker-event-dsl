@@ -9,7 +9,9 @@ import type {
 } from "./types.js";
 import { validateNodes, validatePages } from "./commands.js";
 import { toReferenceEntry } from "./snapshot.js";
-import { buildDuplicateAwareNameIndex, captureReferenceIssue } from "./shared.js";
+import { buildDuplicateAwareNameIndex } from "./shared.js";
+import { CommandStructureError } from "./command-errors.js";
+import { assertCommonEventInput } from "./common-events.js";
 
 export function buildReferenceScopes(input: {
   declarations: readonly DslOwnedDeclaration[];
@@ -30,7 +32,7 @@ export function buildReferenceScopes(input: {
     animation: buildReferenceScope(input.snapshotReferences.animations ?? []),
     armor: buildReferenceScope(input.snapshotReferences.armors ?? []),
     class: buildReferenceScope(input.snapshotReferences.classes ?? []),
-    commonEvent: buildReferenceScope(commonEvents),
+    commonEvent: buildReferenceScope(commonEvents, true),
     enemy: buildReferenceScope(input.snapshotReferences.enemies ?? []),
     item: buildReferenceScope(input.snapshotReferences.items ?? []),
     map: buildReferenceScope(input.snapshotReferences.maps ?? []),
@@ -66,10 +68,13 @@ function buildSystemScope(
   };
 }
 
-export function buildReferenceScope(entries: readonly ReferenceEntry[]): ReferenceScope {
+export function buildReferenceScope(
+  entries: readonly ReferenceEntry[],
+  includeEmptyNames = false,
+): ReferenceScope {
   return {
     byId: new Map(entries.map((entry) => [entry.id, entry])),
-    byName: buildDuplicateAwareNameIndex(entries),
+    byName: buildDuplicateAwareNameIndex(entries, includeEmptyNames),
   };
 }
 
@@ -121,15 +126,29 @@ export function validateDeclarationReferences(
     }
 
     if (declaration.kind === "commonEvent") {
-      if (declaration.trigger !== "none" && declaration.switch === undefined) {
-        issues.push({
-          level: "error",
-          message: `Common event "${declaration.name}" requires a switch when trigger is ${declaration.trigger}.`,
-        });
+      try {
+        assertCommonEventInput(declaration, true);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(`commonEvent:${declaration.id}`, "compile"));
+        else throw error;
+        continue;
       }
       if (declaration.switch) {
-        const switchRef = declaration.switch;
-        captureReferenceIssue(() => resolver.resolveReference(switchRef), issues);
+        try {
+          resolver.resolveReference(declaration.switch);
+        } catch (error) {
+          issues.push(
+            new CommandStructureError(
+              "MV-COMMON-REFERENCE",
+              error instanceof Error ? error.message : String(error),
+              {
+                dslPath: "commonEvent.switch",
+                expected: "existing Switch reference",
+              },
+            ).issue(`commonEvent:${declaration.id}`, "compile"),
+          );
+        }
       }
       validateNodes(
         declaration.commands,

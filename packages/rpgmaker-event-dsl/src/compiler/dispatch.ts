@@ -2,7 +2,11 @@ import type { CommonEventDefinition, DslCommand, PageConditions } from "../domai
 import type { ReferenceResolver } from "../validation/types.js";
 import type { RawEventCommand, CommandOrigins } from "./types.js";
 import { assertDslCommandList } from "../validation/dsl-command-inputs.js";
-import { assertLoopCommand, assertParameterlessFlowCommand } from "../commands/flow/validation.js";
+import {
+  resolveCommonEventCall,
+  assertLoopCommand,
+  assertParameterlessFlowCommand,
+} from "../commands/flow/validation.js";
 import {
   assertNativeCommandEnvelope,
   CommandStructureError,
@@ -263,7 +267,7 @@ export function compileNodes(
         output.push({
           code: 117,
           indent,
-          parameters: [resolver.resolveReference(node.ref)],
+          parameters: [resolveCommonEventCall(node, resolver, `${sourcePath}[${nodeIndex}]`)],
         });
         break;
       case "label":

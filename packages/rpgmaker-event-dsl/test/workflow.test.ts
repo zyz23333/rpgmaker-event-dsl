@@ -72,7 +72,13 @@ async function writeProjectFixture(
     join(dataDirectory, "CommonEvents.json"),
     JSON.stringify([
       null,
-      { id: 1, name: "Common", list: [{ code: 0, indent: 0, parameters: [] }] },
+      {
+        id: 1,
+        name: "Snapshot Common",
+        trigger: 0,
+        switchId: 1,
+        list: [{ code: 0, indent: 0, parameters: [] }],
+      },
     ]),
     "utf8",
   );
@@ -364,7 +370,9 @@ describe("decompile workflow", () => {
     expect(secondMapSource).toContain('name: "Snapshot Only"');
     expect(commonEventsSource).toContain("id: 1");
     expect(commonEventsSource).toContain('trigger: "parallel"');
-    expect(commonEventsSource).toContain("callCommonEvent(commonEventRef({ id: 1 }))");
+    expect(commonEventsSource).toContain(
+      "callCommonEvent({ commonEvent: commonEventRef({ id: 1 }) })",
+    );
     expect(systemSource).toContain("switchDefinition({");
     expect(systemSource).toContain("id: 1");
     expect(systemSource).toContain('name: "Switch One"');
@@ -488,7 +496,7 @@ export const gate = {
     {
       conditions: {},
       trigger: "action",
-      commands: [{ kind: "commonEvent", ref: { kind: "commonEvent", name: "Alarm" } }],
+      commands: [{ kind: "commonEvent", commonEvent: { kind: "commonEvent", name: "Alarm" } }],
     },
   ],
 };
@@ -553,7 +561,7 @@ export const caller = {
     {
       conditions: {},
       trigger: "action",
-      commands: [{ kind: "commonEvent", ref: { kind: "commonEvent", name: "Shared" } }],
+      commands: [{ kind: "commonEvent", commonEvent: { kind: "commonEvent", name: "Shared" } }],
     },
   ],
 };
@@ -578,7 +586,7 @@ export const caller = {
     {
       conditions: {},
       trigger: "action",
-      commands: [{ kind: "commonEvent", ref: { kind: "commonEvent", id: 99 } }],
+      commands: [{ kind: "commonEvent", commonEvent: { kind: "commonEvent", id: 99 } }],
     },
   ],
 };
@@ -707,7 +715,7 @@ export const gate = {
     {
       conditions: {},
       trigger: "action",
-      commands: [{ kind: "commonEvent", ref: { kind: "commonEvent", id: 2 } }],
+      commands: [{ kind: "commonEvent", commonEvent: { kind: "commonEvent", id: 2 } }],
     },
   ],
 };
@@ -1428,7 +1436,7 @@ async function writeDslPackageTypes(workspaceRoot: string): Promise<void> {
   await writeFile(
     join(packageRoot, "index.d.ts"),
     `export declare function actorRef(value: { id: number } | { name: string }): unknown;
-export declare function callCommonEvent(value: unknown): unknown;
+export declare function callCommonEvent(input: { commonEvent: unknown }): unknown;
 export declare function comment(lines: readonly [string, ...string[]]): unknown;
 export declare function commonEvent(input: {
   id: number;

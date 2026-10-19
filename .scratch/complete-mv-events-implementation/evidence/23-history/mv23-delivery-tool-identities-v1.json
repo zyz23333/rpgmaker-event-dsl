@@ -1,0 +1,31 @@
+{
+  "purpose": "New identified delivery tools; no frozen preparation tool modified",
+  "base": {
+    "name": "mv-native-pair-support-v5.cjs",
+    "sha256": "68b74b84bc597402ca437f3d5a045a89044f35e7c3a46dca73ded77a3d39cdf8"
+  },
+  "helperDelta": "Comment and purpose metadata only; execution and validation bytes otherwise identical",
+  "scenarioDeltas": {
+    "map": "complete profile required and delivery purpose",
+    "parallel": "delivery purpose and independent none saved switch9",
+    "context": "complete profile required; actual Troop formal source edit/Push and formal203/123 context observation"
+  },
+  "outputs": [
+    {
+      "name": "mv23-native-pair-support-delivery-v1.cjs",
+      "sha256": "c616e8a8c2320766468ca3167249214af66ea6d996eed6bb745f8ab346cfc4f5"
+    },
+    {
+      "name": "mv23-r1-map-common-delivery-v1.cjs",
+      "sha256": "9874c29142146a36317750e06289581979c5243ccbb5e2193ff02ce912f85821"
+    },
+    {
+      "name": "mv23-r1-shared-parallel-delivery-v1.cjs",
+      "sha256": "f5b785f49fff58802a47a0277e7c155c4066bbed34809a61f6e305d7f2d9e7d0"
+    },
+    {
+      "name": "mv23-r4-common-context-delivery-v1.cjs",
+      "sha256": "f0d2e2116fbc56cce6d646ae04f8a83c729f43cade0dae366d84a1ae1a398af7"
+    }
+  ]
+}

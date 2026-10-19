@@ -99,6 +99,17 @@ Removing a name retains that capacity; referencing an ID does not expand it.
 Switch and variable names resolve only from unique DSL declarations. Existing
 database entries with empty names remain referenceable by ID.
 
+Common Events require an explicit positive `id`, exact string `name`,
+`trigger: "none" | "autorun" | "parallel"`, and a `commands` array, including when
+empty. Names may be empty or duplicated; a name reference requires exactly one
+current Common Event declaration. Call one with
+`callCommonEvent({ commonEvent: commonEventRef({ id: 1 }) })`.
+Autorun and parallel require `switch: switchRef(...)`. The optional switch for none
+preserves its independent native saved value; omission writes fixed `switchId: 1`.
+Every explicit reference requires a valid System Switch slot or unique staged
+Switch name. Common Events inherit invocation context without map/battle
+annotations. Removing one preserves its null ID hole and needs a destructive Push.
+
 Workspace validation resolves Animations, Tilesets, Enemy entries and maps from the
 captured Snapshot, retaining empty-name IDs. Fixed targets of `showAnimation`,
 `changeTileset` and `enemyTransform` are checked in formal commands, recognized raw

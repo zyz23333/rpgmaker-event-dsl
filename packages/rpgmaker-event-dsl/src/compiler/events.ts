@@ -7,6 +7,7 @@ import {
   type RawEventCommand,
 } from "./dispatch.js";
 import { compilePageMovement } from "../commands/movement/page.js";
+import { assertCommonEventInput } from "../validation/common-events.js";
 
 export type ProjectEventData = {
   id: number;
@@ -61,6 +62,7 @@ export function compileCommonEvent(
   definition: CommonEventDefinition,
   options: { nextId: number; resolver: ReferenceResolver },
 ): CompiledCommonEvent {
+  assertCommonEventInput(definition, true);
   return {
     id: options.nextId,
     name: definition.name,
