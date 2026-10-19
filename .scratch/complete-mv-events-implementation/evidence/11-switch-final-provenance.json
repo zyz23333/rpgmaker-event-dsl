@@ -1,0 +1,29 @@
+{
+  "generatedWorkspace": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\system-slots-u4D5Ih\\最小 Workspace with spaces\\.rpgmaker-event-dsl\\generated-project-data",
+  "baselineRevision": "2861e76a9aa27772127bc88c05548b64755af53b",
+  "operator": "Codex implementer /root/ticket_02",
+  "compiledCommonEventsSha256": "2e8e8191836616974c0a38e0df17b8012b67a3ebee82dd6c8090dfa0e5b6c8a1",
+  "fixtureSha256": "eae9d3c30c431a9a66a2af6e822100309da6920f794ba34b84fea15566bdde38",
+  "runs": [
+    {
+      "root": "C:/Users/Shuen/.codex/tmp/mv-ticket-11-literal-control-direct",
+      "origin": "literal-control",
+      "mode": "direct"
+    },
+    {
+      "root": "C:/Users/Shuen/.codex/tmp/mv-ticket-11-literal-control-common-call",
+      "origin": "literal-control",
+      "mode": "common-call"
+    },
+    {
+      "root": "C:/Users/Shuen/.codex/tmp/mv-ticket-11-compiled-workspace-direct",
+      "origin": "compiled-workspace",
+      "mode": "direct"
+    },
+    {
+      "root": "C:/Users/Shuen/.codex/tmp/mv-ticket-11-compiled-workspace-common-call",
+      "origin": "compiled-workspace",
+      "mode": "common-call"
+    }
+  ]
+}

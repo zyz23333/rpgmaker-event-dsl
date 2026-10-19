@@ -38,7 +38,7 @@ on Windows/Node22. The ordinary suite requires no installed editor or native gam
 ordinary self-authored map and first-party NewData runtime/assets stored outside
 this repository. Each reached `Scene_Map` after `DataManager.setupNewGame()`.
 
-The observed engine reports MV1.6.1, NW.js0.29.0, Chromium65.0.3325.181 and embedded
+The observed engine reports MV1.6.1, NW.js0.29.0, Chromium65.0.3325.146 and embedded
 Node9.7.1. The launch host is
 `references/RPGMV/nwjs-win-test/game.exe`; host SHA-256 is
 `78beb07fa8f2b905d468a40d64d0d5588b4cfa42d7822d5e16878245657da3aa`,
@@ -96,3 +96,25 @@ and binaries remain local and are not distributed. The observation schedule does
 not claim interactive keyboard, screenshot, audio or editor parameter-dialog
 acceptance. Final integrated candidate runs must append new evidence after relevant
 changes; these records retain their exact source fingerprint.
+
+## Final candidate verification
+
+After adding contextual diagnostics and merging integration tip 7d2ea0b, the current
+Workspace output was regenerated and all four native boots ran again.
+[Final provenance](11-switch-final-provenance.json) identifies the preserved Workspace
+at revision2861e76; the [final compiled bytes](11-switch-final-compiled.json) retain
+SHA-256 2e8e8191836616974c0a38e0df17b8012b67a3ebee82dd6c8090dfa0e5b6c8a1.
+Initial raw observations remain intact. Final raw observations are
+[literal direct](11-final-literal-control-direct.json),
+[compiled direct](11-final-compiled-workspace-direct.json),
+[literal Common call](11-final-literal-control-common-call.json), and
+[compiled Common call](11-final-compiled-workspace-common-call.json); all passed.
+The original [local recorder](11-record-native-result.mjs) checks complete independent
+input/state equality and control-versus-compiled equality, then records source and
+artifact hashes plus observed native/tool versions through the acceptance schema.
+
+Windows/Node22.23.0 verification after merge passed pnpm check
+(16files/122tests, including typecheck/lint/format), pnpm build and the built CLI
+Windows baseline (2files/4tests). Owned diagnostics identify validation/Decompile
+stage, Common/Map identity, nested DSL/native parameter path, stable E121/E123 code
+and expected/actual values. No public diagnostic JSON API is introduced.
