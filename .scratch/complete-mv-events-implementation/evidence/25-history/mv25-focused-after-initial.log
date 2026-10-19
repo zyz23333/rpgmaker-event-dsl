@@ -1,0 +1,80 @@
+
+> rpgmaker-event-dsl@0.1.2 test C:\Users\Shuen\.codex\worktrees\mv-ticket-25\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> vitest run "test/troop-events.test.ts" "test/troop-workflow.test.ts" "test/workflow.test.ts" "test/system-slots.test.ts" "test/snapshot-context.test.ts" "test/decompile-publication.test.ts"
+
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/system-slots.test.ts > MV-S3-SLOTS-001: preserves unnamed System capacity through real Workspace roundtrip and name removal
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\system-slots-vNeWLX
+
+ ❯ test/system-slots.test.ts (4 tests | 1 failed) 5490ms
+   × MV-S3-SLOTS-001: preserves unnamed System capacity through real Workspace roundtrip and name removal 4968ms
+ ❯ test/workflow.test.ts (34 tests | 1 failed) 10295ms
+     × stops push for mixed or missing Interrupted Push file states 249ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/system-slots.test.ts > MV-S3-SLOTS-001: preserves unnamed System capacity through real Workspace roundtrip and name removal
+AssertionError: expected [ { …(2) }, { …(2) }, { …(2) } ] to deeply equal [ { …(2) }, { …(2) }, { …(2) } ]
+
+- Expected
++ Received
+
+@@ -6,9 +6,9 @@
+    {
+      "hash": "e20a246e17c3f863f771e47133030e239eb83439c2e099c0fed1ae3d166884b4",
+      "relativePath": "System.json",
+    },
+    {
+-     "hash": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
++     "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+      "relativePath": "Troops.json",
+    },
+  ]
+
+ ❯ test/system-slots.test.ts:482:39
+    480|         "src/unnamed.events.ts",
+    481|       ]);
+    482|       expect(manifest.generatedFiles).toEqual(
+       |                                       ^
+    483|         manifest.snapshotFiles.filter(({ relativePath }: { relativePat…
+    484|           ["CommonEvents.json", "System.json", "Troops.json"].includes…
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/system-slots.test.ts:351:5
+ ❯ test/system-slots.test.ts:55:24
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/workflow.test.ts > push workflow > stops push for mixed or missing Interrupted Push file states
+AssertionError: expected [Function] to throw error including 'Interrupted Push cannot be recovered …' but got 'Interrupted Push affected file set is…'
+
+- Expected
++ Received
+
+- Interrupted Push cannot be recovered automatically.
+- Restore affected Project Root files to either the pending backup state or Generated Project Data, then run push again.
+- - CommonEvents.json: snapshot
+- - Map001.json: generated
+- - System.json: missing
++ Interrupted Push affected file set is inconsistent with the original operation. Recovery stopped without changes to the Project Root.
+
+ ❯ test/workflow.test.ts:1388:76
+    1386|     await rm(join(projectRoot, "data", "System.json"), { force: true }…
+    1387|
+    1388|     await expect(pushWorkspace({ workspaceRoot, allowDestructive: fals…
+       |                                                                            ^
+    1389|       [
+    1390|         "Interrupted Push cannot be recovered automatically.",
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+ Test Files  2 failed | 4 passed (6)
+      Tests  2 failed | 95 passed (97)
+   Start at  22:09:46
+   Duration  61.48s (transform 1.05s, setup 0ms, import 4.42s, tests 98.78s, environment 1ms)
+
+C:\Users\Shuen\.codex\worktrees\mv-ticket-25\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run "test/troop-events.test.ts" "test/troop-workflow.test.ts" "test/workflow.test.ts" "test/system-slots.test.ts" "test/snapshot-context.test.ts" "test/decompile-publication.test.ts"`
+Exit status 1

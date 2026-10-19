@@ -30,7 +30,20 @@ export function validateCompiledCommandLists(
               path: `pages[${index}].commands`,
               movement: page.movement,
             }))
-          : [];
+          : declaration.kind === "troopEvent" && Array.isArray(declaration.pages)
+            ? declaration.pages.flatMap((page, index) =>
+                page && Array.isArray(page.commands)
+                  ? [
+                      {
+                        commands: page.commands,
+                        identity: `troop:${declaration.troopId}`,
+                        path: `pages[${index}].commands`,
+                        movement: undefined,
+                      },
+                    ]
+                  : [],
+              )
+            : [];
     for (const list of lists) {
       let commands: RawEventCommand[] = [];
       const origins: CommandOrigins = new Map();

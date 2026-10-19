@@ -9,6 +9,7 @@ import type {
   ScriptInput,
   SwitchDefinition,
   VariableDefinition,
+  TroopEventDefinition,
 } from "../domain/types.js";
 import type { MapInfoEntry } from "../project-data/project.js";
 
@@ -120,6 +121,7 @@ export type StagedDataGraph = {
   declarations: readonly DslOwnedDeclaration[];
   mapEventsByIdentity: Map<string, MapEventDefinition>;
   commonEventsById: Map<number, CommonEventDefinition>;
+  troopEventsById: Map<number, TroopEventDefinition>;
   switchesById: Map<number, SwitchDefinition>;
   variablesById: Map<number, VariableDefinition>;
   snapshotMaps?: readonly SnapshotMapValidationEntry[];

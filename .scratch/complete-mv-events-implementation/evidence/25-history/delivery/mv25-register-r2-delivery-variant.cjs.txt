@@ -1,0 +1,11 @@
+'use strict';
+const fs=require('node:fs/promises'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+(async()=>{
+ const[root,version,requiredText]=process.argv.slice(2),evidence=path.join(root,'.scratch/complete-mv-events-implementation/evidence'),file=path.join(evidence,'requirements.json'),index=JSON.parse(await fs.readFile(file,'utf8')),original=index.requirements.find(r=>r.id==='MV-S5-TROOP-R2'),id='MV-S5-TROOP-R2-DELIVERY-'+version.padStart(3,'0');
+ assert.ok(!index.requirements.some(r=>r.id===id));
+ const runner='mv25-r2-normal-scene-product-pair-delivery-v'+version+'.cjs',relative='.scratch/complete-mv-events-implementation/evidence/25-history/'+runner+'.txt',bytes=await fs.readFile(path.join(__dirname,runner));await fs.writeFile(path.join(root,relative),bytes,{flag:'wx'});
+ const row={...structuredClone(original),id,title:'Allocated R2 delivery revision '+version+': complete17-page/three-turn normal Scene/Input literal and formal DSL product pair',input:'Explicit versioned self-authored delivery variant. Original R2 runner and failed record remain unchanged. Revision audit preserves all17pages, every condition/span, independent16trace and3turn Input plan; see report for exact auxiliary saved-list changes.',fixture:{path:relative,sha256:sha(bytes)},expected:'Complete independent15disk-carrier and3loaded-carrier comparisons, actual Map+Troops Push, two fresh native processes and original17-page/three-turn scheduling expectations',required:requiredText==='true'};
+ index.requirements.push(row);await fs.writeFile(file,JSON.stringify(index,null,2)+'\n');
+ const readme=path.join(evidence,'README.md');await fs.appendFile(readme,'\n| '+id+' | '+row.title+' | game-observation | Explicit version-bound delivery input; original R2 remains separate |\n');console.log(JSON.stringify({id,fixture:row.fixture,required:row.required}));
+})().catch(e=>{console.error(e);process.exitCode=1;});

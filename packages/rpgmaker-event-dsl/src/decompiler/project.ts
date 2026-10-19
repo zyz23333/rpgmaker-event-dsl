@@ -12,6 +12,7 @@ import {
   normalizeCommandList,
   readCommonEvents,
   readMapEvents,
+  readRawCommandList,
   readNamedSystemEntries,
   readSnapshotArray,
   readSnapshotFile,
@@ -40,6 +41,7 @@ import { renderMovementRoute } from "../commands/movement/decompile.js";
 import { validateNativeMovementRouteInputs } from "../commands/movement/validation.js";
 import { inspectNativeCommandReferences } from "../validation/native-references.js";
 import { CommandStructureError } from "../validation/command-errors.js";
+import { assertNativeBattlePages, type NativeBattleEventPage } from "../validation/battle-pages.js";
 import { renderMapPageSettings } from "./map-page.js";
 
 export type DecompileFile = {
@@ -231,12 +233,96 @@ async function buildDecompiledSourceFiles(
     path: resolve(outputRoot, "common-events.events.ts"),
   });
 
+  const troopEvents: Array<{ id: number; pages: NativeBattleEventPage[] }> = [];
+  for (const [id, entry] of troops.entries()) {
+    if (entry === null) continue;
+    if (
+      !entry ||
+      typeof entry !== "object" ||
+      Array.isArray(entry) ||
+      !("id" in entry) ||
+      entry.id !== id ||
+      id <= 0
+    )
+      throw new Error(
+        `decompile Troops.json[${id}]: expected Troop with positive matching identity or null.`,
+      );
+    const troop = entry as Record<string, unknown>;
+    const identity = `troop:${id}`;
+    assertNativeBattlePages(troop.pages, troop.members, resolver, identity, "decompile");
+    for (const [pageIndex, page] of troop.pages.entries()) {
+      const prefix = `pages[${pageIndex}].`;
+      const commands = readRawCommandList(page.list, identity, prefix);
+      issues.push(
+        ...inspectNativeCommandInputs(commands, {
+          identity,
+          stage: "decompile",
+          scriptEnabled: options.scriptEnabled ?? false,
+          prefix,
+        }),
+      );
+      const errors = inspectNativeCommandReferences(commands, resolver, {
+        identity,
+        stage: "decompile",
+        prefix,
+      });
+      if (errors.length) throw new Error(errors.map(({ message }) => message).join("\n"));
+      assertSnapshotReferences(commands, `${identity}.${prefix}list`, resolver);
+      assertSnapshotRendering(commands, identity, prefix);
+    }
+    troopEvents.push({ id, pages: troop.pages });
+  }
+  files.push({
+    content: renderTroopEventsSource(troopEvents),
+    path: resolve(outputRoot, "troop-events.events.ts"),
+  });
+
   files.push({
     content: renderSystemSource(system),
     path: resolve(outputRoot, "system.dsl.ts"),
   });
 
   return files.sort((left, right) => left.path.localeCompare(right.path));
+}
+
+function renderTroopEventsSource(
+  events: readonly { id: number; pages: NativeBattleEventPage[] }[],
+): string {
+  if (!events.length) return renderEmptyModule();
+  const helpers = new Set<string>(["troopEvent", "battlePage"]);
+  const body = events
+    .map(({ id, pages }) => {
+      const renderedPages = pages.map((page) => {
+        const c = page.conditions;
+        const slots: string[] = [];
+        if (c.turnEnding) slots.push("turnEnd: true");
+        if (c.turnValid || !Object.is(c.turnA, 0) || !Object.is(c.turnB, 0))
+          slots.push(
+            `turn: { enabled: ${c.turnValid}, a: ${literal(c.turnA)}, b: ${literal(c.turnB)} }`,
+          );
+        if (c.enemyValid || !Object.is(c.enemyIndex, 0) || c.enemyHp !== 50)
+          slots.push(
+            `enemy: { enabled: ${c.enemyValid}, index: ${literal(c.enemyIndex)}, hpAtMost: ${literal(c.enemyHp)} }`,
+          );
+        if (c.actorValid || c.actorId !== 1 || c.actorHp !== 50) {
+          helpers.add("actorRef");
+          slots.push(
+            `actor: { enabled: ${c.actorValid}, ref: actorRef({ id: ${literal(c.actorId)} }), hpAtMost: ${literal(c.actorHp)} }`,
+          );
+        }
+        if (c.switchValid || c.switchId !== 1) {
+          helpers.add("switchRef");
+          slots.push(
+            `switch: { enabled: ${c.switchValid}, ref: switchRef({ id: ${literal(c.switchId)} }) }`,
+          );
+        }
+        for (const name of renderDecompiledCommandList(page.list).helperNames) helpers.add(name);
+        return `battlePage({\n${slots.length ? `  conditions: { ${slots.join(", ")} },\n` : ""}${page.span === 0 ? "" : `  span: ${literal(page.span === 1 ? "turn" : "moment")},\n`}  commands: [\n${indentLines(renderCommands(page.list), 4)}\n  ],\n})`;
+      });
+      return `export const troopEvent${id} = troopEvent({\n  troopId: ${id},\n  pages: [\n${indentLines(renderedPages.join(",\n"), 4)}\n  ],\n});`;
+    })
+    .join("\n\n");
+  return `${renderEventImport([...helpers])}\n\n${body}\n`;
 }
 
 function assertSnapshotRendering(

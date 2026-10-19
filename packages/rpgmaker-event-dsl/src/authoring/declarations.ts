@@ -1,5 +1,7 @@
 import type {
   CommonEventDefinition,
+  BattleEventPage,
+  TroopEventDefinition,
   DslCommand,
   EventPage,
   AutonomousMovement,
@@ -13,6 +15,14 @@ import type {
 } from "../domain/types.js";
 import type { CommonEventInput } from "../domain/declarations.js";
 import { assertCommonEventInput } from "../validation/common-events.js";
+
+export function troopEvent(input: Omit<TroopEventDefinition, "kind">): TroopEventDefinition {
+  return { ...input, kind: "troopEvent" };
+}
+
+export function battlePage(input: BattleEventPage): BattleEventPage {
+  return { ...input };
+}
 
 export function mapEvent(input: {
   mapId: number;

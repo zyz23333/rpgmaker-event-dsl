@@ -1,0 +1,13 @@
+const fs=require('node:fs/promises'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto'),cp=require('node:child_process');
+const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+(async()=>{
+ const[root,freeze,e1Path,r2Path,output]=process.argv.slice(2),pkg=path.join(root,'packages/rpgmaker-event-dsl'),manifest=JSON.parse(await fs.readFile(path.join(freeze,'manifest.json'),'utf8')),e1=JSON.parse(await fs.readFile(e1Path,'utf8')),r2=JSON.parse(await fs.readFile(r2Path,'utf8'));
+ const normalize=rows=>rows.map(({path,sha256})=>({path,sha256})).sort((a,b)=>a.path.localeCompare(b.path));
+ async function tree(base,dir=base){const rows=[];for(const entry of await fs.readdir(dir,{withFileTypes:true})){const p=path.join(dir,entry.name);if(entry.isDirectory())rows.push(...await tree(base,p));else rows.push({path:path.relative(base,p).replaceAll('\\','/'),sha256:hash(await fs.readFile(p))});}return normalize(rows);}
+ const source=await tree(path.join(pkg,'src')),dist=await tree(path.join(pkg,'dist'));
+ assert.equal(e1.passed,true);assert.equal(r2.passed,false);
+ for(const[tag,src,built]of[['actual recovery freeze',manifest.src,manifest.dist],['actual E1 product',e1.build.source.files,e1.build.dist.files],['failed actual pre-game R2',r2.build.source.entries,r2.build.dist.entries]]){assert.deepEqual(source,normalize(src),tag+' complete source membership and bytes');assert.deepEqual(dist,normalize(built),tag+' complete dist membership and bytes');}
+ assert.match(await fs.readFile(path.join(pkg,'src/workspace/type-inputs.ts'),'utf8'),/compileContractVersion = "mv-1\.6\.1\/7"/);
+ const out={purpose:'Pre23 current product source/build corresponds to actual recovery, passed E1 and failed pre-game R2; no R2 acceptance',passed:true,at:new Date().toISOString(),head:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),status:cp.execFileSync('git',['status','--short'],{cwd:root,encoding:'utf8'}),contract:'mv-1.6.1/7',source,dist,sourceFingerprint:hash(JSON.stringify(source)),distFingerprint:hash(JSON.stringify(dist)),executions:await Promise.all([path.join(freeze,'manifest.json'),e1Path,r2Path].map(async p=>({path:p,sha256:hash(await fs.readFile(p))}))),allMembershipAndBytesEqual:true};
+ await fs.writeFile(output,JSON.stringify(out,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({output,passed:out.passed,sourceFiles:source.length,distFiles:dist.length,sourceFingerprint:out.sourceFingerprint,distFingerprint:out.distFingerprint}));
+})().catch(e=>{console.error(e);process.exitCode=1;});

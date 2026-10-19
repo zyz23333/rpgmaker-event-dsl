@@ -1,0 +1,3088 @@
+{
+  "purpose": "Actual prior-output-set recovery against public candidate API; no preparation evidence edits",
+  "startedAt": "2026-10-19T15:22:44.058Z",
+  "entry": "C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/workspace-api.mjs",
+  "entrySha256": "4de348e6c210dca980a6cefc9b278174584178c1cb28efd88660182814d70124",
+  "workspaceRoot": "C:/Users/Shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/Workspace",
+  "before": {
+    "source": {
+      "decompiled/common-events.events.ts": {
+        "sha256": "7fc113e456814f8cd866a15e9cf7165182bcde19147c9b2b264e8b7da4a3e326",
+        "bytes": 355
+      },
+      "decompiled/system.dsl.ts": {
+        "sha256": "002613305591198815978828f485fc61b7ef109dd6a9f59c18e4a2722139552a",
+        "bytes": 168
+      }
+    },
+    "project": {
+      "data/Actors.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/Animations.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/Armors.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/Classes.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/CommonEvents.json": {
+        "sha256": "587cdb43f184568bbf804671b72698587ffc96acfbc41c92c3ee668aefb1e6e0",
+        "bytes": 804
+      },
+      "data/Enemies.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/Items.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/MapInfos.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/push-staging.tmp-27384-ed8433da-6ce5-4fa6-afd3-0e8909bd8251/CommonEvents.json": {
+        "sha256": "587cdb43f184568bbf804671b72698587ffc96acfbc41c92c3ee668aefb1e6e0",
+        "bytes": 804
+      },
+      "data/push-staging.tmp-27384-ed8433da-6ce5-4fa6-afd3-0e8909bd8251/original/CommonEvents.json": {
+        "sha256": "224fe14cfc92cb8e745cef4f5a625cefbf55fe2c056b1355fbc2543d703e1865",
+        "bytes": 816
+      },
+      "data/Skills.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/States.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/System.json": {
+        "sha256": "aa024d9549abb83ea96ab42a044a0be95fb324118eeacd3559878fb43a4c6973",
+        "bytes": 201
+      },
+      "data/Tilesets.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/Troops.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/Weapons.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "Game.rpgproject": {
+        "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2",
+        "bytes": 12
+      }
+    },
+    "state": {
+      "generated-project-data/CommonEvents.json": {
+        "sha256": "587cdb43f184568bbf804671b72698587ffc96acfbc41c92c3ee668aefb1e6e0",
+        "bytes": 804
+      },
+      "generated-project-data/System.json": {
+        "sha256": "885a4070c7aa732e7ffc24745e3816c26ea49ab10a0e4284e10cdf70ee64d32d",
+        "bytes": 195
+      },
+      "pending-push/backup/CommonEvents.json": {
+        "sha256": "224fe14cfc92cb8e745cef4f5a625cefbf55fe2c056b1355fbc2543d703e1865",
+        "bytes": 816
+      },
+      "pending-push/pending-push.json": {
+        "sha256": "bc8f1592a9e4fb22040df8527b86ccdee3491c7f5e55075799e64381a5c847f1",
+        "bytes": 74081
+      },
+      "project-data-snapshot/Actors.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/Animations.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/Armors.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/Classes.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/CommonEvents.json": {
+        "sha256": "224fe14cfc92cb8e745cef4f5a625cefbf55fe2c056b1355fbc2543d703e1865",
+        "bytes": 816
+      },
+      "project-data-snapshot/Enemies.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/Items.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/MapInfos.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/Skills.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/States.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/System.json": {
+        "sha256": "aa024d9549abb83ea96ab42a044a0be95fb324118eeacd3559878fb43a4c6973",
+        "bytes": 201
+      },
+      "project-data-snapshot/Tilesets.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/Troops.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/Weapons.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "sync-manifest.json": {
+        "sha256": "4c7ac49440ec7c6140d590ea8899311bb7c7d39588765859febb4d3b0f2ae3f7",
+        "bytes": 70609
+      }
+    },
+    "config": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a"
+  },
+  "originalManifest": {
+    "version": 1,
+    "projectRootBinding": "c:\\users\\shuen\\.codex\\tmp\\mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf\\workspace\\game",
+    "snapshotFiles": [
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "Actors.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "Animations.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "Armors.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "Classes.json"
+      },
+      {
+        "hash": "224fe14cfc92cb8e745cef4f5a625cefbf55fe2c056b1355fbc2543d703e1865",
+        "relativePath": "CommonEvents.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "Enemies.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "Items.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "MapInfos.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "Skills.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "States.json"
+      },
+      {
+        "hash": "aa024d9549abb83ea96ab42a044a0be95fb324118eeacd3559878fb43a4c6973",
+        "relativePath": "System.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "Tilesets.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "Troops.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "Weapons.json"
+      }
+    ],
+    "compileBaseline": {
+      "compileContractVersion": "mv-1.6.1/6",
+      "typeInputs": [
+        {
+          "kind": "directoryExists",
+          "path": "c:/node_modules",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/node_modules/@types",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/node_modules",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/node_modules/@types",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/node_modules",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/node_modules/@types",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/node_modules",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/node_modules/@types",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace",
+          "value": true
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules",
+          "value": true
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@types",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-decorators",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-decorators/legacy",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-dom",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-dom/asynciterable",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-dom/iterable",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2015",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2015/collection",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2015/core",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2015/generator",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2015/iterable",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2015/promise",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2015/proxy",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2015/reflect",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2015/symbol-wellknown",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2015/symbol",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2016",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2016/array-include",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2016/intl",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2017",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2017/arraybuffer",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2017/date",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2017/intl",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2017/object",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2017/sharedmemory",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2017/string",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2017/typedarrays",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2018",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2018/asyncgenerator",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2018/asynciterable",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2018/intl",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2018/promise",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2018/regexp",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2019",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2019/array",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2019/intl",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2019/object",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2019/string",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2019/symbol",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2020",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2020/bigint",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2020/date",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2020/intl",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2020/number",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2020/promise",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2020/sharedmemory",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2020/string",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2020/symbol-wellknown",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2021",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2021/intl",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2021/promise",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2021/string",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2021/weakref",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2022",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2022/array",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2022/error",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2022/intl",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2022/object",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2022/regexp",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2022/string",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2023",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2023/array",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2023/collection",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2023/intl",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es5",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-scripthost",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-webworker",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-webworker/importscripts",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/rpgmaker-event-dsl",
+          "value": true
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/src",
+          "value": true
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/src/decompiled",
+          "value": true
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/src/decompiled/node_modules",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/src/node_modules",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/node_modules",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/node_modules/@types",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/node_modules",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/node_modules/@types",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript",
+          "value": true
+        },
+        {
+          "kind": "directoryExists",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib",
+          "value": true
+        },
+        {
+          "kind": "fileExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/rpgmaker-event-dsl/dist/index.d.mts",
+          "value": true
+        },
+        {
+          "kind": "fileExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/rpgmaker-event-dsl/package.json",
+          "value": true
+        },
+        {
+          "kind": "fileExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/package.json",
+          "value": true
+        },
+        {
+          "kind": "fileExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/src/decompiled/package.json",
+          "value": false
+        },
+        {
+          "kind": "fileExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/src/package.json",
+          "value": false
+        },
+        {
+          "kind": "fileExists",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/package.json",
+          "value": false
+        },
+        {
+          "kind": "fileExists",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/package.json",
+          "value": true
+        },
+        {
+          "kind": "realpath",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/rpgmaker-event-dsl/dist/index.d.mts",
+          "value": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-24\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\index.d.mts"
+        },
+        {
+          "kind": "realpath",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/rpgmaker-event-dsl/package.json",
+          "value": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf\\Workspace\\node_modules\\rpgmaker-event-dsl\\package.json"
+        },
+        {
+          "kind": "realpath",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/package.json",
+          "value": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf\\Workspace\\package.json"
+        },
+        {
+          "kind": "realpath",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/src/decompiled/common-events.events.ts",
+          "value": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf\\Workspace\\src\\decompiled\\common-events.events.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/src/decompiled/system.dsl.ts",
+          "value": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf\\Workspace\\src\\decompiled\\system.dsl.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "c:/users/shuen/.codex/worktrees/mv-ticket-24/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/index.d.mts",
+          "value": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-24\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\index.d.mts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.decorators.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.decorators.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.decorators.legacy.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.decorators.legacy.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.dom.asynciterable.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.dom.asynciterable.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.dom.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.dom.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.dom.iterable.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.dom.iterable.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.collection.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2015.collection.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.core.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2015.core.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2015.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.generator.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2015.generator.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.iterable.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.promise.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2015.promise.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.proxy.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2015.proxy.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.reflect.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2015.reflect.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.symbol.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2015.symbol.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2015.symbol.wellknown.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2016.array.include.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2016.array.include.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2016.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2016.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2016.intl.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2016.intl.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.arraybuffer.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2017.arraybuffer.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2017.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.date.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2017.date.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.intl.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2017.intl.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.object.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2017.object.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2017.sharedmemory.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.string.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2017.string.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2017.typedarrays.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2018.asyncgenerator.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2018.asynciterable.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2018.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.intl.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2018.intl.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.promise.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2018.promise.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.regexp.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2018.regexp.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.array.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2019.array.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2019.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.intl.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2019.intl.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.object.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2019.object.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.string.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2019.string.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.symbol.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2019.symbol.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.bigint.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2020.bigint.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2020.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.date.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2020.date.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.intl.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2020.intl.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.number.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2020.number.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.promise.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2020.promise.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.sharedmemory.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2020.sharedmemory.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.string.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2020.string.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2020.symbol.wellknown.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2021.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.intl.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2021.intl.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.promise.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2021.promise.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.string.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2021.string.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.weakref.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2021.weakref.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.array.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2022.array.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2022.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.error.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2022.error.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.intl.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2022.intl.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.object.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2022.object.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.regexp.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2022.regexp.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.string.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2022.string.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.array.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.collection.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2023.collection.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2023.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.full.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2023.full.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.intl.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2023.intl.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es5.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es5.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.scripthost.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.scripthost.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.webworker.importscripts.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/package.json",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\package.json"
+        },
+        {
+          "kind": "readFile",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/rpgmaker-event-dsl/package.json",
+          "value": "17f31fa94d4428af40cf527c584bfb24cbb881cf56eb34fe5ceb2656bc8de908"
+        },
+        {
+          "kind": "readFile",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/package.json",
+          "value": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+        },
+        {
+          "kind": "readFile",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/src/decompiled/common-events.events.ts",
+          "value": "7fc113e456814f8cd866a15e9cf7165182bcde19147c9b2b264e8b7da4a3e326"
+        },
+        {
+          "kind": "readFile",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/src/decompiled/system.dsl.ts",
+          "value": "002613305591198815978828f485fc61b7ef109dd6a9f59c18e4a2722139552a"
+        },
+        {
+          "kind": "readFile",
+          "path": "c:/users/shuen/.codex/worktrees/mv-ticket-24/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/index.d.mts",
+          "value": "dfd9f6e95195bc6d0aff08bb4cc168e2b3cf70ebe960cc86126e04f8b128807f"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.decorators.d.ts",
+          "value": "8e7f8264d0fb4c5339605a15daadb037bf238c10b654bb3eee14208f860a32ea"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.decorators.legacy.d.ts",
+          "value": "782dec38049b92d4e85c1585fbea5474a219c6984a35b004963b00beb1aab538"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.dom.asynciterable.d.ts",
+          "value": "d7a3c8b952931daebdfc7a2897c53c0a1c73624593fa070e46bd537e64dcd20a"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.dom.d.ts",
+          "value": "080941d9f9ff9307f7e27a83bcd888b7c8270716c39af943532438932ec1d0b9"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.dom.iterable.d.ts",
+          "value": "2e80ee7a49e8ac312cc11b77f1475804bee36b3b2bc896bead8b6e1266befb43"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.collection.d.ts",
+          "value": "dc2df20b1bcdc8c2d34af4926e2c3ab15ffe1160a63e58b7e09833f616efff44"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.core.d.ts",
+          "value": "c57796738e7f83dbc4b8e65132f11a377649c00dd3eee333f672b8f0a6bea671"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.d.ts",
+          "value": "45b7ab580deca34ae9729e97c13cfd999df04416a79116c3bfb483804f85ded4"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.generator.d.ts",
+          "value": "515d0b7b9bea2e31ea4ec968e9edd2c39d3eebf4a2d5cbd04e88639819ae3b71"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.iterable.d.ts",
+          "value": "0559b1f683ac7505ae451f9a96ce4c3c92bdc71411651ca6ddb0e88baaaad6a3"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.promise.d.ts",
+          "value": "0dc1e7ceda9b8b9b455c3a2d67b0412feab00bd2f66656cd8850e8831b08b537"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.proxy.d.ts",
+          "value": "ce691fb9e5c64efb9547083e4a34091bcbe5bdb41027e310ebba8f7d96a98671"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.reflect.d.ts",
+          "value": "8d697a2a929a5fcb38b7a65594020fcef05ec1630804a33748829c5ff53640d0"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.symbol.d.ts",
+          "value": "4ff2a353abf8a80ee399af572debb8faab2d33ad38c4b4474cff7f26e7653b8d"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
+          "value": "fb0f136d372979348d59b3f5020b4cdb81b5504192b1cacff5d1fbba29378aa1"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2016.array.include.d.ts",
+          "value": "d15bea3d62cbbdb9797079416b8ac375ae99162a7fba5de2c6c505446486ac0a"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2016.d.ts",
+          "value": "3facaf05f0c5fc569c5649dd359892c98a85557e3e0c847964caeb67076f4d75"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2016.intl.d.ts",
+          "value": "68d18b664c9d32a7336a70235958b8997ebc1c3b8505f4f1ae2b7e7753b87618"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.arraybuffer.d.ts",
+          "value": "eb3d66c8327153d8fa7dd03f9c58d351107fe824c79e9b56b462935176cdf12a"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.d.ts",
+          "value": "e44bb8bbac7f10ecc786703fe0a6a4b952189f908707980ba8f3c8975a760962"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.date.d.ts",
+          "value": "38f0219c9e23c915ef9790ab1d680440d95419ad264816fa15009a8851e79119"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.intl.d.ts",
+          "value": "4de680d5bb41c17f7f68e0419412ca23c98d5749dcaaea1896172f06435891fc"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.object.d.ts",
+          "value": "69ab18c3b76cd9b1be3d188eaf8bba06112ebbe2f47f6c322b5105a6fbc45a2e"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
+          "value": "a680117f487a4d2f30ea46f1b4b7f58bef1480456e18ba53ee85c2746eeca012"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.string.d.ts",
+          "value": "2f11ff796926e0832f9ae148008138ad583bd181899ab7dd768a2666700b1893"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
+          "value": "954296b30da6d508a104a3a0b5d96b76495c709785c1d11610908e63481ee667"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts",
+          "value": "ac9538681b19688c8eae65811b329d3744af679e0bdfa5d842d0e32524c73e1c"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts",
+          "value": "0a969edff4bd52585473d24995c5ef223f6652d6ef46193309b3921d65dd4376"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.d.ts",
+          "value": "5e1c4c362065a6b95ff952c0eab010f04dcd2c3494e813b493ecfd4fcb9fc0d8"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.intl.d.ts",
+          "value": "9e9fbd7030c440b33d021da145d3232984c8bb7916f277e8ffd3dc2e3eae2bdb"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.promise.d.ts",
+          "value": "811ec78f7fefcabbda4bfa93b3eb67d9ae166ef95f9bff989d964061cbf81a0c"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.regexp.d.ts",
+          "value": "717937616a17072082152a2ef351cb51f98802fb4b2fdabd32399843875974ca"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.array.d.ts",
+          "value": "d7e7d9b7b50e5f22c915b525acc5a49a7a6584cf8f62d0569e557c5cfc4b2ac2"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.d.ts",
+          "value": "68d73b4a11549f9c0b7d352d10e91e5dca8faa3322bfb77b661839c42b1ddec7"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.intl.d.ts",
+          "value": "74f7fa2d027d5b33eb0471c8e82a6c87216223181ec31247c357a3e8e2fddc5b"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.object.d.ts",
+          "value": "71c37f4c9543f31dfced6c7840e068c5a5aacb7b89111a4364b1d5276b852557"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.string.d.ts",
+          "value": "576711e016cf4f1804676043e6a0a5414252560eb57de9faceee34d79798c850"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.symbol.d.ts",
+          "value": "89c1b1281ba7b8a96efc676b11b264de7a8374c5ea1e6617f11880a13fc56dc6"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.bigint.d.ts",
+          "value": "d6d7ae4d1f1f3772e2a3cde568ed08991a8ae34a080ff1151af28b7f798e22ca"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.d.ts",
+          "value": "5efce4fc3c29ea84e8928f97adec086e3dc876365e0982cc8479a07954a3efd4"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.date.d.ts",
+          "value": "063600664504610fe3e99b717a1223f8b1900087fab0b4cad1496a114744f8df"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.intl.d.ts",
+          "value": "639e512c0dfc3fad96a84caad71b8834d66329a1f28dc95e3946c9b58176c73a"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.number.d.ts",
+          "value": "368af93f74c9c932edd84c58883e736c9e3d53cec1fe24c0b0ff451f529ceab1"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.promise.d.ts",
+          "value": "934019d7e3c81950f9a8426d093458b65d5aff2c7c1511233c0fd5b941e608ab"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.sharedmemory.d.ts",
+          "value": "52ada8e0b6e0482b728070b7639ee42e83a9b1c22d205992756fe020fd9f4a47"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.string.d.ts",
+          "value": "3bdefe1bfd4d6dee0e26f928f93ccc128f1b64d5d501ff4a8cf3c6371200e5e6"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts",
+          "value": "59fb2c069260b4ba00b5643b907ef5d5341b167e7d1dbf58dfd895658bda2867"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.d.ts",
+          "value": "feecb1be483ed332fad555aff858affd90a48ab19ba7272ee084704eb7167569"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.intl.d.ts",
+          "value": "965f36eae237dd74e6cca203a43e9ca801ce38824ead814728a2807b1910117d"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.promise.d.ts",
+          "value": "af3dd424cf267428f30ccfc376f47a2c0114546b55c44d8c0f1d57d841e28d74"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.string.d.ts",
+          "value": "995c005ab91a498455ea8dfb63aa9f83fa2ea793c3d8aa344be4a1678d06d399"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.weakref.d.ts",
+          "value": "959d36cddf5e7d572a65045b876f2956c973a586da58e5d26cde519184fd9b8a"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.array.d.ts",
+          "value": "3925a6c820dcb1a06506c90b1577db1fdbf7705d65b62b99dce4be75c637e26b"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.d.ts",
+          "value": "ee7bad0c15b58988daa84371e0b89d313b762ab83cb5b31b8a2d1162e8eb41c2"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.error.d.ts",
+          "value": "0a3d63ef2b853447ec4f749d3f368ce642264246e02911fcb1590d8c161b8005"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.intl.d.ts",
+          "value": "8cdf8847677ac7d20486e54dd3fcf09eda95812ac8ace44b4418da1bbbab6eb8"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.object.d.ts",
+          "value": "8444af78980e3b20b49324f4a16ba35024fef3ee069a0eb67616ea6ca821c47a"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.regexp.d.ts",
+          "value": "b4b67b1a91182421f5df999988c690f14d813b9850b40acd06ed44691f6727ad"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.string.d.ts",
+          "value": "3287d9d085fbd618c3971944b65b4be57859f5415f495b33a6adc994edd2f004"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.array.d.ts",
+          "value": "df83c2a6c73228b625b0beb6669c7ee2a09c914637e2d35170723ad49c0f5cd4"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.collection.d.ts",
+          "value": "436aaf437562f276ec2ddbee2f2cdedac7664c1e4c1d2c36839ddd582eeb3d0a"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.d.ts",
+          "value": "27bdc30a0e32783366a5abeda841bc22757c1797de8681bbe81fbc735eeb1c10"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.full.d.ts",
+          "value": "785921608325fa246b450f05b238f4b3ed659f1099af278ce9ebbc9416a13f1d"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.intl.d.ts",
+          "value": "8e3c06ea092138bf9fa5e874a1fdbc9d54805d074bee1de31b99a11e2fec239d"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es5.d.ts",
+          "value": "c430d44666289dae81f30fa7b2edebf186ecc91a2d4c71266ea6ae76388792e1"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.scripthost.d.ts",
+          "value": "cd034f499c6cdca722b60c04b5b1b78e058487a7085a8e0d6fb50809947ee573"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
+          "value": "80e18897e5884b6723488d4f5652167e7bb5024f946743134ecc4aa4ee731f89"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/package.json",
+          "value": "822ef7ca6452205657b6288b066481ecf508bfbf43455d715cf7d3ec457561e6"
+        }
+      ],
+      "projectRootBinding": "c:\\users\\shuen\\.codex\\tmp\\mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf\\workspace\\game",
+      "config": {
+        "scriptEnabled": false,
+        "sourceExclude": [
+          "**/*.test.ts",
+          "**/*.spec.ts",
+          "**/*.d.ts"
+        ],
+        "sourceInclude": [
+          "**/*.events.ts",
+          "**/*.dsl.ts"
+        ],
+        "sourceRoot": "src"
+      },
+      "snapshotFiles": [
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "Actors.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "Animations.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "Armors.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "Classes.json"
+        },
+        {
+          "hash": "224fe14cfc92cb8e745cef4f5a625cefbf55fe2c056b1355fbc2543d703e1865",
+          "relativePath": "CommonEvents.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "Enemies.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "Items.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "MapInfos.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "Skills.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "States.json"
+        },
+        {
+          "hash": "aa024d9549abb83ea96ab42a044a0be95fb324118eeacd3559878fb43a4c6973",
+          "relativePath": "System.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "Tilesets.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "Troops.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "Weapons.json"
+        }
+      ],
+      "sourceFiles": [
+        {
+          "hash": "7fc113e456814f8cd866a15e9cf7165182bcde19147c9b2b264e8b7da4a3e326",
+          "relativePath": "src/decompiled/common-events.events.ts"
+        },
+        {
+          "hash": "002613305591198815978828f485fc61b7ef109dd6a9f59c18e4a2722139552a",
+          "relativePath": "src/decompiled/system.dsl.ts"
+        }
+      ],
+      "hash": "358705d4774f49fffc816e0fed45113c43472ba5816cdbc961a2d0688f5ada75"
+    },
+    "generatedFiles": [
+      {
+        "hash": "587cdb43f184568bbf804671b72698587ffc96acfbc41c92c3ee668aefb1e6e0",
+        "relativePath": "CommonEvents.json"
+      },
+      {
+        "hash": "885a4070c7aa732e7ffc24745e3816c26ea49ab10a0e4284e10cdf70ee64d32d",
+        "relativePath": "System.json"
+      }
+    ]
+  },
+  "push": {
+    "ok": false,
+    "message": "Error: Generated Project Data integrity check failed before push: incomplete or unexpected owned output file set. Run compile first.",
+    "stack": "Error: Generated Project Data integrity check failed before push: incomplete or unexpected owned output file set. Run compile first.\n    at assertGeneratedProjectDataIntegrity (file:///C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/operations-CUcDbfMI.mjs:8086:190)\n    at async pushWorkspaceUnlocked (file:///C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/operations-CUcDbfMI.mjs:8111:2)\n    at async withWorkspaceOperationLock (file:///C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/operations-CUcDbfMI.mjs:7817:10)\n    at async Module.pushWorkspace (file:///C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/operations-CUcDbfMI.mjs:8100:2)\n    at async C:\\Users\\Shuen\\.codex\\tmp\\mv25-authentic-contract6-recovery.cjs:9:51"
+  },
+  "finalManifest": {
+    "version": 1,
+    "projectRootBinding": "c:\\users\\shuen\\.codex\\tmp\\mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf\\workspace\\game",
+    "compileBaseline": {
+      "compileContractVersion": "mv-1.6.1/6",
+      "typeInputs": [
+        {
+          "kind": "directoryExists",
+          "path": "c:/node_modules",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/node_modules/@types",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/node_modules",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/node_modules/@types",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/node_modules",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/node_modules/@types",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/node_modules",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/node_modules/@types",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace",
+          "value": true
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules",
+          "value": true
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@types",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-decorators",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-decorators/legacy",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-dom",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-dom/asynciterable",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-dom/iterable",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2015",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2015/collection",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2015/core",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2015/generator",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2015/iterable",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2015/promise",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2015/proxy",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2015/reflect",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2015/symbol-wellknown",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2015/symbol",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2016",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2016/array-include",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2016/intl",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2017",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2017/arraybuffer",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2017/date",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2017/intl",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2017/object",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2017/sharedmemory",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2017/string",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2017/typedarrays",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2018",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2018/asyncgenerator",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2018/asynciterable",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2018/intl",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2018/promise",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2018/regexp",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2019",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2019/array",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2019/intl",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2019/object",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2019/string",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2019/symbol",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2020",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2020/bigint",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2020/date",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2020/intl",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2020/number",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2020/promise",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2020/sharedmemory",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2020/string",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2020/symbol-wellknown",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2021",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2021/intl",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2021/promise",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2021/string",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2021/weakref",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2022",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2022/array",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2022/error",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2022/intl",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2022/object",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2022/regexp",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2022/string",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2023",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2023/array",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2023/collection",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es2023/intl",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-es5",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-scripthost",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-webworker",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/@typescript/lib-webworker/importscripts",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/rpgmaker-event-dsl",
+          "value": true
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/src",
+          "value": true
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/src/decompiled",
+          "value": true
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/src/decompiled/node_modules",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/src/node_modules",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/node_modules",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/.codex/tmp/node_modules/@types",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/node_modules",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "c:/users/shuen/node_modules/@types",
+          "value": false
+        },
+        {
+          "kind": "directoryExists",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript",
+          "value": true
+        },
+        {
+          "kind": "directoryExists",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib",
+          "value": true
+        },
+        {
+          "kind": "fileExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/rpgmaker-event-dsl/dist/index.d.mts",
+          "value": true
+        },
+        {
+          "kind": "fileExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/rpgmaker-event-dsl/package.json",
+          "value": true
+        },
+        {
+          "kind": "fileExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/package.json",
+          "value": true
+        },
+        {
+          "kind": "fileExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/src/decompiled/package.json",
+          "value": false
+        },
+        {
+          "kind": "fileExists",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/src/package.json",
+          "value": false
+        },
+        {
+          "kind": "fileExists",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/package.json",
+          "value": false
+        },
+        {
+          "kind": "fileExists",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/package.json",
+          "value": true
+        },
+        {
+          "kind": "realpath",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/rpgmaker-event-dsl/dist/index.d.mts",
+          "value": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-24\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\index.d.mts"
+        },
+        {
+          "kind": "realpath",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/rpgmaker-event-dsl/package.json",
+          "value": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf\\Workspace\\node_modules\\rpgmaker-event-dsl\\package.json"
+        },
+        {
+          "kind": "realpath",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/package.json",
+          "value": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf\\Workspace\\package.json"
+        },
+        {
+          "kind": "realpath",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/src/decompiled/common-events.events.ts",
+          "value": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf\\Workspace\\src\\decompiled\\common-events.events.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/src/decompiled/system.dsl.ts",
+          "value": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf\\Workspace\\src\\decompiled\\system.dsl.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "c:/users/shuen/.codex/worktrees/mv-ticket-24/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/index.d.mts",
+          "value": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-24\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\index.d.mts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.decorators.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.decorators.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.decorators.legacy.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.decorators.legacy.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.dom.asynciterable.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.dom.asynciterable.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.dom.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.dom.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.dom.iterable.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.dom.iterable.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.collection.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2015.collection.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.core.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2015.core.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2015.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.generator.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2015.generator.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.iterable.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.promise.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2015.promise.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.proxy.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2015.proxy.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.reflect.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2015.reflect.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.symbol.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2015.symbol.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2015.symbol.wellknown.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2016.array.include.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2016.array.include.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2016.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2016.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2016.intl.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2016.intl.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.arraybuffer.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2017.arraybuffer.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2017.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.date.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2017.date.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.intl.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2017.intl.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.object.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2017.object.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2017.sharedmemory.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.string.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2017.string.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2017.typedarrays.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2018.asyncgenerator.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2018.asynciterable.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2018.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.intl.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2018.intl.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.promise.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2018.promise.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.regexp.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2018.regexp.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.array.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2019.array.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2019.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.intl.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2019.intl.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.object.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2019.object.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.string.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2019.string.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.symbol.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2019.symbol.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.bigint.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2020.bigint.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2020.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.date.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2020.date.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.intl.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2020.intl.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.number.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2020.number.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.promise.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2020.promise.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.sharedmemory.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2020.sharedmemory.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.string.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2020.string.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2020.symbol.wellknown.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2021.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.intl.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2021.intl.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.promise.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2021.promise.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.string.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2021.string.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.weakref.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2021.weakref.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.array.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2022.array.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2022.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.error.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2022.error.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.intl.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2022.intl.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.object.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2022.object.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.regexp.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2022.regexp.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.string.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2022.string.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.array.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.collection.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2023.collection.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2023.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.full.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2023.full.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.intl.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es2023.intl.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es5.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.es5.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.scripthost.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.scripthost.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\lib\\lib.webworker.importscripts.d.ts"
+        },
+        {
+          "kind": "realpath",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/package.json",
+          "value": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\package.json"
+        },
+        {
+          "kind": "readFile",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/node_modules/rpgmaker-event-dsl/package.json",
+          "value": "17f31fa94d4428af40cf527c584bfb24cbb881cf56eb34fe5ceb2656bc8de908"
+        },
+        {
+          "kind": "readFile",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/package.json",
+          "value": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+        },
+        {
+          "kind": "readFile",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/src/decompiled/common-events.events.ts",
+          "value": "7fc113e456814f8cd866a15e9cf7165182bcde19147c9b2b264e8b7da4a3e326"
+        },
+        {
+          "kind": "readFile",
+          "path": "c:/users/shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/workspace/src/decompiled/system.dsl.ts",
+          "value": "002613305591198815978828f485fc61b7ef109dd6a9f59c18e4a2722139552a"
+        },
+        {
+          "kind": "readFile",
+          "path": "c:/users/shuen/.codex/worktrees/mv-ticket-24/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/index.d.mts",
+          "value": "dfd9f6e95195bc6d0aff08bb4cc168e2b3cf70ebe960cc86126e04f8b128807f"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.decorators.d.ts",
+          "value": "8e7f8264d0fb4c5339605a15daadb037bf238c10b654bb3eee14208f860a32ea"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.decorators.legacy.d.ts",
+          "value": "782dec38049b92d4e85c1585fbea5474a219c6984a35b004963b00beb1aab538"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.dom.asynciterable.d.ts",
+          "value": "d7a3c8b952931daebdfc7a2897c53c0a1c73624593fa070e46bd537e64dcd20a"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.dom.d.ts",
+          "value": "080941d9f9ff9307f7e27a83bcd888b7c8270716c39af943532438932ec1d0b9"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.dom.iterable.d.ts",
+          "value": "2e80ee7a49e8ac312cc11b77f1475804bee36b3b2bc896bead8b6e1266befb43"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.collection.d.ts",
+          "value": "dc2df20b1bcdc8c2d34af4926e2c3ab15ffe1160a63e58b7e09833f616efff44"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.core.d.ts",
+          "value": "c57796738e7f83dbc4b8e65132f11a377649c00dd3eee333f672b8f0a6bea671"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.d.ts",
+          "value": "45b7ab580deca34ae9729e97c13cfd999df04416a79116c3bfb483804f85ded4"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.generator.d.ts",
+          "value": "515d0b7b9bea2e31ea4ec968e9edd2c39d3eebf4a2d5cbd04e88639819ae3b71"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.iterable.d.ts",
+          "value": "0559b1f683ac7505ae451f9a96ce4c3c92bdc71411651ca6ddb0e88baaaad6a3"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.promise.d.ts",
+          "value": "0dc1e7ceda9b8b9b455c3a2d67b0412feab00bd2f66656cd8850e8831b08b537"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.proxy.d.ts",
+          "value": "ce691fb9e5c64efb9547083e4a34091bcbe5bdb41027e310ebba8f7d96a98671"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.reflect.d.ts",
+          "value": "8d697a2a929a5fcb38b7a65594020fcef05ec1630804a33748829c5ff53640d0"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.symbol.d.ts",
+          "value": "4ff2a353abf8a80ee399af572debb8faab2d33ad38c4b4474cff7f26e7653b8d"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
+          "value": "fb0f136d372979348d59b3f5020b4cdb81b5504192b1cacff5d1fbba29378aa1"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2016.array.include.d.ts",
+          "value": "d15bea3d62cbbdb9797079416b8ac375ae99162a7fba5de2c6c505446486ac0a"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2016.d.ts",
+          "value": "3facaf05f0c5fc569c5649dd359892c98a85557e3e0c847964caeb67076f4d75"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2016.intl.d.ts",
+          "value": "68d18b664c9d32a7336a70235958b8997ebc1c3b8505f4f1ae2b7e7753b87618"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.arraybuffer.d.ts",
+          "value": "eb3d66c8327153d8fa7dd03f9c58d351107fe824c79e9b56b462935176cdf12a"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.d.ts",
+          "value": "e44bb8bbac7f10ecc786703fe0a6a4b952189f908707980ba8f3c8975a760962"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.date.d.ts",
+          "value": "38f0219c9e23c915ef9790ab1d680440d95419ad264816fa15009a8851e79119"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.intl.d.ts",
+          "value": "4de680d5bb41c17f7f68e0419412ca23c98d5749dcaaea1896172f06435891fc"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.object.d.ts",
+          "value": "69ab18c3b76cd9b1be3d188eaf8bba06112ebbe2f47f6c322b5105a6fbc45a2e"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
+          "value": "a680117f487a4d2f30ea46f1b4b7f58bef1480456e18ba53ee85c2746eeca012"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.string.d.ts",
+          "value": "2f11ff796926e0832f9ae148008138ad583bd181899ab7dd768a2666700b1893"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
+          "value": "954296b30da6d508a104a3a0b5d96b76495c709785c1d11610908e63481ee667"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts",
+          "value": "ac9538681b19688c8eae65811b329d3744af679e0bdfa5d842d0e32524c73e1c"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts",
+          "value": "0a969edff4bd52585473d24995c5ef223f6652d6ef46193309b3921d65dd4376"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.d.ts",
+          "value": "5e1c4c362065a6b95ff952c0eab010f04dcd2c3494e813b493ecfd4fcb9fc0d8"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.intl.d.ts",
+          "value": "9e9fbd7030c440b33d021da145d3232984c8bb7916f277e8ffd3dc2e3eae2bdb"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.promise.d.ts",
+          "value": "811ec78f7fefcabbda4bfa93b3eb67d9ae166ef95f9bff989d964061cbf81a0c"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.regexp.d.ts",
+          "value": "717937616a17072082152a2ef351cb51f98802fb4b2fdabd32399843875974ca"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.array.d.ts",
+          "value": "d7e7d9b7b50e5f22c915b525acc5a49a7a6584cf8f62d0569e557c5cfc4b2ac2"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.d.ts",
+          "value": "68d73b4a11549f9c0b7d352d10e91e5dca8faa3322bfb77b661839c42b1ddec7"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.intl.d.ts",
+          "value": "74f7fa2d027d5b33eb0471c8e82a6c87216223181ec31247c357a3e8e2fddc5b"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.object.d.ts",
+          "value": "71c37f4c9543f31dfced6c7840e068c5a5aacb7b89111a4364b1d5276b852557"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.string.d.ts",
+          "value": "576711e016cf4f1804676043e6a0a5414252560eb57de9faceee34d79798c850"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.symbol.d.ts",
+          "value": "89c1b1281ba7b8a96efc676b11b264de7a8374c5ea1e6617f11880a13fc56dc6"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.bigint.d.ts",
+          "value": "d6d7ae4d1f1f3772e2a3cde568ed08991a8ae34a080ff1151af28b7f798e22ca"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.d.ts",
+          "value": "5efce4fc3c29ea84e8928f97adec086e3dc876365e0982cc8479a07954a3efd4"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.date.d.ts",
+          "value": "063600664504610fe3e99b717a1223f8b1900087fab0b4cad1496a114744f8df"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.intl.d.ts",
+          "value": "639e512c0dfc3fad96a84caad71b8834d66329a1f28dc95e3946c9b58176c73a"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.number.d.ts",
+          "value": "368af93f74c9c932edd84c58883e736c9e3d53cec1fe24c0b0ff451f529ceab1"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.promise.d.ts",
+          "value": "934019d7e3c81950f9a8426d093458b65d5aff2c7c1511233c0fd5b941e608ab"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.sharedmemory.d.ts",
+          "value": "52ada8e0b6e0482b728070b7639ee42e83a9b1c22d205992756fe020fd9f4a47"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.string.d.ts",
+          "value": "3bdefe1bfd4d6dee0e26f928f93ccc128f1b64d5d501ff4a8cf3c6371200e5e6"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts",
+          "value": "59fb2c069260b4ba00b5643b907ef5d5341b167e7d1dbf58dfd895658bda2867"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.d.ts",
+          "value": "feecb1be483ed332fad555aff858affd90a48ab19ba7272ee084704eb7167569"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.intl.d.ts",
+          "value": "965f36eae237dd74e6cca203a43e9ca801ce38824ead814728a2807b1910117d"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.promise.d.ts",
+          "value": "af3dd424cf267428f30ccfc376f47a2c0114546b55c44d8c0f1d57d841e28d74"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.string.d.ts",
+          "value": "995c005ab91a498455ea8dfb63aa9f83fa2ea793c3d8aa344be4a1678d06d399"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.weakref.d.ts",
+          "value": "959d36cddf5e7d572a65045b876f2956c973a586da58e5d26cde519184fd9b8a"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.array.d.ts",
+          "value": "3925a6c820dcb1a06506c90b1577db1fdbf7705d65b62b99dce4be75c637e26b"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.d.ts",
+          "value": "ee7bad0c15b58988daa84371e0b89d313b762ab83cb5b31b8a2d1162e8eb41c2"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.error.d.ts",
+          "value": "0a3d63ef2b853447ec4f749d3f368ce642264246e02911fcb1590d8c161b8005"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.intl.d.ts",
+          "value": "8cdf8847677ac7d20486e54dd3fcf09eda95812ac8ace44b4418da1bbbab6eb8"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.object.d.ts",
+          "value": "8444af78980e3b20b49324f4a16ba35024fef3ee069a0eb67616ea6ca821c47a"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.regexp.d.ts",
+          "value": "b4b67b1a91182421f5df999988c690f14d813b9850b40acd06ed44691f6727ad"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.string.d.ts",
+          "value": "3287d9d085fbd618c3971944b65b4be57859f5415f495b33a6adc994edd2f004"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.array.d.ts",
+          "value": "df83c2a6c73228b625b0beb6669c7ee2a09c914637e2d35170723ad49c0f5cd4"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.collection.d.ts",
+          "value": "436aaf437562f276ec2ddbee2f2cdedac7664c1e4c1d2c36839ddd582eeb3d0a"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.d.ts",
+          "value": "27bdc30a0e32783366a5abeda841bc22757c1797de8681bbe81fbc735eeb1c10"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.full.d.ts",
+          "value": "785921608325fa246b450f05b238f4b3ed659f1099af278ce9ebbc9416a13f1d"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.intl.d.ts",
+          "value": "8e3c06ea092138bf9fa5e874a1fdbc9d54805d074bee1de31b99a11e2fec239d"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es5.d.ts",
+          "value": "c430d44666289dae81f30fa7b2edebf186ecc91a2d4c71266ea6ae76388792e1"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.scripthost.d.ts",
+          "value": "cd034f499c6cdca722b60c04b5b1b78e058487a7085a8e0d6fb50809947ee573"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
+          "value": "80e18897e5884b6723488d4f5652167e7bb5024f946743134ecc4aa4ee731f89"
+        },
+        {
+          "kind": "readFile",
+          "path": "f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/package.json",
+          "value": "822ef7ca6452205657b6288b066481ecf508bfbf43455d715cf7d3ec457561e6"
+        }
+      ],
+      "projectRootBinding": "c:\\users\\shuen\\.codex\\tmp\\mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf\\workspace\\game",
+      "config": {
+        "scriptEnabled": false,
+        "sourceExclude": [
+          "**/*.test.ts",
+          "**/*.spec.ts",
+          "**/*.d.ts"
+        ],
+        "sourceInclude": [
+          "**/*.events.ts",
+          "**/*.dsl.ts"
+        ],
+        "sourceRoot": "src"
+      },
+      "snapshotFiles": [
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "Actors.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "Animations.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "Armors.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "Classes.json"
+        },
+        {
+          "hash": "587cdb43f184568bbf804671b72698587ffc96acfbc41c92c3ee668aefb1e6e0",
+          "relativePath": "CommonEvents.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "Enemies.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "Items.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "MapInfos.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "Skills.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "States.json"
+        },
+        {
+          "hash": "aa024d9549abb83ea96ab42a044a0be95fb324118eeacd3559878fb43a4c6973",
+          "relativePath": "System.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "Tilesets.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "Troops.json"
+        },
+        {
+          "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "relativePath": "Weapons.json"
+        }
+      ],
+      "sourceFiles": [
+        {
+          "hash": "7fc113e456814f8cd866a15e9cf7165182bcde19147c9b2b264e8b7da4a3e326",
+          "relativePath": "src/decompiled/common-events.events.ts"
+        },
+        {
+          "hash": "002613305591198815978828f485fc61b7ef109dd6a9f59c18e4a2722139552a",
+          "relativePath": "src/decompiled/system.dsl.ts"
+        }
+      ],
+      "hash": "5748106ea811c22582bd513da67e0fcb8271c4de4f2f69b56fc0a378c9e04965"
+    },
+    "generatedFiles": [
+      {
+        "hash": "587cdb43f184568bbf804671b72698587ffc96acfbc41c92c3ee668aefb1e6e0",
+        "relativePath": "CommonEvents.json"
+      },
+      {
+        "hash": "885a4070c7aa732e7ffc24745e3816c26ea49ab10a0e4284e10cdf70ee64d32d",
+        "relativePath": "System.json"
+      }
+    ],
+    "snapshotFiles": [
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "Actors.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "Animations.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "Armors.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "Classes.json"
+      },
+      {
+        "hash": "587cdb43f184568bbf804671b72698587ffc96acfbc41c92c3ee668aefb1e6e0",
+        "relativePath": "CommonEvents.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "Enemies.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "Items.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "MapInfos.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "Skills.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "States.json"
+      },
+      {
+        "hash": "aa024d9549abb83ea96ab42a044a0be95fb324118eeacd3559878fb43a4c6973",
+        "relativePath": "System.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "Tilesets.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "Troops.json"
+      },
+      {
+        "hash": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "relativePath": "Weapons.json"
+      }
+    ]
+  },
+  "actualGeneratedFresh": false,
+  "after": {
+    "source": {
+      "decompiled/common-events.events.ts": {
+        "sha256": "7fc113e456814f8cd866a15e9cf7165182bcde19147c9b2b264e8b7da4a3e326",
+        "bytes": 355
+      },
+      "decompiled/system.dsl.ts": {
+        "sha256": "002613305591198815978828f485fc61b7ef109dd6a9f59c18e4a2722139552a",
+        "bytes": 168
+      }
+    },
+    "project": {
+      "data/Actors.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/Animations.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/Armors.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/Classes.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/CommonEvents.json": {
+        "sha256": "587cdb43f184568bbf804671b72698587ffc96acfbc41c92c3ee668aefb1e6e0",
+        "bytes": 804
+      },
+      "data/Enemies.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/Items.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/MapInfos.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/push-staging.tmp-27384-ed8433da-6ce5-4fa6-afd3-0e8909bd8251/CommonEvents.json": {
+        "sha256": "587cdb43f184568bbf804671b72698587ffc96acfbc41c92c3ee668aefb1e6e0",
+        "bytes": 804
+      },
+      "data/push-staging.tmp-27384-ed8433da-6ce5-4fa6-afd3-0e8909bd8251/original/CommonEvents.json": {
+        "sha256": "224fe14cfc92cb8e745cef4f5a625cefbf55fe2c056b1355fbc2543d703e1865",
+        "bytes": 816
+      },
+      "data/Skills.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/States.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/System.json": {
+        "sha256": "aa024d9549abb83ea96ab42a044a0be95fb324118eeacd3559878fb43a4c6973",
+        "bytes": 201
+      },
+      "data/Tilesets.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/Troops.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "data/Weapons.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "Game.rpgproject": {
+        "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2",
+        "bytes": 12
+      }
+    },
+    "state": {
+      "generated-project-data/CommonEvents.json": {
+        "sha256": "587cdb43f184568bbf804671b72698587ffc96acfbc41c92c3ee668aefb1e6e0",
+        "bytes": 804
+      },
+      "generated-project-data/System.json": {
+        "sha256": "885a4070c7aa732e7ffc24745e3816c26ea49ab10a0e4284e10cdf70ee64d32d",
+        "bytes": 195
+      },
+      "project-data-snapshot/Actors.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/Animations.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/Armors.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/Classes.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/CommonEvents.json": {
+        "sha256": "587cdb43f184568bbf804671b72698587ffc96acfbc41c92c3ee668aefb1e6e0",
+        "bytes": 804
+      },
+      "project-data-snapshot/Enemies.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/Items.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/MapInfos.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/Skills.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/States.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/System.json": {
+        "sha256": "aa024d9549abb83ea96ab42a044a0be95fb324118eeacd3559878fb43a4c6973",
+        "bytes": 201
+      },
+      "project-data-snapshot/Tilesets.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/Troops.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "project-data-snapshot/Weapons.json": {
+        "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "bytes": 11
+      },
+      "sync-manifest.json": {
+        "sha256": "1f8f70c02756810c0e659d5e72f7bb08fd5706a82bddb977c7cea15b0b41db65",
+        "bytes": 70609
+      }
+    },
+    "config": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a"
+  },
+  "completedAt": "2026-10-19T15:22:44.443Z"
+}

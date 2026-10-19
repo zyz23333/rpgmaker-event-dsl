@@ -1,0 +1,32 @@
+
+> rpgmaker-event-dsl-workspace@0.0.0 build C:\Users\Shuen\.codex\worktrees\mv-ticket-25\rpgmaker-event-dsl
+> pnpm -r build
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl build$ tsdown
+packages/rpgmaker-event-dsl build: ℹ tsdown v0.22.3 powered by rolldown v1.1.3
+packages/rpgmaker-event-dsl build: ℹ config file: C:\Users\Shuen\.codex\worktrees\mv-ticket-25\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\tsdown.config.ts 
+packages/rpgmaker-event-dsl build: ℹ entry: src/cli.ts, src/index.ts, src/workspace-api.ts
+packages/rpgmaker-event-dsl build: ℹ target: node22
+packages/rpgmaker-event-dsl build: ℹ tsconfig: tsconfig.json
+packages/rpgmaker-event-dsl build: ℹ Build start
+packages/rpgmaker-event-dsl build: ℹ Cleaning 16 files
+packages/rpgmaker-event-dsl build: ℹ Granting execute permission to dist\cli.mjs
+packages/rpgmaker-event-dsl build: ℹ dist\index.mjs                      5.04 kB │ gzip:   1.75 kB
+packages/rpgmaker-event-dsl build: ℹ dist\cli.mjs                        3.22 kB │ gzip:   1.15 kB
+packages/rpgmaker-event-dsl build: ℹ dist\workspace-api.mjs              0.42 kB │ gzip:   0.19 kB
+packages/rpgmaker-event-dsl build: ℹ dist\operations-BzxlXcGx.mjs.map  725.17 kB │ gzip: 138.50 kB
+packages/rpgmaker-event-dsl build: ℹ dist\operations-BzxlXcGx.mjs      353.08 kB │ gzip:  70.33 kB
+packages/rpgmaker-event-dsl build: ℹ dist\authoring-u02s-XyB.mjs.map   152.57 kB │ gzip:  29.97 kB
+packages/rpgmaker-event-dsl build: ℹ dist\authoring-u02s-XyB.mjs        66.78 kB │ gzip:  15.27 kB
+packages/rpgmaker-event-dsl build: ℹ dist\index.d.mts.map               25.60 kB │ gzip:   4.21 kB
+packages/rpgmaker-event-dsl build: ℹ dist\cli.mjs.map                    5.73 kB │ gzip:   1.85 kB
+packages/rpgmaker-event-dsl build: ℹ dist\workspace-api.d.mts.map        1.04 kB │ gzip:   0.40 kB
+packages/rpgmaker-event-dsl build: ℹ dist\index.mjs.map                  0.45 kB │ gzip:   0.30 kB
+packages/rpgmaker-event-dsl build: ℹ dist\cli.d.mts.map                  0.16 kB │ gzip:   0.14 kB
+packages/rpgmaker-event-dsl build: ℹ dist\index.d.mts                   53.32 kB │ gzip:   8.94 kB
+packages/rpgmaker-event-dsl build: ℹ dist\workspace-api.d.mts            2.27 kB │ gzip:   0.61 kB
+packages/rpgmaker-event-dsl build: ℹ dist\cli.d.mts                      0.30 kB │ gzip:   0.22 kB
+packages/rpgmaker-event-dsl build: ℹ 15 files, total: 1.40 MB
+packages/rpgmaker-event-dsl build: ✔ Build complete in 1457ms
+packages/rpgmaker-event-dsl build: Done

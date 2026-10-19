@@ -1,0 +1,48 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/troop-workflow.test.ts (38 tests | 1 failed | 37 skipped) 1946ms
+   × roundtrips an unbranched Battle Processing launch without inventing a result close record 1945ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/troop-workflow.test.ts > roundtrips an unbranched Battle Processing launch without inventing a result close record
+AssertionError: expected [ null, { id: 1, …(4) } ] to deeply equal [ null, { id: 1, …(4) } ]
+
+- Expected
++ Received
+
+@@ -12,10 +12,15 @@
+            false,
+            false,
+          ],
+        },
+        {
++         "code": 604,
++         "indent": 0,
++         "parameters": [],
++       },
++       {
+          "code": 108,
+          "indent": 0,
+          "parameters": [
+            "after the normal battle launch",
+          ],
+
+ ❯ test/troop-workflow.test.ts:141:20
+    139|     await compileWorkspace({ workspaceRoot, check: false });
+    140|     const actual = await json(join(paths.generatedProjectDataDirectory…
+    141|     expect(actual).toEqual(commonEvents);
+       |                    ^
+    142|     expect(await json(join(paths.generatedProjectDataDirectory, "Troop…
+    143|     expect(await json(commonPath)).toEqual(commonEvents);
+ ❯ verifyTroopEvidence test/support/troop-evidence.ts:11:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 37 skipped (38)
+   Start at  23:45:02
+   Duration  3.60s (transform 508ms, setup 0ms, import 1.49s, tests 1.95s, environment 0ms)
+

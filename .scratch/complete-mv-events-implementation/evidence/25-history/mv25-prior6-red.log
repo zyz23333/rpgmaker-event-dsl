@@ -1,0 +1,39 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/push-recovery.test.ts > recognizes the bounded pre-Troops complete output set: mv-1.6.1/6
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\mv25-prior-set-Gnv3lt
+
+ ❯ test/push-recovery.test.ts (44 tests | 1 failed | 43 skipped) 1499ms
+   × recognizes the bounded pre-Troops complete output set: mv-1.6.1/6 1498ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/push-recovery.test.ts > recognizes the bounded pre-Troops complete output set: mv-1.6.1/6
+AssertionError: expected [Function] to throw error matching /stale|integrity/i but got 'Interrupted Push generated file set i…'
+
+- Expected:
+/stale|integrity/i
+
++ Received:
+"Interrupted Push generated file set is inconsistent. Recovery stopped without changes to the Project Root."
+
+ ❯ test/push-recovery.test.ts:59:77
+     57|           expect(await observe(s)).toStrictEqual(before);
+
+     58|         } else {
+     59|           await expect(api.pushWorkspace({ ...s, allowDestructive: fal…
+       |                                                                             ^
+     60|             /stale|integrity/i,
+     61|           );
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/push-recovery.test.ts:32:7
+ ❯ verifyTroopEvidence test/support/troop-evidence.ts:11:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 43 skipped (44)
+   Start at  23:14:05
+   Duration  3.14s (transform 529ms, setup 0ms, import 1.48s, tests 1.50s, environment 0ms)
+

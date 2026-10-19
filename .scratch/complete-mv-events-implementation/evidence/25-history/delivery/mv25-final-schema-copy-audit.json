@@ -1,0 +1,615 @@
+{
+  "copied": 101,
+  "counts": {
+    "passed": 100,
+    "failed": 1
+  },
+  "rows": [
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-public-red-results\\MV-S5-TROOP-R2-AUXILIARY-E301-2026-10-19T15-45-06-409Z-7c8b3a51-705e-4fbe-84b9-cbb70848f4dd.json",
+      "name": "MV-S5-TROOP-R2-AUXILIARY-E301-2026-10-19T15-45-06-409Z-7c8b3a51-705e-4fbe-84b9-cbb70848f4dd.json",
+      "status": "failed",
+      "requirementId": "MV-S5-TROOP-R2-AUXILIARY-E301"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-public-green-results\\MV-S5-TROOP-R2-AUXILIARY-E301-2026-10-19T15-45-30-740Z-4a0456f7-028b-4b9a-8130-b1a650cfe69d.json",
+      "name": "MV-S5-TROOP-R2-AUXILIARY-E301-2026-10-19T15-45-30-740Z-4a0456f7-028b-4b9a-8130-b1a650cfe69d.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-R2-AUXILIARY-E301"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-AUTHOR-001-2026-10-19T15-50-52-850Z-a65b5b97-7c47-4d00-aac7-c5ad3af55839.json",
+      "name": "MV-S5-TROOP-AUTHOR-001-2026-10-19T15-50-52-850Z-a65b5b97-7c47-4d00-aac7-c5ad3af55839.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-AUTHOR-001"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-AUTHOR-002-2026-10-19T15-50-52-925Z-f8840752-810d-4dc8-84dd-7c6b44c4cc2f.json",
+      "name": "MV-S5-TROOP-AUTHOR-002-2026-10-19T15-50-52-925Z-f8840752-810d-4dc8-84dd-7c6b44c4cc2f.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-AUTHOR-002"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-AUTHOR-003-2026-10-19T15-50-52-987Z-b0090fde-4b3f-4cad-8fdb-45aa1e252537.json",
+      "name": "MV-S5-TROOP-AUTHOR-003-2026-10-19T15-50-52-987Z-b0090fde-4b3f-4cad-8fdb-45aa1e252537.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-AUTHOR-003"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-AUTHOR-004-2026-10-19T15-50-53-040Z-ed294182-d25b-4569-b29f-9aa3da570de3.json",
+      "name": "MV-S5-TROOP-AUTHOR-004-2026-10-19T15-50-53-040Z-ed294182-d25b-4569-b29f-9aa3da570de3.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-AUTHOR-004"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-AUTHOR-005-2026-10-19T15-50-53-087Z-917e67e6-0c69-4d45-9b6e-ebbd92c1c968.json",
+      "name": "MV-S5-TROOP-AUTHOR-005-2026-10-19T15-50-53-087Z-917e67e6-0c69-4d45-9b6e-ebbd92c1c968.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-AUTHOR-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-AUTHOR-006-2026-10-19T15-50-53-133Z-6cea3ca1-e351-4fba-bbc8-2e38f84c4d59.json",
+      "name": "MV-S5-TROOP-AUTHOR-006-2026-10-19T15-50-53-133Z-6cea3ca1-e351-4fba-bbc8-2e38f84c4d59.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-AUTHOR-006"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-AUTHOR-007-2026-10-19T15-50-53-190Z-e27888d4-5be9-4c14-9ec9-54de6198587e.json",
+      "name": "MV-S5-TROOP-AUTHOR-007-2026-10-19T15-50-53-190Z-e27888d4-5be9-4c14-9ec9-54de6198587e.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-AUTHOR-007"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-PRIOR-001-2026-10-19T15-46-09-722Z-1e2f3874-2567-4e68-8c9d-5a7fc72c481f.json",
+      "name": "MV-S5-TROOP-PRIOR-001-2026-10-19T15-46-09-722Z-1e2f3874-2567-4e68-8c9d-5a7fc72c481f.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-PRIOR-001"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-PRIOR-001-2026-10-19T15-46-11-317Z-f3575044-1a65-4bfc-ad87-2801210061dd.json",
+      "name": "MV-S5-TROOP-PRIOR-001-2026-10-19T15-46-11-317Z-f3575044-1a65-4bfc-ad87-2801210061dd.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-PRIOR-001"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-PRIOR-001-2026-10-19T15-46-12-994Z-34974786-a323-41aa-ac00-ea34d47eefd7.json",
+      "name": "MV-S5-TROOP-PRIOR-001-2026-10-19T15-46-12-994Z-34974786-a323-41aa-ac00-ea34d47eefd7.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-PRIOR-001"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-PRIOR-001-2026-10-19T15-46-14-481Z-1f65270b-b4ea-4bbf-8d8d-30861a0b2dd1.json",
+      "name": "MV-S5-TROOP-PRIOR-001-2026-10-19T15-46-14-481Z-1f65270b-b4ea-4bbf-8d8d-30861a0b2dd1.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-PRIOR-001"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-PRIOR-001-2026-10-19T15-46-15-910Z-16005f4d-cc5c-43a6-812d-4b2b8bdffb17.json",
+      "name": "MV-S5-TROOP-PRIOR-001-2026-10-19T15-46-15-910Z-16005f4d-cc5c-43a6-812d-4b2b8bdffb17.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-PRIOR-001"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-R2-AUXILIARY-E301-2026-10-19T15-50-46-566Z-0ac4f574-9e5a-495f-8986-e023aba66299.json",
+      "name": "MV-S5-TROOP-R2-AUXILIARY-E301-2026-10-19T15-50-46-566Z-0ac4f574-9e5a-495f-8986-e023aba66299.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-R2-AUXILIARY-E301"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-SAFETY-001-2026-10-19T15-50-27-015Z-7a86af23-46d4-4ce8-921c-45af541c91e7.json",
+      "name": "MV-S5-TROOP-SAFETY-001-2026-10-19T15-50-27-015Z-7a86af23-46d4-4ce8-921c-45af541c91e7.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-SAFETY-001"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-SAFETY-002-2026-10-19T15-50-29-945Z-c4f12dff-d7da-4ee0-a58f-b9ecd2bcef60.json",
+      "name": "MV-S5-TROOP-SAFETY-002-2026-10-19T15-50-29-945Z-c4f12dff-d7da-4ee0-a58f-b9ecd2bcef60.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-SAFETY-002"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-SAFETY-003-2026-10-19T15-50-31-659Z-9813db72-a7b9-489a-b3e5-d8db9c67e357.json",
+      "name": "MV-S5-TROOP-SAFETY-003-2026-10-19T15-50-31-659Z-9813db72-a7b9-489a-b3e5-d8db9c67e357.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-SAFETY-003"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-001-2026-10-19T15-50-46-706Z-0db5dd4e-d800-41a3-9cb6-e230271bea4f.json",
+      "name": "MV-S5-TROOP-WORKSPACE-001-2026-10-19T15-50-46-706Z-0db5dd4e-d800-41a3-9cb6-e230271bea4f.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-001"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-002-2026-10-19T15-50-48-171Z-31ddabd6-0669-487d-a494-980607daa581.json",
+      "name": "MV-S5-TROOP-WORKSPACE-002-2026-10-19T15-50-48-171Z-31ddabd6-0669-487d-a494-980607daa581.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-002"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-002-2026-10-19T15-50-50-130Z-86912328-b0be-4acd-af28-292af018c67e.json",
+      "name": "MV-S5-TROOP-WORKSPACE-002-2026-10-19T15-50-50-130Z-86912328-b0be-4acd-af28-292af018c67e.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-002"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-002-2026-10-19T15-50-53-387Z-06deb0e7-166d-4778-9e60-1c4d2e9a76f4.json",
+      "name": "MV-S5-TROOP-WORKSPACE-002-2026-10-19T15-50-53-387Z-06deb0e7-166d-4778-9e60-1c4d2e9a76f4.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-002"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-003-2026-10-19T15-50-56-394Z-9dadb5dc-c7e5-4ec8-a34e-a378985abc4a.json",
+      "name": "MV-S5-TROOP-WORKSPACE-003-2026-10-19T15-50-56-394Z-9dadb5dc-c7e5-4ec8-a34e-a378985abc4a.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-003"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-004-2026-10-19T15-50-56-918Z-86a41e67-4ece-42b9-89d4-31babc476f93.json",
+      "name": "MV-S5-TROOP-WORKSPACE-004-2026-10-19T15-50-56-918Z-86a41e67-4ece-42b9-89d4-31babc476f93.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-004"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-53-983Z-a3ae511b-795a-4233-9b10-ad48ae2c3dff.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-53-983Z-a3ae511b-795a-4233-9b10-ad48ae2c3dff.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-57-097Z-7e0b2002-c0c3-41d5-af36-33614b9e2668.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-57-097Z-7e0b2002-c0c3-41d5-af36-33614b9e2668.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-57-323Z-345cd0e7-7d38-4b7d-84a6-cf78aeeb06d3.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-57-323Z-345cd0e7-7d38-4b7d-84a6-cf78aeeb06d3.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-57-539Z-d74f7af4-0028-4d07-9ea0-049fcc1ebe70.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-57-539Z-d74f7af4-0028-4d07-9ea0-049fcc1ebe70.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-57-738Z-e6a1dd24-7de0-414e-9d9f-bf38b29974f8.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-57-738Z-e6a1dd24-7de0-414e-9d9f-bf38b29974f8.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-57-959Z-df7af295-ce1c-4c23-bf75-1bdf85227753.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-57-959Z-df7af295-ce1c-4c23-bf75-1bdf85227753.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-58-117Z-1ebd4288-18ab-4c01-bd6d-dbc9319d60fe.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-58-117Z-1ebd4288-18ab-4c01-bd6d-dbc9319d60fe.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-58-272Z-d466501f-741b-45b1-9f0c-312e8d5d9bb3.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-58-272Z-d466501f-741b-45b1-9f0c-312e8d5d9bb3.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-58-429Z-1b91df3e-5a3f-4391-8217-cb078d7830e8.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-58-429Z-1b91df3e-5a3f-4391-8217-cb078d7830e8.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-58-584Z-3bcf2deb-d378-49d0-8c04-c7536d124234.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-58-584Z-3bcf2deb-d378-49d0-8c04-c7536d124234.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-58-741Z-906c21af-02cf-4954-b9ec-0a9b58165b4e.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-58-741Z-906c21af-02cf-4954-b9ec-0a9b58165b4e.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-58-908Z-96f0ece1-5446-4280-99f1-a4fa9d22e2ed.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-58-908Z-96f0ece1-5446-4280-99f1-a4fa9d22e2ed.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-59-057Z-e316bedd-2059-45ff-bfa1-fec2e58d98f3.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-59-057Z-e316bedd-2059-45ff-bfa1-fec2e58d98f3.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-59-235Z-4320949c-cf86-477f-b89d-f73597c4b1a7.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-59-235Z-4320949c-cf86-477f-b89d-f73597c4b1a7.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-59-441Z-f7d9b8a8-30ff-447b-9d1d-66493970fd6d.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-59-441Z-f7d9b8a8-30ff-447b-9d1d-66493970fd6d.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-59-653Z-739e541f-f9ea-4508-b603-c82d43af846a.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-59-653Z-739e541f-f9ea-4508-b603-c82d43af846a.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-59-879Z-bb60233c-5362-485a-8487-21083036f83b.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-50-59-879Z-bb60233c-5362-485a-8487-21083036f83b.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-51-00-109Z-0dacbc91-2e47-465d-9fd8-f9eb49dd3c31.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-51-00-109Z-0dacbc91-2e47-465d-9fd8-f9eb49dd3c31.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-51-00-328Z-93eaf0a2-bdef-484b-a247-f51c53c4a21a.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-51-00-328Z-93eaf0a2-bdef-484b-a247-f51c53c4a21a.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-51-00-515Z-6092a03d-0234-4700-8866-9822d4dddbec.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-51-00-515Z-6092a03d-0234-4700-8866-9822d4dddbec.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-51-00-673Z-4973e397-d106-4a27-917d-d5b24718799f.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-51-00-673Z-4973e397-d106-4a27-917d-d5b24718799f.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-51-00-834Z-235e59fb-9edf-4d6c-8eff-3e5f29bd4575.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-51-00-834Z-235e59fb-9edf-4d6c-8eff-3e5f29bd4575.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-51-00-990Z-8bf45e03-9e63-40c5-b63e-a7a85eec5601.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-51-00-990Z-8bf45e03-9e63-40c5-b63e-a7a85eec5601.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-51-01-195Z-98ebcbd4-cc0d-47ae-b66d-d0120696ce18.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-51-01-195Z-98ebcbd4-cc0d-47ae-b66d-d0120696ce18.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-51-01-426Z-4e45d1c1-91d1-4bc2-aafb-15141786eef1.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-51-01-426Z-4e45d1c1-91d1-4bc2-aafb-15141786eef1.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-51-01-638Z-0650748f-0214-4dd3-ab86-c9fc6aa6d9dd.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-51-01-638Z-0650748f-0214-4dd3-ab86-c9fc6aa6d9dd.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-51-01-842Z-8eb73008-c58d-4580-b261-ba5534eca63e.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-51-01-842Z-8eb73008-c58d-4580-b261-ba5534eca63e.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-51-04-218Z-64651bce-c397-484c-9031-e5b81c5304f5.json",
+      "name": "MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-51-04-218Z-64651bce-c397-484c-9031-e5b81c5304f5.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-006"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-51-06-286Z-00fbd84d-adc7-4a36-b541-ce311c06c1b1.json",
+      "name": "MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-51-06-286Z-00fbd84d-adc7-4a36-b541-ce311c06c1b1.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-006"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-51-08-366Z-96815604-d498-43bb-a9eb-408b56f6b8cf.json",
+      "name": "MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-51-08-366Z-96815604-d498-43bb-a9eb-408b56f6b8cf.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-006"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-source-results\\MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-51-10-531Z-4fec52a0-1162-469a-97d6-d9235e7aa85c.json",
+      "name": "MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-51-10-531Z-4fec52a0-1162-469a-97d6-d9235e7aa85c.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-006"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-PRIOR-001-2026-10-19T15-53-30-735Z-b1e54954-2f3b-4757-95ae-eaba584d10cb.json",
+      "name": "MV-S5-TROOP-PRIOR-001-2026-10-19T15-53-30-735Z-b1e54954-2f3b-4757-95ae-eaba584d10cb.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-PRIOR-001"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-PRIOR-001-2026-10-19T15-53-32-320Z-1fc9140f-cb25-4cc5-a97a-1ed5614a022c.json",
+      "name": "MV-S5-TROOP-PRIOR-001-2026-10-19T15-53-32-320Z-1fc9140f-cb25-4cc5-a97a-1ed5614a022c.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-PRIOR-001"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-PRIOR-001-2026-10-19T15-53-33-672Z-1264a123-a238-4e03-a14a-e6cdce66035c.json",
+      "name": "MV-S5-TROOP-PRIOR-001-2026-10-19T15-53-33-672Z-1264a123-a238-4e03-a14a-e6cdce66035c.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-PRIOR-001"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-PRIOR-001-2026-10-19T15-53-34-960Z-d95f6ecf-4ab3-494c-b3f4-9f8bb67c5094.json",
+      "name": "MV-S5-TROOP-PRIOR-001-2026-10-19T15-53-34-960Z-d95f6ecf-4ab3-494c-b3f4-9f8bb67c5094.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-PRIOR-001"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-PRIOR-001-2026-10-19T15-53-36-456Z-862c5969-dbba-4c27-9524-7ee46d645c1b.json",
+      "name": "MV-S5-TROOP-PRIOR-001-2026-10-19T15-53-36-456Z-862c5969-dbba-4c27-9524-7ee46d645c1b.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-PRIOR-001"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-R2-AUXILIARY-E301-2026-10-19T15-56-28-873Z-eded3313-00e1-4f56-97d8-782670086bb2.json",
+      "name": "MV-S5-TROOP-R2-AUXILIARY-E301-2026-10-19T15-56-28-873Z-eded3313-00e1-4f56-97d8-782670086bb2.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-R2-AUXILIARY-E301"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-SAFETY-001-2026-10-19T15-56-59-114Z-5809788d-f583-4ef1-8b36-e59d859a8dca.json",
+      "name": "MV-S5-TROOP-SAFETY-001-2026-10-19T15-56-59-114Z-5809788d-f583-4ef1-8b36-e59d859a8dca.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-SAFETY-001"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-SAFETY-002-2026-10-19T15-57-01-117Z-7d9322d6-4662-4481-8e65-4a35827db816.json",
+      "name": "MV-S5-TROOP-SAFETY-002-2026-10-19T15-57-01-117Z-7d9322d6-4662-4481-8e65-4a35827db816.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-SAFETY-002"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-SAFETY-003-2026-10-19T15-57-02-251Z-cead992d-be0b-404c-8e0d-b735a6762541.json",
+      "name": "MV-S5-TROOP-SAFETY-003-2026-10-19T15-57-02-251Z-cead992d-be0b-404c-8e0d-b735a6762541.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-SAFETY-003"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-001-2026-10-19T15-56-29-070Z-abb43c48-7ebc-4f45-bae1-d621585efac8.json",
+      "name": "MV-S5-TROOP-WORKSPACE-001-2026-10-19T15-56-29-070Z-abb43c48-7ebc-4f45-bae1-d621585efac8.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-001"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-002-2026-10-19T15-56-30-457Z-35482c3f-6863-4d58-b144-cb532d136796.json",
+      "name": "MV-S5-TROOP-WORKSPACE-002-2026-10-19T15-56-30-457Z-35482c3f-6863-4d58-b144-cb532d136796.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-002"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-002-2026-10-19T15-56-32-119Z-f62a5e10-c702-47a0-8c73-93640573e325.json",
+      "name": "MV-S5-TROOP-WORKSPACE-002-2026-10-19T15-56-32-119Z-f62a5e10-c702-47a0-8c73-93640573e325.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-002"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-002-2026-10-19T15-56-33-651Z-db4607de-febe-48cf-bd49-6d6e34d3413f.json",
+      "name": "MV-S5-TROOP-WORKSPACE-002-2026-10-19T15-56-33-651Z-db4607de-febe-48cf-bd49-6d6e34d3413f.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-002"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-003-2026-10-19T15-56-35-256Z-2dcfd07d-fccb-4335-8d19-12d054d34d4e.json",
+      "name": "MV-S5-TROOP-WORKSPACE-003-2026-10-19T15-56-35-256Z-2dcfd07d-fccb-4335-8d19-12d054d34d4e.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-003"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-004-2026-10-19T15-56-35-478Z-e8f465e6-294e-46cf-8874-4ab357ee6153.json",
+      "name": "MV-S5-TROOP-WORKSPACE-004-2026-10-19T15-56-35-478Z-e8f465e6-294e-46cf-8874-4ab357ee6153.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-004"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-34-066Z-fafca9e9-dd91-461a-94e2-99ba2f4d36a4.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-34-066Z-fafca9e9-dd91-461a-94e2-99ba2f4d36a4.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-35-583Z-6f405c53-b4ce-48a0-8670-376bd30f1557.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-35-583Z-6f405c53-b4ce-48a0-8670-376bd30f1557.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-35-697Z-2361ad13-6c2f-4d58-811f-9f56dcf496ab.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-35-697Z-2361ad13-6c2f-4d58-811f-9f56dcf496ab.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-35-796Z-15250205-bb60-4c41-b907-1f61cdafcce7.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-35-796Z-15250205-bb60-4c41-b907-1f61cdafcce7.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-35-967Z-d33745e0-0299-4788-ab57-6c9a2c7bd484.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-35-967Z-d33745e0-0299-4788-ab57-6c9a2c7bd484.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-36-153Z-af12c3bc-e94c-4b7f-957f-2efd4b756f3f.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-36-153Z-af12c3bc-e94c-4b7f-957f-2efd4b756f3f.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-36-355Z-73ca110c-68db-4cd9-bca6-900f4f5d42e6.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-36-355Z-73ca110c-68db-4cd9-bca6-900f4f5d42e6.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-36-470Z-ef46f79e-9701-47ce-a8c9-f68599953883.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-36-470Z-ef46f79e-9701-47ce-a8c9-f68599953883.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-36-576Z-e73ce8a2-f38b-45ff-a9f4-2bfdcae0757d.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-36-576Z-e73ce8a2-f38b-45ff-a9f4-2bfdcae0757d.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-36-683Z-ed317809-afd4-40f8-a9df-f27e35a57842.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-36-683Z-ed317809-afd4-40f8-a9df-f27e35a57842.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-36-783Z-f7be3df5-2ad9-483f-a52e-c6b8547339c0.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-36-783Z-f7be3df5-2ad9-483f-a52e-c6b8547339c0.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-36-916Z-e8443a96-8d8e-4506-8a23-997f950de98c.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-36-916Z-e8443a96-8d8e-4506-8a23-997f950de98c.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-37-075Z-3c2028c7-6c0d-4bae-955b-4f486ace5cf2.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-37-075Z-3c2028c7-6c0d-4bae-955b-4f486ace5cf2.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-37-256Z-1caec604-ca50-4e12-a32d-802685e3ea5a.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-37-256Z-1caec604-ca50-4e12-a32d-802685e3ea5a.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-37-434Z-8caa17b6-7e6f-4ad3-9c05-241fb65eb5b1.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-37-434Z-8caa17b6-7e6f-4ad3-9c05-241fb65eb5b1.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-37-622Z-8b07c007-84ad-4278-85ae-992d50b95d9f.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-37-622Z-8b07c007-84ad-4278-85ae-992d50b95d9f.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-37-772Z-99903d8a-7127-4fc7-9675-ca3d3d994a2a.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-37-772Z-99903d8a-7127-4fc7-9675-ca3d3d994a2a.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-37-895Z-3591558f-7d06-4c1f-9ff8-99021a8859f3.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-37-895Z-3591558f-7d06-4c1f-9ff8-99021a8859f3.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-38-075Z-f354c8f8-d48e-47ab-a36d-6d0ea732bea6.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-38-075Z-f354c8f8-d48e-47ab-a36d-6d0ea732bea6.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-38-264Z-a411e250-5a59-4264-9640-eda73aea7b3f.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-38-264Z-a411e250-5a59-4264-9640-eda73aea7b3f.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-38-438Z-c44c9f9a-2aca-4536-83af-91efe24e003b.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-38-438Z-c44c9f9a-2aca-4536-83af-91efe24e003b.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-38-592Z-01f333cd-af41-4a3b-a0bc-c378feaebef4.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-38-592Z-01f333cd-af41-4a3b-a0bc-c378feaebef4.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-38-754Z-76e57e09-dba5-498e-98da-fcdc7e8aaf35.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-38-754Z-76e57e09-dba5-498e-98da-fcdc7e8aaf35.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-38-874Z-dd61dc07-20dc-4850-bb66-695dd17d4115.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-38-874Z-dd61dc07-20dc-4850-bb66-695dd17d4115.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-39-042Z-5260a1fd-9d6e-4198-a248-8058408cd5c0.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-39-042Z-5260a1fd-9d6e-4198-a248-8058408cd5c0.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-39-228Z-4357933e-ffce-4b89-914a-d5e1e42d33f4.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-39-228Z-4357933e-ffce-4b89-914a-d5e1e42d33f4.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-39-402Z-b6e057fb-ca42-46a9-bb63-7230579b273b.json",
+      "name": "MV-S5-TROOP-WORKSPACE-005-2026-10-19T15-56-39-402Z-b6e057fb-ca42-46a9-bb63-7230579b273b.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-005"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-56-40-697Z-da3562f2-e69f-4107-ac39-99652bbaea5d.json",
+      "name": "MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-56-40-697Z-da3562f2-e69f-4107-ac39-99652bbaea5d.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-006"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-56-41-796Z-3b948cba-5c12-4740-8d8b-f41464686041.json",
+      "name": "MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-56-41-796Z-3b948cba-5c12-4740-8d8b-f41464686041.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-006"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-56-42-924Z-b631ef5f-83f0-4082-a026-c647aa7c570e.json",
+      "name": "MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-56-42-924Z-b631ef5f-83f0-4082-a026-c647aa7c570e.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-006"
+    },
+    {
+      "origin": "C:\\Users\\Shuen\\.codex\\tmp\\mv25-e301-final-built-results\\MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-56-44-093Z-8b22cecc-c81e-43c0-b854-226767d54cc5.json",
+      "name": "MV-S5-TROOP-WORKSPACE-006-2026-10-19T15-56-44-093Z-8b22cecc-c81e-43c0-b854-226767d54cc5.json",
+      "status": "passed",
+      "requirementId": "MV-S5-TROOP-WORKSPACE-006"
+    }
+  ]
+}

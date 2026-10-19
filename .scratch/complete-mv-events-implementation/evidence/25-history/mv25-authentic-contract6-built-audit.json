@@ -1,0 +1,32 @@
+{
+  "purpose": "Authentic actual built24 contract6 recovery by actual built25 contract7; subsequent ordinary Push integrity rejection retained",
+  "passed": true,
+  "input": "C:/Users/Shuen/.codex/tmp/mv25-authentic-contract6-built-result.json",
+  "inputSha256": "08163969bc776d342189d87b7f98327bdbad7dc75a78da812b36e5a961f58577",
+  "preparationPath": "C:/Users/Shuen/.codex/tmp/mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf/preparation-result.json",
+  "preparationSha256": "357c0c0f6905af95b698f37c92f4d4a17fe06560b746379df0c67389051dd61a",
+  "originalFrozenDirectory": "C:\\Users\\Shuen\\.codex\\tmp\\mv24-authentic-prior-output-pending-81bdeb64-2a7d-4d43-814c-47910cd51ebf\\before-recovery-original-bytes",
+  "entry": "C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/workspace-api.mjs",
+  "entrySha256": "4de348e6c210dca980a6cefc9b278174584178c1cb28efd88660182814d70124",
+  "startedAt": "2026-10-19T15:22:44.058Z",
+  "completedAt": "2026-10-19T15:22:44.443Z",
+  "originalContract": "mv-1.6.1/6",
+  "currentContract": "mv-1.6.1/7",
+  "immutableCompilationBasis": true,
+  "sourceProjectConfigBytesUnchanged": true,
+  "onlyCompletedCommonSnapshotWriteRecorded": true,
+  "pendingRetired": true,
+  "oldOutputSetPreserved": true,
+  "actualGeneratedFresh": false,
+  "currentOrdinaryPush": {
+    "ok": false,
+    "message": "Error: Generated Project Data integrity check failed before push: incomplete or unexpected owned output file set. Run compile first.",
+    "stack": "Error: Generated Project Data integrity check failed before push: incomplete or unexpected owned output file set. Run compile first.\n    at assertGeneratedProjectDataIntegrity (file:///C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/operations-CUcDbfMI.mjs:8086:190)\n    at async pushWorkspaceUnlocked (file:///C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/operations-CUcDbfMI.mjs:8111:2)\n    at async withWorkspaceOperationLock (file:///C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/operations-CUcDbfMI.mjs:7817:10)\n    at async Module.pushWorkspace (file:///C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/operations-CUcDbfMI.mjs:8100:2)\n    at async C:\\Users\\Shuen\\.codex\\tmp\\mv25-authentic-contract6-recovery.cjs:9:51"
+  },
+  "changedStateFiles": [
+    "pending-push/backup/CommonEvents.json",
+    "pending-push/pending-push.json",
+    "project-data-snapshot/CommonEvents.json",
+    "sync-manifest.json"
+  ]
+}

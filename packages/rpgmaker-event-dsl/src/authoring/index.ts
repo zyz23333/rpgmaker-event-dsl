@@ -8,6 +8,9 @@ export type {
   AudioPayload,
   BalloonIcon,
   BattleProcessingDslCommand,
+  BattleEventPage,
+  BattlePageConditions,
+  TroopEventDefinition,
   BattlerCommandTarget,
   BreakLoopDslCommand,
   ChildCommandBody,
@@ -184,6 +187,8 @@ export {
 export {
   mapEvent,
   commonEvent,
+  battlePage,
+  troopEvent,
   switchDefinition,
   variableDefinition,
   page,

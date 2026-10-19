@@ -1,0 +1,303 @@
+
+> rpgmaker-event-dsl-workspace@0.0.0 check C:\Users\Shuen\.codex\worktrees\mv-ticket-25\rpgmaker-event-dsl
+> pnpm typecheck && pnpm lint && pnpm format:check && pnpm test
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 typecheck C:\Users\Shuen\.codex\worktrees\mv-ticket-25\rpgmaker-event-dsl
+> pnpm -r typecheck
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl typecheck$ tsc -p tsconfig.json --noEmit
+packages/rpgmaker-event-dsl typecheck: Done
+
+> rpgmaker-event-dsl-workspace@0.0.0 lint C:\Users\Shuen\.codex\worktrees\mv-ticket-25\rpgmaker-event-dsl
+> oxlint .
+
+.scratch/complete-mv-events-implementation/evidence/22-history/original-held-reproduction.cjs:89:61: warning eslint(no-unused-expressions): Expected expression to be used help: Consider using this expression or removing it
+
+> rpgmaker-event-dsl-workspace@0.0.0 format:check C:\Users\Shuen\.codex\worktrees\mv-ticket-25\rpgmaker-event-dsl
+> oxfmt --ignore-path .oxfmtignore --check package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rpgmaker-event-dsl
+
+Checking formatting...
+
+All matched files use the correct format.
+Finished in 512ms on 160 files using 20 threads.
+
+> rpgmaker-event-dsl-workspace@0.0.0 test C:\Users\Shuen\.codex\worktrees\mv-ticket-25\rpgmaker-event-dsl
+> pnpm -r test
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl test$ vitest run
+packages/rpgmaker-event-dsl test:  RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-25/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+packages/rpgmaker-event-dsl test: stderr | test/workflow.test.ts > decompile workflow > writes the fixed source layout with explicit Entry Identity and raw command fallback
+packages/rpgmaker-event-dsl test: decompile warning map:1/event:1: MV-UNKNOWN-COMMAND at pages[0].list[8]: unknown code 999 is preserved as one raw record; its payload semantics are uninterpreted.
+packages/rpgmaker-event-dsl test:  ❯ test/workflow.test.ts (34 tests | 2 failed) 13237ms
+packages/rpgmaker-event-dsl test:      × writes the fixed source layout with explicit Entry Identity and raw command fallback 1407ms
+packages/rpgmaker-event-dsl test:      × records generated output hashes and Compile Baseline freshness metadata 337ms
+packages/rpgmaker-event-dsl test: stderr | test/decompile-publication.test.ts > MV-S4-DECOMPILE-016: pinned junction and physical parent resist external deletion and rename until the real move finishes
+packages/rpgmaker-event-dsl test: Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\decompile-pinned-alias-3Ohldt
+packages/rpgmaker-event-dsl test: stderr | test/decompile-publication.test.ts > MV-S4-DECOMPILE-014: publishes through a supported same-filesystem custom sourceRoot (absolute)
+packages/rpgmaker-event-dsl test: Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\decompile-custom-absolute-JUPjUA
+packages/rpgmaker-event-dsl test: stderr | test/decompile-publication.test.ts > MV-S4-DECOMPILE-014: publishes through a supported same-filesystem custom sourceRoot (junction)
+packages/rpgmaker-event-dsl test: Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\decompile-custom-junction-T8Vxuw
+packages/rpgmaker-event-dsl test: stderr | test/decompile-publication.test.ts > MV-S4-DECOMPILE-014: publishes through a supported same-filesystem custom sourceRoot (parent-relative)
+packages/rpgmaker-event-dsl test: Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\decompile-custom-parent-relative-oW8qFF
+packages/rpgmaker-event-dsl test: stderr | test/decompile-publication.test.ts > MV-S4-DECOMPILE-010: every planned file including empty modules must match full Discovery rules
+packages/rpgmaker-event-dsl test: Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\decompile-full-discovery-uFPg4D
+packages/rpgmaker-event-dsl test: stderr | test/decompile-publication.test.ts > MV-S4-DECOMPILE-008: killed partial staging stays outside actual Discovery and a retry publishes the complete batch
+packages/rpgmaker-event-dsl test: Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\decompile-killed-stage-wOOmfS
+packages/rpgmaker-event-dsl test: stderr | test/decompile-publication.test.ts > MV-S4-DECOMPILE-009: lost success after the real directory move preserves the complete batch and retry reports existing destination
+packages/rpgmaker-event-dsl test: Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\decompile-killed-published-rrfEHT
+packages/rpgmaker-event-dsl test: stderr | test/decompile-publication.test.ts > MV-S4-DECOMPILE-005: permanently excludes isolated remnants through broad and explicit junction Discovery
+packages/rpgmaker-event-dsl test: Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\decompile-protected-discovery-puQxbW
+packages/rpgmaker-event-dsl test: stderr | test/decompile-publication.test.ts > MV-S4-DECOMPILE-002: validates every candidate against dependencies at its final location
+packages/rpgmaker-event-dsl test: Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\decompile-final-types-WO7rn0
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts (33 tests | 9 failed) 51672ms
+packages/rpgmaker-event-dsl test:    × MV-S4-DECOMPILE-016: pinned junction and physical parent resist external deletion and rename until the real move finishes 1729ms
+packages/rpgmaker-event-dsl test:    × MV-S4-DECOMPILE-014: publishes through a supported same-filesystem custom sourceRoot (absolute) 1704ms
+packages/rpgmaker-event-dsl test:    × MV-S4-DECOMPILE-014: publishes through a supported same-filesystem custom sourceRoot (junction) 1759ms
+packages/rpgmaker-event-dsl test:    × MV-S4-DECOMPILE-014: publishes through a supported same-filesystem custom sourceRoot (parent-relative) 1790ms
+packages/rpgmaker-event-dsl test:    × MV-S4-DECOMPILE-010: every planned file including empty modules must match full Discovery rules 980ms
+packages/rpgmaker-event-dsl test:    × MV-S4-DECOMPILE-008: killed partial staging stays outside actual Discovery and a retry publishes the complete batch 3078ms
+packages/rpgmaker-event-dsl test:    × MV-S4-DECOMPILE-009: lost success after the real directory move preserves the complete batch and retry reports existing destination 2654ms
+packages/rpgmaker-event-dsl test:    × MV-S4-DECOMPILE-005: permanently excludes isolated remnants through broad and explicit junction Discovery 879ms
+packages/rpgmaker-event-dsl test:    × MV-S4-DECOMPILE-002: validates every candidate against dependencies at its final location 1735ms
+packages/rpgmaker-event-dsl test: stderr | test/snapshot-context.test.ts > MV-S3-CONTEXT-001: resolves empty-name external targets through actual Snapshot and evaluated Decompiled Source
+packages/rpgmaker-event-dsl test: Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\snapshot-context-DGROtE
+packages/rpgmaker-event-dsl test:  ❯ test/snapshot-context.test.ts (5 tests | 1 failed) 8200ms
+packages/rpgmaker-event-dsl test:    × MV-S3-CONTEXT-001: resolves empty-name external targets through actual Snapshot and evaluated Decompiled Source 201ms
+packages/rpgmaker-event-dsl test: stderr | test/system-slots.test.ts > MV-S3-SLOTS-001: preserves unnamed System capacity through real Workspace roundtrip and name removal
+packages/rpgmaker-event-dsl test: Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\system-slots-hW1O7q
+packages/rpgmaker-event-dsl test:  ❯ test/system-slots.test.ts (4 tests | 1 failed) 4113ms
+packages/rpgmaker-event-dsl test:    × MV-S3-SLOTS-001: preserves unnamed System capacity through real Workspace roundtrip and name removal 3741ms
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯ Failed Tests 13 ⎯⎯⎯⎯⎯⎯⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/decompile-publication.test.ts > MV-S4-DECOMPILE-016: pinned junction and physical parent resist external deletion and rename until the real move finishes
+packages/rpgmaker-event-dsl test: AssertionError: expected [ 'common-events.events.ts', …(2) ] to strictly equal [ 'common-events.events.ts', …(1) ]
+packages/rpgmaker-event-dsl test: - Expected
+packages/rpgmaker-event-dsl test: + Received
+packages/rpgmaker-event-dsl test:   [
+packages/rpgmaker-event-dsl test:     "common-events.events.ts",
+packages/rpgmaker-event-dsl test:     "system.dsl.ts",
+packages/rpgmaker-event-dsl test: +   "troop-events.events.ts",
+packages/rpgmaker-event-dsl test:   ]
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:209:59
+packages/rpgmaker-event-dsl test:     207|       expect(await child.waitFor("result")).toMatchObject({ ok: true }…
+packages/rpgmaker-event-dsl test:     208|       await child.ended;
+packages/rpgmaker-event-dsl test:     209|       expect(await readdir(join(physical, "decompiled"))).toStrictEqua…
+packages/rpgmaker-event-dsl test:        |                                                           ^
+packages/rpgmaker-event-dsl test:     210|         "common-events.events.ts",
+packages/rpgmaker-event-dsl test:     211|         "system.dsl.ts",
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:77:7
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/decompile-publication.test.ts:73:3
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:183:3
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/13]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/decompile-publication.test.ts > MV-S4-DECOMPILE-014: publishes through a supported same-filesystem custom sourceRoot (absolute)
+packages/rpgmaker-event-dsl test:  FAIL  test/decompile-publication.test.ts > MV-S4-DECOMPILE-014: publishes through a supported same-filesystem custom sourceRoot (junction)
+packages/rpgmaker-event-dsl test:  FAIL  test/decompile-publication.test.ts > MV-S4-DECOMPILE-014: publishes through a supported same-filesystem custom sourceRoot (parent-relative)
+packages/rpgmaker-event-dsl test: AssertionError: expected 3 to be 2 // Object.is equality
+packages/rpgmaker-event-dsl test: - Expected
+packages/rpgmaker-event-dsl test: + Received
+packages/rpgmaker-event-dsl test: - 2
+packages/rpgmaker-event-dsl test: + 3
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:246:28
+packages/rpgmaker-event-dsl test:     244|       await runCli(sandbox, ["decompile"]);
+packages/rpgmaker-event-dsl test:     245|       const files = await discoverDefinitionFiles(workspaceRoot, { ...…
+packages/rpgmaker-event-dsl test:     246|       expect(files.length).toBe(2);
+packages/rpgmaker-event-dsl test:        |                            ^
+packages/rpgmaker-event-dsl test:     247|       expect(files.every((file) => file.includes("decompiled"))).toBe(…
+packages/rpgmaker-event-dsl test:     248|       await runCli(sandbox, ["compile", "--check"]);
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:77:7
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/decompile-publication.test.ts:73:3
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:229:5
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/13]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/decompile-publication.test.ts > MV-S4-DECOMPILE-010: every planned file including empty modules must match full Discovery rules
+packages/rpgmaker-event-dsl test: AssertionError: expected 4 to be 3 // Object.is equality
+packages/rpgmaker-event-dsl test: - Expected
+packages/rpgmaker-event-dsl test: + Received
+packages/rpgmaker-event-dsl test: - 3
+packages/rpgmaker-event-dsl test: + 4
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:313:7
+packages/rpgmaker-event-dsl test:     311|     expect(
+packages/rpgmaker-event-dsl test:     312|       (await discoverDefinitionFiles(workspaceRoot, { ...discovery, so…
+packages/rpgmaker-event-dsl test:     313|     ).toBe(3);
+packages/rpgmaker-event-dsl test:        |       ^
+packages/rpgmaker-event-dsl test:     314|     expect(
+packages/rpgmaker-event-dsl test:     315|       await readFile(join(workspaceRoot, "src/decompiled/maps/Map001.e…
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:77:7
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/decompile-publication.test.ts:73:3
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:282:3
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/13]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/decompile-publication.test.ts > MV-S4-DECOMPILE-008: killed partial staging stays outside actual Discovery and a retry publishes the complete batch
+packages/rpgmaker-event-dsl test: AssertionError: expected [ 'common-events.events.ts', …(2) ] to strictly equal [ 'common-events.events.ts', …(1) ]
+packages/rpgmaker-event-dsl test: - Expected
+packages/rpgmaker-event-dsl test: + Received
+packages/rpgmaker-event-dsl test:   [
+packages/rpgmaker-event-dsl test:     "common-events.events.ts",
+packages/rpgmaker-event-dsl test:     "system.dsl.ts",
+packages/rpgmaker-event-dsl test: +   "troop-events.events.ts",
+packages/rpgmaker-event-dsl test:   ]
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:518:68
+packages/rpgmaker-event-dsl test:     516|       expect(await state(workspaceRoot)).toStrictEqual(before);
+packages/rpgmaker-event-dsl test:     517|       await decompileWorkspace({ workspaceRoot });
+packages/rpgmaker-event-dsl test:     518|       expect(await readdir(join(workspaceRoot, "src/decompiled"))).toS…
+packages/rpgmaker-event-dsl test:        |                                                                    ^
+packages/rpgmaker-event-dsl test:     519|         "common-events.events.ts",
+packages/rpgmaker-event-dsl test:     520|         "system.dsl.ts",
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:77:7
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/decompile-publication.test.ts:73:3
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:497:3
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/13]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/decompile-publication.test.ts > MV-S4-DECOMPILE-009: lost success after the real directory move preserves the complete batch and retry reports existing destination
+packages/rpgmaker-event-dsl test: AssertionError: expected [ 'common-events.events.ts', …(2) ] to strictly equal [ 'common-events.events.ts', …(1) ]
+packages/rpgmaker-event-dsl test: - Expected
+packages/rpgmaker-event-dsl test: + Received
+packages/rpgmaker-event-dsl test:   [
+packages/rpgmaker-event-dsl test:     "common-events.events.ts",
+packages/rpgmaker-event-dsl test:     "system.dsl.ts",
+packages/rpgmaker-event-dsl test: +   "troop-events.events.ts",
+packages/rpgmaker-event-dsl test:   ]
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:539:68
+packages/rpgmaker-event-dsl test:     537|     try {
+packages/rpgmaker-event-dsl test:     538|       await child.waitFor("checkpoint");
+packages/rpgmaker-event-dsl test:     539|       expect(await readdir(join(workspaceRoot, "src/decompiled"))).toS…
+packages/rpgmaker-event-dsl test:        |                                                                    ^
+packages/rpgmaker-event-dsl test:     540|         "common-events.events.ts",
+packages/rpgmaker-event-dsl test:     541|         "system.dsl.ts",
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:77:7
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/decompile-publication.test.ts:73:3
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:530:3
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/13]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/decompile-publication.test.ts > MV-S4-DECOMPILE-005: permanently excludes isolated remnants through broad and explicit junction Discovery
+packages/rpgmaker-event-dsl test: AssertionError: expected [ …(3) ] to strictly equal [ …(2) ]
+packages/rpgmaker-event-dsl test: - Expected
+packages/rpgmaker-event-dsl test: + Received
+packages/rpgmaker-event-dsl test:   [
+packages/rpgmaker-event-dsl test:     "\\decompiled\\common-events.events.ts",
+packages/rpgmaker-event-dsl test:     "\\decompiled\\system.dsl.ts",
+packages/rpgmaker-event-dsl test: +   "\\decompiled\\troop-events.events.ts",
+packages/rpgmaker-event-dsl test:   ]
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:604:7
+packages/rpgmaker-event-dsl test:     602|         file.slice(workspaceRoot.length),
+packages/rpgmaker-event-dsl test:     603|       ),
+packages/rpgmaker-event-dsl test:     604|     ).toStrictEqual(["\\decompiled\\common-events.events.ts", "\\decom…
+packages/rpgmaker-event-dsl test:        |       ^
+packages/rpgmaker-event-dsl test:     605|     expect(await readFile(join(protectedRoot, "killed-candidate/partia…
+packages/rpgmaker-event-dsl test:     606|       "malformed source never eligible",
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:77:7
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/decompile-publication.test.ts:73:3
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:581:3
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/13]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/decompile-publication.test.ts > MV-S4-DECOMPILE-002: validates every candidate against dependencies at its final location
+packages/rpgmaker-event-dsl test: AssertionError: expected [ …(3) ] to strictly equal [ …(2) ]
+packages/rpgmaker-event-dsl test: - Expected
+packages/rpgmaker-event-dsl test: + Received
+packages/rpgmaker-event-dsl test:   [
+packages/rpgmaker-event-dsl test:     "\\src\\decompiled\\common-events.events.ts",
+packages/rpgmaker-event-dsl test:     "\\src\\decompiled\\system.dsl.ts",
+packages/rpgmaker-event-dsl test: +   "\\src\\decompiled\\troop-events.events.ts",
+packages/rpgmaker-event-dsl test:   ]
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:693:7
+packages/rpgmaker-event-dsl test:     691|         file.slice(workspaceRoot.length),
+packages/rpgmaker-event-dsl test:     692|       ),
+packages/rpgmaker-event-dsl test:     693|     ).toStrictEqual([
+packages/rpgmaker-event-dsl test:        |       ^
+packages/rpgmaker-event-dsl test:     694|       "\\src\\decompiled\\common-events.events.ts",
+packages/rpgmaker-event-dsl test:     695|       "\\src\\decompiled\\system.dsl.ts",
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:77:7
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/decompile-publication.test.ts:73:3
+packages/rpgmaker-event-dsl test:  ❯ test/decompile-publication.test.ts:658:3
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/13]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/snapshot-context.test.ts > MV-S3-CONTEXT-001: resolves empty-name external targets through actual Snapshot and evaluated Decompiled Source
+packages/rpgmaker-event-dsl test: Error: troop:4.pages: expected nonempty dense ordered page array.
+packages/rpgmaker-event-dsl test:  ❯ fail src/validation/battle-pages.ts:150:9
+packages/rpgmaker-event-dsl test:     148|
+packages/rpgmaker-event-dsl test:     149| function fail(path: string, expected: string): never {
+packages/rpgmaker-event-dsl test:     150|   throw new Error(`${path}: expected ${expected}.`);
+packages/rpgmaker-event-dsl test:        |         ^
+packages/rpgmaker-event-dsl test:     151| }
+packages/rpgmaker-event-dsl test:     152| function object(
+packages/rpgmaker-event-dsl test:  ❯ densePages src/validation/battle-pages.ts:174:52
+packages/rpgmaker-event-dsl test:  ❯ assertNativeBattlePages src/validation/battle-pages.ts:192:3
+packages/rpgmaker-event-dsl test:  ❯ buildDecompiledSourceFiles src/decompiler/project.ts:238:5
+packages/rpgmaker-event-dsl test:  ❯ decompileProjectDataSnapshot src/decompiler/project.ts:68:17
+packages/rpgmaker-event-dsl test:  ❯ decompileWorkspaceUnlocked src/workspace/operations.ts:145:3
+packages/rpgmaker-event-dsl test:  ❯ withWorkspaceOperationLock src/workspace/operation-lock.ts:45:12
+packages/rpgmaker-event-dsl test:  ❯ decompileWorkspace src/workspace/operations.ts:117:3
+packages/rpgmaker-event-dsl test:  ❯ test/snapshot-context.test.ts:77:7
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/13]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/system-slots.test.ts > MV-S3-SLOTS-001: preserves unnamed System capacity through real Workspace roundtrip and name removal
+packages/rpgmaker-event-dsl test: AssertionError: expected [ …(4) ] to deeply equal [ …(3) ]
+packages/rpgmaker-event-dsl test: - Expected
+packages/rpgmaker-event-dsl test: + Received
+packages/rpgmaker-event-dsl test:   [
+packages/rpgmaker-event-dsl test:     "src/decompiled/common-events.events.ts",
+packages/rpgmaker-event-dsl test:     "src/decompiled/system.dsl.ts",
+packages/rpgmaker-event-dsl test: +   "src/decompiled/troop-events.events.ts",
+packages/rpgmaker-event-dsl test:     "src/unnamed.events.ts",
+packages/rpgmaker-event-dsl test:   ]
+packages/rpgmaker-event-dsl test:  ❯ test/system-slots.test.ts:476:9
+packages/rpgmaker-event-dsl test:     474|           .map(({ relativePath }: { relativePath: string }) => relativ…
+packages/rpgmaker-event-dsl test:     475|           .sort(),
+packages/rpgmaker-event-dsl test:     476|       ).toEqual([
+packages/rpgmaker-event-dsl test:        |         ^
+packages/rpgmaker-event-dsl test:     477|         "src/decompiled/common-events.events.ts",
+packages/rpgmaker-event-dsl test:     478|         "src/decompiled/system.dsl.ts",
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+packages/rpgmaker-event-dsl test:  ❯ test/system-slots.test.ts:351:5
+packages/rpgmaker-event-dsl test:  ❯ test/system-slots.test.ts:55:24
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/13]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/workflow.test.ts > decompile workflow > writes the fixed source layout with explicit Entry Identity and raw command fallback
+packages/rpgmaker-event-dsl test: AssertionError: expected [ …(5) ] to deeply equal [ …(4) ]
+packages/rpgmaker-event-dsl test: - Expected
+packages/rpgmaker-event-dsl test: + Received
+packages/rpgmaker-event-dsl test:   [
+packages/rpgmaker-event-dsl test:     "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-decompile-Etk89r\\src\\decompiled\\common-events.events.ts",
+packages/rpgmaker-event-dsl test:     "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-decompile-Etk89r\\src\\decompiled\\maps\\Map001.events.ts",
+packages/rpgmaker-event-dsl test:     "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-decompile-Etk89r\\src\\decompiled\\maps\\Map002.events.ts",
+packages/rpgmaker-event-dsl test:     "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-decompile-Etk89r\\src\\decompiled\\system.dsl.ts",
+packages/rpgmaker-event-dsl test: +   "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-decompile-Etk89r\\src\\decompiled\\troop-events.events.ts",
+packages/rpgmaker-event-dsl test:   ]
+packages/rpgmaker-event-dsl test:  ❯ test/workflow.test.ts:381:29
+packages/rpgmaker-event-dsl test:     379|       sourceExclude: ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"],
+packages/rpgmaker-event-dsl test:     380|     });
+packages/rpgmaker-event-dsl test:     381|     expect(discoveredFiles).toEqual([
+packages/rpgmaker-event-dsl test:        |                             ^
+packages/rpgmaker-event-dsl test:     382|       join(workspaceRoot, "src", "decompiled", "common-events.events.t…
+packages/rpgmaker-event-dsl test:     383|       join(workspaceRoot, "src", "decompiled", "maps", "Map001.events.…
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/13]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/workflow.test.ts > compile workflow > records generated output hashes and Compile Baseline freshness metadata
+packages/rpgmaker-event-dsl test: AssertionError: expected [ 'CommonEvents.json', …(3) ] to deeply equal [ 'CommonEvents.json', …(2) ]
+packages/rpgmaker-event-dsl test: - Expected
+packages/rpgmaker-event-dsl test: + Received
+packages/rpgmaker-event-dsl test:   [
+packages/rpgmaker-event-dsl test:     "CommonEvents.json",
+packages/rpgmaker-event-dsl test:     "Map001.json",
+packages/rpgmaker-event-dsl test:     "System.json",
+packages/rpgmaker-event-dsl test: +   "Troops.json",
+packages/rpgmaker-event-dsl test:   ]
+packages/rpgmaker-event-dsl test:  ❯ test/workflow.test.ts:804:74
+packages/rpgmaker-event-dsl test:     802|
+packages/rpgmaker-event-dsl test:     803|     const manifest = await readSyncManifest(statePaths.syncManifestPat…
+packages/rpgmaker-event-dsl test:     804|     expect(manifest?.generatedFiles?.map((entry) => entry.relativePath…
+packages/rpgmaker-event-dsl test:        |                                                                          ^
+packages/rpgmaker-event-dsl test:     805|       "CommonEvents.json",
+packages/rpgmaker-event-dsl test:     806|       "Map001.json",
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/13]⎯
+packages/rpgmaker-event-dsl test:  Test Files  4 failed | 29 passed (33)
+packages/rpgmaker-event-dsl test:       Tests  13 failed | 366 passed (379)
+packages/rpgmaker-event-dsl test:    Start at  22:02:54
+packages/rpgmaker-event-dsl test:    Duration  272.08s (transform 1.59s, setup 0ms, import 13.10s, tests 525.50s, environment 2ms)
+packages/rpgmaker-event-dsl test: Failed
+C:\Users\Shuen\.codex\worktrees\mv-ticket-25\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run`
+Exit status 1
+ ELIFECYCLE  Test failed. See above for more details.
+ ELIFECYCLE  Command failed with exit code 1.
