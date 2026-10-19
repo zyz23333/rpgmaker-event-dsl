@@ -76,6 +76,12 @@ saved ID 1, variable threshold 0 and self switch A. Enabled references must exis
 Only disabled explicit IDs may retain 0 or missing positive targets. Disabled name
 references still resolve uniquely; DSL-owned names use actual declarations.
 
+Map variable thresholds, disabled explicit condition IDs, and image `characterIndex`,
+`tileId` and `pattern` preserve numeric `-0` through source generation, compilation and
+Push. Decompile emits these values explicitly because the positive-zero defaults
+cannot reconstruct their sign. Enabled condition IDs remain positive; native
+priority, trigger and movement-type enums reject `-0` before named-symbol conversion.
+
 Image fields remain independent. Tile selection preserves the character and index;
 None and big-character names (`$`, `!$`, `$!`) preserve nonzero indexes, direction
 and pattern. Selecting an image never changes priority. A nonzero tile uses the

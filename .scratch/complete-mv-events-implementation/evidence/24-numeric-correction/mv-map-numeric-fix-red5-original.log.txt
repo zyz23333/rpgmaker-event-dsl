@@ -1,0 +1,49 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-map-numeric-fix/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/map-page-numeric-workspace.test.ts > rejects enabled negative-zero Map condition IDs from actual helper source in Check and Compile without changing state
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-enabled-helper-JNznnV
+
+stderr | test/map-page-numeric-workspace.test.ts > rejects enabled negative-zero Map condition IDs from actual untyped source in Check and Compile without changing state
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-enabled-untyped-qbHig1
+
+ ❯ test/map-page-numeric-workspace.test.ts (22 tests | 2 failed | 20 skipped) 4559ms
+   × rejects enabled negative-zero Map condition IDs from actual helper source in Check and Compile without changing state 2448ms
+   × rejects enabled negative-zero Map condition IDs from actual untyped source in Check and Compile without changing state 2110ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-page-numeric-workspace.test.ts > rejects enabled negative-zero Map condition IDs from actual helper source in Check and Compile without changing state
+ FAIL  test/map-page-numeric-workspace.test.ts > rejects enabled negative-zero Map condition IDs from actual untyped source in Check and Compile without changing state
+AssertionError: expected 'compile --check validation failed:\n-…' to contain 'actual -0'
+
+- Expected
++ Received
+
+- actual -0
++ compile --check validation failed:
++ - compile error map:1/event:1: MV-MAP-PAGE-INPUT: Invalid Map Event input. (pages[0].conditions.actor.ref.id); expected integer 1..9007199254740991; actual 0
+
+ ❯ test/map-page-numeric-workspace.test.ts:243:25
+    241|         expect(message).toContain("MV-MAP-PAGE-INPUT");
+    242|         expect(message).toContain(`(pages[0].conditions.${slot}.ref.id…
+    243|         expect(message).toContain("actual -0");
+       |                         ^
+    244|         expect(await observe(workspaceRoot)).toStrictEqual(before);
+    245|       }
+ ❯ test/map-page-numeric-workspace.test.ts:50:11
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ verify test/map-page-numeric-workspace.test.ts:47:3
+ ❯ test/map-page-numeric-workspace.test.ts:219:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 20 skipped (22)
+   Start at  01:01:53
+   Duration  6.03s (transform 476ms, setup 0ms, import 1.34s, tests 4.56s, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-map-numeric-fix\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/map-page-numeric-workspace.test.ts -t rejects enabled

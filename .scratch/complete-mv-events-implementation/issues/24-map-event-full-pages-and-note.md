@@ -1,6 +1,6 @@
 # 24: Map Event 完整页与 note
 
-Status: resolved
+Status: claimed
 Blocked by: 22
 Stage: S5
 Created: 2026-10-19
@@ -75,3 +75,14 @@ Rejected native events:[] with MV-MAP-EVENT-SHAPE before any candidate source is
 Corrected Windows/Node22.23.0/pnpm10.33.0,2workers/existing timeouts: full pnpm check32files/472tests passed; fresh build passed; actual built Windows baseline10files/202tests passed; current45case source matrix passed; final evidence validator and lint/format passed with only the existing22-history warning. Both actual native pairs were repeated from the new build with unchanged original adapters: triggers/highest-page/Common10cases per side and route/wait/Parallel13assertions per side. All15complete disk JSON carriers and three complete actually loaded Map001/CommonEvents/System carriers, fresh processes/profiles, unchanged engine/disk identities, empty stdout/stderr, exit0 and strict comparison passed. Final source/dist membership and hashes match both new captures. Current package documentation and authoring guidance state mandatory native slot zero and atomic refusal.
 
 Appended one requirement and159machine records, including75source+75built Workspace cases, three explicitly classified TDD attempts, one45case summary, three new identified-resource/current-product comparisons and two new actual native pairs. The original cdae5f8 build was preserved outside Git before rebuilding. History audit verified225prior requirement objects and921original result/24-history artifacts unchanged against cdae5f8; originals are not relabelled. New runs, safe summaries, correspondence, exact copy origins and tooling limitations are in evidence/24-merger-correction/ and the new correction section of evidence/24-map-event-full-pages.md. This completes the merger's only reported blocker; independent final merge/audit remains separate.
+
+### 2026-10-20 — scoped numeric saved-value correction claim
+
+Reopened only for the assigned supplemental Map Page numeric `-0` correction, on a separate managed `codex/mv-map-numeric-fix` worktree based on actual integration `233db5420d6cf83da0220c6aa5aed56626798f39`. Accepted design03/13, ADR0009/0011/0012 and spec I2/I6 already require exact preservation of these numeric saved fields. Root's ten actual public Decompile counterexamples are retained externally in `mv24-numeric-fields-public-audit-1b65432f-4e9e-450a-8473-252c5141cbc8` and independent identity/state audit `mv24-numeric-fields-independent-audit-cd65fae7-69d6-4006-984b-580657a90d76`; no old evidence is rewritten. The approved spec T1 public Workspace/Discovery/evaluation seams and independent JSON are used for focused red→green. Initial Map x/y placement and categorical enums remain separate. Development checkpoint is not final delivery; latest integration, contract reconciliation, broad/build/built checks, affected native evidence and independent merge remain pending.
+
+
+### 2026-10-20 — supplemental numeric development checkpoint (not READY)
+
+Implemented the assigned ten Map Page numerical -0 preservation gaps with scoped native/authored validation and exact rendering/default elision/import collection. Categorical priority/trigger/moveType and enabled references still refuse -0, now with accurate actual -0 diagnostics; initial x/y rules remain untouched. Focused public Workspace22/22 and targeted Map/Movement165/165 pass, alongside package typecheck, focused lint/format and the original evidence-index test. Four requirements and109machine records append; the audit proves251incoming requirement objects and1579untouched prior evidence blobs unchanged, with original97source/15dist root audit inputs still exact. All product reds, harness mistakes and audit-tool failures remain retained and separately classified. See [the supplemental current report](../evidence/24-map-event-full-pages.md#supplemental-numeric-saved-value-correction--development-checkpoint-2026-10-20).
+
+This is a clean development checkpoint only, awaiting latest actual integration and coordinated finalization after33/36. Contract remains /7; no broad check/build/built/native/merge/cleanup has been performed. Status remains claimed until those final obligations and independent acceptance complete.

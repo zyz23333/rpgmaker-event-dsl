@@ -406,3 +406,10 @@ Ticket24 adds [complete Map Event pages and exact saved state](24-map-event-full
 | MV-S5-TROOP-R2-DELIVERY-003 | Allocated R2 delivery revision 3: complete17-page/three-turn normal Scene/Input literal and formal DSL product pair | game-observation | Explicit version-bound delivery input; original R2 remains separate |
 
 | MV-S5-TROOP-R2-DELIVERY-004 | Allocated R2 delivery revision 4: complete17-page/three-turn normal Scene/Input literal and formal DSL product pair | game-observation | Explicit version-bound delivery input; original R2 remains separate |
+
+| Requirement | Supplemental Map numeric saved-value check | Source | Boundary |
+| --- | --- | --- | --- |
+| MV-S5-MAP-NUMERIC-001 | Preserve ten accepted Map Page numeric negative-zero states through actual native Decompile/source/Check/Compile/Diff/Push | synthetic-support | Actual public Workspace/Discovery/evaluation and complete filesystem |
+| MV-S5-MAP-NUMERIC-002 | Preserve authored Map Page numeric negative zero through helper and untyped actual source evaluation and complete Push | synthetic-support | Actual public Workspace/Discovery/evaluation and complete filesystem |
+| MV-S5-MAP-NUMERIC-003 | Refuse categorical or enabled-reference native Map negative zero before publication with exact diagnostics and unchanged state | synthetic-rejection | Actual public Workspace/Discovery/evaluation and complete filesystem |
+| MV-S5-MAP-NUMERIC-004 | Refuse enabled Map condition negative-zero IDs from helper and untyped source in Check/Compile without changing state | synthetic-rejection | Actual public Workspace/Discovery/evaluation and complete filesystem |

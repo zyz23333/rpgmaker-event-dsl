@@ -1,0 +1,32 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  {
+    rows: [
+      {
+        path: 'authoring/declarations.ts',
+        sha256: 'a773bba2f8016d64f81a352da4050aa8c2e83b2cba353fe49fe5a953072eaf78'
+...
+      {
++       path: 'workspace-api.ts',
++       sha256: '735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2'
++     },
++     {
+        path: 'workspace/checks.ts',
+        sha256: 'dd02c917b0ed530fcbb8d3458802d5d230def90388d6bf488e849f2934688692'
+      },
+      {
+        path: 'workspace/config.ts',
+...
+      },
+-     {
+-       path: 'workspace-api.ts',
+-       sha256: '735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2'
+-     }
+    ],
++   sha256: '96874bf4fe59c0e0ef0481507ad805dffaa947215438738b32989f33bb60aadd'
+-   sha256: '264f833572b7a2cd18e2a569dbecf92a6fe99df286153e18f80b923af101a976'
+  }
+
+    at C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-preserve-development-v2.cjs:43:10

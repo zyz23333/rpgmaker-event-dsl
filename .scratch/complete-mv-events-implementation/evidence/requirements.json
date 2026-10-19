@@ -12006,6 +12006,212 @@
       },
       "slice": "25 / S5",
       "required": true
+    },
+    {
+      "id": "MV-S5-MAP-NUMERIC-001",
+      "title": "Preserve ten accepted Map Page numeric negative-zero states through actual native Decompile/source/Check/Compile/Diff/Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I2"
+        },
+        {
+          "path": ".scratch/complete-mv-events/issues/03-map-event-page-model.md",
+          "section": "## Answer"
+        },
+        {
+          "path": ".scratch/complete-mv-events/issues/13-native-value-domain-boundaries.md",
+          "section": "## Answer"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native saved Map Page fixture and explicit finite field mutations; real authored helper/untyped sources. No compiler-derived native expectations or game/runtime substitution.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-page-negative-zero.json",
+        "sha256": "0bab4ad39700dbbd384060d3c117fe8f9f929b323267e057a27f8b86f00fb882"
+      },
+      "expected": "Numeric saved -0 remains exact through actual source discovery/evaluation, complete owned generated carriers, fifteen project JSON carriers and Snapshot after public Push.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+        "name": "preserves Map numeric negative zero:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0; no native game in development checkpoint",
+        "owner": "Codex Map24 supplemental correction implementer",
+        "layer": "Actual public source/built Workspace API and real filesystem"
+      },
+      "slice": "24 / S5 supplemental numeric correction",
+      "required": true
+    },
+    {
+      "id": "MV-S5-MAP-NUMERIC-002",
+      "title": "Preserve authored Map Page numeric negative zero through helper and untyped actual source evaluation and complete Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I2"
+        },
+        {
+          "path": ".scratch/complete-mv-events/issues/03-map-event-page-model.md",
+          "section": "## Answer"
+        },
+        {
+          "path": ".scratch/complete-mv-events/issues/13-native-value-domain-boundaries.md",
+          "section": "## Answer"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native saved Map Page fixture and explicit finite field mutations; real authored helper/untyped sources. No compiler-derived native expectations or game/runtime substitution.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-page-negative-zero.json",
+        "sha256": "0bab4ad39700dbbd384060d3c117fe8f9f929b323267e057a27f8b86f00fb882"
+      },
+      "expected": "Numeric saved -0 remains exact through actual source discovery/evaluation, complete owned generated carriers, fifteen project JSON carriers and Snapshot after public Push.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+        "name": "preserves authored Map numeric negative zero"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0; no native game in development checkpoint",
+        "owner": "Codex Map24 supplemental correction implementer",
+        "layer": "Actual public source/built Workspace API and real filesystem"
+      },
+      "slice": "24 / S5 supplemental numeric correction",
+      "required": true
+    },
+    {
+      "id": "MV-S5-MAP-NUMERIC-003",
+      "title": "Refuse categorical or enabled-reference native Map negative zero before publication with exact diagnostics and unchanged state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I2"
+        },
+        {
+          "path": ".scratch/complete-mv-events/issues/03-map-event-page-model.md",
+          "section": "## Answer"
+        },
+        {
+          "path": ".scratch/complete-mv-events/issues/13-native-value-domain-boundaries.md",
+          "section": "## Answer"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent complete native saved Map Page fixture and explicit finite field mutations; real authored helper/untyped sources. No compiler-derived native expectations or game/runtime substitution.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-page-negative-zero.json",
+        "sha256": "0bab4ad39700dbbd384060d3c117fe8f9f929b323267e057a27f8b86f00fb882"
+      },
+      "expected": "Exact intended field, stable diagnostic/stage/identity/actual -0, complete source/Project Root/Snapshot/generated/config/manifest/Discovery state unchanged.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+        "name": "rejects native Map categorical or enabled-reference negative zero"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0; no native game in development checkpoint",
+        "owner": "Codex Map24 supplemental correction implementer",
+        "layer": "Actual public source/built Workspace API and real filesystem"
+      },
+      "slice": "24 / S5 supplemental numeric correction",
+      "required": true
+    },
+    {
+      "id": "MV-S5-MAP-NUMERIC-004",
+      "title": "Refuse enabled Map condition negative-zero IDs from helper and untyped source in Check/Compile without changing state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I2"
+        },
+        {
+          "path": ".scratch/complete-mv-events/issues/03-map-event-page-model.md",
+          "section": "## Answer"
+        },
+        {
+          "path": ".scratch/complete-mv-events/issues/13-native-value-domain-boundaries.md",
+          "section": "## Answer"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent complete native saved Map Page fixture and explicit finite field mutations; real authored helper/untyped sources. No compiler-derived native expectations or game/runtime substitution.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-page-negative-zero.json",
+        "sha256": "0bab4ad39700dbbd384060d3c117fe8f9f929b323267e057a27f8b86f00fb882"
+      },
+      "expected": "Exact intended field, stable diagnostic/stage/identity/actual -0, complete source/Project Root/Snapshot/generated/config/manifest/Discovery state unchanged.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+        "name": "rejects enabled negative-zero Map condition IDs"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0; no native game in development checkpoint",
+        "owner": "Codex Map24 supplemental correction implementer",
+        "layer": "Actual public source/built Workspace API and real filesystem"
+      },
+      "slice": "24 / S5 supplemental numeric correction",
+      "required": true
     }
   ]
 }

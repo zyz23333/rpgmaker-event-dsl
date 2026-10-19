@@ -31,11 +31,11 @@ export function renderPageConditions(conditions: Record<string, unknown> | undef
     if (
       conditions[`${slot}Valid`] === false &&
       conditions[`${slot}Id`] === 1 &&
-      (slot !== "variable" || conditions.variableValue === 0)
+      (slot !== "variable" || Object.is(conditions.variableValue, 0))
     )
       continue;
     fields.push(
-      `${slot}: { enabled: ${conditions[`${slot}Valid`]}, ref: ${helper}Ref({ id: ${conditions[`${slot}Id`]} })${slot === "variable" ? `, atLeast: ${conditions.variableValue}` : ""} }`,
+      `${slot}: { enabled: ${conditions[`${slot}Valid`]}, ref: ${helper}Ref({ id: ${literal(conditions[`${slot}Id`])} })${slot === "variable" ? `, atLeast: ${literal(conditions.variableValue)}` : ""} }`,
     );
   }
   if (conditions.selfSwitchValid !== false || conditions.selfSwitchCh !== "A")
@@ -75,7 +75,7 @@ export function collectConditionHelperNames(
       condition &&
       (condition.variableValid !== false ||
         condition.variableId !== 1 ||
-        condition.variableValue !== 0)
+        !Object.is(condition.variableValue, 0))
     ) {
       helpers.add("variableRef");
     }
