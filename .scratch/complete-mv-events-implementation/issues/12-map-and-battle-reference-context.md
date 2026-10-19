@@ -52,8 +52,8 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 2026-10-19：本票范围完成，完整报告见 [12-map-and-battle-context.md](../evidence/12-map-and-battle-context.md)。真实 Snapshot 装配 Animations/Tilesets、空名地图及尺寸/事件位置/tilesetId、完整有序 troop members、独立 Enemy 存在性、Tileset 图组和全部 System 装备槽，并传递到 Staged Data Graph。hidden 与缺 Enemy 成员不被过滤或重绑，carrier 未知有效 JSON 保留。
 
-最小现有212/282/336在正式编写、已知raw和Decompile发布前统一固定引用存在性检查；测试经实际 Workspace Discovery/typecheck/evaluation和Check/Compile/Push，独立预期逐文件比较，缺ID0/99与诊断/无发布状态均有负例。`MV-S3-CONTEXT-001`至`005`已加入验收索引，五份实际执行结果已保留。
+最小现有212/282/336在正式编写、已知raw和Decompile发布前统一固定引用存在性检查；测试经实际 Workspace Discovery/typecheck/evaluation和Check/Compile/Push，独立预期逐文件比较，缺ID0/99与诊断/无发布状态均有负例。`MV-S3-CONTEXT-001`至`005`已加入验收索引，合并前后两轮共十份实际执行结果已保留。
 
-Windows / Node22.23.0：`pnpm check`通过（typecheck/lint/format，17files/127tests）；`pnpm build`通过；构建后Windows CLI/junction基线2files/4tests通过。公开README和编写指南同步。
+Windows / Node22.23.0：初轮`pnpm check`通过（17files/127tests），合入最新集成`c28c3ea`后再次通过（typecheck/lint/format，19files/161tests）；合并后`pnpm build`通过；构建后Windows CLI/junction基线2files/4tests通过；追加结果后证据schema检查3tests通过。公开README和编写指南同步。
 
 本票未分配原生场景，不把合成输入或Snapshot装配声明为原生UI/游戏验证。实际Troop页/成员selector绑定及页条件例外由25/48验证；完整命令参数和运行语义由对应家族票验收。独立301 false/false输入另暴露既有编译器多604差异，已明确交接46，未调整领域契约或把该未完成行为计成本票通过。

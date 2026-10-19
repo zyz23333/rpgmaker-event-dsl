@@ -4,7 +4,7 @@
 
 ## Independent input and observed behavior
 
-输入是独立编写的 [map-battle-context-project.json](../../../../packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-battle-context-project.json)，SHA256 `bf4ca095b5d86c9824ce36c0c30113871d56a22032a4a1c4d3eb33af75a80864`。该输入明确属于 `synthetic-support`，不是原生编辑器捕获或游戏观察。
+输入是独立编写的 [map-battle-context-project.json](../../../packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-battle-context-project.json)，SHA256 `bf4ca095b5d86c9824ce36c0c30113871d56a22032a4a1c4d3eb33af75a80864`。该输入明确属于 `synthetic-support`，不是原生编辑器捕获或游戏观察。
 
 夹具中的 Animation3、Tileset2、Enemy1、Actor1、Troop4 和 Map1 都有真实 ID 和空名称。Map1 为5×4，使用 Tileset2；九个 tilesetNames 槽保留空字符串和位置。Troop4 的成员依次为 hidden Enemy1、缺失的 Enemy99、普通 Enemy1，每个成员原始 x/y/hidden 与未知有效 JSON 字段全部保留。System.equipTypes 有七项，含0号占位和一个空名槽；没有写死五槽。
 
@@ -40,7 +40,7 @@
 
 ## Validation and remaining responsibilities
 
-Windows / Node `22.23.0`，pnpm `10.33.0`。本票适用验证包括 `pnpm check`（typecheck、lint、format、17 files /127 tests）、`pnpm build`（Node22目标）和构建后 `test:windows-baseline`（2 files /4 tests，真实 CLI 与 junction）。最终报告以实际执行记录为准。
+Windows / Node `22.23.0`，pnpm `10.33.0`。初轮 `pnpm check`通过（typecheck、lint、format、17 files /127 tests）；提交 `179b8e7` 后合入集成 `c28c3ea`（含07和13）为 `cb7b3ef`，保留13的完整列表结构验证、Loop递归和identity，证据索引按ID取并集。合并后全量 `pnpm check`再次通过（19 files /161 tests），`pnpm build`（Node22目标）与构建后 `test:windows-baseline`（2 files /4 tests，真实 CLI 与 junction）通过。追加五份合并后结果，保留原五份；记录时间为 `2026-10-19T08:31:56Z`至`08:32:10Z`，指向 `cb7b3ef` 和实际源码指纹。新增结果入库后，证据schema/index检查3 tests通过。07的有限Shop契约和13的Loop API均不改变本票夹具或固定引用契约；本轮完整复验包含两者。
 
 本票没有分配必须执行的原生 E/R 小场景，所有新增验收均明确记录 `native: not-executed`。按照用户已确认的验收修订，编辑器行为由指定逆向票验证，最终游戏运行仍必须由后续票执行；本票不以静态分析或合成输入替代那些验收。
 
