@@ -1,0 +1,36 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-24/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/map-event-workspace.test.ts > rejects a malformed late native page without publishing any candidate or changing Workspace state
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-shape-vCz32S
+
+ ❯ test/map-event-workspace.test.ts (3 tests | 1 failed | 2 skipped) 73ms
+   × rejects a malformed late native page without publishing any candidate or changing Workspace state 72ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-event-workspace.test.ts > rejects a malformed late native page without publishing any candidate or changing Workspace state
+Error: ENOENT: no such file or directory, scandir 'C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-shape-vCz32S\最小 Workspace with spaces\.rpgmaker-event-dsl\generated-project-data'
+ ❯ data test/map-event-workspace.test.ts:50:83
+     48| async function state(workspaceRoot: string) {
+     49|   const paths = getWorkspaceStatePaths(workspaceRoot);
+     50|   const data = async (directory: string) => Object.fromEntries(await P…
+       |                                                                                   ^
+     51|   const files = await discoverDefinitionFiles(workspaceRoot, discovery…
+     52|   return {
+ ❯ state test/map-event-workspace.test.ts:55:16
+ ❯ test/map-event-workspace.test.ts:99:20
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/map-event-workspace.test.ts:96:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 skipped (3)
+   Start at  21:48:52
+   Duration  1.74s (transform 563ms, setup 0ms, import 1.50s, tests 73ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/map-event-workspace.test.ts -t malformed late

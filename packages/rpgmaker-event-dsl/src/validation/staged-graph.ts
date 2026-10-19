@@ -1,3 +1,4 @@
+import { validateMapEventInputs } from "../map-event/validation.js";
 import type {
   CommonEventDefinition,
   DslOwnedDeclaration,
@@ -143,6 +144,8 @@ export function validateStagedDataGraph(
 ): ValidationResult {
   const issues: ValidationIssue[] = [];
 
+  validateMapEventInputs(graph, issues);
+  if (issues.some((issue) => issue.level === "error")) return { issues };
   validateDeclarationIdentities(graph.declarations, issues, graph.snapshotMaps);
   validateDeclarationReferences(graph.declarations, graph.resolver, options, issues);
   validateCompiledCommandLists(graph, issues, options);

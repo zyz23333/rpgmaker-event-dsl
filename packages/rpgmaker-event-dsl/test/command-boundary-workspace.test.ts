@@ -13,12 +13,28 @@ import { getWorkspaceStatePaths } from "../src/workspace/state.js";
 import { writeStableJson } from "../src/project-data/writer.js";
 import { createMinimalProject, runCli, withWindowsSandbox } from "./support/windows-sandbox.js";
 
-const fixture = JSON.parse(
+const historicalFixture = JSON.parse(
   await readFile(
     new URL("./fixtures/mv-evidence/command-boundary-cases.json", import.meta.url),
     "utf8",
   ),
 );
+// Preserve the immutable historical fixture and add the independently specified
+// empty note required by the complete Map Event contract. Its pages are complete.
+const fixture = {
+  ...historicalFixture,
+  map: {
+    ...historicalFixture.map,
+    events: historicalFixture.map.events.map((event: Record<string, unknown> | null) =>
+      event === null
+        ? null
+        : {
+            note: "",
+            ...event,
+          },
+    ),
+  },
+};
 const discovery = {
   sourceRoot: "src",
   sourceInclude: ["**/*.events.ts", "**/*.dsl.ts"],

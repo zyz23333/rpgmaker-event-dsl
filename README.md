@@ -484,7 +484,7 @@ export const doorEvent = mapEvent({
   pages: [
     page({
       conditions: {
-        switch1: switchRef({ id: 1 }),
+        switch1: { enabled: true, ref: switchRef({ id: 1 }) },
       },
       commands: [
         showText({ lines: ["The door is open."] }),
@@ -496,6 +496,14 @@ export const doorEvent = mapEvent({
 ```
 
 ## Command Reference
+
+Map Events retain exact `note` text and complete ordered pages. A page accepts
+`conditions`, `image`, `movement`, `priority`, `options`, `trigger`, and required
+`commands`. Omitted fields use fixed native blank-page defaults; selecting an image
+keeps priority `below` unless explicitly changed. Disabled conditions and noncustom
+saved routes retain their settings. See the package's [complete Map Event page
+reference](packages/rpgmaker-event-dsl/README.md#map-event-pages) for fields, ranges,
+defaults, reference exceptions, and tile context validation.
 
 | Command           | Writes to Project Root? | Purpose                                                                                                  |
 | ----------------- | ----------------------- | -------------------------------------------------------------------------------------------------------- |

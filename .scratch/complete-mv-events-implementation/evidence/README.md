@@ -371,3 +371,27 @@ Ticket23 verifies complete Common Event state and E117 through public authoring 
 | MV-S5-COMMON-016 | preserves caller-dependent current-event operations without inventing a fixed Map context | synthetic-support | Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed |
 
 | MV-S5-COMMON-E1 | Identified editor Common factory/load/edit/save and E117 selection code facts | reverse-engineering-observation | Read-only resource identity and complete Common initialization/load/edit/serialize code review |
+
+Ticket24 adds [complete Map Event pages and exact saved state](24-map-event-full-pages.md). Native rows close only its allocated representative scenes, not final49–54.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S5-MAP-001 | round trips the complete native blank Map Event and exact note through actual Workspace operations | synthetic-support | Actual public product operations and independent complete assertions |
+| MV-S5-MAP-002 | rejects a malformed late native page without publishing any candidate or changing Workspace state | synthetic-rejection | Actual public product operations and independent complete assertions |
+| MV-S5-MAP-003 | preserves disabled condition settings, independent images and every saved page field | synthetic-support | Actual public product operations and independent complete assertions |
+| MV-S5-MAP-004 | rejects malformed authored page options in Check and Compile without changing Workspace state | synthetic-rejection | Actual public product operations and independent complete assertions |
+| MV-S5-MAP-005 | requires the active tile's actual Map and Tilesets Snapshot context before publishing source | synthetic-rejection | Actual public product operations and independent complete assertions |
+| MV-S5-MAP-006 | reports page positions and native paths on Map1001 and removes a high-ID entry without compacting the carrier | synthetic-support | Actual public product operations and independent complete assertions |
+| MV-S5-MAP-007 | rejects incomplete native Map saved shape: %s | synthetic-rejection | Actual public product operations and independent complete assertions |
+| MV-S5-MAP-008 | recursively gates a saved empty script in a fixed page route while Decompile retains the source | synthetic-support | Actual public product operations and independent complete assertions |
+| MV-S5-MAP-009 | does not extend the disabled-condition ID exception to a noncustom saved route | synthetic-rejection | Actual public product operations and independent complete assertions |
+| MV-S5-MAP-010 | complete Map Event saved state | synthetic-support | Actual public product operations and independent complete assertions |
+| MV-S5-MAP-E1 | Ticket24 E1 allocated representative evidence | reverse-engineering-observation | Identified resource/product comparison or actual native pair |
+| MV-S5-MAP-E3 | Ticket24 E3 allocated representative evidence | reverse-engineering-observation | Identified resource/product comparison or actual native pair |
+| MV-S5-MAP-E6 | Ticket24 E6 allocated representative evidence | reverse-engineering-observation | Identified resource/product comparison or actual native pair |
+| MV-S5-MAP-R1-TRIGGERS | Ticket24 R1-TRIGGERS allocated representative evidence | game-observation | Identified resource/product comparison or actual native pair |
+| MV-S5-MAP-R1-ROUTES | Ticket24 R1-ROUTES allocated representative evidence | game-observation | Identified resource/product comparison or actual native pair |
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S5-MAP-011 | Reject missing mandatory native event slot0 on a late Map without publishing or changing complete Workspace state | synthetic-rejection | Actual source/built Workspace API |

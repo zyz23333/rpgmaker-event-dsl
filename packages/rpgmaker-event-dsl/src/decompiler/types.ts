@@ -24,6 +24,7 @@ export type SnapshotMapEvent = {
   name: string;
   x: number;
   y: number;
+  note: string;
   pages: SnapshotMapEventPage[];
 };
 
@@ -32,6 +33,18 @@ export type SnapshotMapEventPage = {
   conditions?: Record<string, unknown>;
   list?: RawEventCommand[];
   trigger?: number;
+  image: {
+    characterName: string;
+    characterIndex: number;
+    direction: number;
+    pattern: number;
+    tileId: number;
+  };
+  directionFix: boolean;
+  stepAnime: boolean;
+  through: boolean;
+  walkAnime: boolean;
+  priorityType: number;
 };
 
 export type SnapshotCommonEvent = {

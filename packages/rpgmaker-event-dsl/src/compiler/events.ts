@@ -1,13 +1,10 @@
+import { assertMapEventInput, assertMapPageInput } from "../map-event/validation.js";
 import type { CommonEventDefinition, EventPage, MapEventDefinition } from "../domain/types.js";
 import type { ReferenceResolver } from "../validation/types.js";
-import {
-  commonEventTriggerToCode,
-  compileConditions,
-  compileNodes,
-  type RawEventCommand,
-} from "./dispatch.js";
+import { commonEventTriggerToCode, compileNodes, type RawEventCommand } from "./dispatch.js";
 import { compilePageMovement } from "../commands/movement/page.js";
 import { assertCommonEventInput } from "../validation/common-events.js";
+import { compilePageSettings } from "../map-event/page.js";
 
 export type ProjectEventData = {
   id: number;
@@ -49,11 +46,13 @@ export function compileMapEvent(
   definition: MapEventDefinition,
   options: { nextId: number; resolver: ReferenceResolver },
 ): ProjectEventData {
+  assertMapEventInput(definition);
   return {
     id: options.nextId,
     name: definition.name,
     x: definition.x,
     y: definition.y,
+    note: definition.note ?? "",
     pages: definition.pages.map((page) => compilePage(page, options.resolver)),
   };
 }
@@ -73,31 +72,10 @@ export function compileCommonEvent(
 }
 
 export function compilePage(page: EventPage, resolver: ReferenceResolver): ProjectEventPage {
+  assertMapPageInput(page, resolver, "page");
   return {
-    conditions: compileConditions(page.conditions, resolver),
-    directionFix: false,
-    image: {
-      characterIndex: 0,
-      characterName: "",
-      direction: 2,
-      pattern: 0,
-      tileId: 0,
-    },
+    ...compilePageSettings(page, resolver),
     list: compileNodes(page.commands, 0, resolver),
     ...compilePageMovement(page.movement, resolver),
-    priorityType: 1,
-    stepAnime: false,
-    through: false,
-    trigger:
-      page.trigger === "action"
-        ? 0
-        : page.trigger === "playerTouch"
-          ? 1
-          : page.trigger === "eventTouch"
-            ? 2
-            : page.trigger === "autorun"
-              ? 3
-              : 4,
-    walkAnime: true,
   };
 }

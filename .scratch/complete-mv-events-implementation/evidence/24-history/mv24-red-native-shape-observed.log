@@ -1,0 +1,43 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-24/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/map-event-workspace.test.ts > rejects a malformed late native page without publishing any candidate or changing Workspace state
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-shape-7Ki3w3
+
+ ❯ test/map-event-workspace.test.ts (3 tests | 1 failed | 2 skipped) 872ms
+   × rejects a malformed late native page without publishing any candidate or changing Workspace state 871ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-event-workspace.test.ts > rejects a malformed late native page without publishing any candidate or changing Workspace state
+AssertionError: promise resolved "undefined" instead of rejecting
+
+- Expected:
+Error {
+  "message": "rejected promise",
+}
+
++ Received:
+undefined
+
+ ❯ test/map-event-workspace.test.ts:107:56
+
+    105|     await prepareMap(workspaceRoot, [null, { ...blankEvent, pages: [bl…
+    106|     const before = await state(workspaceRoot);
+    107|     await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatc…
+       |                                                        ^
+    108|       code: "MV-MAP-PAGE-SHAPE", stage: "decompile", identity: "map:1/…
+    109|       location: { nativePath: "pages[1].unownedPageField" },
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/map-event-workspace.test.ts:103:3
+ Test Files  1 failed (1)
+
+      Tests  1 failed | 2 skipped (3)
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+   Start at  21:49:08
+   Duration  2.42s (transform 475ms, setup 0ms, import 1.36s, tests 872ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/map-event-workspace.test.ts -t malformed late

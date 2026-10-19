@@ -27,6 +27,10 @@ Turn RPG Maker MV gameplay intent into idiomatic Event DSL source. Use Workspace
 
    Completion criterion: every persistent state branch has an owner: page condition, switch, variable, or self switch.
 
+   For Map Event pages, read `references/map-event-pages.md` before changing
+   conditions, images, movement, priority, options, triggers or note. It defines the
+   complete saved-state boundary and fixed defaults.
+
 4. Author Definition Source.
 
    Edit Definition Source selected by the Workspace Config. Preserve existing Entry Identity and local source style. Use the MV-aligned DSL helpers for RPG Maker MV 1.6.1 editor command families. Keep continuation commands inside their parent helper, such as text lines in `showText(...)`, choice branches in `showChoices(...)`, battle result branches in `battleProcessing(...)`, shop goods continuations in `shopProcessing(...)`, and route commands in `setMovementRoute(...)`.

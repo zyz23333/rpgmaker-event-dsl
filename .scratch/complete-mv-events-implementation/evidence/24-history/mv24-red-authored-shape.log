@@ -1,0 +1,43 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-24/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/map-event-workspace.test.ts > rejects malformed authored page options in Check and Compile without changing Workspace state
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-authored-shape-tmtcyV
+
+ ❯ test/map-event-workspace.test.ts (4 tests | 1 failed | 3 skipped) 2114ms
+   × rejects malformed authored page options in Check and Compile without changing Workspace state 2113ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-event-workspace.test.ts > rejects malformed authored page options in Check and Compile without changing Workspace state
+AssertionError: promise resolved "undefined" instead of rejecting
+
+- Expected:
+Error {
+  "message": "rejected promise",
+}
+
++ Received:
+undefined
+
+ ❯ test/map-event-workspace.test.ts:186:67
+    184|     await writeFile(sourcePath, source.replace("page({", "page({ optio…
+    185|     const before = await state(workspaceRoot);
+    186|     await expect(compileWorkspace({ workspaceRoot, check: true })).rej…
+       |                                                                   ^
+    187|     await expect(compileWorkspace({ workspaceRoot, check: false })).re…
+    188|     expect(await state(workspaceRoot)).toStrictEqual(before);
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/map-event-workspace.test.ts:178:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 skipped (4)
+   Start at  21:50:36
+   Duration  3.70s (transform 519ms, setup 0ms, import 1.42s, tests 2.11s, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/map-event-workspace.test.ts -t malformed authored

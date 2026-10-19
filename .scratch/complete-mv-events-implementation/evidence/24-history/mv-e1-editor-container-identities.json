@@ -1,0 +1,760 @@
+{
+  "schema": 1,
+  "target": {
+    "path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/RPGMV.exe",
+    "bytes": 19595264,
+    "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281"
+  },
+  "method": "Read-only fs/zlib/crypto selected resource decoding; target code not evaluated, loaded or executed",
+  "newReaEvidence": false,
+  "reusedVersionEvidence": "ev_007ba386e622855bf771049084c3103afebbcc6b5d813f18c441f3ecf1d16d24",
+  "node": "v24.14.0",
+  "resources": [
+    {
+      "role": "templates",
+      "offset": 346222,
+      "storedBytes": 2617,
+      "storedSha256": "8df91f9e37b5f5ef1dfcf9faada0a80888575a7ae5e5593d15d0e476a3dc551d",
+      "encoding": "zlib",
+      "decodedBytes": 11436,
+      "decodedSha256": "52fd4ca2a3f178712d94467c5770919cf716882e2ebc9a57bde0a963e9447165",
+      "compressedInputBytesConsumed": 2609,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\templates-346222.txt"
+    },
+    {
+      "role": "page-buttons",
+      "offset": 647618,
+      "storedBytes": 592,
+      "storedSha256": "1e97f32abdf6f37ff41cc41ef08eba6ad65dc6e6b4097baefac447063a633556",
+      "encoding": "zlib",
+      "decodedBytes": 2264,
+      "decodedSha256": "08d4a8bc3e7ad0d7478dd70265cb7a73298de4c2d24a2617699dab68c9dcefec",
+      "compressedInputBytesConsumed": 584,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\page-buttons-647618.txt"
+    },
+    {
+      "role": "map-conditions",
+      "offset": 656030,
+      "storedBytes": 886,
+      "storedSha256": "61703c89f58dd5885e20dcaf5df9eb7f1d2edf6c44b5e6ed384e27bac7e60d0e",
+      "encoding": "zlib",
+      "decodedBytes": 5163,
+      "decodedSha256": "2e679cbed93309a6e1b51db11a7128af1b5294c8be3fb2a35b70ac9946627818",
+      "compressedInputBytesConsumed": 878,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\map-conditions-656030.txt"
+    },
+    {
+      "role": "map-event-pages",
+      "offset": 674163,
+      "storedBytes": 1060,
+      "storedSha256": "1af2a40d91a4baf8938f6d4cdeff3a1161d02fbacb4f61d19eed9c14c660eccc",
+      "encoding": "zlib",
+      "decodedBytes": 4143,
+      "decodedSha256": "93338301160a3f64994c0371b137e8bc5f6c6c8e1f803b1730fe72e5a6322834",
+      "compressedInputBytesConsumed": 1052,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\map-event-pages-674163.txt"
+    },
+    {
+      "role": "map-page",
+      "offset": 701512,
+      "storedBytes": 1784,
+      "storedSha256": "7654a2713389f9eed6c6257dffabb5b63411523cb724abd741d65c67997afd96",
+      "encoding": "zlib",
+      "decodedBytes": 7813,
+      "decodedSha256": "d3f53b2536e23bb60f8b080f1692cec652262688cd20dd5184de5773dc9c3b15",
+      "compressedInputBytesConsumed": 1776,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\map-page-701512.txt"
+    },
+    {
+      "role": "map-image",
+      "offset": 626433,
+      "storedBytes": 1675,
+      "storedSha256": "bafd3bd1f87136359652b570414c0a091007634ef74ffdbd3fa6b9f702f8aba5",
+      "encoding": "zlib",
+      "decodedBytes": 6491,
+      "decodedSha256": "9e05d77cba069b12cef44536bf917a1eed9829c72871f472cfbcd82f7422070e",
+      "compressedInputBytesConsumed": 1667,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\map-image-626433.txt"
+    },
+    {
+      "role": "map-event-entry",
+      "offset": 8667116,
+      "storedBytes": 3753,
+      "storedSha256": "1687d574bb4fe4439cda241987a3d35de498641df9f4cd7883fb8950c1eec41f",
+      "encoding": "zlib",
+      "decodedBytes": 19336,
+      "decodedSha256": "e684f74d77d923861f3e7804709ba2a27974418bd56e5ee586eea257fddaed12",
+      "compressedInputBytesConsumed": 3745,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\map-event-entry-8667116.txt"
+    },
+    {
+      "role": "common-editor",
+      "offset": 967367,
+      "storedBytes": 2086,
+      "storedSha256": "28ae8f9d73c1819dea8332598bb94f398776c4243e5c0dab27f4e61074a2e6c0",
+      "encoding": "plain",
+      "decodedBytes": 2082,
+      "decodedSha256": "80b034dedb0ab5f3465d6b9bc9bda652e47aa7d756985ee84697d0e96f70942c",
+      "compressedInputBytesConsumed": null,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\common-editor-967367.txt"
+    },
+    {
+      "role": "database",
+      "offset": 934867,
+      "storedBytes": 1816,
+      "storedSha256": "a7ebb848a4bac1affadcdf3705ff0122180279d02b0aee1078c4e0c5e9f34eda",
+      "encoding": "zlib",
+      "decodedBytes": 8770,
+      "decodedSha256": "90fc0bbe06a34a0ee68ad881d469ca20654c830811ffd668fd2f7d6b0f0a7af6",
+      "compressedInputBytesConsumed": 1808,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\database-934867.txt"
+    },
+    {
+      "role": "database-tab",
+      "offset": 966730,
+      "storedBytes": 637,
+      "storedSha256": "9c632904e1b54f51675385dcd7296a54faa79f1c1cfaabe4c045a16c428de8af",
+      "encoding": "zlib",
+      "decodedBytes": 2162,
+      "decodedSha256": "a3f4768edb3fd8cad0d5e9c596809171e459fcf8285c714f87185e19980f3f53",
+      "compressedInputBytesConsumed": 629,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\database-tab-966730.txt"
+    },
+    {
+      "role": "database-list",
+      "offset": 963372,
+      "storedBytes": 1930,
+      "storedSha256": "e5380aea3de74a1263d738a55f3607e80a82623a0ad0432cff61b712612cee1a",
+      "encoding": "zlib",
+      "decodedBytes": 7745,
+      "decodedSha256": "cc33f67d3ed28382350a871766793d70ff786ca9d7c2726768e9aab55bcf54e6",
+      "compressedInputBytesConsumed": 1922,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\database-list-963372.txt"
+    },
+    {
+      "role": "troop-editor",
+      "offset": 959423,
+      "storedBytes": 1837,
+      "storedSha256": "0ead95e7f410bc3f9c4280596a7c17a1bb4a2ec40d2ecf2cd3d1107002c7a791",
+      "encoding": "zlib",
+      "decodedBytes": 7793,
+      "decodedSha256": "5a40dcc720eeda8ca0a67e312a657ab52b753ef7914cfb903e64f2a0801326c7",
+      "compressedInputBytesConsumed": 1829,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\troop-editor-959423.txt"
+    },
+    {
+      "role": "battle-conditions",
+      "offset": 8779077,
+      "storedBytes": 1145,
+      "storedSha256": "5418d40ac4f4614fa7b494719575e6b4d6a57ec58b28c5367331f10e0b8c3da3",
+      "encoding": "zlib",
+      "decodedBytes": 8073,
+      "decodedSha256": "9afa1d70061a8898eec25c8be717caaceaa3464626ff22904b67573907b11fef",
+      "compressedInputBytesConsumed": 1137,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\battle-conditions-8779077.txt"
+    },
+    {
+      "role": "object-check",
+      "offset": 8721360,
+      "storedBytes": 585,
+      "storedSha256": "d65cbbaab3cee552b63cca35ae59be3f560bb293d0b23064ca95248756ffb61a",
+      "encoding": "plain",
+      "decodedBytes": 581,
+      "decodedSha256": "9841b9b3f78ab3825c0ee3d95348c408a2c5154fa2af54ea486d847710ca13cf",
+      "compressedInputBytesConsumed": null,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\object-check-8721360.txt"
+    },
+    {
+      "role": "object-combo",
+      "offset": 8728865,
+      "storedBytes": 1118,
+      "storedSha256": "4e9c1adf8ac740cf788b8cd8f56c2fcc5575dd2550bdd38fe7e867f3861735d2",
+      "encoding": "plain",
+      "decodedBytes": 1114,
+      "decodedSha256": "a2d5d7acd82fb294b91c6869fbeb1c009515644636dfea3913155211879413de",
+      "compressedInputBytesConsumed": null,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\object-combo-8728865.txt"
+    },
+    {
+      "role": "data",
+      "offset": 909009,
+      "storedBytes": 4291,
+      "storedSha256": "5270be842eec5e3091f42c89221f5fcb56eac9c60ac0dd9b980f2b8e91525367",
+      "encoding": "zlib",
+      "decodedBytes": 24761,
+      "decodedSha256": "9ce1877d3eac47699a558ada219ec4f217dbc4f215531a7f65ccacd8169c4f93",
+      "compressedInputBytesConsumed": 4283,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\data-909009.txt"
+    },
+    {
+      "role": "modal",
+      "offset": 878315,
+      "storedBytes": 1884,
+      "storedSha256": "1cb82140d805e570382b90e527523860a6a03c0f4b6d3904f6aa2b11d90a3bcc",
+      "encoding": "zlib",
+      "decodedBytes": 8437,
+      "decodedSha256": "875ac97ba5e20ab1a457399321e9621d3b56a698aaeeadc78c9584f3b69a970e",
+      "compressedInputBytesConsumed": 1876,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\modal-878315.txt"
+    },
+    {
+      "role": "project-file",
+      "offset": 426544,
+      "storedBytes": 3371,
+      "storedSha256": "a8ef711d6e490693b0a42e0ed8c58e7dea91ed7b97ee2952b38fad3d9b3cd66f",
+      "encoding": "zlib",
+      "decodedBytes": 17252,
+      "decodedSha256": "8d2d161cc2d663a7246bf7b7717430a4eebc000f1f04d8704685d5f222cac776",
+      "compressedInputBytesConsumed": 3363,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\project-file-426544.txt"
+    },
+    {
+      "role": "event-command-list",
+      "offset": 667573,
+      "storedBytes": 3694,
+      "storedSha256": "0d2256db396879e26e51888dbd5905f306631f20691bc6dd5f416b3e090aeea1",
+      "encoding": "zlib",
+      "decodedBytes": 17486,
+      "decodedSha256": "bbc1e26fa83771fc56581b1dc34ec762b3789444dacef76cb24334834e17e82c",
+      "compressedInputBytesConsumed": 3686,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\event-command-list-667573.txt"
+    },
+    {
+      "role": "event-command-picker",
+      "offset": 679418,
+      "storedBytes": 1424,
+      "storedSha256": "da4ec20dd82890612f3a46d7672f6d7cef7e4e5aac68f174a735b20b09be8003",
+      "encoding": "zlib",
+      "decodedBytes": 7863,
+      "decodedSha256": "8e83b762134d12696649e6302adec9f40bbad7618b2c9cbff5ad945f005dd829",
+      "compressedInputBytesConsumed": 1416,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\event-command-picker-679418.txt"
+    },
+    {
+      "role": "command-dialog",
+      "offset": 656916,
+      "storedBytes": 1086,
+      "storedSha256": "91796da241501b7634b5cf49175556fb92a81638597c54ab1f42675ad3c7326f",
+      "encoding": "plain",
+      "decodedBytes": 1082,
+      "decodedSha256": "0152387fa661f0e67f45b989248c60142881526cda1f31898e29c0e03366fbf7",
+      "compressedInputBytesConsumed": null,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\command-dialog-656916.txt"
+    },
+    {
+      "role": "page-route-dialog",
+      "offset": 653645,
+      "storedBytes": 927,
+      "storedSha256": "21cf9b3a965ded3a0c2dd6287fef82f0b1958f35cc464d544e8c0fa95943ec85",
+      "encoding": "plain",
+      "decodedBytes": 923,
+      "decodedSha256": "6343dfa083bf2e1451a5af7867664957f4696bf7f950d8751857f108faee3456",
+      "compressedInputBytesConsumed": null,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\page-route-dialog-653645.txt"
+    },
+    {
+      "role": "object-spin",
+      "offset": 8717236,
+      "storedBytes": 970,
+      "storedSha256": "b9ffefdf38652963ee39ac844926549c625322196d440af2d6ca938ffee98475",
+      "encoding": "plain",
+      "decodedBytes": 966,
+      "decodedSha256": "4a76e7bf246987c17ae67a15f8be8481760d4b90405de27a0e23120a4a67b25f",
+      "compressedInputBytesConsumed": null,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\object-spin-8717236.txt"
+    },
+    {
+      "role": "self-switch",
+      "offset": 603593,
+      "storedBytes": 1069,
+      "storedSha256": "2f43209064d40a04df8b7c5d6299ec70378be7984541f39643e25c8e695bee94",
+      "encoding": "plain",
+      "decodedBytes": 1065,
+      "decodedSha256": "575592e0d2220e8a333612da0290f81fad98fa6a44ad6a9e59aed445a5fd66a7",
+      "compressedInputBytesConsumed": null,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\self-switch-603593.txt"
+    },
+    {
+      "role": "game-switch",
+      "offset": 596373,
+      "storedBytes": 2004,
+      "storedSha256": "313afa613a3b413ab2529136a02558f4133b8388495b1a6752f9e984c61fbc43",
+      "encoding": "plain",
+      "decodedBytes": 2000,
+      "decodedSha256": "5aaba3b55a3d310b69dd2cb833cf8a864b6785eff31f868a927134c814d7f9a8",
+      "compressedInputBytesConsumed": null,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\game-switch-596373.txt"
+    },
+    {
+      "role": "image-dialog",
+      "offset": 8787441,
+      "storedBytes": 1343,
+      "storedSha256": "0ed57fb1b8005d49ca81578f9e2e392828c51b78a53731baf47ff4bae4a59ddc",
+      "encoding": "zlib",
+      "decodedBytes": 6236,
+      "decodedSha256": "07186f580840ab0cccaa2fdb5b22dec768f27b7d67ba804e07354096857c4b50",
+      "compressedInputBytesConsumed": 1335,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\image-dialog-8787441.txt"
+    },
+    {
+      "role": "image-grid",
+      "offset": 638194,
+      "storedBytes": 1222,
+      "storedSha256": "b4f61a4d0395a737b971ff87291cd0a738c80e09c0c816f112ee0ab7f198762c",
+      "encoding": "zlib",
+      "decodedBytes": 5016,
+      "decodedSha256": "1d00d66ec8159738c77a866c7218d6219eb9d7cb1ecdcce7619abf7214670d9a",
+      "compressedInputBytesConsumed": 1214,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\image-grid-638194.txt"
+    },
+    {
+      "role": "labeled-text-field",
+      "offset": 8799522,
+      "storedBytes": 389,
+      "storedSha256": "9a92f5c94e7885054c4b93bfbf8567423ea7dfaad32c39e318bd6e9db47af670",
+      "encoding": "plain",
+      "decodedBytes": 385,
+      "decodedSha256": "20d7752e7a0f74a49842b29e97dee8c59d7b905715e614c495ca5676b8eb8d0b",
+      "compressedInputBytesConsumed": null,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\labeled-text-field-8799522.txt"
+    },
+    {
+      "role": "text-field",
+      "offset": 877206,
+      "storedBytes": 73,
+      "storedSha256": "81a9aaa5ca6f8e6c1dc929f33c0da2c630d217866ec134a1f04e25028a05d50d",
+      "encoding": "plain",
+      "decodedBytes": 69,
+      "decodedSha256": "4c498faa0ec8d1ded0a1fbd1697978a061999a7961ecfc231be4f5176d775727",
+      "compressedInputBytesConsumed": null,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\text-field-877206.txt"
+    },
+    {
+      "role": "text-edit",
+      "offset": 866210,
+      "storedBytes": 3005,
+      "storedSha256": "67931efad3a333eac942df27a1a6e3f0b81c894eb9809720c16af7db35fe37f8",
+      "encoding": "zlib",
+      "decodedBytes": 14044,
+      "decodedSha256": "12dfecd9a6fdc127a1759552698490bccd5ccf599aa898fd682461f0ed939dad",
+      "compressedInputBytesConsumed": 2997,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\text-edit-866210.txt"
+    },
+    {
+      "role": "Map Event modal main",
+      "offset": 693633,
+      "storedBytes": 856,
+      "storedSha256": "05589516770857d647efc8ca1b8dae5b379bb91bfa63d9daf6ad803fd80d7e7a",
+      "encoding": "zlib",
+      "decodedBytes": 2868,
+      "decodedSha256": "81e12dcbeca13125bbcbbbf533ccf7f7883eea3b6740436430e7eb5b3c016b21",
+      "compressedInputBytesConsumed": 848,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\gap-693633.txt"
+    },
+    {
+      "role": "Troop parent editor",
+      "offset": 933040,
+      "storedBytes": 1827,
+      "storedSha256": "9a4eae208e18ce064914d56de98c74aed409c21a8357ed01babe5a0e48a2d621",
+      "encoding": "zlib",
+      "decodedBytes": 8197,
+      "decodedSha256": "13cf7d41fee993df7209df93feea5de505633de964145e3b700fedb0c2879b1e",
+      "compressedInputBytesConsumed": 1819,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\gap-933040.txt"
+    },
+    {
+      "role": "Object text member binding",
+      "offset": 8719360,
+      "storedBytes": 994,
+      "storedSha256": "418913be0501412d4e8f48c40d4523bf1c36e8023e634f05f58f2cf6b33ed7cc",
+      "encoding": "plain",
+      "decodedBytes": 990,
+      "decodedSha256": "afa35c4c938943ee3f70b3518b68c5126090ac9f45f479e49f7fabf78b60d0a2",
+      "compressedInputBytesConsumed": null,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\gap-8719360.txt"
+    },
+    {
+      "role": "Object text member binding",
+      "offset": 8727945,
+      "storedBytes": 920,
+      "storedSha256": "0d337301e743cfc604a4bfc61f684e577f65dee1ffe5799a8a4eef07bfe4a742",
+      "encoding": "plain",
+      "decodedBytes": 916,
+      "decodedSha256": "89bf6b5204d61655edc0886abc1f3f7fd1c37e14dd6f8b5beb086a5c4d5258a6",
+      "compressedInputBytesConsumed": null,
+      "destination": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\gap-8727945.txt"
+    }
+  ],
+  "reusedSources": [
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events\\research\\editor-serialization.md",
+      "bytes": 19699,
+      "sha256": "0b121563192c3bc9324ea1ef85ce1fb7b28f7619338b8aa023ae52eeeb1e93b1"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events\\research\\native-event-data.md",
+      "bytes": 31838,
+      "sha256": "cf9185a2a66d0a0f56c10623a42f9feee5e465ff6791eb3e1f0d82bcf87c2df1"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events\\research\\event-defaults-and-limits.md",
+      "bytes": 23835,
+      "sha256": "7b4331149acc145baf32a344c05b2a1d102f4aa7f45138df29607c1255042a97"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\docs\\adr\\0010-troop-event-ownership-and-reset.md",
+      "bytes": 2748,
+      "sha256": "5f0fcb9982c2ace709b98bce0403909fb9fcd089f3113697ce88a770d0bcedd1"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\03-branches-and-battle-reverse.md",
+      "bytes": 13736,
+      "sha256": "576bd691b41dbca8493f25c9509fb62998b242a6b5ca06f95a721fd7e9c8d963"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\03-resource-identities.json",
+      "bytes": 4019,
+      "sha256": "4f740a9287f68002d2ce6f87dab70dd045977e079c546caf00687d78bd4f079e"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\04-movement-records-and-mirrors-reverse.md",
+      "bytes": 14914,
+      "sha256": "dbdd18695268c81251c98fdd280fb819a20af60537369447a0b7ea75d2fcf4cf"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\04-resource-identities.json",
+      "bytes": 8371,
+      "sha256": "21e980a7fc17f4229855c7e67f94591050e1980b6541a30317994b93e60df2b3"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\05-resource-identities.json",
+      "bytes": 3530,
+      "sha256": "0c76a701cbcba666d01731e7b5e465d9a52ff2eb206476837675eb90b07d34a4"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\05-timer-stop-reverse.md",
+      "bytes": 10782,
+      "sha256": "7159085d5be652e0eaed032b5ed8652381e70e46ab6562d8f840e61f8efbc7d5"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\06-resource-identities.json",
+      "bytes": 6544,
+      "sha256": "96f6962c20c5dcada743c634779d0c2cd8393c4802d617b645bdf1260873bf9b"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\06-transfer-defaults-reverse.md",
+      "bytes": 16506,
+      "sha256": "1d17183eeb3f6e887ddf7a8882eca41a764f49488f66d5f35fac65234a4186cb"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\07-resource-identities.json",
+      "bytes": 5583,
+      "sha256": "be6df14b8f7837ad9aecb0071bba2af42711a1739a0a200e733fb816d09ff5e8"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\07-shop-defaults-and-goods-reverse.md",
+      "bytes": 23020,
+      "sha256": "00e5e0f78db4e7cd4b44949328ec2cabb9d69441514b4789b6437a33f149e59d"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\08-face-index-and-image-replacement-reverse.md",
+      "bytes": 16699,
+      "sha256": "378a0af0152c0223defb01d407cd2384a72f3ecfcf6d81fd2eacc3dde574c6dd"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\08-resource-identities.json",
+      "bytes": 6017,
+      "sha256": "848eca9eee546137e0bfa545eb698a701d4624c1717396c6ecb61d98fbeddc37"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\09-resource-identities.json",
+      "bytes": 8715,
+      "sha256": "97cdc3ed7c3a84ce71ebdb00e0036121ec875e3943f8f518fc16e4ef23e4abd6"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\09-single-slot-strings-and-reconfirmation-reverse.md",
+      "bytes": 22059,
+      "sha256": "b38de9f61fda5360b9fecb0fbe6ec9c5f86607898482adb53f1b6543689d3d2e"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\10-exp-boundaries-reverse.md",
+      "bytes": 21156,
+      "sha256": "e2c534beed38bd7021bc09cc3f649a2844b84ae6a6d9652088fd5df0a406b8f7"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\10-resource-identities.json",
+      "bytes": 14266,
+      "sha256": "01d6d24de2d3cdb11c7eceec061f2171dcc87614605f7504b2ee1dab927a0e0c"
+    }
+  ],
+  "previousIdentityComparisons": [
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\03-resource-identities.json",
+      "offset": 656916,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\03-resource-identities.json",
+      "offset": 667573,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\03-resource-identities.json",
+      "offset": 679418,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\03-resource-identities.json",
+      "offset": 878315,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\03-resource-identities.json",
+      "offset": 909009,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\04-resource-identities.json",
+      "offset": 346222,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\04-resource-identities.json",
+      "offset": 701512,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\04-resource-identities.json",
+      "offset": 909009,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\04-resource-identities.json",
+      "offset": 667573,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\04-resource-identities.json",
+      "offset": 656916,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\04-resource-identities.json",
+      "offset": 653645,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\05-resource-identities.json",
+      "offset": 656916,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\05-resource-identities.json",
+      "offset": 909009,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\05-resource-identities.json",
+      "offset": 679418,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\05-resource-identities.json",
+      "offset": 667573,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\05-resource-identities.json",
+      "offset": 878315,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\06-resource-identities.json",
+      "offset": 656916,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\06-resource-identities.json",
+      "offset": 909009,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\06-resource-identities.json",
+      "offset": 679418,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\06-resource-identities.json",
+      "offset": 667573,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\06-resource-identities.json",
+      "offset": 878315,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\06-resource-identities.json",
+      "offset": 426544,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\07-resource-identities.json",
+      "offset": 656916,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\07-resource-identities.json",
+      "offset": 667573,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\07-resource-identities.json",
+      "offset": 679418,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\07-resource-identities.json",
+      "offset": 878315,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\07-resource-identities.json",
+      "offset": 909009,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\08-resource-identities.json",
+      "offset": 638194,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\08-resource-identities.json",
+      "offset": 8787441,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\08-resource-identities.json",
+      "offset": 656916,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\08-resource-identities.json",
+      "offset": 667573,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\08-resource-identities.json",
+      "offset": 679418,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\08-resource-identities.json",
+      "offset": 878315,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\08-resource-identities.json",
+      "offset": 909009,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\09-resource-identities.json",
+      "offset": 8799522,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\09-resource-identities.json",
+      "offset": 877206,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\09-resource-identities.json",
+      "offset": 866210,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\09-resource-identities.json",
+      "offset": 656916,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\09-resource-identities.json",
+      "offset": 667573,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\09-resource-identities.json",
+      "offset": 679418,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\09-resource-identities.json",
+      "offset": 878315,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\09-resource-identities.json",
+      "offset": 909009,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\09-resource-identities.json",
+      "offset": 701512,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\09-resource-identities.json",
+      "offset": 653645,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\10-resource-identities.json",
+      "offset": 656916,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\10-resource-identities.json",
+      "offset": 909009,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\10-resource-identities.json",
+      "offset": 679418,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\10-resource-identities.json",
+      "offset": 667573,
+      "match": true
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\10-resource-identities.json",
+      "offset": 878315,
+      "match": true
+    }
+  ],
+  "factoryData": {
+    "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\factory-data.json",
+    "sha256": "ca9301e02f3050b6e38d8e62d5b95ecb9aab14705dc07d56eebd1cd33f5d3498"
+  },
+  "discovery": {
+    "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-raw\\focused-discovery-manifest.json",
+    "sha256": "5f2655f74223f7ecbfca4386aa549b1ccd75d508e9bb7c308350a494a3b664b4",
+    "boundary": "All explicit EXE offsets, record size20..100000, import-prefix plaintext or exact bounded zlib; three literal semantic resource predicates only; Qt qrc tree not reconstructed"
+  },
+  "reproducerScripts": [
+    {
+      "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-decode-resources.cjs",
+      "sha256": "27c7f4e4623801d6c8836ded594bb4e68de314d165931e31dd809d144fd464c8"
+    },
+    {
+      "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-find-gaps.cjs",
+      "sha256": "6188f60501398d238aeb5f4b80eee591c7938e635639329def3e409e9bed4159"
+    },
+    {
+      "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-consolidate-identities.cjs",
+      "sha256": "bda369442e466b6eca1c72025856556012e4e39d52b57078efe0ae14835ee1ae"
+    }
+  ]
+}

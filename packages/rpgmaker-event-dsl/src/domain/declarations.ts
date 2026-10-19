@@ -1,5 +1,5 @@
 import type { DslCommand, MovementRoute } from "./command.js";
-import type { ReferenceValue } from "./references.js";
+import type { ImageAssetReference, ReferenceValue } from "./references.js";
 import { assertCommonEventInput } from "../validation/common-events.js";
 
 export type DslOwnedDeclaration =
@@ -29,6 +29,7 @@ export type MapEventDefinition = {
   name: string;
   x: number;
   y: number;
+  note?: string;
   pages: readonly [EventPage, ...EventPage[]];
 };
 
@@ -52,6 +53,24 @@ export type EventPage = {
   trigger: MapPageTrigger;
   commands: readonly DslCommand[];
   movement?: AutonomousMovement;
+  image?: PageImage;
+  priority?: "below" | "same" | "above";
+  options?: PageOptions;
+};
+
+export type PageImage = {
+  character?: ImageAssetReference | null;
+  characterIndex?: number;
+  tileId?: number;
+  direction?: "down" | "left" | "right" | "up";
+  pattern?: number;
+};
+
+export type PageOptions = {
+  walkAnimation?: boolean;
+  stepAnimation?: boolean;
+  directionFix?: boolean;
+  through?: boolean;
 };
 
 export type AutonomousMovement = {
@@ -62,15 +81,15 @@ export type AutonomousMovement = {
 };
 
 export type PageConditions = {
-  actor?: ReferenceValue<"actor">;
-  item?: ReferenceValue<"item">;
-  selfSwitch?: "A" | "B" | "C" | "D";
-  switch1?: ReferenceValue<"switch">;
-  switch2?: ReferenceValue<"switch">;
+  actor?: { enabled: boolean; ref: ReferenceValue<"actor"> };
+  item?: { enabled: boolean; ref: ReferenceValue<"item"> };
+  selfSwitch?: { enabled: boolean; value: "A" | "B" | "C" | "D" };
+  switch1?: { enabled: boolean; ref: ReferenceValue<"switch"> };
+  switch2?: { enabled: boolean; ref: ReferenceValue<"switch"> };
   variable?: {
+    enabled: boolean;
     ref: ReferenceValue<"variable">;
-    operator: "ge";
-    value: number;
+    atLeast: number;
   };
 };
 

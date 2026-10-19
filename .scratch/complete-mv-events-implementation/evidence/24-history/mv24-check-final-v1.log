@@ -1,0 +1,141 @@
+
+> rpgmaker-event-dsl-workspace@0.0.0 check C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl
+> pnpm typecheck && pnpm lint && pnpm format:check && pnpm test
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 typecheck C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl
+> pnpm -r typecheck
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl typecheck$ tsc -p tsconfig.json --noEmit
+packages/rpgmaker-event-dsl typecheck: Done
+
+> rpgmaker-event-dsl-workspace@0.0.0 lint C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl
+> oxlint .
+
+.scratch/complete-mv-events-implementation/evidence/22-history/original-held-reproduction.cjs:89:61: warning eslint(no-unused-expressions): Expected expression to be used help: Consider using this expression or removing it
+
+> rpgmaker-event-dsl-workspace@0.0.0 format:check C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl
+> oxfmt --ignore-path .oxfmtignore --check package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rpgmaker-event-dsl
+
+Checking formatting...
+
+All matched files use the correct format.
+Finished in 408ms on 163 files using 20 threads.
+
+> rpgmaker-event-dsl-workspace@0.0.0 test C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl
+> pnpm -r test
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl test$ vitest run
+packages/rpgmaker-event-dsl test:  RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-24/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+packages/rpgmaker-event-dsl test: stderr | test/command-boundary-workspace.test.ts > decompiles with the Gate closed, reports every saved script location, and checks actual evaluated output without changing state
+packages/rpgmaker-event-dsl test: Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\command-boundary-vc0U31
+packages/rpgmaker-event-dsl test: stderr | test/command-boundary-workspace.test.ts > checks the current declarations after every script is removed while the old Snapshot still contains scripts
+packages/rpgmaker-event-dsl test: Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\command-boundary-removed-scripts-UHs8VF
+packages/rpgmaker-event-dsl test:  ❯ test/command-boundary-workspace.test.ts (5 tests | 2 failed) 9154ms
+packages/rpgmaker-event-dsl test:    × decompiles with the Gate closed, reports every saved script location, and checks actual evaluated output without changing state 1061ms
+packages/rpgmaker-event-dsl test:    × checks the current declarations after every script is removed while the old Snapshot still contains scripts 102ms
+packages/rpgmaker-event-dsl test:  ❯ test/structured-diff.test.ts (6 tests | 1 failed) 30ms
+packages/rpgmaker-event-dsl test:      × classifies owned event and system entries by domain and identity 25ms
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/command-boundary-workspace.test.ts > decompiles with the Gate closed, reports every saved script location, and checks actual evaluated output without changing state
+packages/rpgmaker-event-dsl test: Error: CLI failed (1): decompile
+packages/rpgmaker-event-dsl test: C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\decompiler\core.ts:115
+packages/rpgmaker-event-dsl test:         throw new CommandStructureError(
+packages/rpgmaker-event-dsl test:               ^
+packages/rpgmaker-event-dsl test: CommandStructureError: decompile error map:1/event:1: MV-MAP-EVENT-SHAPE: Invalid native Map Event saved shape. at note; expected required saved field; actual <missing>
+packages/rpgmaker-event-dsl test:     at <anonymous> (C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\decompiler\core.ts:115:15)
+packages/rpgmaker-event-dsl test:     at Array.flatMap (<anonymous>)
+packages/rpgmaker-event-dsl test:     at readMapEvents (C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\decompiler\core.ts:98:25)
+packages/rpgmaker-event-dsl test:     at buildDecompiledSourceFiles (C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\decompiler\project.ts:150:20)
+packages/rpgmaker-event-dsl test:     at async decompileProjectDataSnapshot (C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\decompiler\project.ts:65:17)
+packages/rpgmaker-event-dsl test:     at async decompileWorkspaceUnlocked (C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\workspace\operations.ts:145:3)
+packages/rpgmaker-event-dsl test:     at async withWorkspaceOperationLock (C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\workspace\operation-lock.ts:45:12)
+packages/rpgmaker-event-dsl test:     at async decompileWorkspace (C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\workspace\operations.ts:117:3)
+packages/rpgmaker-event-dsl test:     at async Command.<anonymous> (C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\cli.ts:59:7)
+packages/rpgmaker-event-dsl test:     at async Command.parseAsync (F:\Shuen\RPG\rpgmaker-event-dsl\node_modules\.pnpm\commander@14.0.3\node_modules\commander\lib\command.js:1122:5) {
+packages/rpgmaker-event-dsl test:   code: 'MV-MAP-EVENT-SHAPE',
+packages/rpgmaker-event-dsl test:   detail: 'Invalid native Map Event saved shape.',
+packages/rpgmaker-event-dsl test:   location: {
+packages/rpgmaker-event-dsl test:     nativePath: 'note',
+packages/rpgmaker-event-dsl test:     expected: 'required saved field',
+packages/rpgmaker-event-dsl test:     actual: '<missing>'
+packages/rpgmaker-event-dsl test:   },
+packages/rpgmaker-event-dsl test:   identity: 'map:1/event:1',
+packages/rpgmaker-event-dsl test:   stage: 'decompile'
+packages/rpgmaker-event-dsl test: }
+packages/rpgmaker-event-dsl test: Node.js v22.23.0
+packages/rpgmaker-event-dsl test:  ❯ <anonymous> src/decompiler/core.ts:115:15
+packages/rpgmaker-event-dsl test:     113|     } catch (error) {
+packages/rpgmaker-event-dsl test:     114|       if (error instanceof CommandStructureError)
+packages/rpgmaker-event-dsl test:     115|         throw new CommandStructureError(
+packages/rpgmaker-event-dsl test:        |               ^
+packages/rpgmaker-event-dsl test:     116|           error.code,
+packages/rpgmaker-event-dsl test:     117|           error.detail,
+packages/rpgmaker-event-dsl test:  ❯ readMapEvents src/decompiler/core.ts:98:25
+packages/rpgmaker-event-dsl test:  ❯ buildDecompiledSourceFiles src/decompiler/project.ts:150:20
+packages/rpgmaker-event-dsl test:  ❯ decompileProjectDataSnapshot src/decompiler/project.ts:65:17
+packages/rpgmaker-event-dsl test:  ❯ decompileWorkspaceUnlocked src/workspace/operations.ts:145:3
+packages/rpgmaker-event-dsl test:  ❯ withWorkspaceOperationLock src/workspace/operation-lock.ts:45:12
+packages/rpgmaker-event-dsl test:  ❯ decompileWorkspace src/workspace/operations.ts:117:3
+packages/rpgmaker-event-dsl test:  ❯ Command.<anonymous> src/cli.ts:59:7
+packages/rpgmaker-event-dsl test:  ❯ runCli test/support/windows-sandbox.ts:174:11
+packages/rpgmaker-event-dsl test:  ❯ test/command-boundary-workspace.test.ts:75:23
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+packages/rpgmaker-event-dsl test:  ❯ test/command-boundary-workspace.test.ts:72:3
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/command-boundary-workspace.test.ts > checks the current declarations after every script is removed while the old Snapshot still contains scripts
+packages/rpgmaker-event-dsl test: Error: decompile error map:1/event:1: MV-MAP-EVENT-SHAPE: Invalid native Map Event saved shape. at note; expected required saved field; actual <missing>
+packages/rpgmaker-event-dsl test:  ❯ src/decompiler/core.ts:115:15
+packages/rpgmaker-event-dsl test:     113|     } catch (error) {
+packages/rpgmaker-event-dsl test:     114|       if (error instanceof CommandStructureError)
+packages/rpgmaker-event-dsl test:     115|         throw new CommandStructureError(
+packages/rpgmaker-event-dsl test:        |               ^
+packages/rpgmaker-event-dsl test:     116|           error.code,
+packages/rpgmaker-event-dsl test:     117|           error.detail,
+packages/rpgmaker-event-dsl test:  ❯ readMapEvents src/decompiler/core.ts:98:25
+packages/rpgmaker-event-dsl test:  ❯ buildDecompiledSourceFiles src/decompiler/project.ts:150:20
+packages/rpgmaker-event-dsl test:  ❯ decompileProjectDataSnapshot src/decompiler/project.ts:65:17
+packages/rpgmaker-event-dsl test:  ❯ decompileWorkspaceUnlocked src/workspace/operations.ts:145:3
+packages/rpgmaker-event-dsl test:  ❯ withWorkspaceOperationLock src/workspace/operation-lock.ts:45:12
+packages/rpgmaker-event-dsl test:  ❯ decompileWorkspace src/workspace/operations.ts:117:3
+packages/rpgmaker-event-dsl test:  ❯ test/command-boundary-workspace.test.ts:129:5
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/structured-diff.test.ts > buildStructuredDiffReport > classifies owned event and system entries by domain and identity
+packages/rpgmaker-event-dsl test: AssertionError: expected [ { domain: 'Map Event', …(1) }, …(4) ] to deeply equal [ { domain: 'Map Event', …(1) }, …(4) ]
+packages/rpgmaker-event-dsl test: - Expected
+packages/rpgmaker-event-dsl test: + Received
+packages/rpgmaker-event-dsl test: @@ -3,11 +3,12 @@
+packages/rpgmaker-event-dsl test:       "domain": "Map Event",
+packages/rpgmaker-event-dsl test:       "entries": [
+packages/rpgmaker-event-dsl test:         {
+packages/rpgmaker-event-dsl test:           "change": "changed",
+packages/rpgmaker-event-dsl test:           "destructive": false,
+packages/rpgmaker-event-dsl test: -         "detail": "Generated entry differs from snapshot entry.",
+packages/rpgmaker-event-dsl test: +         "detail": "Generated entry differs from snapshot entry.
+packages/rpgmaker-event-dsl test: +   - name: \"Snapshot Gate\" -> \"Changed Gate\"",
+packages/rpgmaker-event-dsl test:           "identity": "mapId 1, eventId 1",
+packages/rpgmaker-event-dsl test:           "projectDataFile": "Map001.json",
+packages/rpgmaker-event-dsl test:         },
+packages/rpgmaker-event-dsl test:         {
+packages/rpgmaker-event-dsl test:           "change": "generated-only",
+packages/rpgmaker-event-dsl test:  ❯ test/structured-diff.test.ts:72:28
+packages/rpgmaker-event-dsl test:      70|     });
+packages/rpgmaker-event-dsl test:      71|
+packages/rpgmaker-event-dsl test:      72|     expect(report.domains).toEqual([
+packages/rpgmaker-event-dsl test:        |                            ^
+packages/rpgmaker-event-dsl test:      73|       {
+packages/rpgmaker-event-dsl test:      74|         domain: "Map Event",
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+packages/rpgmaker-event-dsl test:  Test Files  2 failed | 30 passed (32)
+packages/rpgmaker-event-dsl test:       Tests  3 failed | 468 passed (471)
+packages/rpgmaker-event-dsl test:    Start at  22:12:41
+packages/rpgmaker-event-dsl test:    Duration  249.72s (transform 1.36s, setup 0ms, import 12.94s, tests 480.26s, environment 3ms)
+packages/rpgmaker-event-dsl test: Failed
+C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run`
+Exit status 1
+ ELIFECYCLE  Test failed. See above for more details.
+ ELIFECYCLE  Command failed with exit code 1.
