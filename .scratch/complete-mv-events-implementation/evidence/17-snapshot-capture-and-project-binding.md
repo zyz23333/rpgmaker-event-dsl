@@ -49,3 +49,7 @@ Project Root Binding 使用 `realpath` 后的路径，Windows 大小写归一，
 Windows / Node22.23.0、pnpm10.33.0。初版十组聚焦测试通过（24.69s）；工作流、操作锁和本票联合回归3 files /48 tests通过（46.28s）。完整静态检查 typecheck、lint、format:check 已通过。17:28:54 开始的首次全量为174通过/1失败，唯一失败是人工清单尚未追加时被验收索引校验读取；未改标成功，随后补全十条清单。提交66467ed后合并集成0262a29为ffd44af，双方索引按 ID 并集保留，包含10/14证据。本次又补 parentId 正例及共享 parser 修正，聚焦005通过（3.11s），合并后全量23 files /225 tests通过（89.70s）。之后对 orphan Snapshot 增补一次真实红灯；Clone 现在明确要求显式 Pull，修复后007聚焦通过（2.13s）。最终全量源码、构建和构建后基线结果另追加。
 
 本票没有独立编辑器或游戏分配；全部机器记录 `native: not-executed`。最终 E1–E7 逆向比较和 R1–R7 游戏运行仍保持未完成门槛。
+
+最终实现提交 `b5f5d5a` 后，按顺序执行 typecheck、lint、format:check 全部通过；完整 `pnpm -r test --maxWorkers=2` 为23 files /225 tests通过（88.52s）；`pnpm build` 的 node22目标构建通过；`test:windows-baseline --maxWorkers=2` 为4 files /18 tests通过（32.09s），包含本票实际构建 CLI/API 入口。未更改原测试断言或 timeout 来规避资源争用。
+
+十份最终源码执行和十份最终构建执行的原始记录已复制至 results，指向 `b5f5d5a` 和各自精确输入指纹。十份源码记录共享指纹 `a09aed4b99275f53e14c148712b70bdc53f80e7d7c7e1de5ddf4a361efae5f6e`；十份构建记录共享 `f8f0d449fd2e5e0358f874302450c30ef3f00689d862b20f7702ee820d812ff5`，后者同时包含实际 dist 字节。两份005/007修正前的真实失败记录按原 failed 状态保留。结果入库后重跑验收索引、schema、来源/夹具/执行记录验证及基础独立往返，1 file /3 tests通过（4.77s）。
