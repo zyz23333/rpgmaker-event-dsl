@@ -1,0 +1,733 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-S5-MAP-008",
+  "runId": "2026-10-19T14-29-00-865Z-0edffe60-27f4-4cd8-b6a3-16bbca275e58",
+  "status": "passed",
+  "startedAt": "2026-10-19T14:28:56.315Z",
+  "completedAt": "2026-10-19T14:29:00.865Z",
+  "operator": "Codex automated verification",
+  "source": {
+    "revision": "520a2e5d3a034299bedf8d1051b8559da2d3e648",
+    "fingerprint": "8fe40783a48004602dcf4c3a07aa0341f200cf87c3de48619935d702108299b7",
+    "files": [
+      {
+        "path": ".github/workflows/ci.yml",
+        "sha256": "36542499fb5c9eed991023c9142cc539bab40fbd01dab6a822f3f24f909d82bd"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+        "sha256": "d31202939223e642322e6a761ae882d2de877921b1f032d33472e2b0c1251b15"
+      },
+      {
+        "path": "package.json",
+        "sha256": "770e4e3a85243faa5f7a4e029097699e7c024f0655342a18bd47d507bf7af8b4"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/authoring-B-L5uSZh.mjs",
+        "sha256": "16d0cf8fef8966872cb12a9b79f94ab9fad8b96f448ed0481bc4e98d785d9c73"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/authoring-B-L5uSZh.mjs.map",
+        "sha256": "33504f5af789cc432948e2e0961b8a3a97bba19026e62080d423a6232a35ebb9"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/cli.d.mts",
+        "sha256": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/cli.d.mts.map",
+        "sha256": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/cli.mjs",
+        "sha256": "6ff299041425ed2abefbbc15fa9530ac3ef6e2d10863a574ddaec1f9c7adfaaa"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/cli.mjs.map",
+        "sha256": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/index.d.mts",
+        "sha256": "dfd9f6e95195bc6d0aff08bb4cc168e2b3cf70ebe960cc86126e04f8b128807f"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/index.d.mts.map",
+        "sha256": "15bf226c5bf21ab6c9794cce02a6fc2c512dc5f6bc54fbc43fd20d8353a8214c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/index.mjs",
+        "sha256": "f568858bb7245ed3ae7a41e7958d652877fdaa5b653c9fc41f5a91a39210cbca"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/index.mjs.map",
+        "sha256": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/operations-9ESIs8lS.mjs",
+        "sha256": "895317e7b6c6140deb7aee611947caef1b4c3c1d33ea699d7cafa06a3e307226"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/operations-9ESIs8lS.mjs.map",
+        "sha256": "94de1e5add1c9da23d82b6b4555bb2ca8992843779812d33bb6b86d55ee5692c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/workspace-api.d.mts",
+        "sha256": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/workspace-api.d.mts.map",
+        "sha256": "5c00024325238da7b6368529ed69e33839a8a4f0baeed1eb2e79f65c877ebbe8"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/workspace-api.mjs",
+        "sha256": "c0d0d1930135f308cf380603a0b1ce8e1a7a9aef4c85c09b9dd872639cbb2471"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/package.json",
+        "sha256": "2344a542d3836993009639da4efa83e5fb4df1849b026e6f0051648bee4d1a7d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/declarations.ts",
+        "sha256": "8b66e262b36a1adc9aa12e3487558bce38d78d485f8dc6383acca4533a75e3ec"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/index.ts",
+        "sha256": "a72e02954767eedf05eba2d74021645883df0ab6defd8dcb706ec4314b1bef63"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/references.ts",
+        "sha256": "b3f3cefa64f45da752a8f58bc6eca2d92bb6b30773be42f51036fd60df9c89de"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/shared.ts",
+        "sha256": "3865ac8c4b3768c96038a323a02cf30c33edd9f330544bd6cd2b204d2841408e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/cli.ts",
+        "sha256": "34c6e77e91a45126b1a2c5b15621f79241a98bab081924d2fbd535c5996fd4b0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/actor/authoring.ts",
+        "sha256": "adc9b6aa805739dad7594246236f6314cc8a08299f1bd323b8ae729cf6b2fdf3"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/actor/decompile.ts",
+        "sha256": "2e83a179cabb9ae19ff9207904c822bb84c6b5bc45581386d2aca7b1b005b56d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/audio/authoring.ts",
+        "sha256": "08a68ae8b97095ec1c3a6d8517ed5649eb79ffb1b66f59aa34a7506356e0e513"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/audio/decompile.ts",
+        "sha256": "18acdf8e035ad2b8f3879622e18c39a7cde1e6279c14013fca2e6dbd0edb3811"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/battle/authoring.ts",
+        "sha256": "a5249dd85dde78f2f0183d33a9a79d69bca93e88b5d2f0404f9005a25f115377"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/battle/decompile.ts",
+        "sha256": "4da781567fb9baf2580ec050564d66506d542890dfab3a6966eef1c008ac44b0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/enemy/authoring.ts",
+        "sha256": "3ff830df557837e08ed73054eb47085cd0ba262e1aad746defc05578a14ce602"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/enemy/decompile.ts",
+        "sha256": "334fc1efeda29f27cf9a7e504501ea7e693fb9b041a96bb827c90ec957ff2cd2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/flow/authoring.ts",
+        "sha256": "5948d34cb26d81e3a72973a88b742a78b3928b7d4dc4c67b41ecca1e212f6d0f"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/flow/decompile.ts",
+        "sha256": "db0508df65d743ada28e4b175d85cfbfa6a70a0547ff17cc2ecc2ab9a0feac31"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/flow/validation.ts",
+        "sha256": "e53e420b6f56e26e85e7df6db53c48365002450aefb13fbae50b21141e2adc70"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/map/authoring.ts",
+        "sha256": "985f89d88a2460b0af605f3fb8282847dd48e4d5d6e13821ae430966a53c4006"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/map/decompile.ts",
+        "sha256": "4155ac5891314141271b6e80f4b11924e584ef1efcf6e83b125b7e60196e2ce0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/message/authoring.ts",
+        "sha256": "76bfc91b2a89a8c62546542396ff47c8baf9f13d54c1c1ba5a0b58031b413d68"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/message/decompile.ts",
+        "sha256": "174c78169c65eec74592a466381b97e083688c691381e470b0a707dd47273a24"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/authoring.ts",
+        "sha256": "af1985013fa73af61d72cc440de0f83d99f78c94da4744f3a7ab1d7b56daf909"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/compile.ts",
+        "sha256": "8491f60e066d618bb076e3e03774b9332000f8be6f5c81a05ceb2aa03e2d0e15"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/decompile.ts",
+        "sha256": "016e07bdd681af3aaaf70ae5141afc6255598453c2ce43a6c34a3d44c38ba6c3"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/page.ts",
+        "sha256": "ead6952e28f64bd25ba6fbd55d9be36f09ddadca5967ec4ddd7722ee1e18ceac"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/types.ts",
+        "sha256": "de4a2cb691fc6a8697ba91a2a831eaf17e1c15e541da4a2893f902f30a3a01b8"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/validation.ts",
+        "sha256": "41bd3a1a11691f40f0583a7d7a2e22533883404379b35897dc74eb31096d2755"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/screen/authoring.ts",
+        "sha256": "c0557c79496cb70c7a4d67fa61008a6e189b9df86f7cb408b36048b89aff63dc"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/screen/compile.ts",
+        "sha256": "a1c68cb63a4e6fe9ad2de3f45f51101f2e4fa6656fd865ac3bbbf485c78edc80"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/screen/decompile.ts",
+        "sha256": "38e4c759cf9f51c5ab49ea0f33d79c9a2af1060156102e7198541ac2e529567b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/system/authoring.ts",
+        "sha256": "71b37822f2d2abd58349a1ea7eed84fea0c886cf8045beb6341dbfba2c02814d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/system/decompile.ts",
+        "sha256": "56c3cba9e576bd289050463bfe2d284c39d54196fcf5fa59a8dde3ccdc33ad77"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/authoring.ts",
+        "sha256": "a2bbedd0a2d9aacb7e3eb2772e4f7431c49ccef39166cc74f4b615a6494a3f22"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/compile.ts",
+        "sha256": "9e4a295fac91434e34e28bd3c84b9b5a5dc526685f821f574582e7ac22bb4c27"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/decompile.ts",
+        "sha256": "c32df1e9d77b36d30fd135bc6c8919f0cf84a19acaf6a86d3e66d700762b9773"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/validation.ts",
+        "sha256": "8996604b8bfcb1fd9ba8a5100b8bd598e720aad9b946d001e77e89ddf5609867"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+        "sha256": "7a351bf50d3e5dc45d8b5cdb2946677a990e567b790397c5cd4088b20a5069dd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/events.ts",
+        "sha256": "8e76e86f404cc413b6e28c3c6e4831eb83541a30da55acbdfb2493df766781b0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/branches.ts",
+        "sha256": "44f965a1c5ea89cdf03fca12e3a49c2bce866efa9e6dc97ffa32c45a51f4d606"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/conditions.ts",
+        "sha256": "4b44eb3bb078dc6dd9a996ba7ac8aac5dbc6cc4a4151763ff9dc6c21d786e990"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/media.ts",
+        "sha256": "9bc3cc0ec9fd97a6368711dc4e73cba05dc4abaee7697624132577bb465e3e68"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/targets.ts",
+        "sha256": "11c907ed9a847ba54fdc222c7d04757e1b0d74205c7111426e4fec8d80be7ce2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/types.ts",
+        "sha256": "b81ac88b5778268997bce55af43dc0953b5cee48625180f58733cfdde6ae91a1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/core.ts",
+        "sha256": "f2643de1eafe2cba96b942b3c56b0686246e6a8c5a6b98081e9435f696d4c947"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/dispatch.ts",
+        "sha256": "e7fab66bb4a732546cd9d380360cebb4730c733ea918f8bf6c457b5214a752c0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/map-page.ts",
+        "sha256": "05a14de564f72e81566bf5db192a38c71c9595e21abfa9181b49a12b724c751b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/project.ts",
+        "sha256": "7b664d9b9c84febd4dc488e9f77b1d2ceea97b0190ddd4803750efafe2ff2f8e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/types.ts",
+        "sha256": "f41ed6747fbaeed8f4ca5cbb93d7682775f9b1abbbd9d83a7f2ac7139fac5631"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/command.ts",
+        "sha256": "7b2699a1b7b6ecf75658b9d71bec1213fa922f430bb2b08b5650a76229449c61"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/declarations.ts",
+        "sha256": "f1d1813004e120e67e77ce79f7a5a7d5782c11d9daae9df25a751da84e155b6f"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/references.ts",
+        "sha256": "44874ce22c90697572c8bd777f0a8070bcf89b556247072964ac59246761fc44"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/types.ts",
+        "sha256": "1c9caf0c03768d910a9ef504d184df22ce42a30ac4dd3ce387b489718ead5e01"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/index.ts",
+        "sha256": "cac51b3cd154629880f6b30aaf8b54a8f1aecee91bb26182ebfd7ccdb3c90157"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/map-event/native.ts",
+        "sha256": "a22fdbb1aa0a5c54c318e35b55fd0dc824d44a792050a4461c8892ee6e4d9875"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/map-event/page.ts",
+        "sha256": "9251557930e667e258c6259c58e787cdeccd22e96dc5f0225947a98d35d275ed"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/map-event/validation.ts",
+        "sha256": "e2dddc54dff942929af1f58dd6e48305e9d774c8cfb5a4c58af39e08e3937805"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/json-values.ts",
+        "sha256": "7d9f2a485a689dc159327f859a8cae48307b88294bea78aa2a81452813730af8"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/map-event-diff.ts",
+        "sha256": "7055058d85ef232a8ad2f94e9a3634ef709c5d352283ac1678f4dc03836be992"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/materialization.ts",
+        "sha256": "9c9f1d81e6a5dcd4806e6b3b5abefbadb892098827af4aecde7d8385e6e69efc"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/project.ts",
+        "sha256": "1176a155e53c9f4383e03bbe3a3f7e13565a96d5eb47b3ac6fc58002ae91cd74"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/structured-diff.ts",
+        "sha256": "46413df2ec2a13a7ba4061a292c8d38b6f19b48c0cd59e9e550f5cdce474f301"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/writer.ts",
+        "sha256": "d9ebfc5636d430eb7c94ecca75c4a40127e592e92bcd303cc73ed59cde674c80"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/command-errors.ts",
+        "sha256": "d3da622a5d9616fd54f83415ec3782c45f54f95a3285d3525f1ddcf71f7deb9a"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/command-structure.ts",
+        "sha256": "e75f7edfa9b9fd520eeb7f4b42b4e110bc2a533fe3fd365c78750ecd226df6d4"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/commands.ts",
+        "sha256": "7e1764aab741c81fe3ad20c775bfd3c9e0dfa416796e15a4d57920020d35d1b7"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/compile-output.ts",
+        "sha256": "bbe1faaa27e862b43bae560fa783cff1bb93ac5c256d0a03f30f5399a33b0007"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/compiled-commands.ts",
+        "sha256": "908e8183bdab925c9e4115841f8cadabc1734eb63c835d8dc14f6a11087c02f7"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/dsl-command-inputs.ts",
+        "sha256": "73457080d5dd553ba488acfab6f517c792e40d5f845ac6e66bde8d97cded1d5b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/identities.ts",
+        "sha256": "6b82bd78ba09de67b5f58294eb2b0678260bc5a9076e74702cf2a5b4571d2265"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/inspection.ts",
+        "sha256": "10a9923ffca925eb65ea7254a1d940c6580a3a60f3b7a14a4862cf08d11453e1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/native-command-inputs.ts",
+        "sha256": "d56f4dfe5960a92107fcde60d1ad795b35b0afb4825e1becf6145f502f7e1051"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/native-context-references.ts",
+        "sha256": "7ddd26656a02361bf2ea5c7ecfc10ca8a32d5d0a22a37ba36cabb168ce2c680d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/native-parameters.ts",
+        "sha256": "67c16ddb33e864fb2cd2055134f05152e228f2cc646fadf9d05d2a5dad0f47ba"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/native-references.ts",
+        "sha256": "34ab7b62af6418491d00f3325fca6c843f2010e4170a24ec57cc8d6099a945b7"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/references.ts",
+        "sha256": "fe3a8c5bbe7dd5e7c666788cc7f9c2cc49f8fcf8d7ec4aa8d966fefc039c5f4b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/shared.ts",
+        "sha256": "8fb0ce36eba0efaaf92c5f99f73b05dc17a6776d3041a8b211fa1b647adc08b2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/snapshot.ts",
+        "sha256": "b29956e100eb586e389ed69bd7d9b6603452b6a7f8371aa895e53193628ed4cd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/staged-graph.ts",
+        "sha256": "1176b170be66b11d1280393ae3458dd3e9508ebe5e4babd14cdd4031bf5610ea"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/types.ts",
+        "sha256": "3b85e09236ca8db6899dd606d7190c074c6a302f2dc299a1b3a208da2eec0397"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "sha256": "735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/checks.ts",
+        "sha256": "dd02c917b0ed530fcbb8d3458802d5d230def90388d6bf488e849f2934688692"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/config.ts",
+        "sha256": "3700d64dfaf53fe1e99beb91bf8a54032c8a01372f25b579cdddf2ab683fd84b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/decompile-publication.ts",
+        "sha256": "e70dcce23f98167dc53e908b3242a0a61a5fd1f7f92b2df6f700e91433faf185"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/definition-identities.ts",
+        "sha256": "5276cfbbc378fbcaaf41db0075b4f1574d0ad11d76dc14555810e22aad64cec5"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/definitions.ts",
+        "sha256": "4814b554672cb7b70d60a8f9e2abcfae8853368fe73065da36ad0c223dae6fb6"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/guards.ts",
+        "sha256": "cec835079aba4c1c61d4a28f224fd7ac7617063568b05156a84cc08896e0ed89"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/operation-lock.ts",
+        "sha256": "c39e910339321f63786bec52cf40fa5e9c114a259f8bbc0dc7842b29660866cd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/operations.ts",
+        "sha256": "a5d8a46bd2fb28a09e2724028c7e9800d2ee23deed6e5e6a84196fb76b1ccead"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/push-recovery.ts",
+        "sha256": "827d7896162e6d0f06c2833361fce5cc3fcda3a248e66bdf674e8d4d04eca284"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/push.ts",
+        "sha256": "e409843d5737e0d2df52edff5429de7ede6a6dab106013f4335a27815d0b05a9"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/source-discovery.ts",
+        "sha256": "aeec16adb3208ea5d89666c051064e3251defd8ef8bae48ac6fa12bebc7b98e0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/state.ts",
+        "sha256": "c493c31c466b7d49b86a9bdd45ad563963c67f3c9e4c5a28b1f1f3b54ebbf216"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts",
+        "sha256": "532a919435dbfd076239d78f564d0a5322f5d40f62021e8f50ef3a0421046a3e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/types.ts",
+        "sha256": "f046ebe39de38d590d78bb0aa00f5c3f03a117f972f9aec6f49fa5f7275023fb"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/architecture.test.ts",
+        "sha256": "3229d46f278ed361e8629291203e60e26486ca88441aaabf879121214572e9cd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/cli-entry.test.ts",
+        "sha256": "6dd400343ebc7d3341911a43f261cc9752ae1c4e99fb915acdf5feea183e93d5"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/cli.test.ts",
+        "sha256": "6640d901282cf3f76178d5bba1e72f1f6059280096f4ef3b22493f8a647a840a"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/command-boundary-workspace.test.ts",
+        "sha256": "67bd911d5049242cf379c9146435ea8d5066f51bc8fa35e63a6b4729a505ebe5"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/command-boundary.test.ts",
+        "sha256": "50db5ba97a4aa276b73f195c067c87692b797de20ae5f1ef1dd02387f9a82703"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/compile-inputs.test.ts",
+        "sha256": "19de1ac1ff4417485e2953199b2e326670722b8518083015c908535ac5f00fa9"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/compile-publication.test.ts",
+        "sha256": "35c0718f2735346b2dd55ef33a719dc711020c1d9086e26030a1cde7a9dc145f"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/decompile-publication.test.ts",
+        "sha256": "f0cfb42a50551a43a64914c4aba21fbf2e8c31c60c3bacf7864af3cedbf9221c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/decompiler.test.ts",
+        "sha256": "8ddf3cb4988f910a4a3d99a87221da126770034b1bdbfea83be99a6083e9cc11"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/definitions.test.ts",
+        "sha256": "c47465a9e43c13883c1a99da46d37be3d181556ccdd5803b16c7a9614b95fe06"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/dsl.test.ts",
+        "sha256": "0e261988bb3cc21beceee7e6797bbc2a3f548e2ea5b29bd19fbf2e2ded1736da"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/events.test.ts",
+        "sha256": "005b57943cfd719de2e43bf8f44c50fb5abacbb99d91fe766d3269e634afe362"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/command-boundary-cases.json",
+        "sha256": "2bbe5b59b8df23286f616189655e87d898e3524dd63c10466d2a9f2b1b9aaf30"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/loop-cases.json",
+        "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-battle-context-project.json",
+        "sha256": "bf4ca095b5d86c9824ce36c0c30113871d56a22032a4a1c4d3eb33af75a80864"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/movement-route-cases.json",
+        "sha256": "c5f48d068f867f56817a9f65f3ed70c79c1c69c9534468ced3f3fdd35e0fec4c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-slots-project.json",
+        "sha256": "eae9d3c30c431a9a66a2af6e822100309da6920f794ba34b84fea15566bdde38"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/index.test.ts",
+        "sha256": "9afd6a1323db0d41f32ae8047dff223f2dd96d4050ae260d4dfda638741e9211"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/loop-workspace.test.ts",
+        "sha256": "cb376eaa85f5c2e78a0d7876e5c6980874a9f2fa3239bf7c870dda170ad524a6"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/loop.test.ts",
+        "sha256": "dcbcafc95b182b31093cd4dc3b178674f545a5a4258e559c389ad3bce6ec1d24"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/map-event-workspace.test.ts",
+        "sha256": "bf571d39fc46bf63aa81f77f7fbe0080af33edc0d12483821105058d55dd9e74"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/map-event.test.ts",
+        "sha256": "22f106478ebf46c770d52023a9778ab49d353b385c16b94c4fcc5110fbe4417c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/movement-route-workspace.test.ts",
+        "sha256": "354d09a5fb72bfc04f3740ec28e2e7e6e373f52494ca9a7f3aa7c6089c73e855"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/movement-route.test.ts",
+        "sha256": "04fd4ca535ad97c66b65dd50546511d60c341c402df81e7ae547fcc136b3a412"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/mv-evidence.test.ts",
+        "sha256": "5d158ea357c657807c3101a2896c71ce9fbc24b08263727d1ead3d85a98c03f5"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/project.test.ts",
+        "sha256": "c43c6a1193d093e53e847de47d45554673795de729575fd7a7e21c9a91190025"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/push-drift.test.ts",
+        "sha256": "5e4f1a63eb3dd0151f6a4d76b19dfc65a8c9c0c0e7f342ce0208ead5dd890a25"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "sha256": "e2642e3b4a571dfc67289c6196e06d9fee33d637adc94b8f46d20e85dbc72214"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/snapshot-binding.test.ts",
+        "sha256": "2ba604411129fac6ea1dd9c28e3082589e1b519364e4fd12e67a33b2475e2889"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/snapshot-context.test.ts",
+        "sha256": "42ff8917a671abb9919ff1ece095f107a645b36e1235e6e69ce478c17c1cecd7"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/staged-graph.test.ts",
+        "sha256": "ce727065f2c3d2c9eefb3e7b374e30d19f0d49d45b0062b622c891431ef317f1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/structured-diff.test.ts",
+        "sha256": "7dea3d7fbb5ca2147c1e6b36adfb8ba241f996373ba24d8de390a15ede7f6ed3"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-event-fixtures.ts",
+        "sha256": "778c8dc026e49f65905eacb06353abbedc8889f8a63dd7ae620dff9fae809f5e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/mv-evidence.ts",
+        "sha256": "ae82454a6ba72ee174b81b5b3dd8b1f5c0875a18034ffff1b2219bd3e8db7b07"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/windows-sandbox.ts",
+        "sha256": "ebbb2cd2bd9559ca432c83774132a9a2fd1f6270828d044675f7002912273c71"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+        "sha256": "a212984571763fb6f3f090de99e75e77a460b757d80bcd4525d2413dd645b075"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/workspace-operation-process.ts",
+        "sha256": "ee45257ab8b046d3cce02fc42dd3a0a308d96c6a78a894ddab3df19eeace0bbe"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/system-slots.test.ts",
+        "sha256": "95ec634605f67d38f87a29d9b714c3e08e965c3e9f32ae167c7ece9036ed004e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/windows-baseline.test.ts",
+        "sha256": "3b06218264c3c651a956b982a282b096fe557ca999ff88b81ada3dd02343df87"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/workflow.test.ts",
+        "sha256": "25c0044d99b928297af32956cb33a12a21011b836d88d95f70121615a4fd4cc2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/workspace-locking.test.ts",
+        "sha256": "54e51682c54551ae568a7861bbe5a309242a094b16008ea2ecebf98baeedd492"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/workspace.test.ts",
+        "sha256": "9d6c6e6be74210fbd74f13c545286be7bc9da40c8d2d1c04c72533e310f3d9bf"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/tsconfig.json",
+        "sha256": "103060b50f26a5ee2fa0f8525824e89166f01ad12c8155172b06647bd9810ed6"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/vitest.config.ts",
+        "sha256": "205dcf739555549758afcdf2051835bb37173e071987af8de2bc2870e5039e39"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/vitest.windows.config.ts",
+        "sha256": "e55edd86f2e6b0f6e759321e50681c1ecfda1bb1628670121b8105e07861ea2a"
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "sha256": "4f685f5fccae0de0bef4666fb12f314fd0b26ae81ac68a26cc90cf2dd247c5b5"
+      },
+      {
+        "path": "tsconfig.base.json",
+        "sha256": "5b0437fc9ebfe797ceafbe026fb673ade339605add242db2bbe8e6011c2ec63a"
+      }
+    ]
+  },
+  "fixture": {
+    "path": "packages/rpgmaker-event-dsl/test/support/map-event-fixtures.ts",
+    "sha256": "778c8dc026e49f65905eacb06353abbedc8889f8a63dd7ae620dff9fae809f5e"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "node": "v22.23.0",
+    "vitest": "4.1.9",
+    "typescript": "5.9.3",
+    "package": "0.1.2",
+    "native": "not-executed"
+  },
+  "stages": [
+    "Actual Workspace API and filesystem; public Discovery/evaluation where source is published; independent complete literals, exact saved fields and complete failure-state comparisons"
+  ],
+  "expected": "The linked case assertions compare complete independent native state and diagnostics; rejected operations preserve source, Project Root, Snapshot, generated output, manifest and Discovery.",
+  "actual": {
+    "case": "map-fixed-route-gate",
+    "finalState": {
+      "config": "{\"projectRoot\":\"./Game\",\"scriptEnabled\":true,\"sourceRoot\":\"src\",\"sourceInclude\":[\"**/*.events.ts\",\"**/*.dsl.ts\"],\"sourceExclude\":[\"**/*.test.ts\",\"**/*.spec.ts\",\"**/*.d.ts\"]}",
+      "projectDescriptor": "RPGMV 1.6.1\n",
+      "project": {
+        "Actors.json": "[null]",
+        "Animations.json": "[null]",
+        "Armors.json": "[null]",
+        "Classes.json": "[null]",
+        "CommonEvents.json": "[null,{\"id\":1,\"name\":\"Evidence Common Event\",\"trigger\":0,\"switchId\":1,\"list\":[{\"code\":101,\"indent\":0,\"parameters\":[\"\",0,1,0]},{\"code\":401,\"indent\":0,\"parameters\":[\"Synthetic CR\\rkept\"]},{\"code\":401,\"indent\":0,\"parameters\":[\"\"]},{\"code\":108,\"indent\":0,\"parameters\":[\"Self-authored fixture\"]},{\"code\":408,\"indent\":0,\"parameters\":[\"\"]},{\"code\":0,\"indent\":0,\"parameters\":[]}]}]",
+        "Enemies.json": "[null]",
+        "Items.json": "[null]",
+        "Map001.json": "{\"width\":17,\"height\":13,\"events\":[null,{\"id\":1,\"name\":\"Complete blank\",\"note\":\"  <tag: x>\\r\\n\\n<tag:y>\\rtrailing\\n\",\"x\":0,\"y\":0,\"pages\":[{\"conditions\":{\"actorId\":1,\"actorValid\":false,\"itemId\":1,\"itemValid\":false,\"selfSwitchCh\":\"A\",\"selfSwitchValid\":false,\"switch1Id\":1,\"switch1Valid\":false,\"switch2Id\":1,\"switch2Valid\":false,\"variableId\":1,\"variableValid\":false,\"variableValue\":0},\"directionFix\":false,\"image\":{\"characterIndex\":0,\"characterName\":\"\",\"direction\":2,\"pattern\":0,\"tileId\":0},\"list\":[{\"code\":0,\"indent\":0,\"parameters\":[]}],\"moveFrequency\":3,\"moveRoute\":{\"list\":[{\"code\":45,\"parameters\":[\"\"]},{\"code\":0,\"parameters\":[]}],\"repeat\":true,\"skippable\":false,\"wait\":true},\"moveSpeed\":3,\"moveType\":0,\"priorityType\":0,\"stepAnime\":false,\"through\":false,\"trigger\":0,\"walkAnime\":true}]}],\"tilesetId\":1,\"opaque\":{\"preserved\":true}}",
+        "MapInfos.json": "[null,{\"id\":1,\"name\":\"Map\"}]",
+        "Skills.json": "[null]",
+        "States.json": "[null]",
+        "System.json": "{\"gameTitle\":\"Synthetic evidence context\",\"switches\":[\"\",\"Saved switch\"],\"variables\":[\"\"],\"fixtureOrigin\":{\"retainedNull\":null,\"retainedArray\":[]}}",
+        "Tilesets.json": "[null]",
+        "Troops.json": "[null]",
+        "Weapons.json": "[null]"
+      },
+      "snapshot": {
+        "Actors.json": "[null]",
+        "Animations.json": "[null]",
+        "Armors.json": "[null]",
+        "Classes.json": "[null]",
+        "CommonEvents.json": "[null,{\"id\":1,\"name\":\"Evidence Common Event\",\"trigger\":0,\"switchId\":1,\"list\":[{\"code\":101,\"indent\":0,\"parameters\":[\"\",0,1,0]},{\"code\":401,\"indent\":0,\"parameters\":[\"Synthetic CR\\rkept\"]},{\"code\":401,\"indent\":0,\"parameters\":[\"\"]},{\"code\":108,\"indent\":0,\"parameters\":[\"Self-authored fixture\"]},{\"code\":408,\"indent\":0,\"parameters\":[\"\"]},{\"code\":0,\"indent\":0,\"parameters\":[]}]}]",
+        "Enemies.json": "[null]",
+        "Items.json": "[null]",
+        "Map001.json": "{\"width\":17,\"height\":13,\"events\":[null,{\"id\":1,\"name\":\"Complete blank\",\"note\":\"  <tag: x>\\r\\n\\n<tag:y>\\rtrailing\\n\",\"x\":0,\"y\":0,\"pages\":[{\"conditions\":{\"actorId\":1,\"actorValid\":false,\"itemId\":1,\"itemValid\":false,\"selfSwitchCh\":\"A\",\"selfSwitchValid\":false,\"switch1Id\":1,\"switch1Valid\":false,\"switch2Id\":1,\"switch2Valid\":false,\"variableId\":1,\"variableValid\":false,\"variableValue\":0},\"directionFix\":false,\"image\":{\"characterIndex\":0,\"characterName\":\"\",\"direction\":2,\"pattern\":0,\"tileId\":0},\"list\":[{\"code\":0,\"indent\":0,\"parameters\":[]}],\"moveFrequency\":3,\"moveRoute\":{\"list\":[{\"code\":45,\"parameters\":[\"\"]},{\"code\":0,\"parameters\":[]}],\"repeat\":true,\"skippable\":false,\"wait\":true},\"moveSpeed\":3,\"moveType\":0,\"priorityType\":0,\"stepAnime\":false,\"through\":false,\"trigger\":0,\"walkAnime\":true}]}],\"tilesetId\":1,\"opaque\":{\"preserved\":true}}",
+        "MapInfos.json": "[null,{\"id\":1,\"name\":\"Map\"}]",
+        "Skills.json": "[null]",
+        "States.json": "[null]",
+        "System.json": "{\"gameTitle\":\"Synthetic evidence context\",\"switches\":[\"\",\"Saved switch\"],\"variables\":[\"\"],\"fixtureOrigin\":{\"retainedNull\":null,\"retainedArray\":[]}}",
+        "Tilesets.json": "[null]",
+        "Troops.json": "[null]",
+        "Weapons.json": "[null]"
+      },
+      "generated": {
+        "CommonEvents.json": "[\n  null,\n  {\n    \"id\":1,\n    \"name\":\"Evidence Common Event\",\n    \"trigger\":0,\n    \"switchId\":1,\n    \"list\":[\n      {\n        \"code\":101,\n        \"indent\":0,\n        \"parameters\":[\n          \"\",\n          0,\n          1,\n          0\n        ]\n      },\n      {\n        \"code\":401,\n        \"indent\":0,\n        \"parameters\":[\n          \"Synthetic CR\\rkept\"\n        ]\n      },\n      {\n        \"code\":401,\n        \"indent\":0,\n        \"parameters\":[\n          \"\"\n        ]\n      },\n      {\n        \"code\":108,\n        \"indent\":0,\n        \"parameters\":[\n          \"Self-authored fixture\"\n        ]\n      },\n      {\n        \"code\":408,\n        \"indent\":0,\n        \"parameters\":[\n          \"\"\n        ]\n      },\n      {\n        \"code\":0,\n        \"indent\":0,\n        \"parameters\":[]\n      }\n    ]\n  }\n]\n",
+        "Map001.json": "{\n  \"width\":17,\n  \"height\":13,\n  \"events\":[\n    null,\n    {\n      \"id\":1,\n      \"name\":\"Complete blank\",\n      \"x\":0,\n      \"y\":0,\n      \"note\":\"  <tag: x>\\r\\n\\n<tag:y>\\rtrailing\\n\",\n      \"pages\":[\n        {\n          \"conditions\":{\n            \"actorId\":1,\n            \"actorValid\":false,\n            \"itemId\":1,\n            \"itemValid\":false,\n            \"selfSwitchCh\":\"A\",\n            \"selfSwitchValid\":false,\n            \"switch1Id\":1,\n            \"switch1Valid\":false,\n            \"switch2Id\":1,\n            \"switch2Valid\":false,\n            \"variableId\":1,\n            \"variableValid\":false,\n            \"variableValue\":0\n          },\n          \"image\":{\n            \"characterName\":\"\",\n            \"characterIndex\":0,\n            \"tileId\":0,\n            \"direction\":2,\n            \"pattern\":0\n          },\n          \"directionFix\":false,\n          \"stepAnime\":false,\n          \"through\":false,\n          \"walkAnime\":true,\n          \"priorityType\":0,\n          \"trigger\":0,\n          \"list\":[\n            {\n              \"code\":0,\n              \"indent\":0,\n              \"parameters\":[]\n            }\n          ],\n          \"moveType\":0,\n          \"moveSpeed\":3,\n          \"moveFrequency\":3,\n          \"moveRoute\":{\n            \"list\":[\n              {\n                \"code\":45,\n                \"parameters\":[\n                  \"\"\n                ]\n              },\n              {\n                \"code\":0,\n                \"parameters\":[]\n              }\n            ],\n            \"repeat\":true,\n            \"skippable\":false,\n            \"wait\":true\n          }\n        }\n      ]\n    }\n  ],\n  \"tilesetId\":1,\n  \"opaque\":{\n    \"preserved\":true\n  }\n}\n",
+        "System.json": "{\n  \"gameTitle\":\"Synthetic evidence context\",\n  \"switches\":[\n    \"\",\n    \"Saved switch\"\n  ],\n  \"variables\":[\n    \"\"\n  ],\n  \"fixtureOrigin\":{\n    \"retainedNull\":null,\n    \"retainedArray\":[]\n  }\n}\n"
+      },
+      "manifest": "{\n  \"version\":1,\n  \"projectRootBinding\":\"c:\\\\users\\\\shuen\\\\appdata\\\\local\\\\temp\\\\rpgmaker-event-dsl-windows\\\\map-fixed-route-gate-zgndwd\\\\最小 workspace with spaces\\\\game\",\n  \"snapshotFiles\":[\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Actors.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Animations.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Armors.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Classes.json\"\n    },\n    {\n      \"hash\":\"78dde0b943db9c919cdfd0c03718c6263e308c45b96561447c6efd20dc6eb203\",\n      \"relativePath\":\"CommonEvents.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Enemies.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Items.json\"\n    },\n    {\n      \"hash\":\"9866f40fa63a70abaa1292a772960edd9ce1d3b738872b65c4408e37801bccdb\",\n      \"relativePath\":\"Map001.json\"\n    },\n    {\n      \"hash\":\"6579e5839dba79112a5d848ed6d6514f863d8cb425de423b6a781fd5ae0d6816\",\n      \"relativePath\":\"MapInfos.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Skills.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"States.json\"\n    },\n    {\n      \"hash\":\"334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606\",\n      \"relativePath\":\"System.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Tilesets.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Troops.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Weapons.json\"\n    }\n  ],\n  \"compileBaseline\":{\n    \"compileContractVersion\":\"mv-1.6.1/6\",\n    \"typeInputs\":[\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/node_modules\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/node_modules/@types\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/node_modules\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/node_modules/@types\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/node_modules\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/node_modules/@types\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/node_modules\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/node_modules/@types\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces\",\n        \"value\":true\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules\",\n        \"value\":true\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@types\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-decorators\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-decorators/legacy\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-dom\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-dom/asynciterable\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-dom/iterable\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2015\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2015/collection\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2015/core\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2015/generator\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2015/iterable\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2015/promise\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2015/proxy\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2015/reflect\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2015/symbol-wellknown\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2015/symbol\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2016\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2016/array-include\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2016/intl\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2017\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2017/arraybuffer\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2017/date\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2017/intl\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2017/object\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2017/sharedmemory\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2017/string\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2017/typedarrays\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2018\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2018/asyncgenerator\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2018/asynciterable\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2018/intl\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2018/promise\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2018/regexp\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2019\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2019/array\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2019/intl\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2019/object\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2019/string\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2019/symbol\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2020\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2020/bigint\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2020/date\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2020/intl\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2020/number\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2020/promise\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2020/sharedmemory\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2020/string\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2020/symbol-wellknown\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2021\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2021/intl\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2021/promise\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2021/string\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2021/weakref\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2022\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2022/array\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2022/error\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2022/intl\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2022/object\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2022/regexp\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2022/string\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2023\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2023/array\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2023/collection\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es2023/intl\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-es5\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-scripthost\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-webworker\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/@typescript/lib-webworker/importscripts\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/rpgmaker-event-dsl\",\n        \"value\":true\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/src\",\n        \"value\":true\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/src/decompiled\",\n        \"value\":true\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/src/decompiled/maps\",\n        \"value\":true\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/src/decompiled/maps/node_modules\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/src/decompiled/node_modules\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/src/node_modules\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/node_modules\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/node_modules/@types\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/node_modules\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/node_modules/@types\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/node_modules\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/appdata/node_modules/@types\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/node_modules\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"c:/users/shuen/node_modules/@types\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript\",\n        \"value\":true\n      },\n      {\n        \"kind\":\"directoryExists\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib\",\n        \"value\":true\n      },\n      {\n        \"kind\":\"fileExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/rpgmaker-event-dsl/dist/index.d.mts\",\n        \"value\":true\n      },\n      {\n        \"kind\":\"fileExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/rpgmaker-event-dsl/package.json\",\n        \"value\":true\n      },\n      {\n        \"kind\":\"fileExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/package.json\",\n        \"value\":true\n      },\n      {\n        \"kind\":\"fileExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/src/decompiled/maps/package.json\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"fileExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/src/decompiled/package.json\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"fileExists\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/src/package.json\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"fileExists\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/package.json\",\n        \"value\":false\n      },\n      {\n        \"kind\":\"fileExists\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/package.json\",\n        \"value\":true\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"c:/users/shuen/.codex/worktrees/mv-ticket-24/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/index.d.mts\",\n        \"value\":\"C:\\\\Users\\\\Shuen\\\\.codex\\\\worktrees\\\\mv-ticket-24\\\\rpgmaker-event-dsl\\\\packages\\\\rpgmaker-event-dsl\\\\dist\\\\index.d.mts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/rpgmaker-event-dsl/dist/index.d.mts\",\n        \"value\":\"C:\\\\Users\\\\Shuen\\\\.codex\\\\worktrees\\\\mv-ticket-24\\\\rpgmaker-event-dsl\\\\packages\\\\rpgmaker-event-dsl\\\\dist\\\\index.d.mts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/rpgmaker-event-dsl/package.json\",\n        \"value\":\"C:\\\\Users\\\\Shuen\\\\AppData\\\\Local\\\\Temp\\\\rpgmaker-event-dsl-windows\\\\map-fixed-route-gate-ZgndWD\\\\最小 Workspace with spaces\\\\node_modules\\\\rpgmaker-event-dsl\\\\package.json\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/package.json\",\n        \"value\":\"C:\\\\Users\\\\Shuen\\\\AppData\\\\Local\\\\Temp\\\\rpgmaker-event-dsl-windows\\\\map-fixed-route-gate-ZgndWD\\\\最小 Workspace with spaces\\\\package.json\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/src/decompiled/common-events.events.ts\",\n        \"value\":\"C:\\\\Users\\\\Shuen\\\\AppData\\\\Local\\\\Temp\\\\rpgmaker-event-dsl-windows\\\\map-fixed-route-gate-ZgndWD\\\\最小 Workspace with spaces\\\\src\\\\decompiled\\\\common-events.events.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/src/decompiled/maps/map001.events.ts\",\n        \"value\":\"C:\\\\Users\\\\Shuen\\\\AppData\\\\Local\\\\Temp\\\\rpgmaker-event-dsl-windows\\\\map-fixed-route-gate-ZgndWD\\\\最小 Workspace with spaces\\\\src\\\\decompiled\\\\maps\\\\Map001.events.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/src/decompiled/system.dsl.ts\",\n        \"value\":\"C:\\\\Users\\\\Shuen\\\\AppData\\\\Local\\\\Temp\\\\rpgmaker-event-dsl-windows\\\\map-fixed-route-gate-ZgndWD\\\\最小 Workspace with spaces\\\\src\\\\decompiled\\\\system.dsl.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.decorators.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.decorators.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.decorators.legacy.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.decorators.legacy.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.dom.asynciterable.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.dom.asynciterable.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.dom.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.dom.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.dom.iterable.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.dom.iterable.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.collection.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2015.collection.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.core.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2015.core.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2015.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.generator.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2015.generator.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.iterable.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2015.iterable.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.promise.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2015.promise.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.proxy.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2015.proxy.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.reflect.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2015.reflect.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.symbol.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2015.symbol.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2015.symbol.wellknown.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2016.array.include.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2016.array.include.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2016.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2016.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2016.intl.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2016.intl.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.arraybuffer.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2017.arraybuffer.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2017.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.date.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2017.date.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.intl.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2017.intl.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.object.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2017.object.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2017.sharedmemory.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.string.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2017.string.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2017.typedarrays.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2018.asyncgenerator.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2018.asynciterable.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2018.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.intl.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2018.intl.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.promise.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2018.promise.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.regexp.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2018.regexp.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.array.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2019.array.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2019.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.intl.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2019.intl.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.object.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2019.object.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.string.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2019.string.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.symbol.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2019.symbol.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.bigint.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2020.bigint.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2020.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.date.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2020.date.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.intl.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2020.intl.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.number.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2020.number.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.promise.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2020.promise.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.sharedmemory.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2020.sharedmemory.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.string.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2020.string.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2020.symbol.wellknown.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2021.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.intl.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2021.intl.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.promise.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2021.promise.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.string.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2021.string.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.weakref.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2021.weakref.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.array.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2022.array.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2022.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.error.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2022.error.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.intl.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2022.intl.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.object.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2022.object.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.regexp.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2022.regexp.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.string.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2022.string.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.array.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2023.array.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.collection.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2023.collection.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2023.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.full.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2023.full.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.intl.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es2023.intl.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es5.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.es5.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.scripthost.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.scripthost.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.webworker.importscripts.d.ts\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\lib\\\\lib.webworker.importscripts.d.ts\"\n      },\n      {\n        \"kind\":\"realpath\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/package.json\",\n        \"value\":\"F:\\\\Shuen\\\\RPG\\\\rpgmaker-event-dsl\\\\node_modules\\\\.pnpm\\\\typescript@5.9.3\\\\node_modules\\\\typescript\\\\package.json\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"c:/users/shuen/.codex/worktrees/mv-ticket-24/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/index.d.mts\",\n        \"value\":\"dfd9f6e95195bc6d0aff08bb4cc168e2b3cf70ebe960cc86126e04f8b128807f\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/node_modules/rpgmaker-event-dsl/package.json\",\n        \"value\":\"17f31fa94d4428af40cf527c584bfb24cbb881cf56eb34fe5ceb2656bc8de908\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/package.json\",\n        \"value\":\"1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/src/decompiled/common-events.events.ts\",\n        \"value\":\"c11a5264d3f853aae7453ddd906bd9c1ccd9713d2449d5a62a8689b65f931e56\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/src/decompiled/maps/map001.events.ts\",\n        \"value\":\"9cd8f2323087379c189c30cc9faa4c8bbc4fd8488f4a43ad02d2c0559fbdfe93\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"c:/users/shuen/appdata/local/temp/rpgmaker-event-dsl-windows/map-fixed-route-gate-zgndwd/最小 workspace with spaces/src/decompiled/system.dsl.ts\",\n        \"value\":\"002613305591198815978828f485fc61b7ef109dd6a9f59c18e4a2722139552a\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.decorators.d.ts\",\n        \"value\":\"8e7f8264d0fb4c5339605a15daadb037bf238c10b654bb3eee14208f860a32ea\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.decorators.legacy.d.ts\",\n        \"value\":\"782dec38049b92d4e85c1585fbea5474a219c6984a35b004963b00beb1aab538\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.dom.asynciterable.d.ts\",\n        \"value\":\"d7a3c8b952931daebdfc7a2897c53c0a1c73624593fa070e46bd537e64dcd20a\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.dom.d.ts\",\n        \"value\":\"080941d9f9ff9307f7e27a83bcd888b7c8270716c39af943532438932ec1d0b9\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.dom.iterable.d.ts\",\n        \"value\":\"2e80ee7a49e8ac312cc11b77f1475804bee36b3b2bc896bead8b6e1266befb43\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.collection.d.ts\",\n        \"value\":\"dc2df20b1bcdc8c2d34af4926e2c3ab15ffe1160a63e58b7e09833f616efff44\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.core.d.ts\",\n        \"value\":\"c57796738e7f83dbc4b8e65132f11a377649c00dd3eee333f672b8f0a6bea671\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.d.ts\",\n        \"value\":\"45b7ab580deca34ae9729e97c13cfd999df04416a79116c3bfb483804f85ded4\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.generator.d.ts\",\n        \"value\":\"515d0b7b9bea2e31ea4ec968e9edd2c39d3eebf4a2d5cbd04e88639819ae3b71\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.iterable.d.ts\",\n        \"value\":\"0559b1f683ac7505ae451f9a96ce4c3c92bdc71411651ca6ddb0e88baaaad6a3\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.promise.d.ts\",\n        \"value\":\"0dc1e7ceda9b8b9b455c3a2d67b0412feab00bd2f66656cd8850e8831b08b537\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.proxy.d.ts\",\n        \"value\":\"ce691fb9e5c64efb9547083e4a34091bcbe5bdb41027e310ebba8f7d96a98671\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.reflect.d.ts\",\n        \"value\":\"8d697a2a929a5fcb38b7a65594020fcef05ec1630804a33748829c5ff53640d0\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.symbol.d.ts\",\n        \"value\":\"4ff2a353abf8a80ee399af572debb8faab2d33ad38c4b4474cff7f26e7653b8d\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts\",\n        \"value\":\"fb0f136d372979348d59b3f5020b4cdb81b5504192b1cacff5d1fbba29378aa1\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2016.array.include.d.ts\",\n        \"value\":\"d15bea3d62cbbdb9797079416b8ac375ae99162a7fba5de2c6c505446486ac0a\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2016.d.ts\",\n        \"value\":\"3facaf05f0c5fc569c5649dd359892c98a85557e3e0c847964caeb67076f4d75\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2016.intl.d.ts\",\n        \"value\":\"68d18b664c9d32a7336a70235958b8997ebc1c3b8505f4f1ae2b7e7753b87618\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.arraybuffer.d.ts\",\n        \"value\":\"eb3d66c8327153d8fa7dd03f9c58d351107fe824c79e9b56b462935176cdf12a\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.d.ts\",\n        \"value\":\"e44bb8bbac7f10ecc786703fe0a6a4b952189f908707980ba8f3c8975a760962\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.date.d.ts\",\n        \"value\":\"38f0219c9e23c915ef9790ab1d680440d95419ad264816fa15009a8851e79119\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.intl.d.ts\",\n        \"value\":\"4de680d5bb41c17f7f68e0419412ca23c98d5749dcaaea1896172f06435891fc\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.object.d.ts\",\n        \"value\":\"69ab18c3b76cd9b1be3d188eaf8bba06112ebbe2f47f6c322b5105a6fbc45a2e\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts\",\n        \"value\":\"a680117f487a4d2f30ea46f1b4b7f58bef1480456e18ba53ee85c2746eeca012\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.string.d.ts\",\n        \"value\":\"2f11ff796926e0832f9ae148008138ad583bd181899ab7dd768a2666700b1893\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts\",\n        \"value\":\"954296b30da6d508a104a3a0b5d96b76495c709785c1d11610908e63481ee667\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts\",\n        \"value\":\"ac9538681b19688c8eae65811b329d3744af679e0bdfa5d842d0e32524c73e1c\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts\",\n        \"value\":\"0a969edff4bd52585473d24995c5ef223f6652d6ef46193309b3921d65dd4376\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.d.ts\",\n        \"value\":\"5e1c4c362065a6b95ff952c0eab010f04dcd2c3494e813b493ecfd4fcb9fc0d8\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.intl.d.ts\",\n        \"value\":\"9e9fbd7030c440b33d021da145d3232984c8bb7916f277e8ffd3dc2e3eae2bdb\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.promise.d.ts\",\n        \"value\":\"811ec78f7fefcabbda4bfa93b3eb67d9ae166ef95f9bff989d964061cbf81a0c\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2018.regexp.d.ts\",\n        \"value\":\"717937616a17072082152a2ef351cb51f98802fb4b2fdabd32399843875974ca\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.array.d.ts\",\n        \"value\":\"d7e7d9b7b50e5f22c915b525acc5a49a7a6584cf8f62d0569e557c5cfc4b2ac2\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.d.ts\",\n        \"value\":\"68d73b4a11549f9c0b7d352d10e91e5dca8faa3322bfb77b661839c42b1ddec7\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.intl.d.ts\",\n        \"value\":\"74f7fa2d027d5b33eb0471c8e82a6c87216223181ec31247c357a3e8e2fddc5b\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.object.d.ts\",\n        \"value\":\"71c37f4c9543f31dfced6c7840e068c5a5aacb7b89111a4364b1d5276b852557\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.string.d.ts\",\n        \"value\":\"576711e016cf4f1804676043e6a0a5414252560eb57de9faceee34d79798c850\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2019.symbol.d.ts\",\n        \"value\":\"89c1b1281ba7b8a96efc676b11b264de7a8374c5ea1e6617f11880a13fc56dc6\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.bigint.d.ts\",\n        \"value\":\"d6d7ae4d1f1f3772e2a3cde568ed08991a8ae34a080ff1151af28b7f798e22ca\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.d.ts\",\n        \"value\":\"5efce4fc3c29ea84e8928f97adec086e3dc876365e0982cc8479a07954a3efd4\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.date.d.ts\",\n        \"value\":\"063600664504610fe3e99b717a1223f8b1900087fab0b4cad1496a114744f8df\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.intl.d.ts\",\n        \"value\":\"639e512c0dfc3fad96a84caad71b8834d66329a1f28dc95e3946c9b58176c73a\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.number.d.ts\",\n        \"value\":\"368af93f74c9c932edd84c58883e736c9e3d53cec1fe24c0b0ff451f529ceab1\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.promise.d.ts\",\n        \"value\":\"934019d7e3c81950f9a8426d093458b65d5aff2c7c1511233c0fd5b941e608ab\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.sharedmemory.d.ts\",\n        \"value\":\"52ada8e0b6e0482b728070b7639ee42e83a9b1c22d205992756fe020fd9f4a47\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.string.d.ts\",\n        \"value\":\"3bdefe1bfd4d6dee0e26f928f93ccc128f1b64d5d501ff4a8cf3c6371200e5e6\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts\",\n        \"value\":\"59fb2c069260b4ba00b5643b907ef5d5341b167e7d1dbf58dfd895658bda2867\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.d.ts\",\n        \"value\":\"feecb1be483ed332fad555aff858affd90a48ab19ba7272ee084704eb7167569\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.intl.d.ts\",\n        \"value\":\"965f36eae237dd74e6cca203a43e9ca801ce38824ead814728a2807b1910117d\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.promise.d.ts\",\n        \"value\":\"af3dd424cf267428f30ccfc376f47a2c0114546b55c44d8c0f1d57d841e28d74\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.string.d.ts\",\n        \"value\":\"995c005ab91a498455ea8dfb63aa9f83fa2ea793c3d8aa344be4a1678d06d399\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2021.weakref.d.ts\",\n        \"value\":\"959d36cddf5e7d572a65045b876f2956c973a586da58e5d26cde519184fd9b8a\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.array.d.ts\",\n        \"value\":\"3925a6c820dcb1a06506c90b1577db1fdbf7705d65b62b99dce4be75c637e26b\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.d.ts\",\n        \"value\":\"ee7bad0c15b58988daa84371e0b89d313b762ab83cb5b31b8a2d1162e8eb41c2\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.error.d.ts\",\n        \"value\":\"0a3d63ef2b853447ec4f749d3f368ce642264246e02911fcb1590d8c161b8005\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.intl.d.ts\",\n        \"value\":\"8cdf8847677ac7d20486e54dd3fcf09eda95812ac8ace44b4418da1bbbab6eb8\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.object.d.ts\",\n        \"value\":\"8444af78980e3b20b49324f4a16ba35024fef3ee069a0eb67616ea6ca821c47a\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.regexp.d.ts\",\n        \"value\":\"b4b67b1a91182421f5df999988c690f14d813b9850b40acd06ed44691f6727ad\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2022.string.d.ts\",\n        \"value\":\"3287d9d085fbd618c3971944b65b4be57859f5415f495b33a6adc994edd2f004\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.array.d.ts\",\n        \"value\":\"df83c2a6c73228b625b0beb6669c7ee2a09c914637e2d35170723ad49c0f5cd4\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.collection.d.ts\",\n        \"value\":\"436aaf437562f276ec2ddbee2f2cdedac7664c1e4c1d2c36839ddd582eeb3d0a\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.d.ts\",\n        \"value\":\"27bdc30a0e32783366a5abeda841bc22757c1797de8681bbe81fbc735eeb1c10\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.full.d.ts\",\n        \"value\":\"785921608325fa246b450f05b238f4b3ed659f1099af278ce9ebbc9416a13f1d\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es2023.intl.d.ts\",\n        \"value\":\"8e3c06ea092138bf9fa5e874a1fdbc9d54805d074bee1de31b99a11e2fec239d\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.es5.d.ts\",\n        \"value\":\"c430d44666289dae81f30fa7b2edebf186ecc91a2d4c71266ea6ae76388792e1\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.scripthost.d.ts\",\n        \"value\":\"cd034f499c6cdca722b60c04b5b1b78e058487a7085a8e0d6fb50809947ee573\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/lib.webworker.importscripts.d.ts\",\n        \"value\":\"80e18897e5884b6723488d4f5652167e7bb5024f946743134ecc4aa4ee731f89\"\n      },\n      {\n        \"kind\":\"readFile\",\n        \"path\":\"f:/shuen/rpg/rpgmaker-event-dsl/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/package.json\",\n        \"value\":\"822ef7ca6452205657b6288b066481ecf508bfbf43455d715cf7d3ec457561e6\"\n      }\n    ],\n    \"projectRootBinding\":\"c:\\\\users\\\\shuen\\\\appdata\\\\local\\\\temp\\\\rpgmaker-event-dsl-windows\\\\map-fixed-route-gate-zgndwd\\\\最小 workspace with spaces\\\\game\",\n    \"config\":{\n      \"scriptEnabled\":true,\n      \"sourceExclude\":[\n        \"**/*.test.ts\",\n        \"**/*.spec.ts\",\n        \"**/*.d.ts\"\n      ],\n      \"sourceInclude\":[\n        \"**/*.events.ts\",\n        \"**/*.dsl.ts\"\n      ],\n      \"sourceRoot\":\"src\"\n    },\n    \"snapshotFiles\":[\n      {\n        \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n        \"relativePath\":\"Actors.json\"\n      },\n      {\n        \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n        \"relativePath\":\"Animations.json\"\n      },\n      {\n        \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n        \"relativePath\":\"Armors.json\"\n      },\n      {\n        \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n        \"relativePath\":\"Classes.json\"\n      },\n      {\n        \"hash\":\"78dde0b943db9c919cdfd0c03718c6263e308c45b96561447c6efd20dc6eb203\",\n        \"relativePath\":\"CommonEvents.json\"\n      },\n      {\n        \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n        \"relativePath\":\"Enemies.json\"\n      },\n      {\n        \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n        \"relativePath\":\"Items.json\"\n      },\n      {\n        \"hash\":\"9866f40fa63a70abaa1292a772960edd9ce1d3b738872b65c4408e37801bccdb\",\n        \"relativePath\":\"Map001.json\"\n      },\n      {\n        \"hash\":\"6579e5839dba79112a5d848ed6d6514f863d8cb425de423b6a781fd5ae0d6816\",\n        \"relativePath\":\"MapInfos.json\"\n      },\n      {\n        \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n        \"relativePath\":\"Skills.json\"\n      },\n      {\n        \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n        \"relativePath\":\"States.json\"\n      },\n      {\n        \"hash\":\"334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606\",\n        \"relativePath\":\"System.json\"\n      },\n      {\n        \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n        \"relativePath\":\"Tilesets.json\"\n      },\n      {\n        \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n        \"relativePath\":\"Troops.json\"\n      },\n      {\n        \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n        \"relativePath\":\"Weapons.json\"\n      }\n    ],\n    \"sourceFiles\":[\n      {\n        \"hash\":\"c11a5264d3f853aae7453ddd906bd9c1ccd9713d2449d5a62a8689b65f931e56\",\n        \"relativePath\":\"src/decompiled/common-events.events.ts\"\n      },\n      {\n        \"hash\":\"9cd8f2323087379c189c30cc9faa4c8bbc4fd8488f4a43ad02d2c0559fbdfe93\",\n        \"relativePath\":\"src/decompiled/maps/Map001.events.ts\"\n      },\n      {\n        \"hash\":\"002613305591198815978828f485fc61b7ef109dd6a9f59c18e4a2722139552a\",\n        \"relativePath\":\"src/decompiled/system.dsl.ts\"\n      }\n    ],\n    \"hash\":\"0e932f2fc7649723f966dd2f11afa883513d379374f7d09c981a1aaecbb665bb\"\n  },\n  \"generatedFiles\":[\n    {\n      \"hash\":\"77e42b8f8eb0545dd717529c6b7ba467bc54115536a76205f31cea97d02aa48d\",\n      \"relativePath\":\"CommonEvents.json\"\n    },\n    {\n      \"hash\":\"ca1b0af1143556e21e1aa98c428c1a3878726fe6af26432282bd5c897bd9317c\",\n      \"relativePath\":\"Map001.json\"\n    },\n    {\n      \"hash\":\"885a4070c7aa732e7ffc24745e3816c26ea49ab10a0e4284e10cdf70ee64d32d\",\n      \"relativePath\":\"System.json\"\n    }\n  ]\n}\n",
+      "discovery": [
+        "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\map-fixed-route-gate-ZgndWD\\最小 Workspace with spaces\\src\\decompiled\\common-events.events.ts",
+        "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\map-fixed-route-gate-ZgndWD\\最小 Workspace with spaces\\src\\decompiled\\maps\\Map001.events.ts",
+        "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\map-fixed-route-gate-ZgndWD\\最小 Workspace with spaces\\src\\decompiled\\system.dsl.ts"
+      ],
+      "source": [
+        "import { comment, commonEvent, showText } from \"rpgmaker-event-dsl\";\n\nexport const commonEventEvidenceCommonEvent001 = commonEvent({\n  id: 1,\n  name: \"Evidence Common Event\",\n  trigger: \"none\",\n  commands: [\n    showText({ lines: [\"Synthetic CR\\rkept\",\"\"], background: 1, positionType: 0 }),\n    comment([\"Self-authored fixture\",\"\"]),\n  ],\n});\n",
+        "import { mapEvent, page, scriptInput } from \"rpgmaker-event-dsl\";\n\nexport const mapEventCompleteBlank001 = mapEvent({\n  mapId: 1,\n  id: 1,\n  name: \"Complete blank\",\n  note: \"  <tag: x>\\r\\n\\n<tag:y>\\rtrailing\\n\",\n  x: 0,\n  y: 0,\n  pages: [\n    page({\n      movement: { route: { commands: [{ kind: \"script\", script: scriptInput({ code: \"\" }) }], wait: true } },\n      commands: [\n\n      ],\n    })\n  ],\n});\n",
+        "import { switchDefinition, variableDefinition } from \"rpgmaker-event-dsl\";\n\nexport const switchSavedSwitch001 = switchDefinition({\n  id: 1,\n  name: \"Saved switch\",\n});\n"
+      ]
+    },
+    "processes": [],
+    "entry": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-24\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\cli.mjs"
+  },
+  "difference": null
+}

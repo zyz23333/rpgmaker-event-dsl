@@ -8109,6 +8109,751 @@
       },
       "slice": "22 / S4c",
       "required": true
+    },
+    {
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/24-map-event-full-pages-and-note.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-event-fixtures.ts",
+        "sha256": "778c8dc026e49f65905eacb06353abbedc8889f8a63dd7ae620dff9fae809f5e"
+      },
+      "execution": {
+        "environment": "Windows / Node22; actual MV1.6.1 where explicitly native",
+        "owner": "Codex automated verification",
+        "layer": "Public authoring/compiler/Staged Data Graph and actual Workspace source/built API; identified native evidence as allocated"
+      },
+      "slice": "24 / S5",
+      "required": true,
+      "id": "MV-S5-MAP-001",
+      "title": "round trips the complete native blank Map Event and exact note through actual Workspace operations",
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete blank/native defaults, exact CR/LF/Unicode note, external carrier and real edited-source replacement.",
+      "expected": "Independent complete blank/native defaults, exact CR/LF/Unicode note, external carrier and real edited-source replacement.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-event-workspace.test.ts",
+        "name": "round trips the complete native blank Map Event and exact note through actual Workspace operations"
+      },
+      "nativeGroups": []
+    },
+    {
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/24-map-event-full-pages-and-note.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-event-fixtures.ts",
+        "sha256": "778c8dc026e49f65905eacb06353abbedc8889f8a63dd7ae620dff9fae809f5e"
+      },
+      "execution": {
+        "environment": "Windows / Node22; actual MV1.6.1 where explicitly native",
+        "owner": "Codex automated verification",
+        "layer": "Public authoring/compiler/Staged Data Graph and actual Workspace source/built API; identified native evidence as allocated"
+      },
+      "slice": "24 / S5",
+      "required": true,
+      "id": "MV-S5-MAP-002",
+      "title": "rejects a malformed late native page without publishing any candidate or changing Workspace state",
+      "sourceKind": "synthetic-rejection",
+      "input": "Unknown field on later page rejects atomically with stage, identity and native path.",
+      "expected": "Unknown field on later page rejects atomically with stage, identity and native path.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-event-workspace.test.ts",
+        "name": "rejects a malformed late native page without publishing any candidate or changing Workspace state"
+      },
+      "nativeGroups": []
+    },
+    {
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/24-map-event-full-pages-and-note.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-event-fixtures.ts",
+        "sha256": "778c8dc026e49f65905eacb06353abbedc8889f8a63dd7ae620dff9fae809f5e"
+      },
+      "execution": {
+        "environment": "Windows / Node22; actual MV1.6.1 where explicitly native",
+        "owner": "Codex automated verification",
+        "layer": "Public authoring/compiler/Staged Data Graph and actual Workspace source/built API; identified native evidence as allocated"
+      },
+      "slice": "24 / S5",
+      "required": true,
+      "id": "MV-S5-MAP-003",
+      "title": "preserves disabled condition settings, independent images and every saved page field",
+      "sourceKind": "synthetic-support",
+      "input": "All saved fields, disabled zero/missing IDs, enabled slots, all triggers/movement types and noncustom route shells/flags.",
+      "expected": "All saved fields, disabled zero/missing IDs, enabled slots, all triggers/movement types and noncustom route shells/flags.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-event-workspace.test.ts",
+        "name": "preserves disabled condition settings, independent images and every saved page field"
+      },
+      "nativeGroups": []
+    },
+    {
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/24-map-event-full-pages-and-note.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-event-fixtures.ts",
+        "sha256": "778c8dc026e49f65905eacb06353abbedc8889f8a63dd7ae620dff9fae809f5e"
+      },
+      "execution": {
+        "environment": "Windows / Node22; actual MV1.6.1 where explicitly native",
+        "owner": "Codex automated verification",
+        "layer": "Public authoring/compiler/Staged Data Graph and actual Workspace source/built API; identified native evidence as allocated"
+      },
+      "slice": "24 / S5",
+      "required": true,
+      "id": "MV-S5-MAP-004",
+      "title": "rejects malformed authored page options in Check and Compile without changing Workspace state",
+      "sourceKind": "synthetic-rejection",
+      "input": "Both operations reject authored null option and preserve complete business state.",
+      "expected": "Both operations reject authored null option and preserve complete business state.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-event-workspace.test.ts",
+        "name": "rejects malformed authored page options in Check and Compile without changing Workspace state"
+      },
+      "nativeGroups": []
+    },
+    {
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/24-map-event-full-pages-and-note.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-event-fixtures.ts",
+        "sha256": "778c8dc026e49f65905eacb06353abbedc8889f8a63dd7ae620dff9fae809f5e"
+      },
+      "execution": {
+        "environment": "Windows / Node22; actual MV1.6.1 where explicitly native",
+        "owner": "Codex automated verification",
+        "layer": "Public authoring/compiler/Staged Data Graph and actual Workspace source/built API; identified native evidence as allocated"
+      },
+      "slice": "24 / S5",
+      "required": true,
+      "id": "MV-S5-MAP-005",
+      "title": "requires the active tile's actual Map and Tilesets Snapshot context before publishing source",
+      "sourceKind": "synthetic-rejection",
+      "input": "Actual selected tile context is required before any source publication.",
+      "expected": "Actual selected tile context is required before any source publication.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-event-workspace.test.ts",
+        "name": "requires the active tile's actual Map and Tilesets Snapshot context before publishing source"
+      },
+      "nativeGroups": []
+    },
+    {
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/24-map-event-full-pages-and-note.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-event-fixtures.ts",
+        "sha256": "778c8dc026e49f65905eacb06353abbedc8889f8a63dd7ae620dff9fae809f5e"
+      },
+      "execution": {
+        "environment": "Windows / Node22; actual MV1.6.1 where explicitly native",
+        "owner": "Codex automated verification",
+        "layer": "Public authoring/compiler/Staged Data Graph and actual Workspace source/built API; identified native evidence as allocated"
+      },
+      "slice": "24 / S5",
+      "required": true,
+      "id": "MV-S5-MAP-006",
+      "title": "reports page positions and native paths on Map1001 and removes a high-ID entry without compacting the carrier",
+      "sourceKind": "synthetic-support",
+      "input": "High Map/event IDs, complete property paths and human page positions, note Diff, null-hole Entry Removal and external carrier.",
+      "expected": "High Map/event IDs, complete property paths and human page positions, note Diff, null-hole Entry Removal and external carrier.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-event-workspace.test.ts",
+        "name": "reports page positions and native paths on Map1001 and removes a high-ID entry without compacting the carrier"
+      },
+      "nativeGroups": []
+    },
+    {
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/24-map-event-full-pages-and-note.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-event-fixtures.ts",
+        "sha256": "778c8dc026e49f65905eacb06353abbedc8889f8a63dd7ae620dff9fae809f5e"
+      },
+      "execution": {
+        "environment": "Windows / Node22; actual MV1.6.1 where explicitly native",
+        "owner": "Codex automated verification",
+        "layer": "Public authoring/compiler/Staged Data Graph and actual Workspace source/built API; identified native evidence as allocated"
+      },
+      "slice": "24 / S5",
+      "required": true,
+      "id": "MV-S5-MAP-007",
+      "title": "rejects incomplete native Map saved shape: %s",
+      "sourceKind": "synthetic-rejection",
+      "input": "Required/missing/unknown/wrong-type/range matrix rejects before publication and preserves full state.",
+      "expected": "Required/missing/unknown/wrong-type/range matrix rejects before publication and preserves full state.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-event-workspace.test.ts",
+        "name": "rejects incomplete native Map saved shape: %s"
+      },
+      "nativeGroups": []
+    },
+    {
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/24-map-event-full-pages-and-note.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-event-fixtures.ts",
+        "sha256": "778c8dc026e49f65905eacb06353abbedc8889f8a63dd7ae620dff9fae809f5e"
+      },
+      "execution": {
+        "environment": "Windows / Node22; actual MV1.6.1 where explicitly native",
+        "owner": "Codex automated verification",
+        "layer": "Public authoring/compiler/Staged Data Graph and actual Workspace source/built API; identified native evidence as allocated"
+      },
+      "slice": "24 / S5",
+      "required": true,
+      "id": "MV-S5-MAP-008",
+      "title": "recursively gates a saved empty script in a fixed page route while Decompile retains the source",
+      "sourceKind": "synthetic-support",
+      "input": "Inactive saved Script is preserved with warning and rejected by Check/Compile until explicit Script Gate enable.",
+      "expected": "Inactive saved Script is preserved with warning and rejected by Check/Compile until explicit Script Gate enable.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-event-workspace.test.ts",
+        "name": "recursively gates a saved empty script in a fixed page route while Decompile retains the source"
+      },
+      "nativeGroups": []
+    },
+    {
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/24-map-event-full-pages-and-note.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-event-fixtures.ts",
+        "sha256": "778c8dc026e49f65905eacb06353abbedc8889f8a63dd7ae620dff9fae809f5e"
+      },
+      "execution": {
+        "environment": "Windows / Node22; actual MV1.6.1 where explicitly native",
+        "owner": "Codex automated verification",
+        "layer": "Public authoring/compiler/Staged Data Graph and actual Workspace source/built API; identified native evidence as allocated"
+      },
+      "slice": "24 / S5",
+      "required": true,
+      "id": "MV-S5-MAP-009",
+      "title": "does not extend the disabled-condition ID exception to a noncustom saved route",
+      "sourceKind": "synthetic-rejection",
+      "input": "Fixed saved route keeps normal reference validation and rejects missing switch.",
+      "expected": "Fixed saved route keeps normal reference validation and rejects missing switch.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-event-workspace.test.ts",
+        "name": "does not extend the disabled-condition ID exception to a noncustom saved route"
+      },
+      "nativeGroups": []
+    },
+    {
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/24-map-event-full-pages-and-note.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-event-fixtures.ts",
+        "sha256": "778c8dc026e49f65905eacb06353abbedc8889f8a63dd7ae620dff9fae809f5e"
+      },
+      "execution": {
+        "environment": "Windows / Node22; actual MV1.6.1 where explicitly native",
+        "owner": "Codex automated verification",
+        "layer": "Public authoring/compiler/Staged Data Graph and actual Workspace source/built API; identified native evidence as allocated"
+      },
+      "slice": "24 / S5",
+      "required": true,
+      "id": "MV-S5-MAP-010",
+      "title": "complete Map Event saved state",
+      "sourceKind": "synthetic-support",
+      "input": "Authoring/native defaults, independent image variants, all tile band boundaries, condition resolution, invalid inputs and20/21 ordered page boundary.",
+      "expected": "Authoring/native defaults, independent image variants, all tile band boundaries, condition resolution, invalid inputs and20/21 ordered page boundary.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-event.test.ts",
+        "name": "complete Map Event saved state"
+      },
+      "nativeGroups": []
+    },
+    {
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/24-map-event-full-pages-and-note.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-event-fixtures.ts",
+        "sha256": "778c8dc026e49f65905eacb06353abbedc8889f8a63dd7ae620dff9fae809f5e"
+      },
+      "execution": {
+        "environment": "Windows / Node22; actual MV1.6.1 where explicitly native",
+        "owner": "Codex automated verification",
+        "layer": "Public authoring/compiler/Staged Data Graph and actual Workspace source/built API; identified native evidence as allocated"
+      },
+      "slice": "24 / S5",
+      "required": true,
+      "id": "MV-S5-MAP-E1",
+      "title": "Ticket24 E1 allocated representative evidence",
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Identified editor resources and actual current built product comparisons; independent saved-state fixtures and actual game pair when R1.",
+      "expected": "Full allocated contract comparison passes with facts, deductions, synthetic support and actual native observations distinguished.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/24-map-event-full-pages.md",
+        "section": "E1 — identified container resources versus actual product"
+      },
+      "nativeGroups": [
+        "E1"
+      ]
+    },
+    {
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/24-map-event-full-pages-and-note.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-event-fixtures.ts",
+        "sha256": "778c8dc026e49f65905eacb06353abbedc8889f8a63dd7ae620dff9fae809f5e"
+      },
+      "execution": {
+        "environment": "Windows / Node22; actual MV1.6.1 where explicitly native",
+        "owner": "Codex automated verification",
+        "layer": "Public authoring/compiler/Staged Data Graph and actual Workspace source/built API; identified native evidence as allocated"
+      },
+      "slice": "24 / S5",
+      "required": true,
+      "id": "MV-S5-MAP-E3",
+      "title": "Ticket24 E3 allocated representative evidence",
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Identified editor resources and actual current built product comparisons; independent saved-state fixtures and actual game pair when R1.",
+      "expected": "Full allocated contract comparison passes with facts, deductions, synthetic support and actual native observations distinguished.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/24-map-event-full-pages.md",
+        "section": "E3 — movement saved structure versus actual product"
+      },
+      "nativeGroups": [
+        "E3"
+      ]
+    },
+    {
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/24-map-event-full-pages-and-note.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-event-fixtures.ts",
+        "sha256": "778c8dc026e49f65905eacb06353abbedc8889f8a63dd7ae620dff9fae809f5e"
+      },
+      "execution": {
+        "environment": "Windows / Node22; actual MV1.6.1 where explicitly native",
+        "owner": "Codex automated verification",
+        "layer": "Public authoring/compiler/Staged Data Graph and actual Workspace source/built API; identified native evidence as allocated"
+      },
+      "slice": "24 / S5",
+      "required": true,
+      "id": "MV-S5-MAP-E6",
+      "title": "Ticket24 E6 allocated representative evidence",
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Identified editor resources and actual current built product comparisons; independent saved-state fixtures and actual game pair when R1.",
+      "expected": "Full allocated contract comparison passes with facts, deductions, synthetic support and actual native observations distinguished.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/24-map-event-full-pages.md",
+        "section": "E6 — independent Map image values versus actual product"
+      },
+      "nativeGroups": [
+        "E6"
+      ]
+    },
+    {
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/24-map-event-full-pages-and-note.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/24-history/mv24-r1-map-common-delivery-v1.cjs",
+        "sha256": "b16e4a2350344302c242a33cffcc95a84ccf9959517cd8ac0ba4e2eaca7c09b7"
+      },
+      "execution": {
+        "environment": "Windows / Node22; actual MV1.6.1 where explicitly native",
+        "owner": "Codex automated verification",
+        "layer": "Public authoring/compiler/Staged Data Graph and actual Workspace source/built API; identified native evidence as allocated"
+      },
+      "slice": "24 / S5",
+      "required": true,
+      "id": "MV-S5-MAP-R1-TRIGGERS",
+      "title": "Ticket24 R1-TRIGGERS allocated representative evidence",
+      "sourceKind": "game-observation",
+      "input": "Identified editor resources and actual current built product comparisons; independent saved-state fixtures and actual game pair when R1.",
+      "expected": "Full allocated contract comparison passes with facts, deductions, synthetic support and actual native observations distinguished.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/24-map-event-full-pages.md",
+        "section": "R1 — actual native game pairs"
+      },
+      "nativeGroups": [
+        "R1"
+      ]
+    },
+    {
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/24-map-event-full-pages-and-note.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/24-history/mv24-r1-route-waits-delivery-v1.cjs",
+        "sha256": "ff55853b5f3fcea6774cd336622e62acdc3fabeba8f1812fc107f7fd741a8e47"
+      },
+      "execution": {
+        "environment": "Windows / Node22; actual MV1.6.1 where explicitly native",
+        "owner": "Codex automated verification",
+        "layer": "Public authoring/compiler/Staged Data Graph and actual Workspace source/built API; identified native evidence as allocated"
+      },
+      "slice": "24 / S5",
+      "required": true,
+      "id": "MV-S5-MAP-R1-ROUTES",
+      "title": "Ticket24 R1-ROUTES allocated representative evidence",
+      "sourceKind": "game-observation",
+      "input": "Identified editor resources and actual current built product comparisons; independent saved-state fixtures and actual game pair when R1.",
+      "expected": "Full allocated contract comparison passes with facts, deductions, synthetic support and actual native observations distinguished.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/24-map-event-full-pages.md",
+        "section": "R1 — actual native game pairs"
+      },
+      "nativeGroups": [
+        "R1"
+      ]
     }
   ]
 }

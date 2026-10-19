@@ -1,3 +1,9 @@
+import {
+  assertNativeMapEvent,
+  assertNativeMapEvents,
+  assertNativeMapPage,
+  assertNativeMapPages,
+} from "../map-event/native.js";
 import { readProjectDataSnapshotFile, type WorkspaceStatePaths } from "../workspace/state.js";
 import type { RawEventCommand } from "../compiler/types.js";
 import type { SnapshotCommonEvent, SnapshotMapEvent, SnapshotMapEventPage } from "./types.js";
@@ -15,46 +21,27 @@ export function renderPageConditions(conditions: Record<string, unknown> | undef
 
   const fields: string[] = [];
 
-  if (conditions.switch1Valid === true) {
-    const switchId = readPositiveInteger(conditions.switch1Id);
-    if (switchId !== null) {
-      fields.push(`switch1: switchRef({ id: ${switchId} })`);
-    }
+  for (const [slot, helper] of [
+    ["switch1", "switch"],
+    ["switch2", "switch"],
+    ["variable", "variable"],
+    ["item", "item"],
+    ["actor", "actor"],
+  ] as const) {
+    if (
+      conditions[`${slot}Valid`] === false &&
+      conditions[`${slot}Id`] === 1 &&
+      (slot !== "variable" || conditions.variableValue === 0)
+    )
+      continue;
+    fields.push(
+      `${slot}: { enabled: ${conditions[`${slot}Valid`]}, ref: ${helper}Ref({ id: ${conditions[`${slot}Id`]} })${slot === "variable" ? `, atLeast: ${conditions.variableValue}` : ""} }`,
+    );
   }
-
-  if (conditions.switch2Valid === true) {
-    const switchId = readPositiveInteger(conditions.switch2Id);
-    if (switchId !== null) {
-      fields.push(`switch2: switchRef({ id: ${switchId} })`);
-    }
-  }
-
-  if (conditions.variableValid === true) {
-    const variableId = readPositiveInteger(conditions.variableId);
-    if (variableId !== null && typeof conditions.variableValue === "number") {
-      fields.push(
-        `variable: { ref: variableRef({ id: ${variableId} }), operator: "ge", value: ${conditions.variableValue} }`,
-      );
-    }
-  }
-
-  if (conditions.selfSwitchValid === true && typeof conditions.selfSwitchCh === "string") {
-    fields.push(`selfSwitch: ${literal(conditions.selfSwitchCh)}`);
-  }
-
-  if (conditions.itemValid === true) {
-    const itemId = readPositiveInteger(conditions.itemId);
-    if (itemId !== null) {
-      fields.push(`item: itemRef({ id: ${itemId} })`);
-    }
-  }
-
-  if (conditions.actorValid === true) {
-    const actorId = readPositiveInteger(conditions.actorId);
-    if (actorId !== null) {
-      fields.push(`actor: actorRef({ id: ${actorId} })`);
-    }
-  }
+  if (conditions.selfSwitchValid !== false || conditions.selfSwitchCh !== "A")
+    fields.push(
+      `selfSwitch: { enabled: ${conditions.selfSwitchValid}, value: ${literal(conditions.selfSwitchCh)} }`,
+    );
 
   if (fields.length === 0) {
     return "{}";
@@ -75,16 +62,27 @@ export function collectConditionHelperNames(
   const helpers = new Set<string>();
 
   for (const condition of conditions) {
-    if (condition?.switch1Valid === true || condition?.switch2Valid === true) {
+    if (
+      condition &&
+      (condition.switch1Valid !== false ||
+        condition.switch1Id !== 1 ||
+        condition.switch2Valid !== false ||
+        condition.switch2Id !== 1)
+    ) {
       helpers.add("switchRef");
     }
-    if (condition?.variableValid === true) {
+    if (
+      condition &&
+      (condition.variableValid !== false ||
+        condition.variableId !== 1 ||
+        condition.variableValue !== 0)
+    ) {
       helpers.add("variableRef");
     }
-    if (condition?.itemValid === true) {
+    if (condition && (condition.itemValid !== false || condition.itemId !== 1)) {
       helpers.add("itemRef");
     }
-    if (condition?.actorValid === true) {
+    if (condition && (condition.actorValid !== false || condition.actorId !== 1)) {
       helpers.add("actorRef");
     }
   }
@@ -96,45 +94,22 @@ export function readMapEvents(
   mapData: Record<string, unknown>,
   mapId?: number,
 ): SnapshotMapEvent[] {
-  const events = Array.isArray(mapData.events) ? mapData.events : [];
-
-  return events.flatMap((entry) => {
-    if (!entry || typeof entry !== "object") {
-      return [];
-    }
-
-    const record = entry as Record<string, unknown>;
-    const id = readPositiveInteger(record.id);
-    if (id === null) {
-      return [];
-    }
-
-    return [
-      {
-        id,
-        name: typeof record.name === "string" ? record.name : `Event ${id}`,
-        pages: readMapEventPages(record.pages, `map:${mapId ?? "?"}/event:${id}`),
-        x: typeof record.x === "number" ? record.x : 0,
-        y: typeof record.y === "number" ? record.y : 0,
-      },
-    ];
-  });
-}
-
-export function readMapEventPages(value: unknown, identity?: string): SnapshotMapEventPage[] {
-  if (!Array.isArray(value)) {
-    return [{ conditions: {}, list: [], trigger: 0 }];
-  }
-
-  const pages = value.flatMap((entry, pageIndex) => {
-    if (!entry || typeof entry !== "object") {
-      return [];
-    }
-
-    const record = entry as Record<string, unknown>;
-    let movement: SnapshotMapEventPage["movement"];
+  assertNativeMapEvents(mapData.events);
+  return mapData.events.flatMap((entry, index) => {
+    if (entry === null) return [];
+    const identity = `map:${mapId ?? "?"}/event:${index}`;
     try {
-      movement = readNativePageMovement(record, `pages[${pageIndex}]`);
+      assertNativeMapEvent(entry, index);
+      return [
+        {
+          id: entry.id as number,
+          name: entry.name as string,
+          note: entry.note as string,
+          x: entry.x as number,
+          y: entry.y as number,
+          pages: readMapEventPages(entry.pages, identity),
+        },
+      ];
     } catch (error) {
       if (error instanceof CommandStructureError)
         throw new CommandStructureError(
@@ -146,22 +121,40 @@ export function readMapEventPages(value: unknown, identity?: string): SnapshotMa
         );
       throw error;
     }
-    return [
-      {
-        ...(movement === undefined ? {} : { movement }),
-        conditions:
-          record.conditions &&
-          typeof record.conditions === "object" &&
-          !Array.isArray(record.conditions)
-            ? (record.conditions as Record<string, unknown>)
-            : {},
-        list: readRawCommandList(record.list, identity, `pages[${pageIndex}].`),
-        trigger: typeof record.trigger === "number" ? record.trigger : 0,
-      },
-    ];
   });
+}
 
-  return pages.length > 0 ? pages : [{ conditions: {}, list: [], trigger: 0 }];
+export function readMapEventPages(value: unknown, identity?: string): SnapshotMapEventPage[] {
+  try {
+    assertNativeMapPages(value);
+    return value.map((record, pageIndex) => {
+      const path = `pages[${pageIndex}]`;
+      assertNativeMapPage(record, path);
+      const movement = readNativePageMovement(record, path)!;
+      return {
+        movement,
+        conditions: record.conditions as Record<string, unknown>,
+        image: record.image as SnapshotMapEventPage["image"],
+        directionFix: record.directionFix as boolean,
+        stepAnime: record.stepAnime as boolean,
+        through: record.through as boolean,
+        walkAnime: record.walkAnime as boolean,
+        priorityType: record.priorityType as number,
+        trigger: record.trigger as number,
+        list: readRawCommandList(record.list, identity, `${path}.`),
+      };
+    });
+  } catch (error) {
+    if (error instanceof CommandStructureError)
+      throw new CommandStructureError(
+        error.code,
+        error.detail,
+        error.location,
+        identity,
+        "decompile",
+      );
+    throw error;
+  }
 }
 
 export function readCommonEvents(value: readonly unknown[]): SnapshotCommonEvent[] {

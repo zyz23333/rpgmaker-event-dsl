@@ -116,6 +116,8 @@ export type {
   OperateValueInput,
   OperateValueOperand,
   PageConditions,
+  PageImage,
+  PageOptions,
   PictureDisplayInput,
   PictureOrigin,
   PicturePosition,

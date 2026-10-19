@@ -8,6 +8,8 @@ export type {
   MapEventDefinition,
   MapPageTrigger,
   PageConditions,
+  PageImage,
+  PageOptions,
   SwitchDefinition,
   VariableDefinition,
 } from "./declarations.js";

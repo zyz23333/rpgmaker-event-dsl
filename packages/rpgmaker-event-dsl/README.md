@@ -26,6 +26,72 @@ which only Push can resolve.
 This project is in early development. The TypeScript API, DSL syntax, CLI workflow,
 generated output, and workspace format may change before `1.0.0`.
 
+## Map Event Pages
+
+`mapEvent({ mapId, id, name, x, y, note?, pages })` owns the complete event.
+`note` defaults to `""` and preserves whitespace, CR/LF/CRLF, tags and trailing
+newlines exactly. Pages retain their array order and require at least one page;
+more than 20 pages produces a warning and preserves them. Event IDs have no 999
+ceiling. Initial positions must fit the captured map; occupied positions warn.
+
+`page({ conditions?, image?, movement?, priority?, options?, trigger?, commands })`
+always requires `commands`, including `[]`. Optional groups accept partial objects
+or `{}` and supply these fixed defaults independently:
+
+| Field                                 | Values                                                 | Default                                         |
+| ------------------------------------- | ------------------------------------------------------ | ----------------------------------------------- |
+| image.character                       | characters `imageAsset(...)` or null                   | null                                            |
+| image.characterIndex                  | integer 0..7                                           | 0                                               |
+| image.tileId                          | integer 0..1023                                        | 0                                               |
+| image.direction                       | down / left / right / up                               | down                                            |
+| image.pattern                         | integer 0..2                                           | 0                                               |
+| movement.type                         | fixed / random / approach / custom                     | fixed                                           |
+| movement.speed / frequency            | integers 1..6 / 1..5                                   | 3 / 3                                           |
+| movement.route                        | shared Movement Route                                  | empty, repeat true, skippable false, wait false |
+| priority                              | below / same / above                                   | below                                           |
+| options.walkAnimation / stepAnimation | boolean                                                | true / false                                    |
+| options.directionFix / through        | boolean                                                | false / false                                   |
+| trigger                               | action / playerTouch / eventTouch / autorun / parallel | action                                          |
+
+Each Page Condition Slot carries `enabled` and its saved setting:
+
+```ts
+page({
+  conditions: {
+    switch1: { enabled: false, ref: switchRef({ id: 17 }) },
+    variable: { enabled: true, ref: variableRef({ id: 1 }), atLeast: 3 },
+    selfSwitch: { enabled: true, value: "A" },
+  },
+  image: { character: imageAsset({ folder: "characters", name: "People1" }), characterIndex: 2 },
+  priority: "same",
+  options: { directionFix: true },
+  commands: [],
+});
+```
+
+`switch1`, `switch2`, `item` and `actor` require `enabled` and the corresponding
+`ref`; `variable` also requires integer `atLeast` from -99,999,999 to 99,999,999;
+`selfSwitch` requires `enabled` and A–D `value`. Omitted slots are disabled with
+saved ID 1, variable threshold 0 and self switch A. Enabled references must exist.
+Only disabled explicit IDs may retain 0 or missing positive targets. Disabled name
+references still resolve uniquely; DSL-owned names use actual declarations.
+
+Image fields remain independent. Tile selection preserves the character and index;
+None and big-character names (`$`, `!$`, `$!`) preserve nonzero indexes, direction
+and pattern. Selecting an image never changes priority. A nonzero tile uses the
+actual Snapshot Map's `tilesetId` and corresponding Tilesets entry, with B/C/D/E
+bands 1..255 / 256..511 / 512..767 / 768..1023. A missing required context errors;
+an empty selected group warns and preserves the tile. Assets are filename stems,
+with no image-file or dimension scan.
+
+Every saved route is validated, including fixed/random/approach pages, and route
+scripts require the Script Command Gate even when empty or inactive. Decompile
+emits only fields whose saved values differ from defaults and always emits commands.
+Missing, mistyped or unknown owned native fields fail before source publication.
+Diff reports zero-based native paths and one-based page positions. Push preserves
+external Map fields and null holes; removing an event nulls its slot and uses the
+existing Destructive Push guard.
+
 ## Install
 
 The current stage supports Windows, with Node.js 22 as the runtime and CI baseline.
