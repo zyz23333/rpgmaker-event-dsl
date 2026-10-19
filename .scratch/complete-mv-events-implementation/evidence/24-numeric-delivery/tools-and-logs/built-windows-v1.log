@@ -1,0 +1,13 @@
+
+> rpgmaker-event-dsl@0.1.2 test:windows-baseline C:\Users\Shuen\.codex\worktrees\mv-map-numeric-fix\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> vitest run --config vitest.windows.config.ts
+
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-map-numeric-fix/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+
+ Test Files  17 passed (17)
+      Tests  395 passed (395)
+   Start at  03:43:52
+   Duration  556.47s (transform 1.20s, setup 0ms, import 8.24s, tests 1098.30s, environment 1ms)
+

@@ -1,0 +1,53 @@
+import { z } from "zod";
+//#region src/workspace/config.d.ts
+declare const workspaceConfigSchema: z.ZodObject<{
+  projectRoot: z.ZodString;
+  scriptEnabled: z.ZodBoolean;
+  sourceRoot: z.ZodString;
+  sourceInclude: z.ZodArray<z.ZodString>;
+  sourceExclude: z.ZodArray<z.ZodString>;
+}, z.core.$strict>;
+type WorkspaceConfig = z.infer<typeof workspaceConfigSchema>;
+type LoadedWorkspace = {
+  workspaceRoot: string;
+  projectRoot: string;
+  dataDirectory: string;
+  config: WorkspaceConfig;
+  configHash: string;
+  projectRootBinding: string;
+};
+type InitWorkspaceOptions = {
+  workspaceRoot: string;
+  projectRoot: string;
+};
+declare function loadWorkspace(workspaceRoot: string): Promise<LoadedWorkspace>;
+declare function initWorkspace(options: InitWorkspaceOptions): Promise<LoadedWorkspace>;
+//#endregion
+//#region src/workspace/types.d.ts
+type WorkspaceCommandOptions = {
+  workspaceRoot: string;
+};
+type CompileWorkspaceOptions = WorkspaceCommandOptions & {
+  check: boolean;
+};
+type PushWorkspaceOptions = WorkspaceCommandOptions & {
+  allowDestructive: boolean;
+};
+type DiffWorkspaceOptions = WorkspaceCommandOptions & {
+  file?: string;
+  short?: boolean;
+};
+//#endregion
+//#region src/workspace/operations.d.ts
+declare function cloneWorkspace(options: WorkspaceCommandOptions): Promise<void>;
+declare function pullWorkspace(options: WorkspaceCommandOptions): Promise<void>;
+declare function decompileWorkspace(options: WorkspaceCommandOptions): Promise<void>;
+declare function compileWorkspace(options: CompileWorkspaceOptions): Promise<void>;
+declare function isGeneratedProjectDataFresh(options: WorkspaceCommandOptions): Promise<boolean>;
+declare function diffWorkspace(options: DiffWorkspaceOptions): Promise<string>;
+//#endregion
+//#region src/workspace/push.d.ts
+declare function pushWorkspace(options: PushWorkspaceOptions): Promise<void>;
+//#endregion
+export { type CompileWorkspaceOptions, type DiffWorkspaceOptions, type InitWorkspaceOptions, type LoadedWorkspace, type PushWorkspaceOptions, type WorkspaceCommandOptions, type WorkspaceConfig, cloneWorkspace, compileWorkspace, decompileWorkspace, diffWorkspace, initWorkspace, isGeneratedProjectDataFresh, loadWorkspace, pullWorkspace, pushWorkspace };
+//# sourceMappingURL=workspace-api.d.mts.map

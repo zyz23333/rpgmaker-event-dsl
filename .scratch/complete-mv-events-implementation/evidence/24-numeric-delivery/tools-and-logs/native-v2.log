@@ -1,0 +1,299 @@
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-triggers-physical-v2-native-380cf162-d86f-4717-b1be-c628f2f02c23",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-triggers-physical-v2-native-380cf162-d86f-4717-b1be-c628f2f02c23\\compiled\\Workspace",
+    "files": {
+      "CommonEvents.json": {
+        "beforePushSha256": "9364c5ca12c39809d728686b92394d0bbccce2045f2ca21a1e84aa3475599c83",
+        "generatedSha256": "77d8b781d4c7cb091881568e7496547fc4b6315b7618990e2a95536d6949566d",
+        "afterPushSha256": "77d8b781d4c7cb091881568e7496547fc4b6315b7618990e2a95536d6949566d",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": [
+        {
+          "id": "action",
+          "eventId": 1,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "player-touch",
+          "eventId": 2,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "event-touch",
+          "eventId": 3,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "autorun",
+          "eventId": 4,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "parallel",
+          "eventId": 5,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "highest-page-low",
+          "eventId": 6,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "highest-page-high",
+          "eventId": 6,
+          "mapId": 1,
+          "pageIndex": 1,
+          "inBattle": false
+        },
+        {
+          "id": "common-none-called",
+          "eventId": 7,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "common-autorun",
+          "eventId": 0,
+          "mapId": 1,
+          "pageIndex": null,
+          "inBattle": false
+        },
+        {
+          "id": "common-parallel",
+          "eventId": 0,
+          "mapId": 1,
+          "pageIndex": null,
+          "inBattle": false
+        }
+      ],
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": [
+        {
+          "id": "action",
+          "eventId": 1,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "player-touch",
+          "eventId": 2,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "event-touch",
+          "eventId": 3,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "autorun",
+          "eventId": 4,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "parallel",
+          "eventId": 5,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "highest-page-low",
+          "eventId": 6,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "highest-page-high",
+          "eventId": 6,
+          "mapId": 1,
+          "pageIndex": 1,
+          "inBattle": false
+        },
+        {
+          "id": "common-none-called",
+          "eventId": 7,
+          "mapId": 1,
+          "pageIndex": 0,
+          "inBattle": false
+        },
+        {
+          "id": "common-autorun",
+          "eventId": 0,
+          "mapId": 1,
+          "pageIndex": null,
+          "inBattle": false
+        },
+        {
+          "id": "common-parallel",
+          "eventId": 0,
+          "mapId": 1,
+          "pageIndex": null,
+          "inBattle": false
+        }
+      ],
+      "error": null
+    }
+  }
+}
+Map event "R1 route-wait autorun" uses occupied coordinate (0, 0) on map 1.
+Map event "Parallel route-wait counter" uses occupied coordinate (0, 0) on map 1.
+Map event "R1 route-wait autorun" uses occupied coordinate (0, 0) on map 1.
+Map event "Parallel route-wait counter" uses occupied coordinate (0, 0) on map 1.
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-routes-physical-v2-native-d842038a-5f38-4e80-b7fe-c5fea3e971ff",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-routes-physical-v2-native-d842038a-5f38-4e80-b7fe-c5fea3e971ff\\compiled\\Workspace",
+    "files": {
+      "Map001.json": {
+        "beforePushSha256": "0b4bba3acb9ea08334fcc83f223e6048cbdcadc698c12ae0911cf845ef2b3ff1",
+        "generatedSha256": "f0088ccc2aa3af44b73140c688543c5d20c0c02cd766db9041e67515d699aa12",
+        "afterPushSha256": "f0088ccc2aa3af44b73140c688543c5d20c0c02cd766db9041e67515d699aa12",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "allMarkersOnce": true,
+        "inactiveSavedRouteNeverRuns": true,
+        "fixedPageRetainsInitialLocation": true,
+        "customRouteExecutesNatively": true,
+        "autonomousWaitDoesNotBlockMain": true,
+        "parallelDuringAutonomous": true,
+        "forcedNoWaitReturnsSameFrame": true,
+        "forcedRouteStartsAfterContinuation": true,
+        "forcedNoWaitMovesAndFinishes": true,
+        "forcedWaitFinishesBeforeContinuation": true,
+        "forcedWaitIncludesMovementAndDelay": true,
+        "parallelDuringForcedWait": true,
+        "finished": true
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "allMarkersOnce": true,
+        "inactiveSavedRouteNeverRuns": true,
+        "fixedPageRetainsInitialLocation": true,
+        "customRouteExecutesNatively": true,
+        "autonomousWaitDoesNotBlockMain": true,
+        "parallelDuringAutonomous": true,
+        "forcedNoWaitReturnsSameFrame": true,
+        "forcedRouteStartsAfterContinuation": true,
+        "forcedNoWaitMovesAndFinishes": true,
+        "forcedWaitFinishesBeforeContinuation": true,
+        "forcedWaitIncludesMovementAndDelay": true,
+        "parallelDuringForcedWait": true,
+        "finished": true
+      },
+      "error": null
+    }
+  }
+}
+{"index":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-physical-v2-native-index-3e2c7d66-e2aa-423c-aae3-926009871646.json","results":[{"case":"triggers","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-triggers-physical-v2-native-380cf162-d86f-4717-b1be-c628f2f02c23","passed":true},{"case":"routes","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-routes-physical-v2-native-d842038a-5f38-4e80-b7fe-c5fea3e971ff","passed":true}]}

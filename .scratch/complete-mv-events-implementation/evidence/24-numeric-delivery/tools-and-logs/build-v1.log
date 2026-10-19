@@ -1,0 +1,28 @@
+
+> rpgmaker-event-dsl@0.1.2 build C:\Users\Shuen\.codex\worktrees\mv-map-numeric-fix\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> tsdown "--out-dir" "M:/Shuen/Codex/mv-events-implementation-20261020/map24-final/dist"
+
+ℹ tsdown v0.22.3 powered by rolldown v1.1.3
+ℹ config file: C:\Users\Shuen\.codex\worktrees\mv-map-numeric-fix\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\tsdown.config.ts 
+ℹ entry: src/cli.ts, src/index.ts, src/workspace-api.ts
+ℹ target: node22
+ℹ tsconfig: tsconfig.json
+ℹ Build start
+ℹ Granting execute permission to M:\Shuen\Codex\mv-events-implementation-20261020\map24-final\dist\cli.mjs
+ℹ M:\Shuen\Codex\mv-events-implementation-20261020\map24-final\dist\index.mjs                      5.04 kB │ gzip:   1.75 kB
+ℹ M:\Shuen\Codex\mv-events-implementation-20261020\map24-final\dist\cli.mjs                        3.22 kB │ gzip:   1.15 kB
+ℹ M:\Shuen\Codex\mv-events-implementation-20261020\map24-final\dist\workspace-api.mjs              0.42 kB │ gzip:   0.19 kB
+ℹ M:\Shuen\Codex\mv-events-implementation-20261020\map24-final\dist\operations-BfAhz6MG.mjs.map  738.18 kB │ gzip: 140.00 kB
+ℹ M:\Shuen\Codex\mv-events-implementation-20261020\map24-final\dist\operations-BfAhz6MG.mjs      356.83 kB │ gzip:  71.09 kB
+ℹ M:\Shuen\Codex\mv-events-implementation-20261020\map24-final\dist\authoring-D0b1TW44.mjs.map   186.82 kB │ gzip:  36.73 kB
+ℹ M:\Shuen\Codex\mv-events-implementation-20261020\map24-final\dist\authoring-D0b1TW44.mjs        82.79 kB │ gzip:  18.78 kB
+ℹ M:\Shuen\Codex\mv-events-implementation-20261020\map24-final\dist\index.d.mts.map               27.40 kB │ gzip:   4.33 kB
+ℹ M:\Shuen\Codex\mv-events-implementation-20261020\map24-final\dist\cli.mjs.map                    5.82 kB │ gzip:   1.90 kB
+ℹ M:\Shuen\Codex\mv-events-implementation-20261020\map24-final\dist\workspace-api.d.mts.map        1.42 kB │ gzip:   0.47 kB
+ℹ M:\Shuen\Codex\mv-events-implementation-20261020\map24-final\dist\index.mjs.map                  0.55 kB │ gzip:   0.35 kB
+ℹ M:\Shuen\Codex\mv-events-implementation-20261020\map24-final\dist\cli.d.mts.map                  0.26 kB │ gzip:   0.21 kB
+ℹ M:\Shuen\Codex\mv-events-implementation-20261020\map24-final\dist\index.d.mts                   53.58 kB │ gzip:   9.00 kB
+ℹ M:\Shuen\Codex\mv-events-implementation-20261020\map24-final\dist\workspace-api.d.mts            2.27 kB │ gzip:   0.61 kB
+ℹ M:\Shuen\Codex\mv-events-implementation-20261020\map24-final\dist\cli.d.mts                      0.30 kB │ gzip:   0.22 kB
+ℹ 15 files, total: 1.46 MB
+✔ Build complete in 1362ms
