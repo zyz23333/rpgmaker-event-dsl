@@ -1,3 +1,6 @@
 # Keep text files consistent across Windows, Linux, and CI.
 * text=auto eol=lf
 
+# Preserve the original PowerShell-produced acceptance artifact's hashed bytes.
+/.scratch/complete-mv-events-implementation/evidence/11-switch-final-provenance.json -text
+
