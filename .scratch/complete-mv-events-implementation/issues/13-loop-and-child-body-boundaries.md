@@ -16,7 +16,7 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 以当前可支持载体验证本票最小完整行为；不将共享基础签收计作全部家族参数、S5/S6 或完整支持已完成。
 
-关联的 E/R 仅指本票相关代表场景；最终集成候选的完整原生回归另由 49–54 交付。首方、静态、合成、真实 UI 与游戏观察按规格分别记录。
+关联的 E/R 仅指本票相关代表场景；49–51 交付最终 E1–E7 逆向证据与产品输出比较，52–54 交付实际 R1–R7 游戏回归。按规格的 2026-10-19 用户验收修订，首方、逆向代码事实、有条件推导、合成样本与实际游戏观察分别记录；不将静态分析记成 UI 捕获。
 
 ## Acceptance criteria
 
@@ -42,7 +42,7 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 ## Dependencies
 
 - [02：Windows 自动化基线](02-windows-automation-baseline.md)。
-- [03：原生分支、尾标记与 Battle 初值实验](03-native-branch-markers-and-battle-defaults.md)。
+- [03：原生分支、尾标记与 Battle 初值逆向核对](03-native-branch-markers-and-battle-defaults.md)。
 
 ## Sources
 

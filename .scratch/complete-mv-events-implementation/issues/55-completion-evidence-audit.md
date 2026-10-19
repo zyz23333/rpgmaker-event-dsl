@@ -16,12 +16,12 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 只交付本票指定行为与证据；其他阶段的未完成事项保持其实际状态。
 
-关联的 E/R 仅指本票相关代表场景；最终集成候选的完整原生回归另由 49–54 交付。首方、静态、合成、真实 UI 与游戏观察按规格分别记录。
+关联的 E/R 仅指本票相关代表场景；49–51 交付最终 E1–E7 逆向证据与产品输出比较，52–54 交付实际 R1–R7 游戏回归。按规格的 2026-10-19 用户验收修订，首方、逆向代码事实、有条件推导、合成样本与实际游戏观察分别记录；不将静态分析记成 UI 捕获。
 
 ## Acceptance criteria
 
 - [ ] 全部必验要求有有效通过证据或有具体规则的不适用理由，无未解除失败/阻塞/待执行/待复验；缺环境不能算不适用。
-- [ ] 核对最终代码候选与 E1–E7/R1–R7，后续改动按影响复验并追加结果，不能覆盖原始捕获或以旧产品输出顶替。
+- [ ] 核对最终代码候选与 E1–E7 逆向/产品比较证据及 R1–R7 实际游戏证据，后续改动按影响复验并追加结果，不能覆盖原始捕获或以旧产品输出顶替。
 - [ ] 当前公开 API 文档、示例、编写指南随对应功能票更新并在此核对；无旧 API 兼容层/迁移说明或首方软件分发，只有证据齐备才形成完成声明。
 
 ### 共通要求（限本票适用范围）
@@ -36,9 +36,9 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 ## Dependencies
 
-- [49：最终编辑器回归：容器与分支](49-final-editor-containers-and-branches.md)。
-- [50：最终编辑器回归：移动与保存状态](50-final-editor-movement-and-saved-state.md)。
-- [51：最终编辑器回归：文本、素材与 EXP](51-final-editor-text-assets-and-exp.md)。
+- [49：最终编辑器逆向与产品比较：容器与分支](49-final-editor-containers-and-branches.md)。
+- [50：最终编辑器逆向与产品比较：移动与保存状态](50-final-editor-movement-and-saved-state.md)。
+- [51：最终编辑器逆向与产品比较：文本、素材与 EXP](51-final-editor-text-assets-and-exp.md)。
 - [52：最终游戏回归：页、战斗与控制流](52-final-game-pages-battles-and-control-flow.md)。
 - [53：最终游戏回归：动态选择与地图位置](53-final-game-runtime-selectors-and-locations.md)。
 - [54：最终游戏回归：表现、脚本与数值](54-final-game-presentation-scripts-and-values.md)。

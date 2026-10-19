@@ -16,14 +16,14 @@ Approval: [已确认拆分记录](ticket-breakdown-draft.md#comments)
 | --- | --- | --- | --- |
 | 01 | [证据索引与最小往返样例](issues/01-evidence-index-and-roundtrip-fixture.md) | S0 | 无 |
 | 02 | [Windows 自动化基线](issues/02-windows-automation-baseline.md) | S0 | 01 |
-| 03 | [原生分支、尾标记与 Battle 初值实验](issues/03-native-branch-markers-and-battle-defaults.md) | S1 | 01 |
-| 04 | [原生移动记录与镜像实验](issues/04-native-movement-records-and-mirrors.md) | S1 | 01 |
-| 05 | [原生 Timer Stop 槽位实验](issues/05-native-timer-stop-slots.md) | S1 | 01 |
-| 06 | [原生 Transfer 初值实验](issues/06-native-transfer-defaults.md) | S1 | 01 |
-| 07 | [原生 Shop 初值与空商店实验](issues/07-native-shop-defaults-and-empty-goods.md) | S1 | 01 |
-| 08 | [原生脸图索引实验](issues/08-native-face-index-behavior.md) | S1 | 01 |
-| 09 | [原生单槽字符串实验](issues/09-native-single-slot-strings.md) | S1 | 01 |
-| 10 | [原生 EXP 临界值实验](issues/10-native-exp-boundaries.md) | S1 | 01 |
+| 03 | [原生分支、尾标记与 Battle 初值逆向核对](issues/03-native-branch-markers-and-battle-defaults.md) | S1 | 01 |
+| 04 | [原生移动记录与镜像逆向核对](issues/04-native-movement-records-and-mirrors.md) | S1 | 01 |
+| 05 | [原生 Timer Stop 槽位逆向核对](issues/05-native-timer-stop-slots.md) | S1 | 01 |
+| 06 | [原生 Transfer 初值逆向核对](issues/06-native-transfer-defaults.md) | S1 | 01 |
+| 07 | [原生 Shop 初值与空商店逆向核对](issues/07-native-shop-defaults-and-empty-goods.md) | S1 | 01 |
+| 08 | [原生脸图索引逆向核对](issues/08-native-face-index-behavior.md) | S1 | 01 |
+| 09 | [原生单槽字符串逆向核对](issues/09-native-single-slot-strings.md) | S1 | 01 |
+| 10 | [原生 EXP 临界值逆向核对](issues/10-native-exp-boundaries.md) | S1 | 01 |
 | 11 | [System 容量与无名引用贯通](issues/11-system-capacity-and-unnamed-references.md) | S3 | 02 |
 | 12 | [地图与战斗引用上下文贯通](issues/12-map-and-battle-reference-context.md) | S3 | 11 |
 | 13 | [Loop 与子体边界最小闭环](issues/13-loop-and-child-body-boundaries.md) | S2 | 02、03 |
@@ -62,9 +62,9 @@ Approval: [已确认拆分记录](ticket-breakdown-draft.md#comments)
 | 46 | [Battle Processing 与战斗控制](issues/46-battle-processing-and-control.md) | S6 | 23、25 |
 | 47 | [Shop 完整商品结构](issues/47-shop-complete-goods-structure.md) | S6 | 07、23 |
 | 48 | [全矩阵与三类事件集成](issues/48-full-matrix-and-three-container-integration.md) | S7 | 26、27、28、29、30、31、32、33、34、35、36、37、38、39、40、41、42、43、44、45、46、47 |
-| 49 | [最终编辑器回归：容器与分支](issues/49-final-editor-containers-and-branches.md) | S7 | 48 |
-| 50 | [最终编辑器回归：移动与保存状态](issues/50-final-editor-movement-and-saved-state.md) | S7 | 48 |
-| 51 | [最终编辑器回归：文本、素材与 EXP](issues/51-final-editor-text-assets-and-exp.md) | S7 | 48 |
+| 49 | [最终编辑器逆向与产品比较：容器与分支](issues/49-final-editor-containers-and-branches.md) | S7 | 48 |
+| 50 | [最终编辑器逆向与产品比较：移动与保存状态](issues/50-final-editor-movement-and-saved-state.md) | S7 | 48 |
+| 51 | [最终编辑器逆向与产品比较：文本、素材与 EXP](issues/51-final-editor-text-assets-and-exp.md) | S7 | 48 |
 | 52 | [最终游戏回归：页、战斗与控制流](issues/52-final-game-pages-battles-and-control-flow.md) | S7 | 48 |
 | 53 | [最终游戏回归：动态选择与地图位置](issues/53-final-game-runtime-selectors-and-locations.md) | S7 | 48 |
 | 54 | [最终游戏回归：表现、脚本与数值](issues/54-final-game-presentation-scripts-and-values.md) | S7 | 48 |
@@ -74,7 +74,7 @@ Approval: [已确认拆分记录](ticket-breakdown-draft.md#comments)
 
 - 105 类事件指令、45 类移动指令各有唯一主要责任票；详细分配在单票 Scope 中。共享结构与集成测试可复用同一场景，不重复计覆盖。
 - 166 项专有验收点按已确认草案原样发布，各票另包含适用的共通验收要求和规范来源。
-- 49–51 完成最终 E1–E7 编辑器回归，52–54 完成最终 R1–R7 游戏回归；原生前置 03–10 的事实采集不能代替最终产品输出验收。
+- 49–51 完成最终 E1–E7 逆向证据与产品输出比较，52–54 完成最终 R1–R7 实际游戏回归；03–10 的逆向前置不能代替最终产品输出验收。
 - 55 依赖所有最终回归分支；所有其他任务均经依赖图通向 55。任务完成记录、原生结果和复验状态必须可追踪。
 - 本次发布未实施产品、执行原生实验或关闭父规格；原设计票和父规格状态保持不变。
 
@@ -89,3 +89,7 @@ Approval: [已确认拆分记录](ticket-breakdown-draft.md#comments)
 按用户最新要求，已同步规格、确认记录、02 与全部涉及平台的任务验收条件；CI 切换为 Windows / Node 22。上方发布核验记录描述首次发布时的状态，父规格此后已按本次要求修订。当前仍有 55 张任务，初始前沿仍为 01；完整原生 E/R 验收与 Windows 安全必验继续保留。
 
 平台修订核验通过：55 张票与修订后的确认记录一致，166 项专有验收点和 105+45 指令责任完整，依赖无环，492 个本地链接及锚点有效，当前任务中已无 Linux 或双平台必验要求。现有检查及构建已在本机 Windows / Node 22.23.3 通过（13 个测试文件、114 个测试）；此结果不代表计划中的新验收已经完成。
+
+### 2026-10-19 — 编辑器验收改用逆向
+
+按实施规格的用户验收修订，同步 03–10、49–51 及全票共通证据条款。03–10 按 reverse-engineer-anything 追踪实际编辑器初始化、加载、编辑确认与序列化；观察、推导及未决时序分开，首方原始输出仅在仓库外保留。49–51 将最终候选产品输出与独立契约和逆向结论比较；52–54 和 R1–R7 仍须实际 MV 1.6.1 / NW.js 游戏运行。依赖、领域行为及完成门槛保持不变，修订本身不关闭任务。上文首次发布统计保留为历史记录。
