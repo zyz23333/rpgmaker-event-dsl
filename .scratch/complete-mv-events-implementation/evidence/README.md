@@ -2,13 +2,12 @@
 
 `requirements.json` describes obligations. `results/` contains immutable, machine-produced run records. A requirement does not acquire a passing status merely because it appears in this index. The ordinary test suite validates the index schema, unique IDs, fixture hashes, source sections, test links, checklist completeness and recorded run references.
 
-This index contains ticket 01 automated seeds and tickets 03/05 reverse-engineering obligations; it is not the complete command or native acceptance matrix. Later tickets add their own stable case IDs and independent input/expected data. Per the user's revised acceptance, editor validation uses REA reverse engineering while final actual game runs remain required. These native evidence groups remain unexecuted by this fixture; its synthetic project context is sufficient for Workspace data operations and is not claimed to be a playable MV project.
+This index contains ticket 01 automated seeds, ticket 02 Windows automation baseline, and tickets 03/05 reverse-engineering obligations; it is not the complete command or native acceptance matrix. Later tickets add their own stable case IDs and independent input/expected data. Per the user's revised acceptance, editor validation uses REA reverse engineering while final actual game runs remain required. These native evidence groups remain unexecuted by this fixture; its synthetic project context is sufficient for Workspace data operations and is not claimed to be a playable MV project.
 
 | Requirement       | Obligation                                                                                                        | Evidence kind       | Required layer                                |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------- | --------------------------------------------- |
 | MV-S0-CE-001      | Common Event → Decompiled Source → actual Discovery/evaluation → Compile Check/Compile → complete parsed equality | synthetic-support   | public Workspace API and temporary filesystem |
 | MV-S0-COMPARE-001 | Strict comparison rejects structural/value loss, including inactive state and literal CR                          | synthetic-rejection | harness negative controls                     |
-
 | MV-E03-BODY-EMPTY | Empty branch body markers | reverse-engineering-observation | identified editor resources and conditional code-path review |
 | MV-E03-BODY-NONEMPTY | Nonempty branch marker preservation | static-inference | identified editor resources and conditional code-path review |
 | MV-E03-BODY-NESTED | Nested body preservation | static-inference | identified editor resources and conditional code-path review |
@@ -20,6 +19,10 @@ This index contains ticket 01 automated seeds and tickets 03/05 reverse-engineer
 | MV-E03-CHOICE-EMPTY | Empty and whitespace choice text | reverse-engineering-observation | identified editor resources and conditional code-path review |
 | MV-E03-BATTLE-NEW | Battle and Else false defaults in shipped Qt | static-inference | identified editor resources and conditional code-path review |
 | MV-E03-BATTLE-FLAGS | Battle result flags and body structure | reverse-engineering-observation | identified editor resources and conditional code-path review |
+| MV-S0-WIN-CLI-001 | Same minimal Workspace through source and built CLI subprocesses, read-only Check, exact data, actual edited-source Push and stderr/exit behavior | synthetic-support | Windows / Node 22 filesystem and CLI |
+| MV-S0-WIN-JUNCTION-001 | Mandatory real directory junction executes source and built CLI without silent skipping | synthetic-support | Windows junction and CLI subprocess |
+
+Ticket 02 extends the seed with the [Windows baseline and required filesystem responsibility matrix](windows-baseline.md). The additional cases establish the automation foundation; later safety tickets still own their fault and concurrency obligations.
 
 | MV-E05-START-BOUNDS | Start two slots and supported seconds bounds | reverse-engineering-observation | identified editor resources and bounded code-path review |
 | MV-E05-START-DEFAULT | New Start default from identified bundled controls | static-inference | identified editor resources and bounded code-path review |

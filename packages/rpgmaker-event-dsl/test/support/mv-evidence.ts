@@ -225,11 +225,19 @@ export async function recordEvidence(input: {
     (require(`${name}/package.json`) as { version: string }).version;
   const sourcePaths = [
     ...(await listFiles(join(repositoryRoot, "packages/rpgmaker-event-dsl/src"))),
-    ...(await listFiles(
-      join(repositoryRoot, "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence"),
-    )),
-    join(repositoryRoot, "packages/rpgmaker-event-dsl/test/mv-evidence.test.ts"),
-    fileURLToPath(import.meta.url),
+    ...(await listFiles(join(repositoryRoot, "packages/rpgmaker-event-dsl/test"))),
+    ...(process.env.MV_CLI_ENTRY === "built"
+      ? await listFiles(join(repositoryRoot, "packages/rpgmaker-event-dsl/dist")).catch(
+          (error: unknown) => {
+            if (error instanceof Error && "code" in error && error.code === "ENOENT") return [];
+            throw error;
+          },
+        )
+      : []),
+    join(repositoryRoot, ".github/workflows/ci.yml"),
+    join(repositoryRoot, "package.json"),
+    join(repositoryRoot, "packages/rpgmaker-event-dsl/vitest.config.ts"),
+    join(repositoryRoot, "packages/rpgmaker-event-dsl/vitest.windows.config.ts"),
     join(repositoryRoot, "pnpm-lock.yaml"),
     join(repositoryRoot, "packages/rpgmaker-event-dsl/package.json"),
     join(repositoryRoot, "packages/rpgmaker-event-dsl/tsconfig.json"),
