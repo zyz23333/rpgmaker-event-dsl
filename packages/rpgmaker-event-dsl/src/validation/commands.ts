@@ -13,6 +13,7 @@ import type { ReferenceResolver, ValidationIssue } from "./types.js";
 import { captureReferenceIssue } from "./shared.js";
 import { isReferenceValue } from "./inspection.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
+import { assertNativeContextReferences } from "./native-context-references.js";
 import { assertLoopCommand } from "../commands/flow/validation.js";
 
 type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
@@ -116,6 +117,16 @@ export function validateNodes(
         assertNativeSwitchCommand(node.code, node.parameters, resolver),
       );
     }
+    if (node.kind === "rawDslCommand") {
+      try {
+        assertNativeContextReferences(node.code, node.parameters, resolver);
+      } catch (error) {
+        issues.push({
+          level: "error",
+          message: `validation ${options.identity ?? "event"}.${nodePath}: ${error instanceof Error ? error.message : String(error)}`,
+        });
+      }
+    }
     if (node.kind === "controlVariables") {
       validateReferenceOrRange(node.variable, resolver, issues);
       if (isVariableReferenceValue(node.value)) {
@@ -198,7 +209,9 @@ export function validateNodes(
     }
     if (node.kind === "showAnimation") {
       validateCharacterRuntimeSelector(node.target, "Show Animation target", issues);
-      captureReferenceIssue(() => resolver.resolveReference(node.animation), issues);
+      captureSwitchIssue("MV-E212-REFERENCE", "animation", () =>
+        resolver.resolveReference(node.animation),
+      );
     }
     if (node.kind === "showBalloonIcon") {
       validateCharacterRuntimeSelector(node.target, "Show Balloon Icon target", issues);
@@ -324,7 +337,7 @@ export function validateNodes(
       captureReferenceIssue(() => resolver.resolveReference(node.state), issues);
     }
     if (node.kind === "enemyTransform") {
-      captureReferenceIssue(() => resolver.resolveReference(node.enemy), issues);
+      captureSwitchIssue("MV-E336-REFERENCE", "enemy", () => resolver.resolveReference(node.enemy));
     }
     if (node.kind === "showBattleAnimation") {
       captureReferenceIssue(() => resolver.resolveReference(node.animation), issues);
@@ -334,7 +347,9 @@ export function validateNodes(
       captureReferenceIssue(() => resolver.resolveReference(node.skill), issues);
     }
     if (node.kind === "changeTileset") {
-      captureReferenceIssue(() => resolver.resolveReference(node.tileset), issues);
+      captureSwitchIssue("MV-E282-REFERENCE", "tileset", () =>
+        resolver.resolveReference(node.tileset),
+      );
     }
     if (node.kind === "getLocationInfo") {
       captureReferenceIssue(() => resolver.resolveReference(node.variable), issues);

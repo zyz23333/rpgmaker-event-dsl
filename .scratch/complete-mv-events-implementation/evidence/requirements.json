@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "scope": "Ticket01 automated seeds, ticket02 Windows automation baseline, tickets03–08 native reverse-engineering and accepted finite-contract review, ticket11 System-slot/switch coverage, and ticket13 Loop/Break/Exit coverage. Not the complete105+45 or E1-E7/R1-R7 acceptance matrix.",
+  "scope": "Ticket01 seeds, ticket02 Windows baseline, tickets03–08 native reverse-engineering/accepted finite contracts, ticket11 System/switches, ticket12 captured map/battle context and ticket13 Loop/Break/Exit. Not complete105+45 or final E1–E7/R1–R7 acceptance.",
   "requirements": [
     {
       "id": "MV-S0-CE-001",
@@ -2401,6 +2401,181 @@
         "layer": "Native Scene_Map and unchanged Game_Interpreter"
       },
       "slice": "13 / E112 E113 E115",
+      "required": true
+    },
+    {
+      "id": "MV-S3-CONTEXT-001",
+      "title": "resolves empty-name external targets through actual Snapshot and evaluated Decompiled Source",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/12-map-and-battle-reference-context.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Independent map/battle-context-project.json captured by actual Clone/Pull. Case-specific source/native-record changes are explicit in the linked test; no MV editor/runtime or engine mocks.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-battle-context-project.json",
+        "sha256": "bf4ca095b5d86c9824ce36c0c30113871d56a22032a4a1c4d3eb33af75a80864"
+      },
+      "expected": "Actual Clone → Decompile → Discovery/typecheck/evaluation → Check → Compile → Push retains complete CommonEvents/System/Map data and external carrier JSON, including empty-name IDs. Final Diff is clean.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/snapshot-context.test.ts",
+        "name": "MV-S3-CONTEXT-001: resolves empty-name external targets through actual Snapshot and evaluated Decompiled Source"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; no local MV installation required",
+        "owner": "Automated test runner; Codex ticket12 implementer",
+        "layer": "Real temporary Workspace filesystem, discovered TypeScript source evaluation, and actual captured Snapshot adapter"
+      },
+      "slice": "12 / S3",
+      "required": true
+    },
+    {
+      "id": "MV-S3-CONTEXT-002",
+      "title": "assembles ordered hidden and missing-Enemy members, map tiles and all equipment slots from a captured Snapshot",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/12-map-and-battle-reference-context.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Independent map/battle-context-project.json captured by actual Clone/Pull. Case-specific source/native-record changes are explicit in the linked test; no MV editor/runtime or engine mocks.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-battle-context-project.json",
+        "sha256": "bf4ca095b5d86c9824ce36c0c30113871d56a22032a4a1c4d3eb33af75a80864"
+      },
+      "expected": "Captured Snapshot context retains map 1 dimensions 5×4 and tileset 2; tilesetNames keep all nine positions; troop 4 keeps hidden member0, missing-Enemy99 member1, and member2 without filtering/rebinding or dropping unknown member fields; Enemy1 exists with empty name; all seven equipTypes slots including empty names remain. Context is carried into the Staged Data Graph and reads Snapshot rather than live Project Root.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/snapshot-context.test.ts",
+        "name": "MV-S3-CONTEXT-002: assembles ordered hidden and missing-Enemy members, map tiles and all equipment slots from a captured Snapshot"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; no local MV installation required",
+        "owner": "Automated test runner; Codex ticket12 implementer",
+        "layer": "Real temporary Workspace filesystem, discovered TypeScript source evaluation, and actual captured Snapshot adapter"
+      },
+      "slice": "12 / S3",
+      "required": true
+    },
+    {
+      "id": "MV-S3-CONTEXT-003",
+      "title": "checks fixed external references while retaining unknown-caller runtime selectors",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/12-map-and-battle-reference-context.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent map/battle-context-project.json captured by actual Clone/Pull. Case-specific source/native-record changes are explicit in the linked test; no MV editor/runtime or engine mocks.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-battle-context-project.json",
+        "sha256": "bf4ca095b5d86c9824ce36c0c30113871d56a22032a4a1c4d3eb33af75a80864"
+      },
+      "expected": "Workspace Check accepts the actual empty-name troop4 and valid Common Event enemy-position/dynamic-equipment selectors without inventing caller context. Missing formal animation/tileset/enemy/troop and recognized raw212/282/336 fixed references reject Check/Compile without publishing generated data or changing source/manifest.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/snapshot-context.test.ts",
+        "name": "MV-S3-CONTEXT-003: checks fixed external references while retaining unknown-caller runtime selectors"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; no local MV installation required",
+        "owner": "Automated test runner; Codex ticket12 implementer",
+        "layer": "Real temporary Workspace filesystem, discovered TypeScript source evaluation, and actual captured Snapshot adapter"
+      },
+      "slice": "12 / S3",
+      "required": true
+    },
+    {
+      "id": "MV-S3-CONTEXT-004",
+      "title": "rejects missing native external targets before publishing any Decompiled Source",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/12-map-and-battle-reference-context.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent map/battle-context-project.json captured by actual Clone/Pull. Case-specific source/native-record changes are explicit in the linked test; no MV editor/runtime or engine mocks.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-battle-context-project.json",
+        "sha256": "bf4ca095b5d86c9824ce36c0c30113871d56a22032a4a1c4d3eb33af75a80864"
+      },
+      "expected": "Native synthetic212/282/336 with missing fixed target99 fail before any Decompiled Source is published, with stable ID, decompile stage, Common Event identity and exact list/parameter path. Existing source, Project Root, Snapshot and manifest remain unchanged.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/snapshot-context.test.ts",
+        "name": "MV-S3-CONTEXT-004: rejects missing native external targets before publishing any Decompiled Source"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; no local MV installation required",
+        "owner": "Automated test runner; Codex ticket12 implementer",
+        "layer": "Real temporary Workspace filesystem, discovered TypeScript source evaluation, and actual captured Snapshot adapter"
+      },
+      "slice": "12 / S3",
+      "required": true
+    },
+    {
+      "id": "MV-S3-CONTEXT-005",
+      "title": "uses captured map dimensions and event positions for actual Workspace placement diagnostics",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/12-map-and-battle-reference-context.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Independent map/battle-context-project.json captured by actual Clone/Pull. Case-specific source/native-record changes are explicit in the linked test; no MV editor/runtime or engine mocks.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-battle-context-project.json",
+        "sha256": "bf4ca095b5d86c9824ce36c0c30113871d56a22032a4a1c4d3eb33af75a80864"
+      },
+      "expected": "Actual captured map5×4 rejects new event x5; x3/y1 remains valid with a precise occupied-position warning from captured existing event2. Check publishes no data and leaves the Map carrier unchanged.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/snapshot-context.test.ts",
+        "name": "MV-S3-CONTEXT-005: uses captured map dimensions and event positions for actual Workspace placement diagnostics"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; no local MV installation required",
+        "owner": "Automated test runner; Codex ticket12 implementer",
+        "layer": "Real temporary Workspace filesystem, discovered TypeScript source evaluation, and actual captured Snapshot adapter"
+      },
+      "slice": "12 / S3",
       "required": true
     },
     {

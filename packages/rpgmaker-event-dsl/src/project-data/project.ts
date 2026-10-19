@@ -108,10 +108,10 @@ export function parseMapInfos(raw: string): MapInfoEntry[] {
     }
 
     const id = readPositiveInt(entry.id);
-    const name = readString(entry.name);
+    const name = typeof entry.name === "string" ? entry.name : "";
     const parentId = readNonNegativeInt(entry.parentId);
 
-    if (id === null || name === null || parentId === null) {
+    if (id === null || parentId === null) {
       return [];
     }
 
