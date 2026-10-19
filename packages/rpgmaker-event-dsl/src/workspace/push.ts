@@ -1,4 +1,4 @@
-import { mkdir, readFile, readdir, rename, rm, stat, writeFile } from "node:fs/promises";
+import { link, mkdir, readFile, readdir, rename, rm, stat, writeFile } from "node:fs/promises";
 import { withWorkspaceOperationLock } from "./operation-lock.js";
 import { dirname, resolve } from "node:path";
 import { createHash, randomUUID } from "node:crypto";
@@ -28,6 +28,7 @@ import { writeStableJson } from "../project-data/writer.js";
 import type { PushWorkspaceOptions } from "./types.js";
 import { assertProjectDataSnapshotExists, readCurrentSnapshotFileHashes } from "./checks.js";
 import { isMissingFileError } from "./guards.js";
+import { isCanonicalMapFileName } from "../project-data/project.js";
 
 type InterruptedPushFileState = "generated" | "missing" | "snapshot" | "unknown";
 
@@ -154,11 +155,13 @@ async function createPendingPushState(input: {
 
       const snapshotPath = resolve(input.statePaths.projectDataSnapshotDirectory, relativePath);
       const backupPath = resolve(tempDirectory, "backup", relativePath);
-      const content = await readFile(snapshotPath, "utf8");
-      const backupHash = hashUtf8Content(content);
+      const content = await readFile(snapshotPath);
+      const backupHash = createHash("sha256").update(content).digest("hex");
+      if (backupHash !== snapshotHash)
+        throw new Error(`Snapshot changed while preparing Interrupted Push for ${relativePath}.`);
 
       await mkdir(dirname(backupPath), { recursive: true });
-      await writeFile(backupPath, content, "utf8");
+      await writeFile(backupPath, content);
       affectedFiles.push({
         backupHash,
         backupRelativePath: relativePath,
@@ -201,14 +204,13 @@ async function completeInterruptedPush(input: {
   for (const relativePath of input.affectedFiles) {
     const content = await readFile(
       resolve(input.statePaths.generatedProjectDataDirectory, relativePath),
-      "utf8",
     );
     const snapshotPath = resolve(input.statePaths.projectDataSnapshotDirectory, relativePath);
 
     await mkdir(dirname(snapshotPath), { recursive: true });
-    await writeFile(snapshotPath, content, "utf8");
+    await writeFile(snapshotPath, content);
     snapshotFiles.set(relativePath, {
-      hash: hashUtf8Content(content),
+      hash: createHash("sha256").update(content).digest("hex"),
       relativePath,
     });
   }
@@ -302,7 +304,9 @@ async function assertPendingGeneratedIntegrity(input: {
 
 async function readFileHashOrNull(filePath: string): Promise<string | null> {
   try {
-    return hashUtf8Content(await readFile(filePath, "utf8"));
+    return createHash("sha256")
+      .update(await readFile(filePath))
+      .digest("hex");
   } catch (error) {
     if (isMissingFileError(error)) {
       return null;
@@ -440,25 +444,18 @@ async function pushWorkspaceUnlocked(options: PushWorkspaceOptions): Promise<voi
   }
 
   const affectedFiles = deriveAffectedProjectDataFiles({ generated, snapshot });
+  await assertNoProjectDrift({
+    expectedFiles: manifest.snapshotFiles,
+    dataDirectory: workspace.dataDirectory,
+  });
   if (affectedFiles.length === 0) {
     return;
   }
 
-  await assertNoProjectDrift({
-    affectedFiles,
-    dataDirectory: workspace.dataDirectory,
-    manifest,
-  });
-
   const stagedWrite = await stageProjectRootWrites({
     affectedFiles,
-    dataDirectory: workspace.dataDirectory,
-    statePaths,
-  });
-  await createPendingPushState({
-    affectedFiles,
     generatedFiles,
-    manifest,
+    dataDirectory: workspace.dataDirectory,
     statePaths,
   });
   const writtenFiles: string[] = [];
@@ -467,6 +464,11 @@ async function pushWorkspaceUnlocked(options: PushWorkspaceOptions): Promise<voi
   );
 
   try {
+    await createPendingPushState({ affectedFiles, generatedFiles, manifest, statePaths });
+    await assertNoProjectDrift({
+      expectedFiles: manifest.snapshotFiles,
+      dataDirectory: workspace.dataDirectory,
+    });
     for (const stagedFile of stagedWrite.files) {
       const expectedHash = snapshotHashes.get(stagedFile.relativePath);
       if (expectedHash === undefined) {
@@ -477,12 +479,26 @@ async function pushWorkspaceUnlocked(options: PushWorkspaceOptions): Promise<voi
       await replaceProjectRootFile(stagedFile, expectedHash);
       writtenFiles.push(stagedFile.relativePath);
     }
-  } catch (error) {
-    await rm(stagedWrite.directory, { force: true, recursive: true });
-    const written = writtenFiles.length > 0 ? writtenFiles.join(", ") : "none";
-    throw new Error(`Project Root replacement failed during push after writing: ${written}.`, {
-      cause: error,
+    const generatedHashes = new Map(
+      generatedFiles.map(({ relativePath, hash }) => [relativePath, hash]),
+    );
+    await assertNoProjectDrift({
+      dataDirectory: workspace.dataDirectory,
+      expectedFiles: manifest.snapshotFiles.map((entry) =>
+        writtenFiles.includes(entry.relativePath)
+          ? { ...entry, hash: generatedHashes.get(entry.relativePath)! }
+          : entry,
+      ),
     });
+  } catch (error) {
+    if (!(error instanceof RetainedProjectRootObjectError)) {
+      await rm(stagedWrite.directory, { force: true, recursive: true });
+    }
+    const written = writtenFiles.length > 0 ? writtenFiles.join(", ") : "none";
+    throw new Error(
+      `Project Root replacement failed during push after writing: ${written}. ${error instanceof Error ? error.message : String(error)}`,
+      { cause: error },
+    );
   }
 
   await rm(stagedWrite.directory, { force: true, recursive: true });
@@ -530,20 +546,10 @@ async function assertGeneratedProjectDataFresh(input: {
 }
 
 async function assertNoProjectDrift(input: {
-  affectedFiles: readonly string[];
+  expectedFiles: readonly FileHashEntry[];
   dataDirectory: string;
-  manifest: SyncManifest;
 }): Promise<void> {
-  const snapshotHashes = new Map(
-    input.manifest.snapshotFiles.map((entry) => [entry.relativePath, entry.hash]),
-  );
-
-  for (const relativePath of input.affectedFiles) {
-    const expectedHash = snapshotHashes.get(relativePath);
-    if (expectedHash === undefined) {
-      throw new Error(`Project Drift detected before push for ${relativePath}. Run pull first.`);
-    }
-
+  for (const { relativePath, hash: expectedHash } of input.expectedFiles) {
     const currentHash = await readProjectRootFileHash(input.dataDirectory, relativePath);
     if (currentHash !== expectedHash) {
       throw new Error(`Project Drift detected before push for ${relativePath}. Run pull first.`);
@@ -556,7 +562,9 @@ async function readProjectRootFileHash(
   relativePath: string,
 ): Promise<string> {
   try {
-    return hashUtf8Content(await readFile(resolve(dataDirectory, relativePath), "utf8"));
+    return createHash("sha256")
+      .update(await readFile(resolve(dataDirectory, relativePath)))
+      .digest("hex");
   } catch (error) {
     throw new Error(`Project Drift detected before push for ${relativePath}. Run pull first.`, {
       cause: error,
@@ -566,6 +574,7 @@ async function readProjectRootFileHash(
 
 async function stageProjectRootWrites(input: {
   affectedFiles: readonly string[];
+  generatedFiles: readonly FileHashEntry[];
   dataDirectory: string;
   statePaths: WorkspaceStatePaths;
 }): Promise<{
@@ -597,7 +606,15 @@ async function stageProjectRootWrites(input: {
       const stagedPath = resolve(stagingDirectory, relativePath);
 
       await mkdir(dirname(stagedPath), { recursive: true });
-      await writeFile(stagedPath, await readFile(generatedPath, "utf8"), "utf8");
+      const content = await readFile(generatedPath);
+      if (
+        createHash("sha256").update(content).digest("hex") !==
+        input.generatedFiles.find((entry) => entry.relativePath === relativePath)?.hash
+      )
+        throw new Error(
+          `Generated Project Data changed while staging ${relativePath}. Run compile first.`,
+        );
+      await writeFile(stagedPath, content);
       files.push({
         originalPath: resolve(stagingDirectory, "original", relativePath),
         relativePath,
@@ -616,6 +633,15 @@ async function stageProjectRootWrites(input: {
   };
 }
 
+class RetainedProjectRootObjectError extends Error {
+  constructor(originalPath: string, error: unknown, restoreError: unknown) {
+    super(
+      `Captured Project Root object retained at ${originalPath}; non-overwriting restoration failed. ${error instanceof Error ? error.message : String(error)} Restoration: ${restoreError instanceof Error ? restoreError.message : String(restoreError)}`,
+      { cause: error },
+    );
+  }
+}
+
 async function replaceProjectRootFile(
   stagedFile: {
     relativePath: string;
@@ -625,7 +651,6 @@ async function replaceProjectRootFile(
   },
   expectedHash: string,
 ): Promise<void> {
-  const conflictPath = `${stagedFile.targetPath}.rpgmaker-event-dsl-conflict-${randomUUID()}`;
   let replacementInstalled = false;
   let originalCaptured = false;
   await mkdir(dirname(stagedFile.originalPath), { recursive: true });
@@ -639,30 +664,20 @@ async function replaceProjectRootFile(
       );
     }
 
-    const concurrentTargetHash = await readFileHashOrNull(stagedFile.targetPath);
-    if (concurrentTargetHash !== null && concurrentTargetHash !== expectedHash) {
-      throw new Error(
-        `Project Drift detected during push for ${stagedFile.relativePath}. Run pull first.`,
-      );
-    }
-
-    await rename(stagedFile.stagedPath, stagedFile.targetPath);
+    // Both files are on the Project data volume. link refuses an existing target
+    // atomically, including arrivals after the preceding content checks.
+    await link(stagedFile.stagedPath, stagedFile.targetPath);
     replacementInstalled = true;
+    await rm(stagedFile.stagedPath);
   } catch (error) {
-    if (replacementInstalled) {
-      await rm(stagedFile.targetPath, { force: true });
-    } else if (originalCaptured && (await readFileHashOrNull(stagedFile.targetPath)) !== null) {
-      await rename(stagedFile.targetPath, conflictPath);
-    }
-    if (originalCaptured) {
+    if (originalCaptured && !replacementInstalled) {
       try {
-        await rename(stagedFile.originalPath, stagedFile.targetPath);
+        await link(stagedFile.originalPath, stagedFile.targetPath);
+        await rm(stagedFile.originalPath);
       } catch (restoreError) {
-        if (!isMissingFileError(restoreError)) {
-          throw new Error(`Failed to restore Project Root file ${stagedFile.relativePath}.`, {
-            cause: restoreError,
-          });
-        }
+        // Captured bytes may be an external edit absent from the Snapshot backup.
+        // Retain this object and the staging directory if it cannot be restored.
+        throw new RetainedProjectRootObjectError(stagedFile.originalPath, error, restoreError);
       }
     }
     throw error;
@@ -688,14 +703,13 @@ async function refreshSnapshotAndManifestAfterPush(input: {
   for (const relativePath of input.affectedFiles) {
     const content = await readFile(
       resolve(input.statePaths.generatedProjectDataDirectory, relativePath),
-      "utf8",
     );
     const snapshotPath = resolve(input.statePaths.projectDataSnapshotDirectory, relativePath);
 
     await mkdir(dirname(snapshotPath), { recursive: true });
-    await writeFile(snapshotPath, content, "utf8");
+    await writeFile(snapshotPath, content);
     snapshotFiles.set(relativePath, {
-      hash: hashUtf8Content(content),
+      hash: createHash("sha256").update(content).digest("hex"),
       relativePath,
     });
   }
@@ -722,7 +736,7 @@ function isSafeProjectDataFileName(relativePath: string): boolean {
   return (
     relativePath === "CommonEvents.json" ||
     relativePath === "System.json" ||
-    /^Map\d{3}\.json$/u.test(relativePath)
+    isCanonicalMapFileName(relativePath)
   );
 }
 

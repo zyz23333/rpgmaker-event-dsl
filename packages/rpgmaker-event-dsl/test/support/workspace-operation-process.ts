@@ -41,7 +41,15 @@ export function startWorkspaceOperation(
       | "before-decompile-move"
       | "after-decompile-move"
       | "decompile-write-failure"
-      | "decompile-move-unavailable";
+      | "decompile-move-unavailable"
+      | "push-prewrite"
+      | "push-after-install"
+      | "push-before-install"
+      | "push-before-capture"
+      | "push-capture-restore"
+      | "push-generated-capture";
+    failRestore?: boolean;
+    failInstall?: boolean;
     captureFile?: string;
     barrier?: boolean;
   },
@@ -78,6 +86,13 @@ export function startWorkspaceOperation(
           sandbox.workspaceRoot,
           ".rpgmaker-event-dsl",
           "generated-project-data",
+        ),
+        pendingPath: resolve(sandbox.workspaceRoot, ".rpgmaker-event-dsl", "pending-push"),
+        generatedCapturePath: resolve(
+          sandbox.workspaceRoot,
+          ".rpgmaker-event-dsl",
+          "generated-project-data",
+          input.captureFile ?? "CommonEvents.json",
         ),
         inputPath: resolve(
           sandbox.workspaceRoot,

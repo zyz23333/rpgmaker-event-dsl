@@ -233,6 +233,25 @@ Decompile publishes source; their diagnostic identifies the event and native
 list position. Internal command-family renderers also accept command fragments,
 which are not complete saved event lists.
 
+## Push safety
+
+Push checks raw bytes across all 14 standard database files and every map registered
+by the captured Snapshot's MapInfos, including when Diff has no changes. Plugin files
+and unregistered maps stay outside this set. Diff compares parsed values and ignores
+object key order, formatting and equivalent escapes; live byte changes still require
+Pull and another Compile before Push. Canonical high map names such as `Map1001.json`
+are supported in Diff filters and Push.
+
+Only Affected files are backed up and written. Push checks the full original set before
+the first replacement, the actual old bytes at each capture, and the full expected set
+after writes before synchronization metadata is refreshed. Postwrite conflicts or
+finalization failures retain Interrupted Push state and the observed live files.
+Atomic non-overwriting installation/restoration preserves concurrent target arrivals;
+unsupported installation fails safely. If restoration fails, the diagnostic identifies
+the captured original retained in `push-staging.tmp-*/original`, which may hold unique
+external bytes. These checks do not provide isolation from later external saves or a
+project-wide rollback.
+
 ## License
 
 MIT

@@ -1,6 +1,6 @@
 # 21: Push 全输入漂移与写入复核
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 20
 Stage: S4c
 Created: 2026-10-19
