@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "scope": "Ticket01 seeds, ticket02 Windows baseline, tickets03–08 native reverse-engineering/accepted finite contracts, ticket11 System/switches, ticket12 captured map/battle context and ticket13 Loop/Break/Exit. Not complete105+45 or final E1–E7/R1–R7 acceptance.",
+  "scope": "Ticket01 seeds, ticket02 Windows baseline, tickets03–09 native reverse-engineering/accepted finite contracts, ticket11 System/switches, ticket12 captured map/battle context and ticket13 Loop/Break/Exit. Not complete105+45 or final E1–E7/R1–R7 acceptance.",
   "requirements": [
     {
       "id": "MV-S0-CE-001",
@@ -3178,6 +3178,805 @@
         "layer": "Construction/load/preview/child-confirm/parent-confirm/container serialization and accepted-domain review"
       },
       "slice": "08 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E09-LABEL",
+      "title": "Label single-slot load and save",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/09-native-single-slot-strings.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E118 — Label"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325 — Change Profile"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/movement.md",
+          "section": "### M45 — script"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "E118 p0 依次考虑独立字符样本，既有/null 命令; all relevant independent samples are in .scratch/complete-mv-events-implementation/evidence/09-string-inputs.json",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json",
+        "sha256": "97cdc3ed7c3a84ce71ebdb00e0036121ec875e3943f8f518fc16e4ef23e4abd6"
+      },
+      "expected": "LabeledTextField 直接收p0，确认读取当前text写p0，没有命令级trim、split或非空检查; 随包代码观察；当前控件值不等于保证原输入未被Qt改变",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-single-slot-strings-and-reconfirmation-reverse.md",
+        "section": "## 保存路径结果与推导"
+      },
+      "nativeGroups": ["E5"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML; no editor UI, extracted-code execution, product or game",
+        "owner": "Codex ticket09 reverse-engineering analyst; read-only resource verification and bounded source/contract review",
+        "layer": "Construction/load/ordinary input restrictions/parameter confirmation/container and route serialization review"
+      },
+      "slice": "09 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E09-JUMP-LABEL",
+      "title": "Jump to Label single-slot load and save",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/09-native-single-slot-strings.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E118 — Label"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325 — Change Profile"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/movement.md",
+          "section": "### M45 — script"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "E119 p0 同一独立样本集; all relevant independent samples are in .scratch/complete-mv-events-implementation/evidence/09-string-inputs.json",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json",
+        "sha256": "97cdc3ed7c3a84ce71ebdb00e0036121ec875e3943f8f518fc16e4ef23e4abd6"
+      },
+      "expected": "加载/保存与Label同构，仍为一槽，不创建续行或重组Label; 随包代码观察；精确Label查找及其产品警告未执行",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-single-slot-strings-and-reconfirmation-reverse.md",
+        "section": "## 保存路径结果与推导"
+      },
+      "nativeGroups": ["E5"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML; no editor UI, extracted-code execution, product or game",
+        "owner": "Codex ticket09 reverse-engineering analyst; read-only resource verification and bounded source/contract review",
+        "layer": "Construction/load/ordinary input restrictions/parameter confirmation/container and route serialization review"
+      },
+      "slice": "09 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E09-ACTOR-NAME",
+      "title": "Change Name complete text slot",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/09-native-single-slot-strings.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E118 — Label"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325 — Change Profile"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/movement.md",
+          "section": "### M45 — script"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "E320 actor1和独立p1字符串；不修改actor选择; all relevant independent samples are in .scratch/complete-mv-events-implementation/evidence/09-string-inputs.json",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json",
+        "sha256": "97cdc3ed7c3a84ce71ebdb00e0036121ec875e3943f8f518fc16e4ef23e4abd6"
+      },
+      "expected": "actor恢复后p1直接入TextField，确认写当前text；未从项目name刷新文本; 随包代码观察；正常已完成初始化为前提，不证明UI创建所有样本",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-single-slot-strings-and-reconfirmation-reverse.md",
+        "section": "## 保存路径结果与推导"
+      },
+      "nativeGroups": ["E5"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML; no editor UI, extracted-code execution, product or game",
+        "owner": "Codex ticket09 reverse-engineering analyst; read-only resource verification and bounded source/contract review",
+        "layer": "Construction/load/ordinary input restrictions/parameter confirmation/container and route serialization review"
+      },
+      "slice": "09 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E09-ACTOR-NICKNAME",
+      "title": "Change Nickname complete text slot",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/09-native-single-slot-strings.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E118 — Label"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325 — Change Profile"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/movement.md",
+          "section": "### M45 — script"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "E324 actor1和独立p1字符串; all relevant independent samples are in .scratch/complete-mv-events-implementation/evidence/09-string-inputs.json",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json",
+        "sha256": "97cdc3ed7c3a84ce71ebdb00e0036121ec875e3943f8f518fc16e4ef23e4abd6"
+      },
+      "expected": "与Name同构；没有按昵称长度裁字的命令保存表达式或项目昵称默认读取; 随包代码观察；不把有界未见上限说成Qt无限容量",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-single-slot-strings-and-reconfirmation-reverse.md",
+        "section": "## 保存路径结果与推导"
+      },
+      "nativeGroups": ["E5"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML; no editor UI, extracted-code execution, product or game",
+        "owner": "Codex ticket09 reverse-engineering analyst; read-only resource verification and bounded source/contract review",
+        "layer": "Construction/load/ordinary input restrictions/parameter confirmation/container and route serialization review"
+      },
+      "slice": "09 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E09-PROFILE",
+      "title": "Profile text slot with two-line control",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/09-native-single-slot-strings.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E118 — Label"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325 — Change Profile"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/movement.md",
+          "section": "### M45 — script"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "E325 actor1，空/两段/三段/CRLF/尾LF样本; all relevant independent samples are in .scratch/complete-mv-events-implementation/evidence/09-string-inputs.json",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json",
+        "sha256": "97cdc3ed7c3a84ce71ebdb00e0036121ec875e3943f8f518fc16e4ef23e4abd6"
+      },
+      "expected": "p1完整加载/读取，Profile设两行；保存器不拆记录，底层超行限制另行触发; 随包代码观察及条件边界；不声称三段重确认仍原样",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-single-slot-strings-and-reconfirmation-reverse.md",
+        "section": "## 保存路径结果与推导"
+      },
+      "nativeGroups": ["E5"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML; no editor UI, extracted-code execution, product or game",
+        "owner": "Codex ticket09 reverse-engineering analyst; read-only resource verification and bounded source/contract review",
+        "layer": "Construction/load/ordinary input restrictions/parameter confirmation/container and route serialization review"
+      },
+      "slice": "09 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E09-CONDITION-SCRIPT",
+      "title": "Conditional Script single text slot",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/09-native-single-slot-strings.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E118 — Label"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325 — Change Profile"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/movement.md",
+          "section": "### M45 — script"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "E111完整合法父体，type12脚本字符串为样本；另从新建明确选Script; all relevant independent samples are in .scratch/complete-mv-events-implementation/evidence/09-string-inputs.json",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json",
+        "sha256": "97cdc3ed7c3a84ce71ebdb00e0036121ec875e3943f8f518fc16e4ef23e4abd6"
+      },
+      "expected": "tab4加载p1并选Script，makeParameters取当前text作唯一脚本槽；不按LF生成多条件记录; 随包代码观察；tab/_column完成顺序未实际执行，父体保存责任不在此结论内",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-single-slot-strings-and-reconfirmation-reverse.md",
+        "section": "## 保存路径结果与推导"
+      },
+      "nativeGroups": ["E5"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML; no editor UI, extracted-code execution, product or game",
+        "owner": "Codex ticket09 reverse-engineering analyst; read-only resource verification and bounded source/contract review",
+        "layer": "Construction/load/ordinary input restrictions/parameter confirmation/container and route serialization review"
+      },
+      "slice": "09 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E09-VARIABLE-SCRIPT",
+      "title": "Control Variables Script operand slot",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/09-native-single-slot-strings.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E118 — Label"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325 — Change Profile"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/movement.md",
+          "section": "### M45 — script"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "E122合法五槽，p3=4/p4为样本，目标和operation固定; all relevant independent samples are in .scratch/complete-mv-events-implementation/evidence/09-string-inputs.json",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json",
+        "sha256": "97cdc3ed7c3a84ce71ebdb00e0036121ec875e3943f8f518fc16e4ef23e4abd6"
+      },
+      "expected": "setup选择Script并赋p4；确认重建恰五槽，脚本文本没有split/trim表达式; 随包代码观察；不保证Qt保留原串或脚本求值成功",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-single-slot-strings-and-reconfirmation-reverse.md",
+        "section": "## 保存路径结果与推导"
+      },
+      "nativeGroups": ["E5"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML; no editor UI, extracted-code execution, product or game",
+        "owner": "Codex ticket09 reverse-engineering analyst; read-only resource verification and bounded source/contract review",
+        "layer": "Construction/load/ordinary input restrictions/parameter confirmation/container and route serialization review"
+      },
+      "slice": "09 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E09-MOVEMENT-SCRIPT",
+      "title": "Movement Script text and record-envelope boundary",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/09-native-single-slot-strings.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E118 — Label"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325 — Change Profile"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/movement.md",
+          "section": "### M45 — script"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "M45合法p0样本，页路线或205列表；主动编辑该项; all relevant independent samples are in .scratch/complete-mv-events-implementation/evidence/09-string-inputs.json",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json",
+        "sha256": "97cdc3ed7c3a84ce71ebdb00e0036121ec875e3943f8f518fc16e4ef23e4abd6"
+      },
+      "expected": "p0直接载入TextField；确认新建一条M45并取当前text，外壳重建单独处理; 随包代码观察；没有抽出函数复算或原生UI执行，保留04外壳责任",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-single-slot-strings-and-reconfirmation-reverse.md",
+        "section": "## 保存路径结果与推导"
+      },
+      "nativeGroups": ["E5"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML; no editor UI, extracted-code execution, product or game",
+        "owner": "Codex ticket09 reverse-engineering analyst; read-only resource verification and bounded source/contract review",
+        "layer": "Construction/load/ordinary input restrictions/parameter confirmation/container and route serialization review"
+      },
+      "slice": "09 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E09-EMPTY-WHITESPACE",
+      "title": "Empty and whitespace values versus ordinary input",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/09-native-single-slot-strings.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E118 — Label"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325 — Change Profile"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/movement.md",
+          "section": "### M45 — script"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "空控件、空串、空格/Tab及不含CR/LF的空白样本; all relevant independent samples are in .scratch/complete-mv-events-implementation/evidence/09-string-inputs.json",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json",
+        "sha256": "97cdc3ed7c3a84ce71ebdb00e0036121ec875e3943f8f518fc16e4ef23e4abd6"
+      },
+      "expected": "保存器允许读取空串及当前空白，不trim；新E111/E122须主动选择Script；Tab键转焦点与已有Tab分开; 有条件推导；没有把未测Qt初值或Tab粘贴当真实创建结果",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-single-slot-strings-and-reconfirmation-reverse.md",
+        "section": "## 保存路径结果与推导"
+      },
+      "nativeGroups": ["E5"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML; no editor UI, extracted-code execution, product or game",
+        "owner": "Codex ticket09 reverse-engineering analyst; read-only resource verification and bounded source/contract review",
+        "layer": "Construction/load/ordinary input restrictions/parameter confirmation/container and route serialization review"
+      },
+      "slice": "09 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E09-CONTROL-CHARS",
+      "title": "CR, LF and CRLF load/reconfirmation limits",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/09-native-single-slot-strings.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E118 — Label"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325 — Change Profile"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/movement.md",
+          "section": "### M45 — script"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "各槽注入CR/LF/CRLF样本，再比较赋值与确认; all relevant independent samples are in .scratch/complete-mv-events-implementation/evidence/09-string-inputs.json",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json",
+        "sha256": "97cdc3ed7c3a84ce71ebdb00e0036121ec875e3943f8f518fc16e4ef23e4abd6"
+      },
+      "expected": "命令层直接赋值/读取，不做换行转换；底层Qt与行数处理可能改变current text，具体输出不保证; 有界观察与未知限定；不预先规范化以制造一致性",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-single-slot-strings-and-reconfirmation-reverse.md",
+        "section": "## 保存路径结果与推导"
+      },
+      "nativeGroups": ["E5"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML; no editor UI, extracted-code execution, product or game",
+        "owner": "Codex ticket09 reverse-engineering analyst; read-only resource verification and bounded source/contract review",
+        "layer": "Construction/load/ordinary input restrictions/parameter confirmation/container and route serialization review"
+      },
+      "slice": "09 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E09-TRAILING",
+      "title": "Trailing characters and delimiters",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/09-native-single-slot-strings.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E118 — Label"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325 — Change Profile"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/movement.md",
+          "section": "### M45 — script"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "尾空格/Tab/LF/两个LF/CR/CRLF样本; all relevant independent samples are in .scratch/complete-mv-events-implementation/evidence/09-string-inputs.json",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json",
+        "sha256": "97cdc3ed7c3a84ce71ebdb00e0036121ec875e3943f8f518fc16e4ef23e4abd6"
+      },
+      "expected": "单槽保存器没有四类行记录的裁尾循环；若current text保留则整串读取，超行与Qt转换风险仍独立; 有条件静态推导；尾LF照原串参与warning阈值",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-single-slot-strings-and-reconfirmation-reverse.md",
+        "section": "## 保存路径结果与推导"
+      },
+      "nativeGroups": ["E5"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML; no editor UI, extracted-code execution, product or game",
+        "owner": "Codex ticket09 reverse-engineering analyst; read-only resource verification and bounded source/contract review",
+        "layer": "Construction/load/ordinary input restrictions/parameter confirmation/container and route serialization review"
+      },
+      "slice": "09 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E09-LONG",
+      "title": "Long string and bounded absence of a character cap",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/09-native-single-slot-strings.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E118 — Label"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325 — Change Profile"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/movement.md",
+          "section": "### M45 — script"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "独立4096个中加尾空白，分别赋入八槽; all relevant independent samples are in .scratch/complete-mv-events-implementation/evidence/09-string-inputs.json",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json",
+        "sha256": "97cdc3ed7c3a84ce71ebdb00e0036121ec875e3943f8f518fc16e4ef23e4abd6"
+      },
+      "expected": "已读命令和完整共享包装没有显式字符数上限；产品已批准不新增长度上限; 有界负向代码观察及契约比较；未证明真实输入/显示/性能/内部容量",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-single-slot-strings-and-reconfirmation-reverse.md",
+        "section": "## 保存路径结果与推导"
+      },
+      "nativeGroups": ["E5"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML; no editor UI, extracted-code execution, product or game",
+        "owner": "Codex ticket09 reverse-engineering analyst; read-only resource verification and bounded source/contract review",
+        "layer": "Construction/load/ordinary input restrictions/parameter confirmation/container and route serialization review"
+      },
+      "slice": "09 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E09-LINE-LIMIT",
+      "title": "Line-limit change trigger differs from load",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/09-native-single-slot-strings.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E118 — Label"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325 — Change Profile"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/movement.md",
+          "section": "### M45 — script"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "控件maximumLineCount由0变1或2；考虑已有三段字符串; all relevant independent samples are in .scratch/complete-mv-events-implementation/evidence/09-string-inputs.json",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json",
+        "sha256": "97cdc3ed7c3a84ce71ebdb00e0036121ec875e3943f8f518fc16e4ef23e4abd6"
+      },
+      "expected": "上限变化处理按字面LF截段再连接；仅该事件有此表达式，不等于每次load固定裁行; 随包代码观察；赋值前后、Qt先行转换及信号顺序未运行",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-single-slot-strings-and-reconfirmation-reverse.md",
+        "section": "## 保存路径结果与推导"
+      },
+      "nativeGroups": ["E5"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML; no editor UI, extracted-code execution, product or game",
+        "owner": "Codex ticket09 reverse-engineering analyst; read-only resource verification and bounded source/contract review",
+        "layer": "Construction/load/ordinary input restrictions/parameter confirmation/container and route serialization review"
+      },
+      "slice": "09 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E09-INPUT-LIMITS",
+      "title": "Tab, Return and text-change input guards",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/09-native-single-slot-strings.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E118 — Label"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325 — Change Profile"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/movement.md",
+          "section": "### M45 — script"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "普通Tab、Return、粘贴及已载入超行text; all relevant independent samples are in .scratch/complete-mv-events-implementation/evidence/09-string-inputs.json",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json",
+        "sha256": "97cdc3ed7c3a84ce71ebdb00e0036121ec875e3943f8f518fc16e4ef23e4abd6"
+      },
+      "expected": "单行Return寻祖先OK、多行交TextEdit；Tab转焦点；width>0且Qt lineCount超限的textChanged按length−1截取text; 随包代码观察；length来自TextEdit，不假装粘贴/IME/递归截断最终结果已测",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-single-slot-strings-and-reconfirmation-reverse.md",
+        "section": "## 保存路径结果与推导"
+      },
+      "nativeGroups": ["E5"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML; no editor UI, extracted-code execution, product or game",
+        "owner": "Codex ticket09 reverse-engineering analyst; read-only resource verification and bounded source/contract review",
+        "layer": "Construction/load/ordinary input restrictions/parameter confirmation/container and route serialization review"
+      },
+      "slice": "09 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E09-QT-TIMING",
+      "title": "Qt document and signal timing boundaries",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/09-native-single-slot-strings.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E118 — Label"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325 — Change Profile"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/movement.md",
+          "section": "### M45 — script"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "控件赋值、宽度0/正值、lineCount变化和重复textChanged; all relevant independent samples are in .scratch/complete-mv-events-implementation/evidence/09-string-inputs.json",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json",
+        "sha256": "97cdc3ed7c3a84ce71ebdb00e0036121ec875e3943f8f518fc16e4ef23e4abd6"
+      },
+      "expected": "宽度/行数/重入、CR与CRLF文档模型、textFormat及tab内容建立未知均已界定，不给无条件重确认保证; 已完成边界核对；未知UI结果保持未执行，不需要改变已接受保存域",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-single-slot-strings-and-reconfirmation-reverse.md",
+        "section": "## 保存路径结果与推导"
+      },
+      "nativeGroups": ["E5"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML; no editor UI, extracted-code execution, product or game",
+        "owner": "Codex ticket09 reverse-engineering analyst; read-only resource verification and bounded source/contract review",
+        "layer": "Construction/load/ordinary input restrictions/parameter confirmation/container and route serialization review"
+      },
+      "slice": "09 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E09-CONTAINER",
+      "title": "Container and outer route confirmation keep strings outside TextEdit",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/09-native-single-slot-strings.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E118 — Label"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325 — Change Profile"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/movement.md",
+          "section": "### M45 — script"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "八槽有效字符串仅容器保存；M45仅外层路线/205确认且不单项编辑; all relevant independent samples are in .scratch/complete-mv-events-implementation/evidence/09-string-inputs.json",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json",
+        "sha256": "97cdc3ed7c3a84ce71ebdb00e0036121ec875e3943f8f518fc16e4ef23e4abd6"
+      },
+      "expected": "JSON保存/clone保留有效字符串；外层路线回传完整列表/镜像而不逐项调用TextEdit；非文本设置责任另列; 代码与JSON语义推导；未验证磁盘写入、产品输出或游戏",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-single-slot-strings-and-reconfirmation-reverse.md",
+        "section": "## 保存路径结果与推导"
+      },
+      "nativeGroups": ["E5"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML; no editor UI, extracted-code execution, product or game",
+        "owner": "Codex ticket09 reverse-engineering analyst; read-only resource verification and bounded source/contract review",
+        "layer": "Construction/load/ordinary input restrictions/parameter confirmation/container and route serialization review"
+      },
+      "slice": "09 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E09-WARNING-POLICY",
+      "title": "Accepted original-string warning rules and independent Gate",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/09-native-single-slot-strings.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E118 — Label"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325 — Change Profile"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/movement.md",
+          "section": "### M45 — script"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "原串LF计数、CR检测及独立样本预期原因，对照决定13; all relevant independent samples are in .scratch/complete-mv-events-implementation/evidence/09-string-inputs.json",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-resource-identities.json",
+        "sha256": "97cdc3ed7c3a84ce71ebdb00e0036121ec875e3943f8f518fc16e4ef23e4abd6"
+      },
+      "expected": "单行LF、Profile至少两个LF、列明八槽CR按原串给风险原因；尾分隔符参与，不改串、不扩展字段；Gate独立; 已批准产品选择一致性核对；不是Qt输出预测或产品warning测试",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/09-single-slot-strings-and-reconfirmation-reverse.md",
+        "section": "## 保存路径结果与推导"
+      },
+      "nativeGroups": ["E5"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML; no editor UI, extracted-code execution, product or game",
+        "owner": "Codex ticket09 reverse-engineering analyst; read-only resource verification and bounded source/contract review",
+        "layer": "Construction/load/ordinary input restrictions/parameter confirmation/container and route serialization review"
+      },
+      "slice": "09 / S1",
       "required": true
     }
   ]
