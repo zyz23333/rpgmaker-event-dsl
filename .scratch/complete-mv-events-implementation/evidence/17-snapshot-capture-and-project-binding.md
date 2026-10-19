@@ -6,7 +6,7 @@
 
 Snapshot 从一次读取的 MapInfos 原始 Buffer 确定地图集合，各标准文件也只读取一份 Buffer 用于暂存内容和 SHA256。发布前逐文件复查整份字节，并复查实际 Workspace Config 字节及规范化目标；发现变化失败，要求重跑，没有自动部分重读/重试。对 UTF-8 使用 fatal 解码检查，保留实际原始字节而不经 JSON 重串行化。解析只确定集合与 carrier 位置，不验证或补全外部数据库的所有字段。
 
-MapInfos 必须为数组，非 null 项必须具有正安全整数且不重复的 id，以及后续消费者所需的非负安全整数 parentId；空名称和其他原始字段保留，不添加 index=id 约束。非法根、条目、ID、重复、缺注册地图或目录代替文件均明确拒绝。System 必须为对象，其他标准数据库为数组，登记地图须为含 events 数组的对象。插件数据与未登记地图保持在集合之外，不因它们损坏而拒绝完整标准集合。
+MapInfos 必须为数组，非 null 项必须具有正安全整数且不重复的 id。集合只由 id 决定；空名称、缺失/非数值 parentId 和其他外部字段原样保留，不添加 index=id 或 parentId 约束。共享 parseMapInfos 修复了因无关 parentId 过滤有效 ID 的旧行为。非法根、条目、ID、重复、缺注册地图或目录代替文件均明确拒绝。System 必须为对象，其他标准数据库为数组，登记地图须为含 events 数组的对象。插件数据与未登记地图保持在集合之外，不因它们损坏而拒绝完整标准集合。
 
 暂存目录安装完成后才提交 manifest。文件级 manifest rename 保留旧文件；若 manifest 安装失败，则恢复旧 Snapshot。各读取命令也重新计算 Snapshot 的 MapInfos 集合及原始内容哈希，与 manifest 比较，拒绝混合发布或本地损坏状态。公开 Freshness 查询保留内容变化返回 false 的现有行为。
 
@@ -39,11 +39,13 @@ Project Root Binding 使用 `realpath` 后的路径，Windows 大小写归一，
 | 09:20:14 | manifest 带 ../outside.json 仍通过 Check | snapshot-metadata-GndGcS |
 | 09:20:54 | 本地 Snapshot 与 manifest 不符仍通过 Check | snapshot-integrity-9my7vz |
 | 09:21:38 | 登记地图 events 为对象仍被捕获 | snapshot-carrier-XsE4ea |
+| 09:32:38 | 新增真实 Workspace 正例说明 parentId 与定位无关；缺失/不透明 parentId 被初版捕获规则错误拒绝 | snapshot-collection-wiqsiA |
+| 09:36:21 | Snapshot 存在但 manifest 丢失时，Clone 错误成功，隐式重建未知目标状态 | snapshot-metadata-usH4IJ |
 
-每个新增行为都遵循先红后绿。之后逐步扩展正常与失败边界：Clone/Pull 各四种实际并发编辑；十种非法 MapInfos；完整目标消费者矩阵；显式 Pull/新 Compile/junction 正例；真实 pending 错目标及原目标恢复；十种 pending 元数据异常、损坏 JSON、缺 manifest、backup/generated 字节损坏和全 generated 收尾。
+每个新增行为都遵循先红后绿。之后逐步扩展正常与失败边界：Clone/Pull 各四种实际并发编辑；八种非法 MapInfos；完整目标消费者矩阵；显式 Pull/新 Compile/junction 正例；真实 pending 错目标及原目标恢复；十种 pending 元数据异常、损坏 JSON、缺 manifest、backup/generated 字节损坏和全 generated 收尾。父代理依据 I8 指出 parentId 未用于安全定位；复核后增加正例并观察红灯，随后修共享 parser，只按 ID 验证集合。含非数值/缺失 parentId 的 Map001/Map1001 均经过实际 Decompile、Discovery、类型检查、求值和 Compile，生成两份完整地图且保留外部字节。
 
 ## Verification
 
-Windows / Node22.23.0、pnpm10.33.0。十组聚焦测试通过（24.69s）；工作流、操作锁和本票联合回归3 files /48 tests通过（46.28s）。完整静态检查 typecheck、lint、format:check 已通过。最终全量源码、构建和构建后基线结果在合并集成后追加。
+Windows / Node22.23.0、pnpm10.33.0。初版十组聚焦测试通过（24.69s）；工作流、操作锁和本票联合回归3 files /48 tests通过（46.28s）。完整静态检查 typecheck、lint、format:check 已通过。17:28:54 开始的首次全量为174通过/1失败，唯一失败是人工清单尚未追加时被验收索引校验读取；未改标成功，随后补全十条清单。提交66467ed后合并集成0262a29为ffd44af，双方索引按 ID 并集保留，包含10/14证据。本次又补 parentId 正例及共享 parser 修正，聚焦005通过（3.11s），合并后全量23 files /225 tests通过（89.70s）。之后对 orphan Snapshot 增补一次真实红灯；Clone 现在明确要求显式 Pull，修复后007聚焦通过（2.13s）。最终全量源码、构建和构建后基线结果另追加。
 
 本票没有独立编辑器或游戏分配；全部机器记录 `native: not-executed`。最终 E1–E7 逆向比较和 R1–R7 游戏运行仍保持未完成门槛。

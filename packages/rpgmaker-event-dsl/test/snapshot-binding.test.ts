@@ -325,8 +325,6 @@ it("MV-S4-SNAPSHOT-005: rejects unsafe MapInfos collections instead of silently 
       [null, { id: 1.5, parentId: 0 }],
       [null, { id: 9007199254740992, parentId: 0 }],
       [null, { id: "../outside", parentId: 0 }],
-      [null, { id: 1 }],
-      [null, { id: 1, parentId: -1 }],
       [null, { id: 1, parentId: 0 }, { id: 1, parentId: 0 }],
     ]) {
       await writeFile(mapInfos, JSON.stringify(invalid));
@@ -334,8 +332,13 @@ it("MV-S4-SNAPSHOT-005: rejects unsafe MapInfos collections instead of silently 
       await expect(api.pullWorkspace(sandbox)).rejects.toThrow("MapInfos");
       expect(await observe(sandbox.workspaceRoot)).toEqual(before);
     }
-    const registered = '[null,{"id":1,"parentId":0,"name":"","retained":[null]}]';
+    const registered =
+      '[null,{"id":1,"parentId":{"opaque":[null]},"name":"","retained":[null]},{"id":1001,"name":""}]';
     await writeFile(mapInfos, registered);
+    await writeFile(
+      join(sandbox.workspaceRoot, "Game", "data", "Map1001.json"),
+      '{"events":[null],"opaque":null}',
+    );
     await writeFile(join(sandbox.workspaceRoot, "Game", "data", "Map002.json"), "invalid orphan");
     await writeFile(
       join(sandbox.workspaceRoot, "Game", "data", "Plugin.json"),
@@ -345,8 +348,21 @@ it("MV-S4-SNAPSHOT-005: rejects unsafe MapInfos collections instead of silently 
     const snapshot = join(sandbox.workspaceRoot, ".rpgmaker-event-dsl", "project-data-snapshot");
     expect(await readFile(join(snapshot, "MapInfos.json"), "utf8")).toBe(registered);
     expect(await readFile(join(snapshot, "Map001.json"), "utf8")).toBe('{"events":[null]}');
+    expect(await readFile(join(snapshot, "Map1001.json"), "utf8")).toBe(
+      '{"events":[null],"opaque":null}',
+    );
     await expect(readFile(join(snapshot, "Map002.json"))).rejects.toThrow();
     await expect(readFile(join(snapshot, "Plugin.json"))).rejects.toThrow();
+    await api.decompileWorkspace(sandbox);
+    await api.compileWorkspace({ ...sandbox, check: false });
+    const generated = join(sandbox.workspaceRoot, ".rpgmaker-event-dsl", "generated-project-data");
+    expect(JSON.parse(await readFile(join(generated, "Map001.json"), "utf8"))).toEqual({
+      events: [null],
+    });
+    expect(JSON.parse(await readFile(join(generated, "Map1001.json"), "utf8"))).toEqual({
+      events: [null],
+      opaque: null,
+    });
     await rm(join(sandbox.workspaceRoot, "Game", "data", "Map001.json"));
     const beforeMissing = await observe(sandbox.workspaceRoot);
     await expect(api.pullWorkspace(sandbox)).rejects.toThrow("Map001.json");
@@ -432,6 +448,10 @@ it("MV-S4-SNAPSHOT-007: rejects unsafe Snapshot metadata before reading or publi
     expect(cli.exitCode).not.toBe(0);
     expect(cli.stderr).toContain("Unknown or corrupt Sync Manifest");
     expect(await observe(sandbox.workspaceRoot)).toEqual(before);
+    await rm(path);
+    const missingManifest = await observe(sandbox.workspaceRoot);
+    await expect(api.cloneWorkspace(sandbox)).rejects.toThrow("Sync Manifest");
+    expect(await observe(sandbox.workspaceRoot)).toEqual(missingManifest);
   });
 });
 

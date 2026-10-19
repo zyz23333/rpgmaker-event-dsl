@@ -1,4 +1,4 @@
-import { readFile } from "node:fs/promises";
+import { readFile, stat } from "node:fs/promises";
 import { relative, resolve } from "node:path";
 
 import {
@@ -38,6 +38,7 @@ import {
 } from "../project-data/structured-diff.js";
 import { assertWorkspaceUnchanged, loadWorkspace } from "./config.js";
 import { withWorkspaceOperationLock } from "./operation-lock.js";
+import { isMissingFileError } from "./guards.js";
 import {
   assertKnownSafeProjectDataFile,
   assertGeneratedProjectDataIntegrity,
@@ -79,6 +80,18 @@ async function captureWorkspaceSnapshot(
     const manifest = await readSyncManifest(statePaths.syncManifestPath);
     if (manifest !== null)
       assertProjectRootBinding(manifest, workspace.projectRootBinding, commandName);
+    else {
+      const snapshot = await stat(statePaths.projectDataSnapshotDirectory).catch(
+        (error: unknown) => {
+          if (isMissingFileError(error)) return null;
+          throw error;
+        },
+      );
+      if (snapshot !== null)
+        throw new Error(
+          "Project Data Snapshot exists without its Sync Manifest. Run pull explicitly to establish a complete Snapshot and target binding.",
+        );
+    }
   }
   await captureStandardProjectDataSnapshot({
     dataDirectory: workspace.dataDirectory,

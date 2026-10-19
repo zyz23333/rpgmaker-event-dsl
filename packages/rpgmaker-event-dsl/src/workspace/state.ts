@@ -4,6 +4,7 @@ import { dirname, posix, resolve } from "node:path";
 
 import { z } from "zod";
 
+import { parseMapInfos } from "../project-data/project.js";
 import { writeStableJson } from "../project-data/writer.js";
 
 export const workspaceStateDirectoryName = ".rpgmaker-event-dsl";
@@ -237,8 +238,8 @@ export async function collectStandardProjectDataSnapshotPlan(
 ): Promise<SnapshotFilePlan[]> {
   const mapInfosPath = resolve(dataDirectory, "MapInfos.json");
   const mapInfosRaw = await readFile(mapInfosPath);
-  const mapFileNames = collectRegisteredMapFileNames(
-    decodeProjectData(mapInfosRaw, "MapInfos.json"),
+  const mapFileNames = parseMapInfos(decodeProjectData(mapInfosRaw, "MapInfos.json")).map(
+    ({ id }) => formatMapFileName(id),
   );
 
   const fileNames = [...standardDatabaseFileNames, ...mapFileNames];
@@ -261,34 +262,6 @@ export async function collectStandardProjectDataSnapshotPlan(
 
   snapshotPlan.sort((left, right) => left.relativePath.localeCompare(right.relativePath));
   return snapshotPlan;
-}
-
-function collectRegisteredMapFileNames(rawMapInfos: string): string[] {
-  const entries: unknown = JSON.parse(rawMapInfos);
-  if (!Array.isArray(entries))
-    throw new Error("Cannot safely determine Snapshot collection: MapInfos.json must be an array.");
-  const ids = new Set<number>();
-  for (const entry of entries as unknown[]) {
-    if (entry === null) continue;
-    if (
-      typeof entry !== "object" ||
-      !("id" in entry) ||
-      typeof entry.id !== "number" ||
-      !Number.isSafeInteger(entry.id) ||
-      entry.id <= 0 ||
-      ids.has(entry.id) ||
-      !("parentId" in entry) ||
-      typeof entry.parentId !== "number" ||
-      !Number.isSafeInteger(entry.parentId) ||
-      entry.parentId < 0
-    ) {
-      throw new Error(
-        "Cannot safely determine Snapshot collection: MapInfos.json contains an invalid or duplicate map ID.",
-      );
-    }
-    ids.add(entry.id);
-  }
-  return [...ids].map(formatMapFileName);
 }
 
 function assertProjectDataCarrier(content: string, fileName: string): void {

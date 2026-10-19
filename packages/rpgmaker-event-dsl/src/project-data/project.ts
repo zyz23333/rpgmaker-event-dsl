@@ -4,7 +4,7 @@ import { join } from "node:path";
 export type MapInfoEntry = {
   id: number;
   name: string;
-  parentId: number;
+  parentId?: unknown;
 };
 
 export type ProjectIndex = {
@@ -100,22 +100,39 @@ export function buildProjectIndex(input: {
 }
 
 export function parseMapInfos(raw: string): MapInfoEntry[] {
-  const values = parseArray<Record<string, unknown>>(raw);
-
-  return values.flatMap((entry) => {
-    if (!entry) {
-      return [];
+  let values: unknown;
+  try {
+    values = JSON.parse(raw);
+  } catch (error) {
+    throw new Error("Cannot safely determine Snapshot collection: invalid MapInfos.json JSON.", {
+      cause: error,
+    });
+  }
+  if (!Array.isArray(values))
+    throw new Error("Cannot safely determine Snapshot collection: MapInfos.json must be an array.");
+  const ids = new Set<number>();
+  return (values as unknown[]).flatMap((entry) => {
+    if (entry === null) return [];
+    if (
+      typeof entry !== "object" ||
+      !("id" in entry) ||
+      typeof entry.id !== "number" ||
+      !Number.isSafeInteger(entry.id) ||
+      entry.id <= 0 ||
+      ids.has(entry.id)
+    ) {
+      throw new Error(
+        "Cannot safely determine Snapshot collection: MapInfos.json contains an invalid or duplicate map ID.",
+      );
     }
-
-    const id = readPositiveInt(entry.id);
-    const name = typeof entry.name === "string" ? entry.name : "";
-    const parentId = readNonNegativeInt(entry.parentId);
-
-    if (id === null || parentId === null) {
-      return [];
-    }
-
-    return [{ id, name, parentId }];
+    ids.add(entry.id);
+    return [
+      {
+        id: entry.id,
+        name: "name" in entry && typeof entry.name === "string" ? entry.name : "",
+        ...("parentId" in entry ? { parentId: entry.parentId } : {}),
+      },
+    ];
   });
 }
 
@@ -240,8 +257,4 @@ function readString(value: unknown): string | null {
 
 function readPositiveInt(value: unknown): number | null {
   return typeof value === "number" && Number.isInteger(value) && value > 0 ? value : null;
-}
-
-function readNonNegativeInt(value: unknown): number | null {
-  return typeof value === "number" && Number.isInteger(value) && value >= 0 ? value : null;
 }
