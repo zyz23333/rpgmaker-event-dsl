@@ -1,0 +1,1369 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-S6-MOVEMENT-009",
+  "runId": "2026-10-19T17-22-13-946Z-7d822f65-5042-48f0-be55-73d1b341d5c2",
+  "status": "passed",
+  "startedAt": "2026-10-19T17:20:06.314Z",
+  "completedAt": "2026-10-19T17:22:13.946Z",
+  "operator": "Codex automated verification",
+  "source": {
+    "revision": "c20c471481fcfa8b4c705f3a082b9613d82d60e8",
+    "fingerprint": "6108cd6e3162e8d454c84243ff4fb9c7e9082adb4414000388b7b89c20594f51",
+    "files": [
+      {
+        "path": ".github/workflows/ci.yml",
+        "sha256": "36542499fb5c9eed991023c9142cc539bab40fbd01dab6a822f3f24f909d82bd"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+        "sha256": "069a4683b189d2496fd917f3f48b78679034cddb40ca057c6695ae440e13bc82"
+      },
+      {
+        "path": "package.json",
+        "sha256": "770e4e3a85243faa5f7a4e029097699e7c024f0655342a18bd47d507bf7af8b4"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/authoring-CLZWVIuH.mjs",
+        "sha256": "3f44f416b5b77d0a2b261f00485e54e6df3692576029c6b08fb9c5021ba6bebe"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/authoring-CLZWVIuH.mjs.map",
+        "sha256": "d11ac3ba437c537ee15b201d8b976f94e0d2fb2b70e9d562515659f0f6af06c6"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/cli.d.mts",
+        "sha256": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/cli.d.mts.map",
+        "sha256": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/cli.mjs",
+        "sha256": "8b510350e3a324878cab4f6445d5f268a1d14bfb7ee0a17f0496e5f3268c719e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/cli.mjs.map",
+        "sha256": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/index.d.mts",
+        "sha256": "7645ee4bad8e91a9e431354eea1a9c1f3855c9b6e991a61df2987ea8afb04b6b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/index.d.mts.map",
+        "sha256": "d2d1c12b7390b2ac21cb3b49354de9df1fefb509bbb68f9e2d66fdff79be57c9"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/index.mjs",
+        "sha256": "c27f7b88033f2b34c7813076253bc8e27d8d7a7befdbe1a371904d12bb66e119"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/index.mjs.map",
+        "sha256": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/operations-8nFgk6qX.mjs",
+        "sha256": "7e6cb572d2816062fd7b94b34035d331936297d2b521db1df3d5d04be9bf1a6c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/operations-8nFgk6qX.mjs.map",
+        "sha256": "e030ec722b626f04e8e338d7da3d1e8865f395305a1586d92c990600a8274d12"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/workspace-api.d.mts",
+        "sha256": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/workspace-api.d.mts.map",
+        "sha256": "5c00024325238da7b6368529ed69e33839a8a4f0baeed1eb2e79f65c877ebbe8"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/dist/workspace-api.mjs",
+        "sha256": "195c438d6d31bb82ded4d9ec48a5396d770cf8bb51697442ec80704a261d9985"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/package.json",
+        "sha256": "2344a542d3836993009639da4efa83e5fb4df1849b026e6f0051648bee4d1a7d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/declarations.ts",
+        "sha256": "a773bba2f8016d64f81a352da4050aa8c2e83b2cba353fe49fe5a953072eaf78"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/index.ts",
+        "sha256": "45d6f03be8e26f0f19abb5cea7f9a7a971846296e3c0f3b809feb7de3af049ef"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/references.ts",
+        "sha256": "b3f3cefa64f45da752a8f58bc6eca2d92bb6b30773be42f51036fd60df9c89de"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/shared.ts",
+        "sha256": "3865ac8c4b3768c96038a323a02cf30c33edd9f330544bd6cd2b204d2841408e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/cli.ts",
+        "sha256": "34c6e77e91a45126b1a2c5b15621f79241a98bab081924d2fbd535c5996fd4b0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/actor/authoring.ts",
+        "sha256": "adc9b6aa805739dad7594246236f6314cc8a08299f1bd323b8ae729cf6b2fdf3"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/actor/decompile.ts",
+        "sha256": "2e83a179cabb9ae19ff9207904c822bb84c6b5bc45581386d2aca7b1b005b56d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/audio/authoring.ts",
+        "sha256": "08a68ae8b97095ec1c3a6d8517ed5649eb79ffb1b66f59aa34a7506356e0e513"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/audio/decompile.ts",
+        "sha256": "18acdf8e035ad2b8f3879622e18c39a7cde1e6279c14013fca2e6dbd0edb3811"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/battle/authoring.ts",
+        "sha256": "a5249dd85dde78f2f0183d33a9a79d69bca93e88b5d2f0404f9005a25f115377"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/battle/decompile.ts",
+        "sha256": "4da781567fb9baf2580ec050564d66506d542890dfab3a6966eef1c008ac44b0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/enemy/authoring.ts",
+        "sha256": "3ff830df557837e08ed73054eb47085cd0ba262e1aad746defc05578a14ce602"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/enemy/decompile.ts",
+        "sha256": "334fc1efeda29f27cf9a7e504501ea7e693fb9b041a96bb827c90ec957ff2cd2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/flow/authoring.ts",
+        "sha256": "2781ac07a176994435f124947fb0ac9c1873a3c37ea4b61b5f5fc0c35cabfc40"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/flow/decompile.ts",
+        "sha256": "db0508df65d743ada28e4b175d85cfbfa6a70a0547ff17cc2ecc2ab9a0feac31"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/flow/validation.ts",
+        "sha256": "d88ca16a1e3d2c688a6876ae041bc772c125eda0b1cf2e818b8ec55c29090dad"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/map/authoring.ts",
+        "sha256": "985f89d88a2460b0af605f3fb8282847dd48e4d5d6e13821ae430966a53c4006"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/map/decompile.ts",
+        "sha256": "4155ac5891314141271b6e80f4b11924e584ef1efcf6e83b125b7e60196e2ce0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/message/authoring.ts",
+        "sha256": "76bfc91b2a89a8c62546542396ff47c8baf9f13d54c1c1ba5a0b58031b413d68"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/message/decompile.ts",
+        "sha256": "174c78169c65eec74592a466381b97e083688c691381e470b0a707dd47273a24"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/authoring.ts",
+        "sha256": "af1985013fa73af61d72cc440de0f83d99f78c94da4744f3a7ab1d7b56daf909"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/compile.ts",
+        "sha256": "07ec22fe5fbcb0a54d16eb6ef1dd505cfd6b942912e378c4ed17255010044760"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/decompile.ts",
+        "sha256": "c61816d9d97960df23eba76af04735a3a98dc01c6bb2c05a56bdcc5075432ebe"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/page.ts",
+        "sha256": "ead6952e28f64bd25ba6fbd55d9be36f09ddadca5967ec4ddd7722ee1e18ceac"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/types.ts",
+        "sha256": "de4a2cb691fc6a8697ba91a2a831eaf17e1c15e541da4a2893f902f30a3a01b8"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/validation.ts",
+        "sha256": "f49a357955d176c5930ca59d5d13e2c80d4b3cad1215364cf3df158817015e6d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/screen/authoring.ts",
+        "sha256": "c0557c79496cb70c7a4d67fa61008a6e189b9df86f7cb408b36048b89aff63dc"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/screen/compile.ts",
+        "sha256": "a1c68cb63a4e6fe9ad2de3f45f51101f2e4fa6656fd865ac3bbbf485c78edc80"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/screen/decompile.ts",
+        "sha256": "38e4c759cf9f51c5ab49ea0f33d79c9a2af1060156102e7198541ac2e529567b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/system/authoring.ts",
+        "sha256": "71b37822f2d2abd58349a1ea7eed84fea0c886cf8045beb6341dbfba2c02814d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/system/decompile.ts",
+        "sha256": "56c3cba9e576bd289050463bfe2d284c39d54196fcf5fa59a8dde3ccdc33ad77"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/authoring.ts",
+        "sha256": "a2bbedd0a2d9aacb7e3eb2772e4f7431c49ccef39166cc74f4b615a6494a3f22"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/compile.ts",
+        "sha256": "9e4a295fac91434e34e28bd3c84b9b5a5dc526685f821f574582e7ac22bb4c27"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/decompile.ts",
+        "sha256": "c32df1e9d77b36d30fd135bc6c8919f0cf84a19acaf6a86d3e66d700762b9773"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/validation.ts",
+        "sha256": "8996604b8bfcb1fd9ba8a5100b8bd598e720aad9b946d001e77e89ddf5609867"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+        "sha256": "a4c0bde1fc71eb3074a245c6255cf0dc7bec86dd8b3f4a27b4388d5dfa21dd45"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/events.ts",
+        "sha256": "f5ab237240ed7e698a6b386135b8c5a41d05ee52fc99a1ef62bce44fdc1abfd2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/branches.ts",
+        "sha256": "44f965a1c5ea89cdf03fca12e3a49c2bce866efa9e6dc97ffa32c45a51f4d606"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/conditions.ts",
+        "sha256": "4b44eb3bb078dc6dd9a996ba7ac8aac5dbc6cc4a4151763ff9dc6c21d786e990"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/media.ts",
+        "sha256": "9bc3cc0ec9fd97a6368711dc4e73cba05dc4abaee7697624132577bb465e3e68"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/targets.ts",
+        "sha256": "11c907ed9a847ba54fdc222c7d04757e1b0d74205c7111426e4fec8d80be7ce2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/types.ts",
+        "sha256": "b81ac88b5778268997bce55af43dc0953b5cee48625180f58733cfdde6ae91a1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/core.ts",
+        "sha256": "c6a020c7eb5f987f883488b955f4dae2d5550d93a21272284939d54a04bb98b0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/dispatch.ts",
+        "sha256": "7024e6d242f1c42d5fb4ff13dc906e8110e1485f31fb4f7ec136a871725e1f30"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/map-page.ts",
+        "sha256": "05a14de564f72e81566bf5db192a38c71c9595e21abfa9181b49a12b724c751b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/project.ts",
+        "sha256": "35e720a3e5f0b860f3669da6829a652ec94509d79fe94e1240ff91d4ee5870b9"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/types.ts",
+        "sha256": "01dc14767746b1067ddc101f6acd5ea23247b6557a59e0c0cb467dd1f3903aa3"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/battle-page-defaults.ts",
+        "sha256": "4a6d7b43e65b2316987b846253c93504f85ac8e341901d3e47236c99de91027b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/command.ts",
+        "sha256": "66325cf48bea34f13cb33ad1ff803010a9807c8d9a713dcab87d29ea2415032c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/declarations.ts",
+        "sha256": "b0b1dd048040394dd8ef95fe080046a6b1541d44194d490dfa0ede891dd6a781"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/references.ts",
+        "sha256": "44874ce22c90697572c8bd777f0a8070bcf89b556247072964ac59246761fc44"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/types.ts",
+        "sha256": "5327c422c15864473a2b77938e10199e01ae0ed49399f37397cbd93ced3d16eb"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/index.ts",
+        "sha256": "cac51b3cd154629880f6b30aaf8b54a8f1aecee91bb26182ebfd7ccdb3c90157"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/map-event/native.ts",
+        "sha256": "a87ca1545e80ecd25205f6e7fb40a48d977317b93da65de8053afcaacf611384"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/map-event/page.ts",
+        "sha256": "9251557930e667e258c6259c58e787cdeccd22e96dc5f0225947a98d35d275ed"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/map-event/validation.ts",
+        "sha256": "e2dddc54dff942929af1f58dd6e48305e9d774c8cfb5a4c58af39e08e3937805"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/json-values.ts",
+        "sha256": "7d9f2a485a689dc159327f859a8cae48307b88294bea78aa2a81452813730af8"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/map-event-diff.ts",
+        "sha256": "7055058d85ef232a8ad2f94e9a3634ef709c5d352283ac1678f4dc03836be992"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/materialization.ts",
+        "sha256": "e52781cb2bccb01c58ac6c1ff0f069906980efce0a123b04348f4f18d80734d4"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/project.ts",
+        "sha256": "1176a155e53c9f4383e03bbe3a3f7e13565a96d5eb47b3ac6fc58002ae91cd74"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/structured-diff.ts",
+        "sha256": "4af2dfd1fb0e57c2d440b64a90fdbdfd1e88f02fffe6ff33c6f12eac64ff8590"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/writer.ts",
+        "sha256": "d9ebfc5636d430eb7c94ecca75c4a40127e592e92bcd303cc73ed59cde674c80"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/battle-pages.ts",
+        "sha256": "e8bb5f47b3ad4c6d09c3df5f09785bc64e6704b8f458e0253f5a3e3953a20c8b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/command-errors.ts",
+        "sha256": "d3da622a5d9616fd54f83415ec3782c45f54f95a3285d3525f1ddcf71f7deb9a"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/command-structure.ts",
+        "sha256": "e75f7edfa9b9fd520eeb7f4b42b4e110bc2a533fe3fd365c78750ecd226df6d4"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/commands.ts",
+        "sha256": "630b5b4355a03ffef0c18b65b480a0d9d0ea6910a5408cdbf1d55c30a7d9de4c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/common-events.ts",
+        "sha256": "dd331ebf8a13c720464cc96843ba4a8b69a2b6196ee740791ad7a4788ad89e34"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/compile-output.ts",
+        "sha256": "921536abaed802c2f030229f0ff72e3037aba9a6855abc9dcd7e47d1f4857681"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/compiled-commands.ts",
+        "sha256": "54ac1cd1aef427fc8af3681b8d5a6907a2b2e336727ba790ad7e44a5467fae94"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/declarations.ts",
+        "sha256": "d7428305b08f45f2203aa37ffb5b3a1c3506730870a01171574cc10f0624f671"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/dsl-command-inputs.ts",
+        "sha256": "73457080d5dd553ba488acfab6f517c792e40d5f845ac6e66bde8d97cded1d5b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/identities.ts",
+        "sha256": "8d43c5417552dc7e1b6c5a5c3c423d3571d22277d719bf10f34f555ef39bf2b1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/inspection.ts",
+        "sha256": "10a9923ffca925eb65ea7254a1d940c6580a3a60f3b7a14a4862cf08d11453e1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/native-command-inputs.ts",
+        "sha256": "a50f5a80417e53340fababa5c0aaa7eb619c9652e35f453cc9a37c45fd839fd0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/native-context-references.ts",
+        "sha256": "7ddd26656a02361bf2ea5c7ecfc10ca8a32d5d0a22a37ba36cabb168ce2c680d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/native-parameters.ts",
+        "sha256": "67c16ddb33e864fb2cd2055134f05152e228f2cc646fadf9d05d2a5dad0f47ba"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/native-references.ts",
+        "sha256": "34ab7b62af6418491d00f3325fca6c843f2010e4170a24ec57cc8d6099a945b7"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/references.ts",
+        "sha256": "01c968b0619bcaf4a1251a4e00932657823229362a7d722148d274cf37c23dfd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/shared.ts",
+        "sha256": "6ad13ecbedcc6cf7fb3565ffcdfd919f8fadad1430eccbbcfd845af7e927af14"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/snapshot.ts",
+        "sha256": "b29956e100eb586e389ed69bd7d9b6603452b6a7f8371aa895e53193628ed4cd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/staged-graph.ts",
+        "sha256": "eb93aeb3a16a413f74719a42394fd0883365d735a9c0c6139295569505408693"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/types.ts",
+        "sha256": "df660ce939aa4e7924d4f98a54d63cb14cb3c637c48e53215477e0282c3f27dd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "sha256": "735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/checks.ts",
+        "sha256": "dd02c917b0ed530fcbb8d3458802d5d230def90388d6bf488e849f2934688692"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/config.ts",
+        "sha256": "3700d64dfaf53fe1e99beb91bf8a54032c8a01372f25b579cdddf2ab683fd84b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/decompile-publication.ts",
+        "sha256": "e70dcce23f98167dc53e908b3242a0a61a5fd1f7f92b2df6f700e91433faf185"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/definition-identities.ts",
+        "sha256": "f9048d155cc06fa5770e6b26cae9fac58255dc1668b0a416fbb4578149db3b41"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/definitions.ts",
+        "sha256": "642fdd2fc21b59d6ffb59f01bd61fbb0bca4e26ee2eab4c3d659a4077f901ed1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/guards.ts",
+        "sha256": "cec835079aba4c1c61d4a28f224fd7ac7617063568b05156a84cc08896e0ed89"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/operation-lock.ts",
+        "sha256": "c39e910339321f63786bec52cf40fa5e9c114a259f8bbc0dc7842b29660866cd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/operations.ts",
+        "sha256": "a5d8a46bd2fb28a09e2724028c7e9800d2ee23deed6e5e6a84196fb76b1ccead"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/push-recovery.ts",
+        "sha256": "4eb0a680285f3e7532891cff2aedc3433f067fb36ccf8d4c63b3975b66c97a76"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/push.ts",
+        "sha256": "4a68f891cce5431344921baf4c9c0f3e3617c704c305732fa13b17825e74a25a"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/source-discovery.ts",
+        "sha256": "aeec16adb3208ea5d89666c051064e3251defd8ef8bae48ac6fa12bebc7b98e0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/state.ts",
+        "sha256": "c493c31c466b7d49b86a9bdd45ad563963c67f3c9e4c5a28b1f1f3b54ebbf216"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts",
+        "sha256": "1c26e6f2f12f50d02ca665e41a3c06ad695ce2dd03ec3b1b7425d58533a0ad8f"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/types.ts",
+        "sha256": "f046ebe39de38d590d78bb0aa00f5c3f03a117f972f9aec6f49fa5f7275023fb"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/architecture.test.ts",
+        "sha256": "3229d46f278ed361e8629291203e60e26486ca88441aaabf879121214572e9cd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/cli-entry.test.ts",
+        "sha256": "6dd400343ebc7d3341911a43f261cc9752ae1c4e99fb915acdf5feea183e93d5"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/cli.test.ts",
+        "sha256": "6640d901282cf3f76178d5bba1e72f1f6059280096f4ef3b22493f8a647a840a"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/command-boundary-workspace.test.ts",
+        "sha256": "67bd911d5049242cf379c9146435ea8d5066f51bc8fa35e63a6b4729a505ebe5"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/command-boundary.test.ts",
+        "sha256": "efe33439663deee66b0e0de2cb0957970b92635ad84d6670ac00651a68202618"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/common-native-boundaries.test.ts",
+        "sha256": "753086580887ae763c959668b376897171e9d22231cea8f7ca25eb9d61255db7"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/compile-inputs.test.ts",
+        "sha256": "19de1ac1ff4417485e2953199b2e326670722b8518083015c908535ac5f00fa9"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/compile-publication.test.ts",
+        "sha256": "8e7b0305058398b5abab1334bb38ed7a13baa6b442be40ecbfb212d6176c6d6a"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/decompile-publication.test.ts",
+        "sha256": "2dd677c7f499f4b67f537855f3d4d073c7d9f07d45a606910964b4319521f73e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/decompiler.test.ts",
+        "sha256": "8f3331043231135eb8b28f160635aa29f44631624f4d32dc1e12b53a4ad911d1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/definitions.test.ts",
+        "sha256": "e067a44adf0bbb8c4061836ef6b70dd234646c4ced51423792e090fcc55427c4"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/dsl.test.ts",
+        "sha256": "29f1571ded010bf575f4b2ba88352eb68b64cdccf845f535c532b3874dcd255c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/events.test.ts",
+        "sha256": "f9179e87b6ee1d86f8cdf7a971b7dc2b627fa3b295699f422160ece8f272df99"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/command-boundary-cases.json",
+        "sha256": "2bbe5b59b8df23286f616189655e87d898e3524dd63c10466d2a9f2b1b9aaf30"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/loop-cases.json",
+        "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-battle-context-project.json",
+        "sha256": "bf4ca095b5d86c9824ce36c0c30113871d56a22032a4a1c4d3eb33af75a80864"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/movement-route-cases.json",
+        "sha256": "c5f48d068f867f56817a9f65f3ed70c79c1c69c9534468ced3f3fdd35e0fec4c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/movement-saved-numbers.json",
+        "sha256": "dc54a131301a4abd5b149dc2833d5c8f549a6dafaa0a365c1d0542062c5f3923"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-slots-project.json",
+        "sha256": "eae9d3c30c431a9a66a2af6e822100309da6920f794ba34b84fea15566bdde38"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/index.test.ts",
+        "sha256": "9afd6a1323db0d41f32ae8047dff223f2dd96d4050ae260d4dfda638741e9211"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/loop-workspace.test.ts",
+        "sha256": "cb376eaa85f5c2e78a0d7876e5c6980874a9f2fa3239bf7c870dda170ad524a6"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/loop.test.ts",
+        "sha256": "dcbcafc95b182b31093cd4dc3b178674f545a5a4258e559c389ad3bce6ec1d24"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/map-event-workspace.test.ts",
+        "sha256": "19c81193a6d59d6bcb7785332e0df3b1082a413ac821e73177626034e735455f"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/map-event.test.ts",
+        "sha256": "22f106478ebf46c770d52023a9778ab49d353b385c16b94c4fcc5110fbe4417c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/movement-instructions-workspace.test.ts",
+        "sha256": "9846730a85ad0289876563c4159ccbed5418c9dfd3cc2495f3ad3bef5fae2879"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/movement-instructions.test.ts",
+        "sha256": "eb0c965446a476c1854e24b989a206a229f878977deadede51de1c8135d1a096"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/movement-route-workspace.test.ts",
+        "sha256": "354d09a5fb72bfc04f3740ec28e2e7e6e373f52494ca9a7f3aa7c6089c73e855"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/movement-route.test.ts",
+        "sha256": "04fd4ca535ad97c66b65dd50546511d60c341c402df81e7ae547fcc136b3a412"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/mv-evidence.test.ts",
+        "sha256": "5d158ea357c657807c3101a2896c71ce9fbc24b08263727d1ead3d85a98c03f5"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/project.test.ts",
+        "sha256": "c43c6a1193d093e53e847de47d45554673795de729575fd7a7e21c9a91190025"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/push-drift.test.ts",
+        "sha256": "5e4f1a63eb3dd0151f6a4d76b19dfc65a8c9c0c0e7f342ce0208ead5dd890a25"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "sha256": "f69123bb46b67aab4acb3171a8a6f92ad02def97203a02fee9af8285559f4335"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/snapshot-binding.test.ts",
+        "sha256": "2ba604411129fac6ea1dd9c28e3082589e1b519364e4fd12e67a33b2475e2889"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/snapshot-context.test.ts",
+        "sha256": "ed028472ae87aef66586df40655c1c35788e1818c024dde406e39b1ea0d9bbd5"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/staged-graph.test.ts",
+        "sha256": "cdb5bc607b0b7ca42beacc966205c616c0f1941ba69e481c4f54f5230a1d2530"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/structured-diff.test.ts",
+        "sha256": "7dea3d7fbb5ca2147c1e6b36adfb8ba241f996373ba24d8de390a15ede7f6ed3"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-event-fixtures.ts",
+        "sha256": "778c8dc026e49f65905eacb06353abbedc8889f8a63dd7ae620dff9fae809f5e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/movement-instruction-fixtures.ts",
+        "sha256": "4c0e39bd366faceeb1fb3b00433afd25a4f034925eb9e1e3075b21f99ed322dc"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/mv-evidence.ts",
+        "sha256": "ae82454a6ba72ee174b81b5b3dd8b1f5c0875a18034ffff1b2219bd3e8db7b07"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/troop-evidence.ts",
+        "sha256": "a7651ad47c9f4b8641287ba9d0c68858ec97eaa66ca8fc002cea56b88195bf4b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/windows-sandbox.ts",
+        "sha256": "ebbb2cd2bd9559ca432c83774132a9a2fd1f6270828d044675f7002912273c71"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+        "sha256": "34d85cba041c62d18575b37cee7b1f6c15f720cebca55f5ffe8ede7374261261"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/workspace-operation-process.ts",
+        "sha256": "ee45257ab8b046d3cce02fc42dd3a0a308d96c6a78a894ddab3df19eeace0bbe"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/system-slots.test.ts",
+        "sha256": "b7127820553f4b883e0b612bdee686e081606d4a30cc67c59501923e9d30fa38"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/troop-events.test.ts",
+        "sha256": "1bccd4472979133272860629a0fa1869f9da0a9b27d2a296fb892501b84718dd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/troop-safety.test.ts",
+        "sha256": "aee9ec36995d2e0e70f79e46ae845198dcb1033a6d480daf9d4e7bdcef2df98e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/troop-workflow.test.ts",
+        "sha256": "b344a2075affaadf5e72d368034a6dd800630dd803c7c38c3d34b47f74863fad"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/windows-baseline.test.ts",
+        "sha256": "3b06218264c3c651a956b982a282b096fe557ca999ff88b81ada3dd02343df87"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/workflow.test.ts",
+        "sha256": "5d52e441b1e33ce8adf0a4d33ac31d94858b1a697927318601635f2186882fd0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/workspace-locking.test.ts",
+        "sha256": "54e51682c54551ae568a7861bbe5a309242a094b16008ea2ecebf98baeedd492"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/workspace.test.ts",
+        "sha256": "9d6c6e6be74210fbd74f13c545286be7bc9da40c8d2d1c04c72533e310f3d9bf"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/tsconfig.json",
+        "sha256": "103060b50f26a5ee2fa0f8525824e89166f01ad12c8155172b06647bd9810ed6"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/vitest.config.ts",
+        "sha256": "205dcf739555549758afcdf2051835bb37173e071987af8de2bc2870e5039e39"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/vitest.windows.config.ts",
+        "sha256": "453c8724009d3cc13991c71036867e47a51999b66d398b2bceb4c57fd474dd24"
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "sha256": "4f685f5fccae0de0bef4666fb12f314fd0b26ae81ac68a26cc90cf2dd247c5b5"
+      },
+      {
+        "path": "tsconfig.base.json",
+        "sha256": "5b0437fc9ebfe797ceafbe026fb673ade339605add242db2bbe8e6011c2ec63a"
+      }
+    ]
+  },
+  "fixture": {
+    "path": ".scratch/complete-mv-events-implementation/evidence/fixtures/33-movement-native-bindings-v1.json",
+    "sha256": "ea4b12d3a32520111d6e49b2f06aab838bc3604781789e825c8c450998c7ba80"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "node": "v22.23.0",
+    "vitest": "4.1.9",
+    "typescript": "5.9.3",
+    "package": "0.1.2",
+    "native": "not-executed"
+  },
+  "stages": [
+    "Frozen independent input byte identity",
+    "All15 initial full carrier identity check",
+    "Exactly four mandatory generated carriers compared",
+    "All15 installed and complete actual loaded carriers",
+    "Original strict normal-Scene pair checks retained"
+  ],
+  "expected": "A fresh allocated actual built public Workspace product pair consumes the exact bound external independent input bytes; original predicates remain intact; complete Map/Common/System/Troops generated, installed and loaded values match. Strict v5 process/profile/engine/disk/output/exit and all15 carrier comparisons pass.",
+  "actual": {
+    "productBuild": {
+      "gitHead": "c20c471481fcfa8b4c705f3a082b9613d82d60e8",
+      "gitStatus": "",
+      "source": {
+        "entries": [
+          {
+            "path": "authoring/declarations.ts",
+            "sha256": "a773bba2f8016d64f81a352da4050aa8c2e83b2cba353fe49fe5a953072eaf78"
+          },
+          {
+            "path": "authoring/index.ts",
+            "sha256": "45d6f03be8e26f0f19abb5cea7f9a7a971846296e3c0f3b809feb7de3af049ef"
+          },
+          {
+            "path": "authoring/references.ts",
+            "sha256": "b3f3cefa64f45da752a8f58bc6eca2d92bb6b30773be42f51036fd60df9c89de"
+          },
+          {
+            "path": "authoring/shared.ts",
+            "sha256": "3865ac8c4b3768c96038a323a02cf30c33edd9f330544bd6cd2b204d2841408e"
+          },
+          {
+            "path": "cli.ts",
+            "sha256": "34c6e77e91a45126b1a2c5b15621f79241a98bab081924d2fbd535c5996fd4b0"
+          },
+          {
+            "path": "commands/actor/authoring.ts",
+            "sha256": "adc9b6aa805739dad7594246236f6314cc8a08299f1bd323b8ae729cf6b2fdf3"
+          },
+          {
+            "path": "commands/actor/decompile.ts",
+            "sha256": "2e83a179cabb9ae19ff9207904c822bb84c6b5bc45581386d2aca7b1b005b56d"
+          },
+          {
+            "path": "commands/audio/authoring.ts",
+            "sha256": "08a68ae8b97095ec1c3a6d8517ed5649eb79ffb1b66f59aa34a7506356e0e513"
+          },
+          {
+            "path": "commands/audio/decompile.ts",
+            "sha256": "18acdf8e035ad2b8f3879622e18c39a7cde1e6279c14013fca2e6dbd0edb3811"
+          },
+          {
+            "path": "commands/battle/authoring.ts",
+            "sha256": "a5249dd85dde78f2f0183d33a9a79d69bca93e88b5d2f0404f9005a25f115377"
+          },
+          {
+            "path": "commands/battle/decompile.ts",
+            "sha256": "4da781567fb9baf2580ec050564d66506d542890dfab3a6966eef1c008ac44b0"
+          },
+          {
+            "path": "commands/enemy/authoring.ts",
+            "sha256": "3ff830df557837e08ed73054eb47085cd0ba262e1aad746defc05578a14ce602"
+          },
+          {
+            "path": "commands/enemy/decompile.ts",
+            "sha256": "334fc1efeda29f27cf9a7e504501ea7e693fb9b041a96bb827c90ec957ff2cd2"
+          },
+          {
+            "path": "commands/flow/authoring.ts",
+            "sha256": "2781ac07a176994435f124947fb0ac9c1873a3c37ea4b61b5f5fc0c35cabfc40"
+          },
+          {
+            "path": "commands/flow/decompile.ts",
+            "sha256": "db0508df65d743ada28e4b175d85cfbfa6a70a0547ff17cc2ecc2ab9a0feac31"
+          },
+          {
+            "path": "commands/flow/validation.ts",
+            "sha256": "d88ca16a1e3d2c688a6876ae041bc772c125eda0b1cf2e818b8ec55c29090dad"
+          },
+          {
+            "path": "commands/map/authoring.ts",
+            "sha256": "985f89d88a2460b0af605f3fb8282847dd48e4d5d6e13821ae430966a53c4006"
+          },
+          {
+            "path": "commands/map/decompile.ts",
+            "sha256": "4155ac5891314141271b6e80f4b11924e584ef1efcf6e83b125b7e60196e2ce0"
+          },
+          {
+            "path": "commands/message/authoring.ts",
+            "sha256": "76bfc91b2a89a8c62546542396ff47c8baf9f13d54c1c1ba5a0b58031b413d68"
+          },
+          {
+            "path": "commands/message/decompile.ts",
+            "sha256": "174c78169c65eec74592a466381b97e083688c691381e470b0a707dd47273a24"
+          },
+          {
+            "path": "commands/movement/authoring.ts",
+            "sha256": "af1985013fa73af61d72cc440de0f83d99f78c94da4744f3a7ab1d7b56daf909"
+          },
+          {
+            "path": "commands/movement/compile.ts",
+            "sha256": "07ec22fe5fbcb0a54d16eb6ef1dd505cfd6b942912e378c4ed17255010044760"
+          },
+          {
+            "path": "commands/movement/decompile.ts",
+            "sha256": "c61816d9d97960df23eba76af04735a3a98dc01c6bb2c05a56bdcc5075432ebe"
+          },
+          {
+            "path": "commands/movement/page.ts",
+            "sha256": "ead6952e28f64bd25ba6fbd55d9be36f09ddadca5967ec4ddd7722ee1e18ceac"
+          },
+          {
+            "path": "commands/movement/types.ts",
+            "sha256": "de4a2cb691fc6a8697ba91a2a831eaf17e1c15e541da4a2893f902f30a3a01b8"
+          },
+          {
+            "path": "commands/movement/validation.ts",
+            "sha256": "f49a357955d176c5930ca59d5d13e2c80d4b3cad1215364cf3df158817015e6d"
+          },
+          {
+            "path": "commands/screen/authoring.ts",
+            "sha256": "c0557c79496cb70c7a4d67fa61008a6e189b9df86f7cb408b36048b89aff63dc"
+          },
+          {
+            "path": "commands/screen/compile.ts",
+            "sha256": "a1c68cb63a4e6fe9ad2de3f45f51101f2e4fa6656fd865ac3bbbf485c78edc80"
+          },
+          {
+            "path": "commands/screen/decompile.ts",
+            "sha256": "38e4c759cf9f51c5ab49ea0f33d79c9a2af1060156102e7198541ac2e529567b"
+          },
+          {
+            "path": "commands/system/authoring.ts",
+            "sha256": "71b37822f2d2abd58349a1ea7eed84fea0c886cf8045beb6341dbfba2c02814d"
+          },
+          {
+            "path": "commands/system/decompile.ts",
+            "sha256": "56c3cba9e576bd289050463bfe2d284c39d54196fcf5fa59a8dde3ccdc33ad77"
+          },
+          {
+            "path": "commands/variables/authoring.ts",
+            "sha256": "a2bbedd0a2d9aacb7e3eb2772e4f7431c49ccef39166cc74f4b615a6494a3f22"
+          },
+          {
+            "path": "commands/variables/compile.ts",
+            "sha256": "9e4a295fac91434e34e28bd3c84b9b5a5dc526685f821f574582e7ac22bb4c27"
+          },
+          {
+            "path": "commands/variables/decompile.ts",
+            "sha256": "c32df1e9d77b36d30fd135bc6c8919f0cf84a19acaf6a86d3e66d700762b9773"
+          },
+          {
+            "path": "commands/variables/validation.ts",
+            "sha256": "8996604b8bfcb1fd9ba8a5100b8bd598e720aad9b946d001e77e89ddf5609867"
+          },
+          {
+            "path": "compiler/dispatch.ts",
+            "sha256": "a4c0bde1fc71eb3074a245c6255cf0dc7bec86dd8b3f4a27b4388d5dfa21dd45"
+          },
+          {
+            "path": "compiler/events.ts",
+            "sha256": "f5ab237240ed7e698a6b386135b8c5a41d05ee52fc99a1ef62bce44fdc1abfd2"
+          },
+          {
+            "path": "compiler/shared/branches.ts",
+            "sha256": "44f965a1c5ea89cdf03fca12e3a49c2bce866efa9e6dc97ffa32c45a51f4d606"
+          },
+          {
+            "path": "compiler/shared/conditions.ts",
+            "sha256": "4b44eb3bb078dc6dd9a996ba7ac8aac5dbc6cc4a4151763ff9dc6c21d786e990"
+          },
+          {
+            "path": "compiler/shared/media.ts",
+            "sha256": "9bc3cc0ec9fd97a6368711dc4e73cba05dc4abaee7697624132577bb465e3e68"
+          },
+          {
+            "path": "compiler/shared/targets.ts",
+            "sha256": "11c907ed9a847ba54fdc222c7d04757e1b0d74205c7111426e4fec8d80be7ce2"
+          },
+          {
+            "path": "compiler/types.ts",
+            "sha256": "b81ac88b5778268997bce55af43dc0953b5cee48625180f58733cfdde6ae91a1"
+          },
+          {
+            "path": "decompiler/core.ts",
+            "sha256": "c6a020c7eb5f987f883488b955f4dae2d5550d93a21272284939d54a04bb98b0"
+          },
+          {
+            "path": "decompiler/dispatch.ts",
+            "sha256": "7024e6d242f1c42d5fb4ff13dc906e8110e1485f31fb4f7ec136a871725e1f30"
+          },
+          {
+            "path": "decompiler/map-page.ts",
+            "sha256": "05a14de564f72e81566bf5db192a38c71c9595e21abfa9181b49a12b724c751b"
+          },
+          {
+            "path": "decompiler/project.ts",
+            "sha256": "35e720a3e5f0b860f3669da6829a652ec94509d79fe94e1240ff91d4ee5870b9"
+          },
+          {
+            "path": "decompiler/types.ts",
+            "sha256": "01dc14767746b1067ddc101f6acd5ea23247b6557a59e0c0cb467dd1f3903aa3"
+          },
+          {
+            "path": "domain/battle-page-defaults.ts",
+            "sha256": "4a6d7b43e65b2316987b846253c93504f85ac8e341901d3e47236c99de91027b"
+          },
+          {
+            "path": "domain/command.ts",
+            "sha256": "66325cf48bea34f13cb33ad1ff803010a9807c8d9a713dcab87d29ea2415032c"
+          },
+          {
+            "path": "domain/declarations.ts",
+            "sha256": "b0b1dd048040394dd8ef95fe080046a6b1541d44194d490dfa0ede891dd6a781"
+          },
+          {
+            "path": "domain/references.ts",
+            "sha256": "44874ce22c90697572c8bd777f0a8070bcf89b556247072964ac59246761fc44"
+          },
+          {
+            "path": "domain/types.ts",
+            "sha256": "5327c422c15864473a2b77938e10199e01ae0ed49399f37397cbd93ced3d16eb"
+          },
+          {
+            "path": "index.ts",
+            "sha256": "cac51b3cd154629880f6b30aaf8b54a8f1aecee91bb26182ebfd7ccdb3c90157"
+          },
+          {
+            "path": "map-event/native.ts",
+            "sha256": "a87ca1545e80ecd25205f6e7fb40a48d977317b93da65de8053afcaacf611384"
+          },
+          {
+            "path": "map-event/page.ts",
+            "sha256": "9251557930e667e258c6259c58e787cdeccd22e96dc5f0225947a98d35d275ed"
+          },
+          {
+            "path": "map-event/validation.ts",
+            "sha256": "e2dddc54dff942929af1f58dd6e48305e9d774c8cfb5a4c58af39e08e3937805"
+          },
+          {
+            "path": "project-data/json-values.ts",
+            "sha256": "7d9f2a485a689dc159327f859a8cae48307b88294bea78aa2a81452813730af8"
+          },
+          {
+            "path": "project-data/map-event-diff.ts",
+            "sha256": "7055058d85ef232a8ad2f94e9a3634ef709c5d352283ac1678f4dc03836be992"
+          },
+          {
+            "path": "project-data/materialization.ts",
+            "sha256": "e52781cb2bccb01c58ac6c1ff0f069906980efce0a123b04348f4f18d80734d4"
+          },
+          {
+            "path": "project-data/project.ts",
+            "sha256": "1176a155e53c9f4383e03bbe3a3f7e13565a96d5eb47b3ac6fc58002ae91cd74"
+          },
+          {
+            "path": "project-data/structured-diff.ts",
+            "sha256": "4af2dfd1fb0e57c2d440b64a90fdbdfd1e88f02fffe6ff33c6f12eac64ff8590"
+          },
+          {
+            "path": "project-data/writer.ts",
+            "sha256": "d9ebfc5636d430eb7c94ecca75c4a40127e592e92bcd303cc73ed59cde674c80"
+          },
+          {
+            "path": "validation/battle-pages.ts",
+            "sha256": "e8bb5f47b3ad4c6d09c3df5f09785bc64e6704b8f458e0253f5a3e3953a20c8b"
+          },
+          {
+            "path": "validation/command-errors.ts",
+            "sha256": "d3da622a5d9616fd54f83415ec3782c45f54f95a3285d3525f1ddcf71f7deb9a"
+          },
+          {
+            "path": "validation/command-structure.ts",
+            "sha256": "e75f7edfa9b9fd520eeb7f4b42b4e110bc2a533fe3fd365c78750ecd226df6d4"
+          },
+          {
+            "path": "validation/commands.ts",
+            "sha256": "630b5b4355a03ffef0c18b65b480a0d9d0ea6910a5408cdbf1d55c30a7d9de4c"
+          },
+          {
+            "path": "validation/common-events.ts",
+            "sha256": "dd331ebf8a13c720464cc96843ba4a8b69a2b6196ee740791ad7a4788ad89e34"
+          },
+          {
+            "path": "validation/compile-output.ts",
+            "sha256": "921536abaed802c2f030229f0ff72e3037aba9a6855abc9dcd7e47d1f4857681"
+          },
+          {
+            "path": "validation/compiled-commands.ts",
+            "sha256": "54ac1cd1aef427fc8af3681b8d5a6907a2b2e336727ba790ad7e44a5467fae94"
+          },
+          {
+            "path": "validation/declarations.ts",
+            "sha256": "d7428305b08f45f2203aa37ffb5b3a1c3506730870a01171574cc10f0624f671"
+          },
+          {
+            "path": "validation/dsl-command-inputs.ts",
+            "sha256": "73457080d5dd553ba488acfab6f517c792e40d5f845ac6e66bde8d97cded1d5b"
+          },
+          {
+            "path": "validation/identities.ts",
+            "sha256": "8d43c5417552dc7e1b6c5a5c3c423d3571d22277d719bf10f34f555ef39bf2b1"
+          },
+          {
+            "path": "validation/inspection.ts",
+            "sha256": "10a9923ffca925eb65ea7254a1d940c6580a3a60f3b7a14a4862cf08d11453e1"
+          },
+          {
+            "path": "validation/native-command-inputs.ts",
+            "sha256": "a50f5a80417e53340fababa5c0aaa7eb619c9652e35f453cc9a37c45fd839fd0"
+          },
+          {
+            "path": "validation/native-context-references.ts",
+            "sha256": "7ddd26656a02361bf2ea5c7ecfc10ca8a32d5d0a22a37ba36cabb168ce2c680d"
+          },
+          {
+            "path": "validation/native-parameters.ts",
+            "sha256": "67c16ddb33e864fb2cd2055134f05152e228f2cc646fadf9d05d2a5dad0f47ba"
+          },
+          {
+            "path": "validation/native-references.ts",
+            "sha256": "34ab7b62af6418491d00f3325fca6c843f2010e4170a24ec57cc8d6099a945b7"
+          },
+          {
+            "path": "validation/references.ts",
+            "sha256": "01c968b0619bcaf4a1251a4e00932657823229362a7d722148d274cf37c23dfd"
+          },
+          {
+            "path": "validation/shared.ts",
+            "sha256": "6ad13ecbedcc6cf7fb3565ffcdfd919f8fadad1430eccbbcfd845af7e927af14"
+          },
+          {
+            "path": "validation/snapshot.ts",
+            "sha256": "b29956e100eb586e389ed69bd7d9b6603452b6a7f8371aa895e53193628ed4cd"
+          },
+          {
+            "path": "validation/staged-graph.ts",
+            "sha256": "eb93aeb3a16a413f74719a42394fd0883365d735a9c0c6139295569505408693"
+          },
+          {
+            "path": "validation/types.ts",
+            "sha256": "df660ce939aa4e7924d4f98a54d63cb14cb3c637c48e53215477e0282c3f27dd"
+          },
+          {
+            "path": "workspace/checks.ts",
+            "sha256": "dd02c917b0ed530fcbb8d3458802d5d230def90388d6bf488e849f2934688692"
+          },
+          {
+            "path": "workspace/config.ts",
+            "sha256": "3700d64dfaf53fe1e99beb91bf8a54032c8a01372f25b579cdddf2ab683fd84b"
+          },
+          {
+            "path": "workspace/decompile-publication.ts",
+            "sha256": "e70dcce23f98167dc53e908b3242a0a61a5fd1f7f92b2df6f700e91433faf185"
+          },
+          {
+            "path": "workspace/definition-identities.ts",
+            "sha256": "f9048d155cc06fa5770e6b26cae9fac58255dc1668b0a416fbb4578149db3b41"
+          },
+          {
+            "path": "workspace/definitions.ts",
+            "sha256": "642fdd2fc21b59d6ffb59f01bd61fbb0bca4e26ee2eab4c3d659a4077f901ed1"
+          },
+          {
+            "path": "workspace/guards.ts",
+            "sha256": "cec835079aba4c1c61d4a28f224fd7ac7617063568b05156a84cc08896e0ed89"
+          },
+          {
+            "path": "workspace/operation-lock.ts",
+            "sha256": "c39e910339321f63786bec52cf40fa5e9c114a259f8bbc0dc7842b29660866cd"
+          },
+          {
+            "path": "workspace/operations.ts",
+            "sha256": "a5d8a46bd2fb28a09e2724028c7e9800d2ee23deed6e5e6a84196fb76b1ccead"
+          },
+          {
+            "path": "workspace/push-recovery.ts",
+            "sha256": "4eb0a680285f3e7532891cff2aedc3433f067fb36ccf8d4c63b3975b66c97a76"
+          },
+          {
+            "path": "workspace/push.ts",
+            "sha256": "4a68f891cce5431344921baf4c9c0f3e3617c704c305732fa13b17825e74a25a"
+          },
+          {
+            "path": "workspace/source-discovery.ts",
+            "sha256": "aeec16adb3208ea5d89666c051064e3251defd8ef8bae48ac6fa12bebc7b98e0"
+          },
+          {
+            "path": "workspace/state.ts",
+            "sha256": "c493c31c466b7d49b86a9bdd45ad563963c67f3c9e4c5a28b1f1f3b54ebbf216"
+          },
+          {
+            "path": "workspace/type-inputs.ts",
+            "sha256": "1c26e6f2f12f50d02ca665e41a3c06ad695ce2dd03ec3b1b7425d58533a0ad8f"
+          },
+          {
+            "path": "workspace/types.ts",
+            "sha256": "f046ebe39de38d590d78bb0aa00f5c3f03a117f972f9aec6f49fa5f7275023fb"
+          },
+          {
+            "path": "workspace-api.ts",
+            "sha256": "735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2"
+          }
+        ],
+        "sha256": "4424a4d9826432e056354ce93a342886c39bf52d74d3a304a8a6f8ed116e0567"
+      },
+      "dist": {
+        "entries": [
+          {
+            "path": "authoring-CLZWVIuH.mjs",
+            "sha256": "3f44f416b5b77d0a2b261f00485e54e6df3692576029c6b08fb9c5021ba6bebe"
+          },
+          {
+            "path": "authoring-CLZWVIuH.mjs.map",
+            "sha256": "d11ac3ba437c537ee15b201d8b976f94e0d2fb2b70e9d562515659f0f6af06c6"
+          },
+          {
+            "path": "cli.d.mts",
+            "sha256": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee"
+          },
+          {
+            "path": "cli.d.mts.map",
+            "sha256": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c"
+          },
+          {
+            "path": "cli.mjs",
+            "sha256": "8b510350e3a324878cab4f6445d5f268a1d14bfb7ee0a17f0496e5f3268c719e"
+          },
+          {
+            "path": "cli.mjs.map",
+            "sha256": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8"
+          },
+          {
+            "path": "index.d.mts",
+            "sha256": "7645ee4bad8e91a9e431354eea1a9c1f3855c9b6e991a61df2987ea8afb04b6b"
+          },
+          {
+            "path": "index.d.mts.map",
+            "sha256": "d2d1c12b7390b2ac21cb3b49354de9df1fefb509bbb68f9e2d66fdff79be57c9"
+          },
+          {
+            "path": "index.mjs",
+            "sha256": "c27f7b88033f2b34c7813076253bc8e27d8d7a7befdbe1a371904d12bb66e119"
+          },
+          {
+            "path": "index.mjs.map",
+            "sha256": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36"
+          },
+          {
+            "path": "operations-8nFgk6qX.mjs",
+            "sha256": "7e6cb572d2816062fd7b94b34035d331936297d2b521db1df3d5d04be9bf1a6c"
+          },
+          {
+            "path": "operations-8nFgk6qX.mjs.map",
+            "sha256": "e030ec722b626f04e8e338d7da3d1e8865f395305a1586d92c990600a8274d12"
+          },
+          {
+            "path": "workspace-api.d.mts",
+            "sha256": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594"
+          },
+          {
+            "path": "workspace-api.d.mts.map",
+            "sha256": "5c00024325238da7b6368529ed69e33839a8a4f0baeed1eb2e79f65c877ebbe8"
+          },
+          {
+            "path": "workspace-api.mjs",
+            "sha256": "195c438d6d31bb82ded4d9ec48a5396d770cf8bb51697442ec80704a261d9985"
+          }
+        ],
+        "sha256": "d830ac065741f364a7d748ca94557da83b005b0d7e66cfcded929eac65f23506"
+      },
+      "apiSha256": "195c438d6d31bb82ded4d9ec48a5396d770cf8bb51697442ec80704a261d9985",
+      "harnessSha256": "8296e5a2d33b14f4b77296e6bae2197e8afb655b07c5061766b07b6fbca77ac9",
+      "scenarioSha256": "560013d025ef3088882953b46e933116f4dc13950536ea38abc5966f71c286ce",
+      "toolNodeSha256": "17347995af08dadcc73a1a154f0942559fbc3f37b9ba57d4576b4d2bcb2834a2"
+    },
+    "contract": "mv-1.6.1/9",
+    "actualGitStatusAtRecording": "?? .scratch/complete-mv-events-implementation/evidence/33-history/\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S0-CE-001-2026-10-19T15-50-34-963Z-abc8ec2a-62b9-4edc-b733-0763916e1f45.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S0-COMPARE-001-2026-10-19T15-50-35-039Z-df69f837-951c-4c0d-8828-759c7c4d84c5.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-001-2026-10-19T15-50-28-194Z-194b681a-a430-4ade-a00e-6fdb6d295b93.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-001-2026-10-19T16-13-06-376Z-630ebbb0-60c6-4390-a02a-21e3704a3037.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-001-2026-10-19T17-13-22-289Z-025d2f54-4a7f-4da0-9a75-dd5e9f72c0e2.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-001-2026-10-19T17-18-29-566Z-c9a3f3e1-3c13-4d6f-9b8e-6b15c531add5.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-002-2026-10-19T15-50-33-138Z-530e6458-8525-47d4-93ed-8f928a348a35.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-002-2026-10-19T16-13-11-636Z-64eff344-a007-4eb0-b22c-f8dd267c1ac0.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-002-2026-10-19T17-13-50-527Z-2a117fec-b992-4c4e-9fbe-5b4fd3e8ebaf.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-002-2026-10-19T17-18-51-887Z-c23f7739-62fe-4027-b3d9-5429dcb36618.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-003-2026-10-19T15-50-55-803Z-6809ff89-653c-44c7-b6b4-061f87f50950.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-003-2026-10-19T16-13-26-263Z-a77fb424-2613-441e-af5f-885f7aca969c.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-003-2026-10-19T17-14-02-737Z-28a89fc3-5dfd-4b5f-9552-484b1a91c7e7.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-003-2026-10-19T17-19-02-538Z-dfe27c7e-fab5-4e96-ac86-43a7ba61ecb7.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-004-2026-10-19T15-50-56-012Z-9f0a413a-1905-4389-b6a8-a4ed383e8cc5.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-004-2026-10-19T15-50-56-199Z-56b4c945-5c25-42d4-9b7a-758fc872c5ec.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-004-2026-10-19T16-13-26-401Z-922c24a9-0571-4ef4-b724-96ca2ac959b8.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-004-2026-10-19T16-13-26-533Z-af31ab0a-843b-4544-a4bb-d78fd004162b.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-004-2026-10-19T17-14-02-863Z-0b37dd10-e31f-478a-ab55-5c531e9fb058.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-004-2026-10-19T17-14-02-987Z-d8c1d394-81e6-47f1-82c7-52926c2dd653.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-004-2026-10-19T17-19-02-710Z-e335de44-6ce9-4841-8920-07f9cdbd914d.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-004-2026-10-19T17-19-02-835Z-a8aaaaa5-52a3-4492-a4ab-4e298455a398.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T16-26-57-944Z-d1618a29-2a84-4e79-89ba-eeb55cb8a93b.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T16-27-00-572Z-45c64b17-3bce-4731-94f7-dc8d5996a813.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T16-27-03-291Z-83b0345f-882e-44f5-983f-076534beb251.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T16-27-06-577Z-5b225fae-89d4-4fb3-a305-58bb65da80ec.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T16-27-09-742Z-6b7b94d2-1cfe-4bb1-a838-3c96baf2f003.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T16-27-12-994Z-f9f2dae1-af38-47c4-bb6d-b1b6d73e0bea.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T16-27-16-207Z-93d57878-5642-4f24-944c-ec7696505c04.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T16-31-26-944Z-2038da0f-798e-47ec-9172-f53cc2299790.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T16-31-29-876Z-40e6e975-3c58-4e88-acdc-719cfceef8bf.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T16-31-32-473Z-6807627d-e258-4186-98b3-2ec6884b1374.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T16-31-34-987Z-8881ec5c-770a-495f-950c-55a6b406768a.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T16-31-37-588Z-30ec1175-8230-4ce7-a63b-55b5a2c42ea5.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T16-31-40-132Z-620c421c-1cf8-4d88-be10-02b85a04eabc.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T16-31-42-701Z-6c654343-0401-4fa1-849a-77a883f12a4c.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T17-13-25-655Z-9991ef45-4217-4eaa-9094-373f6482f37e.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T17-13-29-764Z-11e75929-0969-4be5-89ed-77be240863d8.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T17-13-33-511Z-688fc18e-77a0-4709-aaa7-e14345147793.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T17-13-36-536Z-2f888143-31b7-4f31-a12f-5fb72be59265.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T17-13-40-050Z-211e4024-6ea2-43f6-80c4-7d7d22c77499.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T17-13-42-932Z-64d2934a-ecfa-4d6a-bf4f-cd701ecf8126.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T17-13-45-967Z-e0158a81-c3b6-4b8e-8b8e-99621ac8200e.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T17-18-31-988Z-5d0f7dc4-9d35-45c4-97c0-acd4793aa9e5.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T17-18-34-389Z-ea2417ac-595d-4862-9242-8a892aef0c44.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T17-18-36-977Z-dc0192f5-6977-47b1-a931-01e3cf78bd81.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T17-18-39-447Z-bb07602f-c089-4e85-9eac-bf1366ccddb5.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T17-18-42-037Z-049eac3a-8e28-47a3-af25-a9390a479329.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T17-18-45-160Z-26e98a42-f501-493a-af72-1240f894ad2d.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-011-2026-10-19T17-18-48-112Z-acdf118a-2236-4a73-ba9f-57a4feaea9dd.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-012-2026-10-19T16-27-16-347Z-2596d799-386f-4f4c-b75b-ac6881d093a4.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-012-2026-10-19T16-27-16-471Z-2aa82d84-19e2-4b06-9de9-a1a96518ae89.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-012-2026-10-19T16-31-42-826Z-6c17318b-3ce6-4a62-bfc8-cc0a16dd93fb.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-012-2026-10-19T16-31-42-940Z-6b69b762-443e-4924-a662-afb1c95c3fe0.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-012-2026-10-19T17-14-03-137Z-c95a042a-ec56-479b-803f-3bfaf6aeeb99.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-012-2026-10-19T17-14-03-290Z-792895e9-0733-4885-8e8d-abfd661aa52b.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-012-2026-10-19T17-19-02-993Z-6ff8b65a-32e5-4b2c-97e9-41a605a6749e.json\n?? .scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-012-2026-10-19T17-19-03-120Z-2146c41a-70b4-434f-ab70-e5718ef99759.json\n",
+    "sourceAndDistMatchBothPairs": true,
+    "limitations": "Allocated33 representative evidence only. Final49–55 remain separate. Editor evidence is shipped-code/conditional evidence; audio sample measurements are passive with hardware muted, no human hearing or editor UI execution claimed.",
+    "safeSummary": ".scratch/complete-mv-events-implementation/evidence/33-history/native/mv33-r1-route-waits-delivery-v2-38b51944-87cf-44e7-8a77-172a6facab53-safe-summary.json",
+    "inputBinding": {
+      "independentFixture": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-native-bound-inputs-v1-5df265bb-3672-4269-8367-dbc7565b3678\\r1-independent-input.json",
+        "sha256": "8f274066974cb47a1aedd8b286db301f14f8fcd76b7dd25f88e047c5315f2fb1"
+      },
+      "completeInputIdentities": [
+        {
+          "path": "Actors.json",
+          "sha256": "cb250040e5f127988fb82d32649397ee4da04c70bfb6236f8319e417cac9ece9"
+        },
+        {
+          "path": "Animations.json",
+          "sha256": "67d774aea92d25f66a92979f6a1ee455f576a949c4ee044dcec1c52a2772d895"
+        },
+        {
+          "path": "Armors.json",
+          "sha256": "96b77533659178f113d8329d031d50aa06e463df0be3c0700f24130d980e26c2"
+        },
+        {
+          "path": "Classes.json",
+          "sha256": "29518d3fcd2be52b175757093702a4b9f0ae4d383c446c531077464a2ba36939"
+        },
+        {
+          "path": "CommonEvents.json",
+          "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+        },
+        {
+          "path": "Enemies.json",
+          "sha256": "c8106b50933c15b56e5d9f6e951408c184e1f3c2f111756837b8055dee0bdb11"
+        },
+        {
+          "path": "Items.json",
+          "sha256": "cb5200f75c50c84f2ad7789e57c6ee804a243919eefa2f06d9a78cca4ff5b846"
+        },
+        {
+          "path": "Map001.json",
+          "sha256": "06928f94b24a34a6be3848e3bd3e8f26a51ddd5329c1368c4f22f575fc99abb8"
+        },
+        {
+          "path": "MapInfos.json",
+          "sha256": "ea51b07bb4bcfc1f14ef77a2990cc3fe10cd21898cb12e0e15cee4d2bdfea62e"
+        },
+        {
+          "path": "Skills.json",
+          "sha256": "c59b37d42f6faabfb9a5fd4debc18d3fb7ebc3fa0d1f392e5d0977870cc3c069"
+        },
+        {
+          "path": "States.json",
+          "sha256": "d218dbaccd0a12ce8d6bf826f959a8cb7171c8a2b5d657e887629bd8fa3f5113"
+        },
+        {
+          "path": "System.json",
+          "sha256": "a1bbce50f624b6ebb760e98dbaa8092e20c2e9454f57425a2acd7933e9ed9c20"
+        },
+        {
+          "path": "Tilesets.json",
+          "sha256": "da1862335181363247384cbd580e7b8c84a72071013371fb52c4cdac690dadfe"
+        },
+        {
+          "path": "Troops.json",
+          "sha256": "a3068ee6a6d014166653f4307ee809d5f621978462063d771863038691248a3c"
+        },
+        {
+          "path": "Weapons.json",
+          "sha256": "8fb42bc2c67d3f0a0c583cc2060fd623241dcb73062fbac325f0b3b8023d3662"
+        }
+      ],
+      "expectedGeneratedCarriers": [
+        "CommonEvents.json",
+        "Map001.json",
+        "System.json",
+        "Troops.json"
+      ],
+      "retainedBehaviorPredicates": [
+        "allMarkersOnce",
+        "inactiveSavedRouteNeverRuns",
+        "fixedPageRetainsInitialLocation",
+        "customRouteExecutesNatively",
+        "autonomousWaitDoesNotBlockMain",
+        "parallelDuringAutonomous",
+        "forcedNoWaitReturnsSameFrame",
+        "forcedRouteStartsAfterContinuation",
+        "forcedNoWaitMovesAndFinishes",
+        "forcedWaitFinishesBeforeContinuation",
+        "forcedWaitIncludesMovementAndDelay",
+        "parallelDuringForcedWait",
+        "finished"
+      ],
+      "additionalOriginalTools": [
+        "C:\\Users\\Shuen\\.codex\\tmp\\mv33-bound-native-scenarios-v1.cjs",
+        "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-route-waits-delivery-v1.cjs"
+      ]
+    },
+    "completeCarrierComparison": {
+      "passed": true,
+      "files": [
+        "Actors.json",
+        "Animations.json",
+        "Armors.json",
+        "Classes.json",
+        "CommonEvents.json",
+        "Enemies.json",
+        "Items.json",
+        "Map001.json",
+        "MapInfos.json",
+        "Skills.json",
+        "States.json",
+        "System.json",
+        "Tilesets.json",
+        "Troops.json",
+        "Weapons.json"
+      ],
+      "literalHashes": {
+        "Actors.json": "782f49f5bb2cb5a02f34f891f513f93783762e3a16091a6fd09d43bdfaead7ed",
+        "Animations.json": "e3f0e4ba8c72e493eea5fd5db2a714723d9f350bfc78e160ed40742d647b21da",
+        "Armors.json": "7b5cb0e7c19646d4fd0f698c1ba844eee76fa04a92efe68015eb688d36dcc68e",
+        "Classes.json": "500d7510ef6b2215fa8c2ba69748603cab0d2fe3bfed402dee26b91bd4658d2f",
+        "CommonEvents.json": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "Enemies.json": "848b0827d7a1ccb6440592e2965f0b0e110d3a83eb0fef3b41eb32e18cabda4d",
+        "Items.json": "b8b3344c8b5d3534707eb1d273c5b152a36ecb8e0dd567c0f1cd0923e49a408d",
+        "Map001.json": "1663467fe8e45e93facfdecc5d869cb74a3beb36d5370eac3a977a70c69ce42b",
+        "MapInfos.json": "d1f6336147136c2fc68e55b60d6d1a356e8170e4d0a0c4471d12e45264f16536",
+        "Skills.json": "b6c7d7dee520581a2a1b62ae06f75764d52620943531244b467fbed17bf0f36a",
+        "States.json": "25344e6d723dbaf1f5476aba83117be6e5e1d65ae9fcecd4aec53d63c01ee579",
+        "System.json": "c5a95c39aa1f5ecad4f4a30100da6922edf62f84351c0fa08ef91af1d64aca74",
+        "Tilesets.json": "06df3bf126c9e4e304646ad03ae72ce495aa7f4654b2ca198a215a08554ad554",
+        "Troops.json": "446aa046e637de0712741d51ff2c038fb6e665c000c1e8e41e268333814cb4ee",
+        "Weapons.json": "6e301f0a754c00473595e09ef5274f5ad1cabe188d1bb082fa9c80682c9d4b4f"
+      },
+      "compiledHashes": {
+        "Actors.json": "782f49f5bb2cb5a02f34f891f513f93783762e3a16091a6fd09d43bdfaead7ed",
+        "Animations.json": "e3f0e4ba8c72e493eea5fd5db2a714723d9f350bfc78e160ed40742d647b21da",
+        "Armors.json": "7b5cb0e7c19646d4fd0f698c1ba844eee76fa04a92efe68015eb688d36dcc68e",
+        "Classes.json": "500d7510ef6b2215fa8c2ba69748603cab0d2fe3bfed402dee26b91bd4658d2f",
+        "CommonEvents.json": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+        "Enemies.json": "848b0827d7a1ccb6440592e2965f0b0e110d3a83eb0fef3b41eb32e18cabda4d",
+        "Items.json": "b8b3344c8b5d3534707eb1d273c5b152a36ecb8e0dd567c0f1cd0923e49a408d",
+        "Map001.json": "1663467fe8e45e93facfdecc5d869cb74a3beb36d5370eac3a977a70c69ce42b",
+        "MapInfos.json": "d1f6336147136c2fc68e55b60d6d1a356e8170e4d0a0c4471d12e45264f16536",
+        "Skills.json": "b6c7d7dee520581a2a1b62ae06f75764d52620943531244b467fbed17bf0f36a",
+        "States.json": "25344e6d723dbaf1f5476aba83117be6e5e1d65ae9fcecd4aec53d63c01ee579",
+        "System.json": "c5a95c39aa1f5ecad4f4a30100da6922edf62f84351c0fa08ef91af1d64aca74",
+        "Tilesets.json": "06df3bf126c9e4e304646ad03ae72ce495aa7f4654b2ca198a215a08554ad554",
+        "Troops.json": "446aa046e637de0712741d51ff2c038fb6e665c000c1e8e41e268333814cb4ee",
+        "Weapons.json": "6e301f0a754c00473595e09ef5274f5ad1cabe188d1bb082fa9c80682c9d4b4f"
+      }
+    },
+    "completeGeneratedCarrierComparison": {
+      "passed": true,
+      "files": [
+        "CommonEvents.json",
+        "Map001.json",
+        "System.json",
+        "Troops.json"
+      ]
+    },
+    "runtimeComparison": true,
+    "passed": true
+  },
+  "difference": null
+}

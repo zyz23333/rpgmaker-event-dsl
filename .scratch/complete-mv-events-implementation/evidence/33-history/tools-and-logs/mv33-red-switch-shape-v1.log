@@ -1,0 +1,78 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-33/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/movement-instructions.test.ts (331 tests | 4 failed | 327 skipped) 13ms
+   × M27 M28 reject untyped non-switch or ambiguous reference shapes: {"kind":"switchOn","switch":{"kind":"variable","id":1}} 8ms
+   × M27 M28 reject untyped non-switch or ambiguous reference shapes: {"kind":"switchOn","switch":{"kind":"switch","id":1,"name":"Named"}} 2ms
+   × M27 M28 reject untyped non-switch or ambiguous reference shapes: {"kind":"switchOff","switch":{"kind":"switch","id":1,"extra":true}} 1ms
+   × M27 M28 reject untyped non-switch or ambiguous reference shapes: {"kind":"switchOff","switch":{"kind":"switch"}} 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/movement-instructions.test.ts > M27 M28 reject untyped non-switch or ambiguous reference shapes: {"kind":"switchOn","switch":{"kind":"variable","id":1}}
+AssertionError: expected [Function] to throw error matching /MV-MOVEMENT-SHAPE/ but got 'Unknown variable reference id: 1'
+
+- Expected:
+/MV-MOVEMENT-SHAPE/
+
++ Received:
+"Unknown variable reference id: 1"
+
+ ❯ test/movement-instructions.test.ts:97:83
+     95|   { kind: "switchOff", switch: { kind: "switch" } },
+     96| ])("M27 M28 reject untyped non-switch or ambiguous reference shapes: %…
+     97|   expect(() => compileInstructions([instruction as unknown as MoveRout…
+       |                                                                                   ^
+     98| });
+     99|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  test/movement-instructions.test.ts > M27 M28 reject untyped non-switch or ambiguous reference shapes: {"kind":"switchOn","switch":{"kind":"switch","id":1,"name":"Named"}}
+ FAIL  test/movement-instructions.test.ts > M27 M28 reject untyped non-switch or ambiguous reference shapes: {"kind":"switchOff","switch":{"kind":"switch","id":1,"extra":true}}
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/movement-instructions.test.ts:97:83
+     95|   { kind: "switchOff", switch: { kind: "switch" } },
+     96| ])("M27 M28 reject untyped non-switch or ambiguous reference shapes: %…
+     97|   expect(() => compileInstructions([instruction as unknown as MoveRout…
+       |                                                                                   ^
+     98| });
+     99|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  test/movement-instructions.test.ts > M27 M28 reject untyped non-switch or ambiguous reference shapes: {"kind":"switchOff","switch":{"kind":"switch"}}
+AssertionError: expected [Function] to throw error matching /MV-MOVEMENT-SHAPE/ but got 'Unknown switch reference: undefined'
+
+- Expected:
+/MV-MOVEMENT-SHAPE/
+
++ Received:
+"Unknown switch reference: undefined"
+
+ ❯ test/movement-instructions.test.ts:97:83
+
+     95|   { kind: "switchOff", switch: { kind: "switch" } },
+     96| ])("M27 M28 reject untyped non-switch or ambiguous reference shapes: %…
+     97|   expect(() => compileInstructions([instruction as unknown as MoveRout…
+       |                                                                                   ^
+     98| });
+     99|
+ Test Files  1 failed (1)
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+      Tests  4 failed | 327 skipped (331)
+
+   Start at  23:37:11
+   Duration  1.32s (transform 407ms, setup 0ms, import 1.14s, tests 13ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-33\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/movement-instructions.test.ts -t reference shapes
