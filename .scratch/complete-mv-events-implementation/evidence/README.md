@@ -8,6 +8,10 @@ This is ticket 01's seed, not the complete command or native acceptance matrix. 
 | --- | --- | --- | --- |
 | MV-S0-CE-001 | Common Event → Decompiled Source → actual Discovery/evaluation → Compile Check/Compile → complete parsed equality | synthetic-support | public Workspace API and temporary filesystem |
 | MV-S0-COMPARE-001 | Strict comparison rejects structural/value loss, including inactive state and literal CR | synthetic-rejection | harness negative controls |
+| MV-S0-WIN-CLI-001 | Same minimal Workspace through source and built CLI subprocesses, read-only Check, exact data, actual edited-source Push and stderr/exit behavior | synthetic-support | Windows / Node 22 filesystem and CLI |
+| MV-S0-WIN-JUNCTION-001 | Mandatory real directory junction executes source and built CLI without silent skipping | synthetic-support | Windows junction and CLI subprocess |
+
+Ticket 02 extends the seed with the [Windows baseline and required filesystem responsibility matrix](windows-baseline.md). The additional cases establish the automation foundation; later safety tickets still own their fault and concurrency obligations.
 
 ## Reproduce
 

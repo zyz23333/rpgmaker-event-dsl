@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "scope": "Ticket 01 seed cases only. Other tickets must extend this index; this is not the complete 105+45 or E1-E7/R1-R7 acceptance matrix.",
+  "scope": "Ticket 01 seed cases and ticket 02 Windows automation baseline. Other tickets must extend this index; this is not the complete 105+45 or E1-E7/R1-R7 acceptance matrix.",
   "requirements": [
     {
       "id": "MV-S0-CE-001",
@@ -74,6 +74,80 @@
         "layer": "Verification harness negative controls"
       },
       "slice": "01 / S0",
+      "required": true
+    },
+    {
+      "id": "MV-S0-WIN-CLI-001",
+      "title": "Independent minimal Workspace through source and built Windows CLI subprocesses",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T1 — 已确认的测试边界与现有基础"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T5 — Workspace 故障与平台"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/02-windows-automation-baseline.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A5", "A7", "A8"],
+      "classifications": ["positive", "negative", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "The independent Common Event fixture reconstructed in a unique Windows directory containing Chinese characters and spaces. Real Node CLI processes perform init, clone, decompile, check, compile, diff and push, then edit source and push a replacement. Built verification resolves actual emitted package declarations.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Check publishes neither output nor manifest. Actual discovered source reconstructs full independent saved data. No-op Push succeeds, edited source replaces only expected data and refreshes Snapshot. Invalid option exits 1 with stderr while source, project, generated data, Snapshot and manifest remain unchanged. Source and built CLI runs must both pass.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/windows-baseline.test.ts",
+        "name": "MV-S0-WIN-CLI-001: runs the minimal Workspace through actual Windows CLI processes"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; source CLI during pnpm check, built CLI after pnpm build",
+        "owner": "Automated test runner; CI retains evidence and failing sandboxes",
+        "layer": "Actual Windows filesystem, public CLI subprocesses, independent fixture equality"
+      },
+      "slice": "02 / S0",
+      "required": true
+    },
+    {
+      "id": "MV-S0-WIN-JUNCTION-001",
+      "title": "Windows junction CLI entry executes without permission-based skipping",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T5 — Workspace 故障与平台"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/02-windows-automation-baseline.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A8"],
+      "classifications": ["positive", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "A real Windows directory junction aliases the source or built CLI directory. The aliased entry is executed by a separate Node process from a unique Unicode and space-containing Workspace directory.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Both source and built aliased CLI print usage and exit 0. Junction creation failure, timeout, wrong runtime, missing entry and subprocess failure are visible failures, never silent skips.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/cli-entry.test.ts",
+        "name": "MV-S0-WIN-JUNCTION-001: executes CLI through a mandatory Windows directory junction"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22 with real NTFS junction support; no administrator-only file symlink prerequisite",
+        "owner": "Automated test runner; CI retains failure diagnostics",
+        "layer": "Actual Windows directory junction and CLI subprocess"
+      },
+      "slice": "02 / S0",
       "required": true
     }
   ]
