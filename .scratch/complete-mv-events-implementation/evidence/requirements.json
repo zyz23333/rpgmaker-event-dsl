@@ -5854,6 +5854,321 @@
       },
       "slice": "15 / finite raw boundary and recursive Script Gate",
       "required": true
+    },
+    {
+      "id": "MV-S4-OUTPUT-001",
+      "title": "Diff and Push reject omitted owned output domains",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I11"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/19-compile-check-and-output-publication.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Actual compiled Map/Common/System output with an omitted manifest entry or an empty generatedFiles list.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Diff and Push reject incomplete owned output without state changes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/compile-publication.test.ts",
+        "name": "MV-S4-OUTPUT-001: Diff and Push reject omitted owned output domains"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "19 / S4b",
+      "required": true
+    },
+    {
+      "id": "MV-S4-OUTPUT-002",
+      "title": "Check and Compile reject invalid emitted JSON without publishing",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I11"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/19-compile-check-and-output-publication.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "A discovered untyped Map Event declaration with undefined x passes the current declaration graph but would be serialized as null.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Both Check and Compile construct and validate complete candidate JSON and reject without publication.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/compile-publication.test.ts",
+        "name": "MV-S4-OUTPUT-002: Check and Compile reject invalid emitted JSON without publishing"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "19 / S4b",
+      "required": true
+    },
+    {
+      "id": "MV-S4-OUTPUT-003",
+      "title": "Compile refuses changed inputs before manifest commitment",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I11"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/19-compile-check-and-output-publication.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Real child pauses after generated installation at the manifest temporary-file write; user source changes before commit.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Compile fails requiring rerun, publishes no fresh manifest and leaves all user state intact; explicit rerun recovers.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/compile-publication.test.ts",
+        "name": "MV-S4-OUTPUT-003: Compile refuses changed inputs before manifest commitment"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "19 / S4b",
+      "required": true
+    },
+    {
+      "id": "MV-S4-OUTPUT-004",
+      "title": "Check validates a complete candidate in memory and leaves Freshness unchanged",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I11"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/19-compile-check-and-output-publication.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Actual initial, fresh and stale Workspace states; a child Check traps any attempted generated candidate write.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Check leaves the complete state tree byte-identical and preserves initial/fresh/stale status; Compile emits the independently expected complete Common/System/Map set.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/compile-publication.test.ts",
+        "name": "MV-S4-OUTPUT-004: Check validates a complete candidate in memory and leaves Freshness unchanged"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "19 / S4b",
+      "required": true
+    },
+    {
+      "id": "MV-S4-OUTPUT-005",
+      "title": "real candidate installation and manifest failures cannot authorize stale output",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I11"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/19-compile-check-and-output-publication.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Actual filesystem write, generated directory installation and manifest rename failures after source edits.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "No protected business state changes; Diff/Push reject failed stale output and an explicit successful Compile restores usability.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/compile-publication.test.ts",
+        "name": "MV-S4-OUTPUT-005: real candidate installation and manifest failures cannot authorize stale output"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "19 / S4b",
+      "required": true
+    },
+    {
+      "id": "MV-S4-OUTPUT-006",
+      "title": "interruption after installation leaves unusable output until explicit Compile",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I11"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/19-compile-check-and-output-publication.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Real child process kill and uncaught crash after generated installation, with initial and previously compiled state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Interrupted output cannot authorize Diff/Push; source, Project Root, Snapshot and manifest stay intact; an actual CLI Compile recovers.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/compile-publication.test.ts",
+        "name": "MV-S4-OUTPUT-006: interruption after installation leaves unusable output until explicit Compile"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "19 / S4b",
+      "required": true
+    },
+    {
+      "id": "MV-S4-OUTPUT-007",
+      "title": "integrity rejects missing replaced corrupt and extra claimed generated files",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I11"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/19-compile-check-and-output-publication.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Missing output, directory replacement, corrupt bytes, matching-hash extra claimed domains and unlisted generated files.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Diff/Push reject every incomplete or unexpected actual owned set without state changes; explicit Compile restores the exact supported set.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/compile-publication.test.ts",
+        "name": "MV-S4-OUTPUT-007: integrity rejects missing replaced corrupt and extra claimed generated files"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "19 / S4b",
+      "required": true
+    },
+    {
+      "id": "MV-S4-OUTPUT-008",
+      "title": "integrity compares actual generated bytes without lossy UTF8 decoding",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I11"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/19-compile-check-and-output-publication.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Actual generated Common Event name containing U+FFFD; replace its valid UTF8 EF BF BD bytes by invalid byte80 while retaining the identical permissively decoded text.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Diff/Push reject byte-corrupted Generated Project Data without changing state; explicit Compile restores the exact valid bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/compile-publication.test.ts",
+        "name": "MV-S4-OUTPUT-008: integrity compares actual generated bytes without lossy UTF8 decoding"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "19 / S4b",
+      "required": true
+    },
+    {
+      "id": "MV-S4-OUTPUT-009",
+      "title": "Check and Compile share structure reference and Gate rejection without publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I11"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/19-compile-check-and-output-publication.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Discovered Common Event declarations containing malformed known raw108, missing fixed animation reference raw212 and empty script raw355 with the Gate closed.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Check and Compile return the applicable structure, reference or Gate diagnostic and preserve source, Project Root, Snapshot, generated data, manifest, pending state and actual discovered source collection.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/compile-publication.test.ts",
+        "name": "MV-S4-OUTPUT-009: Check and Compile share structure reference and Gate rejection without publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "19 / S4b",
+      "required": true
     }
   ]
 }

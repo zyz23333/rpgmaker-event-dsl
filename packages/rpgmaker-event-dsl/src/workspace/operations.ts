@@ -11,7 +11,8 @@ import type { DslOwnedDeclaration } from "../domain/types.js";
 import {
   buildCompileBaseline,
   isCompileBaselineFresh,
-  materializeCompileOutput,
+  buildCompileOutput,
+  publishCompileOutput,
   type FileHashEntry,
 } from "../project-data/materialization.js";
 import { parseMapInfos } from "../project-data/project.js";
@@ -185,6 +186,12 @@ async function compileWorkspaceUnlocked(options: CompileWorkspaceOptions): Promi
     );
   }
 
+  const candidate = await buildCompileOutput({
+    declarations: definitionInput.declarations,
+    resolver: graph.resolver,
+    statePaths: snapshot.statePaths,
+    scriptEnabled: workspace.config.scriptEnabled,
+  });
   if (options.check) {
     await assertCompileInputsUnchanged(
       workspace,
@@ -197,19 +204,15 @@ async function compileWorkspaceUnlocked(options: CompileWorkspaceOptions): Promi
   }
 
   const snapshotFiles = snapshot.hashes;
-  const output = await materializeCompileOutput({
-    declarations: definitionInput.declarations,
-    resolver: graph.resolver,
-    statePaths: snapshot.statePaths,
-    assertInputsUnchanged: () =>
-      assertCompileInputsUnchanged(
-        workspace,
-        definitionInput.files,
-        definitionInput.capture,
-        snapshot.hashes,
-        commandName,
-      ),
-  });
+  const output = await publishCompileOutput(snapshot.statePaths, candidate, () =>
+    assertCompileInputsUnchanged(
+      workspace,
+      definitionInput.files,
+      definitionInput.capture,
+      snapshot.hashes,
+      commandName,
+    ),
+  );
   const compileBaseline = await buildCompileBaseline({
     projectRootBinding: workspace.projectRootBinding,
     config: workspace.config,
@@ -220,12 +223,23 @@ async function compileWorkspaceUnlocked(options: CompileWorkspaceOptions): Promi
     workspaceRoot: workspace.workspaceRoot,
   });
 
-  await writeSyncManifest(statePaths.syncManifestPath, {
-    ...manifest,
-    compileBaseline,
-    generatedFiles: output.generatedFiles,
-    snapshotFiles,
-  });
+  await writeSyncManifest(
+    statePaths.syncManifestPath,
+    {
+      ...manifest,
+      compileBaseline,
+      generatedFiles: output.generatedFiles,
+      snapshotFiles,
+    },
+    () =>
+      assertCompileInputsUnchanged(
+        workspace,
+        definitionInput.files,
+        definitionInput.capture,
+        snapshot.hashes,
+        commandName,
+      ),
+  );
 }
 
 export async function isGeneratedProjectDataFresh(

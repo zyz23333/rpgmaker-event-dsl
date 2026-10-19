@@ -120,6 +120,14 @@ Validation, source evaluation, generated data and hashes use the same captured s
 and Snapshot bytes. Compile, `compile --check` and Decompile recheck observed content,
 source discovery, configuration and target before publication and fail with a rerun
 diagnostic when they change. Check is read-only and creates no Generated Freshness.
+Check constructs, validates and serializes the same complete in-memory Compile
+Output as Compile, including command structure, references and the Script Command
+Gate, without writing candidate files. Compile validation failure publishes nothing.
+A publication I/O error or process interruption can leave local generated data
+unusable; an explicit successful Compile restores it. Diff and Push verify actual
+file bytes and the complete owned output set independently of the manifest's list:
+currently CommonEvents, System and all maps registered in the Snapshot's MapInfos.
+Compile changes neither the Snapshot nor the Project Root.
 Type-only imports are validated without executing modules; ordinary helper value
 imports remain unsupported, and event JavaScript remains stored text. These are
 explicit consistency checks; an external editor may still save after the last check.
