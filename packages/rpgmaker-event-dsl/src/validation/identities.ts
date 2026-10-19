@@ -1,4 +1,5 @@
 import type { DslOwnedDeclaration, MapEventDefinition } from "../domain/types.js";
+import { describeValue } from "../project-data/json-values.js";
 import type {
   SnapshotMapValidationEntry,
   SnapshotTroopValidationEntry,
@@ -32,16 +33,26 @@ export function validateDeclarationIdentities(
         )
           issues.push({
             level: "error",
+            code: "MV-TROOP-IDENTITY",
+            stage: "compile",
             identity: `troop:${declaration.troopId}`,
             dslPath: "troopId",
+            expected: "positive existing Snapshot Troop identity",
+            actual: describeValue(declaration.troopId),
             message: `Troop Event troopId ${declaration.troopId} must be a positive existing Snapshot Troop identity.`,
           });
-        trackUniqueIdentity(
-          troopIds,
-          declaration.troopId,
-          `Duplicate Troop Event troopId: ${declaration.troopId}.`,
-          issues,
-        );
+        if (troopIds.has(declaration.troopId))
+          issues.push({
+            level: "error",
+            code: "MV-TROOP-IDENTITY-DUPLICATE",
+            stage: "compile",
+            identity: `troop:${declaration.troopId}`,
+            dslPath: "troopId",
+            expected: "unique Troop Event identity",
+            actual: describeValue(declaration.troopId),
+            message: `Duplicate Troop Event troopId: ${declaration.troopId}.`,
+          });
+        troopIds.add(declaration.troopId);
         break;
       case "mapEvent":
         validatePositiveInteger(declaration.mapId, "Map event mapId", declaration.name, issues);

@@ -148,6 +148,28 @@ it("requires unique existing Troop identities and nonempty ordered pages without
     };
     const valid = troopEvent({ troopId: 2001, pages: [battlePage({ commands: [] })] });
     expect(validateDslOwnedDeclarations([valid], context).issues).toEqual([]);
+    expect(
+      validateDslOwnedDeclarations([troopEvent({ ...valid, troopId: 0 })], context).issues,
+    ).toContainEqual(
+      expect.objectContaining({
+        code: "MV-TROOP-IDENTITY",
+        stage: "compile",
+        identity: "troop:0",
+        dslPath: "troopId",
+        expected: "positive existing Snapshot Troop identity",
+        actual: "0",
+      }),
+    );
+    expect(validateDslOwnedDeclarations([valid, valid], context).issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-TROOP-IDENTITY-DUPLICATE",
+        stage: "compile",
+        identity: "troop:2001",
+        dslPath: "troopId",
+        expected: "unique Troop Event identity",
+        actual: "2001",
+      }),
+    );
     for (const definitions of [
       [valid, valid],
       [troopEvent({ ...valid, troopId: 1 })],
