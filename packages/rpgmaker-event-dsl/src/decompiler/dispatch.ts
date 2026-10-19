@@ -273,6 +273,13 @@ export function renderCommandAt(
   }
 
   switch (command.code) {
+    case 205: {
+      const rendered = renderSetMovementRoute(command);
+      if (rendered === null) return renderSimpleOrRawCommand(command, index);
+      let nextIndex = index;
+      while (commands[nextIndex + 1]?.code === 505) nextIndex += 1;
+      return { ...rendered, nextIndex };
+    }
     case 101:
       return renderShowTextCommand(commands, index, renderSimpleOrRawCommand);
     case 102:

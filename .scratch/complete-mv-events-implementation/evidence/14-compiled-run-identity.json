@@ -1,0 +1,58 @@
+{
+  "startedAt": "2026-10-19T08:58:47.886Z",
+  "completedAt": "2026-10-19T08:59:03.077Z",
+  "host": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/nwjs-win-test/game.exe",
+  "hostSha256": "78beb07fa8f2b905d468a40d64d0d5588b4cfa42d7822d5e16878245657da3aa",
+  "fixture": {
+    "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-14\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\test\\fixtures\\mv-evidence\\movement-route-cases.json",
+    "sha256": "c5f48d068f867f56817a9f65f3ed70c79c1c69c9534468ced3f3fdd35e0fec4c"
+  },
+  "compiledSource": {
+    "path": "C:/Users/Shuen/.codex/tmp/mv-ticket14-workspaces/movement-roundtrip-T67mBd/最小 Workspace with spaces/.rpgmaker-event-dsl/generated-project-data/CommonEvents.json",
+    "sha256": "3d3d1d6831842b340a6afe2985451b4a026300932332e27177acd012fea6b0b3"
+  },
+  "exit": {
+    "code": 0,
+    "signal": null
+  },
+  "engineFiles": [
+    {
+      "name": "js/rpg_core.js",
+      "sha256": "9ad9914cc421af6d054c3f01b022b7383863b047ec3f6f76aa897e6cfbf864c6"
+    },
+    {
+      "name": "js/rpg_managers.js",
+      "sha256": "b3d5c746cf52234bdd34af746dbf3caecf96bb3477cc6d24121c4a1a11241114"
+    },
+    {
+      "name": "js/rpg_objects.js",
+      "sha256": "2d43dd9d8974c88a1b82ffa493d6d8a02c4ce1d0dfc8f05e6c0ab731e3f0573e"
+    },
+    {
+      "name": "js/rpg_scenes.js",
+      "sha256": "a76ea8c14ec7414a0e2bb488b19734603cc3d8aace3f163e3aa82fc3d0d20d20"
+    },
+    {
+      "name": "js/rpg_sprites.js",
+      "sha256": "f13e67ef4ed308afe71c8503dbe4da65b478cb772a7c0cea88d0e280a4e4fcb0"
+    },
+    {
+      "name": "js/rpg_windows.js",
+      "sha256": "2501aea15906d84a2fb51de20e6dc006f847249674f14802ec2ac2dd5361bb99"
+    },
+    {
+      "name": "js/main.js",
+      "sha256": "dcab1427f95c4bcedf1ed595b828d0c423d4c8d1767452c9a4e651a9c07a3ab9"
+    }
+  ],
+  "files": {
+    "observer.js": "896026e5909c49ca989a2578fddbd302d9da0dfe1d6e48b57fb4863b9f611bc2",
+    "cases.json": "8a427fbf79236317b3c51b838f30c8df54218ce190588c32b5b8891ccb6d3302",
+    "data/CommonEvents.json": "02949c2181117041344274a9eae576f0683e5599a215732d264c04f8689d0b71",
+    "data/Map001.json": "95d734461e948731f0584c7430c38977e6c0fc184f74d30963ae08567a8f9368",
+    "data/System.json": "5a820620941a40f106982de10ff574212991a584222c66b9a6eb1cb1c04ece25",
+    "runtime-result.json": "be7ecaaae67fd4c526b5a36c78b831ca92749f16809e6fc0085199f5ad989537",
+    "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

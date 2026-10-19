@@ -52,19 +52,19 @@ describe("decompiler command list rendering", () => {
             4,
             {
               list: [
-                { code: 1, parameters: [] },
+                { code: 1 },
                 { code: 14, parameters: [2, -1] },
                 { code: 15, parameters: [10] },
-                { code: 20, parameters: [] },
+                { code: 20 },
                 { code: 27, parameters: [2] },
                 { code: 28, parameters: [3] },
                 { code: 29, parameters: [5] },
                 { code: 30, parameters: [4] },
-                { code: 31, parameters: [] },
-                { code: 34, parameters: [] },
-                { code: 35, parameters: [] },
-                { code: 38, parameters: [] },
-                { code: 39, parameters: [] },
+                { code: 31 },
+                { code: 34 },
+                { code: 35 },
+                { code: 38 },
+                { code: 39 },
                 { code: 41, parameters: ["Actor1", 3] },
                 { code: 42, parameters: [128] },
                 { code: 43, parameters: [1] },
@@ -78,6 +78,30 @@ describe("decompiler command list rendering", () => {
             },
           ],
         },
+        { code: 505, indent: 0, parameters: [{ code: 1 }] },
+        { code: 505, indent: 0, parameters: [{ code: 14, parameters: [2, -1] }] },
+        { code: 505, indent: 0, parameters: [{ code: 15, parameters: [10] }] },
+        { code: 505, indent: 0, parameters: [{ code: 20 }] },
+        { code: 505, indent: 0, parameters: [{ code: 27, parameters: [2] }] },
+        { code: 505, indent: 0, parameters: [{ code: 28, parameters: [3] }] },
+        { code: 505, indent: 0, parameters: [{ code: 29, parameters: [5] }] },
+        { code: 505, indent: 0, parameters: [{ code: 30, parameters: [4] }] },
+        { code: 505, indent: 0, parameters: [{ code: 31 }] },
+        { code: 505, indent: 0, parameters: [{ code: 34 }] },
+        { code: 505, indent: 0, parameters: [{ code: 35 }] },
+        { code: 505, indent: 0, parameters: [{ code: 38 }] },
+        { code: 505, indent: 0, parameters: [{ code: 39 }] },
+        { code: 505, indent: 0, parameters: [{ code: 41, parameters: ["Actor1", 3] }] },
+        { code: 505, indent: 0, parameters: [{ code: 42, parameters: [128] }] },
+        { code: 505, indent: 0, parameters: [{ code: 43, parameters: [1] }] },
+        {
+          code: 505,
+          indent: 0,
+          parameters: [
+            { code: 44, parameters: [{ name: "Cursor1", volume: 80, pitch: 100, pan: 0 }] },
+          ],
+        },
+        { code: 505, indent: 0, parameters: [{ code: 45, parameters: ["this.moveForward();"] }] },
         { code: 206, indent: 0, parameters: [] },
         { code: 211, indent: 0, parameters: [0] },
         { code: 212, indent: 0, parameters: [3, 4, true] },
@@ -213,7 +237,7 @@ describe("decompiler command list rendering", () => {
         'setEventLocation({ character: { kind: "runtimeSelector", scope: "character", target: "event", id: 4 }, destination: { kind: "variables", x: variableRef({ id: 10 }), y: variableRef({ id: 11 }) } }),',
         'setEventLocation({ character: { kind: "runtimeSelector", scope: "character", target: "player" }, destination: { kind: "exchange", character: { kind: "runtimeSelector", scope: "character", target: "currentEvent" } } }),',
         "scrollMap({ direction: 6, distance: 9, speed: 5 }),",
-        'setMovementRoute({ target: { kind: "runtimeSelector", scope: "character", target: "event", id: 4 }, route: [{ kind: "moveDown" }, { kind: "jump", x: 2, y: -1 }, { kind: "routeWait", frames: 10 }, { kind: "turn90Right" }, { kind: "switchOn", switch: switchRef({ id: 2 }) }, { kind: "switchOff", switch: switchRef({ id: 3 }) }, { kind: "changeSpeed", speed: 5 }, { kind: "changeFrequency", frequency: 4 }, { kind: "walkAnimation", enabled: true }, { kind: "stepAnimation", enabled: false }, { kind: "directionFix", enabled: true }, { kind: "through", enabled: false }, { kind: "transparent", enabled: true }, { kind: "changeImage", image: imageAsset({ folder: "characters", name: "Actor1" }), index: 3 }, { kind: "changeOpacity", opacity: 128 }, { kind: "changeBlendMode", blendMode: 1 }, { kind: "playSe", audio: { asset: audioAsset({ folder: "se", name: "Cursor1" }), volume: 80, pitch: 100, pan: 0 } }, { kind: "script", script: scriptInput({ code: "this.moveForward();" }) }], repeat: false, skippable: true, wait: true }),',
+        'setMovementRoute({ target: { kind: "runtimeSelector", scope: "character", target: "event", id: 4 }, route: { commands: [{ kind: "moveDown" }, { kind: "jump", x: 2, y: -1 }, { kind: "routeWait", frames: 10 }, { kind: "turn90Right" }, { kind: "switchOn", switch: switchRef({ id: 2 }) }, { kind: "switchOff", switch: switchRef({ id: 3 }) }, { kind: "changeSpeed", speed: 5 }, { kind: "changeFrequency", frequency: 4 }, { kind: "walkAnimation", enabled: true }, { kind: "stepAnimation", enabled: false }, { kind: "directionFix", enabled: true }, { kind: "through", enabled: false }, { kind: "transparent", enabled: true }, { kind: "changeImage", image: imageAsset({ folder: "characters", name: "Actor1" }), index: 3 }, { kind: "changeOpacity", opacity: 128 }, { kind: "changeBlendMode", blendMode: 1 }, { kind: "playSe", audio: { asset: audioAsset({ folder: "se", name: "Cursor1" }), volume: 80, pitch: 100, pan: 0 } }, { kind: "script", script: scriptInput({ code: "this.moveForward();" }) }], repeat: false, skippable: true, wait: true } }),',
         "getOnOffVehicle(),",
         "changeTransparency({ transparent: true }),",
         'showAnimation({ target: { kind: "runtimeSelector", scope: "character", target: "event", id: 3 }, animation: animationRef({ id: 4 }), wait: true }),',
@@ -510,19 +534,6 @@ describe("decompiler command list rendering", () => {
         { code: 202, indent: 0, parameters: [3, 0, 1, 2, 3] },
         { code: 203, indent: 0, parameters: [0, 2, -2, 0, 0] },
         { code: 204, indent: 0, parameters: [1, 9, 5] },
-        {
-          code: 205,
-          indent: 0,
-          parameters: [
-            0,
-            {
-              list: [{ code: 45, parameters: [123] }],
-              repeat: true,
-              skippable: false,
-              wait: false,
-            },
-          ],
-        },
         { code: 211, indent: 0, parameters: [2] },
         { code: 212, indent: 0, parameters: [0, 0, true] },
         { code: 213, indent: 0, parameters: [0, 0, true] },
@@ -590,10 +601,6 @@ describe("decompiler command list rendering", () => {
         "rawDslCommand({",
         "  code: 204,",
         "  parameters: [1,9,5],",
-        "}),",
-        "rawDslCommand({",
-        "  code: 205,",
-        '  parameters: [0,{"list":[{"code":45,"parameters":[123]}],"repeat":true,"skippable":false,"wait":false}],',
         "}),",
         "rawDslCommand({",
         "  code: 211,",
@@ -928,7 +935,7 @@ describe("decompiler command list rendering", () => {
       },
       {
         family: "Set Movement Route",
-        codes: [205],
+        codes: [205, 505],
         helperName: "setMovementRoute",
         commands: [
           {
@@ -937,16 +944,14 @@ describe("decompiler command list rendering", () => {
             parameters: [
               0,
               {
-                list: [
-                  { code: 1, parameters: [] },
-                  { code: 0, parameters: [] },
-                ],
+                list: [{ code: 1 }, { code: 0, parameters: [] }],
                 repeat: true,
                 skippable: false,
                 wait: false,
               },
             ],
           },
+          { code: 505, indent: 0, parameters: [{ code: 1 }] },
         ],
       },
       {
@@ -1483,6 +1488,10 @@ describe("decompiler command list rendering", () => {
     ];
 
     for (const routeCase of routeCases) {
+      const record =
+        routeCase.parameters.length === 0
+          ? { code: routeCase.code }
+          : { code: routeCase.code, parameters: routeCase.parameters };
       const rendering = renderDecompiledCommandList([
         {
           code: 205,
@@ -1490,16 +1499,14 @@ describe("decompiler command list rendering", () => {
           parameters: [
             0,
             {
-              list: [
-                { code: routeCase.code, parameters: routeCase.parameters },
-                { code: 0, parameters: [] },
-              ],
+              list: [record, { code: 0, parameters: [] }],
               repeat: true,
               skippable: false,
               wait: false,
             },
           ],
         },
+        { code: 505, indent: 0, parameters: [record] },
       ]);
       const label = `Move Route code ${routeCase.code}`;
 

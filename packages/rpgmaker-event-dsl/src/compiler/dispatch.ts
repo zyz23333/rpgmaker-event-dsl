@@ -79,8 +79,12 @@ import {
   characterSelectorToCode,
   compileSetVehicleLocationParameters,
   compileSetEventLocationParameters,
-  compileMoveRouteCommands,
+  compileMovementRoute,
 } from "../commands/movement/compile.js";
+import {
+  assertSetMovementRoute,
+  assertNativeMovementCommandParameters,
+} from "../commands/movement/validation.js";
 export {
   characterSelectorToCode,
   compileSetVehicleLocationParameters,
@@ -535,21 +539,22 @@ export function compileNodes(
           parameters: [node.direction, node.distance, node.speed],
         });
         break;
-      case "setMovementRoute":
+      case "setMovementRoute": {
+        assertSetMovementRoute(node, `${sourcePath}[${nodeIndex}]`);
+        const route = compileMovementRoute(
+          node.route,
+          resolver,
+          `${sourcePath}[${nodeIndex}].route`,
+        );
         output.push({
           code: 205,
           indent,
-          parameters: [
-            characterSelectorToCode(node.target),
-            {
-              list: compileMoveRouteCommands(node.route, resolver),
-              repeat: node.repeat ?? true,
-              skippable: node.skippable ?? false,
-              wait: node.wait ?? false,
-            },
-          ],
+          parameters: [characterSelectorToCode(node.target), route],
         });
+        for (const record of route.list.slice(0, -1))
+          output.push({ code: 505, indent, parameters: [record] });
         break;
+      }
       case "getOnOffVehicle":
         output.push({
           code: 206,
@@ -1110,7 +1115,11 @@ export function compileNodes(
         });
         break;
       case "rawDslCommand":
-        if ([0, 112, 113, 115, 413].includes(node.code)) {
+        if (node.code === 205 || node.code === 505)
+          assertNativeMovementCommandParameters(node.code, node.parameters, {
+            dslPath: `${sourcePath}[${nodeIndex}]`,
+          });
+        if ([0, 112, 113, 115, 205, 413, 505].includes(node.code)) {
           try {
             assertNativeCommandEnvelope(
               {

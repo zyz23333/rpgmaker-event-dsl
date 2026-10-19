@@ -144,6 +144,19 @@ Ticket 13's [acceptance report](13-loop-acceptance.md) records scope, exact test
 | MV-E10-TIMING        | Unexecuted text, focus and signal order remains explicit             | static-inference                | identified editor/Qt; bounded review only |
 | MV-E10-CONTRACT      | Accepted EXP range consistency and separate product/game obligations | static-inference                | identified editor/Qt; bounded review only |
 
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S2-ROUTE-014 | Shared route defaults, finite indent and M0 state, all eight flags | synthetic-support | command and Staged Data Graph |
+| MV-S2-MIRROR-014 | Ordered, same-indent, complete-object E205/E505 agreement | synthetic-rejection | compile/decompile shared scanner |
+| MV-S2-SHAPE-014 | Unknown codes, extra keys and unsupported envelope rejection | synthetic-rejection | formal/native/recognized raw |
+| MV-S2-ROUTE-RAW-014 | Known raw route Script Gate and switch references | synthetic-rejection | Staged Data Graph |
+| MV-S2-ROUTE-WORKSPACE-014 | Independent saved data through Discovery/typecheck/evaluation and safe roundtrip | synthetic-support | actual Workspace API |
+| MV-S2-ROUTE-STATE-014 | Check/Compile failure leaves all observable Workspace state intact | synthetic-rejection | actual filesystem and Discovery |
+| MV-S2-ROUTE-CLI-014 | Shared route behavior through built Windows CLI processes | synthetic-support | built package and actual CLI |
+| MV-R1-ROUTE-014 | 90-frame route wait/repeat/skip and finite-envelope controls | game-observation | two actual MV1.6.1 / NW0.29.0 processes |
+
+Ticket 14's [acceptance report](14-movement-acceptance.md) distinguishes product saved-shape comparison, actual native game state and the earlier conditional editor-code evidence. The shared route envelope is delivered; complete Page authoring, all 45 parameter contracts and final integrated R1–R7 regressions retain their own tickets.
+
 ## Reproduce
 
 On Windows with Node 22 and dependencies installed, run `pnpm --filter rpgmaker-event-dsl test -- test/mv-evidence.test.ts`. The test reconstructs an independent temporary Project Root from `packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json`, creates a Workspace, clones, decompiles, then invokes Compile Check and Compile. The temporary package exposes the actual repository TypeScript source through a directory junction for type resolution; declarations are not mocked and expected JSON is never produced by the compiler. Source mutation and restoration prove actual evaluation, beyond checking generated source text.

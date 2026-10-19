@@ -346,6 +346,19 @@ owns MV text continuation records, `showChoices(...)` owns choice branches,
 `battleProcessing(...)` owns battle result branches, `shopProcessing(...)` owns goods
 continuations, and `setMovementRoute(...)` owns nested move route commands.
 
+`setMovementRoute({ target, route: { commands, repeat?, skippable?, wait?, terminator? } })`
+uses the shared `MovementRoute` model. `commands` is required and may be empty;
+the route defaults are `repeat: true`, `skippable: false`, and `wait: false`.
+Each movement instruction may carry `savedShape: { indent: "absent" | "null" | "zero" }`,
+defaulting to absent. Parameterless instructions omit the native `parameters` key;
+parameterized instructions retain their complete array. The route owns its sole final
+M0 through `terminator: { parameters: "absent" | "empty" }`, defaulting to empty;
+M0 always omits indent. Decompile makes null, numeric zero and an absent M0 parameter
+key explicit. E205 owns one E505 for each nonterminal instruction and compares the
+complete mirrored object, including nested values and key presence. Unknown movement
+codes and unsupported route shapes fail before source publication. Recognized raw
+routes receive the same mirror, switch-reference and Script Command Gate checks.
+
 Project data references use helpers such as `switchRef(...)`, `variableRef(...)`,
 `actorRef(...)`, `skillRef(...)`, and `tilesetRef(...)`. Asset parameters use no-scan
 Asset References instead: `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)`

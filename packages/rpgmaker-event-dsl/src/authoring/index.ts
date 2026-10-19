@@ -106,6 +106,7 @@ export type {
   MapPageTrigger,
   MovePictureDslCommand,
   MoveRouteCommand,
+  MovementRoute,
   MovieAssetReference,
   NameInputProcessingDslCommand,
   NumericRange,

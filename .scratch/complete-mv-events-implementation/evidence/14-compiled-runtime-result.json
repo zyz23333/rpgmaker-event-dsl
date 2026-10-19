@@ -1,0 +1,787 @@
+{
+  "timestamp": "2026-10-19T08:59:03.017Z",
+  "method": "actual-native-game",
+  "mode": "compiled",
+  "engine": "1.6.1",
+  "versions": {
+    "http_parser": "2.7.0",
+    "node": "9.7.1",
+    "v8": "6.5.254.31",
+    "uv": "1.19.2",
+    "zlib": "1.2.11",
+    "ares": "1.13.0",
+    "modules": "59",
+    "nghttp2": "1.29.0",
+    "napi": "2",
+    "openssl": "1.0.2n",
+    "icu": "60.1",
+    "unicode": "10.0",
+    "cldr": "32.0",
+    "tz": "2017c",
+    "nw": "0.29.0",
+    "node-webkit": "0.29.0",
+    "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+    "nw-flavor": "sdk",
+    "chromium": "65.0.3325.146"
+  },
+  "scene": "Scene_Map",
+  "frameCount": 90,
+  "results": [
+    {
+      "eventId": 1,
+      "input": [
+        {
+          "code": 205,
+          "indent": 0,
+          "parameters": [
+            -1,
+            {
+              "list": [
+                {
+                  "code": 16
+                },
+                {
+                  "code": 17,
+                  "indent": null
+                },
+                {
+                  "code": 18,
+                  "indent": 0
+                },
+                {
+                  "code": 14,
+                  "parameters": [
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "code": 15,
+                  "parameters": [
+                    2
+                  ],
+                  "indent": null
+                },
+                {
+                  "code": 27,
+                  "parameters": [
+                    1
+                  ],
+                  "indent": 0
+                },
+                {
+                  "code": 44,
+                  "parameters": [
+                    {
+                      "name": "Cursor1",
+                      "volume": 37,
+                      "pitch": 102,
+                      "pan": -5
+                    }
+                  ],
+                  "indent": null
+                },
+                {
+                  "code": 45,
+                  "parameters": [
+                    "$gameSwitches.setValue(2, true);\r\n"
+                  ],
+                  "indent": 0
+                },
+                {
+                  "code": 0
+                }
+              ],
+              "repeat": false,
+              "skippable": true,
+              "wait": true
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 16
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 17,
+              "indent": null
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 18,
+              "indent": 0
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 14,
+              "parameters": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 15,
+              "parameters": [
+                2
+              ],
+              "indent": null
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 27,
+              "parameters": [
+                1
+              ],
+              "indent": 0
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 44,
+              "parameters": [
+                {
+                  "name": "Cursor1",
+                  "volume": 37,
+                  "pitch": 102,
+                  "pan": -5
+                }
+              ],
+              "indent": null
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 45,
+              "parameters": [
+                "$gameSwitches.setValue(2, true);\r\n"
+              ],
+              "indent": 0
+            }
+          ]
+        },
+        {
+          "code": 121,
+          "indent": 0,
+          "parameters": [
+            3,
+            3,
+            0
+          ]
+        },
+        {
+          "code": 0,
+          "indent": 0,
+          "parameters": []
+        }
+      ],
+      "before": {
+        "switches": [
+          false,
+          false,
+          false
+        ],
+        "running": false,
+        "forcing": false,
+        "x": 0,
+        "y": 0,
+        "direction": 2
+      },
+      "first": {
+        "switches": [
+          false,
+          false,
+          false
+        ],
+        "running": true,
+        "forcing": true,
+        "x": 0,
+        "y": 0,
+        "direction": 2
+      },
+      "expected": {
+        "switches": [
+          true,
+          true,
+          true
+        ],
+        "running": false,
+        "forcing": false,
+        "x": 0,
+        "y": 0,
+        "direction": 6
+      },
+      "actual": {
+        "switches": [
+          true,
+          true,
+          true
+        ],
+        "running": false,
+        "forcing": false,
+        "x": 0,
+        "y": 0,
+        "direction": 6
+      },
+      "elapsedFrames": 90,
+      "passed": true
+    },
+    {
+      "eventId": 3,
+      "input": [
+        {
+          "code": 205,
+          "indent": 0,
+          "parameters": [
+            -1,
+            {
+              "list": [
+                {
+                  "code": 15,
+                  "parameters": [
+                    10
+                  ]
+                },
+                {
+                  "code": 27,
+                  "parameters": [
+                    1
+                  ]
+                },
+                {
+                  "code": 0,
+                  "parameters": []
+                }
+              ],
+              "repeat": false,
+              "skippable": false,
+              "wait": false
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 15,
+              "parameters": [
+                10
+              ]
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 27,
+              "parameters": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "code": 121,
+          "indent": 0,
+          "parameters": [
+            3,
+            3,
+            0
+          ]
+        },
+        {
+          "code": 0,
+          "indent": 0,
+          "parameters": []
+        }
+      ],
+      "before": {
+        "switches": [
+          false,
+          false,
+          false
+        ],
+        "running": false,
+        "forcing": false,
+        "x": 0,
+        "y": 0,
+        "direction": 2
+      },
+      "first": {
+        "switches": [
+          false,
+          false,
+          true
+        ],
+        "running": false,
+        "forcing": true,
+        "x": 0,
+        "y": 0,
+        "direction": 2
+      },
+      "expected": {
+        "switches": [
+          true,
+          false,
+          true
+        ],
+        "running": false,
+        "forcing": false,
+        "x": 0,
+        "y": 0,
+        "direction": 2
+      },
+      "actual": {
+        "switches": [
+          true,
+          false,
+          true
+        ],
+        "running": false,
+        "forcing": false,
+        "x": 0,
+        "y": 0,
+        "direction": 2
+      },
+      "elapsedFrames": 90,
+      "passed": true,
+      "firstExpected": {
+        "switches": [
+          false,
+          false,
+          true
+        ],
+        "running": false,
+        "forcing": true
+      }
+    },
+    {
+      "eventId": 4,
+      "input": [
+        {
+          "code": 205,
+          "indent": 0,
+          "parameters": [
+            -1,
+            {
+              "list": [
+                {
+                  "code": 27,
+                  "parameters": [
+                    1
+                  ],
+                  "indent": 0
+                },
+                {
+                  "code": 15,
+                  "parameters": [
+                    1
+                  ],
+                  "indent": null
+                },
+                {
+                  "code": 0
+                }
+              ],
+              "repeat": true,
+              "skippable": false,
+              "wait": true
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 27,
+              "parameters": [
+                1
+              ],
+              "indent": 0
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 15,
+              "parameters": [
+                1
+              ],
+              "indent": null
+            }
+          ]
+        },
+        {
+          "code": 121,
+          "indent": 0,
+          "parameters": [
+            3,
+            3,
+            0
+          ]
+        },
+        {
+          "code": 0,
+          "indent": 0,
+          "parameters": []
+        }
+      ],
+      "before": {
+        "switches": [
+          false,
+          false,
+          false
+        ],
+        "running": false,
+        "forcing": false,
+        "x": 0,
+        "y": 0,
+        "direction": 2
+      },
+      "first": {
+        "switches": [
+          false,
+          false,
+          false
+        ],
+        "running": true,
+        "forcing": true,
+        "x": 0,
+        "y": 0,
+        "direction": 2
+      },
+      "expected": {
+        "switches": [
+          true,
+          false,
+          false
+        ],
+        "running": true,
+        "forcing": true,
+        "x": 0,
+        "y": 0,
+        "direction": 2
+      },
+      "actual": {
+        "switches": [
+          true,
+          false,
+          false
+        ],
+        "running": true,
+        "forcing": true,
+        "x": 0,
+        "y": 0,
+        "direction": 2
+      },
+      "elapsedFrames": 90,
+      "passed": true
+    },
+    {
+      "eventId": 5,
+      "input": [
+        {
+          "code": 205,
+          "indent": 0,
+          "parameters": [
+            -1,
+            {
+              "list": [
+                {
+                  "code": 2,
+                  "indent": null
+                },
+                {
+                  "code": 18
+                },
+                {
+                  "code": 27,
+                  "parameters": [
+                    1
+                  ]
+                },
+                {
+                  "code": 0,
+                  "parameters": []
+                }
+              ],
+              "repeat": false,
+              "skippable": false,
+              "wait": true
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 2,
+              "indent": null
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 18
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 27,
+              "parameters": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "code": 121,
+          "indent": 0,
+          "parameters": [
+            3,
+            3,
+            0
+          ]
+        },
+        {
+          "code": 0,
+          "indent": 0,
+          "parameters": []
+        }
+      ],
+      "before": {
+        "switches": [
+          false,
+          false,
+          false
+        ],
+        "running": false,
+        "forcing": false,
+        "x": 0,
+        "y": 0,
+        "direction": 2
+      },
+      "first": {
+        "switches": [
+          false,
+          false,
+          false
+        ],
+        "running": true,
+        "forcing": true,
+        "x": 0,
+        "y": 0,
+        "direction": 2
+      },
+      "expected": {
+        "switches": [
+          false,
+          false,
+          false
+        ],
+        "running": true,
+        "forcing": true,
+        "x": 0,
+        "y": 0,
+        "direction": 4
+      },
+      "actual": {
+        "switches": [
+          false,
+          false,
+          false
+        ],
+        "running": true,
+        "forcing": true,
+        "x": 0,
+        "y": 0,
+        "direction": 4
+      },
+      "elapsedFrames": 90,
+      "passed": true
+    },
+    {
+      "eventId": 6,
+      "input": [
+        {
+          "code": 205,
+          "indent": 0,
+          "parameters": [
+            -1,
+            {
+              "list": [
+                {
+                  "code": 2,
+                  "indent": 0
+                },
+                {
+                  "code": 18
+                },
+                {
+                  "code": 27,
+                  "parameters": [
+                    1
+                  ]
+                },
+                {
+                  "code": 0
+                }
+              ],
+              "repeat": false,
+              "skippable": true,
+              "wait": true
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 2,
+              "indent": 0
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 18
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 27,
+              "parameters": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "code": 121,
+          "indent": 0,
+          "parameters": [
+            3,
+            3,
+            0
+          ]
+        },
+        {
+          "code": 0,
+          "indent": 0,
+          "parameters": []
+        }
+      ],
+      "before": {
+        "switches": [
+          false,
+          false,
+          false
+        ],
+        "running": false,
+        "forcing": false,
+        "x": 0,
+        "y": 0,
+        "direction": 2
+      },
+      "first": {
+        "switches": [
+          false,
+          false,
+          false
+        ],
+        "running": true,
+        "forcing": true,
+        "x": 0,
+        "y": 0,
+        "direction": 2
+      },
+      "expected": {
+        "switches": [
+          true,
+          false,
+          true
+        ],
+        "running": false,
+        "forcing": false,
+        "x": 0,
+        "y": 0,
+        "direction": 6
+      },
+      "actual": {
+        "switches": [
+          true,
+          false,
+          true
+        ],
+        "running": false,
+        "forcing": false,
+        "x": 0,
+        "y": 0,
+        "direction": 6
+      },
+      "elapsedFrames": 90,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

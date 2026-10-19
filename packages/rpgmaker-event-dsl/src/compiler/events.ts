@@ -6,6 +6,7 @@ import {
   compileNodes,
   type RawEventCommand,
 } from "./dispatch.js";
+import { compileMovementRoute } from "../commands/movement/compile.js";
 
 export type ProjectEventData = {
   id: number;
@@ -82,12 +83,7 @@ export function compilePage(page: EventPage, resolver: ReferenceResolver): Proje
     },
     list: compileNodes(page.commands, 0, resolver),
     moveFrequency: 3,
-    moveRoute: {
-      list: [{ code: 0, parameters: [] }],
-      repeat: true,
-      skippable: false,
-      wait: false,
-    },
+    moveRoute: compileMovementRoute({ commands: [] }, resolver),
     moveSpeed: 3,
     moveType: 0,
     priorityType: 1,
