@@ -49,3 +49,13 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [系统、地图与表现参数附表](../../complete-mv-events/research/command-parameters/visual-map.md)。
+
+## Comments
+
+2026-10-20 focused DEV：完整 Audio/None/独立数值、seconds fade、Save/Replay/Stop、
+三种 vehicle、原始 helper/Asset 输入及正式/raw/native 精确拒绝已实现。已从干净
+checkpoint 5f1c690 合入实际 post26 73504ec，继承契约 /12；原314行保持完整，
+追加5行共319。最终 source focused 11 files/449 tests、typecheck、scoped lint/format
+通过。全部原始失败和输入/输出保留，详见
+[开发记录](../evidence/39-audio-and-system-audio-dev-checkpoint.md)。本票保持 claimed；
+full/build/built、相对契约递增、E4/R6、独立复核与最终关闭仍待 finalization，未声称 READY。
