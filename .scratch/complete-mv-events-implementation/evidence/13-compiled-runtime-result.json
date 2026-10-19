@@ -1,0 +1,293 @@
+{
+  "timestamp": "2026-10-19T08:21:18.619Z",
+  "method": "actual-native-game",
+  "mode": "compiled",
+  "engine": "1.6.1",
+  "versions": {
+    "http_parser": "2.7.0",
+    "node": "9.7.1",
+    "v8": "6.5.254.31",
+    "uv": "1.19.2",
+    "zlib": "1.2.11",
+    "ares": "1.13.0",
+    "modules": "59",
+    "nghttp2": "1.29.0",
+    "napi": "2",
+    "openssl": "1.0.2n",
+    "icu": "60.1",
+    "unicode": "10.0",
+    "cldr": "32.0",
+    "tz": "2017c",
+    "nw": "0.29.0",
+    "node-webkit": "0.29.0",
+    "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+    "nw-flavor": "sdk",
+    "chromium": "65.0.3325.146"
+  },
+  "scene": "Scene_Map",
+  "frameCount": 0,
+  "results": [
+    {
+      "eventId": 1,
+      "input": [
+        {
+          "code": 112,
+          "indent": 0,
+          "parameters": []
+        },
+        {
+          "code": 121,
+          "indent": 1,
+          "parameters": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "code": 113,
+          "indent": 1,
+          "parameters": []
+        },
+        {
+          "code": 0,
+          "indent": 1,
+          "parameters": []
+        },
+        {
+          "code": 413,
+          "indent": 0,
+          "parameters": []
+        },
+        {
+          "code": 115,
+          "indent": 0,
+          "parameters": []
+        },
+        {
+          "code": 121,
+          "indent": 0,
+          "parameters": [
+            2,
+            2,
+            0
+          ]
+        },
+        {
+          "code": 0,
+          "indent": 0,
+          "parameters": []
+        }
+      ],
+      "before": [
+        false,
+        false
+      ],
+      "expected": [
+        true,
+        false
+      ],
+      "actual": [
+        true,
+        false
+      ],
+      "isRunning": false,
+      "passed": true
+    },
+    {
+      "eventId": 2,
+      "input": [
+        {
+          "code": 112,
+          "indent": 0,
+          "parameters": []
+        },
+        {
+          "code": 112,
+          "indent": 1,
+          "parameters": []
+        },
+        {
+          "code": 121,
+          "indent": 2,
+          "parameters": [
+            3,
+            3,
+            0
+          ]
+        },
+        {
+          "code": 113,
+          "indent": 2,
+          "parameters": []
+        },
+        {
+          "code": 0,
+          "indent": 2,
+          "parameters": []
+        },
+        {
+          "code": 413,
+          "indent": 1,
+          "parameters": []
+        },
+        {
+          "code": 113,
+          "indent": 1,
+          "parameters": []
+        },
+        {
+          "code": 413,
+          "indent": 0,
+          "parameters": []
+        },
+        {
+          "code": 115,
+          "indent": 0,
+          "parameters": []
+        },
+        {
+          "code": 121,
+          "indent": 0,
+          "parameters": [
+            4,
+            4,
+            0
+          ]
+        },
+        {
+          "code": 0,
+          "indent": 0,
+          "parameters": []
+        }
+      ],
+      "before": [
+        false,
+        false
+      ],
+      "expected": [
+        true,
+        false
+      ],
+      "actual": [
+        true,
+        false
+      ],
+      "isRunning": false,
+      "passed": true
+    },
+    {
+      "eventId": 3,
+      "input": [
+        {
+          "code": 113,
+          "indent": 0,
+          "parameters": []
+        },
+        {
+          "code": 121,
+          "indent": 0,
+          "parameters": [
+            5,
+            5,
+            0
+          ]
+        },
+        {
+          "code": 115,
+          "indent": 0,
+          "parameters": []
+        },
+        {
+          "code": 121,
+          "indent": 0,
+          "parameters": [
+            6,
+            6,
+            0
+          ]
+        },
+        {
+          "code": 0,
+          "indent": 0,
+          "parameters": []
+        }
+      ],
+      "before": [
+        false,
+        false
+      ],
+      "expected": [
+        false,
+        false
+      ],
+      "actual": [
+        false,
+        false
+      ],
+      "isRunning": false,
+      "passed": true
+    },
+    {
+      "eventId": 5,
+      "input": [
+        {
+          "code": 117,
+          "indent": 0,
+          "parameters": [
+            4
+          ]
+        },
+        {
+          "code": 121,
+          "indent": 0,
+          "parameters": [
+            9,
+            9,
+            0
+          ]
+        },
+        {
+          "code": 115,
+          "indent": 0,
+          "parameters": []
+        },
+        {
+          "code": 121,
+          "indent": 0,
+          "parameters": [
+            10,
+            10,
+            0
+          ]
+        },
+        {
+          "code": 0,
+          "indent": 0,
+          "parameters": []
+        }
+      ],
+      "before": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "expected": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "actual": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "isRunning": false,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

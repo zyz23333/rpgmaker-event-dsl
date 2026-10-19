@@ -70,7 +70,7 @@ async function buildDecompiledSourceFiles(
   for (const mapInfo of mapInfos) {
     const mapFileName = formatMapFileName(mapInfo.id);
     const mapData = await readSnapshotObject(options.statePaths, mapFileName);
-    const events = readMapEvents(mapData);
+    const events = readMapEvents(mapData, mapInfo.id);
     for (const event of events) {
       for (const [pageIndex, page] of event.pages.entries()) {
         assertSwitchReferences(
@@ -181,10 +181,10 @@ ${indentLines(event.pages.map(renderPage).join(",\n"), 4)}
     ...collectConditionHelperNames(
       events.flatMap((event) => event.pages.map((page) => page.conditions)),
     ),
-    ...events.flatMap(
-      (event) =>
-        renderDecompiledCommandList(event.pages.flatMap((page) => normalizeCommandList(page.list)))
-          .helperNames,
+    ...events.flatMap((event) =>
+      event.pages.flatMap(
+        (page) => renderDecompiledCommandList(normalizeCommandList(page.list)).helperNames,
+      ),
     ),
   ])}\n\n${body}\n`;
 }
@@ -220,8 +220,9 @@ ${indentLines(renderCommands(normalizeCommandList(event.list)), 4)}
     ...(events.some((event) => commonEventTriggerFromCode(event.trigger) !== "none")
       ? ["switchRef"]
       : []),
-    ...renderDecompiledCommandList(events.flatMap((event) => normalizeCommandList(event.list)))
-      .helperNames,
+    ...events.flatMap(
+      (event) => renderDecompiledCommandList(normalizeCommandList(event.list)).helperNames,
+    ),
   ])}\n\n${body}\n`;
 }
 

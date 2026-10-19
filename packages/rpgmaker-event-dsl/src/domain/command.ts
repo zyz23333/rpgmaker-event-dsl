@@ -33,7 +33,7 @@ export type DslCommand =
   | ConditionalDslCommand
   | LoopDslCommand
   | BreakLoopDslCommand
-  | ExitEventDslCommand
+  | ExitEventProcessingDslCommand
   | CommonEventDslCommand
   | LabelDslCommand
   | JumpToLabelDslCommand
@@ -181,17 +181,22 @@ export type ConditionalDslCommand = {
   else?: readonly DslCommand[];
 };
 
+export type ChildCommandBody = {
+  commands: readonly DslCommand[];
+  endMarker?: "present" | "absent";
+};
+
 export type LoopDslCommand = {
   kind: "loop";
-  body: readonly DslCommand[];
+  body: ChildCommandBody;
 };
 
 export type BreakLoopDslCommand = {
   kind: "breakLoop";
 };
 
-export type ExitEventDslCommand = {
-  kind: "exitEvent";
+export type ExitEventProcessingDslCommand = {
+  kind: "exitEventProcessing";
 };
 
 export type CommonEventDslCommand = {

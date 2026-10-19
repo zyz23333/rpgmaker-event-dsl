@@ -7,6 +7,7 @@ export function compileChoiceBranches(
   indent: number,
   resolver: ReferenceResolver,
   compileCommandList: CompileCommandList,
+  sourcePath = "commands",
 ): RawEventCommand[] {
   const output: RawEventCommand[] = [];
 
@@ -16,7 +17,15 @@ export function compileChoiceBranches(
       indent,
       parameters: [index],
     });
-    output.push(...compileCommandList(branch, indent + 1, resolver, false));
+    output.push(
+      ...compileCommandList(
+        branch,
+        indent + 1,
+        resolver,
+        false,
+        `${sourcePath}.branches[${index}]`,
+      ),
+    );
   });
 
   if (node.cancelBranch) {
@@ -25,7 +34,15 @@ export function compileChoiceBranches(
       indent,
       parameters: [],
     });
-    output.push(...compileCommandList(node.cancelBranch, indent + 1, resolver, false));
+    output.push(
+      ...compileCommandList(
+        node.cancelBranch,
+        indent + 1,
+        resolver,
+        false,
+        `${sourcePath}.cancelBranch`,
+      ),
+    );
   }
 
   return output;

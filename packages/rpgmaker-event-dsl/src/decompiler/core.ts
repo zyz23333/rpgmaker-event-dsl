@@ -4,6 +4,10 @@ import { resolve } from "node:path";
 import type { WorkspaceStatePaths } from "../workspace/state.js";
 import type { RawEventCommand } from "../compiler/types.js";
 import type { SnapshotCommonEvent, SnapshotMapEvent, SnapshotMapEventPage } from "./types.js";
+import {
+  CommandStructureError,
+  inspectCommandListStructure,
+} from "../validation/command-structure.js";
 
 export function renderPageConditions(conditions: Record<string, unknown> | undefined): string {
   if (conditions === undefined) {
@@ -89,7 +93,10 @@ export function collectConditionHelperNames(
   return [...helpers];
 }
 
-export function readMapEvents(mapData: Record<string, unknown>): SnapshotMapEvent[] {
+export function readMapEvents(
+  mapData: Record<string, unknown>,
+  mapId?: number,
+): SnapshotMapEvent[] {
   const events = Array.isArray(mapData.events) ? mapData.events : [];
 
   return events.flatMap((entry) => {
@@ -107,7 +114,7 @@ export function readMapEvents(mapData: Record<string, unknown>): SnapshotMapEven
       {
         id,
         name: typeof record.name === "string" ? record.name : `Event ${id}`,
-        pages: readMapEventPages(record.pages),
+        pages: readMapEventPages(record.pages, `map:${mapId ?? "?"}/event:${id}`),
         x: typeof record.x === "number" ? record.x : 0,
         y: typeof record.y === "number" ? record.y : 0,
       },
@@ -115,12 +122,12 @@ export function readMapEvents(mapData: Record<string, unknown>): SnapshotMapEven
   });
 }
 
-export function readMapEventPages(value: unknown): SnapshotMapEventPage[] {
+export function readMapEventPages(value: unknown, identity?: string): SnapshotMapEventPage[] {
   if (!Array.isArray(value)) {
     return [{ conditions: {}, list: [], trigger: 0 }];
   }
 
-  const pages = value.flatMap((entry) => {
+  const pages = value.flatMap((entry, pageIndex) => {
     if (!entry || typeof entry !== "object") {
       return [];
     }
@@ -134,7 +141,7 @@ export function readMapEventPages(value: unknown): SnapshotMapEventPage[] {
           !Array.isArray(record.conditions)
             ? (record.conditions as Record<string, unknown>)
             : {},
-        list: readRawCommandList(record.list),
+        list: readRawCommandList(record.list, identity, `pages[${pageIndex}].`),
         trigger: typeof record.trigger === "number" ? record.trigger : 0,
       },
     ];
@@ -157,7 +164,7 @@ export function readCommonEvents(value: readonly unknown[]): SnapshotCommonEvent
 
     const output: SnapshotCommonEvent = {
       id,
-      list: readRawCommandList(record.list),
+      list: readRawCommandList(record.list, `commonEvent:${id}`),
       name: typeof record.name === "string" ? record.name : `Common Event ${id}`,
       trigger: typeof record.trigger === "number" ? record.trigger : 0,
     };
@@ -170,35 +177,35 @@ export function readCommonEvents(value: readonly unknown[]): SnapshotCommonEvent
   });
 }
 
-export function readRawCommandList(value: unknown): RawEventCommand[] {
+export function readRawCommandList(
+  value: unknown,
+  identity?: string,
+  nativePrefix = "",
+): RawEventCommand[] {
   if (!Array.isArray(value)) {
     return [];
   }
 
-  return value.flatMap((entry) => {
-    if (!entry || typeof entry !== "object") {
-      return [];
-    }
-
-    const record = entry as Record<string, unknown>;
-    if (typeof record.code !== "number") {
-      return [];
-    }
-
-    return [
-      {
-        code: record.code,
-        indent: typeof record.indent === "number" ? record.indent : 0,
-        parameters: Array.isArray(record.parameters) ? [...record.parameters] : [],
-      },
-    ];
-  });
+  try {
+    inspectCommandListStructure(value, { requireTerminator: value.length > 0 });
+  } catch (error) {
+    if (error instanceof CommandStructureError)
+      throw new CommandStructureError(
+        error.code,
+        error.detail,
+        { ...error.location, nativePath: nativePrefix + error.location.nativePath },
+        identity,
+        "decompile",
+      );
+    throw error;
+  }
+  return value.map((entry: RawEventCommand) => ({ ...entry, parameters: [...entry.parameters] }));
 }
 
 export function normalizeCommandList(
   commands: readonly RawEventCommand[] | undefined,
 ): RawEventCommand[] {
-  return commands?.filter((command) => command.code !== 0) ?? [];
+  return commands === undefined ? [] : [...commands];
 }
 
 export function readNamedSystemEntries(value: unknown): Array<{ id: number; name: string }> {

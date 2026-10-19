@@ -1,0 +1,852 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-S3-LOOP-BODY-013",
+  "runId": "2026-10-19T08-24-47-867Z-1bbfb6e7-36b1-4402-95c8-7a582c4568fe",
+  "status": "passed",
+  "startedAt": "2026-10-19T08:23:35.382Z",
+  "completedAt": "2026-10-19T08:24:47.867Z",
+  "operator": "Codex ticket13 implementer /root/ticket_01",
+  "source": {
+    "revision": "cb77da2b4dc079c34d5c9d16ff9394292a908f7f",
+    "fingerprint": "4e0ba13474db0c2666b17512ab9b18252b387c321c9b17d07dddfb7e181dc6bb",
+    "files": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/13-compiled-cases.json",
+        "sha256": "ae2faa91ea593d13d00226292af3979c6cda4094ae944119228c9542325515df"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/13-compiled-common-events.json",
+        "sha256": "e8e4afd01dd6aa388d99d6b78a6d4b992eb6be7a692faae8edba9a981bdc9894"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/13-compiled-observer.js",
+        "sha256": "927983194732528ffb117a362e2538567714ae93ff9f31f816d2aadce45ef973"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/13-compiled-run-identity.json",
+        "sha256": "2ebcb6e9b6a7a9971e0a3aa2289d6b069e438aab26fbe4fbf136b9657314ffbb"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/13-compiled-runtime-result.json",
+        "sha256": "722f25d8ac02e1d0057550cfab6dee240e7ff93c363810dd87c5cc1cf1f5b064"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/13-compiled-stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/13-compiled-stdout.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/13-literal-cases.json",
+        "sha256": "ae2faa91ea593d13d00226292af3979c6cda4094ae944119228c9542325515df"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/13-literal-observer.js",
+        "sha256": "f19ada5faca668cd515e4af4ead6bb51609c20c77b69a58495f6d3e955f813d4"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/13-literal-run-identity.json",
+        "sha256": "96cb9951eafed262b298bdc340a7f323e7b445ee13272f3843604dd1c071d919"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/13-literal-runtime-result.json",
+        "sha256": "d1f6b1472a3e27182ee88f820a7c43d322ea94a1fd132fb0c761758583157cd2"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/13-literal-stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/13-literal-stdout.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/13-loop-native-runner.cjs",
+        "sha256": "ae14ec1a7763b18bfc22e3f743b63752b72b71413ca215d21d340759740e25f4"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/13-record-acceptance.mjs",
+        "sha256": "a920014a0a109e90b181f8b412ada8855dd6ac1cf6690328d25aca1adeaf1536"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/13-vitest-report.json",
+        "sha256": "3b792e2fcb9f605559a2b1cb059371058d3c0de092ca9d1cd85cfc57b2b3f0c3"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+        "sha256": "b1ba05aaff6f7ef9ff9a0eefed10da5b98534151780c928ad0ff37d864899773"
+      },
+      {
+        "path": "package.json",
+        "sha256": "770e4e3a85243faa5f7a4e029097699e7c024f0655342a18bd47d507bf7af8b4"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/declarations.ts",
+        "sha256": "86e765bd32bef9addbaa8bd0970968e0355786772de92761707bd066a4e929a9"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/index.ts",
+        "sha256": "535aed5f9f6f70a5ba6ee74f28b7a129cfb9f1a25ad635369f758301a9ab5aee"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/references.ts",
+        "sha256": "395ebe2dd50f9890ec2f6f0f2b602af20ab8cc825a78d8bd3aaaae5b241c3ca1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/authoring/shared.ts",
+        "sha256": "3865ac8c4b3768c96038a323a02cf30c33edd9f330544bd6cd2b204d2841408e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/cli.ts",
+        "sha256": "34c6e77e91a45126b1a2c5b15621f79241a98bab081924d2fbd535c5996fd4b0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/actor/authoring.ts",
+        "sha256": "adc9b6aa805739dad7594246236f6314cc8a08299f1bd323b8ae729cf6b2fdf3"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/actor/decompile.ts",
+        "sha256": "2e83a179cabb9ae19ff9207904c822bb84c6b5bc45581386d2aca7b1b005b56d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/audio/authoring.ts",
+        "sha256": "08a68ae8b97095ec1c3a6d8517ed5649eb79ffb1b66f59aa34a7506356e0e513"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/audio/decompile.ts",
+        "sha256": "18acdf8e035ad2b8f3879622e18c39a7cde1e6279c14013fca2e6dbd0edb3811"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/battle/authoring.ts",
+        "sha256": "a5249dd85dde78f2f0183d33a9a79d69bca93e88b5d2f0404f9005a25f115377"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/battle/decompile.ts",
+        "sha256": "4da781567fb9baf2580ec050564d66506d542890dfab3a6966eef1c008ac44b0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/enemy/authoring.ts",
+        "sha256": "3ff830df557837e08ed73054eb47085cd0ba262e1aad746defc05578a14ce602"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/enemy/decompile.ts",
+        "sha256": "334fc1efeda29f27cf9a7e504501ea7e693fb9b041a96bb827c90ec957ff2cd2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/flow/authoring.ts",
+        "sha256": "5948d34cb26d81e3a72973a88b742a78b3928b7d4dc4c67b41ecca1e212f6d0f"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/flow/decompile.ts",
+        "sha256": "db0508df65d743ada28e4b175d85cfbfa6a70a0547ff17cc2ecc2ab9a0feac31"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/flow/validation.ts",
+        "sha256": "e53e420b6f56e26e85e7df6db53c48365002450aefb13fbae50b21141e2adc70"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/map/authoring.ts",
+        "sha256": "985f89d88a2460b0af605f3fb8282847dd48e4d5d6e13821ae430966a53c4006"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/map/decompile.ts",
+        "sha256": "4155ac5891314141271b6e80f4b11924e584ef1efcf6e83b125b7e60196e2ce0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/message/authoring.ts",
+        "sha256": "76bfc91b2a89a8c62546542396ff47c8baf9f13d54c1c1ba5a0b58031b413d68"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/message/decompile.ts",
+        "sha256": "88c685d032c2be77e1e02548c5d500e6a2ceaf012d583d78d9cb0270fc841f13"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/authoring.ts",
+        "sha256": "55dc34dd1e08dd47ba949bfc82b3b7330bab4878e55011e45828b109f1860ccf"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/compile.ts",
+        "sha256": "0c8ef550648696c7128c05a0d5b2607afcee00295a92d104e4b836a6d9db59b6"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/movement/decompile.ts",
+        "sha256": "abc88e2e36311bb79d800811f5756e6f6919f6e5e7484b9e74d5777df58be5e8"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/screen/authoring.ts",
+        "sha256": "c0557c79496cb70c7a4d67fa61008a6e189b9df86f7cb408b36048b89aff63dc"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/screen/compile.ts",
+        "sha256": "a1c68cb63a4e6fe9ad2de3f45f51101f2e4fa6656fd865ac3bbbf485c78edc80"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/screen/decompile.ts",
+        "sha256": "38e4c759cf9f51c5ab49ea0f33d79c9a2af1060156102e7198541ac2e529567b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/system/authoring.ts",
+        "sha256": "71b37822f2d2abd58349a1ea7eed84fea0c886cf8045beb6341dbfba2c02814d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/system/decompile.ts",
+        "sha256": "1f9e4bd405d96c789cf96d7845467cd36556faba32052325b194ba17560a572f"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/authoring.ts",
+        "sha256": "a2bbedd0a2d9aacb7e3eb2772e4f7431c49ccef39166cc74f4b615a6494a3f22"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/compile.ts",
+        "sha256": "9e4a295fac91434e34e28bd3c84b9b5a5dc526685f821f574582e7ac22bb4c27"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/decompile.ts",
+        "sha256": "c32df1e9d77b36d30fd135bc6c8919f0cf84a19acaf6a86d3e66d700762b9773"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/variables/validation.ts",
+        "sha256": "8996604b8bfcb1fd9ba8a5100b8bd598e720aad9b946d001e77e89ddf5609867"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+        "sha256": "f40c459d85c6dff3b8957ec35d5c376e953ab47e8dabcffbb59016af902326c4"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/events.ts",
+        "sha256": "9d63c33f6c3183de6d36699b90e4eb46bc54d2797b42e4267d9c43dcce679283"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/branches.ts",
+        "sha256": "680a3dd02dec313a2a210856242084f475959fb10e039c3a33aab3974b0d7cb4"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/conditions.ts",
+        "sha256": "1aa14baa863b1bffbfa0432d909d40c8d97b0dd9831194c3aca07400f33a8471"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/media.ts",
+        "sha256": "9bc3cc0ec9fd97a6368711dc4e73cba05dc4abaee7697624132577bb465e3e68"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/shared/targets.ts",
+        "sha256": "11c907ed9a847ba54fdc222c7d04757e1b0d74205c7111426e4fec8d80be7ce2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/types.ts",
+        "sha256": "f6bec07249a0bc1ae7fc71a53c15e930316cfe349cc45d16266a41dc58ff98fa"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/core.ts",
+        "sha256": "f210fea91bd135cfa38b8b6dc92ee34a61715f0f186763d2c87a98c07171aa53"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/dispatch.ts",
+        "sha256": "4c793626f49f5b059d9d83a9bd3497c6a774bc4e17d24d5c82417f409252dec3"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/project.ts",
+        "sha256": "98c8477dd435b2eb6518af57f163b07a020cce723b282e83293a8fd4571309c4"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/decompiler/types.ts",
+        "sha256": "ca2934d7b3ec09156b0be631144a61fc598e0a2f21e1bbb726957a933a0df919"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/command.ts",
+        "sha256": "1030506b8c30606b89a64307f63d65f6da68a3c7605399f6351c34e3002fd43c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/declarations.ts",
+        "sha256": "6ba959332d6682fe9889923a7f7e9443aa90126be5d0bb817cffca7a3e633f24"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/references.ts",
+        "sha256": "ac64bf1b231e8600f42b9c3cd1b12d1a2603817f6e314901ddeb50b74d455b74"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/domain/types.ts",
+        "sha256": "c398eb62729a93ddd8f282715cd62bbe0979be5274b6d4e882b3421a1a3edb89"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/index.ts",
+        "sha256": "cac51b3cd154629880f6b30aaf8b54a8f1aecee91bb26182ebfd7ccdb3c90157"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/materialization.ts",
+        "sha256": "f17b912588a758dfd20ffdc4b4d6f5a789c546a26b5d4a715c921503e99374b5"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/project.ts",
+        "sha256": "fa9b441f2c6a0353ad420a62993b0618473307e0a10a898db096ae9ee7683323"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/structured-diff.ts",
+        "sha256": "8c55e87136e3658ce4fd08e6e924a188dc3823e7c960f5bbc517aecb9beefc79"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/project-data/writer.ts",
+        "sha256": "0ca90b5d2df8d19c02c528edc690a3d47378368f1cd9207b92becacf5c227e9e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/command-structure.ts",
+        "sha256": "10afbd53d89ee4418babbbb1c5df353691ef740a65447d0bf37afe8a3df646e0"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/commands.ts",
+        "sha256": "85d9c03c6f3fc70f6d27ac96bc661d3a69f020d99a06c86f71ab582a5e2b09eb"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/compiled-commands.ts",
+        "sha256": "da76eeadfd811d2dbc6dffc9f9df50f3e91c40eb42babaff27e703c4e4770204"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/identities.ts",
+        "sha256": "a0d6f2bf47eb740b91086ab677d4887f5cf536132063da323d6d68a10f83b189"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/inspection.ts",
+        "sha256": "10a9923ffca925eb65ea7254a1d940c6580a3a60f3b7a14a4862cf08d11453e1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/references.ts",
+        "sha256": "fe3a8c5bbe7dd5e7c666788cc7f9c2cc49f8fcf8d7ec4aa8d966fefc039c5f4b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/shared.ts",
+        "sha256": "8fb0ce36eba0efaaf92c5f99f73b05dc17a6776d3041a8b211fa1b647adc08b2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/snapshot.ts",
+        "sha256": "0125f484aefc95fe0f1fe6ff42f04dd423c5579582977116de2cc54803a6c6e9"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/staged-graph.ts",
+        "sha256": "7d96d21f5dbd3f9eeed52a30e8f332bbaeade4afa92fb70aa3588a0f96321ac7"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/types.ts",
+        "sha256": "b391a877794e3cc5b2bafda07ddd03b9db99de0add1966fc9b7baca5216b6f43"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "sha256": "735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/checks.ts",
+        "sha256": "2aaf445528038cdb866e42d0a21fd823f496cd566966f52d6129c91175fc0c2d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/config.ts",
+        "sha256": "d0bf53b5736657e1a23724f7fdc957093039343730c00ace04d5f9012140ec87"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/definitions.ts",
+        "sha256": "f9af859d87c4db12e2e857cc546ef6d538d193c09b07746ea896c4a3333c743b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/guards.ts",
+        "sha256": "cec835079aba4c1c61d4a28f224fd7ac7617063568b05156a84cc08896e0ed89"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/operations.ts",
+        "sha256": "3fbabf6f2f508d2d17049d9df4a6a5df564578b358d47d5aa1997c58b193df4a"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/push.ts",
+        "sha256": "a80f1669874a8a58541b5f30025e08a9ffdfe3f1e0b30fa413efaf7bcdddf73b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/state.ts",
+        "sha256": "5188dac57c7d9d701b3b96ee32359a09e1f93abcc7251801b73d9723621323fb"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/types.ts",
+        "sha256": "f046ebe39de38d590d78bb0aa00f5c3f03a117f972f9aec6f49fa5f7275023fb"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/architecture.test.ts",
+        "sha256": "3229d46f278ed361e8629291203e60e26486ca88441aaabf879121214572e9cd"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/cli-entry.test.ts",
+        "sha256": "6dd400343ebc7d3341911a43f261cc9752ae1c4e99fb915acdf5feea183e93d5"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/cli.test.ts",
+        "sha256": "6640d901282cf3f76178d5bba1e72f1f6059280096f4ef3b22493f8a647a840a"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/decompiler.test.ts",
+        "sha256": "c239c8334461b740675cf909d46f6e1383b73bface6b4030b5f1237dcb0c2cd1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/definitions.test.ts",
+        "sha256": "c47465a9e43c13883c1a99da46d37be3d181556ccdd5803b16c7a9614b95fe06"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/dsl.test.ts",
+        "sha256": "7d57eb22721c25c9e69fc7f4cac60940c5a037e1534ca750de2d695ccc8412b9"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/events.test.ts",
+        "sha256": "0491a886e4d8ca29b80480bb5a03596849469184bd597c77877d73c61791802b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/loop-cases.json",
+        "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-slots-project.json",
+        "sha256": "eae9d3c30c431a9a66a2af6e822100309da6920f794ba34b84fea15566bdde38"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/index.test.ts",
+        "sha256": "9afd6a1323db0d41f32ae8047dff223f2dd96d4050ae260d4dfda638741e9211"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/loop-workspace.test.ts",
+        "sha256": "3f55ecd96db02b50e6da388b2f4475ba9679d9b4141d16ad1dacea6eeb5c44e3"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/loop.test.ts",
+        "sha256": "b14987d6276708589f845fce296542307e99c3a0ae8b34a15b5603a1c9c53fe6"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/mv-evidence.test.ts",
+        "sha256": "5d158ea357c657807c3101a2896c71ce9fbc24b08263727d1ead3d85a98c03f5"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/project.test.ts",
+        "sha256": "c43c6a1193d093e53e847de47d45554673795de729575fd7a7e21c9a91190025"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/staged-graph.test.ts",
+        "sha256": "560437439b411aad5b6811cb1d5478f33ef82bd1d41b98c350f3392b9527d49d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/structured-diff.test.ts",
+        "sha256": "b7d65f0b7b077100788abef652d0befd9a107694f14435c5fa7ce5239e036f67"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/mv-evidence.ts",
+        "sha256": "ae82454a6ba72ee174b81b5b3dd8b1f5c0875a18034ffff1b2219bd3e8db7b07"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/windows-sandbox.ts",
+        "sha256": "082558694016f8a2bbf9aa8ed9c06c0b5531c79492d1872af7245b9d274011c8"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/system-slots.test.ts",
+        "sha256": "95ec634605f67d38f87a29d9b714c3e08e965c3e9f32ae167c7ece9036ed004e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/windows-baseline.test.ts",
+        "sha256": "3b06218264c3c651a956b982a282b096fe557ca999ff88b81ada3dd02343df87"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/workflow.test.ts",
+        "sha256": "a9a82259383bf1c193b5c95338c81035bce1b379deb883a0b3e2120375656983"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/workspace.test.ts",
+        "sha256": "9d6c6e6be74210fbd74f13c545286be7bc9da40c8d2d1c04c72533e310f3d9bf"
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "sha256": "4f685f5fccae0de0bef4666fb12f314fd0b26ae81ac68a26cc90cf2dd247c5b5"
+      }
+    ]
+  },
+  "fixture": {
+    "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/loop-cases.json",
+    "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "node": "v22.23.0",
+    "vitest": "4.1.9",
+    "typescript": "5.9.3",
+    "package": "0.1.2",
+    "native": "not-executed"
+  },
+  "stages": [
+    "Vitest command/Staged Data Graph seam",
+    "actual Workspace Discovery/typecheck/evaluation",
+    "all product assertions executed"
+  ],
+  "expected": "Required/unknown fields, invalid marker enum, null/undefined/sparse children and empty-absent bodies fail; empty present compiles to an exact own marker.",
+  "actual": {
+    "numPassedTests": 34,
+    "numFailedTests": 0,
+    "testResults": [
+      {
+        "assertionResults": [
+          {
+            "ancestorTitles": [],
+            "fullName": "round trips complete Loop saved lists through actual Discovery, Check, Compile, Diff and Push",
+            "status": "passed",
+            "title": "round trips complete Loop saved lists through actual Discovery, Check, Compile, Diff and Push",
+            "duration": 2618.2367999999997,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects malformed known native flow before publishing any source and preserves project and snapshot",
+            "status": "passed",
+            "title": "rejects malformed known native flow before publishing any source and preserves project and snapshot",
+            "duration": 55.59400000000005,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          }
+        ],
+        "startTime": 1792398216284,
+        "endTime": 1792398218957.594,
+        "status": "passed",
+        "message": "",
+        "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-13/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/loop-workspace.test.ts"
+      },
+      {
+        "assertionResults": [
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects extra authored fields on parameterless breakLoop",
+            "status": "passed",
+            "title": "rejects extra authored fields on parameterless breakLoop",
+            "duration": 2.775199999999927,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects extra authored fields on parameterless exitEventProcessing",
+            "status": "passed",
+            "title": "rejects extra authored fields on parameterless exitEventProcessing",
+            "duration": 0.17070000000001073,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "reports the complete DSL path for an invalid Loop inside another parent's body",
+            "status": "passed",
+            "title": "reports the complete DSL path for an invalid Loop inside another parent's body",
+            "duration": 0.4339999999999691,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "accepts a handwritten complete event terminator without introducing a second code zero",
+            "status": "passed",
+            "title": "accepts a handwritten complete event terminator without introducing a second code zero",
+            "duration": 0.9110000000000582,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects malformed known raw envelopes without coercion before Check or Compile",
+            "status": "passed",
+            "title": "rejects malformed known raw envelopes without coercion before Check or Compile",
+            "duration": 0.4792000000001053,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects malformed known raw envelopes without coercion before Check or Compile",
+            "status": "passed",
+            "title": "rejects malformed known raw envelopes without coercion before Check or Compile",
+            "duration": 0.2013000000000602,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects malformed known raw envelopes without coercion before Check or Compile",
+            "status": "passed",
+            "title": "rejects malformed known raw envelopes without coercion before Check or Compile",
+            "duration": 0.16060000000004493,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects malformed known raw envelopes without coercion before Check or Compile",
+            "status": "passed",
+            "title": "rejects malformed known raw envelopes without coercion before Check or Compile",
+            "duration": 0.19180000000005748,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects malformed known raw envelopes without coercion before Check or Compile",
+            "status": "passed",
+            "title": "rejects malformed known raw envelopes without coercion before Check or Compile",
+            "duration": 0.38189999999997326,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "recognizes a nested Loop marker without truncating its containing conditional fragment",
+            "status": "passed",
+            "title": "recognizes a nested Loop marker without truncating its containing conditional fragment",
+            "duration": 8.184200000000033,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "recursively validates Script Command Gate and contextual switch references inside Loop",
+            "status": "passed",
+            "title": "recursively validates Script Command Gate and contextual switch references inside Loop",
+            "duration": 0.9748000000000729,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects invalid Loop body '.body' through the public validation seam",
+            "status": "passed",
+            "title": "rejects invalid Loop body '.body' through the public validation seam",
+            "duration": 0.3284999999999627,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects invalid Loop body '.body' through the public validation seam",
+            "status": "passed",
+            "title": "rejects invalid Loop body '.body' through the public validation seam",
+            "duration": 0.16270000000008622,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects invalid Loop body '.body' through the public validation seam",
+            "status": "passed",
+            "title": "rejects invalid Loop body '.body' through the public validation seam",
+            "duration": 0.1252999999999247,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects invalid Loop body '.body.commands' through the public validation seam",
+            "status": "passed",
+            "title": "rejects invalid Loop body '.body.commands' through the public validation seam",
+            "duration": 0.1168999999999869,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects invalid Loop body '.body.commands' through the public validation seam",
+            "status": "passed",
+            "title": "rejects invalid Loop body '.body.commands' through the public validation seam",
+            "duration": 0.1189000000000533,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects invalid Loop body '.body' through the public validation seam",
+            "status": "passed",
+            "title": "rejects invalid Loop body '.body' through the public validation seam",
+            "duration": 0.11519999999995889,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects invalid Loop body '.body.endMarker' through the public validation seam",
+            "status": "passed",
+            "title": "rejects invalid Loop body '.body.endMarker' through the public validation seam",
+            "duration": 0.11040000000002692,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects invalid Loop body '.body.commands[0]' through the public validation seam",
+            "status": "passed",
+            "title": "rejects invalid Loop body '.body.commands[0]' through the public validation seam",
+            "duration": 0.10320000000001528,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects invalid Loop body '.body.commands[0]' through the public validation seam",
+            "status": "passed",
+            "title": "rejects invalid Loop body '.body.commands[0]' through the public validation seam",
+            "duration": 0.16449999999997544,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects invalid Loop body '.body.commands[0]' through the public validation seam",
+            "status": "passed",
+            "title": "rejects invalid Loop body '.body.commands[0]' through the public validation seam",
+            "duration": 0.13069999999993342,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "compiles an empty Loop with its own Body End Marker and a distinct event terminator",
+            "status": "passed",
+            "title": "compiles an empty Loop with its own Body End Marker and a distinct event terminator",
+            "duration": 0.6746999999999161,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "warns about formal and raw Break Loop outside a Loop while preserving native output",
+            "status": "passed",
+            "title": "warns about formal and raw Break Loop outside a Loop while preserving native output",
+            "duration": 0.4655999999999949,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "checks the final declared body state after formal and raw records are combined",
+            "status": "passed",
+            "title": "checks the final declared body state after formal and raw records are combined",
+            "duration": 0.8481000000000449,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects 'orphan close' in known raw output and native decompilation with an exact location",
+            "status": "passed",
+            "title": "rejects 'orphan close' in known raw output and native decompilation with an exact location",
+            "duration": 0.3886999999999716,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects 'missing close' in known raw output and native decompilation with an exact location",
+            "status": "passed",
+            "title": "rejects 'missing close' in known raw output and native decompilation with an exact location",
+            "duration": 0.3044999999999618,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects 'extra known parameter' in known raw output and native decompilation with an exact location",
+            "status": "passed",
+            "title": "rejects 'extra known parameter' in known raw output and native decompilation with an exact location",
+            "duration": 0.23050000000000637,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects 'wrong child indent' in known raw output and native decompilation with an exact location",
+            "status": "passed",
+            "title": "rejects 'wrong child indent' in known raw output and native decompilation with an exact location",
+            "duration": 0.36330000000009477,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects 'middle child marker' in known raw output and native decompilation with an exact location",
+            "status": "passed",
+            "title": "rejects 'middle child marker' in known raw output and native decompilation with an exact location",
+            "duration": 0.3392000000000053,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects 'empty missing marker' in known raw output and native decompilation with an exact location",
+            "status": "passed",
+            "title": "rejects 'empty missing marker' in known raw output and native decompilation with an exact location",
+            "duration": 0.2983000000000402,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "rejects an empty Loop whose declared Body End Marker is absent before Compile or Check",
+            "status": "passed",
+            "title": "rejects an empty Loop whose declared Body End Marker is absent before Compile or Check",
+            "duration": 0.39179999999998927,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "preserves an absent outer Loop marker independently of the inner Loop marker and Exit",
+            "status": "passed",
+            "title": "preserves an absent outer Loop marker independently of the inner Loop marker and Exit",
+            "duration": 0.8473999999999933,
+            "failureMessages": [],
+            "meta": {},
+            "tags": []
+          }
+        ],
+        "startTime": 1792398216189,
+        "endTime": 1792398216210.8474,
+        "status": "passed",
+        "message": "",
+        "name": "C:/Users/Shuen/.codex/worktrees/mv-ticket-13/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/loop.test.ts"
+      }
+    ]
+  },
+  "difference": null
+}

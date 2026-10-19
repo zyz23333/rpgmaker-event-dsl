@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "scope": "Ticket01 automated seeds, ticket02 Windows automation baseline, tickets03–07 native reverse-engineering and accepted finite-contract review, plus ticket11 System-slot/switch coverage. Not the complete105+45 or E1-E7/R1-R7 acceptance matrix.",
+  "scope": "Ticket01 automated seeds, ticket02 Windows automation baseline, tickets03–07 native reverse-engineering and accepted finite-contract review, ticket11 System-slot/switch coverage, and ticket13 Loop/Break/Exit coverage. Not the complete105+45 or E1-E7/R1-R7 acceptance matrix.",
   "requirements": [
     {
       "id": "MV-S0-CE-001",
@@ -2121,6 +2121,286 @@
         "layer": "Accepted finite-contract consistency review after explicit human decision; no product implementation"
       },
       "slice": "07 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-S3-LOOP-013",
+      "title": "Complete Loop saved lists through actual Workspace Discovery and evaluation",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/13-loop-and-child-body-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A6", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Complete Loop saved lists through actual Workspace Discovery and evaluation; independent native literals and separate runtime expectations in the fixture; negative inputs are literal mutations in the linked tests.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/loop-cases.json",
+        "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+      },
+      "expected": "Complete saved objects, nested marker state and formal helpers equal the independent literal fixture through Check/Compile/Diff/Push.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/loop-workspace.test.ts",
+        "name": "round trips complete Loop saved lists through actual Discovery, Check, Compile, Diff and Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Codex ticket13 implementer /root/ticket_01",
+        "layer": "Actual command/Staged Data Graph and Workspace filesystem seams"
+      },
+      "slice": "13 / E112 E113 E115",
+      "required": true
+    },
+    {
+      "id": "MV-S3-FLOW-REJECT-013",
+      "title": "Malformed native flow fails without publishing source",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/13-loop-and-child-body-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A6", "A7"],
+      "classifications": ["negative", "boundary", "combination"],
+      "sourceKind": "synthetic-rejection",
+      "input": "Malformed native flow fails without publishing source; independent native literals and separate runtime expectations in the fixture; negative inputs are literal mutations in the linked tests.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/loop-cases.json",
+        "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+      },
+      "expected": "Missing E115 parameters fails at commonEvent:5/list[2]; source discovery remains empty and Project Root/Snapshot/manifest remain byte-identical.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/loop-workspace.test.ts",
+        "name": "rejects malformed known native flow before publishing any source and preserves project and snapshot"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Codex ticket13 implementer /root/ticket_01",
+        "layer": "Actual command/Staged Data Graph and Workspace filesystem seams"
+      },
+      "slice": "13 / E112 E113 E115",
+      "required": true
+    },
+    {
+      "id": "MV-S3-LOOP-BODY-013",
+      "title": "Required Child Command Body fields and bounded marker state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/13-loop-and-child-body-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A6", "A7"],
+      "classifications": ["negative", "boundary", "combination"],
+      "sourceKind": "synthetic-rejection",
+      "input": "Required Child Command Body fields and bounded marker state; independent native literals and separate runtime expectations in the fixture; negative inputs are literal mutations in the linked tests.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/loop-cases.json",
+        "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+      },
+      "expected": "Required/unknown fields, invalid marker enum, null/undefined/sparse children and empty-absent bodies fail; empty present compiles to an exact own marker.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/loop.test.ts",
+        "name": "rejects invalid Loop body $path through the public validation seam"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Codex ticket13 implementer /root/ticket_01",
+        "layer": "Actual command/Staged Data Graph and Workspace filesystem seams"
+      },
+      "slice": "13 / E112 E113 E115",
+      "required": true
+    },
+    {
+      "id": "MV-S3-LOOP-RAW-013",
+      "title": "Final formal/raw body marker state and legal nested raw records",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/13-loop-and-child-body-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A6", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Final formal/raw body marker state and legal nested raw records; independent native literals and separate runtime expectations in the fixture; negative inputs are literal mutations in the linked tests.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/loop-cases.json",
+        "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+      },
+      "expected": "Owning raw tail marker contradicting absent or duplicating present fails, while valid nested raw structures and a handwritten complete event terminator remain legal.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/loop.test.ts",
+        "name": "checks the final declared body state after formal and raw records are combined"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Codex ticket13 implementer /root/ticket_01",
+        "layer": "Actual command/Staged Data Graph and Workspace filesystem seams"
+      },
+      "slice": "13 / E112 E113 E115",
+      "required": true
+    },
+    {
+      "id": "MV-S3-LOOP-STRUCTURE-013",
+      "title": "Loop structure diagnostics and exact known flow shapes",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/13-loop-and-child-body-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A6", "A7"],
+      "classifications": ["negative", "boundary", "combination"],
+      "sourceKind": "synthetic-rejection",
+      "input": "Loop structure diagnostics and exact known flow shapes; independent native literals and separate runtime expectations in the fixture; negative inputs are literal mutations in the linked tests.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/loop-cases.json",
+        "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+      },
+      "expected": "Orphan/missing close, wrong indent, middle marker, missing empty marker and extra known parameter fail at exact native list indexes; malformed envelopes and parameterless extra fields also fail.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/loop.test.ts",
+        "name": "rejects $name in known raw output and native decompilation with an exact location"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Codex ticket13 implementer /root/ticket_01",
+        "layer": "Actual command/Staged Data Graph and Workspace filesystem seams"
+      },
+      "slice": "13 / E112 E113 E115",
+      "required": true
+    },
+    {
+      "id": "MV-S3-LOOP-RECURSION-013",
+      "title": "Recursive Script Gate and contextual references inside Loop",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/13-loop-and-child-body-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A6", "A7"],
+      "classifications": ["negative", "boundary", "combination"],
+      "sourceKind": "synthetic-rejection",
+      "input": "Recursive Script Gate and contextual references inside Loop; independent native literals and separate runtime expectations in the fixture; negative inputs are literal mutations in the linked tests.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/loop-cases.json",
+        "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+      },
+      "expected": "Disabled Script and missing switch are reported inside the Loop; full child DSL paths are retained through other parents.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/loop.test.ts",
+        "name": "recursively validates Script Command Gate and contextual switch references inside Loop"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Codex ticket13 implementer /root/ticket_01",
+        "layer": "Actual command/Staged Data Graph and Workspace filesystem seams"
+      },
+      "slice": "13 / E112 E113 E115",
+      "required": true
+    },
+    {
+      "id": "MV-S3-BREAK-WARNING-013",
+      "title": "Outside Loop Break warns without changing saved output",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/13-loop-and-child-body-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A6", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Outside Loop Break warns without changing saved output; independent native literals and separate runtime expectations in the fixture; negative inputs are literal mutations in the linked tests.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/loop-cases.json",
+        "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+      },
+      "expected": "Formal and raw outside Break each warn at their native list position; inside Break is allowed without that warning.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/loop.test.ts",
+        "name": "warns about formal and raw Break Loop outside a Loop while preserving native output"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Codex ticket13 implementer /root/ticket_01",
+        "layer": "Actual command/Staged Data Graph and Workspace filesystem seams"
+      },
+      "slice": "13 / E112 E113 E115",
+      "required": true
+    },
+    {
+      "id": "MV-R3-LOOP-013",
+      "title": "Actual native Loop/Break/Exit control flow and Common Event caller continuation",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/13-loop-and-child-body-boundaries.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "game-observation",
+      "input": "Actual native Loop/Break/Exit control flow and Common Event caller continuation; independent native literals and separate runtime expectations in the fixture; negative inputs are literal mutations in the linked tests.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/loop-cases.json",
+        "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+      },
+      "expected": "Independent literal and actual compiled lists produce the same fresh-state switch values and stopped interpreter for all four cases; child Exit permits caller continuation.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/13-loop-acceptance.md",
+        "section": "## Actual MV execution"
+      },
+      "nativeGroups": ["R1", "R3"],
+      "execution": {
+        "environment": "Windows / Node 22; actual MV1.6.1 / NW0.29.0 game processes",
+        "owner": "Codex ticket13 implementer /root/ticket_01",
+        "layer": "Native Scene_Map and unchanged Game_Interpreter"
+      },
+      "slice": "13 / E112 E113 E115",
       "required": true
     }
   ]

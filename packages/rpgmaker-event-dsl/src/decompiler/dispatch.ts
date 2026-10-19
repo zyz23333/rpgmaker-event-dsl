@@ -227,9 +227,13 @@ export {
   renderRawCommand,
 } from "../commands/system/decompile.js";
 
+import { inspectCommandListStructure } from "../validation/command-structure.js";
+
 export function renderDecompiledCommandList(
   commands: readonly RawEventCommand[],
 ): DecompiledCommandListRendering {
+  // Family renderers also accept fragments; complete snapshot lists are checked before rendering.
+  inspectCommandListStructure(commands, { fragment: true });
   const rendered: string[] = [];
   const helperNames = new Set<string>();
 
@@ -405,7 +409,7 @@ export function renderSimpleCommand(
     case 113:
       return renderNoParameterCommand(command, "breakLoop");
     case 115:
-      return renderNoParameterCommand(command, "exitEvent");
+      return renderNoParameterCommand(command, "exitEventProcessing");
     case 103: {
       const variableId = readPositiveInteger(command.parameters[0]);
       const digits = command.parameters[1];

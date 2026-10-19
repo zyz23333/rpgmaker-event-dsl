@@ -1,0 +1,27 @@
+{
+  "startedAt": "2026-10-19T08:21:12.803Z",
+  "completedAt": "2026-10-19T08:21:18.671Z",
+  "host": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/nwjs-win-test/game.exe",
+  "hostSha256": "78beb07fa8f2b905d468a40d64d0d5588b4cfa42d7822d5e16878245657da3aa",
+  "fixture": {
+    "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-13\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\test\\fixtures\\mv-evidence\\loop-cases.json",
+    "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+  },
+  "compiledSource": {
+    "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\loop-roundtrip-7xSH89\\最小 Workspace with spaces\\.rpgmaker-event-dsl\\generated-project-data\\CommonEvents.json",
+    "sha256": "3622826ededf4d27e6055cc5ae3d1ea73f2e5744860e1ba70e6de83ed0127643"
+  },
+  "exit": {
+    "code": 0,
+    "signal": null
+  },
+  "files": {
+    "observer.js": "927983194732528ffb117a362e2538567714ae93ff9f31f816d2aadce45ef973",
+    "cases.json": "ae2faa91ea593d13d00226292af3979c6cda4094ae944119228c9542325515df",
+    "data/CommonEvents.json": "e8e4afd01dd6aa388d99d6b78a6d4b992eb6be7a692faae8edba9a981bdc9894",
+    "data/Map001.json": "662c508f367f38f393c34f13eb192a872e5f32f609d2e8500d7bfd601e391b1b",
+    "runtime-result.json": "722f25d8ac02e1d0057550cfab6dee240e7ff93c363810dd87c5cc1cf1f5b064",
+    "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

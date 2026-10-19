@@ -17,6 +17,11 @@ export type DuplicateAwareNameIndex = Map<string, number[]>;
 export type ValidationIssue = {
   level: "error" | "warning";
   message: string;
+  code?: string;
+  stage?: "compile" | "decompile";
+  identity?: string;
+  nativePath?: string;
+  dslPath?: string;
 };
 
 export type ValidationResult = {
