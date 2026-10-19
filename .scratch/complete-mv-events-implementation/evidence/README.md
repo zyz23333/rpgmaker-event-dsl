@@ -537,3 +537,23 @@ Ticket24's supplemental numeric correction now has current contract `mv-1.6.1/11
 Ticket26 now has current contract `mv-1.6.1/12` delivery evidence: full source42 files/1069 tests, fresh15-file build, built Windows18 files/455 tests, and actual E4 comparison of14 independent scenarios/10 negative cases passed. The [current Timer report](26-timer-saved-slot-roundtrip.md#最终化构建与-e4-产品比较--mv-16112) and [26-final-history](26-final-history/README.md) preserve actual source/dist identities, the original full-check failures and exact closed captures. E4 verifies current10 resource identities against the bounded05 REA report and exercises real built public Workspace writes across complete15 carriers; it does not claim editor UI or game execution. The original checklist rows and their pending-at-DEV wording are historical and unchanged; final50 and52–54 remain separate.
 
 Ticket26 final closure audit passed:314 requirements retain the complete incoming300 prefix and own288 rows,6084 historical raw blobs/prefixes remain exact,1507 initial archive source/copy pairs match, and189 actual/physically retained execution inputs (including15 dist files) remain unchanged. The original10-second selected evidence-index test passed in4.11 seconds. Closed captures are appended through26-final-history/post-archive-index-v1.json; the initial archive map is immutable. Ticket26 is resolved under the allocated E4 boundary.
+
+
+## Ticket27 Choices finalization
+
+| Requirement | Coverage | Evidence |
+| --- | --- | --- |
+| MV-S6-CHOICES-001 | Numeric saved default/cancel indices including negative zero, full0..5 and precise out-of-count warnings | actual automatic result records |
+| MV-S6-CHOICES-002 | Named position/background, None/disabled and optional-undefined defaults | actual automatic result records |
+| MV-S6-CHOICES-003 | Exact mirror/order/cancel/body markers and nested raw ownership | actual automatic result records |
+| MV-S6-CHOICES-004 | Recursive reference and Script Gate validation in unreachable bodies | actual automatic result records |
+| MV-S6-CHOICES-005 | Strict helper/declaration shapes and malformed native/known-raw E102 slots | actual automatic result records |
+| MV-S6-CHOICES-006 | Actual discovered numeric-sign Workspace roundtrip and installation | actual automatic result records |
+| MV-S6-CHOICES-007 | One-to-six lists, empty/trailing text, nested cancel and native markers through real source | actual automatic result records |
+| MV-S6-CHOICES-008 | Fixed one-choice defaults and out-of-count cancel warning through real source | actual automatic result records |
+| MV-S6-CHOICES-009 | Native and structurally typed formal failures preserve complete business state on retry | actual automatic result records |
+| MV-S6-CHOICES-010 | Recursive Gate fails before publication and allows exact installation when enabled | actual automatic result records |
+| MV-S6-CHOICES-011 | Independent complete three-container/15-carrier and four-generated-carrier roundtrip with real Push edits | actual automatic result records |
+| MV-S6-CHOICES-012 | All three native containers reject mirror conflict with exact paths and unchanged complete state | actual automatic result records |
+| MV-S6-CHOICES-E2-COMPARE | Allocated E2 candidate built product versus version-bound REA Choices save/container facts | allocated documentary result; final regression separate |
+| MV-S6-CHOICES-R3-PAIRS | Allocated R3 actual native literal and compiled Choices game pairs | allocated documentary result; final regression separate |

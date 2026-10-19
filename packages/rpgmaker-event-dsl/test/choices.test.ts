@@ -1,4 +1,5 @@
-import { expect, it } from "vitest";
+import { afterEach, expect, it } from "vitest";
+import { recordEvidence } from "./support/mv-evidence.js";
 import {
   commonEvent,
   rawDslCommand,
@@ -31,7 +32,7 @@ it.each([
   { name: "default", cancel: 0, defaultChoice: -0 },
   { name: "both", cancel: -0, defaultChoice: -0 },
 ])(
-  "preserves numeric saved choice indices with negative zero in $name through formal, raw and decompile",
+  "MV-S6-CHOICES-001: preserves numeric saved choice indices with negative zero in $name through formal, raw and decompile",
   ({ cancel, defaultChoice }) => {
     const expected = structuredClone(nativeChoices);
     expected[0]!.parameters[1] = cancel;
@@ -77,7 +78,7 @@ it.each([
   { index: 4, warn: true },
   { index: 5, warn: true },
 ])(
-  "preserves saved default and cancel index $index independently of the current two choices",
+  "MV-S6-CHOICES-001: preserves saved default and cancel index $index independently of the current two choices",
   ({ index, warn }) => {
     const command = showChoices({
       choices: [
@@ -115,7 +116,7 @@ it.each([
   { position: "center", background: "dim", native: [1, 1] },
   { position: "right", background: "transparent", native: [2, 2] },
 ] as const)(
-  "preserves named $position/$background modes and the none/disabled states",
+  "MV-S6-CHOICES-002: preserves named $position/$background modes and the none/disabled states",
   ({ position, background, native }) => {
     const event = commonEvent({
       id: 1,
@@ -146,7 +147,7 @@ it.each([
   },
 );
 
-it("keeps a valid nested raw body's marker separate from its formal owner", () => {
+it("MV-S6-CHOICES-003: keeps a valid nested raw body's marker separate from its formal owner", () => {
   const event = commonEvent({
     id: 1,
     name: "Nested raw",
@@ -195,7 +196,7 @@ it("keeps a valid nested raw body's marker separate from its formal owner", () =
   ]);
 });
 
-it("visits unreachable choice and cancel bodies for references and Script Command Gate", () => {
+it("MV-S6-CHOICES-004: visits unreachable choice and cancel bodies for references and Script Command Gate", () => {
   const event = commonEvent({
     id: 1,
     name: "Recursive checks",
@@ -281,16 +282,19 @@ it.each([
     code: "MV-COMMAND-STRUCTURE",
     path: "list[4]",
   },
-])("refuses a $name through the native structure seam", ({ edit, code, path }) => {
-  const list = structuredClone(nativeChoices);
-  edit(list);
-  expect(() => renderDecompiledCommandList(list)).toThrow(
-    expect.objectContaining({ code, location: expect.objectContaining({ nativePath: path }) }),
-  );
-});
+])(
+  "MV-S6-CHOICES-003: refuses a $name through the native structure seam",
+  ({ edit, code, path }) => {
+    const list = structuredClone(nativeChoices);
+    edit(list);
+    expect(() => renderDecompiledCommandList(list)).toThrow(
+      expect.objectContaining({ code, location: expect.objectContaining({ nativePath: path }) }),
+    );
+  },
+);
 
 it.each(["present", "absent"] as const)(
-  "rejects a raw own marker contradicting the declared %s choice body",
+  "MV-S6-CHOICES-003: rejects a raw own marker contradicting the declared %s choice body",
   (endMarker) => {
     const event = commonEvent({
       id: 1,
@@ -313,7 +317,7 @@ it.each(["present", "absent"] as const)(
     );
   },
 );
-it("rejects a raw own marker contradicting the cancel body", () => {
+it("MV-S6-CHOICES-003: rejects a raw own marker contradicting the cancel body", () => {
   const event = commonEvent({
     id: 1,
     name: "Cancel conflict",
@@ -349,28 +353,34 @@ it.each([
   { slot: 3, value: -0 },
   { slot: 4, value: 3 },
   { slot: 4, value: -0 },
-])("rejects unsupported E102 slot $slot=$value in native and known raw", ({ slot, value }) => {
-  const list = structuredClone(nativeChoices);
-  list[0]!.parameters[slot] = value;
-  expect(() => renderDecompiledCommandList(list)).toThrow(
-    expect.objectContaining({
-      code: "MV-COMMAND-PARAMETERS",
-      location: expect.objectContaining({ nativePath: `list[0].parameters[${slot}]` }),
-    }),
-  );
-  const event = commonEvent({
-    id: 1,
-    name: "Known raw",
-    trigger: "none",
-    commands: list.slice(0, -1).map(rawDslCommand),
-  });
-  expect(validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues).toContainEqual(
-    expect.objectContaining({ code: "MV-COMMAND-PARAMETERS", dslPath: "commands[0]" }),
-  );
-});
+])(
+  "MV-S6-CHOICES-005: rejects unsupported E102 slot $slot=$value in native and known raw",
+  ({ slot, value }) => {
+    const list = structuredClone(nativeChoices);
+    list[0]!.parameters[slot] = value;
+    expect(() => renderDecompiledCommandList(list)).toThrow(
+      expect.objectContaining({
+        code: "MV-COMMAND-PARAMETERS",
+        location: expect.objectContaining({ nativePath: `list[0].parameters[${slot}]` }),
+      }),
+    );
+    const event = commonEvent({
+      id: 1,
+      name: "Known raw",
+      trigger: "none",
+      commands: list.slice(0, -1).map(rawDslCommand),
+    });
+    expect(validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-COMMAND-PARAMETERS",
+        dslPath: `commands[0].parameters[${slot}]`,
+      }),
+    );
+  },
+);
 
 it.each(["missing", "forbidden"])(
-  "rejects a %s cancel branch instead of changing the saved mode",
+  "MV-S6-CHOICES-003: rejects a %s cancel branch instead of changing the saved mode",
   (mode) => {
     const list = structuredClone(nativeChoices);
     if (mode === "missing") list[0]!.parameters[1] = -2;
@@ -458,19 +468,22 @@ it.each([
     input: { choices: [{ text: "", commands: [], endMarker: null }] },
     path: ".choices[0].endMarker",
   },
-])("rejects forged Choices at the precise owned path $path", ({ input, path }) => {
-  const event = commonEvent({
-    id: 1,
-    name: "Invalid choices",
-    trigger: "none",
-    commands: [{ kind: "showChoices", ...input } as never],
-  });
-  expect(validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues).toContainEqual(
-    expect.objectContaining({ code: "MV-CHOICES", dslPath: `commands[0]${path}` }),
-  );
-});
+])(
+  "MV-S6-CHOICES-005: rejects forged Choices at the precise owned path $path",
+  ({ input, path }) => {
+    const event = commonEvent({
+      id: 1,
+      name: "Invalid choices",
+      trigger: "none",
+      commands: [{ kind: "showChoices", ...input } as never],
+    });
+    expect(validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues).toContainEqual(
+      expect.objectContaining({ code: "MV-CHOICES", dslPath: `commands[0]${path}` }),
+    );
+  },
+);
 
-it("rejects non-data own fields before reading an untyped helper input", () => {
+it("MV-S6-CHOICES-005: rejects non-data own fields before reading an untyped helper input", () => {
   let reads = 0;
   expect(() =>
     showChoices({
@@ -483,7 +496,7 @@ it("rejects non-data own fields before reading an untyped helper input", () => {
   expect(reads).toBe(0);
 });
 
-it("treats optional undefined as omission while keeping required arrays explicit", () => {
+it("MV-S6-CHOICES-002: treats optional undefined as omission while keeping required arrays explicit", () => {
   const event = commonEvent({
     id: 1,
     name: "Omitted modes",
@@ -513,7 +526,7 @@ it("treats optional undefined as omission while keeping required arrays explicit
 });
 
 it.each(["choice", "cancel"])(
-  "rejects empty absent %s body rather than borrowing another layer's marker",
+  "MV-S6-CHOICES-003: rejects empty absent %s body rather than borrowing another layer's marker",
   (kind) => {
     const node = {
       kind: "showChoices",
@@ -544,7 +557,7 @@ it.each([
   { parameters: [5, null] },
   { parameters: [6, ""] },
   { parameters: [6, null, 0] },
-])("rejects unsupported 403 saved slots $parameters", ({ parameters }) => {
+])("MV-S6-CHOICES-003: rejects unsupported 403 saved slots $parameters", ({ parameters }) => {
   const list = structuredClone(nativeChoices);
   list[0]!.parameters[1] = -2;
   list.splice(5, 0, { code: 403, indent: 0, parameters }, { code: 0, indent: 1, parameters: [] });
@@ -553,7 +566,7 @@ it.each([
   );
 });
 
-it("locates preserved out-of-count saved indices in formal and raw source fields", () => {
+it("MV-S6-CHOICES-001: locates preserved out-of-count saved indices in formal and raw source fields", () => {
   const raw = structuredClone(nativeChoices);
   raw[0]!.parameters[1] = 5;
   raw[0]!.parameters[2] = 5;
@@ -582,4 +595,27 @@ it("locates preserved out-of-count saved indices in formal and raw source fields
     { dslPath: "commands[1].parameters[1]", nativePath: "list[4].parameters[1]" },
     { dslPath: "commands[1].parameters[2]", nativePath: "list[4].parameters[2]" },
   ]);
+});
+
+afterEach(async ({ task }) => {
+  const requirementId = /^MV-S6-CHOICES-\d{3}/u.exec(task.name)?.[0];
+  if (!requirementId) throw new Error(`Missing Choices evidence identity: ${task.name}`);
+  const failure = task.result?.errors?.[0];
+  await recordEvidence({
+    requirementId,
+    startedAt: new Date(task.result?.startTime ?? Date.now()).toISOString(),
+    stages: [
+      "Independent literal native inputs from the accepted E102 and child-body contract",
+      "Actual Workspace Discovery, generated source evaluation, Check, Compile, Diff and Push as applicable",
+      "Complete saved data, numeric signs, precise diagnostics and business-state assertions",
+    ],
+    expected:
+      "All linked Choices assertions hold; this automatic run does not claim editor UI or game execution.",
+    actual: {
+      test: task.name,
+      assertionErrors: task.result?.errors ?? [],
+      entry: process.env.MV_CLI_ENTRY ?? "source",
+    },
+    ...(failure === undefined ? {} : { error: new Error(JSON.stringify(failure)) }),
+  });
 });

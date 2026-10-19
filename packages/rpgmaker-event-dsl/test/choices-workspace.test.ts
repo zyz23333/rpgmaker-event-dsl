@@ -1,11 +1,36 @@
 import { readFile, readdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import { expect, it, vi } from "vitest";
+import { afterEach, expect, it, vi } from "vitest";
 import type { RawEventCommand } from "../src/compiler/types.js";
 import { workspaceApiEntry } from "./support/workspace-operation-process.js";
 import { createMinimalProject, withWindowsSandbox } from "./support/windows-sandbox.js";
+import { blankEvent, blankPage } from "./support/map-event-fixtures.js";
+import { recordEvidence } from "./support/mv-evidence.js";
 
 const api: typeof import("../src/workspace-api.js") = await import(workspaceApiEntry);
+
+afterEach(async ({ task }) => {
+  const requirementId = /^MV-S6-CHOICES-\d{3}/u.exec(task.name)?.[0];
+  if (!requirementId) throw new Error(`Missing Choices evidence identity: ${task.name}`);
+  const failure = task.result?.errors?.[0];
+  await recordEvidence({
+    requirementId,
+    startedAt: new Date(task.result?.startTime ?? Date.now()).toISOString(),
+    stages: [
+      "Independent literal native inputs from the accepted E102 and child-body contract",
+      "Actual Workspace Discovery, generated source evaluation, Check, Compile, Diff and Push as applicable",
+      "Complete saved data, numeric signs, precise diagnostics and business-state assertions",
+    ],
+    expected:
+      "All linked Choices assertions hold; this automatic run does not claim editor UI or game execution.",
+    actual: {
+      test: task.name,
+      assertionErrors: task.result?.errors ?? [],
+      entry: process.env.MV_CLI_ENTRY ?? "source",
+    },
+    ...(failure === undefined ? {} : { error: new Error(JSON.stringify(failure)) }),
+  });
+});
 
 it.each([
   { name: "native positive zero", kind: "native", cancel: "0", defaultChoice: "0" },
@@ -16,7 +41,7 @@ it.each([
   { name: "formal cancel negative zero", kind: "formal", cancel: "-0", defaultChoice: "0" },
   { name: "formal default negative zero", kind: "formal", cancel: "0", defaultChoice: "-0" },
 ])(
-  "preserves numeric saved choice indices through Workspace $name",
+  "MV-S6-CHOICES-006: preserves numeric saved choice indices through Workspace $name",
   async ({ kind, cancel, defaultChoice }) => {
     await withWindowsSandbox("choices-numeric-indices", async ({ workspaceRoot }) => {
       await createMinimalProject(workspaceRoot);
@@ -93,6 +118,179 @@ async function business(workspaceRoot: string) {
   };
 }
 
+function nativeText(value: unknown): string {
+  if (typeof value === "number" && Object.is(value, -0)) return "-0";
+  if (Array.isArray(value)) return "[" + value.map(nativeText).join(",") + "]";
+  if (value && typeof value === "object")
+    return (
+      "{" +
+      Object.entries(value)
+        .map(([key, item]) => JSON.stringify(key) + ":" + nativeText(item))
+        .join(",") +
+      "}"
+    );
+  return JSON.stringify(value);
+}
+
+async function data(root: string) {
+  return Object.fromEntries(
+    await Promise.all(
+      (await readdir(root))
+        .sort()
+        .map(async (name) => [name, JSON.parse(await readFile(join(root, name), "utf8"))]),
+    ),
+  );
+}
+
+async function nativeChoicesProject(workspaceRoot: string) {
+  const fixture = await createMinimalProject(workspaceRoot);
+  const choices = JSON.parse(
+    await readFile(
+      new URL("./fixtures/mv-evidence/choices-complete.json", import.meta.url),
+      "utf8",
+    ),
+  );
+  const troop = JSON.parse(
+    await readFile(
+      new URL("./fixtures/mv-evidence/troop-event-project.json", import.meta.url),
+      "utf8",
+    ),
+  );
+  const carriers = {
+    ...fixture.projectFiles,
+    "CommonEvents.json": [
+      null,
+      {
+        id: 1,
+        name: "Saved Choices",
+        trigger: 0,
+        switchId: 1,
+        list: structuredClone(choices.list),
+      },
+    ],
+    "MapInfos.json": [null, { id: 1, name: "Choices Map" }],
+    "Map001.json": {
+      width: 17,
+      height: 13,
+      tilesetId: 1,
+      opaque: { retained: [null, [], {}] },
+      events: [
+        null,
+        {
+          ...blankEvent,
+          name: "Saved Map",
+          pages: [{ ...blankPage, list: structuredClone(choices.list) }],
+        },
+      ],
+    },
+    "Troops.json": [
+      null,
+      { ...troop.carrier, pages: [{ ...troop.defaultPage, list: structuredClone(choices.list) }] },
+    ],
+  };
+  for (const [name, value] of Object.entries(carriers))
+    await writeFile(join(workspaceRoot, "Game/data", name), nativeText(value));
+  await api.initWorkspace({ workspaceRoot, projectRoot: "./Game" });
+  await api.cloneWorkspace({ workspaceRoot });
+  return carriers;
+}
+
+it("MV-S6-CHOICES-011: independent Choices roundtrip all three containers and install exact complete carriers", async () => {
+  await withWindowsSandbox("choices-three-containers", async (s) => {
+    const carriers = await nativeChoicesProject(s.workspaceRoot);
+    await api.decompileWorkspace(s);
+    const discovery = (await business(s.workspaceRoot)).discovery;
+    const sources = await Promise.all(discovery.map((path) => readFile(path, "utf8")));
+    const choiceSources = sources.filter((source) => source.includes("showChoices"));
+    expect(choiceSources).toHaveLength(3);
+    for (const source of choiceSources) {
+      expect(source).not.toContain("rawDslCommand");
+      expect(source).toContain('cancel: { kind: "choice", index: -0 }');
+      expect(source).toContain('defaultChoice: { kind: "choice", index: -0 }');
+      expect(source).toContain('endMarker: "absent"');
+    }
+    const before = await business(s.workspaceRoot);
+    await api.compileWorkspace({ ...s, check: true });
+    expect(await business(s.workspaceRoot)).toStrictEqual(before);
+    await api.compileWorkspace({ ...s, check: false });
+    expect(
+      await data(join(s.workspaceRoot, ".rpgmaker-event-dsl/generated-project-data")),
+    ).toStrictEqual({
+      "CommonEvents.json": carriers["CommonEvents.json"],
+      "Map001.json": carriers["Map001.json"],
+      "System.json": carriers["System.json"],
+      "Troops.json": carriers["Troops.json"],
+    });
+    expect(await api.diffWorkspace({ ...s, short: true })).toContain("No changes.");
+    const expected = structuredClone(carriers);
+    expected["CommonEvents.json"][1].name = "Installed Choices";
+    expected["Map001.json"].events[1].name = "Installed Map";
+    expected["Troops.json"][1].pages[0].list.unshift({
+      code: 108,
+      indent: 0,
+      parameters: ["Installed Choices"],
+    });
+    for (const [index, path] of discovery.entries()) {
+      let source = sources[index]!.replace(
+        'name: "Saved Choices"',
+        'name: "Installed Choices"',
+      ).replace('name: "Saved Map"', 'name: "Installed Map"');
+      if (source.includes("troopEvent("))
+        source = `import {comment} from "rpgmaker-event-dsl";\n${source.replace("commands: [", 'commands: [comment(["Installed Choices"]),')}`;
+      await writeFile(path, source);
+    }
+    const edited = await business(s.workspaceRoot);
+    await api.compileWorkspace({ ...s, check: true });
+    expect(await business(s.workspaceRoot)).toStrictEqual(edited);
+    await api.compileWorkspace({ ...s, check: false });
+    expect(await api.diffWorkspace({ ...s, short: true })).not.toContain("No changes.");
+    await api.pushWorkspace({ ...s, allowDestructive: false });
+    const actual = await data(join(s.workspaceRoot, "Game/data"));
+    expect(Object.keys(actual)).toHaveLength(15);
+    expect(actual).toStrictEqual(expected);
+  });
+}, 30_000);
+
+it.each(["CommonEvents.json", "Map001.json", "Troops.json"])(
+  "MV-S6-CHOICES-012: invalid native mirror has a precise diagnostic and preserves complete state (%s)",
+  async (carrier) => {
+    await withWindowsSandbox("choices-three-container-rejection", async (s) => {
+      await nativeChoicesProject(s.workspaceRoot);
+      const file = join(s.workspaceRoot, "Game/data", carrier);
+      const value = JSON.parse(await readFile(file, "utf8"));
+      const list =
+        carrier === "CommonEvents.json"
+          ? value[1].list
+          : carrier === "Map001.json"
+            ? value.events[1].pages[0].list
+            : value[1].pages[0].list;
+      list[1].parameters[1] = "contradictory mirror";
+      await writeFile(file, nativeText(value));
+      await api.pullWorkspace(s);
+      const before = await business(s.workspaceRoot);
+      for (let retry = 0; retry < 2; retry++) {
+        await expect(api.decompileWorkspace(s)).rejects.toMatchObject({
+          code: "MV-CHOICE-MIRROR",
+          stage: "decompile",
+          identity:
+            carrier === "CommonEvents.json"
+              ? "commonEvent:1"
+              : carrier === "Map001.json"
+                ? "map:1/event:1"
+                : "troop:1",
+          location: {
+            nativePath:
+              carrier === "CommonEvents.json"
+                ? "list[1].parameters"
+                : "pages[0].list[1].parameters",
+          },
+        });
+        expect(await business(s.workspaceRoot)).toStrictEqual(before);
+      }
+    });
+  },
+);
+
 const completeChoices = [
   null,
   {
@@ -118,7 +316,7 @@ const completeChoices = [
   },
 ];
 
-it("round trips native cancel and nested body markers through discovered source and a real Push replacement", async () => {
+it("MV-S6-CHOICES-007: round trips native cancel and nested body markers through discovered source and a real Push replacement", async () => {
   await withWindowsSandbox("choices-roundtrip", async ({ workspaceRoot }) => {
     await createMinimalProject(workspaceRoot);
     const live = join(workspaceRoot, "Game/data/CommonEvents.json");
@@ -150,7 +348,7 @@ it("round trips native cancel and nested body markers through discovered source 
   });
 });
 
-it("preserves the fixed one-choice defaults through actual source evaluation and Push", async () => {
+it("MV-S6-CHOICES-008: preserves the fixed one-choice defaults through actual source evaluation and Push", async () => {
   await withWindowsSandbox("choices-default", async ({ workspaceRoot }) => {
     await createMinimalProject(workspaceRoot);
     await api.initWorkspace({ workspaceRoot, projectRoot: "./Game" });
@@ -191,7 +389,7 @@ it("preserves the fixed one-choice defaults through actual source evaluation and
   });
 });
 
-it("rejects a removed field passed through a typed local constant without publishing output", async () => {
+it("MV-S6-CHOICES-009: rejects a removed field passed through a typed local constant without publishing output", async () => {
   await withWindowsSandbox("choices-owned-shape", async ({ workspaceRoot }) => {
     await createMinimalProject(workspaceRoot);
     await api.initWorkspace({ workspaceRoot, projectRoot: "./Game" });
@@ -217,7 +415,7 @@ it.each([
   { name: "cancel", code: "MV-CHOICE-CANCEL", path: "list[9]" },
   { name: "ordinal -0", code: "MV-COMMAND-PARAMETERS", path: "list[1].parameters[0]" },
 ] as const)(
-  "refuses native $name before publication and preserves all Workspace business bytes on retry",
+  "MV-S6-CHOICES-009: refuses native $name before publication and preserves all Workspace business bytes on retry",
   async ({ name, code, path }) => {
     await withWindowsSandbox("choices-invalid-native", async ({ workspaceRoot }) => {
       await createMinimalProject(workspaceRoot);
@@ -243,7 +441,7 @@ it.each([
   },
 );
 
-it("keeps nested saved scripts intact while Check and Compile both enforce Gate before writing", async () => {
+it("MV-S6-CHOICES-010: keeps nested saved scripts intact while Check and Compile both enforce Gate before writing", async () => {
   await withWindowsSandbox("choices-script-gate", async ({ workspaceRoot }) => {
     await createMinimalProject(workspaceRoot);
     const events = [
@@ -290,7 +488,7 @@ it("keeps nested saved scripts intact while Check and Compile both enforce Gate 
   });
 });
 
-it("round trips all one-to-six item lists, empty text slots and named saved modes through real Workspace sources", async () => {
+it("MV-S6-CHOICES-007: round trips all one-to-six item lists, empty text slots and named saved modes through real Workspace sources", async () => {
   await withWindowsSandbox("choices-count-modes", async ({ workspaceRoot }) => {
     await createMinimalProject(workspaceRoot);
     // Independent native inputs from the accepted E102 slot table, never compiler output.
