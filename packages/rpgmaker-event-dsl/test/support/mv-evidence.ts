@@ -192,31 +192,36 @@ export async function validateRequirements(): Promise<void> {
   );
   const runIds = new Set<string>();
   const resultPaths = (await listFiles(resultsRoot)).filter((path) => path.endsWith(".json"));
-  const resultBatchSize = 32;
-  for (let offset = 0; offset < resultPaths.length; offset += resultBatchSize) {
-    const batch = resultPaths.slice(offset, offset + resultBatchSize);
-    const contents = await Promise.allSettled(batch.map((path) => readFile(path, "utf8")));
-    for (const [position, path] of batch.entries()) {
-      const content = contents[position]!;
-      if (content.status === "rejected") throw content.reason;
-      const result = resultSchema.parse(JSON.parse(content.value));
-      const requirement = requirementsById.get(result.requirementId);
-      if (requirement === undefined)
-        throw new Error(`Result references unknown requirement: ${path}`);
-      if (runIds.has(result.runId)) throw new Error(`Duplicate run ID: ${path}`);
-      runIds.add(result.runId);
-      if (sha256(JSON.stringify(result.source.files)) !== result.source.fingerprint) {
-        throw new Error(`Source fingerprint differs from recorded files: ${path}`);
-      }
-      if (
-        result.source.files.find((file) => file.path === result.fixture.path)?.sha256 !==
-        result.fixture.sha256
-      ) {
-        throw new Error(`Fixture differs from captured source inputs: ${path}`);
-      }
-      if (result.status === "passed" && result.difference !== null)
-        throw new Error(`Passing result has a difference: ${path}`);
+  const resultReadWindow = 32;
+  const readResult = (path: string): Promise<PromiseSettledResult<string>> =>
+    readFile(path, "utf8").then(
+      (value) => ({ status: "fulfilled", value }),
+      (reason: unknown) => ({ status: "rejected", reason }),
+    );
+  const reads = resultPaths.slice(0, resultReadWindow).map(readResult);
+  for (const [position, path] of resultPaths.entries()) {
+    const slot = position % resultReadWindow;
+    const content = await reads[slot]!;
+    const nextPath = resultPaths[position + resultReadWindow];
+    if (nextPath !== undefined) reads[slot] = readResult(nextPath);
+    if (content.status === "rejected") throw content.reason;
+    const result = resultSchema.parse(JSON.parse(content.value));
+    const requirement = requirementsById.get(result.requirementId);
+    if (requirement === undefined)
+      throw new Error(`Result references unknown requirement: ${path}`);
+    if (runIds.has(result.runId)) throw new Error(`Duplicate run ID: ${path}`);
+    runIds.add(result.runId);
+    if (sha256(JSON.stringify(result.source.files)) !== result.source.fingerprint) {
+      throw new Error(`Source fingerprint differs from recorded files: ${path}`);
     }
+    if (
+      result.source.files.find((file) => file.path === result.fixture.path)?.sha256 !==
+      result.fixture.sha256
+    ) {
+      throw new Error(`Fixture differs from captured source inputs: ${path}`);
+    }
+    if (result.status === "passed" && result.difference !== null)
+      throw new Error(`Passing result has a difference: ${path}`);
   }
 }
 
