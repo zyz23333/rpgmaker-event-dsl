@@ -58,3 +58,5 @@ Gate 逐条扫描物理记录中的355/655、111的script条件、122的script o
 - 追加8项要求和8份不可覆盖的passed记录后，完整索引/schema、来源、夹具、执行记录及独立基础往返：1 file / 3 tests通过，3.48s；索引从143项增至151项。
 
 源码回归和built回归均使用相同产品及测试字节，仅在构建时生成dist。机器结果由 `15-record-acceptance.mjs` 验证上述三份真实报告及所链接用例均通过后追加；每条记录包含完整产品/测试/dist文件指纹、独立fixture哈希及报告哈希。保留既有17/18要求和结果的并集，没有覆盖旧失败或把静态提示签成执行证据。README、包README、示例和Agent Event Authoring Skill的event-patterns指南均同步当前raw/Gate及Page movement API。
+
+集成复核确认，八份机器记录的共同指纹 `f55de59787dfa701b3d88ccf8977978f40e7a3ab90746c452ba9883ace2f71ae` 包含141个文件。其中140个产品、测试、dist、记录器和原始报告文件与最终工作树字节一致；唯一后续变化是 `requirements.json` 的格式化。记录器以 `JSON.stringify(index, null, 2) + "\n"` 写入的索引哈希为 `9e8c3cd591dec5b1080629774a266c15876e13e2c2f7ace873ceee80e503e0ed`，最终格式化索引哈希为 `1760e2afea54497aaca18e008d4391817400180f76fdcc897ac3fcb2838eaa13`。将最终索引解析后按记录器的原格式序列化，精确得到前者；解析内容深比较相等。该复核区分记录时输入与最终文档格式，不覆盖原始机器记录；产品与测试字节没有因此改变。
