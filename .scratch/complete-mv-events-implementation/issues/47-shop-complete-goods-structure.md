@@ -20,8 +20,9 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 ## Acceptance criteria
 
-- [ ] goods 必填可空，保留顺序/重复/类别/价格；标准价格由省略 price 表示，purchaseOnly 默认 false。
-- [ ] 空商店占位和 605 父属续行完整，ID 0 不扩展为普通引用豁免；已知异常及孤立续行明确拒绝。
+- [ ] goods 必填可空，保留顺序/重复/类别/价格；标准价格由真实商品省略 price 表示，purchaseOnly 默认 false。真实item/weapon/armor仍须类别一致的有效正ID引用。
+- [ ] 按2026-10-19用户已接受窄修订实现Shop Goods Placeholder `{kind:"placeholder"}`，仅精确编码四goods槽 `[0,0,0,0]`，允许与真实商品有序混排、首/中/末任意位置和重复，不带price或引用。空列表生成唯一占位，唯一精确占位规范反编译为goods=[]，其它组合逐项保留原位置和数量；正式编写/编反编译/已知raw同规。
+- [ ] 302首记录五槽与605续行四槽同indent连续且父属完整，purchaseOnly只在首条；拒绝其它零ID类别/价格组合、占位额外字段、standard mode0/value非0、错误槽数与孤立605，不扩大普通引用豁免或归一化/丢占位。
 - [ ] 独立原生样本、实际生成源码和 Workspace 往返齐备，取得 E2/E4 中分配的产品检查证据。
 
 ### 共通要求（限本票适用范围）
@@ -50,3 +51,9 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [角色、战斗与场景参数附表](../../complete-mv-events/research/command-parameters/actors-battle.md)。
+
+## Comments
+
+### 2026-10-19 — 07有限占位契约已接受，产品责任保留
+
+用户在实施会话中明确回答“接受有限占位变体及有序重复（推荐）”，接受[07报告](../evidence/07-shop-defaults-and-goods-reverse.md#契约比较与已接受修订)记录的空Shop重载后追加商品反例所需的有限正式占位变体。以上验收已同步精确四零、任意位置、有序混排/重复、sole placeholder goods=[]和其余零ID/价格异常拒绝。07只解除对应逆向/契约前置；本票仍须满足23等依赖，交付真实产品及Workspace往返与适用最终验证，没有因契约决定而resolved。

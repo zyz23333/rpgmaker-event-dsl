@@ -144,7 +144,7 @@ B3相关Script Input为E111脚本条件、E122脚本操作数和M45；E356完整
 | E284 | [Change Parallax](visual-map.md#e284--change-parallax) | 静态参数证据已列；真实验收待执行 |
 | E285 | [Get Location Info](visual-map.md#e285--get-location-info) | 参数已列；B2 直接坐标 |
 | E301 | [Battle Processing](actors-battle.md#e301--battle-processing) | 参数已列；S3 子体尾0 |
-| E302 | [Shop Processing](actors-battle.md#e302--shop-processing) | 静态参数证据已列；真实验收待执行 |
+| E302 | [Shop Processing](actors-battle.md#e302--shop-processing)                                                  | 07逆向与有限精确占位有序重复契约已接受；产品/实际游戏仍待执行 |
 | E303 | [Name Input Processing](actors-battle.md#e303--name-input-processing) | 静态参数证据已列；真实验收待执行 |
 | E311 | [Change HP](actors-battle.md#e311--change-hp) | 静态参数证据已列；真实验收待执行 |
 | E312 | [Change MP](actors-battle.md#e312--change-mp) | 静态参数证据已列；真实验收待执行 |

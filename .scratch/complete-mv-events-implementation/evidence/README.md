@@ -61,21 +61,21 @@ Ticket 02 extends the seed with the [Windows baseline and required filesystem re
 | MV-S3-SLOTS-003 | rejects missing native switch references before publishing Decompiled Source | automated synthetic | real Workspace / staged validation |
 | MV-R1-SWITCH-011 | Compiled versus independent native switch execution | game-observation | four fresh actual MV game processes |
 
-| Requirement              | Obligation                                                           | Evidence kind                   | Required layer                                           |
-| ------------------------ | -------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------- |
-| MV-E07-NEW-EMPTY         | New empty Shop and both purchase flags                               | static-inference                | identified editor/Qt resources and bounded source review |
-| MV-E07-PURCHASE          | Purchase Only belongs to the first Shop record                       | reverse-engineering-observation | identified editor/Qt resources and bounded source review |
-| MV-E07-GOODS-ORDER       | Three goods kinds, order and duplicates                              | reverse-engineering-observation | identified editor/Qt resources and bounded source review |
-| MV-E07-PRICE-MODES       | Standard and custom zero/max prices                                  | reverse-engineering-observation | identified editor/Qt resources and bounded source review |
-| MV-E07-PRICE-RECONFIRM   | Existing standard and custom goods reconfirmation                    | static-inference                | identified editor/Qt resources and bounded source review |
-| MV-E07-RESET-PRICE       | Adding another good can retain prior price state                     | reverse-engineering-observation | identified editor/Qt resources and bounded source review |
-| MV-E07-EMPTY-RELOAD      | Empty placeholder reconfirms separately from child edit              | static-inference                | identified editor/Qt resources and bounded source review |
-| MV-E07-PLACEHOLDER-EDIT  | Active zero-ID goods editing has a positive-ID path                  | static-inference                | identified editor/Qt resources and bounded source review |
-| MV-E07-MIX-PATH          | Native empty Shop reload plus tail addition counterexample           | static-inference                | identified editor/Qt resources and bounded source review |
-| MV-E07-PLACEHOLDER-ORDER | Placeholder drag position and conditional copying                    | static-inference                | identified editor/Qt resources and bounded source review |
-| MV-E07-STANDARD-NONZERO  | Standard nonzero saved slot remains an unsupported input distinction | static-inference                | identified editor/Qt resources and bounded source review |
-| MV-E07-CONTAINER         | Container serialization retains complete Shop data                   | reverse-engineering-observation | identified editor/Qt resources and bounded source review |
-| MV-E07-CONTRACT          | Resolve the mixed-placeholder domain conflict before release         | static-inference                | blocked pending user contract decision                   |
+| Requirement              | Obligation                                                           | Evidence kind                   | Required layer                                                |
+| ------------------------ | -------------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------- |
+| MV-E07-NEW-EMPTY         | New empty Shop and both purchase flags                               | static-inference                | identified editor/Qt resources and bounded source review      |
+| MV-E07-PURCHASE          | Purchase Only belongs to the first Shop record                       | reverse-engineering-observation | identified editor/Qt resources and bounded source review      |
+| MV-E07-GOODS-ORDER       | Three goods kinds, order and duplicates                              | reverse-engineering-observation | identified editor/Qt resources and bounded source review      |
+| MV-E07-PRICE-MODES       | Standard and custom zero/max prices                                  | reverse-engineering-observation | identified editor/Qt resources and bounded source review      |
+| MV-E07-PRICE-RECONFIRM   | Existing standard and custom goods reconfirmation                    | static-inference                | identified editor/Qt resources and bounded source review      |
+| MV-E07-RESET-PRICE       | Adding another good can retain prior price state                     | reverse-engineering-observation | identified editor/Qt resources and bounded source review      |
+| MV-E07-EMPTY-RELOAD      | Empty placeholder reconfirms separately from child edit              | static-inference                | identified editor/Qt resources and bounded source review      |
+| MV-E07-PLACEHOLDER-EDIT  | Active zero-ID goods editing has a positive-ID path                  | static-inference                | identified editor/Qt resources and bounded source review      |
+| MV-E07-MIX-PATH          | Native empty Shop reload plus tail addition counterexample           | static-inference                | identified editor/Qt resources and bounded source review      |
+| MV-E07-PLACEHOLDER-ORDER | Placeholder drag position and conditional copying                    | static-inference                | identified editor/Qt resources and bounded source review      |
+| MV-E07-STANDARD-NONZERO  | Standard nonzero saved slot remains an unsupported input distinction | static-inference                | identified editor/Qt resources and bounded source review      |
+| MV-E07-CONTAINER         | Container serialization retains complete Shop data                   | reverse-engineering-observation | identified editor/Qt resources and bounded source review      |
+| MV-E07-CONTRACT          | Accepted exact-four-zero Shop placeholder contract and closure       | static-inference                | explicit user decision and authoritative contract consistency |
 
 ## Reproduce
 
@@ -109,4 +109,4 @@ Ticket 06 adds [Transfer initialization and mode review](06-transfer-defaults-re
 
 Ticket 11 adds [System-slot and native switch acceptance](11-system-slots-and-native-switches.md), including real Workspace extension/name removal and four actual MV game processes comparing independent literal inputs with compiled output. These results cover its bounded R1 slice; final integrated native regression remains required.
 
-Ticket 07 adds [Shop/list/defaults and mixed-placeholder review](07-shop-defaults-and-goods-reverse.md) and [selected resource identities](07-resource-identities.json). Its bounded source-review records distinguish new empty creation, parent reconfirmation, active goods editing and container-only save. `MV-E07-CONTRACT` is **blocked**: the conditional native reload/tailaddition path contradicts the current prohibition on mixing empty placeholders and real goods. Ticket07 remains unresolved and product47 remains blocked until a user contract decision; the other review records do not establish UI/game execution or product acceptance.
+Ticket 07 adds [Shop/list/defaults and mixed-placeholder review](07-shop-defaults-and-goods-reverse.md) and [selected resource identities](07-resource-identities.json). The user explicitly accepted exact-four-zero Shop Goods Placeholders at arbitrary positions, interleaved with real goods and with ordered repetitions; sole placeholder decompiles as goods=[]. The initial `MV-E07-CONTRACT` blocked result is retained, followed by a new passed finite-contract consistency record. Ticket07 closes the reverse-engineering/contract prerequisite only; product47, final E2/E4 output comparison and actual game execution remain separate obligations.

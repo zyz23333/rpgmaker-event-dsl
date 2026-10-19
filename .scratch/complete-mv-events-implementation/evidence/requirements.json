@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "scope": "Ticket01 automated seeds, ticket02 Windows automation baseline, tickets03–07 native reverse-engineering and contract review, plus ticket11 System-slot/switch coverage. Ticket07 retains an unresolved mixed-placeholder decision. Not the complete105+45 or E1-E7/R1-R7 acceptance matrix.",
+  "scope": "Ticket01 automated seeds, ticket02 Windows automation baseline, tickets03–07 native reverse-engineering and accepted finite-contract review, plus ticket11 System-slot/switch coverage. Not the complete105+45 or E1-E7/R1-R7 acceptance matrix.",
   "requirements": [
     {
       "id": "MV-S0-CE-001",
@@ -1929,7 +1929,7 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/07-resource-identities.json",
         "sha256": "be6df14b8f7837ad9aecb0071bba2af42711a1739a0a200e733fb816d09ff5e8"
       },
-      "expected": "Under normal completed initialization, original zeroID data row remains and Shop saves first302[0,0,0,0,false] plus605[0,1,0,0]. Preserve this conditional normal-code-path counterexample against the original E302 mixed-placeholder prohibition; no UI capture or contract resolution is claimed.",
+      "expected": "Under normal completed initialization, original zeroID row remains and Shop saves first302[0,0,0,0,false] plus605[0,1,0,0]. Retain the original conditional normal-code-path counterexample; the user has now accepted its finite exact-four-zero placeholder model, without claiming UI or product execution.",
       "review": {
         "path": ".scratch/complete-mv-events-implementation/evidence/07-shop-defaults-and-goods-reverse.md",
         "section": "## 保存结构结果与推导"
@@ -1968,7 +1968,7 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/07-resource-identities.json",
         "sha256": "be6df14b8f7837ad9aecb0071bba2af42711a1739a0a200e733fb816d09ff5e8"
       },
-      "expected": "SmartListBox splice can move exact four-zero placeholder to middle/end. JSON copy/paste with object-identity deduplication supports conditional repeated-placeholder inference, not an observed UI capture or automatic product domain expansion.",
+      "expected": "SmartListBox splice supports any placeholder position and JSON copy/paste supports conditional repeated exact-four-zero rows. User explicitly accepted ordered interleaving, arbitrary position and repetition; this is a finite domain decision, not an observed UI capture or expansion to other zeroID combinations.",
       "review": {
         "path": ".scratch/complete-mv-events-implementation/evidence/07-shop-defaults-and-goods-reverse.md",
         "section": "## 保存结构结果与推导"
@@ -2062,7 +2062,7 @@
     },
     {
       "id": "MV-E07-CONTRACT",
-      "title": "Resolve the mixed-placeholder domain conflict before release",
+      "title": "Accepted exact-four-zero Shop placeholder contract and closure",
       "sources": [
         {
           "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
@@ -2075,17 +2075,41 @@
         {
           "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
           "section": "### E302 — Shop Processing"
+        },
+        {
+          "path": "GLOSSARY.md",
+          "section": "## Language"
+        },
+        {
+          "path": ".scratch/complete-mv-events/issues/05-native-command-contract.md",
+          "section": "### 已选定的默认值、枚举与空商店"
+        },
+        {
+          "path": ".scratch/complete-mv-events/issues/06-semantic-roundtrip-policy.md",
+          "section": "### 成功判据与允许的表示差异"
+        },
+        {
+          "path": "docs/adr/0011-native-command-state-and-validation.md",
+          "section": "# Preserve native command state while separating validation from execution guarantees"
+        },
+        {
+          "path": "docs/adr/0012-event-saved-state-roundtrip-boundary.md",
+          "section": "# Preserve event saved state across the ownership boundary"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/47-shop-complete-goods-structure.md",
+          "section": "## Acceptance criteria"
         }
       ],
       "dimensions": ["A2", "A3"],
       "classifications": ["positive", "boundary", "combination"],
       "sourceKind": "static-inference",
-      "input": "Accepted E302 prohibits mixed placeholder while MV-E07-MIX-PATH derives one from native construction/reload/tailaddition",
+      "input": "Original E302 mixed-placeholder conflict, native code-path counterexample and explicit user acceptance on2026-10-19",
       "fixture": {
         "path": ".scratch/complete-mv-events-implementation/evidence/07-resource-identities.json",
         "sha256": "be6df14b8f7837ad9aecb0071bba2af42711a1739a0a200e733fb816d09ff5e8"
       },
-      "expected": "A documented user contract decision must resolve the conditional normal native counterexample before ticket07 resolves or product47 is unblocked. Any accepted finite Shop placeholder must remain distinct from ordinary positive-ID goods references; no other zeroID kind/price combination or arbitrary raw preservation gains support.",
+      "expected": "Explicit user acceptance permits only {kind:\"placeholder\"}, encoding exact goods slots[0,0,0,0], interleaving at any position with ordered repeats; sole exact placeholder canonically decompiles as goods:[]. Authority Answer/ADR/spec/E302/07/47 agree. Other zeroID combinations, extra placeholder fields and standard mode0/nonzero value remain rejected; positive reference and price domains unchanged. Historical blocked result is retained and no product/UI/game acceptance is claimed.",
       "review": {
         "path": ".scratch/complete-mv-events-implementation/evidence/07-shop-defaults-and-goods-reverse.md",
         "section": "## 保存结构结果与推导"
@@ -2094,7 +2118,7 @@
       "execution": {
         "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI, extracted-code or game execution",
         "owner": "Codex ticket07 reverse-engineering analyst; reproducible resource decode and bounded source review",
-        "layer": "User contract decision required before native prerequisite release"
+        "layer": "Accepted finite-contract consistency review after explicit human decision; no product implementation"
       },
       "slice": "07 / S1",
       "required": true

@@ -124,19 +124,22 @@ Compiler Defaults为canEscape=false、canLose=false及所需子体endMarker=pres
 
 | schema 字段 / 模式 | 原生槽位 | 值域、必填与引用 |
 | --- | --- | --- |
-| goods[n].kind=item/weapon/armor + 对应item/weapon/armor引用 | P0=0/1/2，P1=实际ID | 非空商品引用必须存在且类别匹配；不是泛化数字ID。 |
+| goods[n].kind=item/weapon/armor + 对应item/weapon/armor引用 | P0=0/1/2，P1=实际正ID          | 真实商品引用必须存在且类别匹配；不是泛化数字ID。                                                    |
 | goods[n].price省略 | P2=0、P3=0 | 标准数据库价格；P3=0是本体保存器写法。 |
 | goods[n].price显式数值 | P2=1、P3=price | 整数0..999999；0是免费，不能以truthy判断变为标准价。 |
+| goods[n] = `{kind:"placeholder"}`                           | P0/P1/P2/P3精确为0/0/0/0       | Shop Goods Placeholder，不带引用或price；允许与真实商品有序混排、任意位置和重复，不触发itemRef(0)。 |
 | purchaseOnly | 首条302的P4 boolean | true禁止出售；默认false。 |
 | goods=[] | 唯一302 [0,0,0,0,purchaseOnly] | P1=0是结构占位，不触发itemRef(0)；不生成605。 |
 
-首商品用302含5槽，后续每商品用605含4槽，与302同indent并连续，归属Shop。不能把605末尾添加purchaseOnly，也不能把空商店占位作为真实商品混入后续goods。仅已决purchaseOnly=false和price省略=标准价可省略；反编译不能把已存mode0/P3非0无声归零，当前映射未支持的此类形态应报尚未支持，并继续要求正常原生证据。
+首goods记录用302含5槽，后续每记录用605含4槽，与302同indent并连续，归属Shop，真实商品与结构占位遵循同一父属规则。不能给605加purchaseOnly。反编译唯一精确占位规范为goods=[]；其余列表保留每一记录的位置、数量与完整商品状态，不过滤/合并重复占位。仅已决purchaseOnly=false和真实商品price省略=标准价可省略。占位额外字段、其余零ID类别/价格组合、错误槽数及孤立605仍拒绝；已存mode0/P3非0仍不支持、必须明确拒绝而不归零，诊断保持“尚未支持”与已证契约违反的区别，继续要求正常原生证据。正式编写、编译、反编译和已知raw同规。
+
+2026-10-19用户明确回答“接受有限占位变体及有序重复（推荐）”，接受[实施07正常代码路径反例](../../../complete-mv-events-implementation/evidence/07-shop-defaults-and-goods-reverse.md#契约比较与已接受修订)所需的窄修订，替换原禁止占位与真实商品混合的限制。仅含kind标签的拼写按既有风格确定为placeholder；不是一般零ID引用豁免，price与真实引用域不变。原始反例、曾阻塞记录和静态证据边界保留；未宣称47产品或实际游戏完成。
 
 新建UI：Shop列表空；Purchase Only依unchecked；新商品对话框kind=0、dataId=1、price=-1（标准）来自Q@675223:15–17。reset只重设kind/dataId（:19–22），没有重设price，因此“再次添加商品”可沿用上次价格状态，不是固定Compiler Default。显式定价SpinBox0..999999（:203–210），随商品选择刷新为数据库价格（:76–80）。
 
 证据：Q@762570:89–125全部序列化，Q@675223:30–74、76–91、184–210价格模式；R:10177–10188；`references/RPGMV/NewData/js/rpg_windows.js:2968–2989` 的Window_ShopBuy.makeItemList按kind取三库，按P2决定标准/指定价格。战斗中Shop跳过，不以容器硬拒绝。
 
-最小验收：空goods两旗标；三种商品、重复顺序、标准价、指定0和999999；首302/后605的准确参数数和indent；原生创建空Shop；普通重新编辑可能把占位显示成缺item的条目，需区别无操作保存；缺商品项目引用错误，孤立605错误。
+最小验收：空goods两旗标及唯一占位的goods=[]规范输出；三种真实商品、重复顺序、标准价、指定0和999999；精确占位与真实商品混排、首/中/末位置、重复及全占位多记录的完整数量；首302/后605的准确参数数和indent。拒绝其余零ID、占位price/引用/额外字段、mode0/P3非0及孤立605；正常正ID引用缺失仍失败。原生空Shop创建、父重确认、子窗口主动编辑和容器直接保存分开，相关代码证据见07；产品样本和实际游戏仍须后续验收。
 
 ### E303 — Name Input Processing
 
@@ -357,7 +360,7 @@ Q@721727:22–28明确LabeledTextArea.maximumLineCount=2，:30–44直接取text
 
 4槽，全部显式、无Compiler Default；新建subject敌人0、skill1、target第一项lastTarget（Qt第一项推断）。Q@659292:15–18、29–60、65–72限定subject两个模式；Q@749747:49–55生成固定10项，:60–77映射P3=currentIndex−2；H15:189–205说明Last Target/Random/Index1..8。
 
-R:10447–10456通过iterateBattler；R:9018–9027明确仅在战斗中处理，死亡subject跳过；R:3171–3183清原actions并设置强制动作，-2使用_lastTargetIndex、-1调用decideRandomTarget。R:1483–1522按技能敌/友、单体/全体/死亡对象作用域解释target；不是永远指敌人位置。不按当前敌人数裁剪，可能由运行smoothTarget等退回可用对象；必须保持原值。
+R:10447–10456通过iterateBattler；R:9018–9027明确仅在战斗中处理，死亡subject跳过；R:3171–3183清原actions并设置强制动作，-2使用\_lastTargetIndex、-1调用decideRandomTarget。R:1483–1522按技能敌/友、单体/全体/死亡对象作用域解释target；不是永远指敌人位置。不按当前敌人数裁剪，可能由运行smoothTarget等退回可用对象；必须保持原值。
 
 最小验收敌人/Actor两种subject、死亡subject、三目标模式、index7但当前敌人少、友方/敌方/全体/复活技能、上一次目标与随机目标、地图调用跳过、技能/Actor坏引用错误。等待模式action及强制行动顺序在真实战斗中验证，不只比对生成数组。
 
@@ -408,7 +411,7 @@ R:10447–10456通过iterateBattler；R:9018–9027明确仅在战斗中处理�
 | --- | --- | --- | --- |
 | A角色选择与O操作数：311/312/313/314/315/316/317/318/326 | 固定、全队、变量；常量1/各自max；合法无名变量槽；变量运行值0/负值 | 缺模式必需字段、混合固定与变量、未知mode、裸ID替代引用、缺固定Actor/State/Skill；数量0/max+1/小数/NaN/Infinity拒绝；variable来源不按常量值域裁剪 | 战斗全队取battleMembers、地图取allMembers；变量目标0全队；不会为表外Actor自动补数据库 |
 | 独立旗标：311/315/316/321/331/337 | true/false，当前UI禁用但值true仍保存 | 字符串"false"、0/1代替boolean、缺必填bool、未知对象字段；不能因当前效果不用而删槽 | allowDeath与showLevelUp的操作模式切换、keepExp对应经验曲线、allEnemies切换恢复保存的单敌位置 |
-| 固定引用：301/302/303/319/320/321/322/324/325/336/337/339 | 存在且名称唯一或显式ID；所有原生None/占位分别按专用模式 | ID0/缺目标/重复名称、类别错配；空Shop的占位0与equipment:null/素材null不泛化为一般引用许可 | 变量troop目标与固定troop存在性区分；动态装备类别/库存/候选不保证命中 |
+| 固定引用：301/302/303/319/320/321/322/324/325/336/337/339 | 存在且名称唯一或显式ID；所有原生None/占位分别按专用模式                          | ID0/缺目标/重复名称、类别错配；Shop精确结构占位与equipment:null/素材null不泛化为一般引用许可                                                     | 变量troop目标与固定troop存在性区分；动态装备类别/库存/候选不保证命中                         |
 | E敌人位置：331/332/333/334/335/336/337/339/342 | 0/7；支持全体的族用-1；当前成员不足警告 | -2、8、小数；335/336/337/339主体的all模式拒绝；不要把-1容忍扩张给单敌族 | hidden仍占位、坏Enemy引用过滤前移、地图残留troop、死亡对象和无目标 |
 | 319装备 | null、正ID、首槽/最后合法槽、非五槽System | slotIndex=-1/槽数/小数；非空equipment ID0/负值/非整数；武器/护甲固定引用替代动态selector | 第二槽双持切换、找不到装备可卸下、无库存和不匹配etype |
 | 322/323图像 | 各素材None、普通人物index0/7、大图或None非零index；322 face 0/8/11/2,147,483,647 | 素材命名空间错、index负数/小数；人物index8仍越域；face拒负零及超过上界，不把>=8 warning当error | None独立index；仅保存与重确认不同，标准/超高/替换脸图及无尺寸扫描限制 |

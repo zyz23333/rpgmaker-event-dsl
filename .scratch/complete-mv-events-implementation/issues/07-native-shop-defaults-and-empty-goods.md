@@ -1,6 +1,6 @@
 # 7: 原生 Shop 初值与空商店逆向核对
 
-Status: needs-info
+Status: resolved
 Blocked by: 01
 Stage: S1
 Created: 2026-10-19
@@ -48,6 +48,12 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 2026-10-19：已完成本票有界逆向路径阅读及原创[报告](../evidence/07-shop-defaults-and-goods-reverse.md)，保留[资源身份](../evidence/07-resource-identities.json)、13个稳定索引项和独立执行记录。未执行编辑器UI、抽出代码、实际写盘、产品或游戏。已核对空/普通/重复商品、purchaseOnly、标准/指定0及999999、重确认与302/605父属结构。
 
-**尚未完成的关闭条件**：`MV-E07-CONTRACT` 为blocked。原生空Shop保存后重开并从独立空白尾行添加真实商品，代码推导保留四零占位并生成后续605；SmartListBox拖动还允许占位出现在中间/末尾。该正常代码路径与E302禁止混合的已接受文本冲突。已回交主线程请求用户决定，未改原契约、未将占位归一化/丢弃，47仍被07阻塞。价格/类别主动编辑的零ID边界和未知Qt时序详见报告。本票不因其余证据核对完成而resolved。
+**已解决原契约阻塞**：原生空Shop重载后追加商品的有条件代码反例与原E302禁止混合冲突，初次MV-E07-CONTRACT记录为blocked并保持不改。2026-10-19用户明确回答“接受有限占位变体及有序重复（推荐）”，接受仅精确四零的具名placeholder变体、任意位置、有序混排/重复及唯一占位goods=[]；其它零ID、standard mode0/value非0及原价格/引用域不变。权威05/06 Answer、ADR0011/0012、Glossary、E302、规格I4与本票/47责任已同步。13项追加新的有界通过记录；本票逆向与契约前置完成，47仍须产品实现并满足其它依赖。
 
-证据文档未改变产品或harness行为，无需新建TDD测试。Windows / Node22.23.0 下，既有 `pnpm --filter rpgmaker-event-dsl test -- test/mv-evidence.test.ts -t 'validates the evidence index'` 通过：1passed、2因名称筛选未选中。oxfmt对本票5个文档/JSON的检查与 `git diff --check` 通过。该自动校验确认索引、链接和哈希，不将契约blocked状态或未执行UI/游戏改成通过。
+证据文档未改变产品或harness行为，无需新建TDD测试。Windows / Node22.23.0 下，既有 `pnpm --filter rpgmaker-event-dsl test -- test/mv-evidence.test.ts -t 'validates the evidence index'` 通过：1passed、2因名称筛选未选中。oxfmt对本票证据/索引/07与47票据及Glossary/ADR的检查与 `git diff --check` 通过；共享历史契约保留原有表格格式以限制无关差异。12份改动Markdown的313个本地链接目标均存在，9个契约来源section均存在。该自动校验确认索引、链接和哈希，不将历史blocked结果覆盖，也不把未执行UI/产品/游戏改成通过。
+
+## Comments
+
+### 2026-10-19 — 用户批准有限Shop Goods Placeholder
+
+用户的原话为“接受有限占位变体及有序重复（推荐）”。本票按已批准语义及既有kind拼写风格确定 `{kind:"placeholder"}`，只描述精确四零结构位置。原始反例和blocked记录保留，新结果只完成已接受契约的同步核对。本票不实现47，不宣称实际编辑器或游戏执行。

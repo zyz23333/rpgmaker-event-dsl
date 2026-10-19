@@ -75,9 +75,9 @@ Choices position 为 left/center/right，background 为 window/dim/transparent�
 
 一项 Choices 省略 cancel 仍保存 index 1，并按位置缺失规则警告；不根据实际项数调整默认值。目标、choices 文字与分支 commands 不采用编辑器的本地化 Yes/No 初值。
 
-Shop 使用 purchaseOnly，true 禁止出售，替换旧 allowSelling。goods 必填、允许 []；空列表编为 302 `[0,0,0,0,purchaseOnly]`，反编译识别为 []。此处 ID 0 是结构占位，不是 itemRef({id:0}) 或一般引用例外。非空 goods 保留顺序与重复，商品 kind 与 item/weapon/armor 引用类别一致；省略 price 表示数据库标准价格。
+Shop 使用 purchaseOnly，true 禁止出售，替换旧 allowSelling。goods 必填、允许 []；空列表编为唯一302 `[0,0,0,0,purchaseOnly]`，唯一精确占位反编译规范为 `goods:[]`。2026-10-19用户接受实施07反例所需的有限增量：Shop Goods Placeholder 使用仅含标签的 `{kind:"placeholder"}`，精确编码四个goods槽 `[0,0,0,0]`，允许与真实商品有序混排、位于任意位置及重复；其余非空列表逐项保留顺序、位置和数量。首条仍为302并拥有purchaseOnly，第2条起均为同indent连续605、各四槽。该变体不带引用或price；真实 item/weapon/armor 商品仍要求类别一致的有效正ID引用，省略price表示标准价，指定整数0..999999编码mode1，0为免费。其他零ID类别/价格组合、占位额外字段、标准mode0/value非0、错误槽数和孤立605仍拒绝；不添加一般itemRef0豁免，也不丢占位或永久raw兜底。当前来源与静态边界见[07报告](../../complete-mv-events-implementation/evidence/07-shop-defaults-and-goods-reverse.md#契约比较与已接受修订)，历史Q19保留原决定记录。
 
-Choices 初值有完整局部静态创建链。Transfer/Set Event Location/Shop/Battle 的部分初值仍依赖 Qt 控件与上游源码佐证，未完全匹配随包框架首次初始化路径；本轮明确将它们选为固定 DSL 默认，真实新建保存检查仍待验收。
+Choices 初值有完整局部静态创建链。本票原决定曾区分Transfer/Set Event Location/Shop/Battle部分默认的较弱Qt/上游佐证；实施03/06/07随后补查了同身份随包CheckBox、ComboBox及相关初始化路径，其中Shop purchaseOnly=false已由随包AbstractCheckable显式初值补证。固定DSL默认不继承编辑器上次状态；代码推导与实际UI创建、产品输出比较及游戏运行仍分别记录，不将补证描述成真实新建捕获。
 
 ### 引用、运行选择与校验等级
 
@@ -235,3 +235,9 @@ Plugin DSL Command 为 `pluginCommand({line})`，替换 command + args；完整�
 已同步语义往返、Workspace、验收工单的正式结论链接；逐参数研究票的前置讨论现已完成，但研究仍为 open、未认领。其参数证据表继续阻塞完整支持的实施规格完成与最终验收顺序决策，不因本票关闭而视为已完成。
 
 核验范围为文档一致性、Markdown本地链接与锚点、工单依赖及空白格式；没有执行产品测试、编辑器或游戏检查，没有commit、push或PR。本轮讨论任务至此完成。
+
+### 2026-10-19 — 实施07反例与有限Shop占位增量已接受
+
+实施07读取同身份目标编辑器的空Shop创建、重载、SmartListBox尾行追加、拖动及保存路径，推导出原四零占位可以与真实商品共存并改变位置；copy/paste还支持有条件重复推导。它与参数表原先禁止混合的文本冲突，07曾保持needs-info、47保持阻塞，没有将该记录归一化掉或作为异常永久拒绝。没有执行编辑器UI、抽出代码或游戏。
+
+用户在本次实施会话中明确回答“接受有限占位变体及有序重复（推荐）”，接受精确四零结构占位可以有序混排、位于任意位置并重复，唯一占位规范反编译为goods=[]。具名变体的具体拼写依既有kind风格机械确定为 `{kind:"placeholder"}`，不增price或引用字段。上方Answer、E302、规格I4、ADR0011/0012和07/47责任已同步。其余零ID、mode0/value非0及原价格/正ID引用域不变；普通UI创建的全部Qt时序与产品/游戏能力不随契约批准而获得通过。历史Q19及原始blocked证据保留，以本条增量和当前Answer为现行契约。
