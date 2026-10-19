@@ -1,6 +1,6 @@
 # 3: 原生分支、尾标记与 Battle 初值逆向核对
 
-Status: ready-for-agent
+Status: resolved
 Blocked by: 01
 Stage: S1
 Created: 2026-10-19
@@ -20,13 +20,13 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 ## Acceptance criteria
 
-- [ ] 记录原生版本/哈希及资源身份；追踪空/非空/嵌套 body、缺/空 else、402/403 和一项 Choices 的创建、加载及确认代码。
-- [ ] 核对新建 Battle flags、结果分支与尾 0；非空无尾 0 的支持/注入形态与代码可证明的普通创建路径明确区分。
-- [ ] 逐项给出代码观察、完整推导链、契约比较与未决项；反例或影响保存契约的未知解除前不得给对应实现放行。
+- [x] 记录原生版本/哈希及资源身份；追踪空/非空/嵌套 body、缺/空 else、402/403 和一项 Choices 的创建、加载及确认代码。
+- [x] 核对新建 Battle flags、结果分支与尾 0；非空无尾 0 的支持/注入形态与代码可证明的普通创建路径明确区分。
+- [x] 逐项给出代码观察、完整推导链、契约比较与未决项；反例或影响保存契约的未知解除前不得给对应实现放行。
 
 ### 共通要求（限本票适用范围）
 
-- [ ] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
+- [x] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
 
 ## Verification
 
@@ -43,3 +43,13 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [实施规格](../complete-mv-events-implementation-spec.md)：I4–I5、T3–T4；完整契约与未在本票重复列出的参数规则以规格及其规范附表为准。
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
+
+## Outcome and verification — 2026-10-19
+
+按规格的用户验收修订完成本票逆向前置。交付 [原创逆向报告](../evidence/03-branches-and-battle-reverse.md)、[选中资源身份](../evidence/03-resource-identities.json)，以及机器索引中的 11 项 `MV-E03-*` 要求和各自追加的结果记录。报告分别记录空/非空/嵌套体、缺/空 Else、Loop、402/403、一项 Choices 与 Battle 四种 flags 的新建/加载/确认/容器序列化路径；原始首方全文仅在仓库外留存。
+
+重新核对全部既有资源身份，并补读同安装 Qt DLL 的 CheckBox/AbstractCheckable，确认 `checked:false` 的目标随包声明，补齐旧报告只能引用上游版本的默认依据。403 `[6,null]` 是完整构造/序列化链加 JSON 规则的推导；一项 Choices 加回第二项仍以新组件/控件就绪为条件。非空无尾 0 保留有明确代码依据，普通 UI 创建该形态未证明，也不冒称 Loop 有参数重确认路径。没有发现要求改变本票产品契约的反例；仍未知的 UI 信号与磁盘行为已限定，不作为 UI 或游戏通过。
+
+为避免给逆向义务虚构测试名，证据索引增加 `review:{path,section}` 作为 `test` 的互斥替代，校验文档章节和案例 ID；同时容许格式化表格的单元格空格。沿既有索引验证 seam 完成红→绿：真实 review 条目先因旧 schema 拒绝而失败，最小支持后通过。结果中的 runtime/NW.js/测试执行字段明确 `not-executed`；`passed` 仅指本票有界代码核对完成，不是产品或游戏验收。
+
+Windows 10.0.19045 / Node 22.23.0：`pnpm check` 通过（类型、lint、格式、14 文件/117 测试）；`pnpm build` 通过。原生资源读取工具实际使用 Node 24.14.0，已在其逆向结果环境单独记录。13/27/28/46 与最终49仍需实际产品输出比较，52–54/R1–R7 仍须真实 MV/NW.js 游戏运行。01 已合入后才关闭本票。

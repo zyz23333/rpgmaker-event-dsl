@@ -41,13 +41,20 @@ const requirementSchema = z
     input: text,
     fixture: z.object({ path: text, sha256: hash }).strict(),
     expected: text,
-    test: z.object({ path: text, name: text }).strict(),
+    test: z.object({ path: text, name: text }).strict().optional(),
+    review: z.object({ path: text, section: text }).strict().optional(),
     nativeGroups: z.array(z.string().regex(/^[ER][1-7]$/u)),
     execution: z.object({ environment: text, owner: text, layer: text }).strict(),
     slice: text,
     required: z.boolean(),
   })
-  .strict();
+  .strict()
+  .refine(
+    (requirement) => (requirement.test === undefined) !== (requirement.review === undefined),
+    {
+      message: "A requirement must link exactly one automated test or documentary review",
+    },
+  );
 
 export const requirementsSchema = z
   .object({
@@ -133,10 +140,13 @@ export async function validateRequirements(): Promise<void> {
   const index = await readRequirements();
   const ids = new Set<string>();
   const checklist = await readFile(join(evidenceRoot, "README.md"), "utf8");
+  const listedIds = [...checklist.matchAll(/^\|\s*(MV-[A-Z0-9-]+)\s*\|/gmu)].map(
+    (match) => match[1],
+  );
   for (const requirement of index.requirements) {
     if (ids.has(requirement.id)) throw new Error(`Duplicate requirement: ${requirement.id}`);
     ids.add(requirement.id);
-    if (!checklist.includes(`| ${requirement.id} |`)) {
+    if (!listedIds.includes(requirement.id)) {
       throw new Error(`Missing human checklist entry: ${requirement.id}`);
     }
     for (const source of requirement.sources) {
@@ -148,15 +158,21 @@ export async function validateRequirements(): Promise<void> {
     if (fixtureHash !== requirement.fixture.sha256) {
       throw new Error(`Fixture hash differs for ${requirement.id}: ${fixtureHash}`);
     }
-    if (
-      !(await readFile(repositoryPath(requirement.test.path), "utf8")).includes(
-        requirement.test.name,
-      )
-    ) {
-      throw new Error(`Missing test case: ${requirement.id}`);
+    if (requirement.test !== undefined) {
+      if (
+        !(await readFile(repositoryPath(requirement.test.path), "utf8")).includes(
+          requirement.test.name,
+        )
+      ) {
+        throw new Error(`Missing test case: ${requirement.id}`);
+      }
+    } else if (requirement.review !== undefined) {
+      const review = await readFile(repositoryPath(requirement.review.path), "utf8");
+      if (!review.includes(requirement.review.section) || !review.includes(requirement.id)) {
+        throw new Error(`Missing documentary review section or case: ${requirement.id}`);
+      }
     }
   }
-  const listedIds = [...checklist.matchAll(/^\| (MV-[A-Z0-9-]+) \|/gmu)].map((match) => match[1]);
   if (listedIds.length !== ids.size || listedIds.some((id) => !ids.has(id!))) {
     throw new Error("Human checklist has missing, duplicate, or unknown requirement IDs");
   }
