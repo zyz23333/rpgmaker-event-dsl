@@ -1,0 +1,8 @@
+{
+  "createdAt": "2026-10-19T19:33:56.259Z",
+  "status": "interrupted-tooling-attempt",
+  "processId": 19268,
+  "purpose": "staged-byte verification only",
+  "reason": "The first verifier spawned a Git subprocess per historical blob. It was stopped without modifying product/test inputs and replaced by a batch object read. Original verifier bytes and all previously archived inputs are preserved.",
+  "productTestFailure": false
+}

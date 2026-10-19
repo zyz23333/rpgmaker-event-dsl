@@ -43,6 +43,7 @@ import { inspectNativeCommandReferences } from "../validation/native-references.
 import { CommandStructureError } from "../validation/command-errors.js";
 import { assertNativeBattlePages, type NativeBattleEventPage } from "../validation/battle-pages.js";
 import { renderMapPageSettings } from "./map-page.js";
+import { inspectMapCharacterContext } from "../validation/map-character-context.js";
 
 export type DecompileFile = {
   content: string;
@@ -177,6 +178,12 @@ async function buildDecompiledSourceFiles(
           prefix: `pages[${pageIndex}].`,
         };
         issues.push(...inspectNativeCommandInputs(page.list ?? [], inputOptions));
+        issues.push(
+          ...inspectMapCharacterContext(page.list ?? [], {
+            ...inputOptions,
+            eventIds: new Set(events.map((event) => event.id)),
+          }),
+        );
         if (page.movement !== undefined) {
           const path = `pages[${pageIndex}].moveRoute`;
           const referenceIssues: ValidationIssue[] = [];
@@ -209,6 +216,12 @@ async function buildDecompiledSourceFiles(
   }
 
   for (const event of commonEvents) {
+    issues.push(
+      ...inspectMapCharacterContext(event.list ?? [], {
+        identity: `commonEvent:${event.id}`,
+        stage: "decompile",
+      }),
+    );
     issues.push(
       ...inspectNativeCommandInputs(event.list ?? [], {
         identity: `commonEvent:${event.id}`,
@@ -253,6 +266,9 @@ async function buildDecompiledSourceFiles(
     for (const [pageIndex, page] of troop.pages.entries()) {
       const prefix = `pages[${pageIndex}].`;
       const commands = readRawCommandList(page.list, identity, prefix);
+      issues.push(
+        ...inspectMapCharacterContext(commands, { identity, stage: "decompile", prefix }),
+      );
       issues.push(
         ...inspectNativeCommandInputs(commands, {
           identity,

@@ -1,4 +1,9 @@
 import type { CommonEventDefinition, DslCommand } from "../domain/types.js";
+import { scrollDirections } from "../commands/movement/character-codes.js";
+import {
+  assertMapCharacterInput,
+  isMapCharacterKind,
+} from "../commands/movement/character-validation.js";
 import type { ReferenceResolver } from "../validation/types.js";
 import type { RawEventCommand, CommandOrigins } from "./types.js";
 import { assertDslCommandList } from "../validation/dsl-command-inputs.js";
@@ -123,6 +128,9 @@ export function compileNodes(
 
   for (const [nodeIndex, node] of nodes.entries()) {
     assertMapAppearanceInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
+
+    if (isMapCharacterKind(node.kind))
+      assertMapCharacterInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     const outputStart = output.length;
     switch (node.kind) {
       case "showText":
@@ -560,7 +568,7 @@ export function compileNodes(
         output.push({
           code: 204,
           indent,
-          parameters: [node.direction, node.distance, node.speed],
+          parameters: [scrollDirections[node.direction], node.distance, node.speed],
         });
         break;
       case "setMovementRoute": {
@@ -600,7 +608,7 @@ export function compileNodes(
           parameters: [
             characterSelectorToCode(node.target),
             resolver.resolveReference(node.animation),
-            node.wait ?? false,
+            node.wait,
           ],
         });
         break;
@@ -611,7 +619,7 @@ export function compileNodes(
           parameters: [
             characterSelectorToCode(node.target),
             balloonIconToCode(node.balloon),
-            node.wait ?? false,
+            node.wait,
           ],
         });
         break;

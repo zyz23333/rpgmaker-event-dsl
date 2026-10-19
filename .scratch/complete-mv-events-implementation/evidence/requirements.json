@@ -14248,6 +14248,269 @@
       },
       "slice": "36 / S6",
       "required": true
+    },
+    {
+      "id": "MV-S6-CHARACTER-001",
+      "title": "Complete native matrix through real Workspace evaluation and Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E204 — Scroll Map"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "32 independent saved records cover four scroll directions, numeric distance -0, all selectors, explicit wait/flag values and all fifteen balloon names; all fifteen carriers compare through Discovery/evaluation and harmless real Push.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-characters.json",
+        "sha256": "8562b55021c4b2c1cfcd8661a509aafc68793239b5348e227a11ce4edb50f517"
+      },
+      "expected": "32 independent saved records cover four scroll directions, numeric distance -0, all selectors, explicit wait/flag values and all fifteen balloon names; all fifteen carriers compare through Discovery/evaluation and harmless real Push.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-characters-workspace.test.ts",
+        "name": "preserves the complete native matrix through real Workspace evaluation and Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 / synthetic public product verification",
+        "owner": "Codex implementer and independent finalizer",
+        "layer": "focused DEV automated"
+      },
+      "slice": "S6 / ticket35",
+      "required": true
+    },
+    {
+      "id": "MV-S6-CHARACTER-002",
+      "title": "Evaluated helper and direct-node excess fields refuse before projection",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E204 — Scroll Map"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A5",
+        "A6",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "All eight owned helpers/direct kinds are exercised as local const, spread, asserted and direct values; Check/Compile identify owned excess fields, and Diff/Push freshness refusal preserves all source, Discovery, Project Root, Snapshot, generated files, config and manifest bytes.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-characters.json",
+        "sha256": "8562b55021c4b2c1cfcd8661a509aafc68793239b5348e227a11ce4edb50f517"
+      },
+      "expected": "All eight owned helpers/direct kinds are exercised as local const, spread, asserted and direct values; Check/Compile identify owned excess fields, and Diff/Push freshness refusal preserves all source, Discovery, Project Root, Snapshot, generated files, config and manifest bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-characters-workspace.test.ts",
+        "name": "rejects evaluated"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 / synthetic public product verification",
+        "owner": "Codex implementer and independent finalizer",
+        "layer": "focused DEV automated"
+      },
+      "slice": "S6 / ticket35",
+      "required": true
+    },
+    {
+      "id": "MV-S6-CHARACTER-003",
+      "title": "Invalid native slots and fixed animation references refuse before publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E204 — Scroll Map"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A6",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Located invalid native saved slots, categorical negative zero and missing fixed Animations entries refuse Decompile before publishing candidate source and preserve complete business state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-characters.json",
+        "sha256": "8562b55021c4b2c1cfcd8661a509aafc68793239b5348e227a11ce4edb50f517"
+      },
+      "expected": "Located invalid native saved slots, categorical negative zero and missing fixed Animations entries refuse Decompile before publishing candidate source and preserve complete business state.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-characters-workspace.test.ts",
+        "name": "refuses saved"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 / synthetic public product verification",
+        "owner": "Codex implementer and independent finalizer",
+        "layer": "focused DEV automated"
+      },
+      "slice": "S6 / ticket35",
+      "required": true
+    },
+    {
+      "id": "MV-S6-CHARACTER-004",
+      "title": "Current public types require named enums and explicit wait",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E204 — Scroll Map"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "negative"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Numeric direction/balloon aliases and missing animation wait fail actual public package type checking without changing business state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-characters.json",
+        "sha256": "8562b55021c4b2c1cfcd8661a509aafc68793239b5348e227a11ce4edb50f517"
+      },
+      "expected": "Numeric direction/balloon aliases and missing animation wait fail actual public package type checking without changing business state.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-characters-workspace.test.ts",
+        "name": "public types reject incomplete or numeric aliases"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 / synthetic public product verification",
+        "owner": "Codex implementer and independent finalizer",
+        "layer": "focused DEV automated"
+      },
+      "slice": "S6 / ticket35",
+      "required": true
+    },
+    {
+      "id": "MV-S6-CHARACTER-005",
+      "title": "Approved command seams validate complete map-character contract",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E204 — Scroll Map"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent command literals cover enum maps, parameterless arrays, complete flags, shape/value/native/raw failures, precise paths and Map/Common/Troop selector warnings versus fixed-reference errors.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-characters.json",
+        "sha256": "8562b55021c4b2c1cfcd8661a509aafc68793239b5348e227a11ce4edb50f517"
+      },
+      "expected": "Independent command literals cover enum maps, parameterless arrays, complete flags, shape/value/native/raw failures, precise paths and Map/Common/Troop selector warnings versus fixed-reference errors.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-characters.test.ts",
+        "name": "MV-S6-CHARACTER-005:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 / synthetic public product verification",
+        "owner": "Codex implementer and independent finalizer",
+        "layer": "focused DEV automated"
+      },
+      "slice": "S6 / ticket35",
+      "required": true
+    },
+    {
+      "id": "MV-S6-CHARACTER-006",
+      "title": "Pending actual R1/R4/R6 normal Scene product comparison",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E204 — Scroll Map"
+        }
+      ],
+      "dimensions": [
+        "A4",
+        "A5"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "static-inference",
+      "input": "Final R1/R4/R6 native literal/compiled built-product pairs remain required; no game execution is claimed by focused DEV.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-characters.json",
+        "sha256": "8562b55021c4b2c1cfcd8661a509aafc68793239b5348e227a11ce4edb50f517"
+      },
+      "expected": "Final R1/R4/R6 native literal/compiled built-product pairs remain required; no game execution is claimed by focused DEV.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/35-map-characters-dev.md",
+        "section": "Pending native R1/R4/R6"
+      },
+      "nativeGroups": [
+        "R1",
+        "R4",
+        "R6"
+      ],
+      "execution": {
+        "environment": "Final isolated MV1.6.1 / runtime / NW.js normal Scene scheduler",
+        "owner": "Codex implementer and independent finalizer",
+        "layer": "pending allocated native acceptance"
+      },
+      "slice": "S6 / ticket35",
+      "required": true
     }
   ]
 }

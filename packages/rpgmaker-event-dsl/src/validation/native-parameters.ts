@@ -3,6 +3,8 @@ import { renderJsonValue } from "../project-data/json-values.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
 import { assertNativeMapAppearanceParameters } from "../commands/map/native-validation.js";
 
+import { assertNativeMapCharacterParameters } from "../commands/movement/character-native.js";
+
 // Shared saved-slot envelopes. Family validators retain ownership of semantic ranges,
 // references and mode-specific saved values; this table is not full family acceptance.
 const signatures: Record<number, string> = {
@@ -141,6 +143,8 @@ export function assertNativeCommandParameters(
 ): void {
   if (!isKnownCommandCode(code)) return;
   assertNativeMapAppearanceParameters(code, parameters, path);
+
+  assertNativeMapCharacterParameters(code, parameters, path);
   try {
     assertNativeSwitchCommand(code, parameters);
   } catch (error) {

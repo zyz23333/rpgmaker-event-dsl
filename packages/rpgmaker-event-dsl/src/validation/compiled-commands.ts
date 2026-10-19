@@ -6,6 +6,7 @@ import { compilePageMovement } from "../commands/movement/page.js";
 import { validateNativeMovementRouteInputs } from "../commands/movement/validation.js";
 import { inspectNativeCommandReferences } from "./native-references.js";
 import type { RawEventCommand, CommandOrigins } from "../compiler/types.js";
+import { inspectMapCharacterContext } from "./map-character-context.js";
 
 export function validateCompiledCommandLists(
   graph: StagedDataGraph,
@@ -76,6 +77,23 @@ export function validateCompiledCommandLists(
         const { breaksOutsideLoops } = inspectCommandListStructure(commands, {
           requireTerminator: true,
         });
+        issues.push(
+          ...inspectMapCharacterContext(commands, {
+            identity: list.identity,
+            stage: "compile",
+            prefix,
+            origins,
+            ...(declaration.kind === "mapEvent"
+              ? {
+                  eventIds: new Set(
+                    [...graph.mapEventsByIdentity.values()]
+                      .filter((event) => event.mapId === declaration.mapId)
+                      .map((event) => event.id),
+                  ),
+                }
+              : {}),
+          }),
+        );
         issues.push(
           ...inspectNativeCommandInputs(commands, {
             ...options,

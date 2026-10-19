@@ -28,8 +28,6 @@ import {
   setEventLocation,
   setMovementRoute,
   setVehicleLocation,
-  showAnimation,
-  showBalloonIcon,
   showPicture,
   switchDefinition,
   switchRef,
@@ -586,22 +584,32 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Character Commands",
           commands: [
-            showAnimation({
+            {
+              kind: "showAnimation",
               target: {
                 kind: "runtimeSelector",
                 scope: "player",
                 target: "current",
               } as never,
               animation: animationRef({ id: 99 }),
-            }),
-            showBalloonIcon({
+              wait: false,
+            },
+            {
+              kind: "showAnimation",
+              target: { kind: "runtimeSelector", scope: "character", target: "player" },
+              animation: animationRef({ id: 99 }),
+              wait: false,
+            },
+            {
+              kind: "showBalloonIcon",
               target: {
                 kind: "runtimeSelector",
                 scope: "character",
                 target: "event",
               } as never,
               balloon: "question",
-            }),
+              wait: false,
+            },
           ],
         }),
       ],
@@ -610,9 +618,11 @@ describe("validateDslOwnedDeclarations", () => {
 
     expect(result.issues.map((issue) => issue.message)).toEqual(
       expect.arrayContaining([
-        "Show Animation target must use the character runtime selector scope.",
-        "MV-E212-REFERENCE validation map 1 event 1.pages[0].commands[0].animation: Unknown animation reference id: 99",
-        "Show Balloon Icon target event id must be a positive integer.",
+        expect.stringMatching(/MV-E212-INPUT.*pages\[0\].commands\[0\].target/),
+        expect.stringMatching(
+          /MV-E212-REFERENCE.*Unknown animation reference id: 99.*pages\[0\].commands\[1\].animation/,
+        ),
+        expect.stringMatching(/MV-E213-INPUT.*pages\[0\].commands\[2\].target/),
       ]),
     );
   });

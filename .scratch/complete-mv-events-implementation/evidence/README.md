@@ -496,3 +496,13 @@ Ticket36 map appearance cases use independent complete saved literals and actual
 | MV-S6-MAP-APPEARANCE-007 | preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push | synthetic-support | Public source/built Workspace; literal signed-zero carrier and Object.is assertions |
 
 Ticket36 allocated delivery is complete on contract `mv-1.6.1/10`: current source40 files/987 tests, fresh build, built Windows16 files/373 tests,9 exact E6 resource checks and10 physically isolated current-built/native pairs (20 game sides) passed. The [current delivery record](36-map-appearance-settings.md#final-current-delivery--contract-mv-16110) and `36-history/` preserve actual source/dist identities, rejected/incomplete attempts, original captures and safe native projections. All286 incoming rows/history bytes are preserved; final49–55 remain separate.
+
+
+| Requirement | Ticket35 focused DEV coverage |
+| --- | --- |
+| MV-S6-CHARACTER-001 | Complete native matrix through real Workspace evaluation and Push |
+| MV-S6-CHARACTER-002 | Evaluated helper and direct-node excess fields refuse before projection |
+| MV-S6-CHARACTER-003 | Invalid native slots and fixed animation references refuse before publication |
+| MV-S6-CHARACTER-004 | Current public types require named enums and explicit wait |
+| MV-S6-CHARACTER-005 | Approved command seams validate complete map-character contract |
+| MV-S6-CHARACTER-006 | Pending actual R1/R4/R6 normal Scene product comparison |

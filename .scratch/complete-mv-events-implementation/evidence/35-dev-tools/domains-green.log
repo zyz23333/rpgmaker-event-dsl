@@ -1,0 +1,46 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-35/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/map-characters.test.ts (7 tests | 1 failed) 31ms
+   × rejects malformed known native and raw character slots before decompilation 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-characters.test.ts > rejects malformed known native and raw character slots before decompilation
+AssertionError: expected AssertionError: raw E204 accepted { …(3) } to match object { code: 'MV-E204-PARAMETERS', …(1) }
+(4 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "code": "MV-E204-PARAMETERS",
+-   "location": {
+-     "dslPath": "rawDslCommand.parameters[0]",
+-   },
++ AssertionError {
++   "message": "raw E204 accepted",
++   "actual": undefined,
++   "expected": undefined,
++   "operator": undefined,
+  }
+
+ ❯ test/map-characters.test.ts:75:32
+     73|     catch(error){expect(error).toMatchObject({code:`MV-E${code}-PARAME…
+     74|     try {rawDslCommand({code,parameters});expect.fail(`raw E${code} ac…
+     75|     catch(error){expect(error).toMatchObject({code:`MV-E${code}-PARAME…
+       |                                ^
+     76|   }
+     77| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 passed (7)
+   Start at  03:07:44
+   Duration  1.41s (transform 411ms, setup 0ms, import 1.19s, tests 31ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-35\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/map-characters.test.ts

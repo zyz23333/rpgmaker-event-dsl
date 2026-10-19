@@ -198,6 +198,30 @@ to an empty filename.
 Empty Asset Reference names and unknown command fields fail validation. Asset
 references preserve names without checking image directories or file sizes.
 
+Map character commands use explicit saved settings:
+
+```ts
+scrollMap({ direction: "right", distance: 0, speed: 6 });
+showAnimation({ target: playerCharacter, animation: animationRef({ id: 1 }), wait: false });
+showBalloonIcon({ target: playerCharacter, balloon: "userDefined5", wait: true });
+changeTransparency({ transparent: false });
+changePlayerFollowers({ visible: true });
+getOnOffVehicle();
+eraseEvent();
+gatherFollowers();
+```
+
+Scroll directions are `down`/`left`/`right`/`up`, distance is an integer 0–100 and
+speed is 1–6; there is no scroll wait field. Animation and balloon targets support
+character selectors for player, currentEvent and positive event IDs, with required
+boolean `wait`. Balloons use the fifteen named icons: exclamation, question,
+musicNote, heart, anger, sweat, cobweb, silence, lightBulb, zzz and userDefined1–5.
+Animations require existing database entries; missing runtime targets warn and
+retain the selector. Common Event callers determine context. Boarding may fail
+because of player state or terrain; erase requires a current map-event identity,
+and Gather Followers waits on the map but skips battle. Context warnings also
+identify retained map-player effects during battle.
+
 Clone and Pull capture exact UTF-8 file bytes, their hashes and the map collection
 selected by the same MapInfos input. Invalid collections, missing registered maps,
 malformed carriers and undecodable bytes fail explicitly. An observed input or

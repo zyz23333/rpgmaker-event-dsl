@@ -231,7 +231,7 @@ changeEquipment({ actor: actorRef({ id: 1 }), equipmentTypeId: 6, itemId: 77 })`
       expect(await readFile(join(stateRoot, "sync-manifest.json"), "utf8")).toBe(manifest);
       const missing = [
         [
-          "showAnimation({ target: { kind: 'runtimeSelector', scope: 'character', target: 'currentEvent' }, animation: animationRef({ id: 99 }) })",
+          "showAnimation({ target: { kind: 'runtimeSelector', scope: 'character', target: 'currentEvent' }, animation: animationRef({ id: 99 }), wait: false })",
           "animation",
         ],
         ["changeTileset({ tileset: tilesetRef({ id: 99 }) })", "tileset"],
@@ -249,10 +249,14 @@ changeEquipment({ actor: actorRef({ id: 1 }), equipmentTypeId: 6, itemId: 77 })`
           const currentSource = source(command!.replace("99", String(id)));
           await writeFile(sourcePath, currentSource);
           const diagnostic =
-            kind === "tileset" && id === 0
+            id === 0 && (kind === "tileset" || kind === "animation")
               ? command!.startsWith("rawDslCommand")
-                ? "MV-E282-PARAMETERS"
-                : "MV-E282-INPUT"
+                ? kind === "tileset"
+                  ? "MV-E282-PARAMETERS"
+                  : "MV-E212-PARAMETERS"
+                : kind === "tileset"
+                  ? "MV-E282-INPUT"
+                  : "MV-E212-INPUT"
               : `Unknown ${kind} reference id: ${id}`;
           await expect(compileWorkspace({ workspaceRoot, check: true })).rejects.toThrow(
             diagnostic,

@@ -112,6 +112,25 @@ Snapshot retains complete troop member order, including hidden members and missi
 Enemy IDs, and the complete System equipment slot configuration for contextual
 validation. Use `pull` to capture subsequent editor-side database changes.
 
+`scrollMap({ direction: "down", distance: 0, speed: 4 })` uses `down`, `left`,
+`right` or `up`; distance is an integer 0–100 and speed is 1–6. It waits for an
+earlier scroll to finish before starting and has no `wait` parameter.
+`showAnimation({ target, animation: animationRef(...), wait: false })` and
+`showBalloonIcon({ target, balloon: "userDefined5", wait: true })` require an
+explicit wait boolean. Their targets use the character Runtime Selector for
+`player`, `currentEvent`, or a positive event ID. Animation references must exist;
+selectors that may miss at execution produce contextual warnings.
+
+Balloon names are `exclamation`, `question`, `musicNote`, `heart`, `anger`, `sweat`,
+`cobweb`, `silence`, `lightBulb`, `zzz`, and `userDefined1` through `userDefined5`.
+`changeTransparency({ transparent })` and `changePlayerFollowers({ visible })`
+require booleans. `getOnOffVehicle()`, `eraseEvent()` and `gatherFollowers()` accept
+no arguments. Boarding depends on terrain and player state; erase acts on the
+calling map event, and gathering waits on the map. Common Events inherit the
+caller's context, while battle contexts can skip commands or address retained
+map-player state. Warnings preserve these saved settings without guaranteeing
+their runtime effect.
+
 `controlSwitches(...)` accepts one switch reference or an inclusive
 `{ kind: "referenceRange", from: switchRef({ id: 1 }), to: switchRef({ id: 3 }) }`.
 Both endpoints must exist in the final capacity; unnamed intermediate slots are

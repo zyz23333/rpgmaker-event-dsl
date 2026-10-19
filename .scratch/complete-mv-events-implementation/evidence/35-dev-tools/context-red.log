@@ -1,0 +1,75 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-35/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/map-characters.test.ts (8 tests | 1 failed) 41ms
+   × warns about map/common/battle execution context while retaining valid selectors 10ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-characters.test.ts > warns about map/common/battle execution context while retaining valid selectors
+AssertionError: expected [] to deeply equal ArrayContaining{…}
+
+- Expected
++ Received
+
+- ArrayContaining [
+-   ObjectContaining {
+-     "code": "MV-E212-CONTEXT",
+-     "dslPath": "pages[0].commands[0].target",
+-     "identity": "map:1/event:1",
+-     "level": "warning",
+-     "nativePath": "pages[0].list[0].parameters[0]",
+-   },
+-   ObjectContaining {
+-     "code": "MV-E213-CONTEXT",
+-     "dslPath": "pages[0].commands[1].parameters[0]",
+-     "identity": "map:1/event:1",
+-     "level": "warning",
+-   },
+-   ObjectContaining {
+-     "code": "MV-E214-CONTEXT",
+-     "identity": "commonEvent:1",
+-     "level": "warning",
+-   },
+-   ObjectContaining {
+-     "code": "MV-E217-CONTEXT",
+-     "identity": "commonEvent:1",
+-     "level": "warning",
+-   },
+-   ObjectContaining {
+-     "code": "MV-E204-CONTEXT",
+-     "identity": "troop:1",
+-     "level": "warning",
+-   },
+-   ObjectContaining {
+-     "code": "MV-E212-CONTEXT",
+-     "identity": "troop:1",
+-     "level": "warning",
+-   },
+-   ObjectContaining {
+-     "code": "MV-E206-CONTEXT",
+-     "identity": "troop:1",
+-     "level": "warning",
+-   },
+- ]
++ []
+
+ ❯ test/map-characters.test.ts:45:25
+     43|   ], {scriptEnabled:false,snapshotReferences:{animations:[{id:1,name:"…
+     44|   expect(result.issues.filter(issue=>issue.level==="error")).toEqual([…
+     45|   expect(result.issues).toEqual(expect.arrayContaining([
+       |                         ^
+     46|     expect.objectContaining({code:"MV-E212-CONTEXT",identity:"map:1/ev…
+     47|     expect.objectContaining({code:"MV-E213-CONTEXT",identity:"map:1/ev…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 7 passed (8)
+   Start at  03:09:06
+   Duration  1.46s (transform 431ms, setup 0ms, import 1.27s, tests 41ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-35\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/map-characters.test.ts

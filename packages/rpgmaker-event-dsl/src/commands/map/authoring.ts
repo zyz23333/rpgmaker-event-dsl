@@ -12,6 +12,8 @@ import type {
 } from "../../domain/types.js";
 import { assertMapAppearanceInput } from "./validation.js";
 
+import { assertParameterlessCharacterCall } from "../movement/character-validation.js";
+
 export function changeMapNameDisplay(input: { enabled: boolean }): ChangeMapNameDisplayDslCommand {
   assertMapAppearanceInput("changeMapNameDisplay", input, "changeMapNameDisplay");
   return {
@@ -76,5 +78,6 @@ export function getLocationInfo(input: {
 }
 
 export function eraseEvent(): EraseEventDslCommand {
+  assertParameterlessCharacterCall("eraseEvent", arguments);
   return { kind: "eraseEvent" };
 }

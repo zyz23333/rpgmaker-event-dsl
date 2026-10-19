@@ -1,6 +1,6 @@
 # 35: 地图角色、动画与跟随者
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 23, 24
 Stage: S6
 Created: 2026-10-19
@@ -50,3 +50,20 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [系统、地图与表现参数附表](../../complete-mv-events/research/command-parameters/visual-map.md)。
+
+### 2026-10-20 — 聚焦开发领取
+
+独立分支 `codex/mv-ticket-35`，基于实际 integration `c2a40a41c094ccdda47faccd4399891952739008`。按规格 T1 已确认 seams 逐切片 red→green；本检查点仅 focused DEV，保留历史证据，不进行 full/build/built/native、契约版本增量或最终验收。R1/R4/R6 与独立 merger 均待后续队列完成。
+
+### 2026-10-20 — 聚焦 DEV 检查点，仍待最终验收
+
+本票八个指令已贯通正式/raw/反编译、引用与上下文诊断，并更新当前文档与示例。
+同步实际 integration `38542767606ff9712e45d2a8e4894558e3a7d385`，保留 contract10；
+此前 c2 的 53 owned、72 related、9-case capture 通过，当前受影响批次 134 tests 通过。
+该批次的 evidence index 原10s超时保留，结果拷贝后隔离复验通过（3.49s test）。
+当前 typecheck、24TS scoped lint/format、package README format 与 diff whitespace 通过。
+296 incoming requirements、4,278 incoming历史blobs全部保留；新增6 rows、235 execution records
+（207 passed/28 failed），所有失败原样保留。实现、原始失败、完整状态断言、源码指纹与冻结位置见
+[DEV证据](../evidence/35-map-characters-dev.md) 和
+[历史审计](../evidence/35-map-characters-history-audit.json)。
+本检查点不满足 full/build/built、R1/R4/R6、最终 contract 增量和独立 merger 要求，状态保持 claimed。

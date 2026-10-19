@@ -302,7 +302,7 @@ describe("compileMapEvent", () => {
                   },
                 },
               }),
-              scrollMap({ direction: 6, distance: 9, speed: 5 }),
+              scrollMap({ direction: "right", distance: 9, speed: 5 }),
               setMovementRoute({
                 target: { kind: "runtimeSelector", scope: "character", target: "event", id: 4 },
                 route: {
@@ -542,6 +542,7 @@ describe("compileMapEvent", () => {
               showBalloonIcon({
                 target: { kind: "runtimeSelector", scope: "character", target: "player" },
                 balloon: "question",
+                wait: false,
               }),
               eraseEvent(),
               changePlayerFollowers({ visible: false }),
