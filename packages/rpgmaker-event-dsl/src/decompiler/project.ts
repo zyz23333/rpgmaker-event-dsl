@@ -141,8 +141,7 @@ ${indentLines(event.pages.map(renderPage).join(",\n"), 4)}
     ),
     ...events.flatMap(
       (event) =>
-        renderDecompiledCommandList(event.pages.flatMap((page) => normalizeCommandList(page.list)))
-          .helperNames,
+        event.pages.flatMap((page) => renderDecompiledCommandList(normalizeCommandList(page.list)).helperNames),
     ),
   ])}\n\n${body}\n`;
 }
@@ -178,8 +177,7 @@ ${indentLines(renderCommands(normalizeCommandList(event.list)), 4)}
     ...(events.some((event) => commonEventTriggerFromCode(event.trigger) !== "none")
       ? ["switchRef"]
       : []),
-    ...renderDecompiledCommandList(events.flatMap((event) => normalizeCommandList(event.list)))
-      .helperNames,
+    ...events.flatMap((event) => renderDecompiledCommandList(normalizeCommandList(event.list)).helperNames),
   ])}\n\n${body}\n`;
 }
 

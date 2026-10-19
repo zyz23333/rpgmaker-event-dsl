@@ -1,6 +1,6 @@
 # 13: Loop 与子体边界最小闭环
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 02, 03
 Stage: S2
 Created: 2026-10-19
@@ -50,3 +50,9 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [核心指令参数附表](../../complete-mv-events/research/command-parameters/core.md)。
+
+## Comments
+
+### 2026-10-19 — 认领与既定 TDD 边界
+
+基于集成96bb60e，在独立worktree实现本票。测试沿用规格T1已确认的命令编反编译/Staged Data Graph与真实Workspace API入口，独立字面原生预期；不新增公开测试API。Loop使用`loop({body:{commands,endMarker?}})`，正式退出名为`exitEventProcessing()`；其他父命令API迁移留各自票，但共享扫描识别其结构边界。条件推导、合成往返与实际MV/NW运行分别记录。

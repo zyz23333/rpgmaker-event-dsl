@@ -78,16 +78,16 @@ export function renderLoopCommand(
   }
 
   const bodyEndIndex = findLoopBodyEnd(commands, index + 1, command.indent);
-  const body = renderCommandList(commands.slice(index + 1, bodyEndIndex));
-  const nextIndex =
-    commands[bodyEndIndex]?.code === 413 && commands[bodyEndIndex]?.indent === command.indent
-      ? bodyEndIndex
-      : bodyEndIndex - 1;
+  const bodyCommands = commands.slice(index + 1, bodyEndIndex);
+  const last = bodyCommands.at(-1);
+  const hasEndMarker = last?.code === 0 && last.indent === command.indent + 1;
+  const body = renderCommandList(hasEndMarker ? bodyCommands.slice(0, -1) : bodyCommands);
+  const markerField = hasEndMarker ? "" : ', endMarker: "absent"';
 
   return {
-    expression: `loop([${renderInlineCommandListSource(body.source)}])`,
+    expression: `loop({ body: { commands: [${renderInlineCommandListSource(body.source)}]${markerField} } })`,
     helperNames: ["loop", ...body.helperNames],
-    nextIndex,
+    nextIndex: bodyEndIndex,
   };
 }
 
@@ -432,7 +432,7 @@ export function findLoopBodyEnd(
 
   while (index < commands.length) {
     const command = commands[index];
-    if (command === undefined || command.code === 0 || command.indent < parentIndent) {
+    if (command === undefined || command.indent < parentIndent) {
       break;
     }
     if (command.indent === parentIndent && command.code === 413) {
@@ -444,6 +444,9 @@ export function findLoopBodyEnd(
     index += 1;
   }
 
+  if (commands[index]?.code !== 413 || commands[index]?.indent !== parentIndent) {
+    throw new Error(`MV-STRUCTURE: Loop at native command ${startIndex - 1} has no matching413.`);
+  }
   return index;
 }
 

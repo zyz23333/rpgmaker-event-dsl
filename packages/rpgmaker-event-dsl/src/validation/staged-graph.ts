@@ -57,6 +57,7 @@ export {
 import { collectCommandInputPrimitives } from "./inspection.js";
 export { collectCommandInputPrimitives, isReferenceValue } from "./inspection.js";
 import { readObjectReferenceEntries, readSystemNameEntries } from "./snapshot.js";
+import { validateCompiledCommandLists } from "./compiled-commands.js";
 export {
   toReferenceEntry,
   readObjectReferenceEntries,
@@ -134,6 +135,7 @@ export function validateStagedDataGraph(
 
   validateDeclarationIdentities(graph.declarations, issues, graph.snapshotMaps);
   validateDeclarationReferences(graph.declarations, graph.resolver, options, issues);
+  validateCompiledCommandLists(graph, issues);
 
   return { issues };
 }

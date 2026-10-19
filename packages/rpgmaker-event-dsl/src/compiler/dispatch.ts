@@ -1,6 +1,8 @@
 import type { CommonEventDefinition, DslCommand, PageConditions } from "../domain/types.js";
 import type { ReferenceResolver } from "../validation/types.js";
 import type { RawEventCommand } from "./types.js";
+import { assertLoopCommand } from "../commands/flow/validation.js";
+import { CommandStructureError, inspectCommandListStructure } from "../validation/command-structure.js";
 import { compileConditionalBranchParameters, vehicleToCode } from "./shared/conditions.js";
 export {
   compileConditionalBranchParameters,
@@ -99,10 +101,11 @@ export function compileNodes(
   indent: number,
   resolver: ReferenceResolver,
   includeTerminator = true,
+  sourcePath = "commands",
 ): RawEventCommand[] {
   const output: RawEventCommand[] = [];
 
-  for (const node of nodes) {
+  for (const [nodeIndex, node] of nodes.entries()) {
     switch (node.kind) {
       case "showText":
         output.push({
@@ -182,23 +185,32 @@ export function compileNodes(
           });
         }
         break;
-      case "loop":
+      case "loop": {
+        assertLoopCommand(node, `${sourcePath}[${nodeIndex}]`);
+        const body = compileNodes(node.body.commands, indent + 1, resolver, false, `${sourcePath}[${nodeIndex}].body.commands`);
+        if (body.at(-1)?.code === 0 && body.at(-1)?.indent === indent + 1) {
+          throw new CommandStructureError("MV-BODY-MARKER-CONFLICT", "Raw output contradicts the owning body's declared Body End Marker.", {
+            dslPath: `${sourcePath}[${nodeIndex}].body.endMarker`,
+          });
+        }
         output.push({
           code: 112,
           indent,
           parameters: [],
         });
-        output.push(...compileNodes(node.body, indent + 1, resolver, false));
+        output.push(...body);
+        if (node.body.endMarker !== "absent") output.push({ code: 0, indent: indent + 1, parameters: [] });
         output.push({
           code: 413,
           indent,
           parameters: [],
         });
         break;
+      }
       case "breakLoop":
         output.push({ code: 113, indent, parameters: [] });
         break;
-      case "exitEvent":
+      case "exitEventProcessing":
         output.push({ code: 115, indent, parameters: [] });
         break;
       case "commonEvent":
@@ -1045,6 +1057,7 @@ export function compileNodes(
   if (includeTerminator) {
     output.push({ code: 0, indent, parameters: [] });
   }
+  if (includeTerminator && indent === 0) inspectCommandListStructure(output, { requireTerminator: true });
   return output;
 }
 

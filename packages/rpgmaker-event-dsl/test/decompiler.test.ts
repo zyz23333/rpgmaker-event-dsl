@@ -749,7 +749,7 @@ describe("decompiler command list rendering", () => {
       {
         family: "Exit Event Processing",
         codes: [115],
-        helperName: "exitEvent",
+        helperName: "exitEventProcessing",
         commands: [{ code: 115, indent: 0, parameters: [] }],
       },
       {

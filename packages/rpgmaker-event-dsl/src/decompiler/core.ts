@@ -198,7 +198,7 @@ export function readRawCommandList(value: unknown): RawEventCommand[] {
 export function normalizeCommandList(
   commands: readonly RawEventCommand[] | undefined,
 ): RawEventCommand[] {
-  return commands?.filter((command) => command.code !== 0) ?? [];
+  return commands === undefined ? [] : [...commands];
 }
 
 export function readNamedSystemEntries(value: unknown): Array<{ id: number; name: string }> {
