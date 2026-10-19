@@ -1,6 +1,7 @@
 import { isDeepStrictEqual } from "node:util";
 import { isCanonicalMapFileName } from "./project.js";
 import { blankBattleEventPage } from "../domain/battle-page-defaults.js";
+import { describeMapEventChanges } from "./map-event-diff.js";
 
 export type StructuredDiffChangeKind =
   | "generated-only"
@@ -250,6 +251,8 @@ function buildMapEventDomain(options: BuildStructuredDiffReportOptions): Structu
         snapshot: snapshotEvents[index],
       });
       if (entry !== null) {
+        if (entry.change === "changed")
+          entry.detail += describeMapEventChanges(generatedEvents[index], snapshotEvents[index]);
         entries.push(entry);
       }
     }

@@ -10,6 +10,8 @@ export type {
   MapEventDefinition,
   MapPageTrigger,
   PageConditions,
+  PageImage,
+  PageOptions,
   SwitchDefinition,
   TroopEventDefinition,
   VariableDefinition,

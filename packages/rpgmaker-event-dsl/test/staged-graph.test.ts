@@ -118,8 +118,8 @@ describe("validateDslOwnedDeclarations", () => {
               conditions: {
                 variable: {
                   ref: variableRef({ id: 1 }),
-                  operator: "eq" as "ge",
-                  value: variableRef({ id: 2 }) as unknown as number,
+                  enabled: true,
+                  atLeast: variableRef({ id: 2 }) as unknown as number,
                 },
               },
               commands: [],
@@ -133,10 +133,12 @@ describe("validateDslOwnedDeclarations", () => {
       },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toEqual(
+    expect(result.issues).toEqual(
       expect.arrayContaining([
-        'Map Event Page variable conditions only support operator "ge".',
-        "Map Event Page variable conditions require a finite numeric value.",
+        expect.objectContaining({
+          code: "MV-MAP-PAGE-INPUT",
+          dslPath: "pages[0].conditions.variable.atLeast",
+        }),
       ]),
     );
   });

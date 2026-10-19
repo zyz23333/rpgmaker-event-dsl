@@ -1,0 +1,1333 @@
+{
+  "purpose": "Final fresh product source/build correspondence to both actually executed ticket24 R1 pairs; does not relabel dirty execution as clean commit",
+  "at": "2026-10-19T14:58:33.145Z",
+  "node": "v22.23.0",
+  "root": "C:/Users/Shuen/.codex/worktrees/mv-ticket-24/rpgmaker-event-dsl",
+  "results": [
+    {
+      "kind": "triggers",
+      "capturedRevision": "cdae5f8046a79ea926c90ecc68855c74d08b870d",
+      "capturedDirtyStatus": " M ../../.scratch/complete-mv-events-implementation/evidence/README.md\n M ../../.scratch/complete-mv-events-implementation/evidence/requirements.json\n M ../../.scratch/complete-mv-events-implementation/issues/24-map-event-full-pages-and-note.md\n M src/decompiler/core.ts\n M src/map-event/native.ts\n M test/map-event-workspace.test.ts\n",
+      "capturedSourceFingerprint": "9b3f86383fa140da6fc039842c59699e2b9507b35e8313ba6d98c8e875a38d92",
+      "capturedDistFingerprint": "8366896ec7eafb8e98b90a383afdd04f77ed20112868205f3e2a59018c671dba",
+      "groups": {
+        "source": [
+          {
+            "path": "authoring/declarations.ts",
+            "sha256": "8b66e262b36a1adc9aa12e3487558bce38d78d485f8dc6383acca4533a75e3ec",
+            "finalSha256": "8b66e262b36a1adc9aa12e3487558bce38d78d485f8dc6383acca4533a75e3ec",
+            "matches": true
+          },
+          {
+            "path": "authoring/index.ts",
+            "sha256": "a72e02954767eedf05eba2d74021645883df0ab6defd8dcb706ec4314b1bef63",
+            "finalSha256": "a72e02954767eedf05eba2d74021645883df0ab6defd8dcb706ec4314b1bef63",
+            "matches": true
+          },
+          {
+            "path": "authoring/references.ts",
+            "sha256": "b3f3cefa64f45da752a8f58bc6eca2d92bb6b30773be42f51036fd60df9c89de",
+            "finalSha256": "b3f3cefa64f45da752a8f58bc6eca2d92bb6b30773be42f51036fd60df9c89de",
+            "matches": true
+          },
+          {
+            "path": "authoring/shared.ts",
+            "sha256": "3865ac8c4b3768c96038a323a02cf30c33edd9f330544bd6cd2b204d2841408e",
+            "finalSha256": "3865ac8c4b3768c96038a323a02cf30c33edd9f330544bd6cd2b204d2841408e",
+            "matches": true
+          },
+          {
+            "path": "cli.ts",
+            "sha256": "34c6e77e91a45126b1a2c5b15621f79241a98bab081924d2fbd535c5996fd4b0",
+            "finalSha256": "34c6e77e91a45126b1a2c5b15621f79241a98bab081924d2fbd535c5996fd4b0",
+            "matches": true
+          },
+          {
+            "path": "commands/actor/authoring.ts",
+            "sha256": "adc9b6aa805739dad7594246236f6314cc8a08299f1bd323b8ae729cf6b2fdf3",
+            "finalSha256": "adc9b6aa805739dad7594246236f6314cc8a08299f1bd323b8ae729cf6b2fdf3",
+            "matches": true
+          },
+          {
+            "path": "commands/actor/decompile.ts",
+            "sha256": "2e83a179cabb9ae19ff9207904c822bb84c6b5bc45581386d2aca7b1b005b56d",
+            "finalSha256": "2e83a179cabb9ae19ff9207904c822bb84c6b5bc45581386d2aca7b1b005b56d",
+            "matches": true
+          },
+          {
+            "path": "commands/audio/authoring.ts",
+            "sha256": "08a68ae8b97095ec1c3a6d8517ed5649eb79ffb1b66f59aa34a7506356e0e513",
+            "finalSha256": "08a68ae8b97095ec1c3a6d8517ed5649eb79ffb1b66f59aa34a7506356e0e513",
+            "matches": true
+          },
+          {
+            "path": "commands/audio/decompile.ts",
+            "sha256": "18acdf8e035ad2b8f3879622e18c39a7cde1e6279c14013fca2e6dbd0edb3811",
+            "finalSha256": "18acdf8e035ad2b8f3879622e18c39a7cde1e6279c14013fca2e6dbd0edb3811",
+            "matches": true
+          },
+          {
+            "path": "commands/battle/authoring.ts",
+            "sha256": "a5249dd85dde78f2f0183d33a9a79d69bca93e88b5d2f0404f9005a25f115377",
+            "finalSha256": "a5249dd85dde78f2f0183d33a9a79d69bca93e88b5d2f0404f9005a25f115377",
+            "matches": true
+          },
+          {
+            "path": "commands/battle/decompile.ts",
+            "sha256": "4da781567fb9baf2580ec050564d66506d542890dfab3a6966eef1c008ac44b0",
+            "finalSha256": "4da781567fb9baf2580ec050564d66506d542890dfab3a6966eef1c008ac44b0",
+            "matches": true
+          },
+          {
+            "path": "commands/enemy/authoring.ts",
+            "sha256": "3ff830df557837e08ed73054eb47085cd0ba262e1aad746defc05578a14ce602",
+            "finalSha256": "3ff830df557837e08ed73054eb47085cd0ba262e1aad746defc05578a14ce602",
+            "matches": true
+          },
+          {
+            "path": "commands/enemy/decompile.ts",
+            "sha256": "334fc1efeda29f27cf9a7e504501ea7e693fb9b041a96bb827c90ec957ff2cd2",
+            "finalSha256": "334fc1efeda29f27cf9a7e504501ea7e693fb9b041a96bb827c90ec957ff2cd2",
+            "matches": true
+          },
+          {
+            "path": "commands/flow/authoring.ts",
+            "sha256": "5948d34cb26d81e3a72973a88b742a78b3928b7d4dc4c67b41ecca1e212f6d0f",
+            "finalSha256": "5948d34cb26d81e3a72973a88b742a78b3928b7d4dc4c67b41ecca1e212f6d0f",
+            "matches": true
+          },
+          {
+            "path": "commands/flow/decompile.ts",
+            "sha256": "db0508df65d743ada28e4b175d85cfbfa6a70a0547ff17cc2ecc2ab9a0feac31",
+            "finalSha256": "db0508df65d743ada28e4b175d85cfbfa6a70a0547ff17cc2ecc2ab9a0feac31",
+            "matches": true
+          },
+          {
+            "path": "commands/flow/validation.ts",
+            "sha256": "e53e420b6f56e26e85e7df6db53c48365002450aefb13fbae50b21141e2adc70",
+            "finalSha256": "e53e420b6f56e26e85e7df6db53c48365002450aefb13fbae50b21141e2adc70",
+            "matches": true
+          },
+          {
+            "path": "commands/map/authoring.ts",
+            "sha256": "985f89d88a2460b0af605f3fb8282847dd48e4d5d6e13821ae430966a53c4006",
+            "finalSha256": "985f89d88a2460b0af605f3fb8282847dd48e4d5d6e13821ae430966a53c4006",
+            "matches": true
+          },
+          {
+            "path": "commands/map/decompile.ts",
+            "sha256": "4155ac5891314141271b6e80f4b11924e584ef1efcf6e83b125b7e60196e2ce0",
+            "finalSha256": "4155ac5891314141271b6e80f4b11924e584ef1efcf6e83b125b7e60196e2ce0",
+            "matches": true
+          },
+          {
+            "path": "commands/message/authoring.ts",
+            "sha256": "76bfc91b2a89a8c62546542396ff47c8baf9f13d54c1c1ba5a0b58031b413d68",
+            "finalSha256": "76bfc91b2a89a8c62546542396ff47c8baf9f13d54c1c1ba5a0b58031b413d68",
+            "matches": true
+          },
+          {
+            "path": "commands/message/decompile.ts",
+            "sha256": "174c78169c65eec74592a466381b97e083688c691381e470b0a707dd47273a24",
+            "finalSha256": "174c78169c65eec74592a466381b97e083688c691381e470b0a707dd47273a24",
+            "matches": true
+          },
+          {
+            "path": "commands/movement/authoring.ts",
+            "sha256": "af1985013fa73af61d72cc440de0f83d99f78c94da4744f3a7ab1d7b56daf909",
+            "finalSha256": "af1985013fa73af61d72cc440de0f83d99f78c94da4744f3a7ab1d7b56daf909",
+            "matches": true
+          },
+          {
+            "path": "commands/movement/compile.ts",
+            "sha256": "8491f60e066d618bb076e3e03774b9332000f8be6f5c81a05ceb2aa03e2d0e15",
+            "finalSha256": "8491f60e066d618bb076e3e03774b9332000f8be6f5c81a05ceb2aa03e2d0e15",
+            "matches": true
+          },
+          {
+            "path": "commands/movement/decompile.ts",
+            "sha256": "016e07bdd681af3aaaf70ae5141afc6255598453c2ce43a6c34a3d44c38ba6c3",
+            "finalSha256": "016e07bdd681af3aaaf70ae5141afc6255598453c2ce43a6c34a3d44c38ba6c3",
+            "matches": true
+          },
+          {
+            "path": "commands/movement/page.ts",
+            "sha256": "ead6952e28f64bd25ba6fbd55d9be36f09ddadca5967ec4ddd7722ee1e18ceac",
+            "finalSha256": "ead6952e28f64bd25ba6fbd55d9be36f09ddadca5967ec4ddd7722ee1e18ceac",
+            "matches": true
+          },
+          {
+            "path": "commands/movement/types.ts",
+            "sha256": "de4a2cb691fc6a8697ba91a2a831eaf17e1c15e541da4a2893f902f30a3a01b8",
+            "finalSha256": "de4a2cb691fc6a8697ba91a2a831eaf17e1c15e541da4a2893f902f30a3a01b8",
+            "matches": true
+          },
+          {
+            "path": "commands/movement/validation.ts",
+            "sha256": "41bd3a1a11691f40f0583a7d7a2e22533883404379b35897dc74eb31096d2755",
+            "finalSha256": "41bd3a1a11691f40f0583a7d7a2e22533883404379b35897dc74eb31096d2755",
+            "matches": true
+          },
+          {
+            "path": "commands/screen/authoring.ts",
+            "sha256": "c0557c79496cb70c7a4d67fa61008a6e189b9df86f7cb408b36048b89aff63dc",
+            "finalSha256": "c0557c79496cb70c7a4d67fa61008a6e189b9df86f7cb408b36048b89aff63dc",
+            "matches": true
+          },
+          {
+            "path": "commands/screen/compile.ts",
+            "sha256": "a1c68cb63a4e6fe9ad2de3f45f51101f2e4fa6656fd865ac3bbbf485c78edc80",
+            "finalSha256": "a1c68cb63a4e6fe9ad2de3f45f51101f2e4fa6656fd865ac3bbbf485c78edc80",
+            "matches": true
+          },
+          {
+            "path": "commands/screen/decompile.ts",
+            "sha256": "38e4c759cf9f51c5ab49ea0f33d79c9a2af1060156102e7198541ac2e529567b",
+            "finalSha256": "38e4c759cf9f51c5ab49ea0f33d79c9a2af1060156102e7198541ac2e529567b",
+            "matches": true
+          },
+          {
+            "path": "commands/system/authoring.ts",
+            "sha256": "71b37822f2d2abd58349a1ea7eed84fea0c886cf8045beb6341dbfba2c02814d",
+            "finalSha256": "71b37822f2d2abd58349a1ea7eed84fea0c886cf8045beb6341dbfba2c02814d",
+            "matches": true
+          },
+          {
+            "path": "commands/system/decompile.ts",
+            "sha256": "56c3cba9e576bd289050463bfe2d284c39d54196fcf5fa59a8dde3ccdc33ad77",
+            "finalSha256": "56c3cba9e576bd289050463bfe2d284c39d54196fcf5fa59a8dde3ccdc33ad77",
+            "matches": true
+          },
+          {
+            "path": "commands/variables/authoring.ts",
+            "sha256": "a2bbedd0a2d9aacb7e3eb2772e4f7431c49ccef39166cc74f4b615a6494a3f22",
+            "finalSha256": "a2bbedd0a2d9aacb7e3eb2772e4f7431c49ccef39166cc74f4b615a6494a3f22",
+            "matches": true
+          },
+          {
+            "path": "commands/variables/compile.ts",
+            "sha256": "9e4a295fac91434e34e28bd3c84b9b5a5dc526685f821f574582e7ac22bb4c27",
+            "finalSha256": "9e4a295fac91434e34e28bd3c84b9b5a5dc526685f821f574582e7ac22bb4c27",
+            "matches": true
+          },
+          {
+            "path": "commands/variables/decompile.ts",
+            "sha256": "c32df1e9d77b36d30fd135bc6c8919f0cf84a19acaf6a86d3e66d700762b9773",
+            "finalSha256": "c32df1e9d77b36d30fd135bc6c8919f0cf84a19acaf6a86d3e66d700762b9773",
+            "matches": true
+          },
+          {
+            "path": "commands/variables/validation.ts",
+            "sha256": "8996604b8bfcb1fd9ba8a5100b8bd598e720aad9b946d001e77e89ddf5609867",
+            "finalSha256": "8996604b8bfcb1fd9ba8a5100b8bd598e720aad9b946d001e77e89ddf5609867",
+            "matches": true
+          },
+          {
+            "path": "compiler/dispatch.ts",
+            "sha256": "7a351bf50d3e5dc45d8b5cdb2946677a990e567b790397c5cd4088b20a5069dd",
+            "finalSha256": "7a351bf50d3e5dc45d8b5cdb2946677a990e567b790397c5cd4088b20a5069dd",
+            "matches": true
+          },
+          {
+            "path": "compiler/events.ts",
+            "sha256": "8e76e86f404cc413b6e28c3c6e4831eb83541a30da55acbdfb2493df766781b0",
+            "finalSha256": "8e76e86f404cc413b6e28c3c6e4831eb83541a30da55acbdfb2493df766781b0",
+            "matches": true
+          },
+          {
+            "path": "compiler/shared/branches.ts",
+            "sha256": "44f965a1c5ea89cdf03fca12e3a49c2bce866efa9e6dc97ffa32c45a51f4d606",
+            "finalSha256": "44f965a1c5ea89cdf03fca12e3a49c2bce866efa9e6dc97ffa32c45a51f4d606",
+            "matches": true
+          },
+          {
+            "path": "compiler/shared/conditions.ts",
+            "sha256": "4b44eb3bb078dc6dd9a996ba7ac8aac5dbc6cc4a4151763ff9dc6c21d786e990",
+            "finalSha256": "4b44eb3bb078dc6dd9a996ba7ac8aac5dbc6cc4a4151763ff9dc6c21d786e990",
+            "matches": true
+          },
+          {
+            "path": "compiler/shared/media.ts",
+            "sha256": "9bc3cc0ec9fd97a6368711dc4e73cba05dc4abaee7697624132577bb465e3e68",
+            "finalSha256": "9bc3cc0ec9fd97a6368711dc4e73cba05dc4abaee7697624132577bb465e3e68",
+            "matches": true
+          },
+          {
+            "path": "compiler/shared/targets.ts",
+            "sha256": "11c907ed9a847ba54fdc222c7d04757e1b0d74205c7111426e4fec8d80be7ce2",
+            "finalSha256": "11c907ed9a847ba54fdc222c7d04757e1b0d74205c7111426e4fec8d80be7ce2",
+            "matches": true
+          },
+          {
+            "path": "compiler/types.ts",
+            "sha256": "b81ac88b5778268997bce55af43dc0953b5cee48625180f58733cfdde6ae91a1",
+            "finalSha256": "b81ac88b5778268997bce55af43dc0953b5cee48625180f58733cfdde6ae91a1",
+            "matches": true
+          },
+          {
+            "path": "decompiler/core.ts",
+            "sha256": "38d94da522cb5569d68b7f76c427998ff60dc814a6288f642c539ba85f2e458f",
+            "finalSha256": "38d94da522cb5569d68b7f76c427998ff60dc814a6288f642c539ba85f2e458f",
+            "matches": true
+          },
+          {
+            "path": "decompiler/dispatch.ts",
+            "sha256": "e7fab66bb4a732546cd9d380360cebb4730c733ea918f8bf6c457b5214a752c0",
+            "finalSha256": "e7fab66bb4a732546cd9d380360cebb4730c733ea918f8bf6c457b5214a752c0",
+            "matches": true
+          },
+          {
+            "path": "decompiler/map-page.ts",
+            "sha256": "05a14de564f72e81566bf5db192a38c71c9595e21abfa9181b49a12b724c751b",
+            "finalSha256": "05a14de564f72e81566bf5db192a38c71c9595e21abfa9181b49a12b724c751b",
+            "matches": true
+          },
+          {
+            "path": "decompiler/project.ts",
+            "sha256": "7b664d9b9c84febd4dc488e9f77b1d2ceea97b0190ddd4803750efafe2ff2f8e",
+            "finalSha256": "7b664d9b9c84febd4dc488e9f77b1d2ceea97b0190ddd4803750efafe2ff2f8e",
+            "matches": true
+          },
+          {
+            "path": "decompiler/types.ts",
+            "sha256": "f41ed6747fbaeed8f4ca5cbb93d7682775f9b1abbbd9d83a7f2ac7139fac5631",
+            "finalSha256": "f41ed6747fbaeed8f4ca5cbb93d7682775f9b1abbbd9d83a7f2ac7139fac5631",
+            "matches": true
+          },
+          {
+            "path": "domain/command.ts",
+            "sha256": "7b2699a1b7b6ecf75658b9d71bec1213fa922f430bb2b08b5650a76229449c61",
+            "finalSha256": "7b2699a1b7b6ecf75658b9d71bec1213fa922f430bb2b08b5650a76229449c61",
+            "matches": true
+          },
+          {
+            "path": "domain/declarations.ts",
+            "sha256": "f1d1813004e120e67e77ce79f7a5a7d5782c11d9daae9df25a751da84e155b6f",
+            "finalSha256": "f1d1813004e120e67e77ce79f7a5a7d5782c11d9daae9df25a751da84e155b6f",
+            "matches": true
+          },
+          {
+            "path": "domain/references.ts",
+            "sha256": "44874ce22c90697572c8bd777f0a8070bcf89b556247072964ac59246761fc44",
+            "finalSha256": "44874ce22c90697572c8bd777f0a8070bcf89b556247072964ac59246761fc44",
+            "matches": true
+          },
+          {
+            "path": "domain/types.ts",
+            "sha256": "1c9caf0c03768d910a9ef504d184df22ce42a30ac4dd3ce387b489718ead5e01",
+            "finalSha256": "1c9caf0c03768d910a9ef504d184df22ce42a30ac4dd3ce387b489718ead5e01",
+            "matches": true
+          },
+          {
+            "path": "index.ts",
+            "sha256": "cac51b3cd154629880f6b30aaf8b54a8f1aecee91bb26182ebfd7ccdb3c90157",
+            "finalSha256": "cac51b3cd154629880f6b30aaf8b54a8f1aecee91bb26182ebfd7ccdb3c90157",
+            "matches": true
+          },
+          {
+            "path": "map-event/native.ts",
+            "sha256": "a87ca1545e80ecd25205f6e7fb40a48d977317b93da65de8053afcaacf611384",
+            "finalSha256": "a87ca1545e80ecd25205f6e7fb40a48d977317b93da65de8053afcaacf611384",
+            "matches": true
+          },
+          {
+            "path": "map-event/page.ts",
+            "sha256": "9251557930e667e258c6259c58e787cdeccd22e96dc5f0225947a98d35d275ed",
+            "finalSha256": "9251557930e667e258c6259c58e787cdeccd22e96dc5f0225947a98d35d275ed",
+            "matches": true
+          },
+          {
+            "path": "map-event/validation.ts",
+            "sha256": "e2dddc54dff942929af1f58dd6e48305e9d774c8cfb5a4c58af39e08e3937805",
+            "finalSha256": "e2dddc54dff942929af1f58dd6e48305e9d774c8cfb5a4c58af39e08e3937805",
+            "matches": true
+          },
+          {
+            "path": "project-data/json-values.ts",
+            "sha256": "7d9f2a485a689dc159327f859a8cae48307b88294bea78aa2a81452813730af8",
+            "finalSha256": "7d9f2a485a689dc159327f859a8cae48307b88294bea78aa2a81452813730af8",
+            "matches": true
+          },
+          {
+            "path": "project-data/map-event-diff.ts",
+            "sha256": "7055058d85ef232a8ad2f94e9a3634ef709c5d352283ac1678f4dc03836be992",
+            "finalSha256": "7055058d85ef232a8ad2f94e9a3634ef709c5d352283ac1678f4dc03836be992",
+            "matches": true
+          },
+          {
+            "path": "project-data/materialization.ts",
+            "sha256": "9c9f1d81e6a5dcd4806e6b3b5abefbadb892098827af4aecde7d8385e6e69efc",
+            "finalSha256": "9c9f1d81e6a5dcd4806e6b3b5abefbadb892098827af4aecde7d8385e6e69efc",
+            "matches": true
+          },
+          {
+            "path": "project-data/project.ts",
+            "sha256": "1176a155e53c9f4383e03bbe3a3f7e13565a96d5eb47b3ac6fc58002ae91cd74",
+            "finalSha256": "1176a155e53c9f4383e03bbe3a3f7e13565a96d5eb47b3ac6fc58002ae91cd74",
+            "matches": true
+          },
+          {
+            "path": "project-data/structured-diff.ts",
+            "sha256": "46413df2ec2a13a7ba4061a292c8d38b6f19b48c0cd59e9e550f5cdce474f301",
+            "finalSha256": "46413df2ec2a13a7ba4061a292c8d38b6f19b48c0cd59e9e550f5cdce474f301",
+            "matches": true
+          },
+          {
+            "path": "project-data/writer.ts",
+            "sha256": "d9ebfc5636d430eb7c94ecca75c4a40127e592e92bcd303cc73ed59cde674c80",
+            "finalSha256": "d9ebfc5636d430eb7c94ecca75c4a40127e592e92bcd303cc73ed59cde674c80",
+            "matches": true
+          },
+          {
+            "path": "validation/command-errors.ts",
+            "sha256": "d3da622a5d9616fd54f83415ec3782c45f54f95a3285d3525f1ddcf71f7deb9a",
+            "finalSha256": "d3da622a5d9616fd54f83415ec3782c45f54f95a3285d3525f1ddcf71f7deb9a",
+            "matches": true
+          },
+          {
+            "path": "validation/command-structure.ts",
+            "sha256": "e75f7edfa9b9fd520eeb7f4b42b4e110bc2a533fe3fd365c78750ecd226df6d4",
+            "finalSha256": "e75f7edfa9b9fd520eeb7f4b42b4e110bc2a533fe3fd365c78750ecd226df6d4",
+            "matches": true
+          },
+          {
+            "path": "validation/commands.ts",
+            "sha256": "7e1764aab741c81fe3ad20c775bfd3c9e0dfa416796e15a4d57920020d35d1b7",
+            "finalSha256": "7e1764aab741c81fe3ad20c775bfd3c9e0dfa416796e15a4d57920020d35d1b7",
+            "matches": true
+          },
+          {
+            "path": "validation/compile-output.ts",
+            "sha256": "bbe1faaa27e862b43bae560fa783cff1bb93ac5c256d0a03f30f5399a33b0007",
+            "finalSha256": "bbe1faaa27e862b43bae560fa783cff1bb93ac5c256d0a03f30f5399a33b0007",
+            "matches": true
+          },
+          {
+            "path": "validation/compiled-commands.ts",
+            "sha256": "908e8183bdab925c9e4115841f8cadabc1734eb63c835d8dc14f6a11087c02f7",
+            "finalSha256": "908e8183bdab925c9e4115841f8cadabc1734eb63c835d8dc14f6a11087c02f7",
+            "matches": true
+          },
+          {
+            "path": "validation/dsl-command-inputs.ts",
+            "sha256": "73457080d5dd553ba488acfab6f517c792e40d5f845ac6e66bde8d97cded1d5b",
+            "finalSha256": "73457080d5dd553ba488acfab6f517c792e40d5f845ac6e66bde8d97cded1d5b",
+            "matches": true
+          },
+          {
+            "path": "validation/identities.ts",
+            "sha256": "6b82bd78ba09de67b5f58294eb2b0678260bc5a9076e74702cf2a5b4571d2265",
+            "finalSha256": "6b82bd78ba09de67b5f58294eb2b0678260bc5a9076e74702cf2a5b4571d2265",
+            "matches": true
+          },
+          {
+            "path": "validation/inspection.ts",
+            "sha256": "10a9923ffca925eb65ea7254a1d940c6580a3a60f3b7a14a4862cf08d11453e1",
+            "finalSha256": "10a9923ffca925eb65ea7254a1d940c6580a3a60f3b7a14a4862cf08d11453e1",
+            "matches": true
+          },
+          {
+            "path": "validation/native-command-inputs.ts",
+            "sha256": "d56f4dfe5960a92107fcde60d1ad795b35b0afb4825e1becf6145f502f7e1051",
+            "finalSha256": "d56f4dfe5960a92107fcde60d1ad795b35b0afb4825e1becf6145f502f7e1051",
+            "matches": true
+          },
+          {
+            "path": "validation/native-context-references.ts",
+            "sha256": "7ddd26656a02361bf2ea5c7ecfc10ca8a32d5d0a22a37ba36cabb168ce2c680d",
+            "finalSha256": "7ddd26656a02361bf2ea5c7ecfc10ca8a32d5d0a22a37ba36cabb168ce2c680d",
+            "matches": true
+          },
+          {
+            "path": "validation/native-parameters.ts",
+            "sha256": "67c16ddb33e864fb2cd2055134f05152e228f2cc646fadf9d05d2a5dad0f47ba",
+            "finalSha256": "67c16ddb33e864fb2cd2055134f05152e228f2cc646fadf9d05d2a5dad0f47ba",
+            "matches": true
+          },
+          {
+            "path": "validation/native-references.ts",
+            "sha256": "34ab7b62af6418491d00f3325fca6c843f2010e4170a24ec57cc8d6099a945b7",
+            "finalSha256": "34ab7b62af6418491d00f3325fca6c843f2010e4170a24ec57cc8d6099a945b7",
+            "matches": true
+          },
+          {
+            "path": "validation/references.ts",
+            "sha256": "fe3a8c5bbe7dd5e7c666788cc7f9c2cc49f8fcf8d7ec4aa8d966fefc039c5f4b",
+            "finalSha256": "fe3a8c5bbe7dd5e7c666788cc7f9c2cc49f8fcf8d7ec4aa8d966fefc039c5f4b",
+            "matches": true
+          },
+          {
+            "path": "validation/shared.ts",
+            "sha256": "8fb0ce36eba0efaaf92c5f99f73b05dc17a6776d3041a8b211fa1b647adc08b2",
+            "finalSha256": "8fb0ce36eba0efaaf92c5f99f73b05dc17a6776d3041a8b211fa1b647adc08b2",
+            "matches": true
+          },
+          {
+            "path": "validation/snapshot.ts",
+            "sha256": "b29956e100eb586e389ed69bd7d9b6603452b6a7f8371aa895e53193628ed4cd",
+            "finalSha256": "b29956e100eb586e389ed69bd7d9b6603452b6a7f8371aa895e53193628ed4cd",
+            "matches": true
+          },
+          {
+            "path": "validation/staged-graph.ts",
+            "sha256": "1176b170be66b11d1280393ae3458dd3e9508ebe5e4babd14cdd4031bf5610ea",
+            "finalSha256": "1176b170be66b11d1280393ae3458dd3e9508ebe5e4babd14cdd4031bf5610ea",
+            "matches": true
+          },
+          {
+            "path": "validation/types.ts",
+            "sha256": "3b85e09236ca8db6899dd606d7190c074c6a302f2dc299a1b3a208da2eec0397",
+            "finalSha256": "3b85e09236ca8db6899dd606d7190c074c6a302f2dc299a1b3a208da2eec0397",
+            "matches": true
+          },
+          {
+            "path": "workspace/checks.ts",
+            "sha256": "dd02c917b0ed530fcbb8d3458802d5d230def90388d6bf488e849f2934688692",
+            "finalSha256": "dd02c917b0ed530fcbb8d3458802d5d230def90388d6bf488e849f2934688692",
+            "matches": true
+          },
+          {
+            "path": "workspace/config.ts",
+            "sha256": "3700d64dfaf53fe1e99beb91bf8a54032c8a01372f25b579cdddf2ab683fd84b",
+            "finalSha256": "3700d64dfaf53fe1e99beb91bf8a54032c8a01372f25b579cdddf2ab683fd84b",
+            "matches": true
+          },
+          {
+            "path": "workspace/decompile-publication.ts",
+            "sha256": "e70dcce23f98167dc53e908b3242a0a61a5fd1f7f92b2df6f700e91433faf185",
+            "finalSha256": "e70dcce23f98167dc53e908b3242a0a61a5fd1f7f92b2df6f700e91433faf185",
+            "matches": true
+          },
+          {
+            "path": "workspace/definition-identities.ts",
+            "sha256": "5276cfbbc378fbcaaf41db0075b4f1574d0ad11d76dc14555810e22aad64cec5",
+            "finalSha256": "5276cfbbc378fbcaaf41db0075b4f1574d0ad11d76dc14555810e22aad64cec5",
+            "matches": true
+          },
+          {
+            "path": "workspace/definitions.ts",
+            "sha256": "4814b554672cb7b70d60a8f9e2abcfae8853368fe73065da36ad0c223dae6fb6",
+            "finalSha256": "4814b554672cb7b70d60a8f9e2abcfae8853368fe73065da36ad0c223dae6fb6",
+            "matches": true
+          },
+          {
+            "path": "workspace/guards.ts",
+            "sha256": "cec835079aba4c1c61d4a28f224fd7ac7617063568b05156a84cc08896e0ed89",
+            "finalSha256": "cec835079aba4c1c61d4a28f224fd7ac7617063568b05156a84cc08896e0ed89",
+            "matches": true
+          },
+          {
+            "path": "workspace/operation-lock.ts",
+            "sha256": "c39e910339321f63786bec52cf40fa5e9c114a259f8bbc0dc7842b29660866cd",
+            "finalSha256": "c39e910339321f63786bec52cf40fa5e9c114a259f8bbc0dc7842b29660866cd",
+            "matches": true
+          },
+          {
+            "path": "workspace/operations.ts",
+            "sha256": "a5d8a46bd2fb28a09e2724028c7e9800d2ee23deed6e5e6a84196fb76b1ccead",
+            "finalSha256": "a5d8a46bd2fb28a09e2724028c7e9800d2ee23deed6e5e6a84196fb76b1ccead",
+            "matches": true
+          },
+          {
+            "path": "workspace/push-recovery.ts",
+            "sha256": "827d7896162e6d0f06c2833361fce5cc3fcda3a248e66bdf674e8d4d04eca284",
+            "finalSha256": "827d7896162e6d0f06c2833361fce5cc3fcda3a248e66bdf674e8d4d04eca284",
+            "matches": true
+          },
+          {
+            "path": "workspace/push.ts",
+            "sha256": "e409843d5737e0d2df52edff5429de7ede6a6dab106013f4335a27815d0b05a9",
+            "finalSha256": "e409843d5737e0d2df52edff5429de7ede6a6dab106013f4335a27815d0b05a9",
+            "matches": true
+          },
+          {
+            "path": "workspace/source-discovery.ts",
+            "sha256": "aeec16adb3208ea5d89666c051064e3251defd8ef8bae48ac6fa12bebc7b98e0",
+            "finalSha256": "aeec16adb3208ea5d89666c051064e3251defd8ef8bae48ac6fa12bebc7b98e0",
+            "matches": true
+          },
+          {
+            "path": "workspace/state.ts",
+            "sha256": "c493c31c466b7d49b86a9bdd45ad563963c67f3c9e4c5a28b1f1f3b54ebbf216",
+            "finalSha256": "c493c31c466b7d49b86a9bdd45ad563963c67f3c9e4c5a28b1f1f3b54ebbf216",
+            "matches": true
+          },
+          {
+            "path": "workspace/type-inputs.ts",
+            "sha256": "532a919435dbfd076239d78f564d0a5322f5d40f62021e8f50ef3a0421046a3e",
+            "finalSha256": "532a919435dbfd076239d78f564d0a5322f5d40f62021e8f50ef3a0421046a3e",
+            "matches": true
+          },
+          {
+            "path": "workspace/types.ts",
+            "sha256": "f046ebe39de38d590d78bb0aa00f5c3f03a117f972f9aec6f49fa5f7275023fb",
+            "finalSha256": "f046ebe39de38d590d78bb0aa00f5c3f03a117f972f9aec6f49fa5f7275023fb",
+            "matches": true
+          },
+          {
+            "path": "workspace-api.ts",
+            "sha256": "735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2",
+            "finalSha256": "735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2",
+            "matches": true
+          }
+        ],
+        "dist": [
+          {
+            "path": "authoring-B-L5uSZh.mjs",
+            "sha256": "16d0cf8fef8966872cb12a9b79f94ab9fad8b96f448ed0481bc4e98d785d9c73",
+            "finalSha256": "16d0cf8fef8966872cb12a9b79f94ab9fad8b96f448ed0481bc4e98d785d9c73",
+            "matches": true
+          },
+          {
+            "path": "authoring-B-L5uSZh.mjs.map",
+            "sha256": "33504f5af789cc432948e2e0961b8a3a97bba19026e62080d423a6232a35ebb9",
+            "finalSha256": "33504f5af789cc432948e2e0961b8a3a97bba19026e62080d423a6232a35ebb9",
+            "matches": true
+          },
+          {
+            "path": "cli.d.mts",
+            "sha256": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee",
+            "finalSha256": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee",
+            "matches": true
+          },
+          {
+            "path": "cli.d.mts.map",
+            "sha256": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c",
+            "finalSha256": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c",
+            "matches": true
+          },
+          {
+            "path": "cli.mjs",
+            "sha256": "af9ce7b2353602e4f5072bb2e85b4d6b3226dace78be6a18856296557ec8a360",
+            "finalSha256": "af9ce7b2353602e4f5072bb2e85b4d6b3226dace78be6a18856296557ec8a360",
+            "matches": true
+          },
+          {
+            "path": "cli.mjs.map",
+            "sha256": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8",
+            "finalSha256": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8",
+            "matches": true
+          },
+          {
+            "path": "index.d.mts",
+            "sha256": "dfd9f6e95195bc6d0aff08bb4cc168e2b3cf70ebe960cc86126e04f8b128807f",
+            "finalSha256": "dfd9f6e95195bc6d0aff08bb4cc168e2b3cf70ebe960cc86126e04f8b128807f",
+            "matches": true
+          },
+          {
+            "path": "index.d.mts.map",
+            "sha256": "15bf226c5bf21ab6c9794cce02a6fc2c512dc5f6bc54fbc43fd20d8353a8214c",
+            "finalSha256": "15bf226c5bf21ab6c9794cce02a6fc2c512dc5f6bc54fbc43fd20d8353a8214c",
+            "matches": true
+          },
+          {
+            "path": "index.mjs",
+            "sha256": "f568858bb7245ed3ae7a41e7958d652877fdaa5b653c9fc41f5a91a39210cbca",
+            "finalSha256": "f568858bb7245ed3ae7a41e7958d652877fdaa5b653c9fc41f5a91a39210cbca",
+            "matches": true
+          },
+          {
+            "path": "index.mjs.map",
+            "sha256": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36",
+            "finalSha256": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36",
+            "matches": true
+          },
+          {
+            "path": "operations-BOseEW1G.mjs",
+            "sha256": "66f4ad12a1fd50b83d9516464fe8822c7688824f42375adae09fd34ad35c0211",
+            "finalSha256": "66f4ad12a1fd50b83d9516464fe8822c7688824f42375adae09fd34ad35c0211",
+            "matches": true
+          },
+          {
+            "path": "operations-BOseEW1G.mjs.map",
+            "sha256": "786f0aeb52620b75bd03c32c1973a0fe70d5839ab254c669e9a3e8bcbbe3f46d",
+            "finalSha256": "786f0aeb52620b75bd03c32c1973a0fe70d5839ab254c669e9a3e8bcbbe3f46d",
+            "matches": true
+          },
+          {
+            "path": "workspace-api.d.mts",
+            "sha256": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594",
+            "finalSha256": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594",
+            "matches": true
+          },
+          {
+            "path": "workspace-api.d.mts.map",
+            "sha256": "5c00024325238da7b6368529ed69e33839a8a4f0baeed1eb2e79f65c877ebbe8",
+            "finalSha256": "5c00024325238da7b6368529ed69e33839a8a4f0baeed1eb2e79f65c877ebbe8",
+            "matches": true
+          },
+          {
+            "path": "workspace-api.mjs",
+            "sha256": "e82c5dd73836dcc774fbdbf7c74e59d78d817e1abf1f848210ab1798415f19c0",
+            "finalSha256": "e82c5dd73836dcc774fbdbf7c74e59d78d817e1abf1f848210ab1798415f19c0",
+            "matches": true
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "kind": "routes",
+      "capturedRevision": "cdae5f8046a79ea926c90ecc68855c74d08b870d",
+      "capturedDirtyStatus": " M ../../.scratch/complete-mv-events-implementation/evidence/README.md\n M ../../.scratch/complete-mv-events-implementation/evidence/requirements.json\n M ../../.scratch/complete-mv-events-implementation/issues/24-map-event-full-pages-and-note.md\n M src/decompiler/core.ts\n M src/map-event/native.ts\n M test/map-event-workspace.test.ts\n",
+      "capturedSourceFingerprint": "9b3f86383fa140da6fc039842c59699e2b9507b35e8313ba6d98c8e875a38d92",
+      "capturedDistFingerprint": "8366896ec7eafb8e98b90a383afdd04f77ed20112868205f3e2a59018c671dba",
+      "groups": {
+        "source": [
+          {
+            "path": "authoring/declarations.ts",
+            "sha256": "8b66e262b36a1adc9aa12e3487558bce38d78d485f8dc6383acca4533a75e3ec",
+            "finalSha256": "8b66e262b36a1adc9aa12e3487558bce38d78d485f8dc6383acca4533a75e3ec",
+            "matches": true
+          },
+          {
+            "path": "authoring/index.ts",
+            "sha256": "a72e02954767eedf05eba2d74021645883df0ab6defd8dcb706ec4314b1bef63",
+            "finalSha256": "a72e02954767eedf05eba2d74021645883df0ab6defd8dcb706ec4314b1bef63",
+            "matches": true
+          },
+          {
+            "path": "authoring/references.ts",
+            "sha256": "b3f3cefa64f45da752a8f58bc6eca2d92bb6b30773be42f51036fd60df9c89de",
+            "finalSha256": "b3f3cefa64f45da752a8f58bc6eca2d92bb6b30773be42f51036fd60df9c89de",
+            "matches": true
+          },
+          {
+            "path": "authoring/shared.ts",
+            "sha256": "3865ac8c4b3768c96038a323a02cf30c33edd9f330544bd6cd2b204d2841408e",
+            "finalSha256": "3865ac8c4b3768c96038a323a02cf30c33edd9f330544bd6cd2b204d2841408e",
+            "matches": true
+          },
+          {
+            "path": "cli.ts",
+            "sha256": "34c6e77e91a45126b1a2c5b15621f79241a98bab081924d2fbd535c5996fd4b0",
+            "finalSha256": "34c6e77e91a45126b1a2c5b15621f79241a98bab081924d2fbd535c5996fd4b0",
+            "matches": true
+          },
+          {
+            "path": "commands/actor/authoring.ts",
+            "sha256": "adc9b6aa805739dad7594246236f6314cc8a08299f1bd323b8ae729cf6b2fdf3",
+            "finalSha256": "adc9b6aa805739dad7594246236f6314cc8a08299f1bd323b8ae729cf6b2fdf3",
+            "matches": true
+          },
+          {
+            "path": "commands/actor/decompile.ts",
+            "sha256": "2e83a179cabb9ae19ff9207904c822bb84c6b5bc45581386d2aca7b1b005b56d",
+            "finalSha256": "2e83a179cabb9ae19ff9207904c822bb84c6b5bc45581386d2aca7b1b005b56d",
+            "matches": true
+          },
+          {
+            "path": "commands/audio/authoring.ts",
+            "sha256": "08a68ae8b97095ec1c3a6d8517ed5649eb79ffb1b66f59aa34a7506356e0e513",
+            "finalSha256": "08a68ae8b97095ec1c3a6d8517ed5649eb79ffb1b66f59aa34a7506356e0e513",
+            "matches": true
+          },
+          {
+            "path": "commands/audio/decompile.ts",
+            "sha256": "18acdf8e035ad2b8f3879622e18c39a7cde1e6279c14013fca2e6dbd0edb3811",
+            "finalSha256": "18acdf8e035ad2b8f3879622e18c39a7cde1e6279c14013fca2e6dbd0edb3811",
+            "matches": true
+          },
+          {
+            "path": "commands/battle/authoring.ts",
+            "sha256": "a5249dd85dde78f2f0183d33a9a79d69bca93e88b5d2f0404f9005a25f115377",
+            "finalSha256": "a5249dd85dde78f2f0183d33a9a79d69bca93e88b5d2f0404f9005a25f115377",
+            "matches": true
+          },
+          {
+            "path": "commands/battle/decompile.ts",
+            "sha256": "4da781567fb9baf2580ec050564d66506d542890dfab3a6966eef1c008ac44b0",
+            "finalSha256": "4da781567fb9baf2580ec050564d66506d542890dfab3a6966eef1c008ac44b0",
+            "matches": true
+          },
+          {
+            "path": "commands/enemy/authoring.ts",
+            "sha256": "3ff830df557837e08ed73054eb47085cd0ba262e1aad746defc05578a14ce602",
+            "finalSha256": "3ff830df557837e08ed73054eb47085cd0ba262e1aad746defc05578a14ce602",
+            "matches": true
+          },
+          {
+            "path": "commands/enemy/decompile.ts",
+            "sha256": "334fc1efeda29f27cf9a7e504501ea7e693fb9b041a96bb827c90ec957ff2cd2",
+            "finalSha256": "334fc1efeda29f27cf9a7e504501ea7e693fb9b041a96bb827c90ec957ff2cd2",
+            "matches": true
+          },
+          {
+            "path": "commands/flow/authoring.ts",
+            "sha256": "5948d34cb26d81e3a72973a88b742a78b3928b7d4dc4c67b41ecca1e212f6d0f",
+            "finalSha256": "5948d34cb26d81e3a72973a88b742a78b3928b7d4dc4c67b41ecca1e212f6d0f",
+            "matches": true
+          },
+          {
+            "path": "commands/flow/decompile.ts",
+            "sha256": "db0508df65d743ada28e4b175d85cfbfa6a70a0547ff17cc2ecc2ab9a0feac31",
+            "finalSha256": "db0508df65d743ada28e4b175d85cfbfa6a70a0547ff17cc2ecc2ab9a0feac31",
+            "matches": true
+          },
+          {
+            "path": "commands/flow/validation.ts",
+            "sha256": "e53e420b6f56e26e85e7df6db53c48365002450aefb13fbae50b21141e2adc70",
+            "finalSha256": "e53e420b6f56e26e85e7df6db53c48365002450aefb13fbae50b21141e2adc70",
+            "matches": true
+          },
+          {
+            "path": "commands/map/authoring.ts",
+            "sha256": "985f89d88a2460b0af605f3fb8282847dd48e4d5d6e13821ae430966a53c4006",
+            "finalSha256": "985f89d88a2460b0af605f3fb8282847dd48e4d5d6e13821ae430966a53c4006",
+            "matches": true
+          },
+          {
+            "path": "commands/map/decompile.ts",
+            "sha256": "4155ac5891314141271b6e80f4b11924e584ef1efcf6e83b125b7e60196e2ce0",
+            "finalSha256": "4155ac5891314141271b6e80f4b11924e584ef1efcf6e83b125b7e60196e2ce0",
+            "matches": true
+          },
+          {
+            "path": "commands/message/authoring.ts",
+            "sha256": "76bfc91b2a89a8c62546542396ff47c8baf9f13d54c1c1ba5a0b58031b413d68",
+            "finalSha256": "76bfc91b2a89a8c62546542396ff47c8baf9f13d54c1c1ba5a0b58031b413d68",
+            "matches": true
+          },
+          {
+            "path": "commands/message/decompile.ts",
+            "sha256": "174c78169c65eec74592a466381b97e083688c691381e470b0a707dd47273a24",
+            "finalSha256": "174c78169c65eec74592a466381b97e083688c691381e470b0a707dd47273a24",
+            "matches": true
+          },
+          {
+            "path": "commands/movement/authoring.ts",
+            "sha256": "af1985013fa73af61d72cc440de0f83d99f78c94da4744f3a7ab1d7b56daf909",
+            "finalSha256": "af1985013fa73af61d72cc440de0f83d99f78c94da4744f3a7ab1d7b56daf909",
+            "matches": true
+          },
+          {
+            "path": "commands/movement/compile.ts",
+            "sha256": "8491f60e066d618bb076e3e03774b9332000f8be6f5c81a05ceb2aa03e2d0e15",
+            "finalSha256": "8491f60e066d618bb076e3e03774b9332000f8be6f5c81a05ceb2aa03e2d0e15",
+            "matches": true
+          },
+          {
+            "path": "commands/movement/decompile.ts",
+            "sha256": "016e07bdd681af3aaaf70ae5141afc6255598453c2ce43a6c34a3d44c38ba6c3",
+            "finalSha256": "016e07bdd681af3aaaf70ae5141afc6255598453c2ce43a6c34a3d44c38ba6c3",
+            "matches": true
+          },
+          {
+            "path": "commands/movement/page.ts",
+            "sha256": "ead6952e28f64bd25ba6fbd55d9be36f09ddadca5967ec4ddd7722ee1e18ceac",
+            "finalSha256": "ead6952e28f64bd25ba6fbd55d9be36f09ddadca5967ec4ddd7722ee1e18ceac",
+            "matches": true
+          },
+          {
+            "path": "commands/movement/types.ts",
+            "sha256": "de4a2cb691fc6a8697ba91a2a831eaf17e1c15e541da4a2893f902f30a3a01b8",
+            "finalSha256": "de4a2cb691fc6a8697ba91a2a831eaf17e1c15e541da4a2893f902f30a3a01b8",
+            "matches": true
+          },
+          {
+            "path": "commands/movement/validation.ts",
+            "sha256": "41bd3a1a11691f40f0583a7d7a2e22533883404379b35897dc74eb31096d2755",
+            "finalSha256": "41bd3a1a11691f40f0583a7d7a2e22533883404379b35897dc74eb31096d2755",
+            "matches": true
+          },
+          {
+            "path": "commands/screen/authoring.ts",
+            "sha256": "c0557c79496cb70c7a4d67fa61008a6e189b9df86f7cb408b36048b89aff63dc",
+            "finalSha256": "c0557c79496cb70c7a4d67fa61008a6e189b9df86f7cb408b36048b89aff63dc",
+            "matches": true
+          },
+          {
+            "path": "commands/screen/compile.ts",
+            "sha256": "a1c68cb63a4e6fe9ad2de3f45f51101f2e4fa6656fd865ac3bbbf485c78edc80",
+            "finalSha256": "a1c68cb63a4e6fe9ad2de3f45f51101f2e4fa6656fd865ac3bbbf485c78edc80",
+            "matches": true
+          },
+          {
+            "path": "commands/screen/decompile.ts",
+            "sha256": "38e4c759cf9f51c5ab49ea0f33d79c9a2af1060156102e7198541ac2e529567b",
+            "finalSha256": "38e4c759cf9f51c5ab49ea0f33d79c9a2af1060156102e7198541ac2e529567b",
+            "matches": true
+          },
+          {
+            "path": "commands/system/authoring.ts",
+            "sha256": "71b37822f2d2abd58349a1ea7eed84fea0c886cf8045beb6341dbfba2c02814d",
+            "finalSha256": "71b37822f2d2abd58349a1ea7eed84fea0c886cf8045beb6341dbfba2c02814d",
+            "matches": true
+          },
+          {
+            "path": "commands/system/decompile.ts",
+            "sha256": "56c3cba9e576bd289050463bfe2d284c39d54196fcf5fa59a8dde3ccdc33ad77",
+            "finalSha256": "56c3cba9e576bd289050463bfe2d284c39d54196fcf5fa59a8dde3ccdc33ad77",
+            "matches": true
+          },
+          {
+            "path": "commands/variables/authoring.ts",
+            "sha256": "a2bbedd0a2d9aacb7e3eb2772e4f7431c49ccef39166cc74f4b615a6494a3f22",
+            "finalSha256": "a2bbedd0a2d9aacb7e3eb2772e4f7431c49ccef39166cc74f4b615a6494a3f22",
+            "matches": true
+          },
+          {
+            "path": "commands/variables/compile.ts",
+            "sha256": "9e4a295fac91434e34e28bd3c84b9b5a5dc526685f821f574582e7ac22bb4c27",
+            "finalSha256": "9e4a295fac91434e34e28bd3c84b9b5a5dc526685f821f574582e7ac22bb4c27",
+            "matches": true
+          },
+          {
+            "path": "commands/variables/decompile.ts",
+            "sha256": "c32df1e9d77b36d30fd135bc6c8919f0cf84a19acaf6a86d3e66d700762b9773",
+            "finalSha256": "c32df1e9d77b36d30fd135bc6c8919f0cf84a19acaf6a86d3e66d700762b9773",
+            "matches": true
+          },
+          {
+            "path": "commands/variables/validation.ts",
+            "sha256": "8996604b8bfcb1fd9ba8a5100b8bd598e720aad9b946d001e77e89ddf5609867",
+            "finalSha256": "8996604b8bfcb1fd9ba8a5100b8bd598e720aad9b946d001e77e89ddf5609867",
+            "matches": true
+          },
+          {
+            "path": "compiler/dispatch.ts",
+            "sha256": "7a351bf50d3e5dc45d8b5cdb2946677a990e567b790397c5cd4088b20a5069dd",
+            "finalSha256": "7a351bf50d3e5dc45d8b5cdb2946677a990e567b790397c5cd4088b20a5069dd",
+            "matches": true
+          },
+          {
+            "path": "compiler/events.ts",
+            "sha256": "8e76e86f404cc413b6e28c3c6e4831eb83541a30da55acbdfb2493df766781b0",
+            "finalSha256": "8e76e86f404cc413b6e28c3c6e4831eb83541a30da55acbdfb2493df766781b0",
+            "matches": true
+          },
+          {
+            "path": "compiler/shared/branches.ts",
+            "sha256": "44f965a1c5ea89cdf03fca12e3a49c2bce866efa9e6dc97ffa32c45a51f4d606",
+            "finalSha256": "44f965a1c5ea89cdf03fca12e3a49c2bce866efa9e6dc97ffa32c45a51f4d606",
+            "matches": true
+          },
+          {
+            "path": "compiler/shared/conditions.ts",
+            "sha256": "4b44eb3bb078dc6dd9a996ba7ac8aac5dbc6cc4a4151763ff9dc6c21d786e990",
+            "finalSha256": "4b44eb3bb078dc6dd9a996ba7ac8aac5dbc6cc4a4151763ff9dc6c21d786e990",
+            "matches": true
+          },
+          {
+            "path": "compiler/shared/media.ts",
+            "sha256": "9bc3cc0ec9fd97a6368711dc4e73cba05dc4abaee7697624132577bb465e3e68",
+            "finalSha256": "9bc3cc0ec9fd97a6368711dc4e73cba05dc4abaee7697624132577bb465e3e68",
+            "matches": true
+          },
+          {
+            "path": "compiler/shared/targets.ts",
+            "sha256": "11c907ed9a847ba54fdc222c7d04757e1b0d74205c7111426e4fec8d80be7ce2",
+            "finalSha256": "11c907ed9a847ba54fdc222c7d04757e1b0d74205c7111426e4fec8d80be7ce2",
+            "matches": true
+          },
+          {
+            "path": "compiler/types.ts",
+            "sha256": "b81ac88b5778268997bce55af43dc0953b5cee48625180f58733cfdde6ae91a1",
+            "finalSha256": "b81ac88b5778268997bce55af43dc0953b5cee48625180f58733cfdde6ae91a1",
+            "matches": true
+          },
+          {
+            "path": "decompiler/core.ts",
+            "sha256": "38d94da522cb5569d68b7f76c427998ff60dc814a6288f642c539ba85f2e458f",
+            "finalSha256": "38d94da522cb5569d68b7f76c427998ff60dc814a6288f642c539ba85f2e458f",
+            "matches": true
+          },
+          {
+            "path": "decompiler/dispatch.ts",
+            "sha256": "e7fab66bb4a732546cd9d380360cebb4730c733ea918f8bf6c457b5214a752c0",
+            "finalSha256": "e7fab66bb4a732546cd9d380360cebb4730c733ea918f8bf6c457b5214a752c0",
+            "matches": true
+          },
+          {
+            "path": "decompiler/map-page.ts",
+            "sha256": "05a14de564f72e81566bf5db192a38c71c9595e21abfa9181b49a12b724c751b",
+            "finalSha256": "05a14de564f72e81566bf5db192a38c71c9595e21abfa9181b49a12b724c751b",
+            "matches": true
+          },
+          {
+            "path": "decompiler/project.ts",
+            "sha256": "7b664d9b9c84febd4dc488e9f77b1d2ceea97b0190ddd4803750efafe2ff2f8e",
+            "finalSha256": "7b664d9b9c84febd4dc488e9f77b1d2ceea97b0190ddd4803750efafe2ff2f8e",
+            "matches": true
+          },
+          {
+            "path": "decompiler/types.ts",
+            "sha256": "f41ed6747fbaeed8f4ca5cbb93d7682775f9b1abbbd9d83a7f2ac7139fac5631",
+            "finalSha256": "f41ed6747fbaeed8f4ca5cbb93d7682775f9b1abbbd9d83a7f2ac7139fac5631",
+            "matches": true
+          },
+          {
+            "path": "domain/command.ts",
+            "sha256": "7b2699a1b7b6ecf75658b9d71bec1213fa922f430bb2b08b5650a76229449c61",
+            "finalSha256": "7b2699a1b7b6ecf75658b9d71bec1213fa922f430bb2b08b5650a76229449c61",
+            "matches": true
+          },
+          {
+            "path": "domain/declarations.ts",
+            "sha256": "f1d1813004e120e67e77ce79f7a5a7d5782c11d9daae9df25a751da84e155b6f",
+            "finalSha256": "f1d1813004e120e67e77ce79f7a5a7d5782c11d9daae9df25a751da84e155b6f",
+            "matches": true
+          },
+          {
+            "path": "domain/references.ts",
+            "sha256": "44874ce22c90697572c8bd777f0a8070bcf89b556247072964ac59246761fc44",
+            "finalSha256": "44874ce22c90697572c8bd777f0a8070bcf89b556247072964ac59246761fc44",
+            "matches": true
+          },
+          {
+            "path": "domain/types.ts",
+            "sha256": "1c9caf0c03768d910a9ef504d184df22ce42a30ac4dd3ce387b489718ead5e01",
+            "finalSha256": "1c9caf0c03768d910a9ef504d184df22ce42a30ac4dd3ce387b489718ead5e01",
+            "matches": true
+          },
+          {
+            "path": "index.ts",
+            "sha256": "cac51b3cd154629880f6b30aaf8b54a8f1aecee91bb26182ebfd7ccdb3c90157",
+            "finalSha256": "cac51b3cd154629880f6b30aaf8b54a8f1aecee91bb26182ebfd7ccdb3c90157",
+            "matches": true
+          },
+          {
+            "path": "map-event/native.ts",
+            "sha256": "a87ca1545e80ecd25205f6e7fb40a48d977317b93da65de8053afcaacf611384",
+            "finalSha256": "a87ca1545e80ecd25205f6e7fb40a48d977317b93da65de8053afcaacf611384",
+            "matches": true
+          },
+          {
+            "path": "map-event/page.ts",
+            "sha256": "9251557930e667e258c6259c58e787cdeccd22e96dc5f0225947a98d35d275ed",
+            "finalSha256": "9251557930e667e258c6259c58e787cdeccd22e96dc5f0225947a98d35d275ed",
+            "matches": true
+          },
+          {
+            "path": "map-event/validation.ts",
+            "sha256": "e2dddc54dff942929af1f58dd6e48305e9d774c8cfb5a4c58af39e08e3937805",
+            "finalSha256": "e2dddc54dff942929af1f58dd6e48305e9d774c8cfb5a4c58af39e08e3937805",
+            "matches": true
+          },
+          {
+            "path": "project-data/json-values.ts",
+            "sha256": "7d9f2a485a689dc159327f859a8cae48307b88294bea78aa2a81452813730af8",
+            "finalSha256": "7d9f2a485a689dc159327f859a8cae48307b88294bea78aa2a81452813730af8",
+            "matches": true
+          },
+          {
+            "path": "project-data/map-event-diff.ts",
+            "sha256": "7055058d85ef232a8ad2f94e9a3634ef709c5d352283ac1678f4dc03836be992",
+            "finalSha256": "7055058d85ef232a8ad2f94e9a3634ef709c5d352283ac1678f4dc03836be992",
+            "matches": true
+          },
+          {
+            "path": "project-data/materialization.ts",
+            "sha256": "9c9f1d81e6a5dcd4806e6b3b5abefbadb892098827af4aecde7d8385e6e69efc",
+            "finalSha256": "9c9f1d81e6a5dcd4806e6b3b5abefbadb892098827af4aecde7d8385e6e69efc",
+            "matches": true
+          },
+          {
+            "path": "project-data/project.ts",
+            "sha256": "1176a155e53c9f4383e03bbe3a3f7e13565a96d5eb47b3ac6fc58002ae91cd74",
+            "finalSha256": "1176a155e53c9f4383e03bbe3a3f7e13565a96d5eb47b3ac6fc58002ae91cd74",
+            "matches": true
+          },
+          {
+            "path": "project-data/structured-diff.ts",
+            "sha256": "46413df2ec2a13a7ba4061a292c8d38b6f19b48c0cd59e9e550f5cdce474f301",
+            "finalSha256": "46413df2ec2a13a7ba4061a292c8d38b6f19b48c0cd59e9e550f5cdce474f301",
+            "matches": true
+          },
+          {
+            "path": "project-data/writer.ts",
+            "sha256": "d9ebfc5636d430eb7c94ecca75c4a40127e592e92bcd303cc73ed59cde674c80",
+            "finalSha256": "d9ebfc5636d430eb7c94ecca75c4a40127e592e92bcd303cc73ed59cde674c80",
+            "matches": true
+          },
+          {
+            "path": "validation/command-errors.ts",
+            "sha256": "d3da622a5d9616fd54f83415ec3782c45f54f95a3285d3525f1ddcf71f7deb9a",
+            "finalSha256": "d3da622a5d9616fd54f83415ec3782c45f54f95a3285d3525f1ddcf71f7deb9a",
+            "matches": true
+          },
+          {
+            "path": "validation/command-structure.ts",
+            "sha256": "e75f7edfa9b9fd520eeb7f4b42b4e110bc2a533fe3fd365c78750ecd226df6d4",
+            "finalSha256": "e75f7edfa9b9fd520eeb7f4b42b4e110bc2a533fe3fd365c78750ecd226df6d4",
+            "matches": true
+          },
+          {
+            "path": "validation/commands.ts",
+            "sha256": "7e1764aab741c81fe3ad20c775bfd3c9e0dfa416796e15a4d57920020d35d1b7",
+            "finalSha256": "7e1764aab741c81fe3ad20c775bfd3c9e0dfa416796e15a4d57920020d35d1b7",
+            "matches": true
+          },
+          {
+            "path": "validation/compile-output.ts",
+            "sha256": "bbe1faaa27e862b43bae560fa783cff1bb93ac5c256d0a03f30f5399a33b0007",
+            "finalSha256": "bbe1faaa27e862b43bae560fa783cff1bb93ac5c256d0a03f30f5399a33b0007",
+            "matches": true
+          },
+          {
+            "path": "validation/compiled-commands.ts",
+            "sha256": "908e8183bdab925c9e4115841f8cadabc1734eb63c835d8dc14f6a11087c02f7",
+            "finalSha256": "908e8183bdab925c9e4115841f8cadabc1734eb63c835d8dc14f6a11087c02f7",
+            "matches": true
+          },
+          {
+            "path": "validation/dsl-command-inputs.ts",
+            "sha256": "73457080d5dd553ba488acfab6f517c792e40d5f845ac6e66bde8d97cded1d5b",
+            "finalSha256": "73457080d5dd553ba488acfab6f517c792e40d5f845ac6e66bde8d97cded1d5b",
+            "matches": true
+          },
+          {
+            "path": "validation/identities.ts",
+            "sha256": "6b82bd78ba09de67b5f58294eb2b0678260bc5a9076e74702cf2a5b4571d2265",
+            "finalSha256": "6b82bd78ba09de67b5f58294eb2b0678260bc5a9076e74702cf2a5b4571d2265",
+            "matches": true
+          },
+          {
+            "path": "validation/inspection.ts",
+            "sha256": "10a9923ffca925eb65ea7254a1d940c6580a3a60f3b7a14a4862cf08d11453e1",
+            "finalSha256": "10a9923ffca925eb65ea7254a1d940c6580a3a60f3b7a14a4862cf08d11453e1",
+            "matches": true
+          },
+          {
+            "path": "validation/native-command-inputs.ts",
+            "sha256": "d56f4dfe5960a92107fcde60d1ad795b35b0afb4825e1becf6145f502f7e1051",
+            "finalSha256": "d56f4dfe5960a92107fcde60d1ad795b35b0afb4825e1becf6145f502f7e1051",
+            "matches": true
+          },
+          {
+            "path": "validation/native-context-references.ts",
+            "sha256": "7ddd26656a02361bf2ea5c7ecfc10ca8a32d5d0a22a37ba36cabb168ce2c680d",
+            "finalSha256": "7ddd26656a02361bf2ea5c7ecfc10ca8a32d5d0a22a37ba36cabb168ce2c680d",
+            "matches": true
+          },
+          {
+            "path": "validation/native-parameters.ts",
+            "sha256": "67c16ddb33e864fb2cd2055134f05152e228f2cc646fadf9d05d2a5dad0f47ba",
+            "finalSha256": "67c16ddb33e864fb2cd2055134f05152e228f2cc646fadf9d05d2a5dad0f47ba",
+            "matches": true
+          },
+          {
+            "path": "validation/native-references.ts",
+            "sha256": "34ab7b62af6418491d00f3325fca6c843f2010e4170a24ec57cc8d6099a945b7",
+            "finalSha256": "34ab7b62af6418491d00f3325fca6c843f2010e4170a24ec57cc8d6099a945b7",
+            "matches": true
+          },
+          {
+            "path": "validation/references.ts",
+            "sha256": "fe3a8c5bbe7dd5e7c666788cc7f9c2cc49f8fcf8d7ec4aa8d966fefc039c5f4b",
+            "finalSha256": "fe3a8c5bbe7dd5e7c666788cc7f9c2cc49f8fcf8d7ec4aa8d966fefc039c5f4b",
+            "matches": true
+          },
+          {
+            "path": "validation/shared.ts",
+            "sha256": "8fb0ce36eba0efaaf92c5f99f73b05dc17a6776d3041a8b211fa1b647adc08b2",
+            "finalSha256": "8fb0ce36eba0efaaf92c5f99f73b05dc17a6776d3041a8b211fa1b647adc08b2",
+            "matches": true
+          },
+          {
+            "path": "validation/snapshot.ts",
+            "sha256": "b29956e100eb586e389ed69bd7d9b6603452b6a7f8371aa895e53193628ed4cd",
+            "finalSha256": "b29956e100eb586e389ed69bd7d9b6603452b6a7f8371aa895e53193628ed4cd",
+            "matches": true
+          },
+          {
+            "path": "validation/staged-graph.ts",
+            "sha256": "1176b170be66b11d1280393ae3458dd3e9508ebe5e4babd14cdd4031bf5610ea",
+            "finalSha256": "1176b170be66b11d1280393ae3458dd3e9508ebe5e4babd14cdd4031bf5610ea",
+            "matches": true
+          },
+          {
+            "path": "validation/types.ts",
+            "sha256": "3b85e09236ca8db6899dd606d7190c074c6a302f2dc299a1b3a208da2eec0397",
+            "finalSha256": "3b85e09236ca8db6899dd606d7190c074c6a302f2dc299a1b3a208da2eec0397",
+            "matches": true
+          },
+          {
+            "path": "workspace/checks.ts",
+            "sha256": "dd02c917b0ed530fcbb8d3458802d5d230def90388d6bf488e849f2934688692",
+            "finalSha256": "dd02c917b0ed530fcbb8d3458802d5d230def90388d6bf488e849f2934688692",
+            "matches": true
+          },
+          {
+            "path": "workspace/config.ts",
+            "sha256": "3700d64dfaf53fe1e99beb91bf8a54032c8a01372f25b579cdddf2ab683fd84b",
+            "finalSha256": "3700d64dfaf53fe1e99beb91bf8a54032c8a01372f25b579cdddf2ab683fd84b",
+            "matches": true
+          },
+          {
+            "path": "workspace/decompile-publication.ts",
+            "sha256": "e70dcce23f98167dc53e908b3242a0a61a5fd1f7f92b2df6f700e91433faf185",
+            "finalSha256": "e70dcce23f98167dc53e908b3242a0a61a5fd1f7f92b2df6f700e91433faf185",
+            "matches": true
+          },
+          {
+            "path": "workspace/definition-identities.ts",
+            "sha256": "5276cfbbc378fbcaaf41db0075b4f1574d0ad11d76dc14555810e22aad64cec5",
+            "finalSha256": "5276cfbbc378fbcaaf41db0075b4f1574d0ad11d76dc14555810e22aad64cec5",
+            "matches": true
+          },
+          {
+            "path": "workspace/definitions.ts",
+            "sha256": "4814b554672cb7b70d60a8f9e2abcfae8853368fe73065da36ad0c223dae6fb6",
+            "finalSha256": "4814b554672cb7b70d60a8f9e2abcfae8853368fe73065da36ad0c223dae6fb6",
+            "matches": true
+          },
+          {
+            "path": "workspace/guards.ts",
+            "sha256": "cec835079aba4c1c61d4a28f224fd7ac7617063568b05156a84cc08896e0ed89",
+            "finalSha256": "cec835079aba4c1c61d4a28f224fd7ac7617063568b05156a84cc08896e0ed89",
+            "matches": true
+          },
+          {
+            "path": "workspace/operation-lock.ts",
+            "sha256": "c39e910339321f63786bec52cf40fa5e9c114a259f8bbc0dc7842b29660866cd",
+            "finalSha256": "c39e910339321f63786bec52cf40fa5e9c114a259f8bbc0dc7842b29660866cd",
+            "matches": true
+          },
+          {
+            "path": "workspace/operations.ts",
+            "sha256": "a5d8a46bd2fb28a09e2724028c7e9800d2ee23deed6e5e6a84196fb76b1ccead",
+            "finalSha256": "a5d8a46bd2fb28a09e2724028c7e9800d2ee23deed6e5e6a84196fb76b1ccead",
+            "matches": true
+          },
+          {
+            "path": "workspace/push-recovery.ts",
+            "sha256": "827d7896162e6d0f06c2833361fce5cc3fcda3a248e66bdf674e8d4d04eca284",
+            "finalSha256": "827d7896162e6d0f06c2833361fce5cc3fcda3a248e66bdf674e8d4d04eca284",
+            "matches": true
+          },
+          {
+            "path": "workspace/push.ts",
+            "sha256": "e409843d5737e0d2df52edff5429de7ede6a6dab106013f4335a27815d0b05a9",
+            "finalSha256": "e409843d5737e0d2df52edff5429de7ede6a6dab106013f4335a27815d0b05a9",
+            "matches": true
+          },
+          {
+            "path": "workspace/source-discovery.ts",
+            "sha256": "aeec16adb3208ea5d89666c051064e3251defd8ef8bae48ac6fa12bebc7b98e0",
+            "finalSha256": "aeec16adb3208ea5d89666c051064e3251defd8ef8bae48ac6fa12bebc7b98e0",
+            "matches": true
+          },
+          {
+            "path": "workspace/state.ts",
+            "sha256": "c493c31c466b7d49b86a9bdd45ad563963c67f3c9e4c5a28b1f1f3b54ebbf216",
+            "finalSha256": "c493c31c466b7d49b86a9bdd45ad563963c67f3c9e4c5a28b1f1f3b54ebbf216",
+            "matches": true
+          },
+          {
+            "path": "workspace/type-inputs.ts",
+            "sha256": "532a919435dbfd076239d78f564d0a5322f5d40f62021e8f50ef3a0421046a3e",
+            "finalSha256": "532a919435dbfd076239d78f564d0a5322f5d40f62021e8f50ef3a0421046a3e",
+            "matches": true
+          },
+          {
+            "path": "workspace/types.ts",
+            "sha256": "f046ebe39de38d590d78bb0aa00f5c3f03a117f972f9aec6f49fa5f7275023fb",
+            "finalSha256": "f046ebe39de38d590d78bb0aa00f5c3f03a117f972f9aec6f49fa5f7275023fb",
+            "matches": true
+          },
+          {
+            "path": "workspace-api.ts",
+            "sha256": "735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2",
+            "finalSha256": "735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2",
+            "matches": true
+          }
+        ],
+        "dist": [
+          {
+            "path": "authoring-B-L5uSZh.mjs",
+            "sha256": "16d0cf8fef8966872cb12a9b79f94ab9fad8b96f448ed0481bc4e98d785d9c73",
+            "finalSha256": "16d0cf8fef8966872cb12a9b79f94ab9fad8b96f448ed0481bc4e98d785d9c73",
+            "matches": true
+          },
+          {
+            "path": "authoring-B-L5uSZh.mjs.map",
+            "sha256": "33504f5af789cc432948e2e0961b8a3a97bba19026e62080d423a6232a35ebb9",
+            "finalSha256": "33504f5af789cc432948e2e0961b8a3a97bba19026e62080d423a6232a35ebb9",
+            "matches": true
+          },
+          {
+            "path": "cli.d.mts",
+            "sha256": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee",
+            "finalSha256": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee",
+            "matches": true
+          },
+          {
+            "path": "cli.d.mts.map",
+            "sha256": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c",
+            "finalSha256": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c",
+            "matches": true
+          },
+          {
+            "path": "cli.mjs",
+            "sha256": "af9ce7b2353602e4f5072bb2e85b4d6b3226dace78be6a18856296557ec8a360",
+            "finalSha256": "af9ce7b2353602e4f5072bb2e85b4d6b3226dace78be6a18856296557ec8a360",
+            "matches": true
+          },
+          {
+            "path": "cli.mjs.map",
+            "sha256": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8",
+            "finalSha256": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8",
+            "matches": true
+          },
+          {
+            "path": "index.d.mts",
+            "sha256": "dfd9f6e95195bc6d0aff08bb4cc168e2b3cf70ebe960cc86126e04f8b128807f",
+            "finalSha256": "dfd9f6e95195bc6d0aff08bb4cc168e2b3cf70ebe960cc86126e04f8b128807f",
+            "matches": true
+          },
+          {
+            "path": "index.d.mts.map",
+            "sha256": "15bf226c5bf21ab6c9794cce02a6fc2c512dc5f6bc54fbc43fd20d8353a8214c",
+            "finalSha256": "15bf226c5bf21ab6c9794cce02a6fc2c512dc5f6bc54fbc43fd20d8353a8214c",
+            "matches": true
+          },
+          {
+            "path": "index.mjs",
+            "sha256": "f568858bb7245ed3ae7a41e7958d652877fdaa5b653c9fc41f5a91a39210cbca",
+            "finalSha256": "f568858bb7245ed3ae7a41e7958d652877fdaa5b653c9fc41f5a91a39210cbca",
+            "matches": true
+          },
+          {
+            "path": "index.mjs.map",
+            "sha256": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36",
+            "finalSha256": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36",
+            "matches": true
+          },
+          {
+            "path": "operations-BOseEW1G.mjs",
+            "sha256": "66f4ad12a1fd50b83d9516464fe8822c7688824f42375adae09fd34ad35c0211",
+            "finalSha256": "66f4ad12a1fd50b83d9516464fe8822c7688824f42375adae09fd34ad35c0211",
+            "matches": true
+          },
+          {
+            "path": "operations-BOseEW1G.mjs.map",
+            "sha256": "786f0aeb52620b75bd03c32c1973a0fe70d5839ab254c669e9a3e8bcbbe3f46d",
+            "finalSha256": "786f0aeb52620b75bd03c32c1973a0fe70d5839ab254c669e9a3e8bcbbe3f46d",
+            "matches": true
+          },
+          {
+            "path": "workspace-api.d.mts",
+            "sha256": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594",
+            "finalSha256": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594",
+            "matches": true
+          },
+          {
+            "path": "workspace-api.d.mts.map",
+            "sha256": "5c00024325238da7b6368529ed69e33839a8a4f0baeed1eb2e79f65c877ebbe8",
+            "finalSha256": "5c00024325238da7b6368529ed69e33839a8a4f0baeed1eb2e79f65c877ebbe8",
+            "matches": true
+          },
+          {
+            "path": "workspace-api.mjs",
+            "sha256": "e82c5dd73836dcc774fbdbf7c74e59d78d817e1abf1f848210ab1798415f19c0",
+            "finalSha256": "e82c5dd73836dcc774fbdbf7c74e59d78d817e1abf1f848210ab1798415f19c0",
+            "matches": true
+          }
+        ]
+      },
+      "passed": true
+    }
+  ],
+  "passed": true
+}

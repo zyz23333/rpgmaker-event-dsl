@@ -1,0 +1,60 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-24/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/map-event-workspace.test.ts > round trips the complete native blank Map Event and exact note through actual Workspace operations
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-page-blank-RzhfRG
+
+ ❯ test/map-event-workspace.test.ts (1 test | 1 failed) 2186ms
+   × round trips the complete native blank Map Event and exact note through actual Workspace operations 2185ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-event-workspace.test.ts > round trips the complete native blank Map Event and exact note through actual Workspace operations
+AssertionError: expected 'import { mapEvent, page } from "rpgma…' to contain 'note:'
+
+- Expected
++ Received
+
+- note:
++ import { mapEvent, page } from "rpgmaker-event-dsl";
++
++ export const mapEventCompleteBlank001 = mapEvent({
++   mapId: 1,
++   id: 1,
++   name: "Complete blank",
++   x: 0,
++   y: 0,
++   pages: [
++     page({
++       conditions: {},
++       trigger: "action",
++       movement: { type: "fixed", speed: 3, frequency: 3, route: { commands: [] } },
++       commands: [
++
++       ],
++     })
++   ],
++ });
++
+
+ ❯ test/map-event-workspace.test.ts:59:20
+     57|     const sourcePath = join(workspaceRoot, "src/decompiled/maps/Map001…
+     58|     const source = await readFile(sourcePath, "utf8");
+     59|     expect(source).toContain("note:");
+       |                    ^
+     60|     await compileWorkspace({ workspaceRoot, check: true });
+     61|     await compileWorkspace({ workspaceRoot, check: false });
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/map-event-workspace.test.ts:41:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  21:44:18
+   Duration  3.72s (transform 482ms, setup 0ms, import 1.36s, tests 2.19s, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-24\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/map-event-workspace.test.ts

@@ -1,4 +1,4 @@
-import type { CommonEventDefinition, DslCommand, PageConditions } from "../domain/types.js";
+import type { CommonEventDefinition, DslCommand } from "../domain/types.js";
 import type { ReferenceResolver } from "../validation/types.js";
 import type { RawEventCommand, CommandOrigins } from "./types.js";
 import { assertDslCommandList } from "../validation/dsl-command-inputs.js";
@@ -1210,26 +1210,7 @@ export function compileNodes(
   return output;
 }
 
-export function compileConditions(
-  conditions: PageConditions | undefined,
-  resolver: ReferenceResolver,
-): Record<string, unknown> {
-  return {
-    actorId: conditions?.actor ? resolver.resolveReference(conditions.actor) : 0,
-    actorValid: conditions?.actor !== undefined,
-    itemId: conditions?.item ? resolver.resolveReference(conditions.item) : 0,
-    itemValid: conditions?.item !== undefined,
-    selfSwitchCh: conditions?.selfSwitch ?? "A",
-    selfSwitchValid: conditions?.selfSwitch !== undefined,
-    switch1Id: conditions?.switch1 ? resolver.resolveReference(conditions.switch1) : 0,
-    switch1Valid: conditions?.switch1 !== undefined,
-    switch2Id: conditions?.switch2 ? resolver.resolveReference(conditions.switch2) : 0,
-    switch2Valid: conditions?.switch2 !== undefined,
-    variableId: conditions?.variable ? resolver.resolveReference(conditions.variable.ref) : 0,
-    variableValid: conditions?.variable !== undefined,
-    variableValue: conditions?.variable?.value ?? 0,
-  };
-}
+export { compilePageConditions as compileConditions } from "../map-event/page.js";
 
 export function commonEventTriggerToCode(trigger: CommonEventDefinition["trigger"]): number {
   switch (trigger) {

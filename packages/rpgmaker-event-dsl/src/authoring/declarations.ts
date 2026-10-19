@@ -9,6 +9,8 @@ import type {
   MapEventDefinition,
   MapPageTrigger,
   PageConditions,
+  PageImage,
+  PageOptions,
   ReferenceValue,
   SwitchDefinition,
   VariableDefinition,
@@ -28,15 +30,18 @@ export function mapEvent(input: {
   name: string;
   x: number;
   y: number;
+  note?: string;
   pages: readonly [EventPage, ...EventPage[]];
 }): MapEventDefinition {
   return {
+    ...input,
     kind: "mapEvent",
     mapId: input.mapId,
     id: input.id,
     name: input.name,
     x: input.x,
     y: input.y,
+    note: input.note === undefined ? "" : input.note,
     pages: input.pages,
   };
 }
@@ -84,11 +89,18 @@ export function page(input: {
   trigger?: MapPageTrigger;
   commands: readonly DslCommand[];
   movement?: AutonomousMovement;
+  image?: PageImage;
+  priority?: NonNullable<EventPage["priority"]>;
+  options?: PageOptions;
 }): EventPage {
   return {
-    conditions: input.conditions ?? {},
-    trigger: input.trigger ?? "action",
+    ...input,
+    conditions: input.conditions === undefined ? {} : input.conditions,
+    trigger: input.trigger === undefined ? "action" : input.trigger,
     commands: input.commands,
     ...(input.movement === undefined ? {} : { movement: input.movement }),
+    ...(input.image === undefined ? {} : { image: input.image }),
+    ...(input.priority === undefined ? {} : { priority: input.priority }),
+    ...(input.options === undefined ? {} : { options: input.options }),
   };
 }

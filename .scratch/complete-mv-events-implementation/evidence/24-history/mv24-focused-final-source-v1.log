@@ -1,0 +1,263 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-24/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/workflow.test.ts > decompile workflow > writes the fixed source layout with explicit Entry Identity and raw command fallback
+decompile warning map:1/event:1: MV-UNKNOWN-COMMAND at pages[0].list[8]: unknown code 999 is preserved as one raw record; its payload semantics are uninterpreted.
+
+ ✓ test/mv-evidence.test.ts (3 tests) 6921ms
+   ✓ validates the evidence index, source references, fixture hashes, test links, and recorded runs  3785ms
+   ✓ MV-S0-CE-001: discovers and evaluates Decompiled Source against independent saved data  3064ms
+ ✓ test/workflow.test.ts (34 tests) 11022ms
+     ✓ writes the fixed source layout with explicit Entry Identity and raw command fallback  2448ms
+     ✓ records generated output hashes and Compile Baseline freshness metadata  912ms
+     ✓ compares Generated Project Data with the Project Data Snapshot without reading Project Root  347ms
+     ✓ renders a short Diff summary with Affected Project Data Files  362ms
+     ✓ renders an empty filtered Diff for a known Project Data File with no changes  337ms
+     ✓ rejects unknown or unsafe Diff file filters  401ms
+     ✓ fails when Generated Project Data hashes do not match the Sync Manifest  310ms
+     ✓ reports Project Drift when an affected Project Root file is missing  384ms
+     ✓ checks standard Project Drift beyond affected files while excluding plugin data  697ms
+     ✓ rejects destructive changes unless explicitly allowed  484ms
+     ✓ writes affected Project Root data and refreshes affected Snapshot and Manifest  328ms
+     ✓ completes an all-generated Interrupted Push during push  391ms
+     ✓ abandons an all-snapshot Interrupted Push and continues normal push  502ms
+ ✓ test/map-event.test.ts (45 tests) 26ms
+stderr | test/map-event-workspace.test.ts > round trips the complete native blank Map Event and exact note through actual Workspace operations
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-page-blank-NfswdJ
+
+stderr | test/map-event-workspace.test.ts > rejects a malformed late native page without publishing any candidate or changing Workspace state
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-shape-RHL213
+
+stderr | test/map-event-workspace.test.ts > preserves disabled condition settings, independent images and every saved page field
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-page-full-8juVA8
+
+stderr | test/map-event-workspace.test.ts > rejects malformed authored page options in Check and Compile without changing Workspace state
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-authored-shape-ODbj7l
+
+stderr | test/map-event-workspace.test.ts > requires the active tile's actual Map and Tilesets Snapshot context before publishing source
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-tile-context-2sioqV
+
+stderr | test/map-event-workspace.test.ts > reports page positions and native paths on Map1001 and removes a high-ID entry without compacting the carrier
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-high-id-diff-removal-frBOwa
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: id
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-124SvM
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: name
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-XWQ5cr
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: note
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-aTCplF
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: x
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-UrPwTU
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: y
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-YvVd7x
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: pages
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-OywPtZ
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: event extra
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-Rpwtek
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: null page
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-5Pns3M
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: empty pages
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-ilsU6B
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: event invalid note
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-SZFQWn
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: event invalid x
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-1C6IAQ
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: event invalid y
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-nATd4B
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: event invalid name
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-QqtxtI
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: event invalid id
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-hEK9Aq
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page invalid conditions
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-TQPMws
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page invalid image
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-qpFUbR
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page invalid priorityType
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-ZUHUOu
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page invalid trigger
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-YUPeah
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page invalid walkAnime
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-pdxqla
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page invalid stepAnime
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-3EvtwY
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page invalid directionFix
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-l5yzBk
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page invalid through
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-iTvgYj
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page invalid moveType
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-iunrEW
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page invalid moveSpeed
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-xhfOeD
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page invalid moveFrequency
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-Dew4SX
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: nested invalid conditions.extra
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-6NRn2I
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: nested invalid conditions.actorValid
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-mZoGfi
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: nested invalid conditions.variableValue
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-s2D4e3
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: nested invalid conditions.selfSwitchCh
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-DhzEo5
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: nested invalid image.extra
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-ckaoaL
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: nested invalid image.characterName
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-TA9nI7
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: nested invalid image.characterIndex
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-tSxcWh
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: nested invalid image.tileId
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-PLKP2F
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: nested invalid image.direction
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-ZHBsNR
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: nested invalid image.pattern
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-gvA1ri
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page missing conditions
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-9eHpDr
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page missing image
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-N6Q9UQ
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page missing moveType
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-KGK5ot
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page missing moveSpeed
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-IpQVcw
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page missing moveFrequency
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-krYfP1
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page missing moveRoute
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-yRO0HO
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page missing priorityType
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-STUGCB
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page missing walkAnime
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-iKdKYI
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page missing stepAnime
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-LTK1qy
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page missing directionFix
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-W3ntOF
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page missing through
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-7LyCV3
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page missing trigger
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-iIfdlZ
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: page missing list
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-NpMjK4
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: condition missing actorId
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-nP4x8w
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: condition missing actorValid
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-t0dnPM
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: condition missing itemId
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-xqQ0O4
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: condition missing itemValid
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-CMoghd
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: condition missing selfSwitchCh
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-B5LoHG
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: condition missing selfSwitchValid
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-6zftnp
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: condition missing switch1Id
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-YbL2dD
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: condition missing switch1Valid
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-TDO9IP
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: condition missing switch2Id
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-SAnogz
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: condition missing switch2Valid
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-Y32fQG
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: condition missing variableId
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-ZxinQt
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: condition missing variableValid
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-ExJA4U
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: condition missing variableValue
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-JQWajj
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: image missing characterName
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-ptL9LY
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: image missing characterIndex
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-sRh6Sj
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: image missing tileId
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-Cj5kdp
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: image missing direction
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-ncuY7s
+
+stderr | test/map-event-workspace.test.ts > rejects incomplete native Map saved shape: image missing pattern
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-native-required-dZz3VB
+
+stderr | test/map-event-workspace.test.ts > recursively gates a saved empty script in a fixed page route while Decompile retains the source
+decompile warning map:1/event:1: MV-SCRIPT-GATE at pages[0].moveRoute.list[0].parameters[0]: Script commands require explicit config enablement; expected scriptEnabled: true; actual scriptEnabled: false.
+
+stderr | test/map-event-workspace.test.ts > recursively gates a saved empty script in a fixed page route while Decompile retains the source
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-fixed-route-gate-AK0va7
+
+stderr | test/map-event-workspace.test.ts > does not extend the disabled-condition ID exception to a noncustom saved route
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\map-route-reference-e6irFc
+
+ ✓ test/map-event-workspace.test.ts (74 tests) 23414ms
+   ✓ round trips the complete native blank Map Event and exact note through actual Workspace operations  4666ms
+   ✓ preserves disabled condition settings, independent images and every saved page field  2346ms
+   ✓ rejects malformed authored page options in Check and Compile without changing Workspace state  2165ms
+   ✓ requires the active tile's actual Map and Tilesets Snapshot context before publishing source  315ms
+   ✓ reports page positions and native paths on Map1001 and removes a high-ID entry without compacting the carrier  2166ms
+   ✓ recursively gates a saved empty script in a fixed page route while Decompile retains the source  2598ms
+
+ Test Files  4 passed (4)
+      Tests  156 passed (156)
+   Start at  22:11:25
+   Duration  32.62s (transform 970ms, setup 0ms, import 3.51s, tests 41.38s, environment 0ms)
+
+JSON report written to C:/Users/Shuen/.codex/tmp/mv24-focused-final-source-v1.json

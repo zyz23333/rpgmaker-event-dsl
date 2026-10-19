@@ -69,6 +69,12 @@ export function validateDeclarationIdentities(
             message: `Map event "${declaration.name}" must contain at least one page.`,
           });
         }
+        if (declaration.pages.length > 20)
+          issues.push({
+            level: "warning",
+            code: "MV-MAP-PAGE-COUNT",
+            message: `Map event "${declaration.name}" has ${declaration.pages.length} pages; the editor creates at most 20. Page order and count are preserved.`,
+          });
         validateMapEventPlacement(declaration, snapshotMapsById, occupiedCoordinates, issues);
         break;
       case "commonEvent":
