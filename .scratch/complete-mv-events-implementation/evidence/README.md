@@ -538,6 +538,34 @@ Ticket26 now has current contract `mv-1.6.1/12` delivery evidence: full source42
 
 Ticket26 final closure audit passed:314 requirements retain the complete incoming300 prefix and own288 rows,6084 historical raw blobs/prefixes remain exact,1507 initial archive source/copy pairs match, and189 actual/physically retained execution inputs (including15 dist files) remain unchanged. The original10-second selected evidence-index test passed in4.11 seconds. Closed captures are appended through26-final-history/post-archive-index-v1.json; the initial archive map is immutable. Ticket26 is resolved under the allocated E4 boundary.
 
+
+## Ticket27 Choices finalization
+
+| Requirement | Coverage | Evidence |
+| --- | --- | --- |
+| MV-S6-CHOICES-001 | Numeric saved default/cancel indices including negative zero, full0..5 and precise out-of-count warnings | actual automatic result records |
+| MV-S6-CHOICES-002 | Named position/background, None/disabled and optional-undefined defaults | actual automatic result records |
+| MV-S6-CHOICES-003 | Exact mirror/order/cancel/body markers and nested raw ownership | actual automatic result records |
+| MV-S6-CHOICES-004 | Recursive reference and Script Gate validation in unreachable bodies | actual automatic result records |
+| MV-S6-CHOICES-005 | Strict helper/declaration shapes and malformed native/known-raw E102 slots | actual automatic result records |
+| MV-S6-CHOICES-006 | Actual discovered numeric-sign Workspace roundtrip and installation | actual automatic result records |
+| MV-S6-CHOICES-007 | One-to-six lists, empty/trailing text, nested cancel and native markers through real source | actual automatic result records |
+| MV-S6-CHOICES-008 | Fixed one-choice defaults and out-of-count cancel warning through real source | actual automatic result records |
+| MV-S6-CHOICES-009 | Native and structurally typed formal failures preserve complete business state on retry | actual automatic result records |
+| MV-S6-CHOICES-010 | Recursive Gate fails before publication and allows exact installation when enabled | actual automatic result records |
+| MV-S6-CHOICES-011 | Independent complete three-container/15-carrier and four-generated-carrier roundtrip with real Push edits | actual automatic result records |
+| MV-S6-CHOICES-012 | All three native containers reject mirror conflict with exact paths and unchanged complete state | actual automatic result records |
+| MV-S6-CHOICES-E2-COMPARE | Allocated E2 candidate built product versus version-bound REA Choices save/container facts | allocated documentary result; final regression separate |
+| MV-S6-CHOICES-R3-PAIRS | Allocated R3 actual native literal and compiled Choices game pairs | allocated documentary result; final regression separate |
+
+Ticket27 current delivery now has contract mv-1.6.1/13 evidence: full44files/1153tests, fresh15-file build, built Windows19files/474tests, E2 actual built public comparison with13 same-identity resource records and6 malformed cases, and R3 actual8literal/compiled pairs across16native processes. Original7Choices predicates plus finite numeric negative-zero are retained; complete15disk/4generated/4loaded and1100-file physical isolation were independently verified after root's exact prepare release. See [current27report](27-choices-complete-branches.md#后续实际完成记录--当前产品与分配验收). Earlier pending statements remain historical; final49–54 remain separate.
+
+Ticket27 native audit addendum: all8 pairs have76data/11full checkpoints. Original independent-reader v1 exit1 is preserved; its initial inode invariant was narrowed only for the proven atomic Push replacement compiled/data/Map001.json, with every current data identity/hash still bound to the final checkpoint. Versioned v2 exit0 and root independent actual-outcome v2 both pass8pairs/16sides. Root also verifies18 complete globally disjoint regular physical trees including profiles,193execution inputs and6frozen tools; report SHA85957228f3538f8c449e72aa425d3cb8779038a54c01eaa9870bc383e62a13a5.
+
+Ticket27 final-index-v1 actually timed out at the original10s. Complete8389-file timeout inputs remain physically retained and independently rehashed. Full phase probes did not reproduce the timeout; its cause remains undetermined. After root review, one original-CLI/no-plugin final-index-v2 recheck passed1test/2filtered in4.86s at original10s/2workers. This actual gate pass, original failure and all diagnostic limitations are preserved. Original archive-v3 EISDIR and boundedv4 handling of14 historical src junctions/756regular files/196original source snapshot files also remain explicit.
+
+Ticket27 closure audit passed:328 requirements retain incoming314 in order and own274 by ID;7610 historical raw blobs/prefixes,3030 initial archive source/copy pairs and193 physical/current execution inputs including15dist remain exact. The final selected index passed at the original10s/2workers. Closed captures append via27-final-history/post-archive-index-v1.json. Ticket27 is resolved after allocated actual E2/R3; final49–54 remain separate.
+
 | MV-S6-SYSTEM-SCENES-001 | Four explicit E134–137 access flags; independent false-zero/true-one saved slots | 40 focused DEV; source automation, no native claim |
 
 | MV-S6-SYSTEM-SCENES-002 | rejects missing or nonboolean access flags and unsupported own shapes before projection | 40 focused DEV; source automation, no native claim |

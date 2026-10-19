@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-19T21:38:28.045Z",
+  "commit": "b066c6244fe86c1cfce41645b5cf3cdfe4144aa7",
+  "headBefore": "75d750a4a1e5596bda669199e56c62b56905d171",
+  "statusBefore": " M .scratch/complete-mv-events-implementation/evidence/README.md\n M .scratch/complete-mv-events-implementation/evidence/requirements.json\n M packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts\n M packages/rpgmaker-event-dsl/test/choices-workspace.test.ts\n M packages/rpgmaker-event-dsl/test/choices.test.ts\n?? .scratch/complete-mv-events-implementation/evidence/27-choices-complete-branches.md\n?? packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/choices-complete.json",
+  "files": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/README.md",
+      "retainedPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\pre-index-tool-dirty-v1\\files\\.scratch\\complete-mv-events-implementation\\evidence\\README.md",
+      "sha256": "c58f0ca6085c34a13427c17692ca0482a81689ee21e35000922fc2a069c5f72e",
+      "bytes": 90303
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+      "retainedPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\pre-index-tool-dirty-v1\\files\\.scratch\\complete-mv-events-implementation\\evidence\\requirements.json",
+      "sha256": "2e0b96156fd4518d8cf9b163f2be28ba72c5a1ec1e8c7065c0de743732e29dbc",
+      "bytes": 649395
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts",
+      "retainedPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\pre-index-tool-dirty-v1\\files\\packages\\rpgmaker-event-dsl\\src\\workspace\\type-inputs.ts",
+      "sha256": "f2fd38b0dc9e754245e12df27ce1a41487167ea55a51edbc596cf89b152d0375",
+      "bytes": 5834
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+      "retainedPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\pre-index-tool-dirty-v1\\files\\packages\\rpgmaker-event-dsl\\test\\choices-workspace.test.ts",
+      "sha256": "83fa7572be9315f79e556bd8569a663f836298133ea7ac1d508ff51c7e94306a",
+      "bytes": 24585
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/choices.test.ts",
+      "retainedPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\pre-index-tool-dirty-v1\\files\\packages\\rpgmaker-event-dsl\\test\\choices.test.ts",
+      "sha256": "9bdacd31c8e4a068e526fb5e96be36fb23d9029ec4619584c3fe741895d41cd1",
+      "bytes": 20341
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-choices-complete-branches.md",
+      "retainedPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\pre-index-tool-dirty-v1\\files\\.scratch\\complete-mv-events-implementation\\evidence\\27-choices-complete-branches.md",
+      "sha256": "76d04bed572b97685b6c02cd7d105395d33e6931657786abe40f00727a10e148",
+      "bytes": 925
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/choices-complete.json",
+      "retainedPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\pre-index-tool-dirty-v1\\files\\packages\\rpgmaker-event-dsl\\test\\fixtures\\mv-evidence\\choices-complete.json",
+      "sha256": "96fa9216ffc39e59817f942b2d7db72ca9b8f5f4fa9ff6d14a681593d715e44a",
+      "bytes": 1431
+    }
+  ],
+  "exitCode": 0,
+  "headAfter": "7cfc7771780c86224c73a69f7bd32596a48c468c",
+  "statusAfter": " M .scratch/complete-mv-events-implementation/evidence/README.md\n M .scratch/complete-mv-events-implementation/evidence/requirements.json\n M packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts\n M packages/rpgmaker-event-dsl/test/choices-workspace.test.ts\n M packages/rpgmaker-event-dsl/test/choices.test.ts\n?? .scratch/complete-mv-events-implementation/evidence/27-choices-complete-branches.md\n?? packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/choices-complete.json",
+  "dirtyBytesUnchanged": true
+}

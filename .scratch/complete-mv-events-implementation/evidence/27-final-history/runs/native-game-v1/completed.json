@@ -1,0 +1,38 @@
+{
+  "label": "native-game-v1",
+  "startedAt": "2026-10-19T22:25:12.337Z",
+  "cwd": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-27-final",
+  "node": {
+    "path": "C:\\Users\\Shuen\\AppData\\Local\\pnpm-cache\\dlx\\e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7\\1a152fc0f14-2f10\\node_modules\\.pnpm\\node@22.23.0\\node_modules\\node\\bin\\node.exe",
+    "version": "v22.23.0",
+    "sha256": "17347995af08dadcc73a1a154f0942559fbc3f37b9ba57d4576b4d2bcb2834a2"
+  },
+  "tool": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-physical-delivery-v1.cjs",
+    "sha256": "841f14c60fe9c746053a338c3bd8520a1d46200656e494dbda926c0ca6752a09"
+  },
+  "args": [
+    "--mode=native",
+    "--nativeGateRelease=M:/Shuen/Codex/mv-events-implementation-20261020/root-audits/choices27-root-prepare-release-a06161d3-cae2-494c-81e8-093a76001cc7.json#sha256=153784e7b6e44bd506e98d353df989429671f8ad3418ba885ac23a93c0b281eb"
+  ],
+  "git": {
+    "head": "33801e7ff5b53e98956f5fcb37db69ce73961524",
+    "status": ""
+  },
+  "environment": {
+    "TEMP": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\native-game-v1\\temp",
+    "TMP": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\native-game-v1\\temp"
+  },
+  "completedAt": "2026-10-19T22:32:21.996Z",
+  "exitCode": 0,
+  "signal": null,
+  "toolAfterSha256": "841f14c60fe9c746053a338c3bd8520a1d46200656e494dbda926c0ca6752a09",
+  "stdout.log": {
+    "bytes": 25492,
+    "sha256": "2b8b3d2d1d0e85eca847c1bffa556dbd116de5a1451f3ef6410c24fa2b660a6b"
+  },
+  "stderr.log": {
+    "bytes": 862,
+    "sha256": "78ccbfa752bf9c96a472b91b3416e506b241a5a274728b7d17ef3a590cc42f8c"
+  }
+}

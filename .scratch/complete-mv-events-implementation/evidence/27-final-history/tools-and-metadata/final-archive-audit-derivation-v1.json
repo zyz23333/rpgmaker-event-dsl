@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-19T22:40:56.720Z",
+  "purpose": "Static pre-execution strengthening of final archive audit: compare complete historical original regular-file and link inventories against immutable initial index; no product or input changes",
+  "originalAudit": {
+    "tool": "audit-final-v3.cjs",
+    "sha256": "19e7f4110cd4ab6e52655d5767d1aa79dcaeacaa2555932028298df057643f0d",
+    "executed": false
+  },
+  "actualAudit": {
+    "tool": "audit-final-v4.cjs",
+    "sha256": "e1d616af6f148fe8f76a3aa48418a1ea96078818d35bb1a8cbfdc1a630ecacac"
+  },
+  "postArchive": {
+    "tool": "post-archive-v3.cjs",
+    "sha256": "300a445e9077f68db4472eccb8d8cf2e122e52fda971417c64d344d832840472",
+    "purpose": "Close successful archive-capture-v2, byte audit and final index, including versioned readback tool originals absent from initial index"
+  }
+}

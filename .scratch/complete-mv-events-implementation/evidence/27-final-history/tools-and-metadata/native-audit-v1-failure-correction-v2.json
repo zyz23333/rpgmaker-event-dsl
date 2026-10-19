@@ -1,0 +1,161 @@
+{
+  "at": "2026-10-19T22:33:23.440Z",
+  "purpose": "Versioned correction of independent-reader initial-copy inode assertion only; games and original proofs remain unchanged",
+  "original": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\audit-native-v1.cjs",
+    "sha256": "8f6e08d5a2503344e92efab0ab5a36c9eea0ac05536ad3385c8942c45a63e207",
+    "failedCapture": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\native-independent-audit-v1",
+    "failure": "First pair compiled/data/Map001.json atomically replaced by owned public Push; all eight compiled sides have exactly that one initial/current inode change, literal sides none"
+  },
+  "derived": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\audit-native-v2.cjs",
+    "sha256": "e07746d1855419bc1649c491a79306285c56c872d52982710ae53af58d05e190",
+    "boundedChange": "Only compiled/data/Map001.json current inode binds to final full data isolation checkpoint plus actual publication afterPush SHA, and must differ from initial. All other initial entries remain exact dev+inode; all current data retain final checkpoint exact dev/inode/nlink/bytes assertions; no product/tool/input changes."
+  },
+  "differences": [
+    {
+      "id": "default-second",
+      "side": "literal",
+      "mismatches": []
+    },
+    {
+      "id": "default-second",
+      "side": "compiled",
+      "mismatches": [
+        {
+          "path": "data/Map001.json",
+          "initialIno": "281474977672956",
+          "currentIno": "562949954384761",
+          "dev": "234032904",
+          "nlink": "1"
+        }
+      ]
+    },
+    {
+      "id": "one-choice-cancel-selects-first",
+      "side": "literal",
+      "mismatches": []
+    },
+    {
+      "id": "one-choice-cancel-selects-first",
+      "side": "compiled",
+      "mismatches": [
+        {
+          "path": "data/Map001.json",
+          "initialIno": "281474977675448",
+          "currentIno": "562949954387253",
+          "dev": "234032904",
+          "nlink": "1"
+        }
+      ]
+    },
+    {
+      "id": "separate-cancel-body",
+      "side": "literal",
+      "mismatches": []
+    },
+    {
+      "id": "separate-cancel-body",
+      "side": "compiled",
+      "mismatches": [
+        {
+          "path": "data/Map001.json",
+          "initialIno": "281474977677937",
+          "currentIno": "562949954389742",
+          "dev": "234032904",
+          "nlink": "1"
+        }
+      ]
+    },
+    {
+      "id": "disabled-cancel-keeps-wait",
+      "side": "literal",
+      "mismatches": []
+    },
+    {
+      "id": "disabled-cancel-keeps-wait",
+      "side": "compiled",
+      "mismatches": [
+        {
+          "path": "data/Map001.json",
+          "initialIno": "281474977680428",
+          "currentIno": "562949954392233",
+          "dev": "234032904",
+          "nlink": "1"
+        }
+      ]
+    },
+    {
+      "id": "saved-cancel-five-without-403",
+      "side": "literal",
+      "mismatches": []
+    },
+    {
+      "id": "saved-cancel-five-without-403",
+      "side": "compiled",
+      "mismatches": [
+        {
+          "path": "data/Map001.json",
+          "initialIno": "281474977682917",
+          "currentIno": "562949954394722",
+          "dev": "234032904",
+          "nlink": "1"
+        }
+      ]
+    },
+    {
+      "id": "saved-default-five-needs-navigation",
+      "side": "literal",
+      "mismatches": []
+    },
+    {
+      "id": "saved-default-five-needs-navigation",
+      "side": "compiled",
+      "mismatches": [
+        {
+          "path": "data/Map001.json",
+          "initialIno": "281474977685405",
+          "currentIno": "562949954397210",
+          "dev": "234032904",
+          "nlink": "1"
+        }
+      ]
+    },
+    {
+      "id": "no-default-down-selects-first",
+      "side": "literal",
+      "mismatches": []
+    },
+    {
+      "id": "no-default-down-selects-first",
+      "side": "compiled",
+      "mismatches": [
+        {
+          "path": "data/Map001.json",
+          "initialIno": "281474977687894",
+          "currentIno": "562949954399699",
+          "dev": "234032904",
+          "nlink": "1"
+        }
+      ]
+    },
+    {
+      "id": "numeric-saved-both-negative-zero",
+      "side": "literal",
+      "mismatches": []
+    },
+    {
+      "id": "numeric-saved-both-negative-zero",
+      "side": "compiled",
+      "mismatches": [
+        {
+          "path": "data/Map001.json",
+          "initialIno": "281474977690383",
+          "currentIno": "562949954402188",
+          "dev": "234032904",
+          "nlink": "1"
+        }
+      ]
+    }
+  ]
+}

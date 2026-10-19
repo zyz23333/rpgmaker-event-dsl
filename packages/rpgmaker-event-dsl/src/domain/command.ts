@@ -166,13 +166,17 @@ export type ShowScrollingTextDslCommand = {
 
 export type ShowChoicesDslCommand = {
   kind: "showChoices";
-  choices: readonly [string, ...string[]];
-  branches: readonly [readonly DslCommand[], ...(readonly DslCommand[][])];
-  cancelType?: number;
-  defaultType?: number;
-  positionType?: 0 | 1 | 2;
-  background?: 0 | 1 | 2;
-  cancelBranch?: readonly DslCommand[];
+  choices: readonly [
+    ChildCommandBody & { text: string },
+    ...(ChildCommandBody & { text: string })[],
+  ];
+  defaultChoice?: { kind: "none" } | { kind: "choice"; index: number };
+  cancel?:
+    | { kind: "disabled" }
+    | { kind: "choice"; index: number }
+    | (ChildCommandBody & { kind: "branch" });
+  position?: "left" | "center" | "right";
+  background?: "window" | "dim" | "transparent";
 };
 
 export type ConditionalDslCommand = {

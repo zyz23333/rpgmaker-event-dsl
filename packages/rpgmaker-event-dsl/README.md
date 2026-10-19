@@ -411,6 +411,47 @@ Decompile warns while producing source; Check and Compile reject actual current 
 containing scripts. Removing those scripts permits compilation without replacing the
 old Snapshot. Plugin command argument semantics remain external.
 
+## Choices
+
+```ts
+import { showChoices, showText } from "rpgmaker-event-dsl";
+
+const commands = [
+  showChoices({
+    choices: [
+      { text: "Ask about the ruins", commands: [showText({ lines: ["Follow the river."] })] },
+      { text: "Leave", commands: [] },
+    ],
+    defaultChoice: { kind: "none" },
+    cancel: { kind: "branch", commands: [showText({ lines: ["Another time, then."] })] },
+    position: "right",
+    background: "window",
+  }),
+];
+```
+
+`choices` is a required dense list of 1–6 `{ text, commands, endMarker? }` objects.
+Each `commands` field is required and may be empty. Choice text preserves empty
+strings, whitespace, line endings, and a final empty choice.
+
+`defaultChoice` is `{ kind: "none" }` or `{ kind: "choice", index }` and defaults
+to choice 0. `cancel` is `{ kind: "disabled" }`, `{ kind: "choice", index }`, or
+`{ kind: "branch", commands, endMarker? }` and defaults to choice 1. Indices are
+zero-based integers 0–5; saved indices beyond the current choice count are retained
+with a warning. Numeric `index: -0` retains its saved sign through Decompile and
+Push. A one-item list still saves cancel choice 1. `position` accepts
+`"left"`, `"center"`, or `"right"` (default); `background` accepts `"window"`
+(default), `"dim"`, or `"transparent"`.
+
+Each choice and separate cancel branch defaults `endMarker` to `"present"`.
+Use `"absent"` to preserve a nonempty Child Command Body without its trailing
+Body End Marker; an empty body requires the marker. The parent produces ordered
+choice branches from the same text as the choice header, an optional separate
+cancel branch, and its closing record. Nested body markers retain their own
+ownership, and raw records cannot supply a conflicting marker for a formal body.
+Every body receives ordinary reference validation and the Script Command Gate,
+including bodies the saved default or cancel setting cannot reach.
+
 ## Loop and event processing
 
 ```ts

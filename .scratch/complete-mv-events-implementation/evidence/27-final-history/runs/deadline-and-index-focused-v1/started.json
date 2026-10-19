@@ -1,0 +1,30 @@
+{
+  "label": "deadline-and-index-focused-v1",
+  "cwd": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-27-final",
+  "command": "C:\\Users\\Shuen\\AppData\\Local\\pnpm-cache\\dlx\\e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7\\1a152fc0f14-2f10\\node_modules\\.pnpm\\node@22.23.0\\node_modules\\node\\bin\\node.exe",
+  "args": [
+    "C:/Users/Shuen/AppData/Local/node/corepack/v1/pnpm/10.33.0/bin/pnpm.cjs",
+    "--filter",
+    "rpgmaker-event-dsl",
+    "exec",
+    "vitest",
+    "run",
+    "test/decompile-publication.test.ts",
+    "test/mv-evidence.test.ts",
+    "-t",
+    "MV-S4-DECOMPILE-015|validates the evidence index"
+  ],
+  "pnpm": "C:/Users/Shuen/AppData/Local/node/corepack/v1/pnpm/10.33.0/bin/pnpm.cjs",
+  "startedAt": "2026-10-19T21:57:47.538Z",
+  "node": "v22.23.0",
+  "nodeSha256": "17347995af08dadcc73a1a154f0942559fbc3f37b9ba57d4576b4d2bcb2834a2",
+  "head": "18e7ac04dd0e30f8d254e2dd24b97bee57012cd9",
+  "status": " M .scratch/complete-mv-events-implementation/evidence/27-choices-complete-branches.md",
+  "environment": {
+    "TEMP": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\deadline-and-index-focused-v1\\temp",
+    "TMP": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\deadline-and-index-focused-v1\\temp",
+    "MV_WINDOWS_TEST_OUTPUT": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\deadline-and-index-focused-v1\\windows-sandboxes",
+    "MV_EVIDENCE_OUTPUT": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\deadline-and-index-focused-v1\\results",
+    "MV_KEEP_WINDOWS_SANDBOXES": "1"
+  }
+}

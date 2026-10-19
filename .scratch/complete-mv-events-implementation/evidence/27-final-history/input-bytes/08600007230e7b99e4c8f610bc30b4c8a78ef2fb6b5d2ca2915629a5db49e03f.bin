@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "ignorePatterns": [
+    "coverage/**",
+    "dist/**",
+    "node_modules/**",
+    "packages/*/dist/**",
+    "references/**"
+  ],
+  "plugins": ["typescript"],
+  "rules": {
+    "typescript/no-explicit-any": "error"
+  }
+}

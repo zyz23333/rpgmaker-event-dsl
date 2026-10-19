@@ -15116,6 +15116,696 @@
       "required": true
     },
     {
+      "id": "MV-S6-CHOICES-001",
+      "title": "Numeric saved default/cancel indices including negative zero, full0..5 and precise out-of-count warnings",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/27-choices-complete-branches.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E102"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored literal Choices arrays and native/known-raw/formal source cases; no compiler-derived oracle, first-party source or assets",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/choices-complete.json",
+        "sha256": "96fa9216ffc39e59817f942b2d7db72ca9b8f5f4fa9ff6d14a681593d715e44a"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source or freshly built public entry selected by recorded execution",
+        "owner": "Ticket27 finalization operator",
+        "layer": "Approved public command/Workspace API and real filesystem boundary"
+      },
+      "slice": "27 / S6",
+      "required": true,
+      "expected": "Numeric saved default/cancel indices including negative zero, full0..5 and precise out-of-count warnings",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/choices.test.ts",
+        "name": "MV-S6-CHOICES-001: preserves numeric saved choice indices with negative zero in $name through formal, raw and decompile"
+      }
+    },
+    {
+      "id": "MV-S6-CHOICES-002",
+      "title": "Named position/background, None/disabled and optional-undefined defaults",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/27-choices-complete-branches.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E102"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored literal Choices arrays and native/known-raw/formal source cases; no compiler-derived oracle, first-party source or assets",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/choices-complete.json",
+        "sha256": "96fa9216ffc39e59817f942b2d7db72ca9b8f5f4fa9ff6d14a681593d715e44a"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source or freshly built public entry selected by recorded execution",
+        "owner": "Ticket27 finalization operator",
+        "layer": "Approved public command/Workspace API and real filesystem boundary"
+      },
+      "slice": "27 / S6",
+      "required": true,
+      "expected": "Named position/background, None/disabled and optional-undefined defaults",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/choices.test.ts",
+        "name": "MV-S6-CHOICES-002: preserves named $position/$background modes and the none/disabled states"
+      }
+    },
+    {
+      "id": "MV-S6-CHOICES-003",
+      "title": "Exact mirror/order/cancel/body markers and nested raw ownership",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/27-choices-complete-branches.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E102"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored literal Choices arrays and native/known-raw/formal source cases; no compiler-derived oracle, first-party source or assets",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/choices-complete.json",
+        "sha256": "96fa9216ffc39e59817f942b2d7db72ca9b8f5f4fa9ff6d14a681593d715e44a"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source or freshly built public entry selected by recorded execution",
+        "owner": "Ticket27 finalization operator",
+        "layer": "Approved public command/Workspace API and real filesystem boundary"
+      },
+      "slice": "27 / S6",
+      "required": true,
+      "expected": "Exact mirror/order/cancel/body markers and nested raw ownership",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/choices.test.ts",
+        "name": "MV-S6-CHOICES-003: keeps a valid nested raw body's marker separate from its formal owner"
+      }
+    },
+    {
+      "id": "MV-S6-CHOICES-004",
+      "title": "Recursive reference and Script Gate validation in unreachable bodies",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/27-choices-complete-branches.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E102"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored literal Choices arrays and native/known-raw/formal source cases; no compiler-derived oracle, first-party source or assets",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/choices-complete.json",
+        "sha256": "96fa9216ffc39e59817f942b2d7db72ca9b8f5f4fa9ff6d14a681593d715e44a"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source or freshly built public entry selected by recorded execution",
+        "owner": "Ticket27 finalization operator",
+        "layer": "Approved public command/Workspace API and real filesystem boundary"
+      },
+      "slice": "27 / S6",
+      "required": true,
+      "expected": "Recursive reference and Script Gate validation in unreachable bodies",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/choices.test.ts",
+        "name": "MV-S6-CHOICES-004: visits unreachable choice and cancel bodies for references and Script Command Gate"
+      }
+    },
+    {
+      "id": "MV-S6-CHOICES-005",
+      "title": "Strict helper/declaration shapes and malformed native/known-raw E102 slots",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/27-choices-complete-branches.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E102"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored literal Choices arrays and native/known-raw/formal source cases; no compiler-derived oracle, first-party source or assets",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/choices-complete.json",
+        "sha256": "96fa9216ffc39e59817f942b2d7db72ca9b8f5f4fa9ff6d14a681593d715e44a"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source or freshly built public entry selected by recorded execution",
+        "owner": "Ticket27 finalization operator",
+        "layer": "Approved public command/Workspace API and real filesystem boundary"
+      },
+      "slice": "27 / S6",
+      "required": true,
+      "expected": "Strict helper/declaration shapes and malformed native/known-raw E102 slots",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/choices.test.ts",
+        "name": "MV-S6-CHOICES-005: rejects unsupported E102 slot $slot=$value in native and known raw"
+      }
+    },
+    {
+      "id": "MV-S6-CHOICES-006",
+      "title": "Actual discovered numeric-sign Workspace roundtrip and installation",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/27-choices-complete-branches.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E102"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored literal Choices arrays and native/known-raw/formal source cases; no compiler-derived oracle, first-party source or assets",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/choices-complete.json",
+        "sha256": "96fa9216ffc39e59817f942b2d7db72ca9b8f5f4fa9ff6d14a681593d715e44a"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source or freshly built public entry selected by recorded execution",
+        "owner": "Ticket27 finalization operator",
+        "layer": "Approved public command/Workspace API and real filesystem boundary"
+      },
+      "slice": "27 / S6",
+      "required": true,
+      "expected": "Actual discovered numeric-sign Workspace roundtrip and installation",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+        "name": "MV-S6-CHOICES-006: preserves numeric saved choice indices through Workspace $name"
+      }
+    },
+    {
+      "id": "MV-S6-CHOICES-007",
+      "title": "One-to-six lists, empty/trailing text, nested cancel and native markers through real source",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/27-choices-complete-branches.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E102"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored literal Choices arrays and native/known-raw/formal source cases; no compiler-derived oracle, first-party source or assets",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/choices-complete.json",
+        "sha256": "96fa9216ffc39e59817f942b2d7db72ca9b8f5f4fa9ff6d14a681593d715e44a"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source or freshly built public entry selected by recorded execution",
+        "owner": "Ticket27 finalization operator",
+        "layer": "Approved public command/Workspace API and real filesystem boundary"
+      },
+      "slice": "27 / S6",
+      "required": true,
+      "expected": "One-to-six lists, empty/trailing text, nested cancel and native markers through real source",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+        "name": "MV-S6-CHOICES-007: round trips native cancel and nested body markers through discovered source and a real Push replacement"
+      }
+    },
+    {
+      "id": "MV-S6-CHOICES-008",
+      "title": "Fixed one-choice defaults and out-of-count cancel warning through real source",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/27-choices-complete-branches.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E102"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored literal Choices arrays and native/known-raw/formal source cases; no compiler-derived oracle, first-party source or assets",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/choices-complete.json",
+        "sha256": "96fa9216ffc39e59817f942b2d7db72ca9b8f5f4fa9ff6d14a681593d715e44a"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source or freshly built public entry selected by recorded execution",
+        "owner": "Ticket27 finalization operator",
+        "layer": "Approved public command/Workspace API and real filesystem boundary"
+      },
+      "slice": "27 / S6",
+      "required": true,
+      "expected": "Fixed one-choice defaults and out-of-count cancel warning through real source",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+        "name": "MV-S6-CHOICES-008: preserves the fixed one-choice defaults through actual source evaluation and Push"
+      }
+    },
+    {
+      "id": "MV-S6-CHOICES-009",
+      "title": "Native and structurally typed formal failures preserve complete business state on retry",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/27-choices-complete-branches.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E102"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored literal Choices arrays and native/known-raw/formal source cases; no compiler-derived oracle, first-party source or assets",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/choices-complete.json",
+        "sha256": "96fa9216ffc39e59817f942b2d7db72ca9b8f5f4fa9ff6d14a681593d715e44a"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source or freshly built public entry selected by recorded execution",
+        "owner": "Ticket27 finalization operator",
+        "layer": "Approved public command/Workspace API and real filesystem boundary"
+      },
+      "slice": "27 / S6",
+      "required": true,
+      "expected": "Native and structurally typed formal failures preserve complete business state on retry",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+        "name": "MV-S6-CHOICES-009: rejects a removed field passed through a typed local constant without publishing output"
+      }
+    },
+    {
+      "id": "MV-S6-CHOICES-010",
+      "title": "Recursive Gate fails before publication and allows exact installation when enabled",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/27-choices-complete-branches.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E102"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored literal Choices arrays and native/known-raw/formal source cases; no compiler-derived oracle, first-party source or assets",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/choices-complete.json",
+        "sha256": "96fa9216ffc39e59817f942b2d7db72ca9b8f5f4fa9ff6d14a681593d715e44a"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source or freshly built public entry selected by recorded execution",
+        "owner": "Ticket27 finalization operator",
+        "layer": "Approved public command/Workspace API and real filesystem boundary"
+      },
+      "slice": "27 / S6",
+      "required": true,
+      "expected": "Recursive Gate fails before publication and allows exact installation when enabled",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+        "name": "MV-S6-CHOICES-010: keeps nested saved scripts intact while Check and Compile both enforce Gate before writing"
+      }
+    },
+    {
+      "id": "MV-S6-CHOICES-011",
+      "title": "Independent complete three-container/15-carrier and four-generated-carrier roundtrip with real Push edits",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/27-choices-complete-branches.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E102"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored literal Choices arrays and native/known-raw/formal source cases; no compiler-derived oracle, first-party source or assets",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/choices-complete.json",
+        "sha256": "96fa9216ffc39e59817f942b2d7db72ca9b8f5f4fa9ff6d14a681593d715e44a"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source or freshly built public entry selected by recorded execution",
+        "owner": "Ticket27 finalization operator",
+        "layer": "Approved public command/Workspace API and real filesystem boundary"
+      },
+      "slice": "27 / S6",
+      "required": true,
+      "expected": "Independent complete three-container/15-carrier and four-generated-carrier roundtrip with real Push edits",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+        "name": "MV-S6-CHOICES-011: independent Choices roundtrip all three containers and install exact complete carriers"
+      }
+    },
+    {
+      "id": "MV-S6-CHOICES-012",
+      "title": "All three native containers reject mirror conflict with exact paths and unchanged complete state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/27-choices-complete-branches.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E102"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored literal Choices arrays and native/known-raw/formal source cases; no compiler-derived oracle, first-party source or assets",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/choices-complete.json",
+        "sha256": "96fa9216ffc39e59817f942b2d7db72ca9b8f5f4fa9ff6d14a681593d715e44a"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source or freshly built public entry selected by recorded execution",
+        "owner": "Ticket27 finalization operator",
+        "layer": "Approved public command/Workspace API and real filesystem boundary"
+      },
+      "slice": "27 / S6",
+      "required": true,
+      "expected": "All three native containers reject mirror conflict with exact paths and unchanged complete state",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+        "name": "MV-S6-CHOICES-012: invalid native mirror has a precise diagnostic and preserves complete state (%s)"
+      }
+    },
+    {
+      "id": "MV-S6-CHOICES-E2-COMPARE",
+      "title": "Allocated E2 candidate built product versus version-bound REA Choices save/container facts",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/27-choices-complete-branches.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E102"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Self-authored literal Choices arrays and native/known-raw/formal source cases; no compiler-derived oracle, first-party source or assets",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/choices-complete.json",
+        "sha256": "96fa9216ffc39e59817f942b2d7db72ca9b8f5f4fa9ff6d14a681593d715e44a"
+      },
+      "nativeGroups": [
+        "E2"
+      ],
+      "execution": {
+        "environment": "Fresh candidate built public product and same-identity bounded REA facts",
+        "owner": "Ticket27 finalization operator",
+        "layer": "Product comparison; no editor UI claim"
+      },
+      "slice": "27 / S6",
+      "required": true,
+      "expected": "Allocated E2 candidate built product versus version-bound REA Choices save/container facts",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/27-choices-complete-branches.md",
+        "section": "## E2 产品比较"
+      }
+    },
+    {
+      "id": "MV-S6-CHOICES-R3-PAIRS",
+      "title": "Allocated R3 actual native literal and compiled Choices game pairs",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/27-choices-complete-branches.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E102"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Self-authored literal Choices arrays and native/known-raw/formal source cases; no compiler-derived oracle, first-party source or assets",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/choices-complete.json",
+        "sha256": "96fa9216ffc39e59817f942b2d7db72ca9b8f5f4fa9ff6d14a681593d715e44a"
+      },
+      "nativeGroups": [
+        "R3"
+      ],
+      "execution": {
+        "environment": "Actual MV1.6.1 / NW0.29.0SDK; isolated fresh literal/compiled native processes",
+        "owner": "Ticket27 finalization operator",
+        "layer": "Actual game observation; final52 remains separate"
+      },
+      "slice": "27 / S6",
+      "required": true,
+      "expected": "Allocated R3 actual native literal and compiled Choices game pairs",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/27-choices-complete-branches.md",
+        "section": "## R3 原生游戏对照"
+      }
+    },
+    {
       "id": "MV-S6-SYSTEM-SCENES-001",
       "title": "compiles all four explicit access flags with false zero and true one",
       "sources": [

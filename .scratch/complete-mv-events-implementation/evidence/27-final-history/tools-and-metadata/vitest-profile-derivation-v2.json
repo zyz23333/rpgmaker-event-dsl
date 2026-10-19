@@ -1,0 +1,7 @@
+{
+  "at": "2026-10-19T22:45:28.726Z",
+  "purpose": "Versioned diagnostic probe only: original v1 imported the require-resolution CommonJS Vitest entry and failed before tests. Version2 uses original config globals:true and the same complete timed helper; no product/helper/input change or deadline override",
+  "originalCapture": "final-index-vitest-profile-v1",
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\profile-vitest-v2",
+  "helperSha256": "3c82fafd87470c8901c4b9d798371191129d477583ce80e02276d52ea2ae9fa7"
+}

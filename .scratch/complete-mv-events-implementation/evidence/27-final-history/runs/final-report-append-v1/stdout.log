@@ -1,0 +1,30 @@
+{
+  "changes": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-choices-complete-branches.md",
+      "beforeSha256": "040c00475a361863a8b5a6a6a45e65a5dbd6b2f284af534e12ac8c343cb3d7aa",
+      "afterSha256": "cd4eea2e55526c46a2c4ee91f98b05d40d0f1550b8dc2222e4776853f8bd9093",
+      "originalPrefixExact": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/README.md",
+      "beforeSha256": "c58f0ca6085c34a13427c17692ca0482a81689ee21e35000922fc2a069c5f72e",
+      "afterSha256": "1baaf234182e8f668cd7583dcf981e61aa5ba6c7c9fc39544c3cc31ff785004d",
+      "originalPrefixExact": true
+    }
+  ],
+  "receipts": {
+    "fullcheck-v2": {
+      "files": "44",
+      "tests": "1153",
+      "duration": "411.46s (transform 1.37s, setup 0ms, import 16.21s, tests 777.64s, environment 3ms)"
+    },
+    "built-windows-v1": {
+      "files": "19",
+      "tests": "474",
+      "duration": "331.25s (transform 1.13s, setup 0ms, import 8.35s, tests 650.89s, environment 1ms)"
+    }
+  },
+  "resources": 13,
+  "pairs": 8
+}

@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-19T22:44:40.358Z",
+  "purpose": "Read-only diagnostic only: complete validateRequirements inside actual Vitest test at original10s/maxWorkers2 config. All validations retained. No selected-index pass claim, no timeout override, no input/helper changes.",
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\profile-vitest-v1",
+  "source": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\index-instrumented-v3.mts",
+    "sha256": "c428900c69a6388dfc0482ab8372f416ffcde695593c639e07dbc93917933e18"
+  },
+  "instrumented": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\profile-vitest-v1\\index-profile.mts",
+    "sha256": "037a07a5b941458e39d5003e4b1ebe49e3bcb01cae7944695553253f51b3ca6b"
+  },
+  "test": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\profile-vitest-v1\\test\\read-only-profile.test.ts",
+    "sha256": "d44fde5bb7510b927c340175bc3799cb9c617b2d5de6a7647d84dfd2d281b762"
+  },
+  "config": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\worktrees\\mv-ticket-27-final\\packages\\rpgmaker-event-dsl\\vitest.config.ts",
+    "sha256": "205dcf739555549758afcdf2051835bb37173e071987af8de2bc2870e5039e39"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-19T22:47:23.201Z",
+  "purpose": "Read-only diagnostic transform of the original frozen helper in the actual original Vitest test, preserving original repositoryRoot, original zod package resolution, all validations, and original10s/2workers. Only phase counters/progress receipts are added in memory; no selected-index acceptance claim.",
+  "original": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\worktrees\\mv-ticket-27-final\\packages\\rpgmaker-event-dsl\\test\\support\\mv-evidence.ts",
+    "sha256": "343a11790df3a07ded5b34aa17a2e5fd0fcb7b65e5e25776ee995e6d451fddba"
+  },
+  "instrumented": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\original-vitest-instrumentation-v1.ts.txt",
+    "sha256": "560d19853105db5f78c74d46694840cb9870bb9e2918152b37574716af48cfe7"
+  },
+  "config": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\original-vitest-profile-v1.config.mts",
+    "sha256": "d2066df29b56028cf89a0c87fe5b3a4f00c25d6da5c04c8abed92c9c27cb1f11"
+  },
+  "baseConfig": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\worktrees\\mv-ticket-27-final\\packages\\rpgmaker-event-dsl\\vitest.config.ts",
+    "sha256": "205dcf739555549758afcdf2051835bb37173e071987af8de2bc2870e5039e39"
+  }
+}
