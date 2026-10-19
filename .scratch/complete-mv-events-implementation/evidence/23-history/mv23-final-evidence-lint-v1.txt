@@ -1,0 +1,7 @@
+
+> rpgmaker-event-dsl-workspace@0.0.0 lint C:\Users\Shuen\.codex\worktrees\mv-ticket-23\rpgmaker-event-dsl
+> oxlint .
+
+.scratch/complete-mv-events-implementation/evidence/23-history/mv23-delivery-preflight-v1.cjs:1:29: warning eslint(no-unused-vars): Variable 'fsp' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/23-history/mv23-register-native-v1.cjs:1:107: warning eslint(no-unused-vars): Variable 'cp' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/22-history/original-held-reproduction.cjs:89:61: warning eslint(no-unused-expressions): Expected expression to be used help: Consider using this expression or removing it

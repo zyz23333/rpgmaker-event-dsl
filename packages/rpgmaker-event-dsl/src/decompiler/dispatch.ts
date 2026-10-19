@@ -408,7 +408,7 @@ export function renderSimpleCommand(
       return commonEventId === null
         ? null
         : {
-            expression: `callCommonEvent(commonEventRef({ id: ${commonEventId} }))`,
+            expression: `callCommonEvent({ commonEvent: commonEventRef({ id: ${commonEventId} }) })`,
             helperNames: ["callCommonEvent", "commonEventRef"],
           };
     }

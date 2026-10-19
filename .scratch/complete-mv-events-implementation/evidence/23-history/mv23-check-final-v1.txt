@@ -1,0 +1,57 @@
+
+> rpgmaker-event-dsl-workspace@0.0.0 check C:\Users\Shuen\.codex\worktrees\mv-ticket-23\rpgmaker-event-dsl
+> pnpm typecheck && pnpm lint && pnpm format:check && pnpm test
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 typecheck C:\Users\Shuen\.codex\worktrees\mv-ticket-23\rpgmaker-event-dsl
+> pnpm -r typecheck
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl typecheck$ tsc -p tsconfig.json --noEmit
+packages/rpgmaker-event-dsl typecheck: Done
+
+> rpgmaker-event-dsl-workspace@0.0.0 lint C:\Users\Shuen\.codex\worktrees\mv-ticket-23\rpgmaker-event-dsl
+> oxlint .
+
+.scratch/complete-mv-events-implementation/evidence/22-history/original-held-reproduction.cjs:89:61: warning eslint(no-unused-expressions): Expected expression to be used help: Consider using this expression or removing it
+
+> rpgmaker-event-dsl-workspace@0.0.0 format:check C:\Users\Shuen\.codex\worktrees\mv-ticket-23\rpgmaker-event-dsl
+> oxfmt --ignore-path .oxfmtignore --check package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rpgmaker-event-dsl
+
+Checking formatting...
+
+All matched files use the correct format.
+Finished in 395ms on 173 files using 20 threads.
+
+> rpgmaker-event-dsl-workspace@0.0.0 test C:\Users\Shuen\.codex\worktrees\mv-ticket-23\rpgmaker-event-dsl
+> pnpm -r test
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl test$ vitest run
+packages/rpgmaker-event-dsl test:  RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-23/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+packages/rpgmaker-event-dsl test:  ❯ test/command-boundary.test.ts (13 tests | 1 failed) 25ms
+packages/rpgmaker-event-dsl test:    × requires complete own native fields and dense authored lists without silently omitting extra raw fields 4ms
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/command-boundary.test.ts > requires complete own native fields and dense authored lists without silently omitting extra raw fields
+packages/rpgmaker-event-dsl test: Error: compile error commonEvent:1: MV-COMMON-EVENT: Invalid Common Event definition. (commonEvent.commands); expected dense authored command array; actual "MV-DSL-SHAPE: Commands must be a dense array of authored command objects. (commonEvent.commands); expected dense command array; actual null"
+packages/rpgmaker-event-dsl test:  ❯ fail src/validation/common-events.ts:16:11
+packages/rpgmaker-event-dsl test:      14|         ? Object.getOwnPropertyDescriptor(value, "id")
+packages/rpgmaker-event-dsl test:      15|         : undefined;
+packages/rpgmaker-event-dsl test:      16|     throw new CommandStructureError(
+packages/rpgmaker-event-dsl test:        |           ^
+packages/rpgmaker-event-dsl test:      17|       "MV-COMMON-EVENT",
+packages/rpgmaker-event-dsl test:      18|       "Invalid Common Event definition.",
+packages/rpgmaker-event-dsl test:  ❯ assertCommonEventInput src/validation/common-events.ts:70:5
+packages/rpgmaker-event-dsl test:  ❯ commonEvent src/authoring/declarations.ts:50:3
+packages/rpgmaker-event-dsl test:  ❯ test/command-boundary.test.ts:419:9
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+packages/rpgmaker-event-dsl test:  Test Files  1 failed | 35 passed (36)
+packages/rpgmaker-event-dsl test:       Tests  1 failed | 624 passed (625)
+packages/rpgmaker-event-dsl test:    Start at  00:11:13
+packages/rpgmaker-event-dsl test:    Duration  302.29s (transform 1.33s, setup 0ms, import 12.80s, tests 586.35s, environment 2ms)
+packages/rpgmaker-event-dsl test: Failed
+C:\Users\Shuen\.codex\worktrees\mv-ticket-23\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run`
+Exit status 1
+ ELIFECYCLE  Test failed. See above for more details.
+ ELIFECYCLE  Command failed with exit code 1.

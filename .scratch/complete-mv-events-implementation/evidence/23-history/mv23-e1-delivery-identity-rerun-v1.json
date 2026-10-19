@@ -1,0 +1,393 @@
+{
+  "purpose": "Ticket23 E1 Common container identity and read-only code recheck; not editor UI or native game execution",
+  "startedAt": "2026-10-19T16:12:50.674Z",
+  "node": "v22.23.0",
+  "target": {
+    "path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/RPGMV.exe",
+    "bytes": 19595264,
+    "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281"
+  },
+  "metadata": {
+    "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-e1-editor-container-identities.json",
+    "sha256": "8594455b968987aeecac1c826ed2b9cb96860e968b1be781f59cabbc05543c8d"
+  },
+  "output": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-e1-recheck-v3-3758c63b-5217-4b7c-ab39-1c8e90ea32ab",
+  "resources": [
+    {
+      "role": "templates",
+      "offset": 346222,
+      "storedBytes": 2617,
+      "storedSha256": "8df91f9e37b5f5ef1dfcf9faada0a80888575a7ae5e5593d15d0e476a3dc551d",
+      "encoding": "zlib",
+      "decodedBytes": 11436,
+      "decodedSha256": "52fd4ca2a3f178712d94467c5770919cf716882e2ebc9a57bde0a963e9447165",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "page-buttons",
+      "offset": 647618,
+      "storedBytes": 592,
+      "storedSha256": "1e97f32abdf6f37ff41cc41ef08eba6ad65dc6e6b4097baefac447063a633556",
+      "encoding": "zlib",
+      "decodedBytes": 2264,
+      "decodedSha256": "08d4a8bc3e7ad0d7478dd70265cb7a73298de4c2d24a2617699dab68c9dcefec",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "map-conditions",
+      "offset": 656030,
+      "storedBytes": 886,
+      "storedSha256": "61703c89f58dd5885e20dcaf5df9eb7f1d2edf6c44b5e6ed384e27bac7e60d0e",
+      "encoding": "zlib",
+      "decodedBytes": 5163,
+      "decodedSha256": "2e679cbed93309a6e1b51db11a7128af1b5294c8be3fb2a35b70ac9946627818",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "map-event-pages",
+      "offset": 674163,
+      "storedBytes": 1060,
+      "storedSha256": "1af2a40d91a4baf8938f6d4cdeff3a1161d02fbacb4f61d19eed9c14c660eccc",
+      "encoding": "zlib",
+      "decodedBytes": 4143,
+      "decodedSha256": "93338301160a3f64994c0371b137e8bc5f6c6c8e1f803b1730fe72e5a6322834",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "map-page",
+      "offset": 701512,
+      "storedBytes": 1784,
+      "storedSha256": "7654a2713389f9eed6c6257dffabb5b63411523cb724abd741d65c67997afd96",
+      "encoding": "zlib",
+      "decodedBytes": 7813,
+      "decodedSha256": "d3f53b2536e23bb60f8b080f1692cec652262688cd20dd5184de5773dc9c3b15",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "map-image",
+      "offset": 626433,
+      "storedBytes": 1675,
+      "storedSha256": "bafd3bd1f87136359652b570414c0a091007634ef74ffdbd3fa6b9f702f8aba5",
+      "encoding": "zlib",
+      "decodedBytes": 6491,
+      "decodedSha256": "9e05d77cba069b12cef44536bf917a1eed9829c72871f472cfbcd82f7422070e",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "map-event-entry",
+      "offset": 8667116,
+      "storedBytes": 3753,
+      "storedSha256": "1687d574bb4fe4439cda241987a3d35de498641df9f4cd7883fb8950c1eec41f",
+      "encoding": "zlib",
+      "decodedBytes": 19336,
+      "decodedSha256": "e684f74d77d923861f3e7804709ba2a27974418bd56e5ee586eea257fddaed12",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "common-editor",
+      "offset": 967367,
+      "storedBytes": 2086,
+      "storedSha256": "28ae8f9d73c1819dea8332598bb94f398776c4243e5c0dab27f4e61074a2e6c0",
+      "encoding": "plain",
+      "decodedBytes": 2082,
+      "decodedSha256": "80b034dedb0ab5f3465d6b9bc9bda652e47aa7d756985ee84697d0e96f70942c",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "database",
+      "offset": 934867,
+      "storedBytes": 1816,
+      "storedSha256": "a7ebb848a4bac1affadcdf3705ff0122180279d02b0aee1078c4e0c5e9f34eda",
+      "encoding": "zlib",
+      "decodedBytes": 8770,
+      "decodedSha256": "90fc0bbe06a34a0ee68ad881d469ca20654c830811ffd668fd2f7d6b0f0a7af6",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "database-tab",
+      "offset": 966730,
+      "storedBytes": 637,
+      "storedSha256": "9c632904e1b54f51675385dcd7296a54faa79f1c1cfaabe4c045a16c428de8af",
+      "encoding": "zlib",
+      "decodedBytes": 2162,
+      "decodedSha256": "a3f4768edb3fd8cad0d5e9c596809171e459fcf8285c714f87185e19980f3f53",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "database-list",
+      "offset": 963372,
+      "storedBytes": 1930,
+      "storedSha256": "e5380aea3de74a1263d738a55f3607e80a82623a0ad0432cff61b712612cee1a",
+      "encoding": "zlib",
+      "decodedBytes": 7745,
+      "decodedSha256": "cc33f67d3ed28382350a871766793d70ff786ca9d7c2726768e9aab55bcf54e6",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "troop-editor",
+      "offset": 959423,
+      "storedBytes": 1837,
+      "storedSha256": "0ead95e7f410bc3f9c4280596a7c17a1bb4a2ec40d2ecf2cd3d1107002c7a791",
+      "encoding": "zlib",
+      "decodedBytes": 7793,
+      "decodedSha256": "5a40dcc720eeda8ca0a67e312a657ab52b753ef7914cfb903e64f2a0801326c7",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "battle-conditions",
+      "offset": 8779077,
+      "storedBytes": 1145,
+      "storedSha256": "5418d40ac4f4614fa7b494719575e6b4d6a57ec58b28c5367331f10e0b8c3da3",
+      "encoding": "zlib",
+      "decodedBytes": 8073,
+      "decodedSha256": "9afa1d70061a8898eec25c8be717caaceaa3464626ff22904b67573907b11fef",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "object-check",
+      "offset": 8721360,
+      "storedBytes": 585,
+      "storedSha256": "d65cbbaab3cee552b63cca35ae59be3f560bb293d0b23064ca95248756ffb61a",
+      "encoding": "plain",
+      "decodedBytes": 581,
+      "decodedSha256": "9841b9b3f78ab3825c0ee3d95348c408a2c5154fa2af54ea486d847710ca13cf",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "object-combo",
+      "offset": 8728865,
+      "storedBytes": 1118,
+      "storedSha256": "4e9c1adf8ac740cf788b8cd8f56c2fcc5575dd2550bdd38fe7e867f3861735d2",
+      "encoding": "plain",
+      "decodedBytes": 1114,
+      "decodedSha256": "a2d5d7acd82fb294b91c6869fbeb1c009515644636dfea3913155211879413de",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "data",
+      "offset": 909009,
+      "storedBytes": 4291,
+      "storedSha256": "5270be842eec5e3091f42c89221f5fcb56eac9c60ac0dd9b980f2b8e91525367",
+      "encoding": "zlib",
+      "decodedBytes": 24761,
+      "decodedSha256": "9ce1877d3eac47699a558ada219ec4f217dbc4f215531a7f65ccacd8169c4f93",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "modal",
+      "offset": 878315,
+      "storedBytes": 1884,
+      "storedSha256": "1cb82140d805e570382b90e527523860a6a03c0f4b6d3904f6aa2b11d90a3bcc",
+      "encoding": "zlib",
+      "decodedBytes": 8437,
+      "decodedSha256": "875ac97ba5e20ab1a457399321e9621d3b56a698aaeeadc78c9584f3b69a970e",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "project-file",
+      "offset": 426544,
+      "storedBytes": 3371,
+      "storedSha256": "a8ef711d6e490693b0a42e0ed8c58e7dea91ed7b97ee2952b38fad3d9b3cd66f",
+      "encoding": "zlib",
+      "decodedBytes": 17252,
+      "decodedSha256": "8d2d161cc2d663a7246bf7b7717430a4eebc000f1f04d8704685d5f222cac776",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "event-command-list",
+      "offset": 667573,
+      "storedBytes": 3694,
+      "storedSha256": "0d2256db396879e26e51888dbd5905f306631f20691bc6dd5f416b3e090aeea1",
+      "encoding": "zlib",
+      "decodedBytes": 17486,
+      "decodedSha256": "bbc1e26fa83771fc56581b1dc34ec762b3789444dacef76cb24334834e17e82c",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "event-command-picker",
+      "offset": 679418,
+      "storedBytes": 1424,
+      "storedSha256": "da4ec20dd82890612f3a46d7672f6d7cef7e4e5aac68f174a735b20b09be8003",
+      "encoding": "zlib",
+      "decodedBytes": 7863,
+      "decodedSha256": "8e83b762134d12696649e6302adec9f40bbad7618b2c9cbff5ad945f005dd829",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "command-dialog",
+      "offset": 656916,
+      "storedBytes": 1086,
+      "storedSha256": "91796da241501b7634b5cf49175556fb92a81638597c54ab1f42675ad3c7326f",
+      "encoding": "plain",
+      "decodedBytes": 1082,
+      "decodedSha256": "0152387fa661f0e67f45b989248c60142881526cda1f31898e29c0e03366fbf7",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "page-route-dialog",
+      "offset": 653645,
+      "storedBytes": 927,
+      "storedSha256": "21cf9b3a965ded3a0c2dd6287fef82f0b1958f35cc464d544e8c0fa95943ec85",
+      "encoding": "plain",
+      "decodedBytes": 923,
+      "decodedSha256": "6343dfa083bf2e1451a5af7867664957f4696bf7f950d8751857f108faee3456",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "object-spin",
+      "offset": 8717236,
+      "storedBytes": 970,
+      "storedSha256": "b9ffefdf38652963ee39ac844926549c625322196d440af2d6ca938ffee98475",
+      "encoding": "plain",
+      "decodedBytes": 966,
+      "decodedSha256": "4a76e7bf246987c17ae67a15f8be8481760d4b90405de27a0e23120a4a67b25f",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "self-switch",
+      "offset": 603593,
+      "storedBytes": 1069,
+      "storedSha256": "2f43209064d40a04df8b7c5d6299ec70378be7984541f39643e25c8e695bee94",
+      "encoding": "plain",
+      "decodedBytes": 1065,
+      "decodedSha256": "575592e0d2220e8a333612da0290f81fad98fa6a44ad6a9e59aed445a5fd66a7",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "game-switch",
+      "offset": 596373,
+      "storedBytes": 2004,
+      "storedSha256": "313afa613a3b413ab2529136a02558f4133b8388495b1a6752f9e984c61fbc43",
+      "encoding": "plain",
+      "decodedBytes": 2000,
+      "decodedSha256": "5aaba3b55a3d310b69dd2cb833cf8a864b6785eff31f868a927134c814d7f9a8",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "image-dialog",
+      "offset": 8787441,
+      "storedBytes": 1343,
+      "storedSha256": "0ed57fb1b8005d49ca81578f9e2e392828c51b78a53731baf47ff4bae4a59ddc",
+      "encoding": "zlib",
+      "decodedBytes": 6236,
+      "decodedSha256": "07186f580840ab0cccaa2fdb5b22dec768f27b7d67ba804e07354096857c4b50",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "image-grid",
+      "offset": 638194,
+      "storedBytes": 1222,
+      "storedSha256": "b4f61a4d0395a737b971ff87291cd0a738c80e09c0c816f112ee0ab7f198762c",
+      "encoding": "zlib",
+      "decodedBytes": 5016,
+      "decodedSha256": "1d00d66ec8159738c77a866c7218d6219eb9d7cb1ecdcce7619abf7214670d9a",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "labeled-text-field",
+      "offset": 8799522,
+      "storedBytes": 389,
+      "storedSha256": "9a92f5c94e7885054c4b93bfbf8567423ea7dfaad32c39e318bd6e9db47af670",
+      "encoding": "plain",
+      "decodedBytes": 385,
+      "decodedSha256": "20d7752e7a0f74a49842b29e97dee8c59d7b905715e614c495ca5676b8eb8d0b",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "text-field",
+      "offset": 877206,
+      "storedBytes": 73,
+      "storedSha256": "81a9aaa5ca6f8e6c1dc929f33c0da2c630d217866ec134a1f04e25028a05d50d",
+      "encoding": "plain",
+      "decodedBytes": 69,
+      "decodedSha256": "4c498faa0ec8d1ded0a1fbd1697978a061999a7961ecfc231be4f5176d775727",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "text-edit",
+      "offset": 866210,
+      "storedBytes": 3005,
+      "storedSha256": "67931efad3a333eac942df27a1a6e3f0b81c894eb9809720c16af7db35fe37f8",
+      "encoding": "zlib",
+      "decodedBytes": 14044,
+      "decodedSha256": "12dfecd9a6fdc127a1759552698490bccd5ccf599aa898fd682461f0ed939dad",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "Map Event modal main",
+      "offset": 693633,
+      "storedBytes": 856,
+      "storedSha256": "05589516770857d647efc8ca1b8dae5b379bb91bfa63d9daf6ad803fd80d7e7a",
+      "encoding": "zlib",
+      "decodedBytes": 2868,
+      "decodedSha256": "81e12dcbeca13125bbcbbbf533ccf7f7883eea3b6740436430e7eb5b3c016b21",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "Troop parent editor",
+      "offset": 933040,
+      "storedBytes": 1827,
+      "storedSha256": "9a4eae208e18ce064914d56de98c74aed409c21a8357ed01babe5a0e48a2d621",
+      "encoding": "zlib",
+      "decodedBytes": 8197,
+      "decodedSha256": "13cf7d41fee993df7209df93feea5de505633de964145e3b700fedb0c2879b1e",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "Object text member binding",
+      "offset": 8719360,
+      "storedBytes": 994,
+      "storedSha256": "418913be0501412d4e8f48c40d4523bf1c36e8023e634f05f58f2cf6b33ed7cc",
+      "encoding": "plain",
+      "decodedBytes": 990,
+      "decodedSha256": "afa35c4c938943ee3f70b3518b68c5126090ac9f45f479e49f7fabf78b60d0a2",
+      "matchesRetainedText": true
+    },
+    {
+      "role": "Object text member binding",
+      "offset": 8727945,
+      "storedBytes": 920,
+      "storedSha256": "0d337301e743cfc604a4bfc61f684e577f65dee1ffe5799a8a4eef07bfe4a742",
+      "encoding": "plain",
+      "decodedBytes": 916,
+      "decodedSha256": "89bf6b5204d61655edc0886abc1f3f7fd1c37e14dd6f8b5beb086a5c4d5258a6",
+      "matchesRetainedText": true
+    }
+  ],
+  "extra": [
+    {
+      "role": "E117-dialog",
+      "offset": 710524,
+      "storedBytes": 840,
+      "storedSha256": "e8a684d946665ff449ac98caa34db5124e23a91cf0e1e3915c0973b22a319d44",
+      "encoding": "plain",
+      "decodedBytes": 836,
+      "decodedSha256": "6e3cfa0ad6ea408dc7a1cdbac1789aeee31eb7d38ad7faae4ed69c53cd2d166e",
+      "retainedPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-e1-recheck-v3-3758c63b-5217-4b7c-ab39-1c8e90ea32ab\\E117-dialog.txt"
+    },
+    {
+      "role": "object-picker",
+      "offset": 607446,
+      "storedBytes": 741,
+      "storedSha256": "137387cab18bced0baf12e6cfb14c373520e39720e310de17188d40624b647ed",
+      "encoding": "zlib",
+      "decodedBytes": 2580,
+      "decodedSha256": "8c2bc0bf8b611a96c4ab50889c74051e540af35d3ebd553c158081417d05c7bf",
+      "retainedPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-e1-recheck-v3-3758c63b-5217-4b7c-ab39-1c8e90ea32ab\\object-picker.txt"
+    }
+  ],
+  "script": {
+    "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-e1-recheck-v3.cjs",
+    "sha256": "388a5e81c7e8b89c4822a5e83722951e19bd8a2bda1736bd117e971a01021560"
+  },
+  "version": {
+    "selfReportedProduct": "1.6.1",
+    "selfReportedFile": "1.6.1.0",
+    "bytes": 540,
+    "offset": 19562144,
+    "sha256": "114811b8d1898d08021e8997cdfac45190149bf96fbe45acb28ea86cf9bca426",
+    "authority": "Static version payload read at independently inventoried REA PE resource range; does not authenticate distribution"
+  },
+  "completedAt": "2026-10-19T16:12:50.687Z",
+  "passed": true
+}

@@ -18,6 +18,9 @@ export default defineConfig({
       "test/decompile-publication.test.ts",
       "test/push-drift.test.ts",
       "test/push-recovery.test.ts",
+      "test/common-event-workspace.test.ts",
+      "test/common-native-boundaries.test.ts",
+
       "test/troop-safety.test.ts",
       "test/troop-workflow.test.ts",
     ],

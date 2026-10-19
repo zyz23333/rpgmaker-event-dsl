@@ -2,7 +2,6 @@ import type {
   CommonEventDefinition,
   BattleEventPage,
   TroopEventDefinition,
-  CommonEventTrigger,
   DslCommand,
   EventPage,
   AutonomousMovement,
@@ -11,10 +10,11 @@ import type {
   PageConditions,
   PageImage,
   PageOptions,
-  ReferenceValue,
   SwitchDefinition,
   VariableDefinition,
 } from "../domain/types.js";
+import type { CommonEventInput } from "../domain/declarations.js";
+import { assertCommonEventInput } from "../validation/common-events.js";
 
 export function troopEvent(input: Omit<TroopEventDefinition, "kind">): TroopEventDefinition {
   return { ...input, kind: "troopEvent" };
@@ -46,26 +46,9 @@ export function mapEvent(input: {
   };
 }
 
-export function commonEvent(input: {
-  id: number;
-  name: string;
-  trigger: CommonEventTrigger;
-  switch?: ReferenceValue<"switch">;
-  commands: readonly DslCommand[];
-}): CommonEventDefinition {
-  const definition: CommonEventDefinition = {
-    kind: "commonEvent",
-    id: input.id,
-    name: input.name,
-    trigger: input.trigger,
-    commands: input.commands,
-  };
-
-  if (input.switch !== undefined) {
-    definition.switch = input.switch;
-  }
-
-  return definition;
+export function commonEvent(input: CommonEventInput): CommonEventDefinition {
+  assertCommonEventInput(input);
+  return { ...input, kind: "commonEvent" };
 }
 
 export function switchDefinition(input: { id: number; name: string }): SwitchDefinition {

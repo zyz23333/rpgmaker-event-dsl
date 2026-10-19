@@ -9998,6 +9998,856 @@
       "required": true
     },
     {
+      "id": "MV-S5-COMMON-001",
+      "title": "evaluates named-object Common calls against complete current declarations",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+      },
+      "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "name": "MV-S5-COMMON-001: evaluates named-object Common calls against complete current declarations"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-002",
+      "title": "preserves every trigger and independent saved switch through editable source and safe Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+      },
+      "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "name": "MV-S5-COMMON-002: preserves every trigger and independent saved switch through editable source and safe Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-003",
+      "title": "rejects malformed owned Common metadata before any source publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+      },
+      "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "name": "MV-S5-COMMON-003: rejects malformed owned Common metadata before any source publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-004",
+      "title": "rejects malformed formal Common containers without publishing output",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+      },
+      "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "name": "MV-S5-COMMON-004: rejects malformed formal Common containers without publishing output"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-005",
+      "title": "rejects invalid E117 shape through real source",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+      },
+      "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "name": "MV-S5-COMMON-005: rejects invalid E117 shape through real source"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-006",
+      "title": "applies ordinary Switch reference rules",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+      },
+      "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "name": "MV-S5-COMMON-006: applies ordinary Switch reference rules"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-007",
+      "title": "rejects saved Switch references outside actual capacity",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+      },
+      "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "name": "MV-S5-COMMON-007: rejects saved Switch references outside actual capacity"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-008",
+      "title": "reports independent saved-field changes and safely removes entries without compacting IDs",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+      },
+      "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "name": "MV-S5-COMMON-008: reports independent saved-field changes and safely removes entries without compacting IDs"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-009",
+      "title": "resolves E117 only against current complete declarations",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+      },
+      "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "name": "MV-S5-COMMON-009: resolves E117 only against current complete declarations"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-010",
+      "title": "rejects malformed late Common command lists",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+      },
+      "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "name": "MV-S5-COMMON-010: rejects malformed late Common command lists"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-011",
+      "title": "existing handwritten declarations cannot repair an incomplete native candidate",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+      },
+      "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "name": "MV-S5-COMMON-011: existing handwritten declarations cannot repair an incomplete native candidate"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-012",
+      "title": "preserves a distant explicit identity and omitted none default without a picker cap",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+      },
+      "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "name": "MV-S5-COMMON-012: preserves a distant explicit identity and omitted none default without a picker cap"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-013",
+      "title": "preserves known calls and opaque raw payloads while the Script Gate remains effective",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+      },
+      "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "name": "MV-S5-COMMON-013: preserves known calls and opaque raw payloads while the Script Gate remains effective"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-014",
+      "title": "public types require an active trigger Switch and the named E117 input",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+      },
+      "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "name": "MV-S5-COMMON-014: public types require an active trigger Switch and the named E117 input"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-015",
+      "title": "validates direct exported Common definitions before scope construction",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+      },
+      "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "name": "MV-S5-COMMON-015: validates direct exported Common definitions before scope construction"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-016",
+      "title": "preserves caller-dependent current-event operations without inventing a fixed Map context",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+      },
+      "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "name": "MV-S5-COMMON-016: preserves caller-dependent current-event operations without inventing a fixed Map context"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-E1",
+      "title": "Identified editor Common factory/load/edit/save and E117 selection code facts",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Identified RPGMV.exe, complete selected Common database/dialog/factory/serializer resources and E117/object picker initialization/load/save paths",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-history/e1-identity-recheck-v3.json",
+        "sha256": "d3975b3c81f3c00a1bcdd87f2ac98ab4cd813efab5ac93002a8766e9df9033fa"
+      },
+      "expected": "Five required Common owned fields, independent saved switch while trigger none, exact array capacity/null slots and explicit E117 target; compare independent product roundtrip cases without claiming editor UI timing",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-common-event-roundtrip.md",
+        "section": "## E1 编辑器身份与代码事实"
+      },
+      "nativeGroups": [
+        "E1"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0; identified MV1.6.1 editor; read-only extraction, no editor UI execution",
+        "owner": "Codex Ticket23 implementer",
+        "layer": "Read-only resource identity and complete Common initialization/load/edit/serialize code review"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
       "sources": [
         {
           "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
@@ -12005,6 +12855,302 @@
         "layer": "Retained artifact review and actual specified boundary"
       },
       "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-R1-TRIGGERS",
+      "title": "Complete Map/Common trigger and named E117 runtime pair",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Independent self-authored complete native carriers, actual built public Workspace source evaluation and real generated installation, followed by two fresh native processes",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-history/mv23-r1-map-common-delivery-v1.cjs",
+        "sha256": "9874c29142146a36317750e06289581979c5243ccbb5e2193ff02ce912f85821"
+      },
+      "expected": "Complete Map/Common trigger and named E117 runtime pair with exact complete disk/loaded carriers, normal Scene/Input scheduling, valid fresh profiles and owned process ancestry, unchanged engine files, empty stdout/stderr and exit0",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-common-event-roundtrip.md",
+        "section": "## R1/R4 完整产品与原生配对"
+      },
+      "nativeGroups": [
+        "R1"
+      ],
+      "execution": {
+        "environment": "Windows / tool Node22.23.0 / MV1.6.1 / actual NW.js fresh native profiles",
+        "owner": "Codex Ticket23 native delivery operator",
+        "layer": "Actual literal/product public Workspace and normal Scene native execution pair"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-R1-PARALLEL",
+      "title": "Shared-switch Common Parallel wait and shutdown runtime pair",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Independent self-authored complete native carriers, actual built public Workspace source evaluation and real generated installation, followed by two fresh native processes",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-history/mv23-r1-shared-parallel-delivery-v1.cjs",
+        "sha256": "f5b785f49fff58802a47a0277e7c155c4066bbed34809a61f6e305d7f2d9e7d0"
+      },
+      "expected": "Shared-switch Common Parallel wait and shutdown runtime pair with exact complete disk/loaded carriers, normal Scene/Input scheduling, valid fresh profiles and owned process ancestry, unchanged engine files, empty stdout/stderr and exit0",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-common-event-roundtrip.md",
+        "section": "## R1/R4 完整产品与原生配对"
+      },
+      "nativeGroups": [
+        "R1"
+      ],
+      "execution": {
+        "environment": "Windows / tool Node22.23.0 / MV1.6.1 / actual NW.js fresh native profiles",
+        "owner": "Codex Ticket23 native delivery operator",
+        "layer": "Actual literal/product public Workspace and normal Scene native execution pair"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-R1-AUTORUN",
+      "title": "Lowest active Common Autorun ID selection runtime pair",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Independent self-authored complete native carriers, actual built public Workspace source evaluation and real generated installation, followed by two fresh native processes",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-history/mv23-r1-low-autorun-delivery-v1.cjs",
+        "sha256": "f458c48f593520d69b7d26c5a4ac2b4393bc6cf1947a7f153f4523940f04b0d8"
+      },
+      "expected": "Lowest active Common Autorun ID selection runtime pair with exact complete disk/loaded carriers, normal Scene/Input scheduling, valid fresh profiles and owned process ancestry, unchanged engine files, empty stdout/stderr and exit0",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-common-event-roundtrip.md",
+        "section": "## R1/R4 完整产品与原生配对"
+      },
+      "nativeGroups": [
+        "R1"
+      ],
+      "execution": {
+        "environment": "Windows / tool Node22.23.0 / MV1.6.1 / actual NW.js fresh native profiles",
+        "owner": "Codex Ticket23 native delivery operator",
+        "layer": "Actual literal/product public Workspace and normal Scene native execution pair"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-R4-CONTEXT",
+      "title": "Same Common formal current-event and self-switch behavior from Map and Battle",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Independent self-authored complete native carriers, actual built public Workspace source evaluation and real generated installation, followed by two fresh native processes",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-history/mv23-r4-common-context-delivery-v1.cjs",
+        "sha256": "f0d2e2116fbc56cce6d646ae04f8a83c729f43cade0dae366d84a1ae1a398af7"
+      },
+      "expected": "Same Common formal current-event and self-switch behavior from Map and Battle with exact complete disk/loaded carriers, normal Scene/Input scheduling, valid fresh profiles and owned process ancestry, unchanged engine files, empty stdout/stderr and exit0",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-common-event-roundtrip.md",
+        "section": "## R1/R4 完整产品与原生配对"
+      },
+      "nativeGroups": [
+        "R4"
+      ],
+      "execution": {
+        "environment": "Windows / tool Node22.23.0 / MV1.6.1 / actual NW.js fresh native profiles",
+        "owner": "Codex Ticket23 native delivery operator",
+        "layer": "Actual literal/product public Workspace and normal Scene native execution pair"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-CARRIER-BOUNDARY",
+      "title": "Reject missing or nonnull Common reserved slot0 and preserve ordinary null-only carrier",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent literal raw CommonEvents JSON through actual public Workspace Clone/Decompile and failure state comparison",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/common-native-boundaries.test.ts",
+        "sha256": "753086580887ae763c959668b376897171e9d22231cea8f7ca25eb9d61255db7"
+      },
+      "expected": "Reject missing or nonnull Common reserved slot0 and preserve ordinary null-only carrier",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/common-native-boundaries.test.ts",
+        "name": "$requirementId: rejects $label before source publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-TRIGGER-BOUNDARY",
+      "title": "Reject categorical Common trigger negative zero with exact diagnostic and unchanged complete business state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent literal raw CommonEvents JSON through actual public Workspace Clone/Decompile and failure state comparison",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/common-native-boundaries.test.ts",
+        "sha256": "753086580887ae763c959668b376897171e9d22231cea8f7ca25eb9d61255db7"
+      },
+      "expected": "Reject categorical Common trigger negative zero with exact diagnostic and unchanged complete business state",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/common-native-boundaries.test.ts",
+        "name": "$requirementId: rejects $label before source publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "23 / S5",
       "required": true
     },
     {

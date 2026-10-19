@@ -1,0 +1,35 @@
+{
+  "root": "C:/Users/Shuen/.codex/tmp/mv23-merger-common-null-only-4f0f0027-c9c2-4c43-a5ee-268b84fea96f",
+  "node": "v22.23.0",
+  "packageRoot": "C:/Users/Shuen/.codex/worktrees/mv-ticket-23/rpgmaker-event-dsl/packages/rpgmaker-event-dsl",
+  "revision": "59de6e9745ce1508299ff5acbbf80c59fbf2c9b3",
+  "dist": {
+    "authoring-lUIpLVVQ.mjs": "5a1a46631e3867b5ed5684311fd768192a3ca1c30bf412130d56b0f147ef38a6",
+    "authoring-lUIpLVVQ.mjs.map": "ba46ce0936e6499bc578315dc11388685c9ecb9544950931d12a07b6ff705e74",
+    "cli.d.mts": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee",
+    "cli.d.mts.map": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c",
+    "cli.mjs": "ba1c21b918cd547a141b51704f5afbc0080b6aec2e911e3af4ba0fce2fa48afa",
+    "cli.mjs.map": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8",
+    "index.d.mts": "750e98e889960586244eb444e4804015ec1778068477028cba03a31a91485a4b",
+    "index.d.mts.map": "24cbd12c51f2654e0b434f6e40fc92ed746e79c79d4b733287663b7e0b2e2bee",
+    "index.mjs": "a3423d496aa7bbc3c8df8927644856d5c2a25d4b14472ea94b444acf116636c7",
+    "index.mjs.map": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36",
+    "operations-CcVPhKUn.mjs": "dd075a35bf0178a0419e8025fffef59a8996671bff781588af2e67e8b8bc8161",
+    "operations-CcVPhKUn.mjs.map": "e7b65bca71c86eceaf49435206d86cfd9ea5f84520a21e5182cb0b544d07220c",
+    "workspace-api.d.mts": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594",
+    "workspace-api.d.mts.map": "5c00024325238da7b6368529ed69e33839a8a4f0baeed1eb2e79f65c877ebbe8",
+    "workspace-api.mjs": "9ea67671b14ec09e935fc9df5aacb852ccbdb37361fc3c06b99b1d0c4d0240c5"
+  },
+  "mode": "null-only",
+  "actual": {
+    "ok": true,
+    "originalText": "[null]",
+    "generated": [
+      null
+    ],
+    "deepEqual": true,
+    "originalNegativeZero": false,
+    "generatedNegativeZero": false,
+    "diff": "Structured Diff Report\n\nAffected Project Data Files:\n- none\n\nDestructive Changes: no"
+  }
+}

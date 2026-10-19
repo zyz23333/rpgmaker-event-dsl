@@ -141,7 +141,7 @@ describe("collectDslOwnedDeclarations", () => {
         name: "Beta",
         trigger: "none",
         switch: switchRef({ id: 1 }),
-        commands: [callCommonEvent(commonEventRef({ name: "SomeCommonEvent" }))],
+        commands: [callCommonEvent({ commonEvent: commonEventRef({ name: "SomeCommonEvent" }) })],
       }),
       gamma: switchDefinition({
         id: 2,

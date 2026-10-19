@@ -175,7 +175,8 @@ export type {
   WaitDslCommand,
   WeatherEffectType,
 } from "../domain/types.js";
-export { collectDslOwnedDeclarations, isDslOwnedDeclaration } from "../domain/declarations.js";
+export { collectDslOwnedDeclarations } from "../validation/declarations.js";
+export { isDslOwnedDeclaration } from "../domain/declarations.js";
 export {
   isAssetReference,
   isProjectDataReference,

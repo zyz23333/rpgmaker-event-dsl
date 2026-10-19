@@ -53,14 +53,16 @@ export type MapEventDefinition = {
   pages: readonly [EventPage, ...EventPage[]];
 };
 
-export type CommonEventDefinition = {
-  kind: "commonEvent";
+export type CommonEventInput = {
   id: number;
   name: string;
-  trigger: CommonEventTrigger;
-  switch?: ReferenceValue<"switch">;
   commands: readonly DslCommand[];
-};
+} & (
+  | { trigger: "none"; switch?: ReferenceValue<"switch"> }
+  | { trigger: "autorun" | "parallel"; switch: ReferenceValue<"switch"> }
+);
+
+export type CommonEventDefinition = CommonEventInput & { kind: "commonEvent" };
 
 export type CommonEventTrigger = "none" | "autorun" | "parallel";
 
@@ -110,23 +112,6 @@ export type PageConditions = {
     atLeast: number;
   };
 };
-
-export function collectDslOwnedDeclarations(
-  moduleExports: Record<string, unknown>,
-): DslOwnedDeclaration[] {
-  const definitions: DslOwnedDeclaration[] = [];
-
-  for (const [name, value] of Object.entries(moduleExports)) {
-    if (name === "default") {
-      throw new Error("Default export is not allowed for DSL-owned declarations.");
-    }
-    if (isDslOwnedDeclaration(value)) {
-      definitions.push(value);
-    }
-  }
-
-  return definitions;
-}
 
 export function isDslOwnedDeclaration(value: unknown): value is DslOwnedDeclaration {
   return (

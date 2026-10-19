@@ -202,7 +202,7 @@ export type ExitEventProcessingDslCommand = {
 
 export type CommonEventDslCommand = {
   kind: "commonEvent";
-  ref: ReferenceValue<"commonEvent">;
+  commonEvent: ReferenceValue<"commonEvent">;
 };
 
 export type LabelDslCommand = {

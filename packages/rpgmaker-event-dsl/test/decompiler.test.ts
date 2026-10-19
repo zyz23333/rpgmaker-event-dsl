@@ -213,7 +213,7 @@ describe("decompiler command list rendering", () => {
       ],
       source: [
         "wait(30),",
-        "callCommonEvent(commonEventRef({ id: 4 })),",
+        "callCommonEvent({ commonEvent: commonEventRef({ id: 4 }) }),",
         'controlSwitches({ switch: { kind: "referenceRange", from: switchRef({ id: 2 }), to: switchRef({ id: 4 }) }, value: true }),',
         'controlVariables({ variable: { kind: "referenceRange", from: variableRef({ id: 3 }), to: variableRef({ id: 5 }) }, operation: "add", value: { kind: "gameData", source: "actor", actor: actorRef({ id: 1 }), value: "level" } }),',
         'controlVariables({ variable: variableRef({ id: 3 }), operation: "set", value: { kind: "script", script: scriptInput({ code: "$gameParty.gold()" }) } }),',
