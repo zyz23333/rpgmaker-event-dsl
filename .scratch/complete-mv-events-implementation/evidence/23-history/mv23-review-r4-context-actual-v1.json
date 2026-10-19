@@ -1,0 +1,148 @@
+{
+  "root": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r4-common-context-delivery-v1-a3da72cd-5408-4880-8367-81669331aa6b",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "C:\\Users\\Shuen\\.codex\\tmp\\mv23-r4-common-context-delivery-v1-a3da72cd-5408-4880-8367-81669331aa6b\\compiled\\Workspace",
+    "files": {
+      "Map001.json": {
+        "beforePushSha256": "9d3aa7dc6ae69400fc1c5112460652b21c79fd8d7d04f52fe37bd52c0ee208d9",
+        "generatedSha256": "c4fd2fcff99c4185da53358c772f37cc64d9f2eb6d7c30906c354b50042b6bf8",
+        "afterPushSha256": "c4fd2fcff99c4185da53358c772f37cc64d9f2eb6d7c30906c354b50042b6bf8",
+        "actualReplacementProven": true
+      },
+      "CommonEvents.json": {
+        "beforePushSha256": "68f84181663b40a07547b6244633dc0ae1cab9917d464c1f6de01da6076e9a4f",
+        "generatedSha256": "f87a87803669857d800034378b9548fe5d3ec1f0604c586361727c80a2c27bde",
+        "afterPushSha256": "f87a87803669857d800034378b9548fe5d3ec1f0604c586361727c80a2c27bde",
+        "actualReplacementProven": true
+      },
+      "Troops.json": {
+        "beforePushSha256": "c68644e0e23ebfa178f3794b3cc50a9a909abe6a5c51c0db1b008350be01aa5c",
+        "generatedSha256": "ea91cfe90061ce74cceca492514f43f71257b2d1981706d372d31fbea8163eeb",
+        "afterPushSha256": "ea91cfe90061ce74cceca492514f43f71257b2d1981706d372d31fbea8163eeb",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "contexts": [
+          {
+            "mapId": 1,
+            "eventId": 7,
+            "inBattle": false,
+            "characterEventId": 7,
+            "characterPosition": [
+              10,
+              6
+            ],
+            "mapSelfA": true,
+            "zeroSelfA": false
+          },
+          {
+            "mapId": 1,
+            "eventId": 0,
+            "inBattle": true,
+            "characterEventId": null,
+            "characterPosition": null,
+            "mapSelfA": true,
+            "zeroSelfA": false
+          }
+        ],
+        "mapTraces": [
+          "before-call",
+          "after-call",
+          "after-battle"
+        ],
+        "victoryCount": 1,
+        "returned": true,
+        "realBattle": true,
+        "savedNoneSwitch9": 9,
+        "traceCounts": {
+          "map": 3,
+          "common": 2
+        }
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "contexts": [
+          {
+            "mapId": 1,
+            "eventId": 7,
+            "inBattle": false,
+            "characterEventId": 7,
+            "characterPosition": [
+              10,
+              6
+            ],
+            "mapSelfA": true,
+            "zeroSelfA": false
+          },
+          {
+            "mapId": 1,
+            "eventId": 0,
+            "inBattle": true,
+            "characterEventId": null,
+            "characterPosition": null,
+            "mapSelfA": true,
+            "zeroSelfA": false
+          }
+        ],
+        "mapTraces": [
+          "before-call",
+          "after-call",
+          "after-battle"
+        ],
+        "victoryCount": 1,
+        "returned": true,
+        "realBattle": true,
+        "savedNoneSwitch9": 9,
+        "traceCounts": {
+          "map": 3,
+          "common": 2
+        }
+      },
+      "error": null
+    }
+  }
+}

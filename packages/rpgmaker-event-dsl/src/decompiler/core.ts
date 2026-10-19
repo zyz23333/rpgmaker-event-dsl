@@ -8,7 +8,7 @@ import { readProjectDataSnapshotFile, type WorkspaceStatePaths } from "../worksp
 import type { RawEventCommand } from "../compiler/types.js";
 import type { SnapshotCommonEvent, SnapshotMapEvent, SnapshotMapEventPage } from "./types.js";
 import { readNativePageMovement } from "../commands/movement/page.js";
-import { renderJsonValue } from "../project-data/json-values.js";
+import { describeValue, renderJsonValue } from "../project-data/json-values.js";
 import {
   CommandStructureError,
   inspectCommandListStructure,
@@ -170,29 +170,58 @@ export function readMapEventPages(value: unknown, identity?: string): SnapshotMa
 }
 
 export function readCommonEvents(value: readonly unknown[]): SnapshotCommonEvent[] {
-  return value.flatMap((entry) => {
-    if (!entry || typeof entry !== "object") {
-      return [];
-    }
-
-    const record = entry as Record<string, unknown>;
-    const id = readPositiveInteger(record.id);
-    if (id === null) {
-      return [];
-    }
-
-    const output: SnapshotCommonEvent = {
-      id,
-      list: readRawCommandList(record.list, `commonEvent:${id}`),
-      name: typeof record.name === "string" ? record.name : `Common Event ${id}`,
-      trigger: typeof record.trigger === "number" ? record.trigger : 0,
+  if (value.length === 0 || value[0] !== null)
+    throw new CommandStructureError(
+      "MV-COMMON-EVENT",
+      "Common Event data requires a reserved null first slot.",
+      {
+        nativePath: "CommonEvents[0]",
+        expected: "present null reserved slot",
+        actual: describeValue(value[0]),
+      },
+      "commonEvents",
+      "decompile",
+    );
+  return value.flatMap((entry, index) => {
+    if (entry === null) return [];
+    const fail = (field: string, expected: string, actual: unknown): never => {
+      throw new CommandStructureError(
+        "MV-COMMON-EVENT",
+        "Invalid owned Common Event saved state.",
+        {
+          nativePath: `CommonEvents[${index}]${field ? `.${field}` : ""}`,
+          expected,
+          actual: describeValue(actual),
+        },
+        `commonEvent:${index}`,
+        "decompile",
+      );
     };
-
-    if (typeof record.switchId === "number") {
-      output.switchId = record.switchId;
-    }
-
-    return [output];
+    if (typeof entry !== "object" || Array.isArray(entry))
+      fail("", "Common Event object or null hole", entry);
+    const record = entry as Record<string, unknown>;
+    for (const field of Object.keys(record))
+      if (!["id", "name", "trigger", "switchId", "list"].includes(field))
+        fail(field, "only id, name, trigger, switchId and list", record[field]);
+    if (index === 0 || record.id !== index)
+      fail("id", "positive ID matching the array position", record.id);
+    if (typeof record.name !== "string") fail("name", "present string", record.name);
+    if (
+      Object.is(record.trigger, -0) ||
+      (record.trigger !== 0 && record.trigger !== 1 && record.trigger !== 2)
+    )
+      fail("trigger", "0, 1 or 2", record.trigger);
+    if (!Number.isSafeInteger(record.switchId) || (record.switchId as number) <= 0)
+      fail("switchId", "positive safe integer", record.switchId);
+    return [
+      {
+        id: index,
+        list: readRawCommandList(record.list, `commonEvent:${index}`),
+        name: record.name as string,
+        trigger: record.trigger as 0 | 1 | 2,
+        switchId: record.switchId as number,
+      },
+    ];
   });
 }
 

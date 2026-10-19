@@ -14,7 +14,7 @@ import { captureReferenceIssue } from "./shared.js";
 import { isReferenceValue } from "./inspection.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
 import { assertNativeContextReferences } from "./native-context-references.js";
-import { assertLoopCommand } from "../commands/flow/validation.js";
+import { resolveCommonEventCall, assertLoopCommand } from "../commands/flow/validation.js";
 import {
   assertSetMovementRoute,
   validateNativeMovementRouteInputs,
@@ -205,7 +205,14 @@ export function validateNodes(
       }
     }
     if (node.kind === "commonEvent") {
-      captureReferenceIssue(() => resolver.resolveReference(node.ref), issues);
+      try {
+        resolveCommonEventCall(node, resolver, nodePath);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+        continue;
+      }
     }
     if (node.kind === "transferPlayer") {
       validateMapDestination(node.destination, resolver, issues);
