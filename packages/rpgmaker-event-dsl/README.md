@@ -79,6 +79,13 @@ Removing a name retains that capacity; referencing an ID does not expand it.
 Switch and variable names resolve only from unique DSL declarations. Existing
 database entries with empty names remain referenceable by ID.
 
+Workspace validation resolves Animations, Tilesets, Enemy entries and maps from the
+captured Snapshot, retaining empty-name IDs. Fixed targets of `showAnimation`,
+`changeTileset` and `enemyTransform` are checked in formal commands, recognized raw
+records and before Decompile publishes source. Runtime enemy positions and dynamic
+equipment candidates retain their selector meaning. Capture database changes with
+`pull` before compiling against them.
+
 `controlSwitches` ranges include both endpoints and reject reversed order.
 `controlSwitches` and `controlSelfSwitch` require an explicit Boolean `value`;
 self-switch letters are A–D. A Common Event called by a Map Event inherits its

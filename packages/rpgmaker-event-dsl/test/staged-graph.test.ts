@@ -579,7 +579,7 @@ describe("validateDslOwnedDeclarations", () => {
     expect(result.issues.map((issue) => issue.message)).toEqual(
       expect.arrayContaining([
         "Show Animation target must use the character runtime selector scope.",
-        "Unknown animation reference id: 99",
+        "MV-E212-REFERENCE validation map 1 event 1.pages[0].commands[0].animation: Unknown animation reference id: 99",
         "Show Balloon Icon target event id must be a positive integer.",
       ]),
     );
@@ -947,7 +947,7 @@ describe("validateDslOwnedDeclarations", () => {
 
     expect(validResult.issues).toEqual([]);
     expect(missingResult.issues.map((issue) => issue.message)).toContain(
-      "Unknown tileset reference id: 99",
+      "MV-E282-REFERENCE validation map 1 event 1.pages[0].commands[0].tileset: Unknown tileset reference id: 99",
     );
   });
 
@@ -997,7 +997,7 @@ describe("validateDslOwnedDeclarations", () => {
 
     expect(validResult.issues).toEqual([]);
     expect(invalidResult.issues.map((issue) => issue.message)).toContain(
-      "Unknown enemy reference id: 99",
+      "MV-E336-REFERENCE validation map 1 event 1.pages[0].commands[0].enemy: Unknown enemy reference id: 99",
     );
   });
 

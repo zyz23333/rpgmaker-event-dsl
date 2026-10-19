@@ -27,10 +27,10 @@ import {
   buildStagedDataGraph,
   buildSnapshotReferenceInput,
   validateStagedDataGraph,
-  type SnapshotReferenceInput,
   type SnapshotReferenceSource,
 } from "../validation/staged-graph.js";
-import type { SnapshotMapValidationEntry } from "../validation/types.js";
+import type { SnapshotMapValidationEntry, SnapshotValidationInput } from "../validation/types.js";
+import { readPositiveInteger } from "../validation/snapshot.js";
 import {
   buildStructuredDiffReport,
   deriveAffectedProjectDataFiles,
@@ -103,6 +103,11 @@ export async function compileWorkspace(options: CompileWorkspaceOptions): Promis
     declarations: definitionInput.declarations,
     snapshotReferences: snapshotInput.references,
     snapshotMaps: snapshotInput.maps,
+    snapshotTroops: snapshotInput.troops,
+    snapshotTilesets: snapshotInput.tilesets,
+    ...("equipmentTypes" in snapshotInput
+      ? { snapshotEquipmentTypes: snapshotInput.equipmentTypes }
+      : {}),
   });
   const validation = validateStagedDataGraph(graph, {
     scriptEnabled: workspace.config.scriptEnabled,
@@ -205,12 +210,13 @@ async function loadDiscoveredDefinitionInput(
   return { declarations, files, sourceFileHashes };
 }
 
-async function loadSnapshotValidationInput(
+export async function loadSnapshotValidationInput(
   statePaths: WorkspaceStatePaths,
-): Promise<{ references: SnapshotReferenceInput; maps: SnapshotMapValidationEntry[] }> {
+): Promise<SnapshotValidationInput> {
   const mapInfos = parseMapInfos(await readSnapshotFile(statePaths, "MapInfos.json"));
   const snapshotSource: SnapshotReferenceSource = {
     actors: await readSnapshotArray(statePaths, "Actors.json"),
+    animations: await readSnapshotArray(statePaths, "Animations.json"),
     armors: await readSnapshotArray(statePaths, "Armors.json"),
     classes: await readSnapshotArray(statePaths, "Classes.json"),
     commonEvents: await readSnapshotArray(statePaths, "CommonEvents.json"),
@@ -219,6 +225,7 @@ async function loadSnapshotValidationInput(
     mapInfos,
     skills: await readSnapshotArray(statePaths, "Skills.json"),
     states: await readSnapshotArray(statePaths, "States.json"),
+    tilesets: await readSnapshotArray(statePaths, "Tilesets.json"),
     troops: await readSnapshotArray(statePaths, "Troops.json"),
     system: await readSnapshotObject(statePaths, "System.json"),
     weapons: await readSnapshotArray(statePaths, "Weapons.json"),
@@ -228,7 +235,27 @@ async function loadSnapshotValidationInput(
     mapInfos.map(async ({ id }) => readSnapshotMapValidationEntry(statePaths, id)),
   );
 
-  return { references: buildSnapshotReferenceInput(snapshotSource), maps };
+  return {
+    references: buildSnapshotReferenceInput(snapshotSource),
+    maps,
+    troops: readCarrierContext(snapshotSource.troops ?? [], "members"),
+    tilesets: readCarrierContext(snapshotSource.tilesets ?? [], "tilesetNames"),
+    ...(snapshotSource.system !== undefined && "equipTypes" in snapshotSource.system
+      ? { equipmentTypes: snapshotSource.system.equipTypes }
+      : {}),
+  };
+}
+
+function readCarrierContext(
+  entries: readonly unknown[],
+  field: "members" | "tilesetNames",
+): { id: number; members?: unknown; tilesetNames?: unknown }[] {
+  return entries.flatMap((entry) => {
+    if (entry === null || typeof entry !== "object" || Array.isArray(entry)) return [];
+    const record = entry as Record<string, unknown>;
+    const id = readPositiveInteger(record.id);
+    return id === null ? [] : [{ id, ...(field in record ? { [field]: record[field] } : {}) }];
+  });
 }
 
 async function readSnapshotMapValidationEntry(
@@ -262,6 +289,7 @@ async function readSnapshotMapValidationEntry(
     id: mapId,
     ...(width === undefined ? {} : { width }),
     ...(height === undefined ? {} : { height }),
+    ...("tilesetId" in map ? { tilesetId: map.tilesetId } : {}),
     eventLocations,
   };
 }
@@ -283,13 +311,13 @@ function readOptionalMapDimension(
 async function readSnapshotArray(
   statePaths: WorkspaceStatePaths,
   relativePath: string,
-): Promise<(Record<string, unknown> | null | undefined)[]> {
+): Promise<unknown[]> {
   const parsed = JSON.parse(await readSnapshotFile(statePaths, relativePath));
   if (!Array.isArray(parsed)) {
     throw new Error(`Expected snapshot ${relativePath} to contain a JSON array.`);
   }
 
-  return parsed as (Record<string, unknown> | null | undefined)[];
+  return parsed as unknown[];
 }
 
 async function readSnapshotObject(

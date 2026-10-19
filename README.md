@@ -82,6 +82,15 @@ or extend a slot. Name references to switches and variables resolve only against
 unique DSL declarations; Snapshot names do not provide a fallback. Other database
 references can use an existing numeric ID even when that entry's name is empty.
 
+Workspace reference validation uses the captured Snapshot, including Animations,
+Tilesets and empty-name maps. `showAnimation`, `changeTileset` and `enemyTransform`
+require an existing fixed target in both formal and recognized raw commands;
+Decompile checks these targets before publishing source. Runtime enemy positions
+and equipment candidates remain selectors rather than database references. The
+Snapshot retains complete troop member order, including hidden members and missing
+Enemy IDs, and the complete System equipment slot configuration for contextual
+validation. Use `pull` to capture subsequent editor-side database changes.
+
 `controlSwitches(...)` accepts one switch reference or an inclusive
 `{ kind: "referenceRange", from: switchRef({ id: 1 }), to: switchRef({ id: 3 }) }`.
 Both endpoints must exist in the final capacity; unnamed intermediate slots are
