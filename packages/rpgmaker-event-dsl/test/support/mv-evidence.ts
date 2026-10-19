@@ -187,16 +187,20 @@ export async function validateRequirements(): Promise<void> {
     throw new Error("Human checklist has missing, duplicate, or unknown requirement IDs");
   }
   const resultsRoot = join(evidenceRoot, "results");
+  const requirementsById = new Map(
+    index.requirements.map((requirement) => [requirement.id, requirement]),
+  );
   const runIds = new Set<string>();
   const resultPaths = (await listFiles(resultsRoot)).filter((path) => path.endsWith(".json"));
-  for (let offset = 0; offset < resultPaths.length; offset += 8) {
-    const batch = resultPaths.slice(offset, offset + 8);
+  const resultBatchSize = 32;
+  for (let offset = 0; offset < resultPaths.length; offset += resultBatchSize) {
+    const batch = resultPaths.slice(offset, offset + resultBatchSize);
     const contents = await Promise.allSettled(batch.map((path) => readFile(path, "utf8")));
     for (const [position, path] of batch.entries()) {
       const content = contents[position]!;
       if (content.status === "rejected") throw content.reason;
       const result = resultSchema.parse(JSON.parse(content.value));
-      const requirement = index.requirements.find(({ id }) => id === result.requirementId);
+      const requirement = requirementsById.get(result.requirementId);
       if (requirement === undefined)
         throw new Error(`Result references unknown requirement: ${path}`);
       if (runIds.has(result.runId)) throw new Error(`Duplicate run ID: ${path}`);
