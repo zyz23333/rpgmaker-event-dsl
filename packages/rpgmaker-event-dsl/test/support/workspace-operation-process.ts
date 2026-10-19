@@ -36,7 +36,12 @@ export function startWorkspaceOperation(
       | "input-validation"
       | "compile-manifest"
       | "generated-write-failure"
-      | "generated-installation-failure";
+      | "generated-installation-failure"
+      | "decompile-stage"
+      | "before-decompile-move"
+      | "after-decompile-move"
+      | "decompile-write-failure"
+      | "decompile-move-unavailable";
     captureFile?: string;
     barrier?: boolean;
   },

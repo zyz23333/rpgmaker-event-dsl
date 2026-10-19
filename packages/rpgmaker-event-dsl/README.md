@@ -49,6 +49,18 @@ If you already have event data in the RPG Maker MV project, generate starter DSL
 rpgmaker-event-dsl decompile
 ```
 
+Decompile checks the complete candidate at its final source location, then publishes
+`sourceRoot/decompiled/` in one non-overwriting directory move. The entire destination
+must be absent, including an empty directory or junction. All generated files must
+match source discovery, and their identities must not conflict with existing source.
+Existing source provides identities only; it cannot repair candidate references.
+
+Use `"type": "module"` in the source package. Complete publication requires Windows
+PowerShell, an existing source root, and source/state paths on the same filesystem.
+`init` creates the default `src`; pre-create a custom source root. Unsupported paths
+fail before publishing. Isolated interrupted candidates remain permanently outside
+Discovery. A retry after a completed move reports that the destination already exists.
+
 After editing DSL source, validate, compile, review, and push:
 
 ```bash

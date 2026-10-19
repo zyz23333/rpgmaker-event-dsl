@@ -255,6 +255,8 @@ describe("decompile workflow", () => {
     await writeProjectFixture(projectRoot, { secondMap: true });
     await writeWorkspaceConfig(workspaceRoot);
     await writeDslPackageTypes(workspaceRoot);
+    await mkdir(join(workspaceRoot, "src"), { recursive: true });
+    await writeFile(join(workspaceRoot, "package.json"), '{"type":"module"}\n');
     await writeFile(
       join(projectRoot, "data", "Map001.json"),
       JSON.stringify({
@@ -409,7 +411,7 @@ describe("decompile workflow", () => {
     );
 
     await expect(decompileWorkspace({ workspaceRoot })).rejects.toThrow(
-      "Decompile output already exists",
+      "Decompile destination already exists",
     );
 
     await expect(
