@@ -152,18 +152,18 @@ export function renderShowChoicesCommand(
 
   const fields = [`choices: [${branchExpressions.join(", ")}]`];
 
-  if (cancelBranch === null && cancelType !== 1) {
+  if (cancelBranch === null && !Object.is(cancelType, 1)) {
     fields.push(
       cancelType === -1
         ? 'cancel: { kind: "disabled" }'
-        : `cancel: { kind: "choice", index: ${cancelType} }`,
+        : `cancel: { kind: "choice", index: ${literal(cancelType)} }`,
     );
   }
-  if (defaultType !== 0) {
+  if (!Object.is(defaultType, 0)) {
     fields.push(
       defaultType === -1
         ? 'defaultChoice: { kind: "none" }'
-        : `defaultChoice: { kind: "choice", index: ${defaultType} }`,
+        : `defaultChoice: { kind: "choice", index: ${literal(defaultType)} }`,
     );
   }
   if (positionType !== 2) {

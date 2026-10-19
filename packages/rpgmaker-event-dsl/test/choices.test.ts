@@ -27,6 +27,49 @@ const nativeChoices: RawEventCommand[] = [
 ];
 
 it.each([
+  { name: "cancel", cancel: -0, defaultChoice: 0 },
+  { name: "default", cancel: 0, defaultChoice: -0 },
+  { name: "both", cancel: -0, defaultChoice: -0 },
+])(
+  "preserves numeric saved choice indices with negative zero in $name through formal, raw and decompile",
+  ({ cancel, defaultChoice }) => {
+    const expected = structuredClone(nativeChoices);
+    expected[0]!.parameters[1] = cancel;
+    expected[0]!.parameters[2] = defaultChoice;
+    const formal = showChoices({
+      choices: [
+        { text: "one", commands: [] },
+        { text: "two", commands: [] },
+      ],
+      cancel: { kind: "choice", index: cancel },
+      defaultChoice: { kind: "choice", index: defaultChoice },
+    });
+    for (const commands of [[formal], expected.slice(0, -1).map(rawDslCommand)]) {
+      const event = commonEvent({
+        id: 1,
+        name: "Numeric saved indices",
+        trigger: "none",
+        commands,
+      });
+      expect(validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues).toEqual([]);
+      expect(
+        compileCommonEvent(event, {
+          nextId: 1,
+          resolver: buildStagedDataGraph({ declarations: [] }).resolver,
+        }).list,
+      ).toStrictEqual(expected);
+    }
+    const source = renderDecompiledCommandList(expected).source;
+    expect(source).toContain(
+      `cancel: { kind: "choice", index: ${Object.is(cancel, -0) ? "-0" : "0"} }`,
+    );
+    if (Object.is(defaultChoice, -0))
+      expect(source).toContain('defaultChoice: { kind: "choice", index: -0 }');
+    else expect(source).not.toContain("defaultChoice:");
+  },
+);
+
+it.each([
   { index: 0, warn: false },
   { index: 1, warn: false },
   { index: 2, warn: true },
@@ -300,10 +343,8 @@ it.each([
   { slot: 1, value: -3 },
   { slot: 1, value: 6 },
   { slot: 1, value: 0.5 },
-  { slot: 1, value: -0 },
   { slot: 2, value: -2 },
   { slot: 2, value: 6 },
-  { slot: 2, value: -0 },
   { slot: 3, value: 3 },
   { slot: 3, value: -0 },
   { slot: 4, value: 3 },
@@ -411,10 +452,6 @@ it.each([
   {
     input: { choices: [{ text: "", commands: [] }], cancel: { kind: "none" } },
     path: ".cancel.kind",
-  },
-  {
-    input: { choices: [{ text: "", commands: [] }], cancel: { kind: "choice", index: -0 } },
-    path: ".cancel.index",
   },
   { input: { choices: [{ text: "", commands: [undefined] }] }, path: ".choices[0].commands[0]" },
   {

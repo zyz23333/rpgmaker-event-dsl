@@ -7,6 +7,69 @@ import { createMinimalProject, withWindowsSandbox } from "./support/windows-sand
 
 const api: typeof import("../src/workspace-api.js") = await import(workspaceApiEntry);
 
+it.each([
+  { name: "native positive zero", kind: "native", cancel: "0", defaultChoice: "0" },
+  { name: "native cancel negative zero", kind: "native", cancel: "-0", defaultChoice: "0" },
+  { name: "native default negative zero", kind: "native", cancel: "0", defaultChoice: "-0" },
+  { name: "native both negative zero", kind: "native", cancel: "-0", defaultChoice: "-0" },
+  { name: "formal positive zero", kind: "formal", cancel: "0", defaultChoice: "0" },
+  { name: "formal cancel negative zero", kind: "formal", cancel: "-0", defaultChoice: "0" },
+  { name: "formal default negative zero", kind: "formal", cancel: "0", defaultChoice: "-0" },
+])(
+  "preserves numeric saved choice indices through Workspace $name",
+  async ({ kind, cancel, defaultChoice }) => {
+    await withWindowsSandbox("choices-numeric-indices", async ({ workspaceRoot }) => {
+      await createMinimalProject(workspaceRoot);
+      const expected = JSON.parse(
+        `[null,{"id":1,"name":"Numeric saved indices","trigger":0,"switchId":1,"list":[{"code":102,"indent":0,"parameters":[[""],${cancel},${defaultChoice},2,0]},{"code":402,"indent":0,"parameters":[0,""]},{"code":0,"indent":1,"parameters":[]},{"code":404,"indent":0,"parameters":[]},{"code":0,"indent":0,"parameters":[]}]}]`,
+      );
+      const live = join(workspaceRoot, "Game/data/CommonEvents.json");
+      if (kind === "native")
+        await writeFile(
+          live,
+          `[null,{"id":1,"name":"Numeric saved indices","trigger":0,"switchId":1,"list":[{"code":102,"indent":0,"parameters":[[""],${cancel},${defaultChoice},2,0]},{"code":402,"indent":0,"parameters":[0,""]},{"code":0,"indent":1,"parameters":[]},{"code":404,"indent":0,"parameters":[]},{"code":0,"indent":0,"parameters":[]}]}]`,
+        );
+      await api.initWorkspace({ workspaceRoot, projectRoot: "./Game" });
+      await api.cloneWorkspace({ workspaceRoot });
+      await api.decompileWorkspace({ workspaceRoot });
+      if (kind === "formal")
+        await writeFile(
+          join(workspaceRoot, "src/decompiled/common-events.events.ts"),
+          `import {commonEvent,showChoices} from "rpgmaker-event-dsl";export const event=commonEvent({id:1,name:"Numeric saved indices",trigger:"none",commands:[showChoices({choices:[{text:"",commands:[]}],cancel:{kind:"choice",index:${cancel}},defaultChoice:{kind:"choice",index:${defaultChoice}}})]});`,
+        );
+      else {
+        const source = await readFile(
+          join(workspaceRoot, "src/decompiled/common-events.events.ts"),
+          "utf8",
+        );
+        expect(source).not.toContain("rawDslCommand");
+        if (cancel === "-0") expect(source).toContain('cancel: { kind: "choice", index: -0 }');
+        if (defaultChoice === "-0")
+          expect(source).toContain('defaultChoice: { kind: "choice", index: -0 }');
+        else expect(source).not.toContain("defaultChoice:");
+      }
+      const before = await business(workspaceRoot);
+      await api.compileWorkspace({ workspaceRoot, check: true });
+      expect(await business(workspaceRoot)).toStrictEqual(before);
+      await api.compileWorkspace({ workspaceRoot, check: false });
+      expect(
+        JSON.parse(
+          await readFile(
+            join(workspaceRoot, ".rpgmaker-event-dsl/generated-project-data/CommonEvents.json"),
+            "utf8",
+          ),
+        ),
+      ).toStrictEqual(expected);
+      await api.diffWorkspace({ workspaceRoot });
+      await api.pushWorkspace({ workspaceRoot, allowDestructive: false });
+      const actual = JSON.parse(await readFile(live, "utf8"));
+      expect(actual).toStrictEqual(expected);
+      expect(Object.is(actual[1].list[0].parameters[1], JSON.parse(cancel))).toBe(true);
+      expect(Object.is(actual[1].list[0].parameters[2], JSON.parse(defaultChoice))).toBe(true);
+    });
+  },
+);
+
 async function tree(root: string): Promise<Record<string, string>> {
   const result: Record<string, string> = {};
   for (const entry of await readdir(root, { withFileTypes: true }).catch(() => [])) {

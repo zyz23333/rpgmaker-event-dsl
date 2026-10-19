@@ -75,7 +75,8 @@ commands and empty or whitespace text are valid. `defaultChoice` accepts
 `{ kind: "none" }` or `{ kind: "choice", index }` (default index 0). `cancel`
 accepts `{ kind: "disabled" }`, `{ kind: "choice", index }` (default index 1),
 or `{ kind: "branch", commands, endMarker? }`. Indices are zero-based integers
-0–5. Preserve out-of-count saved indices and inspect their warnings; the default
+0–5, including the saved sign of numeric `-0`. Preserve out-of-count saved indices
+and inspect their warnings; the default
 cancel index remains 1 for a one-item list. Position is left/center/right
 (default right); background is window/dim/transparent (default window).
 Each choice and separate cancel body owns its `endMarker`, defaulting to

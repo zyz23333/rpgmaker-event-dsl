@@ -85,11 +85,10 @@ export function assertShowChoicesInput(value: unknown, path: string, withKind = 
       if (
         !Object.hasOwn(mode, "index") ||
         !Number.isInteger(mode.index) ||
-        Object.is(mode.index, -0) ||
         (mode.index as number) < 0 ||
         (mode.index as number) > 5
       )
-        fail(`${at}.index`, "choice position integer 0..5, excluding negative zero", mode.index);
+        fail(`${at}.index`, "numeric choice position integer 0..5", mode.index);
     } else if (kind === (field === "cancel" ? "disabled" : "none")) {
       object(mode, ["kind"], at);
     } else if (field === "cancel" && kind === "branch") {

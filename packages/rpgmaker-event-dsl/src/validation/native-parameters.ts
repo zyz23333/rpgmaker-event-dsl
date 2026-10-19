@@ -246,8 +246,17 @@ export function assertNativeCommandParameters(
         (parameters[0] as unknown[]).length <= 6,
       "1..6 string choices",
     );
-    oneOf(1, [-2, -1, 0, 1, 2, 3, 4, 5]);
-    oneOf(2, [-1, 0, 1, 2, 3, 4, 5]);
+    // These explicit numeric saved indices retain -0; symbolic selectors below cannot.
+    slot(
+      1,
+      [-2, -1, 0, 1, 2, 3, 4, 5].includes(parameters[1] as number),
+      "cancel mode -2, -1 or numeric choice index 0..5",
+    );
+    slot(
+      2,
+      [-1, 0, 1, 2, 3, 4, 5].includes(parameters[2] as number),
+      "default none -1 or numeric choice index 0..5",
+    );
     oneOf(3, [0, 1, 2]);
     oneOf(4, [0, 1, 2]);
   }

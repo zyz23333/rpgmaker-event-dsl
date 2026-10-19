@@ -69,3 +69,20 @@ TDD、测试前提修正和检查原始日志保存在工作区外的
 build、built baseline 或原生游戏，未提升契约版本，也未登记 E2/R3 为通过。
 后续须在 root 分配的实际最新集成和 finalization slot 上复验，协调 ticket 26
 的共享 raw 诊断路径修复，再补充验收索引、完整检查和分配的原生证据。
+
+### 2026-10-20 — DEV numeric saved-index correction
+
+独立 public Workspace 审计发现前一 DEV 错将 E102 的数字保存索引 `-0`
+当作符号枚举拒绝。按既有 I6 / design13 范围，`{ kind: "choice", index: -0 }`
+可以忠实表达，现已修正正式编写及原生/已知 raw 的 E102 slots 1/2，并以精确
+literal 与 `Object.is` 默认省略保留源码和写出值的符号。E402 派生序号及
+position/background 符号模式仍拒绝 `-0`；全局 `oneOf` 规则未放宽。
+
+新增三项 formal/raw/decompile regression 先 red 后 green，以及同七场景
+Workspace 精确保存测试。Windows / Node 22.23.0 下，相关 8 文件共 125 项通过，
+package typecheck、5 个变更 TypeScript 文件的 scoped lint / format check 通过。
+原失败 public 审计及 98 文件 source freeze 保留原样；新的实际源码 public green
+审计与精确 commit/hash 另存外部 DEV handoff，均不作为原生游戏证据。
+
+仍为 DEV / claimed，未执行 broad/build/built baseline/native，未提升契约版本。
+ticket 26 的共享 raw suffix mapping 待实际最新集成时协调，不复制未合并依赖。

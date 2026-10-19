@@ -341,7 +341,8 @@ strings, whitespace, line endings, and a final empty choice.
 to choice 0. `cancel` is `{ kind: "disabled" }`, `{ kind: "choice", index }`, or
 `{ kind: "branch", commands, endMarker? }` and defaults to choice 1. Indices are
 zero-based integers 0–5; saved indices beyond the current choice count are retained
-with a warning. A one-item list still saves cancel choice 1. `position` accepts
+with a warning. Numeric `index: -0` retains its saved sign through Decompile and
+Push. A one-item list still saves cancel choice 1. `position` accepts
 `"left"`, `"center"`, or `"right"` (default); `background` accepts `"window"`
 (default), `"dim"`, or `"transparent"`.
 
