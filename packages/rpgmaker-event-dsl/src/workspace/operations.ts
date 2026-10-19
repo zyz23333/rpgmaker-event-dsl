@@ -1,5 +1,5 @@
-import { readFile, stat } from "node:fs/promises";
-import { relative, resolve } from "node:path";
+import { stat } from "node:fs/promises";
+import { relative } from "node:path";
 
 import {
   discoverDefinitionFiles,
@@ -17,8 +17,9 @@ import {
 import { parseMapInfos } from "../project-data/project.js";
 import {
   captureStandardProjectDataSnapshot,
+  collectStandardProjectDataSnapshotPlan,
   getWorkspaceStatePaths,
-  hashUtf8Content,
+  readProjectDataSnapshotFile,
   readSyncManifest,
   writeSyncManifest,
   type WorkspaceStatePaths,
@@ -36,7 +37,7 @@ import {
   deriveAffectedProjectDataFiles,
   renderStructuredDiffReport,
 } from "../project-data/structured-diff.js";
-import { assertWorkspaceUnchanged, loadWorkspace } from "./config.js";
+import { assertWorkspaceUnchanged, loadWorkspace, type LoadedWorkspace } from "./config.js";
 import { withWorkspaceOperationLock } from "./operation-lock.js";
 import { isMissingFileError } from "./guards.js";
 import {
@@ -55,6 +56,7 @@ import type {
   DiffWorkspaceOptions,
   WorkspaceCommandOptions,
 } from "./types.js";
+import { TypeInputCapture, typeInputsUnchanged } from "./type-inputs.js";
 
 export async function cloneWorkspace(options: WorkspaceCommandOptions): Promise<void> {
   await withWorkspaceOperationLock(options.workspaceRoot, "clone", () =>
@@ -112,12 +114,22 @@ async function decompileWorkspaceUnlocked(options: WorkspaceCommandOptions): Pro
   const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
 
   await assertNoPendingInterruptedPushForNonPush({ statePaths, commandName: "decompile" });
-  await assertProjectDataSnapshotExists(statePaths, "decompile", workspace.projectRootBinding);
+  const manifest = await assertProjectDataSnapshotExists(
+    statePaths,
+    "decompile",
+    workspace.projectRootBinding,
+  );
+  const files = await discoverDefinitionFiles(workspace.workspaceRoot, workspace.config);
+  const capture = new TypeInputCapture(workspace.workspaceRoot);
+  for (const file of files) capture.fileHash(file);
+  const snapshot = await captureCompileSnapshot(statePaths, manifest.snapshotFiles);
   await decompileProjectDataSnapshot({
     scriptEnabled: workspace.config.scriptEnabled,
     sourceRoot: workspace.config.sourceRoot,
-    statePaths,
+    statePaths: snapshot.statePaths,
     workspaceRoot: workspace.workspaceRoot,
+    assertInputsUnchanged: () =>
+      assertCompileInputsUnchanged(workspace, files, capture, snapshot.hashes, "decompile"),
   });
 }
 
@@ -146,7 +158,8 @@ async function compileWorkspaceUnlocked(options: CompileWorkspaceOptions): Promi
     sourceExclude: workspace.config.sourceExclude,
   });
 
-  const snapshotInput = await loadSnapshotValidationInput(statePaths);
+  const snapshot = await captureCompileSnapshot(statePaths, manifest.snapshotFiles);
+  const snapshotInput = await loadSnapshotValidationInput(snapshot.statePaths);
   const graph = buildStagedDataGraph({
     declarations: definitionInput.declarations,
     snapshotReferences: snapshotInput.references,
@@ -173,14 +186,29 @@ async function compileWorkspaceUnlocked(options: CompileWorkspaceOptions): Promi
   }
 
   if (options.check) {
+    await assertCompileInputsUnchanged(
+      workspace,
+      definitionInput.files,
+      definitionInput.capture,
+      snapshot.hashes,
+      commandName,
+    );
     return;
   }
 
-  const snapshotFiles = await readCurrentSnapshotFileHashes(statePaths, manifest.snapshotFiles);
+  const snapshotFiles = snapshot.hashes;
   const output = await materializeCompileOutput({
     declarations: definitionInput.declarations,
     resolver: graph.resolver,
-    statePaths,
+    statePaths: snapshot.statePaths,
+    assertInputsUnchanged: () =>
+      assertCompileInputsUnchanged(
+        workspace,
+        definitionInput.files,
+        definitionInput.capture,
+        snapshot.hashes,
+        commandName,
+      ),
   });
   const compileBaseline = await buildCompileBaseline({
     projectRootBinding: workspace.projectRootBinding,
@@ -188,6 +216,7 @@ async function compileWorkspaceUnlocked(options: CompileWorkspaceOptions): Promi
     snapshotFiles,
     sourceFiles: definitionInput.files,
     sourceFileHashes: definitionInput.sourceFileHashes,
+    typeInputs: definitionInput.capture.inputs(),
     workspaceRoot: workspace.workspaceRoot,
   });
 
@@ -250,27 +279,23 @@ async function loadDiscoveredDefinitionInput(
   declarations: DslOwnedDeclaration[];
   files: string[];
   sourceFileHashes: FileHashEntry[];
+  capture: TypeInputCapture;
 }> {
   const files = await discoverDefinitionFiles(workspaceRoot, discovery);
   const declarations: DslOwnedDeclaration[] = [];
   const sourceFileHashes: FileHashEntry[] = [];
+  const capture = new TypeInputCapture(workspaceRoot);
 
   for (const file of files) {
-    const sourceBefore = await readFile(file, "utf8");
-    declarations.push(...(await loadDefinitionFile(file)));
-    const sourceAfter = await readFile(file, "utf8");
-    const beforeHash = hashUtf8Content(sourceBefore);
-    if (beforeHash !== hashUtf8Content(sourceAfter)) {
-      throw new Error(`Definition Source changed while compiling: ${file}. Run compile again.`);
-    }
+    declarations.push(...(await loadDefinitionFile(file, capture)));
     sourceFileHashes.push({
-      hash: beforeHash,
+      hash: capture.fileHash(file),
       relativePath: relative(workspaceRoot, file).split(/[/\\]/u).join("/"),
     });
   }
 
   sourceFileHashes.sort((left, right) => left.relativePath.localeCompare(right.relativePath));
-  return { declarations, files, sourceFileHashes };
+  return { declarations, files, sourceFileHashes, capture };
 }
 
 export async function loadSnapshotValidationInput(
@@ -399,7 +424,51 @@ async function readSnapshotFile(
   statePaths: WorkspaceStatePaths,
   relativePath: string,
 ): Promise<string> {
-  return readFile(resolve(statePaths.projectDataSnapshotDirectory, relativePath), "utf8");
+  return readProjectDataSnapshotFile(statePaths, relativePath);
+}
+
+async function captureCompileSnapshot(
+  statePaths: WorkspaceStatePaths,
+  expectedHashes: readonly FileHashEntry[],
+): Promise<{ statePaths: WorkspaceStatePaths; hashes: FileHashEntry[] }> {
+  const plan = await collectStandardProjectDataSnapshotPlan(
+    statePaths.projectDataSnapshotDirectory,
+  );
+  const hashes = plan.map(({ hash, relativePath }) => ({ hash, relativePath }));
+  if (JSON.stringify(hashes) !== JSON.stringify(expectedHashes))
+    throw new Error("Snapshot inputs changed during capture. Run the command again.");
+  return {
+    statePaths: {
+      ...statePaths,
+      snapshotContents: new Map(plan.map((file) => [file.relativePath, file.content])),
+    },
+    hashes,
+  };
+}
+
+async function assertCompileInputsUnchanged(
+  workspace: LoadedWorkspace,
+  files: readonly string[],
+  capture: TypeInputCapture,
+  snapshotHashes: readonly FileHashEntry[],
+  commandName: string,
+): Promise<void> {
+  try {
+    const currentSnapshot = await collectStandardProjectDataSnapshotPlan(
+      getWorkspaceStatePaths(workspace.workspaceRoot).projectDataSnapshotDirectory,
+    );
+    const currentFiles = await discoverDefinitionFiles(workspace.workspaceRoot, workspace.config);
+    await assertWorkspaceUnchanged(workspace, commandName);
+    if (
+      JSON.stringify(currentFiles) !== JSON.stringify(files) ||
+      JSON.stringify(currentSnapshot.map(({ hash, relativePath }) => ({ hash, relativePath }))) !==
+        JSON.stringify(snapshotHashes) ||
+      !typeInputsUnchanged(capture.inputs())
+    )
+      throw new Error("Input content or discovery set changed");
+  } catch (cause) {
+    throw new Error(`Inputs changed during ${commandName}. Run ${commandName} again.`, { cause });
+  }
 }
 
 export async function diffWorkspace(options: DiffWorkspaceOptions): Promise<string> {

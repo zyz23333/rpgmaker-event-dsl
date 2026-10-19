@@ -6,6 +6,7 @@ import { z } from "zod";
 
 import { parseMapInfos } from "../project-data/project.js";
 import { writeStableJson } from "../project-data/writer.js";
+import { typeInputSchema } from "./type-inputs.js";
 
 export const workspaceStateDirectoryName = ".rpgmaker-event-dsl";
 export const projectDataSnapshotDirectoryName = "project-data-snapshot";
@@ -57,6 +58,8 @@ export const syncManifestSchema = z
     compileBaseline: z
       .object({
         projectRootBinding: z.string().min(1),
+        compileContractVersion: z.string().min(1).optional(),
+        typeInputs: z.array(typeInputSchema).optional(),
         hash: hashSchema,
         config: z
           .object({
@@ -109,6 +112,7 @@ export const pendingPushSchema = z
   .strict();
 
 export type WorkspaceStatePaths = {
+  snapshotContents?: ReadonlyMap<string, Buffer>;
   workspaceStateDirectory: string;
   projectDataSnapshotDirectory: string;
   generatedProjectDataDirectory: string;
@@ -117,6 +121,19 @@ export type WorkspaceStatePaths = {
   pendingPushManifestPath: string;
   syncManifestPath: string;
 };
+
+export async function readProjectDataSnapshotFile(
+  statePaths: WorkspaceStatePaths,
+  relativePath: string,
+): Promise<string> {
+  if (statePaths.snapshotContents !== undefined) {
+    const content = statePaths.snapshotContents.get(relativePath);
+    if (content === undefined)
+      throw new Error(`Captured Snapshot file is missing: ${relativePath}`);
+    return content.toString("utf8");
+  }
+  return readFile(resolve(statePaths.projectDataSnapshotDirectory, relativePath), "utf8");
+}
 
 export type SyncManifest = z.infer<typeof syncManifestSchema>;
 export type PendingPush = z.infer<typeof pendingPushSchema>;

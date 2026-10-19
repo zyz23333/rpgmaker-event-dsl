@@ -1,4 +1,3 @@
-import { readFile } from "node:fs/promises";
 import { glob } from "node:fs/promises";
 import { join, matchesGlob } from "node:path";
 
@@ -6,6 +5,7 @@ import * as ts from "typescript";
 
 import * as dsl from "../authoring/index.js";
 import { collectDslOwnedDeclarations, type DslOwnedDeclaration } from "../domain/declarations.js";
+import { TypeInputCapture } from "./type-inputs.js";
 
 export type DefinitionSourceDiscovery = {
   sourceRoot: string;
@@ -41,8 +41,12 @@ export async function discoverDefinitionFiles(
   return [...files].sort();
 }
 
-export async function loadDefinitionFile(filePath: string): Promise<DslOwnedDeclaration[]> {
-  const sourceText = await readFile(filePath, "utf8");
+export async function loadDefinitionFile(
+  filePath: string,
+  capture = new TypeInputCapture(),
+): Promise<DslOwnedDeclaration[]> {
+  const sourceText = capture.readFile(filePath);
+  if (sourceText === undefined) throw new Error(`Definition Source is missing: ${filePath}`);
   const sourceFile = ts.createSourceFile(
     filePath,
     sourceText,
@@ -51,7 +55,7 @@ export async function loadDefinitionFile(filePath: string): Promise<DslOwnedDecl
     ts.ScriptKind.TS,
   );
 
-  const diagnostics = collectDiagnostics(filePath, sourceFile);
+  const diagnostics = collectDiagnostics(filePath, sourceFile, capture);
   if (diagnostics.length > 0) {
     throw new Error(formatDiagnostics(filePath, diagnostics));
   }
@@ -68,7 +72,11 @@ export async function loadDefinitionFile(filePath: string): Promise<DslOwnedDecl
   }
 }
 
-function collectDiagnostics(filePath: string, sourceFile: ts.SourceFile): readonly ts.Diagnostic[] {
+function collectDiagnostics(
+  filePath: string,
+  sourceFile: ts.SourceFile,
+  capture: TypeInputCapture,
+): readonly ts.Diagnostic[] {
   const compilerOptions: ts.CompilerOptions = {
     allowSyntheticDefaultImports: true,
     esModuleInterop: true,
@@ -81,35 +89,23 @@ function collectDiagnostics(filePath: string, sourceFile: ts.SourceFile): readon
   };
 
   const host = ts.createCompilerHost(compilerOptions, true);
-  const originalGetSourceFile = host.getSourceFile.bind(host);
-  const originalReadFile = host.readFile.bind(host);
-  const originalFileExists = host.fileExists.bind(host);
+  host.getCurrentDirectory = () => capture.currentDirectory;
+  host.readFile = capture.readFile;
+  host.fileExists = capture.fileExists;
+  host.directoryExists = capture.directoryExists;
+  host.getDirectories = capture.getDirectories;
+  host.realpath = capture.realpath;
+  host.readDirectory = capture.readDirectory;
 
-  host.getSourceFile = (requestedFileName, languageVersion, onError, shouldCreateNewSourceFile) => {
+  host.getSourceFile = (requestedFileName, languageVersion) => {
     if (normalizePath(requestedFileName) === normalizePath(filePath)) {
       return sourceFile;
     }
 
-    return originalGetSourceFile(
-      requestedFileName,
-      languageVersion,
-      onError,
-      shouldCreateNewSourceFile,
-    );
-  };
-  host.readFile = (requestedFileName) => {
-    if (normalizePath(requestedFileName) === normalizePath(filePath)) {
-      return sourceFile.getFullText();
-    }
-
-    return originalReadFile(requestedFileName);
-  };
-  host.fileExists = (requestedFileName) => {
-    if (normalizePath(requestedFileName) === normalizePath(filePath)) {
-      return true;
-    }
-
-    return originalFileExists(requestedFileName);
+    const text = capture.readFile(requestedFileName);
+    return text === undefined
+      ? undefined
+      : ts.createSourceFile(requestedFileName, text, languageVersion, true);
   };
 
   const program = ts.createProgram([filePath], compilerOptions, host);

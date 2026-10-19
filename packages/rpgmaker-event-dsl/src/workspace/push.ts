@@ -714,6 +714,10 @@ function rewriteCompileBaselineSnapshotFiles(
   snapshotFiles: readonly FileHashEntry[],
 ): CompileBaseline {
   const baselineWithoutHash = {
+    ...(baseline.compileContractVersion === undefined
+      ? {}
+      : { compileContractVersion: baseline.compileContractVersion }),
+    ...(baseline.typeInputs === undefined ? {} : { typeInputs: baseline.typeInputs }),
     projectRootBinding: baseline.projectRootBinding,
     config: baseline.config,
     snapshotFiles: [...snapshotFiles],
