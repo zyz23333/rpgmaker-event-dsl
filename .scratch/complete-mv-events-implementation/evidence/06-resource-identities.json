@@ -1,0 +1,201 @@
+{
+  "formatVersion": 1,
+  "kind": "Selected shipped-artifact resource identities and native evidence references, not editor UI capture or executable game fixture",
+  "artifacts": [
+    {
+      "path": "references/RPGMV/RPGMV.exe",
+      "bytes": 19595264,
+      "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+      "records": [
+        {
+          "name": "transfer",
+          "offset": 758295,
+          "stored": 1691,
+          "compressed": false,
+          "decoded": 1687,
+          "sha256": "26b948a478069a1ab482a446293cc9529777819d02b592c5decd0d44455ce046"
+        },
+        {
+          "name": "location",
+          "offset": 664736,
+          "stored": 941,
+          "compressed": true,
+          "decoded": 4349,
+          "sha256": "b0ecfbc0b86b1fe5dfd0e6a9104d4ab1932205a8d6b7d5bba3f404863f7821b1"
+        },
+        {
+          "name": "map-location",
+          "offset": 8678030,
+          "stored": 646,
+          "compressed": true,
+          "decoded": 2189,
+          "sha256": "2e6ff7009f820d08d201854327d44a466057ea7c437e1517ddf5b89199f15d7b"
+        },
+        {
+          "name": "location-dialog",
+          "offset": 8693982,
+          "stored": 1735,
+          "compressed": false,
+          "decoded": 1731,
+          "sha256": "5c108ee13343706774468a198fcfea1f0f22a350de7af604a3f1d7a59b2a643c"
+        },
+        {
+          "name": "constants",
+          "offset": 916501,
+          "stored": 5142,
+          "compressed": true,
+          "decoded": 25783,
+          "sha256": "b29ba19e1bd5ed04e2334aab57ddcbf386331dbe136751c77f05f47a9e35edd2"
+        },
+        {
+          "name": "variable",
+          "offset": 604662,
+          "stored": 2027,
+          "compressed": false,
+          "decoded": 2023,
+          "sha256": "73e2e714e76de967386acea78f688e2517b8f7e3761dd86d7a29ebc0e26aba1c"
+        },
+        {
+          "name": "base",
+          "offset": 686141,
+          "stored": 939,
+          "compressed": false,
+          "decoded": 935,
+          "sha256": "740d0c01de598e2a55b58f67f975a30e2d3c8c96de36eb8ff15c3dd4d6ad2780"
+        },
+        {
+          "name": "dialog",
+          "offset": 656916,
+          "stored": 1086,
+          "compressed": false,
+          "decoded": 1082,
+          "sha256": "0152387fa661f0e67f45b989248c60142881526cda1f31898e29c0e03366fbf7"
+        },
+        {
+          "name": "data",
+          "offset": 909009,
+          "stored": 4291,
+          "compressed": true,
+          "decoded": 24761,
+          "sha256": "9ce1877d3eac47699a558ada219ec4f217dbc4f215531a7f65ccacd8169c4f93"
+        },
+        {
+          "name": "picker",
+          "offset": 679418,
+          "stored": 1424,
+          "compressed": true,
+          "decoded": 7863,
+          "sha256": "8e83b762134d12696649e6302adec9f40bbad7618b2c9cbff5ad945f005dd829"
+        },
+        {
+          "name": "list",
+          "offset": 667573,
+          "stored": 3694,
+          "compressed": true,
+          "decoded": 17486,
+          "sha256": "bbc1e26fa83771fc56581b1dc34ec762b3789444dacef76cb24334834e17e82c"
+        },
+        {
+          "name": "modal",
+          "offset": 878315,
+          "stored": 1884,
+          "compressed": true,
+          "decoded": 8437,
+          "sha256": "875ac97ba5e20ab1a457399321e9621d3b56a698aaeeadc78c9584f3b69a970e"
+        },
+        {
+          "name": "editor-854492",
+          "offset": 854492,
+          "stored": 2011,
+          "compressed": true,
+          "decoded": 8889,
+          "sha256": "68f5706dc8e25bec53c589bd7f733ff876a09906028057348b27168859ee8ccb"
+        },
+        {
+          "name": "editor-8797951",
+          "offset": 8797951,
+          "stored": 739,
+          "compressed": false,
+          "decoded": 735,
+          "sha256": "8830bc7b2492b1dd0149c7ced80b5b04742b4c0d81355f99bf6a264341b2f333"
+        },
+        {
+          "name": "context-426544",
+          "offset": 426544,
+          "stored": 3371,
+          "compressed": true,
+          "decoded": 17252,
+          "sha256": "8d2d161cc2d663a7246bf7b7717430a4eebc000f1f04d8704685d5f222cac776"
+        },
+        {
+          "name": "context-8672102",
+          "offset": 8672102,
+          "stored": 2367,
+          "compressed": true,
+          "decoded": 11367,
+          "sha256": "d74ef475802a5a8cb0083a5a340968877b4352db4c2e05b1631af0bcd701cb17"
+        }
+      ]
+    },
+    {
+      "path": "references/RPGMV/QtQuick/Controls/qtquickcontrolsplugin.dll",
+      "bytes": 780288,
+      "sha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+      "records": [
+        {
+          "name": "qt-274218",
+          "offset": 274218,
+          "stored": 6593,
+          "compressed": true,
+          "decoded": 24147,
+          "sha256": "07cb4b61fc694faf650461e7f668db3f1e5115fc8e25d9efdb0681f1b4572500"
+        }
+      ]
+    },
+    {
+      "path": "references/RPGMV/QtQuick/Controls/plugins.qmltypes",
+      "bytes": 95705,
+      "sha256": "58aba7eb65d07e8763035172c6c2bc6e53c22795828196d9bfd90e46cac40561",
+      "records": []
+    },
+    {
+      "path": "references/RPGMV/QtQuick/Controls/qmldir",
+      "bytes": 162,
+      "sha256": "0ed18792740787ecb235bbe73122e3155f970d046495bc6525987e80833cb72a",
+      "records": []
+    }
+  ],
+  "reusedEvidence": [
+    {
+      "id": "ev_007ba386e622855bf771049084c3103afebbcc6b5d813f18c441f3ecf1d16d24",
+      "role": "Historical PE version identity; identical EXE SHA256 freshly verified; not retrieved from current session"
+    }
+  ],
+  "nativeEvidence": [
+    {
+      "id": "ev_74bdccebd33acf513d05834cd9d66e52d69d03b08664f75232fd7fa9711a1c93",
+      "procedure": "0x10017cb0",
+      "role": "QQuickMenu meta-cast type identification"
+    },
+    {
+      "id": "ev_1c1a2e8e4127787482d0356be319e081127fcc72bd73f13c9ec4d9544e1ccaa0",
+      "procedure": "0x100011f0",
+      "role": "QQmlElement<QQuickMenu> construction wrapper"
+    },
+    {
+      "id": "ev_cf54d03984c80ddc18c5a4c83d5ce73303cc7b9552f6a85734fde586ad6066c5",
+      "procedure": "0x10007ff0",
+      "role": "Menu constructor writes int -1 to object+0x38"
+    },
+    {
+      "id": "ev_d599a2ba1c9bd334f794e5ca56234109dfafc08e6650cc44837a04df9c24a36c",
+      "procedure": "0x10017970",
+      "role": "Meta-call ReadProperty2 reads object+0x38, matching __selectedIndex property order"
+    },
+    {
+      "id": "ev_84ad033941a7f79cda0ce9635747290eb221f12fa7a6c2ec70052cfd32de5b27",
+      "procedure": "0x1000a150",
+      "role": "Selected index setter writes object+0x38 and notifies on value change"
+    }
+  ]
+}

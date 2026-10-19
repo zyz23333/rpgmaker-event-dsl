@@ -1,0 +1,267 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-E06-DIRECTION-FADE",
+  "runId": "2026-10-19T07-56-35-139Z-68130369-1da8-4e65-859e-f726792b51d6",
+  "status": "passed",
+  "startedAt": "2026-10-19T07:42:20.036Z",
+  "completedAt": "2026-10-19T07:56:35.139Z",
+  "operator": "Codex ticket06 reverse-engineering analyst",
+  "source": {
+    "revision": "9fe8257927de75a0f7b4ee157457c92649599e26",
+    "fingerprint": "cc800b1a855f0258863ffda827dd9003e710393b0142c87f785d2521485736f4",
+    "files": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+        "sha256": "79e21430d8886d465cd2307bf45905e5ca9faaf1b1504712c2482ced89f7fcaf"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-resource-identities.json",
+        "sha256": "96f6962c20c5dcada743c634779d0c2cd8393c4802d617b645bdf1260873bf9b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/06-transfer-defaults-reverse.md",
+        "sha256": "1d17183eeb3f6e887ddf7a8882eca41a764f49488f66d5f35fac65234a4186cb"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/README.md",
+        "sha256": "8c5f3ba4f5147ae7b2d67eaf9690159c6a2159c840ef3c7b95d77da6dacbea05"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+        "sha256": "0e8a4b63ce76b1a56233e6d9dac72382d6aed036ae9a0a6333dd12c4a5ad27da"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/issues/06-native-transfer-defaults.md",
+        "sha256": "3062d075df93518038e61985d3d36c3799d7a690887b6537c74d553102745682"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/mv-evidence.ts",
+        "sha256": "7e14773299798de5347de616ccbd2ae0bccef32cd96ea20f344476d11fbeff96"
+      }
+    ]
+  },
+  "fixture": {
+    "path": ".scratch/complete-mv-events-implementation/evidence/06-resource-identities.json",
+    "sha256": "96f6962c20c5dcada743c634779d0c2cd8393c4802d617b645bdf1260873bf9b"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "node": "v24.14.0",
+    "vitest": "not-executed (documentary reverse-engineering review; separate index validation recorded in ticket)",
+    "typescript": "not-executed (documentary reverse-engineering review)",
+    "package": "0.1.2",
+    "native": {
+      "method": "reverse-engineering",
+      "mv": "1.6.1 / FileVersion1.6.1.0 (historical PE evidence; identical EXE SHA256)",
+      "runtime": "not-executed",
+      "nwjs": "not-executed",
+      "tools": {
+        "resourceDecode": "Node fs/zlib/crypto; original outer/compressed/decoded boundaries, lengths and SHA256 checked",
+        "rea": "6.7.0; 17 new retained native Evidence records exported before close_binary",
+        "nativeAnalysis": "Ghidra12.1.4 / JDK21.0.8; same-DLL Menu construction and property chain; session successfully closed",
+        "analysisProfile": "e4be421d1cb130970e81b108d97068b73c12565909b409a13178a5c07539573b",
+        "recorder": "C:/Users/Shuen/.codex/tmp/record-mv06.cjs; SHA256 b614c46f01ae6ea576bccba3d6481ff8d37cf5d6dde1428d4bc1e823316b6aeb"
+      },
+      "artifacts": [
+        {
+          "path": "references/RPGMV/RPGMV.exe",
+          "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281"
+        },
+        {
+          "path": "references/RPGMV/QtQuick/Controls/qtquickcontrolsplugin.dll",
+          "sha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6"
+        },
+        {
+          "path": "references/RPGMV/QtQuick/Controls/plugins.qmltypes",
+          "sha256": "58aba7eb65d07e8763035172c6c2bc6e53c22795828196d9bfd90e46cac40561"
+        },
+        {
+          "path": "references/RPGMV/QtQuick/Controls/qmldir",
+          "sha256": "0ed18792740787ecb235bbe73122e3155f970d046495bc6525987e80833cb72a"
+        }
+      ]
+    }
+  },
+  "stages": [
+    "Reused identified Transfer/location/serialization resources and historical PE self-reported version",
+    "Read full selected Transfer/location control paths and project map-context assignments without executing extracted QML",
+    "Decoded and verified all selected original resources and whole-artifact identities",
+    "Closed inherited selection gap through bundled ComboBox QML and actual same-DLL Menu constructor/meta-property Ghidra evidence",
+    "Exported17 native Evidence records and analysis snapshot outside repository, then closed native session",
+    "Completed bounded code review, separating project values, explicit values, inherited defaults and unobserved Qt/UI/disk/game timing"
+  ],
+  "expected": "Direction maps0/2/4/6/8, fade maps0/1/2. Retain0 and black0 match the accepted fixed defaults; only exact0 can be omitted on decompilation. No malformed-index tolerance becomes product support.",
+  "actual": {
+    "reviewInput": "五方向与三fade，包含retain和none",
+    "finding": "direction按0/2/4/6/8映射，fade按0/1/2独立保存；只有精确0对应已决可省略默认",
+    "evidenceLevelAndLimit": "常量与保存映射代码观察；不执行无差别笛卡尔积，也不把原生异常索引回填当产品支持",
+    "artifactVerification": [
+      {
+        "path": "references/RPGMV/RPGMV.exe",
+        "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+        "resources": [
+          {
+            "name": "transfer",
+            "offset": 758295,
+            "sha256": "26b948a478069a1ab482a446293cc9529777819d02b592c5decd0d44455ce046",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "location",
+            "offset": 664736,
+            "sha256": "b0ecfbc0b86b1fe5dfd0e6a9104d4ab1932205a8d6b7d5bba3f404863f7821b1",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "map-location",
+            "offset": 8678030,
+            "sha256": "2e6ff7009f820d08d201854327d44a466057ea7c437e1517ddf5b89199f15d7b",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "location-dialog",
+            "offset": 8693982,
+            "sha256": "5c108ee13343706774468a198fcfea1f0f22a350de7af604a3f1d7a59b2a643c",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "constants",
+            "offset": 916501,
+            "sha256": "b29ba19e1bd5ed04e2334aab57ddcbf386331dbe136751c77f05f47a9e35edd2",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "variable",
+            "offset": 604662,
+            "sha256": "73e2e714e76de967386acea78f688e2517b8f7e3761dd86d7a29ebc0e26aba1c",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "base",
+            "offset": 686141,
+            "sha256": "740d0c01de598e2a55b58f67f975a30e2d3c8c96de36eb8ff15c3dd4d6ad2780",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "dialog",
+            "offset": 656916,
+            "sha256": "0152387fa661f0e67f45b989248c60142881526cda1f31898e29c0e03366fbf7",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "data",
+            "offset": 909009,
+            "sha256": "9ce1877d3eac47699a558ada219ec4f217dbc4f215531a7f65ccacd8169c4f93",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "picker",
+            "offset": 679418,
+            "sha256": "8e83b762134d12696649e6302adec9f40bbad7618b2c9cbff5ad945f005dd829",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "list",
+            "offset": 667573,
+            "sha256": "bbc1e26fa83771fc56581b1dc34ec762b3789444dacef76cb24334834e17e82c",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "modal",
+            "offset": 878315,
+            "sha256": "875ac97ba5e20ab1a457399321e9621d3b56a698aaeeadc78c9584f3b69a970e",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "editor-854492",
+            "offset": 854492,
+            "sha256": "68f5706dc8e25bec53c589bd7f733ff876a09906028057348b27168859ee8ccb",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "editor-8797951",
+            "offset": 8797951,
+            "sha256": "8830bc7b2492b1dd0149c7ced80b5b04742b4c0d81355f99bf6a264341b2f333",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "context-426544",
+            "offset": 426544,
+            "sha256": "8d2d161cc2d663a7246bf7b7717430a4eebc000f1f04d8704685d5f222cac776",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "context-8672102",
+            "offset": 8672102,
+            "sha256": "d74ef475802a5a8cb0083a5a340968877b4352db4c2e05b1631af0bcd701cb17",
+            "status": "matched original source bytes"
+          }
+        ]
+      },
+      {
+        "path": "references/RPGMV/QtQuick/Controls/qtquickcontrolsplugin.dll",
+        "sha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+        "resources": [
+          {
+            "name": "qt-274218",
+            "offset": 274218,
+            "sha256": "07cb4b61fc694faf650461e7f668db3f1e5115fc8e25d9efdb0681f1b4572500",
+            "status": "matched original source bytes"
+          }
+        ]
+      },
+      {
+        "path": "references/RPGMV/QtQuick/Controls/plugins.qmltypes",
+        "sha256": "58aba7eb65d07e8763035172c6c2bc6e53c22795828196d9bfd90e46cac40561",
+        "resources": []
+      },
+      {
+        "path": "references/RPGMV/QtQuick/Controls/qmldir",
+        "sha256": "0ed18792740787ecb235bbe73122e3155f970d046495bc6525987e80833cb72a",
+        "resources": []
+      }
+    ],
+    "nativeEvidence": [
+      {
+        "id": "ev_74bdccebd33acf513d05834cd9d66e52d69d03b08664f75232fd7fa9711a1c93",
+        "procedure": "0x10017cb0",
+        "role": "QQuickMenu meta-cast type identification"
+      },
+      {
+        "id": "ev_1c1a2e8e4127787482d0356be319e081127fcc72bd73f13c9ec4d9544e1ccaa0",
+        "procedure": "0x100011f0",
+        "role": "QQmlElement<QQuickMenu> construction wrapper"
+      },
+      {
+        "id": "ev_cf54d03984c80ddc18c5a4c83d5ce73303cc7b9552f6a85734fde586ad6066c5",
+        "procedure": "0x10007ff0",
+        "role": "Menu constructor writes int -1 to object+0x38"
+      },
+      {
+        "id": "ev_d599a2ba1c9bd334f794e5ca56234109dfafc08e6650cc44837a04df9c24a36c",
+        "procedure": "0x10017970",
+        "role": "Meta-call ReadProperty2 reads object+0x38, matching __selectedIndex property order"
+      },
+      {
+        "id": "ev_84ad033941a7f79cda0ce9635747290eb221f12fa7a6c2ec70052cfd32de5b27",
+        "procedure": "0x1000a150",
+        "role": "Selected index setter writes object+0x38 and notifies on value change"
+      }
+    ],
+    "nativeRaw": [
+      {
+        "path": "C:/Users/Shuen/.codex/research-evidence/mv-editor-06-20261019/qt-menu-evidence.json",
+        "sha256": "0c8ad82b3fedafa8cbab61b7929f974e64694b46618b9a3b703e5e1c175c749d"
+      },
+      {
+        "path": "C:/Users/Shuen/.codex/research-evidence/mv-editor-06-20261019/qt-menu-analysis.json",
+        "sha256": "dc6f209ef2b1245dea4b834c75affd096fd7983a1b221dc8056f9aad0349576a"
+      }
+    ],
+    "rawFirstPartyOutput": "C:/Users/Shuen/.codex/research-evidence/mv-editor-06-20261019/",
+    "reviewScope": "Completed bounded reverse-engineering review only; conditional arrays do not establish actual editor UI creation, disk capture, product output comparison, or R1-R7 game execution."
+  },
+  "difference": null
+}
