@@ -1,0 +1,110 @@
+{
+  "formatVersion": 1,
+  "kind": "Selected shipped-artifact resource identities, not editor UI capture or executable game fixture",
+  "artifacts": [
+    {
+      "path": "references/RPGMV/RPGMV.exe",
+      "bytes": 19595264,
+      "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+      "records": [
+        {
+          "name": "timer",
+          "offset": 793186,
+          "stored": 586,
+          "compressed": true,
+          "decoded": 2048,
+          "sha256": "095449887fbb1f73c8a292ee6c304256cb5cd422f7901a53b3acf16a290cd670"
+        },
+        {
+          "name": "operation",
+          "offset": 680842,
+          "stored": 1335,
+          "compressed": false,
+          "decoded": 1331,
+          "sha256": "0d87a64dcdc267fcbce7aca42df12a3b665df6153be84b5701eade6113ed8cc8"
+        },
+        {
+          "name": "base",
+          "offset": 686141,
+          "stored": 939,
+          "compressed": false,
+          "decoded": 935,
+          "sha256": "740d0c01de598e2a55b58f67f975a30e2d3c8c96de36eb8ff15c3dd4d6ad2780"
+        },
+        {
+          "name": "dialog",
+          "offset": 656916,
+          "stored": 1086,
+          "compressed": false,
+          "decoded": 1082,
+          "sha256": "0152387fa661f0e67f45b989248c60142881526cda1f31898e29c0e03366fbf7"
+        },
+        {
+          "name": "data",
+          "offset": 909009,
+          "stored": 4291,
+          "compressed": true,
+          "decoded": 24761,
+          "sha256": "9ce1877d3eac47699a558ada219ec4f217dbc4f215531a7f65ccacd8169c4f93"
+        },
+        {
+          "name": "spinbox",
+          "offset": 875471,
+          "stored": 1735,
+          "compressed": true,
+          "decoded": 7183,
+          "sha256": "a94b75dfca7ceb95315d38a3897e8c389a96d71f56696329f0cf8edd20535984"
+        },
+        {
+          "name": "picker",
+          "offset": 679418,
+          "stored": 1424,
+          "compressed": true,
+          "decoded": 7863,
+          "sha256": "8e83b762134d12696649e6302adec9f40bbad7618b2c9cbff5ad945f005dd829"
+        },
+        {
+          "name": "list",
+          "offset": 667573,
+          "stored": 3694,
+          "compressed": true,
+          "decoded": 17486,
+          "sha256": "bbc1e26fa83771fc56581b1dc34ec762b3789444dacef76cb24334834e17e82c"
+        },
+        {
+          "name": "modal",
+          "offset": 878315,
+          "stored": 1884,
+          "compressed": true,
+          "decoded": 8437,
+          "sha256": "875ac97ba5e20ab1a457399321e9621d3b56a698aaeeadc78c9584f3b69a970e"
+        }
+      ]
+    },
+    {
+      "path": "references/RPGMV/QtQuick/Controls/qtquickcontrolsplugin.dll",
+      "bytes": 780288,
+      "sha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+      "records": [
+        {
+          "name": "qt-spinbox",
+          "offset": 160589,
+          "stored": 3826,
+          "compressed": true,
+          "decoded": 13133,
+          "sha256": "4b98b9d85a651cbe2f47e4abf7efaf67a25b9b942f5441b77cc5faae9643e0ca"
+        }
+      ]
+    }
+  ],
+  "reusedEvidence": [
+    {
+      "id": "ev_007ba386e622855bf771049084c3103afebbcc6b5d813f18c441f3ecf1d16d24",
+      "role": "Historical PE version identity; identical EXE SHA256 freshly verified; not retrieved from current REA session"
+    },
+    {
+      "id": "ev_0abda227cbae2d1ac569a8e0af403fc960727b39b3d337287fe4165a16926d1d",
+      "role": "Historical bundled native SpinBox constructor; identical DLL SHA256 freshly verified; Ghidra 12.1.4 analysis reused, not rerun"
+    }
+  ]
+}
