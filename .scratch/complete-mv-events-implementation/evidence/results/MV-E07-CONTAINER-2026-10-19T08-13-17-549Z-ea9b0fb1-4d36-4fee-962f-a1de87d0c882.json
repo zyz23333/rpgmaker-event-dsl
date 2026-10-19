@@ -1,0 +1,255 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-E07-CONTAINER",
+  "runId": "2026-10-19T08-13-17-549Z-ea9b0fb1-4d36-4fee-962f-a1de87d0c882",
+  "status": "passed",
+  "startedAt": "2026-10-19T07:59:30.853Z",
+  "completedAt": "2026-10-19T08:13:17.549Z",
+  "operator": "Codex ticket07 reverse-engineering analyst",
+  "source": {
+    "revision": "7d2ea0b46d6674f47a482d56f1817c079a608a93",
+    "fingerprint": "2aeda3b15fee66996286943325b77611ab11e076e63be6273d6b36373854a20c",
+    "files": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+        "sha256": "79e21430d8886d465cd2307bf45905e5ca9faaf1b1504712c2482ced89f7fcaf"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-resource-identities.json",
+        "sha256": "be6df14b8f7837ad9aecb0071bba2af42711a1739a0a200e733fb816d09ff5e8"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-shop-defaults-and-goods-reverse.md",
+        "sha256": "f36fec1335b9fecef28642b4bcaa3826ffaadd6ba72ee158dd6bbbb17863e6d0"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/README.md",
+        "sha256": "1d863a610d95ee2d24d65cb4ac9eab582f86aaadc2dfd64a57baa7f86d518a10"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+        "sha256": "d90cbb642f25a04523813a9a500fb2c01688c6a67fbfc4414f9d338d668e1f43"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/issues/07-native-shop-defaults-and-empty-goods.md",
+        "sha256": "11f393c9c2d00559301639d5094eee5edacf843bee3366cbea175c5d175d4544"
+      },
+      {
+        "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+        "sha256": "a753d6b40b6a091c6ff2edab452f2b7939ee139f9ebe6056c63f81b0c1879712"
+      },
+      {
+        "path": "docs/adr/0011-native-command-state-and-validation.md",
+        "sha256": "70c9546838abe91ba142b5b44761887aa2e2912b003c32abe0aaf0da75a28771"
+      },
+      {
+        "path": "docs/adr/0012-event-saved-state-roundtrip-boundary.md",
+        "sha256": "d2faf333704d1fb8bd16be39f98d79dd082d33f9ef00cdac69c220aa816e3c10"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/mv-evidence.ts",
+        "sha256": "7e14773299798de5347de616ccbd2ae0bccef32cd96ea20f344476d11fbeff96"
+      }
+    ]
+  },
+  "fixture": {
+    "path": ".scratch/complete-mv-events-implementation/evidence/07-resource-identities.json",
+    "sha256": "be6df14b8f7837ad9aecb0071bba2af42711a1739a0a200e733fb816d09ff5e8"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "node": "v22.23.0",
+    "vitest": "not-executed for documentary review; separate Windows/Node22 evidence-index check passed",
+    "typescript": "not-executed (documentary review)",
+    "package": "0.1.2",
+    "native": {
+      "method": "reverse-engineering",
+      "mv": "1.6.1 / FileVersion1.6.1.0 (historical PE self-report; identical EXE SHA256)",
+      "runtime": "not-executed",
+      "nwjs": "not-executed",
+      "tools": {
+        "resourceDecode": "Node fs/zlib/crypto; original artifact, outer/compressed/decoded lengths, boundaries and SHA256 verified",
+        "nativeAnalysis": "No new native session; historical same-DLL SpinBox Ghidra12.1.4 evidence reused and original record identity checked",
+        "extractedCode": "not-executed",
+        "recorder": "C:/Users/Shuen/.codex/tmp/record-mv07.cjs; SHA256 49597638c23c4d10509620a2ca7f506285494b946d1062868ab1e827a3194e8e"
+      },
+      "artifacts": [
+        {
+          "path": "references/RPGMV/RPGMV.exe",
+          "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281"
+        },
+        {
+          "path": "references/RPGMV/QtQuick/Controls/qtquickcontrolsplugin.dll",
+          "sha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6"
+        }
+      ]
+    }
+  },
+  "stages": [
+    "Reused same-identity shared command/dialog/serialization and bundled CheckBox/SpinBox evidence",
+    "Decoded and verified selected Shop, goods, SmartListBox, ListBox, GameObjectBox and selector resources without executing their code",
+    "Read complete selected construction/load/edit-confirm/list-mutating/save paths and distinguished container-only serialization",
+    "Retained conditional native mixed-placeholder counterexample and positive-ID child-reconfirmation boundary",
+    "Recorded contract conflict as blocked pending user decision; ticket07 unresolved and product47 still blocked"
+  ],
+  "expected": "Read DataManager stringify paths do not call Shop.load/save and retain complete parameters, keypresence, order, count, values and indent. Actual disk success, product comparison and game remain unexecuted.",
+  "actual": {
+    "reviewInput": "既有空/普通/重复商品组，仅保存事件容器",
+    "finding": "DataManager stringify路径不调用Shop.load/save，保留每条完整参数、值、顺序、数量和indent",
+    "evidenceLevelAndLimit": "容器责任代码观察；不是磁盘成功、产品输出或游戏证据",
+    "artifactVerification": [
+      {
+        "path": "references/RPGMV/RPGMV.exe",
+        "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+        "resources": [
+          {
+            "name": "shop",
+            "offset": 762570,
+            "sha256": "35bb0adeba83d80de4d1dc755d3049d8e3bfa52f9229bbc70530eb4d2d40d635",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "goods-dialog",
+            "offset": 675223,
+            "sha256": "68b5ffb34022a960b2525bb7c11377141a6f2139a833de7fe0eb722290103f43",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "base",
+            "offset": 686141,
+            "sha256": "740d0c01de598e2a55b58f67f975a30e2d3c8c96de36eb8ff15c3dd4d6ad2780",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "dialog",
+            "offset": 656916,
+            "sha256": "0152387fa661f0e67f45b989248c60142881526cda1f31898e29c0e03366fbf7",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "list",
+            "offset": 667573,
+            "sha256": "bbc1e26fa83771fc56581b1dc34ec762b3789444dacef76cb24334834e17e82c",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "picker",
+            "offset": 679418,
+            "sha256": "8e83b762134d12696649e6302adec9f40bbad7618b2c9cbff5ad945f005dd829",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "modal",
+            "offset": 878315,
+            "sha256": "875ac97ba5e20ab1a457399321e9621d3b56a698aaeeadc78c9584f3b69a970e",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "data",
+            "offset": 909009,
+            "sha256": "9ce1877d3eac47699a558ada219ec4f217dbc4f215531a7f65ccacd8169c4f93",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "check",
+            "offset": 893754,
+            "sha256": "13ce867d2bf5d9081e234e2cc4b3330a59fad91ed351baddec15b6a553376467",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "smart-list",
+            "offset": 594736,
+            "sha256": "45892eadba38c8489ea172663e8029efa8fff5912e0ea9e225d1b3a92b4af75e",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "game-object-box",
+            "offset": 607446,
+            "sha256": "8c2bc0bf8b611a96c4ab50889c74051e540af35d3ebd553c158081417d05c7bf",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "list-box",
+            "offset": 895267,
+            "sha256": "5481b25306b33ceaac94d5fe1e164adabb7dd3255dfe5f67ef28c9de1eb5f727",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "spinbox",
+            "offset": 875471,
+            "sha256": "a94b75dfca7ceb95315d38a3897e8c389a96d71f56696329f0cf8edd20535984",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "game-object-selector",
+            "offset": 8771735,
+            "sha256": "9d74ffe518d64b6d519ae6c5112687a3556e8b8b4204250793dfab5b06b10299",
+            "status": "matched original source bytes"
+          }
+        ]
+      },
+      {
+        "path": "references/RPGMV/QtQuick/Controls/qtquickcontrolsplugin.dll",
+        "sha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+        "resources": [
+          {
+            "name": "qt-check-box",
+            "offset": 290172,
+            "sha256": "5334c4d26069acd2e7445be4e78e8d0749f376ec21d33200c350226b7a64d17a",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "qt-abstract-checkable",
+            "offset": 300501,
+            "sha256": "2fa2bb063b151e5da6ef8943ecfabd1fc67845ca1f07fbc8a367d9ef15b87390",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "qt-spinbox",
+            "offset": 160589,
+            "sha256": "4b98b9d85a651cbe2f47e4abf7efaf67a25b9b942f5441b77cc5faae9643e0ca",
+            "status": "matched original source bytes"
+          }
+        ]
+      }
+    ],
+    "reusedEvidence": [
+      {
+        "id": "ev_007ba386e622855bf771049084c3103afebbcc6b5d813f18c441f3ecf1d16d24",
+        "role": "Historical PE self-reported version; identical EXE SHA256 freshly verified; not a new current-session record"
+      },
+      {
+        "id": "ev_0abda227cbae2d1ac569a8e0af403fc960727b39b3d337287fe4165a16926d1d",
+        "role": "Historical same-DLL SpinBox native constructor sets decimals0; reused from shared-controls/05 with identical DLL SHA256, not rerun"
+      }
+    ],
+    "rawFiles": [
+      {
+        "path": "C:/Users/Shuen/.codex/research-evidence/mv-editor-07-20261019/resource-manifest.json",
+        "sha256": "75d74de4d22fb31b7f22c8539bdc7e814a78d5da4d7b16e72fda4002a873f7d4"
+      },
+      {
+        "path": "C:/Users/Shuen/.codex/research-evidence/mv-editor-07-20261019/support-discovery-manifest.json",
+        "sha256": "08a6ec9c71b1c01ee6aa278ae40126b58d6700bfb0906866bdf77d39019fee49"
+      },
+      {
+        "path": "C:/Users/Shuen/.codex/research-evidence/mv-editor-07-20261019/listbox-discovery-manifest.json",
+        "sha256": "d0079684551a9a07bc1684f80313ad888a70003fc5b9e01129b79d10b94c99c1"
+      },
+      {
+        "path": "C:/Users/Shuen/.codex/research-evidence/mv-editor-07-20261019/selector-discovery-manifest.json",
+        "sha256": "d984a8d4bc6ccb5739d7bb3715e2d04aa55110b59c7c130daf83da73061c2c66"
+      },
+      {
+        "path": "C:/Users/Shuen/.codex/research-evidence/mv-command-parameters-20261019/qt-spinbox-evidence.json",
+        "sha256": "f0a237d814bedac695d4e2acbaca254fcac65cd1583264a23b8f266188b20ef2",
+        "role": "reused historical native evidence; not a new analysis session"
+      }
+    ],
+    "rawFirstPartyOutput": "C:/Users/Shuen/.codex/research-evidence/mv-editor-07-20261019/",
+    "reviewScope": "Bounded reverse-engineering review completed only; conditional arrays and list edits do not establish actual UI creation, disk capture, product support, contract resolution, or game execution."
+  },
+  "difference": null
+}

@@ -1,6 +1,6 @@
 # 7: 原生 Shop 初值与空商店逆向核对
 
-Status: ready-for-agent
+Status: needs-info
 Blocked by: 01
 Stage: S1
 Created: 2026-10-19
@@ -20,13 +20,13 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 ## Acceptance criteria
 
-- [ ] 分别追踪空 goods、普通/重复商品及 purchaseOnly 的构造和保存，确认首商品与续行结构。
-- [ ] 核对标准价/自定义价的加载和确认以及空商店占位，区分 ID 0 占位与普通引用。
-- [ ] 保留可复核资源身份、代码事实、独立推导和契约反例；不依赖 DSL 生成来证明编辑器路径。
+- [x] 分别追踪空 goods、普通/重复商品及 purchaseOnly 的构造和保存，确认首商品与续行结构。
+- [x] 核对标准价/自定义价的加载和确认以及空商店占位，区分 ID 0 占位与普通引用。
+- [x] 保留可复核资源身份、代码事实、独立推导和契约反例；不依赖 DSL 生成来证明编辑器路径。
 
 ### 共通要求（限本票适用范围）
 
-- [ ] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
+- [x] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
 
 ## Verification
 
@@ -43,3 +43,11 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [实施规格](../complete-mv-events-implementation-spec.md)：I4、T3–T4；完整契约与未在本票重复列出的参数规则以规格及其规范附表为准。
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
+
+## Outcome and verification
+
+2026-10-19：已完成本票有界逆向路径阅读及原创[报告](../evidence/07-shop-defaults-and-goods-reverse.md)，保留[资源身份](../evidence/07-resource-identities.json)、13个稳定索引项和独立执行记录。未执行编辑器UI、抽出代码、实际写盘、产品或游戏。已核对空/普通/重复商品、purchaseOnly、标准/指定0及999999、重确认与302/605父属结构。
+
+**尚未完成的关闭条件**：`MV-E07-CONTRACT` 为blocked。原生空Shop保存后重开并从独立空白尾行添加真实商品，代码推导保留四零占位并生成后续605；SmartListBox拖动还允许占位出现在中间/末尾。该正常代码路径与E302禁止混合的已接受文本冲突。已回交主线程请求用户决定，未改原契约、未将占位归一化/丢弃，47仍被07阻塞。价格/类别主动编辑的零ID边界和未知Qt时序详见报告。本票不因其余证据核对完成而resolved。
+
+证据文档未改变产品或harness行为，无需新建TDD测试。Windows / Node22.23.0 下，既有 `pnpm --filter rpgmaker-event-dsl test -- test/mv-evidence.test.ts -t 'validates the evidence index'` 通过：1passed、2因名称筛选未选中。oxfmt对本票5个文档/JSON的检查与 `git diff --check` 通过。该自动校验确认索引、链接和哈希，不将契约blocked状态或未执行UI/游戏改成通过。

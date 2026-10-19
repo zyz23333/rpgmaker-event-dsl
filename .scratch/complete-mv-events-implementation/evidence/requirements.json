@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "scope": "Ticket01 automated seeds, ticket02 Windows automation baseline, tickets03/04/05/06 native reverse-engineering review, and the accepted finite zero contract. Not the complete105+45 or E1-E7/R1-R7 acceptance matrix.",
+  "scope": "Ticket 01 automated seeds, ticket 02 Windows automation baseline, and tickets 03–07 editor reverse-engineering obligations and contract review. Ticket07 retains an unresolved mixed-placeholder decision. This is not the complete 105+45 or E1-E7/R1-R7 acceptance matrix.",
   "requirements": [
     {
       "id": "MV-S0-CE-001",
@@ -1399,6 +1399,513 @@
         "layer": "Read-only initialization/load/edit-confirm/container serialization review and native property-default chain"
       },
       "slice": "06 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E07-NEW-EMPTY",
+      "title": "New empty Shop and both purchase flags",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/07-native-shop-defaults-and-empty-goods.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E302 — Shop Processing"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "New null eventData, no goods; unchanged or explicitly selected Purchase Only",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-resource-identities.json",
+        "sha256": "be6df14b8f7837ad9aecb0071bba2af42711a1739a0a200e733fb816d09ff5e8"
+      },
+      "expected": "After normal completed initialization, new empty list saves unique302[0,0,0,0,false]; explicitly selecting Purchase Only saves true. No605 or itemRef0 is implied.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-shop-defaults-and-goods-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E2", "E4"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI, extracted-code or game execution",
+        "owner": "Codex ticket07 reverse-engineering analyst; reproducible resource decode and bounded source review",
+        "layer": "Read-only construction/load/list-edit/parameter-confirm/container serialization review"
+      },
+      "slice": "07 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E07-PURCHASE",
+      "title": "Purchase Only belongs to the first Shop record",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/07-native-shop-defaults-and-empty-goods.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E302 — Shop Processing"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Empty and multiple goods with explicit false/true checkbox state",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-resource-identities.json",
+        "sha256": "be6df14b8f7837ad9aecb0071bba2af42711a1739a0a200e733fb816d09ff5e8"
+      },
+      "expected": "Only first302 carries boolean fifth slot; every605 has four slots. Empty placeholder retains the same purchaseOnly flag.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-shop-defaults-and-goods-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E2", "E4"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI, extracted-code or game execution",
+        "owner": "Codex ticket07 reverse-engineering analyst; reproducible resource decode and bounded source review",
+        "layer": "Read-only construction/load/list-edit/parameter-confirm/container serialization review"
+      },
+      "slice": "07 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E07-GOODS-ORDER",
+      "title": "Three goods kinds, order and duplicates",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/07-native-shop-defaults-and-empty-goods.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E302 — Shop Processing"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Valid item/weapon/armor references and separately constructed equal-value goods",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-resource-identities.json",
+        "sha256": "be6df14b8f7837ad9aecb0071bba2af42711a1739a0a200e733fb816d09ff5e8"
+      },
+      "expected": "Shop dispatches kinds0/1/2 and loops all data in order. First302 has five slots, later605 four, with parent-owned commonindent and no value-based deduplication. Reference validation remains a later product responsibility.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-shop-defaults-and-goods-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E2", "E4"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI, extracted-code or game execution",
+        "owner": "Codex ticket07 reverse-engineering analyst; reproducible resource decode and bounded source review",
+        "layer": "Read-only construction/load/list-edit/parameter-confirm/container serialization review"
+      },
+      "slice": "07 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E07-PRICE-MODES",
+      "title": "Standard and custom zero/max prices",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/07-native-shop-defaults-and-empty-goods.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E302 — Shop Processing"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Real positive-ID goods using Standard or Specify0/999999",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-resource-identities.json",
+        "sha256": "be6df14b8f7837ad9aecb0071bba2af42711a1739a0a200e733fb816d09ff5e8"
+      },
+      "expected": "Standard internal-1 saves mode0/value0; Specify saves mode1/integerprice. Zero means free. Goods SpinBox bounds0..999999 and reused native decimals0 establish integer editing, not actual execution of all combinations.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-shop-defaults-and-goods-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E2", "E4"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI, extracted-code or game execution",
+        "owner": "Codex ticket07 reverse-engineering analyst; reproducible resource decode and bounded source review",
+        "layer": "Read-only construction/load/list-edit/parameter-confirm/container serialization review"
+      },
+      "slice": "07 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E07-PRICE-RECONFIRM",
+      "title": "Existing standard and custom goods reconfirmation",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/07-native-shop-defaults-and-empty-goods.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E302 — Shop Processing"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "Independent valid item1 standard, weapon2 custom0 and armor3 custom999999; load and confirm without changing selection",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-resource-identities.json",
+        "sha256": "be6df14b8f7837ad9aecb0071bba2af42711a1739a0a200e733fb816d09ff5e8"
+      },
+      "expected": "With completed initialization and normal signal processing, category and positiveID reload from matching dataset and customprice is assigned last. Standard remains mode0/value0 and custom0/max retain mode1 and exact value. No Qt UI execution is claimed.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-shop-defaults-and-goods-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E2", "E4"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI, extracted-code or game execution",
+        "owner": "Codex ticket07 reverse-engineering analyst; reproducible resource decode and bounded source review",
+        "layer": "Read-only construction/load/list-edit/parameter-confirm/container serialization review"
+      },
+      "slice": "07 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E07-RESET-PRICE",
+      "title": "Adding another good can retain prior price state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/07-native-shop-defaults-and-empty-goods.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E302 — Shop Processing"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Previous child confirmation used custom83; add at blank tail in same Shop session",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-resource-identities.json",
+        "sha256": "be6df14b8f7837ad9aecb0071bba2af42711a1739a0a200e733fb816d09ff5e8"
+      },
+      "expected": "reset explicitly restores kind0/dataId1 but does not reset price; later addition can retain83. This is UI editing state, not another Compiler Default.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-shop-defaults-and-goods-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E2", "E4"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI, extracted-code or game execution",
+        "owner": "Codex ticket07 reverse-engineering analyst; reproducible resource decode and bounded source review",
+        "layer": "Read-only construction/load/list-edit/parameter-confirm/container serialization review"
+      },
+      "slice": "07 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E07-EMPTY-RELOAD",
+      "title": "Empty placeholder reconfirms separately from child edit",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/07-native-shop-defaults-and-empty-goods.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E302 — Shop Processing"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "Independent unique302[0,0,0,0,purchaseOnly]; open parent and confirm without opening goods child",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-resource-identities.json",
+        "sha256": "be6df14b8f7837ad9aecb0071bba2af42711a1739a0a200e733fb816d09ff5e8"
+      },
+      "expected": "Shop loads one kind0/id0/price-1 data row, display is question mark and separate blank tail is appended. Parent reconfirmation reconstructs same unique empty placeholder; no general zero-reference exemption follows.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-shop-defaults-and-goods-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E2", "E4"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI, extracted-code or game execution",
+        "owner": "Codex ticket07 reverse-engineering analyst; reproducible resource decode and bounded source review",
+        "layer": "Read-only construction/load/list-edit/parameter-confirm/container serialization review"
+      },
+      "slice": "07 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E07-PLACEHOLDER-EDIT",
+      "title": "Active zero-ID goods editing has a positive-ID path",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/07-native-shop-defaults-and-empty-goods.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E302 — Shop Processing"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "Open loaded zero-ID data row and change only price or category; selected category has normal positive-ID data and controls complete initialization",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-resource-identities.json",
+        "sha256": "be6df14b8f7837ad9aecb0071bba2af42711a1739a0a200e733fb816d09ff5e8"
+      },
+      "expected": "Goods guard skips zeroID restoration. Default GameObjectBox currentId1 and includeZero=false select a normal positiveID on child confirmation. This does not establish custom-price, weapon0 or armor0 placeholders; malformed empty datasets and transient Qt signal states remain unknown.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-shop-defaults-and-goods-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E2", "E4"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI, extracted-code or game execution",
+        "owner": "Codex ticket07 reverse-engineering analyst; reproducible resource decode and bounded source review",
+        "layer": "Read-only construction/load/list-edit/parameter-confirm/container serialization review"
+      },
+      "slice": "07 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E07-MIX-PATH",
+      "title": "Native empty Shop reload plus tail addition counterexample",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/07-native-shop-defaults-and-empty-goods.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E302 — Shop Processing"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "Create empty Shop, reopen, choose separate blank tail, add valid standard-price item1 and confirm parent",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-resource-identities.json",
+        "sha256": "be6df14b8f7837ad9aecb0071bba2af42711a1739a0a200e733fb816d09ff5e8"
+      },
+      "expected": "Under normal completed initialization, original zeroID data row remains and Shop saves first302[0,0,0,0,false] plus605[0,1,0,0]. Preserve this conditional normal-code-path counterexample against the original E302 mixed-placeholder prohibition; no UI capture or contract resolution is claimed.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-shop-defaults-and-goods-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E2", "E4"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI, extracted-code or game execution",
+        "owner": "Codex ticket07 reverse-engineering analyst; reproducible resource decode and bounded source review",
+        "layer": "Read-only construction/load/list-edit/parameter-confirm/container serialization review"
+      },
+      "slice": "07 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E07-PLACEHOLDER-ORDER",
+      "title": "Placeholder drag position and conditional copying",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/07-native-shop-defaults-and-empty-goods.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E302 — Shop Processing"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "Mixed placeholder/real goods list; drag data row or copy/paste selected non-tail placeholder",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-resource-identities.json",
+        "sha256": "be6df14b8f7837ad9aecb0071bba2af42711a1739a0a200e733fb816d09ff5e8"
+      },
+      "expected": "SmartListBox splice can move exact four-zero placeholder to middle/end. JSON copy/paste with object-identity deduplication supports conditional repeated-placeholder inference, not an observed UI capture or automatic product domain expansion.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-shop-defaults-and-goods-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E2", "E4"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI, extracted-code or game execution",
+        "owner": "Codex ticket07 reverse-engineering analyst; reproducible resource decode and bounded source review",
+        "layer": "Read-only construction/load/list-edit/parameter-confirm/container serialization review"
+      },
+      "slice": "07 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E07-STANDARD-NONZERO",
+      "title": "Standard nonzero saved slot remains an unsupported input distinction",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/07-native-shop-defaults-and-empty-goods.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E302 — Shop Processing"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "Independent anomalous302[0,1,0,83,false]; compare container save with Shop parameter confirmation",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-resource-identities.json",
+        "sha256": "be6df14b8f7837ad9aecb0071bba2af42711a1739a0a200e733fb816d09ff5e8"
+      },
+      "expected": "Container serialization retains83; Shop reload maps mode0 to internal-1 and parameter confirmation writes value0. No normal save creation path for mode0/value83 was found; accepted contract still requires unsupported-form handling rather than silent decompilation normalization.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-shop-defaults-and-goods-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E2", "E4"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI, extracted-code or game execution",
+        "owner": "Codex ticket07 reverse-engineering analyst; reproducible resource decode and bounded source review",
+        "layer": "Read-only construction/load/list-edit/parameter-confirm/container serialization review"
+      },
+      "slice": "07 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E07-CONTAINER",
+      "title": "Container serialization retains complete Shop data",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/07-native-shop-defaults-and-empty-goods.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E302 — Shop Processing"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Existing empty, normal and duplicate goods groups; save only event container",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-resource-identities.json",
+        "sha256": "be6df14b8f7837ad9aecb0071bba2af42711a1739a0a200e733fb816d09ff5e8"
+      },
+      "expected": "Read DataManager stringify paths do not call Shop.load/save and retain complete parameters, keypresence, order, count, values and indent. Actual disk success, product comparison and game remain unexecuted.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-shop-defaults-and-goods-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E2", "E4"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI, extracted-code or game execution",
+        "owner": "Codex ticket07 reverse-engineering analyst; reproducible resource decode and bounded source review",
+        "layer": "Read-only construction/load/list-edit/parameter-confirm/container serialization review"
+      },
+      "slice": "07 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E07-CONTRACT",
+      "title": "Resolve the mixed-placeholder domain conflict before release",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/07-native-shop-defaults-and-empty-goods.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E302 — Shop Processing"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "Accepted E302 prohibits mixed placeholder while MV-E07-MIX-PATH derives one from native construction/reload/tailaddition",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-resource-identities.json",
+        "sha256": "be6df14b8f7837ad9aecb0071bba2af42711a1739a0a200e733fb816d09ff5e8"
+      },
+      "expected": "A documented user contract decision must resolve the conditional normal native counterexample before ticket07 resolves or product47 is unblocked. Any accepted finite Shop placeholder must remain distinct from ordinary positive-ID goods references; no other zeroID kind/price combination or arbitrary raw preservation gains support.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/07-shop-defaults-and-goods-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E2", "E4"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 editor and same-install Qt artifacts; no editor UI, extracted-code or game execution",
+        "owner": "Codex ticket07 reverse-engineering analyst; reproducible resource decode and bounded source review",
+        "layer": "User contract decision required before native prerequisite release"
+      },
+      "slice": "07 / S1",
       "required": true
     }
   ]
