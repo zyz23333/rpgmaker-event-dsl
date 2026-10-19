@@ -187,6 +187,7 @@ export function assertNativeCommandParameters(
         parameters[3] as number
       ] ?? "?";
   if (code === 124) signature = parameters[0] === 1 && parameters.length === 1 ? "n" : "nn";
+  assertNativeScreenParameters(code, parameters, path);
   const matches = (value: unknown, kind: string) =>
     kind === "x" ||
     (kind === "n"
@@ -213,7 +214,6 @@ export function assertNativeCommandParameters(
         actual: renderJsonValue(parameters),
       },
     );
-  assertNativeScreenParameters(code, parameters, path);
   const slot = (index: number, valid: boolean, expected: string): void => {
     if (!valid)
       throw new CommandStructureError("MV-COMMAND-PARAMETERS", "Invalid known saved parameter.", {

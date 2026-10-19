@@ -1,0 +1,42 @@
+{
+  "formatVersion": 1,
+  "sourceKind": "synthetic-support",
+  "provenance": "Self-authored minimal data for automated Workspace verification; not captured from the MV editor or a running game.",
+  "projectFiles": {
+    "Actors.json": [null],
+    "Animations.json": [null],
+    "Armors.json": [null],
+    "Classes.json": [null],
+    "CommonEvents.json": [
+      null,
+      {
+        "id": 1,
+        "name": "Evidence Common Event",
+        "trigger": 0,
+        "switchId": 1,
+        "list": [
+          { "code": 101, "indent": 0, "parameters": ["", 0, 1, 0] },
+          { "code": 401, "indent": 0, "parameters": ["Synthetic CR\rkept"] },
+          { "code": 401, "indent": 0, "parameters": [""] },
+          { "code": 108, "indent": 0, "parameters": ["Self-authored fixture"] },
+          { "code": 408, "indent": 0, "parameters": [""] },
+          { "code": 0, "indent": 0, "parameters": [] }
+        ]
+      }
+    ],
+    "Enemies.json": [null],
+    "Items.json": [null],
+    "MapInfos.json": [null],
+    "Skills.json": [null],
+    "States.json": [null],
+    "System.json": {
+      "gameTitle": "Synthetic evidence context",
+      "switches": ["", "Saved switch"],
+      "variables": [""],
+      "fixtureOrigin": { "retainedNull": null, "retainedArray": [] }
+    },
+    "Tilesets.json": [null],
+    "Troops.json": [null],
+    "Weapons.json": [null]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "base": "38542767606ff9712e45d2a8e4894558e3a7d385",
+  "incomingRequirements": 296,
+  "finalRequirements": 300,
+  "addedRequirements": [
+    "MV-S6-SCREEN-001",
+    "MV-S6-SCREEN-002",
+    "MV-S6-SCREEN-003",
+    "MV-S6-SCREEN-R6"
+  ],
+  "activeIndexException": {
+    "allowlistEntries": 16,
+    "onlyFixtureSha256": true,
+    "allOtherIncomingRowFieldsDeepEqual": true,
+    "reversingExactAllowedPinsReconstructsOriginalIndexBytes": true,
+    "physicalOriginalIndexAndFixture": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+        "archived": ".scratch/complete-mv-events-implementation/evidence/37-history/incoming-fixtures/.scratch/complete-mv-events-implementation/evidence/requirements.json",
+        "sha256": "45c5c4c5c036636516ee70e905d04f7947694c6bb5483bab51f96401aa43698f",
+        "gitBlob": "c86c49664b148318c8f959e04cc447d6e98bf4f1",
+        "independentPhysicalBlobMatches": true
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "archived": ".scratch/complete-mv-events-implementation/evidence/37-history/incoming-fixtures/packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+        "gitBlob": "92b551faad1d8cce287f8f5a5bf72bfd9965a398",
+        "independentPhysicalBlobMatches": true
+      }
+    ]
+  },
+  "incomingHistoricalEvidenceFiles": 4278,
+  "preservedIncomingEvidence": true
+}

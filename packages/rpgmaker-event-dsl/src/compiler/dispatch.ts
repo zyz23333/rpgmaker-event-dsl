@@ -1031,12 +1031,7 @@ export function compileNodes(
         output.push({
           code: 236,
           indent,
-          parameters: [
-            weatherEffectToCode(node.weather),
-            node.power,
-            node.duration,
-            node.wait,
-          ],
+          parameters: [weatherEffectToCode(node.weather), node.power, node.duration, node.wait],
         });
         break;
       case "playBgm":

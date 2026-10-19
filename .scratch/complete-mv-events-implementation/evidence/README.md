@@ -496,3 +496,12 @@ Ticket36 map appearance cases use independent complete saved literals and actual
 | MV-S6-MAP-APPEARANCE-007 | preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push | synthetic-support | Public source/built Workspace; literal signed-zero carrier and Object.is assertions |
 
 Ticket36 allocated delivery is complete on contract `mv-1.6.1/10`: current source40 files/987 tests, fresh build, built Windows16 files/373 tests,9 exact E6 resource checks and10 physically isolated current-built/native pairs (20 game sides) passed. The [current delivery record](36-map-appearance-settings.md#final-current-delivery--contract-mv-16110) and `36-history/` preserve actual source/dist identities, rejected/incomplete attempts, original captures and safe native projections. All286 incoming rows/history bytes are preserved; final49–55 remain separate.
+
+Ticket37 focused DEV appends independent screen cases; its R6 game gate remains pending.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-SCREEN-001 | reconstructs every Screen mode and signed zero through evaluated formal and known raw source and real 15-carrier Push | synthetic-support | Public Workspace API, actual source evaluation and complete filesystem state |
+| MV-S6-SCREEN-002 | rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state | synthetic-rejection | Public Workspace API, actual source evaluation and complete filesystem state |
+| MV-S6-SCREEN-003 | rejects late malformed native Screen slots before source publication without changing existing business state | synthetic-rejection | Public Workspace API, actual source evaluation and complete filesystem state |
+| MV-S6-SCREEN-R6 | Current built normal-Scene screen waits, parallel effects, Weather and Movie runtime acceptance | game-observation | Actual game normal Scenes from current built Workspace output |

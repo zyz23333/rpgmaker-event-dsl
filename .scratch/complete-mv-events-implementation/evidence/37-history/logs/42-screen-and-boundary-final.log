@@ -1,0 +1,179 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-37/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/command-boundary-workspace.test.ts > decompiles with the Gate closed, reports every saved script location, and checks actual evaluated output without changing state
+compile warning commonEvent:1: MV-UNKNOWN-COMMAND at list[0]: unknown code 999 is preserved as one raw record; its payload semantics are uninterpreted.
+compile warning commonEvent:5: MV-MOVEMENT-TEXT-RISK at list[0].parameters[1].list[0].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+compile warning commonEvent:5: MV-MOVEMENT-TEXT-RISK at list[1].parameters[0].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+compile warning map:1/event:1: MV-MOVEMENT-TEXT-RISK at pages[0].moveRoute.list[0].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+
+stderr | test/command-boundary-workspace.test.ts > decompiles with the Gate closed, reports every saved script location, and checks actual evaluated output without changing state
+compile warning commonEvent:1: MV-UNKNOWN-COMMAND at list[0]: unknown code 999 is preserved as one raw record; its payload semantics are uninterpreted.
+compile warning commonEvent:5: MV-MOVEMENT-TEXT-RISK at list[0].parameters[1].list[0].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+compile warning commonEvent:5: MV-MOVEMENT-TEXT-RISK at list[1].parameters[0].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+compile warning map:1/event:1: MV-MOVEMENT-TEXT-RISK at pages[0].moveRoute.list[0].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+
+stderr | test/command-boundary-workspace.test.ts > decompiles with the Gate closed, reports every saved script location, and checks actual evaluated output without changing state
+compile warning commonEvent:1: MV-UNKNOWN-COMMAND at list[0]: unknown code 999 is preserved as one raw record; its payload semantics are uninterpreted.
+compile warning commonEvent:5: MV-MOVEMENT-TEXT-RISK at list[0].parameters[1].list[0].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+compile warning commonEvent:5: MV-MOVEMENT-TEXT-RISK at list[1].parameters[0].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+compile warning map:1/event:1: MV-MOVEMENT-TEXT-RISK at pages[0].moveRoute.list[0].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+
+stderr | test/command-boundary-workspace.test.ts > decompiles with the Gate closed, reports every saved script location, and checks actual evaluated output without changing state
+compile warning commonEvent:1: MV-UNKNOWN-COMMAND at list[0]: unknown code 999 is preserved as one raw record; its payload semantics are uninterpreted.
+compile warning commonEvent:5: MV-MOVEMENT-TEXT-RISK at list[0].parameters[1].list[0].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+compile warning commonEvent:5: MV-MOVEMENT-TEXT-RISK at list[1].parameters[0].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+compile warning map:1/event:1: MV-MOVEMENT-TEXT-RISK at pages[0].moveRoute.list[0].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
+
+stderr | test/command-boundary-workspace.test.ts > decompiles with the Gate closed, reports every saved script location, and checks actual evaluated output without changing state
+Windows verification sandbox retained: M:\Shuen\Codex\mv-events-implementation-20261020\ticket37-temp\command-boundary-akQA2C
+
+stderr | test/command-boundary-workspace.test.ts > rejects malformed native records, conflicting mirrors and saved route references before publishing any source
+Windows verification sandbox retained: M:\Shuen\Codex\mv-events-implementation-20261020\ticket37-temp\command-boundary-reject-parameters-8CISuk
+
+ ❯ test/command-boundary-workspace.test.ts (5 tests | 2 failed) 25294ms
+   × decompiles with the Gate closed, reports every saved script location, and checks actual evaluated output without changing state 14136ms
+   × rejects malformed native records, conflicting mirrors and saved route references before publishing any source 2054ms
+ ❯ test/command-boundary.test.ts (13 tests | 2 failed) 45ms
+   × reports the real raw source position before a native record exists 11ms
+   × uses the same known parameter boundary for formal, handwritten raw and native input 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/command-boundary-workspace.test.ts > decompiles with the Gate closed, reports every saved script location, and checks actual evaluated output without changing state
+AssertionError: expected 'compile warning commonEvent:5: MV-MOV…' to contain 'MV-COMMAND-PARAMETERS'
+
+- Expected
++ Received
+
+- MV-COMMAND-PARAMETERS
++ compile warning commonEvent:5: MV-MOVEMENT-TEXT-RISK at list[0].parameters[1].list[0].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
++ compile warning commonEvent:5: MV-MOVEMENT-TEXT-RISK at list[1].parameters[0].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
++ compile warning map:1/event:1: MV-MOVEMENT-TEXT-RISK at pages[0].moveRoute.list[0].parameters[0]: LF exceeds the native single-line input; CR preservation on parameter reconfirmation needs native verification. Saved text is retained exactly.
++ C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\workspace\operations.ts:259
++     throw new Error(
++           ^
++ 
++ Error: compile --check validation failed:
++ - compile error commonEvent:1: MV-E230-PARAMETER: Invalid saved screen parameter. (commands[0].parameters); expected exactly 1 saved parameter slots; actual [-0,{"__proto__":{"retained":true},"nested":[null,[],{}," \r\n ",-0]}]
++     at compileWorkspaceUnlocked (C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\workspace\operations.ts:259:11)
++     at async withWorkspaceOperationLock (C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\workspace\operation-lock.ts:45:12)
++     at async compileWorkspace (C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\workspace\operations.ts:215:3)
++     at async Command.<anonymous> (C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\cli.ts:67:7)
++     at async Command.parseAsync (F:\Shuen\RPG\rpgmaker-event-dsl\node_modules\.pnpm\commander@14.0.3\node_modules\commander\lib\command.js:1122:5)
++     at async runCli (C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\cli.ts:110:3)
++     at async <anonymous> (C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\cli.ts:122:3)
++ 
++ Node.js v22.23.0
++
+
+ ❯ test/command-boundary-workspace.test.ts:126:26
+    124|     const check = await runCli(sandbox, ["compile", "--check"], { allo…
+    125|     expect(check.exitCode).not.toBe(0);
+    126|     expect(check.stderr).toContain("MV-COMMAND-PARAMETERS");
+       |                          ^
+    127|     await expect(compileWorkspace({ workspaceRoot, check: false })).re…
+    128|       /MV-COMMAND-PARAMETERS/,
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/command-boundary-workspace.test.ts:88:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  test/command-boundary-workspace.test.ts > rejects malformed native records, conflicting mirrors and saved route references before publishing any source
+AssertionError: expected 'C:\Users\Shuen\.codex\worktrees\mv-ti…' to contain 'MV-COMMAND-PARAMETERS'
+
+- Expected
++ Received
+
+- MV-COMMAND-PARAMETERS
++ C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\decompiler\core.ts:237
++       throw new CommandStructureError(
++             ^
++ 
++ CommandStructureError: decompile error commonEvent:1: MV-E230-PARAMETER: Invalid saved screen parameter. at list[0].parameters[0]; expected integer 1..999; actual null
++     at readRawCommandList (C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\decompiler\core.ts:237:13)
++     at <anonymous> (C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\decompiler\core.ts:219:15)
++     at Array.flatMap (<anonymous>)
++     at readCommonEvents (C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\decompiler\core.ts:185:16)
++     at buildDecompiledSourceFiles (C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\decompiler\project.ts:123:24)
++     at async decompileProjectDataSnapshot (C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\decompiler\project.ts:65:17)
++     at async decompileWorkspaceUnlocked (C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\workspace\operations.ts:145:3)
++     at async withWorkspaceOperationLock (C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\workspace\operation-lock.ts:45:12)
++     at async decompileWorkspace (C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\workspace\operations.ts:117:3)
++     at async Command.<anonymous> (C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl\src\cli.ts:59:7) {
++   code: 'MV-E230-PARAMETER',
++   detail: 'Invalid saved screen parameter.',
++   location: {
++     nativePath: 'list[0].parameters[0]',
++     expected: 'integer 1..999',
++     actual: 'null'
++   },
++   identity: 'commonEvent:1',
++   stage: 'decompile'
++ }
++ 
++ Node.js v22.23.0
++
+
+ ❯ test/command-boundary-workspace.test.ts:232:29
+    230|       const result = await runCli(sandbox, ["decompile"], { allowFailu…
+    231|       expect(result.exitCode).not.toBe(0);
+    232|       expect(result.stderr).toContain(
+       |                             ^
+    233|         variant === "envelope"
+    234|           ? "MV-COMMAND-ENVELOPE"
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/command-boundary-workspace.test.ts:185:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  test/command-boundary.test.ts > reports the real raw source position before a native record exists
+AssertionError: expected { level: 'error', …(7) } to match object { dslPath: 'commands[1]' }
+(7 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "dslPath": "commands[1]",
++   "dslPath": "commands[1].parameters",
+  }
+
+ ❯ test/command-boundary.test.ts:23:17
+     21|     scriptEnabled: true,
+     22|   }).issues.find((candidate) => candidate.code === "MV-COMMAND-ENVELOP…
+     23|   expect(issue).toMatchObject({ dslPath: "commands[1]" });
+       |                 ^
+     24|   expect(issue?.nativePath).toBeUndefined();
+     25| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  test/command-boundary.test.ts > uses the same known parameter boundary for formal, handwritten raw and native input
+AssertionError: expected [Function] to throw error matching /MV-COMMAND-PARAMETERS/ but got 'MV-E230-PARAMETER: Invalid saved scre…'
+
+- Expected:
+/MV-COMMAND-PARAMETERS/
+
++ Received:
+"MV-E230-PARAMETER: Invalid saved screen parameter. at list[0].parameters; expected exactly 1 saved parameter slots; actual []"
+
+ ❯ test/command-boundary.test.ts:231:87
+    229| it("uses the same known parameter boundary for formal, handwritten raw…
+    230|   for (const parameters of [[], [null], ["30"], [30, 40]]) {
+    231|     expect(() => renderDecompiledCommandList([{ code: 230, indent: 0, …
+       |                                                                                       ^
+    232|       /MV-COMMAND-PARAMETERS/,
+    233|     );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  2 failed | 2 passed (4)
+      Tests  4 failed | 29 passed (33)
+   Start at  03:49:33
+   Duration  36.88s (transform 1.32s, setup 0ms, import 4.72s, tests 60.23s, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/screen-effects.test.ts test/screen-effects-workspace.test.ts test/command-boundary.test.ts test/command-boundary-workspace.test.ts

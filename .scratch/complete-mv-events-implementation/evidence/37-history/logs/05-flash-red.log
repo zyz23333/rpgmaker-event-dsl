@@ -1,0 +1,36 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-37/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/screen-effects.test.ts (3 tests | 1 failed) 11ms
+   × requires Flash fields and retains zero alpha and every signed-zero component 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/screen-effects.test.ts > requires Flash fields and retains zero alpha and every signed-zero component
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/screen-effects.test.ts:26:64
+     24| it("requires Flash fields and retains zero alpha and every signed-zero…
+     25|   const color = { red: -0, green: 255, blue: -0, alpha: -0 };
+     26|   expect(() => flashScreen({ color, duration: 999 } as never)).toThrow…
+       |                                                                ^
+     27|   const records = compile([flashScreen({ color, duration: 999, wait: f…
+     28|   expect(records[0]).toStrictEqual({ code: 224, indent: 0, parameters:…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  03:21:10
+   Duration  1.22s (transform 362ms, setup 0ms, import 1.07s, tests 11ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/screen-effects.test.ts

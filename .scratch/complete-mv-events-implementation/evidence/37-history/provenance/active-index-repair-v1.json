@@ -1,0 +1,131 @@
+{
+  "base": "38542767606ff9712e45d2a8e4894558e3a7d385",
+  "authorization": "Root explicitly authorized the sole recorded active-index metadata exception; all old captures, results and history remain immutable.",
+  "originalProofs": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+      "archived": ".scratch/complete-mv-events-implementation/evidence/37-history/incoming-fixtures/.scratch/complete-mv-events-implementation/evidence/requirements.json",
+      "sha256": "45c5c4c5c036636516ee70e905d04f7947694c6bb5483bab51f96401aa43698f",
+      "gitBlob": "c86c49664b148318c8f959e04cc447d6e98bf4f1",
+      "independentPhysicalBlobMatches": true
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "archived": ".scratch/complete-mv-events-implementation/evidence/37-history/incoming-fixtures/packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "gitBlob": "92b551faad1d8cce287f8f5a5bf72bfd9965a398",
+      "independentPhysicalBlobMatches": true
+    }
+  ],
+  "incomingRows": 296,
+  "currentRows": 300,
+  "allowlist": [
+    {
+      "id": "MV-S5-COMMON-001",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "before": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "after": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-002",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "before": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "after": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-003",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "before": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "after": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-004",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "before": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "after": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-005",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "before": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "after": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-006",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "before": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "after": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-007",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "before": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "after": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-008",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "before": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "after": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-009",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "before": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "after": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-010",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "before": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "after": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-011",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "before": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "after": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-012",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "before": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "after": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-013",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "before": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "after": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-014",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "before": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "after": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-015",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "before": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "after": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-016",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "before": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "after": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    }
+  ],
+  "changedFixture": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+  "mechanicalChange": {
+    "before": "commands:[wait(3)]",
+    "after": "commands:[wait({ frames: 3 })]",
+    "onlyThisReplacement": true,
+    "diff": "diff --git a/packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts b/packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts\nindex 92b551f..9253a20 100644\n--- a/packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts\n+++ b/packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts\n@@ -538,7 +538,7 @@ it(\"MV-S5-COMMON-008: reports independent saved-field changes and safely removes\n         expected: { id: 1, name: \"Original\", trigger: 2, switchId: 2, list: [end] },\n       },\n       {\n-        input: 'name:\"Original\",trigger:\"none\",commands:[wait(3)]',\n+        input: 'name:\"Original\",trigger:\"none\",commands:[wait({ frames: 3 })]',\n         expected: {\n           id: 1,\n           name: \"Original\",\n"
+  },
+  "unchangedOtherFieldsOnIncomingRows": true,
+  "originalIndexSha256": "45c5c4c5c036636516ee70e905d04f7947694c6bb5483bab51f96401aa43698f",
+  "beforeRepairIndexSha256": "689364f37dd773721af7c5f04da27016a4ddfdf929ee5b2fcffa5edd1ce4ce11",
+  "afterRepairIndexSha256": "642b340fa29ed161b84180f184cffe3fdeb51ec89ce08cf88814e57e8f7ebee0"
+}

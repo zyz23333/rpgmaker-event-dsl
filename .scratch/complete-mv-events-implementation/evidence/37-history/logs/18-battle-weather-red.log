@@ -1,0 +1,47 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-37/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/screen-effects.test.ts (9 tests | 1 failed) 29ms
+   × warns that battle Weather skips both effect and wait without rejecting its saved parameters 11ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/screen-effects.test.ts > warns that battle Weather skips both effect and wait without rejecting its saved parameters
+AssertionError: expected [ { level: 'error', …(7) } ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "actual": "1",
++     "code": "MV-TROOP-IDENTITY",
++     "dslPath": "troopId",
++     "expected": "positive existing Snapshot Troop identity",
++     "identity": "troop:1",
++     "level": "error",
++     "message": "compile error troop:1: MV-TROOP-IDENTITY at troopId; expected positive existing Snapshot Troop identity; actual 1.",
++     "stage": "compile",
++   },
++ ]
+
+ ❯ test/screen-effects.test.ts:20:59
+     18|   const battle = troopEvent({ troopId: 1, pages: [battlePage({ command…
+     19|   const issues = validateDslOwnedDeclarations([battle], { scriptEnable…
+     20|   expect(issues.filter(({ level }) => level === "error")).toEqual([]);
+       |                                                           ^
+     21|   expect(issues).toContainEqual(expect.objectContaining({
+     22|     code: "MV-E236-BATTLE", level: "warning", identity: "troop:1",
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 8 passed (9)
+   Start at  03:28:46
+   Duration  1.62s (transform 480ms, setup 0ms, import 1.43s, tests 29ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/screen-effects.test.ts

@@ -86,10 +86,14 @@ export function inspectNativeCommandInputs(
   for (const [index, command] of commands.entries()) {
     const path = `${options.prefix ?? ""}list[${index}]`;
     const origin = options.origins?.get(command);
-    issues.push(...inspectNativeScreenContext(command.code, {
-      identity: options.identity, stage: options.stage, nativePath: path,
-      ...(origin ? { dslPath: origin.path } : {}),
-    }));
+    issues.push(
+      ...inspectNativeScreenContext(command.code, {
+        identity: options.identity,
+        stage: options.stage,
+        nativePath: path,
+        ...(origin ? { dslPath: origin.path } : {}),
+      }),
+    );
     if (command.code === 205) {
       const route = command.parameters[1] as NativeMovementRoute;
       for (const [routeIndex, record] of route.list.entries())

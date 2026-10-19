@@ -61,11 +61,7 @@ export function assertRawDslInput(
       const { nativePath: _nativePath, ...location } = error.location;
       throw new CommandStructureError(error.code, error.detail, {
         ...location,
-        dslPath:
-          path +
-          (typeof value.code === "number" && value.code >= 281 && value.code <= 284
-            ? (error.location.nativePath?.replace(/^list\[\d+\]/u, "") ?? "")
-            : ""),
+        dslPath: `${path}${error.location.nativePath?.replace(/^list\[\d+\]/u, "") ?? ""}`,
       });
     }
     throw error;
