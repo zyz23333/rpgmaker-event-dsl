@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "scope": "Ticket01 automated seeds, ticket02 Windows automation baseline, tickets03–07 native reverse-engineering and accepted finite-contract review, ticket11 System-slot/switch coverage, and ticket13 Loop/Break/Exit coverage. Not the complete105+45 or E1-E7/R1-R7 acceptance matrix.",
+  "scope": "Ticket01 automated seeds, ticket02 Windows automation baseline, tickets03–08 native reverse-engineering and accepted finite-contract review, ticket11 System-slot/switch coverage, and ticket13 Loop/Break/Exit coverage. Not the complete105+45 or E1-E7/R1-R7 acceptance matrix.",
   "requirements": [
     {
       "id": "MV-S0-CE-001",
@@ -2401,6 +2401,608 @@
         "layer": "Native Scene_Map and unchanged Game_Interpreter"
       },
       "slice": "13 / E112 E113 E115",
+      "required": true
+    },
+    {
+      "id": "MV-E08-GRID",
+      "title": "Official grid and dynamic picker rows",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/08-native-face-index-behavior.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322 — Change Actor Images"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "官方帮助与 faces 控件分帧设置",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-resource-identities.json",
+        "sha256": "848eca9eee546137e0bfa545eb698a701d4624c1717396c6ecb61d98fbeddc37"
+      },
+      "expected": "官方标准144格/4列2行；FaceImageBox固定144格/4列，而行数由子view图片高度派生，没有7硬上界; 首方规范及随包代码观察；不证明全部尺寸都能加载",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-face-index-and-image-replacement-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E6"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML/help; no editor UI, extracted-code execution or game",
+        "owner": "Codex ticket08 reverse-engineering analyst; read-only resource verification and bounded source review",
+        "layer": "Construction/load/preview/child-confirm/parent-confirm/container serialization and accepted-domain review"
+      },
+      "slice": "08 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E08-STANDARD",
+      "title": "Standard face sheet selection path",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/08-native-face-index-behavior.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322 — Change Actor Images"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "合成576×288已加载，点击第一格及第二行末格内部",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-resource-identities.json",
+        "sha256": "848eca9eee546137e0bfa545eb698a701d4624c1717396c6ecb61d98fbeddc37"
+      },
+      "expected": "普通点击公式可分别产生0/7；有效格仍由当前尺寸决定; 有条件静态推导；没有实际图片/点击捕获",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-face-index-and-image-replacement-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E6"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML/help; no editor UI, extracted-code execution or game",
+        "owner": "Codex ticket08 reverse-engineering analyst; read-only resource verification and bounded source review",
+        "layer": "Construction/load/preview/child-confirm/parent-confirm/container serialization and accepted-domain review"
+      },
+      "slice": "08 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E08-THIRD-ROW",
+      "title": "Third-row mouse and keyboard selection",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/08-native-face-index-behavior.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322 — Change Actor Images"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "合成576×432已加载，第三行点击或从4/7向下",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-resource-identities.json",
+        "sha256": "848eca9eee546137e0bfa545eb698a701d4624c1717396c6ecb61d98fbeddc37"
+      },
+      "expected": "同一选择器路径可产生8/11，反馈到dialog并可回传父控件; 有条件静态推导；滚动/焦点及完成初始化为前提",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-face-index-and-image-replacement-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E6"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML/help; no editor UI, extracted-code execution or game",
+        "owner": "Codex ticket08 reverse-engineering analyst; read-only resource verification and bounded source review",
+        "layer": "Construction/load/preview/child-confirm/parent-confirm/container serialization and accepted-domain review"
+      },
+      "slice": "08 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E08-E101-LOAD-SAVE",
+      "title": "Show Text face parameter load and save",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/08-native-face-index-behavior.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322 — Change Actor Images"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "既有101的独立名称/index；只开父参数后确认",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-resource-identities.json",
+        "sha256": "848eca9eee546137e0bfa545eb698a701d4624c1717396c6ecb61d98fbeddc37"
+      },
+      "expected": "onLoad读取p0/p1，onSave独立写p0/p1，预览链不按尺寸改index；只核对脸图槽; 代码观察与有条件保存推导；不扩大到文字尾行等其它参数",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-face-index-and-image-replacement-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E6"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML/help; no editor UI, extracted-code execution or game",
+        "owner": "Codex ticket08 reverse-engineering analyst; read-only resource verification and bounded source review",
+        "layer": "Construction/load/preview/child-confirm/parent-confirm/container serialization and accepted-domain review"
+      },
+      "slice": "08 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E08-E322-LOAD-SAVE",
+      "title": "Change Actor Images saved pair and actor refresh",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/08-native-face-index-behavior.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322 — Change Actor Images"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "既有322六槽，face为p3/p4；不主动另选actor或子图",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-resource-identities.json",
+        "sha256": "848eca9eee546137e0bfa545eb698a701d4624c1717396c6ecb61d98fbeddc37"
+      },
+      "expected": "actor选择后的显式load恢复p3/p4，save独立写回；不是运行时actor图像值; 代码观察与正常同步初始化推导；未知Qt调度不冒充执行",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-face-index-and-image-replacement-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E6"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML/help; no editor UI, extracted-code execution or game",
+        "owner": "Codex ticket08 reverse-engineering analyst; read-only resource verification and bounded source review",
+        "layer": "Construction/load/preview/child-confirm/parent-confirm/container serialization and accepted-domain review"
+      },
+      "slice": "08 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E08-NEW-PROJECT-DEFAULT",
+      "title": "New face control and project-dependent actor initial values",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/08-native-face-index-behavior.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322 — Change Actor Images"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "新101及新322、主动改变actor",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-resource-identities.json",
+        "sha256": "848eca9eee546137e0bfa545eb698a701d4624c1717396c6ecb61d98fbeddc37"
+      },
+      "expected": "101脸图控件初值空名/index0；322可从选中actor读取项目faceName/index，主动换actor可刷新; 有条件初值推导；项目值不成为Compiler Default",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-face-index-and-image-replacement-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E6"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML/help; no editor UI, extracted-code execution or game",
+        "owner": "Codex ticket08 reverse-engineering analyst; read-only resource verification and bounded source review",
+        "layer": "Construction/load/preview/child-confirm/parent-confirm/container serialization and accepted-domain review"
+      },
+      "slice": "08 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E08-PREVIEW",
+      "title": "Parent preview inheritance does not clamp saved index",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/08-native-face-index-behavior.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322 — Change Actor Images"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "父窗口显示独立index8/11/2147483647，图片缺失或较小",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-resource-identities.json",
+        "sha256": "848eca9eee546137e0bfa545eb698a701d4624c1717396c6ecb61d98fbeddc37"
+      },
+      "expected": "已读Face→Obj→Labeled→ImageBox→ImageClip预览链派生裁切区域，没有向index写回尺寸夹紧; 有界代码观察；极值是合成域输入，不声称可点选/绘制正常",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-face-index-and-image-replacement-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E6"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML/help; no editor UI, extracted-code execution or game",
+        "owner": "Codex ticket08 reverse-engineering analyst; read-only resource verification and bounded source review",
+        "layer": "Construction/load/preview/child-confirm/parent-confirm/container serialization and accepted-domain review"
+      },
+      "slice": "08 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E08-NONE-PARENT",
+      "title": "None plus independent index in parent reconfirmation",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/08-native-face-index-behavior.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322 — Change Actor Images"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "合成101空名/index11；独立322空face名/index11，仅父参数确认",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-resource-identities.json",
+        "sha256": "848eca9eee546137e0bfa545eb698a701d4624c1717396c6ecb61d98fbeddc37"
+      },
+      "expected": "名称与index分别load/save，没有None就归0的父保存规则; 有条件静态推导；不是原生创建样本，不打开child picker",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-face-index-and-image-replacement-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E6"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML/help; no editor UI, extracted-code execution or game",
+        "owner": "Codex ticket08 reverse-engineering analyst; read-only resource verification and bounded source review",
+        "layer": "Construction/load/preview/child-confirm/parent-confirm/container serialization and accepted-domain review"
+      },
+      "slice": "08 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E08-NONE-CHILD",
+      "title": "Conditional None confirmation in child picker",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/08-native-face-index-behavior.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322 — Change Actor Images"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "打开子选择器选None，当前index11，该时点frameActive=false",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-resource-identities.json",
+        "sha256": "848eca9eee546137e0bfa545eb698a701d4624c1717396c6ecb61d98fbeddc37"
+      },
+      "expected": "None确认只写空名；adjustCursor跳过，index11可回传；若其它时点active需重新按边界分析; 有条件静态推导；未观察空图尺寸和完整信号顺序",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-face-index-and-image-replacement-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E6"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML/help; no editor UI, extracted-code execution or game",
+        "owner": "Codex ticket08 reverse-engineering analyst; read-only resource verification and bounded source review",
+        "layer": "Construction/load/preview/child-confirm/parent-confirm/container serialization and accepted-domain review"
+      },
+      "slice": "08 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E08-SMALLER-ACTIVE",
+      "title": "Active two-row replacement can reset old third-row index",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/08-native-face-index-behavior.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322 — Change Actor Images"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "三行index8/11换已加载576×288，新尺寸后调用adjust",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-resource-identities.json",
+        "sha256": "848eca9eee546137e0bfa545eb698a701d4624c1717396c6ecb61d98fbeddc37"
+      },
+      "expected": "active为true且row2越界，index变0并沿child反馈；父/容器没有因此必修复; 有条件静态推导；不是换图后无条件保证",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-face-index-and-image-replacement-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E6"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML/help; no editor UI, extracted-code execution or game",
+        "owner": "Codex ticket08 reverse-engineering analyst; read-only resource verification and bounded source review",
+        "layer": "Construction/load/preview/child-confirm/parent-confirm/container serialization and accepted-domain review"
+      },
+      "slice": "08 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E08-SMALLER-INACTIVE",
+      "title": "One-row replacement skips cursor adjustment",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/08-native-face-index-behavior.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322 — Change Actor Images"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "三行index8/11换已加载576×144，调用adjust，无额外点击",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-resource-identities.json",
+        "sha256": "848eca9eee546137e0bfa545eb698a701d4624c1717396c6ecb61d98fbeddc37"
+      },
+      "expected": "active为false，adjust不改index，键盘移动受guard；单行点击仍可另选0..3; 有条件静态推导；保留反直觉分支和用户动作区别",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-face-index-and-image-replacement-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E6"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML/help; no editor UI, extracted-code execution or game",
+        "owner": "Codex ticket08 reverse-engineering analyst; read-only resource verification and bounded source review",
+        "layer": "Construction/load/preview/child-confirm/parent-confirm/container serialization and accepted-domain review"
+      },
+      "slice": "08 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E08-ASYNC-MISSING",
+      "title": "Image loading and missing filename limits",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/08-native-face-index-behavior.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322 — Change Actor Images"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "源变化1ms timer、缺文件名称及未知旧列表位置",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-resource-identities.json",
+        "sha256": "848eca9eee546137e0bfa545eb698a701d4624c1717396c6ecb61d98fbeddc37"
+      },
+      "expected": "未见view自己的ready/尺寸重试；缺名只在currentIndex<0显式回退0；完整结果依赖未运行的图片/模型时序; 有界负向观察及未知条件已界定；不把待观察的UI反应记通过",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-face-index-and-image-replacement-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E6"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML/help; no editor UI, extracted-code execution or game",
+        "owner": "Codex ticket08 reverse-engineering analyst; read-only resource verification and bounded source review",
+        "layer": "Construction/load/preview/child-confirm/parent-confirm/container serialization and accepted-domain review"
+      },
+      "slice": "08 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E08-CONTAINER",
+      "title": "Container-only serialization preserves face slots",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/08-native-face-index-behavior.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322 — Change Actor Images"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "既有标准/第三行/None+非零/缺文件参数，仅保存事件容器",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-resource-identities.json",
+        "sha256": "848eca9eee546137e0bfa545eb698a701d4624c1717396c6ecb61d98fbeddc37"
+      },
+      "expected": "已读DataManager JSON序列化不调用命令或子picker，保留名称/index原值与原生命令参数结构; 容器责任代码观察；未验证实际磁盘成功、产品输出或游戏",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-face-index-and-image-replacement-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E6"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML/help; no editor UI, extracted-code execution or game",
+        "owner": "Codex ticket08 reverse-engineering analyst; read-only resource verification and bounded source review",
+        "layer": "Construction/load/preview/child-confirm/parent-confirm/container serialization and accepted-domain review"
+      },
+      "slice": "08 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E08-FINITE-DOMAIN",
+      "title": "Accepted finite saved-value domain differs from picker reachability",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/08-native-face-index-behavior.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322 — Change Actor Images"
+        }
+      ],
+      "dimensions": ["A2", "A3"],
+      "classifications": ["positive", "boundary", "combination"],
+      "sourceKind": "static-inference",
+      "input": "已接受0..2147483647与负零/域外规则；非None索引8/11和None索引11",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-resource-identities.json",
+        "sha256": "848eca9eee546137e0bfa545eb698a701d4624c1717396c6ecb61d98fbeddc37"
+      },
+      "expected": "保存域独立于图片和当前picker；非None>=8警告超标准布局且尺寸未查，None保留index不报缺图/图片越界；无需改契约; 已批准契约一致性核对；极值非普通可选值，产品验证仍后置",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/08-face-index-and-image-replacement-reverse.md",
+        "section": "## 保存结构结果与推导"
+      },
+      "nativeGroups": ["E6"],
+      "execution": {
+        "environment": "Windows; identified MV1.6.1 shipped QML/help; no editor UI, extracted-code execution or game",
+        "owner": "Codex ticket08 reverse-engineering analyst; read-only resource verification and bounded source review",
+        "layer": "Construction/load/preview/child-confirm/parent-confirm/container serialization and accepted-domain review"
+      },
+      "slice": "08 / S1",
       "required": true
     }
   ]

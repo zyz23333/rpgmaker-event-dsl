@@ -1,0 +1,196 @@
+{
+  "formatVersion": 1,
+  "kind": "Selected shipped-artifact resource identities and independent dimension examples; not UI capture, saved native sample, executable code or game fixture",
+  "artifacts": [
+    {
+      "path": "references/RPGMV/RPGMV.exe",
+      "bytes": 19595264,
+      "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+      "records": [
+        {
+          "name": "face-box",
+          "offset": 625536,
+          "stored": 460,
+          "compressed": false,
+          "decoded": 456,
+          "sha256": "28e5ac99d832a6764a3073a4eca8c69e689e57e9fd3c46cff23050c7bc1caa00"
+        },
+        {
+          "name": "image-selector-view",
+          "offset": 638194,
+          "stored": 1222,
+          "compressed": true,
+          "decoded": 5016,
+          "sha256": "1d00d66ec8159738c77a866c7218d6219eb9d7cb1ecdcce7619abf7214670d9a"
+        },
+        {
+          "name": "file-list",
+          "offset": 618109,
+          "stored": 2836,
+          "compressed": true,
+          "decoded": 11083,
+          "sha256": "2cd5a2d9b73ad52c3ebdd45e1d4ab228fe6adc05e1644be90bc29ceda2d28c36"
+        },
+        {
+          "name": "object-image-box",
+          "offset": 8723218,
+          "stored": 691,
+          "compressed": true,
+          "decoded": 2310,
+          "sha256": "c83f4c1884a4bf3cbbd5564e84bc9ae1677561a6d21421b13a0bdbd3f074808e"
+        },
+        {
+          "name": "image-dialog",
+          "offset": 8787441,
+          "stored": 1343,
+          "compressed": true,
+          "decoded": 6236,
+          "sha256": "07186f580840ab0cccaa2fdb5b22dec768f27b7d67ba804e07354096857c4b50"
+        },
+        {
+          "name": "show-text",
+          "offset": 729658,
+          "stored": 1731,
+          "compressed": true,
+          "decoded": 6309,
+          "sha256": "2577da93fb1bc923d0c2f1868cadfcee04deb3d625610ed6493b466114236425"
+        },
+        {
+          "name": "actor-images",
+          "offset": 788887,
+          "stored": 673,
+          "compressed": true,
+          "decoded": 2578,
+          "sha256": "d65004b296d1ca2c912e2ffad250bfdfe663dad4be013814b0ec80ae66c6e046"
+        },
+        {
+          "name": "base",
+          "offset": 686141,
+          "stored": 939,
+          "compressed": false,
+          "decoded": 935,
+          "sha256": "740d0c01de598e2a55b58f67f975a30e2d3c8c96de36eb8ff15c3dd4d6ad2780"
+        },
+        {
+          "name": "dialog",
+          "offset": 656916,
+          "stored": 1086,
+          "compressed": false,
+          "decoded": 1082,
+          "sha256": "0152387fa661f0e67f45b989248c60142881526cda1f31898e29c0e03366fbf7"
+        },
+        {
+          "name": "list",
+          "offset": 667573,
+          "stored": 3694,
+          "compressed": true,
+          "decoded": 17486,
+          "sha256": "bbc1e26fa83771fc56581b1dc34ec762b3789444dacef76cb24334834e17e82c"
+        },
+        {
+          "name": "picker",
+          "offset": 679418,
+          "stored": 1424,
+          "compressed": true,
+          "decoded": 7863,
+          "sha256": "8e83b762134d12696649e6302adec9f40bbad7618b2c9cbff5ad945f005dd829"
+        },
+        {
+          "name": "modal",
+          "offset": 878315,
+          "stored": 1884,
+          "compressed": true,
+          "decoded": 8437,
+          "sha256": "875ac97ba5e20ab1a457399321e9621d3b56a698aaeeadc78c9584f3b69a970e"
+        },
+        {
+          "name": "data",
+          "offset": 909009,
+          "stored": 4291,
+          "compressed": true,
+          "decoded": 24761,
+          "sha256": "9ce1877d3eac47699a558ada219ec4f217dbc4f215531a7f65ccacd8169c4f93"
+        },
+        {
+          "name": "image-box",
+          "offset": 832674,
+          "stored": 689,
+          "compressed": true,
+          "decoded": 2308,
+          "sha256": "511f12e57cb47c19ef0d87d71ddf466813f2ef25370fd6e420b7f4316f5abd47"
+        },
+        {
+          "name": "image-clip",
+          "offset": 880199,
+          "stored": 1130,
+          "compressed": true,
+          "decoded": 4282,
+          "sha256": "b6bb6de2e829edecda72e8b27cd5019355001b3a695019a76fb905b3c1316b95"
+        },
+        {
+          "name": "labeled-image-box",
+          "offset": 8797197,
+          "stored": 754,
+          "compressed": false,
+          "decoded": 750,
+          "sha256": "9a97a46f8b5b5dc91890a17a721ca027e9dda78976487992e088e4ef7b5e934f"
+        }
+      ]
+    },
+    {
+      "path": "references/RPGMV/Help/page/01_11_01.html",
+      "bytes": 15765,
+      "sha256": "cf1aa93ec2795b4e6fe5e9205451ff6c21d184758fab9b2fe029a057532b2cdf",
+      "records": [],
+      "role": "First-party standard face-sheet specification, lines53-55; not a picker hard bound"
+    }
+  ],
+  "reusedEvidence": [
+    {
+      "id": "ev_007ba386e622855bf771049084c3103afebbcc6b5d813f18c441f3ecf1d16d24",
+      "role": "Historical PE self-reported version pointer from03/parameter index; identical EXE hash freshly checked, no new native session"
+    }
+  ],
+  "independentExamples": {
+    "dimensions": [
+      {
+        "width": 576,
+        "height": 288,
+        "description": "standard two rows, synthetic illustration only"
+      },
+      {
+        "width": 576,
+        "height": 432,
+        "description": "third row, synthetic illustration only"
+      },
+      {
+        "width": 576,
+        "height": 144,
+        "description": "one-row shrink, synthetic illustration only"
+      }
+    ],
+    "facePairs": [
+      {
+        "name": "ThirdRow",
+        "index": 11
+      },
+      {
+        "name": "",
+        "index": 11
+      },
+      {
+        "name": "MissingFace",
+        "index": 2147483647
+      }
+    ],
+    "allExamples": "Not generated, loaded or clicked in editor; no file existence or actual display claim"
+  },
+  "execution": {
+    "editor": "not-executed",
+    "extractedCode": "not-executed",
+    "game": "not-executed",
+    "nwjs": "not-executed",
+    "resourceDecodeNode": "v24.14.0"
+  },
+  "localRawOutput": "C:/Users/Shuen/.codex/research-evidence/mv-editor-08-20261019/"
+}
