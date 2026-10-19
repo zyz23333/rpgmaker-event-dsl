@@ -95,7 +95,7 @@ runtime引用简写 `R` 为 `references/RPGMV/NewData/js/rpg_objects.js`（SHA-2
 
 ### E301 — Battle Processing
 
-正式形状：`battleProcessing({troop,canEscape?,canLose?,win?,escape?,lose?})`，kind同helper；troop模式按已决模式规则机械展开为 fixed / variable / randomEncounter。
+正式形状：`battleProcessing({troop,canEscape?,canLose?,win?,escape?,lose?})`，kind同helper；troop模式按已决模式规则机械展开为 fixed / variable / randomEncounter。2026-10-19 [12号票Q5](../../issues/12-native-saved-shape-model.md#answer)已接受所需结果体使用 `{commands,endMarker?: "present" | "absent"}`，替换裸数组；endMarker默认present，空commands禁止absent。
 
 | schema 字段 / 模式 | 原生槽位与类型 | 值域、必填与引用 |
 | --- | --- | --- |
@@ -103,7 +103,7 @@ runtime引用简写 `R` 为 `references/RPGMV/NewData/js/rpg_objects.js`（SHA-2
 | troop:{kind:"variable",variable:variableRef(...)} | P0=1、P1=variableId | 变量槽引用；运行结果决定troopId，不预测。 |
 | troop:{kind:"randomEncounter"} | P0=2、P1=0 | 无目标引用；P1是该模式固定结构值，Q@672127:21–28明确返回0。 |
 | canEscape / canLose | P2/P3 boolean | 两者独立；显式false必须恢复false。 |
-| win / escape / lose | 对应601/602/603，闭合604；这些记录parameters=[] | 按下表必需/禁止，子列表可空。编辑器重确认时，零长度体补indent+1的code0、parameters=[]；非空体保留已有记录。普通插入能留下非空体尾0，正式DSL如何保留依[保存形态前置S3](index.md#需要用户讨论的保存形态)决定，不能读成编译器应删掉尾0。 |
+| win / escape / lose | 对应601/602/603，闭合604；这些记录parameters=[] | 按下表必需/禁止，commands可空。S：编辑器重确认时，零长度体补indent+1的code0、parameters=[]，非空体保留已有记录。D：12号票Q3/Q5接受非空体尾标记的present/absent，编写默认present，反编译无尾0体显式absent。该有限能力不冒称普通UI已证创建两种形态。 |
 
 | flags | 结果体要求 | 正常生成序列 |
 | --- | --- | --- |
@@ -112,7 +112,7 @@ runtime引用简写 `R` 为 `references/RPGMV/NewData/js/rpg_objects.js`（SHA-2
 | false,true | win、lose必填，escape禁止 | 301、601+win、603+lose、604 |
 | true,true | 三体全部必填 | 301、601+win、602+escape、603+lose、604 |
 
-Compiler Defaults仅canEscape=false、canLose=false；troop和所需分支不得省略。反编译只能省略值恰等于false的旗标，绝不按分支缺失推断/修补flags。新建UI为固定模式、troop ID1，旗标unchecked依Qt默认链；编辑器确认关闭flags会删除相应原分支，是编辑动作而非往返许可。
+Compiler Defaults为canEscape=false、canLose=false及所需子体endMarker=present；troop和所需分支/commands不得省略。反编译仅省略能精确恢复保存状态的默认，绝不按分支缺失推断/修补flags。新建UI为固定模式、troop ID1，旗标unchecked依Qt默认链；编辑器确认关闭flags会删除相应原分支，是编辑动作而非往返许可。
 
 证据：Q@672127:19–29、36–92；Q@782932:37–71、73–106完整载入、重建、空体处理；R:10130–10174。runtime在战斗中跳过301，固定/动态troop不存在时不进入战斗；随机遇敌受当前位置和Encounter配置影响。固定引用缺失报错；地图无遇敌、战斗上下文等仅警告，不做运行保证。所有结果体即使不可达仍校验引用与Gate。
 

@@ -46,7 +46,7 @@ S 批量输入可以输入大于4行，但保存循环每四行插一个新的10
 
 ### E102 — Show Choices
 
-D `showChoices({choices:[{text,commands}],defaultChoice?,cancel?,position?,background?})`。choices 1..6项，text string（空/空白均保留），commands 必填可空。
+D `showChoices({choices:[{text,commands,endMarker?}],defaultChoice?,cancel?,position?,background?})`。choices 1..6项，text string（空/空白均保留），commands 必填可空。2026-10-19 [12 号票 Q5](../../issues/12-native-saved-shape-model.md) 已确认每项及 cancel branch 在 commands 同级使用 `endMarker?: "present" | "absent"`，默认 present；空体禁止 absent，非空体精确保留选择的尾标记状态。
 
 | 字段/组 | 原生映射 | 固定默认 D / 新建 S | 校验 |
 | --- | --- | --- | --- |
@@ -56,7 +56,7 @@ D `showChoices({choices:[{text,commands}],defaultChoice?,cancel?,position?,backg
 | position | p3：left0/center1/right2 | right / 2 | 枚举error |
 | background | p4：window0/dim1/transparent2 | window / 0 | 枚举error |
 
-结构 S/D：102→每项同级402+深层body→可选403+body→同级404 `[]`；每个空体补深一层code0 `[]`，非空体不普遍强加0；403由Q@706715:133–134写`[6,choices[6]]`，正常最多六项所以JSON.stringify落盘`[6,null]`是I，仍待真实保存核对。404无参数。所有子体递归引用和Gate检查。Q@706715:21–79,106–169；Q@696269:262–274显示402文本；O:9088–9128消费选择。runtime把p1>=项数视作-2，不授权编译器改保存p1。
+结构 S：102→每项同级402+深层body→可选403+body→同级404 `[]`；编辑器对零长度体补深一层code0 `[]`，对非空体保留已有记录。D（12 号票 Q3/Q5）：DSL 新编写默认 endMarker=present；反编译非空无尾0体须写 absent，不能以编写默认改动原生结构。403由Q@706715:133–134写`[6,choices[6]]`，正常最多六项所以JSON.stringify落盘`[6,null]`是I，仍待真实保存核对。404无参数。所有子体递归引用和Gate检查。Q@706715:21–79,106–169；Q@696269:262–274显示402文本；O:9088–9128消费选择。runtime把p1>=项数视作-2，不授权编译器改保存p1。
 
 最小验收：1/6项、全空/中间空/尾空、2项而default/cancel=5、每种取消模式、空分支、嵌套、403真实落盘、402冲突必须拒绝。已有报告讨论的一项重开可能引入No及重确认把越界cancel改branch，须与单纯打开保存分阶段记录。
 
@@ -80,7 +80,7 @@ D/C对象形状 `comment({lines})`，替换位置数组；必需1..6 string。10
 
 ### E111 — Conditional Branch
 
-D `conditional({condition,then,else?})`；condition和then必需；else缺失与`else:[]`不同。111参数完全由所选condition模式决定；父结构111→then→可选411 `[]`+else→412 `[]`，标记同indent、子体深一层。空体code0；Q@748645:90–138。下面 C字段拼写沿现有领域含义按Schema-First整理，数字是原生编码而不是建议公开裸参数。
+D `conditional({condition,then,else?})`；condition和then必需；12 号票 Q5 将 then/else 定为 `{commands,endMarker?: "present" | "absent"}`，替换旧裸数组。else缺失与`else:{commands:[]}`不同。111参数完全由所选condition模式决定；父结构111→then→可选411 `[]`+else→412 `[]`，标记同indent、子体深一层。空体有code0；非空尾0按 endMarker 精确生成，默认 present。Q@748645:90–138。下面 C字段拼写沿现有领域含义按Schema-First整理，数字是原生编码而不是建议公开裸参数。
 
 | condition模式及必需字段 | 精确原生p / 枚举、范围 | 引用与校验 / 第一手源码 |
 | --- | --- | --- |
@@ -107,7 +107,7 @@ D `conditional({condition,then,else?})`；condition和then必需；else缺失与
 
 ### E112 — Loop
 
-D要求对象输入；C机械映射 `loop({body})`，body必需且可空，保留现有领域子体字段名并移除旧`loop(array)`位置API。112 p=`[]`，同级413 p=`[]`；空体插深一层code0 `[]`，非空体保留其原结构。S Q@679418:202–207直接创建空Loop，Q@667573:435–442调整整体indent；O:9329–9339。无默认/None/项目引用；子体完整递归引用、Gate、结构验证。验收空/单条/嵌套Loop、脚本在Loop被禁、Break深度、非空原生body尾0的保留责任；不把编译现实现漏遍历当规范。
+D（12 号票 Q5）`loop({body:{commands,endMarker?}})`，body和commands必需，commands可空；endMarker 为 present/absent，默认 present，空体禁止 absent。不保留旧位置数组或裸 body 数组API。112 p=`[]`，同级413 p=`[]`；尾标记为深一层code0 `[]`，非空体按 endMarker 精确生成。S Q@679418:202–207直接创建空Loop，Q@667573:435–442调整整体indent；O:9329–9339。没有动作参数默认/None/项目引用；子体完整递归引用、Gate、结构验证。验收空/单条/嵌套Loop、脚本在Loop被禁、Break深度及非空尾0有/无；无尾0能力是明确产品选择，不冒称已验证Loop重确认或普通UI创建。
 
 ### E113 — Break Loop
 
@@ -172,7 +172,7 @@ S Q@692063:63–98构造每个source参数，:296–302提供8个队伍位置；
 
 ### E124 — Control Timer（发现正常保存形态，新增设计依赖）
 
-已决原则要求保存独立未使用字段。现有 `controlTimer({action:"start",seconds}) \| ({action:"stop"})` 不足以表达全部静态可达正常保存状态。
+已决原则要求保存独立未使用字段。旧 `controlTimer({action:"start",seconds}) \| ({action:"stop"})` 不足以表达全部静态可达正常保存状态；2026-10-19 的 12 号票 Q1 已接受 Stop 的可选 seconds，事实证据保持如下。
 
 | 原生模式/保存形态 | 精确参数 | 证据与字段需求 |
 | --- | --- | --- |
@@ -183,7 +183,7 @@ S Q@692063:63–98构造每个source参数，:296–302提供8个队伍位置；
 
 固定Compiler Default无；新建action默认start由operation首项，分钟/秒控件继承数值初值0，静态推断首次start为0秒；真实保存仍未执行。O:9581–9588仅start消费p1，stop不消费，不说明可删除p1。
 
-**C-TIMER（阻塞模型完成）**：推荐候选`action:"stop",seconds?:number`，缺省**不生成槽**，显式0生成`[1,0]`；或`duration:{kind:"absent"}\|{kind:"saved",seconds}`。这不是普通省略为固定默认，须与用户明确；不得选raw、删除p1或给`[1]`补0。核心证据足够建立HITL，不以“实施时确认”结案。最小原生样本：新建stop；start=83秒→stop→保存→重开stop→确认；与未重新编辑的原JSON分别比较。
+**D-TIMER（12 号票 Q1/Q7 已接受）**：正式 `action:"stop",seconds?:number`，省略或显式undefined均**不生成槽**；显式0生成`[1,0]`且反编译不得省略，显式83生成`[1,83]`。Start的seconds必填；存在的seconds均为整数0..5999，null/域外/额外槽位拒绝。这不是省略为秒数默认，不采用duration对象、raw、删除p1或给`[1]`补0。最小原生样本仍未执行：新建stop；start=0及83秒→stop→保存→重开stop→确认；与未重新编辑的原JSON分别比较。
 
 ### E125 — Change Gold
 
@@ -241,17 +241,21 @@ D `pluginCommand({line})`，p=`[line:string]`确切一槽；空字符串/前后�
 
 **有界结论**：已证普通创建和插入会保留非空body尾0，且上述同body删除动作保留它；没有在这些路径中找到“保留同一非空body内容而单独删尾0”的普通操作。父指令的重确认函数能接收并继续保存既有非空无0体，属于对该输入的函数行为，**不能单凭此证明无0体本来由普通UI创建**。没有审计所有跨层多选、外来剪贴板或全部版本历史；因此不把有界未发现升级为‘无0必定非法’，也不授权强制归一化。结构HITL票应以已证正常尾0为最低表达需求，将是否需要显式终止存在性与更多正常形态调查分开。
 
+### 2026-10-19 — 子体形态设计补充
+
+[12号票Q3/Q5](../../issues/12-native-saved-shape-model.md#answer)已接受 `{commands,endMarker?: "present" | "absent"}`，默认present，空体禁止absent，非空体精确保存两态。Choices的choice/cancel branch平铺字段，Conditional/Loop/Battle使用子体对象。这是后续产品决定，不改变上面的有界静态结论；12号票已最终确认并resolved、ADR0015已accepted，真实UI和游戏样本均未执行。
+
 ### 默认清单的证据等级
 
-已决可省略默认在本范围只有E102的defaultChoice/cancel/position/background，以及else缺失的结构含义。其余现有API默认不能仅因已实现就升级为已决规范；本表给出显式全字段即可表达的schema和编辑器初值，显式表达无缺口；新增可省略字段需在接口定稿中明确决定并声明固定默认。建议集中处理而非逐命令再次讨论：E101空脸/index0/window/bottom；E104 key；E105 speed2/noFastForwardfalse；E111装备判断includeEquipmentfalse；E127/128 includeEquipmentfalse；E129 initializefalse。目标、引用、核心操作、必需子体没有候选默认。隐含Qt控件初值与显式QML常量分列，不把真实首次保存标成通过。
+已决可省略默认在本范围包括E102的defaultChoice/cancel/position/background、else缺失的结构含义，以及12号票Q5接受的各子体endMarker=present；Stop省略seconds表示缺槽，不是秒数默认。其余现有API默认不能仅因已实现就升级为已决规范；本表给出显式全字段即可表达的schema和编辑器初值，显式表达无缺口；新增可省略字段需在接口定稿中明确决定并声明固定默认。建议集中处理而非逐命令再次讨论：E101空脸/index0/window/bottom；E104 key；E105 speed2/noFastForwardfalse；E111装备判断includeEquipmentfalse；E127/128 includeEquipmentfalse；E129 initializefalse。目标、引用、核心操作、必需子体没有候选默认。隐含Qt控件初值与显式QML常量分列，不把真实首次保存标成通过。
 
 ### 本报告发现且不能由既决规则直接抹平的事项
 
 | 标识 | 首方事实 / 最短反例 | 对既决契约的影响 | 责任 |
 | --- | --- | --- | --- |
-| C-TIMER | 普通新建stop=`[1]`；start83→stop=`[1,83]`，无需异常JSON | 只有action的stop schema无法做到ADR0012保存槽位存在性无损；不能补0/删83/raw兜底 | HITL决定字段缺失与保存秒数的正式表达，然后E124三阶段原生样本 |
+| C-TIMER | 普通新建stop=`[1]`；start83→stop=`[1,83]`，无需异常JSON | 只有action的旧stop schema无法做到ADR0012保存槽位存在性无损；不能补0/删83/raw兜底 | 12号票Q1/Q7已接受可选seconds及undefined缺槽语义；E124三阶段原生样本仍待验收 |
 | C-FACE | faces picker固定144px帧、4列；576×432图第三行可写index8..11，runtime也按4列绘制 | 通用index0..7硬约束缺证，且与正常扩展尺寸素材静态可达路径冲突；None伴随index须保留 | HITL明确原生素材尺寸边界/索引域；真实样本验证。不把素材格式建议当文件加载硬约束 |
-| C-BODY | 空体新建有0；在此处普通插入命令不删除0，非空体收集代码继续保留0 | 编译非空body时若不产生保存尾0会丢正常结构；尚未证明普通UI可产生同内容但无尾0的形式，不预断两者都正常 | 与主报告结构证据汇总，定位正常编辑列表操作并决定是否有新增模型依赖 |
+| C-BODY | 空体新建有0；在此处普通插入命令不删除0，非空体收集代码继续保留0 | 编译非空body时若不产生保存尾0会丢正常结构；尚未证明普通UI可产生同内容但无尾0的形式，不预断两者都正常 | 12号票Q3/Q5已接受非空体两态的有限支持及子体对象；原生生成与合成支持样本区分验收 |
 
 其余范围的原生模式/枚举/参数数目/数据库类目已逐项列出；正常数据中的硬引用和最终System容量按既决策略验证。没有在这些范围发现理由执行目标本体；本子任务未自行打开/关闭共享Ghidra native session，引用的共享控件Ghidra证据由主代理取得。
 

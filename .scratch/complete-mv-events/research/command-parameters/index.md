@@ -6,7 +6,7 @@
 
 已建立 **105类顶层事件指令、45类移动指令的逐参数证据表**，包括原生槽位/参数数量、模式与枚举、控件值域、None、独立保存配置、默认和省略依据、项目引用/Runtime Selector/Gate、结构归属及待执行样本。已逐项对照[原库存](../native-command-fidelity.md)，无重复或缺项；不是只重新统计helper名称。
 
-事实调查已完成到可供设计决策使用的粒度；它没有解决新出现的保存形态与支持边界选择，也不代表产品完整支持。当前产品没有在本轮改动，未执行产品测试、真实编辑器打开保存或游戏运行。下文每项“已列”仅指静态证据和明确责任已记录。
+事实调查已完成到可供设计决策使用的粒度；研究本身没有批准新出现的保存形态与支持边界选择，也不代表产品完整支持。后续用户已最终确认12号票Q1–Q7及完整保存形态契约，12已resolved且ADR0015已accepted；13号票的支持边界仍待讨论。当前产品没有在本轮改动，未执行产品测试、真实编辑器打开保存或游戏运行。下文每项“已列”仅指静态证据和明确责任已记录。
 
 | 分片 | 覆盖 | 详细内容 |
 | --- | --- | --- |
@@ -26,13 +26,13 @@
 
 ## 需要用户讨论的保存形态
 
-下列事实已锐化为主工作区决策票 **原生保存形态差异如何进入正式 DSL**（tracker文件 `issues/12-native-saved-shape-model.md`）。研究分支不携带tracker修改；事实在本索引与分片自足，正式决定将记录在该票。
+下列事实在研究交付时形成主工作区决策票 [原生保存形态差异如何进入正式 DSL](../../issues/12-native-saved-shape-model.md#answer)。后续2026-10-19用户已最终确认该票Q1–Q7及完整契约；该票已resolved，ADR0015已accepted。以下保留研究原始事实，并同步已接受设计，不把产品选择记成新的原生观察。
 
-| ID | 原生事实与证据强度 | 需要决定什么 |
+| ID | 原生事实与证据强度 | 已接受设计与剩余责任 |
 | --- | --- | --- |
-| S1 | E124新建stop只写[1]；普通start83改stop保留[1,83]。Q@793186:62–70及基类表明没有截断；静态保存路径已闭合，UI样本未执行 | stop正式schema如何保留秒数槽缺失/存在及值，不补0或删除 |
-| S2 | 无参移动可缺parameters；M0工厂有缺键与[]两种；移动插入器在缺indent上算术，静态推导保存indent:null。205/505不清理 | 正式Movement Route/子记录如何保留这些外壳差异、终止和镜像；是否需要复用的保存形态字段 |
-| S3 | 空body的0前普通插入命令会留下0；已读同body删除路径不删尾0；Conditional/Choices/Battle重确认保留非空body已有0 | 子体如何保留已证尾0；确定生成规则的边界，不能根据尚未证明的无尾0形态擅自统一 |
+| S1 | E124新建stop只写[1]；普通start83改stop保留[1,83]。Q@793186:62–70及基类表明没有截断；静态保存路径已闭合，UI样本未执行 | Q1接受stop.seconds可选，缺省缺槽，显式0/83保留；存在秒数为整数0..5999。真实创建/重存/重确认仍待验收 |
+| S2 | 无参移动可缺parameters；M0工厂有缺键与[]两种；移动插入器在缺indent上算术，静态推导保存indent:null。205/505不清理 | Q4接受逐指令savedShape.indent=absent/null、默认absent；route.terminator.parameters=absent/empty、默认empty。逐类矩阵与镜像精确保留；真实样本仍待验收 |
+| S3 | 空body的0前普通插入命令会留下0；已读同body删除路径不删尾0；Conditional/Choices/Battle重确认保留非空body已有0 | Q3/Q5接受子体commands+endMarker，默认present，空体禁止absent，非空支持两态；无尾0明确为有限产品能力，不冒称普通UI已证 |
 
 S3没有证明“同内容有/无尾0都可由普通UI生成”；完整上下文见core的有界核查。S2 indent:null是代码路径推导，未伪造保存样本。若真实目标样本反驳推导，应更新证据，不以已经写了票替代事实复核。
 
@@ -174,57 +174,57 @@ B3相关Script Input包括E111、E122和M45；E356完整原样字符串已有明
 
 | code | 参数报告 | 状态 / 跟踪项 |
 | --- | --- | --- |
-| M1 | [moveDown](movement.md#m1--movedown) | 参数已列；路线外壳待决（S2） |
-| M2 | [moveLeft](movement.md#m2--moveleft) | 参数已列；路线外壳待决（S2） |
-| M3 | [moveRight](movement.md#m3--moveright) | 参数已列；路线外壳待决（S2） |
-| M4 | [moveUp](movement.md#m4--moveup) | 参数已列；路线外壳待决（S2） |
-| M5 | [moveLowerLeft](movement.md#m5--movelowerleft) | 参数已列；路线外壳待决（S2） |
-| M6 | [moveLowerRight](movement.md#m6--movelowerright) | 参数已列；路线外壳待决（S2） |
-| M7 | [moveUpperLeft](movement.md#m7--moveupperleft) | 参数已列；路线外壳待决（S2） |
-| M8 | [moveUpperRight](movement.md#m8--moveupperright) | 参数已列；路线外壳待决（S2） |
-| M9 | [moveRandom](movement.md#m9--moverandom) | 参数已列；路线外壳待决（S2） |
-| M10 | [moveTowardPlayer](movement.md#m10--movetowardplayer) | 参数已列；路线外壳待决（S2） |
-| M11 | [moveAwayFromPlayer](movement.md#m11--moveawayfromplayer) | 参数已列；路线外壳待决（S2） |
-| M12 | [moveForward](movement.md#m12--moveforward) | 参数已列；路线外壳待决（S2） |
-| M13 | [moveBackward](movement.md#m13--movebackward) | 参数已列；路线外壳待决（S2） |
-| M14 | [jump](movement.md#m14--jump) | 参数已列；路线外壳待决（S2） |
-| M15 | [wait](movement.md#m15--wait) | 参数已列；路线外壳待决（S2） |
-| M16 | [turnDown](movement.md#m16--turndown) | 参数已列；路线外壳待决（S2） |
-| M17 | [turnLeft](movement.md#m17--turnleft) | 参数已列；路线外壳待决（S2） |
-| M18 | [turnRight](movement.md#m18--turnright) | 参数已列；路线外壳待决（S2） |
-| M19 | [turnUp](movement.md#m19--turnup) | 参数已列；路线外壳待决（S2） |
-| M20 | [turn90Right](movement.md#m20--turn90right) | 参数已列；路线外壳待决（S2） |
-| M21 | [turn90Left](movement.md#m21--turn90left) | 参数已列；路线外壳待决（S2） |
-| M22 | [turn180](movement.md#m22--turn180) | 参数已列；路线外壳待决（S2） |
-| M23 | [turn90RightOrLeft](movement.md#m23--turn90rightorleft) | 参数已列；路线外壳待决（S2） |
-| M24 | [turnRandom](movement.md#m24--turnrandom) | 参数已列；路线外壳待决（S2） |
-| M25 | [turnTowardPlayer](movement.md#m25--turntowardplayer) | 参数已列；路线外壳待决（S2） |
-| M26 | [turnAwayFromPlayer](movement.md#m26--turnawayfromplayer) | 参数已列；路线外壳待决（S2） |
-| M27 | [switchOn](movement.md#m27--switchon) | 参数已列；路线外壳待决（S2） |
-| M28 | [switchOff](movement.md#m28--switchoff) | 参数已列；路线外壳待决（S2） |
-| M29 | [changeSpeed](movement.md#m29--changespeed) | 参数已列；路线外壳待决（S2） |
-| M30 | [changeFrequency](movement.md#m30--changefrequency) | 参数已列；路线外壳待决（S2） |
-| M31 | [walkAnimation On](movement.md#m31--walkanimation-on) | 参数已列；路线外壳待决（S2） |
-| M32 | [walkAnimation Off](movement.md#m32--walkanimation-off) | 参数已列；路线外壳待决（S2） |
-| M33 | [stepAnimation On](movement.md#m33--stepanimation-on) | 参数已列；路线外壳待决（S2） |
-| M34 | [stepAnimation Off](movement.md#m34--stepanimation-off) | 参数已列；路线外壳待决（S2） |
-| M35 | [directionFix On](movement.md#m35--directionfix-on) | 参数已列；路线外壳待决（S2） |
-| M36 | [directionFix Off](movement.md#m36--directionfix-off) | 参数已列；路线外壳待决（S2） |
-| M37 | [through On](movement.md#m37--through-on) | 参数已列；路线外壳待决（S2） |
-| M38 | [through Off](movement.md#m38--through-off) | 参数已列；路线外壳待决（S2） |
-| M39 | [transparent On](movement.md#m39--transparent-on) | 参数已列；路线外壳待决（S2） |
-| M40 | [transparent Off](movement.md#m40--transparent-off) | 参数已列；路线外壳待决（S2） |
-| M41 | [changeImage](movement.md#m41--changeimage) | 参数已列；路线外壳待决（S2） |
-| M42 | [changeOpacity](movement.md#m42--changeopacity) | 参数已列；路线外壳待决（S2） |
-| M43 | [changeBlendMode](movement.md#m43--changeblendmode) | 参数已列；路线外壳待决（S2） |
-| M44 | [playSe](movement.md#m44--playse) | 参数已列；路线外壳待决（S2） |
-| M45 | [script](movement.md#m45--script) | 参数已列；路线外壳待决（S2）；单槽文本边界B3 |
+| M1 | [moveDown](movement.md#m1--movedown) | 参数已列；路线外壳Q4已接受（S2） |
+| M2 | [moveLeft](movement.md#m2--moveleft) | 参数已列；路线外壳Q4已接受（S2） |
+| M3 | [moveRight](movement.md#m3--moveright) | 参数已列；路线外壳Q4已接受（S2） |
+| M4 | [moveUp](movement.md#m4--moveup) | 参数已列；路线外壳Q4已接受（S2） |
+| M5 | [moveLowerLeft](movement.md#m5--movelowerleft) | 参数已列；路线外壳Q4已接受（S2） |
+| M6 | [moveLowerRight](movement.md#m6--movelowerright) | 参数已列；路线外壳Q4已接受（S2） |
+| M7 | [moveUpperLeft](movement.md#m7--moveupperleft) | 参数已列；路线外壳Q4已接受（S2） |
+| M8 | [moveUpperRight](movement.md#m8--moveupperright) | 参数已列；路线外壳Q4已接受（S2） |
+| M9 | [moveRandom](movement.md#m9--moverandom) | 参数已列；路线外壳Q4已接受（S2） |
+| M10 | [moveTowardPlayer](movement.md#m10--movetowardplayer) | 参数已列；路线外壳Q4已接受（S2） |
+| M11 | [moveAwayFromPlayer](movement.md#m11--moveawayfromplayer) | 参数已列；路线外壳Q4已接受（S2） |
+| M12 | [moveForward](movement.md#m12--moveforward) | 参数已列；路线外壳Q4已接受（S2） |
+| M13 | [moveBackward](movement.md#m13--movebackward) | 参数已列；路线外壳Q4已接受（S2） |
+| M14 | [jump](movement.md#m14--jump) | 参数已列；路线外壳Q4已接受（S2） |
+| M15 | [wait](movement.md#m15--wait) | 参数已列；路线外壳Q4已接受（S2） |
+| M16 | [turnDown](movement.md#m16--turndown) | 参数已列；路线外壳Q4已接受（S2） |
+| M17 | [turnLeft](movement.md#m17--turnleft) | 参数已列；路线外壳Q4已接受（S2） |
+| M18 | [turnRight](movement.md#m18--turnright) | 参数已列；路线外壳Q4已接受（S2） |
+| M19 | [turnUp](movement.md#m19--turnup) | 参数已列；路线外壳Q4已接受（S2） |
+| M20 | [turn90Right](movement.md#m20--turn90right) | 参数已列；路线外壳Q4已接受（S2） |
+| M21 | [turn90Left](movement.md#m21--turn90left) | 参数已列；路线外壳Q4已接受（S2） |
+| M22 | [turn180](movement.md#m22--turn180) | 参数已列；路线外壳Q4已接受（S2） |
+| M23 | [turn90RightOrLeft](movement.md#m23--turn90rightorleft) | 参数已列；路线外壳Q4已接受（S2） |
+| M24 | [turnRandom](movement.md#m24--turnrandom) | 参数已列；路线外壳Q4已接受（S2） |
+| M25 | [turnTowardPlayer](movement.md#m25--turntowardplayer) | 参数已列；路线外壳Q4已接受（S2） |
+| M26 | [turnAwayFromPlayer](movement.md#m26--turnawayfromplayer) | 参数已列；路线外壳Q4已接受（S2） |
+| M27 | [switchOn](movement.md#m27--switchon) | 参数已列；路线外壳Q4已接受（S2） |
+| M28 | [switchOff](movement.md#m28--switchoff) | 参数已列；路线外壳Q4已接受（S2） |
+| M29 | [changeSpeed](movement.md#m29--changespeed) | 参数已列；路线外壳Q4已接受（S2） |
+| M30 | [changeFrequency](movement.md#m30--changefrequency) | 参数已列；路线外壳Q4已接受（S2） |
+| M31 | [walkAnimation On](movement.md#m31--walkanimation-on) | 参数已列；路线外壳Q4已接受（S2） |
+| M32 | [walkAnimation Off](movement.md#m32--walkanimation-off) | 参数已列；路线外壳Q4已接受（S2） |
+| M33 | [stepAnimation On](movement.md#m33--stepanimation-on) | 参数已列；路线外壳Q4已接受（S2） |
+| M34 | [stepAnimation Off](movement.md#m34--stepanimation-off) | 参数已列；路线外壳Q4已接受（S2） |
+| M35 | [directionFix On](movement.md#m35--directionfix-on) | 参数已列；路线外壳Q4已接受（S2） |
+| M36 | [directionFix Off](movement.md#m36--directionfix-off) | 参数已列；路线外壳Q4已接受（S2） |
+| M37 | [through On](movement.md#m37--through-on) | 参数已列；路线外壳Q4已接受（S2） |
+| M38 | [through Off](movement.md#m38--through-off) | 参数已列；路线外壳Q4已接受（S2） |
+| M39 | [transparent On](movement.md#m39--transparent-on) | 参数已列；路线外壳Q4已接受（S2） |
+| M40 | [transparent Off](movement.md#m40--transparent-off) | 参数已列；路线外壳Q4已接受（S2） |
+| M41 | [changeImage](movement.md#m41--changeimage) | 参数已列；路线外壳Q4已接受（S2） |
+| M42 | [changeOpacity](movement.md#m42--changeopacity) | 参数已列；路线外壳Q4已接受（S2） |
+| M43 | [changeBlendMode](movement.md#m43--changeblendmode) | 参数已列；路线外壳Q4已接受（S2） |
+| M44 | [playSe](movement.md#m44--playse) | 参数已列；路线外壳Q4已接受（S2） |
+| M45 | [script](movement.md#m45--script) | 参数已列；路线外壳Q4已接受（S2）；单槽文本边界B3 |
 
 M0为结构终止而非第46个公开移动指令。事件code0、401/405/408/655续行、402/403/404、411/412/413、601/602/603/604、605和505均按各自父记录在上述分片覆盖，不遗漏也不重复计为独立helper。
 
 ## 验收责任与研究完成条件
 
-研究交付物是证据、完整覆盖和可跟踪前置；“原生指令逐参数契约还缺哪些证据”可在此结果与后续决策依赖记录后完成，但实施规格仍受保存形态与支持边界两票阻塞。
+研究交付物是证据、完整覆盖和可跟踪前置；11号研究票已resolved。后续12号保存形态票也已最终确认并resolved，13号支持边界和08号验收规划仍待完成；设计定稿不等于产品或真实运行验收通过。
 
 [如何证明 MV 事件支持完整并划定实施顺序](../../issues/08-completion-evidence-and-sequencing.md)承接全部分片的正负fixture与真实样本设计，至少包括：三类事件容器；所有模式及枚举；None/非激活参数；四种文本行组边界；新建/容器重存/参数重确认；镜像/尾0/route外壳；上下文和递归Gate/引用；真实Workspace反编译到push与失败隔离。不得先过滤保存差异再比较。
 

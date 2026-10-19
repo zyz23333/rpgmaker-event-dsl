@@ -73,6 +73,8 @@ image 始终保存完整五字段的可表达状态。tileId>0 时显示图块�
 
 Movement Route 使用 `{ commands, repeat?, skippable?, wait? }`；commands 必填且可为空，标志的固定默认分别为 true / false / false。页的 movement.route 与 `setMovementRoute({ target, route })` 共用它，target 留在命令调用层。wait 在命令中控制解释器等待，在自主移动中只保存值；自主移动允许保存 wait=true。
 
+2026-10-19 的[12号票Q4](12-native-saved-shape-model.md#answer)已接受共享路线增加 `terminator?: {parameters?: "absent" | "empty"}`，默认empty，M0缺indent；普通移动指令增加 `savedShape?: {indent?: "absent" | "null"}`，默认absent，parameters按有参/无参类别固定处理。该增量保持原生空白页默认M0的parameters:[]，但反编译不能省略原生M0缺parameters或指令indent:null的差异。完整合法组合见12号票；该票已最终确认并resolved，ADR0015已accepted，产品实现未完成。
+
 保存路线即使处于非 custom 页中，也执行全部指令、引用和 Script Command Gate 校验，不做运行时可达性推断。移动子指令完整参数及原生命令结构仍由 05 票统一确定，本票不新增另一套子指令语法。
 
 ### 原样保存、生成风格与校验边界

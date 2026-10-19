@@ -46,6 +46,8 @@ Parent: [完整支持 MV 原生事件的决策地图](../map.md)
 
 ### Raw DSL Command 与脚本边界
 
+2026-10-19的[12号票Q1–Q7](12-native-saved-shape-model.md#answer)已最终确认Timer可选保存槽、逐类移动记录外壳及非空子体尾标记两态，该票已resolved且ADR0015已accepted。这些是有限正式模型增量，不是额外归一化许可。尤其endMarker表示所属子体最终保存结构；正式/raw合成后出现与声明矛盾或重复的本体尾标记须报错，但合法raw嵌套的内层标记不能误判为外层额外标记，不新增全局raw code0禁令。
+
 Raw DSL Command 只承载一条事件命令的 code、indent、parameters；不新增 rawBlock 或 rawCommandList。code/indent 为非负安全整数，parameters 必须为严格可表示的 JSON 数组，不允许序列化静默改变无法表示的值。省略 indent 使用 DSL 父结构深度；显式 indent 为绝对值，不自动重缩进。反编译始终显式输出原始 indent，包括 0。Compile 对正式 helper 和 raw 共同生成的完整命令列表检查结构、缩进、分支、续行、镜像和结束记录。
 
 手写 raw 的可识别原生类型、值域和 Project Data References 与正式表达执行相同校验及错误/警告等级，明确替换旧 raw 引用豁免。所有可识别原生 JavaScript 输入均受 Script Command Gate 约束，明确替换旧 raw Gate 豁免，包含嵌套体、续行、镜像和所有保存路线；空、不可达、非激活均不豁免。已知结构坏到无法判断时不因 raw 放行。未知代码与插件私有载荷不作语义推断，Gate 不是任意代码执行隔离机制。

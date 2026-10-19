@@ -112,6 +112,18 @@ _Avoid_: boolean expression, arbitrary predicate
 An Event DSL command value inside an Event Definition command list before it is compiled to Raw Event Commands.
 _Avoid_: Event Node, instruction, Raw Event Command
 
+**Child Command Body**:
+An ordered group of event commands belonging to one branch or loop within a parent event command. Each nested body has its own boundary, separate from its parent body and the complete event command list.
+_Avoid_: whole event command list, continuation command, raw block
+
+**Body End Marker**:
+A native saved marker at the end of a Child Command Body, distinct from the parent command's closing record and the complete event command list's final marker.
+_Avoid_: parent closing command, event-list terminator, ordinary DSL Command
+
+**Native Saved Shape**:
+The arrangement and presence of saved fields, parameter slots, and structural records in RPG Maker MV event data, including differences that do not change immediate execution behavior.
+_Avoid_: runtime behavior, JSON text formatting, arbitrary extra data
+
 **Raw DSL Command**:
 A DSL Command that directly carries one Raw Event Command's code, indentation, and parameters as an escape hatch.
 _Avoid_: Raw Event Command, ordinary DSL helper
@@ -377,7 +389,7 @@ A stable JSON writer that approximates RPG Maker MV editor output for event data
 _Avoid_: generic pretty print, whitespace-preserving text patch
 
 **Compiler Default**:
-A documented built-in value used to complete MV runtime-required output fields omitted from the TypeScript input schema.
+A documented built-in value or saved shape used when an optional Event DSL field is omitted during authoring. It does not repair missing fields in captured project data.
 _Avoid_: config default, inherited old value
 
 ## Relationships

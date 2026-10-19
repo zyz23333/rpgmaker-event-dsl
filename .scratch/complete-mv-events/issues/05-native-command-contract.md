@@ -27,6 +27,8 @@ Parent: [完整支持 MV 原生事件的决策地图](../map.md)
 
 ### Choices、分支与续行
 
+2026-10-19 的[12号票Q3–Q5](12-native-saved-shape-model.md#answer)已最终确认下列子体与移动保存形态增量；该票已resolved，ADR0015已accepted。历史逐轮记录保留，当前接口以下述更新为准，产品实现未完成。
+
 ```ts
 showChoices({
   choices: [
@@ -42,7 +44,7 @@ showChoices({
 
 - choices 长度 1–6，保留空文字、纯空白与显式尾部空项；text 和必填 commands 同属一个对象，顺序决定位置，commands 可为 []。主记录文字和 402 镜像从同一个 text 生成。
 - defaultChoice 为 none / choice；cancel 为 disabled / choice / branch，均使用 kind 模式。choice index 为整数 0–5，即使超出当前实际选项数也保留并警告。这是 Q12 对 Q5 初始限制的明确修订；不把越界取消值自动转为 branch。
-- `conditional({ condition, then: [] })` 无 else，显式 `else: []` 保留空 else。Loop 的子体仍由父命令持有；具体对象字段与全量 helper 对照在逐参数表中列明，不能沿用现实现的旧位置参数接口作为规范。
+- `conditional({ condition, then: {commands: []} })` 无 else，显式 `else: {commands: []}` 保留空 else。Conditional的then/else、Loop的body、Battle的win/escape/lose统一使用`{commands,endMarker?: "present" | "absent"}`；Choices每项和cancel branch在commands同级增加endMarker。默认present，空体禁止absent，非空可保留两态；替换裸数组，不保留兼容层。
 - Battle Processing 的 flags 与结果分支使用独立字段表达；flags 可省略为 false，组合必须符合下表。所需分支可为空，但不能缺失；禁用分支不能出现，组合不符报错，不自动补删。
 
 | canEscape | canLose | 必需结果分支 | 正常结构 |
@@ -53,6 +55,8 @@ showChoices({
 | true | true | win、escape、lose | 301 → 601 → 602 → 603 → 604 |
 
 Continuation Event Commands、分支标记及路线镜像属于父命令，不新增独立公开 helper。按已读首方静态生成规则：Choices/Conditional/有分支的 Battle 各空体产生深一层 code 0；新建空 Loop 为 112 → 深一层 code 0 → 413；205 持有 route，505 镜像非终止移动指令，路线终止与事件列表结束分别处理。不得把空体规则泛化成所有非空体后强加 code 0。403 参数落盘形态等尚未完全验证的细节在后续参数表中标为待证；已有镜像矛盾、异常终止或分支组合由语义往返策略决定。
+
+12号票明确选择endMarker=present作为编写默认，不是对已有原生数据强加尾0；反编译非空无尾0体必须写absent。每层标记按所属子体判断，正式与raw合成后校验最终结构及声明的终止状态；这不新增全局手写raw code0禁令。
 
 ### 已选定的默认值、枚举与空商店
 
@@ -118,6 +122,8 @@ Change Equipment 的 actor 是固定项目引用；slotIndex 为零起始，合�
 ### 移动路线与 None 素材
 
 沿用共享 `{commands,repeat?,skippable?,wait?}`，commands 必填且可空；命令形状为 `setMovementRoute({target,route})`。所有保存路线都完整校验，即使自主移动不是 custom。移动子指令使用 kind 对象列表：routeWait 改为 `{kind:"wait",frames}`；jump x/y 为相对位移；walkAnimation/stepAnimation/directionFix/through/transparent 使用 enabled；其他方向/转向 kind 沿用已有表达。
+
+12号票Q4将共享路线补为`{commands,repeat?,skippable?,wait?,terminator?}`：`terminator.parameters`为absent/empty、默认empty且M0缺indent；普通指令`savedShape.indent`为absent/null、默认absent。无参指令固定缺parameters，有参指令生成精确数组，未获支持外壳不能通过交叉组合放行。Q1另接受Stop的可选seconds，省略缺槽，显式0保留，存在秒数为整数0..5999。
 
 changeImage 使用 character 与 characterIndex，character 为 characters 类素材或 null，index 为整数 0–7；空图或大人物图的非零 index 独立保留。blendMode 为 normal/additive/multiply/screen，与图片指令共用。路线继续复用 Script Input、SE 素材和开关引用，未列数值范围须进入参数证据表。
 

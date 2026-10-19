@@ -1,0 +1,19 @@
+---
+status: accepted
+---
+
+# Represent native saved shape through bounded owned fields
+
+RPG Maker MV editing paths can retain an unused timer parameter slot, produce different Movement Route record envelopes, and preserve Body End Markers after commands are inserted. On 2026-10-19 the user accepted ticket 12's Q1–Q3: retain the optional saved seconds directly on Stop, attach finite saved-shape information to its owning movement instruction or route terminator, and preserve the presence or absence of a single trailing Body End Marker in an otherwise valid nonempty Child Command Body.
+
+This deliberately accepts a bounded body shape whose ordinary UI creation has not yet been established: Conditional, Choices, and Battle save functions preserve existing nonempty bodies without the marker, but that evidence is not a creation proof or an observation of Loop reconfirmation. Exact saved-state preservation is preferable to silently inserting or deleting the marker. Empty bodies, misplaced or duplicate markers, invalid indentation, and arbitrary extra fields do not gain support through this choice.
+
+The accepted direction refines the shared route model in ADR 0009 and parent-owned structures in ADR 0011 while retaining ADR 0012's exact round trip, mirror consistency, recursive validation, and unknown-data boundaries. Movement envelope combinations remain type-specific; the two known route-terminator envelopes do not establish all combinations for every movement instruction. This is authored state, not a snapshot overlay, raw route, or generic JSON channel.
+
+The user subsequently accepted Q4–Q7. Nonterminal movement instructions use a finite saved-shape descriptor for absent or null indentation, defaulting to absent; parameterless instructions omit their parameter key, while parameterized instructions retain their complete semantic parameter array. The route owns an absent-or-empty parameter-key descriptor for its sole terminal record, defaulting to the empty array from the native blank page; that terminal record has no indentation field. Autonomous Movement and Set Movement Route share these fixed defaults.
+
+Child Command Bodies carry their commands and an optional present-or-absent Body End Marker, defaulting to present; an empty body cannot omit the marker. Choices keeps these fields beside its branch text or cancel mode, while Conditional, Loop, and Battle use body objects. Decompilation omits only fields whose exact saved structure and values are reconstructed by the accepted fixed rules. Optional undefined values mean omission, while required fields, array elements, and sparse slots cannot use undefined to manufacture missing native state.
+
+The marker field describes the final saved state of its owning body, not merely whether the compiler adds another record. Validation of the complete formal-and-raw output rejects a marker that contradicts that declaration or duplicates its boundary, while distinguishing legal nested raw structures and retaining the existing handwritten-raw contract. There is no blanket new prohibition on raw code-zero records.
+
+The user confirmed the complete [decision ticket 12 Answer](../../.scratch/complete-mv-events/issues/12-native-saved-shape-model.md#answer) and its completion boundary on 2026-10-19. The ticket is resolved and this refinement is accepted. Product implementation and editor/game acceptance remain separate work coordinated through ticket 08.

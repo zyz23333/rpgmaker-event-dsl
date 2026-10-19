@@ -358,7 +358,7 @@ R为 `references/RPGMV/NewData/js/rpg_objects.js`，A为同目录 `rpg_managers.
 
 ### E205 — Set Movement Route
 
-**正式表达（机械映射）**：`setMovementRoute({target,route:{commands,repeat?,skippable?,wait?}})`。
+**正式表达**：`setMovementRoute({target,route:{commands,repeat?,skippable?,wait?,terminator?}})`。2026-10-19的12号票Q4已接受terminator和移动指令savedShape字段，详细允许组合及默认见[movement已接受外壳契约](movement.md#2026-10-19--已接受的有限外壳契约)。
 
 | 参数或相关组 | 原生槽位/编码 | 值域与保存约束 |
 | --- | --- | --- |
@@ -370,11 +370,11 @@ R为 `references/RPGMV/NewData/js/rpg_objects.js`，A为同目录 `rpg_managers.
 
 **证据**：Q771946:22–46，Q665677:11–17/30–58/96–103，Q672838:169–177，Q667573:438–442；R:9783–9793；详[movement.md](movement.md)
 
-**校验与运行边界**：完整递归commands与Script Gate，即使wait=false或不可达。新发现普通无参移动生成{code}而非{code,parameters:[]}；插入过程会生成indent:NaN，JSON可能写null，不能固定route子记录仅允许code/parameters。参数有无与indent保存表达须按movement报告的明确前置决定；本节不掩盖为raw。
+**校验与运行边界**：完整递归commands与Script Gate，即使wait=false或不可达。普通无参工厂构造{code}而非{code,parameters:[]}；插入和最终JSON链静态推导indent:null，尚无真实UI保存观察。12号票Q4接受普通指令savedShape.indent为absent/null、默认absent，路线terminator.parameters为absent/empty、默认empty；M0缺indent，无参固定缺parameters，有参为精确数组。不得泛化其他组合或用raw绕过。
 
 **最小验收样本（未执行）**：空路线；含无参/有参/Script多项及终止；205与全部505精确镜像；三flag非默认组合；正常新建无参路线的缺parameters/indent:null重点收集原生落盘样本。
 
-**参数拒绝夹具候选（未执行）**：目标不支持的selector；缺commands、非boolean flags、未知移动code、嵌套Script且Gate关闭、505镜像不一致；移动记录键形态先依movement前置，不把正常缺parameters/indent:null当无效。
+**参数拒绝夹具候选（未执行）**：目标不支持的selector；缺commands、非boolean flags、未知移动code、嵌套Script且Gate关闭、505镜像不一致；移动记录外壳按12号票Q4已接受矩阵，不把被接受的缺parameters/indent:null当未知字段，也不把矩阵外组合静默归一化。
 
 ### E206 — Get on/off Vehicle
 
