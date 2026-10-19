@@ -8926,8 +8926,8 @@
       "sourceKind": "synthetic-support",
       "input": "Independent complete native Troop Page literal, formal DSL input and actual Windows Workspace filesystem state.",
       "fixture": {
-        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
-        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
       },
       "expected": "recognizes the bounded pre-Troops complete output set: %s",
       "test": {
@@ -9022,8 +9022,8 @@
       "sourceKind": "game-observation",
       "input": "Independent complete native expected data and retained version-bound external artifacts; see documentary report.",
       "fixture": {
-        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
-        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+        "path": ".scratch/complete-mv-events-implementation/evidence/25-troop-delivery-tools/mv25-r2-normal-scene-product-pair.cjs",
+        "sha256": "867c0bd88e1c80aa8304484b5c4b23a145629d0dd3b3e3a8ca5f8c9585ba1477"
       },
       "expected": "Allocated R2 actual normal Scene/Input literal and formal DSL product pair",
       "review": {
@@ -9071,8 +9071,8 @@
       "sourceKind": "synthetic-support",
       "input": "Independent complete native expected data and retained version-bound external artifacts; see documentary report.",
       "fixture": {
-        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
-        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
       },
       "expected": "Actual build22 prior-output-set pending recovered by built25 without new Freshness",
       "review": {
