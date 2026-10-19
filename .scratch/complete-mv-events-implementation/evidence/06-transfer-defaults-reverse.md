@@ -12,19 +12,19 @@
 
 offset 从文件头零起算；stored 包括四字节外层长度。角色由全文和引用关系识别，未恢复 qrc 路径；`Q@offset:line` 指 decoded 全文一基行号。
 
-| 目标 | 角色 | offset | stored | 编码 | decoded bytes | decoded SHA-256 |
-| --- | --- | ---: | ---: | --- | ---: | --- |
-| EXE | Transfer Player | 758295 | 1691 | plain | 1687 | `26b948a478069a1ab482a446293cc9529777819d02b592c5decd0d44455ce046` |
-| EXE | Group_Location | 664736 | 941 | zlib | 4349 | `b0ecfbc0b86b1fe5dfd0e6a9104d4ab1932205a8d6b7d5bba3f404863f7821b1` |
-| EXE | LocationBox | 8678030 | 646 | zlib | 2189 | `2e6ff7009f820d08d201854327d44a466057ea7c437e1517ddf5b89199f15d7b` |
-| EXE | Dialog_Location | 8693982 | 1735 | plain | 1731 | `5c108ee13343706774468a198fcfea1f0f22a350de7af604a3f1d7a59b2a643c` |
-| EXE | GameVariableBox | 604662 | 2027 | plain | 2023 | `73e2e714e76de967386acea78f688e2517b8f7e3761dd86d7a29ebc0e26aba1c` |
-| EXE | Constants | 916501 | 5142 | zlib | 25783 | `b29ba19e1bd5ed04e2334aab57ddcbf386331dbe136751c77f05f47a9e35edd2` |
-| EXE | LabeledComboBox | 8797951 | 739 | plain | 735 | `8830bc7b2492b1dd0149c7ced80b5b04742b4c0d81355f99bf6a264341b2f333` |
-| EXE | Editor ComboBox | 854492 | 2011 | zlib | 8889 | `68f5706dc8e25bec53c589bd7f733ff876a09906028057348b27168859ee8ccb` |
-| EXE | Project load/save controller | 426544 | 3371 | zlib | 17252 | `8d2d161cc2d663a7246bf7b7717430a4eebc000f1f04d8704685d5f222cac776` |
-| EXE | Main map tree controller | 8672102 | 2367 | zlib | 11367 | `d74ef475802a5a8cb0083a5a340968877b4352db4c2e05b1631af0bcd701cb17` |
-| Qt DLL | ComboBox | 274218 | 6593 | zlib | 24147 | `07cb4b61fc694faf650461e7f668db3f1e5115fc8e25d9efdb0681f1b4572500` |
+| 目标   | 角色                         |  offset | stored | 编码  | decoded bytes | decoded SHA-256                                                    |
+| ------ | ---------------------------- | ------: | -----: | ----- | ------------: | ------------------------------------------------------------------ |
+| EXE    | Transfer Player              |  758295 |   1691 | plain |          1687 | `26b948a478069a1ab482a446293cc9529777819d02b592c5decd0d44455ce046` |
+| EXE    | Group_Location               |  664736 |    941 | zlib  |          4349 | `b0ecfbc0b86b1fe5dfd0e6a9104d4ab1932205a8d6b7d5bba3f404863f7821b1` |
+| EXE    | LocationBox                  | 8678030 |    646 | zlib  |          2189 | `2e6ff7009f820d08d201854327d44a466057ea7c437e1517ddf5b89199f15d7b` |
+| EXE    | Dialog_Location              | 8693982 |   1735 | plain |          1731 | `5c108ee13343706774468a198fcfea1f0f22a350de7af604a3f1d7a59b2a643c` |
+| EXE    | GameVariableBox              |  604662 |   2027 | plain |          2023 | `73e2e714e76de967386acea78f688e2517b8f7e3761dd86d7a29ebc0e26aba1c` |
+| EXE    | Constants                    |  916501 |   5142 | zlib  |         25783 | `b29ba19e1bd5ed04e2334aab57ddcbf386331dbe136751c77f05f47a9e35edd2` |
+| EXE    | LabeledComboBox              | 8797951 |    739 | plain |           735 | `8830bc7b2492b1dd0149c7ced80b5b04742b4c0d81355f99bf6a264341b2f333` |
+| EXE    | Editor ComboBox              |  854492 |   2011 | zlib  |          8889 | `68f5706dc8e25bec53c589bd7f733ff876a09906028057348b27168859ee8ccb` |
+| EXE    | Project load/save controller |  426544 |   3371 | zlib  |         17252 | `8d2d161cc2d663a7246bf7b7717430a4eebc000f1f04d8704685d5f222cac776` |
+| EXE    | Main map tree controller     | 8672102 |   2367 | zlib  |         11367 | `d74ef475802a5a8cb0083a5a340968877b4352db4c2e05b1631af0bcd701cb17` |
+| Qt DLL | ComboBox                     |  274218 |   6593 | zlib  |         24147 | `07cb4b61fc694faf650461e7f668db3f1e5115fc8e25d9efdb0681f1b4572500` |
 
 EXE 的 base/dialog/picker/list/modal/DataManager 与 03/05 同身份，完整选定记录一并列在 metadata，避免把共享路径误作新发现。随包 `QtQuick/Controls/qtquickcontrolsplugin.dll` 为 780,288 bytes，SHA-256 `a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6`。其 `plugins.qmltypes` 为 95,705 bytes，SHA-256 `58aba7eb65d07e8763035172c6c2bc6e53c22795828196d9bfd90e46cac40561`；同目录 `qmldir` 为162 bytes，SHA-256 `0ed18792740787ecb235bbe73122e3155f970d046495bc6525987e80833cb72a`，声明插件 qtquickcontrolsplugin。
 
@@ -42,17 +42,17 @@ DataManager.currentMapId 自身初始0，并在数据库载入/clear 时归0（Q
 
 Transfer 两个 LabeledComboBox 只设置模型，不设置 currentIndex（Q@758295:19–34）。LabeledComboBox 把 currentIndex/currentText 代理给 Editor ComboBox（Q@8797951:10–12、19–25），Editor 包装未另设初始索引。包装 onCurrentIndexChanged 在索引有效时刷新 popup.currentText（Q@854492:217–226）。
 
-同安装 Qt ComboBox 把 currentIndex 代理到 popup.__selectedIndex（Q@274218:130）；Component.onCompleted 在索引为-1时改为0，然后置 ready 并解析模型（:376–382）。model 在 active 后改变时也设置0（:548–560）；解析、实例化菜单项与 selectedText 更新分别见 :575–579、584–625、643–650。它自身对 currentText 更新顺序的注释（:135–136）与这些处理路径相符，不能把最终首项推导说成观察过所有瞬时状态。
+同安装 Qt ComboBox 把 currentIndex 代理到 popup.\_\_selectedIndex（Q@274218:130）；Component.onCompleted 在索引为-1时改为0，然后置 ready 并解析模型（:376–382）。model 在 active 后改变时也设置0（:548–560）；解析、实例化菜单项与 selectedText 更新分别见 :575–579、584–625、643–650。它自身对 currentText 更新顺序的注释（:135–136）与这些处理路径相符，不能把最终首项推导说成观察过所有瞬时状态。
 
 为核对-1的来源，本票追入同一个 DLL：
 
-| 原生责任 | 新 REA Evidence ID | 可复核观察 |
-| --- | --- | --- |
-| QQuickMenu 类型定位 | `ev_74bdccebd33acf513d05834cd9d66e52d69d03b08664f75232fd7fa9711a1c93` | FUN_10017cb0 比较类型名并返回对象；其 vtable 引用连到 QML 类型构造包装 |
-| QML Menu 构造包装 | `ev_1c1a2e8e4127787482d0356be319e081127fcc72bd73f13c9ec4d9544e1ccaa0` | FUN_100011f0 调用 FUN_10007ff0 并设置 QQmlElement<QQuickMenu> vtable |
-| Menu 构造初值 | `ev_cf54d03984c80ddc18c5a4c83d5ce73303cc7b9552f6a85734fde586ad6066c5` | FUN_10007ff0 在对象 +0x38 写 0xffffffff，即 int -1 |
-| 属性读取责任 | `ev_d599a2ba1c9bd334f794e5ca56234109dfafc08e6650cc44837a04df9c24a36c` | FUN_10017970 的 ReadProperty case2 从同一 +0x38 读取；qmltypes:139–141 的本类属性顺序为 title、items、__selectedIndex |
-| 索引写入责任 | `ev_84ad033941a7f79cda0ce9635747290eb221f12fa7a6c2ec70052cfd32de5b27` | FUN_1000a150 在值改变时写 +0x38 并发送对应变更通知；meta-call WriteProperty case2 调用此函数 |
+| 原生责任            | 新 REA Evidence ID                                                    | 可复核观察                                                                                                              |
+| ------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| QQuickMenu 类型定位 | `ev_74bdccebd33acf513d05834cd9d66e52d69d03b08664f75232fd7fa9711a1c93` | FUN_10017cb0 比较类型名并返回对象；其 vtable 引用连到 QML 类型构造包装                                                  |
+| QML Menu 构造包装   | `ev_1c1a2e8e4127787482d0356be319e081127fcc72bd73f13c9ec4d9544e1ccaa0` | FUN_100011f0 调用 FUN_10007ff0 并设置 QQmlElement<QQuickMenu> vtable                                                    |
+| Menu 构造初值       | `ev_cf54d03984c80ddc18c5a4c83d5ce73303cc7b9552f6a85734fde586ad6066c5` | FUN_10007ff0 在对象 +0x38 写 0xffffffff，即 int -1                                                                      |
+| 属性读取责任        | `ev_d599a2ba1c9bd334f794e5ca56234109dfafc08e6650cc44837a04df9c24a36c` | FUN_10017970 的 ReadProperty case2 从同一 +0x38 读取；qmltypes:139–141 的本类属性顺序为 title、items、\_\_selectedIndex |
+| 索引写入责任        | `ev_84ad033941a7f79cda0ce9635747290eb221f12fa7a6c2ec70052cfd32de5b27` | FUN_1000a150 在值改变时写 +0x38 并发送对应变更通知；meta-call WriteProperty case2 调用此函数                            |
 
 构造代码证据与 QML completion 合起来支持“新实例完成初始化后首项0”的有条件推导。Constants 的方向模型首项 Retain，其后 Down/Left/Right/Up（Q@916501:336–341），fade 模型为 Black/White/None（:303–305）；directionValue 将普通四方向文本编码2/4/6/8，其余为0（:558–560）。新建默认因此推导为 retain0/black0；仍以模型/文本就绪、正常翻译数据和新实例初始化完成为前提，未伪造首次 UI 保存。
 
@@ -68,18 +68,18 @@ Location 子对话框 onInit 复制外层 mapId/X/Y，onOk 才回写（Q@8678030
 
 ## 保存结构结果与推导
 
-| ID | 输入/路径 | 可复核结论 | 等级与边界 |
-| --- | --- | --- | --- |
-| MV-E06-NEW-CONTEXT | 新建 Transfer 的 direct 地图和坐标 | Direct显式选中；map绑定项目当前地图M，x/y显式0；M来自工程editMapId/地图树选择，不是固定map1或DSL省略默认 | 代码观察；Q@664736:19–42、Q@8678030:15–18、Q@426544:342–348、Q@8672102:110–112 |
-| MV-E06-QT-FIRST-ITEM | 新实例的方向/fade未显式选项 | 同安装 Menu native索引-1，ComboBox completion改0；已就绪模型首项分别Retain/Black | 有条件静态推导；本体native/QML链已补，仍未执行Qt/UI时序 |
-| MV-E06-NEW-DIRECT | 当前地图M存在，新建Transfer不改选项直接确认 | 正常完成初始化、模型文本就绪时推导六槽 `[0,M,0,0,0,0]` | 静态推导；M是明确项目条件，不是通用Compiler Default，不代表实际UI捕获 |
-| MV-E06-NEW-VARIABLES | 新建后切Variables，不改三个变量控件 | 三框显式variableId1，完成初始化并保持其它默认时推导 `[1,1,1,1,0,0]` | 静态推导；不保证工程存在这些引用，不允许DSL省略目标字段 |
-| MV-E06-DIRECT-LOAD | 独立已有六槽 `[0,7,83,92,8,2]`，正常载入后不改再确认 | setup回填固定map7/x83/y92，方向Up索引4、fadeNone索引2，模型文本就绪时保存同一六槽 | 有条件静态推导；是有限输入处理，不冒称UI创建；未进入位置子对话框，不按当前地图尺寸裁剪 |
-| MV-E06-VARIABLES-LOAD | 独立已有六槽 `[1,3,4,5,6,1]`，正常载入后不改再确认 | setup写变量ID3/4/5，方向Right和fadeWhite，模型文本就绪时保存同一六槽 | 有条件静态推导；不解释变量未来值，不以三个ID当直接map/x/y |
-| MV-E06-MODE-SWITCH | Direct/Variables来回切换、主动选择不同目的地 | 只从选中模式读取对应三个字段，确认写p0..5；另一模式控件内存状态不是额外保存槽 | 完整模式读写路径观察；可能改变目的地是显式编辑行为，Q@664736:22–26、113–125和Q@758295:46–56 |
-| MV-E06-DIRECTION-FADE | 五方向与三fade，包含retain和none | direction按0/2/4/6/8映射，fade按0/1/2独立保存；只有精确0对应已决可省略默认 | 常量与保存映射代码观察；不执行无差别笛卡尔积，也不把原生异常索引回填当产品支持 |
-| MV-E06-LOCATION-EDIT | 打开位置子窗口、保留原图或主动选新图/格子 | 初始化复制现目标，合法单格光标才回写位置；OK将子窗口值写回外层，区别于只载入父参数 | 代码观察；地图加载和完整光标信号时序未动态观察，Q@8678030:31–40、Q@8693982:23–55 |
-| MV-E06-CONTAINER | 已有两种六槽Transfer，仅保存事件容器 | stringify不重新执行Transfer参数编辑，保留模式、map/变量、坐标、direction和fade原值 | 容器序列化责任代码观察；不是实际磁盘捕获或产品输出比较 |
+| ID                    | 输入/路径                                            | 可复核结论                                                                                               | 等级与边界                                                                                  |
+| --------------------- | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| MV-E06-NEW-CONTEXT    | 新建 Transfer 的 direct 地图和坐标                   | Direct显式选中；map绑定项目当前地图M，x/y显式0；M来自工程editMapId/地图树选择，不是固定map1或DSL省略默认 | 代码观察；Q@664736:19–42、Q@8678030:15–18、Q@426544:342–348、Q@8672102:110–112              |
+| MV-E06-QT-FIRST-ITEM  | 新实例的方向/fade未显式选项                          | 同安装 Menu native索引-1，ComboBox completion改0；已就绪模型首项分别Retain/Black                         | 有条件静态推导；本体native/QML链已补，仍未执行Qt/UI时序                                     |
+| MV-E06-NEW-DIRECT     | 当前地图M存在，新建Transfer不改选项直接确认          | 正常完成初始化、模型文本就绪时推导六槽 `[0,M,0,0,0,0]`                                                   | 静态推导；M是明确项目条件，不是通用Compiler Default，不代表实际UI捕获                       |
+| MV-E06-NEW-VARIABLES  | 新建后切Variables，不改三个变量控件                  | 三框显式variableId1，完成初始化并保持其它默认时推导 `[1,1,1,1,0,0]`                                      | 静态推导；不保证工程存在这些引用，不允许DSL省略目标字段                                     |
+| MV-E06-DIRECT-LOAD    | 独立已有六槽 `[0,7,83,92,8,2]`，正常载入后不改再确认 | setup回填固定map7/x83/y92，方向Up索引4、fadeNone索引2，模型文本就绪时保存同一六槽                        | 有条件静态推导；是有限输入处理，不冒称UI创建；未进入位置子对话框，不按当前地图尺寸裁剪      |
+| MV-E06-VARIABLES-LOAD | 独立已有六槽 `[1,3,4,5,6,1]`，正常载入后不改再确认   | setup写变量ID3/4/5，方向Right和fadeWhite，模型文本就绪时保存同一六槽                                     | 有条件静态推导；不解释变量未来值，不以三个ID当直接map/x/y                                   |
+| MV-E06-MODE-SWITCH    | Direct/Variables来回切换、主动选择不同目的地         | 只从选中模式读取对应三个字段，确认写p0..5；另一模式控件内存状态不是额外保存槽                            | 完整模式读写路径观察；可能改变目的地是显式编辑行为，Q@664736:22–26、113–125和Q@758295:46–56 |
+| MV-E06-DIRECTION-FADE | 五方向与三fade，包含retain和none                     | direction按0/2/4/6/8映射，fade按0/1/2独立保存；只有精确0对应已决可省略默认                               | 常量与保存映射代码观察；不执行无差别笛卡尔积，也不把原生异常索引回填当产品支持              |
+| MV-E06-LOCATION-EDIT  | 打开位置子窗口、保留原图或主动选新图/格子            | 初始化复制现目标，合法单格光标才回写位置；OK将子窗口值写回外层，区别于只载入父参数                       | 代码观察；地图加载和完整光标信号时序未动态观察，Q@8678030:31–40、Q@8693982:23–55            |
+| MV-E06-CONTAINER      | 已有两种六槽Transfer，仅保存事件容器                 | stringify不重新执行Transfer参数编辑，保留模式、map/变量、坐标、direction和fade原值                       | 容器序列化责任代码观察；不是实际磁盘捕获或产品输出比较                                      |
 
 ## 契约比较与放行范围
 

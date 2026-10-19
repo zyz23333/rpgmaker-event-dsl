@@ -4,56 +4,56 @@
 
 This index contains ticket 01 automated seeds, ticket 02 Windows automation baseline, and tickets 03–06 reverse-engineering obligations and accepted contract review; it is not the complete command or native acceptance matrix. Later tickets add their own stable case IDs and independent input/expected data. Per the user's revised acceptance, editor validation uses REA reverse engineering while final actual game runs remain required. These native evidence groups remain unexecuted by this fixture; its synthetic project context is sufficient for Workspace data operations and is not claimed to be a playable MV project.
 
-| Requirement       | Obligation                                                                                                        | Evidence kind       | Required layer                                |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------- | --------------------------------------------- |
-| MV-S0-CE-001      | Common Event → Decompiled Source → actual Discovery/evaluation → Compile Check/Compile → complete parsed equality | synthetic-support   | public Workspace API and temporary filesystem |
-| MV-S0-COMPARE-001 | Strict comparison rejects structural/value loss, including inactive state and literal CR                          | synthetic-rejection | harness negative controls                     |
-| MV-E03-BODY-EMPTY | Empty branch body markers | reverse-engineering-observation | identified editor resources and conditional code-path review |
-| MV-E03-BODY-NONEMPTY | Nonempty branch marker preservation | static-inference | identified editor resources and conditional code-path review |
-| MV-E03-BODY-NESTED | Nested body preservation | static-inference | identified editor resources and conditional code-path review |
-| MV-E03-ELSE | Missing, empty and disabled Else | reverse-engineering-observation | identified editor resources and conditional code-path review |
-| MV-E03-LOOP | Loop creation and command-list edits | reverse-engineering-observation | identified editor resources and conditional code-path review |
-| MV-E03-402 | Choices branch text mirror | reverse-engineering-observation | identified editor resources and conditional code-path review |
-| MV-E03-403 | Cancel branch saved parameter inference | static-inference | identified editor resources and conditional code-path review |
-| MV-E03-CHOICE-ONE | One-item Choices reconfirmation boundary | static-inference | identified editor resources and conditional code-path review |
-| MV-E03-CHOICE-EMPTY | Empty and whitespace choice text | reverse-engineering-observation | identified editor resources and conditional code-path review |
-| MV-E03-BATTLE-NEW | Battle and Else false defaults in shipped Qt | static-inference | identified editor resources and conditional code-path review |
-| MV-E03-BATTLE-FLAGS | Battle result flags and body structure | reverse-engineering-observation | identified editor resources and conditional code-path review |
-| MV-S0-WIN-CLI-001 | Same minimal Workspace through source and built CLI subprocesses, read-only Check, exact data, actual edited-source Push and stderr/exit behavior | synthetic-support | Windows / Node 22 filesystem and CLI |
-| MV-S0-WIN-JUNCTION-001 | Mandatory real directory junction executes source and built CLI without silent skipping | synthetic-support | Windows junction and CLI subprocess |
+| Requirement            | Obligation                                                                                                                                        | Evidence kind                   | Required layer                                               |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------ |
+| MV-S0-CE-001           | Common Event → Decompiled Source → actual Discovery/evaluation → Compile Check/Compile → complete parsed equality                                 | synthetic-support               | public Workspace API and temporary filesystem                |
+| MV-S0-COMPARE-001      | Strict comparison rejects structural/value loss, including inactive state and literal CR                                                          | synthetic-rejection             | harness negative controls                                    |
+| MV-E03-BODY-EMPTY      | Empty branch body markers                                                                                                                         | reverse-engineering-observation | identified editor resources and conditional code-path review |
+| MV-E03-BODY-NONEMPTY   | Nonempty branch marker preservation                                                                                                               | static-inference                | identified editor resources and conditional code-path review |
+| MV-E03-BODY-NESTED     | Nested body preservation                                                                                                                          | static-inference                | identified editor resources and conditional code-path review |
+| MV-E03-ELSE            | Missing, empty and disabled Else                                                                                                                  | reverse-engineering-observation | identified editor resources and conditional code-path review |
+| MV-E03-LOOP            | Loop creation and command-list edits                                                                                                              | reverse-engineering-observation | identified editor resources and conditional code-path review |
+| MV-E03-402             | Choices branch text mirror                                                                                                                        | reverse-engineering-observation | identified editor resources and conditional code-path review |
+| MV-E03-403             | Cancel branch saved parameter inference                                                                                                           | static-inference                | identified editor resources and conditional code-path review |
+| MV-E03-CHOICE-ONE      | One-item Choices reconfirmation boundary                                                                                                          | static-inference                | identified editor resources and conditional code-path review |
+| MV-E03-CHOICE-EMPTY    | Empty and whitespace choice text                                                                                                                  | reverse-engineering-observation | identified editor resources and conditional code-path review |
+| MV-E03-BATTLE-NEW      | Battle and Else false defaults in shipped Qt                                                                                                      | static-inference                | identified editor resources and conditional code-path review |
+| MV-E03-BATTLE-FLAGS    | Battle result flags and body structure                                                                                                            | reverse-engineering-observation | identified editor resources and conditional code-path review |
+| MV-S0-WIN-CLI-001      | Same minimal Workspace through source and built CLI subprocesses, read-only Check, exact data, actual edited-source Push and stderr/exit behavior | synthetic-support               | Windows / Node 22 filesystem and CLI                         |
+| MV-S0-WIN-JUNCTION-001 | Mandatory real directory junction executes source and built CLI without silent skipping                                                           | synthetic-support               | Windows junction and CLI subprocess                          |
 
 Ticket 02 extends the seed with the [Windows baseline and required filesystem responsibility matrix](windows-baseline.md). The additional cases establish the automation foundation; later safety tickets still own their fault and concurrency obligations.
 
-| Requirement | Obligation | Evidence kind | Required layer |
-| --- | --- | --- | --- |
-| MV-E05-START-BOUNDS | Start two slots and supported seconds bounds | reverse-engineering-observation | identified editor resources and bounded code-path review |
-| MV-E05-START-DEFAULT | New Start default from identified bundled controls | static-inference | identified editor resources and bounded code-path review |
-| MV-E05-NEW-STOP | New Stop has one parameter slot | static-inference | identified editor resources and bounded code-path review |
-| MV-E05-SAVED-START-ZERO | Saved Start zero changed to Stop retains zero slot | static-inference | identified editor resources and bounded code-path review |
-| MV-E05-SAVED-START-NONZERO | Saved Start83 changed to Stop retains nonzero slot | static-inference | identified editor resources and bounded code-path review |
-| MV-E05-STOP-RECONFIRM | Stop reconfirmation retains missing or present seconds | static-inference | identified editor resources and bounded code-path review |
-| MV-E05-UNSAVED-TOGGLE | Unsaved Start controls do not create a Stop seconds slot | static-inference | identified editor resources and bounded code-path review |
-| MV-E05-CONTAINER | Container serialization retains Timer slot structure | reverse-engineering-observation | identified editor resources and bounded code-path review |
-| MV-E05-START-REEDIT | Explicit switch back to Start uses current controls | static-inference | identified editor resources and bounded code-path review |
+| Requirement                | Obligation                                               | Evidence kind                   | Required layer                                           |
+| -------------------------- | -------------------------------------------------------- | ------------------------------- | -------------------------------------------------------- |
+| MV-E05-START-BOUNDS        | Start two slots and supported seconds bounds             | reverse-engineering-observation | identified editor resources and bounded code-path review |
+| MV-E05-START-DEFAULT       | New Start default from identified bundled controls       | static-inference                | identified editor resources and bounded code-path review |
+| MV-E05-NEW-STOP            | New Stop has one parameter slot                          | static-inference                | identified editor resources and bounded code-path review |
+| MV-E05-SAVED-START-ZERO    | Saved Start zero changed to Stop retains zero slot       | static-inference                | identified editor resources and bounded code-path review |
+| MV-E05-SAVED-START-NONZERO | Saved Start83 changed to Stop retains nonzero slot       | static-inference                | identified editor resources and bounded code-path review |
+| MV-E05-STOP-RECONFIRM      | Stop reconfirmation retains missing or present seconds   | static-inference                | identified editor resources and bounded code-path review |
+| MV-E05-UNSAVED-TOGGLE      | Unsaved Start controls do not create a Stop seconds slot | static-inference                | identified editor resources and bounded code-path review |
+| MV-E05-CONTAINER           | Container serialization retains Timer slot structure     | reverse-engineering-observation | identified editor resources and bounded code-path review |
+| MV-E05-START-REEDIT        | Explicit switch back to Start uses current controls      | static-inference                | identified editor resources and bounded code-path review |
 
-| Requirement | Obligation | Evidence kind | Required layer |
-| --- | --- | --- | --- |
-| MV-E04-ROUTE-PATHS | Page/205 creation, clone/load/edit/save, flags, M0 and exact505 mirror | reverse-engineering-observation | identified editor/Qt resource review |
-| MV-E04-INDENT-COUNTEREXAMPLE | Numeric0 after null-record clipboard paste; original contradiction and accepted resolution retained | static-inference | exact-function conditional replay and contract comparison |
-| MV-E04-ZERO-CONTRACT | Explicitly accepted finite zero contract and later product handoff | static-inference | accepted contract consistency review only |
+| Requirement                  | Obligation                                                                                          | Evidence kind                   | Required layer                                            |
+| ---------------------------- | --------------------------------------------------------------------------------------------------- | ------------------------------- | --------------------------------------------------------- |
+| MV-E04-ROUTE-PATHS           | Page/205 creation, clone/load/edit/save, flags, M0 and exact505 mirror                              | reverse-engineering-observation | identified editor/Qt resource review                      |
+| MV-E04-INDENT-COUNTEREXAMPLE | Numeric0 after null-record clipboard paste; original contradiction and accepted resolution retained | static-inference                | exact-function conditional replay and contract comparison |
+| MV-E04-ZERO-CONTRACT         | Explicitly accepted finite zero contract and later product handoff                                  | static-inference                | accepted contract consistency review only                 |
 
-| Requirement | Obligation | Evidence kind | Required layer |
-| --- | --- | --- | --- |
-| MV-E06-NEW-CONTEXT | Direct location initialization separates project map from explicit zero coordinates | reverse-engineering-observation | identified editor/Qt initialization and bounded code-path review |
-| MV-E06-QT-FIRST-ITEM | Bundled Menu and ComboBox first-selection initialization | static-inference | identified editor/Qt initialization and bounded code-path review |
-| MV-E06-NEW-DIRECT | New direct Transfer six-slot default inference | static-inference | identified editor/Qt initialization and bounded code-path review |
-| MV-E06-NEW-VARIABLES | New variable Transfer uses three explicitly initialized variable controls | static-inference | identified editor/Qt initialization and bounded code-path review |
-| MV-E06-DIRECT-LOAD | Existing direct location is reloaded separately from new defaults | static-inference | identified editor/Qt initialization and bounded code-path review |
-| MV-E06-VARIABLES-LOAD | Existing variable location reloads variable identities and nondefault options | static-inference | identified editor/Qt initialization and bounded code-path review |
-| MV-E06-MODE-SWITCH | Mode switching reads the selected location controls | reverse-engineering-observation | identified editor/Qt initialization and bounded code-path review |
-| MV-E06-DIRECTION-FADE | Direction and fade saved mappings are independent | reverse-engineering-observation | identified editor/Qt initialization and bounded code-path review |
-| MV-E06-LOCATION-EDIT | Child location picker has separate init and explicit confirmation path | reverse-engineering-observation | identified editor/Qt initialization and bounded code-path review |
-| MV-E06-CONTAINER | Container serialization preserves existing Transfer parameters | reverse-engineering-observation | identified editor/Qt initialization and bounded code-path review |
+| Requirement           | Obligation                                                                          | Evidence kind                   | Required layer                                                   |
+| --------------------- | ----------------------------------------------------------------------------------- | ------------------------------- | ---------------------------------------------------------------- |
+| MV-E06-NEW-CONTEXT    | Direct location initialization separates project map from explicit zero coordinates | reverse-engineering-observation | identified editor/Qt initialization and bounded code-path review |
+| MV-E06-QT-FIRST-ITEM  | Bundled Menu and ComboBox first-selection initialization                            | static-inference                | identified editor/Qt initialization and bounded code-path review |
+| MV-E06-NEW-DIRECT     | New direct Transfer six-slot default inference                                      | static-inference                | identified editor/Qt initialization and bounded code-path review |
+| MV-E06-NEW-VARIABLES  | New variable Transfer uses three explicitly initialized variable controls           | static-inference                | identified editor/Qt initialization and bounded code-path review |
+| MV-E06-DIRECT-LOAD    | Existing direct location is reloaded separately from new defaults                   | static-inference                | identified editor/Qt initialization and bounded code-path review |
+| MV-E06-VARIABLES-LOAD | Existing variable location reloads variable identities and nondefault options       | static-inference                | identified editor/Qt initialization and bounded code-path review |
+| MV-E06-MODE-SWITCH    | Mode switching reads the selected location controls                                 | reverse-engineering-observation | identified editor/Qt initialization and bounded code-path review |
+| MV-E06-DIRECTION-FADE | Direction and fade saved mappings are independent                                   | reverse-engineering-observation | identified editor/Qt initialization and bounded code-path review |
+| MV-E06-LOCATION-EDIT  | Child location picker has separate init and explicit confirmation path              | reverse-engineering-observation | identified editor/Qt initialization and bounded code-path review |
+| MV-E06-CONTAINER      | Container serialization preserves existing Transfer parameters                      | reverse-engineering-observation | identified editor/Qt initialization and bounded code-path review |
 
 ## Reproduce
 
