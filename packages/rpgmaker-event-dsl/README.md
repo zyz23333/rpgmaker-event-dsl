@@ -440,6 +440,7 @@ Script conditions use `script: scriptInput({ code })`. The complete string is on
 saved slot, including empty input, CR/LF, trailing whitespace and long content.
 CR or LF produces a reconfirmation warning independently of the Script Command
 Gate. Actor name comparisons preserve exact strings without that warning.
+
 ## Choices
 
 ```ts
