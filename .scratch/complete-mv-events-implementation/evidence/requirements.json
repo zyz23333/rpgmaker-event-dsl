@@ -13152,6 +13152,312 @@
       },
       "slice": "23 / S5",
       "required": true
+    },
+    {
+      "id": "MV-S6-TEXT-001",
+      "title": "round trips exact Label Script and Plugin records in all three event containers and all fifteen carriers",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E355 — Script"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native E118/E119/E355/E356 records in Map/Common/Troop carriers.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/label-script-plugin-cases.json",
+        "sha256": "f32ae15b4fc3d70ada9ae03c3d3b9408313193a951ccedaa7419937cf6f5066c"
+      },
+      "expected": "Exact parsed fifteen-carrier equality through discovered/evaluated source, no-op and actual owned-difference Push.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/label-script-plugin-workspace.test.ts",
+        "name": "MV-S6-TEXT-001: round trips exact Label Script and Plugin records in all three event containers and all fifteen carriers"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "ticket 30 implementer",
+        "layer": "source-product Workspace synthetic development"
+      },
+      "slice": "30",
+      "required": true
+    },
+    {
+      "id": "MV-S6-TEXT-002",
+      "title": "malformed known Script groups refuse complete Decompile publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E355 — Script"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3",
+        "A4",
+        "A6",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Invalid known native groups, closed Script Command Gate or source-local const/spread/as and direct untyped values.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/label-script-plugin-cases.json",
+        "sha256": "f32ae15b4fc3d70ada9ae03c3d3b9408313193a951ccedaa7419937cf6f5066c"
+      },
+      "expected": "Refuse invalid inputs with applicable complete source, configuration, Discovery, Project Root, Snapshot and manifest state retained.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/label-script-plugin-workspace.test.ts",
+        "name": "MV-S6-TEXT-002: malformed known Script groups refuse complete Decompile publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "ticket 30 implementer",
+        "layer": "source-product Workspace synthetic development"
+      },
+      "slice": "30",
+      "required": true
+    },
+    {
+      "id": "MV-S6-TEXT-003",
+      "title": "closed Gate permits Decompile and complete Plugin lines but rejects nested and raw empty scripts without publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E355 — Script"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3",
+        "A4",
+        "A6",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Invalid known native groups, closed Script Command Gate or source-local const/spread/as and direct untyped values.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/label-script-plugin-cases.json",
+        "sha256": "f32ae15b4fc3d70ada9ae03c3d3b9408313193a951ccedaa7419937cf6f5066c"
+      },
+      "expected": "Refuse invalid inputs with applicable complete source, configuration, Discovery, Project Root, Snapshot and manifest state retained.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/label-script-plugin-workspace.test.ts",
+        "name": "MV-S6-TEXT-003: closed Gate permits Decompile and complete Plugin lines but rejects nested and raw empty scripts without publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "ticket 30 implementer",
+        "layer": "source-product Workspace synthetic development"
+      },
+      "slice": "30",
+      "required": true
+    },
+    {
+      "id": "MV-S6-TEXT-004",
+      "title": "source const spread casts and direct untyped commands retain strict text validation",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E355 — Script"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3",
+        "A4",
+        "A6",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Invalid known native groups, closed Script Command Gate or source-local const/spread/as and direct untyped values.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/label-script-plugin-cases.json",
+        "sha256": "f32ae15b4fc3d70ada9ae03c3d3b9408313193a951ccedaa7419937cf6f5066c"
+      },
+      "expected": "Refuse invalid inputs with applicable complete source, configuration, Discovery, Project Root, Snapshot and manifest state retained.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/label-script-plugin-workspace.test.ts",
+        "name": "MV-S6-TEXT-004: source const spread casts and direct untyped commands retain strict text validation"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "ticket 30 implementer",
+        "layer": "source-product Workspace synthetic development"
+      },
+      "slice": "30",
+      "required": true
+    },
+    {
+      "id": "MV-S6-TEXT-E5",
+      "title": "Ticket 30 allocated E5 final product/native verification",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/30-labels-scripts-and-plugin-lines.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3",
+        "A4",
+        "A5"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Final built public product and independently isolated native literal/compiled projects after latest integration.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/label-script-plugin-cases.json",
+        "sha256": "f32ae15b4fc3d70ada9ae03c3d3b9408313193a951ccedaa7419937cf6f5066c"
+      },
+      "expected": "Allocated E5 product comparison or actual MV 1.6.1 normal-scene R3/R7 execution with independent expectations and physical isolation proof; pending at DEV checkpoint.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/30-text-dev-checkpoint.md",
+        "section": "## Pending native and final verification"
+      },
+      "nativeGroups": [
+        "E5"
+      ],
+      "execution": {
+        "environment": "Windows / Node 22 / MV 1.6.1 runtime",
+        "owner": "ticket 30 finalizer after root serialization",
+        "layer": "pending final native product verification"
+      },
+      "slice": "30",
+      "required": true
+    },
+    {
+      "id": "MV-S6-TEXT-R3",
+      "title": "Ticket 30 allocated R3 final product/native verification",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/30-labels-scripts-and-plugin-lines.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3",
+        "A4",
+        "A5"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Final built public product and independently isolated native literal/compiled projects after latest integration.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/label-script-plugin-cases.json",
+        "sha256": "f32ae15b4fc3d70ada9ae03c3d3b9408313193a951ccedaa7419937cf6f5066c"
+      },
+      "expected": "Allocated E5 product comparison or actual MV 1.6.1 normal-scene R3/R7 execution with independent expectations and physical isolation proof; pending at DEV checkpoint.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/30-text-dev-checkpoint.md",
+        "section": "## Pending native and final verification"
+      },
+      "nativeGroups": [
+        "R3"
+      ],
+      "execution": {
+        "environment": "Windows / Node 22 / MV 1.6.1 runtime",
+        "owner": "ticket 30 finalizer after root serialization",
+        "layer": "pending final native product verification"
+      },
+      "slice": "30",
+      "required": true
+    },
+    {
+      "id": "MV-S6-TEXT-R7",
+      "title": "Ticket 30 allocated R7 final product/native verification",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/30-labels-scripts-and-plugin-lines.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3",
+        "A4",
+        "A5"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Final built public product and independently isolated native literal/compiled projects after latest integration.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/label-script-plugin-cases.json",
+        "sha256": "f32ae15b4fc3d70ada9ae03c3d3b9408313193a951ccedaa7419937cf6f5066c"
+      },
+      "expected": "Allocated E5 product comparison or actual MV 1.6.1 normal-scene R3/R7 execution with independent expectations and physical isolation proof; pending at DEV checkpoint.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/30-text-dev-checkpoint.md",
+        "section": "## Pending native and final verification"
+      },
+      "nativeGroups": [
+        "R7"
+      ],
+      "execution": {
+        "environment": "Windows / Node 22 / MV 1.6.1 runtime",
+        "owner": "ticket 30 finalizer after root serialization",
+        "layer": "pending final native product verification"
+      },
+      "slice": "30",
+      "required": true
     }
   ]
 }

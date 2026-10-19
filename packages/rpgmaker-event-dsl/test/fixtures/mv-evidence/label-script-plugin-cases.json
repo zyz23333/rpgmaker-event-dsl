@@ -1,0 +1,42 @@
+{
+  "sourceKind": "synthetic-support",
+  "provenance": "Self-authored native saved records from accepted E118/E119/E355/E356 contracts; no editor or game execution.",
+  "list": [
+    { "code": 119, "indent": 0, "parameters": [" A "] },
+    { "code": 118, "indent": 0, "parameters": [" A "] },
+    { "code": 118, "indent": 0, "parameters": [" A "] },
+    { "code": 118, "indent": 0, "parameters": [""] },
+    { "code": 119, "indent": 0, "parameters": [""] },
+    { "code": 118, "indent": 0, "parameters": ["\t "] },
+    { "code": 118, "indent": 0, "parameters": ["A\rB\nC\r\n\t "] },
+    { "code": 119, "indent": 0, "parameters": ["A\rB\nC\r\n\t "] },
+    { "code": 119, "indent": 0, "parameters": ["elsewhere"] },
+    { "code": 355, "indent": 0, "parameters": [""] },
+    { "code": 355, "indent": 0, "parameters": ["a\r"] },
+    { "code": 655, "indent": 0, "parameters": ["b\r"] },
+    { "code": 655, "indent": 0, "parameters": [""] },
+    { "code": 355, "indent": 0, "parameters": ["0"] },
+    { "code": 655, "indent": 0, "parameters": ["1"] },
+    { "code": 655, "indent": 0, "parameters": ["2"] },
+    { "code": 655, "indent": 0, "parameters": ["3"] },
+    { "code": 655, "indent": 0, "parameters": ["4"] },
+    { "code": 655, "indent": 0, "parameters": ["5"] },
+    { "code": 655, "indent": 0, "parameters": ["6"] },
+    { "code": 655, "indent": 0, "parameters": ["7"] },
+    { "code": 655, "indent": 0, "parameters": ["8"] },
+    { "code": 655, "indent": 0, "parameters": ["9"] },
+    { "code": 655, "indent": 0, "parameters": ["10"] },
+    { "code": 655, "indent": 0, "parameters": ["11"] },
+    { "code": 356, "indent": 0, "parameters": [""] },
+    { "code": 356, "indent": 0, "parameters": [" "] },
+    { "code": 356, "indent": 0, "parameters": [" X  Y "] },
+    { "code": 356, "indent": 0, "parameters": ["\tX\tY\t"] },
+    { "code": 356, "indent": 0, "parameters": ["X\rY\nZ\r\n "] },
+    { "code": 0, "indent": 0, "parameters": [] }
+  ],
+  "otherList": [
+    { "code": 118, "indent": 0, "parameters": ["elsewhere"] },
+    { "code": 118, "indent": 0, "parameters": [" A "] },
+    { "code": 0, "indent": 0, "parameters": [] }
+  ]
+}

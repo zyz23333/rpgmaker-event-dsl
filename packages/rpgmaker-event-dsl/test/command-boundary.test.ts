@@ -20,7 +20,7 @@ it("reports the real raw source position before a native record exists", () => {
   const issue = validateStagedDataGraph(buildStagedDataGraph({ declarations: [invalid] }), {
     scriptEnabled: true,
   }).issues.find((candidate) => candidate.code === "MV-COMMAND-ENVELOPE");
-  expect(issue).toMatchObject({ dslPath: "commands[1]" });
+  expect(issue).toMatchObject({ dslPath: "commands[1].parameters" });
   expect(issue?.nativePath).toBeUndefined();
 });
 

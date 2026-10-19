@@ -445,9 +445,23 @@ or unreachable Script/continuation records, script conditions, Control Variables
 script operands, Set Movement Route records and mirrors, and saved Page routes in
 every movement mode. Recognized raw commands receive the same checks. With the Gate
 closed, Decompile produces source with warnings; Check and Compile reject the current
-declarations until those scripts are removed or the Gate is enabled. `pluginCommand(...)`
-carries MV's native plugin command string; plugin-specific argument semantics remain
-outside validation.
+declarations until those scripts are removed or the Gate is enabled.
+
+`label({ name })` and `jumpToLabel({ name })` require a complete string, including an
+explicit empty string when intended. MV searches the complete current native command
+list for the first exact Label, across branch indentation. Duplicate Labels and missing
+targets warn; separate event pages and Common Events have separate label scopes.
+CR/LF parameter-reconfirmation warnings preserve the original string.
+
+`script({ code })` or `script(scriptInput({ code }))` uses 1–12 physical records,
+splitting only on LF. An empty string is one record; CR and trailing empty records are
+preserved. This limit belongs to the Script command and does not limit single-slot
+Script Inputs in conditions, variable operands or Movement Routes.
+
+`pluginCommand({ line })` carries the entire MV Plugin Command Line as one required
+string. Empty text, leading/trailing/repeated spaces, Tab, CR and LF remain exact.
+The Script Command Gate permits Plugin Commands. A Plugin Command Registry is optional
+lint; plugin-specific execution and argument semantics remain outside validation.
 
 `rawDslCommand({ code, indent?, parameters })` carries one event record. An explicit
 `indent: 0` is absolute and remains explicit after Decompile. Parameters must be dense,

@@ -1,7 +1,11 @@
 import type { CommonEventDefinition, DslCommand } from "../domain/types.js";
 import type { ReferenceResolver } from "../validation/types.js";
 import type { RawEventCommand, CommandOrigins } from "./types.js";
-import { assertDslCommandList } from "../validation/dsl-command-inputs.js";
+import {
+  assertDslCommandList,
+  assertDslObject,
+  assertDslTextInput,
+} from "../validation/dsl-command-inputs.js";
 import {
   resolveCommonEventCall,
   assertLoopCommand,
@@ -271,9 +275,11 @@ export function compileNodes(
         });
         break;
       case "label":
+        assertDslTextInput(node, "name", `${sourcePath}[${nodeIndex}]`, "label");
         output.push({ code: 118, indent, parameters: [node.name] });
         break;
       case "jumpToLabel":
+        assertDslTextInput(node, "name", `${sourcePath}[${nodeIndex}]`, "jumpToLabel");
         output.push({ code: 119, indent, parameters: [node.name] });
         break;
       case "controlSwitches": {
@@ -487,6 +493,13 @@ export function compileNodes(
         }
         break;
       case "script":
+        assertDslObject(node, ["kind", "script"], `${sourcePath}[${nodeIndex}]`);
+        assertDslTextInput(
+          node.script,
+          "code",
+          `${sourcePath}[${nodeIndex}].script`,
+          "scriptInput",
+        );
         output.push({
           code: 355,
           indent,
@@ -501,14 +514,11 @@ export function compileNodes(
         }
         break;
       case "pluginCommand":
+        assertDslTextInput(node, "line", `${sourcePath}[${nodeIndex}]`, "pluginCommand");
         output.push({
           code: 356,
           indent,
-          parameters: [
-            node.args !== undefined && node.args.length > 0
-              ? `${node.command} ${node.args.join(" ")}`
-              : node.command,
-          ],
+          parameters: [node.line],
         });
         break;
       case "transferPlayer":
@@ -1195,8 +1205,23 @@ export function compileNodes(
       inspectCommandListStructure(output, { requireTerminator: true });
     } catch (error) {
       if (error instanceof CommandStructureError) {
-        const dslAt = (path: string | undefined) =>
-          path ? origins.get(output[Number(/^list\[(\d+)\]/u.exec(path)?.[1])]!)?.path : undefined;
+        const dslAt = (path: string | undefined) => {
+          if (!path) return undefined;
+          const record = output[Number(/^list\[(\d+)\]/u.exec(path)?.[1])]!;
+          const origin = origins.get(record);
+          if (!origin) return undefined;
+          if (![118, 119, 355, 356, 655].includes(record.code)) return origin.path;
+          return (
+            origin.path +
+            (origin.kind === "rawDslCommand"
+              ? path.replace(/^list\[\d+\]/u, "")
+              : origin.kind === "script"
+                ? ".script.code"
+                : origin.kind === "pluginCommand"
+                  ? ".line"
+                  : ".name")
+          );
+        };
         const dslPath = dslAt(error.location.nativePath);
         throw new CommandStructureError(error.code, error.detail, {
           ...error.location,

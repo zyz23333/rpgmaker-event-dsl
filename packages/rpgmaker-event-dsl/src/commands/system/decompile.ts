@@ -36,20 +36,11 @@ export function renderPluginCommand(
   command: RawEventCommand,
 ): Omit<RenderedCommand, "nextIndex"> | null {
   const line = command.parameters[0];
-  if (typeof line !== "string" || line.length === 0) {
+  if (typeof line !== "string") {
     return null;
-  }
-  if (line.trim() !== line || line.includes("  ")) {
-    return null;
-  }
-
-  const [name = "", ...args] = line.split(" ");
-  const fields = [`command: ${literal(name)}`];
-  if (args.length > 0) {
-    fields.push(`args: ${literal(args)}`);
   }
   return {
-    expression: `pluginCommand({ ${fields.join(", ")} })`,
+    expression: `pluginCommand({ line: ${literal(line)} })`,
     helperNames: ["pluginCommand"],
   };
 }

@@ -81,7 +81,10 @@ it.each([
     commands: [{ kind: "rawDslCommand", code: 113, ...input } as never],
   });
   expect(validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues).toContainEqual(
-    expect.objectContaining({ code: "MV-COMMAND-ENVELOPE", dslPath: "commands[0]" }),
+    expect.objectContaining({
+      code: "MV-COMMAND-ENVELOPE",
+      dslPath: `commands[0].${Object.hasOwn(input, "indent") ? "indent" : "parameters"}`,
+    }),
   );
 });
 
@@ -308,7 +311,7 @@ it.each([
         level: "error",
         identity: "commonEvent:1",
         ...(commands[at]?.code === 113 && commands[at]?.parameters.length
-          ? { dslPath: `commands[${at}]` }
+          ? { dslPath: `commands[${at}].parameters` }
           : { nativePath: `list[${at}]` }),
       }),
     );

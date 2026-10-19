@@ -441,3 +441,13 @@ Ticket24 adds [complete Map Event pages and exact saved state](24-map-event-full
 
 | MV-S5-COMMON-CARRIER-BOUNDARY | Reject missing or nonnull Common reserved slot0 and preserve ordinary null-only carrier | synthetic-rejection | Actual public Workspace native carrier boundary |
 | MV-S5-COMMON-TRIGGER-BOUNDARY | Reject categorical Common trigger negative zero with exact diagnostic and unchanged complete business state | synthetic-rejection | Actual public Workspace native carrier boundary |
+
+| Ticket 30 requirement | Focused development coverage / pending final layer |
+| --- | --- |
+| MV-S6-TEXT-001 | round trips exact Label Script and Plugin records in all three event containers and all fifteen carriers |
+| MV-S6-TEXT-002 | malformed known Script groups refuse complete Decompile publication |
+| MV-S6-TEXT-003 | closed Gate permits Decompile and complete Plugin lines but rejects nested and raw empty scripts without publication |
+| MV-S6-TEXT-004 | source const spread casts and direct untyped commands retain strict text validation |
+| MV-S6-TEXT-E5 | Ticket 30 allocated E5 final product/native verification |
+| MV-S6-TEXT-R3 | Ticket 30 allocated R3 final product/native verification |
+| MV-S6-TEXT-R7 | Ticket 30 allocated R7 final product/native verification |

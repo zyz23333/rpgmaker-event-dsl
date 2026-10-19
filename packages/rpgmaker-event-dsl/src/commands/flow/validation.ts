@@ -4,7 +4,7 @@ import type {
   ExitEventProcessingDslCommand,
   LoopDslCommand,
 } from "../../domain/types.js";
-import { CommandStructureError } from "../../validation/command-structure.js";
+import { CommandStructureError } from "../../validation/command-errors.js";
 import { assertDslObject } from "../../validation/dsl-command-inputs.js";
 import { describeValue } from "../../project-data/json-values.js";
 import type { ReferenceResolver } from "../../validation/types.js";

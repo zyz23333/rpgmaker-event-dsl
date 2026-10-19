@@ -1,6 +1,6 @@
 # 30: Label、Script 与 Plugin Line
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 09, 23
 Stage: S6
 Created: 2026-10-19

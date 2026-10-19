@@ -58,14 +58,35 @@ export function assertRawDslInput(
     );
   } catch (error) {
     if (error instanceof CommandStructureError) {
-      const { nativePath: _nativePath, ...location } = error.location;
+      const { nativePath, ...location } = error.location;
       throw new CommandStructureError(error.code, error.detail, {
         ...location,
-        dslPath: path,
+        dslPath: path + (nativePath?.replace(/^list\[0\]/u, "") ?? ""),
       });
     }
     throw error;
   }
+}
+
+export function assertDslTextInput(
+  value: unknown,
+  field: "name" | "line" | "code",
+  path: string,
+  kind?: string,
+): void {
+  assertDslObject(value, kind === undefined ? [field] : ["kind", field], path);
+  if (kind !== undefined && (!Object.hasOwn(value, "kind") || value.kind !== kind))
+    throw new CommandStructureError("MV-DSL-SHAPE", "Unexpected authored text kind.", {
+      dslPath: `${path}.kind`,
+      expected: kind,
+      actual: describeValue(value.kind),
+    });
+  if (!Object.hasOwn(value, field) || typeof value[field] !== "string")
+    throw new CommandStructureError("MV-DSL-SHAPE", "A complete text string is required.", {
+      dslPath: `${path}.${field}`,
+      expected: "explicit string",
+      actual: Object.hasOwn(value, field) ? describeValue(value[field]) : "missing",
+    });
 }
 
 export function assertDslCommandList(

@@ -414,12 +414,12 @@ export function renderSimpleCommand(
     }
     case 118:
       return {
-        expression: `label(${literal(readStringParameter(command.parameters[0]))})`,
+        expression: `label({ name: ${literal(readStringParameter(command.parameters[0]))} })`,
         helperNames: ["label"],
       };
     case 119:
       return {
-        expression: `jumpToLabel(${literal(readStringParameter(command.parameters[0]))})`,
+        expression: `jumpToLabel({ name: ${literal(readStringParameter(command.parameters[0]))} })`,
         helperNames: ["jumpToLabel"],
       };
     case 121: {

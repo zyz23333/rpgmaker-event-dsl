@@ -226,8 +226,7 @@ export type ScriptDslCommand = {
 
 export type PluginDslCommand = {
   kind: "pluginCommand";
-  command: string;
-  args?: readonly string[];
+  line: string;
 };
 
 export type TransferPlayerDslCommand = {

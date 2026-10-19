@@ -122,7 +122,25 @@ Use Asset Reference helpers for files, not Project Data Reference helpers. `audi
 
 Use `script(...)` and `scriptInput(...)` for short RPG Maker MV JavaScript only when the Workspace Script Command Gate allows it and ordinary event commands are not enough. The Gate also checks Conditional Branch script conditions, Control Variables script operands, Set Movement Route script subcommands and mirrors, and saved Page routes in every movement mode. Empty and unreachable scripts still count. With the Gate closed, Decompile warns while generating source; Check and Compile reject current declarations containing scripts. Remove the actual scripts or enable the Gate deliberately before compiling.
 
-Use `pluginCommand(...)` only when the plugin command is grounded in user intent, existing project usage, or plugin documentation. The DSL models MV's native plugin command string; plugin-specific argument schemas are outside this helper's validation boundary.
+Use `label({ name })` and `jumpToLabel({ name })` with explicit complete strings,
+including an empty string when intended. Preserve whitespace, CR, LF and trailing
+characters. Jumps search the complete current native list from its start, even across
+branch indentation, and choose the first exact Label. Separate pages and Common Events
+have separate scopes. Review duplicate/missing-label warnings and CR/LF reconfirmation
+warnings without automatically renaming labels or changing text.
+
+Use `script({ code })` or `script(scriptInput({ code }))` for 1–12 Script physical
+records. Split only on LF, retain CR and trailing empty records, and count empty code
+as one record. The record-count limit does not apply to single-slot Script Inputs in
+conditions, variable operands or Movement Routes. Continuations belong to the parent.
+
+Use `pluginCommand({ line })` when the Plugin Command Line is grounded in user intent,
+existing project usage or plugin documentation. Carry the complete required string,
+including empty text, leading/trailing/repeated spaces, Tab, CR and LF. MV splits the
+line on literal ASCII spaces at execution; preserving the line preserves its empty
+command/argument values. Plugin Commands are permitted with the Script Command Gate
+closed. A Plugin Command Registry is optional lint; private plugin semantics remain
+outside validation.
 
 Use `rawDslCommand(...)` for a genuinely unknown command with a valid record envelope
 and surrounding structure. Recognized native parameters and references retain their

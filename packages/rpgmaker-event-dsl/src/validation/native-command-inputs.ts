@@ -2,6 +2,7 @@ import type { RawEventCommand, CommandOrigins } from "../compiler/types.js";
 import type { ValidationIssue } from "./types.js";
 import type { NativeMovementRoute } from "../commands/movement/types.js";
 import { isKnownCommandCode } from "./native-parameters.js";
+import { inspectNativeLabelInputs } from "../commands/flow/diagnostics.js";
 
 export type NativeInputOptions = {
   identity: string;
@@ -57,7 +58,7 @@ export function inspectNativeCommandInputs(
   commands: readonly RawEventCommand[],
   options: NativeInputOptions,
 ): ValidationIssue[] {
-  const issues: ValidationIssue[] = [];
+  const issues: ValidationIssue[] = inspectNativeLabelInputs(commands, options);
   for (const [index, command] of commands.entries()) {
     const path = `${options.prefix ?? ""}list[${index}]`;
     const origin = options.origins?.get(command);
