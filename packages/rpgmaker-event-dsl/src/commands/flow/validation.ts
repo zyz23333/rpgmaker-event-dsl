@@ -22,6 +22,10 @@ export function assertLoopCommand(node: LoopDslCommand, path: string): void {
     if (!Object.hasOwn(body.commands, index) || body.commands[index] === undefined) {
       fail("Child Command Body commands cannot contain undefined or sparse slots.", `.body.commands[${index}]`);
     }
+    const command = body.commands[index];
+    if (typeof command !== "object" || command === null || Array.isArray(command) || typeof command.kind !== "string") {
+      fail("Expected a DSL Command object.", `.body.commands[${index}]`);
+    }
   }
   if (body.endMarker !== undefined && body.endMarker !== "present" && body.endMarker !== "absent") {
     fail("Body End Marker must be present or absent.", ".body.endMarker");

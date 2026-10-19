@@ -7,6 +7,26 @@ import { buildStagedDataGraph, validateDslOwnedDeclarations } from "../src/valid
 
 const resolver = buildStagedDataGraph({ declarations: [] }).resolver;
 
+it.each([
+  { body: undefined, path: ".body" },
+  { body: null, path: ".body" },
+  { body: [], path: ".body" },
+  { body: {}, path: ".body.commands" },
+  { body: { commands: undefined }, path: ".body.commands" },
+  { body: { commands: [] , extra: true }, path: ".body" },
+  { body: { commands: [], endMarker: "other" }, path: ".body.endMarker" },
+  { body: { commands: [undefined] }, path: ".body.commands[0]" },
+  { body: { commands: new Array(1) }, path: ".body.commands[0]" },
+  { body: { commands: [null] }, path: ".body.commands[0]" },
+])("rejects invalid Loop body $path through the public validation seam", ({ body, path }) => {
+  const event = commonEvent({ id: 1, name: "Bad Loop", trigger: "none", commands: [
+    { kind: "loop", body } as never,
+  ] });
+  expect(validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues).toContainEqual(
+    expect.objectContaining({ code: "MV-CHILD-BODY", dslPath: `commands[0]${path}` }),
+  );
+});
+
 it("compiles an empty Loop with its own Body End Marker and a distinct event terminator", () => {
   const event = commonEvent({
     id: 1,
@@ -16,6 +36,28 @@ it("compiles an empty Loop with its own Body End Marker and a distinct event ter
   });
   expect(compileCommonEvent(event, { nextId: 1, resolver }).list).toEqual([
     { code: 112, indent: 0, parameters: [] },
+    { code: 0, indent: 1, parameters: [] },
+    { code: 413, indent: 0, parameters: [] },
+    { code: 0, indent: 0, parameters: [] },
+  ]);
+});
+
+it("warns about formal and raw Break Loop outside a Loop while preserving native output", () => {
+  const event = commonEvent({ id: 1, name: "Outside Break", trigger: "none", commands: [
+    breakLoop(), rawDslCommand({ code: 113, parameters: [] }),
+    loop({ body: { commands: [breakLoop()] } }),
+  ] });
+  const issues = validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues;
+  expect(issues.filter((issue) => issue.level === "error")).toEqual([]);
+  expect(issues.filter((issue) => issue.code === "MV-BREAK-OUTSIDE-LOOP")).toEqual([
+    expect.objectContaining({ level: "warning", identity: "commonEvent:1", nativePath: "list[0]" }),
+    expect.objectContaining({ level: "warning", identity: "commonEvent:1", nativePath: "list[1]" }),
+  ]);
+  expect(compileCommonEvent(event, { nextId: 1, resolver }).list).toEqual([
+    { code: 113, indent: 0, parameters: [] },
+    { code: 113, indent: 0, parameters: [] },
+    { code: 112, indent: 0, parameters: [] },
+    { code: 113, indent: 1, parameters: [] },
     { code: 0, indent: 1, parameters: [] },
     { code: 413, indent: 0, parameters: [] },
     { code: 0, indent: 0, parameters: [] },

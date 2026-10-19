@@ -62,7 +62,7 @@ async function buildDecompiledSourceFiles(
     const mapFileName = formatMapFileName(mapInfo.id);
     const mapData = await readSnapshotObject(options.statePaths, mapFileName);
     files.push({
-      content: renderMapSource(mapInfo, readMapEvents(mapData)),
+      content: renderMapSource(mapInfo, readMapEvents(mapData, mapInfo.id)),
       path: resolve(outputRoot, "maps", `${mapFileName.slice(0, -".json".length)}.events.ts`),
     });
   }

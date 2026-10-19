@@ -1,5 +1,5 @@
 import { compileNodes } from "../compiler/dispatch.js";
-import { CommandStructureError } from "./command-structure.js";
+import { CommandStructureError, inspectCommandListStructure } from "./command-structure.js";
 import type { StagedDataGraph, ValidationIssue } from "./types.js";
 
 export function validateCompiledCommandLists(graph: StagedDataGraph, issues: ValidationIssue[]): void {
@@ -15,7 +15,16 @@ export function validateCompiledCommandLists(graph: StagedDataGraph, issues: Val
         : [];
     for (const list of lists) {
       try {
-        compileNodes(list.commands, 0, graph.resolver, true, list.path);
+        const commands = compileNodes(list.commands, 0, graph.resolver, true, list.path);
+        const { breaksOutsideLoops } = inspectCommandListStructure(commands, { requireTerminator: true });
+        for (const index of breaksOutsideLoops) issues.push({
+          level: "warning",
+          code: "MV-BREAK-OUTSIDE-LOOP",
+          stage: "compile",
+          identity: list.identity,
+          nativePath: `${list.path.replace(/commands$/u, "list")}[${index}]`,
+          message: `${list.identity}: Break Loop outside a Loop can skip the remaining event commands while looking for a matching Repeat Above record.`,
+        });
       } catch (error) {
         if (error instanceof CommandStructureError) issues.push(error.issue(list.identity, "compile"));
         // Other families report their parameter/reference failures through their own validators.
