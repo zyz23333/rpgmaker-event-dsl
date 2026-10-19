@@ -203,6 +203,18 @@ it("rejects an existing Troop source identity before publishing Decompile", asyn
 
 it.each([
   [
+    "empty page array",
+    (_page: Record<string, unknown>, troop: Record<string, unknown>) => {
+      troop.pages = [];
+    },
+  ],
+  [
+    "null page position",
+    (_page: Record<string, unknown>, troop: Record<string, unknown>) => {
+      troop.pages = [null];
+    },
+  ],
+  [
     "missing page list",
     (page: Record<string, unknown>) => {
       delete page.list;
@@ -244,12 +256,44 @@ it.each([
       page.list = [];
     },
   ],
+  ...(
+    [
+      ["turnA", -1],
+      ["turnA", 10000],
+      ["turnB", -1],
+      ["turnB", 10000],
+      ["enemyIndex", -1],
+      ["enemyIndex", 9007199254740992],
+      ["enemyHp", -1],
+      ["enemyHp", 101],
+      ["actorHp", -1],
+      ["actorId", -1],
+      ["switchId", -1],
+      ["switchId", 0.5],
+      ["turnEnding", 0],
+      ["turnValid", "false"],
+      ["enemyValid", null],
+      ["actorValid", 1],
+      ["switchValid", []],
+    ] as const
+  ).map(
+    ([field, value]) =>
+      [
+        `invalid saved ${field} ${JSON.stringify(value)}`,
+        (page: Record<string, unknown>) => {
+          (page.conditions as Record<string, unknown>)[field] = value;
+        },
+      ] as const,
+  ),
 ] as const)(
   "rejects %s in native Troop input before source publication",
   async (_label, mutate) => {
     return verifyTroopEvidence("MV-S5-TROOP-WORKSPACE-005", async () => {
       const { workspaceRoot, troops, paths } = await fixture();
-      mutate(troops[1]!.pages[0] as unknown as Record<string, unknown>);
+      mutate(
+        troops[1]!.pages[0] as unknown as Record<string, unknown>,
+        troops[1] as unknown as Record<string, unknown>,
+      );
       await writeFile(join(workspaceRoot, "Game/data/Troops.json"), JSON.stringify(troops));
       // Pull captures native bytes; Decompile must reject owned shapes rather than fill them.
       await pullWorkspace({ workspaceRoot });

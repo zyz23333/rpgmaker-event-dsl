@@ -120,22 +120,69 @@ it("preserves inactive saved condition values but rejects malformed inactive slo
         switchId: 999,
       },
     });
+    const rejected: unknown[] = [];
     for (const conditions of [
+      { turn: { enabled: false, a: -1, b: 0 } },
       { turn: { enabled: false, a: 10000, b: 0 } },
+      { turn: { enabled: false, a: 0, b: -1 } },
+      { turn: { enabled: false, a: 0, b: 10000 } },
+      { turn: { enabled: false, a: 0.5, b: 0 } },
+      { turn: { enabled: false, a: 0 } },
       { enemy: { enabled: false, index: -1, hpAtMost: 50 } },
+      { enemy: { enabled: false, index: Number.MAX_SAFE_INTEGER + 1, hpAtMost: 50 } },
+      { enemy: { enabled: false, index: 0, hpAtMost: -1 } },
+      { enemy: { enabled: false, index: 0, hpAtMost: 101 } },
+      { enemy: { enabled: false, index: 0, hpAtMost: 0.5 } },
       { actor: { enabled: false, ref: actorRef({ id: -1 }), hpAtMost: 50 } },
+      {
+        actor: { enabled: false, ref: actorRef({ id: Number.MAX_SAFE_INTEGER + 1 }), hpAtMost: 50 },
+      },
+      { actor: { enabled: false, ref: actorRef({ id: 0 }), hpAtMost: -1 } },
+      { actor: { enabled: false, ref: actorRef({ id: 0 }), hpAtMost: 101 } },
+      { actor: { enabled: false, ref: { kind: "actor", id: 0, name: "both" }, hpAtMost: 50 } },
+      { actor: { enabled: false, ref: { kind: "switch", id: 0 }, hpAtMost: 50 } },
+      { switch: { enabled: false, ref: switchRef({ id: -1 }) } },
+      { switch: { enabled: false, ref: switchRef({ id: 0.5 }) } },
+      { switch: { enabled: false, ref: switchRef({ name: "" }) } },
+      { switch: { enabled: 0, ref: switchRef({ id: 0 }) } },
       { switch: { enabled: false } },
+      { turnEnd: "false" },
       { futureCondition: false },
     ]) {
       const invalid = troopEvent({ troopId: 1, pages: [{ conditions, commands: [] } as never] });
-      expect(
-        validateDslOwnedDeclarations([invalid], context).issues.some(
-          ({ level }) => level === "error",
-        ),
-      ).toBe(true);
+      const result = validateDslOwnedDeclarations([invalid], context);
+      rejected.push({ conditions, issues: result.issues });
+      expect(result.issues.some(({ level }) => level === "error")).toBe(true);
     }
-
-    return { savedDslPage: page, nativePage: compileBattlePage(page, graph.resolver) };
+    const boundaryPage = battlePage({
+      conditions: {
+        turn: { enabled: false, a: 0, b: 9999 },
+        enemy: { enabled: false, index: Number.MAX_SAFE_INTEGER, hpAtMost: 100 },
+        actor: { enabled: false, ref: actorRef({ id: Number.MAX_SAFE_INTEGER }), hpAtMost: 0 },
+        switch: { enabled: false, ref: switchRef({ id: 0 }) },
+      },
+      commands: [],
+    });
+    expect(
+      validateDslOwnedDeclarations([troopEvent({ troopId: 1, pages: [boundaryPage] })], context)
+        .issues,
+    ).toEqual([]);
+    const boundaryNative = compileBattlePage(boundaryPage, graph.resolver);
+    expect(boundaryNative.conditions).toMatchObject({
+      turnA: 0,
+      turnB: 9999,
+      enemyIndex: 9007199254740991,
+      enemyHp: 100,
+      actorId: 9007199254740991,
+      actorHp: 0,
+      switchId: 0,
+    });
+    return {
+      savedDslPage: page,
+      nativePage: compileBattlePage(page, graph.resolver),
+      boundaryNative,
+      rejected,
+    };
   });
 });
 
