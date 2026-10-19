@@ -15,7 +15,6 @@ Baseline: cdec508afc07f0543fb0c6751d4aab924d4a3aa7
 - 52–54 及 R1–R7 必须在实际 MV 1.6.1 游戏 runtime / NW.js 中运行并留存结果；静态逆向、mock 或 Node 中仿写引擎均不能替代。需人工观察的声音和图像仍按游戏要求执行。
 - 55 的完整支持声明要求适用自动化、E1–E7 的逆向/产品比较证据与 R1–R7 的实际游戏证据全部齐备。此修订本身不关闭任何实施票。
 
-
 ## Problem Statement
 
 开发者需要用 TypeScript Event DSL 接管、编辑和同步现有 RPG Maker MV 1.6.1 工程的原生事件。当前实现已经有 Map/Common Event、命令族编反编译、引用验证及 Workspace 工作流，但类别覆盖不足以保证完整支持：地图备注和完整页配置、Troop Event、非激活保存配置、部分参数与记录外壳仍不能完整表达，部分反编译失败会转成 raw，已有同步检查也没有覆盖新的输入依赖和发布边界。
@@ -123,7 +122,9 @@ Conditional 的 then/else、Loop 的 body、Battle 的 win/escape/lose 使用 Ch
 
 所有续行、结果分支、闭合和镜像记录归父命令，不新增独立正式 helper。Transfer direction 默认 retain、fade 默认 black；Set Event Location direction 默认 retain；其他仅支持四向的字段不扩展 retain。
 
-Shop 的 purchaseOnly 默认 false；goods 必填可空，保留顺序和重复，引用类别与商品种类匹配，省略 price 表示标准价格。空 goods 使用已确认的原生空商店占位，ID 0 在此是结构占位，不是通用项目引用例外。
+Shop 的 purchaseOnly 默认 false；goods 必填可空，保留顺序和重复，真实商品的正ID引用类别与商品种类匹配，省略 price 表示标准价格。Shop Goods Placeholder 使用具名变体 `{kind:"placeholder"}`，只编码精确四槽 `[0,0,0,0]`，不带引用或price字段，允许与真实商品有序混排、任意位置和重复。空 goods 编为唯一占位加首条purchaseOnly；反编译唯一精确占位时规范为 `goods:[]`，其余列表逐项保留位置与数量。ID0不成为通用引用例外；其他零ID类别/价格组合、标准mode0/value非0、错误槽数及孤立605仍拒绝，正式编写/编反编译/已知raw同规。
+
+2026-10-19，用户在实施会话中明确回答“接受有限占位变体及有序重复（推荐）”，接受 [07空Shop重载后追加商品的正常代码路径反例](evidence/07-shop-defaults-and-goods-reverse.md#契约比较与已接受修订)所需的有限修订。权威[决定票05 Answer](../complete-mv-events/issues/05-native-command-contract.md#answer)、[ADR0011](../../docs/adr/0011-native-command-state-and-validation.md)和[ADR0012](../../docs/adr/0012-event-saved-state-roundtrip-boundary.md)已同步；该决定只补契约，不表示47产品能力或实际游戏验收完成。
 
 Control Switches/Variables 使用包含两端的连续引用范围，解析后允许中间无名槽，反向报错而不排序。Control Variables 完整表达 constant/variable/random/gameData/script；字面常量与随机端点为整数 ±99,999,999，随机下界不得大于上界。Random 每个目标独立采样，其余操作数在目标循环前求值一次；不将字面量界限施加给运行结果。
 
