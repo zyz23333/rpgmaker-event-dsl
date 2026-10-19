@@ -8,7 +8,6 @@ This index contains ticket 01 automated seeds, ticket 02 Windows automation base
 | ----------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------- | --------------------------------------------- |
 | MV-S0-CE-001      | Common Event → Decompiled Source → actual Discovery/evaluation → Compile Check/Compile → complete parsed equality | synthetic-support   | public Workspace API and temporary filesystem |
 | MV-S0-COMPARE-001 | Strict comparison rejects structural/value loss, including inactive state and literal CR                          | synthetic-rejection | harness negative controls                     |
-
 | MV-E03-BODY-EMPTY | Empty branch body markers | reverse-engineering-observation | identified editor resources and conditional code-path review |
 | MV-E03-BODY-NONEMPTY | Nonempty branch marker preservation | static-inference | identified editor resources and conditional code-path review |
 | MV-E03-BODY-NESTED | Nested body preservation | static-inference | identified editor resources and conditional code-path review |
@@ -20,7 +19,6 @@ This index contains ticket 01 automated seeds, ticket 02 Windows automation base
 | MV-E03-CHOICE-EMPTY | Empty and whitespace choice text | reverse-engineering-observation | identified editor resources and conditional code-path review |
 | MV-E03-BATTLE-NEW | Battle and Else false defaults in shipped Qt | static-inference | identified editor resources and conditional code-path review |
 | MV-E03-BATTLE-FLAGS | Battle result flags and body structure | reverse-engineering-observation | identified editor resources and conditional code-path review |
-
 | MV-S0-WIN-CLI-001 | Same minimal Workspace through source and built CLI subprocesses, read-only Check, exact data, actual edited-source Push and stderr/exit behavior | synthetic-support | Windows / Node 22 filesystem and CLI |
 | MV-S0-WIN-JUNCTION-001 | Mandatory real directory junction executes source and built CLI without silent skipping | synthetic-support | Windows junction and CLI subprocess |
 
