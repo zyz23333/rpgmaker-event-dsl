@@ -2,5 +2,5 @@
 * text=auto eol=lf
 
 # Preserve the original PowerShell-produced acceptance artifact's hashed bytes.
-/.scratch/complete-mv-events-implementation/evidence/11-switch-final-provenance.json -text
+/.scratch/complete-mv-events-implementation/evidence/11-switch-final-provenance.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 
