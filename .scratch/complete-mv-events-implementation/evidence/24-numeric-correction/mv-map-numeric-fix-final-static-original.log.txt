@@ -1,0 +1,9 @@
+
+> rpgmaker-event-dsl@0.1.2 typecheck C:\Users\Shuen\.codex\worktrees\mv-map-numeric-fix\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> tsc -p tsconfig.json --noEmit
+
+Checking formatting...
+
+All matched files use the correct format.
+Finished in 359ms on 9 files using 20 threads.
+warning: in the working copy of '.scratch/complete-mv-events-implementation/issues/24-map-event-full-pages-and-note.md', CRLF will be replaced by LF the next time Git touches it

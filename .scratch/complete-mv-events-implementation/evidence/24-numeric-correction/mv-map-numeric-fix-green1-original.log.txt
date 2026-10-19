@@ -1,0 +1,115 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-map-numeric-fix/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/map-page-numeric-workspace.test.ts > preserves disabled Map variable threshold negative zero through actual discovered source and complete Workspace Push
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-threshold-uRfKFB
+
+ ❯ test/map-page-numeric-workspace.test.ts (1 test | 1 failed) 4783ms
+   × preserves disabled Map variable threshold negative zero through actual discovered source and complete Workspace Push 4782ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-page-numeric-workspace.test.ts > preserves disabled Map variable threshold negative zero through actual discovered source and complete Workspace Push
+AssertionError: expected { 'CommonEvents.json': [ …(2) ], …(3) } to strictly equal { 'Actors.json': [ null ], …(14) }
+
+- Expected
++ Received
+
+@@ -1,18 +1,6 @@
+  {
+-   "Actors.json": [
+-     null,
+-   ],
+-   "Animations.json": [
+-     null,
+-   ],
+-   "Armors.json": [
+-     null,
+-   ],
+-   "Classes.json": [
+-     null,
+-   ],
+    "CommonEvents.json": [
+      null,
+      {
+        "id": 1,
+        "list": [
+@@ -62,16 +50,10 @@
+        ],
+        "name": "Evidence Common Event",
+        "switchId": 1,
+        "trigger": 0,
+      },
+-   ],
+-   "Enemies.json": [
+-     null,
+-   ],
+-   "Items.json": [
+-     null,
+    ],
+    "Map001.json": {
+      "events": [
+        null,
+        {
+@@ -140,23 +122,10 @@
+        "retained": true,
+      },
+      "tilesetId": 1,
+      "width": 17,
+    },
+-   "MapInfos.json": [
+-     null,
+-     {
+-       "id": 1,
+-       "name": "Numeric Map",
+-     },
+-   ],
+-   "Skills.json": [
+-     null,
+-   ],
+-   "States.json": [
+-     null,
+-   ],
+    "System.json": {
+      "fixtureOrigin": {
+        "retainedArray": [],
+        "retainedNull": null,
+      },
+@@ -167,15 +136,9 @@
+      ],
+      "variables": [
+        "",
+      ],
+    },
+-   "Tilesets.json": [
+-     null,
+-   ],
+    "Troops.json": [
+-     null,
+-   ],
+-   "Weapons.json": [
+      null,
+    ],
+  }
+
+ ❯ test/map-page-numeric-workspace.test.ts:61:65
+     59|     await compileWorkspace({ workspaceRoot, check: false });
+     60|     const paths = getWorkspaceStatePaths(workspaceRoot);
+     61|     expect(await jsonTree(paths.generatedProjectDataDirectory)).toStri…
+       |                                                                 ^
+     62|     expect(await diffWorkspace({ workspaceRoot, short: true })).toCont…
+     63|     await writeFile(sourcePath, source.replace("Native numeric page", …
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/map-page-numeric-workspace.test.ts:45:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  00:56:00
+   Duration  6.67s (transform 647ms, setup 0ms, import 1.73s, tests 4.78s, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-map-numeric-fix\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/map-page-numeric-workspace.test.ts

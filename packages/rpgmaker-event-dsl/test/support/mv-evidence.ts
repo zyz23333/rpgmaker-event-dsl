@@ -188,25 +188,31 @@ export async function validateRequirements(): Promise<void> {
   }
   const resultsRoot = join(evidenceRoot, "results");
   const runIds = new Set<string>();
-  for (const path of await listFiles(resultsRoot)) {
-    if (!path.endsWith(".json")) continue;
-    const result = resultSchema.parse(JSON.parse(await readFile(path, "utf8")));
-    const requirement = index.requirements.find(({ id }) => id === result.requirementId);
-    if (requirement === undefined)
-      throw new Error(`Result references unknown requirement: ${path}`);
-    if (runIds.has(result.runId)) throw new Error(`Duplicate run ID: ${path}`);
-    runIds.add(result.runId);
-    if (sha256(JSON.stringify(result.source.files)) !== result.source.fingerprint) {
-      throw new Error(`Source fingerprint differs from recorded files: ${path}`);
+  const resultPaths = (await listFiles(resultsRoot)).filter((path) => path.endsWith(".json"));
+  for (let offset = 0; offset < resultPaths.length; offset += 8) {
+    const batch = resultPaths.slice(offset, offset + 8);
+    const contents = await Promise.allSettled(batch.map((path) => readFile(path, "utf8")));
+    for (const [position, path] of batch.entries()) {
+      const content = contents[position]!;
+      if (content.status === "rejected") throw content.reason;
+      const result = resultSchema.parse(JSON.parse(content.value));
+      const requirement = index.requirements.find(({ id }) => id === result.requirementId);
+      if (requirement === undefined)
+        throw new Error(`Result references unknown requirement: ${path}`);
+      if (runIds.has(result.runId)) throw new Error(`Duplicate run ID: ${path}`);
+      runIds.add(result.runId);
+      if (sha256(JSON.stringify(result.source.files)) !== result.source.fingerprint) {
+        throw new Error(`Source fingerprint differs from recorded files: ${path}`);
+      }
+      if (
+        result.source.files.find((file) => file.path === result.fixture.path)?.sha256 !==
+        result.fixture.sha256
+      ) {
+        throw new Error(`Fixture differs from captured source inputs: ${path}`);
+      }
+      if (result.status === "passed" && result.difference !== null)
+        throw new Error(`Passing result has a difference: ${path}`);
     }
-    if (
-      result.source.files.find((file) => file.path === result.fixture.path)?.sha256 !==
-      result.fixture.sha256
-    ) {
-      throw new Error(`Fixture differs from captured source inputs: ${path}`);
-    }
-    if (result.status === "passed" && result.difference !== null)
-      throw new Error(`Passing result has a difference: ${path}`);
   }
 }
 

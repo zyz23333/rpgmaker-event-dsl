@@ -9,6 +9,7 @@ export default defineConfig({
     include: [
       "test/windows-baseline.test.ts",
       "test/map-event-workspace.test.ts",
+      "test/map-page-numeric-workspace.test.ts",
       "test/map-appearance-workspace.test.ts",
       "test/movement-instructions-workspace.test.ts",
       "test/cli-entry.test.ts",

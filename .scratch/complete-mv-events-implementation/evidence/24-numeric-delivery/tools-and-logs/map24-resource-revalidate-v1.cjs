@@ -1,0 +1,10 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const repo='C:/Users/Shuen/.codex/worktrees/mv-map-numeric-fix/rpgmaker-event-dsl',base=__dirname;
+const originalPath=path.join(repo,'.scratch/complete-mv-events-implementation/evidence/24-history/mv24-audit-resources-and-native.cjs');
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex'),original=fs.readFileSync(originalPath,'utf8'),anchor='for(const [slug,directory] of [';
+assert.equal(original.split(anchor).length,2);
+const text=original.slice(0,original.indexOf(anchor))+"console.log(JSON.stringify({output,resourceCount:resources.length,passed:true,classification:'Read-only reverse-engineered resource identity revalidation, no editor UI or game execution'}));\n";
+const target=path.join(base,'map24-resource-revalidation-derived-v1.cjs');fs.writeFileSync(target,text,{flag:'wx'});
+const receipt=path.join(base,'map24-resource-derivation-v1.json');fs.writeFileSync(receipt,JSON.stringify({purpose:'Retain exact existing34 identified editor resources checks; omit historical native-product correspondence, which is replaced with fresh candidate native pairs',original:{path:originalPath,sha256:sha(original)},derived:{path:target,sha256:sha(text)}},null,2)+'\n',{flag:'wx'});
+process.argv=[process.argv[0],target,repo,path.join(base,'resource-revalidation-v1')];require(target);

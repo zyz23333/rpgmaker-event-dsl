@@ -1,0 +1,119 @@
+{
+  "purpose": "Independent pre-READY Map24 actual-native audit; does not merge or accept final READY; no game/build/test rerun",
+  "at": "2026-10-19T20:09:08.880Z",
+  "inputIndex": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-physical-v2-native-index-3e2c7d66-e2aa-423c-aae3-926009871646.json",
+    "sha256": "47407fde7526852e768715b0eb9a97f493d7337745a236d04d20fa768a9a7430"
+  },
+  "productFreeze": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\product-freeze-v1-30dacce6-a528-4095-9669-f75ade4a266e\\manifest.json",
+    "sha256": "fe98bd6f58a2d2c4b638bfb8ed8b624feed563788866e33774c898b96911bc67",
+    "entries187": true,
+    "allCurrentAndIndependentFrozenBytesAndPhysicalIdentitiesExact": true,
+    "source99Test59Dist15Config14": true,
+    "distConsumptionJunctionAndPhysical15FilesVerified": true,
+    "actualDirtyGit": {
+      "head": "71098b7a6647c15f57337a416cee176823037eed",
+      "status": " M packages/rpgmaker-event-dsl/test/support/mv-evidence.ts\n",
+      "diff": "diff --git a/packages/rpgmaker-event-dsl/test/support/mv-evidence.ts b/packages/rpgmaker-event-dsl/test/support/mv-evidence.ts\nindex 763e6df..1e03ce2 100644\n--- a/packages/rpgmaker-event-dsl/test/support/mv-evidence.ts\n+++ b/packages/rpgmaker-event-dsl/test/support/mv-evidence.ts\n@@ -188,25 +188,31 @@ export async function validateRequirements(): Promise<void> {\n   }\n   const resultsRoot = join(evidenceRoot, \"results\");\n   const runIds = new Set<string>();\n-  for (const path of await listFiles(resultsRoot)) {\n-    if (!path.endsWith(\".json\")) continue;\n-    const result = resultSchema.parse(JSON.parse(await readFile(path, \"utf8\")));\n-    const requirement = index.requirements.find(({ id }) => id === result.requirementId);\n-    if (requirement === undefined)\n-      throw new Error(`Result references unknown requirement: ${path}`);\n-    if (runIds.has(result.runId)) throw new Error(`Duplicate run ID: ${path}`);\n-    runIds.add(result.runId);\n-    if (sha256(JSON.stringify(result.source.files)) !== result.source.fingerprint) {\n-      throw new Error(`Source fingerprint differs from recorded files: ${path}`);\n-    }\n-    if (\n-      result.source.files.find((file) => file.path === result.fixture.path)?.sha256 !==\n-      result.fixture.sha256\n-    ) {\n-      throw new Error(`Fixture differs from captured source inputs: ${path}`);\n+  const resultPaths = (await listFiles(resultsRoot)).filter((path) => path.endsWith(\".json\"));\n+  for (let offset = 0; offset < resultPaths.length; offset += 8) {\n+    const batch = resultPaths.slice(offset, offset + 8);\n+    const contents = await Promise.allSettled(batch.map((path) => readFile(path, \"utf8\")));\n+    for (const [position, path] of batch.entries()) {\n+      const content = contents[position]!;\n+      if (content.status === \"rejected\") throw content.reason;\n+      const result = resultSchema.parse(JSON.parse(content.value));\n+      const requirement = index.requirements.find(({ id }) => id === result.requirementId);\n+      if (requirement === undefined)\n+        throw new Error(`Result references unknown requirement: ${path}`);\n+      if (runIds.has(result.runId)) throw new Error(`Duplicate run ID: ${path}`);\n+      runIds.add(result.runId);\n+      if (sha256(JSON.stringify(result.source.files)) !== result.source.fingerprint) {\n+        throw new Error(`Source fingerprint differs from recorded files: ${path}`);\n+      }\n+      if (\n+        result.source.files.find((file) => file.path === result.fixture.path)?.sha256 !==\n+        result.fixture.sha256\n+      ) {\n+        throw new Error(`Fixture differs from captured source inputs: ${path}`);\n+      }\n+      if (result.status === \"passed\" && result.difference !== null)\n+        throw new Error(`Passing result has a difference: ${path}`);\n     }\n-    if (result.status === \"passed\" && result.difference !== null)\n-      throw new Error(`Passing result has a difference: ${path}`);\n   }\n }\n \n"
+    }
+  },
+  "release": {
+    "path": "M:/Shuen/Codex/mv-events-implementation-20261020/root-audits/map24-root-physical-release-audit-4014fab2-dfb8-4581-97de-316964f7e478.json",
+    "sha256": "86f3f8a156a90053be3710d6330d5fc3cdbdcaf3def4389af87df4f378942bd6"
+  },
+  "authorAudit": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-native-audit-v1-b7471457-f680-4840-a51d-c07d60b7dec8.json",
+    "sha256": "29efdff98e6c8e005c3995482fa3719722c959d70aab7df7206f6d0aa3c46376"
+  },
+  "fullReference1100AndPrivateSeed1100UnchangedByIndependentPhysicalWalk": true,
+  "noDeliveryGuardLoaded": true,
+  "pairs": [
+    {
+      "case": "triggers",
+      "raw": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-triggers-physical-v2-native-380cf162-d86f-4717-b1be-c628f2f02c23\\pair-result.json",
+        "sha256": "c527c7074257114e1f049f3821738bb9281e3ea09eef00a781a06ef895ee6f45"
+      },
+      "dataIsolationCheckpoints": 76,
+      "fullProtectedCheckpoints": 11,
+      "currentCompleteDataTreesByteAndPhysicalIdentityExact": true,
+      "realOwnedPush": "CommonEvents.json",
+      "completeDisk15Generated4Loaded4": true,
+      "source99Dist15BoundToExactDirtyProduct": true,
+      "sides": [
+        {
+          "side": "literal",
+          "pid": 40500,
+          "ppid": 4000,
+          "profile": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-triggers-physical-v2-native-380cf162-d86f-4717-b1be-c628f2f02c23\\literal\\Game\\NativeProfile",
+          "appName": "mv-native-pair-541dc193-b463-48ce-bf9b-21feaaea1053",
+          "strict15": true,
+          "predicates": 10,
+          "numericSavedNegativeZeroChecks": null
+        },
+        {
+          "side": "compiled",
+          "pid": 42612,
+          "ppid": 38880,
+          "profile": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-triggers-physical-v2-native-380cf162-d86f-4717-b1be-c628f2f02c23\\compiled\\Game\\NativeProfile",
+          "appName": "mv-native-pair-f4b5f432-b8e1-42d5-b548-c202d9682238",
+          "strict15": true,
+          "predicates": 10,
+          "numericSavedNegativeZeroChecks": null
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "routes",
+      "raw": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-routes-physical-v2-native-d842038a-5f38-4e80-b7fe-c5fea3e971ff\\pair-result.json",
+        "sha256": "21df7e636dbdf3d22fc9367ffb9c087739d27ef33558d8d85669077d31ac5c84"
+      },
+      "dataIsolationCheckpoints": 76,
+      "fullProtectedCheckpoints": 11,
+      "currentCompleteDataTreesByteAndPhysicalIdentityExact": true,
+      "realOwnedPush": "Map001.json",
+      "completeDisk15Generated4Loaded4": true,
+      "source99Dist15BoundToExactDirtyProduct": true,
+      "sides": [
+        {
+          "side": "literal",
+          "pid": 8044,
+          "ppid": 3752,
+          "profile": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-routes-physical-v2-native-d842038a-5f38-4e80-b7fe-c5fea3e971ff\\literal\\Game\\NativeProfile",
+          "appName": "mv-native-pair-809f0b55-fc39-44e7-acf6-3af213f3f331",
+          "strict15": true,
+          "predicates": 13,
+          "numericSavedNegativeZeroChecks": {
+            "locations": 10,
+            "representations": 6,
+            "allObjectIs": true
+          }
+        },
+        {
+          "side": "compiled",
+          "pid": 42520,
+          "ppid": 29700,
+          "profile": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-routes-physical-v2-native-d842038a-5f38-4e80-b7fe-c5fea3e971ff\\compiled\\Game\\NativeProfile",
+          "appName": "mv-native-pair-a8d3ba70-5a22-49e6-a5cd-4b7d4c596114",
+          "strict15": true,
+          "predicates": 13,
+          "numericSavedNegativeZeroChecks": {
+            "locations": 10,
+            "representations": 6,
+            "allObjectIs": true
+          }
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "allFourNativeSidesStrict15IdentityAndExitChecks": true,
+  "tenNegativeZeroLocationsExplicitObjectIsInSixRepresentationsPerSide": true,
+  "originalTrigger10AndRoute13PredicatesRetained": true,
+  "noFirstPartyPublicationByThisAudit": true,
+  "noMerge": true,
+  "passed": true
+}
