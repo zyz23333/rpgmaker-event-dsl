@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import childProcess from "node:child_process";
 import { syncBuiltinESMExports } from "node:module";
 import { resolve } from "node:path";
 
@@ -8,6 +9,7 @@ const options = JSON.parse(process.env.MV_OPERATION_CHILD);
 const readFile = fs.readFile;
 const rename = fs.rename;
 const writeFile = fs.writeFile;
+const spawn = childProcess.spawn;
 let reached = false;
 let inputReads = 0;
 async function checkpoint() {
@@ -67,17 +69,63 @@ fs.rename = async function (source, target) {
 };
 fs.writeFile = async function (path, ...args) {
   if (
+    options.boundary === "decompile-write-failure" &&
+    String(path).includes("decompile-candidates") &&
+    String(path).endsWith(".ts")
+  )
+    throw new Error("Controlled Decompile candidate write failure");
+  if (
     options.boundary === "generated-write-failure" &&
     String(path).includes("generated-project-data.tmp-")
   )
     throw new Error("Controlled generated candidate write failure");
   const result = await writeFile(path, ...args);
   if (
+    options.boundary === "decompile-stage" &&
+    String(path).includes("decompile-candidates") &&
+    String(path).endsWith(".ts")
+  )
+    await checkpoint();
+  if (
     options.boundary === "compile-manifest" &&
     resolve(String(path)).startsWith(`${options.manifestPath}.tmp-`)
   )
     await checkpoint();
   return result;
+};
+childProcess.spawn = function (...args) {
+  if (
+    options.boundary === "decompile-move-unavailable" &&
+    String(args[0]).toLowerCase() === "powershell.exe"
+  )
+    args[0] = "mv20-deliberately-unavailable-host.exe";
+  const child = spawn(...args);
+  if (String(args[0]).toLowerCase() !== "powershell.exe") return child;
+  if (options.boundary === "before-decompile-move") {
+    const end = child.stdin.end;
+    child.stdin.end = function (...endArgs) {
+      if (String(endArgs[0]).startsWith("publish")) {
+        void checkpoint().then(() => end.apply(this, endArgs));
+        return this;
+      }
+      return end.apply(this, endArgs);
+    };
+  }
+  if (options.boundary === "after-decompile-move") {
+    let published = false;
+    child.stdout.on("data", (data) => {
+      if (String(data).includes("PUBLISHED")) published = true;
+    });
+    const emit = child.emit;
+    child.emit = function (event, ...eventArgs) {
+      if (event === "close" && eventArgs[0] === 0 && published) {
+        void checkpoint().then(() => emit.call(this, event, ...eventArgs));
+        return true;
+      }
+      return emit.call(this, event, ...eventArgs);
+    };
+  }
+  return child;
 };
 syncBuiltinESMExports();
 

@@ -1,0 +1,4 @@
+# Preserve original report and log bytes, including their original line endings.
+* -text
+# Archived command output retains raw CRLF and whitespace as binary evidence.
+*.txt -diff

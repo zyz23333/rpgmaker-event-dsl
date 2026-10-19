@@ -1,5 +1,4 @@
-import { glob } from "node:fs/promises";
-import { join, matchesGlob } from "node:path";
+import { basename, dirname, matchesGlob, relative, resolve } from "node:path";
 
 import * as ts from "typescript";
 
@@ -7,39 +6,11 @@ import * as dsl from "../authoring/index.js";
 import { collectDslOwnedDeclarations, type DslOwnedDeclaration } from "../domain/declarations.js";
 import { TypeInputCapture } from "./type-inputs.js";
 
-export type DefinitionSourceDiscovery = {
-  sourceRoot: string;
-  sourceInclude: readonly string[];
-  sourceExclude: readonly string[];
-};
+export { discoverDefinitionFiles, type DefinitionSourceDiscovery } from "./source-discovery.js";
 
 type EvaluationScope = {
   bindings: Map<string, unknown>;
 };
-
-export async function discoverDefinitionFiles(
-  workspaceRoot: string,
-  discovery: DefinitionSourceDiscovery,
-): Promise<string[]> {
-  const sourceRoot = join(workspaceRoot, discovery.sourceRoot);
-  const includePatterns = discovery.sourceInclude.length > 0 ? discovery.sourceInclude : ["**/*"];
-  const files = new Set<string>();
-
-  for (const pattern of includePatterns) {
-    for await (const relativePath of glob(pattern, {
-      cwd: sourceRoot,
-      exclude: discovery.sourceExclude,
-    })) {
-      if (!matchesGlob(relativePath, pattern)) {
-        continue;
-      }
-
-      files.add(join(sourceRoot, relativePath));
-    }
-  }
-
-  return [...files].sort();
-}
 
 export async function loadDefinitionFile(
   filePath: string,
@@ -70,6 +41,106 @@ export async function loadDefinitionFile(
 
     throw error;
   }
+}
+
+/** Immutable candidate bytes at final filenames; all other reads remain captured real inputs. */
+export function loadVirtualDefinitionFiles(
+  files: ReadonlyMap<string, string>,
+  capture: TypeInputCapture,
+): DslOwnedDeclaration[] {
+  const options: ts.CompilerOptions = {
+    allowSyntheticDefaultImports: true,
+    esModuleInterop: true,
+    module: ts.ModuleKind.NodeNext,
+    moduleResolution: ts.ModuleResolutionKind.NodeNext,
+    noEmit: true,
+    strict: true,
+    target: ts.ScriptTarget.ES2023,
+    verbatimModuleSyntax: true,
+  };
+  const content = new Map<string, string>();
+  const paths = new Map<string, string>();
+  const directories = new Set<string>();
+  for (const [path, text] of files) {
+    let ancestor = dirname(path);
+    const missing: string[] = [];
+    while (!capture.directoryExists(ancestor)) {
+      missing.push(ancestor);
+      const parent = dirname(ancestor);
+      if (parent === ancestor)
+        throw new Error(`Cannot locate candidate filesystem ancestor: ${path}`);
+      ancestor = parent;
+    }
+    const physical = resolve(capture.realpath(ancestor), relative(ancestor, path));
+    for (const candidate of [path, physical]) {
+      content.set(normalizePath(candidate), text);
+      paths.set(normalizePath(candidate), physical);
+    }
+    for (const directory of missing) {
+      const physicalDirectory = resolve(capture.realpath(ancestor), relative(ancestor, directory));
+      directories.add(normalizePath(directory));
+      directories.add(normalizePath(physicalDirectory));
+      paths.set(normalizePath(directory), physicalDirectory);
+      paths.set(normalizePath(physicalDirectory), physicalDirectory);
+    }
+  }
+  const read = (path: string) => content.get(normalizePath(path)) ?? capture.readFile(path);
+  const host = ts.createCompilerHost(options, true);
+  host.getCurrentDirectory = () => capture.currentDirectory;
+  host.readFile = read;
+  host.fileExists = (path) => content.has(normalizePath(path)) || capture.fileExists(path);
+  host.directoryExists = (path) =>
+    directories.has(normalizePath(path)) || capture.directoryExists(path);
+  host.realpath = (path) => paths.get(normalizePath(path)) ?? capture.realpath(path);
+  host.getDirectories = (path) =>
+    [
+      ...new Set([
+        ...capture.getDirectories(path),
+        ...[...directories]
+          .filter((directory) => normalizePath(dirname(directory)) === normalizePath(path))
+          .map((directory) => basename(directory)),
+      ]),
+    ].sort();
+  host.readDirectory = (path, extensions, excludes, includes, depth) =>
+    [
+      ...new Set([
+        ...capture.readDirectory(path, extensions, excludes, includes, depth),
+        ...[...files.keys()].filter((file) => {
+          const name = relative(path, file).replaceAll("\\", "/");
+          return (
+            name !== ".." &&
+            !name.startsWith("../") &&
+            (depth === undefined || name.split("/").length - 1 <= depth) &&
+            (!extensions || extensions.some((extension) => name.endsWith(extension))) &&
+            (!includes || includes.some((pattern) => matchesGlob(name, pattern))) &&
+            !excludes?.some((pattern) => matchesGlob(name, pattern))
+          );
+        }),
+      ]),
+    ].sort();
+  host.getSourceFile = (path, version) => {
+    const text = read(path);
+    return text === undefined ? undefined : ts.createSourceFile(path, text, version, true);
+  };
+  const program = ts.createProgram([...files.keys()], options, host);
+  const declarations: DslOwnedDeclaration[] = [];
+  for (const path of files.keys()) {
+    const source = program.getSourceFile(path);
+    if (!source) throw new Error(`Candidate source is missing at final location: ${path}`);
+    const diagnostics = [
+      ...program.getSyntacticDiagnostics(source),
+      ...program.getSemanticDiagnostics(source),
+    ];
+    if (diagnostics.length) throw new Error(formatDiagnostics(path, diagnostics));
+    try {
+      declarations.push(...collectDslOwnedDeclarations(evaluateModule(source)));
+    } catch (error) {
+      throw new Error(
+        formatSourceError(path, error instanceof Error ? error.message : String(error)),
+      );
+    }
+  }
+  return declarations;
 }
 
 function collectDiagnostics(
@@ -475,5 +546,6 @@ function formatSourceError(filePath: string, message: string): string {
 }
 
 function normalizePath(input: string): string {
-  return input.replaceAll("\\", "/");
+  const path = input.replaceAll("\\", "/");
+  return process.platform === "win32" ? path.toLowerCase() : path;
 }

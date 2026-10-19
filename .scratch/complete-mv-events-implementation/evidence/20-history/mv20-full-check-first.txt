@@ -1,0 +1,81 @@
+
+> rpgmaker-event-dsl-workspace@0.0.0 check C:\Users\Shuen\.codex\worktrees\mv-ticket-20\rpgmaker-event-dsl
+> pnpm typecheck && pnpm lint && pnpm format:check && pnpm test
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 typecheck C:\Users\Shuen\.codex\worktrees\mv-ticket-20\rpgmaker-event-dsl
+> pnpm -r typecheck
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl typecheck$ tsc -p tsconfig.json --noEmit
+packages/rpgmaker-event-dsl typecheck: Done
+
+> rpgmaker-event-dsl-workspace@0.0.0 lint C:\Users\Shuen\.codex\worktrees\mv-ticket-20\rpgmaker-event-dsl
+> oxlint .
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 format:check C:\Users\Shuen\.codex\worktrees\mv-ticket-20\rpgmaker-event-dsl
+> oxfmt --ignore-path .oxfmtignore --check package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rpgmaker-event-dsl
+
+Checking formatting...
+
+All matched files use the correct format.
+Finished in 358ms on 152 files using 20 threads.
+
+> rpgmaker-event-dsl-workspace@0.0.0 test C:\Users\Shuen\.codex\worktrees\mv-ticket-20\rpgmaker-event-dsl
+> pnpm -r test
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl test$ vitest run
+packages/rpgmaker-event-dsl test:  RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-20/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+packages/rpgmaker-event-dsl test: stderr | test/workspace-locking.test.ts > MV-S4-LOCK-004: preserves Interrupted Push independently of abandoned locks and failed checks
+packages/rpgmaker-event-dsl test: Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\workspace-lock-4m1rpL
+packages/rpgmaker-event-dsl test:  ❯ test/workspace-locking.test.ts (4 tests | 1 failed) 29442ms
+packages/rpgmaker-event-dsl test:    × MV-S4-LOCK-004: preserves Interrupted Push independently of abandoned locks and failed checks 3081ms
+packages/rpgmaker-event-dsl test: stderr | test/snapshot-binding.test.ts > MV-S4-SNAPSHOT-003: requires explicit Pull when the configured Project Root changes
+packages/rpgmaker-event-dsl test: Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\project-binding-FUuzPm
+packages/rpgmaker-event-dsl test:  ❯ test/snapshot-binding.test.ts (10 tests | 1 failed) 23244ms
+packages/rpgmaker-event-dsl test:    × MV-S4-SNAPSHOT-003: requires explicit Pull when the configured Project Root changes 1675ms
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/snapshot-binding.test.ts > MV-S4-SNAPSHOT-003: requires explicit Pull when the configured Project Root changes
+packages/rpgmaker-event-dsl test: AssertionError: expected [Function] to throw error including 'Project Root Binding' but got 'Decompile destination already exists:…'
+packages/rpgmaker-event-dsl test: Expected: "Project Root Binding"
+packages/rpgmaker-event-dsl test: Received: "Decompile destination already exists: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\project-binding-FUuzPm\最小 Workspace with spaces\src\decompiled"
+packages/rpgmaker-event-dsl test:  ❯ test/snapshot-binding.test.ts:255:30
+packages/rpgmaker-event-dsl test:     253|     ];
+packages/rpgmaker-event-dsl test:     254|     for (const command of commands) {
+packages/rpgmaker-event-dsl test:     255|       await expect(command()).rejects.toThrow("Project Root Binding");
+packages/rpgmaker-event-dsl test:        |                              ^
+packages/rpgmaker-event-dsl test:     256|       expect(await observe(sandbox.workspaceRoot)).toEqual(before);
+packages/rpgmaker-event-dsl test:     257|     }
+packages/rpgmaker-event-dsl test:  ❯ test/snapshot-binding.test.ts:38:7
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/snapshot-binding.test.ts:34:3
+packages/rpgmaker-event-dsl test:  ❯ test/snapshot-binding.test.ts:231:3
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/workspace-locking.test.ts > MV-S4-LOCK-004: preserves Interrupted Push independently of abandoned locks and failed checks
+packages/rpgmaker-event-dsl test: AssertionError: expected [Function] to throw error including 'Interrupted Push is pending' but got 'Decompile destination already exists:…'
+packages/rpgmaker-event-dsl test: Expected: "Interrupted Push is pending"
+packages/rpgmaker-event-dsl test: Received: "Decompile destination already exists: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\workspace-lock-4m1rpL\最小 Workspace with spaces\src\decompiled"
+packages/rpgmaker-event-dsl test:  ❯ test/workspace-locking.test.ts:382:61
+packages/rpgmaker-event-dsl test:     380|     }
+packages/rpgmaker-event-dsl test:     381|     for (const operation of operations.filter((name) => name !== "push…
+packages/rpgmaker-event-dsl test:     382|       await expect(invoke(operation, sandbox.workspaceRoot)).rejects.t…
+packages/rpgmaker-event-dsl test:        |                                                             ^
+packages/rpgmaker-event-dsl test:     383|         "Interrupted Push is pending",
+packages/rpgmaker-event-dsl test:     384|       );
+packages/rpgmaker-event-dsl test:  ❯ test/workspace-locking.test.ts:141:7
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+packages/rpgmaker-event-dsl test:  ❯ evidence test/workspace-locking.test.ts:136:3
+packages/rpgmaker-event-dsl test:  ❯ test/workspace-locking.test.ts:354:3
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+packages/rpgmaker-event-dsl test:  Test Files  2 failed | 26 passed (28)
+packages/rpgmaker-event-dsl test:       Tests  2 failed | 291 passed (293)
+packages/rpgmaker-event-dsl test:    Start at  19:15:32
+packages/rpgmaker-event-dsl test:    Duration  159.92s (transform 1.26s, setup 0ms, import 9.57s, tests 288.13s, environment 2ms)
+packages/rpgmaker-event-dsl test: Failed
+C:\Users\Shuen\.codex\worktrees\mv-ticket-20\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run`
+Exit status 1
+ ELIFECYCLE  Test failed. See above for more details.
+ ELIFECYCLE  Command failed with exit code 1.

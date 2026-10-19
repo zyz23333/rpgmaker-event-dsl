@@ -277,3 +277,24 @@ Ticket19 adds complete Compile Output validation and publication safety cases; a
 | MV-S4-OUTPUT-009 | Check and Compile share structure reference and Gate rejection without publication | synthetic-support | Windows public API and actual Discovery/evaluation           |
 
 [Ticket19验收报告](19-compile-check-and-output-publication.md)记录完整候选、发布故障、字节完整性、9项源码／构建矩阵、4个产品红灯与2个测试预期错误；全部本票机器记录为native not-executed。
+
+Ticket20 adds [complete isolated Decompile directory publication acceptance](20-decompile-complete-directory-publication.md), including 33 source and 33 own-worktree built passed records, retained failed history, and an actual C:/F: cross-volume rejection supplement. All cases record native:not-executed.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S4-DECOMPILE-001 | Existing source provides only reliable Entry Identity despite unrelated errors | synthetic-support | Windows public API/CLI and actual filesystem/process checkpoints |
+| MV-S4-DECOMPILE-002 | Complete candidate uses final-location dependency resolution | synthetic-support | Windows public API/CLI and actual filesystem/process checkpoints |
+| MV-S4-DECOMPILE-003 | Own undefined spread overrides an earlier identity and fails reliably | synthetic-support | Windows public API/CLI and actual filesystem/process checkpoints |
+| MV-S4-DECOMPILE-004 | Existing entire destination refuses publication for every directory/file/link kind | synthetic-support | Windows public API/CLI and actual filesystem/process checkpoints |
+| MV-S4-DECOMPILE-005 | Protected remnants remain outside broad and explicit junction Discovery | synthetic-support | Windows public API/CLI and actual filesystem/process checkpoints |
+| MV-S4-DECOMPILE-006 | Observed sourceRoot replacement after capture refuses publication | synthetic-support | Windows public API/CLI and actual filesystem/process checkpoints |
+| MV-S4-DECOMPILE-007 | Concurrent destination occupation refuses actual final directory move | synthetic-support | Windows public API/CLI and actual filesystem/process checkpoints |
+| MV-S4-DECOMPILE-008 | Killed partial stage remains undiscoverable and explicit retry publishes complete batch | synthetic-support | Windows public API/CLI and actual filesystem/process checkpoints |
+| MV-S4-DECOMPILE-009 | Lost success after actual directory move preserves complete batch and retry refuses existing destination | synthetic-support | Windows public API/CLI and actual filesystem/process checkpoints |
+| MV-S4-DECOMPILE-010 | Every planned file must match complete Discovery include and ancestor exclude rules | synthetic-support | Windows public API/CLI and actual filesystem/process checkpoints |
+| MV-S4-DECOMPILE-011 | Direct object namespace alias and spread Entry Identity extraction stays reliable | synthetic-support | Windows public API/CLI and actual filesystem/process checkpoints |
+| MV-S4-DECOMPILE-012 | Existing source cannot repair a target missing from complete candidate | synthetic-support | Windows public API/CLI and actual filesystem/process checkpoints |
+| MV-S4-DECOMPILE-013 | Changed source Discovery config Snapshot dependency or stage refuses publication | synthetic-support | Windows public API/CLI and actual filesystem/process checkpoints |
+| MV-S4-DECOMPILE-014 | Supported absolute junction and parent-relative sourceRoot publish and compile exact independent data | synthetic-support | Windows public API/CLI and actual filesystem/process checkpoints |
+| MV-S4-DECOMPILE-015 | Unsupported path and actual write or unavailable host failures preserve all business state | synthetic-support | Windows public Workspace and real process/filesystem boundaries |
+| MV-S4-DECOMPILE-016 | Pinned logical junction physical parent and ancestor resist mutation and release after publication | synthetic-support | Windows public Workspace and actual external filesystem operations |

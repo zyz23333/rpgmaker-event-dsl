@@ -13,6 +13,7 @@ export default defineConfig({
       "test/snapshot-binding.test.ts",
       "test/compile-inputs.test.ts",
       "test/compile-publication.test.ts",
+      "test/decompile-publication.test.ts",
     ],
     env: { MV_CLI_ENTRY: "built" },
   },

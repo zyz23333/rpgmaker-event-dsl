@@ -4,6 +4,7 @@ import { relative } from "node:path";
 import {
   discoverDefinitionFiles,
   loadDefinitionFile,
+  loadVirtualDefinitionFiles,
   type DefinitionSourceDiscovery,
 } from "./definitions.js";
 import { decompileProjectDataSnapshot } from "../decompiler/project.js";
@@ -58,6 +59,14 @@ import type {
   WorkspaceCommandOptions,
 } from "./types.js";
 import { TypeInputCapture, typeInputsUnchanged } from "./type-inputs.js";
+import { definitionIdentities } from "./definition-identities.js";
+import {
+  assertDecompileDestinationAbsent,
+  captureDecompilePublicationPaths,
+  decompileDestination,
+  publishDecompileCandidate,
+} from "./decompile-publication.js";
+import { assertCandidateDiscoverable } from "./source-discovery.js";
 
 export async function cloneWorkspace(options: WorkspaceCommandOptions): Promise<void> {
   await withWorkspaceOperationLock(options.workspaceRoot, "clone", () =>
@@ -113,6 +122,7 @@ export async function decompileWorkspace(options: WorkspaceCommandOptions): Prom
 async function decompileWorkspaceUnlocked(options: WorkspaceCommandOptions): Promise<void> {
   const workspace = await loadWorkspace(options.workspaceRoot);
   const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
+  const destination = decompileDestination(workspace.workspaceRoot, workspace.config.sourceRoot);
 
   await assertNoPendingInterruptedPushForNonPush({ statePaths, commandName: "decompile" });
   const manifest = await assertProjectDataSnapshotExists(
@@ -120,17 +130,84 @@ async function decompileWorkspaceUnlocked(options: WorkspaceCommandOptions): Pro
     "decompile",
     workspace.projectRootBinding,
   );
+  await assertDecompileDestinationAbsent(destination);
+  const publicationPaths = await captureDecompilePublicationPaths(
+    workspace.workspaceRoot,
+    destination,
+  );
   const files = await discoverDefinitionFiles(workspace.workspaceRoot, workspace.config);
   const capture = new TypeInputCapture(workspace.workspaceRoot);
   for (const file of files) capture.fileHash(file);
+  const existingIdentities = new Set(
+    files.flatMap((file) => definitionIdentities(file, capture.readFile(file)!)),
+  );
   const snapshot = await captureCompileSnapshot(statePaths, manifest.snapshotFiles);
   await decompileProjectDataSnapshot({
     scriptEnabled: workspace.config.scriptEnabled,
     sourceRoot: workspace.config.sourceRoot,
     statePaths: snapshot.statePaths,
     workspaceRoot: workspace.workspaceRoot,
-    assertInputsUnchanged: () =>
-      assertCompileInputsUnchanged(workspace, files, capture, snapshot.hashes, "decompile"),
+    validateCandidate: async (candidates) => {
+      await assertCandidateDiscoverable(
+        workspace.workspaceRoot,
+        workspace.config,
+        candidates.map((file) => file.path),
+      );
+      const declarations = loadVirtualDefinitionFiles(
+        new Map(candidates.map((file) => [file.path, file.content])),
+        capture,
+      );
+      const snapshotInput = await loadSnapshotValidationInput(snapshot.statePaths);
+      const graph = buildStagedDataGraph({
+        declarations,
+        snapshotReferences: snapshotInput.references,
+        snapshotMaps: snapshotInput.maps,
+        snapshotTroops: snapshotInput.troops,
+        snapshotTilesets: snapshotInput.tilesets,
+        ...("equipmentTypes" in snapshotInput
+          ? { snapshotEquipmentTypes: snapshotInput.equipmentTypes }
+          : {}),
+      });
+      const errors = validateStagedDataGraph(graph, { scriptEnabled: true }).issues.filter(
+        (issue) => issue.level === "error",
+      );
+      if (errors.length)
+        throw new Error(
+          `Decompile candidate validation failed:\n${errors.map((issue) => issue.message).join("\n")}`,
+        );
+      await buildCompileOutput({
+        declarations,
+        resolver: graph.resolver,
+        statePaths: snapshot.statePaths,
+        scriptEnabled: true,
+      });
+      for (const file of candidates)
+        for (const identity of definitionIdentities(file.path, file.content))
+          if (existingIdentities.has(identity))
+            throw new Error(
+              `MV-DECOMPILE-IDENTITY: candidate conflicts with existing ${identity}.`,
+            );
+    },
+    publishCandidate: (candidates) =>
+      publishDecompileCandidate({
+        destination,
+        files: candidates,
+        paths: publicationPaths,
+        assertInputsUnchanged: async () => {
+          await assertCandidateDiscoverable(
+            workspace.workspaceRoot,
+            workspace.config,
+            candidates.map((file) => file.path),
+          );
+          await assertCompileInputsUnchanged(
+            workspace,
+            files,
+            capture,
+            snapshot.hashes,
+            "decompile",
+          );
+        },
+      }),
   });
 }
 

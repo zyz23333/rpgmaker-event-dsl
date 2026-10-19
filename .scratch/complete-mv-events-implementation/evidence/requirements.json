@@ -6169,6 +6169,566 @@
       },
       "slice": "19 / S4b",
       "required": true
+    },
+    {
+      "id": "MV-S4-DECOMPILE-001",
+      "title": "Existing source provides only reliable Entry Identity despite unrelated errors",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/20-decompile-complete-directory-publication.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": "docs/adr/0014-publish-decompiled-source-as-a-complete-directory.md",
+          "section": "# Publish decompiled source as a complete directory"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Independent minimal Common Event project; actual Windows filesystem/process checkpoints and explicit external mutations named in the linked case.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Existing source provides only reliable Entry Identity despite unrelated errors. Compare actual Discovery and source, Project Root, Snapshot, Generated, manifest/pending and config state; native observation is not executed.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/decompile-publication.test.ts",
+        "name": "MV-S4-DECOMPILE-001:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundaries"
+      },
+      "slice": "Ticket20 complete isolated Decompile directory publication",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DECOMPILE-002",
+      "title": "Complete candidate uses final-location dependency resolution",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/20-decompile-complete-directory-publication.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": "docs/adr/0014-publish-decompiled-source-as-a-complete-directory.md",
+          "section": "# Publish decompiled source as a complete directory"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Independent minimal Common Event project; actual Windows filesystem/process checkpoints and explicit external mutations named in the linked case.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Complete candidate uses final-location dependency resolution. Compare actual Discovery and source, Project Root, Snapshot, Generated, manifest/pending and config state; native observation is not executed.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/decompile-publication.test.ts",
+        "name": "MV-S4-DECOMPILE-002:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundaries"
+      },
+      "slice": "Ticket20 complete isolated Decompile directory publication",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DECOMPILE-003",
+      "title": "Own undefined spread overrides an earlier identity and fails reliably",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/20-decompile-complete-directory-publication.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": "docs/adr/0014-publish-decompiled-source-as-a-complete-directory.md",
+          "section": "# Publish decompiled source as a complete directory"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Independent minimal Common Event project; actual Windows filesystem/process checkpoints and explicit external mutations named in the linked case.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Own undefined spread overrides an earlier identity and fails reliably. Compare actual Discovery and source, Project Root, Snapshot, Generated, manifest/pending and config state; native observation is not executed.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/decompile-publication.test.ts",
+        "name": "MV-S4-DECOMPILE-003:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundaries"
+      },
+      "slice": "Ticket20 complete isolated Decompile directory publication",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DECOMPILE-004",
+      "title": "Existing entire destination refuses publication for every directory/file/link kind",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/20-decompile-complete-directory-publication.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": "docs/adr/0014-publish-decompiled-source-as-a-complete-directory.md",
+          "section": "# Publish decompiled source as a complete directory"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Independent minimal Common Event project; actual Windows filesystem/process checkpoints and explicit external mutations named in the linked case.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Existing entire destination refuses publication for every directory/file/link kind. Compare actual Discovery and source, Project Root, Snapshot, Generated, manifest/pending and config state; native observation is not executed.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/decompile-publication.test.ts",
+        "name": "MV-S4-DECOMPILE-004:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundaries"
+      },
+      "slice": "Ticket20 complete isolated Decompile directory publication",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DECOMPILE-005",
+      "title": "Protected remnants remain outside broad and explicit junction Discovery",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/20-decompile-complete-directory-publication.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": "docs/adr/0014-publish-decompiled-source-as-a-complete-directory.md",
+          "section": "# Publish decompiled source as a complete directory"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Independent minimal Common Event project; actual Windows filesystem/process checkpoints and explicit external mutations named in the linked case.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Protected remnants remain outside broad and explicit junction Discovery. Compare actual Discovery and source, Project Root, Snapshot, Generated, manifest/pending and config state; native observation is not executed.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/decompile-publication.test.ts",
+        "name": "MV-S4-DECOMPILE-005:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundaries"
+      },
+      "slice": "Ticket20 complete isolated Decompile directory publication",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DECOMPILE-006",
+      "title": "Observed sourceRoot replacement after capture refuses publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/20-decompile-complete-directory-publication.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": "docs/adr/0014-publish-decompiled-source-as-a-complete-directory.md",
+          "section": "# Publish decompiled source as a complete directory"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Independent minimal Common Event project; actual Windows filesystem/process checkpoints and explicit external mutations named in the linked case.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Observed sourceRoot replacement after capture refuses publication. Compare actual Discovery and source, Project Root, Snapshot, Generated, manifest/pending and config state; native observation is not executed.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/decompile-publication.test.ts",
+        "name": "MV-S4-DECOMPILE-006:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundaries"
+      },
+      "slice": "Ticket20 complete isolated Decompile directory publication",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DECOMPILE-007",
+      "title": "Concurrent destination occupation refuses actual final directory move",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/20-decompile-complete-directory-publication.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": "docs/adr/0014-publish-decompiled-source-as-a-complete-directory.md",
+          "section": "# Publish decompiled source as a complete directory"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Independent minimal Common Event project; actual Windows filesystem/process checkpoints and explicit external mutations named in the linked case.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Concurrent destination occupation refuses actual final directory move. Compare actual Discovery and source, Project Root, Snapshot, Generated, manifest/pending and config state; native observation is not executed.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/decompile-publication.test.ts",
+        "name": "MV-S4-DECOMPILE-007:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundaries"
+      },
+      "slice": "Ticket20 complete isolated Decompile directory publication",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DECOMPILE-008",
+      "title": "Killed partial stage remains undiscoverable and explicit retry publishes complete batch",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/20-decompile-complete-directory-publication.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": "docs/adr/0014-publish-decompiled-source-as-a-complete-directory.md",
+          "section": "# Publish decompiled source as a complete directory"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Independent minimal Common Event project; actual Windows filesystem/process checkpoints and explicit external mutations named in the linked case.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Killed partial stage remains undiscoverable and explicit retry publishes complete batch. Compare actual Discovery and source, Project Root, Snapshot, Generated, manifest/pending and config state; native observation is not executed.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/decompile-publication.test.ts",
+        "name": "MV-S4-DECOMPILE-008:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundaries"
+      },
+      "slice": "Ticket20 complete isolated Decompile directory publication",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DECOMPILE-009",
+      "title": "Lost success after actual directory move preserves complete batch and retry refuses existing destination",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/20-decompile-complete-directory-publication.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": "docs/adr/0014-publish-decompiled-source-as-a-complete-directory.md",
+          "section": "# Publish decompiled source as a complete directory"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Independent minimal Common Event project; actual Windows filesystem/process checkpoints and explicit external mutations named in the linked case.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Lost success after actual directory move preserves complete batch and retry refuses existing destination. Compare actual Discovery and source, Project Root, Snapshot, Generated, manifest/pending and config state; native observation is not executed.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/decompile-publication.test.ts",
+        "name": "MV-S4-DECOMPILE-009:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundaries"
+      },
+      "slice": "Ticket20 complete isolated Decompile directory publication",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DECOMPILE-010",
+      "title": "Every planned file must match complete Discovery include and ancestor exclude rules",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/20-decompile-complete-directory-publication.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": "docs/adr/0014-publish-decompiled-source-as-a-complete-directory.md",
+          "section": "# Publish decompiled source as a complete directory"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Independent minimal Common Event project; actual Windows filesystem/process checkpoints and explicit external mutations named in the linked case.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Every planned file must match complete Discovery include and ancestor exclude rules. Compare actual Discovery and source, Project Root, Snapshot, Generated, manifest/pending and config state; native observation is not executed.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/decompile-publication.test.ts",
+        "name": "MV-S4-DECOMPILE-010:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundaries"
+      },
+      "slice": "Ticket20 complete isolated Decompile directory publication",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DECOMPILE-011",
+      "title": "Direct object namespace alias and spread Entry Identity extraction stays reliable",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/20-decompile-complete-directory-publication.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": "docs/adr/0014-publish-decompiled-source-as-a-complete-directory.md",
+          "section": "# Publish decompiled source as a complete directory"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Independent minimal Common Event project; actual Windows filesystem/process checkpoints and explicit external mutations named in the linked case.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Direct object namespace alias and spread Entry Identity extraction stays reliable. Compare actual Discovery and source, Project Root, Snapshot, Generated, manifest/pending and config state; native observation is not executed.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/decompile-publication.test.ts",
+        "name": "MV-S4-DECOMPILE-011:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundaries"
+      },
+      "slice": "Ticket20 complete isolated Decompile directory publication",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DECOMPILE-012",
+      "title": "Existing source cannot repair a target missing from complete candidate",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/20-decompile-complete-directory-publication.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": "docs/adr/0014-publish-decompiled-source-as-a-complete-directory.md",
+          "section": "# Publish decompiled source as a complete directory"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Independent minimal Common Event project; actual Windows filesystem/process checkpoints and explicit external mutations named in the linked case.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Existing source cannot repair a target missing from complete candidate. Compare actual Discovery and source, Project Root, Snapshot, Generated, manifest/pending and config state; native observation is not executed.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/decompile-publication.test.ts",
+        "name": "MV-S4-DECOMPILE-012:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundaries"
+      },
+      "slice": "Ticket20 complete isolated Decompile directory publication",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DECOMPILE-013",
+      "title": "Changed source Discovery config Snapshot dependency or stage refuses publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/20-decompile-complete-directory-publication.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": "docs/adr/0014-publish-decompiled-source-as-a-complete-directory.md",
+          "section": "# Publish decompiled source as a complete directory"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Independent minimal Common Event project; actual Windows filesystem/process checkpoints and explicit external mutations named in the linked case.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Changed source Discovery config Snapshot dependency or stage refuses publication. Compare actual Discovery and source, Project Root, Snapshot, Generated, manifest/pending and config state; native observation is not executed.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/decompile-publication.test.ts",
+        "name": "MV-S4-DECOMPILE-013:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundaries"
+      },
+      "slice": "Ticket20 complete isolated Decompile directory publication",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DECOMPILE-014",
+      "title": "Supported absolute junction and parent-relative sourceRoot publish and compile exact independent data",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/20-decompile-complete-directory-publication.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": "docs/adr/0014-publish-decompiled-source-as-a-complete-directory.md",
+          "section": "# Publish decompiled source as a complete directory"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Independent minimal Common Event project; actual Windows filesystem/process checkpoints and explicit external mutations named in the linked case.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Supported absolute junction and parent-relative sourceRoot publish and compile exact independent data. Compare actual Discovery and source, Project Root, Snapshot, Generated, manifest/pending and config state; native observation is not executed.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/decompile-publication.test.ts",
+        "name": "MV-S4-DECOMPILE-014:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundaries"
+      },
+      "slice": "Ticket20 complete isolated Decompile directory publication",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DECOMPILE-015",
+      "title": "Unsupported sourceRoot isolation path and real publication I/O failures preserve all business state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/20-decompile-complete-directory-publication.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": "docs/adr/0014-publish-decompiled-source-as-a-complete-directory.md",
+          "section": "# Publish decompiled source as a complete directory"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Independent minimal Common Event project; actual Windows filesystem/process checkpoints and explicit external mutations named in the linked case.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Unsupported sourceRoot isolation path and real publication I/O failures preserve all business state. No source fragments are published on failure; held Windows handles release after the real move.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/decompile-publication.test.ts",
+        "name": "MV-S4-DECOMPILE-015:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundaries"
+      },
+      "slice": "Ticket20 complete isolated Decompile directory publication",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DECOMPILE-016",
+      "title": "Pinned logical junction physical parent and ancestor resist external mutation until actual publication and release",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/20-decompile-complete-directory-publication.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": "docs/adr/0014-publish-decompiled-source-as-a-complete-directory.md",
+          "section": "# Publish decompiled source as a complete directory"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A7"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Independent minimal Common Event project; actual Windows filesystem/process checkpoints and explicit external mutations named in the linked case.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Pinned logical junction physical parent and ancestor resist external mutation until actual publication and release. No source fragments are published on failure; held Windows handles release after the real move.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/decompile-publication.test.ts",
+        "name": "MV-S4-DECOMPILE-016:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundaries"
+      },
+      "slice": "Ticket20 complete isolated Decompile directory publication",
+      "required": true
     }
   ]
 }

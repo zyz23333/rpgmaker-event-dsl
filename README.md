@@ -177,6 +177,7 @@ Create package metadata if the workspace does not already have it, then install 
 
 ```bash
 npm init -y
+npm pkg set type=module
 npm install --save-dev rpgmaker-event-dsl
 ```
 
@@ -215,7 +216,22 @@ because it turns RPG Maker MV JSON data into editable source files:
 rpgmaker-event-dsl decompile
 ```
 
-`decompile` does not overwrite existing decompile output. Supported RPG Maker MV
+`decompile` validates the complete generated batch at its final dependency location,
+then publishes it once to `sourceRoot/decompiled/`. That entire destination must be
+absent, including an empty directory, file or junction. Existing discovered source
+is read only to identify declarations and reject identity conflicts; it cannot supply
+missing candidate references. Every generated file must match your source discovery
+rules. A failure leaves the original source and Snapshot intact. If the directory was
+published before the process reported success, retry reports that it already exists.
+
+Complete publication currently requires Windows PowerShell and an existing
+`sourceRoot` on the same filesystem as the Workspace state. `init` creates the default
+`src` directory; create a custom source root before running `decompile`. Unsupported
+arrangements fail before publishing. Isolated crash remnants under
+`.rpgmaker-event-dsl/decompile-candidates/` remain outside Discovery, including through
+junction aliases and broad include patterns.
+
+Supported RPG Maker MV
 command shapes render as DSL helpers. A genuinely unknown event code is preserved as
 one `rawDslCommand(...)` with a warning when its complete record and surrounding
 structure are valid. Malformed known commands, unsupported known saved variants,
@@ -343,6 +359,10 @@ Files under `sourceRoot` are evaluated as DSL declaration files when they match
 declarations such as `src/maps/Map001.events.ts` and system declarations such as
 `src/system.dsl.ts`. Ordinary helper modules should use names outside those include
 patterns unless they are intended to export DSL-owned declarations.
+Directory exclusions also apply to their descendants. Empty `sourceInclude` selects
+all ordinary files. Discovery always excludes the reserved Decompile isolation
+directory by physical location and deduplicates physical file aliases. The source
+package must use `"type": "module"` for the generated TypeScript imports and exports.
 
 Keep `scriptEnabled` set to `false` for workspaces that should reject JavaScript-bearing
 event commands. Set it to `true` only when Script Inputs are intentional and reviewed.

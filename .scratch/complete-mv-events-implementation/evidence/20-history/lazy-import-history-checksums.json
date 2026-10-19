@@ -1,0 +1,35 @@
+{
+  "kind": "Merger actual built public reproduction and implementer public red/green, exact original bytes",
+  "records": [
+    {
+      "original": "C:/Users/Shuen/.codex/tmp/mv20-lazy-import-red.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/20-history/mv20-lazy-import-red.json",
+      "bytes": 12025,
+      "sha256": "157da2d90df98b83900e9f8fc6f2d8721f3709c7888bc85d749f51eb36ffd3b7"
+    },
+    {
+      "original": "C:/Users/Shuen/.codex/tmp/mv20-lazy-import-green.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/20-history/mv20-lazy-import-green.json",
+      "bytes": 10501,
+      "sha256": "a3ba3eda0d2fb3cf455ad3562f9a6026b1bbd757ea6a34c1ef1ecb4dc3c51d74"
+    },
+    {
+      "original": "C:/Users/Shuen/.codex/tmp/mv20-merger-unrelated-import.cjs",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/20-history/mv20-merger-unrelated-import.cjs",
+      "bytes": 2467,
+      "sha256": "a6a88d5726db78e3711d9daa505898f040dc410671bf2fe7953f7757b63e838d"
+    },
+    {
+      "original": "C:/Users/Shuen/.codex/tmp/mv20-merger-unrelated-import-7dea5c4b-2be0-4c0c-bd4f-d75690919791/result.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/20-history/mv20-merger-unrelated-import-result.json",
+      "bytes": 903,
+      "sha256": "a770e8a8e25eb3e975ba8c81f22c427f8986d6745c853d07f17ac0cbeaa82491"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-001-2026-10-19T11-33-17-126Z-06614b88-2393-43c8-b332-61bb31b435c9.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-001-2026-10-19T11-33-17-126Z-06614b88-2393-43c8-b332-61bb31b435c9.json",
+      "bytes": 35973,
+      "sha256": "52fe6d306691aa5eb603c40d92eb32d6ed08592019beadeb81c76aad4217add8"
+    }
+  ]
+}

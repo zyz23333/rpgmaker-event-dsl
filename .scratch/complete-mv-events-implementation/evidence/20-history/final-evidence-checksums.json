@@ -1,0 +1,211 @@
+{
+  "kind": "Exact original-byte preservation after final own-worktree built matrix",
+  "revision": "55f75ab4c78f5475679631c2bcdf89e26de92d8a",
+  "builtFingerprint": "be4401219bfb7186bace107ec56be42258b8f1582a61f0b7b7d72f7c3b29243b",
+  "records": [
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-001-2026-10-19T11-26-38-408Z-6de70251-8daf-4c2b-bedf-f15c23f2aedb.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-001-2026-10-19T11-26-38-408Z-6de70251-8daf-4c2b-bedf-f15c23f2aedb.json",
+      "bytes": 38406,
+      "sha256": "ce9014ea6b0844e85d82b02a8c07d8d55da54ea4061a353b3b9ab0a44f4de96f"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-002-2026-10-19T11-27-26-231Z-39dc873d-1d1d-408d-85b7-3de972144ac6.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-002-2026-10-19T11-27-26-231Z-39dc873d-1d1d-408d-85b7-3de972144ac6.json",
+      "bytes": 38543,
+      "sha256": "5a2f53f151e51ca5919469a24db00700dc46b4a7d1b3e384c581dd8786bf295f"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-003-2026-10-19T11-27-24-613Z-8ea9d2f1-6d25-45d0-a361-13bca5f18d3d.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-003-2026-10-19T11-27-24-613Z-8ea9d2f1-6d25-45d0-a361-13bca5f18d3d.json",
+      "bytes": 36679,
+      "sha256": "ef4fb29c83327992d56dc64f60156a21d080eaa8b9fef7d7cc04d4bbb3493ee3"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-004-2026-10-19T11-27-23-871Z-a7277929-4212-4050-afac-8b9b87f251e2.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-004-2026-10-19T11-27-23-871Z-a7277929-4212-4050-afac-8b9b87f251e2.json",
+      "bytes": 36124,
+      "sha256": "a30ad0e79c6f040d8cc6d2ab7c03334b6ac136b7e3924521862535552a979b5b"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-004-2026-10-19T11-27-24-004Z-32fa80ca-c934-40dd-8dce-c6c316a57ab6.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-004-2026-10-19T11-27-24-004Z-32fa80ca-c934-40dd-8dce-c6c316a57ab6.json",
+      "bytes": 36197,
+      "sha256": "8d3396e6cc041590c3b20a993c2108d9af2bb5475e99da9204bf8e8d2fc6e329"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-004-2026-10-19T11-27-24-171Z-05373f00-a4e9-4370-a474-6915d9440e09.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-004-2026-10-19T11-27-24-171Z-05373f00-a4e9-4370-a474-6915d9440e09.json",
+      "bytes": 36120,
+      "sha256": "05bd35478db3b4d3b7417956d960f5ef930508b2fe716ce3178b20e0f82c4e1b"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-004-2026-10-19T11-27-24-321Z-60434999-4924-439e-bca5-e59aa65fbaa6.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-004-2026-10-19T11-27-24-321Z-60434999-4924-439e-bca5-e59aa65fbaa6.json",
+      "bytes": 36224,
+      "sha256": "9b1f1f41acaf1ebdedba426803a660f27b1764fe8f59139e328bcd1bab51b7f9"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-004-2026-10-19T11-27-24-445Z-eac59ef0-6909-4795-b461-7c8dc5c3ea45.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-004-2026-10-19T11-27-24-445Z-eac59ef0-6909-4795-b461-7c8dc5c3ea45.json",
+      "bytes": 36251,
+      "sha256": "08be04c23ac84363be14c5d6eaa18eb72a1038ba1c9685a294b6eb19a2a0926a"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-005-2026-10-19T11-27-23-737Z-06658da5-7690-4836-99e3-c816e8e25d2c.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-005-2026-10-19T11-27-23-737Z-06658da5-7690-4836-99e3-c816e8e25d2c.json",
+      "bytes": 36171,
+      "sha256": "f0aecb58d90f2bbbbb208f2efb8de87d6a916338c8078f85aa0e50fd6a8a8db9"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-006-2026-10-19T11-27-22-963Z-a9740719-a7a8-4e63-bb99-b8424f18f113.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-006-2026-10-19T11-27-22-963Z-a9740719-a7a8-4e63-bb99-b8424f18f113.json",
+      "bytes": 38546,
+      "sha256": "783b9c2aa7d784d86cbf4b37d7b483d32c2643ac7ad3cc739273f762b0522615"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-007-2026-10-19T11-27-10-076Z-58ccc805-ea03-4a97-8f40-7e9f0b030d01.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-007-2026-10-19T11-27-10-076Z-58ccc805-ea03-4a97-8f40-7e9f0b030d01.json",
+      "bytes": 40016,
+      "sha256": "ba3c030311b984b787586d4a3294b6e76179eb28377cfadb0f6794239821e54f"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-007-2026-10-19T11-27-11-586Z-527a67bc-dc9e-42b9-9d95-43deef011754.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-007-2026-10-19T11-27-11-586Z-527a67bc-dc9e-42b9-9d95-43deef011754.json",
+      "bytes": 40091,
+      "sha256": "d872c64789875efc8e9b2fe304b45a2f183632abe49e467c3941d42e01ba7b00"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-007-2026-10-19T11-27-13-150Z-87b69a64-9818-48ba-a58a-f729ff506b72.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-007-2026-10-19T11-27-13-150Z-87b69a64-9818-48ba-a58a-f729ff506b72.json",
+      "bytes": 40001,
+      "sha256": "26c99d65a4f3dcc34ee2ab93b9d67128f4c100a845768ad3a74519638f045683"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-007-2026-10-19T11-27-14-795Z-d6dd5a6c-5465-469f-9799-6db6c18714b8.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-007-2026-10-19T11-27-14-795Z-d6dd5a6c-5465-469f-9799-6db6c18714b8.json",
+      "bytes": 40105,
+      "sha256": "fd90c22dd7aca8200df4640987e4835c464ec007058dd9b1cb807a7d8bb07663"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-007-2026-10-19T11-27-16-510Z-ea448dfd-1897-433f-934c-8ab897f74748.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-007-2026-10-19T11-27-16-510Z-ea448dfd-1897-433f-934c-8ab897f74748.json",
+      "bytes": 40141,
+      "sha256": "e2551a34a103143cb162b0943a00b5b9bec9711e03d87a10274e017fbb89598a"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-008-2026-10-19T11-27-19-403Z-d7a006ba-0749-42c1-8388-2e014b903da2.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-008-2026-10-19T11-27-19-403Z-d7a006ba-0749-42c1-8388-2e014b903da2.json",
+      "bytes": 39398,
+      "sha256": "5125e5843701c3beb7c83cdec82246795438ee227ac26aee16b18a0e1d3e8814"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-009-2026-10-19T11-27-21-470Z-ee1b7ef2-5fe7-46f4-985d-2746baae8fc2.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-009-2026-10-19T11-27-21-470Z-ee1b7ef2-5fe7-46f4-985d-2746baae8fc2.json",
+      "bytes": 38632,
+      "sha256": "4adb0736ce33b9df94da091324bd5690e10021eea3d4588477d2be00f7e8daa6"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-010-2026-10-19T11-26-53-729Z-7a39bed7-d323-4d87-a1be-020b364906b9.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-010-2026-10-19T11-26-53-729Z-7a39bed7-d323-4d87-a1be-020b364906b9.json",
+      "bytes": 38244,
+      "sha256": "5859691a8c7d6280f5031988d711a19beeb862b10ce99afdbc226b6f20cbf025"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-011-2026-10-19T11-26-55-936Z-ca5e539e-638e-40f6-94ed-52ab32321867.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-011-2026-10-19T11-26-55-936Z-ca5e539e-638e-40f6-94ed-52ab32321867.json",
+      "bytes": 38077,
+      "sha256": "56ca1f7fe8933588138d7805f98be2ec015f3a0039fbe1b7b436fc37f4fecdb5"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-012-2026-10-19T11-26-56-166Z-d6f7594c-4dbe-4401-b5fa-05234928286a.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-012-2026-10-19T11-26-56-166Z-d6f7594c-4dbe-4401-b5fa-05234928286a.json",
+      "bytes": 35577,
+      "sha256": "61f313c6a7d0a9e247b80cb6bcdb94e6d8b980c17f2eedfb7c6ec3f8cc57f1ea"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-013-2026-10-19T11-26-57-941Z-831da6ae-b0f4-446d-8192-388a2a33785b.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-013-2026-10-19T11-26-57-941Z-831da6ae-b0f4-446d-8192-388a2a33785b.json",
+      "bytes": 38717,
+      "sha256": "c6e5952abb02bb95094279786619ccff8f7542b24e37dac960037982243d58ec"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-013-2026-10-19T11-26-59-454Z-9d18ed2e-44e0-47d0-a2ad-196bb1b64247.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-013-2026-10-19T11-26-59-454Z-9d18ed2e-44e0-47d0-a2ad-196bb1b64247.json",
+      "bytes": 38940,
+      "sha256": "a1ac31f5c67e4a60d9c246594143e115c6b4e65ee0e1e6c384d0d322286a6361"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-013-2026-10-19T11-27-00-979Z-fe184a2c-6883-48cf-92f2-b49febeec4f0.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-013-2026-10-19T11-27-00-979Z-fe184a2c-6883-48cf-92f2-b49febeec4f0.json",
+      "bytes": 38718,
+      "sha256": "e4a25f7ce9a504f44ed11afafc6efda1d2af1448e4bccb89b2647e99647c2448"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-013-2026-10-19T11-27-02-481Z-a851a148-597a-4331-b7b8-bc8623727378.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-013-2026-10-19T11-27-02-481Z-a851a148-597a-4331-b7b8-bc8623727378.json",
+      "bytes": 38777,
+      "sha256": "dd1a619035780bace029c1c578567aeb318fa76ec916e737e749ffe90d7f0d79"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-013-2026-10-19T11-27-04-037Z-c9381073-061e-44e2-9905-626445276104.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-013-2026-10-19T11-27-04-037Z-c9381073-061e-44e2-9905-626445276104.json",
+      "bytes": 38733,
+      "sha256": "9cbebc30ffc76ac543625994069177eecec104f384d37651cce48ab74b950632"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-013-2026-10-19T11-27-05-541Z-70d95b40-d4a3-4f08-a943-2536d47674a5.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-013-2026-10-19T11-27-05-541Z-70d95b40-d4a3-4f08-a943-2536d47674a5.json",
+      "bytes": 38090,
+      "sha256": "f94ce289e2c39303df7a1ba5a6421c9221f4fb093a3144f397b6e5057567d112"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-013-2026-10-19T11-27-07-043Z-94249e55-7760-403a-97ed-f5b40193dde0.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-013-2026-10-19T11-27-07-043Z-94249e55-7760-403a-97ed-f5b40193dde0.json",
+      "bytes": 38849,
+      "sha256": "ec17bf41320a52ef48218459689a36748d199b26a0304d01c5d3262bebbfe502"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-013-2026-10-19T11-27-08-507Z-5178f345-1545-47d0-925e-f07e83d74686.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-013-2026-10-19T11-27-08-507Z-5178f345-1545-47d0-925e-f07e83d74686.json",
+      "bytes": 39562,
+      "sha256": "ca0fa48fcca15c321d04450b847c85f0a9a80d67316abccf9ab9b770a4a6bcf0"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-014-2026-10-19T11-26-46-284Z-1ee37eaf-ac55-4bb6-b7d0-4da3ebcfccd3.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-014-2026-10-19T11-26-46-284Z-1ee37eaf-ac55-4bb6-b7d0-4da3ebcfccd3.json",
+      "bytes": 183492,
+      "sha256": "2e3fbfab326aecb7f9d6d2573cbd5fe1038153d4d8d0bce5bca7e7cb9889d2b3"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-014-2026-10-19T11-26-49-335Z-80da9813-1130-460d-b4d5-df84b7a416d1.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-014-2026-10-19T11-26-49-335Z-80da9813-1130-460d-b4d5-df84b7a416d1.json",
+      "bytes": 183564,
+      "sha256": "75d797070582e7d976a5a926725090b9fc79ac554c5e9f9168b2696c19093579"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-014-2026-10-19T11-26-52-357Z-e4be0b83-ecda-4d40-8cbc-39436cdd8d0a.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-014-2026-10-19T11-26-52-357Z-e4be0b83-ecda-4d40-8cbc-39436cdd8d0a.json",
+      "bytes": 184581,
+      "sha256": "1a8742f80d9ee955862385c9e7b7424b6fde3843a6cb84e042d9d53f2b3a523d"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-015-2026-10-19T11-26-41-534Z-802ce1d8-add5-425d-83df-da7a3d41d6c7.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-015-2026-10-19T11-26-41-534Z-802ce1d8-add5-425d-83df-da7a3d41d6c7.json",
+      "bytes": 41013,
+      "sha256": "747074c0e8cbf3a35098d1e398d9f4754047316bb3979f1c3abf462c4c0261f8"
+    },
+    {
+      "original": "test-results\\mv-evidence\\MV-S4-DECOMPILE-016-2026-10-19T11-26-43-078Z-a9091a4f-c0d0-4436-8f36-6d10bd110faa.json",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-DECOMPILE-016-2026-10-19T11-26-43-078Z-a9091a4f-c0d0-4436-8f36-6d10bd110faa.json",
+      "bytes": 38632,
+      "sha256": "3725180086fb96c4357754fe89b54ae813d46e13959ab1ae312fb7bb1c565bd4"
+    },
+    {
+      "original": "C:/Users/Shuen/.codex/tmp/mv20-built-windows-first.txt",
+      "preserved": ".scratch/complete-mv-events-implementation/evidence/20-history/mv20-built-windows-first.txt",
+      "bytes": 484,
+      "sha256": "8b3beeb2c87cc6b8094c748aa149120ff53c2017eafa0509992ac53351280d69"
+    }
+  ]
+}

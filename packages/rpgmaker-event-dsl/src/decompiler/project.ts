@@ -1,5 +1,4 @@
-import { mkdir, stat, writeFile } from "node:fs/promises";
-import { dirname, resolve } from "node:path";
+import { resolve } from "node:path";
 import { parseMapInfos, type MapInfoEntry } from "../project-data/project.js";
 import type { WorkspaceStatePaths } from "../workspace/state.js";
 import type { SnapshotCommonEvent, SnapshotMapEvent, SnapshotMapEventPage } from "./types.js";
@@ -9,7 +8,6 @@ import {
   createExportNameAllocator,
   formatMapFileName,
   indentLines,
-  isMissingFileError,
   literal,
   mapPageTriggerFromCode,
   normalizeCommandList,
@@ -47,7 +45,7 @@ import { validateNativeMovementRouteInputs } from "../commands/movement/validati
 import { inspectNativeCommandReferences } from "../validation/native-references.js";
 import { CommandStructureError } from "../validation/command-errors.js";
 
-type DecompileFile = {
+export type DecompileFile = {
   content: string;
   path: string;
 };
@@ -57,7 +55,8 @@ export type DecompileProjectDataSnapshotOptions = {
   sourceRoot: string;
   statePaths: WorkspaceStatePaths;
   workspaceRoot: string;
-  assertInputsUnchanged?: () => Promise<void>;
+  validateCandidate: (files: readonly DecompileFile[]) => Promise<void>;
+  publishCandidate: (files: readonly DecompileFile[]) => Promise<void>;
 };
 
 export async function decompileProjectDataSnapshot(
@@ -65,15 +64,10 @@ export async function decompileProjectDataSnapshot(
 ): Promise<void> {
   const issues: ValidationIssue[] = [];
   const files = await buildDecompiledSourceFiles(options, issues);
+  await options.validateCandidate(files);
 
-  await assertTargetFilesDoNotExist(files);
-  await options.assertInputsUnchanged?.();
+  await options.publishCandidate(files);
   for (const issue of issues) console.error(issue.message);
-
-  for (const file of files) {
-    await mkdir(dirname(file.path), { recursive: true });
-    await writeFile(file.path, file.content, "utf8");
-  }
 }
 
 async function buildDecompiledSourceFiles(
@@ -280,35 +274,6 @@ function assertSnapshotReferences(
         `decompile ${identity}[${index}]: ${error instanceof Error ? error.message : String(error)}`,
       );
     }
-  }
-}
-
-async function assertTargetFilesDoNotExist(files: readonly DecompileFile[]): Promise<void> {
-  const existingFiles: string[] = [];
-
-  // Decompile is intentionally all-or-nothing so existing hand-maintained source is never mixed
-  // with a partially written generated layout.
-  for (const file of files) {
-    const targetStats = await stat(file.path).catch((error: unknown) => {
-      if (isMissingFileError(error)) {
-        return null;
-      }
-
-      throw error;
-    });
-
-    if (targetStats !== null) {
-      existingFiles.push(file.path);
-    }
-  }
-
-  if (existingFiles.length > 0) {
-    throw new Error(
-      [
-        "Decompile output already exists. Remove it before running decompile again.",
-        ...existingFiles.map((filePath) => `- ${filePath}`),
-      ].join("\n"),
-    );
   }
 }
 
