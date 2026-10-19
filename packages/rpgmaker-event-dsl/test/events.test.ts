@@ -873,6 +873,12 @@ describe("compileMapEvent", () => {
       target: "actor",
       actorId: 1,
     } as const;
+    const actorResourceTarget = {
+      kind: "runtimeSelector",
+      scope: "actor",
+      target: "actor",
+      actor: { kind: "actor", id: 1 },
+    } as const;
     const actorVariableTarget = {
       kind: "runtimeSelector",
       scope: "actor",
@@ -922,13 +928,13 @@ describe("compileMapEvent", () => {
               changeHp({
                 target: partyTarget,
                 operation: "lose",
-                value: 10,
+                value: { kind: "constant", value: 10 },
                 allowDeath: true,
               }),
               changeMp({
-                target: actorTarget,
+                target: actorResourceTarget,
                 operation: "gain",
-                value: variableRef({ name: "Count" }),
+                value: { kind: "variable", variable: variableRef({ name: "Count" }) },
               }),
               changeState({
                 target: actorVariableTarget,
@@ -976,7 +982,11 @@ describe("compileMapEvent", () => {
               }),
               changeNickname({ actor: { kind: "actor", id: 1 }, nickname: "Ace" }),
               changeProfile({ actor: { kind: "actor", id: 1 }, profile: "Profile" }),
-              changeTp({ target: actorTarget, operation: "gain", value: 5 }),
+              changeTp({
+                target: actorResourceTarget,
+                operation: "gain",
+                value: { kind: "constant", value: 5 },
+              }),
               changeEnemyHp({
                 target: allEnemiesTarget,
                 operation: "lose",

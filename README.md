@@ -477,6 +477,11 @@ Project data references use helpers such as `switchRef(...)`, `variableRef(...)`
 Asset References instead: `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)`
 compile to MV filename stems without checking the filesystem or resolving database IDs.
 
+Actor HP/MP/TP, State and Recover All helpers use explicit Actor Runtime Selectors;
+resource quantities use a constant or variable operand, and HP requires its saved
+`allowDeath` Boolean. See the [actor resource reference](packages/rpgmaker-event-dsl/README.md#actor-resources-and-states)
+for target variants, quantity ranges, reference checks and dynamic variable behavior.
+
 JavaScript-bearing inputs are explicit Script Inputs and are gated by the workspace
 `scriptEnabled` setting. The Gate scans every saved script position, including empty
 or unreachable Script/continuation records, script conditions, Control Variables

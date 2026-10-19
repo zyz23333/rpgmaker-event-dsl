@@ -19,6 +19,8 @@ export type {
 export type {
   ActorCommandTarget,
   ActorParameter,
+  ActorResourceOperand,
+  ActorResourceTarget,
   AssetReference,
   AudioAssetFolder,
   AudioAssetReference,

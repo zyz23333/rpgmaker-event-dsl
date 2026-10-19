@@ -4,6 +4,11 @@ import type { RawEventCommand, CommandOrigins } from "./types.js";
 import { assertControlTimerInput } from "../commands/variables/validation.js";
 import { assertDslCommandList } from "../validation/dsl-command-inputs.js";
 import { assertMapAppearanceInput } from "../commands/map/validation.js";
+import { assertActorResourceInput } from "../commands/actor/validation.js";
+import {
+  compileActorResourceTarget,
+  compileActorResourceValue,
+} from "../commands/actor/compile.js";
 import {
   resolveCommonEventCall,
   assertLoopCommand,
@@ -124,6 +129,7 @@ export function compileNodes(
 
   for (const [nodeIndex, node] of nodes.entries()) {
     assertMapAppearanceInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
+    assertActorResourceInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     const outputStart = output.length;
     switch (node.kind) {
       case "showText":
@@ -726,9 +732,9 @@ export function compileNodes(
           code: 311,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
-            node.allowDeath ?? false,
+            ...compileActorResourceTarget(node.target, resolver),
+            ...compileActorResourceValue(node.operation, node.value, resolver),
+            node.allowDeath,
           ],
         });
         break;
@@ -737,8 +743,8 @@ export function compileNodes(
           code: 312,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
+            ...compileActorResourceTarget(node.target, resolver),
+            ...compileActorResourceValue(node.operation, node.value, resolver),
           ],
         });
         break;
@@ -747,7 +753,7 @@ export function compileNodes(
           code: 313,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
+            ...compileActorResourceTarget(node.target, resolver),
             node.operation === "add" ? 0 : 1,
             resolver.resolveReference(node.state),
           ],
@@ -757,7 +763,7 @@ export function compileNodes(
         output.push({
           code: 314,
           indent,
-          parameters: compileActorCommandTarget(node.target, resolver),
+          parameters: compileActorResourceTarget(node.target, resolver),
         });
         break;
       case "changeExp":
@@ -873,8 +879,8 @@ export function compileNodes(
           code: 326,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
+            ...compileActorResourceTarget(node.target, resolver),
+            ...compileActorResourceValue(node.operation, node.value, resolver),
           ],
         });
         break;

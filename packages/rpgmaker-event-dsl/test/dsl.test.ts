@@ -361,14 +361,20 @@ describe("collectDslOwnedDeclarations", () => {
       changeHp({
         target: { kind: "runtimeSelector", scope: "actor", target: "entireParty" },
         operation: "lose",
-        value: 1,
+        value: { kind: "constant", value: 1 },
+        allowDeath: false,
       }).kind,
     ).toBe("changeHp");
     expect(
       changeMp({
-        target: { kind: "runtimeSelector", scope: "actor", target: "actor", actorId: 1 },
+        target: {
+          kind: "runtimeSelector",
+          scope: "actor",
+          target: "actor",
+          actor: { kind: "actor", id: 1 },
+        },
         operation: "gain",
-        value: variableRef({ id: 1 }),
+        value: { kind: "variable", variable: variableRef({ id: 1 }) },
       }).kind,
     ).toBe("changeMp");
     expect(
@@ -445,9 +451,14 @@ describe("collectDslOwnedDeclarations", () => {
     );
     expect(
       changeTp({
-        target: { kind: "runtimeSelector", scope: "actor", target: "actor", actorId: 1 },
+        target: {
+          kind: "runtimeSelector",
+          scope: "actor",
+          target: "actor",
+          actor: { kind: "actor", id: 1 },
+        },
         operation: "gain",
-        value: 5,
+        value: { kind: "constant", value: 5 },
       }).kind,
     ).toBe("changeTp");
     expect(

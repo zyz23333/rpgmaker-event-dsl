@@ -22,6 +22,7 @@ import {
 import { CommandStructureError } from "./command-structure.js";
 import { assertDslCommandList } from "./dsl-command-inputs.js";
 import { assertMapAppearanceInput } from "../commands/map/validation.js";
+import { assertActorResourceInput } from "../commands/actor/validation.js";
 
 type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
@@ -60,6 +61,7 @@ export function validateNodes(
     const nodePath = `${options.path ?? "commands"}[${nodeIndex}]`;
     try {
       assertMapAppearanceInput(node.kind, node, nodePath, true, resolver);
+      assertActorResourceInput(node.kind, node, nodePath, true, resolver);
     } catch (error) {
       if (error instanceof CommandStructureError)
         issues.push(error.issue(options.identity ?? "event", "compile"));
@@ -318,30 +320,19 @@ export function validateNodes(
       captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
     }
     if (
-      node.kind === "changeHp" ||
-      node.kind === "changeMp" ||
-      node.kind === "recoverAll" ||
       node.kind === "changeExp" ||
       node.kind === "changeLevel" ||
       node.kind === "changeParameter" ||
-      node.kind === "changeSkill" ||
-      node.kind === "changeTp"
+      node.kind === "changeSkill"
     ) {
       validateActorCommandTarget(node.target, resolver, `${node.kind} target`, issues);
     }
     if (
-      node.kind === "changeHp" ||
-      node.kind === "changeMp" ||
       node.kind === "changeExp" ||
       node.kind === "changeLevel" ||
-      node.kind === "changeParameter" ||
-      node.kind === "changeTp"
+      node.kind === "changeParameter"
     ) {
       validateOperateValueOperand(node.value, resolver, issues);
-    }
-    if (node.kind === "changeState") {
-      validateActorCommandTarget(node.target, resolver, "Change State target", issues);
-      captureReferenceIssue(() => resolver.resolveReference(node.state), issues);
     }
     if (node.kind === "changeSkill") {
       captureReferenceIssue(() => resolver.resolveReference(node.skill), issues);

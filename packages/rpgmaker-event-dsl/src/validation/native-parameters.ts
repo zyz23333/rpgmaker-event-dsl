@@ -5,6 +5,7 @@ import {
   assertNativeTimerParameters,
 } from "../commands/variables/validation.js";
 import { assertNativeMapAppearanceParameters } from "../commands/map/native-validation.js";
+import { assertNativeActorResourceParameters } from "../commands/actor/native-validation.js";
 
 // Shared saved-slot envelopes. Family validators retain ownership of semantic ranges,
 // references and mode-specific saved values; this table is not full family acceptance.
@@ -148,6 +149,7 @@ export function assertNativeCommandParameters(
     return;
   }
   assertNativeMapAppearanceParameters(code, parameters, path);
+  assertNativeActorResourceParameters(code, parameters, path);
   try {
     assertNativeSwitchCommand(code, parameters);
   } catch (error) {

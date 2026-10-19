@@ -1,6 +1,8 @@
 import type {
   ActorCommandTarget,
   ActorParameter,
+  ActorResourceOperand,
+  ActorResourceTarget,
   ChangeActorImagesDslCommand,
   ChangeClassDslCommand,
   ChangeEquipmentDslCommand,
@@ -22,32 +24,30 @@ import type {
   ReferenceValue,
   VehicleTarget,
 } from "../../domain/types.js";
+import { assertActorResourceInput } from "./validation.js";
 
 export function changeHp(input: {
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
-  allowDeath?: boolean;
+  value: ActorResourceOperand;
+  allowDeath: boolean;
 }): ChangeHpDslCommand {
-  const node: ChangeHpDslCommand = {
+  assertActorResourceInput("changeHp", input, "changeHp");
+  return {
     kind: "changeHp",
     target: input.target,
     operation: input.operation,
     value: input.value,
+    allowDeath: input.allowDeath,
   };
-
-  if (input.allowDeath !== undefined) {
-    node.allowDeath = input.allowDeath;
-  }
-
-  return node;
 }
 
 export function changeMp(input: {
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ActorResourceOperand;
 }): ChangeMpDslCommand {
+  assertActorResourceInput("changeMp", input, "changeMp");
   return {
     kind: "changeMp",
     target: input.target,
@@ -57,10 +57,11 @@ export function changeMp(input: {
 }
 
 export function changeState(input: {
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "add" | "remove";
   state: ReferenceValue<"state">;
 }): ChangeStateDslCommand {
+  assertActorResourceInput("changeState", input, "changeState");
   return {
     kind: "changeState",
     target: input.target,
@@ -69,7 +70,8 @@ export function changeState(input: {
   };
 }
 
-export function recoverAll(input: { target: ActorCommandTarget }): RecoverAllDslCommand {
+export function recoverAll(input: { target: ActorResourceTarget }): RecoverAllDslCommand {
+  assertActorResourceInput("recoverAll", input, "recoverAll");
   return {
     kind: "recoverAll",
     target: input.target,
@@ -237,10 +239,11 @@ export function changeProfile(input: {
 }
 
 export function changeTp(input: {
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ActorResourceOperand;
 }): ChangeTpDslCommand {
+  assertActorResourceInput("changeTp", input, "changeTp");
   return {
     kind: "changeTp",
     target: input.target,

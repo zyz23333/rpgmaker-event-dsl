@@ -277,6 +277,59 @@ explicit consistency checks; an external editor may still save after the last ch
 self-switch letters are A–D. A Common Event called by a Map Event inherits its
 caller identity for self switches.
 
+## Actor resources and states
+
+`changeHp`, `changeMp`, `changeTp`, `changeState` and `recoverAll` share the
+`ActorResourceTarget` Runtime Selector:
+
+| Target                       | Shape                                                                                                        |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Entire party                 | `{ kind: "runtimeSelector", scope: "actor", target: "entireParty" }`                                         |
+| Fixed actor                  | `{ kind: "runtimeSelector", scope: "actor", target: "actor", actor: actorRef({ id: 1 }) }`                   |
+| Actor selected by a variable | `{ kind: "runtimeSelector", scope: "actor", target: "actorFromVariable", variable: variableRef({ id: 3 }) }` |
+
+HP, MP and TP require `operation: "gain" | "lose"` and an explicit
+`ActorResourceOperand`: `{ kind: "constant", value }` or
+`{ kind: "variable", variable: variableRef(...) }`. Constant HP/MP quantities are
+integers 1..9999; constant TP quantities are integers 1..100. HP also requires
+the independent Boolean `allowDeath`, including when gaining HP:
+
+```ts
+changeHp({
+  target: { kind: "runtimeSelector", scope: "actor", target: "entireParty" },
+  operation: "gain",
+  value: { kind: "constant", value: 25 },
+  allowDeath: false,
+});
+
+changeTp({
+  target: {
+    kind: "runtimeSelector",
+    scope: "actor",
+    target: "actorFromVariable",
+    variable: variableRef({ id: 3 }),
+  },
+  operation: "lose",
+  value: { kind: "variable", variable: variableRef({ id: 4 }) },
+});
+```
+
+The selector and variable operand remain dynamic. A target variable whose runtime
+value is 0 selects the entire party. A quantity variable may hold 0 or a negative
+value; compilation preserves the variable mode and leaves MV to evaluate it.
+Party iteration follows MV's execution context, including the participating
+members during battle. Runtime HP/MP/TP limits and death behavior belong to MV.
+
+Use `changeState({ target, operation: "add" | "remove", state: stateRef(...) })`
+with an existing State reference, and `recoverAll({ target })` for complete
+recovery. Fixed Actor and State references must exist in the Snapshot, and
+Variable references must resolve to valid System slots. Explicit IDs support
+existing unnamed records and slots. Every supplied field is required by its
+variant; extra fields and non-data objects are rejected. Known raw actor commands
+use the same exact saved-slot counts, ranges and reference checks. Native mode,
+operation and actor sentinel slots reject negative zero before conversion to
+named selectors.
+
 ## Timer saved slots
 
 ```ts

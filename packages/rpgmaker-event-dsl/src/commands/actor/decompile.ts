@@ -21,7 +21,11 @@ export function renderActorOperateValueCommand(
   helperName: "changeExp" | "changeHp" | "changeLevel" | "changeMp" | "changeTp",
   hasTrailingBoolean: boolean,
 ): Omit<RenderedCommand, "nextIndex"> | null {
-  const target = renderActorCommandTarget(command.parameters[0], command.parameters[1]);
+  const resource =
+    helperName === "changeHp" || helperName === "changeMp" || helperName === "changeTp";
+  const target = resource
+    ? renderActorResourceTarget(command.parameters[0], command.parameters[1])
+    : renderActorCommandTarget(command.parameters[0], command.parameters[1]);
   const operand = renderOperateValueOperand(
     command.parameters[2],
     command.parameters[3],
@@ -37,14 +41,19 @@ export function renderActorOperateValueCommand(
   }
 
   const trailingField =
-    hasTrailingBoolean && trailing
-      ? helperName === "changeHp"
-        ? ", allowDeath: true"
-        : ", showLevelUp: true"
-      : "";
+    helperName === "changeHp"
+      ? `, allowDeath: ${literal(trailing)}`
+      : hasTrailingBoolean && trailing
+        ? ", showLevelUp: true"
+        : "";
+  const value = resource
+    ? command.parameters[3] === 0
+      ? `{ kind: "constant", value: ${operand.expression} }`
+      : `{ kind: "variable", variable: ${operand.expression} }`
+    : operand.expression;
 
   return {
-    expression: `${helperName}({ target: ${target.expression}, operation: ${literal(operand.operation)}, value: ${operand.expression}${trailingField} })`,
+    expression: `${helperName}({ target: ${target.expression}, operation: ${literal(operand.operation)}, value: ${value}${trailingField} })`,
     helperNames: [helperName, ...target.helperNames, ...operand.helperNames],
   };
 }
@@ -52,7 +61,7 @@ export function renderActorOperateValueCommand(
 export function renderChangeState(
   command: RawEventCommand,
 ): Omit<RenderedCommand, "nextIndex"> | null {
-  const target = renderActorCommandTarget(command.parameters[0], command.parameters[1]);
+  const target = renderActorResourceTarget(command.parameters[0], command.parameters[1]);
   const operation =
     command.parameters[2] === 0 ? "add" : command.parameters[2] === 1 ? "remove" : null;
   const stateId = readPositiveInteger(command.parameters[3]);
@@ -67,7 +76,7 @@ export function renderChangeState(
 export function renderRecoverAll(
   command: RawEventCommand,
 ): Omit<RenderedCommand, "nextIndex"> | null {
-  const target = renderActorCommandTarget(command.parameters[0], command.parameters[1]);
+  const target = renderActorResourceTarget(command.parameters[0], command.parameters[1]);
   return target === null
     ? null
     : {
@@ -194,6 +203,23 @@ export function renderChangeVehicleImage(
         expression: `changeVehicleImage({ vehicle: ${literal(vehicle)}, image: imageAsset({ folder: "characters", name: ${literal(imageName)} }), index: ${index} })`,
         helperNames: ["changeVehicleImage", "imageAsset"],
       };
+}
+
+function renderActorResourceTarget(
+  targetKind: unknown,
+  targetValue: unknown,
+): { expression: string; helperNames: readonly string[] } | null {
+  if (
+    targetKind === 0 &&
+    typeof targetValue === "number" &&
+    targetValue > 0 &&
+    Number.isSafeInteger(targetValue)
+  )
+    return {
+      expression: `{ kind: "runtimeSelector", scope: "actor", target: "actor", actor: actorRef({ id: ${targetValue} }) }`,
+      helperNames: ["actorRef"],
+    };
+  return renderActorCommandTarget(targetKind, targetValue);
 }
 
 export function renderActorCommandTarget(

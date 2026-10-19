@@ -1,6 +1,8 @@
 import type {
   ActorCommandTarget,
   ActorParameter,
+  ActorResourceOperand,
+  ActorResourceTarget,
   AudioAssetReference,
   AudioPayload,
   BattlerCommandTarget,
@@ -697,29 +699,29 @@ export type NameInputProcessingDslCommand = {
 
 export type ChangeHpDslCommand = {
   kind: "changeHp";
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
-  allowDeath?: boolean;
+  value: ActorResourceOperand;
+  allowDeath: boolean;
 };
 
 export type ChangeMpDslCommand = {
   kind: "changeMp";
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ActorResourceOperand;
 };
 
 export type ChangeStateDslCommand = {
   kind: "changeState";
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "add" | "remove";
   state: ReferenceValue<"state">;
 };
 
 export type RecoverAllDslCommand = {
   kind: "recoverAll";
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
 };
 
 export type ChangeExpDslCommand = {
@@ -802,9 +804,9 @@ export type ChangeProfileDslCommand = {
 
 export type ChangeTpDslCommand = {
   kind: "changeTp";
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ActorResourceOperand;
 };
 
 export type ChangeEnemyHpDslCommand = {

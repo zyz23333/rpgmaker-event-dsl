@@ -214,6 +214,13 @@ export type OperateValueInput = {
   operand: OperateValueOperand;
 };
 
+export type ActorResourceTarget =
+  | RuntimeSelector<"actor", "entireParty">
+  | (RuntimeSelector<"actor", "actor"> & { actor: ReferenceValue<"actor"> })
+  | (RuntimeSelector<"actor", "actorFromVariable"> & { variable: ReferenceValue<"variable"> });
+
+export type ActorResourceOperand = ConstantOperand | VariableOperand;
+
 export type ActorCommandTarget =
   | (RuntimeSelector<"actor", "entireParty"> & {
       actorId?: never;

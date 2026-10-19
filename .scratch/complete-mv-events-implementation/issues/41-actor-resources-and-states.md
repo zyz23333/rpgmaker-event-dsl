@@ -1,6 +1,6 @@
 # 41: 角色生命、资源与状态
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 23
 Stage: S6
 Created: 2026-10-19
