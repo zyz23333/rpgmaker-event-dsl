@@ -74,6 +74,22 @@ The same mapping applies to larger RPG Maker MV structures:
 - References such as `switchRef({ id: 1 })` compile back to the numeric IDs that RPG
   Maker MV expects.
 
+Switch and variable IDs can refer to unnamed System slots. Their final capacity is
+the larger of the Snapshot capacity and the highest ID declared by
+`switchDefinition(...)` or `variableDefinition(...)`. Removing a declaration clears
+its name while retaining the Snapshot capacity. A numeric reference does not create
+or extend a slot. Name references to switches and variables resolve only against
+unique DSL declarations; Snapshot names do not provide a fallback. Other database
+references can use an existing numeric ID even when that entry's name is empty.
+
+`controlSwitches(...)` accepts one switch reference or an inclusive
+`{ kind: "referenceRange", from: switchRef({ id: 1 }), to: switchRef({ id: 3 }) }`.
+Both endpoints must exist in the final capacity; unnamed intermediate slots are
+valid. Reversed ranges fail validation. Both switch commands require an explicit
+Boolean `value`. `controlSelfSwitch({ selfSwitch: "A", value: true })` accepts A–D
+and uses the executing Map Event's identity. A Common Event called from a Map Event
+inherits that identity, so its self switch can affect the caller.
+
 The DSL does not replace RPG Maker MV's event system. It is a readable source format for
 producing normal RPG Maker MV project data, so the RPG Maker MV editor can continue to
 work with the generated result.

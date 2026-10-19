@@ -12,26 +12,54 @@ import { isProjectDataReference } from "../domain/references.js";
 import type { ReferenceResolver, ValidationIssue } from "./types.js";
 import { captureReferenceIssue } from "./shared.js";
 import { isReferenceValue } from "./inspection.js";
+import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
+
+type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
 export function validatePages(
   pages: readonly EventPage[],
   resolver: ReferenceResolver,
-  options: { scriptEnabled: boolean },
+  options: CommandValidationOptions,
   issues: ValidationIssue[],
 ): void {
-  for (const page of pages) {
+  for (const [pageIndex, page] of pages.entries()) {
     validateCondition(page.conditions, resolver, issues);
-    validateNodes(page.commands, resolver, options, issues);
+    validateNodes(
+      page.commands,
+      resolver,
+      { ...options, path: `pages[${pageIndex}].commands` },
+      issues,
+    );
   }
 }
 
 export function validateNodes(
   nodes: readonly DslCommand[],
   resolver: ReferenceResolver,
-  options: { scriptEnabled: boolean },
+  options: CommandValidationOptions,
   issues: ValidationIssue[],
 ): void {
-  for (const node of nodes) {
+  for (const [nodeIndex, node] of nodes.entries()) {
+    const nodePath = `${options.path ?? "commands"}[${nodeIndex}]`;
+    const childOptions = (field: string): CommandValidationOptions => ({
+      ...options,
+      path: `${nodePath}.${field}`,
+    });
+    const captureSwitchIssue = (
+      code: string,
+      field: string,
+      action: () => unknown,
+    ): number | undefined => {
+      try {
+        return action() as number | undefined;
+      } catch (error) {
+        issues.push({
+          level: "error",
+          message: `${code} validation ${options.identity ?? "event"}.${nodePath}.${field}: ${error instanceof Error ? error.message : String(error)}`,
+        });
+        return undefined;
+      }
+    };
     if (node.kind === "script" && !options.scriptEnabled) {
       issues.push({
         level: "error",
@@ -39,7 +67,45 @@ export function validateNodes(
       });
     }
     if (node.kind === "controlSwitches") {
-      validateReferenceOrRange(node.switch, resolver, issues);
+      const value: unknown = node.value;
+      if ("from" in node.switch) {
+        const range = node.switch;
+        const from = captureSwitchIssue("MV-E121-REFERENCE", "switch.from", () =>
+          resolver.resolveReference(range.from),
+        );
+        const to = captureSwitchIssue("MV-E121-REFERENCE", "switch.to", () =>
+          resolver.resolveReference(range.to),
+        );
+        if (from !== undefined && to !== undefined && from > to)
+          captureSwitchIssue("MV-E121-RANGE", "switch", () => {
+            throw new Error(
+              `expected start <= end; received ${from}..${to}. Ranges are not reordered.`,
+            );
+          });
+      } else {
+        captureSwitchIssue("MV-E121-REFERENCE", "switch", () =>
+          resolver.resolveReference(node.switch as ReferenceValue<"switch">),
+        );
+      }
+      if (typeof value !== "boolean")
+        captureSwitchIssue("MV-E121-VALUE", "value", () => {
+          throw new Error(`expected explicit boolean; received ${String(value)}.`);
+        });
+    }
+    if (node.kind === "controlSelfSwitch") {
+      const value: unknown = node.value;
+      if (typeof value !== "boolean")
+        captureSwitchIssue("MV-E123-VALUE", "value", () => {
+          throw new Error(`expected explicit boolean; received ${String(value)}.`);
+        });
+      captureSwitchIssue("MV-E123-LETTER", "selfSwitch", () =>
+        assertNativeSwitchCommand(123, [node.selfSwitch, node.value ? 0 : 1]),
+      );
+    }
+    if (node.kind === "rawDslCommand" && (node.code === 121 || node.code === 123)) {
+      captureSwitchIssue(`MV-E${node.code}-RAW`, "parameters", () =>
+        assertNativeSwitchCommand(node.code, node.parameters, resolver),
+      );
     }
     if (node.kind === "controlVariables") {
       validateReferenceOrRange(node.variable, resolver, issues);
@@ -97,11 +163,11 @@ export function validateNodes(
       });
     }
     if (node.kind === "showChoices") {
-      for (const branch of node.branches) {
-        validateNodes(branch, resolver, options, issues);
+      for (const [branchIndex, branch] of node.branches.entries()) {
+        validateNodes(branch, resolver, childOptions(`branches[${branchIndex}]`), issues);
       }
       if (node.cancelBranch) {
-        validateNodes(node.cancelBranch, resolver, options, issues);
+        validateNodes(node.cancelBranch, resolver, childOptions("cancelBranch"), issues);
       }
     }
     if (node.kind === "commonEvent") {
@@ -146,7 +212,7 @@ export function validateNodes(
     }
     if (node.kind === "battleProcessing") {
       if (node.win) {
-        validateNodes(node.win, resolver, options, issues);
+        validateNodes(node.win, resolver, childOptions("win"), issues);
       }
       if (node.escape) {
         if (node.canEscape !== true) {
@@ -155,7 +221,7 @@ export function validateNodes(
             message: "Battle Processing escape branch requires canEscape: true.",
           });
         }
-        validateNodes(node.escape, resolver, options, issues);
+        validateNodes(node.escape, resolver, childOptions("escape"), issues);
       }
       if (node.lose) {
         if (node.canLose !== true) {
@@ -164,7 +230,7 @@ export function validateNodes(
             message: "Battle Processing lose branch requires canLose: true.",
           });
         }
-        validateNodes(node.lose, resolver, options, issues);
+        validateNodes(node.lose, resolver, childOptions("lose"), issues);
       }
     }
     if (node.kind === "shopProcessing") {
@@ -267,9 +333,9 @@ export function validateNodes(
     }
     if (node.kind === "conditional") {
       validateConditionalBranchCondition(node.condition, resolver, options, issues);
-      validateNodes(node.then, resolver, options, issues);
+      validateNodes(node.then, resolver, childOptions("then"), issues);
       if (node.else) {
-        validateNodes(node.else, resolver, options, issues);
+        validateNodes(node.else, resolver, childOptions("else"), issues);
       }
     }
   }
@@ -571,8 +637,22 @@ export function validateReferenceOrRange<TKind extends ReferenceKind>(
   issues: ValidationIssue[],
 ): void {
   if ("from" in value) {
-    captureReferenceIssue(() => resolver.resolveReference(value.from), issues);
-    captureReferenceIssue(() => resolver.resolveReference(value.to), issues);
+    let from: number | undefined;
+    let to: number | undefined;
+    captureReferenceIssue(() => {
+      from = resolver.resolveReference(value.from);
+      return from;
+    }, issues);
+    captureReferenceIssue(() => {
+      to = resolver.resolveReference(value.to);
+      return to;
+    }, issues);
+    if (from !== undefined && to !== undefined && from > to) {
+      issues.push({
+        level: "error",
+        message: `MV-REFERENCE-RANGE range start ${from} exceeds end ${to}; ranges are not reordered.`,
+      });
+    }
     return;
   }
 

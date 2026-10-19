@@ -51,7 +51,9 @@ export type SnapshotReferenceInput = {
   tilesets?: readonly ReferenceEntry[];
   troops?: readonly ReferenceEntry[];
   switches?: readonly ReferenceEntry[];
+  switchCapacity?: number;
   variables?: readonly ReferenceEntry[];
+  variableCapacity?: number;
   weapons?: readonly ReferenceEntry[];
 };
 
@@ -103,6 +105,7 @@ export type StagedDataGraph = {
 export type ReferenceScope = {
   byId: Map<number, ReferenceEntry>;
   byName: DuplicateAwareNameIndex;
+  capacity?: number;
 };
 
 export type ReferenceScopes = Record<ReferenceKind, ReferenceScope>;

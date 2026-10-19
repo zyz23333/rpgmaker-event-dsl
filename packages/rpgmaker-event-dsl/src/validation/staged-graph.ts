@@ -183,7 +183,13 @@ export function buildSnapshotReferenceInput(
     tilesets: readObjectReferenceEntries(source.tilesets ?? []),
     troops: readObjectReferenceEntries(source.troops ?? []),
     switches: readSystemNameEntries(source.system ?? {}, "switches"),
+    switchCapacity: Array.isArray(source.system?.switches)
+      ? Math.max(0, source.system.switches.length - 1)
+      : 0,
     variables: readSystemNameEntries(source.system ?? {}, "variables"),
+    variableCapacity: Array.isArray(source.system?.variables)
+      ? Math.max(0, source.system.variables.length - 1)
+      : 0,
     weapons: readObjectReferenceEntries(source.weapons ?? []),
   };
 }

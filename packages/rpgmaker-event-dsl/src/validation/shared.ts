@@ -6,6 +6,7 @@ export function buildDuplicateAwareNameIndex(
   const index: DuplicateAwareNameIndex = new Map();
 
   for (const entry of entries) {
+    if (entry.name.length === 0) continue;
     const existing = index.get(entry.name);
     if (existing) {
       existing.push(entry.id);
