@@ -10,6 +10,7 @@ import {
 } from "../../decompiler/core.js";
 import { vehicleFromCode } from "../flow/decompile.js";
 import { assertNativeMovementRoute, assertNativeMovementRecord } from "./validation.js";
+import { renderJsonValue } from "../../project-data/json-values.js";
 
 export function renderTransferPlayer(
   command: RawEventCommand,
@@ -335,13 +336,13 @@ function renderMoveRouteInstruction(
     case 14:
       return typeof parameters[0] === "number" && typeof parameters[1] === "number"
         ? {
-            expression: `{ kind: "jump", x: ${parameters[0]}, y: ${parameters[1]} }`,
+            expression: `{ kind: "jump", x: ${renderJsonValue(parameters[0])}, y: ${renderJsonValue(parameters[1])} }`,
             helperNames: [],
           }
         : null;
     case 15:
       return typeof parameters[0] === "number"
-        ? { expression: `{ kind: "routeWait", frames: ${parameters[0]} }`, helperNames: [] }
+        ? { expression: `{ kind: "wait", frames: ${parameters[0]} }`, helperNames: [] }
         : null;
     case 27:
     case 28: {
@@ -397,18 +398,21 @@ function renderMoveRouteInstruction(
     case 41:
       return typeof parameters[0] === "string" && typeof parameters[1] === "number"
         ? {
-            expression: `{ kind: "changeImage", image: imageAsset({ folder: "characters", name: ${literal(parameters[0])} }), index: ${parameters[1]} }`,
-            helperNames: ["imageAsset"],
+            expression: `{ kind: "changeImage", character: ${parameters[0] === "" ? "null" : `imageAsset({ folder: "characters", name: ${literal(parameters[0])} })`}, characterIndex: ${renderJsonValue(parameters[1])} }`,
+            helperNames: parameters[0] === "" ? [] : ["imageAsset"],
           }
         : null;
     case 42:
       return typeof parameters[0] === "number"
-        ? { expression: `{ kind: "changeOpacity", opacity: ${parameters[0]} }`, helperNames: [] }
+        ? {
+            expression: `{ kind: "changeOpacity", opacity: ${renderJsonValue(parameters[0])} }`,
+            helperNames: [],
+          }
         : null;
     case 43:
       return isBlendMode(parameters[0])
         ? {
-            expression: `{ kind: "changeBlendMode", blendMode: ${parameters[0]} }`,
+            expression: `{ kind: "changeBlendMode", blendMode: ${literal(["normal", "additive", "multiply", "screen"][parameters[0]])} }`,
             helperNames: [],
           }
         : null;
@@ -499,8 +503,8 @@ export function renderMoveRoutePlaySe(
   }
 
   return {
-    expression: `{ kind: "playSe", audio: { asset: audioAsset({ folder: "se", name: ${literal(audio.name)} }), volume: ${audio.volume}, pitch: ${audio.pitch}, pan: ${audio.pan} } }`,
-    helperNames: ["audioAsset"],
+    expression: `{ kind: "playSe", audio: { asset: ${audio.name === "" ? "null" : `audioAsset({ folder: "se", name: ${literal(audio.name)} })`}, volume: ${renderJsonValue(audio.volume)}, pitch: ${renderJsonValue(audio.pitch)}, pan: ${renderJsonValue(audio.pan)} } }`,
+    helperNames: audio.name === "" ? [] : ["audioAsset"],
   };
 }
 

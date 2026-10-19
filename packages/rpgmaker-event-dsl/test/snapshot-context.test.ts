@@ -248,11 +248,17 @@ changeEquipment({ actor: actorRef({ id: 1 }), equipmentTypeId: 6, itemId: 77 })`
         for (const id of [0, 99]) {
           const currentSource = source(command!.replace("99", String(id)));
           await writeFile(sourcePath, currentSource);
+          const diagnostic =
+            kind === "tileset" && id === 0
+              ? command!.startsWith("rawDslCommand")
+                ? "MV-E282-PARAMETERS"
+                : "MV-E282-INPUT"
+              : `Unknown ${kind} reference id: ${id}`;
           await expect(compileWorkspace({ workspaceRoot, check: true })).rejects.toThrow(
-            `Unknown ${kind} reference id: ${id}`,
+            diagnostic,
           );
           await expect(compileWorkspace({ workspaceRoot, check: false })).rejects.toThrow(
-            `Unknown ${kind} reference id: ${id}`,
+            diagnostic,
           );
           expect(await readdir(stateRoot)).not.toContain("generated-project-data");
           expect(await readFile(join(stateRoot, "sync-manifest.json"), "utf8")).toBe(manifest);

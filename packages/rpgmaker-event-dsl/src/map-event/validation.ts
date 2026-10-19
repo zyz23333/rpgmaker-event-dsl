@@ -7,7 +7,7 @@ function fail(path: string, expected: string, value: unknown, code = "MV-MAP-PAG
   throw new CommandStructureError(code, "Invalid Map Event input.", {
     dslPath: path,
     expected,
-    actual: String(value),
+    actual: Object.is(value, -0) ? "-0" : String(value),
   });
 }
 
@@ -40,10 +40,16 @@ function object(
   return record;
 }
 
-function integer(value: unknown, path: string, min: number, max = Number.MAX_SAFE_INTEGER): void {
+function integer(
+  value: unknown,
+  path: string,
+  min: number,
+  max = Number.MAX_SAFE_INTEGER,
+  allowNegativeZero = false,
+): void {
   if (
     !Number.isSafeInteger(value) ||
-    Object.is(value, -0) ||
+    (!allowNegativeZero && Object.is(value, -0)) ||
     (value as number) < min ||
     (value as number) > max
   )
@@ -101,11 +107,18 @@ export function assertPageConditions(
     const kind = field === "switch1" || field === "switch2" ? "switch" : field;
     if (ref.kind !== kind || Object.hasOwn(ref, "id") === Object.hasOwn(ref, "name"))
       fail(`${path}.${field}.ref`, `${kind} reference with exactly one ID or name`, record.ref);
-    if ("id" in ref) integer(ref.id, `${path}.${field}.ref.id`, record.enabled ? 1 : 0);
+    if ("id" in ref)
+      integer(
+        ref.id,
+        `${path}.${field}.ref.id`,
+        record.enabled ? 1 : 0,
+        Number.MAX_SAFE_INTEGER,
+        record.enabled === false,
+      );
     else if (typeof ref.name !== "string" || ref.name.length === 0)
       fail(`${path}.${field}.ref.name`, "nonempty name", ref.name);
     if (field === "variable")
-      integer(record.atLeast, `${path}.${field}.atLeast`, -99999999, 99999999);
+      integer(record.atLeast, `${path}.${field}.atLeast`, -99999999, 99999999, true);
     if (record.enabled || !("id" in ref)) {
       try {
         resolver.resolveReference(
@@ -155,7 +168,7 @@ export function assertMapPageInput(
       ["tileId", 1023],
       ["pattern", 2],
     ] as const)
-      if (image[key] !== undefined) integer(image[key], `${path}.image.${key}`, 0, max);
+      if (image[key] !== undefined) integer(image[key], `${path}.image.${key}`, 0, max, true);
     if (image.direction !== undefined && !pageDirections.includes(image.direction as "down"))
       fail(
         `${path}.image.direction`,

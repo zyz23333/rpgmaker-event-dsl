@@ -1,0 +1,18 @@
+{
+  "manifest": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\product-freeze-v1-30dacce6-a528-4095-9669-f75ade4a266e\\manifest.json",
+  "sha256": "fe98bd6f58a2d2c4b638bfb8ed8b624feed563788866e33774c898b96911bc67",
+  "groups": {
+    "src": {
+      "count": 99,
+      "sha256": "eae8e098943006f9c0bb47a6caca0fa30c4977e44795cac2c7ff8617eda5a02c"
+    },
+    "test": {
+      "count": 59,
+      "sha256": "a20ccefda6e64ef6f9a107f50340fc8767d19f430be89209f78f223ac2d1c0ff"
+    },
+    "dist": {
+      "count": 15,
+      "sha256": "4da7aa0136085e036047d75f22164b9dee867e79655e33de4f2ebcd66ddebc19"
+    }
+  }
+}

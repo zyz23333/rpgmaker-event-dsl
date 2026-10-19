@@ -1,0 +1,536 @@
+{
+  "purpose": "Literal native control preparation only; no product or ticket acceptance",
+  "raw": {
+    "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v2-literal-7ea6daa9-5f9d-494c-9fc0-07b6987528b6\\literal-result.json",
+    "sha256": "4f0774026b4bdeab53b0f38654406e134d7bb6e862c59d81012c6f2b1805b661",
+    "bytes": 3674912
+  },
+  "startedAt": "2026-10-19T15:47:26.506Z",
+  "completedAt": "2026-10-19T15:47:39.299Z",
+  "options": {
+    "packageRoot": "C:/Users/Shuen/.codex/worktrees/mv-ticket-33/rpgmaker-event-dsl/packages/rpgmaker-event-dsl",
+    "seedRoot": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-native-seed-v1-f2200e0d-4c38-45c8-b97d-35042ecdf246",
+    "host": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\nwjs-win-test\\game.exe",
+    "outputRoot": "C:/Users/Shuen/.codex/tmp",
+    "timeoutMs": 50000
+  },
+  "nativeIdentity": {
+    "host": {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\nwjs-win-test\\game.exe",
+      "sha256": "78beb07fa8f2b905d468a40d64d0d5588b4cfa42d7822d5e16878245657da3aa"
+    },
+    "modules": {
+      "nw.dll": {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\nwjs-win-test\\nw.dll",
+        "sha256": "805e7c76008be83acf5da3401c638ff67a0fa897361996a5ef1788c5cc759ef2"
+      },
+      "node.dll": {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\nwjs-win-test\\node.dll",
+        "sha256": "547975eb298eac7a4bd4a452ef3d451d25a85c5fc7c01dd74dc2705cae80a85c"
+      }
+    },
+    "engine": {
+      "rpg_core.js": "9ad9914cc421af6d054c3f01b022b7383863b047ec3f6f76aa897e6cfbf864c6",
+      "rpg_managers.js": "b3d5c746cf52234bdd34af746dbf3caecf96bb3477cc6d24121c4a1a11241114",
+      "rpg_objects.js": "2d43dd9d8974c88a1b82ffa493d6d8a02c4ce1d0dfc8f05e6c0ab731e3f0573e",
+      "rpg_scenes.js": "a76ea8c14ec7414a0e2bb488b19734603cc3d8aace3f163e3aa82fc3d0d20d20",
+      "rpg_sprites.js": "f13e67ef4ed308afe71c8503dbe4da65b478cb772a7c0cea88d0e280a4e4fcb0",
+      "rpg_windows.js": "2501aea15906d84a2fb51de20e6dc006f847249674f14802ec2ac2dd5361bb99",
+      "main.js": "dcab1427f95c4bcedf1ed595b828d0c423d4c8d1767452c9a4e651a9c07a3ab9"
+    }
+  },
+  "sides": {
+    "literal": {
+      "project": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v2-literal-7ea6daa9-5f9d-494c-9fc0-07b6987528b6\\Game",
+      "native": {
+        "launch": {
+          "pid": 35296,
+          "host": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\nwjs-win-test\\game.exe",
+          "args": [
+            "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v2-literal-7ea6daa9-5f9d-494c-9fc0-07b6987528b6\\Game",
+            "--user-data-dir=C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v2-literal-7ea6daa9-5f9d-494c-9fc0-07b6987528b6\\Game\\NativeProfile"
+          ],
+          "profile": {
+            "directory": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v2-literal-7ea6daa9-5f9d-494c-9fc0-07b6987528b6\\Game\\NativeProfile",
+            "absentBeforeLaunch": true,
+            "checkedAt": "2026-10-19T15:47:26.733Z"
+          },
+          "cwd": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v2-literal-7ea6daa9-5f9d-494c-9fc0-07b6987528b6\\Game",
+          "windowsHide": true,
+          "at": "2026-10-19T15:47:26.754Z"
+        },
+        "exit": {
+          "exitCode": 0,
+          "signal": null
+        },
+        "runtime-result.json": {
+          "bytes": 80842,
+          "sha256": "ef869b51dcc7928ab7cde54f27b83079bbd9f68733150b2afe12c776bfd165fe",
+          "value": {
+            "purpose": "Ticket33 allocated R6/R7 movement None/full single-slot delivery; not final49–54 acceptance",
+            "timestamp": "2026-10-19T15:47:39.177Z",
+            "method": "actual-native-game",
+            "engine": "1.6.1",
+            "versions": {
+              "http_parser": "2.7.0",
+              "node": "9.7.1",
+              "v8": "6.5.254.31",
+              "uv": "1.19.2",
+              "zlib": "1.2.11",
+              "ares": "1.13.0",
+              "modules": "59",
+              "nghttp2": "1.29.0",
+              "napi": "2",
+              "openssl": "1.0.2n",
+              "icu": "60.1",
+              "unicode": "10.0",
+              "cldr": "32.0",
+              "tz": "2017c",
+              "nw": "0.29.0",
+              "node-webkit": "0.29.0",
+              "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+              "nw-flavor": "sdk",
+              "chromium": "65.0.3325.146"
+            },
+            "execPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\nwjs-win-test\\game.exe",
+            "pid": 34648,
+            "cwd": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v2-literal-7ea6daa9-5f9d-494c-9fc0-07b6987528b6\\Game",
+            "scene": "Scene_Map",
+            "frame": 393,
+            "engineFiles": {
+              "rpg_core.js": "9ad9914cc421af6d054c3f01b022b7383863b047ec3f6f76aa897e6cfbf864c6",
+              "rpg_managers.js": "b3d5c746cf52234bdd34af746dbf3caecf96bb3477cc6d24121c4a1a11241114",
+              "rpg_objects.js": "2d43dd9d8974c88a1b82ffa493d6d8a02c4ce1d0dfc8f05e6c0ab731e3f0573e",
+              "rpg_scenes.js": "a76ea8c14ec7414a0e2bb488b19734603cc3d8aace3f163e3aa82fc3d0d20d20",
+              "rpg_sprites.js": "f13e67ef4ed308afe71c8503dbe4da65b478cb772a7c0cea88d0e280a4e4fcb0",
+              "rpg_windows.js": "2501aea15906d84a2fb51de20e6dc006f847249674f14802ec2ac2dd5361bb99",
+              "main.js": "dcab1427f95c4bcedf1ed595b828d0c423d4c8d1767452c9a4e651a9c07a3ab9"
+            },
+            "expected": {
+              "allMarkersOnce": true,
+              "inactiveSavedRouteNeverRuns": true,
+              "fixedPageRetainsInitialLocation": true,
+              "customRouteExecutesNatively": true,
+              "autonomousWaitDoesNotBlockMain": true,
+              "parallelDuringAutonomous": true,
+              "forcedNoWaitReturnsSameFrame": true,
+              "forcedRouteStartsAfterContinuation": true,
+              "forcedNoWaitMovesAndFinishes": true,
+              "forcedWaitFinishesBeforeContinuation": true,
+              "forcedWaitIncludesMovementAndDelay": true,
+              "parallelDuringForcedWait": true,
+              "finished": true,
+              "singleSlotScriptInBothEntrances": true,
+              "scriptThisBinding": true,
+              "noneImageKeepsIndex": true,
+              "noneSeKeepsBufferPlaying": true,
+              "realAudioSignalBeforeAfterNone": true,
+              "routeSavedStateFlags": true
+            },
+            "actual": {
+              "allMarkersOnce": true,
+              "inactiveSavedRouteNeverRuns": true,
+              "fixedPageRetainsInitialLocation": true,
+              "customRouteExecutesNatively": true,
+              "autonomousWaitDoesNotBlockMain": true,
+              "parallelDuringAutonomous": true,
+              "forcedNoWaitReturnsSameFrame": true,
+              "forcedRouteStartsAfterContinuation": true,
+              "forcedNoWaitMovesAndFinishes": true,
+              "forcedWaitFinishesBeforeContinuation": true,
+              "forcedWaitIncludesMovementAndDelay": true,
+              "parallelDuringForcedWait": true,
+              "finished": true,
+              "singleSlotScriptInBothEntrances": true,
+              "scriptThisBinding": true,
+              "noneImageKeepsIndex": true,
+              "noneSeKeepsBufferPlaying": true,
+              "realAudioSignalBeforeAfterNone": true,
+              "routeSavedStateFlags": true
+            },
+            "trace": [
+              {
+                "id": "autonomous-enabled",
+                "frame": 114,
+                "parallel": 0,
+                "fixed": {
+                  "x": 3,
+                  "y": 3,
+                  "realX": 3,
+                  "forcing": false
+                },
+                "custom": {
+                  "x": 5,
+                  "y": 3,
+                  "realX": 5,
+                  "forcing": false
+                },
+                "interpreterWait": ""
+              },
+              {
+                "id": "autonomous-main-continues",
+                "frame": 115,
+                "parallel": 0,
+                "fixed": {
+                  "x": 3,
+                  "y": 3,
+                  "realX": 3,
+                  "forcing": false
+                },
+                "custom": {
+                  "x": 5,
+                  "y": 3,
+                  "realX": 5,
+                  "forcing": false
+                },
+                "interpreterWait": ""
+              },
+              {
+                "id": "custom-start",
+                "frame": 115,
+                "parallel": 0,
+                "fixed": {
+                  "x": 3,
+                  "y": 3,
+                  "realX": 3,
+                  "forcing": false
+                },
+                "custom": {
+                  "x": 5,
+                  "y": 3,
+                  "realX": 5,
+                  "forcing": false
+                },
+                "interpreterWait": ""
+              },
+              {
+                "id": "custom-end",
+                "frame": 165,
+                "parallel": 25,
+                "fixed": {
+                  "x": 3,
+                  "y": 3,
+                  "realX": 3,
+                  "forcing": false
+                },
+                "custom": {
+                  "x": 6,
+                  "y": 3,
+                  "realX": 6,
+                  "forcing": false
+                },
+                "interpreterWait": ""
+              },
+              {
+                "id": "autonomous-settled",
+                "frame": 190,
+                "parallel": 38,
+                "fixed": {
+                  "x": 3,
+                  "y": 3,
+                  "realX": 3,
+                  "forcing": false
+                },
+                "custom": {
+                  "x": 6,
+                  "y": 3,
+                  "realX": 6,
+                  "forcing": false
+                },
+                "interpreterWait": ""
+              },
+              {
+                "id": "before-no-wait",
+                "frame": 190,
+                "parallel": 38,
+                "fixed": {
+                  "x": 3,
+                  "y": 3,
+                  "realX": 3,
+                  "forcing": false
+                },
+                "custom": {
+                  "x": 6,
+                  "y": 3,
+                  "realX": 6,
+                  "forcing": false
+                },
+                "interpreterWait": ""
+              },
+              {
+                "id": "after-no-wait",
+                "frame": 190,
+                "parallel": 38,
+                "fixed": {
+                  "x": 3,
+                  "y": 3,
+                  "realX": 3,
+                  "forcing": true
+                },
+                "custom": {
+                  "x": 6,
+                  "y": 3,
+                  "realX": 6,
+                  "forcing": false
+                },
+                "interpreterWait": ""
+              },
+              {
+                "id": "forced-no-wait-start",
+                "frame": 190,
+                "parallel": 38,
+                "fixed": {
+                  "x": 3,
+                  "y": 3,
+                  "realX": 3,
+                  "forcing": true
+                },
+                "custom": {
+                  "x": 6,
+                  "y": 3,
+                  "realX": 6,
+                  "forcing": false
+                },
+                "interpreterWait": ""
+              },
+              {
+                "id": "forced-no-wait-end",
+                "frame": 219,
+                "parallel": 52,
+                "fixed": {
+                  "x": 4,
+                  "y": 3,
+                  "realX": 4,
+                  "forcing": true
+                },
+                "custom": {
+                  "x": 6,
+                  "y": 3,
+                  "realX": 6,
+                  "forcing": false
+                },
+                "interpreterWait": ""
+              },
+              {
+                "id": "no-wait-settled",
+                "frame": 250,
+                "parallel": 68,
+                "fixed": {
+                  "x": 4,
+                  "y": 3,
+                  "realX": 4,
+                  "forcing": false
+                },
+                "custom": {
+                  "x": 6,
+                  "y": 3,
+                  "realX": 6,
+                  "forcing": false
+                },
+                "interpreterWait": ""
+              },
+              {
+                "id": "before-wait",
+                "frame": 250,
+                "parallel": 68,
+                "fixed": {
+                  "x": 4,
+                  "y": 3,
+                  "realX": 4,
+                  "forcing": false
+                },
+                "custom": {
+                  "x": 6,
+                  "y": 3,
+                  "realX": 6,
+                  "forcing": false
+                },
+                "interpreterWait": ""
+              },
+              {
+                "id": "forced-wait-start",
+                "frame": 250,
+                "parallel": 68,
+                "fixed": {
+                  "x": 4,
+                  "y": 3,
+                  "realX": 4,
+                  "forcing": true
+                },
+                "custom": {
+                  "x": 6,
+                  "y": 3,
+                  "realX": 6,
+                  "forcing": false
+                },
+                "interpreterWait": "route"
+              },
+              {
+                "id": "forced-wait-end",
+                "frame": 390,
+                "parallel": 138,
+                "fixed": {
+                  "x": 3,
+                  "y": 3,
+                  "realX": 3,
+                  "forcing": true
+                },
+                "custom": {
+                  "x": 6,
+                  "y": 3,
+                  "realX": 6,
+                  "forcing": false
+                },
+                "interpreterWait": "route"
+              },
+              {
+                "id": "after-wait",
+                "frame": 392,
+                "parallel": 139,
+                "fixed": {
+                  "x": 3,
+                  "y": 3,
+                  "realX": 3,
+                  "forcing": false
+                },
+                "custom": {
+                  "x": 6,
+                  "y": 3,
+                  "realX": 6,
+                  "forcing": false
+                },
+                "interpreterWait": ""
+              },
+              {
+                "id": "finished",
+                "frame": 392,
+                "parallel": 139,
+                "fixed": {
+                  "x": 3,
+                  "y": 3,
+                  "realX": 3,
+                  "forcing": false
+                },
+                "custom": {
+                  "x": 6,
+                  "y": 3,
+                  "realX": 6,
+                  "forcing": false
+                },
+                "interpreterWait": ""
+              }
+            ],
+            "movement33": {
+              "scriptTrace": [
+                {
+                  "eventId": 3,
+                  "correctThis": true,
+                  "characterName": "",
+                  "characterIndex": 7,
+                  "literal": "  \r\ntrailing \t"
+                },
+                {
+                  "eventId": 2,
+                  "correctThis": true,
+                  "characterName": "",
+                  "characterIndex": 7,
+                  "literal": "  \r\ntrailing \t"
+                }
+              ],
+              "state": {
+                "name": "",
+                "index": 7,
+                "sameBuffer": true,
+                "playing": true,
+                "walk": false,
+                "step": false,
+                "fix": false,
+                "through": false,
+                "transparent": false,
+                "opacity": 255,
+                "blend": 0,
+                "speed": 6,
+                "frequency": 1,
+                "switch6": false
+              },
+              "audioSamples": {
+                "before-none": {
+                  "frame": 354,
+                  "rms": 0.08497966739196641,
+                  "peak": 0.327526718378067,
+                  "sha256": "91bffb4f1083252c85b677ff3714623d8dc764fa87d11ecc7f7272e3b0e7a3d0",
+                  "samples": 2048
+                },
+                "after-none": {
+                  "frame": 372,
+                  "rms": 0.08311620570429645,
+                  "peak": 0.3253559172153473,
+                  "sha256": "44241765ba9379da8fc6c0e44f4085a5e0fc3a4c0054260d94873c97eda8a0dc",
+                  "samples": 2048
+                }
+              }
+            },
+            "error": null,
+            "passed": true,
+            "control": "Observer only starts clean native newgame and passively captures loaded carriers/results. Native autorun, page autonomous movement, forced routes, interpreter wait and independent Parallel Event perform all work. E355/M45 traces are saved fixture commands; no manual interpreter, Scene, movement, wait, RNG or loader driving/replacement.",
+            "loadedHashes": {
+              "Map001.json": "8a33293783986c7e1b26641cb3360b1efa04b2d3e168f977916ea1563cc21cff",
+              "CommonEvents.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+              "System.json": "a1bbce50f624b6ebb760e98dbaa8092e20c2e9454f57425a2acd7933e9ed9c20"
+            }
+          }
+        },
+        "runtime-process-identity.json": {
+          "bytes": 522,
+          "sha256": "f48d259709f989fd257310e0cd28658603123a4d3f270a166276cd252570b84e",
+          "value": {
+            "pid": 34648,
+            "ppid": 35296,
+            "execPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\nwjs-win-test\\game.exe",
+            "cwd": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v2-literal-7ea6daa9-5f9d-494c-9fc0-07b6987528b6\\Game",
+            "appName": "mv-native-literal-6bcfdcdd-4fbb-4979-905b-d4b8a8969b3f",
+            "appDataPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v2-literal-7ea6daa9-5f9d-494c-9fc0-07b6987528b6\\Game\\NativeProfile\\Default",
+            "at": "2026-10-19T15:47:27.417Z"
+          }
+        },
+        "stdout.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true
+      },
+      "passed": true
+    }
+  },
+  "passed": true,
+  "redaction": "First-party complete native database values, engine/runtime, image/audio files and captured float samples remain only in the immutable external sandbox. This safe derivative retains exact raw hashes, complete carrier identities, all actual predicates, passive measurements/hashes, source/dist fingerprints and process/profile/engine/output/exit identities.",
+  "literalToolIdentity": {
+    "tooling": {
+      "node": "v22.23.0",
+      "path": "C:\\Users\\Shuen\\AppData\\Local\\pnpm-cache\\dlx\\e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7\\1a152fc0f14-2f10\\node_modules\\.pnpm\\node@22.23.0\\node_modules\\node\\bin\\node.exe",
+      "sha256": "17347995af08dadcc73a1a154f0942559fbc3f37b9ba57d4576b4d2bcb2834a2"
+    },
+    "scenarioSha256": "24d954c2ab23b2adcd522a391145bd2ecdf302d691fb05d4b6f780bb9d0372ca",
+    "harnessSha256": "9855efaa2afddccbd2c334b2f769c29354c25ba97ad63dc92e7e310d2c841140"
+  }
+}

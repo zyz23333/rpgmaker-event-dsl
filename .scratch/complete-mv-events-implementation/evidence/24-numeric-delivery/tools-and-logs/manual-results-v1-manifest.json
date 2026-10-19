@@ -1,0 +1,36 @@
+{
+  "purpose": "Five new exact current E1/E3/E6 and actual R1 evidence records; prior results/requirements unchanged",
+  "at": "2026-10-19T20:10:14.123Z",
+  "revision": {
+    "head": "71098b7a6647c15f57337a416cee176823037eed",
+    "status": " M packages/rpgmaker-event-dsl/test/support/mv-evidence.ts\n",
+    "diff": "diff --git a/packages/rpgmaker-event-dsl/test/support/mv-evidence.ts b/packages/rpgmaker-event-dsl/test/support/mv-evidence.ts\nindex 763e6df..1e03ce2 100644\n--- a/packages/rpgmaker-event-dsl/test/support/mv-evidence.ts\n+++ b/packages/rpgmaker-event-dsl/test/support/mv-evidence.ts\n@@ -188,25 +188,31 @@ export async function validateRequirements(): Promise<void> {\n   }\n   const resultsRoot = join(evidenceRoot, \"results\");\n   const runIds = new Set<string>();\n-  for (const path of await listFiles(resultsRoot)) {\n-    if (!path.endsWith(\".json\")) continue;\n-    const result = resultSchema.parse(JSON.parse(await readFile(path, \"utf8\")));\n-    const requirement = index.requirements.find(({ id }) => id === result.requirementId);\n-    if (requirement === undefined)\n-      throw new Error(`Result references unknown requirement: ${path}`);\n-    if (runIds.has(result.runId)) throw new Error(`Duplicate run ID: ${path}`);\n-    runIds.add(result.runId);\n-    if (sha256(JSON.stringify(result.source.files)) !== result.source.fingerprint) {\n-      throw new Error(`Source fingerprint differs from recorded files: ${path}`);\n-    }\n-    if (\n-      result.source.files.find((file) => file.path === result.fixture.path)?.sha256 !==\n-      result.fixture.sha256\n-    ) {\n-      throw new Error(`Fixture differs from captured source inputs: ${path}`);\n+  const resultPaths = (await listFiles(resultsRoot)).filter((path) => path.endsWith(\".json\"));\n+  for (let offset = 0; offset < resultPaths.length; offset += 8) {\n+    const batch = resultPaths.slice(offset, offset + 8);\n+    const contents = await Promise.allSettled(batch.map((path) => readFile(path, \"utf8\")));\n+    for (const [position, path] of batch.entries()) {\n+      const content = contents[position]!;\n+      if (content.status === \"rejected\") throw content.reason;\n+      const result = resultSchema.parse(JSON.parse(content.value));\n+      const requirement = index.requirements.find(({ id }) => id === result.requirementId);\n+      if (requirement === undefined)\n+        throw new Error(`Result references unknown requirement: ${path}`);\n+      if (runIds.has(result.runId)) throw new Error(`Duplicate run ID: ${path}`);\n+      runIds.add(result.runId);\n+      if (sha256(JSON.stringify(result.source.files)) !== result.source.fingerprint) {\n+        throw new Error(`Source fingerprint differs from recorded files: ${path}`);\n+      }\n+      if (\n+        result.source.files.find((file) => file.path === result.fixture.path)?.sha256 !==\n+        result.fixture.sha256\n+      ) {\n+        throw new Error(`Fixture differs from captured source inputs: ${path}`);\n+      }\n+      if (result.status === \"passed\" && result.difference !== null)\n+        throw new Error(`Passing result has a difference: ${path}`);\n     }\n-    if (result.status === \"passed\" && result.difference !== null)\n-      throw new Error(`Passing result has a difference: ${path}`);\n   }\n }\n \n"
+  },
+  "records": [
+    {
+      "file": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\manual-results-v1\\MV-S5-MAP-E1-e1-current-466e32f6-ffc3-4345-906d-de767c6abc47.json",
+      "sha256": "61aebfbbc048469033c3244e36a0f13a5669c5ddc1b42dbf7018a94ce0a15c3c",
+      "requirementId": "MV-S5-MAP-E1"
+    },
+    {
+      "file": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\manual-results-v1\\MV-S5-MAP-E3-e3-current-914b012b-2b89-41d8-9e45-4066aa429d27.json",
+      "sha256": "7bb3e532d25e075e80773dd4014e1f20a25cb23bfb859b9a0d4aa97d21ac3383",
+      "requirementId": "MV-S5-MAP-E3"
+    },
+    {
+      "file": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\manual-results-v1\\MV-S5-MAP-E6-e6-current-4c2329c7-0184-478a-8028-6413ce013fcc.json",
+      "sha256": "8daaa149089c271be5dccba203acceedd71253d775214b0c662fdac451df7598",
+      "requirementId": "MV-S5-MAP-E6"
+    },
+    {
+      "file": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\manual-results-v1\\MV-S5-MAP-R1-TRIGGERS-triggers-current-d76d0503-a153-4131-8307-1635ab4a6e4c.json",
+      "sha256": "ab0342b3e4955bed21e1bc8039040a78fd733068b9503d8d2f5ae53464f9afd2",
+      "requirementId": "MV-S5-MAP-R1-TRIGGERS"
+    },
+    {
+      "file": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\manual-results-v1\\MV-S5-MAP-R1-ROUTES-routes-current-717a5900-05b6-490c-a935-ab0dbdcda24a.json",
+      "sha256": "27c81fe49b6b82c6fb1cfe26ca716c0ff3f518be6dab5e15061750cc04006e69",
+      "requirementId": "MV-S5-MAP-R1-ROUTES"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-triggers-physical-v2-prepare-3f73c1d0-f524-42a0-843b-5af6150d75d2",
+  "prepared": true,
+  "nativeExecution": "not-executed; root native gate not released",
+  "isolation": {
+    "passed": true,
+    "referenceSeedLiteralUnchanged": true,
+    "distinctPhysicalDataRoots": true,
+    "allEntriesRegularAndUnlinked": true,
+    "completeDataFiles": {
+      "reference": 15,
+      "seed": 15,
+      "literal": 15,
+      "compiled": 15
+    }
+  }
+}
+Map event "R1 route-wait autorun" uses occupied coordinate (0, 0) on map 1.
+Map event "Parallel route-wait counter" uses occupied coordinate (0, 0) on map 1.
+Map event "R1 route-wait autorun" uses occupied coordinate (0, 0) on map 1.
+Map event "Parallel route-wait counter" uses occupied coordinate (0, 0) on map 1.
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-routes-physical-v2-prepare-fad83ee4-85e1-4a50-8d92-99bcd367495f",
+  "prepared": true,
+  "nativeExecution": "not-executed; root native gate not released",
+  "isolation": {
+    "passed": true,
+    "referenceSeedLiteralUnchanged": true,
+    "distinctPhysicalDataRoots": true,
+    "allEntriesRegularAndUnlinked": true,
+    "completeDataFiles": {
+      "reference": 15,
+      "seed": 15,
+      "literal": 15,
+      "compiled": 15
+    }
+  }
+}
+{"index":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-physical-v2-prepare-index-2bacbe7e-af0c-4524-852f-91e036dc4409.json","results":[{"case":"triggers","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-triggers-physical-v2-prepare-3f73c1d0-f524-42a0-843b-5af6150d75d2","prepared":true,"passed":false},{"case":"routes","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-routes-physical-v2-prepare-fad83ee4-85e1-4a50-8d92-99bcd367495f","prepared":true,"passed":false}]}

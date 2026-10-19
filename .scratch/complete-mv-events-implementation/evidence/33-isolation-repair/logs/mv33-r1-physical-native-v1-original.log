@@ -1,0 +1,98 @@
+{
+  "root": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-route-waits-delivery-v4-ae8c1388-ee47-42c1-b943-a3c71d226ea4",
+  "passed": true,
+  "checks": true,
+  "publication": {
+    "workspaceRoot": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-route-waits-delivery-v4-ae8c1388-ee47-42c1-b943-a3c71d226ea4\\compiled\\Workspace",
+    "files": {
+      "Map001.json": {
+        "beforePushSha256": "55deebf74bf24b23136dcf33644a0d47e93ddafeb4f1ed0f07d896f0be90c992",
+        "generatedSha256": "1663467fe8e45e93facfdecc5d869cb74a3beb36d5370eac3a977a70c69ce42b",
+        "afterPushSha256": "1663467fe8e45e93facfdecc5d869cb74a3beb36d5370eac3a977a70c69ce42b",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "sides": {
+    "literal": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "allMarkersOnce": true,
+        "inactiveSavedRouteNeverRuns": true,
+        "fixedPageRetainsInitialLocation": true,
+        "customRouteExecutesNatively": true,
+        "autonomousWaitDoesNotBlockMain": true,
+        "parallelDuringAutonomous": true,
+        "forcedNoWaitReturnsSameFrame": true,
+        "forcedRouteStartsAfterContinuation": true,
+        "forcedNoWaitMovesAndFinishes": true,
+        "forcedWaitFinishesBeforeContinuation": true,
+        "forcedWaitIncludesMovementAndDelay": true,
+        "parallelDuringForcedWait": true,
+        "finished": true
+      },
+      "error": null
+    },
+    "compiled": {
+      "passed": true,
+      "validation": {
+        "freshExplicitProfile": true,
+        "declaredProfile": true,
+        "identityParsed": true,
+        "declaredHost": true,
+        "declaredProject": true,
+        "ownedProcess": true,
+        "isolatedAppName": true,
+        "appDataPathRecorded": true,
+        "stdoutEmpty": true,
+        "stderrEmpty": true,
+        "exit0": true,
+        "runtimePassed": true,
+        "diskInputUnchanged": true,
+        "loadedCarriersMatch": true,
+        "engineIdentityMatches": true
+      },
+      "actual": {
+        "allMarkersOnce": true,
+        "inactiveSavedRouteNeverRuns": true,
+        "fixedPageRetainsInitialLocation": true,
+        "customRouteExecutesNatively": true,
+        "autonomousWaitDoesNotBlockMain": true,
+        "parallelDuringAutonomous": true,
+        "forcedNoWaitReturnsSameFrame": true,
+        "forcedRouteStartsAfterContinuation": true,
+        "forcedNoWaitMovesAndFinishes": true,
+        "forcedWaitFinishesBeforeContinuation": true,
+        "forcedWaitIncludesMovementAndDelay": true,
+        "parallelDuringForcedWait": true,
+        "finished": true
+      },
+      "error": null
+    }
+  }
+}
+
+{
+  "result": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-native-launch-r1-v1-22cfa57d-1c77-4d70-8a62-c9bb4854241b\\result.json",
+  "sha256": "25b1e463f421625e586e6387dbdfd0304731ad21619dd2ccd078963fa02ff759",
+  "passed": true,
+  "fullReferenceFiles": 1100,
+  "fullSeedFiles": 1101
+}

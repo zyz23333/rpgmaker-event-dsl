@@ -1,0 +1,71 @@
+{
+  "purpose": "Append-only native gate/index, final recorder/log and Codex PNG-inspection provenance; all first-party image bytes remain external",
+  "at": "2026-10-19T19:08:36.212Z",
+  "captured": [
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-record-final-results-v3.mts",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-record-final-results-v3.mts",
+      "sha256": "51496d9569adb5327645397a4f9d8b1bdcc71e201c72a1ef3baf94cc37b539e3"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-record-png-observation-v1.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-record-png-observation-v1.cjs",
+      "sha256": "0e47f0ee0f11c4b3252a4dc2c081ab7429aeb155755341a3d1c019e5bb979108"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-archive-final-extras-v1.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-archive-final-extras-v1.cjs",
+      "sha256": "d72bd2c81afd6c021ff7a32b14ff7e269112ee89cd9fa79ec85a305c85e82abf"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-final-documentary-results-v3.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-documentary-results-v3.log",
+      "sha256": "52adfdf932817a2945fba4921234df17178aeee4b6029b59dd92db4ec80fddd7"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-final-audit-v2.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-audit-v2.log",
+      "sha256": "80d2ad7ecadfb31c44e92581073a45af1efdc155ec9765ffafd1ca39badf3e4c"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-final-archive-v2.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-archive-v2.log",
+      "sha256": "a91674c39de62a82489a8b1190111375f9903eba150087b3babbd18dbd29c61b"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-final-supplemental-archive-v1.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-supplemental-archive-v1.log",
+      "sha256": "8158d032359f3e2293f1f45007433c53d54b8e9b7b59d62b1b24400f7d71cdb8"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-final-docs-v1.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-docs-v1.log",
+      "sha256": "af3007ecac438246ceac685f369c4a433d9821fd0b0dd78e0a75b4bb0436cdac"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\native-png-observation-v1.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/provenance/native-png-observation-v1.json",
+      "sha256": "d0f09e4dee288ed431f3a33c0c37dc8671086e3adf39e9e950d7ce5aa43f33ad"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\native-capture-contact-sheet-inputs-v1.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/provenance/native-capture-contact-sheet-inputs-v1.json",
+      "sha256": "ec531dafeb2658caeca64f6e8e49d331224329c80020c59d4342cf0e95331cbb"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-final-native-index-pointer.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/provenance/mv36-final-native-index-pointer.json",
+      "sha256": "e8c6af35b15a31f5df9a71aab8c29e664757ad29ebe8e21afb323a581625a37c"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-delivery-v4-native-index-328547d4-390b-4dd1-8005-4ddb9308951a.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/provenance/native-results-index-v4.json",
+      "sha256": "870bbc76774087f226915d3216c90fb0210c3b80c9cdb366291310f96a88c8d3"
+    },
+    {
+      "source": "M:/Shuen/Codex/mv-events-implementation-20261020/root-audits/mv36-root-physical-release-audit-93b683e1-6dbb-4a53-b2d4-ab7e77d58fb6.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/36-history/provenance/root-independent-native-release-audit-v2.json",
+      "sha256": "26219d895c58e748e2e2f036d1fa6f74fcea498b056584e17a7a0e8d47ee712b"
+    }
+  ]
+}

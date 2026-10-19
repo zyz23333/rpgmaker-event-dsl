@@ -1,0 +1,350 @@
+{
+  "purpose": "Clean ticket33 checkpoint preservation before25integration; no build/native product acceptance",
+  "revision": "5aec79a581dda64ebdc8062ae5661c5abcf0262c",
+  "at": "2026-10-19T15:57:01.868Z",
+  "entries": [
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-append-requirements-v1.cjs",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-append-requirements-v1.cjs",
+      "bytes": 8133,
+      "sha256": "3e3d918dc2244c1ed5a9152d9a4c0296102695dc06130be64fe3f8810dcc1e8d",
+      "originalModifiedAt": "2026-10-19T15:49:12.017Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-audit-editor-resources-v1.cjs",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-audit-editor-resources-v1.cjs",
+      "bytes": 4105,
+      "sha256": "07d65e41cac66ee007a1c9a6deadeca701da39243151fb5ae30cfbb1ea64138f",
+      "originalModifiedAt": "2026-10-19T15:51:05.919Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-archive-v1.cjs",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-checkpoint-archive-v1.cjs",
+      "bytes": 1944,
+      "sha256": "22207dd2470db03fdb3287cd58475f8232c50b6ed9a1cbed0b819516e4aaecf6",
+      "originalModifiedAt": "2026-10-19T15:55:43.819Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-archive-v2.cjs",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-checkpoint-archive-v2.cjs",
+      "bytes": 1958,
+      "sha256": "78bd70d02c19ab8e59597931b69d32c8884ce905554065f9981b24c62d33ce17",
+      "originalModifiedAt": "2026-10-19T15:57:01.621Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-editor-resources-latest-v1.json",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-editor-resources-latest-v1.json",
+      "bytes": 342,
+      "sha256": "28849c9b317b532e927edfdf409f77f731a7a37e5f3f2b65b33aaee0093aaf4f",
+      "originalModifiedAt": "2026-10-19T15:51:09.167Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-evidence-validator-isolated-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-evidence-validator-isolated-v1.log",
+      "bytes": 296,
+      "sha256": "2884261be44512e089f2eb956440b44367eb37495a2380526e24557308fa15ab",
+      "originalModifiedAt": "2026-10-19T15:51:43.451Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-focused-indexed-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-focused-indexed-v1.log",
+      "bytes": 1495,
+      "sha256": "0bb187f1c091b7d16bb5fabc548669ff1413e17eb1dfb1cf7991b70107cffa98",
+      "originalModifiedAt": "2026-10-19T15:50:56.376Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-focused-reference-gate-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-focused-reference-gate-v1.log",
+      "bytes": 288,
+      "sha256": "a2aad5832c897e567625c4a2b94c37247528e05d8ed8e2e365b6f98986ee8169",
+      "originalModifiedAt": "2026-10-19T15:41:34.793Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-green-all45-envelope-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-green-all45-envelope-v1.log",
+      "bytes": 3151,
+      "sha256": "af7f1a0ac4fe2dc758f71099429831ce39d25713e196e94ddff0585b5126a08a",
+      "originalModifiedAt": "2026-10-19T15:33:15.761Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-green-audio-and-untyped-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-green-audio-and-untyped-v1.log",
+      "bytes": 285,
+      "sha256": "0d2070813822fbcc2717468a4320023ad3d4eb722178cf436477a48e1fb4c8dd",
+      "originalModifiedAt": "2026-10-19T15:25:25.084Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-green-blend-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-green-blend-v1.log",
+      "bytes": 283,
+      "sha256": "8d4197c6ac58d35e4ea988c0169db62534b2d4555ee2d44aa023cf8a857005f1",
+      "originalModifiedAt": "2026-10-19T15:20:18.105Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-green-complete-matrix-v2.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-green-complete-matrix-v2.log",
+      "bytes": 290,
+      "sha256": "015a077221be25aa50031b41d77772d822c5b0e9422a0d87875e9d440c007eef",
+      "originalModifiedAt": "2026-10-19T15:38:25.123Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-green-image-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-green-image-v1.log",
+      "bytes": 282,
+      "sha256": "e56f35de4c2a059a0368f9de8bbb232da9058df3743a88e855f0d8ef463e86b5",
+      "originalModifiedAt": "2026-10-19T15:19:37.447Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-green-jump-domain-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-green-jump-domain-v1.log",
+      "bytes": 285,
+      "sha256": "0526b7b2698e42ed60b2274f914aace0bb95947836e2217edc98c5e475eb92e4",
+      "originalModifiedAt": "2026-10-19T15:22:31.849Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-green-literal-asset-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-green-literal-asset-v1.log",
+      "bytes": 296,
+      "sha256": "51209628ec8eadbb2077cdd56512d6f749077e19aa784c179a1b763622c4ff7a",
+      "originalModifiedAt": "2026-10-19T15:31:12.975Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-green-scalar-domains-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-green-scalar-domains-v1.log",
+      "bytes": 285,
+      "sha256": "c41f0e691a919f4ae230a25ee7db32f9f294464bc879c24aa090f5c55a3bc2d6",
+      "originalModifiedAt": "2026-10-19T15:23:59.659Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-green-se-none-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-green-se-none-v1.log",
+      "bytes": 282,
+      "sha256": "c512b6ede3c969a62f2fab03c68a52ab54938410939ef71d49f2c3a6727c58b8",
+      "originalModifiedAt": "2026-10-19T15:20:57.537Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-green-single-slot-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-green-single-slot-v1.log",
+      "bytes": 285,
+      "sha256": "614176049c33003048478492b2720e1014b267f2a717168ffde4e9cefee929ec",
+      "originalModifiedAt": "2026-10-19T15:26:46.675Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-green-switch-and-matrix-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-green-switch-and-matrix-v1.log",
+      "bytes": 12141,
+      "sha256": "a1e15ccd45236a272dca923cfa33904140784f10b26ef387ba9dc7a2b0acce71",
+      "originalModifiedAt": "2026-10-19T15:37:40.726Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-green-wait-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-green-wait-v1.log",
+      "bytes": 282,
+      "sha256": "cd5781a596362c90701b82242f8e8adc0ea29a9744541d9e0f305ffd0114e416",
+      "originalModifiedAt": "2026-10-19T15:18:44.330Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-literal-native-corrected-v2.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-literal-native-corrected-v2.log",
+      "bytes": 1431,
+      "sha256": "55a8ad3043a9a53d2160e9957ad05ad7c3431d9a5acd55b256d4667e96df1776",
+      "originalModifiedAt": "2026-10-19T15:47:39.345Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-literal-native-first-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-literal-native-first-v1.log",
+      "bytes": 1434,
+      "sha256": "73ff49661f3292fa520352b7f363687a35384caf73570d7e49e930e77003ebd2",
+      "originalModifiedAt": "2026-10-19T15:46:09.216Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-native-pair-delivery-v1.cjs",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-native-pair-delivery-v1.cjs",
+      "bytes": 15492,
+      "sha256": "2893bbb9627d90c45cd2d8a837294732647f1ca02cc391acbff90bed3acf648a",
+      "originalModifiedAt": "2026-10-19T15:44:51.257Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-native-seed-v1.json",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-native-seed-v1.json",
+      "bytes": 626,
+      "sha256": "e5c0d67823b02158c9ac9889bb2e435cc01092d2214dee90c874f4fb2d754e70",
+      "originalModifiedAt": "2026-10-19T15:44:51.863Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-prepare-native-adapters-v1.cjs",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-prepare-native-adapters-v1.cjs",
+      "bytes": 3219,
+      "sha256": "ee6ffe14df13f39c685c55092ab2f040f8698e38c2e865cee2787a82c3fe9217",
+      "originalModifiedAt": "2026-10-19T15:44:48.092Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-preserve-index-prefix-v1.cjs",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-preserve-index-prefix-v1.cjs",
+      "bytes": 1188,
+      "sha256": "ee19cd7b37a3517683f259de6ed46ccfc4c918273fb62d8df6e8931ea4a58fb4",
+      "originalModifiedAt": "2026-10-19T15:53:29.005Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r1-route-waits-delivery-v1.cjs",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-r1-route-waits-delivery-v1.cjs",
+      "bytes": 10308,
+      "sha256": "de0848a8d54244cf3d89d9e2da4f266845f76c14c81a6ebfecb6f5ed3ea45ba1",
+      "originalModifiedAt": "2026-10-19T15:44:51.257Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v1.cjs",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-r6-r7-movement-delivery-v1.cjs",
+      "bytes": 8111,
+      "sha256": "b56e78987bd85d16c1a3b96b9f551aa046b906ce10fac0ebe12e05b52ce8414d",
+      "originalModifiedAt": "2026-10-19T15:45:53.676Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-r6-r7-movement-delivery-v2.cjs",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-r6-r7-movement-delivery-v2.cjs",
+      "bytes": 8356,
+      "sha256": "24d954c2ab23b2adcd522a391145bd2ecdf302d691fb05d4b6f780bb9d0372ca",
+      "originalModifiedAt": "2026-10-19T15:47:26.436Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-red-audio-and-untyped-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-red-audio-and-untyped-v1.log",
+      "bytes": 7699,
+      "sha256": "587e43e9ad15df6b9bb59801be1efcdf91c6c9cfae71d72a91870fb76e1113a9",
+      "originalModifiedAt": "2026-10-19T15:25:18.712Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-red-blend-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-red-blend-v1.log",
+      "bytes": 2292,
+      "sha256": "ee7d1ffafaf8875264a83b0902da9539f376b258bc8d6f2f152ff04c2680647f",
+      "originalModifiedAt": "2026-10-19T15:20:12.828Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-red-image-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-red-image-v1.log",
+      "bytes": 1761,
+      "sha256": "3d24118c2162a3698a9979821315ca431bb9525be0dedd9e6d95ad91fc6b9acb",
+      "originalModifiedAt": "2026-10-19T15:19:12.485Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-red-jump-domain-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-red-jump-domain-v1.log",
+      "bytes": 2972,
+      "sha256": "2a2e6712d6b8d8f4ccb3bef4a5bf56f33e0834d85a2dacb7bdc75d8e9aeee174",
+      "originalModifiedAt": "2026-10-19T15:22:26.474Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-red-literal-asset-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-red-literal-asset-v1.log",
+      "bytes": 1798,
+      "sha256": "4ac91b5efc946302874710cdfcd1be3645bd6dac35c3b782fac3d57f887c7f1e",
+      "originalModifiedAt": "2026-10-19T15:30:54.459Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-red-scalar-domains-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-red-scalar-domains-v1.log",
+      "bytes": 11239,
+      "sha256": "54b51fa083a1c4c22334ddced707e6e6817531fbb4450c5f36000e3eca41009c",
+      "originalModifiedAt": "2026-10-19T15:23:54.128Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-red-se-none-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-red-se-none-v1.log",
+      "bytes": 1749,
+      "sha256": "c1ac810e6aab4809c241a72beaa3db20170ede07fe0f00a701597fc3baa7f43a",
+      "originalModifiedAt": "2026-10-19T15:20:53.066Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-red-single-slot-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-red-single-slot-v1.log",
+      "bytes": 1383,
+      "sha256": "59a0cd77f83cc71df1cc0973ad0608aab6fab596034606b0796eec745ea40832",
+      "originalModifiedAt": "2026-10-19T15:26:40.769Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-red-switch-shape-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-red-switch-shape-v1.log",
+      "bytes": 3900,
+      "sha256": "205e5957ea9fe1311890f95be64e7bef8b0a0b714f8d404b118ce71b766e4007",
+      "originalModifiedAt": "2026-10-19T15:37:12.799Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-red-wait-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-red-wait-v1.log",
+      "bytes": 1695,
+      "sha256": "47dfae61903fc883ac136d8c2781a1fe4e3806ac107576bda206dd9ba8f712b7",
+      "originalModifiedAt": "2026-10-19T15:18:20.207Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-upgrade-r6-r7-observer-v2.cjs",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-upgrade-r6-r7-observer-v2.cjs",
+      "bytes": 1286,
+      "sha256": "e3a79f73ec1c61383ac7aa1e37eb8e4eabc276e9535758ff33ba0ffd6d45d9cf",
+      "originalModifiedAt": "2026-10-19T15:47:22.825Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-workspace-first-v1.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-workspace-first-v1.log",
+      "bytes": 2066,
+      "sha256": "9d69415b29b9ce006cdf2d1110104cb485239c36d9fe9432ed95963462b3db68",
+      "originalModifiedAt": "2026-10-19T15:35:59.156Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-workspace-untyped-v2.log",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\original-tools-and-logs\\mv33-workspace-untyped-v2.log",
+      "bytes": 296,
+      "sha256": "cd564eef23b9337a6360e7744c1082497cd01a8e3c8e56936dafce294ef61270",
+      "originalModifiedAt": "2026-10-19T15:36:41.040Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-33\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S0-CE-001-2026-10-19T15-50-34-963Z-abc8ec2a-62b9-4edc-b733-0763916e1f45.json",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\indexed-source-results\\MV-S0-CE-001-2026-10-19T15-50-34-963Z-abc8ec2a-62b9-4edc-b733-0763916e1f45.json",
+      "bytes": 32058,
+      "sha256": "7b14d42a0a9e8d6300343faa3d40ba971ab19fd5acb0953cb173a973044dde44",
+      "originalModifiedAt": "2026-10-19T15:50:35.016Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-33\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S0-COMPARE-001-2026-10-19T15-50-35-039Z-df69f837-951c-4c0d-8828-759c7c4d84c5.json",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\indexed-source-results\\MV-S0-COMPARE-001-2026-10-19T15-50-35-039Z-df69f837-951c-4c0d-8828-759c7c4d84c5.json",
+      "bytes": 28007,
+      "sha256": "39501a887326b0031e21c79465ecba8d23e6e9d8141ee0aa7bb7b3f3cc9e1698",
+      "originalModifiedAt": "2026-10-19T15:50:35.082Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-33\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S6-MOVEMENT-001-2026-10-19T15-50-28-194Z-194b681a-a430-4ade-a00e-6fdb6d295b93.json",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\indexed-source-results\\MV-S6-MOVEMENT-001-2026-10-19T15-50-28-194Z-194b681a-a430-4ade-a00e-6fdb6d295b93.json",
+      "bytes": 517757,
+      "sha256": "be80a9695c568d931e8e10f787fbc41a2a126a015b04dc0a4a3d9f0465ed32ca",
+      "originalModifiedAt": "2026-10-19T15:50:28.266Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-33\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S6-MOVEMENT-002-2026-10-19T15-50-33-138Z-530e6458-8525-47d4-93ed-8f928a348a35.json",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\indexed-source-results\\MV-S6-MOVEMENT-002-2026-10-19T15-50-33-138Z-530e6458-8525-47d4-93ed-8f928a348a35.json",
+      "bytes": 157992,
+      "sha256": "f880f1d986481a57263d38808466c48e43c5ad463118e12c93d41a71e3a1f555",
+      "originalModifiedAt": "2026-10-19T15:50:33.192Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-33\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S6-MOVEMENT-003-2026-10-19T15-50-55-803Z-6809ff89-653c-44c7-b6b4-061f87f50950.json",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\indexed-source-results\\MV-S6-MOVEMENT-003-2026-10-19T15-50-55-803Z-6809ff89-653c-44c7-b6b4-061f87f50950.json",
+      "bytes": 152796,
+      "sha256": "bae88bfbfe0fc5ef554a5cd5f3e0078ac00f7340d6e40276edfdcab2c7b14be9",
+      "originalModifiedAt": "2026-10-19T15:50:55.849Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-33\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S6-MOVEMENT-004-2026-10-19T15-50-56-012Z-9f0a413a-1905-4389-b6a8-a4ed383e8cc5.json",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\indexed-source-results\\MV-S6-MOVEMENT-004-2026-10-19T15-50-56-012Z-9f0a413a-1905-4389-b6a8-a4ed383e8cc5.json",
+      "bytes": 37524,
+      "sha256": "9938ba445044e08fb20ed8e9116ff4ea1627569f81cd2bc162ed66e42b2fa702",
+      "originalModifiedAt": "2026-10-19T15:50:56.052Z"
+    },
+    {
+      "original": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-33\\rpgmaker-event-dsl\\test-results\\mv-evidence\\MV-S6-MOVEMENT-004-2026-10-19T15-50-56-199Z-56b4c945-5c25-42d4-9b7a-758fc872c5ec.json",
+      "preserved": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-checkpoint-preserved-edb056b2-662a-4ab7-be77-3b8655a6ad4f\\indexed-source-results\\MV-S6-MOVEMENT-004-2026-10-19T15-50-56-199Z-56b4c945-5c25-42d4-9b7a-758fc872c5ec.json",
+      "bytes": 37524,
+      "sha256": "47b23b7fcb3662eed7dbcfff99a14217ed58edfdd1593a3df314b5142f92b227",
+      "originalModifiedAt": "2026-10-19T15:50:56.243Z"
+    }
+  ]
+}

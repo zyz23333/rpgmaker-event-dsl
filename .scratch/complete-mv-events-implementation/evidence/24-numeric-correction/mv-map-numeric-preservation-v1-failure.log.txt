@@ -1,0 +1,10 @@
+fatal: failed to stat '233db5420d6cf83da0220c6aa5aed56626798f39:.scratch/complete-mv-events-implementation/evidence/24-merger-correction/raw-tdd/behavior-red/MV-S5-MAP-011-2026-10-19T14-43-07-729Z-3e243cb9-eff5-43ec-bd8b-c638a54b1554.json': Filename too long
+Error: Command failed: git show 233db5420d6cf83da0220c6aa5aed56626798f39:.scratch/complete-mv-events-implementation/evidence/24-merger-correction/raw-tdd/behavior-red/MV-S5-MAP-011-2026-10-19T14-43-07-729Z-3e243cb9-eff5-43ec-bd8b-c638a54b1554.json
+fatal: failed to stat '233db5420d6cf83da0220c6aa5aed56626798f39:.scratch/complete-mv-events-implementation/evidence/24-merger-correction/raw-tdd/behavior-red/MV-S5-MAP-011-2026-10-19T14-43-07-729Z-3e243cb9-eff5-43ec-bd8b-c638a54b1554.json': Filename too long
+
+    at genericNodeError (node:internal/errors:983:15)
+    at wrappedFn (node:internal/errors:537:14)
+    at checkExecSyncError (node:child_process:916:11)
+    at Object.execFileSync (node:child_process:952:15)
+    at git (C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-preserve-development.cjs:15:24)
+    at C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-preserve-development.cjs:29:78

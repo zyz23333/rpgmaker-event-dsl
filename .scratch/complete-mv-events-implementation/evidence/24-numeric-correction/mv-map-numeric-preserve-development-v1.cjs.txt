@@ -1,0 +1,57 @@
+'use strict';
+const fs = require('node:fs/promises');
+const path = require('node:path');
+const cp = require('node:child_process');
+const crypto = require('node:crypto');
+const assert = require('node:assert/strict');
+const root = 'C:/Users/Shuen/.codex/worktrees/mv-map-numeric-fix/rpgmaker-event-dsl';
+const base = '233db5420d6cf83da0220c6aa5aed56626798f39';
+const tmp = 'C:/Users/Shuen/.codex/tmp';
+const evidence = '.scratch/complete-mv-events-implementation/evidence';
+const dest = path.join(root, evidence, '24-numeric-correction');
+const stamp = 'mv-map-numeric-development-freeze-' + crypto.randomUUID();
+const freeze = path.join(tmp, stamp);
+const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
+const git = args => cp.execFileSync('git', args, {cwd: root, maxBuffer: 128 * 1024 * 1024});
+async function files(dir) { const result=[]; for(const item of await fs.readdir(dir,{withFileTypes:true})){const file=path.join(dir,item.name);if(item.isDirectory())result.push(...await files(file));else if(item.isFile())result.push(file);}return result.sort(); }
+async function manifest(dir){const rows=[];for(const file of await files(dir))rows.push({path:path.relative(dir,file).split(path.sep).join('/'),sha256:sha(await fs.readFile(file))});return{rows,sha256:sha(JSON.stringify(rows))};}
+async function copyExact(source, target){await fs.mkdir(path.dirname(target),{recursive:true});await fs.copyFile(source,target,fs.constants.COPYFILE_EXCL);assert.equal(sha(await fs.readFile(target)),sha(await fs.readFile(source)));return{source,target,sha256:sha(await fs.readFile(target))};}
+(async()=>{
+  assert.equal(process.version,'v22.23.0');
+  assert.equal(git(['rev-parse','HEAD']).toString().trim(),base);
+  await fs.mkdir(dest);await fs.mkdir(freeze);
+  const previous=JSON.parse(git(['show',base+':'+evidence+'/requirements.json']).toString()).requirements;
+  const current=JSON.parse(await fs.readFile(path.join(root,evidence,'requirements.json'),'utf8')).requirements;
+  assert.deepEqual(current.slice(0,previous.length),previous);assert.equal(current.length,previous.length+4);
+  const priorPaths=git(['ls-tree','-r','--name-only',base,'--',evidence]).toString().trim().split('\n');
+  const mutable=new Set([evidence+'/requirements.json',evidence+'/README.md',evidence+'/24-map-event-full-pages.md']);
+  const immutable=[];
+  for(const file of priorPaths){if(mutable.has(file))continue;const original=git(['show',base+':'+file]);const bytes=await fs.readFile(path.join(root,file));assert.equal(sha(bytes),sha(original),file);immutable.push({path:file,sha256:sha(bytes)});}
+  const reportPath=evidence+'/24-map-event-full-pages.md';
+  assert.deepEqual(await fs.readFile(path.join(root,reportPath)),git(['show',base+':'+reportPath]));
+  const rootAudits=[
+    ['mv24-numeric-fields-public-audit-1b65432f-4e9e-450a-8473-252c5141cbc8/audit.json','fa81ba411aa7d52805b5c9c7c62db563fbcff7f950ec257692c8cf6835c777be'],
+    ['mv24-numeric-fields-independent-audit-cd65fae7-69d6-4006-984b-580657a90d76/audit.json','8a5e73c96b887cb2ee3e1099a87b93449976d55fee5f68fabb28f8ecc0aa38f0'],
+  ];
+  for(const [file,hash] of rootAudits)assert.equal(sha(await fs.readFile(path.join(tmp,file))),hash);
+  const expanded=JSON.parse(await fs.readFile(path.join(tmp,rootAudits[0][0]),'utf8'));
+  const originalArchive=path.join(tmp,'mv23-executed-build-preserved-031c8c33-43e8-4295-99b4-c2afadf4056f');
+  assert.deepEqual(await manifest(path.join(originalArchive,'src')),expanded.archivedSource);
+  assert.deepEqual(await manifest(path.join(originalArchive,'dist')),expanded.archivedDist);
+  assert.deepEqual(await manifest(path.join(tmp,'mv24-numeric-fields-public-audit-1b65432f-4e9e-450a-8473-252c5141cbc8/frozen-build-copy/dist')),expanded.archivedDist);
+  const copies=[];
+  for(const name of ['red1','red2','red3','red4','red5','green1','green2','green3','green4','focused-regression'])copies.push(await copyExact(path.join(tmp,'mv-map-numeric-fix-'+name+'-original.log'),path.join(dest,'mv-map-numeric-fix-'+name+'-original.log.txt')));
+  const results=[];
+  for(const folder of ['mv-map-numeric-fix-development-results','mv-map-numeric-fix-focused-regression-results'])for(const file of await files(path.join(tmp,folder))){const record=JSON.parse(await fs.readFile(file,'utf8'));copies.push(await copyExact(file,path.join(root,evidence,'results',path.basename(file))));results.push({file:path.basename(file),requirementId:record.requirementId,status:record.status,sha256:sha(await fs.readFile(file))});}
+  for(const directory of ['src','test']){await fs.cp(path.join(root,'packages/rpgmaker-event-dsl',directory),path.join(freeze,directory),{recursive:true,force:false,errorOnExist:true});}
+  const source=await manifest(path.join(freeze,'src')),test=await manifest(path.join(freeze,'test'));
+  assert.deepEqual(source,await manifest(path.join(root,'packages/rpgmaker-event-dsl/src')));
+  assert.deepEqual(test,await manifest(path.join(root,'packages/rpgmaker-event-dsl/test')));
+  for(const file of ['package.json','pnpm-lock.yaml','packages/rpgmaker-event-dsl/package.json','packages/rpgmaker-event-dsl/vitest.config.ts','packages/rpgmaker-event-dsl/vitest.windows.config.ts','packages/rpgmaker-event-dsl/tsconfig.json','tsconfig.base.json'])copies.push(await copyExact(path.join(root,file),path.join(freeze,'inputs',file)));
+  await fs.writeFile(path.join(freeze,'dirty.patch'),git(['diff','--binary']));
+  const audit={purpose:'Development checkpoint only; no build, built baseline, game launch, final contract bump, READY, merge or cleanup',recordedAt:new Date().toISOString(),base,branch:git(['branch','--show-current']).toString().trim(),gitStatus:git(['status','--short']).toString(),node:process.version,executable:process.execPath,requirements:{previous:previous.length,added:4,current:current.length,allPriorDeepEqual:true},immutablePriorEvidence:immutable,originalReportUnchangedBeforeSupplement:true,rootAudits:rootAudits.map(([file,sha256])=>({path:path.join(tmp,file),sha256})),originalSourceAndAllDistCopiesStillExact:{sourceCount:expanded.archivedSource.rows.length,distCount:expanded.archivedDist.rows.length},results:{total:results.length,passed:results.filter(x=>x.status==='passed').length,failed:results.filter(x=>x.status==='failed').length,records:results},source,test,freeze,copies};
+  await fs.writeFile(path.join(freeze,'manifest.json'),JSON.stringify(audit,null,2)+'\n',{flag:'wx'});
+  await fs.writeFile(path.join(dest,'mv-map-numeric-development-audit-v1.json'),JSON.stringify(audit,null,2)+'\n',{flag:'wx'});
+  await copyExact(__filename,path.join(dest,'mv-map-numeric-preserve-development-v1.cjs.txt'));
+  console.log(JSON.stringify({freeze,audit:path.join(dest,'mv-map-numeric-development-audit-v1.json'),requirements:audit.requirements,immutable:immutable.length,results:audit.results.total,passed:audit.results.passed,failed:audit.results.failed,sourceFiles:source.rows.length,testFiles:test.rows.length}));
+})().catch(error=>{console.error(error.stack);process.exitCode=1;});

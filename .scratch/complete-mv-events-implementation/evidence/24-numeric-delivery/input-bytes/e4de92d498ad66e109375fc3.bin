@@ -1,0 +1,2579 @@
+import { isDeepStrictEqual } from "node:util";
+//#region \0rolldown/runtime.js
+var __defProp = Object.defineProperty;
+var __exportAll = (all, no_symbols) => {
+	let target = {};
+	for (var name in all) __defProp(target, name, {
+		get: all[name],
+		enumerable: true
+	});
+	if (!no_symbols) __defProp(target, Symbol.toStringTag, { value: "Module" });
+	return target;
+};
+//#endregion
+//#region src/domain/declarations.ts
+function isDslOwnedDeclaration(value) {
+	return !!value && typeof value === "object" && "kind" in value && (value.kind === "mapEvent" || value.kind === "commonEvent" || value.kind === "troopEvent" || value.kind === "switchDefinition" || value.kind === "variableDefinition");
+}
+//#endregion
+//#region src/project-data/json-values.ts
+var StrictJsonError = class extends Error {
+	path;
+	actual;
+	constructor(path, actual) {
+		super(`Expected strict representable JSON; received ${actual} at ${path}.`);
+		this.path = path;
+		this.actual = actual;
+	}
+};
+function describeValue(value) {
+	try {
+		return renderJsonValue(value);
+	} catch (error) {
+		return error instanceof StrictJsonError ? error.actual : String(value);
+	}
+}
+function assertStrictJson(value, path = "value", ancestors = /* @__PURE__ */ new Set()) {
+	if (value === null || typeof value === "string" || typeof value === "boolean") return;
+	if (typeof value === "number" && Number.isFinite(value)) return;
+	if (typeof value !== "object" || value === null) throw new StrictJsonError(path, typeof value === "number" ? String(value) : typeof value);
+	if (ancestors.has(value)) throw new StrictJsonError(path, "circular reference");
+	if (Array.isArray(value) ? Object.getPrototypeOf(value) !== Array.prototype : ![Object.prototype, null].includes(Object.getPrototypeOf(value))) throw new StrictJsonError(path, "non-JSON object prototype");
+	ancestors.add(value);
+	const descriptors = Object.getOwnPropertyDescriptors(value);
+	const keys = Reflect.ownKeys(value);
+	if (Array.isArray(value)) {
+		if (keys.some((key) => key !== "length" && (typeof key !== "string" || !/^(0|[1-9]\d*)$/.test(key) || Number(key) >= value.length))) throw new StrictJsonError(path, "array with extra properties");
+		for (let index = 0; index < value.length; index++) {
+			const descriptor = descriptors[String(index)];
+			if (!descriptor || !("value" in descriptor) || !descriptor.enumerable) throw new StrictJsonError(`${path}[${index}]`, descriptor ? "non-JSON property" : "missing array slot");
+			assertStrictJson(descriptor.value, `${path}[${index}]`, ancestors);
+		}
+	} else for (const key of keys) {
+		if (typeof key !== "string") throw new StrictJsonError(path, "symbol property");
+		const childPath = /^[A-Za-z_$][\w$]*$/.test(key) ? `${path}.${key}` : `${path}[${JSON.stringify(key)}]`;
+		const descriptor = descriptors[key];
+		if (!("value" in descriptor) || !descriptor.enumerable) throw new StrictJsonError(childPath, "non-JSON property");
+		assertStrictJson(descriptor.value, childPath, ancestors);
+	}
+	ancestors.delete(value);
+}
+function renderJsonValue(value, options = {}) {
+	assertStrictJson(value);
+	return render(value, options.typeScript ?? false);
+}
+function render(value, typeScript) {
+	if (Object.is(value, -0)) return "-0";
+	if (Array.isArray(value)) return `[${value.map((entry) => render(entry, typeScript)).join(",")}]`;
+	if (typeof value === "object" && value !== null) return `{${Object.entries(value).map(([key, entry]) => `${typeScript && key === "__proto__" ? "[\"__proto__\"]" : JSON.stringify(key)}:${render(entry, typeScript)}`).join(",")}}`;
+	return JSON.stringify(value);
+}
+//#endregion
+//#region src/validation/command-errors.ts
+var CommandStructureError = class extends Error {
+	code;
+	detail;
+	location;
+	identity;
+	stage;
+	constructor(code, detail, location = {}, identity, stage) {
+		super(`${stage ? `${stage} error ` : ""}${identity ? `${identity}: ` : ""}${code}: ${detail}${location.nativePath ? ` at ${location.nativePath}` : ""}${location.dslPath ? ` (${location.dslPath})` : ""}${location.expected !== void 0 ? `; expected ${location.expected}; actual ${location.actual}` : ""}${location.relatedLocations?.map((related) => `; related ${related.nativePath ?? related.dslPath} = ${related.value}`).join("") ?? ""}`);
+		this.code = code;
+		this.detail = detail;
+		this.location = location;
+		this.identity = identity;
+		this.stage = stage;
+	}
+	issue(identity, stage) {
+		return {
+			level: "error",
+			code: this.code,
+			stage,
+			identity,
+			...this.location,
+			message: `${stage} error ${identity}: ${this.message}`
+		};
+	}
+};
+//#endregion
+//#region src/commands/movement/validation.ts
+function fail(message, location, code = "MV-MOVEMENT-SHAPE") {
+	throw new CommandStructureError(code, message, location);
+}
+function record(value, location) {
+	if (typeof value !== "object" || value === null || Array.isArray(value) || ![Object.prototype, null].includes(Object.getPrototypeOf(value))) fail("Expected a Movement Route object.", location);
+	return value;
+}
+function keys(value, allowed, location) {
+	if (Reflect.ownKeys(value).some((key) => {
+		const descriptor = Object.getOwnPropertyDescriptor(value, key);
+		return typeof key !== "string" || !allowed.includes(key) || !("value" in descriptor) || !descriptor.enumerable;
+	})) fail("Unknown Movement Route field.", location);
+}
+function array(value, location) {
+	if (!Array.isArray(value) || Object.getPrototypeOf(value) !== Array.prototype) fail("Expected a dense ordinary array.", location);
+	for (const key of Reflect.ownKeys(value)) if (key !== "length") {
+		const descriptor = Object.getOwnPropertyDescriptor(value, key);
+		if (typeof key !== "string" || !/^(0|[1-9]\d*)$/u.test(key) || Number(key) >= value.length || !("value" in descriptor) || !descriptor.enumerable) fail("Movement Route arrays require only ordinary data slots.", location);
+	}
+	if (Object.keys(value).length !== value.length || value.some((item) => item === void 0)) fail("Movement Route arrays cannot contain undefined, sparse slots or extra keys.", location);
+	for (let index = 0; index < value.length; index += 1) if (!Object.hasOwn(value, index)) fail("Movement Route arrays cannot contain sparse slots.", location);
+	return value;
+}
+const parameterCounts = /* @__PURE__ */ new Map([
+	[14, 2],
+	[15, 1],
+	[27, 1],
+	[28, 1],
+	[29, 1],
+	[30, 1],
+	[41, 2],
+	[42, 1],
+	[43, 1],
+	[44, 1],
+	[45, 1]
+]);
+function at(location, suffix) {
+	return {
+		...location.nativePath === void 0 ? {} : { nativePath: location.nativePath + suffix },
+		...location.dslPath === void 0 ? {} : { dslPath: location.dslPath + suffix }
+	};
+}
+function integer(value, minimum, maximum, location) {
+	if (!Number.isInteger(value) || value < minimum || value > maximum) fail("Movement parameter is outside its accepted integer domain.", {
+		...location,
+		expected: `integer ${minimum}..${maximum}`,
+		actual: describeValue(value)
+	}, "MV-MOVEMENT-PARAMETER");
+}
+function asset(value, category, folder, location) {
+	if (value === null) return;
+	const input = record(value, location);
+	keys(input, [
+		"kind",
+		"category",
+		"folder",
+		"name"
+	], location);
+	if (input.kind !== "asset" || input.category !== category || input.folder !== folder || typeof input.name !== "string" || input.name.length === 0) fail(`Movement asset requires a nonempty ${category}/${folder} reference or null.`, location);
+}
+function assertNativeMovementRecord(value, location, terminal = false) {
+	const item = record(value, location);
+	keys(item, terminal ? ["code", "parameters"] : [
+		"code",
+		"parameters",
+		"indent"
+	], location);
+	if (terminal) {
+		if (item.code !== 0 || Object.is(item.code, -0) || Object.hasOwn(item, "parameters") && array(item.parameters, location).length !== 0) fail("The sole final M0 must omit parameters or contain an empty array, and must omit indent.", location);
+		return;
+	}
+	if (!Number.isInteger(item.code) || item.code < 1 || item.code > 45) fail("Unknown movement code; raw movement instructions are not supported.", location, "MV-MOVEMENT-CODE");
+	if (Object.hasOwn(item, "indent") && item.indent !== null && (item.indent !== 0 || Object.is(item.indent, -0))) fail("A nonterminal movement indent must be absent, null or numeric zero.", location);
+	const count = parameterCounts.get(item.code);
+	if (count === void 0) {
+		if (Object.hasOwn(item, "parameters")) fail("A parameterless movement instruction must omit parameters.", location);
+		return;
+	}
+	const parameters = array(item.parameters, location);
+	if (parameters.length !== count) fail(`Movement code ${item.code} requires exactly ${count} parameters.`, location);
+	if (item.code === 44) {
+		const audio = record(parameters[0], location);
+		keys(audio, [
+			"name",
+			"volume",
+			"pitch",
+			"pan"
+		], location);
+		if (typeof audio.name !== "string" || ![
+			audio.volume,
+			audio.pitch,
+			audio.pan
+		].every((value) => typeof value === "number" && Number.isFinite(value))) fail("Movement SE requires its complete saved audio object.", location);
+	} else if (item.code === 45) {
+		if (typeof parameters[0] !== "string") fail("Movement Script requires one complete string.", location);
+	} else if (item.code === 41) {
+		if (typeof parameters[0] !== "string" || typeof parameters[1] !== "number" || !Number.isFinite(parameters[1])) fail("Movement image requires its name and index.", location);
+	} else if (!parameters.every((value) => typeof value === "number" && Number.isFinite(value))) fail("Movement numeric parameter slots require finite numbers.", location);
+	if (item.code === 14) {
+		integer(parameters[0], -99, 99, at(location, ".parameters[0]"));
+		integer(parameters[1], -99, 99, at(location, ".parameters[1]"));
+	}
+	if (item.code === 15) integer(parameters[0], 1, 999, at(location, ".parameters[0]"));
+	if (item.code === 27 || item.code === 28) integer(parameters[0], 1, Number.MAX_SAFE_INTEGER, at(location, ".parameters[0]"));
+	if (item.code === 29) integer(parameters[0], 1, 6, at(location, ".parameters[0]"));
+	if (item.code === 30) integer(parameters[0], 1, 5, at(location, ".parameters[0]"));
+	if (item.code === 41) integer(parameters[1], 0, 7, at(location, ".parameters[1]"));
+	if (item.code === 42) integer(parameters[0], 0, 255, at(location, ".parameters[0]"));
+	if (item.code === 43) {
+		integer(parameters[0], 0, 3, at(location, ".parameters[0]"));
+		if (Object.is(parameters[0], -0)) fail("Movement blend mode requires a code with an exact symbolic representation.", {
+			...at(location, ".parameters[0]"),
+			expected: "0, 1, 2 or 3 excluding negative zero",
+			actual: "-0"
+		}, "MV-MOVEMENT-PARAMETER");
+	}
+	if (item.code === 44) {
+		const audio = parameters[0];
+		integer(audio.volume, 0, 100, at(location, ".parameters[0].volume"));
+		integer(audio.pitch, 50, 150, at(location, ".parameters[0].pitch"));
+		integer(audio.pan, -100, 100, at(location, ".parameters[0].pan"));
+	}
+}
+function assertNativeMovementRoute(value, path) {
+	const location = { nativePath: path };
+	const route = record(value, location);
+	keys(route, [
+		"list",
+		"repeat",
+		"skippable",
+		"wait"
+	], location);
+	for (const key of [
+		"repeat",
+		"skippable",
+		"wait"
+	]) if (typeof route[key] !== "boolean") fail(`Movement Route ${key} must be an explicit boolean.`, { nativePath: `${path}.${key}` });
+	const list = array(route.list, { nativePath: `${path}.list` });
+	if (list.length === 0) fail("Movement Route requires a sole final M0.", { nativePath: `${path}.list` });
+	for (let index = 0; index < list.length; index += 1) assertNativeMovementRecord(list[index], { nativePath: `${path}.list[${index}]` }, index === list.length - 1);
+}
+function assertNativeMovementCommands(commands) {
+	for (let index = 0; index < commands.length; index += 1) {
+		const command = commands[index];
+		if (command.code === 505) fail("Orphan Movement Route mirror.", { nativePath: `list[${index}]` }, "MV-MOVEMENT-MIRROR");
+		if (command.code !== 205) continue;
+		const path = `list[${index}].parameters`;
+		array(command.parameters, { nativePath: path });
+		if (command.parameters.length !== 2 || !Number.isSafeInteger(command.parameters[0]) || Object.is(command.parameters[0], -0) || command.parameters[0] < -1) fail("Set Movement Route requires one Character Runtime Selector and one route.", { nativePath: path });
+		const route = command.parameters[1];
+		assertNativeMovementRoute(route, `${path}[1]`);
+		const nonterminals = route.list.slice(0, -1);
+		for (let offset = 0; offset < nonterminals.length; offset += 1) {
+			const mirrorIndex = index + offset + 1;
+			const mirror = commands[mirrorIndex];
+			if (mirror?.code !== 505 || mirror.indent !== command.indent || mirror.parameters.length !== 1 || !isDeepStrictEqual(mirror.parameters[0], nonterminals[offset])) fail("Every nonterminal movement record requires one ordered, same-indent 505 containing the complete identical object.", {
+				nativePath: `list[${mirrorIndex}]`,
+				expected: renderJsonValue({
+					code: 505,
+					indent: command.indent,
+					parameters: [nonterminals[offset]]
+				}),
+				actual: mirror ? describeValue(mirror) : "missing",
+				relatedLocations: [{
+					nativePath: `list[${index}].parameters[1].list[${offset}]`,
+					value: renderJsonValue(nonterminals[offset])
+				}]
+			}, "MV-MOVEMENT-MIRROR");
+			array(mirror.parameters, { nativePath: `list[${mirrorIndex}].parameters` });
+		}
+		index += nonterminals.length;
+	}
+}
+function assertNativeMovementCommandParameters(code, parameters, location) {
+	const slots = array(parameters, location);
+	if (slots.length !== (code === 205 ? 2 : 1)) fail("Set Movement Route requires two parameter slots; its mirror requires exactly one.", location);
+	if (code === 505) assertNativeMovementRecord(slots[0], location);
+}
+const instructionFields = {
+	moveDown: [],
+	moveLeft: [],
+	moveRight: [],
+	moveUp: [],
+	moveLowerLeft: [],
+	moveLowerRight: [],
+	moveUpperLeft: [],
+	moveUpperRight: [],
+	moveRandom: [],
+	moveTowardPlayer: [],
+	moveAwayFromPlayer: [],
+	moveForward: [],
+	moveBackward: [],
+	jump: ["x", "y"],
+	wait: ["frames"],
+	turnDown: [],
+	turnLeft: [],
+	turnRight: [],
+	turnUp: [],
+	turn90Right: [],
+	turn90Left: [],
+	turn180: [],
+	turn90RightOrLeft: [],
+	turnRandom: [],
+	turnTowardPlayer: [],
+	turnAwayFromPlayer: [],
+	switchOn: ["switch"],
+	switchOff: ["switch"],
+	changeSpeed: ["speed"],
+	changeFrequency: ["frequency"],
+	walkAnimation: ["enabled"],
+	stepAnimation: ["enabled"],
+	directionFix: ["enabled"],
+	through: ["enabled"],
+	transparent: ["enabled"],
+	changeImage: ["character", "characterIndex"],
+	changeOpacity: ["opacity"],
+	changeBlendMode: ["blendMode"],
+	playSe: ["audio"],
+	script: ["script"]
+};
+function assertMovementRoute(value, path) {
+	const route = record(value, { dslPath: path });
+	keys(route, [
+		"commands",
+		"repeat",
+		"skippable",
+		"wait",
+		"terminator"
+	], { dslPath: path });
+	for (const key of [
+		"repeat",
+		"skippable",
+		"wait"
+	]) if (route[key] !== void 0 && typeof route[key] !== "boolean") fail(`${key} must be a boolean.`, { dslPath: `${path}.${key}` });
+	if (route.terminator !== void 0) {
+		const terminal = record(route.terminator, { dslPath: `${path}.terminator` });
+		keys(terminal, ["parameters"], { dslPath: `${path}.terminator` });
+		if (terminal.parameters !== void 0 && terminal.parameters !== "absent" && terminal.parameters !== "empty") fail("M0 parameters must be absent or empty.", { dslPath: `${path}.terminator.parameters` });
+	}
+	const commands = array(route.commands, { dslPath: `${path}.commands` });
+	for (const [index, value] of commands.entries()) {
+		const location = { dslPath: `${path}.commands[${index}]` };
+		const command = record(value, location);
+		const fields = typeof command.kind === "string" && Object.hasOwn(instructionFields, command.kind) ? instructionFields[command.kind] : void 0;
+		if (fields === void 0) fail("Unknown movement instruction; M0 and raw are not authored commands.", location);
+		keys(command, [
+			"kind",
+			"savedShape",
+			...fields
+		], location);
+		if (fields.some((field) => command[field] === void 0)) fail("Movement instruction is missing a required field.", location);
+		for (const [field, minimum, maximum] of {
+			jump: [[
+				"x",
+				-99,
+				99
+			], [
+				"y",
+				-99,
+				99
+			]],
+			wait: [[
+				"frames",
+				1,
+				999
+			]],
+			changeSpeed: [[
+				"speed",
+				1,
+				6
+			]],
+			changeFrequency: [[
+				"frequency",
+				1,
+				5
+			]],
+			changeImage: [[
+				"characterIndex",
+				0,
+				7
+			]],
+			changeOpacity: [[
+				"opacity",
+				0,
+				255
+			]]
+		}[command.kind] ?? []) integer(command[field], minimum, maximum, at(location, `.${field}`));
+		if (command.kind === "changeBlendMode" && ![
+			"normal",
+			"additive",
+			"multiply",
+			"screen"
+		].includes(command.blendMode)) fail("Movement blend mode requires an explicit symbol.", {
+			...at(location, ".blendMode"),
+			expected: "normal/additive/multiply/screen",
+			actual: describeValue(command.blendMode)
+		}, "MV-MOVEMENT-PARAMETER");
+		if ([
+			"walkAnimation",
+			"stepAnimation",
+			"directionFix",
+			"through",
+			"transparent"
+		].includes(command.kind) && typeof command.enabled !== "boolean") fail("Movement state flags require an explicit boolean.", at(location, ".enabled"));
+		if (command.kind === "changeImage") asset(command.character, "image", "characters", at(location, ".character"));
+		if (command.kind === "switchOn" || command.kind === "switchOff") {
+			const referenceLocation = at(location, ".switch");
+			const reference = record(command.switch, referenceLocation);
+			const byId = Object.hasOwn(reference, "id");
+			keys(reference, byId ? ["kind", "id"] : ["kind", "name"], referenceLocation);
+			if (reference.kind !== "switch" || (byId ? typeof reference.id !== "number" : typeof reference.name !== "string" || reference.name.length === 0)) fail("Movement switch requires exactly one switch ID or name reference.", referenceLocation);
+		}
+		if (command.kind === "playSe") {
+			const audioLocation = at(location, ".audio");
+			const audio = record(command.audio, audioLocation);
+			keys(audio, [
+				"asset",
+				"volume",
+				"pitch",
+				"pan"
+			], audioLocation);
+			if ([
+				"asset",
+				"volume",
+				"pitch",
+				"pan"
+			].some((field) => !Object.hasOwn(audio, field) || audio[field] === void 0)) fail("Movement SE requires asset, volume, pitch and pan.", audioLocation);
+			asset(audio.asset, "audio", "se", at(audioLocation, ".asset"));
+			integer(audio.volume, 0, 100, at(audioLocation, ".volume"));
+			integer(audio.pitch, 50, 150, at(audioLocation, ".pitch"));
+			integer(audio.pan, -100, 100, at(audioLocation, ".pan"));
+		}
+		if (command.kind === "script") {
+			const scriptLocation = at(location, ".script");
+			const script = record(command.script, scriptLocation);
+			keys(script, ["kind", "code"], scriptLocation);
+			if (script.kind !== "scriptInput" || typeof script.code !== "string") fail("Movement Script requires Script Input with its complete string.", scriptLocation);
+		}
+		if (command.savedShape !== void 0) {
+			const shape = record(command.savedShape, location);
+			keys(shape, ["indent"], location);
+			if (shape.indent !== void 0 && ![
+				"absent",
+				"null",
+				"zero"
+			].includes(shape.indent)) fail("savedShape.indent must be absent, null or zero symbols.", { dslPath: `${location.dslPath}.savedShape.indent` });
+		}
+	}
+}
+function assertSetMovementRoute(node, path) {
+	keys(node, [
+		"kind",
+		"target",
+		"route"
+	], { dslPath: path });
+	assertMovementRoute(node.route, `${path}.route`);
+}
+function validateNativeMovementRouteInputs(value, resolver, options, issues) {
+	assertNativeMovementRoute(value, options.nativePath);
+	for (const [index, command] of value.list.entries()) {
+		const nativePath = `${options.nativePath}.list[${index}]`;
+		const issue = (code, message) => issues.push({
+			level: "error",
+			code,
+			stage: "compile",
+			...options.identity === void 0 ? {} : { identity: options.identity },
+			...options.dslPath === void 0 ? {} : { dslPath: options.dslPath },
+			nativePath,
+			message,
+			expected: command.code === 45 ? "scriptEnabled: true" : "existing switch ID",
+			actual: command.code === 45 ? "scriptEnabled: false" : describeValue(command.parameters?.[0])
+		});
+		if (command.code === 45 && !options.scriptEnabled) issue("MV-MOVEMENT-SCRIPT", "Movement Route Script requires explicit config enablement.");
+		if (command.code === 27 || command.code === 28) try {
+			resolver.resolveReference({
+				kind: "switch",
+				id: command.parameters[0]
+			});
+		} catch (error) {
+			issue("MV-MOVEMENT-REFERENCE", error instanceof Error ? error.message : String(error));
+		}
+	}
+}
+//#endregion
+//#region src/commands/variables/validation.ts
+function assertNativeSwitchCommand(code, parameters, resolver) {
+	if (code !== 121 && code !== 123) return;
+	const label = `MV-E${code}`;
+	if (!Array.isArray(parameters) || parameters.length !== (code === 121 ? 3 : 2)) throw new Error(`${label}-PARAMETERS parameters: expected exactly ${code === 121 ? 3 : 2} saved slots; received ${JSON.stringify(parameters)}.`);
+	const operation = parameters[code === 121 ? 2 : 1];
+	if (operation !== 0 && operation !== 1) throw new Error(`${label}-VALUE parameters[${code === 121 ? 2 : 1}]: expected native ON 0 or OFF 1; received ${JSON.stringify(operation)}.`);
+	if (code === 123) {
+		if (![
+			"A",
+			"B",
+			"C",
+			"D"
+		].includes(parameters[0])) throw new Error(`${label}-LETTER parameters[0]: expected A, B, C or D; received ${JSON.stringify(parameters[0])}.`);
+		return;
+	}
+	const [from, to] = parameters;
+	if (!Number.isSafeInteger(from) || from <= 0 || !Number.isSafeInteger(to) || to <= 0) throw new Error(`${label}-TARGET parameters[0..1]: expected positive integer switch IDs; received ${JSON.stringify(parameters.slice(0, 2))}.`);
+	if (from > to) throw new Error(`${label}-RANGE parameters[0..1]: range start ${from} exceeds end ${to}; ranges are not reordered.`);
+	if (resolver !== void 0) for (const [index, id] of [from, to].entries()) try {
+		resolver.resolveReference({
+			kind: "switch",
+			id
+		});
+	} catch (error) {
+		throw new Error(`${label}-REFERENCE parameters[${index}]: ${error instanceof Error ? error.message : String(error)}`);
+	}
+}
+//#endregion
+//#region src/commands/map/native-validation.ts
+function assertNativeMapAppearanceParameters(code, parameters, path) {
+	if (code < 281 || code > 284) return;
+	const fail = (suffix, expected, actual) => {
+		throw new CommandStructureError(`MV-E${code}-PARAMETERS`, "Invalid saved map appearance parameter.", {
+			nativePath: `${path}.parameters${suffix}`,
+			expected,
+			actual: renderJsonValue(actual)
+		});
+	};
+	const length = code === 283 ? 2 : code === 284 ? 5 : 1;
+	if (parameters.length !== length) fail("", `exactly ${length} saved slots`, parameters);
+	const slot = (index, valid, expected) => {
+		if (!valid) fail(`[${index}]`, expected, parameters[index]);
+	};
+	if (code === 281) slot(0, (parameters[0] === 0 || parameters[0] === 1) && !Object.is(parameters[0], -0), "native enabled 0 or disabled 1");
+	if (code === 282) slot(0, Number.isSafeInteger(parameters[0]) && parameters[0] > 0, "positive actual tileset ID; no None");
+	if (code === 283) for (const index of [0, 1]) slot(index, typeof parameters[index] === "string", "image filename string or empty string None");
+	if (code === 284) {
+		slot(0, typeof parameters[0] === "string", "parallax filename string or empty string None");
+		for (const index of [1, 2]) slot(index, typeof parameters[index] === "boolean", "boolean");
+		for (const index of [3, 4]) slot(index, Number.isSafeInteger(parameters[index]) && parameters[index] >= -32 && parameters[index] <= 32, "integer -32..32");
+	}
+}
+//#endregion
+//#region src/validation/native-parameters.ts
+const signatures = {
+	0: "",
+	101: "snnn",
+	102: "annnn",
+	103: "nn",
+	104: "nn",
+	105: "nb",
+	108: "s",
+	111: "",
+	112: "",
+	113: "",
+	115: "",
+	117: "n",
+	118: "s",
+	119: "s",
+	121: "nnn",
+	122: "",
+	123: "sn",
+	124: "",
+	125: "nnn",
+	126: "nnnn",
+	127: "nnnnb",
+	128: "nnnnb",
+	129: "nnb",
+	132: "o",
+	133: "o",
+	134: "n",
+	135: "n",
+	136: "n",
+	137: "n",
+	138: "a",
+	139: "o",
+	140: "no",
+	201: "nnnnnn",
+	202: "nnnnn",
+	203: "nnnnn",
+	204: "nnn",
+	205: "no",
+	206: "",
+	211: "n",
+	212: "nnb",
+	213: "nnb",
+	214: "",
+	216: "n",
+	217: "",
+	221: "",
+	222: "",
+	223: "anb",
+	224: "anb",
+	225: "nnnb",
+	230: "n",
+	231: "nsnnnnnnnn",
+	232: "nnnnnnnnnnnb",
+	233: "nn",
+	234: "nanb",
+	235: "n",
+	236: "snnb",
+	241: "o",
+	242: "n",
+	243: "",
+	244: "",
+	245: "o",
+	246: "n",
+	249: "o",
+	250: "o",
+	251: "",
+	261: "s",
+	281: "n",
+	282: "n",
+	283: "ss",
+	284: "sbbnn",
+	285: "nnnnn",
+	301: "nnbb",
+	302: "nnnnb",
+	303: "nn",
+	311: "nnnnnb",
+	312: "nnnnn",
+	313: "nnnn",
+	314: "nn",
+	315: "nnnnnb",
+	316: "nnnnnb",
+	317: "nnnnnn",
+	318: "nnnn",
+	319: "nnn",
+	320: "ns",
+	321: "nnb",
+	322: "nsnsns",
+	323: "nsn",
+	324: "ns",
+	325: "ns",
+	326: "nnnnn",
+	331: "nnnnb",
+	332: "nnnn",
+	333: "nnn",
+	334: "n",
+	335: "n",
+	336: "nn",
+	337: "nnb",
+	339: "nnnn",
+	340: "",
+	342: "nnnn",
+	351: "",
+	352: "",
+	353: "",
+	354: "",
+	355: "s",
+	356: "s",
+	401: "s",
+	402: "ns",
+	403: "",
+	404: "",
+	405: "s",
+	408: "s",
+	411: "",
+	412: "",
+	413: "",
+	505: "o",
+	601: "",
+	602: "",
+	603: "",
+	604: "",
+	605: "nnnn",
+	655: "s"
+};
+function isKnownCommandCode(code) {
+	return Object.hasOwn(signatures, code);
+}
+function assertNativeCommandParameters(code, parameters, path) {
+	if (!isKnownCommandCode(code)) return;
+	assertNativeMapAppearanceParameters(code, parameters, path);
+	try {
+		assertNativeSwitchCommand(code, parameters);
+	} catch (error) {
+		const detail = error instanceof Error ? error.message : String(error);
+		throw new CommandStructureError(/^MV-[\w-]+/u.exec(detail)?.[0] ?? "MV-COMMAND-PARAMETERS", detail, {
+			nativePath: `${path}.${/parameters(?:\[[\d.]+\])?/u.exec(detail)?.[0] ?? "parameters"}`,
+			expected: `valid E${code} switch parameters`,
+			actual: renderJsonValue(parameters)
+		});
+	}
+	let signature = signatures[code];
+	if (code === 111) {
+		const mode = parameters[0];
+		signature = typeof mode === "number" ? {
+			0: "nnn",
+			1: "nnnnn",
+			2: "nsn",
+			3: "nnn",
+			4: parameters[2] === 0 ? "nnn" : "nnnx",
+			5: parameters[2] === 0 ? "nnn" : "nnnn",
+			6: "nnn",
+			7: "nnn",
+			8: "nn",
+			9: "nnb",
+			10: "nnb",
+			11: "ns",
+			12: "ns",
+			13: "nn"
+		}[mode] ?? "?" : "?";
+	}
+	if (code === 122) signature = {
+		0: "nnnnn",
+		1: "nnnnn",
+		2: "nnnnnn",
+		3: "nnnnnnn",
+		4: "nnnns"
+	}[parameters[3]] ?? "?";
+	if (code === 124) signature = parameters[0] === 1 && parameters.length === 1 ? "n" : "nn";
+	const matches = (value, kind) => kind === "x" || (kind === "n" ? typeof value === "number" : kind === "s" ? typeof value === "string" : kind === "b" ? typeof value === "boolean" : kind === "a" ? Array.isArray(value) : kind === "o" ? typeof value === "object" && value !== null && !Array.isArray(value) : false);
+	if (parameters.length !== signature.length || ![...signature].every((kind, index) => matches(parameters[index], kind))) throw new CommandStructureError("MV-COMMAND-PARAMETERS", "Known command parameters do not match their native contract.", {
+		nativePath: `${path}.parameters`,
+		expected: `E${code} saved slots ${signature || "[]"}`,
+		actual: renderJsonValue(parameters)
+	});
+	const slot = (index, valid, expected) => {
+		if (!valid) throw new CommandStructureError("MV-COMMAND-PARAMETERS", "Invalid known saved parameter.", {
+			nativePath: `${path}.parameters[${index}]`,
+			expected,
+			actual: renderJsonValue(parameters[index])
+		});
+	};
+	const oneOf = (index, values) => slot(index, values.includes(parameters[index]) && !Object.is(parameters[index], -0), `one of ${renderJsonValue(values)}`);
+	const integer = (index, minimum, maximum = Number.MAX_SAFE_INTEGER) => slot(index, Number.isSafeInteger(parameters[index]) && !Object.is(parameters[index], -0) && parameters[index] >= minimum && parameters[index] <= maximum, `integer ${minimum}..${maximum}, excluding negative zero`);
+	if (code === 101 || code === 322) integer(code === 101 ? 1 : 4, 0);
+	if (code === 101) {
+		oneOf(2, [
+			0,
+			1,
+			2
+		]);
+		oneOf(3, [
+			0,
+			1,
+			2
+		]);
+	}
+	if (code === 102) {
+		slot(0, parameters[0].every((value) => typeof value === "string") && parameters[0].length > 0, "nonempty string choices");
+		oneOf(3, [
+			0,
+			1,
+			2
+		]);
+		oneOf(4, [
+			0,
+			1,
+			2
+		]);
+	}
+	if (code === 111) {
+		const mode = parameters[0];
+		if (mode === 0 || mode === 2 || mode === 3) oneOf(2, [0, 1]);
+		if (mode === 1) {
+			oneOf(2, [0, 1]);
+			oneOf(4, [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5
+			]);
+		}
+		if (mode === 2) oneOf(1, [
+			"A",
+			"B",
+			"C",
+			"D"
+		]);
+		if (mode === 4) {
+			oneOf(2, [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6
+			]);
+			if (parameters[2] === 1) slot(3, typeof parameters[3] === "string", "actor name string");
+		}
+		if (mode === 5) oneOf(2, [0, 1]);
+		if (mode === 6) oneOf(2, [
+			2,
+			4,
+			6,
+			8
+		]);
+		if (mode === 7) oneOf(2, [
+			0,
+			1,
+			2
+		]);
+		if (mode === 13) oneOf(1, [
+			0,
+			1,
+			2
+		]);
+	}
+	if (code === 122) {
+		oneOf(2, [
+			0,
+			1,
+			2,
+			3,
+			4,
+			5
+		]);
+		if (parameters[3] === 3) oneOf(4, [
+			0,
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		]);
+	}
+	if (code === 124) oneOf(0, [0, 1]);
+	if (code === 402) integer(0, 0);
+	if (code === 232) oneOf(1, [0]);
+	if (code === 302 || code === 605) {
+		oneOf(0, [
+			0,
+			1,
+			2
+		]);
+		oneOf(2, [0, 1]);
+		if (parameters[2] === 0) oneOf(3, [0]);
+	}
+	if (code === 201) {
+		oneOf(0, [0, 1]);
+		if (parameters[0] === 0) {
+			integer(2, 0);
+			integer(3, 0);
+		}
+		oneOf(4, [
+			0,
+			2,
+			4,
+			6,
+			8
+		]);
+		oneOf(5, [
+			0,
+			1,
+			2
+		]);
+	}
+	if (code === 202) {
+		oneOf(0, [
+			0,
+			1,
+			2
+		]);
+		oneOf(1, [0, 1]);
+		if (parameters[1] === 0) {
+			integer(3, 0);
+			integer(4, 0);
+		}
+	}
+	if (code === 203) {
+		oneOf(1, [
+			0,
+			1,
+			2
+		]);
+		if (parameters[1] === 0) {
+			integer(2, 0);
+			integer(3, 0);
+		}
+		oneOf(4, [
+			0,
+			2,
+			4,
+			6,
+			8
+		]);
+	}
+	if ([
+		132,
+		133,
+		139,
+		140,
+		241,
+		245,
+		249,
+		250
+	].includes(code)) {
+		const index = code === 140 ? 1 : 0;
+		const audio = parameters[index];
+		slot(index, Object.keys(audio).length === 4 && [
+			"name",
+			"volume",
+			"pitch",
+			"pan"
+		].every((key) => Object.hasOwn(audio, key)) && typeof audio.name === "string" && [
+			audio.volume,
+			audio.pitch,
+			audio.pan
+		].every((value) => typeof value === "number"), "complete audio object with name, volume, pitch and pan only");
+	}
+	for (const [event, index] of [
+		[138, 0],
+		[223, 0],
+		[224, 0],
+		[234, 1]
+	]) if (code === event) slot(index, parameters[index].length === 4 && parameters[index].every((value) => typeof value === "number"), "exactly four numeric saved color/tone components");
+}
+//#endregion
+//#region src/validation/command-structure.ts
+function assertNativeCommandEnvelope(value, index) {
+	const fail = (message, field, expected = "native command with exactly code, indent and parameters") => {
+		throw new CommandStructureError("MV-COMMAND-ENVELOPE", message, {
+			nativePath: `list[${index}]${field ? `.${field}` : ""}`,
+			expected,
+			actual: field && typeof value === "object" && value !== null ? Object.hasOwn(value, field) ? describeValue(Object.getOwnPropertyDescriptor(value, field)?.value) : "missing" : describeValue(value)
+		});
+	};
+	if (typeof value !== "object" || value === null || Array.isArray(value)) fail("Expected a native command object.");
+	const command = value;
+	for (const key of [
+		"code",
+		"indent",
+		"parameters"
+	]) {
+		const descriptor = Object.getOwnPropertyDescriptor(command, key);
+		if (!descriptor || "value" in descriptor && descriptor.value === void 0) fail("A required command field is missing or undefined.", key, "present native field with a defined value");
+	}
+	try {
+		assertStrictJson(command, `list[${index}]`);
+	} catch (error) {
+		if (error instanceof StrictJsonError) throw new CommandStructureError("MV-STRICT-JSON", error.message, {
+			nativePath: error.path,
+			expected: "strict representable JSON",
+			actual: error.actual
+		});
+		throw error;
+	}
+	if (Object.keys(command).some((key) => ![
+		"code",
+		"indent",
+		"parameters"
+	].includes(key))) fail("Unknown command field.");
+	for (const key of ["code", "indent"]) if (!Object.hasOwn(command, key) || !Number.isSafeInteger(command[key]) || command[key] < 0 || Object.is(command[key], -0)) fail(`${key} must be a nonnegative safe integer.`, key, "nonnegative safe integer, excluding negative zero");
+	if (!Object.hasOwn(command, "parameters") || !Array.isArray(command.parameters)) fail("parameters must be an array and cannot be missing.", "parameters", "dense parameter array");
+	try {
+		assertStrictJson(command.parameters, `list[${index}].parameters`);
+	} catch (error) {
+		if (error instanceof StrictJsonError) throw new CommandStructureError("MV-STRICT-JSON", error.message, {
+			nativePath: error.path,
+			expected: "strict representable JSON",
+			actual: error.actual
+		});
+		throw error;
+	}
+	if (command.code !== 505) assertNativeCommandParameters(command.code, command.parameters, `list[${index}]`);
+}
+function inspectCommandListStructure(commands, options = {}) {
+	const fail = (index, message, code = "MV-COMMAND-STRUCTURE") => {
+		throw new CommandStructureError(code, message, {
+			nativePath: `list[${index}]`,
+			expected: message,
+			actual: index < commands.length ? describeValue(commands[index]) : "missing"
+		});
+	};
+	if (!Array.isArray(commands) || Object.getPrototypeOf(commands) !== Array.prototype) throw new CommandStructureError("MV-COMMAND-ENVELOPE", "A native list must be a dense command array.", {
+		nativePath: "list",
+		expected: "dense command array",
+		actual: describeValue(commands)
+	});
+	for (const key of Reflect.ownKeys(commands)) if (key !== "length" && (typeof key !== "string" || !/^(0|[1-9]\d*)$/.test(key) || Number(key) >= commands.length)) fail(0, "A native list cannot have extra array properties.", "MV-COMMAND-ENVELOPE");
+	for (let index = 0; index < commands.length; index += 1) {
+		assertNativeCommandEnvelope(commands[index], index);
+		if ([
+			0,
+			112,
+			113,
+			115,
+			413
+		].includes(commands[index].code) && commands[index].parameters.length !== 0) fail(index, "This known structural/flow command requires exactly zero parameters.", "MV-COMMAND-PARAMETERS");
+	}
+	assertNativeMovementCommands(commands);
+	const breaksOutsideLoops = [];
+	const continuationParents = /* @__PURE__ */ new Map([
+		[401, [101, 401]],
+		[405, [105, 405]],
+		[408, [108, 408]],
+		[655, [355, 655]],
+		[505, [205, 505]],
+		[605, [302, 605]]
+	]);
+	const branchCodes = [
+		411,
+		412,
+		413,
+		402,
+		403,
+		404,
+		601,
+		602,
+		603,
+		604
+	];
+	const isBoundary = (index, boundary) => boundary !== void 0 && commands[index]?.indent === boundary.indent && boundary.codes.includes(commands[index].code);
+	const sequence = (start, indent, boundary, loopDepth) => {
+		let index = start;
+		let content = false;
+		while (index < commands.length && !isBoundary(index, boundary)) {
+			const command = commands[index];
+			if (command.indent !== indent) fail(index, `Expected indentation ${indent}, found ${command.indent}.`);
+			if (command.code === 0) {
+				if (boundary === void 0 ? index !== commands.length - 1 : !isBoundary(index + 1, boundary)) fail(index, "A Body End Marker must be the sole trailing marker of its own body; the event terminator must be last.");
+				return {
+					index: index + 1,
+					marker: true,
+					content
+				};
+			}
+			if (branchCodes.includes(command.code)) fail(index, "Orphan branch or closing record.");
+			const allowedPredecessors = continuationParents.get(command.code);
+			if (allowedPredecessors && (commands[index - 1]?.indent !== indent || !allowedPredecessors.includes(commands[index - 1].code))) fail(index, "Orphan continuation record.");
+			if (command.code === 113 && loopDepth === 0) breaksOutsideLoops.push(index);
+			content = true;
+			if (command.code === 112) {
+				const parentIndent = command.indent;
+				const body = sequence(index + 1, parentIndent + 1, {
+					indent: parentIndent,
+					codes: [413]
+				}, loopDepth + 1);
+				if (!isBoundary(body.index, {
+					indent: parentIndent,
+					codes: [413]
+				})) fail(body.index, "Loop has no matching 413.");
+				if (!body.content && !body.marker) fail(body.index, "Empty Loop requires a Body End Marker.", "MV-CHILD-BODY");
+				index = body.index + 1;
+				continue;
+			}
+			if (command.code === 111) {
+				const thenBody = sequence(index + 1, indent + 1, {
+					indent,
+					codes: [411, 412]
+				}, loopDepth);
+				if (!thenBody.content && !thenBody.marker) fail(thenBody.index, "An empty Conditional body requires a Body End Marker.", "MV-CHILD-BODY");
+				let end = thenBody.index;
+				if (commands[end]?.code === 411 && commands[end]?.indent === indent) {
+					const elseBody = sequence(end + 1, indent + 1, {
+						indent,
+						codes: [412]
+					}, loopDepth);
+					if (!elseBody.content && !elseBody.marker) fail(elseBody.index, "An empty Else body requires a Body End Marker.", "MV-CHILD-BODY");
+					end = elseBody.index;
+				}
+				if (!isBoundary(end, {
+					indent,
+					codes: [412]
+				})) fail(end, "Conditional has no matching412.");
+				index = end + 1;
+				continue;
+			}
+			const choices = command.code === 102;
+			const battle = command.code === 301 && commands[index + 1]?.indent === indent && [
+				601,
+				602,
+				603,
+				604
+			].includes(commands[index + 1].code);
+			if (choices || battle) {
+				const branches = choices ? [402, 403] : [
+					601,
+					602,
+					603
+				];
+				const close = choices ? 404 : 604;
+				let end = index + 1;
+				let choiceIndex = 0;
+				let cancelSeen = false;
+				const seen = /* @__PURE__ */ new Set();
+				while (isBoundary(end, {
+					indent,
+					codes: branches
+				})) {
+					const branch = commands[end];
+					if (seen.has(branch.code) && branch.code !== 402) fail(end, "Duplicate parent-owned branch.");
+					seen.add(branch.code);
+					if (choices && branch.code === 402) {
+						const texts = command.parameters[0];
+						const expected = [choiceIndex, texts[choiceIndex]];
+						if (cancelSeen || choiceIndex >= texts.length || branch.parameters[0] !== choiceIndex || branch.parameters[1] !== texts[choiceIndex]) throw new CommandStructureError("MV-CHOICE-MIRROR", "Choice branches must mirror every parent choice exactly once in saved order.", {
+							nativePath: `list[${end}].parameters`,
+							expected: choiceIndex < texts.length ? renderJsonValue(expected) : "no additional choice branch",
+							actual: renderJsonValue(branch.parameters),
+							relatedLocations: [{
+								nativePath: `list[${index}].parameters[0][${choiceIndex}]`,
+								value: choiceIndex < texts.length ? renderJsonValue(texts[choiceIndex]) : "missing"
+							}]
+						});
+						choiceIndex += 1;
+					}
+					if (choices && branch.code === 403) cancelSeen = true;
+					const body = sequence(end + 1, indent + 1, {
+						indent,
+						codes: [...branches, close]
+					}, loopDepth);
+					if (!body.content && !body.marker) fail(body.index, "An empty branch requires a Body End Marker.", "MV-CHILD-BODY");
+					end = body.index;
+				}
+				if (choices && choiceIndex !== command.parameters[0].length) throw new CommandStructureError("MV-CHOICE-MIRROR", "A saved choice has no matching 402 branch.", {
+					nativePath: `list[${end}]`,
+					expected: `402 branch for choice ${choiceIndex}`,
+					actual: commands[end] ? renderJsonValue(commands[end]) : "missing",
+					relatedLocations: [{
+						nativePath: `list[${index}].parameters[0][${choiceIndex}]`,
+						value: renderJsonValue(command.parameters[0][choiceIndex])
+					}]
+				});
+				if (!isBoundary(end, {
+					indent,
+					codes: [close]
+				})) fail(end, `Parent has no matching${close}.`);
+				index = end + 1;
+				continue;
+			}
+			index += 1;
+		}
+		return {
+			index,
+			marker: false,
+			content
+		};
+	};
+	const result = sequence(0, options.baseIndent ?? 0, void 0, 0);
+	if (options.requireTerminator && !result.marker) fail(commands.length, "Event command list requires its final code0/indent0/parameters[] terminator.");
+	return { breaksOutsideLoops };
+}
+//#endregion
+//#region src/validation/dsl-command-inputs.ts
+function assertDslObject(value, allowed, path) {
+	const fail = (actual) => {
+		throw new CommandStructureError("MV-DSL-SHAPE", "Expected a plain authored command with only supported own data fields.", {
+			dslPath: path,
+			expected: allowed?.join(", ") ?? "plain command object",
+			actual
+		});
+	};
+	if (typeof value !== "object" || value === null || Array.isArray(value) || ![Object.prototype, null].includes(Object.getPrototypeOf(value))) fail(describeValue(value));
+	for (const key of Reflect.ownKeys(value)) {
+		const descriptor = Object.getOwnPropertyDescriptor(value, key);
+		if (typeof key !== "string" || allowed && !allowed.includes(key) || !("value" in descriptor) || !descriptor.enumerable) fail(`unsupported field ${String(key)}`);
+	}
+}
+function assertRawDslInput(value, path, indent = 0, withKind = false, checkParameters = true) {
+	assertDslObject(value, withKind ? [
+		"kind",
+		"code",
+		"indent",
+		"parameters"
+	] : [
+		"code",
+		"indent",
+		"parameters"
+	], path);
+	if (!checkParameters) return;
+	try {
+		assertNativeCommandEnvelope({
+			code: value.code,
+			indent: value.indent === void 0 ? indent : value.indent,
+			parameters: value.parameters
+		}, 0);
+	} catch (error) {
+		if (error instanceof CommandStructureError) {
+			const { nativePath: _nativePath, ...location } = error.location;
+			throw new CommandStructureError(error.code, error.detail, {
+				...location,
+				dslPath: path + (typeof value.code === "number" && value.code >= 281 && value.code <= 284 ? error.location.nativePath?.replace(/^list\[\d+\]/u, "") ?? "" : "")
+			});
+		}
+		throw error;
+	}
+}
+function assertDslCommandList(value, path, validateRaw = true) {
+	const fail = (at, actual) => {
+		throw new CommandStructureError("MV-DSL-SHAPE", "Commands must be a dense array of authored command objects.", {
+			dslPath: at,
+			expected: "dense command array",
+			actual
+		});
+	};
+	if (!Array.isArray(value) || Object.getPrototypeOf(value) !== Array.prototype) fail(path, describeValue(value));
+	const values = value;
+	for (const key of Reflect.ownKeys(values)) if (key !== "length" && (typeof key !== "string" || !/^(0|[1-9]\d*)$/.test(key) || Number(key) >= values.length)) fail(path, `extra array field ${String(key)}`);
+	for (let index = 0; index < values.length; index++) {
+		const at = `${path}[${index}]`;
+		const descriptor = Object.getOwnPropertyDescriptor(values, String(index));
+		if (!descriptor || !("value" in descriptor) || !descriptor.enumerable) fail(at, "missing or non-data command slot");
+		const node = descriptor.value;
+		assertDslObject(node, void 0, at);
+		if (!Object.hasOwn(node, "kind") || typeof node.kind !== "string") fail(at, "missing command kind");
+		if (node.kind === "rawDslCommand") assertRawDslInput(node, at, 0, true, validateRaw);
+	}
+}
+//#endregion
+//#region src/validation/common-events.ts
+function assertCommonEventInput(value, withKind = false) {
+	const path = "commonEvent";
+	const fail = (field, expected, actual) => {
+		const id = typeof value === "object" && value !== null ? Object.getOwnPropertyDescriptor(value, "id") : void 0;
+		throw new CommandStructureError("MV-COMMON-EVENT", "Invalid Common Event definition.", {
+			dslPath: field,
+			expected,
+			actual: describeValue(actual)
+		}, id !== void 0 && "value" in id && Number.isSafeInteger(id.value) ? `commonEvent:${id.value}` : "commonEvent", "compile");
+	};
+	try {
+		assertDslObject(value, [
+			"id",
+			"name",
+			"trigger",
+			"switch",
+			"commands",
+			...withKind ? ["kind"] : []
+		], path);
+	} catch (error) {
+		fail(path, "Common Event with only supported own data fields", error instanceof Error ? error.message : error);
+	}
+	const input = value;
+	if (!Number.isSafeInteger(input.id) || input.id <= 0) fail(`${path}.id`, "positive safe integer", input.id);
+	if (typeof input.name !== "string") fail(`${path}.name`, "string", input.name);
+	if (![
+		"none",
+		"autorun",
+		"parallel"
+	].includes(input.trigger)) fail(`${path}.trigger`, "none | autorun | parallel", input.trigger);
+	if (input.switch === void 0) {
+		if (input.trigger !== "none") fail(`${path}.switch`, "explicit Switch reference", input.switch);
+	} else {
+		try {
+			assertDslObject(input.switch, [
+				"kind",
+				"id",
+				"name"
+			], `${path}.switch`);
+		} catch (error) {
+			fail(`${path}.switch`, "Switch reference", error instanceof Error ? error.message : error);
+		}
+		const ref = input.switch;
+		if (ref.kind !== "switch" || Object.hasOwn(ref, "id") === Object.hasOwn(ref, "name") || (Object.hasOwn(ref, "id") ? !Number.isSafeInteger(ref.id) || ref.id <= 0 : typeof ref.name !== "string")) fail(`${path}.switch`, "Switch reference with exactly one positive id or string name", input.switch);
+	}
+	try {
+		assertDslCommandList(input.commands, `${path}.commands`, false);
+	} catch (error) {
+		fail(`${path}.commands`, "dense authored command array", error instanceof Error ? error.message : error);
+	}
+}
+//#endregion
+//#region src/validation/declarations.ts
+function collectDslOwnedDeclarations(moduleExports) {
+	const definitions = [];
+	for (const [name, value] of Object.entries(moduleExports)) {
+		if (name === "default") throw new Error("Default export is not allowed for DSL-owned declarations.");
+		if (isDslOwnedDeclaration(value)) {
+			if (value.kind === "commonEvent") assertCommonEventInput(value, true);
+			definitions.push(value);
+		}
+	}
+	return definitions;
+}
+//#endregion
+//#region src/domain/references.ts
+const referenceKinds = [
+	"actor",
+	"animation",
+	"armor",
+	"class",
+	"commonEvent",
+	"enemy",
+	"item",
+	"map",
+	"skill",
+	"state",
+	"switch",
+	"tileset",
+	"troop",
+	"variable",
+	"weapon"
+];
+const audioAssetFolders = [
+	"bgm",
+	"bgs",
+	"me",
+	"se"
+];
+const imageAssetFolders = [
+	"animations",
+	"battlebacks1",
+	"battlebacks2",
+	"characters",
+	"enemies",
+	"faces",
+	"parallaxes",
+	"pictures",
+	"sv_actors",
+	"sv_enemies",
+	"system",
+	"tilesets",
+	"titles1",
+	"titles2"
+];
+function isProjectDataReference(value) {
+	if (!value || typeof value !== "object" || !("kind" in value)) return false;
+	const candidate = value;
+	return typeof candidate.kind === "string" && isReferenceKind(candidate.kind) && (typeof candidate.id === "number" && !("name" in candidate) || typeof candidate.name === "string" && !("id" in candidate));
+}
+function isAssetReference(value) {
+	if (!value || typeof value !== "object" || !("kind" in value)) return false;
+	const candidate = value;
+	if (candidate.kind !== "asset" || typeof candidate.name !== "string") return false;
+	if (candidate.category === "audio") return isIncluded(audioAssetFolders, candidate.folder);
+	if (candidate.category === "image") return isIncluded(imageAssetFolders, candidate.folder);
+	if (candidate.category === "movie") return candidate.folder === "movies";
+	return false;
+}
+function isRuntimeSelector(value) {
+	if (!value || typeof value !== "object" || !("kind" in value)) return false;
+	const candidate = value;
+	return candidate.kind === "runtimeSelector" && typeof candidate.scope === "string" && candidate.scope.length > 0 && typeof candidate.target === "string" && candidate.target.length > 0;
+}
+function isScriptInput(value) {
+	if (!value || typeof value !== "object" || !("kind" in value)) return false;
+	const candidate = value;
+	return candidate.kind === "scriptInput" && typeof candidate.code === "string";
+}
+function createReference(kind, value) {
+	if ("id" in value) return {
+		id: value.id,
+		kind
+	};
+	return {
+		kind,
+		name: value.name
+	};
+}
+function isReferenceKind(value) {
+	return referenceKinds.includes(value);
+}
+function isIncluded(allowedValues, value) {
+	return typeof value === "string" && allowedValues.includes(value);
+}
+//#endregion
+//#region src/authoring/declarations.ts
+function troopEvent(input) {
+	return {
+		...input,
+		kind: "troopEvent"
+	};
+}
+function battlePage(input) {
+	return { ...input };
+}
+function mapEvent(input) {
+	return {
+		...input,
+		kind: "mapEvent",
+		mapId: input.mapId,
+		id: input.id,
+		name: input.name,
+		x: input.x,
+		y: input.y,
+		note: input.note === void 0 ? "" : input.note,
+		pages: input.pages
+	};
+}
+function commonEvent(input) {
+	assertCommonEventInput(input);
+	return {
+		...input,
+		kind: "commonEvent"
+	};
+}
+function switchDefinition(input) {
+	return {
+		kind: "switchDefinition",
+		id: input.id,
+		name: input.name
+	};
+}
+function variableDefinition(input) {
+	return {
+		kind: "variableDefinition",
+		id: input.id,
+		name: input.name
+	};
+}
+function page(input) {
+	return {
+		...input,
+		conditions: input.conditions === void 0 ? {} : input.conditions,
+		trigger: input.trigger === void 0 ? "action" : input.trigger,
+		commands: input.commands,
+		...input.movement === void 0 ? {} : { movement: input.movement },
+		...input.image === void 0 ? {} : { image: input.image },
+		...input.priority === void 0 ? {} : { priority: input.priority },
+		...input.options === void 0 ? {} : { options: input.options }
+	};
+}
+//#endregion
+//#region src/commands/message/authoring.ts
+function showText(input) {
+	const node = {
+		kind: "showText",
+		lines: input.lines
+	};
+	if (input.face !== void 0) node.face = input.face;
+	if (input.background !== void 0) node.background = input.background;
+	if (input.positionType !== void 0) node.positionType = input.positionType;
+	return node;
+}
+function inputNumber(input) {
+	return {
+		kind: "inputNumber",
+		variable: input.variable,
+		digits: input.digits
+	};
+}
+function selectItem(input) {
+	const node = {
+		kind: "selectItem",
+		variable: input.variable
+	};
+	if (input.itemType !== void 0) node.itemType = input.itemType;
+	return node;
+}
+function showScrollingText(input) {
+	const node = {
+		kind: "showScrollingText",
+		lines: input.lines
+	};
+	if (input.speed !== void 0) node.speed = input.speed;
+	if (input.noFastForward !== void 0) node.noFastForward = input.noFastForward;
+	return node;
+}
+function showChoices(input) {
+	const node = {
+		kind: "showChoices",
+		choices: input.choices,
+		branches: input.branches
+	};
+	if (input.cancelType !== void 0) node.cancelType = input.cancelType;
+	if (input.defaultType !== void 0) node.defaultType = input.defaultType;
+	if (input.positionType !== void 0) node.positionType = input.positionType;
+	if (input.background !== void 0) node.background = input.background;
+	if (input.cancelBranch !== void 0) node.cancelBranch = input.cancelBranch;
+	return node;
+}
+//#endregion
+//#region src/authoring/shared.ts
+function assignPictureDisplayInput(node, input) {
+	if (input.scaleX !== void 0) node.scaleX = input.scaleX;
+	if (input.scaleY !== void 0) node.scaleY = input.scaleY;
+	if (input.opacity !== void 0) node.opacity = input.opacity;
+	if (input.blendMode !== void 0) node.blendMode = input.blendMode;
+}
+function assertIncluded(allowedValues, value, fieldName) {
+	if (!allowedValues.includes(value)) throw new Error(`Invalid ${fieldName}: ${String(value)}.`);
+}
+function assertNonEmptyString(value, fieldName) {
+	if (typeof value !== "string" || value.length === 0) throw new Error(`${fieldName} must be a non-empty string.`);
+}
+//#endregion
+//#region src/authoring/references.ts
+function rawDslCommand(input) {
+	assertRawDslInput(input, "rawDslCommand", 0, false, false);
+	const node = {
+		kind: "rawDslCommand",
+		code: input.code,
+		parameters: input.parameters
+	};
+	if (input.indent !== void 0) node.indent = input.indent;
+	return node;
+}
+function audioAsset(input) {
+	assertIncluded(audioAssetFolders, input.folder, "audio asset folder");
+	assertNonEmptyString(input.name, "Audio asset name");
+	return {
+		kind: "asset",
+		category: "audio",
+		folder: input.folder,
+		name: input.name
+	};
+}
+function imageAsset(input) {
+	assertIncluded(imageAssetFolders, input.folder, "image asset folder");
+	assertNonEmptyString(input.name, "Image asset name");
+	return {
+		kind: "asset",
+		category: "image",
+		folder: input.folder,
+		name: input.name
+	};
+}
+function movieAsset(input) {
+	assertNonEmptyString(input.name, "Movie asset name");
+	return {
+		kind: "asset",
+		category: "movie",
+		folder: "movies",
+		name: input.name
+	};
+}
+function scriptInput(input) {
+	if (typeof input.code !== "string") throw new Error("Script input code must be a string.");
+	return {
+		kind: "scriptInput",
+		code: input.code
+	};
+}
+function actorRef(value) {
+	return createReference("actor", value);
+}
+function animationRef(value) {
+	return createReference("animation", value);
+}
+function armorRef(value) {
+	return createReference("armor", value);
+}
+function classRef(value) {
+	return createReference("class", value);
+}
+function commonEventRef(value) {
+	return createReference("commonEvent", value);
+}
+function enemyRef(value) {
+	return createReference("enemy", value);
+}
+function itemRef(value) {
+	return createReference("item", value);
+}
+function mapRef(value) {
+	return createReference("map", value);
+}
+function skillRef(value) {
+	return createReference("skill", value);
+}
+function stateRef(value) {
+	return createReference("state", value);
+}
+function switchRef(value) {
+	return createReference("switch", value);
+}
+function tilesetRef(value) {
+	return createReference("tileset", value);
+}
+function troopRef(value) {
+	return createReference("troop", value);
+}
+function variableRef(value) {
+	return createReference("variable", value);
+}
+function weaponRef(value) {
+	return createReference("weapon", value);
+}
+//#endregion
+//#region src/commands/flow/validation.ts
+function resolveCommonEventCall(node, resolver, path) {
+	assertCommonEventCall(node, path);
+	try {
+		return resolver.resolveReference(node.commonEvent);
+	} catch (error) {
+		throw new CommandStructureError("MV-E117-REFERENCE", error instanceof Error ? error.message : String(error), {
+			dslPath: `${path}.commonEvent`,
+			expected: "uniquely resolved staged Common Event",
+			actual: describeValue(node.commonEvent)
+		});
+	}
+}
+function assertCommonEventCall(value, path = "callCommonEvent", withKind = true) {
+	const fail = (at, expected, actual) => {
+		throw new CommandStructureError("MV-E117", "Invalid Common Event call.", {
+			dslPath: at,
+			expected,
+			actual: describeValue(actual)
+		});
+	};
+	try {
+		assertDslObject(value, withKind ? ["kind", "commonEvent"] : ["commonEvent"], path);
+	} catch (error) {
+		fail(path, "named object containing commonEvent", error instanceof Error ? error.message : error);
+	}
+	const ref = value.commonEvent;
+	try {
+		assertDslObject(ref, [
+			"kind",
+			"id",
+			"name"
+		], `${path}.commonEvent`);
+	} catch (error) {
+		fail(`${path}.commonEvent`, "Common Event reference", error instanceof Error ? error.message : error);
+	}
+	const input = ref;
+	if (input.kind !== "commonEvent" || Object.hasOwn(input, "id") === Object.hasOwn(input, "name") || (Object.hasOwn(input, "id") ? !Number.isSafeInteger(input.id) || input.id <= 0 : typeof input.name !== "string")) fail(`${path}.commonEvent`, "Common Event reference with exactly one positive id or string name", ref);
+}
+function assertParameterlessFlowCommand(node, path) {
+	if (Object.keys(node).some((key) => key !== "kind")) throw new CommandStructureError("MV-COMMAND-PARAMETERS", `${node.kind} does not accept authored fields.`, { dslPath: path });
+}
+function assertLoopCommand(node, path) {
+	const fail = (message, suffix = ".body") => {
+		throw new CommandStructureError("MV-CHILD-BODY", message, { dslPath: path + suffix });
+	};
+	if (Object.keys(node).some((key) => key !== "kind" && key !== "body")) fail("Loop has an unknown field.", "");
+	const body = node.body;
+	if (typeof body !== "object" || body === null || Array.isArray(body)) fail("Loop requires a body object with commands.");
+	if (Object.keys(body).some((key) => key !== "commands" && key !== "endMarker")) fail("Child Command Body has an unknown field.");
+	if (!Array.isArray(body.commands)) fail("Child Command Body requires a commands array.", ".body.commands");
+	for (let index = 0; index < body.commands.length; index += 1) {
+		if (!Object.hasOwn(body.commands, index) || body.commands[index] === void 0) fail("Child Command Body commands cannot contain undefined or sparse slots.", `.body.commands[${index}]`);
+		const command = body.commands[index];
+		if (typeof command !== "object" || command === null || Array.isArray(command) || typeof command.kind !== "string") fail("Expected a DSL Command object.", `.body.commands[${index}]`);
+	}
+	if (body.endMarker !== void 0 && body.endMarker !== "present" && body.endMarker !== "absent") fail("Body End Marker must be present or absent.", ".body.endMarker");
+	if (body.commands.length === 0 && body.endMarker === "absent") fail("An empty Child Command Body cannot omit its Body End Marker.", ".body.endMarker");
+}
+//#endregion
+//#region src/commands/flow/authoring.ts
+function conditional(input) {
+	const node = {
+		kind: "conditional",
+		condition: input.condition,
+		then: input.then
+	};
+	if (input.else !== void 0) node.else = input.else;
+	return node;
+}
+function loop(input) {
+	return {
+		kind: "loop",
+		body: input.body
+	};
+}
+function breakLoop() {
+	return { kind: "breakLoop" };
+}
+function exitEventProcessing() {
+	return { kind: "exitEventProcessing" };
+}
+function callCommonEvent(input) {
+	assertCommonEventCall(input, "callCommonEvent", false);
+	return {
+		kind: "commonEvent",
+		commonEvent: input.commonEvent
+	};
+}
+function label(name) {
+	return {
+		kind: "label",
+		name
+	};
+}
+function jumpToLabel(name) {
+	return {
+		kind: "jumpToLabel",
+		name
+	};
+}
+function comment(lines) {
+	return {
+		kind: "comment",
+		lines
+	};
+}
+function script(input) {
+	return {
+		kind: "script",
+		script: isScriptInput(input) ? input : scriptInput(input)
+	};
+}
+function pluginCommand(input) {
+	const node = {
+		kind: "pluginCommand",
+		command: input.command
+	};
+	if (input.args !== void 0) node.args = input.args;
+	return node;
+}
+//#endregion
+//#region src/commands/variables/authoring.ts
+function transferPlayer(input) {
+	const node = {
+		kind: "transferPlayer",
+		destination: input.destination
+	};
+	if (input.direction !== void 0) node.direction = input.direction;
+	if (input.fadeType !== void 0) node.fadeType = input.fadeType;
+	return node;
+}
+function controlSwitches(input) {
+	return {
+		kind: "controlSwitches",
+		switch: input.switch,
+		value: input.value
+	};
+}
+function controlVariables(input) {
+	return {
+		kind: "controlVariables",
+		variable: input.variable,
+		operation: input.operation,
+		value: input.value
+	};
+}
+function controlSelfSwitch(input) {
+	return {
+		kind: "controlSelfSwitch",
+		selfSwitch: input.selfSwitch,
+		value: input.value
+	};
+}
+function controlTimer(input) {
+	return input.action === "start" ? {
+		kind: "controlTimer",
+		action: input.action,
+		seconds: input.seconds
+	} : {
+		kind: "controlTimer",
+		action: input.action
+	};
+}
+function changeGold(input) {
+	return {
+		kind: "changeGold",
+		operation: input.operation,
+		value: input.value
+	};
+}
+function changeItems(input) {
+	return {
+		kind: "changeItems",
+		item: input.item,
+		operation: input.operation,
+		amount: input.amount
+	};
+}
+function changeWeapons(input) {
+	const node = {
+		kind: "changeWeapons",
+		weapon: input.weapon,
+		operation: input.operation,
+		amount: input.amount
+	};
+	if (input.includeEquipment !== void 0) node.includeEquipment = input.includeEquipment;
+	return node;
+}
+function changeArmors(input) {
+	const node = {
+		kind: "changeArmors",
+		armor: input.armor,
+		operation: input.operation,
+		amount: input.amount
+	};
+	if (input.includeEquipment !== void 0) node.includeEquipment = input.includeEquipment;
+	return node;
+}
+function changePartyMember(input) {
+	const node = {
+		kind: "changePartyMember",
+		actor: input.actor,
+		operation: input.operation
+	};
+	if (input.initialize !== void 0) node.initialize = input.initialize;
+	return node;
+}
+//#endregion
+//#region src/commands/movement/authoring.ts
+function changeBattleBgm(input) {
+	return {
+		kind: "changeBattleBgm",
+		audio: input.audio
+	};
+}
+function changeVictoryMe(input) {
+	return {
+		kind: "changeVictoryMe",
+		audio: input.audio
+	};
+}
+function changeSaveAccess(input) {
+	return {
+		kind: "changeSaveAccess",
+		enabled: input.enabled
+	};
+}
+function changeMenuAccess(input) {
+	return {
+		kind: "changeMenuAccess",
+		enabled: input.enabled
+	};
+}
+function changeEncounterDisable(input) {
+	return {
+		kind: "changeEncounterDisable",
+		disabled: input.disabled
+	};
+}
+function changeFormationAccess(input) {
+	return {
+		kind: "changeFormationAccess",
+		enabled: input.enabled
+	};
+}
+function changeWindowColor(input) {
+	return {
+		kind: "changeWindowColor",
+		tone: input.tone
+	};
+}
+function changeDefeatMe(input) {
+	return {
+		kind: "changeDefeatMe",
+		audio: input.audio
+	};
+}
+function changeVehicleBgm(input) {
+	return {
+		kind: "changeVehicleBgm",
+		vehicle: input.vehicle,
+		audio: input.audio
+	};
+}
+function setVehicleLocation(input) {
+	return {
+		kind: "setVehicleLocation",
+		vehicle: input.vehicle,
+		destination: input.destination
+	};
+}
+function setEventLocation(input) {
+	const node = {
+		kind: "setEventLocation",
+		character: input.character,
+		destination: input.destination
+	};
+	if (input.direction !== void 0) node.direction = input.direction;
+	return node;
+}
+function scrollMap(input) {
+	return {
+		kind: "scrollMap",
+		direction: input.direction,
+		distance: input.distance,
+		speed: input.speed
+	};
+}
+function setMovementRoute(input) {
+	return {
+		...input,
+		kind: "setMovementRoute",
+		target: input.target,
+		route: input.route
+	};
+}
+function getOnOffVehicle() {
+	return { kind: "getOnOffVehicle" };
+}
+function changeTransparency(input) {
+	return {
+		kind: "changeTransparency",
+		transparent: input.transparent
+	};
+}
+function showAnimation(input) {
+	const node = {
+		kind: "showAnimation",
+		target: input.target,
+		animation: input.animation
+	};
+	if (input.wait !== void 0) node.wait = input.wait;
+	return node;
+}
+function showBalloonIcon(input) {
+	const node = {
+		kind: "showBalloonIcon",
+		target: input.target,
+		balloon: input.balloon
+	};
+	if (input.wait !== void 0) node.wait = input.wait;
+	return node;
+}
+function changePlayerFollowers(input) {
+	return {
+		kind: "changePlayerFollowers",
+		visible: input.visible
+	};
+}
+function gatherFollowers() {
+	return { kind: "gatherFollowers" };
+}
+//#endregion
+//#region src/commands/screen/authoring.ts
+function fadeoutScreen() {
+	return { kind: "fadeoutScreen" };
+}
+function fadeinScreen() {
+	return { kind: "fadeinScreen" };
+}
+function tintScreen(input) {
+	const node = {
+		kind: "tintScreen",
+		tone: input.tone,
+		duration: input.duration
+	};
+	if (input.wait !== void 0) node.wait = input.wait;
+	return node;
+}
+function flashScreen(input) {
+	const node = {
+		kind: "flashScreen",
+		color: input.color,
+		duration: input.duration
+	};
+	if (input.wait !== void 0) node.wait = input.wait;
+	return node;
+}
+function shakeScreen(input) {
+	const node = {
+		kind: "shakeScreen",
+		power: input.power,
+		speed: input.speed,
+		duration: input.duration
+	};
+	if (input.wait !== void 0) node.wait = input.wait;
+	return node;
+}
+function wait(frames) {
+	return {
+		kind: "wait",
+		frames
+	};
+}
+function showPicture(input) {
+	const node = {
+		kind: "showPicture",
+		pictureId: input.pictureId,
+		image: input.image,
+		position: input.position
+	};
+	assignPictureDisplayInput(node, input);
+	return node;
+}
+function movePicture(input) {
+	const node = {
+		kind: "movePicture",
+		pictureId: input.pictureId,
+		position: input.position,
+		duration: input.duration
+	};
+	assignPictureDisplayInput(node, input);
+	if (input.wait !== void 0) node.wait = input.wait;
+	return node;
+}
+function rotatePicture(input) {
+	return {
+		kind: "rotatePicture",
+		pictureId: input.pictureId,
+		speed: input.speed
+	};
+}
+function tintPicture(input) {
+	const node = {
+		kind: "tintPicture",
+		pictureId: input.pictureId,
+		tone: input.tone,
+		duration: input.duration
+	};
+	if (input.wait !== void 0) node.wait = input.wait;
+	return node;
+}
+function erasePicture(input) {
+	return {
+		kind: "erasePicture",
+		pictureId: input.pictureId
+	};
+}
+function setWeatherEffect(input) {
+	const node = {
+		kind: "setWeatherEffect",
+		weather: input.weather,
+		power: input.power,
+		duration: input.duration
+	};
+	if (input.wait !== void 0) node.wait = input.wait;
+	return node;
+}
+//#endregion
+//#region src/commands/audio/authoring.ts
+function playBgm(input) {
+	return {
+		kind: "playBgm",
+		audio: input.audio
+	};
+}
+function fadeoutBgm(input) {
+	return {
+		kind: "fadeoutBgm",
+		duration: input.duration
+	};
+}
+function saveBgm() {
+	return { kind: "saveBgm" };
+}
+function resumeBgm() {
+	return { kind: "resumeBgm" };
+}
+function playBgs(input) {
+	return {
+		kind: "playBgs",
+		audio: input.audio
+	};
+}
+function fadeoutBgs(input) {
+	return {
+		kind: "fadeoutBgs",
+		duration: input.duration
+	};
+}
+function playMe(input) {
+	return {
+		kind: "playMe",
+		audio: input.audio
+	};
+}
+function playSe(input) {
+	return {
+		kind: "playSe",
+		audio: input.audio
+	};
+}
+function stopSe() {
+	return { kind: "stopSe" };
+}
+function playMovie(input) {
+	return {
+		kind: "playMovie",
+		movie: input.movie
+	};
+}
+//#endregion
+//#region src/commands/map/validation.ts
+function assertMapAppearanceInput(kind, input, path, withKind = false, resolver) {
+	const fields = {
+		changeMapNameDisplay: ["enabled"],
+		changeTileset: ["tileset"],
+		changeBattleBack: ["battleback1", "battleback2"],
+		changeParallax: [
+			"image",
+			"loopX",
+			"loopY",
+			"sx",
+			"sy"
+		]
+	};
+	if (!Object.hasOwn(fields, kind)) return;
+	assertDslObject(input, [...withKind ? ["kind"] : [], ...fields[kind]], path);
+	if (kind === "changeParallax") {
+		assertImageSlot(input.image, "parallaxes", `${path}.image`, 284);
+		for (const field of [
+			"loopX",
+			"loopY",
+			"sx",
+			"sy"
+		]) {
+			const value = input[field];
+			const boolean = field === "loopX" || field === "loopY";
+			if (boolean ? typeof value !== "boolean" : !Number.isSafeInteger(value) || value < -32 || value > 32) throw new CommandStructureError("MV-E284-INPUT", "Invalid independently saved parallax configuration.", {
+				dslPath: `${path}.${field}`,
+				expected: boolean ? "boolean" : "integer -32..32",
+				actual: describeValue(value)
+			});
+		}
+		return;
+	}
+	if (kind === "changeBattleBack") {
+		assertImageSlot(input.battleback1, "battlebacks1", `${path}.battleback1`, 283);
+		assertImageSlot(input.battleback2, "battlebacks2", `${path}.battleback2`, 283);
+		return;
+	}
+	if (kind === "changeMapNameDisplay") {
+		if (typeof input.enabled !== "boolean") throw new CommandStructureError("MV-E281-INPUT", "Map name display requires an explicit boolean.", {
+			dslPath: `${path}.enabled`,
+			expected: "boolean",
+			actual: describeValue(input.enabled)
+		});
+		return;
+	}
+	const expected = "tileset reference with one positive integer ID or nonempty name; no None";
+	const fail = () => {
+		throw new CommandStructureError("MV-E282-INPUT", "Invalid tileset reference.", {
+			dslPath: `${path}.tileset`,
+			expected,
+			actual: describeValue(input.tileset)
+		});
+	};
+	if (input.tileset === null || typeof input.tileset !== "object") fail();
+	const reference = input.tileset;
+	assertDslObject(reference, [
+		"kind",
+		"id",
+		"name"
+	], `${path}.tileset`);
+	if (reference.kind !== "tileset" || Object.hasOwn(reference, "id") === Object.hasOwn(reference, "name")) fail();
+	if (Object.hasOwn(reference, "id") ? !Number.isSafeInteger(reference.id) || reference.id <= 0 : typeof reference.name !== "string" || reference.name.length === 0) fail();
+	if (resolver) try {
+		resolver.resolveReference(reference);
+	} catch (error) {
+		throw new CommandStructureError("MV-E282-REFERENCE", error instanceof Error ? error.message : String(error), {
+			dslPath: `${path}.tileset`,
+			expected: "existing tileset in the Project Data Snapshot",
+			actual: describeValue(reference)
+		});
+	}
+}
+function assertImageSlot(value, folder, path, code) {
+	if (value === null) return;
+	const fail = () => {
+		throw new CommandStructureError(`MV-E${code}-INPUT`, "Expected an explicit image Asset Reference or None.", {
+			dslPath: path,
+			expected: `${folder} image Asset Reference with nonempty name, or null`,
+			actual: describeValue(value)
+		});
+	};
+	if (typeof value !== "object" || value === null || Array.isArray(value)) fail();
+	const asset = value;
+	assertDslObject(asset, [
+		"kind",
+		"category",
+		"folder",
+		"name"
+	], path);
+	if (asset.kind !== "asset" || asset.category !== "image" || asset.folder !== folder || typeof asset.name !== "string" || asset.name.length === 0) fail();
+}
+//#endregion
+//#region src/commands/map/authoring.ts
+function changeMapNameDisplay(input) {
+	assertMapAppearanceInput("changeMapNameDisplay", input, "changeMapNameDisplay");
+	return {
+		kind: "changeMapNameDisplay",
+		enabled: input.enabled
+	};
+}
+function changeTileset(input) {
+	assertMapAppearanceInput("changeTileset", input, "changeTileset");
+	return {
+		kind: "changeTileset",
+		tileset: input.tileset
+	};
+}
+function changeBattleBack(input) {
+	assertMapAppearanceInput("changeBattleBack", input, "changeBattleBack");
+	return {
+		kind: "changeBattleBack",
+		battleback1: input.battleback1,
+		battleback2: input.battleback2
+	};
+}
+function changeParallax(input) {
+	assertMapAppearanceInput("changeParallax", input, "changeParallax");
+	return {
+		kind: "changeParallax",
+		image: input.image,
+		loopX: input.loopX,
+		loopY: input.loopY,
+		sx: input.sx,
+		sy: input.sy
+	};
+}
+function getLocationInfo(input) {
+	return {
+		kind: "getLocationInfo",
+		variable: input.variable,
+		info: input.info,
+		location: input.location
+	};
+}
+function eraseEvent() {
+	return { kind: "eraseEvent" };
+}
+//#endregion
+//#region src/commands/battle/authoring.ts
+function battleProcessing(input) {
+	const node = {
+		kind: "battleProcessing",
+		troop: input.troop
+	};
+	if (input.canEscape !== void 0) node.canEscape = input.canEscape;
+	if (input.canLose !== void 0) node.canLose = input.canLose;
+	if (input.win !== void 0) node.win = input.win;
+	if (input.escape !== void 0) node.escape = input.escape;
+	if (input.lose !== void 0) node.lose = input.lose;
+	return node;
+}
+function shopProcessing(input) {
+	const node = {
+		kind: "shopProcessing",
+		goods: input.goods
+	};
+	if (input.allowSelling !== void 0) node.allowSelling = input.allowSelling;
+	return node;
+}
+function nameInputProcessing(input) {
+	return {
+		kind: "nameInputProcessing",
+		actor: input.actor,
+		maxCharacters: input.maxCharacters
+	};
+}
+//#endregion
+//#region src/commands/actor/authoring.ts
+function changeHp(input) {
+	const node = {
+		kind: "changeHp",
+		target: input.target,
+		operation: input.operation,
+		value: input.value
+	};
+	if (input.allowDeath !== void 0) node.allowDeath = input.allowDeath;
+	return node;
+}
+function changeMp(input) {
+	return {
+		kind: "changeMp",
+		target: input.target,
+		operation: input.operation,
+		value: input.value
+	};
+}
+function changeState(input) {
+	return {
+		kind: "changeState",
+		target: input.target,
+		operation: input.operation,
+		state: input.state
+	};
+}
+function recoverAll(input) {
+	return {
+		kind: "recoverAll",
+		target: input.target
+	};
+}
+function changeExp(input) {
+	const node = {
+		kind: "changeExp",
+		target: input.target,
+		operation: input.operation,
+		value: input.value
+	};
+	if (input.showLevelUp !== void 0) node.showLevelUp = input.showLevelUp;
+	return node;
+}
+function changeLevel(input) {
+	const node = {
+		kind: "changeLevel",
+		target: input.target,
+		operation: input.operation,
+		value: input.value
+	};
+	if (input.showLevelUp !== void 0) node.showLevelUp = input.showLevelUp;
+	return node;
+}
+function changeParameter(input) {
+	return {
+		kind: "changeParameter",
+		target: input.target,
+		parameter: input.parameter,
+		operation: input.operation,
+		value: input.value
+	};
+}
+function changeSkill(input) {
+	return {
+		kind: "changeSkill",
+		target: input.target,
+		operation: input.operation,
+		skill: input.skill
+	};
+}
+function changeEquipment(input) {
+	return {
+		kind: "changeEquipment",
+		actor: input.actor,
+		equipmentTypeId: input.equipmentTypeId,
+		itemId: input.itemId
+	};
+}
+function changeName(input) {
+	return {
+		kind: "changeName",
+		actor: input.actor,
+		name: input.name
+	};
+}
+function changeClass(input) {
+	const node = {
+		kind: "changeClass",
+		actor: input.actor,
+		class: input.class
+	};
+	if (input.keepExp !== void 0) node.keepExp = input.keepExp;
+	return node;
+}
+function changeActorImages(input) {
+	return {
+		kind: "changeActorImages",
+		actor: input.actor,
+		character: input.character,
+		face: input.face,
+		battler: input.battler
+	};
+}
+function changeVehicleImage(input) {
+	return {
+		kind: "changeVehicleImage",
+		vehicle: input.vehicle,
+		image: input.image,
+		index: input.index
+	};
+}
+function changeNickname(input) {
+	return {
+		kind: "changeNickname",
+		actor: input.actor,
+		nickname: input.nickname
+	};
+}
+function changeProfile(input) {
+	return {
+		kind: "changeProfile",
+		actor: input.actor,
+		profile: input.profile
+	};
+}
+function changeTp(input) {
+	return {
+		kind: "changeTp",
+		target: input.target,
+		operation: input.operation,
+		value: input.value
+	};
+}
+//#endregion
+//#region src/commands/enemy/authoring.ts
+function changeEnemyHp(input) {
+	const node = {
+		kind: "changeEnemyHp",
+		target: input.target,
+		operation: input.operation,
+		value: input.value
+	};
+	if (input.allowDeath !== void 0) node.allowDeath = input.allowDeath;
+	return node;
+}
+function changeEnemyMp(input) {
+	return {
+		kind: "changeEnemyMp",
+		target: input.target,
+		operation: input.operation,
+		value: input.value
+	};
+}
+function changeEnemyState(input) {
+	return {
+		kind: "changeEnemyState",
+		target: input.target,
+		operation: input.operation,
+		state: input.state
+	};
+}
+function enemyRecoverAll(input) {
+	return {
+		kind: "enemyRecoverAll",
+		target: input.target
+	};
+}
+function enemyAppear(input) {
+	return {
+		kind: "enemyAppear",
+		target: input.target
+	};
+}
+function enemyTransform(input) {
+	return {
+		kind: "enemyTransform",
+		target: input.target,
+		enemy: input.enemy
+	};
+}
+function showBattleAnimation(input) {
+	return {
+		kind: "showBattleAnimation",
+		target: input.target,
+		animation: input.animation
+	};
+}
+function forceAction(input) {
+	return {
+		kind: "forceAction",
+		subject: input.subject,
+		skill: input.skill,
+		targetIndex: input.targetIndex
+	};
+}
+function abortBattle() {
+	return { kind: "abortBattle" };
+}
+function changeEnemyTp(input) {
+	return {
+		kind: "changeEnemyTp",
+		target: input.target,
+		operation: input.operation,
+		value: input.value
+	};
+}
+//#endregion
+//#region src/commands/system/authoring.ts
+function openMenuScreen() {
+	return { kind: "openMenuScreen" };
+}
+function openSaveScreen() {
+	return { kind: "openSaveScreen" };
+}
+function gameOver() {
+	return { kind: "gameOver" };
+}
+function returnToTitleScreen() {
+	return { kind: "returnToTitleScreen" };
+}
+//#endregion
+//#region src/authoring/index.ts
+var authoring_exports = /* @__PURE__ */ __exportAll({
+	abortBattle: () => abortBattle,
+	actorRef: () => actorRef,
+	animationRef: () => animationRef,
+	armorRef: () => armorRef,
+	audioAsset: () => audioAsset,
+	battlePage: () => battlePage,
+	battleProcessing: () => battleProcessing,
+	breakLoop: () => breakLoop,
+	callCommonEvent: () => callCommonEvent,
+	changeActorImages: () => changeActorImages,
+	changeArmors: () => changeArmors,
+	changeBattleBack: () => changeBattleBack,
+	changeBattleBgm: () => changeBattleBgm,
+	changeClass: () => changeClass,
+	changeDefeatMe: () => changeDefeatMe,
+	changeEncounterDisable: () => changeEncounterDisable,
+	changeEnemyHp: () => changeEnemyHp,
+	changeEnemyMp: () => changeEnemyMp,
+	changeEnemyState: () => changeEnemyState,
+	changeEnemyTp: () => changeEnemyTp,
+	changeEquipment: () => changeEquipment,
+	changeExp: () => changeExp,
+	changeFormationAccess: () => changeFormationAccess,
+	changeGold: () => changeGold,
+	changeHp: () => changeHp,
+	changeItems: () => changeItems,
+	changeLevel: () => changeLevel,
+	changeMapNameDisplay: () => changeMapNameDisplay,
+	changeMenuAccess: () => changeMenuAccess,
+	changeMp: () => changeMp,
+	changeName: () => changeName,
+	changeNickname: () => changeNickname,
+	changeParallax: () => changeParallax,
+	changeParameter: () => changeParameter,
+	changePartyMember: () => changePartyMember,
+	changePlayerFollowers: () => changePlayerFollowers,
+	changeProfile: () => changeProfile,
+	changeSaveAccess: () => changeSaveAccess,
+	changeSkill: () => changeSkill,
+	changeState: () => changeState,
+	changeTileset: () => changeTileset,
+	changeTp: () => changeTp,
+	changeTransparency: () => changeTransparency,
+	changeVehicleBgm: () => changeVehicleBgm,
+	changeVehicleImage: () => changeVehicleImage,
+	changeVictoryMe: () => changeVictoryMe,
+	changeWeapons: () => changeWeapons,
+	changeWindowColor: () => changeWindowColor,
+	classRef: () => classRef,
+	collectDslOwnedDeclarations: () => collectDslOwnedDeclarations,
+	comment: () => comment,
+	commonEvent: () => commonEvent,
+	commonEventRef: () => commonEventRef,
+	conditional: () => conditional,
+	controlSelfSwitch: () => controlSelfSwitch,
+	controlSwitches: () => controlSwitches,
+	controlTimer: () => controlTimer,
+	controlVariables: () => controlVariables,
+	enemyAppear: () => enemyAppear,
+	enemyRecoverAll: () => enemyRecoverAll,
+	enemyRef: () => enemyRef,
+	enemyTransform: () => enemyTransform,
+	eraseEvent: () => eraseEvent,
+	erasePicture: () => erasePicture,
+	exitEventProcessing: () => exitEventProcessing,
+	fadeinScreen: () => fadeinScreen,
+	fadeoutBgm: () => fadeoutBgm,
+	fadeoutBgs: () => fadeoutBgs,
+	fadeoutScreen: () => fadeoutScreen,
+	flashScreen: () => flashScreen,
+	forceAction: () => forceAction,
+	gameOver: () => gameOver,
+	gatherFollowers: () => gatherFollowers,
+	getLocationInfo: () => getLocationInfo,
+	getOnOffVehicle: () => getOnOffVehicle,
+	imageAsset: () => imageAsset,
+	inputNumber: () => inputNumber,
+	isAssetReference: () => isAssetReference,
+	isDslOwnedDeclaration: () => isDslOwnedDeclaration,
+	isProjectDataReference: () => isProjectDataReference,
+	isRuntimeSelector: () => isRuntimeSelector,
+	isScriptInput: () => isScriptInput,
+	itemRef: () => itemRef,
+	jumpToLabel: () => jumpToLabel,
+	label: () => label,
+	loop: () => loop,
+	mapEvent: () => mapEvent,
+	mapRef: () => mapRef,
+	movePicture: () => movePicture,
+	movieAsset: () => movieAsset,
+	nameInputProcessing: () => nameInputProcessing,
+	openMenuScreen: () => openMenuScreen,
+	openSaveScreen: () => openSaveScreen,
+	page: () => page,
+	playBgm: () => playBgm,
+	playBgs: () => playBgs,
+	playMe: () => playMe,
+	playMovie: () => playMovie,
+	playSe: () => playSe,
+	pluginCommand: () => pluginCommand,
+	rawDslCommand: () => rawDslCommand,
+	recoverAll: () => recoverAll,
+	resumeBgm: () => resumeBgm,
+	returnToTitleScreen: () => returnToTitleScreen,
+	rotatePicture: () => rotatePicture,
+	saveBgm: () => saveBgm,
+	script: () => script,
+	scriptInput: () => scriptInput,
+	scrollMap: () => scrollMap,
+	selectItem: () => selectItem,
+	setEventLocation: () => setEventLocation,
+	setMovementRoute: () => setMovementRoute,
+	setVehicleLocation: () => setVehicleLocation,
+	setWeatherEffect: () => setWeatherEffect,
+	shakeScreen: () => shakeScreen,
+	shopProcessing: () => shopProcessing,
+	showAnimation: () => showAnimation,
+	showBalloonIcon: () => showBalloonIcon,
+	showBattleAnimation: () => showBattleAnimation,
+	showChoices: () => showChoices,
+	showPicture: () => showPicture,
+	showScrollingText: () => showScrollingText,
+	showText: () => showText,
+	skillRef: () => skillRef,
+	stateRef: () => stateRef,
+	stopSe: () => stopSe,
+	switchDefinition: () => switchDefinition,
+	switchRef: () => switchRef,
+	tilesetRef: () => tilesetRef,
+	tintPicture: () => tintPicture,
+	tintScreen: () => tintScreen,
+	transferPlayer: () => transferPlayer,
+	troopEvent: () => troopEvent,
+	troopRef: () => troopRef,
+	variableDefinition: () => variableDefinition,
+	variableRef: () => variableRef,
+	wait: () => wait,
+	weaponRef: () => weaponRef
+});
+//#endregion
+export { fadeinScreen as $, animationRef as $t, changeVehicleImage as A, isAssetReference as An, changeGold as At, getLocationInfo as B, assertNativeSwitchCommand as Bn, callCommonEvent as Bt, changeName as C, battlePage as Cn, scrollMap as Ct, changeSkill as D, switchDefinition as Dn, showAnimation as Dt, changeProfile as E, page as En, setVehicleLocation as Et, changeBattleBack as F, assertCommonEventInput as Fn, controlSwitches as Ft, playBgs as G, assertSetMovementRoute as Gn, label as Gt, fadeoutBgm as H, assertNativeMovementCommandParameters as Hn, conditional as Ht, changeMapNameDisplay as I, assertDslCommandList as In, controlTimer as It, playSe as J, assertStrictJson as Jn, script as Jt, playMe as K, validateNativeMovementRouteInputs as Kn, loop as Kt, changeParallax as L, assertNativeCommandEnvelope as Ln, controlVariables as Lt, battleProcessing as M, isRuntimeSelector as Mn, changePartyMember as Mt, nameInputProcessing as N, isScriptInput as Nn, changeWeapons as Nt, changeState as O, troopEvent as On, showBalloonIcon as Ot, shopProcessing as P, collectDslOwnedDeclarations as Pn, controlSelfSwitch as Pt, erasePicture as Q, actorRef as Qt, changeTileset as R, inspectCommandListStructure as Rn, transferPlayer as Rt, changeMp as S, showText as Sn, getOnOffVehicle as St, changeParameter as T, mapEvent as Tn, setMovementRoute as Tt, fadeoutBgs as U, assertNativeMovementRecord as Un, exitEventProcessing as Ut, assertMapAppearanceInput as V, assertMovementRoute as Vn, comment as Vt, playBgm as W, assertNativeMovementRoute as Wn, jumpToLabel as Wt, saveBgm as X, renderJsonValue as Xn, assertParameterlessFlowCommand as Xt, resumeBgm as Y, describeValue as Yn, assertLoopCommand as Yt, stopSe as Z, isDslOwnedDeclaration as Zn, resolveCommonEventCall as Zt, changeClass as _, weaponRef as _n, changeTransparency as _t, returnToTitleScreen as a, imageAsset as an, shakeScreen as at, changeHp as b, showChoices as bn, changeWindowColor as bt, changeEnemyMp as c, movieAsset as cn, tintScreen as ct, enemyAppear as d, skillRef as dn, changeDefeatMe as dt, armorRef as en, fadeoutScreen as et, enemyRecoverAll as f, stateRef as fn, changeEncounterDisable as ft, changeActorImages as g, variableRef as gn, changeSaveAccess as gt, showBattleAnimation as h, troopRef as hn, changePlayerFollowers as ht, openSaveScreen as i, enemyRef as in, setWeatherEffect as it, recoverAll as j, isProjectDataReference as jn, changeItems as jt, changeTp as k, variableDefinition as kn, changeArmors as kt, changeEnemyState as l, rawDslCommand as ln, wait as lt, forceAction as m, tilesetRef as mn, changeMenuAccess as mt, gameOver as n, classRef as nn, movePicture as nt, abortBattle as o, itemRef as on, showPicture as ot, enemyTransform as p, switchRef as pn, changeFormationAccess as pt, playMovie as q, CommandStructureError as qn, pluginCommand as qt, openMenuScreen as r, commonEventRef as rn, rotatePicture as rt, changeEnemyHp as s, mapRef as sn, tintPicture as st, authoring_exports as t, audioAsset as tn, flashScreen as tt, changeEnemyTp as u, scriptInput as un, changeBattleBgm as ut, changeEquipment as v, inputNumber as vn, changeVehicleBgm as vt, changeNickname as w, commonEvent as wn, setEventLocation as wt, changeLevel as x, showScrollingText as xn, gatherFollowers as xt, changeExp as y, selectItem as yn, changeVictoryMe as yt, eraseEvent as z, isKnownCommandCode as zn, breakLoop as zt };
+
+//# sourceMappingURL=authoring-D0b1TW44.mjs.map

@@ -1,0 +1,48 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-33/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/movement-instructions-workspace.test.ts > rejects a negative-zero symbolic M43 value in the page route before source publication
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\movement-negative-zero-blend-7K2JyU
+
+stderr | test/movement-instructions-workspace.test.ts > rejects a negative-zero symbolic M43 value in the forced route before source publication
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\movement-negative-zero-blend-xezUrS
+
+ ❯ test/movement-instructions-workspace.test.ts (11 tests | 2 failed | 9 skipped) 1889ms
+   × rejects a negative-zero symbolic M43 value in the page route before source publication 995ms
+   × rejects a negative-zero symbolic M43 value in the forced route before source publication 893ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/movement-instructions-workspace.test.ts > rejects a negative-zero symbolic M43 value in the page route before source publication
+ FAIL  test/movement-instructions-workspace.test.ts > rejects a negative-zero symbolic M43 value in the forced route before source publication
+AssertionError: promise resolved "undefined" instead of rejecting
+
+- Expected:
+Error {
+  "message": "rejected promise",
+}
+
++ Received:
+undefined
+
+ ❯ test/movement-instructions-workspace.test.ts:357:58
+    355|       await prepare(workspaceRoot, [page]);
+    356|       const before = await state(workspaceRoot);
+    357|       await expect(decompileWorkspace({ workspaceRoot })).rejects.toMa…
+       |                                                          ^
+    358|         code: "MV-MOVEMENT-PARAMETER",
+    359|         identity: "map:1/event:1",
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/movement-instructions-workspace.test.ts:352:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 9 skipped (11)
+   Start at  00:22:51
+   Duration  3.68s (transform 598ms, setup 0ms, import 1.61s, tests 1.89s, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-33\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/movement-instructions-workspace.test.ts -t rejects a negative-zero symbolic M43

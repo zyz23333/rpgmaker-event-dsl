@@ -1,0 +1,93 @@
+{
+  "purpose": "Root independent read-only release audit of exact Map24 numeric physical prepare-only pairs; no games launched",
+  "at": "2026-10-19T19:58:51.859Z",
+  "index": {
+    "path": "M:/Shuen/Codex/mv-events-implementation-20261020/map24-final/map24-physical-v2-prepare-index-2bacbe7e-af0c-4524-852f-91e036dc4409.json",
+    "sha256": "56168648cf4437376f7279c6bed4c9fe7961d5b9e2e453545eeeb2d711cf4d02"
+  },
+  "manifest": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-physical-inputs-v2-e518e76f-481f-4267-9dd5-a106f96507fb\\manifest.json",
+    "sha256": "35968032eb1a76e289a42de67cb7afdf809d8146051d6f60e3e7c2afe2b5c963"
+  },
+  "productFreeze": {
+    "path": "M:/Shuen/Codex/mv-events-implementation-20261020/map24-final/product-freeze-v1-30dacce6-a528-4095-9669-f75ade4a266e/manifest.json",
+    "sha256": "fe98bd6f58a2d2c4b638bfb8ed8b624feed563788866e33774c898b96911bc67"
+  },
+  "preservedFilesVerified": 187,
+  "adapter": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-native-pair-delivery-v2.cjs",
+    "sha256": "68933c0dafada9bfb0fc7955ce4394825396a967fa42b2808819ea76f4dba857"
+  },
+  "guard": {
+    "sha256": "22719922029ef212ff34058fead532a3523d96fcb3d649e51bc081dc9b43d786"
+  },
+  "referenceFiles": 1100,
+  "seedFiles": 1100,
+  "cases": [
+    {
+      "case": "triggers",
+      "revision": "71098b7a6647c15f57337a416cee176823037eed",
+      "report": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-triggers-physical-v2-prepare-3f73c1d0-f524-42a0-843b-5af6150d75d2\\preparation-result.json",
+        "sha256": "1a1408b949334c4c7261e23f44eb0c90b95d68dbb51820e30e9bbd31eb0c5d21"
+      },
+      "proof": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-triggers-physical-v2-prepare-3f73c1d0-f524-42a0-843b-5af6150d75d2\\physical-isolation-proof.json",
+        "sha256": "5b37a87f489874d57871fcac24556dc3da0885fdf59b7dac6cf62be60f014f0d"
+      },
+      "input": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-physical-inputs-v2-e518e76f-481f-4267-9dd5-a106f96507fb\\triggers-independent-input.json",
+        "sha256": "00a79612419358fbdb258fbd3dbc2a70d87cfc3e1db6ffb9137489cedd6457c3"
+      },
+      "source": {
+        "count": 99,
+        "sha256": "eae8e098943006f9c0bb47a6caca0fa30c4977e44795cac2c7ff8617eda5a02c"
+      },
+      "dist": {
+        "count": 15,
+        "sha256": "4da7aa0136085e036047d75f22164b9dee867e79655e33de4f2ebcd66ddebc19"
+      },
+      "dataCheckpoints": 71,
+      "fullProtectedCheckpoints": 6,
+      "physicalFiles": {
+        "reference": 15,
+        "seed": 15,
+        "literal": 15,
+        "compiled": 15
+      }
+    },
+    {
+      "case": "routes",
+      "revision": "71098b7a6647c15f57337a416cee176823037eed",
+      "report": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-routes-physical-v2-prepare-fad83ee4-85e1-4a50-8d92-99bcd367495f\\preparation-result.json",
+        "sha256": "b404e357e322d47a5bc80de0fa863ca51c0dc1611817502589d9ef04499c22b5"
+      },
+      "proof": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-routes-physical-v2-prepare-fad83ee4-85e1-4a50-8d92-99bcd367495f\\physical-isolation-proof.json",
+        "sha256": "b28fad4c6354da7437c28ff19c000d581b4c1c488b3dcb4304e2b922ed8538a8"
+      },
+      "input": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-physical-inputs-v2-e518e76f-481f-4267-9dd5-a106f96507fb\\routes-independent-input.json",
+        "sha256": "c2e9bcfb75e8b44e14d6f57c36de02619a647e0c3c4e20497cf4cea0a842feb8"
+      },
+      "source": {
+        "count": 99,
+        "sha256": "eae8e098943006f9c0bb47a6caca0fa30c4977e44795cac2c7ff8617eda5a02c"
+      },
+      "dist": {
+        "count": 15,
+        "sha256": "4da7aa0136085e036047d75f22164b9dee867e79655e33de4f2ebcd66ddebc19"
+      },
+      "dataCheckpoints": 71,
+      "fullProtectedCheckpoints": 6,
+      "physicalFiles": {
+        "reference": 15,
+        "seed": 15,
+        "literal": 15,
+        "compiled": 15
+      }
+    }
+  ],
+  "passed": true
+}

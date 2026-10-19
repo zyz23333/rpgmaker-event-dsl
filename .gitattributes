@@ -10,6 +10,9 @@
 # Preserve byte-identical original ticket25 delivery runners and their fixture hashes.
 /.scratch/complete-mv-events-implementation/evidence/25-troop-delivery-tools/*.cjs -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 
+# Preserve exact supplemental Map numeric correction logs and audit copies.
+/.scratch/complete-mv-events-implementation/evidence/24-numeric-correction/* -text whitespace=-blank-at-eof,cr-at-eol
+
+
 # Preserve exact original Ticket26 focused-run captures and provenance hashes.
 /.scratch/complete-mv-events-implementation/evidence/26-history/** -text -whitespace
-

@@ -31,6 +31,9 @@ Turn RPG Maker MV gameplay intent into idiomatic Event DSL source. Use Workspace
    conditions, images, movement, priority, options, triggers or note. It defines the
    complete saved-state boundary and fixed defaults.
 
+   For page or forced movement routes, read `references/movement-routes.md` before
+   choosing instruction fields, None assets, parameter ranges or saved envelopes.
+
 4. Author Definition Source.
 
    Edit Definition Source selected by the Workspace Config. Preserve existing Entry Identity and local source style. Use the MV-aligned DSL helpers for RPG Maker MV 1.6.1 editor command families. Keep continuation commands inside their parent helper, such as text lines in `showText(...)`, choice branches in `showChoices(...)`, battle result branches in `battleProcessing(...)`, shop goods continuations in `shopProcessing(...)`, and route commands in `setMovementRoute(...)`.
