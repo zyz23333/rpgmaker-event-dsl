@@ -1,0 +1,36 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-39/packages/rpgmaker-event-dsl
+
+ ❯ test/audio-commands.test.ts (7 tests | 1 failed | 6 skipped) 6ms
+   × checks original Audio Asset fields before selecting folder and filename 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/audio-commands.test.ts > checks original Audio Asset fields before selecting folder and filename
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/audio-commands.test.ts:144:51
+    142|     {folder:"movies",name:"Track"}, {folder:"bgm"}, {name:"Track"},
+    143|     Object.create({folder:"bgm",name:"Track"}),
+    144|   ]) expect(() => dsl.audioAsset(input as never)).toThrow(/MV-AUDIO-AS…
+       |                                                   ^
+    145|   let reads=0;
+    146|   const input=Object.defineProperty({folder:"bgm"},"name",{enumerable:…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 skipped (7)
+   Start at  04:19:47
+   Duration  1.26s (transform 362ms, setup 0ms, import 1.11s, tests 6ms, environment 0ms)
+
+undefined
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-39\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/audio-commands.test.ts -t checks original Audio Asset

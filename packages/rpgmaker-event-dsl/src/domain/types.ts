@@ -151,7 +151,7 @@ export type {
   PluginDslCommand,
   RawDslCommand,
   RecoverAllDslCommand,
-  ResumeBgmDslCommand,
+  ReplayBgmDslCommand,
   ReturnToTitleScreenDslCommand,
   RotatePictureDslCommand,
   SaveBgmDslCommand,

@@ -1,6 +1,6 @@
 # 39: 音频播放与系统音频设置
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 23
 Stage: S6
 Created: 2026-10-19

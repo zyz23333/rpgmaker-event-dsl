@@ -1,0 +1,182 @@
+[
+  {
+    "code": 132,
+    "indent": 0,
+    "parameters": [{ "name": "", "volume": 0, "pitch": 50, "pan": -100 }]
+  },
+  {
+    "code": 132,
+    "indent": 0,
+    "parameters": [{ "name": "Battle", "volume": 100, "pitch": 150, "pan": 100 }]
+  },
+  { "code": 132, "indent": 0, "parameters": [{ "name": "", "volume": 1, "pitch": 51, "pan": 1 }] },
+  {
+    "code": 132,
+    "indent": 0,
+    "parameters": [{ "name": "", "volume": -0, "pitch": 100, "pan": -0 }]
+  },
+  {
+    "code": 133,
+    "indent": 0,
+    "parameters": [{ "name": "", "volume": 0, "pitch": 50, "pan": -100 }]
+  },
+  {
+    "code": 133,
+    "indent": 0,
+    "parameters": [{ "name": "Victory", "volume": 100, "pitch": 150, "pan": 100 }]
+  },
+  { "code": 133, "indent": 0, "parameters": [{ "name": "", "volume": 1, "pitch": 51, "pan": 1 }] },
+  {
+    "code": 133,
+    "indent": 0,
+    "parameters": [{ "name": "", "volume": -0, "pitch": 100, "pan": -0 }]
+  },
+  {
+    "code": 139,
+    "indent": 0,
+    "parameters": [{ "name": "", "volume": 0, "pitch": 50, "pan": -100 }]
+  },
+  {
+    "code": 139,
+    "indent": 0,
+    "parameters": [{ "name": "Defeat", "volume": 100, "pitch": 150, "pan": 100 }]
+  },
+  { "code": 139, "indent": 0, "parameters": [{ "name": "", "volume": 1, "pitch": 51, "pan": 1 }] },
+  {
+    "code": 139,
+    "indent": 0,
+    "parameters": [{ "name": "", "volume": -0, "pitch": 100, "pan": -0 }]
+  },
+  {
+    "code": 140,
+    "indent": 0,
+    "parameters": [0, { "name": "", "volume": 0, "pitch": 50, "pan": -100 }]
+  },
+  {
+    "code": 140,
+    "indent": 0,
+    "parameters": [0, { "name": "Boat", "volume": 100, "pitch": 150, "pan": 100 }]
+  },
+  {
+    "code": 140,
+    "indent": 0,
+    "parameters": [0, { "name": "", "volume": 1, "pitch": 51, "pan": 1 }]
+  },
+  {
+    "code": 140,
+    "indent": 0,
+    "parameters": [0, { "name": "", "volume": -0, "pitch": 100, "pan": -0 }]
+  },
+  {
+    "code": 140,
+    "indent": 0,
+    "parameters": [1, { "name": "", "volume": 0, "pitch": 50, "pan": -100 }]
+  },
+  {
+    "code": 140,
+    "indent": 0,
+    "parameters": [1, { "name": "Ship", "volume": 100, "pitch": 150, "pan": 100 }]
+  },
+  {
+    "code": 140,
+    "indent": 0,
+    "parameters": [1, { "name": "", "volume": 1, "pitch": 51, "pan": 1 }]
+  },
+  {
+    "code": 140,
+    "indent": 0,
+    "parameters": [1, { "name": "", "volume": -0, "pitch": 100, "pan": -0 }]
+  },
+  {
+    "code": 140,
+    "indent": 0,
+    "parameters": [2, { "name": "", "volume": 0, "pitch": 50, "pan": -100 }]
+  },
+  {
+    "code": 140,
+    "indent": 0,
+    "parameters": [2, { "name": "Airship", "volume": 100, "pitch": 150, "pan": 100 }]
+  },
+  {
+    "code": 140,
+    "indent": 0,
+    "parameters": [2, { "name": "", "volume": 1, "pitch": 51, "pan": 1 }]
+  },
+  {
+    "code": 140,
+    "indent": 0,
+    "parameters": [2, { "name": "", "volume": -0, "pitch": 100, "pan": -0 }]
+  },
+  {
+    "code": 241,
+    "indent": 0,
+    "parameters": [{ "name": "", "volume": 0, "pitch": 50, "pan": -100 }]
+  },
+  {
+    "code": 241,
+    "indent": 0,
+    "parameters": [{ "name": "Theme", "volume": 100, "pitch": 150, "pan": 100 }]
+  },
+  { "code": 241, "indent": 0, "parameters": [{ "name": "", "volume": 1, "pitch": 51, "pan": 1 }] },
+  {
+    "code": 241,
+    "indent": 0,
+    "parameters": [{ "name": "", "volume": -0, "pitch": 100, "pan": -0 }]
+  },
+  {
+    "code": 245,
+    "indent": 0,
+    "parameters": [{ "name": "", "volume": 0, "pitch": 50, "pan": -100 }]
+  },
+  {
+    "code": 245,
+    "indent": 0,
+    "parameters": [{ "name": "Rain", "volume": 100, "pitch": 150, "pan": 100 }]
+  },
+  { "code": 245, "indent": 0, "parameters": [{ "name": "", "volume": 1, "pitch": 51, "pan": 1 }] },
+  {
+    "code": 245,
+    "indent": 0,
+    "parameters": [{ "name": "", "volume": -0, "pitch": 100, "pan": -0 }]
+  },
+  {
+    "code": 249,
+    "indent": 0,
+    "parameters": [{ "name": "", "volume": 0, "pitch": 50, "pan": -100 }]
+  },
+  {
+    "code": 249,
+    "indent": 0,
+    "parameters": [{ "name": "Fanfare", "volume": 100, "pitch": 150, "pan": 100 }]
+  },
+  { "code": 249, "indent": 0, "parameters": [{ "name": "", "volume": 1, "pitch": 51, "pan": 1 }] },
+  {
+    "code": 249,
+    "indent": 0,
+    "parameters": [{ "name": "", "volume": -0, "pitch": 100, "pan": -0 }]
+  },
+  {
+    "code": 250,
+    "indent": 0,
+    "parameters": [{ "name": "", "volume": 0, "pitch": 50, "pan": -100 }]
+  },
+  {
+    "code": 250,
+    "indent": 0,
+    "parameters": [{ "name": " \r\n ", "volume": 100, "pitch": 150, "pan": 100 }]
+  },
+  { "code": 250, "indent": 0, "parameters": [{ "name": "", "volume": 1, "pitch": 51, "pan": 1 }] },
+  {
+    "code": 250,
+    "indent": 0,
+    "parameters": [{ "name": "", "volume": -0, "pitch": 100, "pan": -0 }]
+  },
+  { "code": 242, "indent": 0, "parameters": [1] },
+  { "code": 242, "indent": 0, "parameters": [999] },
+  { "code": 246, "indent": 0, "parameters": [1] },
+  { "code": 246, "indent": 0, "parameters": [999] },
+  { "code": 243, "indent": 0, "parameters": [] },
+  { "code": 244, "indent": 0, "parameters": [] },
+  { "code": 251, "indent": 0, "parameters": [] },
+  { "code": 0, "indent": 0, "parameters": [] }
+]

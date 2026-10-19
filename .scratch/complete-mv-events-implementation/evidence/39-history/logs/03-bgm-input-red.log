@@ -1,0 +1,36 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-39/packages/rpgmaker-event-dsl
+
+ ❯ test/audio-commands.test.ts (2 tests | 1 failed | 1 skipped) 5ms
+   × rejects incomplete, extra, inherited and invalid BGM inputs before helper selection or encoding 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/audio-commands.test.ts > rejects incomplete, extra, inherited and invalid BGM inputs before helper selection or encoding
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/audio-commands.test.ts:38:49
+     36|     { audio: { ...audio, asset: { kind: "asset", category: "audio", fo…
+     37|   ]) {
+     38|     expect(() => dsl.playBgm(invalid as never)).toThrow(/MV-E241/);
+       |                                                 ^
+     39|     expect(() => compile([{ kind: "playBgm", ...invalid } as never])).…
+     40|   }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 skipped (2)
+   Start at  04:15:05
+   Duration  1.23s (transform 344ms, setup 0ms, import 1.08s, tests 5ms, environment 0ms)
+
+undefined
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-39\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/audio-commands.test.ts -t rejects incomplete

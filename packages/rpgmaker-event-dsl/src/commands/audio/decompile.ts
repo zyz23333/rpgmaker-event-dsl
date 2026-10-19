@@ -1,5 +1,6 @@
 import type { RawEventCommand, RenderedCommand } from "../../decompiler/types.js";
 import { literal } from "../../decompiler/core.js";
+import { renderJsonValue } from "../../project-data/json-values.js";
 import { vehicleFromCode } from "../flow/decompile.js";
 
 export function renderAudioCommand(
@@ -12,7 +13,10 @@ export function renderAudioCommand(
     ? null
     : {
         expression: `${helperName}({ audio: ${audio} })`,
-        helperNames: ["audioAsset", helperName],
+        helperNames: [
+          helperName,
+          ...((command.parameters[0] as { name: string }).name === "" ? [] : ["audioAsset"]),
+        ],
       };
 }
 
@@ -38,7 +42,10 @@ export function renderChangeVehicleBgm(
     ? null
     : {
         expression: `changeVehicleBgm({ vehicle: ${literal(vehicle)}, audio: ${audio} })`,
-        helperNames: ["audioAsset", "changeVehicleBgm"],
+        helperNames: [
+          "changeVehicleBgm",
+          ...((command.parameters[1] as { name: string }).name === "" ? [] : ["audioAsset"]),
+        ],
       };
 }
 
@@ -72,5 +79,5 @@ export function renderAudioPayload(
     return null;
   }
 
-  return `{ asset: audioAsset({ folder: ${literal(folder)}, name: ${literal(audio.name)} }), volume: ${audio.volume}, pitch: ${audio.pitch}, pan: ${audio.pan} }`;
+  return `{ asset: ${audio.name === "" ? "null" : `audioAsset({ folder: ${literal(folder)}, name: ${literal(audio.name)} })`}, volume: ${renderJsonValue(audio.volume)}, pitch: ${renderJsonValue(audio.pitch)}, pan: ${renderJsonValue(audio.pan)} }`;
 }

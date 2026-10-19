@@ -1,16 +1,11 @@
 import type {
-  AudioPayload,
   BalloonIcon,
-  ChangeBattleBgmDslCommand,
-  ChangeDefeatMeDslCommand,
   ChangeEncounterDisableDslCommand,
   ChangeFormationAccessDslCommand,
   ChangeMenuAccessDslCommand,
   ChangePlayerFollowersDslCommand,
   ChangeSaveAccessDslCommand,
   ChangeTransparencyDslCommand,
-  ChangeVehicleBgmDslCommand,
-  ChangeVictoryMeDslCommand,
   ChangeWindowColorDslCommand,
   CharacterRuntimeSelector,
   Direction,
@@ -28,20 +23,6 @@ import type {
   ToneInput,
   VehicleTarget,
 } from "../../domain/types.js";
-
-export function changeBattleBgm(input: { audio: AudioPayload }): ChangeBattleBgmDslCommand {
-  return {
-    kind: "changeBattleBgm",
-    audio: input.audio,
-  };
-}
-
-export function changeVictoryMe(input: { audio: AudioPayload }): ChangeVictoryMeDslCommand {
-  return {
-    kind: "changeVictoryMe",
-    audio: input.audio,
-  };
-}
 
 export function changeSaveAccess(input: { enabled: boolean }): ChangeSaveAccessDslCommand {
   return {
@@ -79,24 +60,6 @@ export function changeWindowColor(input: { tone: ToneInput }): ChangeWindowColor
   return {
     kind: "changeWindowColor",
     tone: input.tone,
-  };
-}
-
-export function changeDefeatMe(input: { audio: AudioPayload }): ChangeDefeatMeDslCommand {
-  return {
-    kind: "changeDefeatMe",
-    audio: input.audio,
-  };
-}
-
-export function changeVehicleBgm(input: {
-  vehicle: VehicleTarget;
-  audio: AudioPayload;
-}): ChangeVehicleBgmDslCommand {
-  return {
-    kind: "changeVehicleBgm",
-    vehicle: input.vehicle,
-    audio: input.audio,
   };
 }
 

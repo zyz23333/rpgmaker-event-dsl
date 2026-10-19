@@ -1,0 +1,23 @@
+
+> rpgmaker-event-dsl@0.1.2 typecheck M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-39\packages\rpgmaker-event-dsl
+> tsc -p tsconfig.json --noEmit
+
+test/dsl.test.ts(208,25): error TS2739: Type '{ asset: AudioAssetReference<"bgm">; }' is missing the following properties from type 'AudioPayload<"bgm">': volume, pitch, pan
+test/dsl.test.ts(211,25): error TS2739: Type '{ asset: AudioAssetReference<"me">; }' is missing the following properties from type 'AudioPayload<"me">': volume, pitch, pan
+test/dsl.test.ts(219,24): error TS2739: Type '{ asset: AudioAssetReference<"me">; }' is missing the following properties from type 'AudioPayload<"me">': volume, pitch, pan
+test/dsl.test.ts(224,9): error TS2739: Type '{ asset: AudioAssetReference<"bgm">; }' is missing the following properties from type 'AudioPayload<"bgm">': volume, pitch, pan
+test/dsl.test.ts(300,22): error TS2739: Type '{ asset: AudioAssetReference<"bgm">; }' is missing the following properties from type 'AudioPayload<"bgm">': volume, pitch, pan
+test/dsl.test.ts(306,22): error TS2739: Type '{ asset: AudioAssetReference<"bgs">; }' is missing the following properties from type 'AudioPayload<"bgs">': volume, pitch, pan
+test/dsl.test.ts(310,21): error TS2739: Type '{ asset: AudioAssetReference<"me">; }' is missing the following properties from type 'AudioPayload<"me">': volume, pitch, pan
+test/dsl.test.ts(313,21): error TS2739: Type '{ asset: AudioAssetReference<"se">; }' is missing the following properties from type 'AudioPayload<"se">': volume, pitch, pan
+test/events.test.ts(628,17): error TS2739: Type '{ asset: AudioAssetReference<"bgm">; volume: number; }' is missing the following properties from type 'AudioPayload<"bgm">': pitch, pan
+test/events.test.ts(631,17): error TS2739: Type '{ asset: AudioAssetReference<"me">; pitch: number; }' is missing the following properties from type 'AudioPayload<"me">': volume, pan
+test/events.test.ts(639,17): error TS2739: Type '{ asset: AudioAssetReference<"me">; pan: number; }' is missing the following properties from type 'AudioPayload<"me">': volume, pitch
+test/events.test.ts(643,17): error TS2739: Type '{ asset: AudioAssetReference<"bgm">; }' is missing the following properties from type 'AudioPayload<"bgm">': volume, pitch, pan
+test/events.test.ts(646,17): error TS2739: Type '{ asset: AudioAssetReference<"bgm">; volume: number; }' is missing the following properties from type 'AudioPayload<"bgm">': pitch, pan
+test/events.test.ts(652,17): error TS2739: Type '{ asset: AudioAssetReference<"bgs">; pitch: number; }' is missing the following properties from type 'AudioPayload<"bgs">': volume, pan
+test/events.test.ts(655,24): error TS2739: Type '{ asset: AudioAssetReference<"me">; }' is missing the following properties from type 'AudioPayload<"me">': volume, pitch, pan
+test/events.test.ts(656,24): error TS2739: Type '{ asset: AudioAssetReference<"se">; }' is missing the following properties from type 'AudioPayload<"se">': volume, pitch, pan
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-39\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 typecheck: `tsc -p tsconfig.json --noEmit`
+Exit status 2

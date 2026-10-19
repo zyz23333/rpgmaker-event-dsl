@@ -496,3 +496,16 @@ Ticket36 map appearance cases use independent complete saved literals and actual
 | MV-S6-MAP-APPEARANCE-007 | preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push | synthetic-support | Public source/built Workspace; literal signed-zero carrier and Object.is assertions |
 
 Ticket36 allocated delivery is complete on contract `mv-1.6.1/10`: current source40 files/987 tests, fresh build, built Windows16 files/373 tests,9 exact E6 resource checks and10 physically isolated current-built/native pairs (20 game sides) passed. The [current delivery record](36-map-appearance-settings.md#final-current-delivery--contract-mv-16110) and `36-history/` preserve actual source/dist identities, rejected/incomplete attempts, original captures and safe native projections. All286 incoming rows/history bytes are preserved; final49–55 remain separate.
+
+Ticket39 focused DEV adds independent audio saved literals and public Workspace obligations. E4/R6 remain pending finalization.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-AUDIO-001 | reconstructs all audio modes and signed zero through evaluated formal and raw source with real15-carrier Push | synthetic-support | Public helpers and actual Workspace native/source/filesystem boundary |
+| MV-S6-AUDIO-E4 | Ticket39 allocated E4 shipped audio editor resources and current built product comparison | reverse-engineering-observation | Pending allocated current built product/native comparison; no DEV acceptance claim |
+| MV-S6-AUDIO-R6 | Ticket39 allocated R6 current built normal-Scene audio and system audio pairs | game-observation | Pending allocated current built product/native comparison; no DEV acceptance claim |
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-AUDIO-002 | refuses evaluated malformed helper direct and known raw audio sources without changing complete business state | synthetic-rejection | Public helpers and actual Workspace native/source/filesystem boundary |
+| MV-S6-AUDIO-003 | refuses late malformed saved audio records before Decompile publication and preserves every existing business file | synthetic-rejection | Public helpers and actual Workspace native/source/filesystem boundary |

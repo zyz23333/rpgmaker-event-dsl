@@ -3,6 +3,7 @@ import type { ReferenceResolver } from "../validation/types.js";
 import type { RawEventCommand, CommandOrigins } from "./types.js";
 import { assertDslCommandList } from "../validation/dsl-command-inputs.js";
 import { assertMapAppearanceInput } from "../commands/map/validation.js";
+import { assertAudioCommandInput } from "../commands/audio/validation.js";
 import {
   resolveCommonEventCall,
   assertLoopCommand,
@@ -122,6 +123,7 @@ export function compileNodes(
   const output: RawEventCommand[] = [];
 
   for (const [nodeIndex, node] of nodes.entries()) {
+    assertAudioCommandInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
     assertMapAppearanceInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     const outputStart = output.length;
     switch (node.kind) {
@@ -1052,7 +1054,7 @@ export function compileNodes(
           parameters: [],
         });
         break;
-      case "resumeBgm":
+      case "replayBgm":
         output.push({
           code: 244,
           indent,

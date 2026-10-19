@@ -1,0 +1,33 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-39/packages/rpgmaker-event-dsl
+
+ ❯ test/audio-commands.test.ts (1 test | 1 failed) 7ms
+   × preserves explicit BGM None and every independent saved audio value 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/audio-commands.test.ts > preserves explicit BGM None and every independent saved audio value
+TypeError: Cannot read properties of null (reading 'name')
+ ❯ compileAudioPayload src/compiler/shared/media.ts:11:23
+      9| } {
+     10|   return {
+     11|     name: audio.asset.name,
+       |                       ^
+     12|     volume: audio.volume ?? 90,
+     13|     pitch: audio.pitch ?? 100,
+ ❯ compileNodes src/compiler/dispatch.ts:1038:24
+ ❯ compileCommonEvent src/compiler/events.ts:122:11
+ ❯ compile test/audio-commands.test.ts:11:3
+ ❯ test/audio-commands.test.ts:19:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  04:14:09
+   Duration  1.68s (transform 600ms, setup 0ms, import 1.52s, tests 7ms, environment 0ms)
+
+undefined
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-39\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/audio-commands.test.ts -t preserves explicit BGM None

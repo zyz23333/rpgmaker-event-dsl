@@ -8,9 +8,10 @@ import type {
   ReferenceValue,
   ScriptInput,
 } from "../domain/types.js";
-import { audioAssetFolders, createReference, imageAssetFolders } from "../domain/references.js";
+import { createReference, imageAssetFolders } from "../domain/references.js";
 import { assertIncluded, assertNonEmptyString } from "./shared.js";
 import { assertRawDslInput } from "../validation/dsl-command-inputs.js";
+import { assertAudioAssetInput } from "../commands/audio/validation.js";
 
 export function rawDslCommand(input: {
   code: number;
@@ -31,9 +32,11 @@ export function rawDslCommand(input: {
   return node;
 }
 
-export function audioAsset(input: { folder: AudioAssetFolder; name: string }): AudioAssetReference {
-  assertIncluded(audioAssetFolders, input.folder, "audio asset folder");
-  assertNonEmptyString(input.name, "Audio asset name");
+export function audioAsset<Folder extends AudioAssetFolder>(input: {
+  folder: Folder;
+  name: string;
+}): AudioAssetReference<Folder> {
+  assertAudioAssetInput(input);
 
   return {
     kind: "asset",

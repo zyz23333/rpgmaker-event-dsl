@@ -26,6 +26,37 @@ which only Push can resolve.
 This project is in early development. The TypeScript API, DSL syntax, CLI workflow,
 generated output, and workspace format may change before `1.0.0`.
 
+## Audio Commands
+
+Give each playback or system audio helper a complete payload, including None:
+
+```ts
+playBgm({
+  audio: { asset: audioAsset({ folder: "bgm", name: "Theme1" }), volume: 90, pitch: 100, pan: 0 },
+});
+playBgs({ audio: { asset: null, volume: 1, pitch: 51, pan: -0 } });
+changeVehicleBgm({ vehicle: "boat", audio: { asset: null, volume: 0, pitch: 50, pan: -100 } });
+fadeoutBgm({ duration: 2 });
+saveBgm();
+replayBgm();
+stopSe();
+```
+
+`asset`, `volume`, `pitch` and `pan` are required. The numeric fields accept
+integers in 0..100, 50..150 and -100..100 respectively, including values between
+the editor's arrow steps. Numeric negative zero in volume and pan survives the
+round trip. Use `null` for None; a named Audio Asset Reference requires a nonempty
+exact filename stem and the matching folder. BGM playback, battle BGM and vehicle
+BGM use `bgm`; BGS uses `bgs`; ME playback, victory ME and defeat ME use `me`; SE
+uses `se`. Vehicle BGM requires boat, ship or airship. Values are explicit and do
+not inherit current project audio settings or require an asset file scan.
+
+BGM/BGS None stops its stream in MV. ME None first stops ME and may restore BGM.
+SE None leaves existing SE playing; use `stopSe()` to stop them. None retains the
+three saved numeric fields in every helper. `fadeoutBgm` and `fadeoutBgs` require
+an integer duration of 1..999 seconds and return without adding a wait command.
+`saveBgm()`, `replayBgm()` and `stopSe()` take no arguments.
+
 ## Map Event Pages
 
 `mapEvent({ mapId, id, name, x, y, note?, pages })` owns the complete event.

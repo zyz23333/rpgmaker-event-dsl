@@ -66,10 +66,10 @@ export type AudioAssetFolder = (typeof audioAssetFolders)[number];
 
 export type ImageAssetFolder = (typeof imageAssetFolders)[number];
 
-export type AudioAssetReference = {
+export type AudioAssetReference<Folder extends AudioAssetFolder = AudioAssetFolder> = {
   kind: "asset";
   category: "audio";
-  folder: AudioAssetFolder;
+  folder: Folder;
   name: string;
 };
 
@@ -333,11 +333,11 @@ export type ColorInput =
       alpha: number;
     };
 
-export type AudioPayload = {
-  asset: AudioAssetReference;
-  volume?: number;
-  pitch?: number;
-  pan?: number;
+export type AudioPayload<Folder extends AudioAssetFolder = AudioAssetFolder> = {
+  asset: AudioAssetReference<Folder> | null;
+  volume: number;
+  pitch: number;
+  pan: number;
 };
 
 export type LocationInfoType =

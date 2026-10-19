@@ -1,0 +1,49 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-39/packages/rpgmaker-event-dsl
+
+stderr | test/audio-commands-workspace.test.ts > MV-S6-AUDIO-003: refuses late malformed saved audio records before Decompile publication and preserves every existing business file
+Windows verification sandbox retained: M:\Shuen\Codex\mv-events-implementation-20261020\ticket39-temp\audio-native-refusal-JEQtLR
+
+ ❯ test/audio-commands-workspace.test.ts (3 tests | 1 failed) 29921ms
+   × MV-S6-AUDIO-003: refuses late malformed saved audio records before Decompile publication and preserves every existing business file 1410ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/audio-commands-workspace.test.ts > MV-S6-AUDIO-003: refuses late malformed saved audio records before Decompile publication and preserves every existing business file
+AssertionError: expected Error: Decompile destination already exis… to match object { code: 'MV-E132-PARAMETER', …(3) }
+
+- Expected
++ Received
+
+- {
+-   "code": "MV-E132-PARAMETER",
+-   "identity": "commonEvent:1",
+-   "location": {
+-     "actual": Any<String>,
+-     "expected": Any<String>,
+-     "nativePath": "list[47].parameters",
+-   },
+-   "stage": "decompile",
++ Error {
++   "message": "Decompile destination already exists: M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket39-temp\\audio-native-refusal-JEQtLR\\最小 Workspace with spaces\\src\\decompiled",
+  }
+
+ ❯ test/audio-commands-workspace.test.ts:384:58
+    382|       await cloneWorkspace({ workspaceRoot });
+    383|       const before = await state(workspaceRoot);
+    384|       await expect(decompileWorkspace({ workspaceRoot })).rejects.toMa…
+       |                                                          ^
+    385|         code: `MV-E${code}-PARAMETER`,
+    386|         stage: "decompile",
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/audio-commands-workspace.test.ts:372:3
+ ❯ test/audio-commands-workspace.test.ts:39:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 11 passed (12)
+   Start at  04:30:36
+   Duration  31.01s (transform 540ms, setup 0ms, import 1.91s, tests 29.96s, environment 0ms)
+

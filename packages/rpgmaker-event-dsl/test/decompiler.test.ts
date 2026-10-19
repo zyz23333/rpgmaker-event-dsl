@@ -188,7 +188,7 @@ describe("decompiler command list rendering", () => {
         "playMe",
         "playMovie",
         "playSe",
-        "resumeBgm",
+        "replayBgm",
         "rotatePicture",
         "saveBgm",
         "scriptInput",
@@ -259,7 +259,7 @@ describe("decompiler command list rendering", () => {
         'playBgm({ audio: { asset: audioAsset({ folder: "bgm", name: "Theme1" }), volume: 70, pitch: 100, pan: 0 } }),',
         "fadeoutBgm({ duration: 45 }),",
         "saveBgm(),",
-        "resumeBgm(),",
+        "replayBgm(),",
         'playBgs({ audio: { asset: audioAsset({ folder: "bgs", name: "Rain" }), volume: 90, pitch: 90, pan: 0 } }),',
         "fadeoutBgs({ duration: 30 }),",
         'playMe({ audio: { asset: audioAsset({ folder: "me", name: "Fanfare" }), volume: 90, pitch: 100, pan: 0 } }),',
@@ -989,7 +989,7 @@ describe("decompiler command list rendering", () => {
       {
         family: "Resume BGM",
         codes: [244],
-        helperName: "resumeBgm",
+        helperName: "replayBgm",
         commands: [{ code: 244, indent: 0, parameters: [] }],
       },
       {

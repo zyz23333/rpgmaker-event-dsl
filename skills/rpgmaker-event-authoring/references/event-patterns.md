@@ -121,6 +121,19 @@ Runtime Selector meaning even when a fixed project target cannot be inferred.
 
 Use Asset Reference helpers for files, not Project Data Reference helpers. `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)` are no-scan filename-stem references; they do not validate that a file exists on disk.
 
+For audio playback and system settings, supply all four `audio` fields: `asset`
+is an Audio Asset Reference or explicit `null`, `volume` is integer 0..100,
+`pitch` is integer 50..150, and `pan` is integer -100..100. Preserve all numeric
+fields with None, including negative zero in volume/pan and values between the
+editor's arrow steps. Use the exact nonempty filename stem and matching folder:
+`bgm` for BGM/battle/vehicle, `bgs` for BGS, `me` for ME/victory/defeat, and `se`
+for SE. Give `changeVehicleBgm` boat, ship or airship explicitly. BGM/BGS None
+stops its stream; ME None stops ME and may restore BGM; SE None leaves active SE
+playing. Use `stopSe()` to stop SE, and `saveBgm()` / `replayBgm()` to retain and
+restore BGM playback position. These three helpers accept no arguments. Give
+`fadeoutBgm` / `fadeoutBgs` integer `duration` in 1..999 seconds; author a separate
+`wait({ frames })` only when the intended flow should pause during the fade.
+
 For map appearance, give `changeMapNameDisplay` an explicit Boolean `enabled`, and
 give `changeTileset` an existing `tilesetRef` without None. Give `changeBattleBack`
 both independent fields: `battleback1` uses `battlebacks1`, `battleback2` uses

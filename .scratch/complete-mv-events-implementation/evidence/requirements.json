@@ -14248,6 +14248,240 @@
       },
       "slice": "36 / S6",
       "required": true
+    },
+    {
+      "id": "MV-S6-AUDIO-001",
+      "title": "reconstructs all audio modes and signed zero through evaluated formal and raw source with real15-carrier Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "| AUDIO(folder) |"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/39-audio-and-system-audio-settings.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored independent literal audio saved records: all13 codes, matching asset categories or explicit None, independent volume/pitch/pan, boundaries and non-step values, numeric negative zero, all three vehicles and seconds fades. Complete15-carrier Map/Common/Troop project.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/audio-command-cases.json",
+        "sha256": "53aa731e256053fb2d8887f48deed19a4e9b425d39632e71ab5642f5bfa1fa52"
+      },
+      "expected": "reconstructs all audio modes and signed zero through evaluated formal and raw source with real15-carrier Push",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/audio-commands-workspace.test.ts",
+        "name": "MV-S6-AUDIO-001: reconstructs all audio modes and signed zero through evaluated formal and raw source with real15-carrier Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and current built Workspace API",
+        "owner": "Codex automated verification",
+        "layer": "Public helpers and actual Workspace native/source/filesystem boundary"
+      },
+      "slice": "39 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-AUDIO-E4",
+      "title": "Ticket39 allocated E4 shipped audio editor resources and current built product comparison",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "| AUDIO(folder) |"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/39-audio-and-system-audio-settings.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Self-authored independent literal audio saved records: all13 codes, matching asset categories or explicit None, independent volume/pitch/pan, boundaries and non-step values, numeric negative zero, all three vehicles and seconds fades. Complete15-carrier Map/Common/Troop project.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/audio-command-cases.json",
+        "sha256": "53aa731e256053fb2d8887f48deed19a4e9b425d39632e71ab5642f5bfa1fa52"
+      },
+      "expected": "Ticket39 allocated E4 shipped audio editor resources and current built product comparison",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/39-audio-and-system-audio-dev-checkpoint.md",
+        "section": "## E4 pending reverse-engineering comparison"
+      },
+      "nativeGroups": [
+        "E4"
+      ],
+      "execution": {
+        "environment": "Actual identified MV1.6.1 editor resources / native NW0.29.0 and Node22 tooling",
+        "owner": "Codex automated verification",
+        "layer": "Pending allocated current built product/native comparison; no DEV acceptance claim"
+      },
+      "slice": "39 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-AUDIO-R6",
+      "title": "Ticket39 allocated R6 current built normal-Scene audio and system audio pairs",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "| AUDIO(folder) |"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/39-audio-and-system-audio-settings.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Self-authored independent literal audio saved records: all13 codes, matching asset categories or explicit None, independent volume/pitch/pan, boundaries and non-step values, numeric negative zero, all three vehicles and seconds fades. Complete15-carrier Map/Common/Troop project.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/audio-command-cases.json",
+        "sha256": "53aa731e256053fb2d8887f48deed19a4e9b425d39632e71ab5642f5bfa1fa52"
+      },
+      "expected": "Ticket39 allocated R6 current built normal-Scene audio and system audio pairs",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/39-audio-and-system-audio-dev-checkpoint.md",
+        "section": "## R6 pending game observation"
+      },
+      "nativeGroups": [
+        "R6"
+      ],
+      "execution": {
+        "environment": "Actual identified MV1.6.1 editor resources / native NW0.29.0 and Node22 tooling",
+        "owner": "Codex automated verification",
+        "layer": "Pending allocated current built product/native comparison; no DEV acceptance claim"
+      },
+      "slice": "39 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-AUDIO-002",
+      "title": "refuses evaluated malformed helper direct and known raw audio sources without changing complete business state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "| AUDIO(folder) |"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/39-audio-and-system-audio-settings.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Self-authored independent literal audio saved records: all13 codes, matching asset categories or explicit None, independent volume/pitch/pan, boundaries and non-step values, numeric negative zero, all three vehicles and seconds fades. Complete15-carrier Map/Common/Troop project.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/audio-command-cases.json",
+        "sha256": "53aa731e256053fb2d8887f48deed19a4e9b425d39632e71ab5642f5bfa1fa52"
+      },
+      "expected": "refuses evaluated malformed helper direct and known raw audio sources without changing complete business state",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/audio-commands-workspace.test.ts",
+        "name": "MV-S6-AUDIO-002: refuses evaluated malformed helper direct and known raw audio sources without changing complete business state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and current built Workspace API",
+        "owner": "Codex automated verification",
+        "layer": "Public helpers and actual Workspace native/source/filesystem boundary"
+      },
+      "slice": "39 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-AUDIO-003",
+      "title": "refuses late malformed saved audio records before Decompile publication and preserves every existing business file",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "| AUDIO(folder) |"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/39-audio-and-system-audio-settings.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Self-authored independent literal audio saved records: all13 codes, matching asset categories or explicit None, independent volume/pitch/pan, boundaries and non-step values, numeric negative zero, all three vehicles and seconds fades. Complete15-carrier Map/Common/Troop project.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/audio-command-cases.json",
+        "sha256": "53aa731e256053fb2d8887f48deed19a4e9b425d39632e71ab5642f5bfa1fa52"
+      },
+      "expected": "refuses late malformed saved audio records before Decompile publication and preserves every existing business file",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/audio-commands-workspace.test.ts",
+        "name": "MV-S6-AUDIO-003: refuses late malformed saved audio records before Decompile publication and preserves every existing business file"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and current built Workspace API",
+        "owner": "Codex automated verification",
+        "layer": "Public helpers and actual Workspace native/source/filesystem boundary"
+      },
+      "slice": "39 / S6",
+      "required": true
     }
   ]
 }

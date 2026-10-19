@@ -663,6 +663,36 @@ rpgmaker-event-dsl push --allow-destructive
 Destructive Push does not bypass Generated Freshness, Generated Project Data integrity,
 or Project Drift checks.
 
+## Audio Commands
+
+Playback and system audio settings require a complete `audio` value:
+
+```ts
+playBgm({
+  audio: { asset: audioAsset({ folder: "bgm", name: "Theme1" }), volume: 90, pitch: 100, pan: 0 },
+});
+playBgs({ audio: { asset: null, volume: 1, pitch: 51, pan: -0 } });
+fadeoutBgm({ duration: 2 });
+saveBgm();
+replayBgm();
+stopSe();
+```
+
+All four fields are required. `volume` is an integer from 0 to 100, `pitch` from
+50 to 150, and `pan` from -100 to 100. Values between the editor's arrow steps
+are valid; numeric negative zero is preserved in volume and pan. An Audio Asset
+Reference has a nonempty exact filename stem and does not scan the project.
+Use `bgm` for `playBgm`, `changeBattleBgm` and `changeVehicleBgm`; `bgs` for
+`playBgs`; `me` for `playMe`, `changeVictoryMe` and `changeDefeatMe`; and `se` for
+`playSe`. `changeVehicleBgm` also requires `vehicle: "boat"`, `"ship"` or
+`"airship"`. System settings use the explicit authored values.
+
+Use `asset: null` for None and retain all three numeric values. In MV, BGM/BGS
+None stops that stream, ME None first stops the current ME and may restore BGM,
+and SE None leaves already playing SE active. `stopSe()` stops SE explicitly.
+`fadeoutBgm` and `fadeoutBgs` require an integer `duration` from 1 to 999 seconds;
+they do not add a wait command. Save BGM, Replay BGM and Stop SE take no arguments.
+
 ## Example Project
 
 See `example/full-event` for a sample workspace using source discovery and explicit Entry
