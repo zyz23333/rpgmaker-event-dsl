@@ -91,6 +91,35 @@ equipment candidates retain their selector meaning. Capture database changes wit
 self-switch letters are A–D. A Common Event called by a Map Event inherits its
 caller identity for self switches.
 
+## Loop and event processing
+
+```ts
+import { breakLoop, exitEventProcessing, loop, wait } from "rpgmaker-event-dsl";
+
+const commands = [loop({ body: { commands: [wait(1), breakLoop()] } }), exitEventProcessing()];
+```
+
+Each Loop requires `body.commands`, which can be empty. Its optional `endMarker`
+is `"present"` by default or `"absent"` for a nonempty body whose native saved
+shape has no trailing Body End Marker. Empty bodies require the marker. The
+body marker, Repeat Above record, and final event-list terminator have separate
+ownership; markers inside nested bodies retain their own indentation and state.
+Formal and raw commands are checked together, so a raw tail marker cannot
+contradict `endMarker` or duplicate it. Valid nested raw structures remain usable.
+
+`breakLoop()` exits the enclosing Loop. Outside a Loop it remains compilable
+with a warning: MV searches for a matching Repeat Above record and can skip
+the remaining event commands. `exitEventProcessing()` ends the current
+interpreter. When a called Common Event exits, its caller continues after the
+call. Loop children receive the same Script Command Gate and reference checks
+as the containing event.
+
+Complete Workspace command lists require exact structural records, indentation,
+and one final event terminator. Malformed recognized flow commands fail before
+Decompile publishes source; their diagnostic identifies the event and native
+list position. Internal command-family renderers also accept command fragments,
+which are not complete saved event lists.
+
 ## License
 
 MIT

@@ -1,6 +1,12 @@
 import type { CommonEventDefinition, DslCommand, PageConditions } from "../domain/types.js";
 import type { ReferenceResolver } from "../validation/types.js";
 import type { RawEventCommand } from "./types.js";
+import { assertLoopCommand, assertParameterlessFlowCommand } from "../commands/flow/validation.js";
+import {
+  assertNativeCommandEnvelope,
+  CommandStructureError,
+  inspectCommandListStructure,
+} from "../validation/command-structure.js";
 import { compileConditionalBranchParameters, vehicleToCode } from "./shared/conditions.js";
 export {
   compileConditionalBranchParameters,
@@ -99,10 +105,11 @@ export function compileNodes(
   indent: number,
   resolver: ReferenceResolver,
   includeTerminator = true,
+  sourcePath = "commands",
 ): RawEventCommand[] {
   const output: RawEventCommand[] = [];
 
-  for (const node of nodes) {
+  for (const [nodeIndex, node] of nodes.entries()) {
     switch (node.kind) {
       case "showText":
         output.push({
@@ -157,14 +164,30 @@ export function compileNodes(
           indent,
           parameters: compileConditionalBranchParameters(node.condition, resolver),
         });
-        output.push(...compileNodes(node.then, indent + 1, resolver, false));
+        output.push(
+          ...compileNodes(
+            node.then,
+            indent + 1,
+            resolver,
+            false,
+            `${sourcePath}[${nodeIndex}].then`,
+          ),
+        );
         if (node.else) {
           output.push({
             code: 411,
             indent,
             parameters: [],
           });
-          output.push(...compileNodes(node.else, indent + 1, resolver, false));
+          output.push(
+            ...compileNodes(
+              node.else,
+              indent + 1,
+              resolver,
+              false,
+              `${sourcePath}[${nodeIndex}].else`,
+            ),
+          );
         }
         output.push({ code: 412, indent, parameters: [] });
         break;
@@ -182,23 +205,45 @@ export function compileNodes(
           });
         }
         break;
-      case "loop":
+      case "loop": {
+        assertLoopCommand(node, `${sourcePath}[${nodeIndex}]`);
+        const body = compileNodes(
+          node.body.commands,
+          indent + 1,
+          resolver,
+          false,
+          `${sourcePath}[${nodeIndex}].body.commands`,
+        );
+        if (body.at(-1)?.code === 0 && body.at(-1)?.indent === indent + 1) {
+          throw new CommandStructureError(
+            "MV-BODY-MARKER-CONFLICT",
+            "Raw output contradicts the owning body's declared Body End Marker.",
+            {
+              dslPath: `${sourcePath}[${nodeIndex}].body.endMarker`,
+            },
+          );
+        }
         output.push({
           code: 112,
           indent,
           parameters: [],
         });
-        output.push(...compileNodes(node.body, indent + 1, resolver, false));
+        output.push(...body);
+        if (node.body.endMarker !== "absent")
+          output.push({ code: 0, indent: indent + 1, parameters: [] });
         output.push({
           code: 413,
           indent,
           parameters: [],
         });
         break;
+      }
       case "breakLoop":
+        assertParameterlessFlowCommand(node, `${sourcePath}[${nodeIndex}]`);
         output.push({ code: 113, indent, parameters: [] });
         break;
-      case "exitEvent":
+      case "exitEventProcessing":
+        assertParameterlessFlowCommand(node, `${sourcePath}[${nodeIndex}]`);
         output.push({ code: 115, indent, parameters: [] });
         break;
       case "commonEvent":
@@ -379,15 +424,39 @@ export function compileNodes(
         });
         if (node.win) {
           output.push({ code: 601, indent, parameters: [] });
-          output.push(...compileNodes(node.win, indent + 1, resolver, false));
+          output.push(
+            ...compileNodes(
+              node.win,
+              indent + 1,
+              resolver,
+              false,
+              `${sourcePath}[${nodeIndex}].win`,
+            ),
+          );
         }
         if (node.escape) {
           output.push({ code: 602, indent, parameters: [] });
-          output.push(...compileNodes(node.escape, indent + 1, resolver, false));
+          output.push(
+            ...compileNodes(
+              node.escape,
+              indent + 1,
+              resolver,
+              false,
+              `${sourcePath}[${nodeIndex}].escape`,
+            ),
+          );
         }
         if (node.lose) {
           output.push({ code: 603, indent, parameters: [] });
-          output.push(...compileNodes(node.lose, indent + 1, resolver, false));
+          output.push(
+            ...compileNodes(
+              node.lose,
+              indent + 1,
+              resolver,
+              false,
+              `${sourcePath}[${nodeIndex}].lose`,
+            ),
+          );
         }
         output.push({ code: 604, indent, parameters: [] });
         break;
@@ -578,7 +647,15 @@ export function compileNodes(
             node.background ?? 0,
           ],
         });
-        output.push(...compileChoiceBranches(node, indent, resolver, compileNodes));
+        output.push(
+          ...compileChoiceBranches(
+            node,
+            indent,
+            resolver,
+            compileNodes,
+            `${sourcePath}[${nodeIndex}]`,
+          ),
+        );
         output.push({ code: 404, indent, parameters: [] });
         break;
       case "shopProcessing":
@@ -1033,18 +1110,38 @@ export function compileNodes(
         });
         break;
       case "rawDslCommand":
+        if ([0, 112, 113, 115, 413].includes(node.code)) {
+          try {
+            assertNativeCommandEnvelope(
+              {
+                code: node.code,
+                indent: node.indent === undefined ? indent : node.indent,
+                parameters: node.parameters,
+              },
+              output.length,
+            );
+          } catch (error) {
+            if (error instanceof CommandStructureError)
+              throw new CommandStructureError(error.code, error.detail, {
+                dslPath: `${sourcePath}[${nodeIndex}]`,
+              });
+            throw error;
+          }
+        }
         output.push({
           code: node.code,
-          indent: node.indent ?? indent,
+          indent: node.indent === undefined ? indent : node.indent,
           parameters: [...node.parameters],
         });
         break;
     }
   }
 
-  if (includeTerminator) {
+  if (includeTerminator && !(output.at(-1)?.code === 0 && output.at(-1)?.indent === indent)) {
     output.push({ code: 0, indent, parameters: [] });
   }
+  if (includeTerminator && indent === 0)
+    inspectCommandListStructure(output, { requireTerminator: true });
   return output;
 }
 

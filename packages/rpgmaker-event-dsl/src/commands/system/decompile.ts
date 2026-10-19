@@ -59,7 +59,7 @@ export function renderNoParameterCommand(
   helperName:
     | "abortBattle"
     | "breakLoop"
-    | "exitEvent"
+    | "exitEventProcessing"
     | "gameOver"
     | "openMenuScreen"
     | "openSaveScreen"

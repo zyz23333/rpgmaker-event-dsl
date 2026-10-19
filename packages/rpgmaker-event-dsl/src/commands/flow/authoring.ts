@@ -5,7 +5,7 @@ import type {
   ConditionalBranchCondition,
   ConditionalDslCommand,
   DslCommand,
-  ExitEventDslCommand,
+  ExitEventProcessingDslCommand,
   JumpToLabelDslCommand,
   LabelDslCommand,
   LoopDslCommand,
@@ -35,16 +35,16 @@ export function conditional(input: {
   return node;
 }
 
-export function loop(body: readonly DslCommand[]): LoopDslCommand {
-  return { kind: "loop", body };
+export function loop(input: { body: LoopDslCommand["body"] }): LoopDslCommand {
+  return { kind: "loop", body: input.body };
 }
 
 export function breakLoop(): BreakLoopDslCommand {
   return { kind: "breakLoop" };
 }
 
-export function exitEvent(): ExitEventDslCommand {
-  return { kind: "exitEvent" };
+export function exitEventProcessing(): ExitEventProcessingDslCommand {
+  return { kind: "exitEventProcessing" };
 }
 
 export function callCommonEvent(ref: ReferenceValue<"commonEvent">): CommonEventDslCommand {

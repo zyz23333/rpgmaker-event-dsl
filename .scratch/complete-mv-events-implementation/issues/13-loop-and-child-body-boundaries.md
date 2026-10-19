@@ -1,6 +1,6 @@
 # 13: Loop 与子体边界最小闭环
 
-Status: ready-for-agent
+Status: resolved
 Blocked by: 02, 03
 Stage: S2
 Created: 2026-10-19
@@ -20,18 +20,18 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 ## Acceptance criteria
 
-- [ ] E112/E113/E115 的正式表达、反编译、编译及独立输出比较闭环，Loop 使用 commands/endMarker，空体禁止 absent。
-- [ ] 建立共享结构遍历与定位诊断，以 Loop 和嵌套最小案例验证本层/内层/父闭合/外层终止、错缩进与孤立结构记录。
-- [ ] Break Loop 在循环外 warning 保留；支持范围及 raw 混用不引入全局 code 0 禁令，后续父命令复用边界机制。
+- [x] E112/E113/E115 的正式表达、反编译、编译及独立输出比较闭环，Loop 使用 commands/endMarker，空体禁止 absent。
+- [x] 建立共享结构遍历与定位诊断，以 Loop 和嵌套最小案例验证本层/内层/父闭合/外层终止、错缩进与孤立结构记录。
+- [x] Break Loop 在循环外 warning 保留；支持范围及 raw 混用不引入全局 code 0 禁令，后续父命令复用边界机制。
 
 ### 共通要求（限本票适用范围）
 
-- [ ] 按规格 I1–I12 和对应完整参数附表实现；正式编写、编译、反编译、验证、已知 raw 及适用 Workspace 路径一起交付，实际发现并求值生成源码，预期独立于待测编译器。
-- [ ] 对本票拥有的字段/模式/枚举/None/独立保存值/默认/正负边界及已知相互作用建案例；完整比较键存在性、数组长度/顺序、页序、值、镜像、CR 和非激活配置。
-- [ ] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
-- [ ] 产品变更执行 Windows / Node 22 全量适用检查与构建；安全票同时验证用户可观察的源码、项目、Snapshot、manifest、Discovery 集合和诊断状态。
-- [ ] 本票分配的必要编辑器/游戏场景取得实际证据后才关闭；最终回归另外执行。原生版本、runtime/NW.js、步骤、输入身份、操作者、预期/实际与原始结果可追踪。
-- [ ] 同步受影响的当前公开 API 文档、示例及编写指南；不保留旧 API 别名或迁移说明，不分发首方编辑器、runtime/源码或本地游戏资产。
+- [x] 按规格 I1–I12 和对应完整参数附表实现；正式编写、编译、反编译、验证、已知 raw 及适用 Workspace 路径一起交付，实际发现并求值生成源码，预期独立于待测编译器。
+- [x] 对本票拥有的字段/模式/枚举/None/独立保存值/默认/正负边界及已知相互作用建案例；完整比较键存在性、数组长度/顺序、页序、值、镜像、CR 和非激活配置。
+- [x] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
+- [x] 产品变更执行 Windows / Node 22 全量适用检查与构建；安全票同时验证用户可观察的源码、项目、Snapshot、manifest、Discovery 集合和诊断状态。
+- [x] 本票分配的必要编辑器/游戏场景取得实际证据后才关闭；最终回归另外执行。原生版本、runtime/NW.js、步骤、输入身份、操作者、预期/实际与原始结果可追踪。
+- [x] 同步受影响的当前公开 API 文档、示例及编写指南；不保留旧 API 别名或迁移说明，不分发首方编辑器、runtime/源码或本地游戏资产。
 
 ## Verification
 
@@ -50,3 +50,19 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [核心指令参数附表](../../complete-mv-events/research/command-parameters/core.md)。
+
+## Comments
+
+### 2026-10-19 — 认领与既定 TDD 边界
+
+基于集成96bb60e，在独立worktree实现本票。测试沿用规格T1已确认的命令编反编译/Staged Data Graph与真实Workspace API入口，独立字面原生预期；不新增公开测试API。Loop使用`loop({body:{commands,endMarker?}})`，正式退出名为`exitEventProcessing()`；其他父命令API迁移留各自票，但共享扫描识别其结构边界。条件推导、合成往返与实际MV/NW运行分别记录。
+
+## Outcome — 2026-10-19
+
+E112/E113/E115 的最小闭环已完成。Loop 使用必填 body.commands 与有界 endMarker；正式退出名为 exitEventProcessing，无旧别名。共享完整列表扫描校验结构、缩进和本层尾标记；保留合法嵌套 raw code 0 与单个手写事件终止记录。循环外 Break 按原生 search-and-skip 行为给 warning；子体继续执行 Script Gate、项目引用与上下文诊断。完整 Workspace 原生输入在任何源码发布前验证，已知畸形记录不会用 raw fallback 或缺省值掩盖。
+
+验收见[本票报告](../evidence/13-loop-acceptance.md)、[八组索引](../evidence/README.md)及对应不可变 results。真实 Discovery/typecheck/evaluation → Check/Compile → 完整保存对象相等 → Diff/Push 通过；缺少 native 参数数组的失败案例保留 Project Root、Snapshot、manifest 字节和空 Discovery 集合。
+
+Windows / Node 22.23.0：pnpm check（typecheck/lint/format/156 tests）与 pnpm build 通过，34 项本票产品测试另留原始 Vitest JSON。实际 MV1.6.1 / NW0.29.0 的 literal 与 compiled 双进程对照通过全部四场景，各场景重新新游戏；覆盖 present、nested mixed marker、outside Break、Common Event 内 Exit 后 caller 继续，全部正常停止。观察器、原生输出、输入/host 身份及哈希已保留，没有提交首方 runtime/源码或资产。
+
+已合入集成94a3a41并保留11的引用诊断。其他父命令 API 迁移和各自完整参数/marker 验收留27/28/46；最终 E1–E7 产品比较、R1–R7 集成候选回归与完整支持声明继续由后续工单执行。

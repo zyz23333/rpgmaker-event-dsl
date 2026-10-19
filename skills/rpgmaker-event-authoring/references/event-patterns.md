@@ -39,6 +39,20 @@ Shopkeepers use `shopProcessing(...)`. Event-driven battles use `battleProcessin
 
 ## DSL Command Selection
 
+Use `loop({ body: { commands: [...] } })` for repeated work and `breakLoop()`
+inside its body to finish it. `body.commands` is required. The optional
+`body.endMarker` defaults to `"present"`; use `"absent"` only when preserving
+that saved state for a nonempty body. Empty bodies always have a marker. Keep
+each nested body's marker with its owner. Check combined formal and raw output
+so raw records neither duplicate the owning marker nor contradict its declared
+absence.
+
+Use `exitEventProcessing()` to end the current event interpreter. A called
+Common Event can exit while its caller continues after `callCommonEvent(...)`.
+Treat a Break Loop warning outside a Loop as actionable: MV can skip all
+remaining commands while seeking Repeat Above. Loop child commands retain
+ordinary reference validation and the Workspace Script Command Gate.
+
 Use supported helpers for RPG Maker MV editor command families. Representative groups include message commands, flow control, game progression, party changes, system settings, movement, character commands, screen commands, audio and video, map commands, scene control, actor commands, enemy commands, advanced commands, and nested Set Movement Route commands.
 
 Continuation commands are not standalone authoring units. Keep text continuations inside `showText(...)` or `showScrollingText(...)`, choice branches inside `showChoices(...)`, battle result branches inside `battleProcessing(...)`, shop goods inside `shopProcessing(...)`, script continuations inside `script(...)`, and move route command objects inside `setMovementRoute(...)`.

@@ -128,6 +128,10 @@ _Avoid_: runtime behavior, JSON text formatting, arbitrary extra data
 A value stored for a native RPG Maker MV event setting, including one retained after the available assets, map dimensions, or editor choices change. It is distinct from a value obtained when the event executes.
 _Avoid_: current picker choice, runtime value, normalized value
 
+**Shop Goods Placeholder**:
+A saved structural entry in a Shop Processing goods list with no purchasable item identity. It may appear alongside real goods and repeat while remaining separate from Project Data References.
+_Avoid_: zero-ID item, None item, missing merchandise reference
+
 **Raw DSL Command**:
 A DSL Command that directly carries one Raw Event Command's code, indentation, and parameters as an escape hatch.
 _Avoid_: Raw Event Command, ordinary DSL helper
