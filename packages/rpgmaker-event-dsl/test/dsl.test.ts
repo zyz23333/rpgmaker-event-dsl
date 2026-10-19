@@ -330,7 +330,9 @@ describe("collectDslOwnedDeclarations", () => {
       changeParallax({
         image: imageAsset({ folder: "parallaxes", name: "Clouds" }),
         loopX: true,
+        loopY: false,
         sx: 1,
+        sy: 0,
       }).kind,
     ).toBe("changeParallax");
     expect(

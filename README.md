@@ -103,6 +103,27 @@ The DSL does not replace RPG Maker MV's event system. It is a readable source fo
 producing normal RPG Maker MV project data, so the RPG Maker MV editor can continue to
 work with the generated result.
 
+Map appearance commands require their complete saved configuration:
+
+```ts
+changeMapNameDisplay({ enabled: true });
+changeTileset({ tileset: tilesetRef({ id: 2 }) });
+changeBattleBack({
+  battleback1: imageAsset({ folder: "battlebacks1", name: "Castle1" }),
+  battleback2: null,
+});
+changeParallax({ image: null, loopX: false, loopY: true, sx: 32, sy: -32 });
+```
+
+The two battle background slots are independent. Explicit `null` means None and
+compiles to an empty filename; it differs from MV's internal automatic background
+state. Parallax requires all five fields. Each speed is an integer from −32 to 32
+and remains saved while its loop is disabled or its image is None. Use the exact
+`battlebacks1`, `battlebacks2` and `parallaxes` folders for each image slot; an empty
+Asset Reference name is invalid. Tilesets must exist in the Snapshot and have no
+None value. Asset filenames are preserved without scanning local image files;
+a valid reference does not guarantee that MV can load its images.
+
 ## Writing Your First DSL File
 
 A DSL file is a TypeScript file that exports RPG Maker MV declarations. For example,

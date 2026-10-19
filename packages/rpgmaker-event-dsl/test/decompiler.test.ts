@@ -269,7 +269,7 @@ describe("decompiler command list rendering", () => {
         "changeMapNameDisplay({ enabled: false }),",
         "changeTileset({ tileset: tilesetRef({ id: 12 }) }),",
         'changeBattleBack({ battleback1: imageAsset({ folder: "battlebacks1", name: "Grassland" }), battleback2: imageAsset({ folder: "battlebacks2", name: "Forest" }) }),',
-        'changeParallax({ image: imageAsset({ folder: "parallaxes", name: "Clouds" }), loopX: true, sx: 2 }),',
+        'changeParallax({ image: imageAsset({ folder: "parallaxes", name: "Clouds" }), loopX: true, loopY: false, sx: 2, sy: 0 }),',
         'getLocationInfo({ variable: variableRef({ id: 3 }), info: "regionId", location: { kind: "direct", x: 4, y: 5 } }),',
         'getLocationInfo({ variable: variableRef({ id: 5 }), info: "tileIdLayer2", location: { kind: "variables", x: variableRef({ id: 10 }), y: variableRef({ id: 11 }) } }),',
       ].join("\n"),

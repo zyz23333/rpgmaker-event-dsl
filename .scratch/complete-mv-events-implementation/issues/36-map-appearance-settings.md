@@ -1,6 +1,6 @@
 # 36: 地图外观设置
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 24
 Stage: S6
 Created: 2026-10-19
