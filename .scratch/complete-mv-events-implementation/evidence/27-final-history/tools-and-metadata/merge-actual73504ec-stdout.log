@@ -1,0 +1,18 @@
+Auto-merging README.md
+Auto-merging packages/rpgmaker-event-dsl/README.md
+Auto-merging packages/rpgmaker-event-dsl/src/compiler/dispatch.ts
+CONFLICT (content): Merge conflict in packages/rpgmaker-event-dsl/src/compiler/dispatch.ts
+Auto-merging packages/rpgmaker-event-dsl/src/domain/command.ts
+Auto-merging packages/rpgmaker-event-dsl/src/validation/commands.ts
+CONFLICT (content): Merge conflict in packages/rpgmaker-event-dsl/src/validation/commands.ts
+Auto-merging packages/rpgmaker-event-dsl/src/validation/native-command-inputs.ts
+CONFLICT (content): Merge conflict in packages/rpgmaker-event-dsl/src/validation/native-command-inputs.ts
+Auto-merging packages/rpgmaker-event-dsl/src/validation/native-parameters.ts
+Auto-merging packages/rpgmaker-event-dsl/test/decompiler.test.ts
+Auto-merging packages/rpgmaker-event-dsl/test/dsl.test.ts
+Auto-merging packages/rpgmaker-event-dsl/test/events.test.ts
+Auto-merging packages/rpgmaker-event-dsl/vitest.windows.config.ts
+CONFLICT (content): Merge conflict in packages/rpgmaker-event-dsl/vitest.windows.config.ts
+Auto-merging skills/rpgmaker-event-authoring/references/event-patterns.md
+CONFLICT (content): Merge conflict in skills/rpgmaker-event-authoring/references/event-patterns.md
+Automatic merge failed; fix conflicts and then commit the result.

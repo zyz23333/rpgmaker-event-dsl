@@ -1,0 +1,137 @@
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-default-second-physical-v1-prepare-63a67e10-e1ae-467d-8dc8-e4ba55ded113",
+  "prepared": true,
+  "nativeExecution": "not-executed; root native gate not released",
+  "isolation": {
+    "passed": true,
+    "referenceSeedLiteralUnchanged": true,
+    "distinctPhysicalDataRoots": true,
+    "allEntriesRegularAndUnlinked": true,
+    "completeDataFiles": {
+      "reference": 15,
+      "seed": 15,
+      "literal": 15,
+      "compiled": 15
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-one-choice-cancel-selects-first-physical-v1-prepare-4258b627-646e-4d4b-8c30-76b01da7506d",
+  "prepared": true,
+  "nativeExecution": "not-executed; root native gate not released",
+  "isolation": {
+    "passed": true,
+    "referenceSeedLiteralUnchanged": true,
+    "distinctPhysicalDataRoots": true,
+    "allEntriesRegularAndUnlinked": true,
+    "completeDataFiles": {
+      "reference": 15,
+      "seed": 15,
+      "literal": 15,
+      "compiled": 15
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-separate-cancel-body-physical-v1-prepare-cff86e77-307d-445a-aab2-d17a3ed8c1b6",
+  "prepared": true,
+  "nativeExecution": "not-executed; root native gate not released",
+  "isolation": {
+    "passed": true,
+    "referenceSeedLiteralUnchanged": true,
+    "distinctPhysicalDataRoots": true,
+    "allEntriesRegularAndUnlinked": true,
+    "completeDataFiles": {
+      "reference": 15,
+      "seed": 15,
+      "literal": 15,
+      "compiled": 15
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-disabled-cancel-keeps-wait-physical-v1-prepare-a74aff62-aec9-4093-b2fc-647dbe48e3c9",
+  "prepared": true,
+  "nativeExecution": "not-executed; root native gate not released",
+  "isolation": {
+    "passed": true,
+    "referenceSeedLiteralUnchanged": true,
+    "distinctPhysicalDataRoots": true,
+    "allEntriesRegularAndUnlinked": true,
+    "completeDataFiles": {
+      "reference": 15,
+      "seed": 15,
+      "literal": 15,
+      "compiled": 15
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-saved-cancel-five-without-403-physical-v1-prepare-72fcd41f-1f59-4df1-931a-84f9c0817c19",
+  "prepared": true,
+  "nativeExecution": "not-executed; root native gate not released",
+  "isolation": {
+    "passed": true,
+    "referenceSeedLiteralUnchanged": true,
+    "distinctPhysicalDataRoots": true,
+    "allEntriesRegularAndUnlinked": true,
+    "completeDataFiles": {
+      "reference": 15,
+      "seed": 15,
+      "literal": 15,
+      "compiled": 15
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-saved-default-five-needs-navigation-physical-v1-prepare-31ef44a3-65e9-478c-bdb3-acfea6c8e0a3",
+  "prepared": true,
+  "nativeExecution": "not-executed; root native gate not released",
+  "isolation": {
+    "passed": true,
+    "referenceSeedLiteralUnchanged": true,
+    "distinctPhysicalDataRoots": true,
+    "allEntriesRegularAndUnlinked": true,
+    "completeDataFiles": {
+      "reference": 15,
+      "seed": 15,
+      "literal": 15,
+      "compiled": 15
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-no-default-down-selects-first-physical-v1-prepare-5b2cec57-42ab-4536-9486-b52401ffd584",
+  "prepared": true,
+  "nativeExecution": "not-executed; root native gate not released",
+  "isolation": {
+    "passed": true,
+    "referenceSeedLiteralUnchanged": true,
+    "distinctPhysicalDataRoots": true,
+    "allEntriesRegularAndUnlinked": true,
+    "completeDataFiles": {
+      "reference": 15,
+      "seed": 15,
+      "literal": 15,
+      "compiled": 15
+    }
+  }
+}
+{
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-numeric-saved-both-negative-zero-physical-v1-prepare-784a3869-8104-444d-b898-cfc5db34efb9",
+  "prepared": true,
+  "nativeExecution": "not-executed; root native gate not released",
+  "isolation": {
+    "passed": true,
+    "referenceSeedLiteralUnchanged": true,
+    "distinctPhysicalDataRoots": true,
+    "allEntriesRegularAndUnlinked": true,
+    "completeDataFiles": {
+      "reference": 15,
+      "seed": 15,
+      "literal": 15,
+      "compiled": 15
+    }
+  }
+}
+{"index":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-physical-v1-prepare-index-ecc03ff1-d9bf-4cc2-b0e8-806b2dc67c2e.json","results":[{"id":"default-second","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-default-second-physical-v1-prepare-63a67e10-e1ae-467d-8dc8-e4ba55ded113","prepared":true,"passed":false},{"id":"one-choice-cancel-selects-first","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-one-choice-cancel-selects-first-physical-v1-prepare-4258b627-646e-4d4b-8c30-76b01da7506d","prepared":true,"passed":false},{"id":"separate-cancel-body","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-separate-cancel-body-physical-v1-prepare-cff86e77-307d-445a-aab2-d17a3ed8c1b6","prepared":true,"passed":false},{"id":"disabled-cancel-keeps-wait","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-disabled-cancel-keeps-wait-physical-v1-prepare-a74aff62-aec9-4093-b2fc-647dbe48e3c9","prepared":true,"passed":false},{"id":"saved-cancel-five-without-403","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-saved-cancel-five-without-403-physical-v1-prepare-72fcd41f-1f59-4df1-931a-84f9c0817c19","prepared":true,"passed":false},{"id":"saved-default-five-needs-navigation","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-saved-default-five-needs-navigation-physical-v1-prepare-31ef44a3-65e9-478c-bdb3-acfea6c8e0a3","prepared":true,"passed":false},{"id":"no-default-down-selects-first","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-no-default-down-selects-first-physical-v1-prepare-5b2cec57-42ab-4536-9486-b52401ffd584","prepared":true,"passed":false},{"id":"numeric-saved-both-negative-zero","root":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-r3-numeric-saved-both-negative-zero-physical-v1-prepare-784a3869-8104-444d-b898-cfc5db34efb9","prepared":true,"passed":false}]}

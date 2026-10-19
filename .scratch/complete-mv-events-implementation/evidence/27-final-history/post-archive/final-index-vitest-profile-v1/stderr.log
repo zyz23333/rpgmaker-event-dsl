@@ -1,0 +1,11 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/read-only-profile.test.ts [ test/read-only-profile.test.ts ]
+Error: Vitest cannot be imported in a CommonJS module using require(). Please use "import" instead.
+
+If you are using "import" in your source code, then it's possible it was bundled into require() automatically by your bundler. In that case, do not bundle CommonJS output since it will never work with Vitest, or use dynamic import() which is available in all CommonJS modules.
+ ❯ Object.<anonymous> F:/Shuen/RPG/rpgmaker-event-dsl/node_modules/.pnpm/vitest@4.1.9_@types+node@22_c5acf78a3ade786d1c5e0c810332c099/node_modules/vitest/index.cjs:1:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

@@ -1,0 +1,40 @@
+{
+  "at": "2026-10-19T22:51:09.899Z",
+  "gates": {
+    "full": "fullcheck-v2 exit0",
+    "build": "build-v1 exit0",
+    "built": "built-windows-v1 exit0",
+    "E2": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-CHOICES-E2-COMPARE-2026-10-19T22-19-03-353Z-a7524556-1dc2-4d90-95da-b92dfab75a54.json",
+    "R3": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-CHOICES-R3-PAIRS-2026-10-19T22-32-21-824Z-18616b36-65dd-493a-a78e-c921063ba0d5.json",
+    "index": "final-index-v2 exit0 with original10s/2workers",
+    "byteAuditPassed": true
+  },
+  "mutations": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-choices-complete-branches.md",
+      "beforeSha256": "a9831cb13c5d89bc088502bee12f392289ee3e11d084c73ba1258d05b147a4c3",
+      "afterSha256": "c73ee397ad8aaa02a9a52daa506555a9c6297a737aa681d0d34f036d3bd672fa",
+      "originalPrefixExact": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/README.md",
+      "beforeSha256": "334d3535cd7e67193bf8a78cef58c182627d0e39d24c0d8bcc06275cc84b5d71",
+      "afterSha256": "eb891e82d607180a04f93cffee53b793c64924916ec8549badda3d7b5948e3de",
+      "originalPrefixExact": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/README.md",
+      "beforeSha256": "cd67584100883fe0f2836202c6f9ed37bdb559c0f94b6f6cf77b20a764a57a66",
+      "afterSha256": "0cab2cd6018335f8982581330ad4def7909a0babd0c723e401e517bea4b25ab8",
+      "originalPrefixExact": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/issues/27-choices-complete-branches.md",
+      "beforeSha256": "cdf8b14150561c8f0864a5216827fef4f597abfbf16a5274a2ed3c9d698020e4",
+      "afterSha256": "37c42cc094823c0263ff6f698da58da19b4386d97d7e994f0d94eca16a8a188f",
+      "acceptanceChecked": 9,
+      "status": "resolved",
+      "oldCommentsRetained": true
+    }
+  ]
+}

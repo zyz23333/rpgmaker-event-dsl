@@ -1,0 +1,65 @@
+{
+  "at": "2026-10-19T21:32:10.334Z",
+  "inputs": [
+    {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-json.cjs",
+      "sha256": "f56dbcd4e0896e0ae91fa7b44fe53338aaae7db30f80be5c2a4fd7026ce8bc13"
+    },
+    {
+      "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv33-physical-isolation-v1.cjs",
+      "sha256": "22719922029ef212ff34058fead532a3523d96fcb3d649e51bc081dc9b43d786"
+    },
+    {
+      "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-r3-independent-cases.cjs",
+      "sha256": "0a10cbc94608cf2be0672815ec59654d0336f14621e523435bb169c0919f4737"
+    },
+    {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-native-pair-delivery-v2.cjs",
+      "sha256": "68933c0dafada9bfb0fc7955ce4394825396a967fa42b2808819ea76f4dba857"
+    },
+    {
+      "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-r3-complete-native-control-v2.cjs",
+      "sha256": "e0ad8388632b1281da90b2ebf133bd2fd129e54fb501c16e214ae3d9122bc3ef"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-json-v1.cjs",
+      "sha256": "f56dbcd4e0896e0ae91fa7b44fe53338aaae7db30f80be5c2a4fd7026ce8bc13"
+    },
+    {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\mv33-physical-isolation-v1.cjs",
+      "sha256": "22719922029ef212ff34058fead532a3523d96fcb3d649e51bc081dc9b43d786"
+    },
+    {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-independent-cases-v1.cjs",
+      "sha256": "0a10cbc94608cf2be0672815ec59654d0336f14621e523435bb169c0919f4737"
+    },
+    {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-native-pair-adapter-v1.cjs",
+      "sha256": "0daef3e6640af9e962a5d953aca7b2c2d8d195f2297c085c7925ecda61d15647"
+    },
+    {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-scenario-export-v1.cjs",
+      "sha256": "5a51c9e62d8c4b0c24a83b6ffc619771f318a25b294337e66bd293620111563c"
+    }
+  ],
+  "transforms": [
+    "require('./map24-json.cjs')",
+    "purpose:'Map24 current built numeric correction and R1 gameplay delivery; not final49-54 acceptance'",
+    "await isolation.copyRegularTree(options.seedRoot,project);",
+    "const { files, sha } = require('./mv-native-pair-support-v5.cjs');",
+    "const { runLiteral } = require('./mv-native-literal-support-v4.cjs');",
+    "require('./mv-r3-independent-cases.cjs')",
+    "'mv-r3-independent-cases.cjs'",
+    "async function execute(original) {",
+    "  const observer =",
+    "test=${JSON.stringify(test)},expected=${JSON.stringify(expected)}",
+    "function copy(value){return JSON.parse(JSON.stringify(value));}",
+    "choice:choice,waitingChecks:waitingChecks};",
+    "'System.json':copy($dataSystem)",
+    "'runtime-result.json'),JSON.stringify(",
+    "JSON.stringify(actual)===JSON.stringify(expected)",
+    "(async () => { for (const test of selected) await execute(test); })().catch(error => { console.error"
+  ]
+}

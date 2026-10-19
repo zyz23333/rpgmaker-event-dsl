@@ -21,6 +21,7 @@ import {
 } from "../commands/movement/validation.js";
 import { CommandStructureError } from "./command-structure.js";
 import { assertDslCommandList } from "./dsl-command-inputs.js";
+import { assertShowChoicesInput } from "../commands/message/validation.js";
 import { assertMapAppearanceInput } from "../commands/map/validation.js";
 import { assertActorResourceInput } from "../commands/actor/validation.js";
 
@@ -201,18 +202,22 @@ export function validateNodes(
     if (node.kind === "inputNumber" || node.kind === "selectItem") {
       captureReferenceIssue(() => resolver.resolveReference(node.variable), issues);
     }
-    if (node.kind === "showChoices" && node.branches.length !== node.choices.length) {
-      issues.push({
-        level: "error",
-        message: "Show Choices branches must match the choice count.",
-      });
-    }
     if (node.kind === "showChoices") {
-      for (const [branchIndex, branch] of node.branches.entries()) {
-        validateNodes(branch, resolver, childOptions(`branches[${branchIndex}]`), issues);
+      try {
+        assertShowChoicesInput(node, nodePath);
+      } catch {
+        continue;
       }
-      if (node.cancelBranch) {
-        validateNodes(node.cancelBranch, resolver, childOptions("cancelBranch"), issues);
+      for (const [branchIndex, branch] of node.choices.entries()) {
+        validateNodes(
+          branch.commands,
+          resolver,
+          childOptions(`choices[${branchIndex}].commands`),
+          issues,
+        );
+      }
+      if (node.cancel?.kind === "branch") {
+        validateNodes(node.cancel.commands, resolver, childOptions("cancel.commands"), issues);
       }
     }
     if (node.kind === "commonEvent") {

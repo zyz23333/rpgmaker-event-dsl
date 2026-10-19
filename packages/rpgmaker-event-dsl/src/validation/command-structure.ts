@@ -259,7 +259,25 @@ export function inspectCommandListStructure(
               );
             choiceIndex += 1;
           }
-          if (choices && branch.code === 403) cancelSeen = true;
+          if (choices && branch.code === 403) {
+            if (command.parameters[1] !== -2)
+              throw new CommandStructureError(
+                "MV-CHOICE-CANCEL",
+                "A cancel branch is only saved for cancel mode branch (-2).",
+                {
+                  nativePath: `list[${end}]`,
+                  expected: "no 403 branch",
+                  actual: renderJsonValue(branch),
+                  relatedLocations: [
+                    {
+                      nativePath: `list[${index}].parameters[1]`,
+                      value: renderJsonValue(command.parameters[1]),
+                    },
+                  ],
+                },
+              );
+            cancelSeen = true;
+          }
           const body = sequence(
             end + 1,
             indent + 1,
@@ -284,6 +302,17 @@ export function inspectCommandListStructure(
                   value: renderJsonValue((command.parameters[0] as unknown[])[choiceIndex]),
                 },
               ],
+            },
+          );
+        if (choices && command.parameters[1] === -2 && !cancelSeen)
+          throw new CommandStructureError(
+            "MV-CHOICE-CANCEL",
+            "Cancel mode branch (-2) requires its saved 403 body.",
+            {
+              nativePath: `list[${end}]`,
+              expected: "403 cancel branch",
+              actual: commands[end] ? renderJsonValue(commands[end]) : "missing",
+              relatedLocations: [{ nativePath: `list[${index}].parameters[1]`, value: "-2" }],
             },
           );
         if (!isBoundary(end, { indent, codes: [close] }))

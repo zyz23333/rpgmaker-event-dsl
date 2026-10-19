@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-19T22:43:05.332Z",
+  "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\worktrees\\mv-ticket-27-final\\packages\\rpgmaker-event-dsl\\test\\support\\mv-evidence.ts",
+  "originalSha256": "343a11790df3a07ded5b34aa17a2e5fd0fcb7b65e5e25776ee995e6d451fddba",
+  "instrumented": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\index-instrumented-v3.mts",
+  "derivedSha256": "c428900c69a6388dfc0482ab8372f416ffcde695593c639e07dbc93917933e18",
+  "purpose": "Read-only complete index with rolling32 source and timing counters; all actual validations retained; not a timeout override or test-pass claim"
+}

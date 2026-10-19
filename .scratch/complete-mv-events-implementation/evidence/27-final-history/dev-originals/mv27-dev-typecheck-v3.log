@@ -1,0 +1,13 @@
+
+> rpgmaker-event-dsl@0.1.2 typecheck C:\Users\Shuen\.codex\worktrees\mv-ticket-27\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> tsc -p tsconfig.json --noEmit
+
+test/choices-workspace.test.ts(174,56): error TS2322: Type 'string' is not assignable to type 'number | string[]'.
+test/choices-workspace.test.ts(178,69): error TS2322: Type 'null' is not assignable to type 'number | string[]'.
+test/choices.test.ts(456,19): error TS2375: Type '{ text: string; commands: never[]; endMarker: undefined; }' is not assignable to type 'ChildCommandBody & { text: string; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type '{ text: string; commands: never[]; endMarker: undefined; }' is not assignable to type 'ChildCommandBody' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'endMarker' are incompatible.
+      Type 'undefined' is not assignable to type '"present" | "absent"'.
+C:\Users\Shuen\.codex\worktrees\mv-ticket-27\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 typecheck: `tsc -p tsconfig.json --noEmit`
+Exit status 2

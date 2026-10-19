@@ -1,0 +1,618 @@
+{
+  "createdAt": "2026-10-19T22:50:55.896Z",
+  "purpose": "Append-only closed archive/byte-audit/index/diagnostic captures, including original final-index timeout, no-diagnosis successful original CLI recheck, immutable full timeout input binding and actual probe sources. Initial archive map unchanged.",
+  "initialArchiveSha256": "4bbf15f37debaee09a9ef4c24fea2ae5e46b4e1db4de989ac5ee57010824955f",
+  "originalFinalIndex": {
+    "capture": "final-index-v1",
+    "exitCode": 1,
+    "reason": "Original10s timeout; not reproduced in later complete diagnostic probes; cause remains undetermined"
+  },
+  "acceptedRecheck": {
+    "capture": "final-index-v2",
+    "exitCode": 0,
+    "plugin": false,
+    "originalTimeoutMs": 10000,
+    "workers": 2,
+    "files": 1,
+    "tests": 1,
+    "filtered": 2,
+    "testSeconds": 4.86,
+    "totalSeconds": 6.33
+  },
+  "files": [
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-byte-audit-v1.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/final-byte-audit-v1.json",
+      "bytes": 2522693,
+      "sha256": "ab21d5e442f000cfe7bfe55eddd1fa5f556d7ab6b701c51a9416c4de314f34dd"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\archive-capture-v2\\started.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/archive-capture-v2/started.json",
+      "bytes": 251569,
+      "sha256": "cea3990f8b703cc6d218dd61f49f6a84916de3765327750b8202ae0fb16eaae2"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\archive-capture-v2\\completed.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/archive-capture-v2/completed.json",
+      "bytes": 251982,
+      "sha256": "2c387f35cc6450dde48eb3f58ead2e2dd3fd17e28c6170fa1feedad10f9b7803"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\archive-capture-v2\\stdout.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/archive-capture-v2/stdout.log",
+      "bytes": 13659,
+      "sha256": "02b4b0c70a65aeff775dfe8dc3f9e68a196ccf14e4278d7709b4ce9dca47d9ff"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\archive-capture-v2\\stderr.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/archive-capture-v2/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\byte-audit-capture-v1\\started.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/byte-audit-capture-v1/started.json",
+      "bytes": 251886,
+      "sha256": "9da2415d3d86b622494a554a0599d92f7a289a768d3423aa9f63bad946c82639"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\byte-audit-capture-v1\\completed.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/byte-audit-capture-v1/completed.json",
+      "bytes": 252298,
+      "sha256": "6d9dd96584b3b637e513f4eb904dc2daae589b65cc9a78983f3a31e0b72a43c7"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\byte-audit-capture-v1\\stdout.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/byte-audit-capture-v1/stdout.log",
+      "bytes": 1342,
+      "sha256": "4301064f25d187d0af510257b79bff8ac0ffb8d5f073de3c57686b7c47724b70"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\byte-audit-capture-v1\\stderr.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/byte-audit-capture-v1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\history-readme-v1\\started.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/history-readme-v1/started.json",
+      "bytes": 251883,
+      "sha256": "bf3f354aa935f8481a22371cb9bdc3d8a02550b5edd4d6c7c2fbd0771d63cd81"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\history-readme-v1\\completed.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/history-readme-v1/completed.json",
+      "bytes": 252294,
+      "sha256": "f82b8a3a8c3b2a08a0dc203003702eecfe39b124acbaaabe24fea9c52d57473e"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\history-readme-v1\\stdout.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/history-readme-v1/stdout.log",
+      "bytes": 134,
+      "sha256": "521f5191de518c3a39cd7df0e99362fdf349a82171310c44f06cb7911fd231a9"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\history-readme-v1\\stderr.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/history-readme-v1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-v1\\started.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-v1/started.json",
+      "bytes": 252246,
+      "sha256": "bc0313fe65869a758c2d71731f4aa21d59c5b6e8d22d0cf51957aad20d426792"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-v1\\completed.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-v1/completed.json",
+      "bytes": 503470,
+      "sha256": "492b531e908d9b41939426e1fbd2790d805cec99bb82e16b65274e29f98d1e8c"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-v1\\stdout.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-v1/stdout.log",
+      "bytes": 743,
+      "sha256": "cdf61f734c24b8e4f04c2246385876d214b51b261230b29fb710bca7c1ae9840"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-v1\\stderr.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-v1/stderr.log",
+      "bytes": 701,
+      "sha256": "48df489730d95aabb9d51fa072a836fba95a7efd94a0be3fbe7a585d633e64b3"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-v2\\started.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-v2/started.json",
+      "bytes": 252246,
+      "sha256": "59fe167fadc483428fb117fb89f81c333bbcb428f79b0c31d015c8329c17c3d5"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-v2\\completed.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-v2/completed.json",
+      "bytes": 503468,
+      "sha256": "0a903e950c583b2501da0413954238d251da6409e6949fec38a0a0498b6b85ad"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-v2\\stdout.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-v2/stdout.log",
+      "bytes": 301,
+      "sha256": "aa06403cf69b71ad70e58cb16f1f4c445f7efade407b560a662bd081b562e655"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-v2\\stderr.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-v2/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-profile-capture-v3\\started.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-profile-capture-v3/started.json",
+      "bytes": 251915,
+      "sha256": "04426310f183215640122d4e0594477b8f09a1a0234645e4214efa4500a27bb6"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-profile-capture-v3\\completed.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-profile-capture-v3/completed.json",
+      "bytes": 252327,
+      "sha256": "8eb7b486e57516cae6d55cd4260f8d7b5e986fc13f0c39be2fb46fa6c43f8464"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-profile-capture-v3\\stdout.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-profile-capture-v3/stdout.log",
+      "bytes": 5619,
+      "sha256": "682f01ed70281a23bf61e254b7847ccb9176a85940ea9bd124abdc60f85782de"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-profile-capture-v3\\stderr.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-profile-capture-v3/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-timeout-retention-v1\\started.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-timeout-retention-v1/started.json",
+      "bytes": 251935,
+      "sha256": "96a57b31199cb1fd805231e09b54dca3056399454cc32292ab6f6e8d32deebde"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-timeout-retention-v1\\completed.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-timeout-retention-v1/completed.json",
+      "bytes": 252346,
+      "sha256": "7bb37346d114f490d56bdfebbf17cd998756eb805b690136cee9f4c03e84ea38"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-timeout-retention-v1\\stdout.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-timeout-retention-v1/stdout.log",
+      "bytes": 176,
+      "sha256": "cea9f0b50f3c2b9fc00e3a7698240e6e3c32288a2d53d2a98e2a081c658baefd"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-timeout-retention-v1\\stderr.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-timeout-retention-v1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-vitest-profile-v1\\started.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-vitest-profile-v1/started.json",
+      "bytes": 252530,
+      "sha256": "1b25494988c61f635f347e2f2bde0fe1b9cf4da552817ab3bcc73d9af34623dd"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-vitest-profile-v1\\completed.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-vitest-profile-v1/completed.json",
+      "bytes": 503754,
+      "sha256": "c8d06843555f2aa3eb0e768fbd4726f0e253d0803e30ce5c88c3b1b48fb392be"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-vitest-profile-v1\\stdout.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-vitest-profile-v1/stdout.log",
+      "bytes": 756,
+      "sha256": "712f4297e552be88c08ea8c83c0909cc46db9ab3eca3d2256a6cc08f15494958"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-vitest-profile-v1\\stderr.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-vitest-profile-v1/stderr.log",
+      "bytes": 763,
+      "sha256": "17e960662e667a1739ead319c859bd4ad5c540013370f7d7a78cd12536dce965"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-vitest-profile-v2\\started.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-vitest-profile-v2/started.json",
+      "bytes": 252530,
+      "sha256": "e3f43e79c54c82da0d4b237ee12614cb38f236ba70a118d6e452dcb6edef18a2"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-vitest-profile-v2\\completed.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-vitest-profile-v2/completed.json",
+      "bytes": 503752,
+      "sha256": "9354b835b5f5e11ee8d6606e3ae932c707b0b766d887f81c036f4fc5a5d41ed3"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-vitest-profile-v2\\stdout.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-vitest-profile-v2/stdout.log",
+      "bytes": 264,
+      "sha256": "ff731fef9a64d05225581113db94e5dcfdd1cbc57d2f3177d84181a8b37e805c"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-vitest-profile-v2\\stderr.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-vitest-profile-v2/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-vitest-profile-v3\\started.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-vitest-profile-v3/started.json",
+      "bytes": 252530,
+      "sha256": "2db3438a3c03928250913dddcc76bb2cb2eece771585985aa8f9c1d133a00fed"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-vitest-profile-v3\\completed.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-vitest-profile-v3/completed.json",
+      "bytes": 503752,
+      "sha256": "4884fde68d7ff386012874a83e47e7cbefc6c1893af528a516e72b3b79d336ee"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-vitest-profile-v3\\stdout.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-vitest-profile-v3/stdout.log",
+      "bytes": 265,
+      "sha256": "e1104dfb0e277f3844edc6c003400d19f6c587aaec05066813c4273e7c8d79e6"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-vitest-profile-v3\\stderr.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-vitest-profile-v3/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-original-profile-v1\\started.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-original-profile-v1/started.json",
+      "bytes": 252456,
+      "sha256": "198ba99e7b2edd6f8ef5a95f035153aae28a1415c7c0bc065e8cbc90f90e9fb0"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-original-profile-v1\\completed.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-original-profile-v1/completed.json",
+      "bytes": 503678,
+      "sha256": "d413427a6866a7925837ea34e3f2b13962793e21eb11bc2b6aea9d00a8705aae"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-original-profile-v1\\stdout.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-original-profile-v1/stdout.log",
+      "bytes": 301,
+      "sha256": "df9626e05c00ed94d153d36c3f193067e588738dd66c33c831b1ac4f44e2e160"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-original-profile-v1\\stderr.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-original-profile-v1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-original-profile-v2\\started.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-original-profile-v2/started.json",
+      "bytes": 252456,
+      "sha256": "45b2ddf8eee5dc7bbab6e48c111a0ff9c3fcb0ffc1664b3427e09e6750560230"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-original-profile-v2\\completed.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-original-profile-v2/completed.json",
+      "bytes": 503678,
+      "sha256": "1fa99826aac2f0fd496aef6e3bfb585e0f27a752e542e99820ca7857c39ad561"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-original-profile-v2\\stdout.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-original-profile-v2/stdout.log",
+      "bytes": 301,
+      "sha256": "8472f41e18cb8b273907c1a0afac4d5f015c477995af700685e162b60aac831c"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-original-profile-v2\\stderr.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/final-index-original-profile-v2/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\timeout-input-byte-audit-v1\\started.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/timeout-input-byte-audit-v1/started.json",
+      "bytes": 251913,
+      "sha256": "781cc384d978c126be8440c90047fd3630a35e62b2ff1afe84d7199fd1e3c5ad"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\timeout-input-byte-audit-v1\\completed.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/timeout-input-byte-audit-v1/completed.json",
+      "bytes": 252324,
+      "sha256": "895f45e94a1ada43b88051ca263f3241ad9f90125c67b991b5f1d6c6ed80c00d"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\timeout-input-byte-audit-v1\\stdout.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/timeout-input-byte-audit-v1/stdout.log",
+      "bytes": 830,
+      "sha256": "869d48dac5561fa2e48f159523dcb367f25842c1cea0b05dfb717cf93081eeb4"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\timeout-input-byte-audit-v1\\stderr.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/post-archive/timeout-input-byte-audit-v1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\MV-S6-CHOICES-E2-COMPARE-result-original.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/MV-S6-CHOICES-E2-COMPARE-result-original.json",
+      "bytes": 41019,
+      "sha256": "843955865357eea95bac868e0a7700cba376e61a341bbf46c2e409ba0bc957b4"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\MV-S6-CHOICES-R3-PAIRS-result-original.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/MV-S6-CHOICES-R3-PAIRS-result-original.json",
+      "bytes": 41051,
+      "sha256": "97501f5c2779e892a6a34eb4a34fca8a7a5a47e05570934038dbb46c997e400c"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\append-final-timeout-findings-v1.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/append-final-timeout-findings-v1.cjs",
+      "bytes": 5673,
+      "sha256": "a0ea060072fd0e5f01ffb9576ec9085497bfeb13402f113839a0c9f8b6c756fd"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\audit-final-v4.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/audit-final-v4.cjs",
+      "bytes": 7917,
+      "sha256": "e1d616af6f148fe8f76a3aa48418a1ea96078818d35bb1a8cbfdc1a630ecacac"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\audit-timeout-inputs-v1.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/audit-timeout-inputs-v1.cjs",
+      "bytes": 1635,
+      "sha256": "9056ac7d27616ca9b4c283ca32ae1e4b841e3ee6f6b424634c33648d9ff63262"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\close-metadata-v3.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/close-metadata-v3.cjs",
+      "bytes": 6872,
+      "sha256": "28d1899ba30e47dd9b2f89a5e2d3bdf21caf66c73a80772f35763ca4cd114b01"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\derive-final-archive-audit-v1.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/derive-final-archive-audit-v1.cjs",
+      "bytes": 2716,
+      "sha256": "846baea02945121f1c639df479ee79fdf67d6880581a08c3961300fa39430f69"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\derive-timeout-retention-v1.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/derive-timeout-retention-v1.cjs",
+      "bytes": 1470,
+      "sha256": "3de7ccf2efdece6cbe4f9ce71696a24fecbedbe37b1fd01444bd8a9727ac267c"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-archive-audit-derivation-v1.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/final-archive-audit-derivation-v1.json",
+      "bytes": 842,
+      "sha256": "3978ba6f253cb88546a31b919a214eba9eb1d04daf376f1f5edd1553d701dca5"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-byte-audit-v1.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/final-byte-audit-v1.json",
+      "bytes": 2522693,
+      "sha256": "ab21d5e442f000cfe7bfe55eddd1fa5f556d7ab6b701c51a9416c4de314f34dd"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-timeout-retained-v1.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/final-index-timeout-retained-v1.json",
+      "bytes": 273,
+      "sha256": "34c8486f2752abf8214964a7b0e3695296cebefe0048c5857fdeeac261ce5cc8"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-timeout-findings-append-v1.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/final-timeout-findings-append-v1.json",
+      "bytes": 1163,
+      "sha256": "be88cb66ac114cc65d925a2c5d3b7c94465de6742d61be6a431adfe01b3bc280"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-timeout-inputs-byte-audit-v1.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/final-timeout-inputs-byte-audit-v1.json",
+      "bytes": 708,
+      "sha256": "bc687b4d1ecc75ec1f47bae446c21c1984eab1f9ab6700bb8562573653f83d5c"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\index-instrumented-v3.mts",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/index-instrumented-v3.mts",
+      "bytes": 13927,
+      "sha256": "c428900c69a6388dfc0482ab8372f416ffcde695593c639e07dbc93917933e18"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\index-profile-derivation-v3.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/index-profile-derivation-v3.json",
+      "bytes": 648,
+      "sha256": "207918884b951f1cc33135f2c5e71084617e848b779614c2e85a36db489cf6ad"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\index-profile-original-vitest-progress-v2.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/index-profile-original-vitest-progress-v2.json",
+      "bytes": 390,
+      "sha256": "e30646a1d8dbb92458948cb2810ca0d5333c9317edd9cb4118599e09dc58341c"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\index-profile-original-vitest-v2.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/index-profile-original-vitest-v2.json",
+      "bytes": 384,
+      "sha256": "55141c497b4c1bf76be32727de80bc626737ba344364e0d2d5d4c3f0d8d80e30"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\index-profile-v3.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/index-profile-v3.json",
+      "bytes": 361,
+      "sha256": "9d503c799eafdb28293dfd21d795e9d16033f4d73708acb66bbbcc2656dc621b"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\index-profile-vitest-v2.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/index-profile-vitest-v2.json",
+      "bytes": 398,
+      "sha256": "3dbf841ff18a00e9b50b531db2fc8dceb5110d0845da0e428f4edd88727f63dd"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\index-profile-vitest-v3.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/index-profile-vitest-v3.json",
+      "bytes": 391,
+      "sha256": "f165a210488b4a11409bf720e126ec4c937d0a185a7329431422242b16b80a4e"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\original-vitest-instrumentation-v1.ts.txt",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/original-vitest-instrumentation-v1.ts.txt",
+      "bytes": 14096,
+      "sha256": "560d19853105db5f78c74d46694840cb9870bb9e2918152b37574716af48cfe7"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\original-vitest-instrumentation-v2.ts.txt",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/original-vitest-instrumentation-v2.ts.txt",
+      "bytes": 14232,
+      "sha256": "3659a6295f2e89b2478df0a65e4da97d6a8162e59d004e8fa431c31d7e501068"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\original-vitest-profile-derivation-v1.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/original-vitest-profile-derivation-v1.json",
+      "bytes": 1324,
+      "sha256": "05946be277b4439e5d98cd2466c3f0401f8657db616561a5c9920a0d042e54d6"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\original-vitest-profile-derivation-v2.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/original-vitest-profile-derivation-v2.json",
+      "bytes": 1168,
+      "sha256": "676c6205f0f198fd5f3d8e6a804af9a5f3b3141c53bced8095ee9d063de60659"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\original-vitest-profile-transform-attachment-v2.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/original-vitest-profile-transform-attachment-v2.json",
+      "bytes": 383,
+      "sha256": "e9319a8ce9f5d818caf1ccded6b06670fb3c59ea7913875084312a6adc9044c3"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\original-vitest-profile-v1.config.mts",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/original-vitest-profile-v1.config.mts",
+      "bytes": 13736,
+      "sha256": "d2066df29b56028cf89a0c87fe5b3a4f00c25d6da5c04c8abed92c9c27cb1f11"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\original-vitest-profile-v2.config.mts",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/original-vitest-profile-v2.config.mts",
+      "bytes": 14037,
+      "sha256": "7e668029f8d51ad07f3ecd8805cdcef41eaacaad51144835eac566cfb46e8d76"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\post-archive-v3.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/post-archive-v3.cjs",
+      "bytes": 2414,
+      "sha256": "300a445e9077f68db4472eccb8d8cf2e122e52fda971417c64d344d832840472"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\post-archive-v4.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/post-archive-v4.cjs",
+      "bytes": 3693,
+      "sha256": "d57e35270262a87754ac2742353317291d3a64729c063e3a0e97511b0825a635"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\prepare-original-vitest-profile-v1.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/prepare-original-vitest-profile-v1.cjs",
+      "bytes": 3494,
+      "sha256": "cb4a57fc7843ecfdb2904edcb4761b943864012f6fd96bc07e93b2f61ac9fd75"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\prepare-vitest-profile-v1.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/prepare-vitest-profile-v1.cjs",
+      "bytes": 2567,
+      "sha256": "09de33abf97d331eb86145f0789827e598839840bd4cfe07a4c633d65dae5635"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\profile-index-v3.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/profile-index-v3.cjs",
+      "bytes": 4535,
+      "sha256": "595791a1180203d1eb34444295f5bd3ea55ebcecdc2028e42f38966c24ee870b"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\retain-final-timeout-inputs-v1.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/retain-final-timeout-inputs-v1.cjs",
+      "bytes": 2858,
+      "sha256": "c46a5ffa6b42da9d8ff59e7070e7c5f79807fd00aae0b338f708dacd3449a10c"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\vitest-profile-derivation-v1.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/vitest-profile-derivation-v1.json",
+      "bytes": 1291,
+      "sha256": "a87410301543771feaba18774d145bfd6cfd0a397457a1c4d81369111f4cf3f3"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\vitest-profile-derivation-v2.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/vitest-profile-derivation-v2.json",
+      "bytes": 550,
+      "sha256": "a08f85cfb64a7e4fac2ddcab42f55f3b880ba646b4a51cb733ce0a0b68999cf6"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\vitest-profile-derivation-v3.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/vitest-profile-derivation-v3.json",
+      "bytes": 580,
+      "sha256": "513f13fcdc4de73ba39602a7b5a7dbcfdd4905a295f655ca069fc66d4efbb5b5"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-timeout-inputs-v1\\manifest.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/diagnostics/final-index-timeout-input-manifest-v1.json",
+      "bytes": 4916718,
+      "sha256": "a9b6d51f68416bf9e659dc432d3d52eeb5e0db2125557bd923a240dc6a04e978"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\profile-vitest-v1\\index-profile.mts",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/diagnostics/profile-vitest-v1/index-profile.mts",
+      "bytes": 14005,
+      "sha256": "037a07a5b941458e39d5003e4b1ebe49e3bcb01cae7944695553253f51b3ca6b"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\profile-vitest-v1\\test\\read-only-profile.test.ts",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/diagnostics/profile-vitest-v1/test/read-only-profile.test.ts",
+      "bytes": 347,
+      "sha256": "d44fde5bb7510b927c340175bc3799cb9c617b2d5de6a7647d84dfd2d281b762"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\profile-vitest-v1\\package.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/diagnostics/profile-vitest-v1/package.json",
+      "bytes": 18,
+      "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\profile-vitest-v2\\index-profile.mts",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/diagnostics/profile-vitest-v2/index-profile.mts",
+      "bytes": 14005,
+      "sha256": "3c82fafd87470c8901c4b9d798371191129d477583ce80e02276d52ea2ae9fa7"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\profile-vitest-v2\\test\\read-only-profile.test.ts",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/diagnostics/profile-vitest-v2/test/read-only-profile.test.ts",
+      "bytes": 175,
+      "sha256": "c206f1702875b8dcc8f441e1bdd553668e7a6ccdba29796d9cb6a8e9b5f81a92"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\profile-vitest-v2\\package.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/diagnostics/profile-vitest-v2/package.json",
+      "bytes": 18,
+      "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\profile-vitest-v3\\index-profile.mts",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/diagnostics/profile-vitest-v3/index-profile.mts",
+      "bytes": 14005,
+      "sha256": "f17453e4566d1a0d1ea5a545cc0ecf4a0aac97446bd2d901b9330a9662c1b7f9"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\profile-vitest-v3\\test\\read-only-profile.test.ts",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/diagnostics/profile-vitest-v3/test/read-only-profile.test.ts",
+      "bytes": 433,
+      "sha256": "47ba456ed98809de87ec2c1ff52fc5286af67b7f80482a74760ded70e92095d5"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\profile-vitest-v3\\package.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/diagnostics/profile-vitest-v3/package.json",
+      "bytes": 18,
+      "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+    }
+  ]
+}

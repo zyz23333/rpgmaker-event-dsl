@@ -1,0 +1,93 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-27/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/choices.test.ts (49 tests | 2 failed) 42ms
+   × visits unreachable choice and cancel bodies for references and Script Command Gate 6ms
+   × refuses a 'missing close' through the native structure seam 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/choices.test.ts > visits unreachable choice and cancel bodies for references and Script Command Gate
+AssertionError: expected [ { level: 'error', …(1) }, …(2) ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-SCRIPT-GATE",
+  "dslPath": "commands[0].choices[0].commands[0].script.code",
+  "nativePath": "list[2].parameters[0]",
+}
+
++ Received:
+[
+  {
+    "level": "error",
+    "message": "Script commands require explicit config enablement.",
+  },
+  {
+    "actual": "{\"id\":99,\"kind\":\"commonEvent\"}",
+    "code": "MV-E117-REFERENCE",
+    "dslPath": "commands[0].cancel.commands[0].commonEvent",
+    "expected": "uniquely resolved staged Common Event",
+    "identity": "common event 1",
+    "level": "error",
+    "message": "compile error common event 1: MV-E117-REFERENCE: Unknown commonEvent reference id: 99 (commands[0].cancel.commands[0].commonEvent); expected uniquely resolved staged Common Event; actual {\"id\":99,\"kind\":\"commonEvent\"}",
+    "stage": "compile",
+  },
+  {
+    "actual": "{\"id\":99,\"kind\":\"commonEvent\"}",
+    "code": "MV-E117-REFERENCE",
+    "dslPath": "commands[0].cancel.commands[0].commonEvent",
+    "expected": "uniquely resolved staged Common Event",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-E117-REFERENCE: Unknown commonEvent reference id: 99 (commands[0].cancel.commands[0].commonEvent); expected uniquely resolved staged Common Event; actual {\"id\":99,\"kind\":\"commonEvent\"}",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:59:18
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/choices.test.ts > refuses a 'missing close' through the native structure seam
+AssertionError: expected error to match asymmetric matcher
+
+- Expected
++ Received
+
+- ObjectContaining {
++ CommandStructureError {
++   "message": "MV-COMMAND-STRUCTURE: A Body End Marker must be the sole trailing marker of its own body; the event terminator must be last. at list[4]; expected A Body End Marker must be the sole trailing marker of its own body; the event terminator must be last.; actual {\"code\":0,\"indent\":1,\"parameters\":[]}",
+    "code": "MV-COMMAND-STRUCTURE",
+-   "location": ObjectContaining {
+-     "nativePath": "list[5]",
++   "detail": "A Body End Marker must be the sole trailing marker of its own body; the event terminator must be last.",
++   "location": {
++     "actual": "{\"code\":0,\"indent\":1,\"parameters\":[]}",
++     "expected": "A Body End Marker must be the sole trailing marker of its own body; the event terminator must be last.",
++     "nativePath": "list[4]",
+    },
++   "identity": undefined,
++   "stage": undefined,
+  }
+
+ ❯ test/choices.test.ts:71:49
+     69| ])("refuses a $name through the native structure seam", ({edit,code,pa…
+     70|   const list=structuredClone(nativeChoices);edit(list);
+     71|   expect(()=>renderDecompiledCommandList(list)).toThrow(expect.objectC…
+       |                                                 ^
+     72| });
+     73|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 47 passed (49)
+   Start at  01:24:34
+   Duration  1.60s (transform 497ms, setup 0ms, import 1.34s, tests 42ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-27\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/choices.test.ts

@@ -1,0 +1,30 @@
+{
+  "provenance": "Self-authored synthetic saved arrays, independently transcribed from accepted E102/402/403/404 and child-body contract; not native UI capture or compiler output",
+  "list": [
+    { "code": 102, "indent": 0, "parameters": [[" first\r\n", ""], -2, 5, 0, 2] },
+    { "code": 402, "indent": 0, "parameters": [0, " first\r\n"] },
+    { "code": 102, "indent": 1, "parameters": [[""], -1, -1, 1, 1] },
+    { "code": 402, "indent": 1, "parameters": [0, ""] },
+    { "code": 0, "indent": 2, "parameters": [] },
+    { "code": 404, "indent": 1, "parameters": [] },
+    { "code": 0, "indent": 1, "parameters": [] },
+    { "code": 402, "indent": 0, "parameters": [1, ""] },
+    { "code": 230, "indent": 1, "parameters": [1] },
+    { "code": 403, "indent": 0, "parameters": [6, null] },
+    { "code": 0, "indent": 1, "parameters": [] },
+    { "code": 404, "indent": 0, "parameters": [] },
+    { "code": 102, "indent": 0, "parameters": [[""], -0, -0, 2, 0] },
+    { "code": 402, "indent": 0, "parameters": [0, ""] },
+    { "code": 0, "indent": 1, "parameters": [] },
+    { "code": 404, "indent": 0, "parameters": [] },
+    { "code": 0, "indent": 0, "parameters": [] }
+  ],
+  "headerMatrix": [
+    [[""], 1, 0, 2, 0],
+    [["a", ""], 0, 1, 0, 2],
+    [["a", "", ""], -1, -1, 1, 1],
+    [[" \t", "\r", "\n", ""], 2, 3, 2, 2],
+    [["a", "b", "c", "d", ""], 5, 5, 1, 0],
+    [["", " ", "\r", "\n", "\r\n", ""], -2, 4, 0, 1]
+  ]
+}

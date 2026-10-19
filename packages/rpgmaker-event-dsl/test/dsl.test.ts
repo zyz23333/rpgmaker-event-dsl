@@ -551,8 +551,10 @@ describe("collectDslOwnedDeclarations", () => {
     expect(showScrollingText({ lines: ["A", "B"], speed: 4 }).kind).toBe("showScrollingText");
     expect(
       showChoices({
-        choices: ["Yes", "No"],
-        branches: [[], []],
+        choices: [
+          { text: "Yes", commands: [] },
+          { text: "No", commands: [] },
+        ],
       }).kind,
     ).toBe("showChoices");
   });

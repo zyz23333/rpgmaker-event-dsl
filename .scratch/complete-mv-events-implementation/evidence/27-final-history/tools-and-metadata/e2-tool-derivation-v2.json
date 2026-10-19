@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-19T22:12:24.912Z",
+  "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\e2-built-comparison-v1.mjs",
+  "target": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\e2-built-comparison-v2.mjs",
+  "sourceSha256": "fee210cfc98d6bdde676fcf305adf97896c4a06a650705fb89eb023a07cda9ee",
+  "derivedSha256": "75a9a6edf1b3d2d6e83a9d92751a7e24db449eb3514048b6e9aec4dea00008ff",
+  "purpose": "Root static finding before first execution: bind actual historicalEvidence, omit absent optional record names, use audited strictJson to preserve numeric negative zero and valid undefined object/array semantics; native6tools unchanged"
+}

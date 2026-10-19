@@ -1,0 +1,7 @@
+{
+  "at": "2026-10-19T22:46:18.088Z",
+  "purpose": "Single diagnostic change fromv2: import original Workspace API module graph before timed helper. Hypothesis: original business-module import graph increases memory/GC or affects read latency. All input/helper/product bytes unchanged; no final-pass claim.",
+  "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\profile-vitest-v3",
+  "helperSha256": "f17453e4566d1a0d1ea5a545cc0ecf4a0aac97446bd2d901b9330a9662c1b7f9",
+  "testSha256": "47ba456ed98809de87ec2c1ff52fc5286af67b7f80482a74760ded70e92095d5"
+}

@@ -190,10 +190,15 @@ describe("compileMapEvent", () => {
                 positionType: 0,
               }),
               showChoices({
-                choices: ["Yes", "No"],
-                branches: [[wait(10)], [eraseEvent()]],
-                cancelType: 1,
-                cancelBranch: [showText({ lines: ["Canceled"] })],
+                choices: [
+                  { text: "Yes", commands: [wait(10)], endMarker: "absent" },
+                  { text: "No", commands: [eraseEvent()], endMarker: "absent" },
+                ],
+                cancel: {
+                  kind: "branch",
+                  commands: [showText({ lines: ["Canceled"] })],
+                  endMarker: "absent",
+                },
               }),
               inputNumber({ variable: variableRef({ name: "Count" }), digits: 3 }),
               selectItem({ variable: variableRef({ name: "Count" }), itemType: 1 }),
@@ -394,7 +399,7 @@ describe("compileMapEvent", () => {
     expect(commands[5]).toEqual({ code: 230, indent: 1, parameters: [10] });
     expect(commands[6]).toEqual({ code: 402, indent: 0, parameters: [1, "No"] });
     expect(commands[7]).toEqual({ code: 214, indent: 1, parameters: [] });
-    expect(commands[8]).toEqual({ code: 403, indent: 0, parameters: [] });
+    expect(commands[8]).toEqual({ code: 403, indent: 0, parameters: [6, null] });
     expect(commands[9]).toEqual({ code: 101, indent: 1, parameters: ["", 0, 0, 2] });
     expect(commands[10]).toEqual({ code: 401, indent: 1, parameters: ["Canceled"] });
     expect(commands[11]).toEqual({ code: 103, indent: 0, parameters: [1, 3] });

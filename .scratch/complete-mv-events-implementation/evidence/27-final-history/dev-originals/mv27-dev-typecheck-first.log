@@ -1,0 +1,12 @@
+
+> rpgmaker-event-dsl@0.1.2 typecheck C:\Users\Shuen\.codex\worktrees\mv-ticket-27\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> tsc -p tsconfig.json --noEmit
+
+test/definitions.test.ts(168,20): error TS2339: Property 'branches' does not exist on type 'ShowChoicesDslCommand'.
+test/dsl.test.ts(541,19): error TS2322: Type 'string' is not assignable to type 'ChildCommandBody & { text: string; }'.
+  Type 'string' is not assignable to type 'ChildCommandBody'.
+test/events.test.ts(193,27): error TS2322: Type 'string' is not assignable to type 'ChildCommandBody & { text: string; }'.
+  Type 'string' is not assignable to type 'ChildCommandBody'.
+C:\Users\Shuen\.codex\worktrees\mv-ticket-27\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 typecheck: `tsc -p tsconfig.json --noEmit`
+Exit status 2

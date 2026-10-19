@@ -1,0 +1,92 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-27/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/choices.test.ts (33 tests | 3 failed | 30 skipped) 14ms
+   × rejects a raw own marker contradicting the declared present choice body 9ms
+   × rejects a raw own marker contradicting the declared absent choice body 1ms
+   × rejects a raw own marker contradicting the cancel body 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/choices.test.ts > rejects a raw own marker contradicting the declared present choice body
+AssertionError: expected [ { level: 'error', …(8) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-BODY-MARKER-CONFLICT",
+  "dslPath": "commands[0].choices[0].endMarker",
+}
+
++ Received:
+[
+  {
+    "actual": "{\"code\":0,\"indent\":1,\"parameters\":[]}",
+    "code": "MV-COMMAND-STRUCTURE",
+    "dslPath": "commands[0].choices[0].commands[0]",
+    "expected": "A Body End Marker must be the sole trailing marker of its own body; the event terminator must be last.",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-STRUCTURE: A Body End Marker must be the sole trailing marker of its own body; the event terminator must be last. at list[2] (commands[0].choices[0].commands[0]); expected A Body End Marker must be the sole trailing marker of its own body; the event terminator must be last.; actual {\"code\":0,\"indent\":1,\"parameters\":[]}",
+    "nativePath": "list[2]",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:20:78
+     18| it.each(["present", "absent"] as const)("rejects a raw own marker cont…
+     19|   const event=commonEvent({id:1,name:"Raw conflict",trigger:"none",com…
+     20|   expect(validateDslOwnedDeclarations([event],{scriptEnabled:false}).i…
+       |                                                                              ^
+     21| });
+     22| it("rejects a raw own marker contradicting the cancel body", () => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  test/choices.test.ts > rejects a raw own marker contradicting the declared absent choice body
+AssertionError: expected [] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-BODY-MARKER-CONFLICT",
+  "dslPath": "commands[0].choices[0].endMarker",
+}
+
++ Received:
+[]
+
+ ❯ test/choices.test.ts:20:78
+     18| it.each(["present", "absent"] as const)("rejects a raw own marker cont…
+     19|   const event=commonEvent({id:1,name:"Raw conflict",trigger:"none",com…
+     20|   expect(validateDslOwnedDeclarations([event],{scriptEnabled:false}).i…
+       |                                                                              ^
+     21| });
+     22| it("rejects a raw own marker contradicting the cancel body", () => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  test/choices.test.ts > rejects a raw own marker contradicting the cancel body
+AssertionError: expected [] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-BODY-MARKER-CONFLICT",
+  "dslPath": "commands[0].cancel.endMarker",
+}
+
++ Received:
+[]
+
+ ❯ test/choices.test.ts:24:78
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 30 skipped (33)
+   Start at  01:21:41
+   Duration  1.30s (transform 392ms, setup 0ms, import 1.12s, tests 14ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-27\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/choices.test.ts -t raw own marker

@@ -1,0 +1,293 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-27/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/choices.test.ts (30 tests | 15 failed | 15 skipped) 22ms
+   × rejects unsupported E102 slot +0=[] in native and known raw 9ms
+   × rejects unsupported E102 slot +0=[ '1', '2', '3', '4', '5', '6', '7' ] in native and known raw 3ms
+   × rejects unsupported E102 slot 1=-3 in native and known raw 1ms
+   × rejects unsupported E102 slot 1=6 in native and known raw 0ms
+   × rejects unsupported E102 slot 1=0.5 in native and known raw 0ms
+   × rejects unsupported E102 slot 1=-0 in native and known raw 0ms
+   × rejects unsupported E102 slot 2=-2 in native and known raw 0ms
+   × rejects unsupported E102 slot 2=6 in native and known raw 0ms
+   × rejects unsupported E102 slot 2=-0 in native and known raw 1ms
+   × rejects unsupported E102 slot 3=3 in native and known raw 1ms
+   × rejects unsupported E102 slot 3=-0 in native and known raw 1ms
+   × rejects unsupported E102 slot 4=3 in native and known raw 1ms
+   × rejects unsupported E102 slot 4=-0 in native and known raw 1ms
+   × rejects a missing cancel branch instead of changing the saved mode 0ms
+   × rejects a forbidden cancel branch instead of changing the saved mode 1ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 15 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/choices.test.ts > rejects unsupported E102 slot +0=[] in native and known raw
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-PARAMETERS",
+  "nativePath": "list[0].parameters[0]",
+}
+
++ Received:
+[
+  {
+    "actual": "[]",
+    "code": "MV-COMMAND-PARAMETERS",
+    "dslPath": "commands[0]",
+    "expected": "nonempty string choices",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. (commands[0]); expected nonempty string choices; actual []",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:27:78
+     25|   expect(() => renderDecompiledCommandList(list)).toThrow(expect.objec…
+     26|   const event=commonEvent({id:1,name:"Known raw",trigger:"none",comman…
+     27|   expect(validateDslOwnedDeclarations([event],{scriptEnabled:false}).i…
+       |                                                                              ^
+     28| });
+     29|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/15]⎯
+
+ FAIL  test/choices.test.ts > rejects unsupported E102 slot +0=[ '1', '2', '3', '4', '5', '6', '7' ] in native and known raw
+AssertionError: expected error to match asymmetric matcher
+
+- Expected
++ Received
+
+- ObjectContaining {
+-   "code": "MV-COMMAND-PARAMETERS",
+-   "location": ObjectContaining {
+-     "nativePath": "list[0].parameters[0]",
++ CommandStructureError {
++   "message": "MV-CHOICE-MIRROR: Choice branches must mirror every parent choice exactly once in saved order. at list[1].parameters; expected [0,\"1\"]; actual [0,\"one\"]; related list[0].parameters[0][0] = \"1\"",
++   "code": "MV-CHOICE-MIRROR",
++   "detail": "Choice branches must mirror every parent choice exactly once in saved order.",
++   "location": {
++     "actual": "[0,\"one\"]",
++     "expected": "[0,\"1\"]",
++     "nativePath": "list[1].parameters",
++     "relatedLocations": [
++       {
++         "nativePath": "list[0].parameters[0][0]",
++         "value": "\"1\"",
+        },
++     ],
++   },
++   "identity": undefined,
++   "stage": undefined,
+  }
+
+ ❯ test/choices.test.ts:25:51
+     23|   const list = structuredClone(nativeChoices);
+     24|   list[0]!.parameters[slot]=value;
+     25|   expect(() => renderDecompiledCommandList(list)).toThrow(expect.objec…
+       |                                                   ^
+     26|   const event=commonEvent({id:1,name:"Known raw",trigger:"none",comman…
+     27|   expect(validateDslOwnedDeclarations([event],{scriptEnabled:false}).i…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/15]⎯
+
+ FAIL  test/choices.test.ts > rejects unsupported E102 slot 1=-3 in native and known raw
+ FAIL  test/choices.test.ts > rejects unsupported E102 slot 1=6 in native and known raw
+ FAIL  test/choices.test.ts > rejects unsupported E102 slot 1=0.5 in native and known raw
+ FAIL  test/choices.test.ts > rejects unsupported E102 slot 1=-0 in native and known raw
+ FAIL  test/choices.test.ts > rejects unsupported E102 slot 2=-2 in native and known raw
+ FAIL  test/choices.test.ts > rejects unsupported E102 slot 2=6 in native and known raw
+ FAIL  test/choices.test.ts > rejects unsupported E102 slot 2=-0 in native and known raw
+AssertionError: expected function to throw an error, but it didn't
+ ❯ test/choices.test.ts:25:51
+     23|   const list = structuredClone(nativeChoices);
+     24|   list[0]!.parameters[slot]=value;
+     25|   expect(() => renderDecompiledCommandList(list)).toThrow(expect.objec…
+       |                                                   ^
+     26|   const event=commonEvent({id:1,name:"Known raw",trigger:"none",comman…
+     27|   expect(validateDslOwnedDeclarations([event],{scriptEnabled:false}).i…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/15]⎯
+
+ FAIL  test/choices.test.ts > rejects unsupported E102 slot 3=3 in native and known raw
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-PARAMETERS",
+  "nativePath": "list[0].parameters[3]",
+}
+
++ Received:
+[
+  {
+    "actual": "3",
+    "code": "MV-COMMAND-PARAMETERS",
+    "dslPath": "commands[0]",
+    "expected": "one of [0,1,2]",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. (commands[0]); expected one of [0,1,2]; actual 3",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:27:78
+     25|   expect(() => renderDecompiledCommandList(list)).toThrow(expect.objec…
+     26|   const event=commonEvent({id:1,name:"Known raw",trigger:"none",comman…
+     27|   expect(validateDslOwnedDeclarations([event],{scriptEnabled:false}).i…
+       |                                                                              ^
+     28| });
+     29|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/15]⎯
+
+ FAIL  test/choices.test.ts > rejects unsupported E102 slot 3=-0 in native and known raw
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-PARAMETERS",
+  "nativePath": "list[0].parameters[3]",
+}
+
++ Received:
+[
+  {
+    "actual": "-0",
+    "code": "MV-COMMAND-PARAMETERS",
+    "dslPath": "commands[0]",
+    "expected": "one of [0,1,2]",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. (commands[0]); expected one of [0,1,2]; actual -0",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:27:78
+     25|   expect(() => renderDecompiledCommandList(list)).toThrow(expect.objec…
+     26|   const event=commonEvent({id:1,name:"Known raw",trigger:"none",comman…
+     27|   expect(validateDslOwnedDeclarations([event],{scriptEnabled:false}).i…
+       |                                                                              ^
+     28| });
+     29|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/15]⎯
+
+ FAIL  test/choices.test.ts > rejects unsupported E102 slot 4=3 in native and known raw
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-PARAMETERS",
+  "nativePath": "list[0].parameters[4]",
+}
+
++ Received:
+[
+  {
+    "actual": "3",
+    "code": "MV-COMMAND-PARAMETERS",
+    "dslPath": "commands[0]",
+    "expected": "one of [0,1,2]",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. (commands[0]); expected one of [0,1,2]; actual 3",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:27:78
+     25|   expect(() => renderDecompiledCommandList(list)).toThrow(expect.objec…
+     26|   const event=commonEvent({id:1,name:"Known raw",trigger:"none",comman…
+     27|   expect(validateDslOwnedDeclarations([event],{scriptEnabled:false}).i…
+       |                                                                              ^
+     28| });
+     29|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/15]⎯
+
+ FAIL  test/choices.test.ts > rejects unsupported E102 slot 4=-0 in native and known raw
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-PARAMETERS",
+  "nativePath": "list[0].parameters[4]",
+}
+
++ Received:
+[
+  {
+    "actual": "-0",
+    "code": "MV-COMMAND-PARAMETERS",
+    "dslPath": "commands[0]",
+    "expected": "one of [0,1,2]",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. (commands[0]); expected one of [0,1,2]; actual -0",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:27:78
+     25|   expect(() => renderDecompiledCommandList(list)).toThrow(expect.objec…
+     26|   const event=commonEvent({id:1,name:"Known raw",trigger:"none",comman…
+     27|   expect(validateDslOwnedDeclarations([event],{scriptEnabled:false}).i…
+       |                                                                              ^
+     28| });
+     29|
+
+
+ Test Files  1 failed (1)
+      Tests  15 failed | 15 skipped (30)
+   Start at  01:20:24
+   Duration  1.38s (transform 402ms, setup 0ms, import 1.16s, tests 22ms, environment 0ms)
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/15]⎯
+
+ FAIL  test/choices.test.ts > rejects a missing cancel branch instead of changing the saved mode
+AssertionError: expected function to throw an error, but it didn't
+ ❯ test/choices.test.ts:34:51
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/15]⎯
+
+ FAIL  test/choices.test.ts > rejects a forbidden cancel branch instead of changing the saved mode
+AssertionError: expected error to match asymmetric matcher
+
+- Expected
++ Received
+
+- ObjectContaining {
+-   "code": "MV-CHOICE-CANCEL",
+-   "location": ObjectContaining {
+-     "nativePath": "list[5]",
+-     "relatedLocations": ArrayContaining [
+-       ObjectContaining {
+-         "nativePath": "list[0].parameters[1]",
++ CommandStructureError {
++   "message": "decompile error MV-COMMAND-UNSUPPORTED: Known native command cannot be represented by its current formal helper; raw fallback is unavailable. at list[0].parameters; expected supported formal native command; actual [[\"one\",\"two\"],1,0,2,0]",
++   "code": "MV-COMMAND-UNSUPPORTED",
++   "detail": "Known native command cannot be represented by its current formal helper; raw fallback is unavailable.",
++   "location": {
++     "actual": "[[\"one\",\"two\"],1,0,2,0]",
++     "expected": "supported formal native command",
++     "nativePath": "list[0].parameters",
+    },
+-     ],
+-   },
++   "identity": undefined,
++   "stage": "decompile",
+  }
+
+ ❯ test/choices.test.ts:34:51
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/15]⎯
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-27\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/choices.test.ts -t native and known raw|cancel branch instead

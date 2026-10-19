@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-19T22:50:55.232Z",
+  "changes": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-choices-complete-branches.md",
+      "beforeSha256": "137d4cf6468482f838699598b676902e48716aab9111f34e113150cb56e174a4",
+      "afterSha256": "a9831cb13c5d89bc088502bee12f392289ee3e11d084c73ba1258d05b147a4c3",
+      "originalPrefixExact": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/README.md",
+      "beforeSha256": "7b3142c0ac4093262a3e8595ab941a2b5f9dd52ca34764db5e8ca3c151c58003",
+      "afterSha256": "334d3535cd7e67193bf8a78cef58c182627d0e39d24c0d8bcc06275cc84b5d71",
+      "originalPrefixExact": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/README.md",
+      "beforeSha256": "288f85312f078ae7116a6948d53fed17875f3d34f9e71e18d0baff328bf8b042",
+      "afterSha256": "cd67584100883fe0f2836202c6f9ed37bdb559c0f94b6f6cf77b20a764a57a66",
+      "originalPrefixExact": true
+    }
+  ],
+  "cause": "undetermined; original timeout not reproduced in complete subsequent probes",
+  "acceptedGate": "actual original-CLI final-index-v2 only"
+}

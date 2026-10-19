@@ -1,0 +1,37 @@
+{
+  "label": "native-safe-summaries-v1",
+  "startedAt": "2026-10-19T22:35:21.615Z",
+  "cwd": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-27-final",
+  "node": {
+    "path": "C:\\Users\\Shuen\\AppData\\Local\\pnpm-cache\\dlx\\e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7\\1a152fc0f14-2f10\\node_modules\\.pnpm\\node@22.23.0\\node_modules\\node\\bin\\node.exe",
+    "version": "v22.23.0",
+    "sha256": "17347995af08dadcc73a1a154f0942559fbc3f37b9ba57d4576b4d2bcb2834a2"
+  },
+  "tool": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\choices-safe-native-summaries-v1.cjs",
+    "sha256": "0e993b7853a918a3b84d7bd6d2903bf1639bdcad6e6f50f9ddbe4ea1765a598c"
+  },
+  "args": [
+    "M:/Shuen/Codex/mv-events-implementation-20261020/ticket27-final/choices-physical-v1-native-index-e9e43f74-a0b1-43b6-bce2-1b1c0adb2ad8.json"
+  ],
+  "git": {
+    "head": "33801e7ff5b53e98956f5fcb37db69ce73961524",
+    "status": ""
+  },
+  "environment": {
+    "TEMP": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\native-safe-summaries-v1\\temp",
+    "TMP": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\native-safe-summaries-v1\\temp"
+  },
+  "completedAt": "2026-10-19T22:35:22.252Z",
+  "exitCode": 0,
+  "signal": null,
+  "toolAfterSha256": "0e993b7853a918a3b84d7bd6d2903bf1639bdcad6e6f50f9ddbe4ea1765a598c",
+  "stdout.log": {
+    "bytes": 4668,
+    "sha256": "63844f4c30e728c5e0238d2c3f2c5863e783222c4d8a56e357f9e277ae768e80"
+  },
+  "stderr.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

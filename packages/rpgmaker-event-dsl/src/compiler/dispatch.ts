@@ -3,6 +3,7 @@ import type { ReferenceResolver } from "../validation/types.js";
 import type { RawEventCommand, CommandOrigins } from "./types.js";
 import { assertControlTimerInput } from "../commands/variables/validation.js";
 import { assertDslCommandList } from "../validation/dsl-command-inputs.js";
+import { assertShowChoicesInput } from "../commands/message/validation.js";
 import { assertMapAppearanceInput } from "../commands/map/validation.js";
 import { assertActorResourceInput } from "../commands/actor/validation.js";
 import {
@@ -678,15 +679,20 @@ export function compileNodes(
         });
         break;
       case "showChoices":
+        assertShowChoicesInput(node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 102,
           indent,
           parameters: [
-            node.choices,
-            node.cancelBranch === undefined ? (node.cancelType ?? -1) : -2,
-            node.defaultType ?? 0,
-            node.positionType ?? 2,
-            node.background ?? 0,
+            node.choices.map((choice) => choice.text),
+            node.cancel?.kind === "branch"
+              ? -2
+              : node.cancel?.kind === "disabled"
+                ? -1
+                : (node.cancel?.index ?? 1),
+            node.defaultChoice?.kind === "none" ? -1 : (node.defaultChoice?.index ?? 0),
+            { left: 0, center: 1, right: 2 }[node.position ?? "right"],
+            { window: 0, dim: 1, transparent: 2 }[node.background ?? "window"],
           ],
         });
         output.push(

@@ -69,6 +69,21 @@ Shopkeepers use `shopProcessing(...)`. Event-driven battles use `battleProcessin
 
 ## DSL Command Selection
 
+Use `showChoices({ choices: [{ text, commands, endMarker? }], defaultChoice?, cancel?, position?, background? })`
+for 1–6 choices. Keep each choice's text and required `commands` together; empty
+commands and empty or whitespace text are valid. `defaultChoice` accepts
+`{ kind: "none" }` or `{ kind: "choice", index }` (default index 0). `cancel`
+accepts `{ kind: "disabled" }`, `{ kind: "choice", index }` (default index 1),
+or `{ kind: "branch", commands, endMarker? }`. Indices are zero-based integers
+0–5, including the saved sign of numeric `-0`. Preserve out-of-count saved indices
+and inspect their warnings; the default
+cancel index remains 1 for a one-item list. Position is left/center/right
+(default right); background is window/dim/transparent (default window).
+Each choice and separate cancel body owns its `endMarker`, defaulting to
+`"present"`. Preserve `"absent"` only for a nonempty body. Keep nested raw markers
+with their own bodies. All choice and cancel commands retain ordinary reference
+validation and the Workspace Script Command Gate.
+
 Use `controlTimer({ action: "start", seconds })` with explicit integer seconds
 0..5999. For Stop, choose the saved shape intentionally:
 `controlTimer({ action: "stop" })` (or `seconds: undefined`) omits the seconds

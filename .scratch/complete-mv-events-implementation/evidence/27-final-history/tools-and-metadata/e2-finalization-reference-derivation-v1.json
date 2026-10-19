@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-19T22:13:35.865Z",
+  "purpose": "Preserve all unexecuted original archive/report/closure drafts and select the root-corrected actual E2v2 first execution identities; native6tools unchanged",
+  "files": [
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\archive-final-v2.cjs",
+      "target": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\archive-final-v3.cjs",
+      "sourceSha256": "0159b3da4e2ddfe9a336a9c4e6c840b446afe056727c2a3bb20823649d6fd033",
+      "derivedSha256": "069e418fcd50889e422f2d938c9ff23ccf757738c4394107dcd63630e79f2f9d"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\append-final-report-v1.cjs",
+      "target": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\append-final-report-v2.cjs",
+      "sourceSha256": "b6340a6d41ef00ffb9b350a89d78850e64da16706351d638c767acb6a7925379",
+      "derivedSha256": "e3e9ab3cd33cab7a8350429c4de174d9fb487481df4d26bb95c3f888ccc97914"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\close-metadata-v1.cjs",
+      "target": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\close-metadata-v2.cjs",
+      "sourceSha256": "78729cf212db004def89a85837c5ec4df9a36c19025616cf1c9a056e12e6276f",
+      "derivedSha256": "2ab7b1949509f22b9a27844a12073ca3730eb0acf73566ff76691524fb379d4e"
+    }
+  ]
+}
