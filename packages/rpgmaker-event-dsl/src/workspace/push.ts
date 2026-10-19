@@ -1,11 +1,12 @@
-import { mkdir, readFile, rename, rm, stat, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, rename, rm, stat, writeFile } from "node:fs/promises";
 import { withWorkspaceOperationLock } from "./operation-lock.js";
 import { dirname, resolve } from "node:path";
-import { randomUUID } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 
 import { discoverDefinitionFiles } from "./definitions.js";
 import {
   isCompileBaselineFresh,
+  expectedCompileOutputFileNames,
   type CompileBaseline,
   type FileHashEntry,
 } from "../project-data/materialization.js";
@@ -344,11 +345,27 @@ export async function assertGeneratedProjectDataIntegrity(
     throw new Error(`Generated Project Data is required before ${commandName}. Run compile first.`);
   }
 
+  const expectedNames = await expectedCompileOutputFileNames(statePaths);
+  const listedNames = manifest.generatedFiles.map(({ relativePath }) => relativePath).sort();
+  const actualEntries = await readdir(statePaths.generatedProjectDataDirectory, {
+    withFileTypes: true,
+  });
+  const actualNames = actualEntries.map(({ name }) => name).sort();
+  if (
+    JSON.stringify(expectedNames) !== JSON.stringify(listedNames) ||
+    JSON.stringify(expectedNames) !== JSON.stringify(actualNames) ||
+    actualEntries.some((entry) => !entry.isFile())
+  ) {
+    throw new Error(
+      `Generated Project Data integrity check failed before ${commandName}: incomplete or unexpected owned output file set. Run compile first.`,
+    );
+  }
+
   const currentGeneratedFiles = await Promise.all(
     manifest.generatedFiles.map(async ({ relativePath }) => ({
-      hash: hashUtf8Content(
-        await readFile(resolve(statePaths.generatedProjectDataDirectory, relativePath), "utf8"),
-      ),
+      hash: createHash("sha256")
+        .update(await readFile(resolve(statePaths.generatedProjectDataDirectory, relativePath)))
+        .digest("hex"),
       relativePath,
     })),
   );

@@ -33,7 +33,10 @@ export function startWorkspaceOperation(
       | "before-project-write"
       | "snapshot-capture"
       | "snapshot-manifest-failure"
-      | "input-validation";
+      | "input-validation"
+      | "compile-manifest"
+      | "generated-write-failure"
+      | "generated-installation-failure";
     captureFile?: string;
     barrier?: boolean;
   },
@@ -66,6 +69,11 @@ export function startWorkspaceOperation(
           "project-data-snapshot",
         ),
         manifestPath: resolve(sandbox.workspaceRoot, ".rpgmaker-event-dsl", "sync-manifest.json"),
+        generatedPath: resolve(
+          sandbox.workspaceRoot,
+          ".rpgmaker-event-dsl",
+          "generated-project-data",
+        ),
         inputPath: resolve(
           sandbox.workspaceRoot,
           ".rpgmaker-event-dsl",

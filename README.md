@@ -259,11 +259,23 @@ Validate the source without writing generated data:
 rpgmaker-event-dsl compile --check
 ```
 
+Check constructs and serializes the same complete in-memory Compile Output as Compile,
+including command structure, references and the Script Command Gate. It writes no
+candidate files, changes no business state and does not make Generated Project Data
+fresh. A successful Check still requires Compile before reviewing new output.
+
 Generate RPG Maker MV data from the TypeScript source files:
 
 ```bash
 rpgmaker-event-dsl compile
 ```
+
+Validation failure publishes nothing. A filesystem error or process interruption
+during publication can leave local generated data unusable; run Compile again to
+restore it. Diff and Push verify freshness, actual file bytes and the complete owned
+output file set independently of the manifest's list. The current set contains
+`CommonEvents.json`, `System.json` and every map registered in the Snapshot's
+`MapInfos.json`. Compile preserves the Snapshot and Project Root.
 
 Review what would change:
 

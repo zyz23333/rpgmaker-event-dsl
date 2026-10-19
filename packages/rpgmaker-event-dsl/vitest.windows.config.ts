@@ -12,6 +12,7 @@ export default defineConfig({
       "test/workspace-locking.test.ts",
       "test/snapshot-binding.test.ts",
       "test/compile-inputs.test.ts",
+      "test/compile-publication.test.ts",
     ],
     env: { MV_CLI_ENTRY: "built" },
   },

@@ -1,6 +1,6 @@
 # 19: Compile／Check 完整输出与发布
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 15, 18
 Stage: S4b
 Created: 2026-10-19

@@ -215,12 +215,14 @@ export async function readPendingPush(manifestPath: string): Promise<PendingPush
 export async function writeSyncManifest(
   manifestPath: string,
   manifest: SyncManifest,
+  assertInputsUnchanged?: () => Promise<void>,
 ): Promise<void> {
   await mkdir(dirname(manifestPath), { recursive: true });
 
   const tempManifestPath = `${manifestPath}.tmp-${process.pid}-${randomUUID()}`;
   try {
     await writeFile(tempManifestPath, writeStableJson(manifest), "utf8");
+    await assertInputsUnchanged?.();
     await rename(tempManifestPath, manifestPath);
   } finally {
     await rm(tempManifestPath, { force: true });

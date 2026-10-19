@@ -7,6 +7,7 @@ import { resolve } from "node:path";
 const options = JSON.parse(process.env.MV_OPERATION_CHILD);
 const readFile = fs.readFile;
 const rename = fs.rename;
+const writeFile = fs.writeFile;
 let reached = false;
 let inputReads = 0;
 async function checkpoint() {
@@ -43,6 +44,12 @@ fs.readFile = async function (path, ...args) {
 };
 fs.rename = async function (source, target) {
   if (
+    options.boundary === "generated-installation-failure" &&
+    resolve(String(target)) === options.generatedPath &&
+    String(source).includes(".tmp-")
+  )
+    throw new Error("Controlled generated installation failure");
+  if (
     options.boundary === "snapshot-manifest-failure" &&
     resolve(String(target)) === options.manifestPath
   ) {
@@ -57,6 +64,20 @@ fs.rename = async function (source, target) {
     await checkpoint();
   }
   return rename(source, target);
+};
+fs.writeFile = async function (path, ...args) {
+  if (
+    options.boundary === "generated-write-failure" &&
+    String(path).includes("generated-project-data.tmp-")
+  )
+    throw new Error("Controlled generated candidate write failure");
+  const result = await writeFile(path, ...args);
+  if (
+    options.boundary === "compile-manifest" &&
+    resolve(String(path)).startsWith(`${options.manifestPath}.tmp-`)
+  )
+    await checkpoint();
+  return result;
 };
 syncBuiltinESMExports();
 

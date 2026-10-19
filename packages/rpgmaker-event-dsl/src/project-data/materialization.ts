@@ -20,6 +20,7 @@ import {
 } from "../workspace/state.js";
 import type { WorkspaceConfig } from "../workspace/config.js";
 import { writeStableJson } from "./writer.js";
+import { assertCompileOutput } from "../validation/compile-output.js";
 import {
   compileContractVersion,
   typeInputsUnchanged,
@@ -36,12 +37,14 @@ export type MaterializeCompileOutputOptions = {
   statePaths: WorkspaceStatePaths;
   declarations: readonly DslOwnedDeclaration[];
   resolver: ReferenceResolver;
-  assertInputsUnchanged?: () => Promise<void>;
+  scriptEnabled: boolean;
 };
 
 export type MaterializedCompileOutput = {
   generatedFiles: FileHashEntry[];
 };
+
+export type CompileOutputCandidate = { files: ReadonlyMap<string, string> };
 
 export type CompileBaselineInput = {
   projectRootBinding: string;
@@ -53,9 +56,21 @@ export type CompileBaselineInput = {
   snapshotFiles: readonly FileHashEntry[];
 };
 
-export async function materializeCompileOutput(
+export async function expectedCompileOutputFileNames(
+  statePaths: WorkspaceStatePaths,
+): Promise<string[]> {
+  return [
+    "CommonEvents.json",
+    "System.json",
+    ...parseMapInfos(await readSnapshotFile(statePaths, "MapInfos.json")).map(({ id }) =>
+      formatMapFileName(id),
+    ),
+  ].sort();
+}
+
+export async function buildCompileOutput(
   options: MaterializeCompileOutputOptions,
-): Promise<MaterializedCompileOutput> {
+): Promise<CompileOutputCandidate> {
   const mapInfos = parseMapInfos(await readSnapshotFile(options.statePaths, "MapInfos.json"));
   const files = new Map<string, unknown>();
 
@@ -100,7 +115,16 @@ export async function materializeCompileOutput(
     ),
   );
 
-  return writeGeneratedProjectData(options.statePaths, files, options.assertInputsUnchanged);
+  assertCompileOutput(files, options.resolver, options.scriptEnabled);
+  return { files: new Map([...files].map(([path, value]) => [path, writeStableJson(value)])) };
+}
+
+export async function publishCompileOutput(
+  statePaths: WorkspaceStatePaths,
+  candidate: CompileOutputCandidate,
+  assertInputsUnchanged: () => Promise<void>,
+): Promise<MaterializedCompileOutput> {
+  return writeGeneratedProjectData(statePaths, candidate.files, assertInputsUnchanged);
 }
 
 export async function buildCompileBaseline(input: CompileBaselineInput): Promise<CompileBaseline> {
@@ -234,7 +258,7 @@ function materializeSystemNames(
 
 async function writeGeneratedProjectData(
   statePaths: WorkspaceStatePaths,
-  files: ReadonlyMap<string, unknown>,
+  files: ReadonlyMap<string, string>,
   assertInputsUnchanged?: () => Promise<void>,
 ): Promise<MaterializedCompileOutput> {
   const tempDirectory = resolve(
@@ -248,10 +272,9 @@ async function writeGeneratedProjectData(
   try {
     const generatedFiles: FileHashEntry[] = [];
 
-    for (const [relativePath, value] of [...files.entries()].sort(([left], [right]) =>
+    for (const [relativePath, content] of [...files.entries()].sort(([left], [right]) =>
       left.localeCompare(right),
     )) {
-      const content = writeStableJson(value);
       const destinationPath = resolve(tempDirectory, relativePath);
 
       await mkdir(dirname(destinationPath), { recursive: true });
