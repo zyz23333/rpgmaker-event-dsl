@@ -1,0 +1,179 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-E05-NEW-STOP",
+  "runId": "2026-10-19T07-38-15-039Z-e9d41fcf-e83e-4973-af47-54879705d028",
+  "status": "passed",
+  "startedAt": "2026-10-19T07:30:10.206Z",
+  "completedAt": "2026-10-19T07:38:15.039Z",
+  "operator": "Codex ticket05 reverse-engineering analyst",
+  "source": {
+    "revision": "c570f51df44ae0a81f16c75c65d2ac00593e2b31",
+    "fingerprint": "efa17d3029638d304eebc261385f03b7c5652775d1c8713682ecbc17ee1b31de",
+    "files": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+        "sha256": "2a87908a0c82b29c5558759b636b7724dd3371f2f86f067c1c5ea282cdec1e3e"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/05-resource-identities.json",
+        "sha256": "0c76a701cbcba666d01731e7b5e465d9a52ff2eb206476837675eb90b07d34a4"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/05-timer-stop-reverse.md",
+        "sha256": "7159085d5be652e0eaed032b5ed8652381e70e46ab6562d8f840e61f8efbc7d5"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/README.md",
+        "sha256": "162d88b5fce096968cc36d5a8071a898237050866b4eb6ce85115cb6fc8101aa"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+        "sha256": "cf7b7e1ce29bef780f3a3087674b213ae13fe996198228cade0791407a32f5a3"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/issues/05-native-timer-stop-slots.md",
+        "sha256": "93ab5ff4fc051761ea7dced7f4f31eb132a9e13d5f9f86fdf383054f38a53189"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/mv-evidence.ts",
+        "sha256": "a67d7de8b92abf9076848048ce49fe40fbe86b016784e123200e9c32ccc7eb82"
+      }
+    ]
+  },
+  "fixture": {
+    "path": ".scratch/complete-mv-events-implementation/evidence/05-resource-identities.json",
+    "sha256": "0c76a701cbcba666d01731e7b5e465d9a52ff2eb206476837675eb90b07d34a4"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "node": "v24.14.0",
+    "vitest": "not-executed (documentary reverse-engineering review; separate index test recorded in ticket)",
+    "typescript": "not-executed (documentary reverse-engineering review)",
+    "package": "0.1.2",
+    "native": {
+      "method": "reverse-engineering",
+      "mv": "1.6.1 / FileVersion1.6.1.0 (historical PE evidence; identical binary SHA256)",
+      "runtime": "not-executed",
+      "nwjs": "not-executed",
+      "tools": {
+        "resourceDecode": "Node fs/zlib/crypto; selected outer length, compressed boundary, decoded length and SHA256 verified",
+        "rea": "Historical identified PE/native constructor Evidence IDs reused; no new session or Evidence ID",
+        "nativeAnalysis": "Historical Ghidra12.1.4 same-DLL SpinBox constructor evidence reused, not rerun",
+        "recorder": "C:/Users/Shuen/.codex/tmp/record-mv05.cjs; SHA256 c55e1097a6fb8c996523f4e5813d9ffb1349ce38aa8d4e25553a65c2756c2323"
+      },
+      "artifacts": [
+        {
+          "path": "references/RPGMV/RPGMV.exe",
+          "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281"
+        },
+        {
+          "path": "references/RPGMV/QtQuick/Controls/qtquickcontrolsplugin.dll",
+          "sha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6"
+        }
+      ]
+    }
+  },
+  "stages": [
+    "Reused identified resource locations, PE version identity and same-DLL native SpinBox evidence",
+    "Read full selected Timer, operation, base, dialog, SpinBox and container resources without executing extracted code",
+    "Verified artifact identity and all selected outer/compressed/decoded boundaries and SHA256 against original local bytes",
+    "Separated fresh creation, previously confirmed Start editing, Stop reconfirmation, unsaved toggle and container serialization",
+    "Completed bounded analyst review; conditional Qt initialization and actual disk/UI/game unknowns remain explicit"
+  ],
+  "expected": "Empty parameter array receives only p0=1; exact length1 and[1], with no default seconds slot.",
+  "actual": {
+    "reviewInput": "新建 null eventData，选 Stop 后首次确认",
+    "finding": "makeSimpleEventData 创建空数组，随后只写 p0=1，精确得到长度1的 `[1]`",
+    "evidenceLevelAndLimit": "静态推导；不依赖 disabled 数值显示，Q@686141:22–24、Q@793186:62–71",
+    "artifactVerification": [
+      {
+        "path": "references/RPGMV/RPGMV.exe",
+        "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+        "resources": [
+          {
+            "name": "timer",
+            "offset": 793186,
+            "sha256": "095449887fbb1f73c8a292ee6c304256cb5cd422f7901a53b3acf16a290cd670",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "operation",
+            "offset": 680842,
+            "sha256": "0d87a64dcdc267fcbce7aca42df12a3b665df6153be84b5701eade6113ed8cc8",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "base",
+            "offset": 686141,
+            "sha256": "740d0c01de598e2a55b58f67f975a30e2d3c8c96de36eb8ff15c3dd4d6ad2780",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "dialog",
+            "offset": 656916,
+            "sha256": "0152387fa661f0e67f45b989248c60142881526cda1f31898e29c0e03366fbf7",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "data",
+            "offset": 909009,
+            "sha256": "9ce1877d3eac47699a558ada219ec4f217dbc4f215531a7f65ccacd8169c4f93",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "spinbox",
+            "offset": 875471,
+            "sha256": "a94b75dfca7ceb95315d38a3897e8c389a96d71f56696329f0cf8edd20535984",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "picker",
+            "offset": 679418,
+            "sha256": "8e83b762134d12696649e6302adec9f40bbad7618b2c9cbff5ad945f005dd829",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "list",
+            "offset": 667573,
+            "sha256": "bbc1e26fa83771fc56581b1dc34ec762b3789444dacef76cb24334834e17e82c",
+            "status": "matched original source bytes"
+          },
+          {
+            "name": "modal",
+            "offset": 878315,
+            "sha256": "875ac97ba5e20ab1a457399321e9621d3b56a698aaeeadc78c9584f3b69a970e",
+            "status": "matched original source bytes"
+          }
+        ]
+      },
+      {
+        "path": "references/RPGMV/QtQuick/Controls/qtquickcontrolsplugin.dll",
+        "sha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+        "resources": [
+          {
+            "name": "qt-spinbox",
+            "offset": 160589,
+            "sha256": "4b98b9d85a651cbe2f47e4abf7efaf67a25b9b942f5441b77cc5faae9643e0ca",
+            "status": "matched original source bytes"
+          }
+        ]
+      }
+    ],
+    "reusedNativeEvidence": [
+      {
+        "path": "C:/Users/Shuen/.codex/research-evidence/mv-command-parameters-20261019/qt-spinbox-evidence.json",
+        "sha256": "f0a237d814bedac695d4e2acbaca254fcac65cd1583264a23b8f266188b20ef2"
+      },
+      {
+        "path": "C:/Users/Shuen/.codex/research-evidence/mv-command-parameters-20261019/qt-spinbox-analysis.json",
+        "sha256": "6bbc4ac2096dfcce3c81309de488fa55011e2c1fcc2153bfc8ffa3a1775577ae"
+      }
+    ],
+    "rawFirstPartyOutput": "C:/Users/Shuen/.codex/research-evidence/mv-editor-05-20261019/",
+    "reusedSharedRawOutput": "C:/Users/Shuen/.codex/research-evidence/mv-editor-03-20261019/",
+    "reviewScope": "Completed bounded reverse-engineering code review only. Does not establish editor UI execution, actual disk capture, product output verification, or R1-R7 actual game checks."
+  },
+  "difference": null
+}

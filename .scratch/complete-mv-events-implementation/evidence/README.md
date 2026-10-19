@@ -2,7 +2,7 @@
 
 `requirements.json` describes obligations. `results/` contains immutable, machine-produced run records. A requirement does not acquire a passing status merely because it appears in this index. The ordinary test suite validates the index schema, unique IDs, fixture hashes, source sections, test links, checklist completeness and recorded run references.
 
-This index contains ticket 01 automated seeds, ticket 02 Windows automation baseline, and ticket 03 reverse-engineering obligations; it is not the complete command or native acceptance matrix. Later tickets add their own stable case IDs and independent input/expected data. Per the user's revised acceptance, editor validation uses REA reverse engineering while final actual game runs remain required. These native evidence groups remain unexecuted by this fixture; its synthetic project context is sufficient for Workspace data operations and is not claimed to be a playable MV project.
+This index contains ticket 01 automated seeds, ticket 02 Windows automation baseline, and tickets 03/05 reverse-engineering obligations; it is not the complete command or native acceptance matrix. Later tickets add their own stable case IDs and independent input/expected data. Per the user's revised acceptance, editor validation uses REA reverse engineering while final actual game runs remain required. These native evidence groups remain unexecuted by this fixture; its synthetic project context is sufficient for Workspace data operations and is not claimed to be a playable MV project.
 
 | Requirement       | Obligation                                                                                                        | Evidence kind       | Required layer                                |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------- | --------------------------------------------- |
@@ -23,6 +23,16 @@ This index contains ticket 01 automated seeds, ticket 02 Windows automation base
 | MV-S0-WIN-JUNCTION-001 | Mandatory real directory junction executes source and built CLI without silent skipping | synthetic-support | Windows junction and CLI subprocess |
 
 Ticket 02 extends the seed with the [Windows baseline and required filesystem responsibility matrix](windows-baseline.md). The additional cases establish the automation foundation; later safety tickets still own their fault and concurrency obligations.
+
+| MV-E05-START-BOUNDS | Start two slots and supported seconds bounds | reverse-engineering-observation | identified editor resources and bounded code-path review |
+| MV-E05-START-DEFAULT | New Start default from identified bundled controls | static-inference | identified editor resources and bounded code-path review |
+| MV-E05-NEW-STOP | New Stop has one parameter slot | static-inference | identified editor resources and bounded code-path review |
+| MV-E05-SAVED-START-ZERO | Saved Start zero changed to Stop retains zero slot | static-inference | identified editor resources and bounded code-path review |
+| MV-E05-SAVED-START-NONZERO | Saved Start83 changed to Stop retains nonzero slot | static-inference | identified editor resources and bounded code-path review |
+| MV-E05-STOP-RECONFIRM | Stop reconfirmation retains missing or present seconds | static-inference | identified editor resources and bounded code-path review |
+| MV-E05-UNSAVED-TOGGLE | Unsaved Start controls do not create a Stop seconds slot | static-inference | identified editor resources and bounded code-path review |
+| MV-E05-CONTAINER | Container serialization retains Timer slot structure | reverse-engineering-observation | identified editor resources and bounded code-path review |
+| MV-E05-START-REEDIT | Explicit switch back to Start uses current controls | static-inference | identified editor resources and bounded code-path review |
 
 ## Reproduce
 
@@ -47,3 +57,5 @@ After a relevant source, native version, fixture or procedure change, retain the
 Ticket 03 records identified shipped-artifact resource reads and analyst code-path review in [03-branches-and-battle-reverse.md](03-branches-and-battle-reverse.md), with the selected immutable identities in [03-resource-identities.json](03-resource-identities.json). A `review` link is an explicit alternative to a `test` link; the validator requires exactly one, a real referenced section, and the case ID in that document. It does not mislabel evidence review as an automated test.
 
 For these records `passed` means the bounded editor code-review obligation was completed with the report’s stated conditions and limits. The actual field separates code observation, conditional inference and unknowns; `runtime`, `nwjs`, and automated test-runner fields explicitly say `not-executed` where no such run occurred. It does not indicate editor UI or game execution, product roundtrip success, or final candidate acceptance. Binary/resource digests were computed from the selected local bytes; raw first-party text remains only in the named local evidence directory.
+
+Ticket 05 adds [Timer slot review](05-timer-stop-reverse.md) and [selected resource identities](05-resource-identities.json). The missing slot, present zero and present83 cases are distinct; the retained83 path requires a previously confirmed Start. The new unsaved-dialog toggle has its own case. These E4 code-review obligations do not establish ticket26/50 product verification or R1-R7 game execution.
