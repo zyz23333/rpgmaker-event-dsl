@@ -1,0 +1,29 @@
+{
+  "startedAt": "2026-10-19T20:56:32.948Z",
+  "cwd": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-26-final",
+  "node": {
+    "path": "C:\\Users\\Shuen\\AppData\\Local\\pnpm-cache\\dlx\\e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7\\1a152fc0f14-2f10\\node_modules\\.pnpm\\node@22.23.0\\node_modules\\node\\bin\\node.exe",
+    "version": "v22.23.0",
+    "sha256": "17347995af08dadcc73a1a154f0942559fbc3f37b9ba57d4576b4d2bcb2834a2"
+  },
+  "tool": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-built-comparison-v1.mjs",
+    "sha256": "1439a01bbfca830f9f1f8b244b5f78f83773674b64ca41939d3d5edd5e3e8ffa"
+  },
+  "environment": {
+    "TEMP": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-launch-v1\\temp",
+    "TMP": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket26-final\\e4-launch-v1\\temp"
+  },
+  "completedAt": "2026-10-19T20:56:39.089Z",
+  "exitCode": 0,
+  "signal": null,
+  "toolAfterSha256": "1439a01bbfca830f9f1f8b244b5f78f83773674b64ca41939d3d5edd5e3e8ffa",
+  "stdout.log": {
+    "bytes": 199,
+    "sha256": "f86c414acb1590b3fd67396b8c75f62ef90f3555896f3b001e299323c697756a"
+  },
+  "stderr.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -497,6 +497,47 @@ Ticket36 map appearance cases use independent complete saved literals and actual
 
 Ticket36 allocated delivery is complete on contract `mv-1.6.1/10`: current source40 files/987 tests, fresh build, built Windows16 files/373 tests,9 exact E6 resource checks and10 physically isolated current-built/native pairs (20 game sides) passed. The [current delivery record](36-map-appearance-settings.md#final-current-delivery--contract-mv-16110) and `36-history/` preserve actual source/dist identities, rejected/incomplete attempts, original captures and safe native projections. All286 incoming rows/history bytes are preserved; final49–55 remain separate.
 
+| Requirement | Supplemental Map numeric saved-value check | Source | Boundary |
+| --- | --- | --- | --- |
+| MV-S5-MAP-NUMERIC-001 | Preserve ten accepted Map Page numeric negative-zero states through actual native Decompile/source/Check/Compile/Diff/Push | synthetic-support | Actual public Workspace/Discovery/evaluation and complete filesystem |
+| MV-S5-MAP-NUMERIC-002 | Preserve authored Map Page numeric negative zero through helper and untyped actual source evaluation and complete Push | synthetic-support | Actual public Workspace/Discovery/evaluation and complete filesystem |
+| MV-S5-MAP-NUMERIC-003 | Refuse categorical or enabled-reference native Map negative zero before publication with exact diagnostics and unchanged state | synthetic-rejection | Actual public Workspace/Discovery/evaluation and complete filesystem |
+| MV-S5-MAP-NUMERIC-004 | Refuse enabled Map condition negative-zero IDs from helper and untyped source in Check/Compile without changing state | synthetic-rejection | Actual public Workspace/Discovery/evaluation and complete filesystem |
+
+Ticket24's supplemental numeric correction now has current contract `mv-1.6.1/11` evidence: full source41files/1009tests, fresh15-file build, built Windows17files/395tests,34identified resource checks and two physically isolated actual native pairs passed. Ten synthetic numeric saved states remain distinct from editor-origin claims; actual native loaded values preserve their sign. The [current delivery report](24-map-event-full-pages.md#supplemental-numeric-saved-value-correction--current-delivery-contract-mv-16111) links1220new exact machine records, full input membership/bytes, independent native audit, retained original timeout and append-only history verification. Original requirement rows, result blobs and earlier delivery claims remain unchanged; final49–55 remain separate.
+
+| MV-S6-TIMER-001 | authored Stop preserves absent, undefined, zero and nonzero slots | synthetic-support | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-002 | independently saved slots roundtrip all three containers and install exact complete carriers | synthetic-support | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-003 | numeric negative zero survives actual generated source and complete native installation | synthetic-support | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-004 | invalid authored seconds fails Check and Compile without changing business state | synthetic-rejection | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-005 | invalid native seconds has a precise diagnostic before publication | synthetic-rejection | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-006 | public helper rejects invalid untyped Timer input | synthetic-rejection | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-007 | native and known raw reject the same malformed saved slots | synthetic-rejection | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-008 | command compilation rejects non-JSON array values without normalizing | synthetic-rejection | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-009 | real loader rejects extra fields from a structurally typed local const | synthetic-rejection | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-010 | real loader validates untyped source-local values | synthetic-rejection | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-011 | actual loader rejects an undefined known raw saved slot before any business write | synthetic-rejection | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-012 | valid known raw slots compile and Push complete three-container state | synthetic-support | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-013 | public types reject incomplete or invalid authored Timer input | synthetic-rejection | Public source/built boundary; final candidate build remains separately required |
+
+| MV-S6-TIMER-E4-COMPARE | Allocated E4 actual candidate built Timer output versus independent REA saved-slot contract | reverse-engineering-observation | Not executed at focused checkpoint; finalization required |
+
+Ticket26 now has current contract `mv-1.6.1/12` delivery evidence: full source42 files/1069 tests, fresh15-file build, built Windows18 files/455 tests, and actual E4 comparison of14 independent scenarios/10 negative cases passed. The [current Timer report](26-timer-saved-slot-roundtrip.md#最终化构建与-e4-产品比较--mv-16112) and [26-final-history](26-final-history/README.md) preserve actual source/dist identities, the original full-check failures and exact closed captures. E4 verifies current10 resource identities against the bounded05 REA report and exercises real built public Workspace writes across complete15 carriers; it does not claim editor UI or game execution. The original checklist rows and their pending-at-DEV wording are historical and unchanged; final50 and52–54 remain separate.
+
+Ticket26 final closure audit passed:314 requirements retain the complete incoming300 prefix and own288 rows,6084 historical raw blobs/prefixes remain exact,1507 initial archive source/copy pairs match, and189 actual/physically retained execution inputs (including15 dist files) remain unchanged. The original10-second selected evidence-index test passed in4.11 seconds. Closed captures are appended through26-final-history/post-archive-index-v1.json; the initial archive map is immutable. Ticket26 is resolved under the allocated E4 boundary.
+
 Ticket39 focused DEV adds independent audio saved literals and public Workspace obligations. E4/R6 remain pending finalization.
 
 | Requirement | Obligation | Evidence kind | Required layer |

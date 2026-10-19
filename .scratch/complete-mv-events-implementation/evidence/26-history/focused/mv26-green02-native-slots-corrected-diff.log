@@ -1,0 +1,72 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-26/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/timer-workspace.test.ts > MV-S6-TIMER-002: independently saved slots roundtrip all three containers and install exact complete carriers
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\timer-native-three-containers-wacK2I
+
+ ❯ test/timer-workspace.test.ts (2 tests | 1 failed | 1 skipped) 4728ms
+   × MV-S6-TIMER-002: independently saved slots roundtrip all three containers and install exact complete carriers 4727ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/timer-workspace.test.ts > MV-S6-TIMER-002: independently saved slots roundtrip all three containers and install exact complete carriers
+AssertionError: expected { 'Actors.json': [ null ], …(14) } to strictly equal { 'Actors.json': [ null ], …(14) }
+
+- Expected
++ Received
+
+@@ -15,17 +15,10 @@
+      null,
+      {
+        "id": 1,
+        "list": [
+          {
+-           "code": 108,
+-           "indent": 0,
+-           "parameters": [
+-             "Installed Timer",
+-           ],
+-         },
+-         {
+            "code": 124,
+            "indent": 0,
+            "parameters": [
+              0,
+              0,
+@@ -113,17 +106,10 @@
+                "direction": 2,
+                "pattern": 0,
+                "tileId": 0,
+              },
+              "list": [
+-               {
+-                 "code": 108,
+-                 "indent": 0,
+-                 "parameters": [
+-                   "Installed Timer",
+-                 ],
+-               },
+                {
+                  "code": 124,
+                  "indent": 0,
+                  "parameters": [
+                    0,
+
+ ❯ test/timer-workspace.test.ts:175:60
+    173|     await api.pushWorkspace({ ...s, allowDestructive: false });
+    174|     expect(Object.keys(await data(join(s.workspaceRoot, "Game/data")))…
+    175|     expect(await data(join(s.workspaceRoot, "Game/data"))).toStrictEqu…
+       |                                                            ^
+    176|   });
+    177| }, 30_000);
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/timer-workspace.test.ts:130:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 skipped (2)
+   Start at  01:10:49
+   Duration  6.41s (transform 561ms, setup 0ms, import 1.51s, tests 4.73s, environment 0ms)
+

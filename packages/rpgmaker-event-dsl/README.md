@@ -107,6 +107,12 @@ saved ID 1, variable threshold 0 and self switch A. Enabled references must exis
 Only disabled explicit IDs may retain 0 or missing positive targets. Disabled name
 references still resolve uniquely; DSL-owned names use actual declarations.
 
+Map variable thresholds, disabled explicit condition IDs, and image `characterIndex`,
+`tileId` and `pattern` preserve numeric `-0` through source generation, compilation and
+Push. Decompile emits these values explicitly because the positive-zero defaults
+cannot reconstruct their sign. Enabled condition IDs remain positive; native
+priority, trigger and movement-type enums reject `-0` before named-symbol conversion.
+
 Image fields remain independent. Tile selection preserves the character and index;
 None and big-character names (`$`, `!$`, `$!`) preserve nonzero indexes, direction
 and pattern. Selecting an image never changes priority. A nonzero tile uses the
@@ -301,6 +307,28 @@ explicit consistency checks; an external editor may still save after the last ch
 `controlSwitches` and `controlSelfSwitch` require an explicit Boolean `value`;
 self-switch letters are A–D. A Common Event called by a Map Event inherits its
 caller identity for self switches.
+
+## Timer saved slots
+
+```ts
+import { controlTimer } from "rpgmaker-event-dsl";
+
+const commands = [
+  controlTimer({ action: "start", seconds: 83 }), // [0, 83]
+  controlTimer({ action: "stop" }), // [1]
+  controlTimer({ action: "stop", seconds: 0 }), // [1, 0]
+  controlTimer({ action: "stop", seconds: 83 }), // [1, 83]
+];
+```
+
+Action is required. Start requires seconds; Stop permits omission or explicit
+`undefined`, which leaves the saved seconds slot absent. Every present seconds
+value is an integer in 0..5999, including numeric negative zero with its sign
+preserved. Decompile writes a present Stop seconds value explicitly, including 0.
+Recognized raw Timer commands use the same exact one/two-slot contract. Native
+action codes 0/1 are categorical and reject negative zero. Invalid types, null,
+missing Start seconds, extra slots, sparse slots and undefined array elements fail
+validation before output publication or Push.
 
 ## Movement Routes
 

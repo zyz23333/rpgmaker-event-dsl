@@ -4,7 +4,7 @@ function fail(path: string, expected: string, actual: unknown, code = "MV-MAP-PA
   throw new CommandStructureError(code, "Invalid native Map Event saved shape.", {
     nativePath: path,
     expected,
-    actual: String(actual),
+    actual: Object.is(actual, -0) ? "-0" : String(actual),
   });
 }
 
@@ -38,10 +38,17 @@ function object(
   return record;
 }
 
-function integer(value: unknown, path: string, min: number, max: number, code?: string): void {
+function integer(
+  value: unknown,
+  path: string,
+  min: number,
+  max: number,
+  code?: string,
+  allowNegativeZero = false,
+): void {
   if (
     !Number.isSafeInteger(value) ||
-    Object.is(value, -0) ||
+    (!allowNegativeZero && Object.is(value, -0)) ||
     (value as number) < min ||
     (value as number) > max
   )
@@ -97,8 +104,22 @@ export function assertNativeMapPage(
     "variableValue",
   ]);
   for (const field of ["actor", "item", "switch1", "switch2", "variable"])
-    integer(conditions[`${field}Id`], `${path}.conditions.${field}Id`, 0, Number.MAX_SAFE_INTEGER);
-  integer(conditions.variableValue, `${path}.conditions.variableValue`, -99999999, 99999999);
+    integer(
+      conditions[`${field}Id`],
+      `${path}.conditions.${field}Id`,
+      conditions[`${field}Valid`] === true ? 1 : 0,
+      Number.MAX_SAFE_INTEGER,
+      undefined,
+      conditions[`${field}Valid`] === false,
+    );
+  integer(
+    conditions.variableValue,
+    `${path}.conditions.variableValue`,
+    -99999999,
+    99999999,
+    undefined,
+    true,
+  );
   for (const field of ["actor", "item", "selfSwitch", "switch1", "switch2", "variable"])
     if (typeof conditions[`${field}Valid`] !== "boolean")
       fail(`${path}.conditions.${field}Valid`, "boolean", conditions[`${field}Valid`]);
@@ -113,9 +134,9 @@ export function assertNativeMapPage(
   ]);
   if (typeof image.characterName !== "string")
     fail(`${path}.image.characterName`, "string", image.characterName);
-  integer(image.characterIndex, `${path}.image.characterIndex`, 0, 7);
-  integer(image.tileId, `${path}.image.tileId`, 0, 1023);
-  integer(image.pattern, `${path}.image.pattern`, 0, 2);
+  integer(image.characterIndex, `${path}.image.characterIndex`, 0, 7, undefined, true);
+  integer(image.tileId, `${path}.image.tileId`, 0, 1023, undefined, true);
+  integer(image.pattern, `${path}.image.pattern`, 0, 2, undefined, true);
   if (![2, 4, 6, 8].includes(image.direction as number))
     fail(`${path}.image.direction`, "2/4/6/8", image.direction);
   for (const field of ["walkAnime", "stepAnime", "directionFix", "through"])

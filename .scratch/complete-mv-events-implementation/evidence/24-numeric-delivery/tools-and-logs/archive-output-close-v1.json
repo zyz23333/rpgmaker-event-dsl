@@ -1,0 +1,92 @@
+{
+  "purpose": "Preserve two genuine archive-log timepoints without changing the original manifest, empty snapshot, completed raw log or any captured result; one exact allowlisted output timing case only",
+  "at": "2026-10-19T20:13:36.615Z",
+  "archive": {
+    "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\24-numeric-delivery\\archive-manifest-v1.json",
+    "sha256": "4749b8ed05c3aaeeee3b07c785d8076ab14c425dd9ccf5060fdcfc571b536a44"
+  },
+  "openSnapshot": {
+    "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\archive-delivery-v1.log",
+    "path": ".scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/archive-delivery-v1.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "openTiming": "The archive copied its redirected stdout while its producer was still running; zero bytes were observed and archived exactly.",
+  "completedSnapshot": {
+    "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\archive-delivery-v1.log",
+    "bytes": 371,
+    "sha256": "8769c3649b85945fa758dd99eedd293e5d6e7cb0a31a28e00b52886eac920b1f",
+    "frozen": {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\archive-delivery-v1-completed-frozen.log",
+      "bytes": 371,
+      "sha256": "8769c3649b85945fa758dd99eedd293e5d6e7cb0a31a28e00b52886eac920b1f",
+      "dev": "234032904",
+      "ino": "562949954110836",
+      "nlink": "1"
+    },
+    "archived": {
+      "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\24-numeric-delivery\\tools-and-logs\\archive-delivery-v1-completed.log",
+      "bytes": 371,
+      "sha256": "8769c3649b85945fa758dd99eedd293e5d6e7cb0a31a28e00b52886eac920b1f",
+      "dev": "233706315",
+      "ino": "442478663389293022",
+      "nlink": "1"
+    }
+  },
+  "completedSummary": {
+    "manifest": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\24-numeric-delivery\\archive-manifest-v1.json",
+    "sha256": "4749b8ed05c3aaeeee3b07c785d8076ab14c425dd9ccf5060fdcfc571b536a44",
+    "records": 1220,
+    "rawBytes": 386157840,
+    "inputSets": 6,
+    "inputByteObjects": 202,
+    "copies": 1501,
+    "passed": true
+  },
+  "failedV1Audit": {
+    "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\history-audit-v1.log",
+    "archived": {
+      "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\24-numeric-delivery\\tools-and-logs\\history-audit-v1.log",
+      "bytes": 409,
+      "sha256": "aa977344f1e4b817cae30eee9e7f5932279ff1bd061ff939a351206a750e6f6c",
+      "dev": "233706315",
+      "ino": "2814749769882123",
+      "nlink": "1"
+    }
+  },
+  "derivation": {
+    "original": {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-audit-history-v1.cjs",
+      "sha256": "7c0cb1d9d072294b4926b33f9948902f6e9ce773c8e9098ac45040f757e003bf"
+    },
+    "derived": {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-audit-history-v2.cjs",
+      "bytes": 7268,
+      "sha256": "69620056ab2a0e16efd6c098c7cfb17d50e781c56cef0159b54bfed22fae83c6",
+      "dev": "234032904",
+      "ino": "562949954110837",
+      "nlink": "1"
+    },
+    "archived": {
+      "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\24-numeric-delivery\\tools-and-logs\\map24-audit-history-v2.cjs",
+      "bytes": 7268,
+      "sha256": "69620056ab2a0e16efd6c098c7cfb17d50e781c56cef0159b54bfed22fae83c6",
+      "dev": "233706315",
+      "ino": "110901140824330063",
+      "nlink": "1"
+    },
+    "transformations": [
+      "Replace only external-source equality for this one exact open log path/empty hash with explicit fixed closed hash/size and independent physical frozen copies",
+      "Retain every other history/archive/executed-input check unchanged",
+      "Append explicit two-timepoint receipt to result and use v2 output basename"
+    ],
+    "tool": {
+      "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\24-numeric-delivery\\tools-and-logs\\map24-close-archive-output-v2.cjs",
+      "bytes": 7247,
+      "sha256": "31c0aa3dc6e34dfaf45ffd6fa75dcb57d4e31aaa0c9fd1f616ecf59f8cbea704",
+      "dev": "233706315",
+      "ino": "3940649676724749",
+      "nlink": "1"
+    }
+  }
+}

@@ -1,0 +1,345 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-map-numeric-fix/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/map-page-numeric-workspace.test.ts > rejects native Map categorical or enabled-reference negative zero at priorityType without publishing or changing complete state
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-refusal-priorityType-lCuOYS
+
+stderr | test/map-page-numeric-workspace.test.ts > rejects native Map categorical or enabled-reference negative zero at trigger without publishing or changing complete state
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-refusal-trigger-YGHjgD
+
+stderr | test/map-page-numeric-workspace.test.ts > rejects native Map categorical or enabled-reference negative zero at moveType without publishing or changing complete state
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-refusal-moveType-3usItA
+
+stderr | test/map-page-numeric-workspace.test.ts > rejects native Map categorical or enabled-reference negative zero at conditions.actorId without publishing or changing complete state
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-refusal-conditions.actorId-aoELYp
+
+stderr | test/map-page-numeric-workspace.test.ts > rejects native Map categorical or enabled-reference negative zero at conditions.itemId without publishing or changing complete state
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-refusal-conditions.itemId-mXUXub
+
+stderr | test/map-page-numeric-workspace.test.ts > rejects native Map categorical or enabled-reference negative zero at conditions.switch1Id without publishing or changing complete state
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-refusal-conditions.switch1Id-NTXZUS
+
+stderr | test/map-page-numeric-workspace.test.ts > rejects native Map categorical or enabled-reference negative zero at conditions.switch2Id without publishing or changing complete state
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-refusal-conditions.switch2Id-RwMtnp
+
+stderr | test/map-page-numeric-workspace.test.ts > rejects native Map categorical or enabled-reference negative zero at conditions.variableId without publishing or changing complete state
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-refusal-conditions.variableId-snvWPt
+
+stderr | test/map-page-numeric-workspace.test.ts > rejects enabled negative-zero Map condition IDs from actual helper source in Check and Compile without changing state
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-enabled-helper-1SB9w3
+
+stderr | test/map-page-numeric-workspace.test.ts > rejects enabled negative-zero Map condition IDs from actual untyped source in Check and Compile without changing state
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-enabled-untyped-a0GQpA
+
+ ❯ test/map-page-numeric-workspace.test.ts (22 tests | 10 failed | 12 skipped) 7565ms
+   × rejects native Map categorical or enabled-reference negative zero at priorityType without publishing or changing complete state 710ms
+   × rejects native Map categorical or enabled-reference negative zero at trigger without publishing or changing complete state 369ms
+   × rejects native Map categorical or enabled-reference negative zero at moveType without publishing or changing complete state 345ms
+   × rejects native Map categorical or enabled-reference negative zero at conditions.actorId without publishing or changing complete state 419ms
+   × rejects native Map categorical or enabled-reference negative zero at conditions.itemId without publishing or changing complete state 353ms
+   × rejects native Map categorical or enabled-reference negative zero at conditions.switch1Id without publishing or changing complete state 363ms
+   × rejects native Map categorical or enabled-reference negative zero at conditions.switch2Id without publishing or changing complete state 375ms
+   × rejects native Map categorical or enabled-reference negative zero at conditions.variableId without publishing or changing complete state 336ms
+   × rejects enabled negative-zero Map condition IDs from actual helper source in Check and Compile without changing state 2200ms
+   × rejects enabled negative-zero Map condition IDs from actual untyped source in Check and Compile without changing state 2094ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-page-numeric-workspace.test.ts > rejects native Map categorical or enabled-reference negative zero at priorityType without publishing or changing complete state
+AssertionError: expected Error: decompile error map:1/event:1: MV-… { …(5) } to match object { code: 'MV-MAP-PAGE-SHAPE', …(3) }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
++ CommandStructureError {
+    "code": "MV-MAP-PAGE-SHAPE",
+    "identity": "map:1/event:1",
+    "location": {
+-     "actual": "-0",
++     "actual": "0",
+      "nativePath": "pages[0].priorityType",
+    },
+    "stage": "decompile",
+  }
+
+ ❯ test/map-page-numeric-workspace.test.ts:210:56
+    208|     await compileWorkspace({ workspaceRoot, check: false });
+    209|     const before = await observe(workspaceRoot);
+    210|     await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatc…
+       |                                                        ^
+    211|       code, stage: "decompile", identity: "map:1/event:1",
+    212|       location: { nativePath: `pages[0].${nativePath}`, actual: "-0" },
+ ❯ test/map-page-numeric-workspace.test.ts:50:11
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ verify test/map-page-numeric-workspace.test.ts:47:3
+ ❯ test/map-page-numeric-workspace.test.ts:200:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  test/map-page-numeric-workspace.test.ts > rejects native Map categorical or enabled-reference negative zero at trigger without publishing or changing complete state
+AssertionError: expected Error: decompile error map:1/event:1: MV-… { …(5) } to match object { code: 'MV-MAP-PAGE-SHAPE', …(3) }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
++ CommandStructureError {
+    "code": "MV-MAP-PAGE-SHAPE",
+    "identity": "map:1/event:1",
+    "location": {
+-     "actual": "-0",
++     "actual": "0",
+      "nativePath": "pages[0].trigger",
+    },
+    "stage": "decompile",
+  }
+
+ ❯ test/map-page-numeric-workspace.test.ts:210:56
+    208|     await compileWorkspace({ workspaceRoot, check: false });
+    209|     const before = await observe(workspaceRoot);
+    210|     await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatc…
+       |                                                        ^
+    211|       code, stage: "decompile", identity: "map:1/event:1",
+    212|       location: { nativePath: `pages[0].${nativePath}`, actual: "-0" },
+ ❯ test/map-page-numeric-workspace.test.ts:50:11
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ verify test/map-page-numeric-workspace.test.ts:47:3
+ ❯ test/map-page-numeric-workspace.test.ts:200:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  test/map-page-numeric-workspace.test.ts > rejects native Map categorical or enabled-reference negative zero at moveType without publishing or changing complete state
+AssertionError: expected Error: decompile error map:1/event:1: MV-… { …(5) } to match object { code: 'MV-PAGE-MOVEMENT', …(3) }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
++ CommandStructureError {
+    "code": "MV-PAGE-MOVEMENT",
+    "identity": "map:1/event:1",
+    "location": {
+-     "actual": "-0",
++     "actual": "0",
+      "nativePath": "pages[0].moveType",
+    },
+    "stage": "decompile",
+  }
+
+ ❯ test/map-page-numeric-workspace.test.ts:210:56
+    208|     await compileWorkspace({ workspaceRoot, check: false });
+    209|     const before = await observe(workspaceRoot);
+    210|     await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatc…
+       |                                                        ^
+    211|       code, stage: "decompile", identity: "map:1/event:1",
+    212|       location: { nativePath: `pages[0].${nativePath}`, actual: "-0" },
+ ❯ test/map-page-numeric-workspace.test.ts:50:11
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ verify test/map-page-numeric-workspace.test.ts:47:3
+ ❯ test/map-page-numeric-workspace.test.ts:200:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  test/map-page-numeric-workspace.test.ts > rejects native Map categorical or enabled-reference negative zero at conditions.actorId without publishing or changing complete state
+AssertionError: expected Error: decompile error map:1/event:1: MV-… { …(5) } to match object { code: 'MV-MAP-PAGE-SHAPE', …(3) }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
++ CommandStructureError {
+    "code": "MV-MAP-PAGE-SHAPE",
+    "identity": "map:1/event:1",
+    "location": {
+-     "actual": "-0",
++     "actual": "0",
+      "nativePath": "pages[0].conditions.actorId",
+    },
+    "stage": "decompile",
+  }
+
+ ❯ test/map-page-numeric-workspace.test.ts:210:56
+    208|     await compileWorkspace({ workspaceRoot, check: false });
+    209|     const before = await observe(workspaceRoot);
+    210|     await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatc…
+       |                                                        ^
+    211|       code, stage: "decompile", identity: "map:1/event:1",
+    212|       location: { nativePath: `pages[0].${nativePath}`, actual: "-0" },
+ ❯ test/map-page-numeric-workspace.test.ts:50:11
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ verify test/map-page-numeric-workspace.test.ts:47:3
+ ❯ test/map-page-numeric-workspace.test.ts:200:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+
+ FAIL  test/map-page-numeric-workspace.test.ts > rejects native Map categorical or enabled-reference negative zero at conditions.itemId without publishing or changing complete state
+AssertionError: expected Error: decompile error map:1/event:1: MV-… { …(5) } to match object { code: 'MV-MAP-PAGE-SHAPE', …(3) }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
++ CommandStructureError {
+    "code": "MV-MAP-PAGE-SHAPE",
+    "identity": "map:1/event:1",
+    "location": {
+-     "actual": "-0",
++     "actual": "0",
+      "nativePath": "pages[0].conditions.itemId",
+    },
+    "stage": "decompile",
+  }
+
+ ❯ test/map-page-numeric-workspace.test.ts:210:56
+    208|     await compileWorkspace({ workspaceRoot, check: false });
+    209|     const before = await observe(workspaceRoot);
+    210|     await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatc…
+       |                                                        ^
+    211|       code, stage: "decompile", identity: "map:1/event:1",
+    212|       location: { nativePath: `pages[0].${nativePath}`, actual: "-0" },
+ ❯ test/map-page-numeric-workspace.test.ts:50:11
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ verify test/map-page-numeric-workspace.test.ts:47:3
+ ❯ test/map-page-numeric-workspace.test.ts:200:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯
+
+ FAIL  test/map-page-numeric-workspace.test.ts > rejects native Map categorical or enabled-reference negative zero at conditions.switch1Id without publishing or changing complete state
+AssertionError: expected Error: decompile error map:1/event:1: MV-… { …(5) } to match object { code: 'MV-MAP-PAGE-SHAPE', …(3) }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
++ CommandStructureError {
+    "code": "MV-MAP-PAGE-SHAPE",
+    "identity": "map:1/event:1",
+    "location": {
+-     "actual": "-0",
++     "actual": "0",
+      "nativePath": "pages[0].conditions.switch1Id",
+    },
+    "stage": "decompile",
+  }
+
+ ❯ test/map-page-numeric-workspace.test.ts:210:56
+    208|     await compileWorkspace({ workspaceRoot, check: false });
+    209|     const before = await observe(workspaceRoot);
+    210|     await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatc…
+       |                                                        ^
+    211|       code, stage: "decompile", identity: "map:1/event:1",
+    212|       location: { nativePath: `pages[0].${nativePath}`, actual: "-0" },
+ ❯ test/map-page-numeric-workspace.test.ts:50:11
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ verify test/map-page-numeric-workspace.test.ts:47:3
+ ❯ test/map-page-numeric-workspace.test.ts:200:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/10]⎯
+
+ FAIL  test/map-page-numeric-workspace.test.ts > rejects native Map categorical or enabled-reference negative zero at conditions.switch2Id without publishing or changing complete state
+AssertionError: expected Error: decompile error map:1/event:1: MV-… { …(5) } to match object { code: 'MV-MAP-PAGE-SHAPE', …(3) }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
++ CommandStructureError {
+    "code": "MV-MAP-PAGE-SHAPE",
+    "identity": "map:1/event:1",
+    "location": {
+-     "actual": "-0",
++     "actual": "0",
+      "nativePath": "pages[0].conditions.switch2Id",
+    },
+    "stage": "decompile",
+  }
+
+ ❯ test/map-page-numeric-workspace.test.ts:210:56
+    208|     await compileWorkspace({ workspaceRoot, check: false });
+    209|     const before = await observe(workspaceRoot);
+    210|     await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatc…
+       |                                                        ^
+    211|       code, stage: "decompile", identity: "map:1/event:1",
+    212|       location: { nativePath: `pages[0].${nativePath}`, actual: "-0" },
+ ❯ test/map-page-numeric-workspace.test.ts:50:11
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ verify test/map-page-numeric-workspace.test.ts:47:3
+ ❯ test/map-page-numeric-workspace.test.ts:200:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/10]⎯
+
+ FAIL  test/map-page-numeric-workspace.test.ts > rejects native Map categorical or enabled-reference negative zero at conditions.variableId without publishing or changing complete state
+AssertionError: expected Error: decompile error map:1/event:1: MV-… { …(5) } to match object { code: 'MV-MAP-PAGE-SHAPE', …(3) }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
++ CommandStructureError {
+    "code": "MV-MAP-PAGE-SHAPE",
+    "identity": "map:1/event:1",
+    "location": {
+-     "actual": "-0",
++     "actual": "0",
+      "nativePath": "pages[0].conditions.variableId",
+    },
+    "stage": "decompile",
+  }
+
+ ❯ test/map-page-numeric-workspace.test.ts:210:56
+    208|     await compileWorkspace({ workspaceRoot, check: false });
+    209|     const before = await observe(workspaceRoot);
+    210|     await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatc…
+       |                                                        ^
+    211|       code, stage: "decompile", identity: "map:1/event:1",
+    212|       location: { nativePath: `pages[0].${nativePath}`, actual: "-0" },
+ ❯ test/map-page-numeric-workspace.test.ts:50:11
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ verify test/map-page-numeric-workspace.test.ts:47:3
+ ❯ test/map-page-numeric-workspace.test.ts:200:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/10]⎯
+
+ FAIL  test/map-page-numeric-workspace.test.ts > rejects enabled negative-zero Map condition IDs from actual helper source in Check and Compile without changing state
+ FAIL  test/map-page-numeric-workspace.test.ts > rejects enabled negative-zero Map condition IDs from actual untyped source in Check and Compile without changing state
+AssertionError: expected [Function] to throw error matching /MV-MAP-PAGE-INPUT.*pages\[0\]\.condi…/u but got 'compile --check validation failed:\n-…'
+
+- Expected:
+/MV-MAP-PAGE-INPUT.*pages\[0\]\.conditions\.actor\.ref\.id;.*actual -0/u
+
++ Received:
+"compile --check validation failed:
+- compile error map:1/event:1: MV-MAP-PAGE-INPUT: Invalid Map Event input. (pages[0].conditions.actor.ref.id); expected integer 1..9007199254740991; actual 0"
+
+ ❯ test/map-page-numeric-workspace.test.ts:238:65
+    236|       const before = await observe(workspaceRoot);
+    237|       for (const check of [true, false]) {
+    238|         await expect(compileWorkspace({ workspaceRoot, check })).rejec…
+       |                                                                 ^
+    239|         expect(await observe(workspaceRoot)).toStrictEqual(before);
+    240|       }
+ ❯ test/map-page-numeric-workspace.test.ts:50:11
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ verify test/map-page-numeric-workspace.test.ts:47:3
+ ❯ test/map-page-numeric-workspace.test.ts:219:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/10]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  10 failed | 12 skipped (22)
+   Start at  01:00:56
+   Duration  9.09s (transform 499ms, setup 0ms, import 1.38s, tests 7.56s, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-map-numeric-fix\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/map-page-numeric-workspace.test.ts -t rejects native|rejects enabled

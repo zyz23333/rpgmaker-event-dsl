@@ -1,0 +1,365 @@
+{
+  "purpose": "Exact completed final metadata copies after the original archive producer closed; no active stdout is captured; prior copied bytes remain unchanged",
+  "at": "2026-10-19T20:17:23.587Z",
+  "copies": [
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\archive-delivery-v1-completed-frozen.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/archive-delivery-v1-completed-frozen.log",
+      "bytes": 371,
+      "sha256": "8769c3649b85945fa758dd99eedd293e5d6e7cb0a31a28e00b52886eac920b1f"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\archive-output-close-v1.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/archive-output-close-v1.log",
+      "bytes": 77664,
+      "sha256": "f0073696797ff82cda04f5478b6af2f6bee80bcfc8ce637249fdcafcd4adbb73"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\archive-output-close-v2.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/archive-output-close-v2.log",
+      "bytes": 454,
+      "sha256": "1ea83eaf9f484bfdd3a97a2e7e2279c0b5adb517145ff52a648f6bd532898a44"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\archive-output-derive-v2.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/archive-output-derive-v2.log",
+      "bytes": 350,
+      "sha256": "cb0a1c0839ea1343c248a9a37ce4e8b4bac0ffef9e833c7fddee6fb2e5400c3c"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\final-format-v1.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/final-format-v1.log",
+      "bytes": 419,
+      "sha256": "fb399f85bde36a414ea55d496e2cb4127b6d15abd665dc36823231c596953602"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\final-index-v1.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/final-index-v1.log",
+      "bytes": 302,
+      "sha256": "9e57a0fe48d1b515e8c9b4260ca1b5659c2432ca56f971eea83213dcbf809dae"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\final-lint-v1.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/final-lint-v1.log",
+      "bytes": 4219,
+      "sha256": "4345684707890a78b576466b56591330f6eaf729ea92f434f67df742c29e4e4c"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\history-audit-final-v2.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/history-audit-final-v2.log",
+      "bytes": 278,
+      "sha256": "211750a4525efff6c58963a42446505d3c79d04ba26577771849c4f674035964"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\history-audit-v2.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/history-audit-v2.log",
+      "bytes": 278,
+      "sha256": "e160c398204def9f579ee97fadda3006284ef558895c11c8477533e524330517"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-close-archive-output-v1.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/map24-close-archive-output-v1.cjs",
+      "bytes": 7004,
+      "sha256": "d852488396f7c0a7a452684cc8895940ad19def4bddb9eb7e62340fec9a4fb08"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-copy-final-metadata-v1.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/map24-copy-final-metadata-v1.cjs",
+      "bytes": 2739,
+      "sha256": "775b60813aefbb653e3aac846b1ea1cc4e0f20db777b7cc26db88a02a9496b96"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-create-close-output-v2.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/map24-create-close-output-v2.cjs",
+      "bytes": 1074,
+      "sha256": "32b9c9e01ac695c9025ce1ab77d2f5400f081984d2ef4d13a5e31614e7cc2c6d"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-final-history-audit-v2-aabc0ff0-34b7-4852-b6ee-eba14bb11486.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/map24-final-history-audit-v2-aabc0ff0-34b7-4852-b6ee-eba14bb11486.json",
+      "bytes": 2389424,
+      "sha256": "ee8fc2f01808e7a2185dda377759fd445c1381c0e111637a31cd6b9c7de08036"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-final-history-audit-v2-add54ce6-7cf8-4ff8-aba9-1c7b68c1899f.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/map24-final-history-audit-v2-add54ce6-7cf8-4ff8-aba9-1c7b68c1899f.json",
+      "bytes": 2389185,
+      "sha256": "6e13f0a9314cb46bf432bd973c6d1cc4cc73f40a021576a56f912c486f445f05"
+    }
+  ],
+  "existing": [
+    {
+      "name": "archive-delivery-v1.log",
+      "policy": "Exact previously bound open-output snapshot preserved; final bytes and fixed-size independent copies validated by close receipt"
+    },
+    {
+      "name": "archive-output-close-v1.json",
+      "sha256": "6b09b87d1ffd4729bca823a3e18c8b48acc73f2ae4d81227c6b69780578b40bf"
+    },
+    {
+      "name": "build-layout-v1.json",
+      "sha256": "14aa50f0d1d0bb63d702ddeae493b27d1610852cfc5b39591339d45c948cafb9"
+    },
+    {
+      "name": "build-layout-v1.log",
+      "sha256": "0c8ebf227ef2a8e9ef194fca66b2de3b731ca9e236bdcba039ddc1f692225858"
+    },
+    {
+      "name": "build-v1.log",
+      "sha256": "5d5637eb49da9769814d568d6d5250f6fe9165181f7e07869439cee7ea390ccc"
+    },
+    {
+      "name": "built-windows-v1.log",
+      "sha256": "2d1970c3cf30f1973a886a6569283c70200f87732c4806536649262519d93adf"
+    },
+    {
+      "name": "fullcheck-v1.log",
+      "sha256": "d632b5a1ac9cfd4278a186d4588914635d3aa9ddb87140bfa2881b2bdaff428f"
+    },
+    {
+      "name": "fullcheck-v2.log",
+      "sha256": "351069407b79c46fbb2b91828b711aca2c3cec02da9457ffef6afc3f0f626555"
+    },
+    {
+      "name": "history-audit-v1.log",
+      "sha256": "aa977344f1e4b817cae30eee9e7f5932279ff1bd061ff939a351206a750e6f6c"
+    },
+    {
+      "name": "index-prefetch-audit-v1.log",
+      "sha256": "313af87d0e0bdefc33b14a74aa9dd95c7a187d26b7b208b98539e272eda3c181"
+    },
+    {
+      "name": "index-prefetch-audit-v2.log",
+      "sha256": "3c73a4afa4439f7ff7eee558707418f0481278cb8fb3143f281858b87d58229d"
+    },
+    {
+      "name": "manual-results-v1-manifest.json",
+      "sha256": "cf8cdf5a6c9070eb64c769748dcae02a37ea5d4d42741fa66c472da89c487462"
+    },
+    {
+      "name": "manual-results-v1.log",
+      "sha256": "7ead9cc6b3cdbb6bd0f1dd56d11b8a732540b187e2e3a9aae3327d712bb4f7b5"
+    },
+    {
+      "name": "map24-archive-delivery-v1.cjs",
+      "sha256": "8f65c50523dcaf17c9655f9a2c5661ef3ccf99a14f03ce0bd6547df3ff0880ad"
+    },
+    {
+      "name": "map24-audit-history-v1.cjs",
+      "sha256": "7c0cb1d9d072294b4926b33f9948902f6e9ce773c8e9098ac45040f757e003bf"
+    },
+    {
+      "name": "map24-audit-history-v2.cjs",
+      "sha256": "69620056ab2a0e16efd6c098c7cfb17d50e781c56cef0159b54bfed22fae83c6"
+    },
+    {
+      "name": "map24-audit-physical-delivery-v1.cjs",
+      "sha256": "d3ed8632232fd44af9322f3b33b49a4b2e5e3dc2be2483fee7cddf0348b03a52"
+    },
+    {
+      "name": "map24-build-layout-v1.cjs",
+      "sha256": "bee1f9e9031824d813ae8f6fe43d042caea5e0813325671454e486a1c49139f5"
+    },
+    {
+      "name": "map24-close-archive-output-v2.cjs",
+      "sha256": "31c0aa3dc6e34dfaf45ffd6fa75dcb57d4e31aaa0c9fd1f616ecf59f8cbea704"
+    },
+    {
+      "name": "map24-freeze-product-v1.cjs",
+      "sha256": "d7e338b1811822d2bfb47888b1b3818bf2db6fd0c174ea176114c5897f4d416f"
+    },
+    {
+      "name": "map24-harness-util.cjs",
+      "sha256": "a234d472f1e4d3b028fc87ac642d1287cf098be0bfb403231e437178d5f7b810"
+    },
+    {
+      "name": "map24-independent-audit-copy-origins-v1.json",
+      "sha256": "b57a7f36e6e335698bebcd1bd22f472a87a22a906770036fe9c33e10d1c9ec4b"
+    },
+    {
+      "name": "map24-independent-native-audit-1ff2e28e-b540-407d-9e43-868d81e84dea.json",
+      "sha256": "22a6458a04f7305cadca1de2e1b313571d00051d47facbe9e5993e78e95cdc32"
+    },
+    {
+      "name": "map24-index-ordered-prefetch-audit-v1.cjs",
+      "sha256": "aa2500d41fe7f91c8db50feab8ae968bb1d020b848e7c823809c66e21e63e628"
+    },
+    {
+      "name": "map24-input-v1-v2-comparison-e414dfdf-2c51-4e29-9206-62efcf303073.json",
+      "sha256": "e01699d70950589e654c70317db433c55f7d48873fe0fb64cd80c4ad0a1506d7"
+    },
+    {
+      "name": "map24-json.cjs",
+      "sha256": "f56dbcd4e0896e0ae91fa7b44fe53338aaae7db30f80be5c2a4fd7026ce8bc13"
+    },
+    {
+      "name": "map24-native-audit-v1-b7471457-f680-4840-a51d-c07d60b7dec8.json",
+      "sha256": "29efdff98e6c8e005c3995482fa3719722c959d70aab7df7206f6d0aa3c46376"
+    },
+    {
+      "name": "map24-native-pair-delivery-v1.cjs",
+      "sha256": "68933c0dafada9bfb0fc7955ce4394825396a967fa42b2808819ea76f4dba857"
+    },
+    {
+      "name": "map24-native-pair-delivery-v2.cjs",
+      "sha256": "68933c0dafada9bfb0fc7955ce4394825396a967fa42b2808819ea76f4dba857"
+    },
+    {
+      "name": "map24-physical-delivery-v1.cjs",
+      "sha256": "d297bcb9b649c8bc23ccee2bdc5b3e067716e87960c335d76ad38a29b214f678"
+    },
+    {
+      "name": "map24-physical-delivery-v2-prebinding.cjs",
+      "sha256": "db8a6aeb6346a0e83c5343f6e35aa2dcfbc4db675591613c3f2de8a56fa89ce0"
+    },
+    {
+      "name": "map24-physical-delivery-v2.cjs",
+      "sha256": "75c5081db67d2878084dacfbd294b94370fc31d86f218182c36dad73f1bce973"
+    },
+    {
+      "name": "map24-physical-inputs-v1-pointer.json",
+      "sha256": "c9db4c54dc833bbfb7eab24ee521682e4b3ccf6f736f1b26b717e79d7882adbc"
+    },
+    {
+      "name": "map24-physical-inputs-v2-pointer.json",
+      "sha256": "941c43511f8fb1dad814089bb03679ce4fe9f1f6f2c38fa6bc424348ed588c1e"
+    },
+    {
+      "name": "map24-physical-v2-native-index-3e2c7d66-e2aa-423c-aae3-926009871646.json",
+      "sha256": "47407fde7526852e768715b0eb9a97f493d7337745a236d04d20fa768a9a7430"
+    },
+    {
+      "name": "map24-physical-v2-prepare-index-2bacbe7e-af0c-4524-852f-91e036dc4409.json",
+      "sha256": "56168648cf4437376f7279c6bed4c9fe7961d5b9e2e453545eeeb2d711cf4d02"
+    },
+    {
+      "name": "map24-prepare-audit-v1-4ca1ebce-6710-494e-ba9f-4652b812558f.json",
+      "sha256": "5a607a9c090f8fe3329ed7d54565463a6e2be544ef4c783c635e54795a62f63a"
+    },
+    {
+      "name": "map24-profile-index-v1.cjs",
+      "sha256": "6430bb90f75b738b7408ea49d9ab5c75d3653b6f3af62abbbdd159bb2d1ae6f3"
+    },
+    {
+      "name": "map24-record-manual-v1.mts",
+      "sha256": "38d2c4fc6f12bd456b0d90c4f00e527c65cf93cec934a3aeec9f6feeb277d23d"
+    },
+    {
+      "name": "map24-resource-derivation-v1.json",
+      "sha256": "d6a8a1446fc4e2b79deec5dcaf7909093233aecbcb17e2fb2dc69b423da99355"
+    },
+    {
+      "name": "map24-resource-revalidate-v1.cjs",
+      "sha256": "6d746fa63e576c6471f70c6cff2f674f90b8bd201328ceee98a74b9c0b71b32e"
+    },
+    {
+      "name": "map24-resource-revalidation-derived-v1.cjs",
+      "sha256": "d19e5fe91a640c8f0caa82dc7b0ed025fd5726ce0d171ef924c82dc7a6974d0a"
+    },
+    {
+      "name": "map24-root-physical-release-audit-4014fab2-dfb8-4581-97de-316964f7e478.json",
+      "sha256": "86f3f8a156a90053be3710d6330d5fc3cdbdcaf3def4389af87df4f378942bd6"
+    },
+    {
+      "name": "map24-routes-scenario-export-v1.cjs",
+      "sha256": "21b5aaf326b6a5f0bb726a60c534e17d0e6fffa0103dbc37cb195188c0564408"
+    },
+    {
+      "name": "map24-safe-native-summaries-v1.cjs",
+      "sha256": "9d0f1dadd093e091ff97f3aefac8a9c565a46600b35ae35ad843560ff6056831"
+    },
+    {
+      "name": "map24-triggers-scenario-export-v1.cjs",
+      "sha256": "0eacb60a1c92f611e6fc9c758aba74e8171437ce98519b827b73b91fdb6234ec"
+    },
+    {
+      "name": "map24-v2-preexecution-binding-amendment.cjs",
+      "sha256": "111fd159a4062c1c71817a33dce2840096d83c980df523e176898a406c2d61c8"
+    },
+    {
+      "name": "map24-v2-preexecution-binding-receipt.json",
+      "sha256": "082c6f3e6c05ecafeb4fe15bd8dd3e544b11d6f7c46d2eb7d049eefb5acc2879"
+    },
+    {
+      "name": "merge-requirements-receipt.json",
+      "sha256": "99c088b64300ab921ee9043dd610d17ffa6c303c9bd95c5f730ca217ab348a47"
+    },
+    {
+      "name": "mv33-physical-isolation-v1.cjs",
+      "sha256": "22719922029ef212ff34058fead532a3523d96fcb3d649e51bc081dc9b43d786"
+    },
+    {
+      "name": "native-audit-v1.cjs",
+      "sha256": "1ceaf02e1e0f533f9ea44ba40d04dbf212575c5fab4cba2cb0a1da1965ddaa1c"
+    },
+    {
+      "name": "native-audit-v1.log",
+      "sha256": "3d59c826b34ce63f2bba6f336395c4cede7a195a7fb6dcc3ab6af73cec419b78"
+    },
+    {
+      "name": "native-freeze-v1.log",
+      "sha256": "88cc5218f8c38b3e54d613787aa056d5431ecaf4f3adf7b9e0de3b6821964981"
+    },
+    {
+      "name": "native-input-freeze-v2.log",
+      "sha256": "2fe1772d5461ad76782d8badd37b957a0ca9ee16b0d39a5aac0b7242f4a7ec90"
+    },
+    {
+      "name": "native-v2.log",
+      "sha256": "dbf72bdc2deee55b28b1e6065ca8325bca3f91cbf352c8004389755682eed4de"
+    },
+    {
+      "name": "prepare-audit-v1.log",
+      "sha256": "c223eec926093e813f51ef33fa22967e903256ba51ef39ad08148bb1f201ac7c"
+    },
+    {
+      "name": "prepare-v2.log",
+      "sha256": "d572ceb46ad1d6ceebd0d81e6225972a926373fb5907795a419a397c1eb3306d"
+    },
+    {
+      "name": "product-freeze-v1-pointer.json",
+      "sha256": "ff97019bf2f33ec825389c59c6695b173f12877dc69a87a226ae5ca895e2e0ce"
+    },
+    {
+      "name": "product-freeze-v1.log",
+      "sha256": "7ab58c5624650192be007be1851c23459173f405386142a80d9dfaa37316cf08"
+    },
+    {
+      "name": "profile-index-instrumented-08b1be0a-7d85-4f4c-8ca1-0bb3bc4b779c.mts",
+      "sha256": "f88486b63decd818c6e656ad2503097beaa9fc81069c6e929fce65f645223978"
+    },
+    {
+      "name": "profile-index-original-cb43d7bd2c6295f695a3c1a570fd8b3f648daaf981feb9923683631983bea76d.ts",
+      "sha256": "cb43d7bd2c6295f695a3c1a570fd8b3f648daaf981feb9923683631983bea76d"
+    },
+    {
+      "name": "profile-index-result-99455e15-f998-4c2b-baec-8a9d5f8a8fad.json",
+      "sha256": "9f86999cea65506aea711cbb643f056f49f35186ea2ef7de817f145000bdc67d"
+    },
+    {
+      "name": "profile-index-v1.log",
+      "sha256": "814bb76cb3d2bb64a384a3e389d0a06787553a1f917983c7d5ffa2fef92ed288"
+    },
+    {
+      "name": "resolve-integration.cjs",
+      "sha256": "b515bedcf68a395889db30a4f38380bcc207d75242b489daf9aeabe5dd60a0bd"
+    },
+    {
+      "name": "resource-revalidation-v1.log",
+      "sha256": "f32a8117c23bb9e017ec8604d0dfef70909088b5f9e3fee9cdea1849a5e4de25"
+    },
+    {
+      "name": "safe-native-summaries-v1.log",
+      "sha256": "12f9b76dad1e094dcae6c4973a17712fa23d358b961593e219baa770e07ec22b"
+    },
+    {
+      "name": "tooling-lint-v1.log",
+      "sha256": "9af3b6b5b852f2e387afba103958ac0f9918b8b0be6ad5617793c04ace4172c0"
+    }
+  ],
+  "originalArchive": {
+    "path": ".scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/archive-manifest-v1.json",
+    "sha256": "4749b8ed05c3aaeeee3b07c785d8076ab14c425dd9ccf5060fdcfc571b536a44"
+  },
+  "passed": true
+}
