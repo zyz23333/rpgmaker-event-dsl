@@ -1,0 +1,35 @@
+{
+  "archive": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\worktrees\\mv-ticket-26-final\\.scratch\\complete-mv-events-implementation\\evidence\\26-final-history\\archive-index-v1.json",
+  "files": 1507,
+  "counts": {
+    "automatic": {
+      "fullcheck-v1": {
+        "count": 471,
+        "passed": 471,
+        "failed": 0
+      },
+      "focused-reconcile-v1": {
+        "count": 62,
+        "passed": 62,
+        "failed": 0
+      },
+      "fullcheck-v2": {
+        "count": 471,
+        "passed": 471,
+        "failed": 0
+      },
+      "build-v1": {
+        "count": 0,
+        "passed": 0,
+        "failed": 0
+      },
+      "built-windows-v1": {
+        "count": 453,
+        "passed": 453,
+        "failed": 0
+      }
+    },
+    "logs": 20
+  },
+  "manualE4": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-TIMER-E4-COMPARE-2026-10-19T20-56-39-049Z-527878eb-359c-496b-81b6-032b30c0ba77.json"
+}

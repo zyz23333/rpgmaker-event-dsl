@@ -1,4 +1,75 @@
 import type { ReferenceResolver } from "../../validation/types.js";
+import { CommandStructureError } from "../../validation/command-errors.js";
+import { describeValue } from "../../project-data/json-values.js";
+
+function isTimerSeconds(value: unknown): boolean {
+  return Number.isInteger(value) && (value as number) >= 0 && (value as number) <= 5999;
+}
+
+export function assertControlTimerInput(value: unknown, path: string, withKind = true): void {
+  const failShape = (actual: string): never => {
+    throw new CommandStructureError("MV-E124-SHAPE", "Invalid Timer authored fields.", {
+      dslPath: path,
+      expected: "plain Timer object containing only action and optional saved seconds",
+      actual,
+    });
+  };
+  if (
+    typeof value !== "object" ||
+    value === null ||
+    Array.isArray(value) ||
+    ![Object.prototype, null].includes(Object.getPrototypeOf(value))
+  )
+    failShape(describeValue(value));
+  const allowed = withKind ? ["kind", "action", "seconds"] : ["action", "seconds"];
+  for (const key of Reflect.ownKeys(value as object)) {
+    const descriptor = Object.getOwnPropertyDescriptor(value, key)!;
+    if (
+      typeof key !== "string" ||
+      !allowed.includes(key) ||
+      !("value" in descriptor) ||
+      !descriptor.enumerable
+    )
+      failShape(`unsupported field ${String(key)}`);
+  }
+  const input = value as Record<string, unknown>;
+  if (!Object.hasOwn(input, "action") || (input.action !== "start" && input.action !== "stop"))
+    throw new CommandStructureError("MV-E124-ACTION", "Timer requires Start or Stop.", {
+      dslPath: `${path}.action`,
+      expected: '"start" or "stop"',
+      actual: describeValue(input.action),
+    });
+  const seconds = Object.hasOwn(input, "seconds") ? input.seconds : undefined;
+  if (input.action === "stop" && seconds === undefined) return;
+  if (!isTimerSeconds(seconds))
+    throw new CommandStructureError("MV-E124-SECONDS", "Invalid Timer saved seconds.", {
+      dslPath: `${path}.seconds`,
+      expected: "integer 0..5999; required for Start, optional for Stop",
+      actual: describeValue(seconds),
+    });
+}
+
+export function assertNativeTimerParameters(parameters: readonly unknown[], path: string): void {
+  const action = parameters[0];
+  if ((action !== 0 && action !== 1) || Object.is(action, -0))
+    throw new CommandStructureError("MV-E124-ACTION", "Invalid native Timer action.", {
+      nativePath: `${path}.parameters[0]`,
+      expected: "Start 0 or Stop 1, excluding categorical negative zero",
+      actual: describeValue(action),
+    });
+  if (parameters.length !== 2 && !(action === 1 && parameters.length === 1))
+    throw new CommandStructureError("MV-E124-PARAMETERS", "Invalid Timer saved slot count.", {
+      nativePath: `${path}.parameters`,
+      expected: "Start exactly two saved slots; Stop exactly one or two saved slots",
+      actual: describeValue(parameters),
+    });
+  if (parameters.length === 2 && !isTimerSeconds(parameters[1]))
+    throw new CommandStructureError("MV-E124-SECONDS", "Invalid Timer saved seconds.", {
+      nativePath: `${path}.parameters[1]`,
+      expected: "integer 0..5999",
+      actual: describeValue(parameters[1]),
+    });
+}
 
 export function assertNativeSwitchCommand(
   code: number,

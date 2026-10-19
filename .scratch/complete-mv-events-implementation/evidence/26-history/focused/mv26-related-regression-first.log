@@ -1,0 +1,79 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-26/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/command-boundary.test.ts (13 tests | 2 failed) 27ms
+   × reports the real raw source position before a native record exists 9ms
+   × reports currently unrepresented known saved variants instead of silently dropping their slots 1ms
+ ❯ test/architecture.test.ts (2 tests | 1 failed) 218ms
+     × keeps the migrated source tree acyclic and free of transitional facades 142ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/architecture.test.ts > module architecture > keeps the migrated source tree acyclic and free of transitional facades
+Error: Internal module cycle detected at validation\dsl-command-inputs.ts.
+ ❯ visit test/architecture.test.ts:57:13
+     55|   const visit = (filePath: string): void => {
+     56|     if (visiting.has(filePath)) {
+     57|       throw new Error(`Internal module cycle detected at ${relative(so…
+       |             ^
+     58|     }
+     59|     if (visited.has(filePath)) {
+ ❯ visit test/architecture.test.ts:65:7
+ ❯ visit test/architecture.test.ts:65:7
+ ❯ visit test/architecture.test.ts:65:7
+ ❯ visit test/architecture.test.ts:65:7
+ ❯ visit test/architecture.test.ts:65:7
+ ❯ visit test/architecture.test.ts:65:7
+ ❯ visit test/architecture.test.ts:65:7
+ ❯ visit test/architecture.test.ts:65:7
+ ❯ visit test/architecture.test.ts:65:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  test/command-boundary.test.ts > reports the real raw source position before a native record exists
+AssertionError: expected { level: 'error', …(7) } to match object { dslPath: 'commands[1]' }
+(7 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "dslPath": "commands[1]",
++   "dslPath": "commands[1].parameters",
+  }
+
+ ❯ test/command-boundary.test.ts:23:17
+
+     21|     scriptEnabled: true,
+     22|   }).issues.find((candidate) => candidate.code === "MV-COMMAND-ENVELOP…
+     23|   expect(issue).toMatchObject({ dslPath: "commands[1]" });
+       |                 ^
+     24|   expect(issue?.nativePath).toBeUndefined();
+     25| });
+ Test Files  2 failed | 2 passed (4)
+      Tests  3 failed | 28 passed (31)
+   Start at  01:23:35
+   Duration  1.58s (transform 537ms, setup 0ms, import 2.02s, tests 295ms, environment 0ms)
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  test/command-boundary.test.ts > reports currently unrepresented known saved variants instead of silently dropping their slots
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/command-boundary.test.ts:353:53
+    351|     ],
+    352|   ])
+    353|     expect(() => renderDecompiledCommandList(list)).toThrow(/MV-COMMAN…
+       |                                                     ^
+    354| });
+    355|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
