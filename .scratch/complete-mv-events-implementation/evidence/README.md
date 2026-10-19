@@ -2,12 +2,25 @@
 
 `requirements.json` describes obligations. `results/` contains immutable, machine-produced run records. A requirement does not acquire a passing status merely because it appears in this index. The ordinary test suite validates the index schema, unique IDs, fixture hashes, source sections, test links, checklist completeness and recorded run references.
 
-This is ticket 01's seed, not the complete command or native acceptance matrix. Later tickets add their own stable case IDs and independent input/expected data. Per the user's revised acceptance, editor validation uses REA reverse engineering while final actual game runs remain required. These native evidence groups remain unexecuted by this fixture; its synthetic project context is sufficient for Workspace data operations and is not claimed to be a playable MV project.
+This index contains ticket 01 automated seeds, ticket 02 Windows automation baseline, and ticket 03 reverse-engineering obligations; it is not the complete command or native acceptance matrix. Later tickets add their own stable case IDs and independent input/expected data. Per the user's revised acceptance, editor validation uses REA reverse engineering while final actual game runs remain required. These native evidence groups remain unexecuted by this fixture; its synthetic project context is sufficient for Workspace data operations and is not claimed to be a playable MV project.
 
-| Requirement | Obligation | Evidence kind | Required layer |
-| --- | --- | --- | --- |
-| MV-S0-CE-001 | Common Event → Decompiled Source → actual Discovery/evaluation → Compile Check/Compile → complete parsed equality | synthetic-support | public Workspace API and temporary filesystem |
-| MV-S0-COMPARE-001 | Strict comparison rejects structural/value loss, including inactive state and literal CR | synthetic-rejection | harness negative controls |
+| Requirement       | Obligation                                                                                                        | Evidence kind       | Required layer                                |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------- | --------------------------------------------- |
+| MV-S0-CE-001      | Common Event → Decompiled Source → actual Discovery/evaluation → Compile Check/Compile → complete parsed equality | synthetic-support   | public Workspace API and temporary filesystem |
+| MV-S0-COMPARE-001 | Strict comparison rejects structural/value loss, including inactive state and literal CR                          | synthetic-rejection | harness negative controls                     |
+
+| MV-E03-BODY-EMPTY | Empty branch body markers | reverse-engineering-observation | identified editor resources and conditional code-path review |
+| MV-E03-BODY-NONEMPTY | Nonempty branch marker preservation | static-inference | identified editor resources and conditional code-path review |
+| MV-E03-BODY-NESTED | Nested body preservation | static-inference | identified editor resources and conditional code-path review |
+| MV-E03-ELSE | Missing, empty and disabled Else | reverse-engineering-observation | identified editor resources and conditional code-path review |
+| MV-E03-LOOP | Loop creation and command-list edits | reverse-engineering-observation | identified editor resources and conditional code-path review |
+| MV-E03-402 | Choices branch text mirror | reverse-engineering-observation | identified editor resources and conditional code-path review |
+| MV-E03-403 | Cancel branch saved parameter inference | static-inference | identified editor resources and conditional code-path review |
+| MV-E03-CHOICE-ONE | One-item Choices reconfirmation boundary | static-inference | identified editor resources and conditional code-path review |
+| MV-E03-CHOICE-EMPTY | Empty and whitespace choice text | reverse-engineering-observation | identified editor resources and conditional code-path review |
+| MV-E03-BATTLE-NEW | Battle and Else false defaults in shipped Qt | static-inference | identified editor resources and conditional code-path review |
+| MV-E03-BATTLE-FLAGS | Battle result flags and body structure | reverse-engineering-observation | identified editor resources and conditional code-path review |
+
 | MV-S0-WIN-CLI-001 | Same minimal Workspace through source and built CLI subprocesses, read-only Check, exact data, actual edited-source Push and stderr/exit behavior | synthetic-support | Windows / Node 22 filesystem and CLI |
 | MV-S0-WIN-JUNCTION-001 | Mandatory real directory junction executes source and built CLI without silent skipping | synthetic-support | Windows junction and CLI subprocess |
 
@@ -25,8 +38,14 @@ Reviewed successful run records may be copied into `results/`; retain failed or 
 
 ## Extend and revalidate
 
-Each case needs a stable ID; exact spec/parameter source section; A1–A8 dimensions; positive/negative/boundary/combination classes; explicit evidence kind; input description and byte-hashed fixture; independent expected structure/value/diagnostic/state; exact test file and case name; E/R links when applicable; environment, operator responsibility, slice and mandatory layer. Keep this table synchronized with the index. Evidence kinds distinguish first-party help/templates, existing samples, static inference, REA reverse-engineering observations, synthetic support/rejection, historical editor UI capture and actual game observations. Reverse engineering and game observations record their method, identified MV/runtime/NW.js versions, tool versions and hashed raw artifacts; a static explanation is not a game run.
+Each case needs a stable ID; exact spec/parameter source section; A1–A8 dimensions; positive/negative/boundary/combination classes; explicit evidence kind; input description and byte-hashed fixture; independent expected structure/value/diagnostic/state; exact test file/case name or documentary review file/section (exactly one); E/R links when applicable; environment, operator responsibility, slice and mandatory layer. Keep this table synchronized with the index. Evidence kinds distinguish first-party help/templates, existing samples, static inference, REA reverse-engineering observations, synthetic support/rejection, historical editor UI capture and actual game observations. Reverse engineering and game observations record their method, identified MV/runtime/NW.js versions, tool versions and hashed raw artifacts; a static explanation is not a game run.
 
 Execution statuses are `not-executed`, `passed`, `failed`, `blocked` and `retest-required`. Missing native tools or unavailable actions are blocked/not-executed, never inapplicable. For a genuinely inapplicable future case, record the concrete domain rule in its requirement; do not infer it from a missing environment. Preserve raw native captures separately before extracting minimal fixtures, and retain each extraction's provenance. Never overwrite a native capture while updating synthetic expected data.
 
 After a relevant source, native version, fixture or procedure change, retain the prior record, record its impact/retest requirement and append a fresh run. A prior passing result applies only to its recorded source fingerprint, fixture, environment and stages. These seed records do not establish final integrated-candidate acceptance.
+
+## Reverse-engineering records
+
+Ticket 03 records identified shipped-artifact resource reads and analyst code-path review in [03-branches-and-battle-reverse.md](03-branches-and-battle-reverse.md), with the selected immutable identities in [03-resource-identities.json](03-resource-identities.json). A `review` link is an explicit alternative to a `test` link; the validator requires exactly one, a real referenced section, and the case ID in that document. It does not mislabel evidence review as an automated test.
+
+For these records `passed` means the bounded editor code-review obligation was completed with the report’s stated conditions and limits. The actual field separates code observation, conditional inference and unknowns; `runtime`, `nwjs`, and automated test-runner fields explicitly say `not-executed` where no such run occurred. It does not indicate editor UI or game execution, product roundtrip success, or final candidate acceptance. Binary/resource digests were computed from the selected local bytes; raw first-party text remains only in the named local evidence directory.

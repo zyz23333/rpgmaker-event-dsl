@@ -1,0 +1,163 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-E03-BATTLE-FLAGS",
+  "runId": "2026-10-19T07-23-35-907Z-e91a79a6-7de0-4872-939e-47a12c37f08c",
+  "status": "passed",
+  "startedAt": "2026-10-19T07:15:08.914Z",
+  "completedAt": "2026-10-19T07:23:35.907Z",
+  "operator": "Codex ticket 03 reverse-engineering analyst",
+  "source": {
+    "revision": "3247f868e6db0bdaa85c0eb7dd4e49b65b60c930",
+    "fingerprint": "0ad970e7402eb23661034919284b2948fbb00063ccc323e7b96fc027e9a7f9d3",
+    "files": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+        "sha256": "2a87908a0c82b29c5558759b636b7724dd3371f2f86f067c1c5ea282cdec1e3e"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/03-branches-and-battle-reverse.md",
+        "sha256": "576bd691b41dbca8493f25c9509fb62998b242a6b5ca06f95a721fd7e9c8d963"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/03-resource-identities.json",
+        "sha256": "4f740a9287f68002d2ce6f87dab70dd045977e079c546caf00687d78bd4f079e"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+        "sha256": "7f80ce5dbf9877f224c255bfb34ff4f297c4007d858ee7d5bf95cb4f94e644ee"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/support/mv-evidence.ts",
+        "sha256": "a67d7de8b92abf9076848048ce49fe40fbe86b016784e123200e9c32ccc7eb82"
+      }
+    ]
+  },
+  "fixture": {
+    "path": ".scratch/complete-mv-events-implementation/evidence/03-resource-identities.json",
+    "sha256": "4f740a9287f68002d2ce6f87dab70dd045977e079c546caf00687d78bd4f079e"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "node": "v24.14.0",
+    "vitest": "not-executed (documentary reverse-engineering review)",
+    "typescript": "not-executed (documentary reverse-engineering review)",
+    "package": "0.1.2",
+    "native": {
+      "method": "reverse-engineering",
+      "mv": "1.6.1 / FileVersion 1.6.1.0 (historical PE evidence; identical binary SHA256)",
+      "runtime": "not-executed",
+      "nwjs": "not-executed",
+      "tools": {
+        "resourceDecode": "Node fs/zlib/crypto; strict selected record boundary and hash checks",
+        "rea": "6.7.0 session/evidence inventory only; historical PE Evidence ID reused, no new ID"
+      },
+      "artifacts": [
+        {
+          "path": "references/RPGMV/RPGMV.exe",
+          "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281"
+        },
+        {
+          "path": "references/RPGMV/QtQuick/Controls/qtquickcontrolsplugin.dll",
+          "sha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6"
+        }
+      ]
+    }
+  },
+  "stages": [
+    "Reused previously identified resource locations and historical PE version evidence",
+    "Decoded full selected original resource bytes and verified lengths/SHA256 against the declared source manifest",
+    "Read complete new/load/edit-confirm/body collection/container serialization paths",
+    "Filled implicit checkbox default gap from the actual bundled Qt CheckBox and AbstractCheckable resources",
+    "Recorded conditional inference and residual unknowns separately; no editor/game executed"
+  ],
+  "expected": "FF emits301 only; enabled flags emit601 plus enabled602/603 and604. Empty bodies get child0; nonempty bodies retain sequence. Explicit disabling removes corresponding bodies.",
+  "actual": {
+    "reviewInput": "FF、TF、FT、TT；之后关闭 flags 再确认",
+    "finding": "FF=301；TF=301/601/win/602/escape/604；FT=301/601/win/603/lose/604；TT包含三体；空体补0，非空体原样；关闭 flags 丢弃相应体",
+    "evidenceLevelAndLimit": "Q@782932:37–106 代码观察；每层 closing记录与 body0分别保留",
+    "artifactVerification": [
+      {
+        "path": "references/RPGMV/RPGMV.exe",
+        "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+        "resources": [
+          {
+            "offset": 686141,
+            "sha256": "740d0c01de598e2a55b58f67f975a30e2d3c8c96de36eb8ff15c3dd4d6ad2780",
+            "status": "matched original source bytes"
+          },
+          {
+            "offset": 706715,
+            "sha256": "d407a069ed266771e29c68cfabec47d96349da0fe74fbcaac55b1bf32cf33283",
+            "status": "matched original source bytes"
+          },
+          {
+            "offset": 748645,
+            "sha256": "e94ba6162d753827591839fd6d1aa7d793d40270a6ddbfa5ddbb093476872dcb",
+            "status": "matched original source bytes"
+          },
+          {
+            "offset": 782932,
+            "sha256": "a492dfc999be4fb3e3ca213300cd9a751649adc8da49edd18efd4ce48544787a",
+            "status": "matched original source bytes"
+          },
+          {
+            "offset": 656916,
+            "sha256": "0152387fa661f0e67f45b989248c60142881526cda1f31898e29c0e03366fbf7",
+            "status": "matched original source bytes"
+          },
+          {
+            "offset": 667573,
+            "sha256": "bbc1e26fa83771fc56581b1dc34ec762b3789444dacef76cb24334834e17e82c",
+            "status": "matched original source bytes"
+          },
+          {
+            "offset": 679418,
+            "sha256": "8e83b762134d12696649e6302adec9f40bbad7618b2c9cbff5ad945f005dd829",
+            "status": "matched original source bytes"
+          },
+          {
+            "offset": 922020,
+            "sha256": "dfc6ccb9eb02a7c90acc5b27aa351b912e1847cdc90d00dbb93bb29991ea32a6",
+            "status": "matched original source bytes"
+          },
+          {
+            "offset": 878315,
+            "sha256": "875ac97ba5e20ab1a457399321e9621d3b56a698aaeeadc78c9584f3b69a970e",
+            "status": "matched original source bytes"
+          },
+          {
+            "offset": 909009,
+            "sha256": "9ce1877d3eac47699a558ada219ec4f217dbc4f215531a7f65ccacd8169c4f93",
+            "status": "matched original source bytes"
+          },
+          {
+            "offset": 893754,
+            "sha256": "13ce867d2bf5d9081e234e2cc4b3330a59fad91ed351baddec15b6a553376467",
+            "status": "matched original source bytes"
+          }
+        ]
+      },
+      {
+        "path": "references/RPGMV/QtQuick/Controls/qtquickcontrolsplugin.dll",
+        "sha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6",
+        "resources": [
+          {
+            "offset": 290172,
+            "sha256": "5334c4d26069acd2e7445be4e78e8d0749f376ec21d33200c350226b7a64d17a",
+            "status": "matched original source bytes"
+          },
+          {
+            "offset": 300501,
+            "sha256": "2fa2bb063b151e5da6ef8943ecfabd1fc67845ca1f07fbc8a367d9ef15b87390",
+            "status": "matched original source bytes"
+          }
+        ]
+      }
+    ],
+    "rawFirstPartyOutput": "C:/Users/Shuen/.codex/research-evidence/mv-editor-03-20261019/",
+    "reviewScope": "Completed bounded code review only; does not establish UI execution, product output verification, or R1-R7 actual game checks"
+  },
+  "difference": null
+}
