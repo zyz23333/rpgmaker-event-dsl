@@ -183,4 +183,3 @@ Ticket16 adds [Workspace operation lock acceptance](16-workspace-operation-locki
 | MV-S4-LOCK-002 | hides Snapshot publication gaps and aliases while other Workspaces operate | synthetic-support | Windows public API and real child processes |
 | MV-S4-LOCK-003 | recovers kernel leases after interruption and crash without stale-cleaner races | synthetic-support | Windows public API and real child processes |
 | MV-S4-LOCK-004 | preserves Interrupted Push independently of abandoned locks and failed checks | synthetic-support | Windows public API and real child processes |
-
