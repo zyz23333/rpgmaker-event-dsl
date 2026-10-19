@@ -4,10 +4,31 @@ import type { ReferenceValue } from "./references.js";
 export type DslOwnedDeclaration =
   | MapEventDefinition
   | CommonEventDefinition
+  | TroopEventDefinition
   | SwitchDefinition
   | VariableDefinition;
 
-export type EventDefinition = MapEventDefinition | CommonEventDefinition;
+export type EventDefinition = MapEventDefinition | CommonEventDefinition | TroopEventDefinition;
+
+export type TroopEventDefinition = {
+  kind: "troopEvent";
+  troopId: number;
+  pages: readonly [BattleEventPage, ...BattleEventPage[]];
+};
+
+export type BattleEventPage = {
+  conditions?: BattlePageConditions;
+  span?: "battle" | "turn" | "moment";
+  commands: readonly DslCommand[];
+};
+
+export type BattlePageConditions = {
+  turnEnd?: boolean;
+  turn?: { enabled: boolean; a: number; b: number };
+  enemy?: { enabled: boolean; index: number; hpAtMost: number };
+  actor?: { enabled: boolean; ref: ReferenceValue<"actor">; hpAtMost: number };
+  switch?: { enabled: boolean; ref: ReferenceValue<"switch"> };
+};
 
 export type SwitchDefinition = {
   kind: "switchDefinition";
@@ -95,6 +116,7 @@ export function isDslOwnedDeclaration(value: unknown): value is DslOwnedDeclarat
     "kind" in value &&
     ((value as { kind?: string }).kind === "mapEvent" ||
       (value as { kind?: string }).kind === "commonEvent" ||
+      (value as { kind?: string }).kind === "troopEvent" ||
       (value as { kind?: string }).kind === "switchDefinition" ||
       (value as { kind?: string }).kind === "variableDefinition")
   );

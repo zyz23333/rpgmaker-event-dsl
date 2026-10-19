@@ -5,7 +5,7 @@ and compile it back into RPG Maker MV project data.
 
 The package provides:
 
-- A TypeScript DSL for supported switches, variables, common events, map events, pages,
+- A TypeScript DSL for supported switches, variables, common events, map events, troop events, pages,
   references, assets, and RPG Maker MV event commands.
 - A CLI for snapshot-based workflows: `init`, `clone`, `pull`, `decompile`, `compile`,
   `diff`, and `push`.
@@ -138,8 +138,35 @@ Gate, without writing candidate files. Compile validation failure publishes noth
 A publication I/O error or process interruption can leave local generated data
 unusable; an explicit successful Compile restores it. Diff and Push verify actual
 file bytes and the complete owned output set independently of the manifest's list:
-currently CommonEvents, System and all maps registered in the Snapshot's MapInfos.
+currently CommonEvents, System, Troops and all maps registered in the Snapshot's MapInfos.
 Compile changes neither the Snapshot nor the Project Root.
+
+`troopEvent({ troopId, pages })` replaces the complete ordered Battle Event Page array
+of an existing Snapshot troop. Use `battlePage({ conditions?, span?, commands })`;
+commands are required and `[]` emits the sole normal terminator. Conditions default to
+the native fixed state, and span defaults to `"battle"` (`"turn"` and `"moment"` are
+also supported). Every provided condition slot is complete: `turn: { enabled, a, b }`,
+`enemy: { enabled, index, hpAtMost }`, `actor: { enabled, ref, hpAtMost }` or
+`switch: { enabled, ref }`; `turnEnd` is a Boolean. Turn values are integers 0..9999,
+HP thresholds 0..100 and enemy positions nonnegative integers. Inactive saved values
+are preserved. Disabled explicit actor/switch IDs may retain zero or missing targets;
+this exception does not apply to names or commands. An enabled enemy condition
+requires the actual member position and valid Enemy references for all raw members.
+
+Troop declarations cannot change troop name, members, positions, hidden flags or
+unknown carrier data. Decompile emits every actual troop, including empty-name,
+empty-member and Blank events. Pages are nonempty and ordered, with no page IDs;
+more than 20 pages warns while preserving the full array. Omission and an explicit
+single default page produce the same exact Blank state. A nonblank-to-Blank change
+is a destructive Troop Event Reset, visible in global Diff status even when filtered,
+and requires `push --allow-destructive`. Two default pages or a disabled nondefault
+condition still constitute a nonblank event.
+
+Recovery can finish recording a completed pre-Troops Push whose internally consistent
+original evidence uses the understood complete Common/System/Map output set. It
+retains that original Compile Contract and type/source/configuration basis. A new
+Compile is still required before current output is fresh; arbitrary incomplete output
+sets cannot authorize recovery or ordinary Push.
 Type-only imports are validated without executing modules; ordinary helper value
 imports remain unsupported, and event JavaScript remains stored text. These are
 explicit consistency checks; an external editor may still save after the last check.

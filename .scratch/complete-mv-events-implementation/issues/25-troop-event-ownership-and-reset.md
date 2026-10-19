@@ -1,6 +1,6 @@
 # 25: Troop Event 所有权与 Reset
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 22
 Stage: S5
 Created: 2026-10-19
@@ -42,6 +42,12 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 ## Dependencies
 
 - [22：Interrupted Push 内容恢复](22-interrupted-push-content-recovery.md)。
+
+## Comments
+
+### 2026-10-19 — 认领实施
+
+由 `codex/mv-ticket-25` 在独立 worktree 从实际 integration22 `520a2e5d3a034299bedf8d1051b8559da2d3e648` 开始。按已批准 T1 入口，以正式 authoring/compile/decompile/validation 和公开 Workspace init/Clone/Decompile/Check/Compile/Diff/Push/recovery 为测试 seam，使用独立完整原生预期；只认领本票。E1 采用已批准逆向与独立产品比较，R2 使用实际构建的正式 DSL product pair；此前原生 literal 准备不作为本票签收。
 
 ## Sources
 

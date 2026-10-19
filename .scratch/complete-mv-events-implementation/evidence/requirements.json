@@ -8109,6 +8109,984 @@
       },
       "slice": "22 / S4c",
       "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-AUTHOR-001",
+      "title": "authors a Troop Event with one complete fixed-default native Battle Event Page",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Troop Page literal, formal DSL input and actual Windows Workspace filesystem state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "authors a Troop Event with one complete fixed-default native Battle Event Page",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/troop-events.test.ts",
+        "name": "authors a Troop Event with one complete fixed-default native Battle Event Page"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Approved authoring/validation and public Workspace API/filesystem boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-AUTHOR-002",
+      "title": "rejects an enabled enemy condition when an earlier hidden member has a missing Enemy",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Troop Page literal, formal DSL input and actual Windows Workspace filesystem state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "rejects an enabled enemy condition when an earlier hidden member has a missing Enemy",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/troop-events.test.ts",
+        "name": "rejects an enabled enemy condition when an earlier hidden member has a missing Enemy"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Approved authoring/validation and public Workspace API/filesystem boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-AUTHOR-003",
+      "title": "preserves inactive saved condition values but rejects malformed inactive slots",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Troop Page literal, formal DSL input and actual Windows Workspace filesystem state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "preserves inactive saved condition values but rejects malformed inactive slots",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/troop-events.test.ts",
+        "name": "preserves inactive saved condition values but rejects malformed inactive slots"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Approved authoring/validation and public Workspace API/filesystem boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-AUTHOR-004",
+      "title": "requires unique existing Troop identities and nonempty ordered pages without an editor ID cap",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Troop Page literal, formal DSL input and actual Windows Workspace filesystem state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "requires unique existing Troop identities and nonempty ordered pages without an editor ID cap",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/troop-events.test.ts",
+        "name": "requires unique existing Troop identities and nonempty ordered pages without an editor ID cap"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Approved authoring/validation and public Workspace API/filesystem boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-AUTHOR-005",
+      "title": "resolves active actor and switch names, keeps inactive ID exceptions local, and validates complete Troop command lists",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Troop Page literal, formal DSL input and actual Windows Workspace filesystem state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "resolves active actor and switch names, keeps inactive ID exceptions local, and validates complete Troop command lists",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/troop-events.test.ts",
+        "name": "resolves active actor and switch names, keeps inactive ID exceptions local, and validates complete Troop command lists"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Approved authoring/validation and public Workspace API/filesystem boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-AUTHOR-006",
+      "title": "locates an invalid inactive condition at its exact DSL field with expected and actual values",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Troop Page literal, formal DSL input and actual Windows Workspace filesystem state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "locates an invalid inactive condition at its exact DSL field with expected and actual values",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/troop-events.test.ts",
+        "name": "locates an invalid inactive condition at its exact DSL field with expected and actual values"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Approved authoring/validation and public Workspace API/filesystem boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-AUTHOR-007",
+      "title": "locates invalid span and fixed actor references with their saved actual values",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Troop Page literal, formal DSL input and actual Windows Workspace filesystem state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "locates invalid span and fixed actor references with their saved actual values",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/troop-events.test.ts",
+        "name": "locates invalid span and fixed actor references with their saved actual values"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Approved authoring/validation and public Workspace API/filesystem boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-WORKSPACE-001",
+      "title": "materializes every actual Troop carrier and resets omitted pages to the exact Blank",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Troop Page literal, formal DSL input and actual Windows Workspace filesystem state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "materializes every actual Troop carrier and resets omitted pages to the exact Blank",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/troop-workflow.test.ts",
+        "name": "materializes every actual Troop carrier and resets omitted pages to the exact Blank"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Approved authoring/validation and public Workspace API/filesystem boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-WORKSPACE-002",
+      "title": "decompiles all actual Troops including Blank and roundtrips complete inactive state and page order",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Troop Page literal, formal DSL input and actual Windows Workspace filesystem state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "decompiles all actual Troops including Blank and roundtrips complete inactive state and page order",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/troop-workflow.test.ts",
+        "name": "decompiles all actual Troops including Blank and roundtrips complete inactive state and page order"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Approved authoring/validation and public Workspace API/filesystem boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-WORKSPACE-003",
+      "title": "reports omission as Troop Event Reset in every Diff view and gates Push while retaining all carrier fields",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Troop Page literal, formal DSL input and actual Windows Workspace filesystem state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "reports omission as Troop Event Reset in every Diff view and gates Push while retaining all carrier fields",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/troop-workflow.test.ts",
+        "name": "reports omission as Troop Event Reset in every Diff view and gates Push while retaining all carrier fields"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Approved authoring/validation and public Workspace API/filesystem boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-WORKSPACE-004",
+      "title": "rejects an existing Troop source identity before publishing Decompile",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Troop Page literal, formal DSL input and actual Windows Workspace filesystem state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "rejects an existing Troop source identity before publishing Decompile",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/troop-workflow.test.ts",
+        "name": "rejects an existing Troop source identity before publishing Decompile"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Approved authoring/validation and public Workspace API/filesystem boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-WORKSPACE-005",
+      "title": "rejects %s in native Troop input before source publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Troop Page literal, formal DSL input and actual Windows Workspace filesystem state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "rejects %s in native Troop input before source publication",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/troop-workflow.test.ts",
+        "name": "rejects %s in native Troop input before source publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Approved authoring/validation and public Workspace API/filesystem boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-WORKSPACE-006",
+      "title": "classifies %s by exact page state and compares native positions",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Troop Page literal, formal DSL input and actual Windows Workspace filesystem state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "classifies %s by exact page state and compares native positions",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/troop-workflow.test.ts",
+        "name": "classifies %s by exact page state and compares native positions"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Approved authoring/validation and public Workspace API/filesystem boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-SAFETY-001",
+      "title": "Troops participates in late candidate write failure with no partial publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Troop Page literal, formal DSL input and actual Windows Workspace filesystem state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "Troops participates in late candidate write failure with no partial publication",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/troop-safety.test.ts",
+        "name": "Troops participates in late candidate write failure with no partial publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Approved authoring/validation and public Workspace API/filesystem boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-SAFETY-002",
+      "title": "recovers a real interrupted Troops replacement using the complete captured output and unchanged source basis",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Troop Page literal, formal DSL input and actual Windows Workspace filesystem state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "recovers a real interrupted Troops replacement using the complete captured output and unchanged source basis",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/troop-safety.test.ts",
+        "name": "recovers a real interrupted Troops replacement using the complete captured output and unchanged source basis"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Approved authoring/validation and public Workspace API/filesystem boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-SAFETY-003",
+      "title": "rejects Troops carrier drift before Project Root writes",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Troop Page literal, formal DSL input and actual Windows Workspace filesystem state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "rejects Troops carrier drift before Project Root writes",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/troop-safety.test.ts",
+        "name": "rejects Troops carrier drift before Project Root writes"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Approved authoring/validation and public Workspace API/filesystem boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-PRIOR-001",
+      "title": "recognizes the bounded pre-Troops complete output set: %s",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Troop Page literal, formal DSL input and actual Windows Workspace filesystem state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "recognizes the bounded pre-Troops complete output set: %s",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+        "name": "recognizes the bounded pre-Troops complete output set: %s"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Approved authoring/validation and public Workspace API/filesystem boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-E1",
+      "title": "Allocated E1 reverse code facts and complete independent product comparison",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "combination"
+      ],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Independent complete native expected data and retained version-bound external artifacts; see documentary report.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "Allocated E1 reverse code facts and complete independent product comparison",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/25-troop-event-ownership-and-reset.md",
+        "section": "## E1"
+      },
+      "nativeGroups": [
+        "E1"
+      ],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Retained artifact review and actual specified boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-R2",
+      "title": "Allocated R2 actual normal Scene/Input literal and formal DSL product pair",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Independent complete native expected data and retained version-bound external artifacts; see documentary report.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "Allocated R2 actual normal Scene/Input literal and formal DSL product pair",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/25-troop-event-ownership-and-reset.md",
+        "section": "## R2"
+      },
+      "nativeGroups": [
+        "R2"
+      ],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Retained artifact review and actual specified boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-TROOP-PRIOR-002",
+      "title": "Actual build22 prior-output-set pending recovered by built25 without new Freshness",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/25-troop-event-ownership-and-reset.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native expected data and retained version-bound external artifacts; see documentary report.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      "expected": "Actual build22 prior-output-set pending recovered by built25 without new Freshness",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/25-troop-event-ownership-and-reset.md",
+        "section": "## Actual prior-output-set recovery"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; MV1.6.1 for allocated native evidence",
+        "owner": "Codex ticket25 implementation",
+        "layer": "Retained artifact review and actual specified boundary"
+      },
+      "slice": "25 / S5",
+      "required": true
     }
   ]
 }

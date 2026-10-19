@@ -418,6 +418,7 @@ async function replaceProjectRootFile(
 function isSafeProjectDataFileName(relativePath: string): boolean {
   return (
     relativePath === "CommonEvents.json" ||
+    relativePath === "Troops.json" ||
     relativePath === "System.json" ||
     isCanonicalMapFileName(relativePath)
   );

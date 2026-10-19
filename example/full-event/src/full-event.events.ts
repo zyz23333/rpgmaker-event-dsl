@@ -3,6 +3,7 @@ import {
   actorRef,
   audioAsset,
   battleProcessing,
+  battlePage,
   breakLoop,
   callCommonEvent,
   changeBattleBack,
@@ -70,10 +71,23 @@ import {
   switchRef,
   transferPlayer,
   troopRef,
+  troopEvent,
   variableDefinition,
   variableRef,
   wait,
 } from "rpgmaker-event-dsl";
+
+// Own the existing troop's complete page list; its name and members remain external.
+export const trainingBattle = troopEvent({
+  troopId: 1,
+  pages: [
+    battlePage({
+      conditions: { turn: { enabled: true, a: 0, b: 0 } },
+      span: "battle",
+      commands: [showText({ lines: ["The training battle begins."] })],
+    }),
+  ],
+});
 
 export const tourStarted = switchDefinition({
   id: 1,

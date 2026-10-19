@@ -9,6 +9,7 @@ import {
   validateNativeMovementRouteInputs,
 } from "../commands/movement/validation.js";
 import type { NativeMovementRoute } from "../commands/movement/types.js";
+import { assertNativeBattlePages } from "./battle-pages.js";
 
 /** Validate the actual complete emitted values, before serialization or filesystem writes. */
 export function assertCompileOutput(
@@ -43,6 +44,21 @@ export function assertCompileOutput(
   for (const [file, value] of files) {
     assertStrictJson(value, `Compile output ${file}`);
     if (file === "System.json") continue;
+    if (file === "Troops.json") {
+      require(Array.isArray(value), file, "Troop array");
+      for (const [index, troop] of (value as Array<Record<string, unknown> | null>).entries()) {
+        if (troop === null) continue;
+        const identity = `troop:${index}`;
+        require(Boolean(troop) &&
+          troop.id === index &&
+          index > 0 &&
+          Number.isSafeInteger(index), identity, "positive matching Troop identity");
+        assertNativeBattlePages(troop.pages, troop.members, resolver, identity);
+        for (const [pageIndex, page] of troop.pages.entries())
+          list(page.list, identity, `pages[${pageIndex}].`);
+      }
+      continue;
+    }
     const events = (
       file === "CommonEvents.json" ? value : (value as { events: unknown }).events
     ) as Array<Record<string, unknown> | null>;

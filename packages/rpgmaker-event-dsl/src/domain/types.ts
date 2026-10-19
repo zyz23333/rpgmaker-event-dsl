@@ -1,5 +1,7 @@
 export type {
   AutonomousMovement,
+  BattleEventPage,
+  BattlePageConditions,
   CommonEventDefinition,
   CommonEventTrigger,
   DslOwnedDeclaration,
@@ -9,6 +11,7 @@ export type {
   MapPageTrigger,
   PageConditions,
   SwitchDefinition,
+  TroopEventDefinition,
   VariableDefinition,
 } from "./declarations.js";
 export type {

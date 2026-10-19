@@ -1,5 +1,6 @@
 import { isDeepStrictEqual } from "node:util";
 import { isCanonicalMapFileName } from "./project.js";
+import { blankBattleEventPage } from "../domain/battle-page-defaults.js";
 
 export type StructuredDiffChangeKind =
   | "generated-only"
@@ -50,6 +51,7 @@ export function buildStructuredDiffReport(
   const domains = [
     buildMapEventDomain(options),
     buildCommonEventDomain(options),
+    buildTroopEventDomain(options),
     buildSystemNameDomain(options, {
       arrayKey: "switches",
       domain: "Switch",
@@ -283,6 +285,55 @@ function buildCommonEventDomain(options: BuildStructuredDiffReportOptions): Stru
   };
 }
 
+function buildTroopEventDomain(options: BuildStructuredDiffReportOptions): StructuredDiffDomain {
+  const generated = readArray(options.generated.get("Troops.json"));
+  const snapshot = readArray(options.snapshot.get("Troops.json"));
+  const entries: StructuredDiffEntry[] = [];
+  for (let id = 1; id < Math.max(generated.length, snapshot.length); id += 1) {
+    if (!generated[id] && !snapshot[id]) continue;
+    const next = readObject(generated[id]).pages;
+    const old = readObject(snapshot[id]).pages;
+    const unchanged = isJsonEqual(next, old);
+    const reset = !unchanged && isJsonEqual(next, [blankBattleEventPage()]);
+    const oldPages = readArray(old),
+      nextPages = readArray(next);
+    const detail: string[] = [];
+    if (oldPages.length !== nextPages.length)
+      detail.push(`page count ${oldPages.length} → ${nextPages.length}`);
+    for (let page = 0; page < Math.max(oldPages.length, nextPages.length); page += 1) {
+      if (!isJsonEqual(oldPages[page], nextPages[page])) {
+        const paths = changedPaths(oldPages[page], nextPages[page], `pages[${page}]`);
+        detail.push(`page ${page + 1}: ${paths.join(", ")}`);
+      }
+    }
+    entries.push({
+      change: unchanged ? "unchanged" : "changed",
+      destructive: reset,
+      identity: `troopId ${id}`,
+      projectDataFile: "Troops.json",
+      detail: unchanged
+        ? "Generated Troop Event matches snapshot pages."
+        : `${reset ? "Troop Event Reset" : "Troop Event changed"}: ${detail.join("; ")}.`,
+    });
+  }
+  return { domain: "Troop Event", entries };
+}
+
+function changedPaths(old: unknown, next: unknown, path: string): string[] {
+  if (isJsonEqual(old, next)) return [];
+  if (old === null || next === null || typeof old !== "object" || typeof next !== "object")
+    return [path];
+  const left = old as Record<string, unknown>,
+    right = next as Record<string, unknown>;
+  return [...new Set([...Object.keys(left), ...Object.keys(right)])].flatMap((key) =>
+    changedPaths(
+      left[key],
+      right[key],
+      Array.isArray(old) && Array.isArray(next) ? `${path}[${key}]` : `${path}.${key}`,
+    ),
+  );
+}
+
 function buildSystemNameDomain(
   options: BuildStructuredDiffReportOptions,
   input: {
@@ -402,7 +453,10 @@ function sortedMapFilePaths(options: BuildStructuredDiffReportOptions): string[]
 function sortedCarrierFilePaths(options: BuildStructuredDiffReportOptions): string[] {
   return [...new Set([...options.generated.keys(), ...options.snapshot.keys()])]
     .filter(
-      (relativePath) => relativePath === "System.json" || isCanonicalMapFileName(relativePath),
+      (relativePath) =>
+        relativePath === "System.json" ||
+        relativePath === "Troops.json" ||
+        isCanonicalMapFileName(relativePath),
     )
     .sort((left, right) => left.localeCompare(right));
 }
@@ -422,6 +476,13 @@ function readMapId(relativePath: string, generated: unknown, snapshot: unknown):
 }
 
 function readCarrierDataWithoutOwnedDomains(relativePath: string, value: unknown): unknown {
+  if (relativePath === "Troops.json")
+    return readArray(value).map((entry) => {
+      if (entry === null) return null;
+      const record = { ...readObject(entry) };
+      delete record.pages;
+      return record;
+    });
   if (relativePath === "System.json") {
     const record = { ...readObject(value) };
     delete record.switches;

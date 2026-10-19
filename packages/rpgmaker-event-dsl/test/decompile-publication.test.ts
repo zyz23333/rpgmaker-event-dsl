@@ -209,6 +209,7 @@ it("MV-S4-DECOMPILE-016: pinned junction and physical parent resist external del
       expect(await readdir(join(physical, "decompiled"))).toStrictEqual([
         "common-events.events.ts",
         "system.dsl.ts",
+        "troop-events.events.ts",
       ]);
       await unlink(alias);
       expect(
@@ -243,7 +244,7 @@ it.each(["absolute", "junction", "parent-relative"])(
       const before = await state(workspaceRoot);
       await runCli(sandbox, ["decompile"]);
       const files = await discoverDefinitionFiles(workspaceRoot, { ...discovery, sourceRoot });
-      expect(files.length).toBe(2);
+      expect(files.length).toBe(3);
       expect(files.every((file) => file.includes("decompiled"))).toBe(true);
       await runCli(sandbox, ["compile", "--check"]);
       await runCli(sandbox, ["compile"]);
@@ -310,7 +311,7 @@ it("MV-S4-DECOMPILE-010: every planned file including empty modules must match f
     await decompileWorkspace({ workspaceRoot });
     expect(
       (await discoverDefinitionFiles(workspaceRoot, { ...discovery, sourceInclude: [] })).length,
-    ).toBe(3);
+    ).toBe(4);
     expect(
       await readFile(join(workspaceRoot, "src/decompiled/maps/Map001.events.ts"), "utf8"),
     ).toBe("export {};\n");
@@ -518,6 +519,7 @@ it("MV-S4-DECOMPILE-008: killed partial staging stays outside actual Discovery a
       expect(await readdir(join(workspaceRoot, "src/decompiled"))).toStrictEqual([
         "common-events.events.ts",
         "system.dsl.ts",
+        "troop-events.events.ts",
       ]);
       await compileWorkspace({ workspaceRoot, check: true });
     } finally {
@@ -539,6 +541,7 @@ it("MV-S4-DECOMPILE-009: lost success after the real directory move preserves th
       expect(await readdir(join(workspaceRoot, "src/decompiled"))).toStrictEqual([
         "common-events.events.ts",
         "system.dsl.ts",
+        "troop-events.events.ts",
       ]);
       const published = await state(workspaceRoot);
       await child.stop();
@@ -601,7 +604,11 @@ it("MV-S4-DECOMPILE-005: permanently excludes isolated remnants through broad an
       (await discoverDefinitionFiles(workspaceRoot, rules)).map((file) =>
         file.slice(workspaceRoot.length),
       ),
-    ).toStrictEqual(["\\decompiled\\common-events.events.ts", "\\decompiled\\system.dsl.ts"]);
+    ).toStrictEqual([
+      "\\decompiled\\common-events.events.ts",
+      "\\decompiled\\system.dsl.ts",
+      "\\decompiled\\troop-events.events.ts",
+    ]);
     expect(await readFile(join(protectedRoot, "killed-candidate/partial.events.ts"), "utf8")).toBe(
       "malformed source never eligible",
     );
@@ -693,6 +700,7 @@ it("MV-S4-DECOMPILE-002: validates every candidate against dependencies at its f
     ).toStrictEqual([
       "\\src\\decompiled\\common-events.events.ts",
       "\\src\\decompiled\\system.dsl.ts",
+      "\\src\\decompiled\\troop-events.events.ts",
     ]);
   });
 }, 30000);

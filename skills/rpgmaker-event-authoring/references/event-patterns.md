@@ -1,5 +1,21 @@
 # Event Patterns
 
+Use `troopEvent({ troopId, pages })` with `battlePage({ conditions?, span?, commands })`
+for an existing Snapshot troop's complete ordered battle event. Preserve all desired
+pages in the declaration. `commands` is required; pages are nonempty and have no IDs.
+Span is battle/turn/moment, default battle. Optional condition slots are `turnEnd`,
+`turn: { enabled, a, b }`, `enemy: { enabled, index, hpAtMost }`,
+`actor: { enabled, ref, hpAtMost }` and `switch: { enabled, ref }`. Each provided slot
+is complete. Keep inactive saved values, validate A/B 0..9999 and HP 0..100, and use
+raw enemy member positions including hidden members. Enabled enemy conditions check
+every member's Enemy reference. Disabled explicit actor/switch IDs may retain zero
+or a missing target; names and command references retain ordinary resolution.
+
+Omitting a Troop Event declaration produces exactly one default battle page. An
+explicit `battlePage({ commands: [] })` has the same result. Treat nonblank-to-Blank
+as a destructive Troop Event Reset; keep troop name, members and all other carrier
+data unchanged. Two default pages and inactive nondefault values are nonblank.
+
 Read this when choosing how to structure RPG Maker MV event behavior.
 
 ## Authoring Surface

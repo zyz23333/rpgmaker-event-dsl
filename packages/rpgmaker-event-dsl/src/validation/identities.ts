@@ -1,5 +1,9 @@
 import type { DslOwnedDeclaration, MapEventDefinition } from "../domain/types.js";
-import type { SnapshotMapValidationEntry, ValidationIssue } from "./types.js";
+import type {
+  SnapshotMapValidationEntry,
+  SnapshotTroopValidationEntry,
+  ValidationIssue,
+} from "./types.js";
 
 export type { SnapshotMapValidationEntry } from "./types.js";
 
@@ -7,17 +11,38 @@ export function validateDeclarationIdentities(
   declarations: readonly DslOwnedDeclaration[],
   issues: ValidationIssue[],
   snapshotMaps?: readonly SnapshotMapValidationEntry[],
+  snapshotTroops?: readonly SnapshotTroopValidationEntry[],
 ): void {
   const mapEventIdentities = new Set<string>();
   const commonEventIds = new Set<number>();
   const switchIds = new Set<number>();
   const variableIds = new Set<number>();
+  const troopIds = new Set<number>();
   const snapshotMapsById =
     snapshotMaps === undefined ? undefined : new Map(snapshotMaps.map((map) => [map.id, map]));
   const occupiedCoordinates = new Set<string>();
 
   for (const declaration of declarations) {
     switch (declaration.kind) {
+      case "troopEvent":
+        if (
+          !Number.isSafeInteger(declaration.troopId) ||
+          declaration.troopId <= 0 ||
+          !snapshotTroops?.some(({ id }) => id === declaration.troopId)
+        )
+          issues.push({
+            level: "error",
+            identity: `troop:${declaration.troopId}`,
+            dslPath: "troopId",
+            message: `Troop Event troopId ${declaration.troopId} must be a positive existing Snapshot Troop identity.`,
+          });
+        trackUniqueIdentity(
+          troopIds,
+          declaration.troopId,
+          `Duplicate Troop Event troopId: ${declaration.troopId}.`,
+          issues,
+        );
+        break;
       case "mapEvent":
         validatePositiveInteger(declaration.mapId, "Map event mapId", declaration.name, issues);
         validatePositiveInteger(declaration.id, "Map event id", declaration.name, issues);
