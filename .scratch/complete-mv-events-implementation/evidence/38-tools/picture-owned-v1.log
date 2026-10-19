@@ -1,0 +1,196 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-38/packages/rpgmaker-event-dsl
+
+stderr | test/pictures-workspace.test.ts > MV-S6-PICTURE-003: rejects evaluated showPicture excess fields via direct
+Windows verification sandbox retained: M:\Shuen\Codex\mv-events-implementation-20261020\ticket38-temp\sandboxes\picture-shape-showPicture-direct-HqJlvO
+
+stderr | test/pictures-workspace.test.ts > MV-S6-PICTURE-003: rejects evaluated movePicture excess fields via direct
+Windows verification sandbox retained: M:\Shuen\Codex\mv-events-implementation-20261020\ticket38-temp\sandboxes\picture-shape-movePicture-direct-p81Qlq
+
+stderr | test/pictures-workspace.test.ts > MV-S6-PICTURE-003: rejects evaluated rotatePicture excess fields via direct
+Windows verification sandbox retained: M:\Shuen\Codex\mv-events-implementation-20261020\ticket38-temp\sandboxes\picture-shape-rotatePicture-direct-DHe5jT
+
+stderr | test/pictures-workspace.test.ts > MV-S6-PICTURE-003: rejects evaluated tintPicture excess fields via direct
+Windows verification sandbox retained: M:\Shuen\Codex\mv-events-implementation-20261020\ticket38-temp\sandboxes\picture-shape-tintPicture-direct-2q0tK8
+
+stderr | test/pictures-workspace.test.ts > MV-S6-PICTURE-003: rejects evaluated erasePicture excess fields via direct
+Windows verification sandbox retained: M:\Shuen\Codex\mv-events-implementation-20261020\ticket38-temp\sandboxes\picture-shape-erasePicture-direct-mj1j1O
+
+stderr | test/pictures-workspace.test.ts > MV-S6-PICTURE-004: refuses native Picture shape 8 with complete state preserved
+Windows verification sandbox retained: M:\Shuen\Codex\mv-events-implementation-20261020\ticket38-temp\sandboxes\picture-reject-native-8-pUCKYK
+
+ ❯ test/pictures-workspace.test.ts (58 tests | 6 failed) 93162ms
+   × MV-S6-PICTURE-003: rejects evaluated showPicture excess fields via direct 1379ms
+   × MV-S6-PICTURE-003: rejects evaluated movePicture excess fields via direct 1364ms
+   × MV-S6-PICTURE-003: rejects evaluated rotatePicture excess fields via direct 1366ms
+   × MV-S6-PICTURE-003: rejects evaluated tintPicture excess fields via direct 1330ms
+   × MV-S6-PICTURE-003: rejects evaluated erasePicture excess fields via direct 1360ms
+   × MV-S6-PICTURE-004: refuses native Picture shape 8 with complete state preserved 121ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/pictures-workspace.test.ts > MV-S6-PICTURE-003: rejects evaluated showPicture excess fields via direct
+AssertionError: expected 'TypeScript diagnostics failed for M:\…' to contain 'MV-DSL-SHAPE'
+
+- Expected
++ Received
+
+- MV-DSL-SHAPE
++ TypeScript diagnostics failed for M:\Shuen\Codex\mv-events-implementation-20261020\ticket38-temp\sandboxes\picture-shape-showPicture-direct-HqJlvO\最小 Workspace with spaces\src\decompiled\common-events.events.ts:
++ - M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/sandboxes/picture-shape-showPicture-direct-HqJlvO/最小 Workspace with spaces/src/decompiled/common-events.events.ts:4:85 Type '{ pictureId: 1; origin: "upperLeft"; position: { readonly kind: "direct"; readonly x: 0; readonly y: 0; }; scaleX: 100; scaleY: 100; opacity: 255; blendMode: "normal"; image: null; unexpected: "refuse"; kind: string; }' is not assignable to type 'DslCommand'.
++   Type '{ pictureId: 1; origin: "upperLeft"; position: { readonly kind: "direct"; readonly x: 0; readonly y: 0; }; scaleX: 100; scaleY: 100; opacity: 255; blendMode: "normal"; image: null; unexpected: "refuse"; kind: string; }' is not assignable to type 'ShowPictureDslCommand'.
++     Type '{ pictureId: 1; origin: "upperLeft"; position: { readonly kind: "direct"; readonly x: 0; readonly y: 0; }; scaleX: 100; scaleY: 100; opacity: 255; blendMode: "normal"; image: null; unexpected: "refuse"; kind: string; }' is not assignable to type '{ kind: "showPicture"; pictureId: number; image: ImageAssetReference | null; position: CommandPosition; }'.
++       Types of property 'kind' are incompatible.
++         Type 'string' is not assignable to type '"showPicture"'.
+
+ ❯ rejectSource test/pictures-workspace.test.ts:137:21
+    135|       message = error instanceof Error ? error.message : String(error);
+    136|     }
+    137|     expect(message).toContain(diagnostic);
+       |                     ^
+    138|     expect(message).toContain(path);
+    139|     expect(await state(root)).toStrictEqual(before);
+ ❯ test/pictures-workspace.test.ts:218:13
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/pictures-workspace.test.ts:209:9
+ ❯ test/pictures-workspace.test.ts:42:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  test/pictures-workspace.test.ts > MV-S6-PICTURE-003: rejects evaluated movePicture excess fields via direct
+AssertionError: expected 'TypeScript diagnostics failed for M:\…' to contain 'MV-DSL-SHAPE'
+
+- Expected
++ Received
+
+- MV-DSL-SHAPE
++ TypeScript diagnostics failed for M:\Shuen\Codex\mv-events-implementation-20261020\ticket38-temp\sandboxes\picture-shape-movePicture-direct-p81Qlq\最小 Workspace with spaces\src\decompiled\common-events.events.ts:
++ - M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/sandboxes/picture-shape-movePicture-direct-p81Qlq/最小 Workspace with spaces/src/decompiled/common-events.events.ts:4:85 Type '{ pictureId: 1; origin: "upperLeft"; position: { readonly kind: "direct"; readonly x: 0; readonly y: 0; }; scaleX: 100; scaleY: 100; opacity: 255; blendMode: "normal"; duration: 1; wait: false; unexpected: "refuse"; kind: string; }' is not assignable to type 'DslCommand'.
++   Type '{ pictureId: 1; origin: "upperLeft"; position: { readonly kind: "direct"; readonly x: 0; readonly y: 0; }; scaleX: 100; scaleY: 100; opacity: 255; blendMode: "normal"; duration: 1; wait: false; unexpected: "refuse"; kind: string; }' is not assignable to type 'MovePictureDslCommand'.
++     Type '{ pictureId: 1; origin: "upperLeft"; position: { readonly kind: "direct"; readonly x: 0; readonly y: 0; }; scaleX: 100; scaleY: 100; opacity: 255; blendMode: "normal"; duration: 1; wait: false; unexpected: "refuse"; kind: string; }' is not assignable to type '{ kind: "movePicture"; pictureId: number; position: CommandPosition; duration: number; wait: boolean; }'.
++       Types of property 'kind' are incompatible.
++         Type 'string' is not assignable to type '"movePicture"'.
+
+ ❯ rejectSource test/pictures-workspace.test.ts:137:21
+    135|       message = error instanceof Error ? error.message : String(error);
+    136|     }
+    137|     expect(message).toContain(diagnostic);
+       |                     ^
+    138|     expect(message).toContain(path);
+    139|     expect(await state(root)).toStrictEqual(before);
+ ❯ test/pictures-workspace.test.ts:218:13
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/pictures-workspace.test.ts:209:9
+ ❯ test/pictures-workspace.test.ts:42:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  test/pictures-workspace.test.ts > MV-S6-PICTURE-003: rejects evaluated rotatePicture excess fields via direct
+AssertionError: expected 'TypeScript diagnostics failed for M:\…' to contain 'MV-DSL-SHAPE'
+
+- Expected
++ Received
+
+- MV-DSL-SHAPE
++ TypeScript diagnostics failed for M:\Shuen\Codex\mv-events-implementation-20261020\ticket38-temp\sandboxes\picture-shape-rotatePicture-direct-DHe5jT\最小 Workspace with spaces\src\decompiled\common-events.events.ts:
++ - M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/sandboxes/picture-shape-rotatePicture-direct-DHe5jT/最小 Workspace with spaces/src/decompiled/common-events.events.ts:4:85 Type '{ pictureId: 100; speed: 0; unexpected: "refuse"; kind: string; }' is not assignable to type 'DslCommand'.
++   Type '{ pictureId: 100; speed: 0; unexpected: "refuse"; kind: string; }' is not assignable to type 'RotatePictureDslCommand'.
++     Types of property 'kind' are incompatible.
++       Type 'string' is not assignable to type '"rotatePicture"'.
+
+ ❯ rejectSource test/pictures-workspace.test.ts:137:21
+    135|       message = error instanceof Error ? error.message : String(error);
+    136|     }
+    137|     expect(message).toContain(diagnostic);
+       |                     ^
+    138|     expect(message).toContain(path);
+    139|     expect(await state(root)).toStrictEqual(before);
+ ❯ test/pictures-workspace.test.ts:218:13
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/pictures-workspace.test.ts:209:9
+ ❯ test/pictures-workspace.test.ts:42:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  test/pictures-workspace.test.ts > MV-S6-PICTURE-003: rejects evaluated tintPicture excess fields via direct
+AssertionError: expected 'TypeScript diagnostics failed for M:\…' to contain 'MV-DSL-SHAPE'
+
+- Expected
++ Received
+
+- MV-DSL-SHAPE
++ TypeScript diagnostics failed for M:\Shuen\Codex\mv-events-implementation-20261020\ticket38-temp\sandboxes\picture-shape-tintPicture-direct-2q0tK8\最小 Workspace with spaces\src\decompiled\common-events.events.ts:
++ - M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/sandboxes/picture-shape-tintPicture-direct-2q0tK8/最小 Workspace with spaces/src/decompiled/common-events.events.ts:4:85 Type '{ pictureId: 100; tone: { readonly red: 0; readonly green: 0; readonly blue: 0; readonly gray: 0; }; duration: 1; wait: false; unexpected: "refuse"; kind: string; }' is not assignable to type 'DslCommand'.
++   Type '{ pictureId: 100; tone: { readonly red: 0; readonly green: 0; readonly blue: 0; readonly gray: 0; }; duration: 1; wait: false; unexpected: "refuse"; kind: string; }' is not assignable to type 'TintPictureDslCommand'.
++     Types of property 'kind' are incompatible.
++       Type 'string' is not assignable to type '"tintPicture"'.
+
+ ❯ rejectSource test/pictures-workspace.test.ts:137:21
+    135|       message = error instanceof Error ? error.message : String(error);
+    136|     }
+    137|     expect(message).toContain(diagnostic);
+       |                     ^
+    138|     expect(message).toContain(path);
+    139|     expect(await state(root)).toStrictEqual(before);
+ ❯ test/pictures-workspace.test.ts:218:13
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/pictures-workspace.test.ts:209:9
+ ❯ test/pictures-workspace.test.ts:42:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  test/pictures-workspace.test.ts > MV-S6-PICTURE-003: rejects evaluated erasePicture excess fields via direct
+AssertionError: expected 'TypeScript diagnostics failed for M:\…' to contain 'MV-DSL-SHAPE'
+
+- Expected
++ Received
+
+- MV-DSL-SHAPE
++ TypeScript diagnostics failed for M:\Shuen\Codex\mv-events-implementation-20261020\ticket38-temp\sandboxes\picture-shape-erasePicture-direct-mj1j1O\最小 Workspace with spaces\src\decompiled\common-events.events.ts:
++ - M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/sandboxes/picture-shape-erasePicture-direct-mj1j1O/最小 Workspace with spaces/src/decompiled/common-events.events.ts:4:85 Type '{ pictureId: 100; unexpected: "refuse"; kind: string; }' is not assignable to type 'DslCommand'.
++   Type '{ pictureId: 100; unexpected: "refuse"; kind: string; }' is not assignable to type 'ErasePictureDslCommand'.
++     Types of property 'kind' are incompatible.
++       Type 'string' is not assignable to type '"erasePicture"'.
+
+ ❯ rejectSource test/pictures-workspace.test.ts:137:21
+    135|       message = error instanceof Error ? error.message : String(error);
+    136|     }
+    137|     expect(message).toContain(diagnostic);
+       |                     ^
+    138|     expect(message).toContain(path);
+    139|     expect(await state(root)).toStrictEqual(before);
+ ❯ test/pictures-workspace.test.ts:218:13
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/pictures-workspace.test.ts:209:9
+ ❯ test/pictures-workspace.test.ts:42:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  test/pictures-workspace.test.ts > MV-S6-PICTURE-004: refuses native Picture shape 8 with complete state preserved
+AssertionError: expected 'decompile common event 1.list[0]: MV-…' to contain 'commonEvent:1'
+
+Expected: "commonEvent:1"
+Received: "decompile common event 1.list[0]: MV-E231-REFERENCE: Unknown variable reference id: 3 at list[0].parameters[5]; expected existing System Variable Slot; actual 3"
+
+ ❯ test/pictures-workspace.test.ts:322:31
+    320|               expect(message).toContain(diagnostic);
+    321|               expect(message).toContain(`list[0].parameters${invalid.s…
+    322|               expect(message).toContain("commonEvent:1");
+       |                               ^
+    323|               expect(await state(root)).toStrictEqual(before);
+    324|             } else {
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/pictures-workspace.test.ts:300:9
+ ❯ test/pictures-workspace.test.ts:42:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  6 failed | 59 passed (65)
+   Start at  04:16:42
+   Duration  94.46s (transform 628ms, setup 0ms, import 2.15s, tests 93.56s, environment 0ms)
+
+undefined
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-38\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/pictures.test.ts test/pictures-workspace.test.ts

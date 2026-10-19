@@ -106,3 +106,75 @@ It verified every recorded source hash against the preserved snapshot; the only
 captured input changed between red and green is `references.ts`. Standard record
 source fingerprints and broader pre-run snapshot fingerprints remain separately
 identified in the evidence document. No larger batch/index run is claimed here.
+
+### 2026-10-20 — Actual73504ec postmerge focused verification
+
+Saved source checkpoint8e49010, then merged actual integration
+73504ec28bad98ae424a9d452f68774b009579d0 as
+e686bbada86257ae59572738c0a48694284cc654. Incoming314 requirement objects/raw
+prefix and README prefix remain exact, followed by nine owned rows (323 total).
+Contract `mv-1.6.1/12` is inherited. All four original conflict texts and a
+reconciliation receipt are preserved externally. The native validator keeps both
+Picture and incoming Timer branches; the equivalent Loop assertion is incoming.
+
+`post73504ec-static-v1` passed typecheck, scoped lint, package format and whitespace
+checks. The root-allocated `post73504ec-focused-complete-v1` batch passed13 files
+and206 tests in146.75 seconds, using Node22.23.0, two workers and the unchanged
+ten-second deadline. The broader180-input snapshot and standard176-input result
+fingerprints are separately listed in the evidence document. The batch has exited;
+isolated index, history/source audit, large archive and final focused DEV commit
+await the next root window. This remains claimed DEV; no full/build/built/R6,
+READY or resolution is claimed.
+
+### 2026-10-20 — Preserved index timeout and minimal shared-tool correction
+
+The first isolated index run failed at the unchanged10000ms deadline (one timeout,
+two passes), after268 owned result records were copied byte-exactly. The original
+failure and all inputs remain preserved. A separate read-only public-validator
+probe completed the full6697-result/1184814380-byte scan in22944ms. Artifacts were
+read by120ms, no file reads were duplicated, and the CPU profile recorded18183ms
+idle in23202ms. The root accepted a minimal bounded I/O correction.
+
+The independent shared-tool commit
+`b066c6244fe86c1cfce41645b5cf3cdfe4144aa7` contains only seven insertions and
+three deletions in `test/support/mv-evidence.ts`:32 bounded reads and ID Map lookup,
+with all validation checks retained. It passed package statics, then the original
+public index suite passed all three cases in8.36s total/6.97s test time, with
+the original deadline and two workers. The earlier206-case execution/source pin
+is kept separately from this later index pin; no206-case rerun is claimed. Final
+auditing checks their product inputs for exact equality before the focused DEV
+handoff. Contract, ticket status and full/build/built/R6 obligations are unchanged.
+
+### 2026-10-20 — Final focused DEV evidence verification
+
+The history audit verified7610 incoming evidence blobs byte-exactly and all314
+incoming requirement objects/raw prefix, followed by nine owned rows. It retains
+all272 original records (261 passed,11 failed), with each complete original input
+snapshot kept externally on M. The final176-file input fingerprint is
+`ac102a6ce7f02126868590f6bb708366eb2a7d4b99c83d9f9f91ae1f4dd4fef4`.
+All102 product-source file bytes equal the earlier206-case execution, product
+fingerprint `9dcf2d945e1c50110169083bda6fce9dd01f3a7a287aed243d101f29b03a6565`.
+
+After copying all records from the index attempts, the final public index
+validation case was run alone and passed in4110.3881ms, retaining the original
+10000ms deadline and two workers. It produces no new records, so this verifies
+the final record set without an append-after-validation gap. Its JSON report and
+raw inputs are preserved. Final tool archiving, staged-byte audit and clean DEV
+commit follow in the allocated window; full/build/built/R6 and READY remain pending.
+
+### 2026-10-20 — Focused DEV archive and staged-byte audit
+
+Archived204 self-authored tools/logs/manifests/profile entries. A batch Git object
+audit verified byte-exact staging of all272 original result records,176 final
+captured inputs and204 archive entries, plus all7610 unchanged incoming evidence
+blobs. Incoming314+owned9=323 requirements and inherited `mv-1.6.1/12` were checked
+again against actual73504ec. The source remains a focused DEV delivery with all
+original failures retained. Root must complete later full/build/built/R6 and the
+independent final merger; this ticket stays claimed and is not READY or resolved.
+
+The initial whitespace check identified original conflict markers in six raw
+merge-conflict captures. Only those six exact archive paths now have opaque Git
+diff attributes; capture bytes remain unchanged. The final archive has208 entries,
+including the original204-entry manifest/staged receipt, the finite correction
+script and its receipt. Product/test diff behavior is unaffected. The final
+staged-byte check covers the208-entry archive before the clean DEV commit.

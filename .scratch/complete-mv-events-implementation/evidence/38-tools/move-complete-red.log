@@ -1,0 +1,31 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-38/packages/rpgmaker-event-dsl
+
+ ❯ test/pictures.test.ts (2 tests | 1 failed | 1 skipped) 7ms
+   × preserves Move Picture variables, structural zero, complete defaults and explicit false wait 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/pictures.test.ts > preserves Move Picture variables, structural zero, complete defaults and explicit false wait
+Error: MV-COMMAND-PARAMETERS: Known command parameters do not match their native contract. at list[0].parameters (commands[0]); expected E232 saved slots nnnnnnnnnnnb; actual [1,0,0,1,1,2,100,100,255,"normal",999,false]
+ ❯ compileNodes src/compiler/dispatch.ts:1198:15
+
+    1196|           path ? origins.get(output[Number(/^list\[(\d+)\]/u.exec(path…
+    1197|         const dslPath = dslAt(error.location.nativePath);
+    1198|         throw new CommandStructureError(error.code, error.detail, {
+       |               ^
+    1199|           ...error.location,
+    1200|           ...(dslPath ? { dslPath } : {}),
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 skipped (2)
+   Start at  04:04:13
+   Duration  1.25s (transform 348ms, setup 0ms, import 1.10s, tests 7ms, environment 0ms)
+
+ ❯ compileCommonEvent src/compiler/events.ts:122:11
+ ❯ test/pictures.test.ts:20:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+undefined
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-38\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/pictures.test.ts -t Move Picture variables

@@ -1,0 +1,46 @@
+[
+  {
+    "completedAt": "2026-10-19T21:07:15.9143396Z",
+    "exitCode": 0,
+    "startedAt": "2026-10-19T21:07:12.8071806Z",
+    "arguments": [
+      "--filter",
+      "rpgmaker-event-dsl",
+      "typecheck"
+    ],
+    "check": "typecheck"
+  },
+  {
+    "completedAt": "2026-10-19T21:07:16.2331538Z",
+    "exitCode": 0,
+    "startedAt": "2026-10-19T21:07:15.9149966Z",
+    "arguments": [
+      "exec",
+      "oxlint",
+      "packages/rpgmaker-event-dsl/src/authoring/references.ts",
+      "packages/rpgmaker-event-dsl/test/pictures.test.ts",
+      "packages/rpgmaker-event-dsl/test/pictures-workspace.test.ts"
+    ],
+    "check": "scoped-lint"
+  },
+  {
+    "completedAt": "2026-10-19T21:07:16.7450778Z",
+    "exitCode": 0,
+    "startedAt": "2026-10-19T21:07:16.2332900Z",
+    "arguments": [
+      "exec",
+      "oxfmt",
+      "--ignore-path",
+      ".oxfmtignore",
+      "--check",
+      "packages/rpgmaker-event-dsl/src/authoring/references.ts",
+      "packages/rpgmaker-event-dsl/test/pictures.test.ts",
+      "packages/rpgmaker-event-dsl/test/pictures-workspace.test.ts"
+    ],
+    "check": "scoped-format"
+  },
+  {
+    "exitCode": 0,
+    "check": "git diff --check"
+  }
+]

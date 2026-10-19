@@ -1,0 +1,18 @@
+{
+  "branch": "codex/mv-ticket-38",
+  "links": [
+    {
+      "target": "F:/Shuen/RPG/rpgmaker-event-dsl/node_modules",
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\worktrees\\mv-ticket-38\\node_modules"
+    },
+    {
+      "target": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/node_modules",
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\worktrees\\mv-ticket-38\\packages\\rpgmaker-event-dsl\\node_modules"
+    }
+  ],
+  "registration": "Manual Git registered M worktree, not app attachment",
+  "head": "38542767606ff9712e45d2a8e4894558e3a7d385",
+  "createdAt": "2026-10-19T20:01:50.2095125Z",
+  "integration": "38542767606ff9712e45d2a8e4894558e3a7d385",
+  "purpose": "Read-only dependency consumption; never recursively delete junction targets"
+}

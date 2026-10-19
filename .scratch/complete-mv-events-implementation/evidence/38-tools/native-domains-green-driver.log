@@ -1,0 +1,10 @@
+{"label":"native-domains-green","files":166,"fingerprint":"14544f2212dcb82fe06608be45826eb60cccd6fd9b61f17dd44fb322348802c1","out":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\source-snapshots\\native-domains-green"}
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-38/packages/rpgmaker-event-dsl
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed | 5 skipped (6)
+   Start at  04:08:10
+   Duration  1.29s (transform 363ms, setup 0ms, import 1.14s, tests 13ms, environment 0ms)
+

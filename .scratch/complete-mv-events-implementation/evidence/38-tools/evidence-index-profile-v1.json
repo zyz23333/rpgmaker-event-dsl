@@ -1,0 +1,129 @@
+{
+  "kind": "read-only timing diagnostic; no Vitest deadline or passing-test claim",
+  "createdAt": "2026-10-19T21:34:28.719Z",
+  "root": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-38",
+  "node": "v22.23.0",
+  "sourceHash": "6fd1f48baa9fe3a102c352e4ece50947386e7aa687ab024250cab7a90e7cf78c",
+  "requirementsHash": "5f11031750c758256e89606b0b137546b00bba8623ce35515873078c20975e8d",
+  "elapsedMs": 22944.334899999998,
+  "failure": null,
+  "firstResultReadMs": 156.79399999999998,
+  "lastResultReadMs": 22943.9943,
+  "maxConcurrentReads": 8,
+  "resultReads": 6697,
+  "resultBytes": 1184814380,
+  "resultReadLatencyMs": {
+    "p50": 11.849000000001979,
+    "p95": 79.07430000000022,
+    "max": 271.4479000000001
+  },
+  "artifactReads": 133,
+  "artifactPhaseLastReadMs": 120.21539999999999,
+  "duplicateFileReads": [],
+  "directoryReads": 2,
+  "directoryElapsedSumMs": 32.29329999999999,
+  "json": {
+    "parseCalls": 6698,
+    "parseMs": 1268.5974000000206,
+    "stringifyCalls": 6829,
+    "stringifyMs": 165.821600000009
+  },
+  "slowestFileReads": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-008-2026-10-19T19-44-16-955Z-38b3cee8-8b09-475d-bfb9-13191e6389e4.json",
+      "startMs": 3901.7739,
+      "durationMs": 271.4479000000001,
+      "bytes": 5986307,
+      "resultFile": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-013-2026-10-19T19-44-48-819Z-00b689f8-eee9-46dc-8247-c0e7b3f216c2.json",
+      "startMs": 6566.45,
+      "durationMs": 246.26190000000042,
+      "bytes": 2258166,
+      "resultFile": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T19-44-21-709Z-2703c724-9609-4053-9865-9a418b7f0f07.json",
+      "startMs": 4816.8915,
+      "durationMs": 243.6864000000005,
+      "bytes": 2251851,
+      "resultFile": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-015-2026-10-19T19-27-37-292Z-fde2b3d2-1fc1-4788-b120-10f4e8a23654.json",
+      "startMs": 7270.2409,
+      "durationMs": 242.23710000000028,
+      "bytes": 1947856,
+      "resultFile": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-015-2026-10-19T19-36-59-448Z-bd5ca8c5-5da7-4d76-8546-7eddc39e7acc.json",
+      "startMs": 7270.2459,
+      "durationMs": 223.1215000000002,
+      "bytes": 1947856,
+      "resultFile": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-015-2026-10-19T13-22-11-452Z-ac7a24f2-a74a-4133-b95a-1230fa74c7f6.json",
+      "startMs": 7270.2061,
+      "durationMs": 206.89710000000014,
+      "bytes": 1801889,
+      "resultFile": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-008-2026-10-19T19-37-06-508Z-73cd3fb5-3969-4416-b47f-0dd630376e56.json",
+      "startMs": 3901.7689,
+      "durationMs": 198.45859999999993,
+      "bytes": 1961220,
+      "resultFile": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T19-37-12-252Z-4eecc7e9-bbf6-409f-8d0a-8b79eb607af9.json",
+      "startMs": 4816.8817,
+      "durationMs": 195.83889999999974,
+      "bytes": 753179,
+      "resultFile": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-008-2026-10-19T19-27-44-228Z-4f0cacdb-0a58-4438-8cd1-40f9fbf96338.json",
+      "startMs": 3901.7637000000004,
+      "durationMs": 185.58269999999993,
+      "bytes": 1961220,
+      "resultFile": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-MAP-E1-e1-current-466e32f6-ffc3-4345-906d-de767c6abc47.json",
+      "startMs": 18162.6184,
+      "durationMs": 183.0041999999994,
+      "bytes": 10749737,
+      "resultFile": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-005-2026-10-19T19-45-05-143Z-e6705bb6-d61c-48da-a287-0ebf61f1516c.json",
+      "startMs": 2463.6943,
+      "durationMs": 178.26009999999997,
+      "bytes": 2249445,
+      "resultFile": true
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-RECOVERY-010-2026-10-19T19-37-14-352Z-48d3fdeb-fb60-492c-bc05-989842ad7fa8.json",
+      "startMs": 4816.8871,
+      "durationMs": 177.91769999999997,
+      "bytes": 753179,
+      "resultFile": true
+    }
+  ],
+  "directories": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results",
+      "durationMs": 4.019499999999994,
+      "entries": 6431
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev",
+      "durationMs": 28.273799999999994,
+      "entries": 268
+    }
+  ]
+}
