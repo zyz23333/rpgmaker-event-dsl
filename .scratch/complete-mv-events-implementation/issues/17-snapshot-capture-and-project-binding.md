@@ -47,6 +47,7 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 - [实施规格](../complete-mv-events-implementation-spec.md)：I11–I12、T1、T5；完整契约与未在本票重复列出的参数规则以规格及其规范附表为准。
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
+
 ## Outcome
 
 Clone/Pull 从同一份原始 Buffer 建立内容、集合和整文件 SHA256，发布前复查全部捕获输入、配置字节及规范化目标；观察到变化即失败，保留原 Snapshot/manifest/Generated/source。MapInfos 只以安全且唯一的正整数 ID 确定集合，空名称、缺失/不透明 parentId 及其他外部字段保留；共享 parser 不再因无关 parentId 丢图。未知或不完整 metadata、错误目标、损坏 Snapshot 和不可安全定位的 carrier 明确拒绝。manifest 安装失败恢复旧 Snapshot，orphan Snapshot 要求显式 Pull。

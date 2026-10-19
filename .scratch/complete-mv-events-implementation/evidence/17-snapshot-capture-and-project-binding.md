@@ -28,19 +28,19 @@ Project Root Binding 使用 `realpath` 后的路径，Windows 大小写归一，
 
 以下真实红灯都在产品修复前观察到，失败 sandbox 保留于 Windows temp，未改标为成功：
 
-| UTC | Counterexample | Retained sandbox |
-| --- | --- | --- |
-| 09:09:05 | 捕获 Actors 后外部修改，Pull 错误成功且发布与原 hash 不同的内容 | snapshot-consistency-c6tP6g |
-| 09:10:34 | 改 Project Root 后 Check 仍成功 | project-binding-dtHplk |
-| 09:12:04 | 改 Project Root 后 Push 迟报错，却已删除原目标 pending | pending-binding-L2bu3A |
-| 09:17:38 | 无效 UTF-8 被有损复制，Pull 错误成功 | snapshot-bytes-Kk7LKn |
-| 09:18:32 | MapInfos 重复 ID 被 Set 静默去重，Pull 错误成功 | snapshot-collection-HcHTak |
-| 09:19:35 | manifest rename 故障后丢旧 manifest，Snapshot 已替换 | snapshot-publication-w12uaG |
-| 09:20:14 | manifest 带 ../outside.json 仍通过 Check | snapshot-metadata-GndGcS |
-| 09:20:54 | 本地 Snapshot 与 manifest 不符仍通过 Check | snapshot-integrity-9my7vz |
-| 09:21:38 | 登记地图 events 为对象仍被捕获 | snapshot-carrier-XsE4ea |
-| 09:32:38 | 新增真实 Workspace 正例说明 parentId 与定位无关；缺失/不透明 parentId 被初版捕获规则错误拒绝 | snapshot-collection-wiqsiA |
-| 09:36:21 | Snapshot 存在但 manifest 丢失时，Clone 错误成功，隐式重建未知目标状态 | snapshot-metadata-usH4IJ |
+| UTC      | Counterexample                                                                               | Retained sandbox            |
+| -------- | -------------------------------------------------------------------------------------------- | --------------------------- |
+| 09:09:05 | 捕获 Actors 后外部修改，Pull 错误成功且发布与原 hash 不同的内容                              | snapshot-consistency-c6tP6g |
+| 09:10:34 | 改 Project Root 后 Check 仍成功                                                              | project-binding-dtHplk      |
+| 09:12:04 | 改 Project Root 后 Push 迟报错，却已删除原目标 pending                                       | pending-binding-L2bu3A      |
+| 09:17:38 | 无效 UTF-8 被有损复制，Pull 错误成功                                                         | snapshot-bytes-Kk7LKn       |
+| 09:18:32 | MapInfos 重复 ID 被 Set 静默去重，Pull 错误成功                                              | snapshot-collection-HcHTak  |
+| 09:19:35 | manifest rename 故障后丢旧 manifest，Snapshot 已替换                                         | snapshot-publication-w12uaG |
+| 09:20:14 | manifest 带 ../outside.json 仍通过 Check                                                     | snapshot-metadata-GndGcS    |
+| 09:20:54 | 本地 Snapshot 与 manifest 不符仍通过 Check                                                   | snapshot-integrity-9my7vz   |
+| 09:21:38 | 登记地图 events 为对象仍被捕获                                                               | snapshot-carrier-XsE4ea     |
+| 09:32:38 | 新增真实 Workspace 正例说明 parentId 与定位无关；缺失/不透明 parentId 被初版捕获规则错误拒绝 | snapshot-collection-wiqsiA  |
+| 09:36:21 | Snapshot 存在但 manifest 丢失时，Clone 错误成功，隐式重建未知目标状态                        | snapshot-metadata-usH4IJ    |
 
 每个新增行为都遵循先红后绿。之后逐步扩展正常与失败边界：Clone/Pull 各四种实际并发编辑；八种非法 MapInfos；完整目标消费者矩阵；显式 Pull/新 Compile/junction 正例；真实 pending 错目标及原目标恢复；十种 pending 元数据异常、损坏 JSON、缺 manifest、backup/generated 字节损坏和全 generated 收尾。父代理依据 I8 指出 parentId 未用于安全定位；复核后增加正例并观察红灯，随后修共享 parser，只按 ID 验证集合。含非数值/缺失 parentId 的 Map001/Map1001 均经过实际 Decompile、Discovery、类型检查、求值和 Compile，生成两份完整地图且保留外部字节。
 
