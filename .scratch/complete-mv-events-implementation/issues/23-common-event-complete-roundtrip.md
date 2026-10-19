@@ -1,6 +1,6 @@
 # 23: Common Event 完整往返
 
-Status: resolved
+Status: claimed
 Blocked by: 22
 Stage: S5
 Created: 2026-10-19

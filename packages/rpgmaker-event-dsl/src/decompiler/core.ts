@@ -170,6 +170,18 @@ export function readMapEventPages(value: unknown, identity?: string): SnapshotMa
 }
 
 export function readCommonEvents(value: readonly unknown[]): SnapshotCommonEvent[] {
+  if (value.length === 0 || value[0] !== null)
+    throw new CommandStructureError(
+      "MV-COMMON-EVENT",
+      "Common Event data requires a reserved null first slot.",
+      {
+        nativePath: "CommonEvents[0]",
+        expected: "present null reserved slot",
+        actual: describeValue(value[0]),
+      },
+      "commonEvents",
+      "decompile",
+    );
   return value.flatMap((entry, index) => {
     if (entry === null) return [];
     const fail = (field: string, expected: string, actual: unknown): never => {
@@ -194,7 +206,10 @@ export function readCommonEvents(value: readonly unknown[]): SnapshotCommonEvent
     if (index === 0 || record.id !== index)
       fail("id", "positive ID matching the array position", record.id);
     if (typeof record.name !== "string") fail("name", "present string", record.name);
-    if (record.trigger !== 0 && record.trigger !== 1 && record.trigger !== 2)
+    if (
+      Object.is(record.trigger, -0) ||
+      (record.trigger !== 0 && record.trigger !== 1 && record.trigger !== 2)
+    )
       fail("trigger", "0, 1 or 2", record.trigger);
     if (!Number.isSafeInteger(record.switchId) || (record.switchId as number) <= 0)
       fail("switchId", "positive safe integer", record.switchId);

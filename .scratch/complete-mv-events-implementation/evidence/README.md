@@ -438,3 +438,6 @@ Ticket24 adds [complete Map Event pages and exact saved state](24-map-event-full
 | MV-S5-COMMON-R1-AUTORUN | Lowest active Common Autorun ID selection runtime pair | game-observation | Actual built Workspace and two fresh normal Scene native processes |
 
 | MV-S5-COMMON-R4-CONTEXT | Same Common formal current-event and self-switch behavior from Map and Battle | game-observation | Actual built Workspace and two fresh normal Scene native processes |
+
+| MV-S5-COMMON-CARRIER-BOUNDARY | Reject missing or nonnull Common reserved slot0 and preserve ordinary null-only carrier | synthetic-rejection | Actual public Workspace native carrier boundary |
+| MV-S5-COMMON-TRIGGER-BOUNDARY | Reject categorical Common trigger negative zero with exact diagnostic and unchanged complete business state | synthetic-rejection | Actual public Workspace native carrier boundary |

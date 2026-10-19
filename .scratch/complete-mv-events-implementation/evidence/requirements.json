@@ -13052,6 +13052,106 @@
       },
       "slice": "23 / S5",
       "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-CARRIER-BOUNDARY",
+      "title": "Reject missing or nonnull Common reserved slot0 and preserve ordinary null-only carrier",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent literal raw CommonEvents JSON through actual public Workspace Clone/Decompile and failure state comparison",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/common-native-boundaries.test.ts",
+        "sha256": "753086580887ae763c959668b376897171e9d22231cea8f7ca25eb9d61255db7"
+      },
+      "expected": "Reject missing or nonnull Common reserved slot0 and preserve ordinary null-only carrier",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/common-native-boundaries.test.ts",
+        "name": "$requirementId: rejects $label before source publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "23 / S5",
+      "required": true
+    },
+    {
+      "id": "MV-S5-COMMON-TRIGGER-BOUNDARY",
+      "title": "Reject categorical Common trigger negative zero with exact diagnostic and unchanged complete business state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/23-common-event-complete-roundtrip.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I3 — 事件容器、身份与所有权"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E117 — Common Event"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent literal raw CommonEvents JSON through actual public Workspace Clone/Decompile and failure state comparison",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/common-native-boundaries.test.ts",
+        "sha256": "753086580887ae763c959668b376897171e9d22231cea8f7ca25eb9d61255db7"
+      },
+      "expected": "Reject categorical Common trigger negative zero with exact diagnostic and unchanged complete business state",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/common-native-boundaries.test.ts",
+        "name": "$requirementId: rejects $label before source publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API/CLI, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "23 / S5",
+      "required": true
     }
   ]
 }

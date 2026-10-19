@@ -1,6 +1,6 @@
 # 23 — Common Event 完整往返
 
-本票范围已完成：完整 Common Event / E117 的公开产品路径、E1 当前产品比较、四组 R1/R4 实际配对及 Windows / Node22 全量与 built 验证均通过。以下保留历史 red/green 与当前交付的明确区分；最终49–55仍由其各票承担。
+此前59d274e的READY被独立审查拒绝合并：实际公开产品仍接受CommonEvents空数组并补null，以及将trigger -0重写为0。票已重开，正在按真实反例补拒绝边界与完整复验。以下保留此前实际通过的场景和原始失败，不把它们误称完整验收。
 
 ## 产品与独立预期
 
@@ -92,3 +92,9 @@ MV-S5-COMMON-E1追加当前交付结果：2026-10-19T16:12:50Z再次只读验证
 复现先使用上述Node22.23.0置于PATH，运行pnpm check、pnpm build及完整built baseline。再执行23-history中四个delivery scenario，显式传入 `--repo=<references所在根> --packageRoot=<本候选实际新构建package> --seedRoot=<MV1.6.1 NewData> --host=<NW.js game.exe> --outputRoot=<新的外部父目录>`，每次创建新UUID目录，保留fresh profile。不得覆盖旧run或直接复制generated到Game来替代Push。公开README、package README、示例和Event Authoring Skill的当前Common/E117 API已同步，无旧位置参数别名。
 
 最终验收索引为272行，Common本票21行；Common标准结果将在本次E1追加后达到805份，旧结果保留其原状态。实际执行构建另完整保存在 `C:/Users/Shuen/.codex/tmp/mv23-executed-build-preserved-031c8c33-43e8-4295-99b4-c2afadf4056f`，97个source与15个dist均与四组原生捕获逐文件相同，provenance见23-history/mv23-executed-build-preservation-v1.json。
+
+## 独立审查退回后的边界修复
+
+MV-S5-COMMON-CARRIER-BOUNDARY 与 MV-S5-COMMON-TRIGGER-BOUNDARY 使用新的独立字面量测试文件，不修改之前272个requirement对象或原有fixture。原READY提交59d274e和四组native记录保持不变；此前97源码/15产物外部freeze已逐文件核验。三份merger原始结果和reproducer按原字节追加保存，普通[null]控制仍应no-op。修复和全量重新交付尚待完成。
+
+诊断已在source公开Workspace形成red3/1control、green7/7（含索引3项）：readCommonEvents在遍历前校验必有null槽0，trigger -0按Object.is局部拒绝，describeValue准确保留actual -0；没有改变通用JSON的负零表达。每个拒绝重复两次，对源码/完整Game/Workspace/Snapshot/manifest/config/Discovery比较不变。新的普通[null]经Decompile→Check→Compile→Diff→Push字节no-op。实际主integration233db54具有251个requirement；e199e95是23自行合入25后的checkpoint，其268包含23先前17行，不能称为主integration既有268。旧audit原字节保留，后续审计分别比较这两个basis和本票59d274e的272行。
