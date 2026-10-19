@@ -1,0 +1,971 @@
+{
+  "purpose": "Read-only reference restoration provenance; no original mutation",
+  "at": "2026-10-19T17:48:34.823Z",
+  "inputs": {
+    "reference": {
+      "path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/NewData/data",
+      "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data",
+      "files": [
+        {
+          "name": "Actors.json",
+          "bytes": 983,
+          "sha256": "782f49f5bb2cb5a02f34f891f513f93783762e3a16091a6fd09d43bdfaead7ed",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:05.320Z",
+          "dev": 233706805,
+          "ino": 1970324838276010,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Actors.json"
+        },
+        {
+          "name": "Animations.json",
+          "bytes": 382278,
+          "sha256": "e3f0e4ba8c72e493eea5fd5db2a714723d9f350bfc78e160ed40742d647b21da",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:05.329Z",
+          "dev": 233706805,
+          "ino": 1970324838276011,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Animations.json"
+        },
+        {
+          "name": "Armors.json",
+          "bytes": 716,
+          "sha256": "7b5cb0e7c19646d4fd0f698c1ba844eee76fa04a92efe68015eb688d36dcc68e",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:05.335Z",
+          "dev": 233706805,
+          "ino": 2251799814986668,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Armors.json"
+        },
+        {
+          "name": "Classes.json",
+          "bytes": 13657,
+          "sha256": "500d7510ef6b2215fa8c2ba69748603cab0d2fe3bfed402dee26b91bd4658d2f",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:05.342Z",
+          "dev": 233706805,
+          "ino": 1970324838276013,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Classes.json"
+        },
+        {
+          "name": "CommonEvents.json",
+          "bytes": 11,
+          "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+          "mtime": "2026-10-19T17:20:46.058Z",
+          "ctime": "2026-10-18T10:27:05.348Z",
+          "dev": 233706805,
+          "ino": 1970324838276014,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\CommonEvents.json"
+        },
+        {
+          "name": "Enemies.json",
+          "bytes": 1864,
+          "sha256": "848b0827d7a1ccb6440592e2965f0b0e110d3a83eb0fef3b41eb32e18cabda4d",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:05.354Z",
+          "dev": 233706805,
+          "ino": 1970324838276015,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Enemies.json"
+        },
+        {
+          "name": "Items.json",
+          "bytes": 1709,
+          "sha256": "b8b3344c8b5d3534707eb1d273c5b152a36ecb8e0dd567c0f1cd0923e49a408d",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:05.361Z",
+          "dev": 233706805,
+          "ino": 2251799814986672,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Items.json"
+        },
+        {
+          "name": "Map001.json",
+          "bytes": 48736,
+          "sha256": "43647aeac010c4300d9e293a57bb76e7c8fd4979fb93c951208ca1b676b18b52",
+          "mtime": "2026-10-19T17:20:48.463Z",
+          "ctime": "2026-10-19T17:20:48.463Z",
+          "dev": 233706805,
+          "ino": 4222124651987811,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Map001.json"
+        },
+        {
+          "name": "MapInfos.json",
+          "bytes": 107,
+          "sha256": "d1f6336147136c2fc68e55b60d6d1a356e8170e4d0a0c4471d12e45264f16536",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:05.370Z",
+          "dev": 233706805,
+          "ino": 1970324838276018,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\MapInfos.json"
+        },
+        {
+          "name": "Skills.json",
+          "bytes": 4319,
+          "sha256": "b6c7d7dee520581a2a1b62ae06f75764d52620943531244b467fbed17bf0f36a",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:05.377Z",
+          "dev": 233706805,
+          "ino": 1688849861565363,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Skills.json"
+        },
+        {
+          "name": "States.json",
+          "bytes": 4510,
+          "sha256": "25344e6d723dbaf1f5476aba83117be6e5e1d65ae9fcecd4aec53d63c01ee579",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:05.384Z",
+          "dev": 233706805,
+          "ino": 1970324838276020,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\States.json"
+        },
+        {
+          "name": "System.json",
+          "bytes": 9310,
+          "sha256": "c5a95c39aa1f5ecad4f4a30100da6922edf62f84351c0fa08ef91af1d64aca74",
+          "mtime": "2026-10-19T17:20:46.059Z",
+          "ctime": "2026-10-18T10:27:05.391Z",
+          "dev": 233706805,
+          "ino": 2251799814986677,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\System.json"
+        },
+        {
+          "name": "Tilesets.json",
+          "bytes": 246726,
+          "sha256": "06df3bf126c9e4e304646ad03ae72ce495aa7f4654b2ca198a215a08554ad554",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:05.404Z",
+          "dev": 233706805,
+          "ino": 1970324838276022,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Tilesets.json"
+        },
+        {
+          "name": "Troops.json",
+          "bytes": 3048,
+          "sha256": "446aa046e637de0712741d51ff2c038fb6e665c000c1e8e41e268333814cb4ee",
+          "mtime": "2026-10-19T17:20:46.060Z",
+          "ctime": "2026-10-18T10:27:05.410Z",
+          "dev": 233706805,
+          "ino": 1970324838276023,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Troops.json"
+        },
+        {
+          "name": "Weapons.json",
+          "bytes": 908,
+          "sha256": "6e301f0a754c00473595e09ef5274f5ad1cabe188d1bb082fa9c80682c9d4b4f",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:05.416Z",
+          "dev": 233706805,
+          "ino": 1970324838276024,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\data\\Weapons.json"
+        }
+      ],
+      "fingerprint": "74cbbb231e193c1bcd8f531e6b519981d826215b144e7e1b5edc86ba7337e7dc"
+    },
+    "smoke": {
+      "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\data",
+      "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\data",
+      "files": [
+        {
+          "name": "Actors.json",
+          "bytes": 983,
+          "sha256": "782f49f5bb2cb5a02f34f891f513f93783762e3a16091a6fd09d43bdfaead7ed",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:13:03.797Z",
+          "dev": 233706315,
+          "ino": 2814749769233400,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\data\\Actors.json"
+        },
+        {
+          "name": "Animations.json",
+          "bytes": 382278,
+          "sha256": "e3f0e4ba8c72e493eea5fd5db2a714723d9f350bfc78e160ed40742d647b21da",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:13:03.806Z",
+          "dev": 233706315,
+          "ino": 2814749769233401,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\data\\Animations.json"
+        },
+        {
+          "name": "Armors.json",
+          "bytes": 716,
+          "sha256": "7b5cb0e7c19646d4fd0f698c1ba844eee76fa04a92efe68015eb688d36dcc68e",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:13:03.812Z",
+          "dev": 233706315,
+          "ino": 2814749769233402,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\data\\Armors.json"
+        },
+        {
+          "name": "Classes.json",
+          "bytes": 13657,
+          "sha256": "500d7510ef6b2215fa8c2ba69748603cab0d2fe3bfed402dee26b91bd4658d2f",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:13:03.819Z",
+          "dev": 233706315,
+          "ino": 2814749769233403,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\data\\Classes.json"
+        },
+        {
+          "name": "CommonEvents.json",
+          "bytes": 382,
+          "sha256": "0d5cb077d7a0c52baf70ff3a2941e62eb449357aa45b0ad546599e4e1800fada",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:13:03.820Z",
+          "dev": 233706315,
+          "ino": 2814749769233405,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\data\\CommonEvents.json"
+        },
+        {
+          "name": "Enemies.json",
+          "bytes": 1864,
+          "sha256": "848b0827d7a1ccb6440592e2965f0b0e110d3a83eb0fef3b41eb32e18cabda4d",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:13:03.826Z",
+          "dev": 233706315,
+          "ino": 2814749769233406,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\data\\Enemies.json"
+        },
+        {
+          "name": "Items.json",
+          "bytes": 1709,
+          "sha256": "b8b3344c8b5d3534707eb1d273c5b152a36ecb8e0dd567c0f1cd0923e49a408d",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:13:03.833Z",
+          "dev": 233706315,
+          "ino": 2814749769233407,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\data\\Items.json"
+        },
+        {
+          "name": "Map001.json",
+          "bytes": 3820,
+          "sha256": "662c508f367f38f393c34f13eb192a872e5f32f609d2e8500d7bfd601e391b1b",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:13:03.834Z",
+          "dev": 233706315,
+          "ino": 2814749769233408,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\data\\Map001.json"
+        },
+        {
+          "name": "MapInfos.json",
+          "bytes": 107,
+          "sha256": "d1f6336147136c2fc68e55b60d6d1a356e8170e4d0a0c4471d12e45264f16536",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:13:03.839Z",
+          "dev": 233706315,
+          "ino": 2814749769233409,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\data\\MapInfos.json"
+        },
+        {
+          "name": "Skills.json",
+          "bytes": 4319,
+          "sha256": "b6c7d7dee520581a2a1b62ae06f75764d52620943531244b467fbed17bf0f36a",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:13:03.845Z",
+          "dev": 233706315,
+          "ino": 2814749769233410,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\data\\Skills.json"
+        },
+        {
+          "name": "States.json",
+          "bytes": 4510,
+          "sha256": "25344e6d723dbaf1f5476aba83117be6e5e1d65ae9fcecd4aec53d63c01ee579",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:13:03.851Z",
+          "dev": 233706315,
+          "ino": 2814749769233411,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\data\\States.json"
+        },
+        {
+          "name": "System.json",
+          "bytes": 5793,
+          "sha256": "e9e419ac5cadc32bfd145c752966bf29baee1a00d34a97bb252c32876cfac6de",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:13:03.857Z",
+          "dev": 233706315,
+          "ino": 2814749769233412,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\data\\System.json"
+        },
+        {
+          "name": "Tilesets.json",
+          "bytes": 246726,
+          "sha256": "06df3bf126c9e4e304646ad03ae72ce495aa7f4654b2ca198a215a08554ad554",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:13:03.870Z",
+          "dev": 233706315,
+          "ino": 2814749769233413,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\data\\Tilesets.json"
+        },
+        {
+          "name": "Troops.json",
+          "bytes": 1491,
+          "sha256": "bc648267369814f36ba814f736255f54ccdd4fb98557f6889f67cce9c116be23",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:13:03.872Z",
+          "dev": 233706315,
+          "ino": 2814749769233414,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\data\\Troops.json"
+        },
+        {
+          "name": "Weapons.json",
+          "bytes": 908,
+          "sha256": "6e301f0a754c00473595e09ef5274f5ad1cabe188d1bb082fa9c80682c9d4b4f",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:13:03.878Z",
+          "dev": 233706315,
+          "ino": 2814749769233415,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\data\\Weapons.json"
+        }
+      ],
+      "fingerprint": "8fbdc9f072cc08cce427b072d12d48674f7f7d7a78c23bcb22220df22df56d04"
+    },
+    "control": {
+      "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-control-20261019-01\\data",
+      "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-control-20261019-01\\data",
+      "files": [
+        {
+          "name": "Actors.json",
+          "bytes": 983,
+          "sha256": "782f49f5bb2cb5a02f34f891f513f93783762e3a16091a6fd09d43bdfaead7ed",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:19:22.117Z",
+          "dev": 233706315,
+          "ino": 25332747905577630,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-control-20261019-01\\data\\Actors.json"
+        },
+        {
+          "name": "Animations.json",
+          "bytes": 382278,
+          "sha256": "e3f0e4ba8c72e493eea5fd5db2a714723d9f350bfc78e160ed40742d647b21da",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:19:22.119Z",
+          "dev": 233706315,
+          "ino": 5629499536103788,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-control-20261019-01\\data\\Animations.json"
+        },
+        {
+          "name": "Armors.json",
+          "bytes": 716,
+          "sha256": "7b5cb0e7c19646d4fd0f698c1ba844eee76fa04a92efe68015eb688d36dcc68e",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:19:22.120Z",
+          "dev": 233706315,
+          "ino": 5348024559393133,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-control-20261019-01\\data\\Armors.json"
+        },
+        {
+          "name": "Classes.json",
+          "bytes": 13657,
+          "sha256": "500d7510ef6b2215fa8c2ba69748603cab0d2fe3bfed402dee26b91bd4658d2f",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:19:22.120Z",
+          "dev": 233706315,
+          "ino": 7881299350005192,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-control-20261019-01\\data\\Classes.json"
+        },
+        {
+          "name": "CommonEvents.json",
+          "bytes": 382,
+          "sha256": "0d5cb077d7a0c52baf70ff3a2941e62eb449357aa45b0ad546599e4e1800fada",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:19:22.121Z",
+          "dev": 233706315,
+          "ino": 7318349396583899,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-control-20261019-01\\data\\CommonEvents.json"
+        },
+        {
+          "name": "Enemies.json",
+          "bytes": 1864,
+          "sha256": "848b0827d7a1ccb6440592e2965f0b0e110d3a83eb0fef3b41eb32e18cabda4d",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:19:22.122Z",
+          "dev": 233706315,
+          "ino": 6755399443162798,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-control-20261019-01\\data\\Enemies.json"
+        },
+        {
+          "name": "Items.json",
+          "bytes": 1709,
+          "sha256": "b8b3344c8b5d3534707eb1d273c5b152a36ecb8e0dd567c0f1cd0923e49a408d",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:19:22.122Z",
+          "dev": 233706315,
+          "ino": 5066549582898869,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-control-20261019-01\\data\\Items.json"
+        },
+        {
+          "name": "Map001.json",
+          "bytes": 4612,
+          "sha256": "e2c6bab0f36dd7a7e4b904da7497189e0a09eebac3bfbc7f380a3659e83df196",
+          "mtime": "2026-10-19T07:19:22.240Z",
+          "ctime": "2026-10-19T07:19:22.123Z",
+          "dev": 233706315,
+          "ino": 5910974513030838,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-control-20261019-01\\data\\Map001.json"
+        },
+        {
+          "name": "MapInfos.json",
+          "bytes": 107,
+          "sha256": "d1f6336147136c2fc68e55b60d6d1a356e8170e4d0a0c4471d12e45264f16536",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:19:22.124Z",
+          "dev": 233706315,
+          "ino": 5910974513031003,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-control-20261019-01\\data\\MapInfos.json"
+        },
+        {
+          "name": "Skills.json",
+          "bytes": 4319,
+          "sha256": "b6c7d7dee520581a2a1b62ae06f75764d52620943531244b467fbed17bf0f36a",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:19:22.124Z",
+          "dev": 233706315,
+          "ino": 5910974513031011,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-control-20261019-01\\data\\Skills.json"
+        },
+        {
+          "name": "States.json",
+          "bytes": 4510,
+          "sha256": "25344e6d723dbaf1f5476aba83117be6e5e1d65ae9fcecd4aec53d63c01ee579",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:19:22.125Z",
+          "dev": 233706315,
+          "ino": 6755399443162982,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-control-20261019-01\\data\\States.json"
+        },
+        {
+          "name": "System.json",
+          "bytes": 5793,
+          "sha256": "e9e419ac5cadc32bfd145c752966bf29baee1a00d34a97bb252c32876cfac6de",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:19:22.126Z",
+          "dev": 233706315,
+          "ino": 5629499536320456,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-control-20261019-01\\data\\System.json"
+        },
+        {
+          "name": "Tilesets.json",
+          "bytes": 246726,
+          "sha256": "06df3bf126c9e4e304646ad03ae72ce495aa7f4654b2ca198a215a08554ad554",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:19:22.199Z",
+          "dev": 233706315,
+          "ino": 5629499536320457,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-control-20261019-01\\data\\Tilesets.json"
+        },
+        {
+          "name": "Troops.json",
+          "bytes": 1491,
+          "sha256": "bc648267369814f36ba814f736255f54ccdd4fb98557f6889f67cce9c116be23",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:19:22.200Z",
+          "dev": 233706315,
+          "ino": 4222124652769865,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-control-20261019-01\\data\\Troops.json"
+        },
+        {
+          "name": "Weapons.json",
+          "bytes": 908,
+          "sha256": "6e301f0a754c00473595e09ef5274f5ad1cabe188d1bb082fa9c80682c9d4b4f",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:19:22.201Z",
+          "dev": 233706315,
+          "ino": 3096224745943271,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-control-20261019-01\\data\\Weapons.json"
+        }
+      ],
+      "fingerprint": "f364688ebd3481bc4436becbc3ae561b10d93a2570ff2945eb3e5f70080f6607"
+    },
+    "loop": {
+      "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-loop-native-control-20261019-01\\data",
+      "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-loop-native-control-20261019-01\\data",
+      "files": [
+        {
+          "name": "Actors.json",
+          "bytes": 983,
+          "sha256": "782f49f5bb2cb5a02f34f891f513f93783762e3a16091a6fd09d43bdfaead7ed",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:32:22.032Z",
+          "dev": 233706315,
+          "ino": 9007199255981266,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-loop-native-control-20261019-01\\data\\Actors.json"
+        },
+        {
+          "name": "Animations.json",
+          "bytes": 382278,
+          "sha256": "e3f0e4ba8c72e493eea5fd5db2a714723d9f350bfc78e160ed40742d647b21da",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:32:22.033Z",
+          "dev": 233706315,
+          "ino": 5629499535454520,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-loop-native-control-20261019-01\\data\\Animations.json"
+        },
+        {
+          "name": "Armors.json",
+          "bytes": 716,
+          "sha256": "7b5cb0e7c19646d4fd0f698c1ba844eee76fa04a92efe68015eb688d36dcc68e",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:32:22.033Z",
+          "dev": 233706315,
+          "ino": 1970324839139613,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-loop-native-control-20261019-01\\data\\Armors.json"
+        },
+        {
+          "name": "Classes.json",
+          "bytes": 13657,
+          "sha256": "500d7510ef6b2215fa8c2ba69748603cab0d2fe3bfed402dee26b91bd4658d2f",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:32:22.034Z",
+          "dev": 233706315,
+          "ino": 1970324839139653,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-loop-native-control-20261019-01\\data\\Classes.json"
+        },
+        {
+          "name": "CommonEvents.json",
+          "bytes": 382,
+          "sha256": "0d5cb077d7a0c52baf70ff3a2941e62eb449357aa45b0ad546599e4e1800fada",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:32:22.034Z",
+          "dev": 233706315,
+          "ino": 2814749769271861,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-loop-native-control-20261019-01\\data\\CommonEvents.json"
+        },
+        {
+          "name": "Enemies.json",
+          "bytes": 1864,
+          "sha256": "848b0827d7a1ccb6440592e2965f0b0e110d3a83eb0fef3b41eb32e18cabda4d",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:32:22.034Z",
+          "dev": 233706315,
+          "ino": 1125899909071374,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-loop-native-control-20261019-01\\data\\Enemies.json"
+        },
+        {
+          "name": "Items.json",
+          "bytes": 1709,
+          "sha256": "b8b3344c8b5d3534707eb1d273c5b152a36ecb8e0dd567c0f1cd0923e49a408d",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:32:22.034Z",
+          "dev": 233706315,
+          "ino": 1407374885782033,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-loop-native-control-20261019-01\\data\\Items.json"
+        },
+        {
+          "name": "Map001.json",
+          "bytes": 6839,
+          "sha256": "02e276414793341bfdee13a07c05d590f95d33b167b0f761580a74f2adfd477e",
+          "mtime": "2026-10-19T07:32:22.109Z",
+          "ctime": "2026-10-19T07:32:22.035Z",
+          "dev": 233706315,
+          "ino": 844424932360723,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-loop-native-control-20261019-01\\data\\Map001.json"
+        },
+        {
+          "name": "MapInfos.json",
+          "bytes": 107,
+          "sha256": "d1f6336147136c2fc68e55b60d6d1a356e8170e4d0a0c4471d12e45264f16536",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:32:22.035Z",
+          "dev": 233706315,
+          "ino": 844424932360728,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-loop-native-control-20261019-01\\data\\MapInfos.json"
+        },
+        {
+          "name": "Skills.json",
+          "bytes": 4319,
+          "sha256": "b6c7d7dee520581a2a1b62ae06f75764d52620943531244b467fbed17bf0f36a",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:32:22.035Z",
+          "dev": 233706315,
+          "ino": 844424932360730,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-loop-native-control-20261019-01\\data\\Skills.json"
+        },
+        {
+          "name": "States.json",
+          "bytes": 4510,
+          "sha256": "25344e6d723dbaf1f5476aba83117be6e5e1d65ae9fcecd4aec53d63c01ee579",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:32:22.035Z",
+          "dev": 233706315,
+          "ino": 844424932360735,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-loop-native-control-20261019-01\\data\\States.json"
+        },
+        {
+          "name": "System.json",
+          "bytes": 5793,
+          "sha256": "e9e419ac5cadc32bfd145c752966bf29baee1a00d34a97bb252c32876cfac6de",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:32:22.036Z",
+          "dev": 233706315,
+          "ino": 844424932360736,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-loop-native-control-20261019-01\\data\\System.json"
+        },
+        {
+          "name": "Tilesets.json",
+          "bytes": 246726,
+          "sha256": "06df3bf126c9e4e304646ad03ae72ce495aa7f4654b2ca198a215a08554ad554",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:32:22.036Z",
+          "dev": 233706315,
+          "ino": 844424932360737,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-loop-native-control-20261019-01\\data\\Tilesets.json"
+        },
+        {
+          "name": "Troops.json",
+          "bytes": 1491,
+          "sha256": "bc648267369814f36ba814f736255f54ccdd4fb98557f6889f67cce9c116be23",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:32:22.036Z",
+          "dev": 233706315,
+          "ino": 844424932360738,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-loop-native-control-20261019-01\\data\\Troops.json"
+        },
+        {
+          "name": "Weapons.json",
+          "bytes": 908,
+          "sha256": "6e301f0a754c00473595e09ef5274f5ad1cabe188d1bb082fa9c80682c9d4b4f",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-19T07:32:22.036Z",
+          "dev": 233706315,
+          "ino": 844424932360739,
+          "nlink": 1,
+          "realpath": "C:\\Users\\Shuen\\.codex\\tmp\\mv-loop-native-control-20261019-01\\data\\Weapons.json"
+        }
+      ],
+      "fingerprint": "4a3944cf4e7b8ba697c2924a0aef1049de00f53c7d6a49b40c04cad0346a8060"
+    },
+    "fantasyEN": {
+      "path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/NewData_FantasyEN/data",
+      "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData_FantasyEN\\data",
+      "files": [
+        {
+          "name": "Actors.json",
+          "bytes": 1962,
+          "sha256": "ad0276572439aa9931d8dca7b6d6a7c4edec3d544ab225f9150f7483f42ca8da",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:07.233Z",
+          "dev": 233706805,
+          "ino": 1688849861570460,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData_FantasyEN\\data\\Actors.json"
+        },
+        {
+          "name": "Armors.json",
+          "bytes": 23960,
+          "sha256": "f67c255e40f473fea326a17383f539232040189b41352c875bac8d57bd08eaec",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:07.240Z",
+          "dev": 233706805,
+          "ino": 1688849861570461,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData_FantasyEN\\data\\Armors.json"
+        },
+        {
+          "name": "Classes.json",
+          "bytes": 30585,
+          "sha256": "2160c54ed1c4dfc3dfc583a794529d885126b0e05343f3af1039a48d3cf93b12",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:07.247Z",
+          "dev": 233706805,
+          "ino": 1688849861570462,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData_FantasyEN\\data\\Classes.json"
+        },
+        {
+          "name": "Enemies.json",
+          "bytes": 11267,
+          "sha256": "b755ac5883402390ed71d47d61a08c92dc4a2044e2ac0e7c8c1c20642ccab99d",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:07.254Z",
+          "dev": 233706805,
+          "ino": 1688849861570463,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData_FantasyEN\\data\\Enemies.json"
+        },
+        {
+          "name": "Items.json",
+          "bytes": 12959,
+          "sha256": "22e4c104779e6036a5e9028140efd7207c886a4b518054bc7c4065615943994c",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:07.261Z",
+          "dev": 233706805,
+          "ino": 1688849861570464,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData_FantasyEN\\data\\Items.json"
+        },
+        {
+          "name": "Skills.json",
+          "bytes": 101295,
+          "sha256": "b56f33f29214c247f4e6ebc5239ead6d69488511c9dae209a40e967eb49086e8",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:07.268Z",
+          "dev": 233706805,
+          "ino": 1688849861570465,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData_FantasyEN\\data\\Skills.json"
+        },
+        {
+          "name": "States.json",
+          "bytes": 13495,
+          "sha256": "e787e44dcb7752b2282d24c1dc24667965b56593d6026b31ecfb9e2f768d4d1b",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:07.275Z",
+          "dev": 233706805,
+          "ino": 1688849861570466,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData_FantasyEN\\data\\States.json"
+        },
+        {
+          "name": "Troops.json",
+          "bytes": 7674,
+          "sha256": "3ee042d97dff951f4cdf3a8d68408108e3f22acf2af203592cf4d1097f5979b8",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:07.282Z",
+          "dev": 233706805,
+          "ino": 1688849861570467,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData_FantasyEN\\data\\Troops.json"
+        },
+        {
+          "name": "Weapons.json",
+          "bytes": 13856,
+          "sha256": "de5d77bd823b06e98950e51335b4b6ad71c424d37c45cd653cb7c36803a485e4",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:07.289Z",
+          "dev": 233706805,
+          "ino": 1688849861570468,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData_FantasyEN\\data\\Weapons.json"
+        }
+      ],
+      "fingerprint": "23f968d95ed6764a659e4beb086b850968fffdd624ec800b1872170509afeda1"
+    },
+    "fantasyJP": {
+      "path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/NewData_FantasyJP/data",
+      "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData_FantasyJP\\data",
+      "files": [
+        {
+          "name": "Actors.json",
+          "bytes": 2007,
+          "sha256": "52ae5aa4efd8fd8dbf506d5df6beff2447ea8aa9bb84e0bfb664f4b5f75fbd5d",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:07.300Z",
+          "dev": 233706805,
+          "ino": 1688849861570471,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData_FantasyJP\\data\\Actors.json"
+        },
+        {
+          "name": "Armors.json",
+          "bytes": 24901,
+          "sha256": "1310d38da2aac0020164c22b671e0d92942686afbdec9f3b276bce865fe4eb1b",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:07.306Z",
+          "dev": 233706805,
+          "ino": 1688849861570472,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData_FantasyJP\\data\\Armors.json"
+        },
+        {
+          "name": "Classes.json",
+          "bytes": 30578,
+          "sha256": "e3f25bd98056843d9e4eccba42a0825088b7185c8d91dfdca3ccc8aeac7ad6ea",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:07.314Z",
+          "dev": 233706805,
+          "ino": 1688849861570473,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData_FantasyJP\\data\\Classes.json"
+        },
+        {
+          "name": "Enemies.json",
+          "bytes": 11343,
+          "sha256": "52338406201486abe52467e5474d25f6941fd5e15daffff57997e371f2fb5d5b",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:07.321Z",
+          "dev": 233706805,
+          "ino": 1688849861570474,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData_FantasyJP\\data\\Enemies.json"
+        },
+        {
+          "name": "Items.json",
+          "bytes": 11861,
+          "sha256": "d5abafeacc2b0a0d83a20d3653cc485e3e235f503950aa263ae501da683292ef",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:07.329Z",
+          "dev": 233706805,
+          "ino": 1688849861570475,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData_FantasyJP\\data\\Items.json"
+        },
+        {
+          "name": "Skills.json",
+          "bytes": 105221,
+          "sha256": "baad5a1dbf6da76ebe39d406072a5780c3ec70a86ecd3dc98fe1e0e001b969f5",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:07.335Z",
+          "dev": 233706805,
+          "ino": 1688849861570476,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData_FantasyJP\\data\\Skills.json"
+        },
+        {
+          "name": "States.json",
+          "bytes": 13775,
+          "sha256": "781feec6620a4cd7819c235c02883f1db38cfd99201ee83defe9f409cd1dc953",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:07.342Z",
+          "dev": 233706805,
+          "ino": 1688849861570477,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData_FantasyJP\\data\\States.json"
+        },
+        {
+          "name": "Troops.json",
+          "bytes": 7730,
+          "sha256": "2b4cadc5c684451d026669958beb7d4831857d6e6fbea30db529a4382b4e292d",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:07.348Z",
+          "dev": 233706805,
+          "ino": 1688849861570478,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData_FantasyJP\\data\\Troops.json"
+        },
+        {
+          "name": "Weapons.json",
+          "bytes": 14409,
+          "sha256": "e9b7e676e4d639ac8f6e817a87445cb52c0ff2f7ab1dd43071e6a3ebef8eb7e3",
+          "mtime": "2018-06-19T16:00:00.000Z",
+          "ctime": "2026-10-18T10:27:07.355Z",
+          "dev": 233706805,
+          "ino": 1688849861570479,
+          "nlink": 1,
+          "realpath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData_FantasyJP\\data\\Weapons.json"
+        }
+      ],
+      "fingerprint": "74dfe40e66a08bfa5208496b2f5b624fa3c4757fc6886f799a5ac473d06e663f"
+    }
+  },
+  "smokeOriginalRecords": {
+    "observer.js": {
+      "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\observer.js",
+      "sha256": "d4dbd94413048e0c71a051780d243d467d55a0a03e6302d7b349e256a8a94211"
+    },
+    "runtime-smoke.json": {
+      "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\runtime-smoke.json",
+      "sha256": "0bd3624d6255fc27698b59f261ae767cc8bfdb4e10cfb987608f24ecd11c5c0e"
+    },
+    "index.html": {
+      "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\index.html",
+      "sha256": "e85a62fe36d4e7fb07a6221538e808599807920e1f7328b99bebe7e443b1ec8d"
+    },
+    "js/plugins.js": {
+      "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-game-smoke-20261019-01\\js\\plugins.js",
+      "sha256": "90526001c51728c5b3871f8c43d7ae820d9455cd16aebe16508decfd05b67d1d"
+    }
+  },
+  "differences": [
+    {
+      "name": "CommonEvents.json",
+      "reference": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+      "smoke": "0d5cb077d7a0c52baf70ff3a2941e62eb449357aa45b0ad546599e4e1800fada",
+      "corroboration": {
+        "control": "0d5cb077d7a0c52baf70ff3a2941e62eb449357aa45b0ad546599e4e1800fada",
+        "loop": "0d5cb077d7a0c52baf70ff3a2941e62eb449357aa45b0ad546599e4e1800fada",
+        "fantasyEN": null,
+        "fantasyJP": null
+      }
+    },
+    {
+      "name": "Map001.json",
+      "reference": "43647aeac010c4300d9e293a57bb76e7c8fd4979fb93c951208ca1b676b18b52",
+      "smoke": "662c508f367f38f393c34f13eb192a872e5f32f609d2e8500d7bfd601e391b1b",
+      "corroboration": {
+        "control": "e2c6bab0f36dd7a7e4b904da7497189e0a09eebac3bfbc7f380a3659e83df196",
+        "loop": "02e276414793341bfdee13a07c05d590f95d33b167b0f761580a74f2adfd477e",
+        "fantasyEN": null,
+        "fantasyJP": null
+      }
+    },
+    {
+      "name": "System.json",
+      "reference": "c5a95c39aa1f5ecad4f4a30100da6922edf62f84351c0fa08ef91af1d64aca74",
+      "smoke": "e9e419ac5cadc32bfd145c752966bf29baee1a00d34a97bb252c32876cfac6de",
+      "corroboration": {
+        "control": "e9e419ac5cadc32bfd145c752966bf29baee1a00d34a97bb252c32876cfac6de",
+        "loop": "e9e419ac5cadc32bfd145c752966bf29baee1a00d34a97bb252c32876cfac6de",
+        "fantasyEN": null,
+        "fantasyJP": null
+      }
+    },
+    {
+      "name": "Troops.json",
+      "reference": "446aa046e637de0712741d51ff2c038fb6e665c000c1e8e41e268333814cb4ee",
+      "smoke": "bc648267369814f36ba814f736255f54ccdd4fb98557f6889f67cce9c116be23",
+      "corroboration": {
+        "control": "bc648267369814f36ba814f736255f54ccdd4fb98557f6889f67cce9c116be23",
+        "loop": "bc648267369814f36ba814f736255f54ccdd4fb98557f6889f67cce9c116be23",
+        "fantasyEN": "3ee042d97dff951f4cdf3a8d68408108e3f22acf2af203592cf4d1097f5979b8",
+        "fantasyJP": "2b4cadc5c684451d026669958beb7d4831857d6e6fbea30db529a4382b4e292d"
+      }
+    }
+  ],
+  "provenance": "Retained 2026-10-19 07:13 UTC copied NewData title smoke, original observer only writes result outside data and original hash matches baseline; all15 source copy mtime2018. Independent early control/loop copies corroborate unchanged database fields. Fantasy comparison is supplementary, not an assumption of variant equality."
+}

@@ -113,3 +113,35 @@ schema records plus six separately identified review derivatives, with originals
 fixture-format provenance, red/failed runs and archive-tool corrections preserved.
 All12 allocated requirements have passed records. Final index and archive lint
 pass. Only ticket33 closes here; final49–55 and integration review remain separate.
+
+## Native isolation repair — 2026-10-20
+
+The old READY588f586 native acceptance in the historical Answer above was rejected:
+seed/data and both native sides were junctions to reference NewData/data. Those
+old R1-v2/R6/R7-v3 observations do not establish independent pair acceptance. The
+old reports, results, tools, sandboxes and286 requirements remain unchanged, with
+four new `retest-required` records explicitly superseding the old native claims.
+Root preserved the incident and restored four changed reference carriers from a
+verified pre-experiment copy before releasing the native gate.
+
+Fresh physical R1-v4 and R6/R7-v5 product pairs now pass both13/13 and both19/19
+original behavior predicates, all strict15 validation flags per side and normal
+Scene scheduling. They retain the independent frozen inputs, public full lifecycle,
+actual owned Push replacement, all15 installed carriers and four mandatory
+generated/loaded carriers. Each records32 disjoint realpath/file-identity/hardlink
+checkpoints; complete1100-file reference and1101-file seed remain byte/identity
+unchanged before and after each run. Four new game-passed records bind those
+actual replacements. Full carriers, engine and audio remain external.
+
+[The repair report](../evidence/33-movement-instructions.md#native-isolation-repair--2026-10-20)
+and [final repair audit](../evidence/33-isolation-repair/final-repair-audit-v1.json)
+verify2909 original evidence blobs unchanged, all175 frozen product/test/config
+inputs unchanged, all286 requirement bytes/order preserved,97source/15dist
+identities unchanged, old raw report hashes unchanged and both new physical pairs.
+The index passes all3 tests with its original10-second deadline; lint passes with
+only the three inherited history warnings. The existing980-test source check,
+15-file build and366-test built baseline remain applicable to the unchanged
+product. No repeat broad/build run or final49–55 completion is claimed.
+
+Ticket33 is resolved with the replacement native evidence. Its new READY remains
+subject to independent merger review; the rejected READY commit is not acceptance.

@@ -1,0 +1,159 @@
+{
+  "ready": "588f586d15a684d64dd828f4e63a54d4ca5bc657",
+  "tree": "b7c8b653e390310ed0f85228d17f9a170b8f9b62",
+  "incoming": "205334338d8e64e3d00e485849c9ddf67bd7e3b1",
+  "executed": "c20c471481fcfa8b4c705f3a082b9613d82d60e8",
+  "requirements": {
+    "incoming": 274,
+    "own": 12,
+    "total": 286,
+    "orderedAndPrefixExact": true
+  },
+  "historyRawExact": 2594,
+  "publicationRawExact": 188,
+  "stagedReceipt186": true,
+  "source97AndDist15Frozen": true,
+  "completeFreezeFiles": 175,
+  "originalArchives": 102,
+  "originalSchemaResults": 58,
+  "reviewDerivatives": [
+    {
+      "id": "MV-S6-MOVEMENT-005",
+      "changedKeys": [
+        "operator",
+        "source"
+      ],
+      "nativeMethod": "not-executed"
+    },
+    {
+      "id": "MV-S6-MOVEMENT-006",
+      "changedKeys": [
+        "operator",
+        "source",
+        "environment"
+      ],
+      "nativeMethod": "game"
+    },
+    {
+      "id": "MV-S6-MOVEMENT-007",
+      "changedKeys": [
+        "operator",
+        "source",
+        "environment"
+      ],
+      "nativeMethod": "game"
+    },
+    {
+      "id": "MV-S6-MOVEMENT-008",
+      "changedKeys": [
+        "operator",
+        "source",
+        "environment"
+      ],
+      "nativeMethod": "reverse-engineering"
+    },
+    {
+      "id": "MV-S6-MOVEMENT-009",
+      "changedKeys": [
+        "operator",
+        "source",
+        "environment"
+      ],
+      "nativeMethod": "game"
+    },
+    {
+      "id": "MV-S6-MOVEMENT-010",
+      "changedKeys": [
+        "operator",
+        "source",
+        "environment"
+      ],
+      "nativeMethod": "game"
+    }
+  ],
+  "preformatFiles": 156,
+  "preformatOriginalResults": 9,
+  "preformatSemanticExactIncludingNegativeZero": true,
+  "coverage": [
+    {
+      "id": "MV-S6-MOVEMENT-001",
+      "total": 4,
+      "passed": 4,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-002",
+      "total": 4,
+      "passed": 4,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-003",
+      "total": 4,
+      "passed": 4,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-004",
+      "total": 8,
+      "passed": 8,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-005",
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-006",
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-007",
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-008",
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-009",
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-010",
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-011",
+      "total": 28,
+      "passed": 28,
+      "failed": 0
+    },
+    {
+      "id": "MV-S6-MOVEMENT-012",
+      "total": 8,
+      "passed": 8,
+      "failed": 0
+    }
+  ],
+  "logs": {
+    "mv33-final-check-original.log": "3ac2d5dbfb0ff6a7dab5a35c750e2541ffb76120b772b95a5db2c58f79907a53",
+    "mv33-final-build-original.log": "9df62af70689be780a26d936be79114538df853950b0343a590b5bc03e7af253",
+    "mv33-final-built-windows-original.log": "3a71956bd153e19b4e419eff81ec068bfa189cb128551771c6398a5169d383d8",
+    "mv33-final-index-original.log": "2bbeca5544badf8632a0a5e12941d45fe6d067871c41bf2e879bf5c67a0d9d0f",
+    "mv33-final-archive-lint-corrected-original.log": "b1f46fb22cbc4bbe9088187570e41ef14d7891afe93e0f5dcc8e5a7a2c7a2527"
+  },
+  "passed": true
+}

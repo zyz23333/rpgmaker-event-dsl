@@ -1,10 +1,13 @@
 # Ticket33 — complete movement instructions
 
-This is the completed allocated ticket33 record. Final49–55 evidence, complete
-integration review and the full support declaration remain separate deliveries.
-The final product includes actual23 integration2053343 and contractmv-1.6.1/9;
-all allocated checks and actual built native pairs pass. Earlier checkpoints and
-original failures below remain historical records with their original identities.
+Independent merger review rejected READY588f586 because its seed/data and both
+native sides were junctions to reference NewData/data. Historical R1-v2 and
+R6/R7-v3 passed records and conclusions below are superseded as independent
+acceptance; their original bytes remain preserved. The appended isolation repair
+records four retest-required classifications and fresh physically independent
+R1-v4/R6/R7-v5 pairs, both passing after root's explicit native gate release.
+Product source/dist and contractmv-1.6.1/9 remain unchanged; prior broad checks
+still apply. Final49–55 and integration review remain separate deliveries.
 
 ## Automated movement matrix
 
@@ -304,3 +307,91 @@ The [append-only supplement](33-history/archive-supplement-v1.json) identifies t
 ten later original audit/index/review/lint tools and failure/success logs. The
 initial main manifest and every captured file retain their recorded bytes; the
 single inert historical-tool filename mapping is explicit in storage provenance.
+
+## Native isolation repair — 2026-10-20
+
+The [independent finding](33-isolation-repair/incident/independent-finding.json)
+rejected the old native acceptance: seed/data was a junction, and the old helper
+preserved it into both sides. Their data equality and recorded Push observations
+could not prove independent inputs; a later run changed the same target. Root
+preserved the old helpers, reports, directories, links and current carrier bytes
+before restoration. The old four passed records006/007/009/010 and all old archive
+bytes remain unchanged. Four new `retest-required` records explicitly reclassify
+them; four later passed records identify their actual replacements. The
+[record provenance](33-isolation-repair/review-record-provenance-v1.json) preserves
+every original recorder output and separately identifies each enriched derivative.
+No requirement object or accepted behavior changed.
+
+Root's [reference provenance](33-isolation-repair/incident/reference-provenance-audit.json)
+and [restoration](33-isolation-repair/incident/reference-restoration-result.json)
+identify the retained pre-experiment title-smoke copy, matching original report
+and observer hashes, original timestamps and independent corroborating copies.
+Four accidentally changed carriers were restored byte-exactly; all15 now match
+the verified original. The complete pre-restoration bytes and first-party project
+carriers remain external. The intermediate private seed prepared before that
+restoration is retained and unused by the new pairs.
+
+Physical seedv3 copies all1100 restored reference files with explicit mkdir and
+readFile/writeFile operations, adding only the identified long-SE control audio.
+The guard rejects aliased realpaths, symlinks/junctions, nonregular files, zero
+file identities, file hardlinks, shared dev/ino identities and nested data roots.
+Seven [synthetic negative/control probes](33-isolation-repair/preparation/negative-guard-probes.json)
+exercise these guards without touching reference data. The first prepare-only
+helper failed because the newly complete copy already contained package.json;
+its original failure is retained. Helperv4 guards replacement of the private
+package/index files and preserves all original strict-v5 checks. Both prepare-only
+runs passed the full public lifecycle and physical proof before root independently
+[audited and released the native gate](33-isolation-repair/incident/root-physical-gate-audit.json).
+
+The fresh actual R1 pair is
+`C:/Users/Shuen/.codex/tmp/mv33-r1-route-waits-delivery-v4-ae8c1388-ee47-42c1-b943-a3c71d226ea4/`.
+Its untouched pair-result.json SHA256 is
+`9a83d2df58c68b21cacabf48c26438c1113561f7a23c4fec66df5e69dd6fdad4`.
+Both sides pass all13 original behavior predicates and every strict validation.
+The fresh R6/R7 pair is
+`C:/Users/Shuen/.codex/tmp/mv33-r6-r7-movement-delivery-v5-6e6ae105-ea4a-4170-810e-406cbfd881c2/`.
+Its untouched raw SHA256 is
+`705aa02d3bd675a32538d834ea86fb0eb6132db8772ea10e1ea68b2b27ee86bd`.
+Both sides pass all19 original predicates, including full M45 strings, this binding,
+None image/index, None SE buffer continuation and measured mixed audio. Each side
+uses normal Scene scheduling, a fresh explicit profile, the exact host/engine,
+complete loaded carriers, unchanged disk inputs, empty native stdout/stderr and
+exit0. Environment remains MV1.6.1/NW.js0.29.0/embedded Node9.7.1. Hardware output
+is muted; no human hearing or editor UI execution is claimed.
+
+Each pair performs public init→Clone→Decompile→formal edit→Check→Compile→Diff→Push,
+proves a real owned Map replacement, compares all15 installed carrier objects and
+exactly four mandatory generated/loaded carriers against the frozen independent
+inputs, and records32 physical checkpoints. Reference and seed remain unchanged
+through every checkpoint; the literal control freezes before compiled-side setup
+and remains unchanged through Compile, Push and both native runs. Separate launch
+records verify every file in the full1100-file reference and full1101-file seed,
+including file identities, before and after each pair. The
+[R1 summary](33-isolation-repair/native/r1-native-safe-summary.json),
+[R6/R7 summary](33-isolation-repair/native/r6-r7-native-safe-summary.json), complete
+checkpoint records and complete reference/seed protection reports retain safe
+metadata; complete carrier/engine/audio bytes stay external.
+
+The product remains the actual executed c20c471 source/dist with contractmv-1.6.1/9.
+Both replacements capture the unchanged97-source fingerprint
+`4424a4d9826432e056354ce93a342886c39bf52d74d3a304a8a6f8ed116e0567`
+and15-dist fingerprint
+`d830ac065741f364a7d748ca94557da83b005b0d7e66cfcded929eac65f23506`.
+The prior full check39files/980tests, build15files and built Windows15files/366tests
+therefore remain applicable. No full-check/build rerun is claimed for this
+evidence-only repair. The new archive is append-only and uses scoped byte
+preservation; old33-history, old results and all286 requirements are unchanged.
+The final [repair audit](33-isolation-repair/final-repair-audit-v1.json) verifies2909
+original evidence blobs byte-for-byte against588f586, all175 frozen product/test/
+config inputs, unchanged286 requirement bytes/order, both old raw report hashes,
+all32 physical checkpoints in both fresh pairs, retained final disk identities,
+full reference/seed stability and all8 new recorder originals/derivatives. There
+are70 movement records: the62 historical records plus4 retest classifications
+and4 actual replacement passed records. The existing index validator passes all3
+tests in6.46seconds with its original10-second deadline. Lint passes with only
+three inherited22/23-history warnings. The
+[append-only supplement](33-isolation-repair/archive-supplement-v1.json) covers the
+new archive bytes and inert original recorder scripts. The first recorder tool's
+syntax failure occurred before execution; its original source/log are retained,
+and the separately versioned async correction keeps every assertion. Ticket33
+closes after this repair; final49–55 and independent integration review remain.

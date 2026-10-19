@@ -462,11 +462,14 @@ Ticket24 adds [complete Map Event pages and exact saved state](24-map-event-full
 | MV-S6-MOVEMENT-011 | Preserve accepted negative-zero saved movement numbers through actual Workspace installation | Public source/built Workspace API; [record](33-movement-instructions.md#scoped-negative-zero-saved-values) |
 | MV-S6-MOVEMENT-012 | Reject negative-zero categorical M43 before source publication | Public source/built Workspace API; [record](33-movement-instructions.md#scoped-negative-zero-saved-values) |
 
-Ticket33 allocated delivery is complete on the actual23-integrated contract
-`mv-1.6.1/9`: full source check39files/980tests, complete built Windows baseline
-15files/366tests, actual R1-v2 two-side13/13 and R6/R7-v3 two-side19/19 all pass.
-The [delivery report](33-movement-instructions.md#final-integrated-product-and-verification--2026-10-20)
-and [append-only final audit](33-history/final-delivery-audit-v3.json) bind62 movement
-records, all274 incoming plus12 own requirements, unchanged inherited histories
-and the exact complete97-source/15-dist product identities. Final49–55 remain
-separate from this allocated delivery.
+Ticket33's original R1-v2/R6/R7-v3 native acceptance was rejected for shared data
+junctions. Four append-only `retest-required` records supersede those claims;
+four fresh passed records bind physically independent R1-v4/R6/R7-v5 pairs.
+The [isolation repair](33-movement-instructions.md#native-isolation-repair--2026-10-20)
+preserves the incident, restored-reference provenance, physical guards and all
+original records. Both new pairs retain the original13/19 predicates and all
+strict native checks, with32 physical checkpoints each and unchanged full1100
+reference/full1101 seed files. Product contract remains `mv-1.6.1/9`; source
+check39files/980tests and built Windows15files/366tests remain applicable to the
+unchanged97-source/15-dist product. All286 requirement objects retain their exact
+bytes and order. Final49–55 remain separate from this allocated delivery.
