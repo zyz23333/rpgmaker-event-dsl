@@ -1,6 +1,6 @@
 # 37: 画面、天气、等待与影片
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 23
 Stage: S6
 Created: 2026-10-19

@@ -492,16 +492,16 @@ export type FadeinScreenDslCommand = {
 
 export type TintScreenDslCommand = {
   kind: "tintScreen";
-  tone: ToneInput;
+  tone: Extract<ToneInput, { red: number }>;
   duration: number;
-  wait?: boolean;
+  wait: boolean;
 };
 
 export type FlashScreenDslCommand = {
   kind: "flashScreen";
-  color: ColorInput;
+  color: Extract<ColorInput, { red: number }>;
   duration: number;
-  wait?: boolean;
+  wait: boolean;
 };
 
 export type ShakeScreenDslCommand = {
@@ -509,7 +509,7 @@ export type ShakeScreenDslCommand = {
   power: number;
   speed: number;
   duration: number;
-  wait?: boolean;
+  wait: boolean;
 };
 
 export type WaitDslCommand = {
@@ -571,7 +571,7 @@ export type SetWeatherEffectDslCommand = {
   weather: WeatherEffectType;
   power: number;
   duration: number;
-  wait?: boolean;
+  wait: boolean;
 };
 
 export type PlayBgmDslCommand = {
@@ -618,7 +618,7 @@ export type StopSeDslCommand = {
 
 export type PlayMovieDslCommand = {
   kind: "playMovie";
-  movie: MovieAssetReference;
+  movie: MovieAssetReference | null;
 };
 
 export type ChangeMapNameDisplayDslCommand = {

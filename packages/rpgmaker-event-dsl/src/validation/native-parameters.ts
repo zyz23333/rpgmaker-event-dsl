@@ -1,6 +1,7 @@
 import { CommandStructureError } from "./command-errors.js";
 import { renderJsonValue } from "../project-data/json-values.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
+import { assertNativeScreenParameters } from "../commands/screen/validation.js";
 
 // Shared saved-slot envelopes. Family validators retain ownership of semantic ranges,
 // references and mode-specific saved values; this table is not full family acceptance.
@@ -210,6 +211,7 @@ export function assertNativeCommandParameters(
         actual: renderJsonValue(parameters),
       },
     );
+  assertNativeScreenParameters(code, parameters, path);
   const slot = (index: number, valid: boolean, expected: string): void => {
     if (!valid)
       throw new CommandStructureError("MV-COMMAND-PARAMETERS", "Invalid known saved parameter.", {

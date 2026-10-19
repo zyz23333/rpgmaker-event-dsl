@@ -635,7 +635,7 @@ export function renderSimpleCommand(
       const frames = command.parameters[0];
       return typeof frames === "number"
         ? {
-            expression: `wait(${frames})`,
+            expression: `wait({ frames: ${frames} })`,
             helperNames: ["wait"],
           }
         : null;

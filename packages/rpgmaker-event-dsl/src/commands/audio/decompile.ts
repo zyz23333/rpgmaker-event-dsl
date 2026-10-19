@@ -49,8 +49,8 @@ export function renderPlayMovie(
   return typeof movieName !== "string"
     ? null
     : {
-        expression: `playMovie({ movie: movieAsset({ name: ${literal(movieName)} }) })`,
-        helperNames: ["movieAsset", "playMovie"],
+        expression: `playMovie({ movie: ${movieName === "" ? "null" : `movieAsset({ name: ${literal(movieName)} })`} })`,
+        helperNames: movieName === "" ? ["playMovie"] : ["movieAsset", "playMovie"],
       };
 }
 

@@ -2,6 +2,7 @@ import type { CommonEventDefinition, DslCommand } from "../domain/types.js";
 import type { ReferenceResolver } from "../validation/types.js";
 import type { RawEventCommand, CommandOrigins } from "./types.js";
 import { assertDslCommandList } from "../validation/dsl-command-inputs.js";
+import { assertScreenInput } from "../commands/screen/validation.js";
 import {
   resolveCommonEventCall,
   assertLoopCommand,
@@ -420,6 +421,7 @@ export function compileNodes(
         });
         break;
       case "wait":
+        assertScreenInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 230,
           indent,
@@ -628,6 +630,7 @@ export function compileNodes(
         });
         break;
       case "fadeoutScreen":
+        assertScreenInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 221,
           indent,
@@ -635,6 +638,7 @@ export function compileNodes(
         });
         break;
       case "fadeinScreen":
+        assertScreenInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 222,
           indent,
@@ -642,24 +646,27 @@ export function compileNodes(
         });
         break;
       case "tintScreen":
+        assertScreenInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 223,
           indent,
-          parameters: [compileTone(node.tone), node.duration, node.wait ?? false],
+          parameters: [compileTone(node.tone), node.duration, node.wait],
         });
         break;
       case "flashScreen":
+        assertScreenInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 224,
           indent,
-          parameters: [compileColor(node.color), node.duration, node.wait ?? false],
+          parameters: [compileColor(node.color), node.duration, node.wait],
         });
         break;
       case "shakeScreen":
+        assertScreenInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 225,
           indent,
-          parameters: [node.power, node.speed, node.duration, node.wait ?? false],
+          parameters: [node.power, node.speed, node.duration, node.wait],
         });
         break;
       case "showChoices":
@@ -1018,6 +1025,7 @@ export function compileNodes(
         });
         break;
       case "setWeatherEffect":
+        assertScreenInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 236,
           indent,
@@ -1025,7 +1033,7 @@ export function compileNodes(
             weatherEffectToCode(node.weather),
             node.power,
             node.duration,
-            node.wait ?? false,
+            node.wait,
           ],
         });
         break;
@@ -1093,10 +1101,11 @@ export function compileNodes(
         });
         break;
       case "playMovie":
+        assertScreenInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 261,
           indent,
-          parameters: [node.movie.name],
+          parameters: [node.movie?.name ?? ""],
         });
         break;
       case "changeMapNameDisplay":

@@ -11,6 +11,7 @@ import type {
 import { audioAssetFolders, createReference, imageAssetFolders } from "../domain/references.js";
 import { assertIncluded, assertNonEmptyString } from "./shared.js";
 import { assertRawDslInput } from "../validation/dsl-command-inputs.js";
+import { assertMovieAssetInput } from "../commands/screen/validation.js";
 
 export function rawDslCommand(input: {
   code: number;
@@ -56,7 +57,7 @@ export function imageAsset(input: { folder: ImageAssetFolder; name: string }): I
 }
 
 export function movieAsset(input: { name: string }): MovieAssetReference {
-  assertNonEmptyString(input.name, "Movie asset name");
+  assertMovieAssetInput(input);
 
   return {
     kind: "asset",
