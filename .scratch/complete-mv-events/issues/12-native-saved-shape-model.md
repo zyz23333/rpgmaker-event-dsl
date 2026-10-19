@@ -41,6 +41,8 @@ Parent: [完整支持 MV 原生事件的决策地图](../map.md)
 
 用户于2026-10-19逐轮接受Q1–Q7，并对以下完整契约与完成边界最终回复“确认。改完提交”。本票已resolved，[ADR 0015](../../../docs/adr/0015-bounded-native-saved-shape.md)已accepted；设计完成不等于产品实现、编辑器或游戏验收通过。
 
+同日实施会话中，用户回复“接受有限 zero 状态（推荐）”，明确接受由 [04 原生移动记录逆向](../../complete-mv-events-implementation/evidence/04-movement-records-and-mirrors-reverse.md#契约比较与已接受修订)发现的窄修订：非终止移动项额外允许 `savedShape.indent:"zero"`，直接保存数字 0。以下 Answer 表示该修订后的当前契约；原 Q4 的 absent/null 讨论保留在 Comments 中作为历史。
+
 ### Timer 的槽位存在性
 
 ```ts
@@ -58,24 +60,27 @@ action 必填；Start 的 seconds 必填，Stop 可选。存在的 seconds 均�
 
 | 所属对象 | DSL 保存字段 | 原生允许形态 | 固定编写默认 |
 | --- | --- | --- | --- |
-| 无参 M1–13、M16–26、M31–40 | `savedShape?: {indent?: "absent" \| "null"}` | code；缺 parameters；indent 缺失或 null | 缺 indent |
-| 有参 M14、M15、M27–30、M41–45 | 同上 | code；由正式参数生成精确 parameters 数组；indent 缺失或 null | 缺 indent |
+| 无参 M1–13、M16–26、M31–40 | `savedShape?: {indent?: "absent" \| "null" \| "zero"}` | code；缺 parameters；indent 缺失、null 或数字 0 | 缺 indent |
+| 有参 M14、M15、M27–30、M41–45 | 同上 | code；由正式参数生成精确 parameters 数组；indent 缺失、null 或数字 0 | 缺 indent |
 | 路线所属 M0 | `terminator?: {parameters?: "absent" \| "empty"}` | `{code:0}` 或 `{code:0,parameters:[]}`，均缺 indent | parameters:[] |
 
-保存对象及其字段都可省略，空对象按各字段默认处理。`savedShape.indent:"null"` 是 DSL 符号，编为原生 JSON null；不是接受数字缩进、undefined/NaN 序列化或任意顶层字段。无参非终止记录的 parameters:[]、M0 的 indent:null、移动记录数字 indent 等未获支持，不利用参数键/indent 的交叉组合扩域。
+保存对象及其字段都可省略，空对象按各字段默认处理。`savedShape.indent:"null"` 和 `"zero"` 是 DSL 符号，分别直接编为原生 JSON null 和数字 0；保存字段不接收任意数字，也不依赖 undefined/NaN 序列化。无参非终止记录的 parameters:[]、M0 的任何 indent、除 0 以外的移动记录数字 indent 及任意顶层字段仍未获支持，不利用参数键/indent 的交叉组合扩域。
 
 ```ts
 const route = {
   commands: [
     { kind: "moveDown", savedShape: { indent: "null" } },
+    { kind: "moveDown", savedShape: { indent: "zero" } },
   ],
   terminator: { parameters: "absent" },
 };
-// 原生 route.list：[{code:1,indent:null},{code:0}]
+// 原生 route.list：[{code:1,indent:null},{code:1,indent:0},{code:0}]
 // 省略 flags 的原生值：repeat=true, skippable=false, wait=false
 ```
 
 原生新建205的flags与M0工厂形态不同于共享编写默认；反编译必须显式表达这些差异，不按所在页/命令切换默认。M0默认来自原生空白页，普通移动指令的缺indent来自首方工厂构造，null来自插入/最终JSON链推导。非终止记录尚无本轮真实UI保存样本，固定默认不冒称实测结果。
+
+zero 来自同身份编辑器的 clone + movement copy/paste 路径：JSON clone 将 NaN 转为 null，插入到另一 null 项前执行 `null-null` 与 `null+0` 得到 0。无参 M1 和有参 M15 的精确提取函数在 Node 22 隔离复算中一致；这是有条件代码证据，不是 Qt/UI、系统剪贴板或真实磁盘保存观察。用户据此批准的仅是上述有限状态扩充，其他数值与外壳限制不变。
 
 ### Child Command Body 与 Body End Marker
 
@@ -96,7 +101,7 @@ Conditional 缺 else 仍没有 else；`else:{commands:[]}` 保留显式空 else�
 
 ### 省略、undefined 与精确比较
 
-本票新增可选字段的显式undefined与省略等价；必填字段、数组元素及稀疏洞不能用undefined制造缺槽。null仅在具体正式契约允许时有效。反编译只省略固定规则能恢复同一保存结构和值的字段，不能借编写默认修补原生输入；例如indent:null、缺parameters的M0、无尾0的非空体和Stop显式0都必须留下相应DSL信息。
+本票新增可选字段的显式undefined与省略等价；必填字段、数组元素及稀疏洞不能用undefined制造缺槽。null仅在具体正式契约允许时有效。反编译只省略固定规则能恢复同一保存结构和值的字段，不能借编写默认修补原生输入；例如indent:null、indent:0、缺parameters的M0、无尾0的非空体和Stop显式0都必须留下相应DSL信息。
 
 沿用06的解析后结构和值比较：对象键顺序和JSON等价文本转义可不同；字段是否存在、数组长度/位置/次序、null和空数组、所有原始值及各层结构记录必须相同。不能在比较前补parameters、删indent、清理0或挑选镜像副本。
 
@@ -111,7 +116,7 @@ Decompile在源码发布前验证可表达性、原生结构及完整候选声�
 以下为08票的必要验收输入，均尚未执行；具体执行环境、证据责任及实施顺序由08统筹：
 
 - Timer：新建Stop、Start0/83改Stop、Stop重开确认三阶段；[1]/[1,0]/[1,83]精确往返，缺/多槽和边界值的正反样本。
-- Movement：45类动作在页路线与205的适用样本；无参/有参的缺indent和null，M0两种parameters外壳，空/非空路线、默认/非默认flags及非custom保存路线；新建/插入/替换/copy-paste后真实落盘验证，205/505只差缺键/null也应报冲突。
+- Movement：45类动作在页路线与205的适用样本；无参/有参的缺indent、null和显式0独立样本，拒绝其他数字indent，M0两种parameters外壳，空/非空路线、默认/非默认flags及非custom保存路线；新建/插入/替换/copy-paste的代码与序列化路径按实施规格最新逆向验收修订核对，205/505只差缺键/null/0也应报冲突。zero 的契约批准及受控复算不能代替14/33产品往返与最终游戏运行。
 - Body：Choices、Conditional、Loop、Battle的空/非空/嵌套；非空体present/absent逐层组合、else缺失与显式空、Battle各flags组合；空absent、重复/中间/错缩进0、raw声明冲突及合法raw嵌套的区别。无尾0合成支持样本与普通UI创建样本分开标注。
 - Workspace：生成源码可求值并重编译、完整decompile→compile→diff→push精确比较、Gate开关及引用失效、失败无部分发布与无部分写入；保存字段/嵌套体变化必须反映在比较中。
 - 编辑器只保存容器、重新确认参数、游戏运行分别记录结果；真实证据反驳静态推导时更新证据和契约，不能把设计批准当作执行通过。
@@ -176,3 +181,9 @@ Decompile在源码发布前验证可表达性、原生结构及完整候选声�
 已同步Timer、移动外壳、子体、镜像、raw合成校验及验收交接的相关文档；本次只提交设计与领域记录，不实施产品，也不声称真实编辑器或游戏验收通过。
 
 提交前文档核验：16份新增/修改Markdown的317个本地链接及标题锚点通过，`git diff --check`通过；08的前置03/04/05/06/07/11/12均已resolved，仅13仍open。历史依赖列表保留，完成状态解除本票阻塞。
+
+### 2026-10-19 — 实施逆向反例与 zero 窄修订已接受
+
+实施票 04 对同身份 RPG Maker MV 1.6.1 的路线 clone、movement clipboard 和 insert 路径核对，发现原 Q4 absent/null-only 矩阵不能表达 numeric 0。精确提取函数的 Node 22 有条件复算验证：原生初次插入产生的 NaN 经 JSON clone 成为 null，再将 null 指令复制并粘贴至另一 null 指令前，目标算术得到 0。资源身份、行号、复算输入/结果与限制见 [04 报告](../../complete-mv-events-implementation/evidence/04-movement-records-and-mirrors-reverse.md)。没有把该复算描述成真实 Qt/UI 或游戏观察。
+
+用户在实施会话中回复“接受有限 zero 状态（推荐）”，明确接受仅增加 `savedShape.indent:"zero"` 的窄修订；主代理向04转交了该直接确认。当前 Answer、ADR 0015、实施规格 I5、移动参数附表及04/14/33验收责任同步：默认仍 absent，null/0 必须显式反编译，其他数字仍拒绝；无参 parameters 缺键、有参完整语义数组、M0 缺 indent且 parameters absent/empty，以及完整205/505镜像均不变。历史 Q4 留存，不倒写成早已接受 zero。本次只记录已批准契约与逆向证据，产品实现和最终实际游戏回归仍由实施票负责；本决策票保持 resolved。

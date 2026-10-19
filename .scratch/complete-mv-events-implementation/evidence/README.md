@@ -2,7 +2,7 @@
 
 `requirements.json` describes obligations. `results/` contains immutable, machine-produced run records. A requirement does not acquire a passing status merely because it appears in this index. The ordinary test suite validates the index schema, unique IDs, fixture hashes, source sections, test links, checklist completeness and recorded run references.
 
-This index contains ticket 01 automated seeds, ticket 02 Windows automation baseline, and tickets 03/05/06 reverse-engineering obligations; it is not the complete command or native acceptance matrix. Later tickets add their own stable case IDs and independent input/expected data. Per the user's revised acceptance, editor validation uses REA reverse engineering while final actual game runs remain required. These native evidence groups remain unexecuted by this fixture; its synthetic project context is sufficient for Workspace data operations and is not claimed to be a playable MV project.
+This index contains ticket 01 automated seeds, ticket 02 Windows automation baseline, and tickets 03–06 reverse-engineering obligations and accepted contract review; it is not the complete command or native acceptance matrix. Later tickets add their own stable case IDs and independent input/expected data. Per the user's revised acceptance, editor validation uses REA reverse engineering while final actual game runs remain required. These native evidence groups remain unexecuted by this fixture; its synthetic project context is sufficient for Workspace data operations and is not claimed to be a playable MV project.
 
 | Requirement       | Obligation                                                                                                        | Evidence kind       | Required layer                                |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------- | --------------------------------------------- |
@@ -35,6 +35,12 @@ Ticket 02 extends the seed with the [Windows baseline and required filesystem re
 | MV-E05-UNSAVED-TOGGLE | Unsaved Start controls do not create a Stop seconds slot | static-inference | identified editor resources and bounded code-path review |
 | MV-E05-CONTAINER | Container serialization retains Timer slot structure | reverse-engineering-observation | identified editor resources and bounded code-path review |
 | MV-E05-START-REEDIT | Explicit switch back to Start uses current controls | static-inference | identified editor resources and bounded code-path review |
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-E04-ROUTE-PATHS | Page/205 creation, clone/load/edit/save, flags, M0 and exact505 mirror | reverse-engineering-observation | identified editor/Qt resource review |
+| MV-E04-INDENT-COUNTEREXAMPLE | Numeric0 after null-record clipboard paste; original contradiction and accepted resolution retained | static-inference | exact-function conditional replay and contract comparison |
+| MV-E04-ZERO-CONTRACT | Explicitly accepted finite zero contract and later product handoff | static-inference | accepted contract consistency review only |
 
 | Requirement | Obligation | Evidence kind | Required layer |
 | --- | --- | --- | --- |
@@ -74,5 +80,7 @@ Ticket 03 records identified shipped-artifact resource reads and analyst code-pa
 For these records `passed` means the bounded editor code-review obligation was completed with the report’s stated conditions and limits. The actual field separates code observation, conditional inference and unknowns; `runtime`, `nwjs`, and automated test-runner fields explicitly say `not-executed` where no such run occurred. It does not indicate editor UI or game execution, product roundtrip success, or final candidate acceptance. Binary/resource digests were computed from the selected local bytes; raw first-party text remains only in the named local evidence directory.
 
 Ticket 05 adds [Timer slot review](05-timer-stop-reverse.md) and [selected resource identities](05-resource-identities.json). The missing slot, present zero and present83 cases are distinct; the retained83 path requires a previously confirmed Start. The new unsaved-dialog toggle has its own case. These E4 code-review obligations do not establish ticket26/50 product verification or R1-R7 game execution.
+
+Ticket04 findings: [movement paths, counterexample and accepted finite zero amendment](04-movement-records-and-mirrors-reverse.md). The user explicitly accepted the narrow `zero` state on2026-10-19; ADR0015, the authoritative decision Answer, spec I5 and04/14/33 responsibilities now agree. The three04 records close only bounded code review, conditional replay and accepted-contract documentation obligations. They do not establish product support, Qt/UI execution or actual game acceptance. Raw source stays outside the repo; [original conditional replay observations](04-controlled-replay-observations.json) are preserved as produced.
 
 Ticket 06 adds [Transfer initialization and mode review](06-transfer-defaults-reverse.md) and [selected artifact/resource identities](06-resource-identities.json). A new same-install Menu native constructor/property chain supports the inherited first-item inference. Project-selected mapM and explicit coordinate0 are distinguished from fixed direction/fade defaults. Its10 review records do not establish ticket34/50 product comparison or actual game execution.

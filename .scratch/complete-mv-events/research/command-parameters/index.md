@@ -31,10 +31,10 @@
 | ID | 原生事实与证据强度 | 已接受设计与剩余责任 |
 | --- | --- | --- |
 | S1 | E124新建stop只写[1]；普通start83改stop保留[1,83]。Q@793186:62–70及基类表明没有截断；静态保存路径已闭合，UI样本未执行 | Q1接受stop.seconds可选，缺省缺槽，显式0/83保留；存在秒数为整数0..5999。真实创建/重存/重确认仍待验收 |
-| S2 | 无参移动可缺parameters；M0工厂有缺键与[]两种；移动插入器在缺indent上算术，静态推导保存indent:null。205/505不清理 | Q4接受逐指令savedShape.indent=absent/null、默认absent；route.terminator.parameters=absent/empty、默认empty。逐类矩阵与镜像精确保留；真实样本仍待验收 |
+| S2 | 无参移动可缺parameters；M0工厂有缺键与[]两种；移动插入器在缺indent上算术，静态推导保存indent:null；实施04补查clone后复制null项再粘贴至null项前，推导并条件复算得到数字0。205/505不清理 | 原Q4为absent/null；同日用户接受有限zero修订后，当前savedShape.indent=absent/null/zero、默认absent；null/zero显式反编译，其他数字拒绝。route.terminator.parameters仍absent/empty、默认empty且M0缺indent。逐类矩阵与完整镜像不变；产品与最终游戏验收仍待执行 |
 | S3 | 空body的0前普通插入命令会留下0；已读同body删除路径不删尾0；Conditional/Choices/Battle重确认保留非空body已有0 | Q3/Q5接受子体commands+endMarker，默认present，空体禁止absent，非空支持两态；无尾0明确为有限产品能力，不冒称普通UI已证 |
 
-S3没有证明“同内容有/无尾0都可由普通UI生成”；完整上下文见core的有界核查。S2 indent:null是代码路径推导，未伪造保存样本。若真实目标样本反驳推导，应更新证据，不以已经写了票替代事实复核。
+S3没有证明“同内容有/无尾0都可由普通UI生成”；完整上下文见core的有界核查。S2 indent:null/0是代码路径推导与Node条件复算，未伪造Qt/UI或保存样本。zero修订的用户直接确认、精确资源和复算限制见[实施04报告](../../../complete-mv-events-implementation/evidence/04-movement-records-and-mirrors-reverse.md#契约比较与已接受修订)及[当前权威Answer](../../issues/12-native-saved-shape-model.md#answer)。若真实目标样本反驳推导，应更新证据，不以已经写了票替代事实复核。
 
 ## 需要用户讨论的支持边界
 

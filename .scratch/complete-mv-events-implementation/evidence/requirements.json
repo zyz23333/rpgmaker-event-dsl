@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "scope": "Ticket 01 automated seeds, ticket 02 Windows automation baseline, and tickets 03/05/06 editor reverse-engineering obligations. This is not the complete 105+45 or E1-E7/R1-R7 acceptance matrix.",
+  "scope": "Ticket01 automated seeds, ticket02 Windows automation baseline, tickets03/04/05/06 native reverse-engineering review, and the accepted finite zero contract. Not the complete105+45 or E1-E7/R1-R7 acceptance matrix.",
   "requirements": [
     {
       "id": "MV-S0-CE-001",
@@ -1104,6 +1104,168 @@
         "layer": "Read-only resource identity and complete initialization/load/edit-confirm/container serialization path review"
       },
       "slice": "05 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E04-ROUTE-PATHS",
+      "title": "Movement route initialization, load/save, replacement, copy/paste and full205/505 mirrors",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/04-native-movement-records-and-mirrors.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": "docs/adr/0015-bounded-native-saved-shape.md",
+          "section": "# Represent native saved shape through bounded owned fields"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Actual identified MV1.6.1/Qt shipped resources; page/205 new/load paths, flag0 constructors, parameter factory+M15, movement and outer-event clipboard paths",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json",
+        "sha256": "21e980a7fc17f4229855c7e67f94591050e1980b6541a30317994b93e60df2b3"
+      },
+      "expected": "Bounded paths and flags/M0 differences are traced;205 mirrors complete nonterminal objects without anM0 mirror; original target text remains outside repo. No UI/game execution claimed.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/04-movement-records-and-mirrors-reverse.md",
+        "section": "## 初始化、载入与保存路径"
+      },
+      "nativeGroups": [
+        "E3"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0; identified MV1.6.1 and bundled Qt; no editor UI or game execution",
+        "owner": "Codex ticket04 analyst; direct user contract acceptance recorded separately",
+        "layer": "Shipped-artifact path review; conditional exact-JavaScript-function replay only"
+      },
+      "slice": "04 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E04-INDENT-COUNTEREXAMPLE",
+      "title": "Preserved numeric-zero native-code counterexample and its explicitly accepted narrow resolution",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/04-native-movement-records-and-mirrors.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": "docs/adr/0015-bounded-native-saved-shape.md",
+          "section": "# Represent native saved shape through bounded owned fields"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "static-inference",
+      "input": "Exact extracted M1/M15 insertion then native clone, JSON clipboard copy/paste before a reloaded null-indent nonterminal; inert UI/model/clipboard-I/O collaborators in isolated Node vm",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json",
+        "sha256": "21e980a7fc17f4229855c7e67f94591050e1980b6541a30317994b93e60df2b3"
+      },
+      "expected": "Preserve the original absent/null contract contradiction, exact M1/M15 conditional replay outputs and evidence limits. Link the explicit user-approved finite zero resolution without normalizing native0, changing historical observations, or claiming product/UI/game acceptance.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/04-movement-records-and-mirrors-reverse.md",
+        "section": "## 契约比较与已接受修订"
+      },
+      "nativeGroups": [
+        "E3"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0; identified MV1.6.1 and bundled Qt; no editor UI or game execution",
+        "owner": "Codex ticket04 analyst; direct user contract acceptance recorded separately",
+        "layer": "Shipped-artifact path review; conditional exact-JavaScript-function replay only"
+      },
+      "slice": "04 / S1",
+      "required": true
+    },
+    {
+      "id": "MV-E04-ZERO-CONTRACT",
+      "title": "Accepted finite zero contract and product implementation handoff only",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I5 — 有限 Native Saved Shape"
+        },
+        {
+          "path": ".scratch/complete-mv-events/issues/12-native-saved-shape-model.md",
+          "section": "## Answer"
+        },
+        {
+          "path": "docs/adr/0015-bounded-native-saved-shape.md",
+          "section": "# Represent native saved shape through bounded owned fields"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/14-shared-movement-route-saved-shapes.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/33-movement-all-45-instructions.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "static-inference",
+      "input": "Direct user acceptance: 接受有限 zero 状态（推荐）; authoritative Answer/ADR0015/I5 and04/14/33 acceptance references",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/04-resource-identities.json",
+        "sha256": "21e980a7fc17f4229855c7e67f94591050e1980b6541a30317994b93e60df2b3"
+      },
+      "expected": "Document nonterminal savedShape.indent absent/null/zero, default absent; zero directly encodes0 and must decompile explicitly; reject other numeric indents. Keep parameter rules, M0 and entire205/505 mirrors unchanged. This requirement closes contract documentation only, not product support or final game execution.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/04-movement-records-and-mirrors-reverse.md",
+        "section": "## 契约比较与已接受修订"
+      },
+      "nativeGroups": [
+        "E3"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0; identified MV1.6.1 and bundled Qt; no editor UI or game execution",
+        "owner": "Codex ticket04 analyst; direct user contract acceptance recorded separately",
+        "layer": "Accepted contract consistency review; product implementation and actual game runs remain later obligations"
+      },
+      "slice": "04 / S1",
       "required": true
     },
     {

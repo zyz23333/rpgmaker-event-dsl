@@ -139,11 +139,13 @@ Control Timer 的 action 必填；Start 必须有 seconds，Stop 可省略或显
 
 | 移动记录类别 | 允许原生形态 | 正式保存信息与默认 |
 | --- | --- | --- |
-| 无参 M1–13、M16–26、M31–40 | code，缺 parameters；indent 缺失或 null | 指令 savedShape.indent 选 absent/null，默认 absent |
-| 有参 M14、M15、M27–30、M41–45 | code，完整语义 parameters；indent 缺失或 null | 同上，参数由正式字段完整生成 |
+| 无参 M1–13、M16–26、M31–40 | code，缺 parameters；indent 缺失、null 或数字 0 | 指令 savedShape.indent 选 absent/null/zero，默认 absent |
+| 有参 M14、M15、M27–30、M41–45 | code，完整语义 parameters；indent 缺失、null 或数字 0 | 同上，参数由正式字段完整生成 |
 | 路线唯一末项 M0 | 缺 parameters 或 parameters 为空数组；缺 indent | 路线 terminator.parameters 选 absent/empty，默认 empty |
 
-M0 不进入用户移动 commands，不生成 505。无参非终止项的 parameters 空数组、M0 的 indent:null、数字移动 indent 及任意额外键未获支持；不得将不同类别的选项自由组合。indent 的 null 状态直接编码为 JSON null，不依赖 NaN 序列化。205/505 必须镜像每个非终止子项的完整对象、顺序和键存在性，已有矛盾不选边修复。
+M0 不进入用户移动 commands，不生成 505。无参非终止项的 parameters 空数组、M0 的任何 indent、除 0 以外的数字移动 indent 及任意额外键未获支持；不得将不同类别的选项自由组合。indent 的 null/zero 状态分别直接编码为 JSON null/数字 0，不依赖 NaN 序列化；反编译遇到 null 或 0 必须显式输出相应保存状态。205/505 必须镜像每个非终止子项的完整对象、顺序和键存在性，已有矛盾不选边修复。
+
+2026-10-19，用户在实施会话中接受 [04 的 clone + copy/paste 代码反例](evidence/04-movement-records-and-mirrors-reverse.md#契约比较与已接受修订)所需的有限 zero 修订；[ADR 0015](../../docs/adr/0015-bounded-native-saved-shape.md)与[权威决定票 12 Answer](../complete-mv-events/issues/12-native-saved-shape-model.md#answer)已同步。该决定仅补充契约，不表示产品已实现、UI 已执行或最终游戏回归已通过。
 
 每个 Child Command Body 有必填 commands 与可选 endMarker，后者默认 present。空体必须恰有一个本层尾标记，不允许 absent；非空体支持 present/absent。非空无尾标记是明确批准的有限保存能力，不冒称普通 UI 创建已经证明。父闭合、内层标记和完整事件列表的最终终止不能代替本层边界。
 
