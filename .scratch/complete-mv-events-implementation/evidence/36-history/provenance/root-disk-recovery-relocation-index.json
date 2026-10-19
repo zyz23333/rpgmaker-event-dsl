@@ -1,0 +1,43 @@
+{
+  "Purpose": "Disk-full recovery; four byte-verified relocations only",
+  "At": "2026-10-19T18:46:13.1806485Z",
+  "Completed": [
+    {
+      "OriginalPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv36-final-built-results-v1",
+      "RelocatedPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\disk-recovery-v1\\mv36-final-built-results-v1",
+      "OriginalManifest": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\disk-recovery-v1\\mv36-final-built-results-v1.original.json",
+      "Verification": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\disk-recovery-v1\\mv36-final-built-results-v1.original.json.verified.json",
+      "OriginalPathNow": "Junction to byte-verified preserved copy",
+      "At": "2026-10-19T18:45:39.5420124Z"
+    },
+    {
+      "OriginalPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv36-final-source-results-v1",
+      "RelocatedPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\disk-recovery-v1\\mv36-final-source-results-v1",
+      "OriginalManifest": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\disk-recovery-v1\\mv36-final-source-results-v1.original.json",
+      "Verification": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\disk-recovery-v1\\mv36-final-source-results-v1.original.json.verified.json",
+      "OriginalPathNow": "Junction to byte-verified preserved copy",
+      "At": "2026-10-19T18:45:32.2091252Z"
+    },
+    {
+      "OriginalPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv36-final-source-results-v2",
+      "RelocatedPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\disk-recovery-v1\\mv36-final-source-results-v2",
+      "OriginalManifest": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\disk-recovery-v1\\mv36-final-source-results-v2.original.json",
+      "Verification": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\disk-recovery-v1\\mv36-final-source-results-v2.original.json.verified.json",
+      "OriginalPathNow": "Junction to byte-verified preserved copy",
+      "At": "2026-10-19T18:45:36.4056808Z"
+    },
+    {
+      "OriginalPath": "C:\\Users\\Shuen\\.codex\\tmp\\mv36-map-physical-delivery-v3-prepare-70823e20-5f05-4389-861b-48a328f702df",
+      "RelocatedPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\disk-recovery-v1\\mv36-map-physical-delivery-v3-prepare-70823e20-5f05-4389-861b-48a328f702df",
+      "OriginalManifest": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\disk-recovery-v1\\mv36-map-physical-delivery-v3-prepare-70823e20-5f05-4389-861b-48a328f702df.original.json",
+      "Verification": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\disk-recovery-v1\\mv36-map-physical-delivery-v3-prepare-70823e20-5f05-4389-861b-48a328f702df.original.json.verified.json",
+      "OriginalPathNow": "Junction to byte-verified preserved copy",
+      "At": "2026-10-19T18:45:51.7380078Z"
+    }
+  ],
+  "StoppedBeforeMutation": {
+    "Path": "C:/Users/Shuen/.codex/tmp/mv33-r6-r7-movement-delivery-v5-ea3e1ced-fa1d-4845-b94a-74b6155b1990",
+    "Reason": "Inventory refused existing dist junction; source and second candidate retained unchanged"
+  },
+  "HistoricalClassifications": "No runtime or prepare result reclassified. Relocated partial36 remains native-not-executed."
+}

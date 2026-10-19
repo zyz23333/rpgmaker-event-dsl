@@ -1,0 +1,745 @@
+{
+  "purpose": "Safe preparation projection; no native executed or passed",
+  "case": "battle-overworld-both",
+  "raw": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-both-physical-delivery-v4-prepare-eb3f4d93-253e-4746-817a-c35ab6c87f44\\preparation-result.json",
+    "sha256": "d3c13abd1a9f4c0b33ec9fc52ee6882654ad3c5ba7a70450ac43226d4fffba5e"
+  },
+  "physicalProof": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-both-physical-delivery-v4-prepare-eb3f4d93-253e-4746-817a-c35ab6c87f44\\physical-isolation-proof.json",
+    "sha256": "374d9f4f189c333e0a116bf9c91a29d0c116414aa9838071f087254627abac85"
+  },
+  "mode": "prepare",
+  "prepared": true,
+  "passed": false,
+  "nativeExecution": "not-executed; root native gate not released",
+  "build": {
+    "gitHead": "7407e5cefa87639030b0dde6ce56eeb87219924d",
+    "gitStatus": "",
+    "source": {
+      "entries": [
+        {
+          "path": "authoring/declarations.ts",
+          "sha256": "a773bba2f8016d64f81a352da4050aa8c2e83b2cba353fe49fe5a953072eaf78"
+        },
+        {
+          "path": "authoring/index.ts",
+          "sha256": "45d6f03be8e26f0f19abb5cea7f9a7a971846296e3c0f3b809feb7de3af049ef"
+        },
+        {
+          "path": "authoring/references.ts",
+          "sha256": "b3f3cefa64f45da752a8f58bc6eca2d92bb6b30773be42f51036fd60df9c89de"
+        },
+        {
+          "path": "authoring/shared.ts",
+          "sha256": "3865ac8c4b3768c96038a323a02cf30c33edd9f330544bd6cd2b204d2841408e"
+        },
+        {
+          "path": "cli.ts",
+          "sha256": "34c6e77e91a45126b1a2c5b15621f79241a98bab081924d2fbd535c5996fd4b0"
+        },
+        {
+          "path": "commands/actor/authoring.ts",
+          "sha256": "adc9b6aa805739dad7594246236f6314cc8a08299f1bd323b8ae729cf6b2fdf3"
+        },
+        {
+          "path": "commands/actor/decompile.ts",
+          "sha256": "2e83a179cabb9ae19ff9207904c822bb84c6b5bc45581386d2aca7b1b005b56d"
+        },
+        {
+          "path": "commands/audio/authoring.ts",
+          "sha256": "08a68ae8b97095ec1c3a6d8517ed5649eb79ffb1b66f59aa34a7506356e0e513"
+        },
+        {
+          "path": "commands/audio/decompile.ts",
+          "sha256": "18acdf8e035ad2b8f3879622e18c39a7cde1e6279c14013fca2e6dbd0edb3811"
+        },
+        {
+          "path": "commands/battle/authoring.ts",
+          "sha256": "a5249dd85dde78f2f0183d33a9a79d69bca93e88b5d2f0404f9005a25f115377"
+        },
+        {
+          "path": "commands/battle/decompile.ts",
+          "sha256": "4da781567fb9baf2580ec050564d66506d542890dfab3a6966eef1c008ac44b0"
+        },
+        {
+          "path": "commands/enemy/authoring.ts",
+          "sha256": "3ff830df557837e08ed73054eb47085cd0ba262e1aad746defc05578a14ce602"
+        },
+        {
+          "path": "commands/enemy/decompile.ts",
+          "sha256": "334fc1efeda29f27cf9a7e504501ea7e693fb9b041a96bb827c90ec957ff2cd2"
+        },
+        {
+          "path": "commands/flow/authoring.ts",
+          "sha256": "2781ac07a176994435f124947fb0ac9c1873a3c37ea4b61b5f5fc0c35cabfc40"
+        },
+        {
+          "path": "commands/flow/decompile.ts",
+          "sha256": "db0508df65d743ada28e4b175d85cfbfa6a70a0547ff17cc2ecc2ab9a0feac31"
+        },
+        {
+          "path": "commands/flow/validation.ts",
+          "sha256": "d88ca16a1e3d2c688a6876ae041bc772c125eda0b1cf2e818b8ec55c29090dad"
+        },
+        {
+          "path": "commands/map/authoring.ts",
+          "sha256": "981b86f2bfcbfaaf01c24ae6ed7c147d7ff870f91fed6e0a53dfc804c3e9b17a"
+        },
+        {
+          "path": "commands/map/decompile.ts",
+          "sha256": "7b6c6a5b316e1273787d7dbedc867d3b557c09db512aceec9a54ae1faac8ebcb"
+        },
+        {
+          "path": "commands/map/native-validation.ts",
+          "sha256": "0bcd6f8adc582170080ec760e2d9e94c7a6c76420592c6e1dcfbaf5e374b677b"
+        },
+        {
+          "path": "commands/map/validation.ts",
+          "sha256": "0e30bf9ac24c999fc26bfb5171d776b8a94bf9d4ec8f1958ab13cd158f0b252e"
+        },
+        {
+          "path": "commands/message/authoring.ts",
+          "sha256": "76bfc91b2a89a8c62546542396ff47c8baf9f13d54c1c1ba5a0b58031b413d68"
+        },
+        {
+          "path": "commands/message/decompile.ts",
+          "sha256": "174c78169c65eec74592a466381b97e083688c691381e470b0a707dd47273a24"
+        },
+        {
+          "path": "commands/movement/authoring.ts",
+          "sha256": "af1985013fa73af61d72cc440de0f83d99f78c94da4744f3a7ab1d7b56daf909"
+        },
+        {
+          "path": "commands/movement/compile.ts",
+          "sha256": "07ec22fe5fbcb0a54d16eb6ef1dd505cfd6b942912e378c4ed17255010044760"
+        },
+        {
+          "path": "commands/movement/decompile.ts",
+          "sha256": "c61816d9d97960df23eba76af04735a3a98dc01c6bb2c05a56bdcc5075432ebe"
+        },
+        {
+          "path": "commands/movement/page.ts",
+          "sha256": "ead6952e28f64bd25ba6fbd55d9be36f09ddadca5967ec4ddd7722ee1e18ceac"
+        },
+        {
+          "path": "commands/movement/types.ts",
+          "sha256": "de4a2cb691fc6a8697ba91a2a831eaf17e1c15e541da4a2893f902f30a3a01b8"
+        },
+        {
+          "path": "commands/movement/validation.ts",
+          "sha256": "f49a357955d176c5930ca59d5d13e2c80d4b3cad1215364cf3df158817015e6d"
+        },
+        {
+          "path": "commands/screen/authoring.ts",
+          "sha256": "c0557c79496cb70c7a4d67fa61008a6e189b9df86f7cb408b36048b89aff63dc"
+        },
+        {
+          "path": "commands/screen/compile.ts",
+          "sha256": "a1c68cb63a4e6fe9ad2de3f45f51101f2e4fa6656fd865ac3bbbf485c78edc80"
+        },
+        {
+          "path": "commands/screen/decompile.ts",
+          "sha256": "38e4c759cf9f51c5ab49ea0f33d79c9a2af1060156102e7198541ac2e529567b"
+        },
+        {
+          "path": "commands/system/authoring.ts",
+          "sha256": "71b37822f2d2abd58349a1ea7eed84fea0c886cf8045beb6341dbfba2c02814d"
+        },
+        {
+          "path": "commands/system/decompile.ts",
+          "sha256": "56c3cba9e576bd289050463bfe2d284c39d54196fcf5fa59a8dde3ccdc33ad77"
+        },
+        {
+          "path": "commands/variables/authoring.ts",
+          "sha256": "a2bbedd0a2d9aacb7e3eb2772e4f7431c49ccef39166cc74f4b615a6494a3f22"
+        },
+        {
+          "path": "commands/variables/compile.ts",
+          "sha256": "9e4a295fac91434e34e28bd3c84b9b5a5dc526685f821f574582e7ac22bb4c27"
+        },
+        {
+          "path": "commands/variables/decompile.ts",
+          "sha256": "c32df1e9d77b36d30fd135bc6c8919f0cf84a19acaf6a86d3e66d700762b9773"
+        },
+        {
+          "path": "commands/variables/validation.ts",
+          "sha256": "8996604b8bfcb1fd9ba8a5100b8bd598e720aad9b946d001e77e89ddf5609867"
+        },
+        {
+          "path": "compiler/dispatch.ts",
+          "sha256": "30f7a58c24b7cfe462d4642cc3bc7cc2d38902f8ef083347cb008a517c2cbbca"
+        },
+        {
+          "path": "compiler/events.ts",
+          "sha256": "f5ab237240ed7e698a6b386135b8c5a41d05ee52fc99a1ef62bce44fdc1abfd2"
+        },
+        {
+          "path": "compiler/shared/branches.ts",
+          "sha256": "44f965a1c5ea89cdf03fca12e3a49c2bce866efa9e6dc97ffa32c45a51f4d606"
+        },
+        {
+          "path": "compiler/shared/conditions.ts",
+          "sha256": "4b44eb3bb078dc6dd9a996ba7ac8aac5dbc6cc4a4151763ff9dc6c21d786e990"
+        },
+        {
+          "path": "compiler/shared/media.ts",
+          "sha256": "9bc3cc0ec9fd97a6368711dc4e73cba05dc4abaee7697624132577bb465e3e68"
+        },
+        {
+          "path": "compiler/shared/targets.ts",
+          "sha256": "11c907ed9a847ba54fdc222c7d04757e1b0d74205c7111426e4fec8d80be7ce2"
+        },
+        {
+          "path": "compiler/types.ts",
+          "sha256": "b81ac88b5778268997bce55af43dc0953b5cee48625180f58733cfdde6ae91a1"
+        },
+        {
+          "path": "decompiler/core.ts",
+          "sha256": "c6a020c7eb5f987f883488b955f4dae2d5550d93a21272284939d54a04bb98b0"
+        },
+        {
+          "path": "decompiler/dispatch.ts",
+          "sha256": "7024e6d242f1c42d5fb4ff13dc906e8110e1485f31fb4f7ec136a871725e1f30"
+        },
+        {
+          "path": "decompiler/map-page.ts",
+          "sha256": "05a14de564f72e81566bf5db192a38c71c9595e21abfa9181b49a12b724c751b"
+        },
+        {
+          "path": "decompiler/project.ts",
+          "sha256": "35e720a3e5f0b860f3669da6829a652ec94509d79fe94e1240ff91d4ee5870b9"
+        },
+        {
+          "path": "decompiler/types.ts",
+          "sha256": "01dc14767746b1067ddc101f6acd5ea23247b6557a59e0c0cb467dd1f3903aa3"
+        },
+        {
+          "path": "domain/battle-page-defaults.ts",
+          "sha256": "4a6d7b43e65b2316987b846253c93504f85ac8e341901d3e47236c99de91027b"
+        },
+        {
+          "path": "domain/command.ts",
+          "sha256": "5fd5f19c820485e486bbd635d49f557129f2a8f60241c56539c73b85b0d5c75e"
+        },
+        {
+          "path": "domain/declarations.ts",
+          "sha256": "b0b1dd048040394dd8ef95fe080046a6b1541d44194d490dfa0ede891dd6a781"
+        },
+        {
+          "path": "domain/references.ts",
+          "sha256": "44874ce22c90697572c8bd777f0a8070bcf89b556247072964ac59246761fc44"
+        },
+        {
+          "path": "domain/types.ts",
+          "sha256": "5327c422c15864473a2b77938e10199e01ae0ed49399f37397cbd93ced3d16eb"
+        },
+        {
+          "path": "index.ts",
+          "sha256": "cac51b3cd154629880f6b30aaf8b54a8f1aecee91bb26182ebfd7ccdb3c90157"
+        },
+        {
+          "path": "map-event/native.ts",
+          "sha256": "a87ca1545e80ecd25205f6e7fb40a48d977317b93da65de8053afcaacf611384"
+        },
+        {
+          "path": "map-event/page.ts",
+          "sha256": "9251557930e667e258c6259c58e787cdeccd22e96dc5f0225947a98d35d275ed"
+        },
+        {
+          "path": "map-event/validation.ts",
+          "sha256": "e2dddc54dff942929af1f58dd6e48305e9d774c8cfb5a4c58af39e08e3937805"
+        },
+        {
+          "path": "project-data/json-values.ts",
+          "sha256": "7d9f2a485a689dc159327f859a8cae48307b88294bea78aa2a81452813730af8"
+        },
+        {
+          "path": "project-data/map-event-diff.ts",
+          "sha256": "7055058d85ef232a8ad2f94e9a3634ef709c5d352283ac1678f4dc03836be992"
+        },
+        {
+          "path": "project-data/materialization.ts",
+          "sha256": "e52781cb2bccb01c58ac6c1ff0f069906980efce0a123b04348f4f18d80734d4"
+        },
+        {
+          "path": "project-data/project.ts",
+          "sha256": "1176a155e53c9f4383e03bbe3a3f7e13565a96d5eb47b3ac6fc58002ae91cd74"
+        },
+        {
+          "path": "project-data/structured-diff.ts",
+          "sha256": "4af2dfd1fb0e57c2d440b64a90fdbdfd1e88f02fffe6ff33c6f12eac64ff8590"
+        },
+        {
+          "path": "project-data/writer.ts",
+          "sha256": "d9ebfc5636d430eb7c94ecca75c4a40127e592e92bcd303cc73ed59cde674c80"
+        },
+        {
+          "path": "validation/battle-pages.ts",
+          "sha256": "e8bb5f47b3ad4c6d09c3df5f09785bc64e6704b8f458e0253f5a3e3953a20c8b"
+        },
+        {
+          "path": "validation/command-errors.ts",
+          "sha256": "d3da622a5d9616fd54f83415ec3782c45f54f95a3285d3525f1ddcf71f7deb9a"
+        },
+        {
+          "path": "validation/command-structure.ts",
+          "sha256": "e75f7edfa9b9fd520eeb7f4b42b4e110bc2a533fe3fd365c78750ecd226df6d4"
+        },
+        {
+          "path": "validation/commands.ts",
+          "sha256": "06e5dfc7af4ec73ea7df1e5c736605cf64e1aafcb529ae52a2c379d8e10f5085"
+        },
+        {
+          "path": "validation/common-events.ts",
+          "sha256": "dd331ebf8a13c720464cc96843ba4a8b69a2b6196ee740791ad7a4788ad89e34"
+        },
+        {
+          "path": "validation/compile-output.ts",
+          "sha256": "921536abaed802c2f030229f0ff72e3037aba9a6855abc9dcd7e47d1f4857681"
+        },
+        {
+          "path": "validation/compiled-commands.ts",
+          "sha256": "54ac1cd1aef427fc8af3681b8d5a6907a2b2e336727ba790ad7e44a5467fae94"
+        },
+        {
+          "path": "validation/declarations.ts",
+          "sha256": "d7428305b08f45f2203aa37ffb5b3a1c3506730870a01171574cc10f0624f671"
+        },
+        {
+          "path": "validation/dsl-command-inputs.ts",
+          "sha256": "33a08051859d264aa8265e33e466f33f30adeac3ffbe1732c5e3b0cf46ef46c6"
+        },
+        {
+          "path": "validation/identities.ts",
+          "sha256": "8d43c5417552dc7e1b6c5a5c3c423d3571d22277d719bf10f34f555ef39bf2b1"
+        },
+        {
+          "path": "validation/inspection.ts",
+          "sha256": "10a9923ffca925eb65ea7254a1d940c6580a3a60f3b7a14a4862cf08d11453e1"
+        },
+        {
+          "path": "validation/native-command-inputs.ts",
+          "sha256": "a50f5a80417e53340fababa5c0aaa7eb619c9652e35f453cc9a37c45fd839fd0"
+        },
+        {
+          "path": "validation/native-context-references.ts",
+          "sha256": "7ddd26656a02361bf2ea5c7ecfc10ca8a32d5d0a22a37ba36cabb168ce2c680d"
+        },
+        {
+          "path": "validation/native-parameters.ts",
+          "sha256": "dffc587a2997a4ed76fcfcc9a4f745bda12dd7a73d0a89b16f607c03b633053d"
+        },
+        {
+          "path": "validation/native-references.ts",
+          "sha256": "34ab7b62af6418491d00f3325fca6c843f2010e4170a24ec57cc8d6099a945b7"
+        },
+        {
+          "path": "validation/references.ts",
+          "sha256": "01c968b0619bcaf4a1251a4e00932657823229362a7d722148d274cf37c23dfd"
+        },
+        {
+          "path": "validation/shared.ts",
+          "sha256": "6ad13ecbedcc6cf7fb3565ffcdfd919f8fadad1430eccbbcfd845af7e927af14"
+        },
+        {
+          "path": "validation/snapshot.ts",
+          "sha256": "b29956e100eb586e389ed69bd7d9b6603452b6a7f8371aa895e53193628ed4cd"
+        },
+        {
+          "path": "validation/staged-graph.ts",
+          "sha256": "eb93aeb3a16a413f74719a42394fd0883365d735a9c0c6139295569505408693"
+        },
+        {
+          "path": "validation/types.ts",
+          "sha256": "df660ce939aa4e7924d4f98a54d63cb14cb3c637c48e53215477e0282c3f27dd"
+        },
+        {
+          "path": "workspace/checks.ts",
+          "sha256": "dd02c917b0ed530fcbb8d3458802d5d230def90388d6bf488e849f2934688692"
+        },
+        {
+          "path": "workspace/config.ts",
+          "sha256": "3700d64dfaf53fe1e99beb91bf8a54032c8a01372f25b579cdddf2ab683fd84b"
+        },
+        {
+          "path": "workspace/decompile-publication.ts",
+          "sha256": "e70dcce23f98167dc53e908b3242a0a61a5fd1f7f92b2df6f700e91433faf185"
+        },
+        {
+          "path": "workspace/definition-identities.ts",
+          "sha256": "f9048d155cc06fa5770e6b26cae9fac58255dc1668b0a416fbb4578149db3b41"
+        },
+        {
+          "path": "workspace/definitions.ts",
+          "sha256": "642fdd2fc21b59d6ffb59f01bd61fbb0bca4e26ee2eab4c3d659a4077f901ed1"
+        },
+        {
+          "path": "workspace/guards.ts",
+          "sha256": "cec835079aba4c1c61d4a28f224fd7ac7617063568b05156a84cc08896e0ed89"
+        },
+        {
+          "path": "workspace/operation-lock.ts",
+          "sha256": "c39e910339321f63786bec52cf40fa5e9c114a259f8bbc0dc7842b29660866cd"
+        },
+        {
+          "path": "workspace/operations.ts",
+          "sha256": "a5d8a46bd2fb28a09e2724028c7e9800d2ee23deed6e5e6a84196fb76b1ccead"
+        },
+        {
+          "path": "workspace/push-recovery.ts",
+          "sha256": "4eb0a680285f3e7532891cff2aedc3433f067fb36ccf8d4c63b3975b66c97a76"
+        },
+        {
+          "path": "workspace/push.ts",
+          "sha256": "4a68f891cce5431344921baf4c9c0f3e3617c704c305732fa13b17825e74a25a"
+        },
+        {
+          "path": "workspace/source-discovery.ts",
+          "sha256": "aeec16adb3208ea5d89666c051064e3251defd8ef8bae48ac6fa12bebc7b98e0"
+        },
+        {
+          "path": "workspace/state.ts",
+          "sha256": "c493c31c466b7d49b86a9bdd45ad563963c67f3c9e4c5a28b1f1f3b54ebbf216"
+        },
+        {
+          "path": "workspace/type-inputs.ts",
+          "sha256": "19aa473eb09a54680cb057c5348ba7212abd83066adadf03a48f0e58451c4c98"
+        },
+        {
+          "path": "workspace/types.ts",
+          "sha256": "f046ebe39de38d590d78bb0aa00f5c3f03a117f972f9aec6f49fa5f7275023fb"
+        },
+        {
+          "path": "workspace-api.ts",
+          "sha256": "735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2"
+        }
+      ],
+      "sha256": "964eb1b0a08ac8f5df91c1d44502272f3bab5f9869624a8e5c2e0f65e4e352d9"
+    },
+    "dist": {
+      "entries": [
+        {
+          "path": "authoring-D0b1TW44.mjs",
+          "sha256": "e4de92d498ad66e109375fc31806e0b0dd7b1a9b88cd831b6d7ce199dd603dac"
+        },
+        {
+          "path": "authoring-D0b1TW44.mjs.map",
+          "sha256": "7b664d8eafb814f11c8c73cd1100d0a651a42e890a99a516b1a64cba80f0642b"
+        },
+        {
+          "path": "cli.d.mts",
+          "sha256": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee"
+        },
+        {
+          "path": "cli.d.mts.map",
+          "sha256": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c"
+        },
+        {
+          "path": "cli.mjs",
+          "sha256": "cf9d7c4530714b843170e1b9c96e55bd1c5ae857fdbd12442230c12eb074189c"
+        },
+        {
+          "path": "cli.mjs.map",
+          "sha256": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8"
+        },
+        {
+          "path": "index.d.mts",
+          "sha256": "20139a1936ec769790ac184cc6794d81ff1387e6db56e16f926ca39e70b88119"
+        },
+        {
+          "path": "index.d.mts.map",
+          "sha256": "499957589d217c722630ae65542f449337e80e4af877eaf2000cd67043cf95e2"
+        },
+        {
+          "path": "index.mjs",
+          "sha256": "234674fe0733d85c02df0d1b6e044cd4dc328739b49e20a624c2ed93cd4d4837"
+        },
+        {
+          "path": "index.mjs.map",
+          "sha256": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36"
+        },
+        {
+          "path": "operations-BUIVmT5v.mjs",
+          "sha256": "83c773b1d1d4d8daa91a70f2e0c9894268ef12a96fdd90ea5703ac981ff62789"
+        },
+        {
+          "path": "operations-BUIVmT5v.mjs.map",
+          "sha256": "870437fc0bfaf6aba8964864b3425c24e14cea46a322edd5c5c52088bcca45eb"
+        },
+        {
+          "path": "workspace-api.d.mts",
+          "sha256": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594"
+        },
+        {
+          "path": "workspace-api.d.mts.map",
+          "sha256": "5c00024325238da7b6368529ed69e33839a8a4f0baeed1eb2e79f65c877ebbe8"
+        },
+        {
+          "path": "workspace-api.mjs",
+          "sha256": "065a35bf124040ebdc1744a383f7007554927245d61b19b076a5401a0bb98e9c"
+        }
+      ],
+      "sha256": "cbf782693e0da05c182e6f4a4b3ac068ff9e604f1db47d8d51fb96cda10ce509"
+    },
+    "apiSha256": "065a35bf124040ebdc1744a383f7007554927245d61b19b076a5401a0bb98e9c",
+    "harnessSha256": "8e702d9d5a5900829fd79fce2ae07adad87fa1e130b2783f8f62b6c2befb99cc",
+    "scenarioSha256": "5b399ca456e4baab6306226681cc024e64a5dc2d2124bc47b578b80d998efa3f",
+    "toolNodeSha256": "17347995af08dadcc73a1a154f0942559fbc3f37b9ba57d4576b4d2bcb2834a2"
+  },
+  "lifecycle": [
+    {
+      "name": "public init",
+      "startedAt": "2026-10-19T18:48:06.628Z",
+      "completedAt": "2026-10-19T18:48:06.635Z",
+      "ok": true
+    },
+    {
+      "name": "public Clone",
+      "startedAt": "2026-10-19T18:48:06.636Z",
+      "completedAt": "2026-10-19T18:48:06.667Z",
+      "ok": true
+    },
+    {
+      "name": "public Decompile",
+      "startedAt": "2026-10-19T18:48:06.667Z",
+      "completedAt": "2026-10-19T18:48:07.295Z",
+      "ok": true
+    },
+    {
+      "name": "formal owned source edits",
+      "startedAt": "2026-10-19T18:48:07.295Z",
+      "completedAt": "2026-10-19T18:48:07.297Z",
+      "ok": true
+    },
+    {
+      "name": "public Check",
+      "startedAt": "2026-10-19T18:48:07.306Z",
+      "completedAt": "2026-10-19T18:48:07.876Z",
+      "ok": true
+    },
+    {
+      "name": "public Compile",
+      "startedAt": "2026-10-19T18:48:09.044Z",
+      "completedAt": "2026-10-19T18:48:09.607Z",
+      "ok": true
+    },
+    {
+      "name": "public Diff",
+      "startedAt": "2026-10-19T18:48:10.766Z",
+      "completedAt": "2026-10-19T18:48:10.807Z",
+      "ok": true
+    },
+    {
+      "name": "public Push",
+      "startedAt": "2026-10-19T18:48:11.923Z",
+      "completedAt": "2026-10-19T18:48:12.049Z",
+      "ok": true
+    }
+  ],
+  "sourceEdits": [
+    {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-both-physical-delivery-v4-prepare-eb3f4d93-253e-4746-817a-c35ab6c87f44\\compiled\\Workspace\\src\\decompiled\\common-events.events.ts",
+      "beforeSha256": "e4943c4f7538e9ed645bf166d7f78de0f2b8ed4f5884f1024db4d0812b9cd071",
+      "afterSha256": "347134894276fcb1b7c3eed02ae74e965eeb6657072ce91b85d6d7fa160832e4",
+      "edit": "Remove exactly one owned Common name seed through actual formal source"
+    }
+  ],
+  "checkStateUnchanged": true,
+  "completeGeneratedCarrierComparison": {
+    "passed": true,
+    "files": [
+      "CommonEvents.json",
+      "Map001.json",
+      "System.json",
+      "Troops.json"
+    ]
+  },
+  "completeCarrierComparison": {
+    "passed": true,
+    "files": [
+      "Actors.json",
+      "Animations.json",
+      "Armors.json",
+      "Classes.json",
+      "CommonEvents.json",
+      "Enemies.json",
+      "Items.json",
+      "Map001.json",
+      "MapInfos.json",
+      "Skills.json",
+      "States.json",
+      "System.json",
+      "Tilesets.json",
+      "Troops.json",
+      "Weapons.json"
+    ],
+    "literalHashes": {
+      "Actors.json": "81704b5d5e3b9140a9c38c8bf363b828750d98545275542d01f2153599c392ef",
+      "Animations.json": "97a18b95e4f9a34c6054df9204520ab0019650783d26175d1ba3edf86fbcabb1",
+      "Armors.json": "a0eb6b40c3e6335554bc530611985c7cdbfe6823a4d1efaeb310cc4f2eebd54d",
+      "Classes.json": "ee90a5d7d51613cd66ef8e40f124e434b3e552f3df051a15fefa6376acb1d862",
+      "CommonEvents.json": "d0f5a5b7ba2ffd2d1d9c58300f9aa6373081bd8ee3c5350508ea2f4f659e09f4",
+      "Enemies.json": "d40c1a03a991c1c9961dc529d29190791e61f8c9a2926487a10a63c5a9520c27",
+      "Items.json": "e3e75cd7ed104cfe1a3fd7e612831d88c693eb29086c31ce87442a3afc641d19",
+      "Map001.json": "ae5150f0969202ec8ba0034e81d7cc63e8b4297017fd5cfdc0f0d13872d8dbbd",
+      "MapInfos.json": "4bd82f17bf954f09f4b564dbda20e1903d27d680069e257f7b5edfa24c48d8a0",
+      "Skills.json": "ae41a5a1664eba35005fa6c00c73979debd6b4b6aff314b9cb33270bf023f58f",
+      "States.json": "c1d6fa52702ee328c299eeec485010b4d9cca34b4f566b2fad50b212bc109dbd",
+      "System.json": "c5a95c39aa1f5ecad4f4a30100da6922edf62f84351c0fa08ef91af1d64aca74",
+      "Tilesets.json": "337cc7765b5268708b98059866e7385fcba799381c53ce7db22355ce8236fb97",
+      "Troops.json": "446aa046e637de0712741d51ff2c038fb6e665c000c1e8e41e268333814cb4ee",
+      "Weapons.json": "6a875e98f0bca6f9b89e8245fb45c7ee99c1c24d298a13f6e42e65763e89ee6a"
+    },
+    "compiledHashes": {
+      "Actors.json": "81704b5d5e3b9140a9c38c8bf363b828750d98545275542d01f2153599c392ef",
+      "Animations.json": "97a18b95e4f9a34c6054df9204520ab0019650783d26175d1ba3edf86fbcabb1",
+      "Armors.json": "a0eb6b40c3e6335554bc530611985c7cdbfe6823a4d1efaeb310cc4f2eebd54d",
+      "Classes.json": "ee90a5d7d51613cd66ef8e40f124e434b3e552f3df051a15fefa6376acb1d862",
+      "CommonEvents.json": "2197e6d304764cbac5841f38285f9b8a11cdb446dd65227b36f3bcc3b85aa9d6",
+      "Enemies.json": "d40c1a03a991c1c9961dc529d29190791e61f8c9a2926487a10a63c5a9520c27",
+      "Items.json": "e3e75cd7ed104cfe1a3fd7e612831d88c693eb29086c31ce87442a3afc641d19",
+      "Map001.json": "ae5150f0969202ec8ba0034e81d7cc63e8b4297017fd5cfdc0f0d13872d8dbbd",
+      "MapInfos.json": "4bd82f17bf954f09f4b564dbda20e1903d27d680069e257f7b5edfa24c48d8a0",
+      "Skills.json": "ae41a5a1664eba35005fa6c00c73979debd6b4b6aff314b9cb33270bf023f58f",
+      "States.json": "c1d6fa52702ee328c299eeec485010b4d9cca34b4f566b2fad50b212bc109dbd",
+      "System.json": "c5a95c39aa1f5ecad4f4a30100da6922edf62f84351c0fa08ef91af1d64aca74",
+      "Tilesets.json": "337cc7765b5268708b98059866e7385fcba799381c53ce7db22355ce8236fb97",
+      "Troops.json": "446aa046e637de0712741d51ff2c038fb6e665c000c1e8e41e268333814cb4ee",
+      "Weapons.json": "6a875e98f0bca6f9b89e8245fb45c7ee99c1c24d298a13f6e42e65763e89ee6a"
+    }
+  },
+  "publication": {
+    "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-battle-overworld-both-physical-delivery-v4-prepare-eb3f4d93-253e-4746-817a-c35ab6c87f44\\compiled\\Workspace",
+    "files": {
+      "CommonEvents.json": {
+        "beforePushSha256": "2913218fa73b308d25ecafc70b8c0170e1a45d17fd20c6fa9c4f3f0a32a8acd0",
+        "generatedSha256": "2197e6d304764cbac5841f38285f9b8a11cdb446dd65227b36f3bcc3b85aa9d6",
+        "afterPushSha256": "2197e6d304764cbac5841f38285f9b8a11cdb446dd65227b36f3bcc3b85aa9d6",
+        "actualReplacementProven": true
+      }
+    }
+  },
+  "physicalIsolation": {
+    "passed": true,
+    "referenceSeedLiteralUnchanged": true,
+    "distinctPhysicalDataRoots": true,
+    "allEntriesRegularAndUnlinked": true,
+    "completeDataFiles": {
+      "reference": 15,
+      "seed": 15,
+      "literal": 15,
+      "compiled": 15
+    }
+  },
+  "fullProtectedCheckpoints": [
+    {
+      "label": "initial protected physical reference and seed",
+      "passed": true,
+      "trees": {
+        "reference": {
+          "root": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData",
+          "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData",
+          "files": 1100,
+          "sha256": "14374fd86c845e5e3e59b47558d705ba086cc747e1cf8fb761e34230b60dc66d"
+        },
+        "seed": {
+          "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\Seed",
+          "realPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\Seed",
+          "files": 1100,
+          "sha256": "14374fd86c845e5e3e59b47558d705ba086cc747e1cf8fb761e34230b60dc66d"
+        }
+      }
+    },
+    {
+      "label": "before public Compile",
+      "passed": true,
+      "trees": {
+        "reference": {
+          "root": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData",
+          "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData",
+          "files": 1100,
+          "sha256": "14374fd86c845e5e3e59b47558d705ba086cc747e1cf8fb761e34230b60dc66d"
+        },
+        "seed": {
+          "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\Seed",
+          "realPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\Seed",
+          "files": 1100,
+          "sha256": "14374fd86c845e5e3e59b47558d705ba086cc747e1cf8fb761e34230b60dc66d"
+        }
+      }
+    },
+    {
+      "label": "after public Compile",
+      "passed": true,
+      "trees": {
+        "reference": {
+          "root": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData",
+          "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData",
+          "files": 1100,
+          "sha256": "14374fd86c845e5e3e59b47558d705ba086cc747e1cf8fb761e34230b60dc66d"
+        },
+        "seed": {
+          "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\Seed",
+          "realPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\Seed",
+          "files": 1100,
+          "sha256": "14374fd86c845e5e3e59b47558d705ba086cc747e1cf8fb761e34230b60dc66d"
+        }
+      }
+    },
+    {
+      "label": "before public Push",
+      "passed": true,
+      "trees": {
+        "reference": {
+          "root": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData",
+          "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData",
+          "files": 1100,
+          "sha256": "14374fd86c845e5e3e59b47558d705ba086cc747e1cf8fb761e34230b60dc66d"
+        },
+        "seed": {
+          "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\Seed",
+          "realPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\Seed",
+          "files": 1100,
+          "sha256": "14374fd86c845e5e3e59b47558d705ba086cc747e1cf8fb761e34230b60dc66d"
+        }
+      }
+    },
+    {
+      "label": "after public Push",
+      "passed": true,
+      "trees": {
+        "reference": {
+          "root": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData",
+          "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData",
+          "files": 1100,
+          "sha256": "14374fd86c845e5e3e59b47558d705ba086cc747e1cf8fb761e34230b60dc66d"
+        },
+        "seed": {
+          "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\Seed",
+          "realPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\Seed",
+          "files": 1100,
+          "sha256": "14374fd86c845e5e3e59b47558d705ba086cc747e1cf8fb761e34230b60dc66d"
+        }
+      }
+    },
+    {
+      "label": "after complete product publication",
+      "passed": true,
+      "trees": {
+        "reference": {
+          "root": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData",
+          "realPath": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData",
+          "files": 1100,
+          "sha256": "14374fd86c845e5e3e59b47558d705ba086cc747e1cf8fb761e34230b60dc66d"
+        },
+        "seed": {
+          "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\Seed",
+          "realPath": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\Seed",
+          "files": 1100,
+          "sha256": "14374fd86c845e5e3e59b47558d705ba086cc747e1cf8fb761e34230b60dc66d"
+        }
+      }
+    }
+  ]
+}

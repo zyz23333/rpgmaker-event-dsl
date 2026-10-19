@@ -494,3 +494,5 @@ Ticket36 map appearance cases use independent complete saved literals and actual
 | Requirement | Obligation | Evidence kind | Required layer |
 | --- | --- | --- | --- |
 | MV-S6-MAP-APPEARANCE-007 | preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push | synthetic-support | Public source/built Workspace; literal signed-zero carrier and Object.is assertions |
+
+Ticket36 allocated delivery is complete on contract `mv-1.6.1/10`: current source40 files/987 tests, fresh build, built Windows16 files/373 tests,9 exact E6 resource checks and10 physically isolated current-built/native pairs (20 game sides) passed. The [current delivery record](36-map-appearance-settings.md#final-current-delivery--contract-mv-16110) and `36-history/` preserve actual source/dist identities, rejected/incomplete attempts, original captures and safe native projections. All286 incoming rows/history bytes are preserved; final49–55 remain separate.

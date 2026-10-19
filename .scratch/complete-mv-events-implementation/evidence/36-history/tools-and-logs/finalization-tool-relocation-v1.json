@@ -1,0 +1,75 @@
+{
+  "purpose": "Versioned finalization output relocation; native inputs/checks unchanged; source/dist entry comparison canonicalizes order while retaining every entry",
+  "at": "2026-10-19T18:47:44.030Z",
+  "changes": [
+    {
+      "source": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv36-final-audit-v1.cjs",
+        "sha256": "ee6b7499c40009f12d71a0eb85f6ad9b88ef1bdc226823d584d7d050e54499af"
+      },
+      "target": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-final-audit-v2.cjs",
+        "sha256": "3671ded281402323289fa93acac7e9f0cdc924d8e32305d552ba3f05002ae11b"
+      },
+      "edits": [
+        {
+          "before": "const base=__dirname,repo=",
+          "after": "const base='C:/Users/Shuen/.codex/tmp',delivery=__dirname,repo=",
+          "count": 1
+        },
+        {
+          "before": "path.join(base,'mv36-final-native-index-pointer.json')",
+          "after": "path.join(delivery,'mv36-final-native-index-pointer.json')",
+          "count": 1
+        },
+        {
+          "before": "path.join(base,'mv36-physical-delivery-v3-pointer.json')",
+          "after": "path.join(delivery,'mv36-physical-delivery-v4-pointer.json')",
+          "count": 1
+        },
+        {
+          "before": "assert.deepEqual(report.build[name].entries,expected,item.case+' '+name)",
+          "after": "assert.deepEqual([...report.build[name].entries].sort((a,b)=>a.path.localeCompare(b.path)),expected,item.case+' '+name)",
+          "count": 1
+        },
+        {
+          "before": "path.join(base,'mv36-final-audit-'",
+          "after": "path.join(delivery,'mv36-final-audit-v2-'",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "source": {
+        "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv36-archive-delivery-v1.cjs",
+        "sha256": "da011f81bc18cfe86b6b2cec4c41c21ea630656dd81bed6ef866e399facd3c88"
+      },
+      "target": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-archive-delivery-v2.cjs",
+        "sha256": "bfda59996dae354e1c066d5394bf48ebe20359c504b291cda6fffd69163ff6a4"
+      },
+      "edits": [
+        {
+          "before": "const base=__dirname,repo=",
+          "after": "const base='C:/Users/Shuen/.codex/tmp',delivery=__dirname,repo=",
+          "count": 1
+        },
+        {
+          "before": "'mv36-final-prepare-v3.log','mv36-final-native-v3.log'",
+          "after": "'mv36-final-prepare-v3.log','mv36-final-prepare-v3-node24-rejected.log'",
+          "count": 1
+        },
+        {
+          "before": "for(const name of logs)await copy(path.join(base,name),'tools-and-logs/'+name);",
+          "after": "for(const name of logs)await copy(path.join(base,name),'tools-and-logs/'+name);for(const name of ['mv36-physical-delivery-v4.cjs','mv36-native-pair-delivery-v3.cjs','mv36-final-freeze-v4.log','mv36-final-prepare-v4.log','mv36-final-native-v4.log','wrapper-relocation-v1.json','mv36-final-audit-v2.cjs','mv36-archive-delivery-v2.cjs','finalization-tool-relocation-v1.json'])await copy(path.join(delivery,name),'tools-and-logs/'+name);",
+          "count": 1
+        },
+        {
+          "before": "path.join(base,'mv36-final-native-index-pointer.json')",
+          "after": "path.join(delivery,'mv36-final-native-index-pointer.json')",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}
