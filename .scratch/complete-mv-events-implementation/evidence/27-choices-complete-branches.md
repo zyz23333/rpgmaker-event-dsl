@@ -13,3 +13,9 @@
 ## R3 原生游戏对照
 
 待 exact adapter prepare-only proof 审核放行后执行七个原始 Choices 代表及数字负零代表。必须保留完整谓词、实际 Input、普通 Scene_Map 调度、15 disk/4 generated/applicable loaded 和完整物理隔离证明。
+
+## 验收索引身份
+
+`MV-S6-CHOICES-E2-COMPARE` 对应上文 E2 产品比较，当前待实际执行。
+`MV-S6-CHOICES-R3-PAIRS` 对应上文 R3 原生游戏对照，当前待精确准备证明审查及实际执行。
+这两条索引身份使文档可定位，不表示任一验收已通过。
