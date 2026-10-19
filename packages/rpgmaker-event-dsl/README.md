@@ -173,7 +173,8 @@ empty. Names may be empty or duplicated; a name reference requires exactly one
 current Common Event declaration. Call one with
 `callCommonEvent({ commonEvent: commonEventRef({ id: 1 }) })`.
 Autorun and parallel require `switch: switchRef(...)`. The optional switch for none
-preserves its independent native saved value; omission writes fixed `switchId: 1`.
+preserves its independent native saved value; omission or explicit `undefined`
+writes fixed `switchId: 1`.
 Every explicit reference requires a valid System Switch slot or unique staged
 Switch name. Common Events inherit invocation context without map/battle
 annotations. Removing one preserves its null ID hole and needs a destructive Push.

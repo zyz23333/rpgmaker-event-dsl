@@ -134,7 +134,8 @@ by name require exactly one current declaration. Use
 
 `trigger: "autorun"` and `"parallel"` require a `switch: switchRef(...)`. The same
 field preserves an independent saved switch when the trigger is `"none"`. Omitting
-it for `"none"` writes the fixed saved default `switchId: 1`; an explicit reference
+it, including explicit `switch: undefined`, for `"none"` writes the fixed saved
+default `switchId: 1`; an explicit reference
 always follows ordinary Switch existence and capacity rules. Common Events inherit
 their invocation context and require no map or battle declaration. Removing a
 Common Event leaves a null ID hole and requires a destructive Push.

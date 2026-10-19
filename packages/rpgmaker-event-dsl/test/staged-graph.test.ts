@@ -231,11 +231,19 @@ describe("validateDslOwnedDeclarations", () => {
       { scriptEnabled: false },
     );
 
-    expect(missingResult.issues.map((issue) => issue.message)).toContain(
-      "Unknown commonEvent reference: Missing",
+    expect(missingResult.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-E117-REFERENCE",
+        dslPath: "commands[0].commonEvent",
+        message: expect.stringContaining("Unknown commonEvent reference: Missing"),
+      }),
     );
-    expect(ambiguousResult.issues.map((issue) => issue.message)).toContain(
-      "Ambiguous commonEvent reference: Shared",
+    expect(ambiguousResult.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-E117-REFERENCE",
+        dslPath: "commands[0].commonEvent",
+        message: expect.stringContaining("Ambiguous commonEvent reference: Shared"),
+      }),
     );
   });
 
@@ -252,8 +260,12 @@ describe("validateDslOwnedDeclarations", () => {
       { scriptEnabled: false },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toContain(
-      "Unknown commonEvent reference id: 99",
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-E117-REFERENCE",
+        dslPath: "commands[0].commonEvent",
+        message: expect.stringContaining("Unknown commonEvent reference id: 99"),
+      }),
     );
   });
 
@@ -287,10 +299,17 @@ describe("validateDslOwnedDeclarations", () => {
 
     expect(result.issues.map((issue) => issue.message)).toEqual(
       expect.arrayContaining([
-        "Unknown commonEvent reference: Snapshot Common",
+        expect.stringContaining("Unknown commonEvent reference: Snapshot Common"),
         "MV-E121-REFERENCE validation common event 1.commands[1].switch: Unknown switch reference: Snapshot Switch",
         "Unknown variable reference: Snapshot Variable",
       ]),
+    );
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-E117-REFERENCE",
+        dslPath: "commands[0].commonEvent",
+        message: expect.stringContaining("Unknown commonEvent reference: Snapshot Common"),
+      }),
     );
   });
 

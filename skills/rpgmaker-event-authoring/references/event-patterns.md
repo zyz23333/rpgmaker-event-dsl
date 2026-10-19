@@ -40,7 +40,8 @@ switch? })`. Keep the explicit ID and exact name, including empty or duplicate
 names. Use `callCommonEvent({ commonEvent: commonEventRef({ id }) })`; a name
 reference resolves only when exactly one current Common Event has that name.
 Autorun and parallel require a valid Switch reference. For none, an explicit switch
-preserves its independent saved value; omission writes saved default 1. An explicit
+preserves its independent saved value; omission or explicit `undefined` writes saved
+default 1. An explicit
 reference still needs an existing System Switch slot or unique staged Switch name.
 Common Events inherit the caller's runtime context. Choose self switches and
 current-event selectors with that caller in mind; no context annotation or static

@@ -97,6 +97,10 @@ export function buildStagedDataGraph(input: {
   const commonEventsById = new Map<number, CommonEventDefinition>();
   const switchesById = new Map<number, SwitchDefinition>();
   const variablesById = new Map<number, VariableDefinition>();
+  const scopes = buildReferenceScopes({
+    declarations,
+    snapshotReferences: input.snapshotReferences ?? {},
+  });
 
   for (const declaration of declarations) {
     switch (declaration.kind) {
@@ -114,11 +118,6 @@ export function buildStagedDataGraph(input: {
         break;
     }
   }
-
-  const scopes = buildReferenceScopes({
-    declarations,
-    snapshotReferences: input.snapshotReferences ?? {},
-  });
 
   return {
     declarations,

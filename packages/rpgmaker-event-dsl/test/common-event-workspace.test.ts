@@ -7,7 +7,7 @@ import { createMinimalProject, runCli, withWindowsSandbox } from "./support/wind
 import { recordEvidence } from "./support/mv-evidence.js";
 
 const api: typeof import("../src/workspace-api.js") = await import(workspaceApiEntry);
-const { commonEvent }: typeof import("../src/index.js") = await import(
+const { commonEvent, collectDslOwnedDeclarations }: typeof import("../src/index.js") = await import(
   new URL(
     process.env.MV_CLI_ENTRY === "built" ? "../dist/index.mjs" : "../src/index.ts",
     import.meta.url,
@@ -60,6 +60,80 @@ const evidenceIds: Record<string, string> = {
   "common-forged-definition": "015",
   "common-unbound-context": "016",
 };
+it("MV-S5-COMMON-015: public collection validates forged definitions without evaluating accessors", async () => {
+  await commonEvidence("common-forged-definition", async (s) => {
+    await createMinimalProject(s.workspaceRoot);
+    await api.initWorkspace({ ...s, projectRoot: "./Game" });
+    await api.cloneWorkspace(s);
+    const before = await observe(s.workspaceRoot);
+    expect(() =>
+      collectDslOwnedDeclarations({
+        bad: { kind: "commonEvent", id: 1, name: "Bad", trigger: "none", commands: [], extra: 7 },
+      }),
+    ).toThrow(/MV-COMMON-EVENT/u);
+    let reads = 0;
+    const accessor = {
+      kind: "commonEvent",
+      get id(): number {
+        reads++;
+        throw Error("getter executed");
+      },
+      name: "Accessor",
+      trigger: "none",
+      commands: [],
+    };
+    expect(() => collectDslOwnedDeclarations({ accessor })).toThrow(/MV-COMMON-EVENT/u);
+    expect(reads).toBe(0);
+    expect(await observe(s.workspaceRoot)).toStrictEqual(before);
+  });
+});
+it.each(["none", "autorun", "parallel"] as const)(
+  "MV-S5-COMMON-006: optional saved Switch undefined follows trigger requirements (%s)",
+  async (trigger) => {
+    await commonEvidence("common-saved-reference", async (s) => {
+      const fixture = await createMinimalProject(s.workspaceRoot);
+      fixture.projectFiles["System.json"].switches = [""];
+      await writeFile(
+        join(s.workspaceRoot, "Game/data/System.json"),
+        JSON.stringify(fixture.projectFiles["System.json"]),
+      );
+      await api.initWorkspace({ ...s, projectRoot: "./Game" });
+      await api.cloneWorkspace(s);
+      await mkdir(join(s.workspaceRoot, "src"), { recursive: true });
+      await writeFile(
+        join(s.workspaceRoot, "src/undefined.events.ts"),
+        `import {commonEvent} from "rpgmaker-event-dsl";export const saved=commonEvent({id:1,name:"Undefined saved switch",trigger:"${trigger}",switch:undefined,commands:[]}${trigger === "none" ? "" : " as any"});`,
+      );
+      const before = await observe(s.workspaceRoot);
+      if (trigger !== "none") {
+        for (const check of [true, false])
+          await expect(api.compileWorkspace({ ...s, check })).rejects.toThrow(/MV-COMMON-EVENT/u);
+        expect(await observe(s.workspaceRoot)).toStrictEqual(before);
+        return;
+      }
+      const expected = [
+        null,
+        { id: 1, name: "Undefined saved switch", trigger: 0, switchId: 1, list: [end] },
+      ];
+      await api.compileWorkspace({ ...s, check: true });
+      expect(await observe(s.workspaceRoot)).toStrictEqual(before);
+      await api.compileWorkspace({ ...s, check: false });
+      expect(
+        JSON.parse(
+          await readFile(
+            join(s.workspaceRoot, ".rpgmaker-event-dsl/generated-project-data/CommonEvents.json"),
+            "utf8",
+          ),
+        ),
+      ).toStrictEqual(expected);
+      await api.diffWorkspace(s);
+      await api.pushWorkspace({ ...s, allowDestructive: false });
+      expect(
+        JSON.parse(await readFile(join(s.workspaceRoot, "Game/data/CommonEvents.json"), "utf8")),
+      ).toStrictEqual(expected);
+    });
+  },
+);
 it.each([
   'commonEvent({id:1,name:"Autorun",trigger:"autorun",commands:[]})',
   'commonEvent({id:1,name:"Parallel",trigger:"parallel",commands:[]})',

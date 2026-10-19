@@ -46,6 +46,14 @@ E117 Q710524 stored840 / decoded836 / plaintext，decoded SHA256 `6e3cfa0ad6ea40
 
 这是代码事实与有条件保存推导；没有启动编辑器、观察 Qt 信号/焦点/异步时序或进行 UI 捕获。页面禁用 ID 例外是独立已接受产品契约，未扩展到 Common none。以上 E1 比较不替代 R1/R4 实际运行或最终49。
 
+## 预审边界与 undefined 修正
+
+按规格 I1，完整 Common 定义收集验证移至 `validation/declarations.ts`；公开 `collectDslOwnedDeclarations` 保留同一接口，Workspace 的实文件及虚拟候选 loader 使用该边界。domain 只保留声明模型和类型判别，不再导入 validation 或拥有收集验证实现。直接 compiler 的 scope 构造同样在读取 Common 身份/名称前完成形状验证，getter-safe 身份诊断保持。
+
+按规格 I2，可选保存字段的显式 undefined 等同省略，因此 none 的 `switch: undefined` 重建固定默认1，零 Switch 容量也无需将其误作显式引用；autorun/parallel 的必填 Switch 仍拒绝 undefined，正常显式引用没有增加容量/存在性例外。新增独立 Workspace 字面量经过真实源码 Check→Compile→Diff→Push 比较完整 Common 数据，active 两种 trigger 同时检查失败无业务状态改变。
+
+`mv23-boundary-undefined-red.json` 是移除 domain 上层验证而尚未接入 validation 收集时的实际red：公开收集拒绝与 none undefined 两项失败，active undefined 两项已正确。`mv23-boundary-undefined-green.json` 四项通过。首轮完整 focused `mv23-boundary-undefined-focused.json` 142通过/3失败：三项旧 staged-graph 断言仍要求原非结构化 E117 消息整串，已改为同时要求 `MV-E117-REFERENCE`、精确 `commands[0].commonEvent` 和原始 Unknown/Ambiguous 细节。最终 `mv23-boundary-undefined-focused-final.json` 145/145通过，包括 Common100、公开DSL、真实定义loader、staged graph与证据索引。typecheck/lint/format通过，仅22原历史工具warning未变。此轮未执行full/build/native，票仍claimed。
+
 ## 尚待交付
 
 已 merge 24 实际集成 `8617d815750631d00a8b60b2410d9e5420da4e16`，本分支整合提交 `87395b468ccceaa6b23d637de551ca7c09371837`。保留 `Snapshot Common` 完整五字段及 24 的完整 Map blank/page/note 夹具；保留原210 requirement对象，并逐对象确认24新增16行未变。两个独立语义增量合并后暂为 Contract `mv-1.6.1/7`。Windows / Node22.23.0 的 `mv23-merge24-focused.json` 实际133/133通过（Common96、workflow34、evidence index3），typecheck通过；没有占用最终广检槽或将此算作原生交付。

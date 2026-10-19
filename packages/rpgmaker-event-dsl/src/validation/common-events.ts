@@ -43,8 +43,7 @@ export function assertCommonEventInput(
   if (!["none", "autorun", "parallel"].includes(input.trigger as string))
     fail(`${path}.trigger`, "none | autorun | parallel", input.trigger);
   if (input.switch === undefined) {
-    if (input.trigger !== "none" || Object.hasOwn(input, "switch"))
-      fail(`${path}.switch`, "explicit Switch reference", input.switch);
+    if (input.trigger !== "none") fail(`${path}.switch`, "explicit Switch reference", input.switch);
   } else {
     try {
       assertDslObject(input.switch, ["kind", "id", "name"], `${path}.switch`);

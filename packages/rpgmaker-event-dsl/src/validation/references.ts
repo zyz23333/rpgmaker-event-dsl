@@ -17,6 +17,9 @@ export function buildReferenceScopes(input: {
   declarations: readonly DslOwnedDeclaration[];
   snapshotReferences: SnapshotReferenceInput;
 }): ReferenceScopes {
+  for (const declaration of input.declarations) {
+    if (declaration.kind === "commonEvent") assertCommonEventInput(declaration, true);
+  }
   const commonEvents = input.declarations.flatMap((declaration) =>
     declaration.kind === "commonEvent" ? [toReferenceEntry(declaration)] : [],
   );

@@ -1,6 +1,5 @@
 import type { DslCommand, MovementRoute } from "./command.js";
 import type { ImageAssetReference, ReferenceValue } from "./references.js";
-import { assertCommonEventInput } from "../validation/common-events.js";
 
 export type DslOwnedDeclaration =
   | MapEventDefinition
@@ -92,24 +91,6 @@ export type PageConditions = {
     atLeast: number;
   };
 };
-
-export function collectDslOwnedDeclarations(
-  moduleExports: Record<string, unknown>,
-): DslOwnedDeclaration[] {
-  const definitions: DslOwnedDeclaration[] = [];
-
-  for (const [name, value] of Object.entries(moduleExports)) {
-    if (name === "default") {
-      throw new Error("Default export is not allowed for DSL-owned declarations.");
-    }
-    if (isDslOwnedDeclaration(value)) {
-      if (value.kind === "commonEvent") assertCommonEventInput(value, true);
-      definitions.push(value);
-    }
-  }
-
-  return definitions;
-}
 
 export function isDslOwnedDeclaration(value: unknown): value is DslOwnedDeclaration {
   return (
