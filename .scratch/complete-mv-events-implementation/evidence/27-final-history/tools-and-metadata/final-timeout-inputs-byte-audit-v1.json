@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-19T22:50:12.151Z",
+  "purpose": "Independent complete byte readback of final-index timeout corpus after diagnostics and original-CLI successful recheck, before documentary closure changes",
+  "manifest": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-index-timeout-inputs-v1\\manifest.json",
+    "sha256": "a9b6d51f68416bf9e659dc432d3d52eeb5e0db2125557bd923a240dc6a04e978"
+  },
+  "files": 8389,
+  "results": 8109,
+  "bytes": 1413463829,
+  "regularNlinkOneRetainedBytesExact": true,
+  "currentBytesStillExact": true,
+  "executedInputs": 193,
+  "helperSha256": "343a11790df3a07ded5b34aa17a2e5fd0fcb7b65e5e25776ee995e6d451fddba",
+  "passed": true
+}

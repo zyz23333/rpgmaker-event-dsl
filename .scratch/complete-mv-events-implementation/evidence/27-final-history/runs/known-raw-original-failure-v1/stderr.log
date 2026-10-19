@@ -1,0 +1,389 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot +0=[] in native and known raw
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-PARAMETERS",
+  "dslPath": "commands[0]",
+}
+
++ Received:
+[
+  {
+    "actual": "[]",
+    "code": "MV-COMMAND-PARAMETERS",
+    "dslPath": "commands[0].parameters[0]",
+    "expected": "1..6 string choices",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. (commands[0].parameters[0]); expected 1..6 string choices; actual []",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:373:84
+    371|       commands: list.slice(0, -1).map(rawDslCommand),
+    372|     });
+    373|     expect(validateDslOwnedDeclarations([event], { scriptEnabled: fals…
+       |                                                                                    ^
+    374|       expect.objectContaining({ code: "MV-COMMAND-PARAMETERS", dslPath…
+    375|     );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/22]⎯
+
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot +0=[] in native and known raw
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot +0=[ '1', '2', '3', '4', '5', '6', '7' ] in native and known raw
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot 1=-3 in native and known raw
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot 1=6 in native and known raw
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot 1=0.5 in native and known raw
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot 2=-2 in native and known raw
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot 2=6 in native and known raw
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot 3=3 in native and known raw
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot 3=-0 in native and known raw
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot 4=3 in native and known raw
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot 4=-0 in native and known raw
+TypeError: Cannot convert object to primitive value
+ ❯ recordEvidence test/support/mv-evidence.ts:321:13
+    319|         : input.error instanceof Error
+    320|           ? (input.error.stack ?? input.error.message)
+    321|           : String(input.error),
+       |             ^
+    322|   });
+    323|   const output = resolve(
+ ❯ test/choices.test.ts:601:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/22]⎯
+
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot +0=[ '1', '2', '3', '4', '5', '6', '7' ] in native and known raw
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-PARAMETERS",
+  "dslPath": "commands[0]",
+}
+
++ Received:
+[
+  {
+    "actual": "[\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\"]",
+    "code": "MV-COMMAND-PARAMETERS",
+    "dslPath": "commands[0].parameters[0]",
+    "expected": "1..6 string choices",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. (commands[0].parameters[0]); expected 1..6 string choices; actual [\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\"]",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:373:84
+    371|       commands: list.slice(0, -1).map(rawDslCommand),
+    372|     });
+    373|     expect(validateDslOwnedDeclarations([event], { scriptEnabled: fals…
+       |                                                                                    ^
+    374|       expect.objectContaining({ code: "MV-COMMAND-PARAMETERS", dslPath…
+    375|     );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/22]⎯
+
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot 1=-3 in native and known raw
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-PARAMETERS",
+  "dslPath": "commands[0]",
+}
+
++ Received:
+[
+  {
+    "actual": "-3",
+    "code": "MV-COMMAND-PARAMETERS",
+    "dslPath": "commands[0].parameters[1]",
+    "expected": "cancel mode -2, -1 or numeric choice index 0..5",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. (commands[0].parameters[1]); expected cancel mode -2, -1 or numeric choice index 0..5; actual -3",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:373:84
+    371|       commands: list.slice(0, -1).map(rawDslCommand),
+    372|     });
+    373|     expect(validateDslOwnedDeclarations([event], { scriptEnabled: fals…
+       |                                                                                    ^
+    374|       expect.objectContaining({ code: "MV-COMMAND-PARAMETERS", dslPath…
+    375|     );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/22]⎯
+
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot 1=6 in native and known raw
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-PARAMETERS",
+  "dslPath": "commands[0]",
+}
+
++ Received:
+[
+  {
+    "actual": "6",
+    "code": "MV-COMMAND-PARAMETERS",
+    "dslPath": "commands[0].parameters[1]",
+    "expected": "cancel mode -2, -1 or numeric choice index 0..5",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. (commands[0].parameters[1]); expected cancel mode -2, -1 or numeric choice index 0..5; actual 6",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:373:84
+    371|       commands: list.slice(0, -1).map(rawDslCommand),
+    372|     });
+    373|     expect(validateDslOwnedDeclarations([event], { scriptEnabled: fals…
+       |                                                                                    ^
+    374|       expect.objectContaining({ code: "MV-COMMAND-PARAMETERS", dslPath…
+    375|     );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/22]⎯
+
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot 1=0.5 in native and known raw
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-PARAMETERS",
+  "dslPath": "commands[0]",
+}
+
++ Received:
+[
+  {
+    "actual": "0.5",
+    "code": "MV-COMMAND-PARAMETERS",
+    "dslPath": "commands[0].parameters[1]",
+    "expected": "cancel mode -2, -1 or numeric choice index 0..5",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. (commands[0].parameters[1]); expected cancel mode -2, -1 or numeric choice index 0..5; actual 0.5",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:373:84
+    371|       commands: list.slice(0, -1).map(rawDslCommand),
+    372|     });
+    373|     expect(validateDslOwnedDeclarations([event], { scriptEnabled: fals…
+       |                                                                                    ^
+    374|       expect.objectContaining({ code: "MV-COMMAND-PARAMETERS", dslPath…
+    375|     );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/22]⎯
+
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot 2=-2 in native and known raw
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-PARAMETERS",
+  "dslPath": "commands[0]",
+}
+
++ Received:
+[
+  {
+    "actual": "-2",
+    "code": "MV-COMMAND-PARAMETERS",
+    "dslPath": "commands[0].parameters[2]",
+    "expected": "default none -1 or numeric choice index 0..5",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. (commands[0].parameters[2]); expected default none -1 or numeric choice index 0..5; actual -2",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:373:84
+    371|       commands: list.slice(0, -1).map(rawDslCommand),
+    372|     });
+    373|     expect(validateDslOwnedDeclarations([event], { scriptEnabled: fals…
+       |                                                                                    ^
+    374|       expect.objectContaining({ code: "MV-COMMAND-PARAMETERS", dslPath…
+    375|     );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/22]⎯
+
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot 2=6 in native and known raw
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-PARAMETERS",
+  "dslPath": "commands[0]",
+}
+
++ Received:
+[
+  {
+    "actual": "6",
+    "code": "MV-COMMAND-PARAMETERS",
+    "dslPath": "commands[0].parameters[2]",
+    "expected": "default none -1 or numeric choice index 0..5",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. (commands[0].parameters[2]); expected default none -1 or numeric choice index 0..5; actual 6",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:373:84
+    371|       commands: list.slice(0, -1).map(rawDslCommand),
+    372|     });
+    373|     expect(validateDslOwnedDeclarations([event], { scriptEnabled: fals…
+       |                                                                                    ^
+    374|       expect.objectContaining({ code: "MV-COMMAND-PARAMETERS", dslPath…
+    375|     );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/22]⎯
+
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot 3=3 in native and known raw
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-PARAMETERS",
+  "dslPath": "commands[0]",
+}
+
++ Received:
+[
+  {
+    "actual": "3",
+    "code": "MV-COMMAND-PARAMETERS",
+    "dslPath": "commands[0].parameters[3]",
+    "expected": "one of [0,1,2]",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. (commands[0].parameters[3]); expected one of [0,1,2]; actual 3",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:373:84
+    371|       commands: list.slice(0, -1).map(rawDslCommand),
+    372|     });
+    373|     expect(validateDslOwnedDeclarations([event], { scriptEnabled: fals…
+       |                                                                                    ^
+    374|       expect.objectContaining({ code: "MV-COMMAND-PARAMETERS", dslPath…
+    375|     );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/22]⎯
+
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot 3=-0 in native and known raw
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-PARAMETERS",
+  "dslPath": "commands[0]",
+}
+
++ Received:
+[
+  {
+    "actual": "-0",
+    "code": "MV-COMMAND-PARAMETERS",
+    "dslPath": "commands[0].parameters[3]",
+    "expected": "one of [0,1,2]",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. (commands[0].parameters[3]); expected one of [0,1,2]; actual -0",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:373:84
+    371|       commands: list.slice(0, -1).map(rawDslCommand),
+    372|     });
+    373|     expect(validateDslOwnedDeclarations([event], { scriptEnabled: fals…
+       |                                                                                    ^
+    374|       expect.objectContaining({ code: "MV-COMMAND-PARAMETERS", dslPath…
+    375|     );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/22]⎯
+
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot 4=3 in native and known raw
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-PARAMETERS",
+  "dslPath": "commands[0]",
+}
+
++ Received:
+[
+  {
+    "actual": "3",
+    "code": "MV-COMMAND-PARAMETERS",
+    "dslPath": "commands[0].parameters[4]",
+    "expected": "one of [0,1,2]",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. (commands[0].parameters[4]); expected one of [0,1,2]; actual 3",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:373:84
+    371|       commands: list.slice(0, -1).map(rawDslCommand),
+    372|     });
+    373|     expect(validateDslOwnedDeclarations([event], { scriptEnabled: fals…
+       |                                                                                    ^
+    374|       expect.objectContaining({ code: "MV-COMMAND-PARAMETERS", dslPath…
+    375|     );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/22]⎯
+
+ FAIL  test/choices.test.ts > MV-S6-CHOICES-005: rejects unsupported E102 slot 4=-0 in native and known raw
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-PARAMETERS",
+  "dslPath": "commands[0]",
+}
+
++ Received:
+[
+  {
+    "actual": "-0",
+    "code": "MV-COMMAND-PARAMETERS",
+    "dslPath": "commands[0].parameters[4]",
+    "expected": "one of [0,1,2]",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. (commands[0].parameters[4]); expected one of [0,1,2]; actual -0",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:373:84
+    371|       commands: list.slice(0, -1).map(rawDslCommand),
+    372|     });
+    373|     expect(validateDslOwnedDeclarations([event], { scriptEnabled: fals…
+       |                                                                                    ^
+    374|       expect.objectContaining({ code: "MV-COMMAND-PARAMETERS", dslPath…
+    375|     );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/22]⎯
+

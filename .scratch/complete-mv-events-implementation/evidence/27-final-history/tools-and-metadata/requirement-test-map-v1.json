@@ -1,0 +1,115 @@
+{
+  "fixturePath": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/choices-complete.json",
+  "fixtureSha256": "8a95e9c1ccd01931cb02fd1dbb6978b02725046589a5072c7e56223bbf8ae46a",
+  "mappings": [
+    {
+      "id": "MV-S6-CHOICES-001",
+      "path": "packages/rpgmaker-event-dsl/test/choices.test.ts",
+      "name": "MV-S6-CHOICES-001: preserves numeric saved choice indices with negative zero in $name through formal, raw and decompile",
+      "names": [
+        "preserves numeric saved choice indices with negative zero in $name through formal, raw and decompile",
+        "preserves saved default and cancel index $index independently of the current two choices",
+        "locates preserved out-of-count saved indices in formal and raw source fields"
+      ]
+    },
+    {
+      "id": "MV-S6-CHOICES-002",
+      "path": "packages/rpgmaker-event-dsl/test/choices.test.ts",
+      "name": "MV-S6-CHOICES-002: preserves named $position/$background modes and the none/disabled states",
+      "names": [
+        "preserves named $position/$background modes and the none/disabled states",
+        "treats optional undefined as omission while keeping required arrays explicit"
+      ]
+    },
+    {
+      "id": "MV-S6-CHOICES-003",
+      "path": "packages/rpgmaker-event-dsl/test/choices.test.ts",
+      "name": "MV-S6-CHOICES-003: keeps a valid nested raw body's marker separate from its formal owner",
+      "names": [
+        "keeps a valid nested raw body's marker separate from its formal owner",
+        "refuses a $name through the native structure seam",
+        "rejects a raw own marker contradicting the declared %s choice body",
+        "rejects a raw own marker contradicting the cancel body",
+        "rejects a %s cancel branch instead of changing the saved mode",
+        "rejects empty absent %s body rather than borrowing another layer's marker",
+        "rejects unsupported 403 saved slots $parameters"
+      ]
+    },
+    {
+      "id": "MV-S6-CHOICES-004",
+      "path": "packages/rpgmaker-event-dsl/test/choices.test.ts",
+      "name": "MV-S6-CHOICES-004: visits unreachable choice and cancel bodies for references and Script Command Gate",
+      "names": [
+        "visits unreachable choice and cancel bodies for references and Script Command Gate"
+      ]
+    },
+    {
+      "id": "MV-S6-CHOICES-005",
+      "path": "packages/rpgmaker-event-dsl/test/choices.test.ts",
+      "name": "MV-S6-CHOICES-005: rejects unsupported E102 slot $slot=$value in native and known raw",
+      "names": [
+        "rejects unsupported E102 slot $slot=$value in native and known raw",
+        "rejects forged Choices at the precise owned path $path",
+        "rejects non-data own fields before reading an untyped helper input"
+      ]
+    },
+    {
+      "id": "MV-S6-CHOICES-006",
+      "path": "packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+      "name": "MV-S6-CHOICES-006: preserves numeric saved choice indices through Workspace $name",
+      "names": [
+        "preserves numeric saved choice indices through Workspace $name"
+      ]
+    },
+    {
+      "id": "MV-S6-CHOICES-007",
+      "path": "packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+      "name": "MV-S6-CHOICES-007: round trips native cancel and nested body markers through discovered source and a real Push replacement",
+      "names": [
+        "round trips native cancel and nested body markers through discovered source and a real Push replacement",
+        "round trips all one-to-six item lists, empty text slots and named saved modes through real Workspace sources"
+      ]
+    },
+    {
+      "id": "MV-S6-CHOICES-008",
+      "path": "packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+      "name": "MV-S6-CHOICES-008: preserves the fixed one-choice defaults through actual source evaluation and Push",
+      "names": [
+        "preserves the fixed one-choice defaults through actual source evaluation and Push"
+      ]
+    },
+    {
+      "id": "MV-S6-CHOICES-009",
+      "path": "packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+      "name": "MV-S6-CHOICES-009: rejects a removed field passed through a typed local constant without publishing output",
+      "names": [
+        "rejects a removed field passed through a typed local constant without publishing output",
+        "refuses native $name before publication and preserves all Workspace business bytes on retry"
+      ]
+    },
+    {
+      "id": "MV-S6-CHOICES-010",
+      "path": "packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+      "name": "MV-S6-CHOICES-010: keeps nested saved scripts intact while Check and Compile both enforce Gate before writing",
+      "names": [
+        "keeps nested saved scripts intact while Check and Compile both enforce Gate before writing"
+      ]
+    },
+    {
+      "id": "MV-S6-CHOICES-011",
+      "path": "packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+      "name": "MV-S6-CHOICES-011: independent Choices roundtrip all three containers and install exact complete carriers",
+      "names": [
+        "independent Choices roundtrip all three containers and install exact complete carriers"
+      ]
+    },
+    {
+      "id": "MV-S6-CHOICES-012",
+      "path": "packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+      "name": "MV-S6-CHOICES-012: invalid native mirror has a precise diagnostic and preserves complete state (%s)",
+      "names": [
+        "invalid native mirror has a precise diagnostic and preserves complete state (%s)"
+      ]
+    }
+  ]
+}

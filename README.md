@@ -443,6 +443,15 @@ owns MV text continuation records, `showChoices(...)` owns choice branches,
 `battleProcessing(...)` owns battle result branches, `shopProcessing(...)` owns goods
 continuations, and `setMovementRoute(...)` owns nested move route commands.
 
+`showChoices({ choices: [{ text, commands, endMarker? }], defaultChoice?, cancel?, position?, background? })`
+keeps each of its 1–6 choices with its required child commands. Default choice and
+cancel modes use named objects; saved choice indices are zero-based integers 0–5.
+The defaults are choice 0, cancel choice 1, right position, and window background.
+The saved cancel default stays 1 for a one-item list. Out-of-count saved indices
+are preserved with a warning. Each choice and a separate cancel branch own their
+Body End Marker; see the [Choices example](packages/rpgmaker-event-dsl/README.md#choices)
+for the complete authoring shape.
+
 `setMovementRoute({ target, route: { commands, repeat?, skippable?, wait?, terminator? } })`
 uses the shared `MovementRoute` model. `commands` is required and may be empty;
 the route defaults are `repeat: true`, `skippable: false`, and `wait: false`.

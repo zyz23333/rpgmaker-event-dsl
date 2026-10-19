@@ -1,0 +1,91 @@
+
+> rpgmaker-event-dsl-workspace@0.0.0 lint M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-27-final
+> oxlint .
+
+.scratch/complete-mv-events-implementation/evidence/27-final-history/public-originals/mv27-choice-saved-indices-public-green-0a195990-3c5d-4fde-9dbb-15c0d05dcddd/formal-cancel-negative-zero/src/decompiled/system.dsl.ts:1:28: warning eslint(no-unused-vars): Identifier 'variableDefinition' is imported but never used. help: Consider removing this import.
+.scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/choices-scenario-export-v1.cjs:4:7: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/choices-scenario-export-v1.cjs:18:7: warning eslint(no-unused-vars): Variable 'options' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/27-final-history/public-originals/mv27-choice-saved-indices-public-green-0a195990-3c5d-4fde-9dbb-15c0d05dcddd/formal-positive-zero-control/src/decompiled/system.dsl.ts:1:28: warning eslint(no-unused-vars): Identifier 'variableDefinition' is imported but never used. help: Consider removing this import.
+.scratch/complete-mv-events-implementation/evidence/27-final-history/public-originals/mv27-choice-saved-indices-public-green-0a195990-3c5d-4fde-9dbb-15c0d05dcddd/native-cancel-negative-zero/src/decompiled/system.dsl.ts:1:28: warning eslint(no-unused-vars): Identifier 'variableDefinition' is imported but never used. help: Consider removing this import.
+.scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/prepare-evidence-v2.cjs:3:58: warning eslint(no-unused-vars): Variable 'evidence' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/prepare-evidence-v1.cjs:3:58: warning eslint(no-unused-vars): Variable 'evidence' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/27-final-history/public-originals/mv27-choice-saved-indices-public-green-0a195990-3c5d-4fde-9dbb-15c0d05dcddd/native-both-negative-zero/src/decompiled/system.dsl.ts:1:28: warning eslint(no-unused-vars): Identifier 'variableDefinition' is imported but never used. help: Consider removing this import.
+.scratch/complete-mv-events-implementation/evidence/27-final-history/public-originals/mv27-choice-saved-indices-public-audit-02b9f2d3-14ff-40f4-887b-cb87c7462e3e/native-positive-zero-control/src/decompiled/system.dsl.ts:1:28: warning eslint(no-unused-vars): Identifier 'variableDefinition' is imported but never used. help: Consider removing this import.
+.scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/index-instrumented-v3.mts:7:10: warning eslint(no-unused-vars): Identifier 'fileURLToPath' is imported but never used. help: Consider removing this import.
+.scratch/complete-mv-events-implementation/evidence/27-final-history/public-originals/mv27-choice-saved-indices-public-audit-02b9f2d3-14ff-40f4-887b-cb87c7462e3e/formal-default-negative-zero/src/decompiled/system.dsl.ts:1:28: warning eslint(no-unused-vars): Identifier 'variableDefinition' is imported but never used. help: Consider removing this import.
+.scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/index-instrumented-v2.mts:7:10: warning eslint(no-unused-vars): Identifier 'fileURLToPath' is imported but never used. help: Consider removing this import.
+.scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/index-instrumented-v1.mts:7:10: warning eslint(no-unused-vars): Identifier 'fileURLToPath' is imported but never used. help: Consider removing this import.
+.scratch/complete-mv-events-implementation/evidence/27-final-history/public-originals/mv27-choice-saved-indices-public-audit-02b9f2d3-14ff-40f4-887b-cb87c7462e3e/formal-cancel-negative-zero/src/decompiled/system.dsl.ts:1:28: warning eslint(no-unused-vars): Identifier 'variableDefinition' is imported but never used. help: Consider removing this import.
+.scratch/complete-mv-events-implementation/evidence/27-final-history/public-originals/mv27-choice-saved-indices-public-green-0a195990-3c5d-4fde-9dbb-15c0d05dcddd/native-positive-zero-control/src/decompiled/system.dsl.ts:1:28: warning eslint(no-unused-vars): Identifier 'variableDefinition' is imported but never used. help: Consider removing this import.
+.scratch/complete-mv-events-implementation/evidence/27-final-history/diagnostics/profile-vitest-v1/index-profile.mts:7:10: warning eslint(no-unused-vars): Identifier 'fileURLToPath' is imported but never used. help: Consider removing this import.
+.scratch/complete-mv-events-implementation/evidence/27-final-history/public-originals/mv27-choice-saved-indices-public-green-0a195990-3c5d-4fde-9dbb-15c0d05dcddd/formal-default-negative-zero/src/decompiled/system.dsl.ts:1:28: warning eslint(no-unused-vars): Identifier 'variableDefinition' is imported but never used. help: Consider removing this import.
+.scratch/complete-mv-events-implementation/evidence/27-final-history/public-originals/mv27-choice-saved-indices-public-audit-02b9f2d3-14ff-40f4-887b-cb87c7462e3e/formal-positive-zero-control/src/decompiled/system.dsl.ts:1:28: warning eslint(no-unused-vars): Identifier 'variableDefinition' is imported but never used. help: Consider removing this import.
+.scratch/complete-mv-events-implementation/evidence/22-history/original-held-reproduction.cjs:89:61: warning eslint(no-unused-expressions): Expected expression to be used help: Consider using this expression or removing it
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-archive-delivery-v1.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-audit-v1.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-metadata-check-record-v1.cjs:2:94: warning eslint(no-unused-vars): Variable 'assert' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-final-audit-v2.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-physical-delivery-v4.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-archive-delivery-v2.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/36-history/tools-and-logs/mv36-physical-delivery-v3.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/26-final-history/tools-and-metadata/archive-final-v1.cjs:11:1950: warning eslint(no-unused-vars): Parameter 'before' is declared but never used. Unused parameters should start with a '_'. help: Consider removing this parameter.
+.scratch/complete-mv-events-implementation/evidence/27-final-history/diagnostics/profile-vitest-v3/index-profile.mts:7:10: warning eslint(no-unused-vars): Identifier 'fileURLToPath' is imported but never used. help: Consider removing this import.
+.scratch/complete-mv-events-implementation/evidence/27-final-history/diagnostics/profile-vitest-v2/index-profile.mts:7:10: warning eslint(no-unused-vars): Identifier 'fileURLToPath' is imported but never used. help: Consider removing this import.
+.scratch/complete-mv-events-implementation/evidence/27-final-history/public-originals/mv27-choice-saved-indices-public-green-0a195990-3c5d-4fde-9dbb-15c0d05dcddd/native-default-negative-zero/src/decompiled/system.dsl.ts:1:28: warning eslint(no-unused-vars): Identifier 'variableDefinition' is imported but never used. help: Consider removing this import.
+.scratch/complete-mv-events-implementation/evidence/23-history/mv23-register-native-v1.cjs:1:107: warning eslint(no-unused-vars): Variable 'cp' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/23-history/mv23-delivery-preflight-v1.cjs:1:29: warning eslint(no-unused-vars): Variable 'fsp' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/map24-index-ordered-prefetch-audit-v1.cjs:2:38: warning eslint(no-unused-vars): Variable 'sync' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/map24-resource-revalidation-derived-v1.cjs:3:7: warning eslint(no-unused-vars): Variable 'repo' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/profile-index-instrumented-08b1be0a-7d85-4f4c-8ca1-0bb3bc4b779c.mts:7:10: warning eslint(no-unused-vars): Identifier 'fileURLToPath' is imported but never used. help: Consider removing this import.
+.scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/native-audit-v1.cjs:2:85: warning eslint(no-unused-vars): Variable 'cp' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+.scratch/complete-mv-events-implementation/evidence/24-numeric-delivery/tools-and-logs/native-audit-v1.cjs:34:87: warning eslint(no-unused-vars): Parameter 'frame' is declared but never used. Unused parameters should start with a '_'. help: Consider removing this parameter.
+
+> rpgmaker-event-dsl-workspace@0.0.0 format:check M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-27-final
+> oxfmt --ignore-path .oxfmtignore --check package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rpgmaker-event-dsl
+
+Checking formatting...
+
+All matched files use the correct format.
+Finished in 389ms on 191 files using 20 threads.
+{
+  "at": "2026-10-19T22:51:43.541Z",
+  "executedInputCount": 193,
+  "sourceDistGroups": {
+    "source": {
+      "count": 100,
+      "fingerprint": "567135a047c0a242fd9bfb6dce085f36ff326f3cee95dc47ace4fbb7c84bb245"
+    },
+    "tests": {
+      "count": 64,
+      "fingerprint": "d4280cda4862aa40d5b22243ab5bfccfea1a882886cf3a7e99e7e243b4d4d4f9"
+    },
+    "dist": {
+      "count": 15,
+      "fingerprint": "9799d19c80499725762a3dac89e88184cde51b69edc6e0d90d58025d38974fe8"
+    },
+    "all": {
+      "count": 193,
+      "fingerprint": "c7b16a16ace681cb2bbbd61d92039b19cea1fd3392c9b4723bc8ef6b1dbd682a"
+    }
+  },
+  "nativeFrozenTools": 6,
+  "allCurrentExecutedBytesExact": true,
+  "commands": [
+    {
+      "args": [
+        "lint"
+      ],
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "args": [
+        "format:check"
+      ],
+      "exitCode": 0,
+      "signal": null
+    }
+  ],
+  "diffCheckExit": 0,
+  "passed": true
+}

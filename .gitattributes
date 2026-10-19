@@ -19,3 +19,6 @@
 
 # Preserve closed original Ticket26 finalization captures and immutable audits.
 /.scratch/complete-mv-events-implementation/evidence/26-final-history/** -text -whitespace
+
+# Preserve closed original Ticket27 finalization captures and immutable audits.
+/.scratch/complete-mv-events-implementation/evidence/27-final-history/** -text -whitespace

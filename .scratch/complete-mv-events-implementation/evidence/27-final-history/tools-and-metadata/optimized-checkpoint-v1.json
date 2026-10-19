@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-19T22:04:57.545Z",
+  "before": {
+    "head": "18e7ac04dd0e30f8d254e2dd24b97bee57012cd9",
+    "status": " M .scratch/complete-mv-events-implementation/evidence/27-choices-complete-branches.md\n M packages/rpgmaker-event-dsl/test/support/mv-evidence.ts",
+    "helperSha256": "343a11790df3a07ded5b34aa17a2e5fd0fcb7b65e5e25776ee995e6d451fddba",
+    "reportSha256": "040c00475a361863a8b5a6a6a45e65a5dbd6b2f284af534e12ac8c343cb3d7aa"
+  },
+  "helperCommitOutput": "[codex/mv-ticket-27-final 9e65e04] Optimize evidence validation with an ordered bounded read window\n 1 file changed, 29 insertions(+), 24 deletions(-)",
+  "helperCommit": "9e65e044c942d30a40525555bab8366e28566ce9",
+  "metadataCommitOutput": "[codex/mv-ticket-27-final 33801e7] Identify pending Choices documentary acceptance records\n 1 file changed, 6 insertions(+)",
+  "after": {
+    "head": "33801e7ff5b53e98956f5fcb37db69ce73961524",
+    "tree": "776e7029aee5fa5076f976b12689374418e7a59b",
+    "status": "",
+    "helperSha256": "343a11790df3a07ded5b34aa17a2e5fd0fcb7b65e5e25776ee995e6d451fddba",
+    "reportSha256": "040c00475a361863a8b5a6a6a45e65a5dbd6b2f284af534e12ac8c343cb3d7aa"
+  }
+}

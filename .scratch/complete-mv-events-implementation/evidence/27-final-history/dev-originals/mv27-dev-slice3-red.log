@@ -1,0 +1,488 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-27/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/choices.test.ts (15 tests | 15 failed) 27ms
+   × rejects forged Choices at the precise owned path '.choices' 7ms
+   × rejects forged Choices at the precise owned path '.choices' 5ms
+   × rejects forged Choices at the precise owned path '.choices' 3ms
+   × rejects forged Choices at the precise owned path '.choices[0]' 1ms
+   × rejects forged Choices at the precise owned path '.choices[0]' 1ms
+   × rejects forged Choices at the precise owned path '.choices[0].commands' 1ms
+   × rejects forged Choices at the precise owned path '.choices[0].text' 1ms
+   × rejects forged Choices at the precise owned path '.choices[0]' 1ms
+   × rejects forged Choices at the precise owned path '.cancel.index' 1ms
+   × rejects forged Choices at the precise owned path '.defaultChoice.index' 1ms
+   × rejects forged Choices at the precise owned path '.cancel' 1ms
+   × rejects forged Choices at the precise owned path '.cancel.commands' 1ms
+   × rejects forged Choices at the precise owned path '.position' 1ms
+   × rejects forged Choices at the precise owned path '.background' 1ms
+   × rejects non-data own fields before reading an untyped helper input 1ms
+ ❯ test/choices-workspace.test.ts (3 tests | 1 failed | 2 skipped) 1763ms
+   × rejects a removed field passed through a typed local constant without publishing output 1762ms
+stderr | test/choices-workspace.test.ts > rejects a removed field passed through a typed local constant without publishing output
+compile warning commonEvent:1: MV-CHOICE-INDEX at list[0].parameters[1]: saved choice index 1 has no current choice and is preserved.
+
+stderr | test/choices-workspace.test.ts > rejects a removed field passed through a typed local constant without publishing output
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\choices-owned-shape-hTUmZd
+
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 16 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/choices-workspace.test.ts > rejects a removed field passed through a typed local constant without publishing output
+AssertionError: promise resolved "undefined" instead of rejecting
+
+- Expected:
+Error {
+  "message": "rejected promise",
+}
+
++ Received:
+undefined
+
+ ❯ test/choices-workspace.test.ts:93:67
+
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/choices-workspace.test.ts:84:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/16]⎯
+
+ FAIL  test/choices.test.ts > rejects forged Choices at the precise owned path '.choices'
+TypeError: Cannot read properties of undefined (reading 'entries')
+ ❯ validateNodes src/validation/commands.ts:194:56
+    192|     }
+    193|     if (node.kind === "showChoices") {
+    194|       for (const [branchIndex, branch] of node.choices.entries()) {
+       |                                                        ^
+    195|         validateNodes(branch.commands, resolver, childOptions(`choices…
+    196|       }
+ ❯ validateDeclarationReferences src/validation/references.ts:156:7
+ ❯ validateStagedDataGraph src/validation/staged-graph.ts:161:3
+ ❯ validateDslOwnedDeclarations src/validation/staged-graph.ts:193:10
+ ❯ test/choices.test.ts:22:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/16]⎯
+
+ FAIL  test/choices.test.ts > rejects forged Choices at the precise owned path '.choices'
+AssertionError: expected [ { level: 'error', …(8) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-CHOICES",
+  "dslPath": "commands[0].choices",
+}
+
++ Received:
+[
+  {
+    "actual": "[]",
+    "code": "MV-COMMAND-PARAMETERS",
+    "dslPath": "commands[0]",
+    "expected": "nonempty string choices",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. at list[0].parameters[0] (commands[0]); expected nonempty string choices; actual []",
+    "nativePath": "list[0].parameters[0]",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:22:78
+     20| ])("rejects forged Choices at the precise owned path $path", ({input,p…
+     21|   const event = commonEvent({id:1,name:"Invalid choices",trigger:"none…
+     22|   expect(validateDslOwnedDeclarations([event],{scriptEnabled:false}).i…
+       |                                                                              ^
+     23| });
+     24|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/16]⎯
+
+ FAIL  test/choices.test.ts > rejects forged Choices at the precise owned path '.choices'
+AssertionError: expected [] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-CHOICES",
+  "dslPath": "commands[0].choices",
+}
+
++ Received:
+[]
+
+ ❯ test/choices.test.ts:22:78
+     20| ])("rejects forged Choices at the precise owned path $path", ({input,p…
+     21|   const event = commonEvent({id:1,name:"Invalid choices",trigger:"none…
+     22|   expect(validateDslOwnedDeclarations([event],{scriptEnabled:false}).i…
+       |                                                                              ^
+     23| });
+     24|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/16]⎯
+
+ FAIL  test/choices.test.ts > rejects forged Choices at the precise owned path '.choices[0]'
+ FAIL  test/choices.test.ts > rejects forged Choices at the precise owned path '.choices[0]'
+TypeError: Cannot read properties of undefined (reading 'commands')
+ ❯ validateNodes src/validation/commands.ts:195:30
+    193|     if (node.kind === "showChoices") {
+    194|       for (const [branchIndex, branch] of node.choices.entries()) {
+    195|         validateNodes(branch.commands, resolver, childOptions(`choices…
+       |                              ^
+    196|       }
+    197|       if (node.cancel?.kind === "branch") {
+ ❯ validateDeclarationReferences src/validation/references.ts:156:7
+ ❯ validateStagedDataGraph src/validation/staged-graph.ts:161:3
+ ❯ validateDslOwnedDeclarations src/validation/staged-graph.ts:193:10
+ ❯ test/choices.test.ts:22:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/16]⎯
+
+ FAIL  test/choices.test.ts > rejects forged Choices at the precise owned path '.choices[0].commands'
+AssertionError: expected [ { level: 'error', …(7) }, …(1) ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-CHOICES",
+  "dslPath": "commands[0].choices[0].commands",
+}
+
++ Received:
+[
+  {
+    "actual": "undefined",
+    "code": "MV-DSL-SHAPE",
+    "dslPath": "commands[0].choices[0].commands",
+    "expected": "dense command array",
+    "identity": "common event 1",
+    "level": "error",
+    "message": "compile error common event 1: MV-DSL-SHAPE: Commands must be a dense array of authored command objects. (commands[0].choices[0].commands); expected dense command array; actual undefined",
+    "stage": "compile",
+  },
+  {
+    "actual": "undefined",
+    "code": "MV-DSL-SHAPE",
+    "dslPath": "commands[0].choices[0].commands",
+    "expected": "dense command array",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-DSL-SHAPE: Commands must be a dense array of authored command objects. (commands[0].choices[0].commands); expected dense command array; actual undefined",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:22:78
+     20| ])("rejects forged Choices at the precise owned path $path", ({input,p…
+     21|   const event = commonEvent({id:1,name:"Invalid choices",trigger:"none…
+     22|   expect(validateDslOwnedDeclarations([event],{scriptEnabled:false}).i…
+       |                                                                              ^
+     23| });
+     24|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/16]⎯
+
+ FAIL  test/choices.test.ts > rejects forged Choices at the precise owned path '.choices[0].text'
+AssertionError: expected [ { level: 'error', …(8) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-CHOICES",
+  "dslPath": "commands[0].choices[0].text",
+}
+
++ Received:
+[
+  {
+    "actual": "[5]",
+    "code": "MV-COMMAND-PARAMETERS",
+    "dslPath": "commands[0]",
+    "expected": "nonempty string choices",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. at list[0].parameters[0] (commands[0]); expected nonempty string choices; actual [5]",
+    "nativePath": "list[0].parameters[0]",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:22:78
+     20| ])("rejects forged Choices at the precise owned path $path", ({input,p…
+     21|   const event = commonEvent({id:1,name:"Invalid choices",trigger:"none…
+     22|   expect(validateDslOwnedDeclarations([event],{scriptEnabled:false}).i…
+       |                                                                              ^
+     23| });
+     24|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/16]⎯
+
+ FAIL  test/choices.test.ts > rejects forged Choices at the precise owned path '.choices[0]'
+AssertionError: expected [ { code: 'MV-CHOICE-INDEX', …(8) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-CHOICES",
+  "dslPath": "commands[0].choices[0]",
+}
+
++ Received:
+[
+  {
+    "actual": "1",
+    "code": "MV-CHOICE-INDEX",
+    "dslPath": "commands[0].cancel",
+    "expected": "choice index below 1",
+    "identity": "commonEvent:1",
+    "level": "warning",
+    "message": "compile warning commonEvent:1: MV-CHOICE-INDEX at list[0].parameters[1]: saved choice index 1 has no current choice and is preserved.",
+    "nativePath": "list[0].parameters[1]",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:22:78
+     20| ])("rejects forged Choices at the precise owned path $path", ({input,p…
+     21|   const event = commonEvent({id:1,name:"Invalid choices",trigger:"none…
+     22|   expect(validateDslOwnedDeclarations([event],{scriptEnabled:false}).i…
+       |                                                                              ^
+     23| });
+     24|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/16]⎯
+
+ FAIL  test/choices.test.ts > rejects forged Choices at the precise owned path '.cancel.index'
+AssertionError: expected [ { code: 'MV-CHOICE-INDEX', …(8) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-CHOICES",
+  "dslPath": "commands[0].cancel.index",
+}
+
++ Received:
+[
+  {
+    "actual": "1",
+    "code": "MV-CHOICE-INDEX",
+    "dslPath": "commands[0].cancel",
+    "expected": "choice index below 1",
+    "identity": "commonEvent:1",
+    "level": "warning",
+    "message": "compile warning commonEvent:1: MV-CHOICE-INDEX at list[0].parameters[1]: saved choice index 1 has no current choice and is preserved.",
+    "nativePath": "list[0].parameters[1]",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:22:78
+     20| ])("rejects forged Choices at the precise owned path $path", ({input,p…
+     21|   const event = commonEvent({id:1,name:"Invalid choices",trigger:"none…
+     22|   expect(validateDslOwnedDeclarations([event],{scriptEnabled:false}).i…
+       |                                                                              ^
+     23| });
+     24|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/16]⎯
+
+ FAIL  test/choices.test.ts > rejects forged Choices at the precise owned path '.defaultChoice.index'
+AssertionError: expected [ …(2) ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-CHOICES",
+  "dslPath": "commands[0].defaultChoice.index",
+}
+
++ Received:
+[
+  {
+    "actual": "1",
+    "code": "MV-CHOICE-INDEX",
+    "dslPath": "commands[0].cancel",
+    "expected": "choice index below 1",
+    "identity": "commonEvent:1",
+    "level": "warning",
+    "message": "compile warning commonEvent:1: MV-CHOICE-INDEX at list[0].parameters[1]: saved choice index 1 has no current choice and is preserved.",
+    "nativePath": "list[0].parameters[1]",
+    "stage": "compile",
+  },
+  {
+    "actual": "6",
+    "code": "MV-CHOICE-INDEX",
+    "dslPath": "commands[0].defaultChoice",
+    "expected": "choice index below 1",
+    "identity": "commonEvent:1",
+    "level": "warning",
+    "message": "compile warning commonEvent:1: MV-CHOICE-INDEX at list[0].parameters[2]: saved choice index 6 has no current choice and is preserved.",
+    "nativePath": "list[0].parameters[2]",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:22:78
+     20| ])("rejects forged Choices at the precise owned path $path", ({input,p…
+     21|   const event = commonEvent({id:1,name:"Invalid choices",trigger:"none…
+     22|   expect(validateDslOwnedDeclarations([event],{scriptEnabled:false}).i…
+       |                                                                              ^
+     23| });
+     24|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/16]⎯
+
+ FAIL  test/choices.test.ts > rejects forged Choices at the precise owned path '.cancel'
+AssertionError: expected [] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-CHOICES",
+  "dslPath": "commands[0].cancel",
+}
+
++ Received:
+[]
+
+ ❯ test/choices.test.ts:22:78
+     20| ])("rejects forged Choices at the precise owned path $path", ({input,p…
+     21|   const event = commonEvent({id:1,name:"Invalid choices",trigger:"none…
+     22|   expect(validateDslOwnedDeclarations([event],{scriptEnabled:false}).i…
+       |                                                                              ^
+     23| });
+     24|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/16]⎯
+
+ FAIL  test/choices.test.ts > rejects forged Choices at the precise owned path '.cancel.commands'
+AssertionError: expected [ { level: 'error', …(7) }, …(1) ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-CHOICES",
+  "dslPath": "commands[0].cancel.commands",
+}
+
++ Received:
+[
+  {
+    "actual": "undefined",
+    "code": "MV-DSL-SHAPE",
+    "dslPath": "commands[0].cancel.commands",
+    "expected": "dense command array",
+    "identity": "common event 1",
+    "level": "error",
+    "message": "compile error common event 1: MV-DSL-SHAPE: Commands must be a dense array of authored command objects. (commands[0].cancel.commands); expected dense command array; actual undefined",
+    "stage": "compile",
+  },
+  {
+    "actual": "undefined",
+    "code": "MV-DSL-SHAPE",
+    "dslPath": "commands[0].cancel.commands",
+    "expected": "dense command array",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-DSL-SHAPE: Commands must be a dense array of authored command objects. (commands[0].cancel.commands); expected dense command array; actual undefined",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:22:78
+     20| ])("rejects forged Choices at the precise owned path $path", ({input,p…
+     21|   const event = commonEvent({id:1,name:"Invalid choices",trigger:"none…
+     22|   expect(validateDslOwnedDeclarations([event],{scriptEnabled:false}).i…
+       |                                                                              ^
+     23| });
+     24|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/16]⎯
+
+ FAIL  test/choices.test.ts > rejects forged Choices at the precise owned path '.position'
+AssertionError: expected [ { level: 'error', …(8) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-CHOICES",
+  "dslPath": "commands[0].position",
+}
+
++ Received:
+[
+  {
+    "actual": "undefined",
+    "code": "MV-STRICT-JSON",
+    "dslPath": "commands[0]",
+    "expected": "strict representable JSON",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-STRICT-JSON: Expected strict representable JSON; received undefined at list[0].parameters[3]. at list[0].parameters[3] (commands[0]); expected strict representable JSON; actual undefined",
+    "nativePath": "list[0].parameters[3]",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:22:78
+     20| ])("rejects forged Choices at the precise owned path $path", ({input,p…
+     21|   const event = commonEvent({id:1,name:"Invalid choices",trigger:"none…
+     22|   expect(validateDslOwnedDeclarations([event],{scriptEnabled:false}).i…
+       |                                                                              ^
+     23| });
+     24|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/16]⎯
+
+ FAIL  test/choices.test.ts > rejects forged Choices at the precise owned path '.background'
+AssertionError: expected [ { code: 'MV-CHOICE-INDEX', …(8) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-CHOICES",
+  "dslPath": "commands[0].background",
+}
+
++ Received:
+[
+  {
+    "actual": "1",
+    "code": "MV-CHOICE-INDEX",
+    "dslPath": "commands[0].cancel",
+    "expected": "choice index below 1",
+    "identity": "commonEvent:1",
+    "level": "warning",
+    "message": "compile warning commonEvent:1: MV-CHOICE-INDEX at list[0].parameters[1]: saved choice index 1 has no current choice and is preserved.",
+    "nativePath": "list[0].parameters[1]",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/choices.test.ts:22:78
+     20| ])("rejects forged Choices at the precise owned path $path", ({input,p…
+     21|   const event = commonEvent({id:1,name:"Invalid choices",trigger:"none…
+     22|   expect(validateDslOwnedDeclarations([event],{scriptEnabled:false}).i…
+       |                                                                              ^
+     23| });
+     24|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/16]⎯
+
+ FAIL  test/choices.test.ts > rejects non-data own fields before reading an untyped helper input
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/choices.test.ts:27:96
+     25| it("rejects non-data own fields before reading an untyped helper input…
+     26|   let reads=0;
+     27|   expect(() => showChoices({get choices(){reads++;return [{text:"",com…
+       |                                                                                                ^
+     28|   expect(reads).toBe(0);
+     29| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/16]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  16 failed | 2 skipped (18)
+   Start at  01:18:45
+   Duration  3.17s (transform 729ms, setup 0ms, import 2.03s, tests 1.79s, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-27\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/choices.test.ts test/choices-workspace.test.ts -t rejects

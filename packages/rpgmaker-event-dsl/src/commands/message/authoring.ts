@@ -1,5 +1,4 @@
 import type {
-  DslCommand,
   ImageAssetReference,
   InputNumberDslCommand,
   ReferenceValue,
@@ -8,6 +7,7 @@ import type {
   ShowScrollingTextDslCommand,
   ShowTextDslCommand,
 } from "../../domain/types.js";
+import { assertShowChoicesInput } from "./validation.js";
 
 export function showText(input: {
   lines: readonly [string, ...string[]];
@@ -83,36 +83,7 @@ export function showScrollingText(input: {
   return node;
 }
 
-export function showChoices(input: {
-  choices: readonly [string, ...string[]];
-  branches: readonly [readonly DslCommand[], ...(readonly DslCommand[][])];
-  cancelType?: number;
-  defaultType?: number;
-  positionType?: 0 | 1 | 2;
-  background?: 0 | 1 | 2;
-  cancelBranch?: readonly DslCommand[];
-}): ShowChoicesDslCommand {
-  const node: ShowChoicesDslCommand = {
-    kind: "showChoices",
-    choices: input.choices,
-    branches: input.branches,
-  };
-
-  if (input.cancelType !== undefined) {
-    node.cancelType = input.cancelType;
-  }
-  if (input.defaultType !== undefined) {
-    node.defaultType = input.defaultType;
-  }
-  if (input.positionType !== undefined) {
-    node.positionType = input.positionType;
-  }
-  if (input.background !== undefined) {
-    node.background = input.background;
-  }
-  if (input.cancelBranch !== undefined) {
-    node.cancelBranch = input.cancelBranch;
-  }
-
-  return node;
+export function showChoices(input: Omit<ShowChoicesDslCommand, "kind">): ShowChoicesDslCommand {
+  assertShowChoicesInput(input, "showChoices", false);
+  return { ...input, kind: "showChoices" };
 }

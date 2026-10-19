@@ -1,0 +1,125 @@
+{
+  "at": "2026-10-19T22:51:54.756Z",
+  "purpose": "Append-only closed documentary closure and static validation receipts; initial archive and post-archive maps unchanged; this producer open output excluded",
+  "initialArchiveSha256": "4bbf15f37debaee09a9ef4c24fea2ae5e46b4e1db4de989ac5ee57010824955f",
+  "postArchiveSha256": "6aa3b3ff47deaf349b61ea9914f657a592c6036b2b16c6f803270589933a2c8a",
+  "finalMetadataSha256": "f4425880c166059fceea75aef18a1c95711a29e393ed1047a10c55fb7fec9eab",
+  "ticketStatus": "resolved",
+  "acceptanceChecked": 9,
+  "files": [
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-timeout-findings-append-v1\\started.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/finalization/final-timeout-findings-append-v1/started.json",
+      "bytes": 251937,
+      "sha256": "1b6997aa157944d30fb41e92ac7a063c209cdad2384b005cae58e5f665b9a97c"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-timeout-findings-append-v1\\completed.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/finalization/final-timeout-findings-append-v1/completed.json",
+      "bytes": 252347,
+      "sha256": "6a5a066807abacde63774edfcc459e6aee6cbd87a801dd59aa3c5da650f4d4c6"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-timeout-findings-append-v1\\stdout.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/finalization/final-timeout-findings-append-v1/stdout.log",
+      "bytes": 46,
+      "sha256": "2fb6160730770a1e0940e0d7ff91a1f992b511263d30cf02701683f074a37122"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-timeout-findings-append-v1\\stderr.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/finalization/final-timeout-findings-append-v1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\post-archive-capture-v1\\started.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/finalization/post-archive-capture-v1/started.json",
+      "bytes": 251893,
+      "sha256": "547fb28c3e866fc63cc112102a4abda87ef79a26192d3f0c38cbaa4cee56d81e"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\post-archive-capture-v1\\completed.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/finalization/post-archive-capture-v1/completed.json",
+      "bytes": 252303,
+      "sha256": "57fe100ff00d27a1836ec1580e9e29da49f733869ae707709d74915ae3ccd2fe"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\post-archive-capture-v1\\stdout.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/finalization/post-archive-capture-v1/stdout.log",
+      "bytes": 98,
+      "sha256": "979f55198949f9276f17a6136bb8734c2851f3cfbc9616a602675e1d2369c55a"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\post-archive-capture-v1\\stderr.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/finalization/post-archive-capture-v1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\close-metadata-capture-v1\\started.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/finalization/close-metadata-capture-v1/started.json",
+      "bytes": 251901,
+      "sha256": "7765e17ec636e214ab8327e337ecc423b70922911e1e9d580a0698b01480ec15"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\close-metadata-capture-v1\\completed.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/finalization/close-metadata-capture-v1/completed.json",
+      "bytes": 252313,
+      "sha256": "e657e8af7550865dac8da558edf846b9bb7f00bd8e886bf61b7db96753ed1475"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\close-metadata-capture-v1\\stdout.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/finalization/close-metadata-capture-v1/stdout.log",
+      "bytes": 1938,
+      "sha256": "f4425880c166059fceea75aef18a1c95711a29e393ed1047a10c55fb7fec9eab"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\close-metadata-capture-v1\\stderr.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/finalization/close-metadata-capture-v1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-static-validation-v1\\started.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/finalization/final-static-validation-v1/started.json",
+      "bytes": 251999,
+      "sha256": "e955b4a1d754754e3b61012c46a68e92d3f28f1fa42bf7dc6a80bc1574112d4e"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-static-validation-v1\\completed.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/finalization/final-static-validation-v1/completed.json",
+      "bytes": 252412,
+      "sha256": "b9e9a32bd0a6359b55848f29794fd434129f52cee2878009db002c3172d85103"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-static-validation-v1\\stdout.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/finalization/final-static-validation-v1/stdout.log",
+      "bytes": 12351,
+      "sha256": "fa9fbce173d6997c7788bd3d3fa59e51f9336bd3b03f8dece11cbab5fe39af08"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-static-validation-v1\\stderr.log",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/finalization/final-static-validation-v1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\validate-final-metadata-v1.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/validate-final-metadata-v1.cjs",
+      "bytes": 1643,
+      "sha256": "24940a0ee657b4e8580d68932d0acdd71a2ade28b392ed667d6c2b3b705b340c"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\capture-finalization-v1.cjs",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/capture-finalization-v1.cjs",
+      "bytes": 2449,
+      "sha256": "7a15ee47adcc4381a8a29f891e6af2ce5dfa4254a0443eac141ab1a2069da830"
+    },
+    {
+      "source": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket27-final\\final-static-validation-v1.json",
+      "path": ".scratch/complete-mv-events-implementation/evidence/27-final-history/tools-and-metadata/final-static-validation-v1.json",
+      "bytes": 936,
+      "sha256": "e7bcfd0738acb3d4bdda0322289df6dd91e8bf185b268de14423a752a92da9e0"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const base=__dirname,sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+let audit=fs.readFileSync(path.join(base,'audit-final-v3.cjs'),'utf8');
+const marker=' result.pendingRebuild=false;result.passed=true;';assert.equal(audit.split(marker).length,2);
+const extra=` const regularSet=[],linkSet=[];for(const original of archive.historicalPublicSources){function scan(dir){for(const n of fs.readdirSync(dir).sort()){const p=path.join(dir,n),s=fs.lstatSync(p);if(s.isSymbolicLink()){assert(archive.historicalLinks.some(r=>r.path===p),'Unindexed historical junction: '+p);linkSet.push(p)}else if(s.isDirectory())scan(p);else{assert(s.isFile(),p);regularSet.push(p)}}}scan(original.root)}const prefixes=archive.historicalPublicSources.map(r=>r.root+path.sep);const recordedRegular=archive.files.filter(r=>prefixes.some(p=>r.source.startsWith(p))).map(r=>r.source);assert.deepEqual(regularSet.sort(),recordedRegular.sort());assert.deepEqual(linkSet.sort(),archive.historicalLinks.map(r=>r.path).sort());result.historicalPublicCompleteInventory={regularFiles:regularSet.length,junctions:linkSet.length,completeRegularAndLinkSetsExact:true};\n`;
+audit=audit.replace(marker,extra+marker);fs.writeFileSync(path.join(base,'audit-final-v4.cjs'),audit,{flag:'wx'});
+let post=fs.readFileSync(path.join(base,'post-archive-v2.cjs'),'utf8');
+const postMarker="const index={createdAt:new Date().toISOString()";assert.equal(post.split(postMarker).length,2);
+post=post.replace(postMarker,"for(const name of ['audit-final-v4.cjs','derive-final-archive-audit-v1.cjs','final-archive-audit-derivation-v1.json','post-archive-v3.cjs'])copy(path.join(output,name),'tools-and-metadata/'+name);\n"+postMarker);
+fs.writeFileSync(path.join(base,'post-archive-v3.cjs'),post,{flag:'wx'});
+const note={at:new Date().toISOString(),purpose:'Static pre-execution strengthening of final archive audit: compare complete historical original regular-file and link inventories against immutable initial index; no product or input changes',originalAudit:{tool:'audit-final-v3.cjs',sha256:sha(fs.readFileSync(path.join(base,'audit-final-v3.cjs'))),executed:false},actualAudit:{tool:'audit-final-v4.cjs',sha256:sha(Buffer.from(audit))},postArchive:{tool:'post-archive-v3.cjs',sha256:sha(Buffer.from(post)),purpose:'Close successful archive-capture-v2, byte audit and final index, including versioned readback tool originals absent from initial index'}};
+fs.writeFileSync(path.join(base,'final-archive-audit-derivation-v1.json'),JSON.stringify(note,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify(note,null,2));

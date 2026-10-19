@@ -1,0 +1,3560 @@
+{
+  "purpose": "Independent actual27 DEV source public Workspace audit for explicit numeric choice index -0, no product edits/build/native game execution",
+  "at": "2026-10-19T17:39:34.621Z",
+  "root": "C:\\Users\\Shuen\\.codex\\tmp\\mv27-choice-saved-indices-public-audit-02b9f2d3-14ff-40f4-887b-cb87c7462e3e",
+  "head": "b53167a382462697f66b8ee60c392867fdba7fb2",
+  "source": {
+    "rows": [
+      {
+        "path": "authoring/declarations.ts",
+        "sha256": "a773bba2f8016d64f81a352da4050aa8c2e83b2cba353fe49fe5a953072eaf78"
+      },
+      {
+        "path": "authoring/index.ts",
+        "sha256": "45d6f03be8e26f0f19abb5cea7f9a7a971846296e3c0f3b809feb7de3af049ef"
+      },
+      {
+        "path": "authoring/references.ts",
+        "sha256": "b3f3cefa64f45da752a8f58bc6eca2d92bb6b30773be42f51036fd60df9c89de"
+      },
+      {
+        "path": "authoring/shared.ts",
+        "sha256": "3865ac8c4b3768c96038a323a02cf30c33edd9f330544bd6cd2b204d2841408e"
+      },
+      {
+        "path": "cli.ts",
+        "sha256": "34c6e77e91a45126b1a2c5b15621f79241a98bab081924d2fbd535c5996fd4b0"
+      },
+      {
+        "path": "commands/actor/authoring.ts",
+        "sha256": "adc9b6aa805739dad7594246236f6314cc8a08299f1bd323b8ae729cf6b2fdf3"
+      },
+      {
+        "path": "commands/actor/decompile.ts",
+        "sha256": "2e83a179cabb9ae19ff9207904c822bb84c6b5bc45581386d2aca7b1b005b56d"
+      },
+      {
+        "path": "commands/audio/authoring.ts",
+        "sha256": "08a68ae8b97095ec1c3a6d8517ed5649eb79ffb1b66f59aa34a7506356e0e513"
+      },
+      {
+        "path": "commands/audio/decompile.ts",
+        "sha256": "18acdf8e035ad2b8f3879622e18c39a7cde1e6279c14013fca2e6dbd0edb3811"
+      },
+      {
+        "path": "commands/battle/authoring.ts",
+        "sha256": "a5249dd85dde78f2f0183d33a9a79d69bca93e88b5d2f0404f9005a25f115377"
+      },
+      {
+        "path": "commands/battle/decompile.ts",
+        "sha256": "4da781567fb9baf2580ec050564d66506d542890dfab3a6966eef1c008ac44b0"
+      },
+      {
+        "path": "commands/enemy/authoring.ts",
+        "sha256": "3ff830df557837e08ed73054eb47085cd0ba262e1aad746defc05578a14ce602"
+      },
+      {
+        "path": "commands/enemy/decompile.ts",
+        "sha256": "334fc1efeda29f27cf9a7e504501ea7e693fb9b041a96bb827c90ec957ff2cd2"
+      },
+      {
+        "path": "commands/flow/authoring.ts",
+        "sha256": "2781ac07a176994435f124947fb0ac9c1873a3c37ea4b61b5f5fc0c35cabfc40"
+      },
+      {
+        "path": "commands/flow/decompile.ts",
+        "sha256": "db0508df65d743ada28e4b175d85cfbfa6a70a0547ff17cc2ecc2ab9a0feac31"
+      },
+      {
+        "path": "commands/flow/validation.ts",
+        "sha256": "d88ca16a1e3d2c688a6876ae041bc772c125eda0b1cf2e818b8ec55c29090dad"
+      },
+      {
+        "path": "commands/map/authoring.ts",
+        "sha256": "985f89d88a2460b0af605f3fb8282847dd48e4d5d6e13821ae430966a53c4006"
+      },
+      {
+        "path": "commands/map/decompile.ts",
+        "sha256": "4155ac5891314141271b6e80f4b11924e584ef1efcf6e83b125b7e60196e2ce0"
+      },
+      {
+        "path": "commands/message/authoring.ts",
+        "sha256": "ea2b8ac125ee70176b0a59f815b9dbfd5e9a1e738d1126e03d76c4ecbb5b160b"
+      },
+      {
+        "path": "commands/message/decompile.ts",
+        "sha256": "2b81b98f891a0aa151d65b521802b8f408769a4c602ffe24cfb91c54ebcdf223"
+      },
+      {
+        "path": "commands/message/validation.ts",
+        "sha256": "a97e301ff9914de29f56d858ce48d11a260d840068fc93a18c9d46cb92d85691"
+      },
+      {
+        "path": "commands/movement/authoring.ts",
+        "sha256": "af1985013fa73af61d72cc440de0f83d99f78c94da4744f3a7ab1d7b56daf909"
+      },
+      {
+        "path": "commands/movement/compile.ts",
+        "sha256": "8491f60e066d618bb076e3e03774b9332000f8be6f5c81a05ceb2aa03e2d0e15"
+      },
+      {
+        "path": "commands/movement/decompile.ts",
+        "sha256": "016e07bdd681af3aaaf70ae5141afc6255598453c2ce43a6c34a3d44c38ba6c3"
+      },
+      {
+        "path": "commands/movement/page.ts",
+        "sha256": "ead6952e28f64bd25ba6fbd55d9be36f09ddadca5967ec4ddd7722ee1e18ceac"
+      },
+      {
+        "path": "commands/movement/types.ts",
+        "sha256": "de4a2cb691fc6a8697ba91a2a831eaf17e1c15e541da4a2893f902f30a3a01b8"
+      },
+      {
+        "path": "commands/movement/validation.ts",
+        "sha256": "41bd3a1a11691f40f0583a7d7a2e22533883404379b35897dc74eb31096d2755"
+      },
+      {
+        "path": "commands/screen/authoring.ts",
+        "sha256": "c0557c79496cb70c7a4d67fa61008a6e189b9df86f7cb408b36048b89aff63dc"
+      },
+      {
+        "path": "commands/screen/compile.ts",
+        "sha256": "a1c68cb63a4e6fe9ad2de3f45f51101f2e4fa6656fd865ac3bbbf485c78edc80"
+      },
+      {
+        "path": "commands/screen/decompile.ts",
+        "sha256": "38e4c759cf9f51c5ab49ea0f33d79c9a2af1060156102e7198541ac2e529567b"
+      },
+      {
+        "path": "commands/system/authoring.ts",
+        "sha256": "71b37822f2d2abd58349a1ea7eed84fea0c886cf8045beb6341dbfba2c02814d"
+      },
+      {
+        "path": "commands/system/decompile.ts",
+        "sha256": "56c3cba9e576bd289050463bfe2d284c39d54196fcf5fa59a8dde3ccdc33ad77"
+      },
+      {
+        "path": "commands/variables/authoring.ts",
+        "sha256": "a2bbedd0a2d9aacb7e3eb2772e4f7431c49ccef39166cc74f4b615a6494a3f22"
+      },
+      {
+        "path": "commands/variables/compile.ts",
+        "sha256": "9e4a295fac91434e34e28bd3c84b9b5a5dc526685f821f574582e7ac22bb4c27"
+      },
+      {
+        "path": "commands/variables/decompile.ts",
+        "sha256": "c32df1e9d77b36d30fd135bc6c8919f0cf84a19acaf6a86d3e66d700762b9773"
+      },
+      {
+        "path": "commands/variables/validation.ts",
+        "sha256": "8996604b8bfcb1fd9ba8a5100b8bd598e720aad9b946d001e77e89ddf5609867"
+      },
+      {
+        "path": "compiler/dispatch.ts",
+        "sha256": "54a5cdb40139883bf910f99bf90c53bdd7e09089e9cd035bff1844d3a7a4ca1c"
+      },
+      {
+        "path": "compiler/events.ts",
+        "sha256": "f5ab237240ed7e698a6b386135b8c5a41d05ee52fc99a1ef62bce44fdc1abfd2"
+      },
+      {
+        "path": "compiler/shared/branches.ts",
+        "sha256": "b852f63d81473106829668b4899b05ee470aedcc1a21871a215bdfd211e3c9b1"
+      },
+      {
+        "path": "compiler/shared/conditions.ts",
+        "sha256": "4b44eb3bb078dc6dd9a996ba7ac8aac5dbc6cc4a4151763ff9dc6c21d786e990"
+      },
+      {
+        "path": "compiler/shared/media.ts",
+        "sha256": "9bc3cc0ec9fd97a6368711dc4e73cba05dc4abaee7697624132577bb465e3e68"
+      },
+      {
+        "path": "compiler/shared/targets.ts",
+        "sha256": "11c907ed9a847ba54fdc222c7d04757e1b0d74205c7111426e4fec8d80be7ce2"
+      },
+      {
+        "path": "compiler/types.ts",
+        "sha256": "b81ac88b5778268997bce55af43dc0953b5cee48625180f58733cfdde6ae91a1"
+      },
+      {
+        "path": "decompiler/core.ts",
+        "sha256": "c6a020c7eb5f987f883488b955f4dae2d5550d93a21272284939d54a04bb98b0"
+      },
+      {
+        "path": "decompiler/dispatch.ts",
+        "sha256": "7024e6d242f1c42d5fb4ff13dc906e8110e1485f31fb4f7ec136a871725e1f30"
+      },
+      {
+        "path": "decompiler/map-page.ts",
+        "sha256": "05a14de564f72e81566bf5db192a38c71c9595e21abfa9181b49a12b724c751b"
+      },
+      {
+        "path": "decompiler/project.ts",
+        "sha256": "35e720a3e5f0b860f3669da6829a652ec94509d79fe94e1240ff91d4ee5870b9"
+      },
+      {
+        "path": "decompiler/types.ts",
+        "sha256": "01dc14767746b1067ddc101f6acd5ea23247b6557a59e0c0cb467dd1f3903aa3"
+      },
+      {
+        "path": "domain/battle-page-defaults.ts",
+        "sha256": "4a6d7b43e65b2316987b846253c93504f85ac8e341901d3e47236c99de91027b"
+      },
+      {
+        "path": "domain/command.ts",
+        "sha256": "bc10b66248bdedf33e195ec3372e507c1f27143dbeb27c68bb9add4b927babf7"
+      },
+      {
+        "path": "domain/declarations.ts",
+        "sha256": "b0b1dd048040394dd8ef95fe080046a6b1541d44194d490dfa0ede891dd6a781"
+      },
+      {
+        "path": "domain/references.ts",
+        "sha256": "44874ce22c90697572c8bd777f0a8070bcf89b556247072964ac59246761fc44"
+      },
+      {
+        "path": "domain/types.ts",
+        "sha256": "5327c422c15864473a2b77938e10199e01ae0ed49399f37397cbd93ced3d16eb"
+      },
+      {
+        "path": "index.ts",
+        "sha256": "cac51b3cd154629880f6b30aaf8b54a8f1aecee91bb26182ebfd7ccdb3c90157"
+      },
+      {
+        "path": "map-event/native.ts",
+        "sha256": "a87ca1545e80ecd25205f6e7fb40a48d977317b93da65de8053afcaacf611384"
+      },
+      {
+        "path": "map-event/page.ts",
+        "sha256": "9251557930e667e258c6259c58e787cdeccd22e96dc5f0225947a98d35d275ed"
+      },
+      {
+        "path": "map-event/validation.ts",
+        "sha256": "e2dddc54dff942929af1f58dd6e48305e9d774c8cfb5a4c58af39e08e3937805"
+      },
+      {
+        "path": "project-data/json-values.ts",
+        "sha256": "7d9f2a485a689dc159327f859a8cae48307b88294bea78aa2a81452813730af8"
+      },
+      {
+        "path": "project-data/map-event-diff.ts",
+        "sha256": "7055058d85ef232a8ad2f94e9a3634ef709c5d352283ac1678f4dc03836be992"
+      },
+      {
+        "path": "project-data/materialization.ts",
+        "sha256": "e52781cb2bccb01c58ac6c1ff0f069906980efce0a123b04348f4f18d80734d4"
+      },
+      {
+        "path": "project-data/project.ts",
+        "sha256": "1176a155e53c9f4383e03bbe3a3f7e13565a96d5eb47b3ac6fc58002ae91cd74"
+      },
+      {
+        "path": "project-data/structured-diff.ts",
+        "sha256": "4af2dfd1fb0e57c2d440b64a90fdbdfd1e88f02fffe6ff33c6f12eac64ff8590"
+      },
+      {
+        "path": "project-data/writer.ts",
+        "sha256": "d9ebfc5636d430eb7c94ecca75c4a40127e592e92bcd303cc73ed59cde674c80"
+      },
+      {
+        "path": "validation/battle-pages.ts",
+        "sha256": "e8bb5f47b3ad4c6d09c3df5f09785bc64e6704b8f458e0253f5a3e3953a20c8b"
+      },
+      {
+        "path": "validation/command-errors.ts",
+        "sha256": "d3da622a5d9616fd54f83415ec3782c45f54f95a3285d3525f1ddcf71f7deb9a"
+      },
+      {
+        "path": "validation/command-structure.ts",
+        "sha256": "aa690352ef9517e449d9440d1a378477c568b34b569ba4b5582e56245fa9cbbd"
+      },
+      {
+        "path": "validation/commands.ts",
+        "sha256": "4e435c468af68fda3415cff092225de0e98e41435bdae79ea2a9c6e759bc7373"
+      },
+      {
+        "path": "validation/common-events.ts",
+        "sha256": "dd331ebf8a13c720464cc96843ba4a8b69a2b6196ee740791ad7a4788ad89e34"
+      },
+      {
+        "path": "validation/compile-output.ts",
+        "sha256": "921536abaed802c2f030229f0ff72e3037aba9a6855abc9dcd7e47d1f4857681"
+      },
+      {
+        "path": "validation/compiled-commands.ts",
+        "sha256": "54ac1cd1aef427fc8af3681b8d5a6907a2b2e336727ba790ad7e44a5467fae94"
+      },
+      {
+        "path": "validation/declarations.ts",
+        "sha256": "d7428305b08f45f2203aa37ffb5b3a1c3506730870a01171574cc10f0624f671"
+      },
+      {
+        "path": "validation/dsl-command-inputs.ts",
+        "sha256": "73457080d5dd553ba488acfab6f517c792e40d5f845ac6e66bde8d97cded1d5b"
+      },
+      {
+        "path": "validation/identities.ts",
+        "sha256": "8d43c5417552dc7e1b6c5a5c3c423d3571d22277d719bf10f34f555ef39bf2b1"
+      },
+      {
+        "path": "validation/inspection.ts",
+        "sha256": "10a9923ffca925eb65ea7254a1d940c6580a3a60f3b7a14a4862cf08d11453e1"
+      },
+      {
+        "path": "validation/native-command-inputs.ts",
+        "sha256": "1cac8978bc2b0831b2a4a618c61a47bae55419cc75889f4b4f5aeb8938b47359"
+      },
+      {
+        "path": "validation/native-context-references.ts",
+        "sha256": "7ddd26656a02361bf2ea5c7ecfc10ca8a32d5d0a22a37ba36cabb168ce2c680d"
+      },
+      {
+        "path": "validation/native-parameters.ts",
+        "sha256": "86132a101c7f261d576ea0391a82a0a42e4540224681ba5382908ce9dca1d83f"
+      },
+      {
+        "path": "validation/native-references.ts",
+        "sha256": "34ab7b62af6418491d00f3325fca6c843f2010e4170a24ec57cc8d6099a945b7"
+      },
+      {
+        "path": "validation/references.ts",
+        "sha256": "01c968b0619bcaf4a1251a4e00932657823229362a7d722148d274cf37c23dfd"
+      },
+      {
+        "path": "validation/shared.ts",
+        "sha256": "6ad13ecbedcc6cf7fb3565ffcdfd919f8fadad1430eccbbcfd845af7e927af14"
+      },
+      {
+        "path": "validation/snapshot.ts",
+        "sha256": "b29956e100eb586e389ed69bd7d9b6603452b6a7f8371aa895e53193628ed4cd"
+      },
+      {
+        "path": "validation/staged-graph.ts",
+        "sha256": "eb93aeb3a16a413f74719a42394fd0883365d735a9c0c6139295569505408693"
+      },
+      {
+        "path": "validation/types.ts",
+        "sha256": "df660ce939aa4e7924d4f98a54d63cb14cb3c637c48e53215477e0282c3f27dd"
+      },
+      {
+        "path": "workspace/checks.ts",
+        "sha256": "dd02c917b0ed530fcbb8d3458802d5d230def90388d6bf488e849f2934688692"
+      },
+      {
+        "path": "workspace/config.ts",
+        "sha256": "3700d64dfaf53fe1e99beb91bf8a54032c8a01372f25b579cdddf2ab683fd84b"
+      },
+      {
+        "path": "workspace/decompile-publication.ts",
+        "sha256": "e70dcce23f98167dc53e908b3242a0a61a5fd1f7f92b2df6f700e91433faf185"
+      },
+      {
+        "path": "workspace/definition-identities.ts",
+        "sha256": "f9048d155cc06fa5770e6b26cae9fac58255dc1668b0a416fbb4578149db3b41"
+      },
+      {
+        "path": "workspace/definitions.ts",
+        "sha256": "642fdd2fc21b59d6ffb59f01bd61fbb0bca4e26ee2eab4c3d659a4077f901ed1"
+      },
+      {
+        "path": "workspace/guards.ts",
+        "sha256": "cec835079aba4c1c61d4a28f224fd7ac7617063568b05156a84cc08896e0ed89"
+      },
+      {
+        "path": "workspace/operation-lock.ts",
+        "sha256": "c39e910339321f63786bec52cf40fa5e9c114a259f8bbc0dc7842b29660866cd"
+      },
+      {
+        "path": "workspace/operations.ts",
+        "sha256": "a5d8a46bd2fb28a09e2724028c7e9800d2ee23deed6e5e6a84196fb76b1ccead"
+      },
+      {
+        "path": "workspace/push-recovery.ts",
+        "sha256": "4eb0a680285f3e7532891cff2aedc3433f067fb36ccf8d4c63b3975b66c97a76"
+      },
+      {
+        "path": "workspace/push.ts",
+        "sha256": "4a68f891cce5431344921baf4c9c0f3e3617c704c305732fa13b17825e74a25a"
+      },
+      {
+        "path": "workspace/source-discovery.ts",
+        "sha256": "aeec16adb3208ea5d89666c051064e3251defd8ef8bae48ac6fa12bebc7b98e0"
+      },
+      {
+        "path": "workspace/state.ts",
+        "sha256": "c493c31c466b7d49b86a9bdd45ad563963c67f3c9e4c5a28b1f1f3b54ebbf216"
+      },
+      {
+        "path": "workspace/type-inputs.ts",
+        "sha256": "636eb126175e90cb0134e523bc9f11d5ac04dcd68326d8596e4b10931231bc8f"
+      },
+      {
+        "path": "workspace/types.ts",
+        "sha256": "f046ebe39de38d590d78bb0aa00f5c3f03a117f972f9aec6f49fa5f7275023fb"
+      },
+      {
+        "path": "workspace-api.ts",
+        "sha256": "735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2"
+      }
+    ],
+    "sha256": "b5907b6b90554bc20ae255ac2fb8653e552cda00c2033504605986d4511223e6"
+  },
+  "results": [
+    {
+      "name": "native-positive-zero-control",
+      "kind": "native",
+      "inputCancel": "0",
+      "inputDefault": "0",
+      "expected": "exact numeric saved index preservation; categorical enums and402mirrors remain strict",
+      "outcome": {
+        "accepted": true,
+        "exact": true,
+        "generatedParameters": "[\n  [\n    \"\"\n  ],\n  0,\n  0,\n  2,\n  0\n]",
+        "pushedParameters": "[\n  [\n    \"\"\n  ],\n  0,\n  0,\n  2,\n  0\n]",
+        "diff": "Structured Diff Report\n\nAffected Project Data Files:\n- none\n\nDestructive Changes: no"
+      },
+      "before": {
+        "workspace": {
+          "rows": [
+            {
+              "path": ".rpgmaker-event-dsl/operation.lock",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/CommonEvents.json",
+              "sha256": "bfd45fd14f0f1f56e735b1ba662c44e1f29fc168610ce02630dedbbfdcb54aaa"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/sync-manifest.json",
+              "sha256": "57762998c3b992c9789747afe1c1c77e0ae308b2d7a72429b8a995b8cbae6c0d"
+            },
+            {
+              "path": "Game/data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/CommonEvents.json",
+              "sha256": "bfd45fd14f0f1f56e735b1ba662c44e1f29fc168610ce02630dedbbfdcb54aaa"
+            },
+            {
+              "path": "Game/data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "Game/data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            },
+            {
+              "path": "node_modules/rpgmaker-event-dsl/package.json",
+              "sha256": "fe1631dcfbd6d9733a6e1d015bacc2673bed0af5cc7ea4faf65fa7cf5fed3d54"
+            },
+            {
+              "path": "package.json",
+              "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+            },
+            {
+              "path": "rpgmaker-event-dsl.config.json",
+              "sha256": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a"
+            }
+          ],
+          "sha256": "20071d7d106cf3c0371d5f812a7125a53c09b22c979abd7ee141f4e6b97f133d"
+        },
+        "project": {
+          "rows": [
+            {
+              "path": "data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/CommonEvents.json",
+              "sha256": "bfd45fd14f0f1f56e735b1ba662c44e1f29fc168610ce02630dedbbfdcb54aaa"
+            },
+            {
+              "path": "data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            }
+          ],
+          "sha256": "5c1addb00174482de29cf8384b54fa83ade48703fe0f710104830a586fc16fed"
+        }
+      },
+      "after": {
+        "workspace": {
+          "rows": [
+            {
+              "path": ".rpgmaker-event-dsl/generated-project-data/CommonEvents.json",
+              "sha256": "baf038d644f3d0166135f77d4f7f9dff6a795f44eec91f21831b34a92a032dc2"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/generated-project-data/System.json",
+              "sha256": "885a4070c7aa732e7ffc24745e3816c26ea49ab10a0e4284e10cdf70ee64d32d"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/generated-project-data/Troops.json",
+              "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/operation.lock",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/CommonEvents.json",
+              "sha256": "bfd45fd14f0f1f56e735b1ba662c44e1f29fc168610ce02630dedbbfdcb54aaa"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/sync-manifest.json",
+              "sha256": "3d343e87061789d225c3cd6128e2f84d1f6580a81f6c8b601723697904a34a62"
+            },
+            {
+              "path": "Game/data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/CommonEvents.json",
+              "sha256": "bfd45fd14f0f1f56e735b1ba662c44e1f29fc168610ce02630dedbbfdcb54aaa"
+            },
+            {
+              "path": "Game/data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "Game/data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            },
+            {
+              "path": "node_modules/rpgmaker-event-dsl/package.json",
+              "sha256": "fe1631dcfbd6d9733a6e1d015bacc2673bed0af5cc7ea4faf65fa7cf5fed3d54"
+            },
+            {
+              "path": "package.json",
+              "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+            },
+            {
+              "path": "rpgmaker-event-dsl.config.json",
+              "sha256": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a"
+            },
+            {
+              "path": "src/decompiled/common-events.events.ts",
+              "sha256": "7f698086d1d7334fcbd8e2198a5facd2b93c73b800c701549466f79dc9e464eb"
+            },
+            {
+              "path": "src/decompiled/system.dsl.ts",
+              "sha256": "002613305591198815978828f485fc61b7ef109dd6a9f59c18e4a2722139552a"
+            },
+            {
+              "path": "src/decompiled/troop-events.events.ts",
+              "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            }
+          ],
+          "sha256": "0ea20cfb0f330049752698e8ac65ef038d5cafbdbfd3aa51f88a9d2d8ade39eb"
+        },
+        "project": {
+          "rows": [
+            {
+              "path": "data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/CommonEvents.json",
+              "sha256": "bfd45fd14f0f1f56e735b1ba662c44e1f29fc168610ce02630dedbbfdcb54aaa"
+            },
+            {
+              "path": "data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            }
+          ],
+          "sha256": "5c1addb00174482de29cf8384b54fa83ade48703fe0f710104830a586fc16fed"
+        }
+      }
+    },
+    {
+      "name": "native-cancel-negative-zero",
+      "kind": "native",
+      "inputCancel": "-0",
+      "inputDefault": "0",
+      "expected": "exact numeric saved index preservation; categorical enums and402mirrors remain strict",
+      "outcome": {
+        "accepted": false,
+        "stage": "Decompile",
+        "name": "Error",
+        "message": "decompile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. at list[0].parameters[1]; expected one of [-2,-1,0,1,2,3,4,5]; actual -0",
+        "code": "MV-COMMAND-PARAMETERS",
+        "location": {
+          "nativePath": "list[0].parameters[1]",
+          "expected": "one of [-2,-1,0,1,2,3,4,5]",
+          "actual": "-0"
+        }
+      },
+      "before": {
+        "workspace": {
+          "rows": [
+            {
+              "path": ".rpgmaker-event-dsl/operation.lock",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/CommonEvents.json",
+              "sha256": "f16f2a7256e2bbadf77512445ad64804692972942aaf2875af44563a480b713c"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/sync-manifest.json",
+              "sha256": "59e4664e1cd61a7df812f9316c96b0dbf8cfc3e4f883f0a15b18d83285c8d8c5"
+            },
+            {
+              "path": "Game/data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/CommonEvents.json",
+              "sha256": "f16f2a7256e2bbadf77512445ad64804692972942aaf2875af44563a480b713c"
+            },
+            {
+              "path": "Game/data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "Game/data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            },
+            {
+              "path": "node_modules/rpgmaker-event-dsl/package.json",
+              "sha256": "fe1631dcfbd6d9733a6e1d015bacc2673bed0af5cc7ea4faf65fa7cf5fed3d54"
+            },
+            {
+              "path": "package.json",
+              "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+            },
+            {
+              "path": "rpgmaker-event-dsl.config.json",
+              "sha256": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a"
+            }
+          ],
+          "sha256": "7a57229c83411ed390c7db446d7b645db268bc01facef75a08d3abc2e9e71ed7"
+        },
+        "project": {
+          "rows": [
+            {
+              "path": "data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/CommonEvents.json",
+              "sha256": "f16f2a7256e2bbadf77512445ad64804692972942aaf2875af44563a480b713c"
+            },
+            {
+              "path": "data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            }
+          ],
+          "sha256": "0d49d44010d5efb9f33e12cc26c39017c1e487627b06bea21bb50edc7fa490ee"
+        }
+      },
+      "after": {
+        "workspace": {
+          "rows": [
+            {
+              "path": ".rpgmaker-event-dsl/operation.lock",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/CommonEvents.json",
+              "sha256": "f16f2a7256e2bbadf77512445ad64804692972942aaf2875af44563a480b713c"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/sync-manifest.json",
+              "sha256": "59e4664e1cd61a7df812f9316c96b0dbf8cfc3e4f883f0a15b18d83285c8d8c5"
+            },
+            {
+              "path": "Game/data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/CommonEvents.json",
+              "sha256": "f16f2a7256e2bbadf77512445ad64804692972942aaf2875af44563a480b713c"
+            },
+            {
+              "path": "Game/data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "Game/data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            },
+            {
+              "path": "node_modules/rpgmaker-event-dsl/package.json",
+              "sha256": "fe1631dcfbd6d9733a6e1d015bacc2673bed0af5cc7ea4faf65fa7cf5fed3d54"
+            },
+            {
+              "path": "package.json",
+              "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+            },
+            {
+              "path": "rpgmaker-event-dsl.config.json",
+              "sha256": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a"
+            }
+          ],
+          "sha256": "7a57229c83411ed390c7db446d7b645db268bc01facef75a08d3abc2e9e71ed7"
+        },
+        "project": {
+          "rows": [
+            {
+              "path": "data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/CommonEvents.json",
+              "sha256": "f16f2a7256e2bbadf77512445ad64804692972942aaf2875af44563a480b713c"
+            },
+            {
+              "path": "data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            }
+          ],
+          "sha256": "0d49d44010d5efb9f33e12cc26c39017c1e487627b06bea21bb50edc7fa490ee"
+        }
+      }
+    },
+    {
+      "name": "native-default-negative-zero",
+      "kind": "native",
+      "inputCancel": "0",
+      "inputDefault": "-0",
+      "expected": "exact numeric saved index preservation; categorical enums and402mirrors remain strict",
+      "outcome": {
+        "accepted": false,
+        "stage": "Decompile",
+        "name": "Error",
+        "message": "decompile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. at list[0].parameters[2]; expected one of [-1,0,1,2,3,4,5]; actual -0",
+        "code": "MV-COMMAND-PARAMETERS",
+        "location": {
+          "nativePath": "list[0].parameters[2]",
+          "expected": "one of [-1,0,1,2,3,4,5]",
+          "actual": "-0"
+        }
+      },
+      "before": {
+        "workspace": {
+          "rows": [
+            {
+              "path": ".rpgmaker-event-dsl/operation.lock",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/CommonEvents.json",
+              "sha256": "aa1184610f4b693a8afe2ea6cac364b289fcd89c7f5628ed55a9800fdb53a0d3"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/sync-manifest.json",
+              "sha256": "c724e0b8fcc1a60715f16bfc6fca29627a35111c23dfe9bf8449c7fa0fdf0fb9"
+            },
+            {
+              "path": "Game/data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/CommonEvents.json",
+              "sha256": "aa1184610f4b693a8afe2ea6cac364b289fcd89c7f5628ed55a9800fdb53a0d3"
+            },
+            {
+              "path": "Game/data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "Game/data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            },
+            {
+              "path": "node_modules/rpgmaker-event-dsl/package.json",
+              "sha256": "fe1631dcfbd6d9733a6e1d015bacc2673bed0af5cc7ea4faf65fa7cf5fed3d54"
+            },
+            {
+              "path": "package.json",
+              "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+            },
+            {
+              "path": "rpgmaker-event-dsl.config.json",
+              "sha256": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a"
+            }
+          ],
+          "sha256": "08784272d654e9dd0da13d965ee1d988e6e81b84f6767b8db30088af9ca9a6b0"
+        },
+        "project": {
+          "rows": [
+            {
+              "path": "data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/CommonEvents.json",
+              "sha256": "aa1184610f4b693a8afe2ea6cac364b289fcd89c7f5628ed55a9800fdb53a0d3"
+            },
+            {
+              "path": "data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            }
+          ],
+          "sha256": "f2e52c9296f233771428d6cd2abcfc9e841c8ce408aba6725b2818a07cc623d4"
+        }
+      },
+      "after": {
+        "workspace": {
+          "rows": [
+            {
+              "path": ".rpgmaker-event-dsl/operation.lock",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/CommonEvents.json",
+              "sha256": "aa1184610f4b693a8afe2ea6cac364b289fcd89c7f5628ed55a9800fdb53a0d3"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/sync-manifest.json",
+              "sha256": "c724e0b8fcc1a60715f16bfc6fca29627a35111c23dfe9bf8449c7fa0fdf0fb9"
+            },
+            {
+              "path": "Game/data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/CommonEvents.json",
+              "sha256": "aa1184610f4b693a8afe2ea6cac364b289fcd89c7f5628ed55a9800fdb53a0d3"
+            },
+            {
+              "path": "Game/data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "Game/data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            },
+            {
+              "path": "node_modules/rpgmaker-event-dsl/package.json",
+              "sha256": "fe1631dcfbd6d9733a6e1d015bacc2673bed0af5cc7ea4faf65fa7cf5fed3d54"
+            },
+            {
+              "path": "package.json",
+              "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+            },
+            {
+              "path": "rpgmaker-event-dsl.config.json",
+              "sha256": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a"
+            }
+          ],
+          "sha256": "08784272d654e9dd0da13d965ee1d988e6e81b84f6767b8db30088af9ca9a6b0"
+        },
+        "project": {
+          "rows": [
+            {
+              "path": "data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/CommonEvents.json",
+              "sha256": "aa1184610f4b693a8afe2ea6cac364b289fcd89c7f5628ed55a9800fdb53a0d3"
+            },
+            {
+              "path": "data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            }
+          ],
+          "sha256": "f2e52c9296f233771428d6cd2abcfc9e841c8ce408aba6725b2818a07cc623d4"
+        }
+      }
+    },
+    {
+      "name": "native-both-negative-zero",
+      "kind": "native",
+      "inputCancel": "-0",
+      "inputDefault": "-0",
+      "expected": "exact numeric saved index preservation; categorical enums and402mirrors remain strict",
+      "outcome": {
+        "accepted": false,
+        "stage": "Decompile",
+        "name": "Error",
+        "message": "decompile error commonEvent:1: MV-COMMAND-PARAMETERS: Invalid known saved parameter. at list[0].parameters[1]; expected one of [-2,-1,0,1,2,3,4,5]; actual -0",
+        "code": "MV-COMMAND-PARAMETERS",
+        "location": {
+          "nativePath": "list[0].parameters[1]",
+          "expected": "one of [-2,-1,0,1,2,3,4,5]",
+          "actual": "-0"
+        }
+      },
+      "before": {
+        "workspace": {
+          "rows": [
+            {
+              "path": ".rpgmaker-event-dsl/operation.lock",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/CommonEvents.json",
+              "sha256": "8dbfb638434d99c36e834649151af99dfdaa1584af66e6a81b836e7ed0b3c3dc"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/sync-manifest.json",
+              "sha256": "5cdeac384416cf3e60eb22436b86c6eb04643dddc139748ea7eb420419796260"
+            },
+            {
+              "path": "Game/data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/CommonEvents.json",
+              "sha256": "8dbfb638434d99c36e834649151af99dfdaa1584af66e6a81b836e7ed0b3c3dc"
+            },
+            {
+              "path": "Game/data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "Game/data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            },
+            {
+              "path": "node_modules/rpgmaker-event-dsl/package.json",
+              "sha256": "fe1631dcfbd6d9733a6e1d015bacc2673bed0af5cc7ea4faf65fa7cf5fed3d54"
+            },
+            {
+              "path": "package.json",
+              "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+            },
+            {
+              "path": "rpgmaker-event-dsl.config.json",
+              "sha256": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a"
+            }
+          ],
+          "sha256": "16b13740a74ad01baf67538eabdb2142491f1c8c55f9cd3e9f5e2f291b3b11fa"
+        },
+        "project": {
+          "rows": [
+            {
+              "path": "data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/CommonEvents.json",
+              "sha256": "8dbfb638434d99c36e834649151af99dfdaa1584af66e6a81b836e7ed0b3c3dc"
+            },
+            {
+              "path": "data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            }
+          ],
+          "sha256": "186524151ed4874c69e98ace1795ef09282eb3c9472125d40892bb9df93c538c"
+        }
+      },
+      "after": {
+        "workspace": {
+          "rows": [
+            {
+              "path": ".rpgmaker-event-dsl/operation.lock",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/CommonEvents.json",
+              "sha256": "8dbfb638434d99c36e834649151af99dfdaa1584af66e6a81b836e7ed0b3c3dc"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/sync-manifest.json",
+              "sha256": "5cdeac384416cf3e60eb22436b86c6eb04643dddc139748ea7eb420419796260"
+            },
+            {
+              "path": "Game/data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/CommonEvents.json",
+              "sha256": "8dbfb638434d99c36e834649151af99dfdaa1584af66e6a81b836e7ed0b3c3dc"
+            },
+            {
+              "path": "Game/data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "Game/data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            },
+            {
+              "path": "node_modules/rpgmaker-event-dsl/package.json",
+              "sha256": "fe1631dcfbd6d9733a6e1d015bacc2673bed0af5cc7ea4faf65fa7cf5fed3d54"
+            },
+            {
+              "path": "package.json",
+              "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+            },
+            {
+              "path": "rpgmaker-event-dsl.config.json",
+              "sha256": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a"
+            }
+          ],
+          "sha256": "16b13740a74ad01baf67538eabdb2142491f1c8c55f9cd3e9f5e2f291b3b11fa"
+        },
+        "project": {
+          "rows": [
+            {
+              "path": "data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/CommonEvents.json",
+              "sha256": "8dbfb638434d99c36e834649151af99dfdaa1584af66e6a81b836e7ed0b3c3dc"
+            },
+            {
+              "path": "data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            }
+          ],
+          "sha256": "186524151ed4874c69e98ace1795ef09282eb3c9472125d40892bb9df93c538c"
+        }
+      }
+    },
+    {
+      "name": "formal-positive-zero-control",
+      "kind": "formal",
+      "inputCancel": "0",
+      "inputDefault": "0",
+      "expected": "exact numeric saved index preservation; categorical enums and402mirrors remain strict",
+      "outcome": {
+        "accepted": true,
+        "exact": true,
+        "generatedParameters": "[\n  [\n    \"\"\n  ],\n  0,\n  0,\n  2,\n  0\n]",
+        "pushedParameters": "[\n  [\n    \"\"\n  ],\n  0,\n  0,\n  2,\n  0\n]",
+        "diff": "Structured Diff Report\n\nCommon Event\n- [generated-only] commonEventId 1: Entry exists only in Generated Project Data.\n\nAffected Project Data Files:\n- CommonEvents.json\n\nDestructive Changes: no"
+      },
+      "before": {
+        "workspace": {
+          "rows": [
+            {
+              "path": ".rpgmaker-event-dsl/operation.lock",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/CommonEvents.json",
+              "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/sync-manifest.json",
+              "sha256": "9a28721c57898bd10d6f7a6a0234b236f0bd1574b87fe8545f12b4988bee2292"
+            },
+            {
+              "path": "Game/data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/CommonEvents.json",
+              "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b"
+            },
+            {
+              "path": "Game/data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "Game/data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            },
+            {
+              "path": "node_modules/rpgmaker-event-dsl/package.json",
+              "sha256": "fe1631dcfbd6d9733a6e1d015bacc2673bed0af5cc7ea4faf65fa7cf5fed3d54"
+            },
+            {
+              "path": "package.json",
+              "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+            },
+            {
+              "path": "rpgmaker-event-dsl.config.json",
+              "sha256": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a"
+            },
+            {
+              "path": "src/decompiled/common-events.events.ts",
+              "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            },
+            {
+              "path": "src/decompiled/system.dsl.ts",
+              "sha256": "002613305591198815978828f485fc61b7ef109dd6a9f59c18e4a2722139552a"
+            },
+            {
+              "path": "src/decompiled/troop-events.events.ts",
+              "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            },
+            {
+              "path": "src/probe.events.ts",
+              "sha256": "40d9e4090d1c62a2fa5bfc9a43fdb3e8d8dd35e079b0478ea4d513a80cb9849c"
+            }
+          ],
+          "sha256": "ebd275078c58c4300359104bda947e6df46304fe77f541beaa64cdfd2dd7b841"
+        },
+        "project": {
+          "rows": [
+            {
+              "path": "data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/CommonEvents.json",
+              "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b"
+            },
+            {
+              "path": "data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            }
+          ],
+          "sha256": "a6b1de6fe27e124d2025cb8d65107b8b2c7eecc6a888d0d59c3d89ade7c023b4"
+        }
+      },
+      "after": {
+        "workspace": {
+          "rows": [
+            {
+              "path": ".rpgmaker-event-dsl/generated-project-data/CommonEvents.json",
+              "sha256": "baf038d644f3d0166135f77d4f7f9dff6a795f44eec91f21831b34a92a032dc2"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/generated-project-data/System.json",
+              "sha256": "885a4070c7aa732e7ffc24745e3816c26ea49ab10a0e4284e10cdf70ee64d32d"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/generated-project-data/Troops.json",
+              "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/operation.lock",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/CommonEvents.json",
+              "sha256": "baf038d644f3d0166135f77d4f7f9dff6a795f44eec91f21831b34a92a032dc2"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/sync-manifest.json",
+              "sha256": "5735496f782508729a5def61deafb3f5fa870a0a6b8f8c8e2bcb165d744c1005"
+            },
+            {
+              "path": "Game/data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/CommonEvents.json",
+              "sha256": "baf038d644f3d0166135f77d4f7f9dff6a795f44eec91f21831b34a92a032dc2"
+            },
+            {
+              "path": "Game/data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "Game/data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            },
+            {
+              "path": "node_modules/rpgmaker-event-dsl/package.json",
+              "sha256": "fe1631dcfbd6d9733a6e1d015bacc2673bed0af5cc7ea4faf65fa7cf5fed3d54"
+            },
+            {
+              "path": "package.json",
+              "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+            },
+            {
+              "path": "rpgmaker-event-dsl.config.json",
+              "sha256": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a"
+            },
+            {
+              "path": "src/decompiled/common-events.events.ts",
+              "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            },
+            {
+              "path": "src/decompiled/system.dsl.ts",
+              "sha256": "002613305591198815978828f485fc61b7ef109dd6a9f59c18e4a2722139552a"
+            },
+            {
+              "path": "src/decompiled/troop-events.events.ts",
+              "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            },
+            {
+              "path": "src/probe.events.ts",
+              "sha256": "40d9e4090d1c62a2fa5bfc9a43fdb3e8d8dd35e079b0478ea4d513a80cb9849c"
+            }
+          ],
+          "sha256": "9e74f9c355cdfa9f3aef0c49fd87a0afb6237e61249feb525881575d5df0b4ef"
+        },
+        "project": {
+          "rows": [
+            {
+              "path": "data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/CommonEvents.json",
+              "sha256": "baf038d644f3d0166135f77d4f7f9dff6a795f44eec91f21831b34a92a032dc2"
+            },
+            {
+              "path": "data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            }
+          ],
+          "sha256": "e196a1f68c4a3337424b9b3447841669a575bca51345782227872d3f382a4dd7"
+        }
+      }
+    },
+    {
+      "name": "formal-cancel-negative-zero",
+      "kind": "formal",
+      "inputCancel": "-0",
+      "inputDefault": "0",
+      "expected": "exact numeric saved index preservation; categorical enums and402mirrors remain strict",
+      "outcome": {
+        "accepted": false,
+        "stage": "Check",
+        "name": "Error",
+        "message": "TypeScript diagnostics failed for C:\\Users\\Shuen\\.codex\\tmp\\mv27-choice-saved-indices-public-audit-02b9f2d3-14ff-40f4-887b-cb87c7462e3e\\formal-cancel-negative-zero\\src\\probe.events.ts:\n- MV-CHOICES: Invalid Show Choices input. (showChoices.cancel.index); expected choice position integer 0..5, excluding negative zero; actual -0"
+      },
+      "before": {
+        "workspace": {
+          "rows": [
+            {
+              "path": ".rpgmaker-event-dsl/operation.lock",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/CommonEvents.json",
+              "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/sync-manifest.json",
+              "sha256": "7c85ea3ff4e3b773e552d8025147f60735a9a0888c4a9adf8e0b106b52cf8b54"
+            },
+            {
+              "path": "Game/data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/CommonEvents.json",
+              "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b"
+            },
+            {
+              "path": "Game/data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "Game/data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            },
+            {
+              "path": "node_modules/rpgmaker-event-dsl/package.json",
+              "sha256": "fe1631dcfbd6d9733a6e1d015bacc2673bed0af5cc7ea4faf65fa7cf5fed3d54"
+            },
+            {
+              "path": "package.json",
+              "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+            },
+            {
+              "path": "rpgmaker-event-dsl.config.json",
+              "sha256": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a"
+            },
+            {
+              "path": "src/decompiled/common-events.events.ts",
+              "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            },
+            {
+              "path": "src/decompiled/system.dsl.ts",
+              "sha256": "002613305591198815978828f485fc61b7ef109dd6a9f59c18e4a2722139552a"
+            },
+            {
+              "path": "src/decompiled/troop-events.events.ts",
+              "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            },
+            {
+              "path": "src/probe.events.ts",
+              "sha256": "51ab3ff0a1938f934e6754e9f8a428ca88d1b057c57e8b2603d1a2a25cc070e9"
+            }
+          ],
+          "sha256": "d64f59ff2e7f85851f8c1cb8afbe02d2a763bdb536f5415cc6735b8e850ce4a0"
+        },
+        "project": {
+          "rows": [
+            {
+              "path": "data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/CommonEvents.json",
+              "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b"
+            },
+            {
+              "path": "data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            }
+          ],
+          "sha256": "a6b1de6fe27e124d2025cb8d65107b8b2c7eecc6a888d0d59c3d89ade7c023b4"
+        }
+      },
+      "after": {
+        "workspace": {
+          "rows": [
+            {
+              "path": ".rpgmaker-event-dsl/operation.lock",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/CommonEvents.json",
+              "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/sync-manifest.json",
+              "sha256": "7c85ea3ff4e3b773e552d8025147f60735a9a0888c4a9adf8e0b106b52cf8b54"
+            },
+            {
+              "path": "Game/data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/CommonEvents.json",
+              "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b"
+            },
+            {
+              "path": "Game/data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "Game/data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            },
+            {
+              "path": "node_modules/rpgmaker-event-dsl/package.json",
+              "sha256": "fe1631dcfbd6d9733a6e1d015bacc2673bed0af5cc7ea4faf65fa7cf5fed3d54"
+            },
+            {
+              "path": "package.json",
+              "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+            },
+            {
+              "path": "rpgmaker-event-dsl.config.json",
+              "sha256": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a"
+            },
+            {
+              "path": "src/decompiled/common-events.events.ts",
+              "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            },
+            {
+              "path": "src/decompiled/system.dsl.ts",
+              "sha256": "002613305591198815978828f485fc61b7ef109dd6a9f59c18e4a2722139552a"
+            },
+            {
+              "path": "src/decompiled/troop-events.events.ts",
+              "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            },
+            {
+              "path": "src/probe.events.ts",
+              "sha256": "51ab3ff0a1938f934e6754e9f8a428ca88d1b057c57e8b2603d1a2a25cc070e9"
+            }
+          ],
+          "sha256": "d64f59ff2e7f85851f8c1cb8afbe02d2a763bdb536f5415cc6735b8e850ce4a0"
+        },
+        "project": {
+          "rows": [
+            {
+              "path": "data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/CommonEvents.json",
+              "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b"
+            },
+            {
+              "path": "data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            }
+          ],
+          "sha256": "a6b1de6fe27e124d2025cb8d65107b8b2c7eecc6a888d0d59c3d89ade7c023b4"
+        }
+      }
+    },
+    {
+      "name": "formal-default-negative-zero",
+      "kind": "formal",
+      "inputCancel": "0",
+      "inputDefault": "-0",
+      "expected": "exact numeric saved index preservation; categorical enums and402mirrors remain strict",
+      "outcome": {
+        "accepted": false,
+        "stage": "Check",
+        "name": "Error",
+        "message": "TypeScript diagnostics failed for C:\\Users\\Shuen\\.codex\\tmp\\mv27-choice-saved-indices-public-audit-02b9f2d3-14ff-40f4-887b-cb87c7462e3e\\formal-default-negative-zero\\src\\probe.events.ts:\n- MV-CHOICES: Invalid Show Choices input. (showChoices.defaultChoice.index); expected choice position integer 0..5, excluding negative zero; actual -0"
+      },
+      "before": {
+        "workspace": {
+          "rows": [
+            {
+              "path": ".rpgmaker-event-dsl/operation.lock",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/CommonEvents.json",
+              "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/sync-manifest.json",
+              "sha256": "0e10d2f0b8e446f689fadca93151fc5784de9c5f06cf3333a64e565fad342763"
+            },
+            {
+              "path": "Game/data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/CommonEvents.json",
+              "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b"
+            },
+            {
+              "path": "Game/data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "Game/data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            },
+            {
+              "path": "node_modules/rpgmaker-event-dsl/package.json",
+              "sha256": "fe1631dcfbd6d9733a6e1d015bacc2673bed0af5cc7ea4faf65fa7cf5fed3d54"
+            },
+            {
+              "path": "package.json",
+              "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+            },
+            {
+              "path": "rpgmaker-event-dsl.config.json",
+              "sha256": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a"
+            },
+            {
+              "path": "src/decompiled/common-events.events.ts",
+              "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            },
+            {
+              "path": "src/decompiled/system.dsl.ts",
+              "sha256": "002613305591198815978828f485fc61b7ef109dd6a9f59c18e4a2722139552a"
+            },
+            {
+              "path": "src/decompiled/troop-events.events.ts",
+              "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            },
+            {
+              "path": "src/probe.events.ts",
+              "sha256": "edc57385bcee4b551903a5035415dddc7d7f6a2cca8d4146ef25fdf0a6e38b14"
+            }
+          ],
+          "sha256": "78a02323d3d5ba6837a9d551067fd532847eceb24dd7f3469ce30f5eab3f17c7"
+        },
+        "project": {
+          "rows": [
+            {
+              "path": "data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/CommonEvents.json",
+              "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b"
+            },
+            {
+              "path": "data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            }
+          ],
+          "sha256": "a6b1de6fe27e124d2025cb8d65107b8b2c7eecc6a888d0d59c3d89ade7c023b4"
+        }
+      },
+      "after": {
+        "workspace": {
+          "rows": [
+            {
+              "path": ".rpgmaker-event-dsl/operation.lock",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/CommonEvents.json",
+              "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/project-data-snapshot/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": ".rpgmaker-event-dsl/sync-manifest.json",
+              "sha256": "0e10d2f0b8e446f689fadca93151fc5784de9c5f06cf3333a64e565fad342763"
+            },
+            {
+              "path": "Game/data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/CommonEvents.json",
+              "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b"
+            },
+            {
+              "path": "Game/data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "Game/data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game/Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            },
+            {
+              "path": "node_modules/rpgmaker-event-dsl/package.json",
+              "sha256": "fe1631dcfbd6d9733a6e1d015bacc2673bed0af5cc7ea4faf65fa7cf5fed3d54"
+            },
+            {
+              "path": "package.json",
+              "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+            },
+            {
+              "path": "rpgmaker-event-dsl.config.json",
+              "sha256": "2467435b0fd08389d229a71697c84976e7efd0d46450feaf23fe5d60939db47a"
+            },
+            {
+              "path": "src/decompiled/common-events.events.ts",
+              "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            },
+            {
+              "path": "src/decompiled/system.dsl.ts",
+              "sha256": "002613305591198815978828f485fc61b7ef109dd6a9f59c18e4a2722139552a"
+            },
+            {
+              "path": "src/decompiled/troop-events.events.ts",
+              "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            },
+            {
+              "path": "src/probe.events.ts",
+              "sha256": "edc57385bcee4b551903a5035415dddc7d7f6a2cca8d4146ef25fdf0a6e38b14"
+            }
+          ],
+          "sha256": "78a02323d3d5ba6837a9d551067fd532847eceb24dd7f3469ce30f5eab3f17c7"
+        },
+        "project": {
+          "rows": [
+            {
+              "path": "data/Actors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Animations.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Armors.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Classes.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/CommonEvents.json",
+              "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b"
+            },
+            {
+              "path": "data/Enemies.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Items.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/MapInfos.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Skills.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/States.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/System.json",
+              "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+            },
+            {
+              "path": "data/Tilesets.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Troops.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "data/Weapons.json",
+              "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+            },
+            {
+              "path": "Game.rpgproject",
+              "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+            }
+          ],
+          "sha256": "a6b1de6fe27e124d2025cb8d65107b8b2c7eecc6a888d0d59c3d89ade7c023b4"
+        }
+      }
+    }
+  ]
+}

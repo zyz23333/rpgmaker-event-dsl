@@ -1,0 +1,50 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-27/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/choices.test.ts (65 tests | 3 failed | 62 skipped) 6ms
+   × preserves numeric saved choice indices with negative zero in 'cancel' through formal, raw and decompile 5ms
+   × preserves numeric saved choice indices with negative zero in 'default' through formal, raw and decompile 0ms
+   × preserves numeric saved choice indices with negative zero in 'both' through formal, raw and decompile 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/choices.test.ts > preserves numeric saved choice indices with negative zero in 'cancel' through formal, raw and decompile
+Error: MV-CHOICES: Invalid Show Choices input. (showChoices.cancel.index); expected choice position integer 0..5, excluding negative zero; actual -0
+ ❯ fail src/commands/message/validation.ts:7:11
+      5| export function assertShowChoicesInput(value: unknown, path: string, w…
+      6|   const fail = (at: string, expected: string, actual: unknown): never …
+      7|     throw new CommandStructureError("MV-CHOICES", "Invalid Show Choice…
+       |           ^
+      8|       dslPath: at,
+      9|       expected,
+ ❯ assertShowChoicesInput src/commands/message/validation.ts:92:9
+ ❯ showChoices src/commands/message/authoring.ts:87:3
+ ❯ test/choices.test.ts:37:18
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  test/choices.test.ts > preserves numeric saved choice indices with negative zero in 'default' through formal, raw and decompile
+ FAIL  test/choices.test.ts > preserves numeric saved choice indices with negative zero in 'both' through formal, raw and decompile
+Error: MV-CHOICES: Invalid Show Choices input. (showChoices.defaultChoice.index); expected choice position integer 0..5, excluding negative zero; actual -0
+ ❯ fail src/commands/message/validation.ts:7:11
+      5| export function assertShowChoicesInput(value: unknown, path: string, w…
+      6|   const fail = (at: string, expected: string, actual: unknown): never …
+      7|     throw new CommandStructureError("MV-CHOICES", "Invalid Show Choice…
+       |           ^
+      8|       dslPath: at,
+      9|       expected,
+ ❯ assertShowChoicesInput src/commands/message/validation.ts:92:9
+ ❯ showChoices src/commands/message/authoring.ts:87:3
+ ❯ test/choices.test.ts:37:18
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 62 skipped (65)
+   Start at  02:01:24
+   Duration  1.37s (transform 378ms, setup 0ms, import 1.19s, tests 6ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-27\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/choices.test.ts -t preserves numeric saved choice indices
