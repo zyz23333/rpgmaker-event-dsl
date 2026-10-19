@@ -1,0 +1,21 @@
+{
+  "purpose": "Final development checkpoint artifacts; no READY or native/built claim",
+  "recordedAt": "2026-10-19T17:11:30.527Z",
+  "base": "233db5420d6cf83da0220c6aa5aed56626798f39",
+  "finalStaticAndPostImportEvidenceIndex": [
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv-map-numeric-fix-index-validation-final-original.log",
+      "target": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\24-numeric-correction\\mv-map-numeric-fix-index-validation-final-original.log.txt",
+      "sha256": "1c16b878e68e4bf1e3e3b7fb61a0b2acd09df727806be1d542f87e65b389d975"
+    },
+    {
+      "source": "C:\\Users\\Shuen\\.codex\\tmp\\mv-map-numeric-fix-final-static-original.log",
+      "target": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-map-numeric-fix\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\24-numeric-correction\\mv-map-numeric-fix-final-static-original.log.txt",
+      "sha256": "8fb9e91133844ca135d4f50d5ae3a463c845a005958eb2fa2761d449e0719684"
+    }
+  ],
+  "originalCurrentReportIsExactPrefix": true,
+  "candidateSourceAndTestStillMatchDevelopmentFreeze": true,
+  "sourceFingerprint": "4d67fc8e1ae140f05ff9e1bc637e50b4231fd0d893bc537d5c74c7cf80e381a0",
+  "testFingerprint": "6935fedfaf512d28eff565eeb97fe5ecae1f4c4867d8bc136e04d4c85a8bffe9"
+}

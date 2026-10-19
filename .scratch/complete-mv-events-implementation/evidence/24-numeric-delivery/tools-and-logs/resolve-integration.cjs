@@ -1,0 +1,12 @@
+const fs=require('node:fs'),cp=require('node:child_process'),assert=require('node:assert/strict'),path=require('node:path');
+const root='C:/Users/Shuen/.codex/worktrees/mv-map-numeric-fix/rpgmaker-event-dsl';
+const incoming='38542767606ff9712e45d2a8e4894558e3a7d385',dev='2cb1786d00fae30ede77ed4edea4da5751c23129';
+const show=(rev,file)=>cp.execFileSync('git',['show',rev+':'+file],{cwd:root,maxBuffer:32*1024*1024}).toString();
+const evidence='.scratch/complete-mv-events-implementation/evidence/';
+const file=evidence+'requirements.json',text=show(incoming,file),prior=JSON.parse(text),own=JSON.parse(show(dev,file)).requirements.filter(row=>row.id.startsWith('MV-S5-MAP-NUMERIC-'));
+assert.equal(prior.requirements.length,296);assert.equal(own.length,4);const merged={...prior,requirements:[...prior.requirements,...own]};assert.deepEqual(merged.requirements.slice(0,296),prior.requirements);fs.writeFileSync(path.join(root,file),JSON.stringify(merged,null,2)+'\n');
+const readme=evidence+'README.md',section=show(dev,readme).split('\n| Requirement | Supplemental Map numeric saved-value check |')[1];assert(section);fs.writeFileSync(path.join(root,readme),show(incoming,readme)+'\n| Requirement | Supplemental Map numeric saved-value check |'+section);
+const config='packages/rpgmaker-event-dsl/vitest.windows.config.ts';fs.writeFileSync(path.join(root,config),show(incoming,config).replace('"test/map-event-workspace.test.ts",','"test/map-event-workspace.test.ts",\n      "test/map-page-numeric-workspace.test.ts",'));
+const version='packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts',source=fs.readFileSync(path.join(root,version),'utf8');assert(source.includes('mv-1.6.1/10'));fs.writeFileSync(path.join(root,version),source.replace('mv-1.6.1/10','mv-1.6.1/11'));
+fs.writeFileSync('M:/Shuen/Codex/mv-events-implementation-20261020/map24-final/merge-requirements-receipt.json',JSON.stringify({incoming,dev,incomingRequirements:296,own:4,total:300,priorDeepEqual:true},null,2)+'\n');
+console.log('Merged296incoming +4own =300; relative contract11.');

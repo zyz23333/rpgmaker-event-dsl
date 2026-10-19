@@ -1,0 +1,55 @@
+{
+  "purpose": "Independent v1 to v2 Map24 frozen literal-input comparison; no product or game execution",
+  "at": "2026-10-19T19:57:16.770Z",
+  "oldManifest": {
+    "path": "M:/Shuen/Codex/mv-events-implementation-20261020/map24-final/map24-physical-inputs-v1-ecbbbf99-08ef-4634-b86a-77193c93c5bf/manifest.json",
+    "sha256": "6b069b885aa18e82542db12ff63b8ea655be926be47c712762660e49f27ca60a"
+  },
+  "oldAudit": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\root-audits\\map24-independent-numeric-input-audit-v1-6c4e5f7b-75a4-4ec1-83b6-d6d1bed2466c.json",
+    "sha256": "a63dc317df1c2c53afcec6033c64e4e6856411660e9a6e29411c72f964304df3"
+  },
+  "currentManifest": {
+    "path": "M:/Shuen/Codex/mv-events-implementation-20261020/map24-final/map24-physical-inputs-v2-e518e76f-481f-4267-9dd5-a106f96507fb/manifest.json",
+    "sha256": "35968032eb1a76e289a42de67cb7afdf809d8146051d6f60e3e7c2afe2b5c963"
+  },
+  "cases": [
+    {
+      "case": "triggers",
+      "oldInput": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-physical-inputs-v1-ecbbbf99-08ef-4634-b86a-77193c93c5bf\\triggers-independent-input.json",
+        "sha256": "52d1d4ca595d1e7d3a12e69bae4c94a3470df6bf69eb0c4f8e3aa30680551ca1"
+      },
+      "newInput": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-physical-inputs-v2-e518e76f-481f-4267-9dd5-a106f96507fb\\triggers-independent-input.json",
+        "sha256": "00a79612419358fbdb258fbd3dbc2a70d87cfc3e1db6ffb9137489cedd6457c3"
+      },
+      "completeCarriers": 15,
+      "numericLocations": 0,
+      "allNonProvenanceFixtureValuesExactlyEqual": true,
+      "provenanceCorrection": {
+        "old": "Self-authored literal event records; untouched first-party seed context, copied data and read-only asset/runtime junctions",
+        "new": "Independent historical literal scenario plus explicitly documented finite numeric edits; current delivery copies the entire seed/assets/runtime/data as independent regular files. No runtime or asset junctions are used in either native project."
+      }
+    },
+    {
+      "case": "routes",
+      "oldInput": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-physical-inputs-v1-ecbbbf99-08ef-4634-b86a-77193c93c5bf\\routes-independent-input.json",
+        "sha256": "ef4dafe3ea86886662f76f41135eae6d9510a41d581fd92aa1d00f917111f3b6"
+      },
+      "newInput": {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\map24-final\\map24-physical-inputs-v2-e518e76f-481f-4267-9dd5-a106f96507fb\\routes-independent-input.json",
+        "sha256": "c2e9bcfb75e8b44e14d6f57c36de02619a647e0c3c4e20497cf4cea0a842feb8"
+      },
+      "completeCarriers": 15,
+      "numericLocations": 10,
+      "allNonProvenanceFixtureValuesExactlyEqual": true,
+      "provenanceCorrection": {
+        "old": "Self-authored complete saved Map/Common/System fixture. Independent original native route-wait control supplied trace/order/minimum42-frame oracle; no compiler-generated expected. Clean first-party seed retained outside Git.",
+        "new": "Independent historical literal scenario plus explicitly documented finite numeric edits; current delivery copies the entire seed/assets/runtime/data as independent regular files. No runtime or asset junctions are used in either native project."
+      }
+    }
+  ],
+  "passed": true
+}

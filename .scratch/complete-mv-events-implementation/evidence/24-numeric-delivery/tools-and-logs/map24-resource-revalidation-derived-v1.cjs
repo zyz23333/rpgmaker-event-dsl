@@ -1,0 +1,21 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),zlib=require('node:zlib'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const repo=process.argv[2]||'C:/Users/Shuen/.codex/worktrees/mv-ticket-24/rpgmaker-event-dsl';
+const output=process.argv[3]||'C:/Users/Shuen/.codex/tmp/mv24-delivery-audit-v1';
+const tmp='C:/Users/Shuen/.codex/tmp';
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const write=(name,value)=>fs.writeFileSync(path.join(output,name),JSON.stringify(value,null,2)+'\n',{flag:'wx'});
+fs.mkdirSync(output,{recursive:true});
+const startedAt=new Date().toISOString();
+const identityPath=path.join(tmp,'mv-e1-editor-container-identities.json');
+const index=JSON.parse(fs.readFileSync(identityPath));
+const target=fs.readFileSync(index.target.path);assert.equal(sha(target),index.target.sha256);assert.equal(target.length,index.target.bytes);
+const resources=index.resources.map(r=>{
+ const record=target.subarray(r.offset,r.offset+r.storedBytes);assert.equal(record.readUInt32BE(0)+4,r.storedBytes);assert.equal(sha(record),r.storedSha256);
+ const payload=record.subarray(4);let decoded,consumed=null;
+ if(r.encoding==='zlib'){const info=zlib.inflateSync(payload.subarray(4),{info:true});decoded=info.buffer;consumed=info.engine.bytesWritten;assert.equal(decoded.length,payload.readUInt32BE(0));assert.equal(consumed,payload.length-4);}else decoded=payload;
+ assert.equal(decoded.length,r.decodedBytes);assert.equal(sha(decoded),r.decodedSha256);assert.equal(consumed,r.compressedInputBytesConsumed);assert.equal(sha(fs.readFileSync(r.destination)),r.decodedSha256);
+ return {...r,revalidated:true};
+});
+write('editor-resource-revalidation.json',{purpose:'Ticket24 E1/E3/E6 identified resources revalidated read-only; no UI capture and no target code execution',startedAt,completedAt:new Date().toISOString(),node:process.version,target:index.target,input:{path:identityPath,sha256:sha(fs.readFileSync(identityPath))},versionEvidence:index.reusedVersionEvidence,resources,passed:true});
+console.log(JSON.stringify({output,resourceCount:resources.length,passed:true,classification:'Read-only reverse-engineered resource identity revalidation, no editor UI or game execution'}));

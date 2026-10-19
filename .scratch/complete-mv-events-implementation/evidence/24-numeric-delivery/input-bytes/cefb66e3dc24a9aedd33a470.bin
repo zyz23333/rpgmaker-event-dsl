@@ -1,0 +1,9 @@
+import { Command } from "commander";
+
+//#region src/cli.d.ts
+declare const cliName = "rpgmaker-event-dsl";
+declare function createCli(): Command;
+declare function runCli(argv?: readonly string[]): Promise<void>;
+//#endregion
+export { cliName, createCli, runCli };
+//# sourceMappingURL=cli.d.mts.map

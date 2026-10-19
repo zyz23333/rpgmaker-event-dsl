@@ -1,0 +1,208 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-map-numeric-fix/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/map-page-numeric-workspace.test.ts > preserves Map numeric negative zero: disabled actor ID through actual discovered source and complete Workspace Push
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-saved-ACaOTC
+
+stderr | test/map-page-numeric-workspace.test.ts > preserves Map numeric negative zero: disabled item ID through actual discovered source and complete Workspace Push
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-saved-hJO1Vr
+
+stderr | test/map-page-numeric-workspace.test.ts > preserves Map numeric negative zero: disabled switch1 ID through actual discovered source and complete Workspace Push
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-saved-BBJvYB
+
+stderr | test/map-page-numeric-workspace.test.ts > preserves Map numeric negative zero: disabled switch2 ID through actual discovered source and complete Workspace Push
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-saved-CvtLqI
+
+stderr | test/map-page-numeric-workspace.test.ts > preserves Map numeric negative zero: disabled variable ID through actual discovered source and complete Workspace Push
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-saved-sFoYUH
+
+stderr | test/map-page-numeric-workspace.test.ts > preserves Map numeric negative zero: character index through actual discovered source and complete Workspace Push
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-saved-EWrNa7
+
+stderr | test/map-page-numeric-workspace.test.ts > preserves Map numeric negative zero: tile ID through actual discovered source and complete Workspace Push
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-saved-NmyWfW
+
+stderr | test/map-page-numeric-workspace.test.ts > preserves Map numeric negative zero: pattern through actual discovered source and complete Workspace Push
+Windows verification sandbox retained: C:\Users\Shuen\.codex\tmp\mv-map-numeric-fix-development\map-numeric-saved-3gl1zk
+
+ ❯ test/map-page-numeric-workspace.test.ts (10 tests | 8 failed) 9940ms
+   × preserves Map numeric negative zero: disabled actor ID through actual discovered source and complete Workspace Push 74ms
+   × preserves Map numeric negative zero: disabled item ID through actual discovered source and complete Workspace Push 65ms
+   × preserves Map numeric negative zero: disabled switch1 ID through actual discovered source and complete Workspace Push 78ms
+   × preserves Map numeric negative zero: disabled switch2 ID through actual discovered source and complete Workspace Push 72ms
+   × preserves Map numeric negative zero: disabled variable ID through actual discovered source and complete Workspace Push 62ms
+   × preserves Map numeric negative zero: character index through actual discovered source and complete Workspace Push 100ms
+   × preserves Map numeric negative zero: tile ID through actual discovered source and complete Workspace Push 119ms
+   × preserves Map numeric negative zero: pattern through actual discovered source and complete Workspace Push 86ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-page-numeric-workspace.test.ts > preserves Map numeric negative zero: disabled actor ID through actual discovered source and complete Workspace Push
+Error: decompile error map:1/event:1: MV-MAP-PAGE-SHAPE: Invalid native Map Event saved shape. at pages[0].conditions.actorId; expected integer 0..9007199254740991; actual 0
+ ❯ src/decompiler/core.ts:127:15
+    125|     } catch (error) {
+    126|       if (error instanceof CommandStructureError)
+    127|         throw new CommandStructureError(
+       |               ^
+    128|           error.code,
+    129|           error.detail,
+ ❯ readMapEvents src/decompiler/core.ts:110:25
+ ❯ buildDecompiledSourceFiles src/decompiler/project.ts:152:20
+ ❯ decompileProjectDataSnapshot src/decompiler/project.ts:67:17
+ ❯ decompileWorkspaceUnlocked src/workspace/operations.ts:145:3
+ ❯ withWorkspaceOperationLock src/workspace/operation-lock.ts:45:12
+ ❯ decompileWorkspace src/workspace/operations.ts:117:3
+ ❯ test/map-page-numeric-workspace.test.ts:81:5
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  test/map-page-numeric-workspace.test.ts > preserves Map numeric negative zero: disabled item ID through actual discovered source and complete Workspace Push
+Error: decompile error map:1/event:1: MV-MAP-PAGE-SHAPE: Invalid native Map Event saved shape. at pages[0].conditions.itemId; expected integer 0..9007199254740991; actual 0
+ ❯ src/decompiler/core.ts:127:15
+    125|     } catch (error) {
+    126|       if (error instanceof CommandStructureError)
+    127|         throw new CommandStructureError(
+       |               ^
+    128|           error.code,
+    129|           error.detail,
+ ❯ readMapEvents src/decompiler/core.ts:110:25
+ ❯ buildDecompiledSourceFiles src/decompiler/project.ts:152:20
+ ❯ decompileProjectDataSnapshot src/decompiler/project.ts:67:17
+ ❯ decompileWorkspaceUnlocked src/workspace/operations.ts:145:3
+ ❯ withWorkspaceOperationLock src/workspace/operation-lock.ts:45:12
+ ❯ decompileWorkspace src/workspace/operations.ts:117:3
+ ❯ test/map-page-numeric-workspace.test.ts:81:5
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  test/map-page-numeric-workspace.test.ts > preserves Map numeric negative zero: disabled switch1 ID through actual discovered source and complete Workspace Push
+Error: decompile error map:1/event:1: MV-MAP-PAGE-SHAPE: Invalid native Map Event saved shape. at pages[0].conditions.switch1Id; expected integer 0..9007199254740991; actual 0
+ ❯ src/decompiler/core.ts:127:15
+    125|     } catch (error) {
+    126|       if (error instanceof CommandStructureError)
+    127|         throw new CommandStructureError(
+       |               ^
+    128|           error.code,
+    129|           error.detail,
+ ❯ readMapEvents src/decompiler/core.ts:110:25
+ ❯ buildDecompiledSourceFiles src/decompiler/project.ts:152:20
+ ❯ decompileProjectDataSnapshot src/decompiler/project.ts:67:17
+ ❯ decompileWorkspaceUnlocked src/workspace/operations.ts:145:3
+ ❯ withWorkspaceOperationLock src/workspace/operation-lock.ts:45:12
+ ❯ decompileWorkspace src/workspace/operations.ts:117:3
+ ❯ test/map-page-numeric-workspace.test.ts:81:5
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  test/map-page-numeric-workspace.test.ts > preserves Map numeric negative zero: disabled switch2 ID through actual discovered source and complete Workspace Push
+Error: decompile error map:1/event:1: MV-MAP-PAGE-SHAPE: Invalid native Map Event saved shape. at pages[0].conditions.switch2Id; expected integer 0..9007199254740991; actual 0
+ ❯ src/decompiler/core.ts:127:15
+    125|     } catch (error) {
+    126|       if (error instanceof CommandStructureError)
+    127|         throw new CommandStructureError(
+       |               ^
+    128|           error.code,
+    129|           error.detail,
+ ❯ readMapEvents src/decompiler/core.ts:110:25
+ ❯ buildDecompiledSourceFiles src/decompiler/project.ts:152:20
+ ❯ decompileProjectDataSnapshot src/decompiler/project.ts:67:17
+ ❯ decompileWorkspaceUnlocked src/workspace/operations.ts:145:3
+ ❯ withWorkspaceOperationLock src/workspace/operation-lock.ts:45:12
+ ❯ decompileWorkspace src/workspace/operations.ts:117:3
+ ❯ test/map-page-numeric-workspace.test.ts:81:5
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+
+ FAIL  test/map-page-numeric-workspace.test.ts > preserves Map numeric negative zero: disabled variable ID through actual discovered source and complete Workspace Push
+Error: decompile error map:1/event:1: MV-MAP-PAGE-SHAPE: Invalid native Map Event saved shape. at pages[0].conditions.variableId; expected integer 0..9007199254740991; actual 0
+ ❯ src/decompiler/core.ts:127:15
+    125|     } catch (error) {
+    126|       if (error instanceof CommandStructureError)
+    127|         throw new CommandStructureError(
+       |               ^
+    128|           error.code,
+    129|           error.detail,
+ ❯ readMapEvents src/decompiler/core.ts:110:25
+ ❯ buildDecompiledSourceFiles src/decompiler/project.ts:152:20
+ ❯ decompileProjectDataSnapshot src/decompiler/project.ts:67:17
+ ❯ decompileWorkspaceUnlocked src/workspace/operations.ts:145:3
+ ❯ withWorkspaceOperationLock src/workspace/operation-lock.ts:45:12
+ ❯ decompileWorkspace src/workspace/operations.ts:117:3
+ ❯ test/map-page-numeric-workspace.test.ts:81:5
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/8]⎯
+
+ FAIL  test/map-page-numeric-workspace.test.ts > preserves Map numeric negative zero: character index through actual discovered source and complete Workspace Push
+Error: decompile error map:1/event:1: MV-MAP-PAGE-SHAPE: Invalid native Map Event saved shape. at pages[0].image.characterIndex; expected integer 0..7; actual 0
+ ❯ src/decompiler/core.ts:127:15
+    125|     } catch (error) {
+    126|       if (error instanceof CommandStructureError)
+    127|         throw new CommandStructureError(
+       |               ^
+    128|           error.code,
+    129|           error.detail,
+ ❯ readMapEvents src/decompiler/core.ts:110:25
+ ❯ buildDecompiledSourceFiles src/decompiler/project.ts:152:20
+ ❯ decompileProjectDataSnapshot src/decompiler/project.ts:67:17
+ ❯ decompileWorkspaceUnlocked src/workspace/operations.ts:145:3
+ ❯ withWorkspaceOperationLock src/workspace/operation-lock.ts:45:12
+ ❯ decompileWorkspace src/workspace/operations.ts:117:3
+ ❯ test/map-page-numeric-workspace.test.ts:81:5
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/8]⎯
+
+ FAIL  test/map-page-numeric-workspace.test.ts > preserves Map numeric negative zero: tile ID through actual discovered source and complete Workspace Push
+Error: decompile error map:1/event:1: MV-MAP-PAGE-SHAPE: Invalid native Map Event saved shape. at pages[0].image.tileId; expected integer 0..1023; actual 0
+ ❯ src/decompiler/core.ts:127:15
+    125|     } catch (error) {
+    126|       if (error instanceof CommandStructureError)
+    127|         throw new CommandStructureError(
+       |               ^
+    128|           error.code,
+    129|           error.detail,
+ ❯ readMapEvents src/decompiler/core.ts:110:25
+ ❯ buildDecompiledSourceFiles src/decompiler/project.ts:152:20
+ ❯ decompileProjectDataSnapshot src/decompiler/project.ts:67:17
+ ❯ decompileWorkspaceUnlocked src/workspace/operations.ts:145:3
+ ❯ withWorkspaceOperationLock src/workspace/operation-lock.ts:45:12
+ ❯ decompileWorkspace src/workspace/operations.ts:117:3
+ ❯ test/map-page-numeric-workspace.test.ts:81:5
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/8]⎯
+
+ FAIL  test/map-page-numeric-workspace.test.ts > preserves Map numeric negative zero: pattern through actual discovered source and complete Workspace Push
+Error: decompile error map:1/event:1: MV-MAP-PAGE-SHAPE: Invalid native Map Event saved shape. at pages[0].image.pattern; expected integer 0..2; actual 0
+ ❯ src/decompiler/core.ts:127:15
+    125|     } catch (error) {
+    126|       if (error instanceof CommandStructureError)
+    127|         throw new CommandStructureError(
+       |               ^
+    128|           error.code,
+    129|           error.detail,
+ ❯ readMapEvents src/decompiler/core.ts:110:25
+ ❯ buildDecompiledSourceFiles src/decompiler/project.ts:152:20
+ ❯ decompileProjectDataSnapshot src/decompiler/project.ts:67:17
+ ❯ decompileWorkspaceUnlocked src/workspace/operations.ts:145:3
+ ❯ withWorkspaceOperationLock src/workspace/operation-lock.ts:45:12
+ ❯ decompileWorkspace src/workspace/operations.ts:117:3
+ ❯ test/map-page-numeric-workspace.test.ts:81:5
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/8]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  8 failed | 2 passed (10)
+   Start at  00:57:36
+   Duration  11.38s (transform 463ms, setup 0ms, import 1.30s, tests 9.94s, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-map-numeric-fix\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/map-page-numeric-workspace.test.ts
