@@ -6729,6 +6729,531 @@
       },
       "slice": "Ticket20 complete isolated Decompile directory publication",
       "required": true
+    },
+    {
+      "id": "MV-S4-DRIFT-001",
+      "title": "no-op Push checks every captured standard file and registered map by bytes",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/21-push-full-input-drift-checks.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Actual freshly compiled Workspace with each of14 fixed standards and Map001/Map1001 changed by whitespace bytes; missing/directory Enemies and excluded plugin/unregistered controls.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Every captured-file byte change/missing/replacement rejects Push with complete state preserved; excluded files remain unchanged and permit a true no-op Push.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-drift.test.ts",
+        "name": "MV-S4-DRIFT-001: no-op Push checks every captured standard file and registered map by bytes"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "21 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DRIFT-002",
+      "title": "live byte corruption cannot pass through replacement UTF8 decoding",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/21-push-full-input-drift-checks.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Real live Actors(no-op) and affected CommonEvents names containing literal U+FFFD rewritten from valid EF BF BD to invalid FF bytes with identical permissively decoded text.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Both public Push cases reject raw-byte Drift and preserve every source/config/project/Snapshot/generated/manifest/Discovery/pending observation.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-drift.test.ts",
+        "name": "MV-S4-DRIFT-002: live byte corruption cannot pass through replacement UTF8 decoding"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "21 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DRIFT-003",
+      "title": "semantic Diff ignores key order while preserving saved-value distinctions and byte Drift",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/21-push-full-input-drift-checks.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Independently reversed object keys through complete Workspace roundtrip; live formatting/equivalent escapes; authored unknown raw payload key presence, arrays, CR and0/-0 changes.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Equivalent parsed output yields clean Diff and byte-preserving no-op Push; live same-semantic rewrites cause byte Drift; every actual saved-value distinction remains Affected.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-drift.test.ts",
+        "name": "MV-S4-DRIFT-003: semantic Diff ignores key order while preserving saved-value distinctions and byte Drift"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "21 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DRIFT-004",
+      "title": "the full input set is checked again after staging before first replacement",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/21-push-full-input-drift-checks.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Real public child Push pauses after actual pending directory installation with Common/System staged; unrelated Actors externally changes before first replacement.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Push rejects full-set Drift with no affected live replacements or Snapshot/manifest/source/generated changes; external Actors survives, complete pending backs up only Common/System.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-drift.test.ts",
+        "name": "MV-S4-DRIFT-004: the full input set is checked again after staging before first replacement"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "21 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DRIFT-005",
+      "title": "postwrite full check preserves unrelated external bytes and Interrupted Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/21-push-full-input-drift-checks.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Actual child Push installs Common/System, pauses after final real installation, then unrelated standard Actors changes before synchronization refresh.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Full postwrite byte recheck rejects, written files remain generated, external Actors remains exact, Snapshot/manifest/source/generated remain original and complete pending is retained.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-drift.test.ts",
+        "name": "MV-S4-DRIFT-005: postwrite full check preserves unrelated external bytes and Interrupted Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "21 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DRIFT-006",
+      "title": "actual installation never overwrites a concurrently arriving external file",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/21-push-full-input-drift-checks.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Real public child Push captures Common original then pauses at actual installation; an external Common target appears before installation resumes.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Installation fails without replacing or moving the external target, System remains original, protected state stays unchanged and pending/captured evidence remains.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-drift.test.ts",
+        "name": "MV-S4-DRIFT-006: actual installation never overwrites a concurrently arriving external file"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "21 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DRIFT-007",
+      "title": "each captured old file is byte checked after earlier replacements",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/21-push-full-input-drift-checks.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Actual child installs Common then pauses before System capture; valid U+FFFD in original System is externally replaced by invalid FF with equal decoded text.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Common remains generated, external System is restored byte-exactly, metadata/protected state remains old and pending remains.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-drift.test.ts",
+        "name": "MV-S4-DRIFT-007: each captured old file is byte checked after earlier replacements"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "21 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DRIFT-008",
+      "title": "failed nonoverwriting restoration retains unique captured external objects",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/21-push-full-input-drift-checks.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Actual two-checkpoint child Push captures an external file/directory/junction after full checks, then target arrival or unsupported-link error prevents restoration.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Unique external captured object survives outer cleanup alongside any later live target; old Snapshot backup is distinguished from unique bytes, other live files/protected state remain unchanged and diagnostic identifies retained path.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-drift.test.ts",
+        "name": "MV-S4-DRIFT-008: failed nonoverwriting restoration retains unique captured external objects"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "21 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DRIFT-009",
+      "title": "canonical high maps support Diff filters and safe interrupted Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/21-push-full-input-drift-checks.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Actual authored Map1001 event, API and CLI Diff/filter, real child killed after installation, fresh CLI Push recovery; unsafe and noncanonical file filters rejected.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Only Map1001 is affected/backed up/written; Diff reports its event identity; Interrupted Push recognizes canonical high-map pending and final recovery keeps all other project bytes and source/discovery unchanged.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-drift.test.ts",
+        "name": "MV-S4-DRIFT-009: canonical high maps support Diff filters and safe interrupted Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "21 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DRIFT-010",
+      "title": "only Affected backups and writes preserve exact captured bytes",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/21-push-full-input-drift-checks.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Actual child Push pauses after pending publication before replacements; original and generated affected bytes are observed independently.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Affected-only pending backups equal Snapshot bytes exactly; successful Push writes only generated Common/System bytes and updates only their Snapshot entries; other standard inputs/config/source/discovery remain unchanged.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-drift.test.ts",
+        "name": "MV-S4-DRIFT-010: only Affected backups and writes preserve exact captured bytes"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "21 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DRIFT-011",
+      "title": "staging rechecks actual generated bytes before live replacement",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/21-push-full-input-drift-checks.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "After real initial generated integrity read, external rewrite replaces generated Common U+FFFD with invalid FF; decoded text is equal while bytes differ.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Consumed generated mismatch fails before live replacement/pending publication and preserves external generated bytes and all other observed state.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-drift.test.ts",
+        "name": "MV-S4-DRIFT-011: staging rechecks actual generated bytes before live replacement"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "21 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DRIFT-012",
+      "title": "postwrite check preserves an external edit to an already written affected file",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/21-push-full-input-drift-checks.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "After actual final System install but before postwrite check, external Common replaces the already installed generated Common.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Push rejects, leaves external Common and generated System intact, preserves old metadata/source/discovery/generated and retains pending without rollback.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-drift.test.ts",
+        "name": "MV-S4-DRIFT-012: postwrite check preserves an external edit to an already written affected file"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "21 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DRIFT-013",
+      "title": "atomic installation preserves directory and junction arrivals and fails safely when unsupported",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/21-push-full-input-drift-checks.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Actual Common installation is paused after old capture; independent empty directory/junction arrivals and controlled unsupported-link failure exercise native filesystem boundaries.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Existing target object is never replaced or relocated; original is retained if restoration cannot install, unsupported install restores original without fallback, other files/metadata/source remain unchanged and pending remains.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-drift.test.ts",
+        "name": "MV-S4-DRIFT-013: atomic installation preserves directory and junction arrivals and fails safely when unsupported"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "21 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DRIFT-014",
+      "title": "deletion before a later capture leaves earlier writes and the external absence intact",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/21-push-full-input-drift-checks.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Actual child installs Common, then pauses before System capture; System is externally deleted.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Common remains generated, System remains absent, other project/source/discovery/metadata state remains old, pending remains without rollback.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-drift.test.ts",
+        "name": "MV-S4-DRIFT-014: deletion before a later capture leaves earlier writes and the external absence intact"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "21 / S4c",
+      "required": true
+    },
+    {
+      "id": "MV-S4-DRIFT-015",
+      "title": "manifest finalization failure retains pending and the original compilation basis",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I12"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/21-push-full-input-drift-checks.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": ["A1", "A3", "A5", "A8"],
+      "classifications": ["positive", "negative", "boundary", "combination"],
+      "sourceKind": "synthetic-support",
+      "input": "Actual affected Common/System writes succeed; real manifest rename fails during finalization.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      "expected": "Generated live files and refreshed affected Snapshot remain; old manifest/compilation basis, source/discovery/generated bytes and affected-only pending backups remain available; recovery acceptance belongs to22.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/push-drift.test.ts",
+        "name": "MV-S4-DRIFT-015: manifest finalization failure retains pending and the original compilation basis"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22",
+        "owner": "Automated test runner",
+        "layer": "Public Workspace API/CLI and real filesystem/process boundary"
+      },
+      "slice": "21 / S4c",
+      "required": true
     }
   ]
 }

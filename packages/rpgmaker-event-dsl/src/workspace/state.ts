@@ -4,7 +4,7 @@ import { dirname, posix, resolve } from "node:path";
 
 import { z } from "zod";
 
-import { parseMapInfos } from "../project-data/project.js";
+import { isCanonicalMapFileName, parseMapInfos } from "../project-data/project.js";
 import { writeStableJson } from "../project-data/writer.js";
 import { typeInputSchema } from "./type-inputs.js";
 
@@ -39,10 +39,7 @@ const projectDataFileNameSchema = z
   .refine(
     (name) =>
       (standardDatabaseFileNames as readonly string[]).includes(name) ||
-      (/^Map\d{3,}\.json$/u.test(name) &&
-        Number.isSafeInteger(Number(name.slice(3, -5))) &&
-        Number(name.slice(3, -5)) > 0 &&
-        formatMapFileName(Number(name.slice(3, -5))) === name),
+      isCanonicalMapFileName(name),
   );
 const projectDataHashSchema = z
   .object({ hash: hashSchema, relativePath: projectDataFileNameSchema })

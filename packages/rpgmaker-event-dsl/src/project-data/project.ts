@@ -1,6 +1,12 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
+export function isCanonicalMapFileName(name: string): boolean {
+  if (!/^Map\d{3,}\.json$/u.test(name)) return false;
+  const id = Number(name.slice(3, -5));
+  return Number.isSafeInteger(id) && id > 0 && `Map${String(id).padStart(3, "0")}.json` === name;
+}
+
 export type MapInfoEntry = {
   id: number;
   name: string;

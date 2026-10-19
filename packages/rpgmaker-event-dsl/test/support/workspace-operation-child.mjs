@@ -9,13 +9,14 @@ const options = JSON.parse(process.env.MV_OPERATION_CHILD);
 const readFile = fs.readFile;
 const rename = fs.rename;
 const writeFile = fs.writeFile;
+const link = fs.link;
 const spawn = childProcess.spawn;
-let reached = false;
+const reached = new Set();
 let inputReads = 0;
-async function checkpoint() {
-  if (reached) return;
-  reached = true;
-  process.send({ kind: "checkpoint", pid: process.pid });
+async function checkpoint(kind = "checkpoint") {
+  if (reached.has(kind)) return;
+  reached.add(kind);
+  process.send({ kind, pid: process.pid });
   await new Promise((release) => {
     process.on("message", (message) => {
       if (message === "release") release();
@@ -33,6 +34,11 @@ fs.readFile = async function (path, ...args) {
   }
   const content = await readFile(path, ...args);
   if (
+    options.boundary === "push-generated-capture" &&
+    resolve(String(path)) === options.generatedCapturePath
+  )
+    await checkpoint();
+  if (
     options.boundary === "input-validation" &&
     resolve(String(path)) === options.inputPath &&
     ++inputReads === 2
@@ -45,6 +51,18 @@ fs.readFile = async function (path, ...args) {
   return content;
 };
 fs.rename = async function (source, target) {
+  if (
+    ["push-before-capture", "push-capture-restore"].includes(options.boundary) &&
+    resolve(String(source)) === options.capturePath &&
+    String(target).replaceAll("\\", "/").includes("/original/")
+  )
+    await checkpoint();
+  if (
+    options.boundary === "push-before-install" &&
+    String(source).includes("push-staging.tmp-") &&
+    resolve(String(target)) === options.capturePath
+  )
+    await checkpoint();
   if (
     options.boundary === "generated-installation-failure" &&
     resolve(String(target)) === options.generatedPath &&
@@ -65,7 +83,42 @@ fs.rename = async function (source, target) {
   ) {
     await checkpoint();
   }
-  return rename(source, target);
+  const result = await rename(source, target);
+  if (options.boundary === "push-prewrite" && resolve(String(target)) === options.pendingPath)
+    await checkpoint();
+  if (
+    options.boundary === "push-after-install" &&
+    String(source).includes("push-staging.tmp-") &&
+    resolve(String(target)) === options.capturePath
+  )
+    await checkpoint();
+  return result;
+};
+fs.link = async function (source, target) {
+  if (
+    options.boundary === "push-capture-restore" &&
+    String(source).replaceAll("\\", "/").includes("/original/") &&
+    resolve(String(target)) === options.capturePath
+  ) {
+    await checkpoint("restore");
+    if (options.failRestore) throw new Error("Controlled unsupported non-overwriting restoration");
+  }
+  if (
+    options.boundary === "push-before-install" &&
+    !String(source).replaceAll("\\", "/").includes("/original/") &&
+    resolve(String(target)) === options.capturePath
+  ) {
+    await checkpoint();
+    if (options.failInstall) throw new Error("Controlled unsupported non-overwriting installation");
+  }
+  const result = await link(source, target);
+  if (
+    options.boundary === "push-after-install" &&
+    !String(source).replaceAll("\\", "/").includes("/original/") &&
+    resolve(String(target)) === options.capturePath
+  )
+    await checkpoint();
+  return result;
 };
 fs.writeFile = async function (path, ...args) {
   if (

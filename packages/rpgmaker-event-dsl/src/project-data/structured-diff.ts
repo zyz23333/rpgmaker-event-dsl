@@ -1,4 +1,5 @@
-import { writeStableJson } from "./writer.js";
+import { isDeepStrictEqual } from "node:util";
+import { isCanonicalMapFileName } from "./project.js";
 
 export type StructuredDiffChangeKind =
   | "generated-only"
@@ -394,14 +395,14 @@ function classifyOwnedEntry(input: DomainEntryInput): StructuredDiffEntry | null
 
 function sortedMapFilePaths(options: BuildStructuredDiffReportOptions): string[] {
   return [...new Set([...options.generated.keys(), ...options.snapshot.keys()])]
-    .filter((relativePath) => /^Map\d{3}\.json$/u.test(relativePath))
+    .filter(isCanonicalMapFileName)
     .sort((left, right) => left.localeCompare(right));
 }
 
 function sortedCarrierFilePaths(options: BuildStructuredDiffReportOptions): string[] {
   return [...new Set([...options.generated.keys(), ...options.snapshot.keys()])]
     .filter(
-      (relativePath) => relativePath === "System.json" || /^Map\d{3}\.json$/u.test(relativePath),
+      (relativePath) => relativePath === "System.json" || isCanonicalMapFileName(relativePath),
     )
     .sort((left, right) => left.localeCompare(right));
 }
@@ -417,8 +418,7 @@ function readMapId(relativePath: string, generated: unknown, snapshot: unknown):
     return snapshotId;
   }
 
-  const match = /^Map(?<id>\d{3})\.json$/u.exec(relativePath);
-  return match?.groups?.id ? Number.parseInt(match.groups.id, 10) : 0;
+  return isCanonicalMapFileName(relativePath) ? Number(relativePath.slice(3, -5)) : 0;
 }
 
 function readCarrierDataWithoutOwnedDomains(relativePath: string, value: unknown): unknown {
@@ -429,7 +429,7 @@ function readCarrierDataWithoutOwnedDomains(relativePath: string, value: unknown
     return record;
   }
 
-  if (/^Map\d{3}\.json$/u.test(relativePath)) {
+  if (isCanonicalMapFileName(relativePath)) {
     const record = { ...readObject(value) };
     delete record.events;
     return record;
@@ -471,5 +471,5 @@ function isOwnedEntryPresent(value: unknown): boolean {
 }
 
 function isJsonEqual(left: unknown, right: unknown): boolean {
-  return writeStableJson(left) === writeStableJson(right);
+  return isDeepStrictEqual(left, right);
 }
