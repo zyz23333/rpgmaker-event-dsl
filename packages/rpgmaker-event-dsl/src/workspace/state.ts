@@ -89,6 +89,8 @@ export const syncManifestSchema = z
 
 export const pendingPushSchema = z
   .object({
+    originalManifest: syncManifestSchema,
+    originalManifestHash: hashSchema,
     projectRootBinding: z.string().min(1),
     affectedFiles: z
       .array(
@@ -104,7 +106,7 @@ export const pendingPushSchema = z
       )
       .min(1),
     startedAt: z.string().min(1),
-    version: z.literal(2),
+    version: z.literal(3),
   })
   .strict();
 
@@ -172,7 +174,9 @@ export function getWorkspaceStatePaths(workspaceRoot: string): WorkspaceStatePat
 
 export async function readSyncManifest(manifestPath: string): Promise<SyncManifest | null> {
   try {
-    const rawManifest = await readFile(manifestPath, "utf8");
+    const rawManifest = new TextDecoder("utf-8", { fatal: true, ignoreBOM: true }).decode(
+      await readFile(manifestPath),
+    );
     return syncManifestSchema.parse(JSON.parse(rawManifest));
   } catch (error) {
     if (isMissingFileError(error)) {
@@ -188,7 +192,9 @@ export async function readSyncManifest(manifestPath: string): Promise<SyncManife
 
 export async function readPendingPush(manifestPath: string): Promise<PendingPush | null> {
   try {
-    const rawManifest = await readFile(manifestPath, "utf8");
+    const rawManifest = new TextDecoder("utf-8", { fatal: true, ignoreBOM: true }).decode(
+      await readFile(manifestPath),
+    );
     return pendingPushSchema.parse(JSON.parse(rawManifest));
   } catch (error) {
     if (isMissingFileError(error)) {

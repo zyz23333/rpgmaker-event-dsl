@@ -1,6 +1,6 @@
 # 22: Interrupted Push 内容恢复
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 21
 Stage: S4c
 Created: 2026-10-19

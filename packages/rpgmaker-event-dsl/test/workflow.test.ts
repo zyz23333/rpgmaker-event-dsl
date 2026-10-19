@@ -19,6 +19,7 @@ import {
   readSyncManifest,
 } from "../src/workspace/state.js";
 import { discoverDefinitionFiles, loadDefinitionFile } from "../src/workspace/definitions.js";
+import { writeStableJson } from "../src/project-data/writer.js";
 
 function createProjectRootFixture(workspaceRoot: string): string {
   return join(workspaceRoot, "Game");
@@ -1326,6 +1327,10 @@ describe("push workflow", () => {
     await compileWorkspace({ workspaceRoot, check: false });
     await writePendingPushFixture(workspaceRoot);
     await writeFile(
+      join(projectRoot, "data", "CommonEvents.json"),
+      await readFile(join(statePaths.generatedProjectDataDirectory, "CommonEvents.json")),
+    );
+    await writeFile(
       join(projectRoot, "data", "Map001.json"),
       await readFile(join(statePaths.generatedProjectDataDirectory, "Map001.json"), "utf8"),
       "utf8",
@@ -1365,7 +1370,11 @@ describe("push workflow", () => {
     const statePaths = getWorkspaceStatePaths(workspaceRoot);
 
     await compileWorkspace({ workspaceRoot, check: false });
-    await writePendingPushFixture(workspaceRoot, ["Map001.json", "System.json"]);
+    await writePendingPushFixture(workspaceRoot, [
+      "CommonEvents.json",
+      "Map001.json",
+      "System.json",
+    ]);
     await writeFile(
       join(projectRoot, "data", "Map001.json"),
       await readFile(join(statePaths.generatedProjectDataDirectory, "Map001.json"), "utf8"),
@@ -1377,6 +1386,7 @@ describe("push workflow", () => {
       [
         "Interrupted Push cannot be recovered automatically.",
         "Restore affected Project Root files to either the pending backup state or Generated Project Data, then run push again.",
+        "- CommonEvents.json: snapshot",
         "- Map001.json: generated",
         "- System.json: missing",
       ].join("\n"),
@@ -1486,7 +1496,7 @@ export declare function variableRef(value: { id: number } | { name: string }): u
 
 async function writePendingPushFixture(
   workspaceRoot: string,
-  affectedFiles: readonly string[] = ["Map001.json"],
+  affectedFiles: readonly string[] = ["CommonEvents.json", "Map001.json"],
 ): Promise<void> {
   const statePaths = getWorkspaceStatePaths(workspaceRoot);
   const entries = [];
@@ -1511,13 +1521,26 @@ async function writePendingPushFixture(
     });
   }
 
+  const originalManifest = (await readSyncManifest(statePaths.syncManifestPath))!;
+  function ordered(value: unknown): unknown {
+    if (Array.isArray(value)) return value.map(ordered);
+    if (value !== null && typeof value === "object")
+      return Object.fromEntries(
+        Object.entries(value)
+          .sort(([a], [b]) => a.localeCompare(b))
+          .map(([key, item]) => [key, ordered(item)]),
+      );
+    return value;
+  }
   await writeFile(
     statePaths.pendingPushManifestPath,
     JSON.stringify({
-      projectRootBinding: (await readSyncManifest(statePaths.syncManifestPath))!.projectRootBinding,
+      originalManifest,
+      originalManifestHash: hashUtf8Content(writeStableJson(ordered(originalManifest))),
+      projectRootBinding: originalManifest.projectRootBinding,
       affectedFiles: entries,
       startedAt: "2026-06-30T00:00:00.000Z",
-      version: 2,
+      version: 3,
     }),
     "utf8",
   );
