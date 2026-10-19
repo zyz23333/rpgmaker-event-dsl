@@ -15,7 +15,7 @@ export function compileChoiceBranches(
     output.push({
       code: 402,
       indent,
-      parameters: [index],
+      parameters: [index, node.choices[index]],
     });
     output.push(
       ...compileCommandList(
@@ -26,6 +26,7 @@ export function compileChoiceBranches(
         `${sourcePath}.branches[${index}]`,
       ),
     );
+    if (branch.length === 0) output.push({ code: 0, indent: indent + 1, parameters: [] });
   });
 
   if (node.cancelBranch) {
@@ -43,6 +44,8 @@ export function compileChoiceBranches(
         `${sourcePath}.cancelBranch`,
       ),
     );
+    if (node.cancelBranch.length === 0)
+      output.push({ code: 0, indent: indent + 1, parameters: [] });
   }
 
   return output;

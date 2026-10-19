@@ -1,6 +1,6 @@
 # 15: raw、异常与递归 Gate 共用边界
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 13, 14
 Stage: S2
 Created: 2026-10-19

@@ -82,6 +82,7 @@ export type {
   EventDefinition,
   EventLocationDestination,
   EventPage,
+  AutonomousMovement,
   ExchangeEventLocationDestination,
   ExitEventProcessingDslCommand,
   FadeinScreenDslCommand,

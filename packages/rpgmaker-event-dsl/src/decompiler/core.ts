@@ -4,7 +4,8 @@ import { resolve } from "node:path";
 import type { WorkspaceStatePaths } from "../workspace/state.js";
 import type { RawEventCommand } from "../compiler/types.js";
 import type { SnapshotCommonEvent, SnapshotMapEvent, SnapshotMapEventPage } from "./types.js";
-import { assertNativeMovementRoute } from "../commands/movement/validation.js";
+import { readNativePageMovement } from "../commands/movement/page.js";
+import { renderJsonValue } from "../project-data/json-values.js";
 import {
   CommandStructureError,
   inspectCommandListStructure,
@@ -134,23 +135,23 @@ export function readMapEventPages(value: unknown, identity?: string): SnapshotMa
     }
 
     const record = entry as Record<string, unknown>;
-    if (Object.hasOwn(record, "moveRoute")) {
-      try {
-        assertNativeMovementRoute(record.moveRoute, `pages[${pageIndex}].moveRoute`);
-      } catch (error) {
-        if (error instanceof CommandStructureError)
-          throw new CommandStructureError(
-            error.code,
-            error.detail,
-            error.location,
-            identity,
-            "decompile",
-          );
-        throw error;
-      }
+    let movement: SnapshotMapEventPage["movement"];
+    try {
+      movement = readNativePageMovement(record, `pages[${pageIndex}]`);
+    } catch (error) {
+      if (error instanceof CommandStructureError)
+        throw new CommandStructureError(
+          error.code,
+          error.detail,
+          error.location,
+          identity,
+          "decompile",
+        );
+      throw error;
     }
     return [
       {
+        ...(movement === undefined ? {} : { movement }),
         conditions:
           record.conditions &&
           typeof record.conditions === "object" &&
@@ -198,12 +199,8 @@ export function readRawCommandList(
   identity?: string,
   nativePrefix = "",
 ): RawEventCommand[] {
-  if (!Array.isArray(value)) {
-    return [];
-  }
-
   try {
-    inspectCommandListStructure(value, { requireTerminator: value.length > 0 });
+    inspectCommandListStructure(value as RawEventCommand[], { requireTerminator: true });
   } catch (error) {
     if (error instanceof CommandStructureError)
       throw new CommandStructureError(
@@ -215,7 +212,10 @@ export function readRawCommandList(
       );
     throw error;
   }
-  return value.map((entry: RawEventCommand) => ({ ...entry, parameters: [...entry.parameters] }));
+  return (value as RawEventCommand[]).map((entry: RawEventCommand) => ({
+    ...entry,
+    parameters: [...entry.parameters],
+  }));
 }
 
 export function normalizeCommandList(
@@ -354,7 +354,7 @@ export function indentLines(value: string, spaces: number): string {
 }
 
 export function literal(value: unknown): string {
-  return JSON.stringify(value);
+  return renderJsonValue(value, { typeScript: true });
 }
 
 export function readStringParameter(value: unknown): string {

@@ -69,7 +69,10 @@ async function writeProjectFixture(
   await writeFile(join(dataDirectory, "Classes.json"), "[]", "utf8");
   await writeFile(
     join(dataDirectory, "CommonEvents.json"),
-    JSON.stringify([null, { id: 1, name: "Common" }]),
+    JSON.stringify([
+      null,
+      { id: 1, name: "Common", list: [{ code: 0, indent: 0, parameters: [] }] },
+    ]),
     "utf8",
   );
   await writeFile(join(dataDirectory, "Enemies.json"), "[]", "utf8");
@@ -278,7 +281,7 @@ describe("decompile workflow", () => {
                   { code: 405, indent: 0, parameters: ["Scrolling"] },
                   { code: 121, indent: 0, parameters: [1, 1, 0] },
                   { code: 122, indent: 0, parameters: [2, 2, 1, 0, 5] },
-                  { code: 250, indent: 0, parameters: [{ name: "Bell", volume: 90 }] },
+                  { code: 999, indent: 0, parameters: [{ name: "Bell", volume: 90 }] },
                   { code: 0, indent: 0, parameters: [] },
                 ],
                 trigger: 0,
@@ -352,7 +355,7 @@ describe("decompile workflow", () => {
     expect(mapSource).not.toContain("controlSwitch(");
     expect(mapSource).not.toContain("controlVariable(");
     expect(mapSource).toContain("rawDslCommand({");
-    expect(mapSource).toContain("code: 250");
+    expect(mapSource).toContain("code: 999");
     expect(secondMapSource).toContain("mapId: 2");
     expect(secondMapSource).toContain("id: 1");
     expect(secondMapSource).toContain('name: "Snapshot Only"');

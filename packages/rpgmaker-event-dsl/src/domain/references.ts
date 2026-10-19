@@ -491,11 +491,7 @@ export function isScriptInput(value: unknown): value is ScriptInput {
   }
 
   const candidate = value as { kind?: unknown; code?: unknown };
-  return (
-    candidate.kind === "scriptInput" &&
-    typeof candidate.code === "string" &&
-    candidate.code.length > 0
-  );
+  return candidate.kind === "scriptInput" && typeof candidate.code === "string";
 }
 
 export function createReference<TKind extends ReferenceKind>(

@@ -345,7 +345,7 @@ describe("validateDslOwnedDeclarations", () => {
     );
   });
 
-  it("does not inspect Raw DSL Command parameters as project references", () => {
+  it("checks recognizable native references in Raw DSL Commands", () => {
     const result = validateDslOwnedDeclarations(
       [
         createMapEvent({
@@ -358,7 +358,12 @@ describe("validateDslOwnedDeclarations", () => {
       { scriptEnabled: false },
     );
 
-    expect(result.issues).toEqual([]);
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-E117-REFERENCE",
+        nativePath: "pages[0].list[0].parameters[0]",
+      }),
+    );
   });
 
   it("does not treat random variable operands as variable references", () => {

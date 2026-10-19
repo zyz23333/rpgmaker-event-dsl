@@ -4,12 +4,15 @@ export class CommandStructureError extends Error {
   constructor(
     readonly code: string,
     readonly detail: string,
-    readonly location: { nativePath?: string; dslPath?: string } = {},
+    readonly location: Pick<
+      ValidationIssue,
+      "nativePath" | "dslPath" | "expected" | "actual" | "relatedLocations"
+    > = {},
     readonly identity?: string,
     readonly stage?: "compile" | "decompile",
   ) {
     super(
-      `${identity ? `${identity}: ` : ""}${code}: ${detail}${location.nativePath ? ` at ${location.nativePath}` : ""}${location.dslPath ? ` (${location.dslPath})` : ""}`,
+      `${stage ? `${stage} error ` : ""}${identity ? `${identity}: ` : ""}${code}: ${detail}${location.nativePath ? ` at ${location.nativePath}` : ""}${location.dslPath ? ` (${location.dslPath})` : ""}${location.expected !== undefined ? `; expected ${location.expected}; actual ${location.actual}` : ""}${location.relatedLocations?.map((related) => `; related ${related.nativePath ?? related.dslPath} = ${related.value}`).join("") ?? ""}`,
     );
   }
 
@@ -20,7 +23,7 @@ export class CommandStructureError extends Error {
       stage,
       identity,
       ...this.location,
-      message: `${identity}: ${this.message}`,
+      message: `${stage} error ${identity}: ${this.message}`,
     };
   }
 }

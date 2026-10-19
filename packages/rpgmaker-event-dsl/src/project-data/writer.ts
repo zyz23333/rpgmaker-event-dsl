@@ -1,4 +1,7 @@
+import { assertStrictJson } from "./json-values.js";
+
 export function writeStableJson(value: unknown): string {
+  assertStrictJson(value);
   return `${stringify(value)}\n`;
 }
 
@@ -7,7 +10,7 @@ function stringify(value: unknown, indent = 0): string {
     return "null";
   }
   if (typeof value === "number" || typeof value === "boolean") {
-    return JSON.stringify(value);
+    return Object.is(value, -0) ? "-0" : JSON.stringify(value);
   }
   if (typeof value === "string") {
     return JSON.stringify(value);

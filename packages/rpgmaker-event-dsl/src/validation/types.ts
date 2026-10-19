@@ -22,6 +22,9 @@ export type ValidationIssue = {
   identity?: string;
   nativePath?: string;
   dslPath?: string;
+  expected?: string;
+  actual?: string;
+  relatedLocations?: readonly { nativePath?: string; dslPath?: string; value?: string }[];
 };
 
 export type ValidationResult = {

@@ -29,12 +29,14 @@ export function compileConditionalBranchParameters(
     case "timer":
       return [3, condition.seconds, condition.operator === "ge" ? 0 : 1];
     case "actor":
-      return [
-        4,
-        resolver.resolveReference(condition.actor),
-        actorConditionCheckToCode(condition.check),
-        actorConditionCheckValue(condition.check, resolver),
-      ];
+      return condition.check.kind === "inParty"
+        ? [4, resolver.resolveReference(condition.actor), 0]
+        : [
+            4,
+            resolver.resolveReference(condition.actor),
+            actorConditionCheckToCode(condition.check),
+            actorConditionCheckValue(condition.check, resolver),
+          ];
     case "enemy":
       return condition.check.kind === "appeared"
         ? [5, condition.enemyIndex, 0]

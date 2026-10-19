@@ -7,6 +7,9 @@ export type RawEventCommand = {
   parameters: unknown[];
 };
 
+export type CommandOrigin = { path: string; kind: DslCommand["kind"] };
+export type CommandOrigins = Map<RawEventCommand, CommandOrigin>;
+
 export type CompileCommandList = (
   nodes: readonly DslCommand[],
   indent: number,

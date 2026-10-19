@@ -1,4 +1,4 @@
-import type { DslCommand } from "./command.js";
+import type { DslCommand, MovementRoute } from "./command.js";
 import type { ReferenceValue } from "./references.js";
 
 export type DslOwnedDeclaration =
@@ -48,6 +48,14 @@ export type EventPage = {
   conditions: PageConditions;
   trigger: MapPageTrigger;
   commands: readonly DslCommand[];
+  movement?: AutonomousMovement;
+};
+
+export type AutonomousMovement = {
+  type?: "fixed" | "random" | "approach" | "custom";
+  speed?: number;
+  frequency?: number;
+  route?: MovementRoute;
 };
 
 export type PageConditions = {

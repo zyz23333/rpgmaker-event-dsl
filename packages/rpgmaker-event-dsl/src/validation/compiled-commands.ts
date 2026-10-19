@@ -1,10 +1,16 @@
 import { compileNodes } from "../compiler/dispatch.js";
 import { CommandStructureError, inspectCommandListStructure } from "./command-structure.js";
 import type { StagedDataGraph, ValidationIssue } from "./types.js";
+import { inspectNativeCommandInputs, inspectNativeRouteInputs } from "./native-command-inputs.js";
+import { compilePageMovement } from "../commands/movement/page.js";
+import { validateNativeMovementRouteInputs } from "../commands/movement/validation.js";
+import { inspectNativeCommandReferences } from "./native-references.js";
+import type { RawEventCommand, CommandOrigins } from "../compiler/types.js";
 
 export function validateCompiledCommandLists(
   graph: StagedDataGraph,
   issues: ValidationIssue[],
+  options: { scriptEnabled: boolean },
 ): void {
   for (const declaration of graph.declarations) {
     const lists =
@@ -14,6 +20,7 @@ export function validateCompiledCommandLists(
               commands: declaration.commands,
               identity: `commonEvent:${declaration.id}`,
               path: "commands",
+              movement: undefined,
             },
           ]
         : declaration.kind === "mapEvent"
@@ -21,14 +28,58 @@ export function validateCompiledCommandLists(
               commands: page.commands,
               identity: `map:${declaration.mapId}/event:${declaration.id}`,
               path: `pages[${index}].commands`,
+              movement: page.movement,
             }))
           : [];
     for (const list of lists) {
+      let commands: RawEventCommand[] = [];
+      const origins: CommandOrigins = new Map();
+      const prefix = list.path.replace(/commands$/u, "");
       try {
-        const commands = compileNodes(list.commands, 0, graph.resolver, true, list.path);
+        if (list.movement !== undefined) {
+          const prefix = list.path.replace(/commands$/u, "");
+          const movement = compilePageMovement(list.movement, graph.resolver, `${prefix}movement`);
+          validateNativeMovementRouteInputs(
+            movement.moveRoute,
+            graph.resolver,
+            {
+              scriptEnabled: true,
+              identity: list.identity,
+              dslPath: `${prefix}movement.route`,
+              nativePath: `${prefix}moveRoute`,
+            },
+            issues,
+          );
+          issues.push(
+            ...inspectNativeRouteInputs(
+              movement.moveRoute,
+              `${prefix}moveRoute`,
+              { ...options, stage: "compile", identity: list.identity },
+              `${prefix}movement.route`,
+            ),
+          );
+        }
+        commands = compileNodes(list.commands, 0, graph.resolver, true, list.path, origins);
         const { breaksOutsideLoops } = inspectCommandListStructure(commands, {
           requireTerminator: true,
         });
+        issues.push(
+          ...inspectNativeCommandInputs(commands, {
+            ...options,
+            stage: "compile",
+            identity: list.identity,
+            prefix,
+            origins,
+          }),
+        );
+        issues.push(
+          ...inspectNativeCommandReferences(commands, graph.resolver, {
+            stage: "compile",
+            identity: list.identity,
+            prefix,
+            origins,
+          }),
+        );
         for (const index of breaksOutsideLoops)
           issues.push({
             level: "warning",
@@ -41,16 +92,44 @@ export function validateCompiledCommandLists(
       } catch (error) {
         if (error instanceof CommandStructureError) {
           const location = { ...error.location };
-          if (location.nativePath !== undefined)
-            location.nativePath = list.path.replace(/commands$/u, "") + location.nativePath;
+          const sourceAt = (path: string) => {
+            const index = Number(/^list\[(\d+)\]/u.exec(path)?.[1]);
+            return origins.get(commands[index]!)?.path;
+          };
+          if (location.nativePath !== undefined) {
+            const source = sourceAt(location.nativePath);
+            if (location.dslPath === undefined && source !== undefined) location.dslPath = source;
+            if (!location.nativePath.startsWith("pages["))
+              location.nativePath = prefix + location.nativePath;
+          }
+          if (location.relatedLocations)
+            location.relatedLocations = location.relatedLocations.map((related) => {
+              const source = related.nativePath ? sourceAt(related.nativePath) : undefined;
+              return {
+                ...related,
+                ...(source ? { dslPath: source } : {}),
+                ...(related.nativePath && !related.nativePath.startsWith("pages[")
+                  ? { nativePath: prefix + related.nativePath }
+                  : {}),
+              };
+            });
           issues.push(
             new CommandStructureError(error.code, error.detail, location).issue(
               list.identity,
               "compile",
             ),
           );
+        } else {
+          const detail = error instanceof Error ? error.message : String(error);
+          if (!issues.some((issue) => issue.level === "error" && issue.message.includes(detail)))
+            issues.push(
+              new CommandStructureError("MV-COMMAND-INPUT", detail, {
+                dslPath: list.path,
+                expected: "valid authored commands and resolvable inputs",
+                actual: detail,
+              }).issue(list.identity, "compile"),
+            );
         }
-        // Other families report their parameter/reference failures through their own validators.
       }
     }
   }

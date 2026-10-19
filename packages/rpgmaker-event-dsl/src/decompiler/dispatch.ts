@@ -1,4 +1,9 @@
-import type { DecompiledCommandListRendering, RawEventCommand, RenderedCommand } from "./types.js";
+import type {
+  DecompiledCommandListRendering,
+  RawEventCommand,
+  RenderedCommand,
+  RenderCommandList,
+} from "./types.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
 import {
   isItemType,
@@ -228,34 +233,75 @@ export {
 } from "../commands/system/decompile.js";
 
 import { inspectCommandListStructure } from "../validation/command-structure.js";
+import { isKnownCommandCode } from "../validation/native-parameters.js";
+import { CommandStructureError } from "../validation/command-errors.js";
 
 export function renderDecompiledCommandList(
   commands: readonly RawEventCommand[],
 ): DecompiledCommandListRendering {
-  // Family renderers also accept fragments; complete snapshot lists are checked before rendering.
-  inspectCommandListStructure(commands, { fragment: true });
-  const rendered: string[] = [];
-  const helperNames = new Set<string>();
+  // Nested family bodies are fragments at their own indentation, with the same ownership rules.
+  inspectCommandListStructure(commands, { baseIndent: commands[0]?.indent ?? 0 });
+  const indices = new Map(commands.map((command, index) => [command, index]));
+  const renderList: RenderCommandList = (list) => {
+    const rendered: string[] = [];
+    const helperNames = new Set<string>();
 
-  for (let index = 0; index < commands.length; index += 1) {
-    const command = commands[index];
+    for (let index = 0; index < list.length; index += 1) {
+      const command = list[index];
 
-    if (command === undefined || command.code === 0) {
-      continue;
+      if (command === undefined || command.code === 0) {
+        continue;
+      }
+
+      let commandRendering: RenderedCommand;
+      try {
+        commandRendering = renderCommandAt(list, index, (body) => {
+          const marker = body.at(-1);
+          if (body.length > 1 && marker?.code === 0)
+            throw new CommandStructureError(
+              "MV-COMMAND-UNSUPPORTED",
+              "This current child-body helper cannot yet preserve a saved trailing Body End Marker after content.",
+              {
+                nativePath: `list[${indices.get(marker)}]`,
+                expected: "formal Child Command Body with explicit saved marker",
+                actual: literal(marker),
+              },
+              undefined,
+              "decompile",
+            );
+          return renderList(body);
+        });
+      } catch (error) {
+        if (error instanceof CommandStructureError && error.stage !== "decompile") {
+          const remap = (path: string | undefined) =>
+            path?.replace(
+              /^list\[(\d+)\]/u,
+              (_match, at: string) => `list[${indices.get(list[Number(at)]!) ?? at}]`,
+            );
+          const nativePath = remap(error.location.nativePath);
+          throw new CommandStructureError(
+            error.code,
+            error.detail,
+            { ...error.location, ...(nativePath ? { nativePath } : {}) },
+            undefined,
+            "decompile",
+          );
+        }
+        throw error;
+      }
+      rendered.push(commandRendering.expression);
+      for (const helperName of commandRendering.helperNames) {
+        helperNames.add(helperName);
+      }
+      index = commandRendering.nextIndex;
     }
 
-    const commandRendering = renderCommandAt(commands, index);
-    rendered.push(commandRendering.expression);
-    for (const helperName of commandRendering.helperNames) {
-      helperNames.add(helperName);
-    }
-    index = commandRendering.nextIndex;
-  }
-
-  return {
-    helperNames: [...helperNames].sort((left, right) => left.localeCompare(right)),
-    source: rendered.map((line) => `${line},`).join("\n"),
+    return {
+      helperNames: [...helperNames].sort((left, right) => left.localeCompare(right)),
+      source: rendered.map((line) => `${line},`).join("\n"),
+    };
   };
+  return renderList(commands);
 }
 
 export function renderCommands(commands: readonly RawEventCommand[]): string {
@@ -265,12 +311,27 @@ export function renderCommands(commands: readonly RawEventCommand[]): string {
 export function renderCommandAt(
   commands: readonly RawEventCommand[],
   index: number,
+  renderCommandList: RenderCommandList = renderDecompiledCommandList,
 ): RenderedCommand {
   const command = commands[index];
 
   if (command === undefined) {
     throw new Error("Cannot render missing event command.");
   }
+  if (
+    (command.code === 101 && command.parameters[0] === "" && command.parameters[1] !== 0) ||
+    (command.code === 101 && commands[index + 1]?.code !== 401) ||
+    (command.code === 105 && commands[index + 1]?.code !== 405)
+  )
+    throw new CommandStructureError(
+      "MV-COMMAND-UNSUPPORTED",
+      "The current message helper cannot preserve these saved native slots.",
+      {
+        nativePath: `list[${index}].parameters`,
+        expected: "representable message header and continuation body",
+        actual: literal(command.parameters),
+      },
+    );
 
   switch (command.code) {
     case 205: {
@@ -283,30 +344,20 @@ export function renderCommandAt(
     case 101:
       return renderShowTextCommand(commands, index, renderSimpleOrRawCommand);
     case 102:
-      return renderShowChoicesCommand(
-        commands,
-        index,
-        renderDecompiledCommandList,
-        renderSimpleOrRawCommand,
-      );
+      return renderShowChoicesCommand(commands, index, renderCommandList, renderSimpleOrRawCommand);
     case 105:
       return renderShowScrollingTextCommand(commands, index, renderSimpleOrRawCommand);
     case 108:
       return renderCommentCommand(commands, index);
     case 111:
-      return renderConditionalCommand(
-        commands,
-        index,
-        renderDecompiledCommandList,
-        renderSimpleOrRawCommand,
-      );
+      return renderConditionalCommand(commands, index, renderCommandList, renderSimpleOrRawCommand);
     case 112:
-      return renderLoopCommand(commands, index, renderDecompiledCommandList);
+      return renderLoopCommand(commands, index, renderCommandList);
     case 301:
       return renderBattleProcessingCommand(
         commands,
         index,
-        renderDecompiledCommandList,
+        renderCommandList,
         renderSimpleOrRawCommand,
       );
     case 302:
@@ -329,6 +380,17 @@ export function renderSimpleOrRawCommand(command: RawEventCommand, index: number
       nextIndex: index,
     };
   }
+
+  if (isKnownCommandCode(command.code))
+    throw new CommandStructureError(
+      "MV-COMMAND-UNSUPPORTED",
+      "Known native command cannot be represented by its current formal helper; raw fallback is unavailable.",
+      {
+        nativePath: `list[${index}].parameters`,
+        expected: "supported formal native command",
+        actual: literal(command.parameters),
+      },
+    );
 
   return {
     expression: renderRawCommand(command),
@@ -392,7 +454,7 @@ export function renderSimpleCommand(
           helperNames: ["controlTimer"],
         };
       }
-      if (action === 1) {
+      if (action === 1 && command.parameters.length === 1) {
         return {
           expression: `controlTimer({ action: "stop" })`,
           helperNames: ["controlTimer"],

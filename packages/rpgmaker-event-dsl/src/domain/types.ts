@@ -1,4 +1,5 @@
 export type {
+  AutonomousMovement,
   CommonEventDefinition,
   CommonEventTrigger,
   DslOwnedDeclaration,

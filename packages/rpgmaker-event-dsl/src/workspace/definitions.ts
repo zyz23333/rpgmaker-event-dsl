@@ -123,7 +123,7 @@ function evaluateModule(sourceFile: ts.SourceFile): Record<string, unknown> {
   const scope: EvaluationScope = {
     bindings: new Map<string, unknown>(),
   };
-  const exports: Record<string, unknown> = {};
+  const exports: Record<string, unknown> = Object.create(null) as Record<string, unknown>;
 
   for (const statement of sourceFile.statements) {
     if (ts.isEmptyStatement(statement)) {
@@ -324,6 +324,13 @@ function evaluateExpression(node: ts.Expression, scope: EvaluationScope): unknow
 
   if (ts.isObjectLiteralExpression(node)) {
     const output: Record<string, unknown> = {};
+    const set = (key: string, value: unknown) =>
+      Object.defineProperty(output, key, {
+        value,
+        enumerable: true,
+        configurable: true,
+        writable: true,
+      });
 
     for (const property of node.properties) {
       if (ts.isSpreadAssignment(property)) {
@@ -332,12 +339,12 @@ function evaluateExpression(node: ts.Expression, scope: EvaluationScope): unknow
           throw new Error("Object spreads must resolve to plain objects.");
         }
 
-        Object.assign(output, spreadValue);
+        for (const [key, value] of Object.entries(spreadValue)) set(key, value);
         continue;
       }
 
       if (ts.isShorthandPropertyAssignment(property)) {
-        output[property.name.text] = evaluateExpression(property.name, scope);
+        set(property.name.text, evaluateExpression(property.name, scope));
         continue;
       }
 
@@ -345,7 +352,7 @@ function evaluateExpression(node: ts.Expression, scope: EvaluationScope): unknow
         throw new Error("Only object properties and spreads are allowed in Event Definitions.");
       }
 
-      output[evaluatePropertyName(property.name)] = evaluateExpression(property.initializer, scope);
+      set(evaluatePropertyName(property.name), evaluateExpression(property.initializer, scope));
     }
 
     return output;
@@ -408,6 +415,8 @@ function evaluateCallee(node: ts.LeftHandSideExpression, scope: EvaluationScope)
 }
 
 function evaluatePropertyName(name: ts.PropertyName): string {
+  if (ts.isComputedPropertyName(name) && ts.isStringLiteral(name.expression))
+    return name.expression.text;
   if (
     ts.isIdentifier(name) ||
     ts.isStringLiteral(name) ||
