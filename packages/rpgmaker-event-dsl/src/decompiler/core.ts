@@ -4,7 +4,10 @@ import { resolve } from "node:path";
 import type { WorkspaceStatePaths } from "../workspace/state.js";
 import type { RawEventCommand } from "../compiler/types.js";
 import type { SnapshotCommonEvent, SnapshotMapEvent, SnapshotMapEventPage } from "./types.js";
-import { CommandStructureError, inspectCommandListStructure } from "../validation/command-structure.js";
+import {
+  CommandStructureError,
+  inspectCommandListStructure,
+} from "../validation/command-structure.js";
 
 export function renderPageConditions(conditions: Record<string, unknown> | undefined): string {
   if (conditions === undefined) {
@@ -90,7 +93,10 @@ export function collectConditionHelperNames(
   return [...helpers];
 }
 
-export function readMapEvents(mapData: Record<string, unknown>, mapId?: number): SnapshotMapEvent[] {
+export function readMapEvents(
+  mapData: Record<string, unknown>,
+  mapId?: number,
+): SnapshotMapEvent[] {
   const events = Array.isArray(mapData.events) ? mapData.events : [];
 
   return events.flatMap((entry) => {
@@ -171,7 +177,11 @@ export function readCommonEvents(value: readonly unknown[]): SnapshotCommonEvent
   });
 }
 
-export function readRawCommandList(value: unknown, identity?: string, nativePrefix = ""): RawEventCommand[] {
+export function readRawCommandList(
+  value: unknown,
+  identity?: string,
+  nativePrefix = "",
+): RawEventCommand[] {
   if (!Array.isArray(value)) {
     return [];
   }
@@ -179,11 +189,14 @@ export function readRawCommandList(value: unknown, identity?: string, nativePref
   try {
     inspectCommandListStructure(value, { requireTerminator: value.length > 0 });
   } catch (error) {
-    if (error instanceof CommandStructureError) throw new CommandStructureError(
-      error.code, error.detail,
-      { ...error.location, nativePath: nativePrefix + error.location.nativePath },
-      identity, "decompile",
-    );
+    if (error instanceof CommandStructureError)
+      throw new CommandStructureError(
+        error.code,
+        error.detail,
+        { ...error.location, nativePath: nativePrefix + error.location.nativePath },
+        identity,
+        "decompile",
+      );
     throw error;
   }
   return value.map((entry: RawEventCommand) => ({ ...entry, parameters: [...entry.parameters] }));

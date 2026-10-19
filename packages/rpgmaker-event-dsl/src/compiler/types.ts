@@ -12,4 +12,5 @@ export type CompileCommandList = (
   indent: number,
   resolver: ReferenceResolver,
   includeTerminator?: boolean,
+  sourcePath?: string,
 ) => RawEventCommand[];

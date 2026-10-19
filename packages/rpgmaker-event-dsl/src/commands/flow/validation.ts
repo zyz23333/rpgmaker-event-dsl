@@ -1,5 +1,21 @@
-import type { LoopDslCommand } from "../../domain/types.js";
+import type {
+  BreakLoopDslCommand,
+  ExitEventProcessingDslCommand,
+  LoopDslCommand,
+} from "../../domain/types.js";
 import { CommandStructureError } from "../../validation/command-structure.js";
+
+export function assertParameterlessFlowCommand(
+  node: BreakLoopDslCommand | ExitEventProcessingDslCommand,
+  path: string,
+): void {
+  if (Object.keys(node).some((key) => key !== "kind"))
+    throw new CommandStructureError(
+      "MV-COMMAND-PARAMETERS",
+      `${node.kind} does not accept authored fields.`,
+      { dslPath: path },
+    );
+}
 
 export function assertLoopCommand(node: LoopDslCommand, path: string): void {
   const fail = (message: string, suffix = ".body"): never => {
@@ -20,10 +36,18 @@ export function assertLoopCommand(node: LoopDslCommand, path: string): void {
   }
   for (let index = 0; index < body.commands.length; index += 1) {
     if (!Object.hasOwn(body.commands, index) || body.commands[index] === undefined) {
-      fail("Child Command Body commands cannot contain undefined or sparse slots.", `.body.commands[${index}]`);
+      fail(
+        "Child Command Body commands cannot contain undefined or sparse slots.",
+        `.body.commands[${index}]`,
+      );
     }
     const command = body.commands[index];
-    if (typeof command !== "object" || command === null || Array.isArray(command) || typeof command.kind !== "string") {
+    if (
+      typeof command !== "object" ||
+      command === null ||
+      Array.isArray(command) ||
+      typeof command.kind !== "string"
+    ) {
       fail("Expected a DSL Command object.", `.body.commands[${index}]`);
     }
   }

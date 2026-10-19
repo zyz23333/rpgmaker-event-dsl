@@ -13,6 +13,7 @@ import type { ReferenceResolver, ValidationIssue } from "./types.js";
 import { captureReferenceIssue } from "./shared.js";
 import { isReferenceValue } from "./inspection.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
+import { assertLoopCommand } from "../commands/flow/validation.js";
 
 type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
@@ -45,6 +46,14 @@ export function validateNodes(
       ...options,
       path: `${nodePath}.${field}`,
     });
+    if (node.kind === "loop") {
+      try {
+        assertLoopCommand(node, nodePath);
+      } catch {
+        continue;
+      }
+      validateNodes(node.body.commands, resolver, childOptions("body.commands"), issues);
+    }
     const captureSwitchIssue = (
       code: string,
       field: string,

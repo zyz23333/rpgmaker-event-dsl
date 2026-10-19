@@ -408,7 +408,7 @@ export function findConditionalBranchBodyEnd(
 
   while (index < commands.length) {
     const command = commands[index];
-    if (command === undefined || command.code === 0 || command.indent < parentIndent) {
+    if (command === undefined || command.indent < parentIndent) {
       break;
     }
     if (command.indent === parentIndent && (command.code === 411 || command.code === 412)) {

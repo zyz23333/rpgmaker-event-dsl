@@ -61,6 +61,19 @@ Ticket 02 extends the seed with the [Windows baseline and required filesystem re
 | MV-S3-SLOTS-003 | rejects missing native switch references before publishing Decompiled Source | automated synthetic | real Workspace / staged validation |
 | MV-R1-SWITCH-011 | Compiled versus independent native switch execution | game-observation | four fresh actual MV game processes |
 
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S3-LOOP-013 | Exact Loop saved-list roundtrip through Discovery/evaluation, Check, Compile, Diff and Push | synthetic-support | actual Workspace API |
+| MV-S3-FLOW-REJECT-013 | Malformed native flow fails before source publication, preserving project/Snapshot/manifest | synthetic-rejection | actual Workspace filesystem |
+| MV-S3-LOOP-BODY-013 | Required Child Command Body fields and bounded marker shape | synthetic-rejection | command and Staged Data Graph seams |
+| MV-S3-LOOP-RAW-013 | Final formal/raw marker agreement and valid nested raw code zero | synthetic-support | command compile/decompile seams |
+| MV-S3-LOOP-STRUCTURE-013 | Loop ownership, indentation, closing and exact known flow envelopes | synthetic-rejection | shared structure validation |
+| MV-S3-LOOP-RECURSION-013 | Loop child Script Gate, references and contextual locations | synthetic-rejection | Staged Data Graph seam |
+| MV-S3-BREAK-WARNING-013 | Outside-Loop Break warning preserves native output | synthetic-support | Staged Data Graph and compile seams |
+| MV-R3-LOOP-013 | Literal versus compiled Loop/Break/Exit and called-child Exit behavior | game-observation | two actual MV1.6.1 / NW0.29.0 processes |
+
+Ticket 13's [acceptance report](13-loop-acceptance.md) records scope, exact test boundaries, native observations, retained failure history and reproduction inputs. Its game result covers the assigned R3 scenarios and an R1 caller-continuation slice; final integrated-candidate regressions remain required.
+
 ## Reproduce
 
 On Windows with Node 22 and dependencies installed, run `pnpm --filter rpgmaker-event-dsl test -- test/mv-evidence.test.ts`. The test reconstructs an independent temporary Project Root from `packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json`, creates a Workspace, clones, decompiles, then invokes Compile Check and Compile. The temporary package exposes the actual repository TypeScript source through a directory junction for type resolution; declarations are not mocked and expected JSON is never produced by the compiler. Source mutation and restoration prove actual evaluation, beyond checking generated source text.
