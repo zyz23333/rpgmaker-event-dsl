@@ -158,6 +158,9 @@ it("requires unique existing Troop identities and nonempty ordered pages without
         dslPath: "troopId",
         expected: "positive existing Snapshot Troop identity",
         actual: "0",
+        message: expect.stringMatching(
+          /compile.*troop:0.*MV-TROOP-IDENTITY.*troopId.*expected.*actual 0/s,
+        ),
       }),
     );
     expect(validateDslOwnedDeclarations([valid, valid], context).issues).toContainEqual(
@@ -292,6 +295,9 @@ it("locates an invalid inactive condition at its exact DSL field with expected a
         dslPath: "pages[0].conditions.actor.hpAtMost",
         expected: "integer 0..100",
         actual: "101",
+        message: expect.stringMatching(
+          /compile.*troop:1.*MV-BATTLE-PAGE-INPUT.*pages\[0\].conditions.actor.hpAtMost.*expected.*actual 101/s,
+        ),
       }),
     );
 

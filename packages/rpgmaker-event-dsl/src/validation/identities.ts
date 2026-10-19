@@ -39,7 +39,7 @@ export function validateDeclarationIdentities(
             dslPath: "troopId",
             expected: "positive existing Snapshot Troop identity",
             actual: describeValue(declaration.troopId),
-            message: `Troop Event troopId ${declaration.troopId} must be a positive existing Snapshot Troop identity.`,
+            message: `compile error troop:${declaration.troopId}: MV-TROOP-IDENTITY at troopId; expected positive existing Snapshot Troop identity; actual ${describeValue(declaration.troopId)}.`,
           });
         if (troopIds.has(declaration.troopId))
           issues.push({
@@ -50,7 +50,7 @@ export function validateDeclarationIdentities(
             dslPath: "troopId",
             expected: "unique Troop Event identity",
             actual: describeValue(declaration.troopId),
-            message: `Duplicate Troop Event troopId: ${declaration.troopId}.`,
+            message: `compile error troop:${declaration.troopId}: MV-TROOP-IDENTITY-DUPLICATE at troopId; expected unique Troop Event identity; actual ${describeValue(declaration.troopId)}.`,
           });
         troopIds.add(declaration.troopId);
         break;

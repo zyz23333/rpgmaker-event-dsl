@@ -4,7 +4,7 @@ import { validateNodes } from "./commands.js";
 import { blankBattleEventPage } from "../domain/battle-page-defaults.js";
 import type { RawEventCommand } from "../compiler/types.js";
 import { CommandStructureError } from "./command-errors.js";
-import { renderJsonValue } from "../project-data/json-values.js";
+import { describeValue, renderJsonValue } from "../project-data/json-values.js";
 
 class BattlePageInputError extends Error {
   constructor(
@@ -39,7 +39,7 @@ export function validateBattlePages(
       stage: "compile",
       code: "MV-BATTLE-PAGE-INPUT",
       ...location(error, "pages"),
-      message: String(error),
+      message: `compile error ${identity}: MV-BATTLE-PAGE-INPUT: ${error instanceof Error ? error.message : String(error)}`,
     });
     return;
   }
@@ -60,7 +60,7 @@ export function validateBattlePages(
         stage: "compile",
         code: "MV-BATTLE-PAGE-INPUT",
         ...location(error, `pages[${pageIndex}]`),
-        message: `${identity}: ${error instanceof Error ? error.message : String(error)}`,
+        message: `compile error ${identity}: MV-BATTLE-PAGE-INPUT: ${error instanceof Error ? error.message : String(error)}`,
       });
       continue;
     }
@@ -72,15 +72,20 @@ export function validateBattlePages(
         condition.index < 0 ||
         condition.index >= members.length
       ) {
-        issues.push({
-          level: "error",
-          code: "MV-BATTLE-ENEMY-POSITION",
-          stage: "compile",
-          identity,
-          nativePath: `pages[${pageIndex}].conditions.enemyIndex`,
-          dslPath: `pages[${pageIndex}].conditions.enemy.index`,
-          message: `${identity}: enabled enemy condition requires existing member position ${condition.index}.`,
-        });
+        issues.push(
+          new CommandStructureError(
+            "MV-BATTLE-ENEMY-POSITION",
+            "Enabled enemy condition requires an existing raw member position.",
+            {
+              nativePath: `pages[${pageIndex}].conditions.enemyIndex`,
+              dslPath: `pages[${pageIndex}].conditions.enemy.index`,
+              expected: "existing raw member position",
+              actual: describeValue(condition.index),
+            },
+            identity,
+            "compile",
+          ).issue(identity, "compile"),
+        );
       }
       if (Array.isArray(members))
         for (const [index, member] of members.entries()) {
@@ -91,15 +96,20 @@ export function validateBattlePages(
           try {
             graph.resolver.resolveReference({ kind: "enemy", id: enemyId as number });
           } catch (error) {
-            issues.push({
-              level: "error",
-              code: "MV-BATTLE-MEMBER-ENEMY",
-              stage: "compile",
-              identity,
-              nativePath: `members[${index}].enemyId`,
-              dslPath: `pages[${pageIndex}].conditions.enemy`,
-              message: `${identity}: member position ${index} has invalid Enemy ${String(enemyId)}: ${error instanceof Error ? error.message : String(error)}`,
-            });
+            issues.push(
+              new CommandStructureError(
+                "MV-BATTLE-MEMBER-ENEMY",
+                `Invalid Enemy in raw member position ${index}: ${error instanceof Error ? error.message : String(error)}`,
+                {
+                  nativePath: `members[${index}].enemyId`,
+                  dslPath: `pages[${pageIndex}].conditions.enemy`,
+                  expected: "existing Enemy reference",
+                  actual: describeValue(enemyId),
+                },
+                identity,
+                "compile",
+              ).issue(identity, "compile"),
+            );
           }
         }
     }
