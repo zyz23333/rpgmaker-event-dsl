@@ -12442,6 +12442,196 @@
       },
       "slice": "33 / S6 all movement instructions",
       "required": true
+    },
+    {
+      "id": "MV-S6-MOVEMENT-009",
+      "title": "R1 immutable complete native input binding",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/33-movement-all-45-instructions.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": [
+        "A3",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Original13 native wait/Parallel predicates; a frozen independently authored route fixture plus unchanged seed Troops; all15 native JSON input identities and all4 mandatory generated carriers.",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/fixtures/33-movement-native-bindings-v1.json",
+        "sha256": "ea4b12d3a32520111d6e49b2f06aab838bc3604781789e825c8c450998c7ba80"
+      },
+      "expected": "A fresh allocated actual built public Workspace product pair consumes the exact bound external independent input bytes; original predicates remain intact; complete Map/Common/System/Troops generated, installed and loaded values match. Strict v5 process/profile/engine/disk/output/exit and all15 carrier comparisons pass.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/33-movement-instructions.md",
+        "section": "Native delivery input bindings"
+      },
+      "nativeGroups": [
+        "R1"
+      ],
+      "execution": {
+        "environment": "Windows / Node22 tooling; identified MV1.6.1/NW0.29.0 actual native product pair",
+        "owner": "Codex evidence review",
+        "layer": "game-observation"
+      },
+      "slice": "33 / S6 separately bound allocated native delivery",
+      "required": true
+    },
+    {
+      "id": "MV-S6-MOVEMENT-010",
+      "title": "R6/R7 immutable complete native input binding",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/33-movement-all-45-instructions.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": [
+        "A3",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Original19 movement None, actual signal and full single-slot script predicates; separately frozen independently authored input plus unchanged seed Troops; all15 input identities and all4 mandatory generated carriers.",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/fixtures/33-movement-native-bindings-v1.json",
+        "sha256": "ea4b12d3a32520111d6e49b2f06aab838bc3604781789e825c8c450998c7ba80"
+      },
+      "expected": "A fresh allocated actual built public Workspace product pair consumes the exact bound external independent input bytes; original predicates remain intact; complete Map/Common/System/Troops generated, installed and loaded values match. Strict v5 process/profile/engine/disk/output/exit and all15 carrier comparisons pass.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/33-movement-instructions.md",
+        "section": "Native delivery input bindings"
+      },
+      "nativeGroups": [
+        "R1",
+        "R6",
+        "R7"
+      ],
+      "execution": {
+        "environment": "Windows / Node22 tooling; identified MV1.6.1/NW0.29.0 actual native product pair",
+        "owner": "Codex evidence review",
+        "layer": "game-observation"
+      },
+      "slice": "33 / S6 separately bound allocated native delivery",
+      "required": true
+    },
+    {
+      "id": "MV-S6-MOVEMENT-011",
+      "title": "Preserve accepted negative-zero saved movement numbers through public Workspace installation",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/issues/13-native-value-domain-boundaries.md",
+          "section": "### 共同范围与精确数值域"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/33-movement-all-45-instructions.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A5",
+        "A6",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent native JSON literals for M14 x/y independently, M41 None/named index, M42 opacity, M44 None/named volume/pan; original -0 is written without JSON.stringify normalization in both autonomous and forced routes.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/movement-saved-numbers.json",
+        "sha256": "dc54a131301a4abd5b149dc2833d5c8f549a6dafaa0a365c1d0542062c5f3923"
+      },
+      "expected": "Actual Decompile emits -0, Discovery evaluates formal source, Check/Compile retain it, real owned name Diff/Push installs the exact generated carrier, and all15 complete carriers deepStrictEqual independent literals. No unrelated numeric domain is widened.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/movement-instructions-workspace.test.ts",
+        "name": "MV-S6-MOVEMENT-011:"
+      },
+      "nativeGroups": [
+        "E3",
+        "E5"
+      ],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API",
+        "owner": "Codex automated verification",
+        "layer": "Actual public Workspace API and complete filesystem values"
+      },
+      "slice": "33 / S6 scoped saved-number correction",
+      "required": true
+    },
+    {
+      "id": "MV-S6-MOVEMENT-012",
+      "title": "Reject native negative-zero M43 categorical codes without partial publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/issues/13-native-value-domain-boundaries.md",
+          "section": "### 共同范围与精确数值域"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/33-movement-all-45-instructions.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Exact native M43 [-0] in separate autonomous and forced routes, with independent intact mirrors; this symbolic blend model cannot faithfully reconstruct native negative zero.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/movement-saved-numbers.json",
+        "sha256": "dc54a131301a4abd5b149dc2833d5c8f549a6dafaa0a365c1d0542062c5f3923"
+      },
+      "expected": "Public Decompile rejects MV-MOVEMENT-PARAMETER with precise native path and actual -0 before source publication; complete Workspace state is unchanged. Other accepted numeric -0 values remain supported.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/movement-instructions-workspace.test.ts",
+        "name": "MV-S6-MOVEMENT-012:"
+      },
+      "nativeGroups": [
+        "E3",
+        "E5"
+      ],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API",
+        "owner": "Codex automated verification",
+        "layer": "Actual public Workspace API and complete filesystem rejection state"
+      },
+      "slice": "33 / S6 scoped saved-number correction",
+      "required": true
     }
   ]
 }

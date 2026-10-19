@@ -419,3 +419,10 @@ Ticket24 adds [complete Map Event pages and exact saved state](24-map-event-full
 | MV-S6-MOVEMENT-006 | Actual normal-Scene autonomous and forced route waiting with Parallel | R1; [record](33-movement-instructions.md) |
 | MV-S6-MOVEMENT-007 | Actual movement None image/SE and complete M45 single-slot execution | R1/R6/R7; [record](33-movement-instructions.md) |
 | MV-S6-MOVEMENT-008 | Same-identity E3/E5 movement resources and product comparison | E3/E5; [record](33-movement-instructions.md) |
+
+| Requirement | Case | Scope |
+| --- | --- | --- |
+| MV-S6-MOVEMENT-009 | R1 immutable complete native input binding | R1; [record](33-movement-instructions.md#native-delivery-input-bindings) |
+| MV-S6-MOVEMENT-010 | R6/R7 immutable complete native input binding | R1/R6/R7; [record](33-movement-instructions.md#native-delivery-input-bindings) |
+| MV-S6-MOVEMENT-011 | Preserve accepted negative-zero saved movement numbers through actual Workspace installation | Public source/built Workspace API; [record](33-movement-instructions.md#scoped-negative-zero-saved-values) |
+| MV-S6-MOVEMENT-012 | Reject negative-zero categorical M43 before source publication | Public source/built Workspace API; [record](33-movement-instructions.md#scoped-negative-zero-saved-values) |

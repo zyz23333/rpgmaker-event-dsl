@@ -191,7 +191,19 @@ export function assertNativeMovementRecord(
   if (item.code === 30) integer(parameters[0], 1, 5, at(location, ".parameters[0]"));
   if (item.code === 41) integer(parameters[1], 0, 7, at(location, ".parameters[1]"));
   if (item.code === 42) integer(parameters[0], 0, 255, at(location, ".parameters[0]"));
-  if (item.code === 43) integer(parameters[0], 0, 3, at(location, ".parameters[0]"));
+  if (item.code === 43) {
+    integer(parameters[0], 0, 3, at(location, ".parameters[0]"));
+    if (Object.is(parameters[0], -0))
+      fail(
+        "Movement blend mode requires a code with an exact symbolic representation.",
+        {
+          ...at(location, ".parameters[0]"),
+          expected: "0, 1, 2 or 3 excluding negative zero",
+          actual: "-0",
+        },
+        "MV-MOVEMENT-PARAMETER",
+      );
+  }
   if (item.code === 44) {
     const audio = parameters[0] as Record<string, unknown>;
     integer(audio.volume, 0, 100, at(location, ".parameters[0].volume"));

@@ -315,6 +315,10 @@ const instructions = [
 ] satisfies import("rpgmaker-event-dsl").MoveRouteCommand[];
 ```
 
+Saved numeric values retain negative zero for jump x/y, characterIndex, opacity,
+and SE volume/pan. The symbolic blend code, movement code and finite indent forms
+reject native negative zero because their formal symbols cannot reconstruct it.
+
 M45 keeps empty text, whitespace, CR/LF/CRLF and trailing characters in one native
 slot, including more than twelve lines. LF warns about the editor's single-line
 input; CR warns that parameter reconfirmation needs verification. Warnings retain

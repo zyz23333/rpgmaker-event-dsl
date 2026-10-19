@@ -60,3 +60,20 @@ Claimed on codex/mv-ticket-33 in the separate managed worktree, clean at actual 
 ### 2026-10-19 — 继承已接受的有限 zero 状态
 
 用户对04原生clone + copy/paste反例回复“接受有限 zero 状态（推荐）”；当前契约以[04报告](../evidence/04-movement-records-and-mirrors-reverse.md#契约比较与已接受修订)、ADR0015及权威决定票12 Answer为准。本票继承14的共享外壳实现并负责全部45码在页/205两入口的覆盖；04的逆向证据与契约批准不计作本票产品或游戏验收。
+
+### 2026-10-20 — actual25 integration and scoped saved-number correction
+
+Merge7fe5ea6 includes actual25 integration233db5420d6cf83da0220c6aa5aed56626798f39.
+Typecheck and all five affected actual Workspace cases pass. Complete native
+delivery input bindings now include the unchanged seed Troops carrier and actual
+loaded Troops comparison; the original13/19 behavioral predicates remain intact.
+Accepted design13's negative-zero boundary was checked separately: M14 x/y,
+M41 index, M42 opacity and M44 volume/pan now use lossless numeric rendering;
+native M43 negative zero is rejected because its symbol cannot reconstruct that
+value. Four real Workspace red→green slices, seven positive current fixture
+cases and two precise rejection cases are retained with original logs. The337
+existing movement cases, current typecheck, targeted formatting/lint and unchanged
+index deadline pass. Complete preservation, input hashes and unpublished fixture
+format correction provenance are in the [allocated report](../evidence/33-movement-instructions.md).
+The ticket stays claimed: contract remains /7, no33 build/native product pair has
+run, and final check/build/built/native/evidence delivery follows actual23 merge.

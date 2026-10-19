@@ -4,6 +4,7 @@ import { expect, it } from "vitest";
 import { workspaceApiEntry } from "./support/workspace-operation-process.js";
 import { discoverDefinitionFiles, loadDefinitionFile } from "../src/workspace/definitions.js";
 import { getWorkspaceStatePaths } from "../src/workspace/state.js";
+import { renderJsonValue } from "../src/project-data/json-values.js";
 import {
   createMinimalProject,
   runCli,
@@ -30,6 +31,15 @@ const discovery = {
   sourceInclude: ["**/*.events.ts", "**/*.dsl.ts"],
   sourceExclude: [],
 };
+const savedNumbers: {
+  accepted: { label: string; native: unknown; sourceFields: string[] }[];
+  rejected: { native: unknown };
+} = JSON.parse(
+  await readFile(
+    new URL("./fixtures/mv-evidence/movement-saved-numbers.json", import.meta.url),
+    "utf8",
+  ),
+);
 
 async function withMovementEvidence(
   id: string,
@@ -124,7 +134,7 @@ async function prepare(workspaceRoot: string, pages: unknown[]) {
     join(workspaceRoot, "Game/data/MapInfos.json"),
     JSON.stringify([null, { id: 1, name: "Movement Map" }]),
   );
-  await writeFile(join(workspaceRoot, "Game/data/Map001.json"), JSON.stringify(carrier));
+  await writeFile(join(workspaceRoot, "Game/data/Map001.json"), renderJsonValue(carrier));
   const systemPath = join(workspaceRoot, "Game/data/System.json");
   const system = JSON.parse(await readFile(systemPath, "utf8"));
   system.switches = ["", "Named", "", "Last"];
@@ -202,6 +212,40 @@ it("MV-S6-MOVEMENT-001: evaluates all45 native records with every finite shell a
       expect(JSON.parse(actualProject[name]!)).toStrictEqual(JSON.parse(bytes as string));
   });
 }, 30_000);
+
+it.each(savedNumbers.accepted)(
+  "MV-S6-MOVEMENT-011: $label preserves negative-zero saved parameters through actual Workspace source evaluation and installation",
+  async ({ native, sourceFields }) => {
+    await withMovementEvidence("011", "movement-negative-zero", async ({ workspaceRoot }) => {
+      const carrier = await prepare(workspaceRoot, [nativePage([native])]);
+      const original = (await state(workspaceRoot)).project!;
+      expect(original["Map001.json"]).toContain("-0");
+      await decompileWorkspace({ workspaceRoot });
+      const sourcePath = join(workspaceRoot, "src/decompiled/maps/Map001.events.ts");
+      const source = await readFile(sourcePath, "utf8");
+      for (const field of sourceFields) expect(source).toContain(field);
+      await compileWorkspace({ workspaceRoot, check: true });
+      await compileWorkspace({ workspaceRoot, check: false });
+      const generated = join(
+        getWorkspaceStatePaths(workspaceRoot).generatedProjectDataDirectory,
+        "Map001.json",
+      );
+      expect(JSON.parse(await readFile(generated, "utf8"))).toStrictEqual(carrier);
+      await writeFile(sourcePath, source.replace("Complete blank", "Negative zero installed"));
+      await compileWorkspace({ workspaceRoot, check: false });
+      expect(await diffWorkspace({ workspaceRoot })).toContain("Negative zero installed");
+      await pushWorkspace({ workspaceRoot, allowDestructive: false });
+      carrier.events[1]!.name = "Negative zero installed";
+      const actual = (await state(workspaceRoot)).project!;
+      expect(Object.keys(actual)).toHaveLength(15);
+      for (const [file, bytes] of Object.entries(original))
+        expect(JSON.parse(actual[file]!)).toStrictEqual(
+          file === "Map001.json" ? carrier : JSON.parse(bytes as string),
+        );
+    });
+  },
+  30_000,
+);
 
 it("MV-S6-MOVEMENT-002: retains empty and CR LF M45 source while closed Gate warns on Decompile and rejects Check Compile including a fixed route", async () => {
   await withMovementEvidence("002", "movement-gate", async (sandbox) => {
@@ -295,6 +339,31 @@ it.each([
       await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatchObject({
         code,
         identity: "map:1/event:1",
+      });
+      expect(await state(workspaceRoot)).toStrictEqual(before);
+    });
+  },
+  30_000,
+);
+
+it.each(["page", "forced"] as const)(
+  "MV-S6-MOVEMENT-012: rejects a negative-zero symbolic M43 value in the %s route before source publication",
+  async (entrance) => {
+    await withMovementEvidence("012", "movement-negative-zero-blend", async ({ workspaceRoot }) => {
+      const page = nativePage([savedNumbers.rejected.native]);
+      if (entrance === "forced") page.moveRoute = structuredClone(blankPage.moveRoute);
+      await prepare(workspaceRoot, [page]);
+      const before = await state(workspaceRoot);
+      await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatchObject({
+        code: "MV-MOVEMENT-PARAMETER",
+        identity: "map:1/event:1",
+        location: {
+          nativePath:
+            entrance === "page"
+              ? "pages[0].moveRoute.list[0].parameters[0]"
+              : "pages[0].list[0].parameters[1].list[0].parameters[0]",
+          actual: "-0",
+        },
       });
       expect(await state(workspaceRoot)).toStrictEqual(before);
     });
