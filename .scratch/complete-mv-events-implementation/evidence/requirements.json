@@ -18840,6 +18840,235 @@
       },
       "slice": "43 / S6",
       "required": true
+    },
+    {
+      "id": "MV-S6-VARIABLES-001",
+      "title": "Independent E122 six-operation/five-mode and complete Game Data contract",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/31-control-variables-all-operands.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E122 — Control Variables"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3",
+        "A4",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Explicit native literals and named modes from core E122; all8 sources/statuses, exact counts/padding, numeric negative zero and categorical refusal.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/control-variable-cases.ts",
+        "sha256": "6ec7bafca14c8bc5f74e652fc163b8a3a8d6e638eb7941ec4804dec6d30bc560"
+      },
+      "expected": "Formal compilation and known native decoding agree with independent literals; invalid saved slots fail precisely without normalization.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-variables.test.ts",
+        "name": "MV-S6-VARIABLES-001:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 actual source Workspace; built rerun pending",
+        "owner": "Codex automated verification",
+        "layer": "Focused synthetic public DSL/Workspace/filesystem"
+      },
+      "slice": "31 / S6 focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S6-VARIABLES-002",
+      "title": "Complete E122 actual Workspace discovery/evaluation and safe real Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/31-control-variables-all-operands.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E122 — Control Variables"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent synthetic Map/Common/Troop carriers with full operand/status matrix, blank/multiline scripts and unreachable nested empty script; all15carriers.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/control-variable-cases.ts",
+        "sha256": "6ec7bafca14c8bc5f74e652fc163b8a3a8d6e638eb7941ec4804dec6d30bc560"
+      },
+      "expected": "Closed-Gate Decompile preserves source/config and warns; Check/Compile refuse; enabled complete fifteen-carrier roundtrip/no-op then a real owned edit pushes exact native records.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-variables-workspace.test.ts",
+        "name": "MV-S6-VARIABLES-002:"
+      },
+      "nativeGroups": [
+        "E5"
+      ],
+      "execution": {
+        "environment": "Windows / Node22 actual source Workspace; built rerun pending",
+        "owner": "Codex automated verification",
+        "layer": "Focused synthetic public DSL/Workspace/filesystem"
+      },
+      "slice": "31 / S6 focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S6-VARIABLES-003",
+      "title": "E122 prepublication native shape and fixed-reference failures retain business state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/31-control-variables-all-operands.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E122 — Control Variables"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Malformed structural/symbolic negative zero, missing actor/item/weapon/armor/source-variable references and out-of-capacity targets in independently authored Common Event records.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/control-variable-cases.ts",
+        "sha256": "6ec7bafca14c8bc5f74e652fc163b8a3a8d6e638eb7941ec4804dec6d30bc560"
+      },
+      "expected": "Decompile reports the intended E122 or fixed-reference diagnostic before publication; complete source/Discovery/config/project/Snapshot/generated/manifest state remains unchanged.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-variables-workspace.test.ts",
+        "name": "refuses $label before publishing any source or business-state change"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 actual source Workspace; built rerun pending",
+        "owner": "Codex automated verification",
+        "layer": "Focused synthetic public DSL/Workspace/filesystem"
+      },
+      "slice": "31 / S6 focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S6-VARIABLES-004",
+      "title": "E122 untyped actual source inputs and known raw Gate retain Check/Compile state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/31-control-variables-all-operands.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E122 — Control Variables"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Actual discovered TypeScript local const, spread helper extras, asserted direct commands, missing source variable, reverse range and known raw empty script.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/control-variable-cases.ts",
+        "sha256": "6ec7bafca14c8bc5f74e652fc163b8a3a8d6e638eb7941ec4804dec6d30bc560"
+      },
+      "expected": "Both public Check and Compile evaluate actual declarations and reject the intended family/Gate error without mutating any captured business files or Discovery.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-variables-workspace.test.ts",
+        "name": "validates actual evaluated $label and preserves every business file on Check/Compile failure"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 actual source Workspace; built rerun pending",
+        "owner": "Codex automated verification",
+        "layer": "Focused synthetic public DSL/Workspace/filesystem"
+      },
+      "slice": "31 / S6 focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S6-VARIABLES-005",
+      "title": "Allocated E5/R4/R7 final built product and actual normal-Scene variable runtime observations",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/31-control-variables-all-operands.md",
+          "section": "## Scope"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T4 — 原生前置与必验代表组"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Actual latest built public lifecycle in independent physically isolated literal/compiled MV1.6.1 projects; random per-target sampling, self-aliasing variable range, script counter once-before-loop and complete single-slot scripts in Common/battle contexts.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/control-variable-cases.ts",
+        "sha256": "6ec7bafca14c8bc5f74e652fc163b8a3a8d6e638eb7941ec4804dec6d30bc560"
+      },
+      "expected": "Actual native normal Scene results and complete loaded/disk carrier comparisons with immutable host/engine/observer/source/dist identities; hardened copy/isolation proofs and all reference bytes unchanged. Pending focused DEV; no runtime pass claimed.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/31-control-variables-dev.md",
+        "section": "## Remaining finalization"
+      },
+      "nativeGroups": [
+        "E5",
+        "R4",
+        "R7"
+      ],
+      "execution": {
+        "environment": "Windows MV1.6.1 actual native runtime/NW.js after root serialized finalization",
+        "owner": "Ticket31 final implementer and independent merger",
+        "layer": "Actual built public product plus native game pair"
+      },
+      "slice": "31 / S6 required finalization pending",
+      "required": true
     }
   ]
 }

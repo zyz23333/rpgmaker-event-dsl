@@ -7,6 +7,10 @@ import { validateNativeMovementRouteInputs } from "../commands/movement/validati
 import { inspectNativeCommandReferences } from "./native-references.js";
 import type { RawEventCommand, CommandOrigins } from "../compiler/types.js";
 import { inspectConditionalContext } from "../commands/flow/conditional-context.js";
+import {
+  variableTroopContext,
+  type VariableInputContext,
+} from "../commands/variables/diagnostics.js";
 
 export function validateCompiledCommandLists(
   graph: StagedDataGraph,
@@ -14,6 +18,18 @@ export function validateCompiledCommandLists(
   options: { scriptEnabled: boolean },
 ): void {
   for (const declaration of graph.declarations) {
+    const variableContext: VariableInputContext = {};
+    if (declaration.kind === "troopEvent") {
+      const members = graph.snapshotTroops?.find(({ id }) => id === declaration.troopId)?.members;
+      Object.assign(variableContext, variableTroopContext(members, graph.resolver));
+    }
+    if (declaration.kind === "mapEvent") {
+      const map = graph.snapshotMaps?.find(({ id }) => id === declaration.mapId);
+      if (map)
+        variableContext.mapEventIds = [...graph.mapEventsByIdentity.values()]
+          .filter(({ mapId }) => mapId === declaration.mapId)
+          .map(({ id }) => id);
+    }
     const lists =
       declaration.kind === "commonEvent"
         ? [
@@ -84,6 +100,7 @@ export function validateCompiledCommandLists(
             identity: list.identity,
             prefix,
             origins,
+            variableContext,
           }),
         );
         issues.push(

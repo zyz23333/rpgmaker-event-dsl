@@ -466,7 +466,7 @@ it("applies recognizable family modes and fixed references to handwritten known 
     { code: 201, parameters: [0, 1, -0, 1, 0, 0] },
   ]) {
     expect(() => renderDecompiledCommandList([{ ...command, indent: 0 }])).toThrow(
-      /MV-COMMAND-PARAMETERS/,
+      command.code === 122 ? /MV-E122-VALUE/ : /MV-COMMAND-PARAMETERS/,
     );
     const graph = buildStagedDataGraph({
       declarations: [
@@ -475,7 +475,9 @@ it("applies recognizable family modes and fixed references to handwritten known 
       snapshotReferences: { variableCapacity: 1, maps: [{ id: 1, name: "Map" }] },
     });
     expect(validateStagedDataGraph(graph, { scriptEnabled: true }).issues).toContainEqual(
-      expect.objectContaining({ code: "MV-COMMAND-PARAMETERS" }),
+      expect.objectContaining({
+        code: command.code === 122 ? "MV-E122-VALUE" : "MV-COMMAND-PARAMETERS",
+      }),
     );
   }
   const graph = buildStagedDataGraph({

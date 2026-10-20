@@ -367,7 +367,7 @@ describe("decompile workflow", () => {
     );
     expect(mapSource).toContain("controlSwitches({ switch: switchRef({ id: 1 }), value: true })");
     expect(mapSource).toContain(
-      'controlVariables({ variable: variableRef({ id: 2 }), operation: "add", value: 5 })',
+      'controlVariables({ variable: variableRef({ id: 2 }), operation: "add", value: { kind: "constant", value: 5 } })',
     );
     expect(mapSource).not.toContain("controlSwitch(");
     expect(mapSource).not.toContain("controlVariable(");
