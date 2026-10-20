@@ -1,0 +1,2394 @@
+{
+  "identity": {
+    "runtimePath": "references/rmmv-local-runtime-1.6.1/js/rpg_objects.js",
+    "runtimeSha256": "2d43dd9d8974c88a1b82ffa493d6d8a02c4ce1d0dfc8f05e6c0ab731e3f0573e",
+    "helpPath": "references/RPGMV/Help/page/01_10.html",
+    "helpSha256": "e5717954d0f30155b31c467e00a6da2a60deb727b8b4a07517aa6bb31f1523a8"
+  },
+  "totals": {
+    "runtimeHandlers": 112,
+    "primaryRuntimeHandlers": 105,
+    "helpFamilyLinks": 105,
+    "continuations": 17
+  },
+  "families": [
+    {
+      "code": 101,
+      "name": "Show Text",
+      "line": 9057,
+      "help": {
+        "name": "Show Text",
+        "href": "01_10_01.html#p01",
+        "line": 24
+      },
+      "formalDecompileLines": [
+        342
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/commands/message/compile.ts",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "code": 102,
+      "name": "Show Choices",
+      "line": 9087,
+      "help": {
+        "name": "Show Choices",
+        "href": "01_10_01.html#p02",
+        "line": 25
+      },
+      "formalDecompileLines": [
+        344
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 773
+        }
+      ]
+    },
+    {
+      "code": 103,
+      "name": "Input Number",
+      "line": 9130,
+      "help": {
+        "name": "Input Number",
+        "href": "01_10_01.html#p03",
+        "line": 26
+      },
+      "formalDecompileLines": [
+        486
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 192
+        }
+      ]
+    },
+    {
+      "code": 104,
+      "name": "Select Item",
+      "line": 9144,
+      "help": {
+        "name": "Select Item",
+        "href": "01_10_01.html#p04",
+        "line": 27
+      },
+      "formalDecompileLines": [
+        496
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 207
+        }
+      ]
+    },
+    {
+      "code": 105,
+      "name": "Show Scrolling Text",
+      "line": 9158,
+      "help": {
+        "name": "Show Scrolling Text",
+        "href": "01_10_01.html#p05",
+        "line": 28
+      },
+      "formalDecompileLines": [
+        346
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 222
+        }
+      ]
+    },
+    {
+      "code": 108,
+      "name": "Comment",
+      "line": 9172,
+      "help": {
+        "name": "Comment",
+        "href": "01_10_03.html#p08",
+        "line": 46
+      },
+      "formalDecompileLines": [
+        348
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 279
+        }
+      ]
+    },
+    {
+      "code": 111,
+      "name": "Conditional Branch",
+      "line": 9182,
+      "help": {
+        "name": "Conditional Branch",
+        "href": "01_10_03.html#p01",
+        "line": 39
+      },
+      "formalDecompileLines": [
+        350
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 239
+        }
+      ]
+    },
+    {
+      "code": 112,
+      "name": "Loop",
+      "line": 9328,
+      "help": {
+        "name": "Loop",
+        "href": "01_10_03.html#p02",
+        "line": 40
+      },
+      "formalDecompileLines": [
+        352
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 311
+        }
+      ]
+    },
+    {
+      "code": 113,
+      "name": "Break Loop",
+      "line": 9341,
+      "help": {
+        "name": "Break Loop",
+        "href": "01_10_03.html#p03",
+        "line": 41
+      },
+      "formalDecompileLines": [
+        482
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 327
+        }
+      ]
+    },
+    {
+      "code": 115,
+      "name": "Exit Event Processing",
+      "line": 9361,
+      "help": {
+        "name": "Exit Event Processing",
+        "href": "01_10_03.html#p04",
+        "line": 42
+      },
+      "formalDecompileLines": [
+        484
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 331
+        }
+      ]
+    },
+    {
+      "code": 117,
+      "name": "Common Event",
+      "line": 9367,
+      "help": {
+        "name": "Common Event",
+        "href": "01_10_03.html#p05",
+        "line": 43
+      },
+      "formalDecompileLines": [
+        404
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 335
+        }
+      ]
+    },
+    {
+      "code": 118,
+      "name": "Label",
+      "line": 9382,
+      "help": {
+        "name": "Label",
+        "href": "01_10_03.html#p06",
+        "line": 44
+      },
+      "formalDecompileLines": [
+        413
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 342
+        }
+      ]
+    },
+    {
+      "code": 119,
+      "name": "Jump to Label",
+      "line": 9387,
+      "help": {
+        "name": "Jump to Label",
+        "href": "01_10_03.html#p07",
+        "line": 45
+      },
+      "formalDecompileLines": [
+        418
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 346
+        }
+      ]
+    },
+    {
+      "code": 121,
+      "name": "Control Switches",
+      "line": 9415,
+      "help": {
+        "name": "Control Switches",
+        "href": "01_10_02.html#p01",
+        "line": 32
+      },
+      "formalDecompileLines": [
+        423
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 351
+        }
+      ]
+    },
+    {
+      "code": 122,
+      "name": "Control Variables",
+      "line": 9423,
+      "help": {
+        "name": "Control Variables",
+        "href": "01_10_02.html#p02",
+        "line": 33
+      },
+      "formalDecompileLines": [
+        434
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 359
+        }
+      ]
+    },
+    {
+      "code": 123,
+      "name": "Control Self Switch",
+      "line": 9571,
+      "help": {
+        "name": "Control Self Switch",
+        "href": "01_10_02.html#p03",
+        "line": 34
+      },
+      "formalDecompileLines": [
+        436
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 370
+        }
+      ]
+    },
+    {
+      "code": 124,
+      "name": "Control Timer",
+      "line": 9580,
+      "help": {
+        "name": "Control Timer",
+        "href": "01_10_02.html#p04",
+        "line": 35
+      },
+      "formalDecompileLines": [
+        446
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 378
+        }
+      ]
+    },
+    {
+      "code": 125,
+      "name": "Change Gold",
+      "line": 9590,
+      "help": {
+        "name": "Change Gold",
+        "href": "01_10_04.html#p01",
+        "line": 50
+      },
+      "formalDecompileLines": [
+        469
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 390
+        }
+      ]
+    },
+    {
+      "code": 126,
+      "name": "Change Items",
+      "line": 9597,
+      "help": {
+        "name": "Change Items",
+        "href": "01_10_04.html#p02",
+        "line": 51
+      },
+      "formalDecompileLines": [
+        506
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 397
+        }
+      ]
+    },
+    {
+      "code": 127,
+      "name": "Change Weapons",
+      "line": 9604,
+      "help": {
+        "name": "Change Weapons",
+        "href": "01_10_04.html#p03",
+        "line": 52
+      },
+      "formalDecompileLines": [
+        520
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 407
+        }
+      ]
+    },
+    {
+      "code": 128,
+      "name": "Change Armors",
+      "line": 9611,
+      "help": {
+        "name": "Change Armors",
+        "href": "01_10_04.html#p04",
+        "line": 53
+      },
+      "formalDecompileLines": [
+        535
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 418
+        }
+      ]
+    },
+    {
+      "code": 129,
+      "name": "Change Party Member",
+      "line": 9618,
+      "help": {
+        "name": "Change Party Member",
+        "href": "01_10_04.html#p05",
+        "line": 54
+      },
+      "formalDecompileLines": [
+        550
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 429
+        }
+      ]
+    },
+    {
+      "code": 132,
+      "name": "Change Battle BGM",
+      "line": 9634,
+      "help": {
+        "name": "Change Battle BGM",
+        "href": "01_10_13.html#p01",
+        "line": 145
+      },
+      "formalDecompileLines": [
+        563
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 440
+        }
+      ]
+    },
+    {
+      "code": 133,
+      "name": "Change Victory ME",
+      "line": 9640,
+      "help": {
+        "name": "Change Victory ME",
+        "href": "01_10_13.html#p02",
+        "line": 146
+      },
+      "formalDecompileLines": [
+        565
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 447
+        }
+      ]
+    },
+    {
+      "code": 134,
+      "name": "Change Save Access",
+      "line": 9646,
+      "help": {
+        "name": "Change Save Access",
+        "href": "01_10_13.html#p05",
+        "line": 149
+      },
+      "formalDecompileLines": [
+        567
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 454
+        }
+      ]
+    },
+    {
+      "code": 135,
+      "name": "Change Menu Access",
+      "line": 9656,
+      "help": {
+        "name": "Change Menu Access",
+        "href": "01_10_13.html#p06",
+        "line": 150
+      },
+      "formalDecompileLines": [
+        569
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 461
+        }
+      ]
+    },
+    {
+      "code": 136,
+      "name": "Change Encounter Disable",
+      "line": 9666,
+      "help": {
+        "name": "Change Encounter",
+        "href": "01_10_13.html#p07",
+        "line": 151
+      },
+      "formalDecompileLines": [
+        571
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 468
+        }
+      ]
+    },
+    {
+      "code": 137,
+      "name": "Change Formation Access",
+      "line": 9677,
+      "help": {
+        "name": "Change Formation Access",
+        "href": "01_10_13.html#p08",
+        "line": 152
+      },
+      "formalDecompileLines": [
+        573
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 475
+        }
+      ]
+    },
+    {
+      "code": 138,
+      "name": "Change Window Color",
+      "line": 9687,
+      "help": {
+        "name": "Change Window Color",
+        "href": "01_10_13.html#p09",
+        "line": 153
+      },
+      "formalDecompileLines": [
+        575
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 482
+        }
+      ]
+    },
+    {
+      "code": 139,
+      "name": "Change Defeat ME",
+      "line": 9693,
+      "help": {
+        "name": "Change Defeat ME",
+        "href": "01_10_13.html#p03",
+        "line": 147
+      },
+      "formalDecompileLines": [
+        577
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 489
+        }
+      ]
+    },
+    {
+      "code": 140,
+      "name": "Change Vehicle BGM",
+      "line": 9699,
+      "help": {
+        "name": "Change Vehicle BGM",
+        "href": "01_10_13.html#p04",
+        "line": 148
+      },
+      "formalDecompileLines": [
+        579
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 496
+        }
+      ]
+    },
+    {
+      "code": 201,
+      "name": "Transfer Player",
+      "line": 9708,
+      "help": {
+        "name": "Transfer Player",
+        "href": "01_10_06.html#p01",
+        "line": 79
+      },
+      "formalDecompileLines": [
+        581
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 586
+        },
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 604
+        }
+      ]
+    },
+    {
+      "code": 202,
+      "name": "Set Vehicle Location",
+      "line": 9728,
+      "help": {
+        "name": "Set Vehicle Location",
+        "href": "01_10_06.html#p02",
+        "line": 80
+      },
+      "formalDecompileLines": [
+        583
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 635
+        }
+      ]
+    },
+    {
+      "code": 203,
+      "name": "Set Event Location",
+      "line": 9747,
+      "help": {
+        "name": "Set Event Location",
+        "href": "01_10_06.html#p03",
+        "line": 81
+      },
+      "formalDecompileLines": [
+        585
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 648
+        }
+      ]
+    },
+    {
+      "code": 204,
+      "name": "Scroll Map",
+      "line": 9770,
+      "help": {
+        "name": "Scroll Map",
+        "href": "01_10_06.html#p04",
+        "line": 82
+      },
+      "formalDecompileLines": [
+        587
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 659
+        }
+      ]
+    },
+    {
+      "code": 205,
+      "name": "Set Movement Route",
+      "line": 9782,
+      "help": {
+        "name": "Set Movement Route",
+        "href": "01_10_06.html#p05",
+        "line": 83
+      },
+      "formalDecompileLines": [
+        335,
+        589
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 672
+        }
+      ]
+    },
+    {
+      "code": 206,
+      "name": "Getting On and Off Vehicles",
+      "line": 9795,
+      "help": {
+        "name": "Get on/off Vehicle",
+        "href": "01_10_06.html#p06",
+        "line": 84
+      },
+      "formalDecompileLines": [
+        591
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 682
+        }
+      ]
+    },
+    {
+      "code": 211,
+      "name": "Change Transparency",
+      "line": 9801,
+      "help": {
+        "name": "Change Transparency",
+        "href": "01_10_07.html#p01",
+        "line": 88
+      },
+      "formalDecompileLines": [
+        598
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 689
+        }
+      ]
+    },
+    {
+      "code": 212,
+      "name": "Show Animation",
+      "line": 9807,
+      "help": {
+        "name": "Show Animation",
+        "href": "01_10_07.html#p04",
+        "line": 91
+      },
+      "formalDecompileLines": [
+        600
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 696
+        }
+      ]
+    },
+    {
+      "code": 213,
+      "name": "Show Balloon Icon",
+      "line": 9819,
+      "help": {
+        "name": "Show Balloon Icon",
+        "href": "01_10_07.html#p05",
+        "line": 92
+      },
+      "formalDecompileLines": [
+        602
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 707
+        }
+      ]
+    },
+    {
+      "code": 214,
+      "name": "Erase Event",
+      "line": 9831,
+      "help": {
+        "name": "Erase Event",
+        "href": "01_10_07.html#p06",
+        "line": 93
+      },
+      "formalDecompileLines": [
+        604
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 511
+        }
+      ]
+    },
+    {
+      "code": 216,
+      "name": "Change Player Followers",
+      "line": 9839,
+      "help": {
+        "name": "Change Player Followers",
+        "href": "01_10_07.html#p02",
+        "line": 89
+      },
+      "formalDecompileLines": [
+        609
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 718
+        }
+      ]
+    },
+    {
+      "code": 217,
+      "name": "Gather Followers",
+      "line": 9850,
+      "help": {
+        "name": "Gather Followers",
+        "href": "01_10_07.html#p03",
+        "line": 90
+      },
+      "formalDecompileLines": [
+        611
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 725
+        }
+      ]
+    },
+    {
+      "code": 221,
+      "name": "Fadeout Screen",
+      "line": 9859,
+      "help": {
+        "name": "Fadeout Screen",
+        "href": "01_10_10.html#p01",
+        "line": 109
+      },
+      "formalDecompileLines": [
+        618
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 733
+        }
+      ]
+    },
+    {
+      "code": 222,
+      "name": "Fadein Screen",
+      "line": 9869,
+      "help": {
+        "name": "Fadein Screen",
+        "href": "01_10_10.html#p02",
+        "line": 110
+      },
+      "formalDecompileLines": [
+        625
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 741
+        }
+      ]
+    },
+    {
+      "code": 223,
+      "name": "Tint Screen",
+      "line": 9879,
+      "help": {
+        "name": "Tint Screen",
+        "href": "01_10_10.html#p03",
+        "line": 111
+      },
+      "formalDecompileLines": [
+        632
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 749
+        }
+      ]
+    },
+    {
+      "code": 224,
+      "name": "Flash Screen",
+      "line": 9888,
+      "help": {
+        "name": "Flash Screen",
+        "href": "01_10_10.html#p04",
+        "line": 112
+      },
+      "formalDecompileLines": [
+        634
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 757
+        }
+      ]
+    },
+    {
+      "code": 225,
+      "name": "Shake Screen",
+      "line": 9897,
+      "help": {
+        "name": "Shake Screen",
+        "href": "01_10_10.html#p05",
+        "line": 113
+      },
+      "formalDecompileLines": [
+        636
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 765
+        }
+      ]
+    },
+    {
+      "code": 230,
+      "name": "Wait",
+      "line": 9906,
+      "help": {
+        "name": "Wait",
+        "href": "01_10_09.html#p01",
+        "line": 105
+      },
+      "formalDecompileLines": [
+        638
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 504
+        }
+      ]
+    },
+    {
+      "code": 231,
+      "name": "Show Picture",
+      "line": 9912,
+      "help": {
+        "name": "Show Picture",
+        "href": "01_10_08.html#p01",
+        "line": 97
+      },
+      "formalDecompileLines": [
+        647
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1089
+        }
+      ]
+    },
+    {
+      "code": 232,
+      "name": "Move Picture",
+      "line": 9927,
+      "help": {
+        "name": "Move Picture",
+        "href": "01_10_08.html#p02",
+        "line": 98
+      },
+      "formalDecompileLines": [
+        649
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1105
+        }
+      ]
+    },
+    {
+      "code": 233,
+      "name": "Rotate Picture",
+      "line": 9945,
+      "help": {
+        "name": "Rotate Picture",
+        "href": "01_10_08.html#p03",
+        "line": 99
+      },
+      "formalDecompileLines": [
+        651
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1123
+        }
+      ]
+    },
+    {
+      "code": 234,
+      "name": "Tint Picture",
+      "line": 9951,
+      "help": {
+        "name": "Tint Picture",
+        "href": "01_10_08.html#p04",
+        "line": 100
+      },
+      "formalDecompileLines": [
+        653
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1130
+        }
+      ]
+    },
+    {
+      "code": 235,
+      "name": "Erase Picture",
+      "line": 9960,
+      "help": {
+        "name": "Erase Picture",
+        "href": "01_10_08.html#p05",
+        "line": 101
+      },
+      "formalDecompileLines": [
+        655
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1137
+        }
+      ]
+    },
+    {
+      "code": 236,
+      "name": "Set Weather Effect",
+      "line": 9966,
+      "help": {
+        "name": "Set Weather Effect",
+        "href": "01_10_10.html#p06",
+        "line": 114
+      },
+      "formalDecompileLines": [
+        657
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1145
+        }
+      ]
+    },
+    {
+      "code": 241,
+      "name": "Play BGM",
+      "line": 9977,
+      "help": {
+        "name": "Play BGM",
+        "href": "01_10_11.html#p01",
+        "line": 118
+      },
+      "formalDecompileLines": [
+        659
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1152
+        }
+      ]
+    },
+    {
+      "code": 242,
+      "name": "Fadeout BGM",
+      "line": 9983,
+      "help": {
+        "name": "Fadeout BGM",
+        "href": "01_10_11.html#p02",
+        "line": 119
+      },
+      "formalDecompileLines": [
+        661
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1159
+        }
+      ]
+    },
+    {
+      "code": 243,
+      "name": "Save BGM",
+      "line": 9989,
+      "help": {
+        "name": "Save BGM",
+        "href": "01_10_11.html#p03",
+        "line": 120
+      },
+      "formalDecompileLines": [
+        663
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1166
+        }
+      ]
+    },
+    {
+      "code": 244,
+      "name": "Resume BGM",
+      "line": 9995,
+      "help": {
+        "name": "Replay BGM",
+        "href": "01_10_11.html#p04",
+        "line": 121
+      },
+      "formalDecompileLines": [
+        670
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1173
+        }
+      ]
+    },
+    {
+      "code": 245,
+      "name": "Play BGS",
+      "line": 10001,
+      "help": {
+        "name": "Play BGS",
+        "href": "01_10_11.html#p05",
+        "line": 122
+      },
+      "formalDecompileLines": [
+        677
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1180
+        }
+      ]
+    },
+    {
+      "code": 246,
+      "name": "Fadeout BGS",
+      "line": 10007,
+      "help": {
+        "name": "Fadeout BGS ",
+        "href": "01_10_11.html#p06",
+        "line": 123
+      },
+      "formalDecompileLines": [
+        679
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1187
+        }
+      ]
+    },
+    {
+      "code": 249,
+      "name": "Play ME",
+      "line": 10013,
+      "help": {
+        "name": "Play ME",
+        "href": "01_10_11.html#p07",
+        "line": 124
+      },
+      "formalDecompileLines": [
+        681
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1194
+        }
+      ]
+    },
+    {
+      "code": 250,
+      "name": "Play SE",
+      "line": 10019,
+      "help": {
+        "name": "Play SE",
+        "href": "01_10_11.html#p08",
+        "line": 125
+      },
+      "formalDecompileLines": [
+        683
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1201
+        }
+      ]
+    },
+    {
+      "code": 251,
+      "name": "Stop SE",
+      "line": 10025,
+      "help": {
+        "name": "Stop SE",
+        "href": "01_10_11.html#p09",
+        "line": 126
+      },
+      "formalDecompileLines": [
+        685
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1208
+        }
+      ]
+    },
+    {
+      "code": 261,
+      "name": "Play Movie",
+      "line": 10031,
+      "help": {
+        "name": "Play Movie",
+        "href": "01_10_11.html#p10",
+        "line": 127
+      },
+      "formalDecompileLines": [
+        692
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1216
+        }
+      ]
+    },
+    {
+      "code": 281,
+      "name": "Change Map Name Display",
+      "line": 10053,
+      "help": {
+        "name": "Change Map Name Display",
+        "href": "01_10_14.html#p01",
+        "line": 159
+      },
+      "formalDecompileLines": [
+        694
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1223
+        }
+      ]
+    },
+    {
+      "code": 282,
+      "name": "Change Tileset",
+      "line": 10063,
+      "help": {
+        "name": "Change Tileset",
+        "href": "01_10_14.html#p02",
+        "line": 160
+      },
+      "formalDecompileLines": [
+        696
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1230
+        }
+      ]
+    },
+    {
+      "code": 283,
+      "name": "Change Battle Back",
+      "line": 10085,
+      "help": {
+        "name": "Change Battle Back",
+        "href": "01_10_14.html#p03",
+        "line": 161
+      },
+      "formalDecompileLines": [
+        698
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1237
+        }
+      ]
+    },
+    {
+      "code": 284,
+      "name": "Change Parallax",
+      "line": 10091,
+      "help": {
+        "name": "Change Parallax",
+        "href": "01_10_14.html#p04",
+        "line": 162
+      },
+      "formalDecompileLines": [
+        700
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1244
+        }
+      ]
+    },
+    {
+      "code": 285,
+      "name": "Get Location Info",
+      "line": 10098,
+      "help": {
+        "name": "Get Location Info",
+        "href": "01_10_14.html#p05",
+        "line": 163
+      },
+      "formalDecompileLines": [
+        702
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1252
+        }
+      ]
+    },
+    {
+      "code": 301,
+      "name": "Battle Processing",
+      "line": 10129,
+      "help": {
+        "name": "Battle Processing",
+        "href": "01_10_12.html#p01",
+        "line": 135
+      },
+      "formalDecompileLines": [
+        354
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 520
+        }
+      ]
+    },
+    {
+      "code": 302,
+      "name": "Shop Processing",
+      "line": 10176,
+      "help": {
+        "name": "Shop Processing",
+        "href": "01_10_12.html#p02",
+        "line": 136
+      },
+      "formalDecompileLines": [
+        361
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 809
+        }
+      ]
+    },
+    {
+      "code": 303,
+      "name": "Name Input Processing",
+      "line": 10190,
+      "help": {
+        "name": "Name Input Processing",
+        "href": "01_10_12.html#p03",
+        "line": 137
+      },
+      "formalDecompileLines": [
+        704
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 824
+        }
+      ]
+    },
+    {
+      "code": 311,
+      "name": "Change HP",
+      "line": 10201,
+      "help": {
+        "name": "Change HP",
+        "href": "01_10_05.html#p01",
+        "line": 58
+      },
+      "formalDecompileLines": [
+        706
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 831
+        }
+      ]
+    },
+    {
+      "code": 312,
+      "name": "Change MP",
+      "line": 10210,
+      "help": {
+        "name": "Change MP",
+        "href": "01_10_05.html#p02",
+        "line": 59
+      },
+      "formalDecompileLines": [
+        708
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 842
+        }
+      ]
+    },
+    {
+      "code": 326,
+      "name": "Change TP",
+      "line": 10219,
+      "help": {
+        "name": "Change TP",
+        "href": "01_10_05.html#p03",
+        "line": 60
+      },
+      "formalDecompileLines": [
+        736
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 982
+        }
+      ]
+    },
+    {
+      "code": 313,
+      "name": "Change State",
+      "line": 10228,
+      "help": {
+        "name": "Change State",
+        "href": "01_10_05.html#p04",
+        "line": 61
+      },
+      "formalDecompileLines": [
+        710
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 852
+        }
+      ]
+    },
+    {
+      "code": 314,
+      "name": "Recover All",
+      "line": 10245,
+      "help": {
+        "name": "Recover All",
+        "href": "01_10_05.html#p05",
+        "line": 62
+      },
+      "formalDecompileLines": [
+        712
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 863
+        }
+      ]
+    },
+    {
+      "code": 315,
+      "name": "Change EXP",
+      "line": 10253,
+      "help": {
+        "name": "Change EXP",
+        "href": "01_10_05.html#p06",
+        "line": 63
+      },
+      "formalDecompileLines": [
+        714
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 870
+        }
+      ]
+    },
+    {
+      "code": 316,
+      "name": "Change Level",
+      "line": 10262,
+      "help": {
+        "name": "Change Level",
+        "href": "01_10_05.html#p07",
+        "line": 64
+      },
+      "formalDecompileLines": [
+        716
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 881
+        }
+      ]
+    },
+    {
+      "code": 317,
+      "name": "Change Parameter",
+      "line": 10271,
+      "help": {
+        "name": "Change Parameter",
+        "href": "01_10_05.html#p08",
+        "line": 65
+      },
+      "formalDecompileLines": [
+        718
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 892
+        }
+      ]
+    },
+    {
+      "code": 318,
+      "name": "Change Skill",
+      "line": 10280,
+      "help": {
+        "name": "Change Skill",
+        "href": "01_10_05.html#p09",
+        "line": 66
+      },
+      "formalDecompileLines": [
+        720
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 903
+        }
+      ]
+    },
+    {
+      "code": 319,
+      "name": "Change Equipment",
+      "line": 10292,
+      "help": {
+        "name": "Change Equipment",
+        "href": "01_10_05.html#p10",
+        "line": 67
+      },
+      "formalDecompileLines": [
+        722
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 914
+        }
+      ]
+    },
+    {
+      "code": 320,
+      "name": "Change Name",
+      "line": 10301,
+      "help": {
+        "name": "Change Name",
+        "href": "01_10_05.html#p11",
+        "line": 68
+      },
+      "formalDecompileLines": [
+        724
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 925
+        }
+      ]
+    },
+    {
+      "code": 321,
+      "name": "Change Class",
+      "line": 10310,
+      "help": {
+        "name": "Change Class",
+        "href": "01_10_05.html#p12",
+        "line": 69
+      },
+      "formalDecompileLines": [
+        726
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 932
+        }
+      ]
+    },
+    {
+      "code": 322,
+      "name": "Change Actor Images",
+      "line": 10319,
+      "help": {
+        "name": "Change Actor Images",
+        "href": "01_10_13.html#p10",
+        "line": 154
+      },
+      "formalDecompileLines": [
+        728
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 943
+        }
+      ]
+    },
+    {
+      "code": 323,
+      "name": "Change Vehicle Image",
+      "line": 10331,
+      "help": {
+        "name": "Change Vehicle Image",
+        "href": "01_10_13.html#p11",
+        "line": 155
+      },
+      "formalDecompileLines": [
+        730
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 957
+        }
+      ]
+    },
+    {
+      "code": 324,
+      "name": "Change Nickname",
+      "line": 10340,
+      "help": {
+        "name": "Change Nickname",
+        "href": "01_10_05.html#p13",
+        "line": 70
+      },
+      "formalDecompileLines": [
+        732
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 968
+        }
+      ]
+    },
+    {
+      "code": 325,
+      "name": "Change Profile",
+      "line": 10349,
+      "help": {
+        "name": "Change Profile",
+        "href": "01_10_05.html#p14",
+        "line": 71
+      },
+      "formalDecompileLines": [
+        734
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 975
+        }
+      ]
+    },
+    {
+      "code": 331,
+      "name": "Change Enemy HP",
+      "line": 10358,
+      "help": {
+        "name": "Change Enemy HP",
+        "href": "01_10_15.html#p01",
+        "line": 167
+      },
+      "formalDecompileLines": [
+        738
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 992
+        }
+      ]
+    },
+    {
+      "code": 332,
+      "name": "Change Enemy MP",
+      "line": 10367,
+      "help": {
+        "name": "Change Enemy MP",
+        "href": "01_10_15.html#p02",
+        "line": 168
+      },
+      "formalDecompileLines": [
+        740
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1003
+        }
+      ]
+    },
+    {
+      "code": 342,
+      "name": "Change Enemy TP",
+      "line": 10376,
+      "help": {
+        "name": "Change Enemy TP",
+        "href": "01_10_15.html#p03",
+        "line": 169
+      },
+      "formalDecompileLines": [
+        756
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1067
+        }
+      ]
+    },
+    {
+      "code": 333,
+      "name": "Change Enemy State",
+      "line": 10385,
+      "help": {
+        "name": "Change Enemy State",
+        "href": "01_10_15.html#p04",
+        "line": 170
+      },
+      "formalDecompileLines": [
+        742
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1013
+        }
+      ]
+    },
+    {
+      "code": 334,
+      "name": "Enemy Recover All",
+      "line": 10402,
+      "help": {
+        "name": "Enemy Recover All",
+        "href": "01_10_15.html#p05",
+        "line": 171
+      },
+      "formalDecompileLines": [
+        744
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1023
+        }
+      ]
+    },
+    {
+      "code": 335,
+      "name": "Enemy Appear",
+      "line": 10410,
+      "help": {
+        "name": "Enemy Appear",
+        "href": "01_10_15.html#p06",
+        "line": 172
+      },
+      "formalDecompileLines": [
+        746
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1026
+        }
+      ]
+    },
+    {
+      "code": 336,
+      "name": "Enemy Transform",
+      "line": 10419,
+      "help": {
+        "name": "Enemy Transform",
+        "href": "01_10_15.html#p07",
+        "line": 173
+      },
+      "formalDecompileLines": [
+        748
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1030
+        }
+      ]
+    },
+    {
+      "code": 337,
+      "name": "Show Battle Animation",
+      "line": 10428,
+      "help": {
+        "name": "Show Battle Animation",
+        "href": "01_10_15.html#p08",
+        "line": 174
+      },
+      "formalDecompileLines": [
+        750
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1037
+        }
+      ]
+    },
+    {
+      "code": 339,
+      "name": "Force Action",
+      "line": 10446,
+      "help": {
+        "name": "Force Action",
+        "href": "01_10_15.html#p09",
+        "line": 175
+      },
+      "formalDecompileLines": [
+        752
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1048
+        }
+      ]
+    },
+    {
+      "code": 340,
+      "name": "Abort Battle",
+      "line": 10458,
+      "help": {
+        "name": "Abort Battle",
+        "href": "01_10_15.html#p10",
+        "line": 176
+      },
+      "formalDecompileLines": [
+        754
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1063
+        }
+      ]
+    },
+    {
+      "code": 351,
+      "name": "Open Menu Screen",
+      "line": 10464,
+      "help": {
+        "name": "Open Menu Screen",
+        "href": "01_10_12.html#p04",
+        "line": 138
+      },
+      "formalDecompileLines": [
+        758
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1076
+        }
+      ]
+    },
+    {
+      "code": 352,
+      "name": "Open Save Screen",
+      "line": 10473,
+      "help": {
+        "name": "Open Save Screen",
+        "href": "01_10_12.html#p05",
+        "line": 139
+      },
+      "formalDecompileLines": [
+        760
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1079
+        }
+      ]
+    },
+    {
+      "code": 353,
+      "name": "Game Over",
+      "line": 10481,
+      "help": {
+        "name": "Game Over",
+        "href": "01_10_12.html#p06",
+        "line": 140
+      },
+      "formalDecompileLines": [
+        762
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1082
+        }
+      ]
+    },
+    {
+      "code": 354,
+      "name": "Return to Title Screen",
+      "line": 10487,
+      "help": {
+        "name": "Return to Title Screen",
+        "href": "01_10_12.html#p07",
+        "line": 141
+      },
+      "formalDecompileLines": [
+        764
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 1085
+        }
+      ]
+    },
+    {
+      "code": 355,
+      "name": "Script",
+      "line": 10493,
+      "help": {
+        "name": "Script",
+        "href": "01_10_16.html#p01",
+        "line": 180
+      },
+      "formalDecompileLines": [
+        363
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 562
+        }
+      ]
+    },
+    {
+      "code": 356,
+      "name": "Plugin Command",
+      "line": 10504,
+      "help": {
+        "name": "Plugin Command",
+        "href": "01_10_16.html#p02",
+        "line": 181
+      },
+      "formalDecompileLines": [
+        766
+      ],
+      "compileLocations": [
+        {
+          "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+          "line": 577
+        }
+      ]
+    }
+  ],
+  "helperInventoryNotes": "Presence is static dispatch coverage, not a full semantic/parameter test. Structural and continuation records are owned by parent helpers.",
+  "continuations": [
+    {
+      "code": 0
+    },
+    {
+      "code": 401
+    },
+    {
+      "code": 402
+    },
+    {
+      "code": 403
+    },
+    {
+      "code": 404
+    },
+    {
+      "code": 405
+    },
+    {
+      "code": 408
+    },
+    {
+      "code": 411
+    },
+    {
+      "code": 412
+    },
+    {
+      "code": 413
+    },
+    {
+      "code": 505
+    },
+    {
+      "code": 601
+    },
+    {
+      "code": 602
+    },
+    {
+      "code": 603
+    },
+    {
+      "code": 604
+    },
+    {
+      "code": 605
+    },
+    {
+      "code": 655
+    }
+  ],
+  "movement": [
+    {
+      "code": 0,
+      "name": "ROUTE_END",
+      "line": 6841,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 1,
+      "name": "ROUTE_MOVE_DOWN",
+      "line": 6842,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 2,
+      "name": "ROUTE_MOVE_LEFT",
+      "line": 6843,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 3,
+      "name": "ROUTE_MOVE_RIGHT",
+      "line": 6844,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 4,
+      "name": "ROUTE_MOVE_UP",
+      "line": 6845,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 5,
+      "name": "ROUTE_MOVE_LOWER_L",
+      "line": 6846,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 6,
+      "name": "ROUTE_MOVE_LOWER_R",
+      "line": 6847,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 7,
+      "name": "ROUTE_MOVE_UPPER_L",
+      "line": 6848,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 8,
+      "name": "ROUTE_MOVE_UPPER_R",
+      "line": 6849,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 9,
+      "name": "ROUTE_MOVE_RANDOM",
+      "line": 6850,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 10,
+      "name": "ROUTE_MOVE_TOWARD",
+      "line": 6851,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 11,
+      "name": "ROUTE_MOVE_AWAY",
+      "line": 6852,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 12,
+      "name": "ROUTE_MOVE_FORWARD",
+      "line": 6853,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 13,
+      "name": "ROUTE_MOVE_BACKWARD",
+      "line": 6854,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 14,
+      "name": "ROUTE_JUMP",
+      "line": 6855,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 15,
+      "name": "ROUTE_WAIT",
+      "line": 6856,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 16,
+      "name": "ROUTE_TURN_DOWN",
+      "line": 6857,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 17,
+      "name": "ROUTE_TURN_LEFT",
+      "line": 6858,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 18,
+      "name": "ROUTE_TURN_RIGHT",
+      "line": 6859,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 19,
+      "name": "ROUTE_TURN_UP",
+      "line": 6860,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 20,
+      "name": "ROUTE_TURN_90D_R",
+      "line": 6861,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 21,
+      "name": "ROUTE_TURN_90D_L",
+      "line": 6862,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 22,
+      "name": "ROUTE_TURN_180D",
+      "line": 6863,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 23,
+      "name": "ROUTE_TURN_90D_R_L",
+      "line": 6864,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 24,
+      "name": "ROUTE_TURN_RANDOM",
+      "line": 6865,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 25,
+      "name": "ROUTE_TURN_TOWARD",
+      "line": 6866,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 26,
+      "name": "ROUTE_TURN_AWAY",
+      "line": 6867,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 27,
+      "name": "ROUTE_SWITCH_ON",
+      "line": 6868,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 28,
+      "name": "ROUTE_SWITCH_OFF",
+      "line": 6869,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 29,
+      "name": "ROUTE_CHANGE_SPEED",
+      "line": 6870,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 30,
+      "name": "ROUTE_CHANGE_FREQ",
+      "line": 6871,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 31,
+      "name": "ROUTE_WALK_ANIME_ON",
+      "line": 6872,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 32,
+      "name": "ROUTE_WALK_ANIME_OFF",
+      "line": 6873,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 33,
+      "name": "ROUTE_STEP_ANIME_ON",
+      "line": 6874,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 34,
+      "name": "ROUTE_STEP_ANIME_OFF",
+      "line": 6875,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 35,
+      "name": "ROUTE_DIR_FIX_ON",
+      "line": 6876,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 36,
+      "name": "ROUTE_DIR_FIX_OFF",
+      "line": 6877,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 37,
+      "name": "ROUTE_THROUGH_ON",
+      "line": 6878,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 38,
+      "name": "ROUTE_THROUGH_OFF",
+      "line": 6879,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 39,
+      "name": "ROUTE_TRANSPARENT_ON",
+      "line": 6880,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 40,
+      "name": "ROUTE_TRANSPARENT_OFF",
+      "line": 6881,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 41,
+      "name": "ROUTE_CHANGE_IMAGE",
+      "line": 6882,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 42,
+      "name": "ROUTE_CHANGE_OPACITY",
+      "line": 6883,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 43,
+      "name": "ROUTE_CHANGE_BLEND_MODE",
+      "line": 6884,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 44,
+      "name": "ROUTE_PLAY_SE",
+      "line": 6885,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    },
+    {
+      "code": 45,
+      "name": "ROUTE_SCRIPT",
+      "line": 6886,
+      "compileLiteralPresent": true,
+      "decompilerMentionsCode": true
+    }
+  ]
+}

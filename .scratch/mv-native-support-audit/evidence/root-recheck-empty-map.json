@@ -1,0 +1,11 @@
+{
+  "node": "v22.23.0",
+  "platform": "win32",
+  "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\mv-empty-map-audit-05V4d5\\dist-empty-native",
+  "events": [],
+  "decompilePassed": false,
+  "error": {
+    "name": "Error",
+    "message": "decompile error map:2: MV-MAP-EVENT-SHAPE: Invalid native Map Event saved shape. at events; expected nonempty dense event array with required null slot zero; actual "
+  }
+}

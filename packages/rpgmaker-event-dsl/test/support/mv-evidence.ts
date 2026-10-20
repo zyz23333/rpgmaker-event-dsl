@@ -3,7 +3,7 @@ import { createHash, randomUUID } from "node:crypto";
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { createRequire } from "node:module";
 import { arch, release } from "node:os";
-import { basename, dirname, isAbsolute, join, relative, resolve } from "node:path";
+import { dirname, isAbsolute, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { inspect } from "node:util";
 
@@ -14,9 +14,6 @@ export const evidenceRoot = join(
   repositoryRoot,
   ".scratch/complete-mv-events-implementation/evidence",
 );
-export const fixturePath =
-  "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json";
-
 const text = z.string().min(1);
 const hash = z.string().regex(/^[a-f0-9]{64}$/u);
 const sourceKind = z.enum([
@@ -117,9 +114,9 @@ export function sha256(bytes: string | Uint8Array): string {
   return createHash("sha256").update(bytes).digest("hex");
 }
 
-export async function readRequirements(directory = evidenceRoot) {
+export async function readRequirements() {
   return requirementsSchema.parse(
-    JSON.parse(await readFile(join(directory, "requirements.json"), "utf8")),
+    JSON.parse(await readFile(join(evidenceRoot, "requirements.json"), "utf8")),
   );
 }
 
@@ -135,153 +132,6 @@ function repositoryPath(path: string): string {
     throw new Error(`Evidence path escapes repository: ${path}`);
   }
   return resolved;
-}
-
-export async function validateRequirements({
-  directory = evidenceRoot,
-  history = "latest",
-}: { directory?: string; history?: "latest" | "all" } = {}): Promise<void> {
-  const index = await readRequirements(directory);
-  const artifactBytes = new Map<string, Promise<Buffer>>();
-  const readArtifact = (path: string): Promise<Buffer> => {
-    const resolved = repositoryPath(path);
-    let bytes = artifactBytes.get(resolved);
-    if (bytes === undefined) {
-      bytes = readFile(resolved);
-      artifactBytes.set(resolved, bytes);
-    }
-    return bytes;
-  };
-  const ids = new Set<string>();
-  const checklist = await readFile(join(directory, "README.md"), "utf8");
-  const listedIds = [...checklist.matchAll(/^\|\s*(MV-[A-Z0-9-]+)\s*\|/gmu)].map(
-    (match) => match[1],
-  );
-  for (const requirement of index.requirements) {
-    if (ids.has(requirement.id)) throw new Error(`Duplicate requirement: ${requirement.id}`);
-    ids.add(requirement.id);
-    if (!listedIds.includes(requirement.id)) {
-      throw new Error(`Missing human checklist entry: ${requirement.id}`);
-    }
-    for (const source of requirement.sources) {
-      if (!(await readArtifact(source.path)).toString("utf8").includes(source.section)) {
-        throw new Error(`Missing source section: ${source.path} / ${source.section}`);
-      }
-    }
-    const fixtureHash = sha256(await readArtifact(requirement.fixture.path));
-    if (fixtureHash !== requirement.fixture.sha256) {
-      throw new Error(`Fixture hash differs for ${requirement.id}: ${fixtureHash}`);
-    }
-    if (requirement.test !== undefined) {
-      if (
-        !(await readArtifact(requirement.test.path))
-          .toString("utf8")
-          .includes(requirement.test.name)
-      ) {
-        throw new Error(`Missing test case: ${requirement.id}`);
-      }
-    } else if (requirement.review !== undefined) {
-      const review = (await readArtifact(requirement.review.path)).toString("utf8");
-      if (!review.includes(requirement.review.section) || !review.includes(requirement.id)) {
-        throw new Error(`Missing documentary review section or case: ${requirement.id}`);
-      }
-    }
-  }
-  if (listedIds.length !== ids.size || listedIds.some((id) => !ids.has(id!))) {
-    throw new Error("Human checklist has missing, duplicate, or unknown requirement IDs");
-  }
-  const resultsRoot = join(directory, "results");
-  const requirementsById = new Map(
-    index.requirements.map((requirement) => [requirement.id, requirement]),
-  );
-  const runIds = new Set<string>();
-  const allResultPaths = (await listFiles(resultsRoot)).filter((path) => path.endsWith(".json"));
-  const parsedResults = new Map<string, z.infer<typeof resultSchema>>();
-  const namedResults = new Map<string, { requirementId: string; runId: string }>();
-  const latest = new Map<string, { time: number; paths: string[] }>();
-  if (history === "latest") {
-    for (const path of allResultPaths) {
-      const name = basename(path).match(
-        /^(MV-[A-Z0-9-]+)-(\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}-\d{3}Z-[a-f0-9]{8}-(?:[a-f0-9]{4}-){3}[a-f0-9]{12})\.json$/u,
-      );
-      const namedTime = name?.[2]?.replace(
-        /^(\d{4}-\d{2}-\d{2}T\d{2})-(\d{2})-(\d{2})-(\d{3})Z-.+$/u,
-        "$1:$2:$3.$4Z",
-      );
-      let requirementId: string;
-      let time: number;
-      if (
-        namedTime !== undefined &&
-        Number.isFinite(Date.parse(namedTime)) &&
-        new Date(namedTime).toISOString() === namedTime
-      ) {
-        requirementId = name![1]!;
-        time = Date.parse(namedTime);
-        namedResults.set(path, { requirementId, runId: name![2]! });
-      } else {
-        // Legacy names have no trustworthy ordering metadata. Always parse them,
-        // including malformed names, so they cannot silently disappear from checks.
-        const result = resultSchema.parse(JSON.parse(await readFile(path, "utf8")));
-        parsedResults.set(path, result);
-        requirementId = result.requirementId;
-        time = Date.parse(result.completedAt);
-      }
-      if (!requirementsById.has(requirementId))
-        throw new Error(`Result references unknown requirement: ${path}`);
-      const previous = latest.get(requirementId);
-      if (previous === undefined || time > previous.time) {
-        latest.set(requirementId, { time, paths: [path] });
-      } else if (time === previous.time) {
-        previous.paths.push(path);
-      }
-    }
-  }
-  const resultPaths =
-    history === "all"
-      ? allResultPaths
-      : [
-          ...new Set(
-            [...latest.values()].flatMap(({ paths }) => paths).concat([...parsedResults.keys()]),
-          ),
-        ].sort();
-  const resultReadWindow = 32;
-  const readResult = (path: string): Promise<PromiseSettledResult<string>> =>
-    readFile(path, "utf8").then(
-      (value) => ({ status: "fulfilled", value }),
-      (reason: unknown) => ({ status: "rejected", reason }),
-    );
-  const reads = resultPaths.slice(0, resultReadWindow).map(readResult);
-  for (const [position, path] of resultPaths.entries()) {
-    const slot = position % resultReadWindow;
-    const content = await reads[slot]!;
-    const nextPath = resultPaths[position + resultReadWindow];
-    if (nextPath !== undefined) reads[slot] = readResult(nextPath);
-    if (content.status === "rejected") throw content.reason;
-    const result = parsedResults.get(path) ?? resultSchema.parse(JSON.parse(content.value));
-    const named = namedResults.get(path);
-    if (
-      named !== undefined &&
-      (named.requirementId !== result.requirementId || named.runId !== result.runId)
-    ) {
-      throw new Error(`Result identity differs from filename: ${path}`);
-    }
-    const requirement = requirementsById.get(result.requirementId);
-    if (requirement === undefined)
-      throw new Error(`Result references unknown requirement: ${path}`);
-    if (runIds.has(result.runId)) throw new Error(`Duplicate run ID: ${path}`);
-    runIds.add(result.runId);
-    if (sha256(JSON.stringify(result.source.files)) !== result.source.fingerprint) {
-      throw new Error(`Source fingerprint differs from recorded files: ${path}`);
-    }
-    if (
-      result.source.files.find((file) => file.path === result.fixture.path)?.sha256 !==
-      result.fixture.sha256
-    ) {
-      throw new Error(`Fixture differs from captured source inputs: ${path}`);
-    }
-    if (result.status === "passed" && result.difference !== null)
-      throw new Error(`Passing result has a difference: ${path}`);
-  }
 }
 
 async function listFiles(directory: string): Promise<string[]> {

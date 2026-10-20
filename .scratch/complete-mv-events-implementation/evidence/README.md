@@ -1,6 +1,8 @@
 # MV acceptance evidence
 
-Current status: contract `mv-1.6.1/23` after the [final review fixes](55-final-review-fixes.md), with459 required obligations effectively passed through affected /23 checks plus explicitly unaffected /22 evidence reuse. Original source/build/native identities and failures are retained.
+Current repair: contract `mv-1.6.1/24` accepts and preserves native empty Map event arrays after the independent audit disproved the mandatory-slot-zero assumption for `events: []`. See [the focused repair and verification](../../mv-native-support-audit/research/empty-map-fix.md). Affected source/built product checks pass. Historical acceptance auditing, including its command, implementation and dedicated tests, was removed at the user's request on 2026-10-20. This repair does not re-certify all 459 obligations or native game runs.
+
+Prior /23 delivery: after the [final review fixes](55-final-review-fixes.md),459 required obligations were reported effectively passed through affected /23 checks plus explicitly unaffected /22 evidence reuse. Original source/build/native identities and failures are retained.
 
 Historical /22 audit status: final55 audits all 458 preceding requirements at product candidate `2dc639015f908de6fd524e50236e5422b5f8e990` / contract `mv-1.6.1/22`, with no unresolved requirement. The additional `MV-S7-COMPLETION-AUDIT-055` records this audit. See [final55](55-final-audit.md) and its [complete effective matrix](55-final-audit/effective-matrix.json). The early ticket paragraphs below retain their original bounded-stage history; current completion and exact effective references are recorded by final55. Original failed executions remain failed. Parent final reviews and project cleanup are coordinated separately.
 
@@ -20,11 +22,7 @@ later full family matrices and allocated native regression remain required.
 | MV-S2-CANDIDATE-015      | Complete Common candidate, unusual export names and data boundaries         | synthetic-support   | Actual Workspace plus direct compiler boundary |
 | MV-S2-BUILT-015          | All five boundary cases and Windows baseline through built CLI              | synthetic-support   | Separate actual Windows CLI processes          |
 
-`requirements.json` describes obligations. `results/` contains immutable, machine-produced run records. A requirement does not acquire a passing status merely because it appears in this index. The ordinary test suite validates the index schema, unique IDs, fixture hashes, source sections, test links, checklist completeness and current recorded run references.
-
-Daily result validation selects the latest run for each requirement using the timestamp in canonical recorder filenames; legacy filenames are parsed and ordered by `completedAt`. Every tied latest run is checked, and selection never filters by passing status. Selected canonical records must match their filename identity. Legacy or malformed filenames are always fully validated, even when superseded, so unreadable JSON, corrupt records and unknown requirement IDs cannot disappear through selection. Superseded canonical payloads remain immutable and are checked by the explicit `pnpm --filter rpgmaker-event-dsl test:evidence:history` entry, which preserves the complete schema, run identity uniqueness, captured source fingerprint, fixture binding and result difference checks. This entry is an on-demand full history audit, separate from daily units.
-
-Both modes check record integrity. A structurally valid `failed`, `blocked` or `retest-required` record can pass integrity validation; neither mode certifies that final coverage is complete or that all requirements passed. Ticket55 audits that final acceptance status against the final candidate.
+`requirements.json` describes obligations. `results/` contains machine-produced records from earlier runs. These files remain documentary artifacts; the project no longer provides a historical acceptance audit or tests of that audit. The test suite checks product behavior, DSL input validation, references, command boundaries and Workspace operations. Existing per-run diagnostic output remains available.
 
 This index contains ticket 01 automated seeds, ticket 02 Windows automation baseline, tickets 03–10 reverse-engineering obligations and contract review, ticket 11 System-slot/switch coverage, ticket12 captured map/battle context and ticket13 Loop/Break/Exit coverage; it is not the complete command or native acceptance matrix. Later tickets add their own stable case IDs and independent input/expected data. Per the user's revised acceptance, editor validation uses REA reverse engineering while final actual game runs remain required. The Common Event seed itself does not execute these native groups; its synthetic project context is sufficient for Workspace data operations and is not claimed to be a playable MV project.
 
@@ -425,7 +423,7 @@ Ticket24 adds [complete Map Event pages and exact saved state](24-map-event-full
 
 | Requirement   | Obligation                                                                                                        | Evidence kind       | Required layer                    |
 | ------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------- | --------------------------------- |
-| MV-S5-MAP-011 | Reject missing mandatory native event slot0 on a late Map without publishing or changing complete Workspace state | synthetic-rejection | Actual source/built Workspace API |
+| MV-S5-MAP-011 | Preserve native empty and populated Map event array shapes through Decompile, Check, Compile, Diff and Push | synthetic-support | Actual source/built Workspace API |
 
 | MV-S5-TROOP-PRIOR-003 | Authentic actual built24 /6 pending recovered by actual built25 /7 without new Freshness | synthetic-support | Original path-bound public built Workspace API, frozen before/after and complete immutable build provenance |
 

@@ -1,0 +1,90 @@
+{
+  "artifact": {
+    "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\RPGMV.exe",
+    "bytes": 19595264,
+    "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+    "fileVersion": "1.6.1.0",
+    "versionEvidenceType": "ordinary fixed-version byte decoding, PE resource range from REA"
+  },
+  "reaEvidenceId": "ev_b8067f7657b1ddb9b5509bb30f4e70e609bc89a84c5111b35af88e3cb87f39bd",
+  "extraction": {
+    "matchingTextCandidates": 457,
+    "completeQtResourceTree": false,
+    "firstPartySourceStoredOutsideRepository": "C:\\Users\\Shuen\\.codex\\tmp\\mv-native-support-audit-20261020\\editor"
+  },
+  "resources": [
+    {
+      "offset": 346222,
+      "storedBytes": 2617,
+      "encoding": "qcompress",
+      "decodedBytes": 11436,
+      "sha256": "52fd4ca2a3f178712d94467c5770919cf716882e2ebc9a57bde0a963e9447165",
+      "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-native-support-audit-20261020\\editor\\346222.js"
+    },
+    {
+      "offset": 665677,
+      "storedBytes": 992,
+      "encoding": "qcompress",
+      "decodedBytes": 3578,
+      "sha256": "199459336be17ccb510d1912ef53648342e8903ea95d84b59275f6bcbf4b135e",
+      "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-native-support-audit-20261020\\editor\\665677.qml"
+    },
+    {
+      "offset": 679418,
+      "storedBytes": 1424,
+      "encoding": "qcompress",
+      "decodedBytes": 7863,
+      "sha256": "8e83b762134d12696649e6302adec9f40bbad7618b2c9cbff5ad945f005dd829",
+      "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-native-support-audit-20261020\\editor\\679418.qml"
+    },
+    {
+      "offset": 811221,
+      "storedBytes": 1299,
+      "encoding": "plain",
+      "decodedBytes": 1295,
+      "sha256": "d1822b652c597f6a06cf1fd343a3b731047942e17bad8aee49e6ee4b079fa033",
+      "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-native-support-audit-20261020\\editor\\811221.qml"
+    },
+    {
+      "offset": 909009,
+      "storedBytes": 4291,
+      "encoding": "qcompress",
+      "decodedBytes": 24761,
+      "sha256": "9ce1877d3eac47699a558ada219ec4f217dbc4f215531a7f65ccacd8169c4f93",
+      "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-native-support-audit-20261020\\editor\\909009.qml"
+    },
+    {
+      "offset": 8672102,
+      "storedBytes": 2367,
+      "encoding": "qcompress",
+      "decodedBytes": 11367,
+      "sha256": "d74ef475802a5a8cb0083a5a340968877b4352db4c2e05b1631af0bcd701cb17",
+      "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-native-support-audit-20261020\\editor\\8672102.qml"
+    },
+    {
+      "offset": 8692470,
+      "storedBytes": 1512,
+      "encoding": "qcompress",
+      "decodedBytes": 8055,
+      "sha256": "a3dbf6de287a9aad42200ac59bb31e4c51092a3855c0f0c08d15eb77f7e441a4",
+      "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-native-support-audit-20261020\\editor\\8692470.qml"
+    }
+  ],
+  "files": [
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\rmmv-local-runtime-1.6.1\\js\\rpg_objects.js",
+      "bytes": 304315,
+      "sha256": "2d43dd9d8974c88a1b82ffa493d6d8a02c4ce1d0dfc8f05e6c0ab731e3f0573e"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\NewData\\js\\rpg_objects.js",
+      "bytes": 304315,
+      "sha256": "2d43dd9d8974c88a1b82ffa493d6d8a02c4ce1d0dfc8f05e6c0ab731e3f0573e"
+    },
+    {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\Help\\page\\01_10.html",
+      "bytes": 9044,
+      "sha256": "e5717954d0f30155b31c467e00a6da2a60deb727b8b4a07517aa6bb31f1523a8"
+    }
+  ]
+}

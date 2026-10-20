@@ -227,8 +227,8 @@ function materializeMapCarrier(
   resolver: ReferenceResolver,
 ): Record<string, unknown> {
   const snapshotEvents = Array.isArray(snapshotMapData.events) ? snapshotMapData.events : [];
-  const highestDefinitionId = highestId(definitions);
-  const length = Math.max(snapshotEvents.length, highestDefinitionId + 1, 1);
+  const definitionLength = definitions.length === 0 ? 0 : highestId(definitions) + 1;
+  const length = Math.max(snapshotEvents.length, definitionLength);
   const events = createDenseArray<unknown>(length, null);
 
   for (const definition of definitions) {

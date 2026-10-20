@@ -153,10 +153,10 @@ export function assertNativeMapPages(value: unknown): asserts value is unknown[]
 }
 
 export function assertNativeMapEvents(value: unknown): asserts value is unknown[] {
-  if (!Array.isArray(value) || value.length === 0)
+  if (!Array.isArray(value))
     fail(
       "events",
-      "nonempty dense event array with required null slot zero",
+      "dense event array (slot zero must be null when present)",
       value,
       "MV-MAP-EVENT-SHAPE",
     );

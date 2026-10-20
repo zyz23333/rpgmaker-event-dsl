@@ -1,0 +1,63 @@
+{
+  "startedAt": "2026-10-20T07:45:39.267Z",
+  "node": "v22.23.0",
+  "platform": "win32",
+  "nativeMapSha256": "ba82d379756808bc5fdae1f5e77492bbadd59770f65f706e5b557fc990d7ede5",
+  "source": {
+    "map-event/native.ts": "6e73154d35b91b7778d358771027be563273edbc046d4324df762bb2c43ce146",
+    "project-data/materialization.ts": "17d34763a89e955103ba04112f0b66a875812a2dea4490c51bb47f324514d757",
+    "workspace/type-inputs.ts": "adf00b5e94cf8ae06c95501e731dadfc4b66045878ade7fd24dd88141b3e297f"
+  },
+  "built": {
+    "authoring-BPj5f60w.mjs": "99455ab0c8d51de5877d60213679a80f6a695b7fe5e025b11d977a1297f2a2bb",
+    "authoring-BPj5f60w.mjs.map": "c3f1e79a649c0725774d3172c6d4850154d109b8da56de0c2ac4e08b103c9420",
+    "cli.d.mts": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee",
+    "cli.d.mts.map": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c",
+    "cli.mjs": "2bfee7042e5b7c5b4329f203510b8bbdf26de9822085aee4487436b48629f6d8",
+    "cli.mjs.map": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8",
+    "index.d.mts": "84df6738b61413bd007bfbfbea0faa0bd8163ce9bb35bab50858ac485efb3e47",
+    "index.d.mts.map": "2b63bd6ced0bcaf8cc28d2064bc32aa9c3c79fb727179d076c25f1e84aefb938",
+    "index.mjs": "9cca8459f3f314b97f0b90cc6f1a60f0333d13f2c4dc6955a1b399cc1dbdb255",
+    "index.mjs.map": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36",
+    "operations-CtJP4Tpf.mjs": "1920a4e13d8a1bfc6cb065dabb6a67f6d225cee10c977d7c4613b47bb10bf31e",
+    "operations-CtJP4Tpf.mjs.map": "094578f210a783a4d64062b3313eb5804a327ad0c928f4d7136e70b804330362",
+    "workspace-api.d.mts": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594",
+    "workspace-api.d.mts.map": "e865bc5bbe325d1e10afb88e1057bee5464f21fba0bfd211e74cb43c7b24a11c",
+    "workspace-api.mjs": "4e109d3bd99217e75f16f192a543e0ea6bc42298d277c558b5553d81b3f84e2e"
+  },
+  "cases": [
+    {
+      "route": "src",
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\mv-empty-map-fixed-DfEFic\\src",
+      "operations": [
+        "decompile",
+        "check",
+        "compile",
+        "diff",
+        "push"
+      ],
+      "diff": "Structured Diff Summary\n\nNo changes.\n\nAffected Project Data Files:\n- none\n\nDestructive Changes: no",
+      "nativeMapExact": true,
+      "projectBytesUnchanged": true,
+      "snapshotBytesUnchanged": true,
+      "contract": "mv-1.6.1/24"
+    },
+    {
+      "route": "dist",
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\mv-empty-map-fixed-DfEFic\\dist",
+      "operations": [
+        "decompile",
+        "check",
+        "compile",
+        "diff",
+        "push"
+      ],
+      "diff": "Structured Diff Summary\n\nNo changes.\n\nAffected Project Data Files:\n- none\n\nDestructive Changes: no",
+      "nativeMapExact": true,
+      "projectBytesUnchanged": true,
+      "snapshotBytesUnchanged": true,
+      "contract": "mv-1.6.1/24"
+    }
+  ],
+  "completedAt": "2026-10-20T07:45:46.527Z"
+}

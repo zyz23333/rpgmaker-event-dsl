@@ -1,0 +1,12 @@
+{
+  "baseline": "298a407535debfdd75afc70d03f0ff49a546e972",
+  "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-R1-ROUTE-014-2026-10-20T03-50-22-407Z-38b99586-a68c-4c90-a547-3894df1d7dfb.json",
+  "workingFileEqualsHead": true,
+  "validatorEqualsHead": true,
+  "fixture": {
+    "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/movement-route-cases.json",
+    "sha256": "c5f48d068f867f56817a9f65f3ed70c79c1c69c9534468ced3f3fdd35e0fec4c"
+  },
+  "capturedFixture": null,
+  "baselineFailsSameInvariant": true
+}

@@ -9,6 +9,8 @@ Completed: 2026-10-20
 Integration branch: `codex/complete-mv-events-implementation`
 Current delivery: [最终两轴评审与问题关闭](evidence/55-final-review.md)、[/23 修复与验证增量](evidence/55-final-review-fixes.md)。55 张实施票全部 resolved，459 项当前验收要求已闭环；正文中的发布与待实施说明保留为原规格历史。
 
+后续修正（2026-10-20）：独立原生调查推翻空地图必须存在 null 零槽的假设；用户要求的 `/24` 修复已完成受影响验证，详见[原生空地图修复与定向验证](../mv-native-support-audit/research/empty-map-fix.md)。上述 `/23` 交付表述保留为此前验收历史，不代表 `/24` 全量或原生游戏已重验；额外索引检查发现的历史夹具绑定问题单独记录。
+
 ## 2026-10-20 用户执行修订：按批次开发，减少全量与证据开销
 
 用户在合并剩余 tickets 后明确要求“开发过程中优化单测。尽量减少全量测试。对证据的要求也放低”。本节优先于正文、单票共通要求和既有执行笔记中更重的测试频次、冻结、归档和逐阶段审核要求；产品行为、逐项功能验收、Windows / Node 22 和最终实际游戏验证继续有效。

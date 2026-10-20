@@ -8,6 +8,14 @@ minor releases.
 
 ## [Unreleased]
 
+### Fixed
+
+- Accepted native MV maps with `events: []` during decompilation and preserved their
+  empty event arrays through compilation and synchronization. Existing null holes and
+  event IDs remain intact when events are added or removed.
+- Invalidated generated data from earlier compile contracts; run a normal Compile
+  before Diff or Push under the updated contract.
+
 ### Changed
 
 - Migrated the implementation to command-family vertical slices with separate domain,

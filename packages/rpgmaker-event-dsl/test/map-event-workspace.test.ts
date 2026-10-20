@@ -160,6 +160,103 @@ it("round trips the complete native blank Map Event and exact note through actua
   });
 }, 30_000);
 
+it.each([null, {}])(
+  "rejects non-array Map events during Clone without changing Workspace state: %j",
+  async (events) => {
+    await withWindowsSandbox("map-non-array-events", async ({ workspaceRoot }) => {
+      await prepareMap(workspaceRoot);
+      const mapPath = join(workspaceRoot, "Game/data/Map001.json");
+      const carrier = JSON.parse(await readFile(mapPath, "utf8"));
+      await writeFile(mapPath, JSON.stringify({ ...carrier, events }));
+      const before = await state(workspaceRoot);
+      await expect(cloneWorkspace({ workspaceRoot })).rejects.toThrow(
+        /Cannot safely locate Project data carrier in Map001.json/,
+      );
+      expect(await state(workspaceRoot)).toStrictEqual(before);
+    });
+  },
+);
+
+it.each([
+  ["event in slot zero", [blankEvent]],
+  ["invalid event entry", [null, false]],
+])(
+  "rejects a late Map with a malformed event array without publishing source: %s",
+  async (_label, events) => {
+    await withWindowsSandbox("map-invalid-event-array", async ({ workspaceRoot }) => {
+      await prepareMap(workspaceRoot);
+      await mkdir(join(workspaceRoot, "src"), { recursive: true });
+      await writeFile(
+        join(workspaceRoot, "src/keeper.events.ts"),
+        'import { commonEvent } from "rpgmaker-event-dsl";\nexport const keeper = commonEvent({ id: 99, name: "Existing source stays exact", trigger: "none", commands: [] });\n',
+      );
+      await compileWorkspace({ workspaceRoot, check: false });
+      await writeFile(
+        join(workspaceRoot, "Game/data/Map002.json"),
+        JSON.stringify({ width: 17, height: 13, tilesetId: 1, events }),
+      );
+      await writeFile(
+        join(workspaceRoot, "Game/data/MapInfos.json"),
+        JSON.stringify([null, { id: 1, name: "Valid" }, { id: 2, name: "Invalid" }]),
+      );
+      await cloneWorkspace({ workspaceRoot });
+      const before = await state(workspaceRoot);
+      expect(before.discovery).not.toHaveLength(0);
+      expect(before.generated).not.toBeNull();
+      await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatchObject({
+        code: "MV-MAP-EVENT-SHAPE",
+        stage: "decompile",
+      });
+      expect(await state(workspaceRoot)).toStrictEqual(before);
+    });
+  },
+);
+
+it("adds, removes and re-adds an event on a native empty Map while preserving IDs and destructive Push checks", async () => {
+  await withWindowsSandbox("map-empty-event-lifecycle", async ({ workspaceRoot }) => {
+    await prepareMap(workspaceRoot, []);
+    await decompileWorkspace({ workspaceRoot });
+    const mapPath = join(workspaceRoot, "Game/data/Map001.json");
+    const carrier = JSON.parse(await readFile(mapPath, "utf8"));
+    const sourcePath = join(workspaceRoot, "src/added.events.ts");
+    const source = [
+      'import { mapEvent, page } from "rpgmaker-event-dsl";',
+      'export const added = mapEvent({ mapId: 1, id: 3, name: "Added", note: "", x: 0, y: 0, pages: [page({ commands: [] })] });',
+      "",
+    ].join("\n");
+    await writeFile(sourcePath, source);
+    await compileWorkspace({ workspaceRoot, check: true });
+    await compileWorkspace({ workspaceRoot, check: false });
+    await pushWorkspace({ workspaceRoot, allowDestructive: false });
+    expect(JSON.parse(await readFile(mapPath, "utf8"))).toStrictEqual({
+      ...carrier,
+      events: [null, null, null, { ...blankEvent, id: 3, name: "Added", note: "" }],
+    });
+
+    await writeFile(sourcePath, "export {};\n");
+    await compileWorkspace({ workspaceRoot, check: false });
+    expect(await diffWorkspace({ workspaceRoot })).toContain("Destructive Changes: yes");
+    const beforeRejectedPush = await state(workspaceRoot);
+    await expect(pushWorkspace({ workspaceRoot, allowDestructive: false })).rejects.toThrow(
+      /Destructive/,
+    );
+    expect(await state(workspaceRoot)).toStrictEqual(beforeRejectedPush);
+    await pushWorkspace({ workspaceRoot, allowDestructive: true });
+    expect(JSON.parse(await readFile(mapPath, "utf8"))).toStrictEqual({
+      ...carrier,
+      events: [null, null, null, null],
+    });
+
+    await writeFile(sourcePath, source.replace("id: 3", "id: 1"));
+    await compileWorkspace({ workspaceRoot, check: false });
+    await pushWorkspace({ workspaceRoot, allowDestructive: false });
+    expect(JSON.parse(await readFile(mapPath, "utf8"))).toStrictEqual({
+      ...carrier,
+      events: [null, { ...blankEvent, name: "Added", note: "" }, null, null],
+    });
+  });
+}, 30_000);
+
 it("rejects a malformed late native page without publishing any candidate or changing Workspace state", async () => {
   await withMapEvidence("map-native-shape", async ({ workspaceRoot }) => {
     const malformed = { ...structuredClone(blankPage), unownedPageField: true };
@@ -175,44 +272,62 @@ it("rejects a malformed late native page without publishing any candidate or cha
   });
 });
 
-it("MV-S5-MAP-011: rejects a late Map with an empty native events array without publishing or changing complete Workspace state", async () => {
+it("MV-S5-MAP-011: round trips empty and populated native Map event arrays without changing their saved shape", async () => {
   await withMapEvidence("map-native-empty-events", async ({ workspaceRoot }) => {
-    await prepareMap(workspaceRoot);
-    await mkdir(join(workspaceRoot, "src"), { recursive: true });
-    await writeFile(
-      join(workspaceRoot, "src/keeper.events.ts"),
-      'import { commonEvent } from "rpgmaker-event-dsl";\nexport const keeper = commonEvent({ id: 99, name: "Existing source stays exact", trigger: "none", commands: [] });\n',
-    );
-    await compileWorkspace({ workspaceRoot, check: false });
-    const mapPath = join(workspaceRoot, "Game/data/Map001.json");
-    const changedMap = JSON.parse(await readFile(mapPath, "utf8"));
-    changedMap.events[1].name = "Earlier valid candidate must not publish";
-    await writeFile(mapPath, JSON.stringify(changedMap));
-    await writeFile(
-      join(workspaceRoot, "Game/data/Map002.json"),
-      JSON.stringify({
+    await createMinimalProject(workspaceRoot);
+    const maps = [
+      { file: "Map001.json", events: [null, blankEvent, null, null] },
+      { file: "Map002.json", events: [] },
+      { file: "Map003.json", events: [null] },
+      { file: "Map004.json", events: [null, null, null] },
+    ].map(({ file, events }) => ({
+      file,
+      data: {
         width: 17,
         height: 13,
         tilesetId: 1,
-        events: [],
+        events,
         external: { preserved: true },
-      }),
-    );
+      },
+    }));
+    for (const { file, data } of maps)
+      await writeFile(join(workspaceRoot, "Game/data", file), JSON.stringify(data));
     await writeFile(
       join(workspaceRoot, "Game/data/MapInfos.json"),
-      JSON.stringify([null, { id: 1, name: "First" }, { id: 2, name: "Late empty" }]),
+      JSON.stringify([
+        null,
+        { id: 1, name: "Populated" },
+        { id: 2, name: "New empty" },
+        { id: 3, name: "Empty with slot zero" },
+        { id: 4, name: "Empty with null holes" },
+      ]),
     );
+    await initWorkspace({ workspaceRoot, projectRoot: "./Game" });
     await cloneWorkspace({ workspaceRoot });
     const before = await state(workspaceRoot);
-    expect(before.discovery).not.toHaveLength(0);
-    expect(before.generated).not.toBeNull();
-    await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatchObject({
-      code: "MV-MAP-EVENT-SHAPE",
-      stage: "decompile",
-      identity: "map:2",
-      location: { nativePath: "events" },
-    });
-    expect(await state(workspaceRoot)).toStrictEqual(before);
+    await decompileWorkspace({ workspaceRoot });
+    const files = await discoverDefinitionFiles(workspaceRoot, discovery);
+    const declarations = (await Promise.all(files.map((file) => loadDefinitionFile(file)))).flat();
+    expect(declarations.filter((value) => value.kind === "mapEvent")).toHaveLength(1);
+    const decompiled = await state(workspaceRoot);
+    await compileWorkspace({ workspaceRoot, check: true });
+    expect(await state(workspaceRoot)).toStrictEqual(decompiled);
+    await compileWorkspace({ workspaceRoot, check: false });
+    for (const { file, data } of maps) {
+      const generatedPath = join(
+        getWorkspaceStatePaths(workspaceRoot).generatedProjectDataDirectory,
+        file,
+      );
+      expect(JSON.parse(await readFile(generatedPath, "utf8"))).toStrictEqual(data);
+    }
+    expect(await diffWorkspace({ workspaceRoot })).toContain(
+      "Affected Project Data Files:\n- none",
+    );
+    await pushWorkspace({ workspaceRoot, allowDestructive: false });
+    const after = await state(workspaceRoot);
+    expect(after.project).toStrictEqual(before.project);
+    expect(after.snapshot).toStrictEqual(before.snapshot);
+    expect(after.source).toStrictEqual(decompiled.source);
   });
 }, 30_000);
 

@@ -1,0 +1,970 @@
+{
+  "evidence_id": "ev_b8067f7657b1ddb9b5509bb30f4e70e609bc89a84c5111b35af88e3cb87f39bd",
+  "subject": {
+    "name": "RPGMV.exe",
+    "digest": {
+      "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281"
+    },
+    "local_path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/RPGMV.exe",
+    "format": "pe",
+    "architecture": "x86"
+  },
+  "provider": {
+    "id": "rea-pe-resources",
+    "name": "REA PE resource parser",
+    "version": "1"
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "inspect_pe_resources",
+  "parameters": {
+    "path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/RPGMV.exe",
+    "max_file_bytes": 67108864,
+    "max_entries": 16384
+  },
+  "raw_result": null,
+  "normalized_result": {
+    "artifact": {
+      "path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/RPGMV.exe",
+      "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+      "bytes": 19595264
+    },
+    "format": "pe32",
+    "machine": 332,
+    "directory": {
+      "rva": 34836480,
+      "location": {
+        "offset": 19369984,
+        "bytes": 193344
+      },
+      "data_directory_location": {
+        "offset": 440,
+        "bytes": 8
+      }
+    },
+    "directories": [
+      {
+        "location": {
+          "offset": 19369984,
+          "bytes": 48
+        },
+        "characteristics": 0,
+        "timestamp": 0,
+        "major_version": 0,
+        "minor_version": 0,
+        "named_entries": 0,
+        "id_entries": 4
+      },
+      {
+        "location": {
+          "offset": 19370032,
+          "bytes": 80
+        },
+        "characteristics": 0,
+        "timestamp": 0,
+        "major_version": 0,
+        "minor_version": 0,
+        "named_entries": 0,
+        "id_entries": 8
+      },
+      {
+        "location": {
+          "offset": 19370192,
+          "bytes": 24
+        },
+        "characteristics": 0,
+        "timestamp": 0,
+        "major_version": 0,
+        "minor_version": 0,
+        "named_entries": 0,
+        "id_entries": 1
+      },
+      {
+        "location": {
+          "offset": 19370216,
+          "bytes": 24
+        },
+        "characteristics": 0,
+        "timestamp": 0,
+        "major_version": 0,
+        "minor_version": 0,
+        "named_entries": 0,
+        "id_entries": 1
+      },
+      {
+        "location": {
+          "offset": 19370240,
+          "bytes": 24
+        },
+        "characteristics": 0,
+        "timestamp": 0,
+        "major_version": 0,
+        "minor_version": 0,
+        "named_entries": 0,
+        "id_entries": 1
+      },
+      {
+        "location": {
+          "offset": 19370264,
+          "bytes": 24
+        },
+        "characteristics": 0,
+        "timestamp": 0,
+        "major_version": 0,
+        "minor_version": 0,
+        "named_entries": 0,
+        "id_entries": 1
+      },
+      {
+        "location": {
+          "offset": 19370288,
+          "bytes": 24
+        },
+        "characteristics": 0,
+        "timestamp": 0,
+        "major_version": 0,
+        "minor_version": 0,
+        "named_entries": 0,
+        "id_entries": 1
+      },
+      {
+        "location": {
+          "offset": 19370312,
+          "bytes": 24
+        },
+        "characteristics": 0,
+        "timestamp": 0,
+        "major_version": 0,
+        "minor_version": 0,
+        "named_entries": 0,
+        "id_entries": 1
+      },
+      {
+        "location": {
+          "offset": 19370336,
+          "bytes": 24
+        },
+        "characteristics": 0,
+        "timestamp": 0,
+        "major_version": 0,
+        "minor_version": 0,
+        "named_entries": 0,
+        "id_entries": 1
+      },
+      {
+        "location": {
+          "offset": 19370360,
+          "bytes": 24
+        },
+        "characteristics": 0,
+        "timestamp": 0,
+        "major_version": 0,
+        "minor_version": 0,
+        "named_entries": 0,
+        "id_entries": 1
+      },
+      {
+        "location": {
+          "offset": 19370112,
+          "bytes": 32
+        },
+        "characteristics": 0,
+        "timestamp": 0,
+        "major_version": 0,
+        "minor_version": 0,
+        "named_entries": 2,
+        "id_entries": 0
+      },
+      {
+        "location": {
+          "offset": 19370384,
+          "bytes": 24
+        },
+        "characteristics": 0,
+        "timestamp": 0,
+        "major_version": 0,
+        "minor_version": 0,
+        "named_entries": 0,
+        "id_entries": 1
+      },
+      {
+        "location": {
+          "offset": 19370408,
+          "bytes": 24
+        },
+        "characteristics": 0,
+        "timestamp": 0,
+        "major_version": 0,
+        "minor_version": 0,
+        "named_entries": 0,
+        "id_entries": 1
+      },
+      {
+        "location": {
+          "offset": 19370144,
+          "bytes": 24
+        },
+        "characteristics": 0,
+        "timestamp": 0,
+        "major_version": 0,
+        "minor_version": 0,
+        "named_entries": 0,
+        "id_entries": 1
+      },
+      {
+        "location": {
+          "offset": 19370432,
+          "bytes": 24
+        },
+        "characteristics": 0,
+        "timestamp": 0,
+        "major_version": 0,
+        "minor_version": 0,
+        "named_entries": 0,
+        "id_entries": 1
+      },
+      {
+        "location": {
+          "offset": 19370168,
+          "bytes": 24
+        },
+        "characteristics": 0,
+        "timestamp": 0,
+        "major_version": 0,
+        "minor_version": 0,
+        "named_entries": 0,
+        "id_entries": 1
+      },
+      {
+        "location": {
+          "offset": 19370456,
+          "bytes": 24
+        },
+        "characteristics": 0,
+        "timestamp": 0,
+        "major_version": 0,
+        "minor_version": 0,
+        "named_entries": 0,
+        "id_entries": 1
+      }
+    ],
+    "resources": [
+      {
+        "index": 0,
+        "type": {
+          "kind": "id",
+          "id": 3
+        },
+        "name": {
+          "kind": "id",
+          "id": 1
+        },
+        "language": {
+          "kind": "id",
+          "id": 1033
+        },
+        "entry_locations": [
+          {
+            "offset": 19370000,
+            "bytes": 8
+          },
+          {
+            "offset": 19370048,
+            "bytes": 8
+          },
+          {
+            "offset": 19370208,
+            "bytes": 8
+          }
+        ],
+        "data_entry_location": {
+          "offset": 19370480,
+          "bytes": 16
+        },
+        "code_page": 0,
+        "reserved": 0,
+        "payload": {
+          "rva": 34837216,
+          "location": {
+            "offset": 19370720,
+            "bytes": 1128
+          },
+          "sha256": "03b6cddaa51c12298a2863c953e9b5946176b84c8768b9003293383c96b954de"
+        }
+      },
+      {
+        "index": 1,
+        "type": {
+          "kind": "id",
+          "id": 3
+        },
+        "name": {
+          "kind": "id",
+          "id": 2
+        },
+        "language": {
+          "kind": "id",
+          "id": 1033
+        },
+        "entry_locations": [
+          {
+            "offset": 19370000,
+            "bytes": 8
+          },
+          {
+            "offset": 19370056,
+            "bytes": 8
+          },
+          {
+            "offset": 19370232,
+            "bytes": 8
+          }
+        ],
+        "data_entry_location": {
+          "offset": 19370496,
+          "bytes": 16
+        },
+        "code_page": 0,
+        "reserved": 0,
+        "payload": {
+          "rva": 34838344,
+          "location": {
+            "offset": 19371848,
+            "bytes": 4264
+          },
+          "sha256": "9e61817c7f80b8163c5bfa8396a4aa9c4d7435bfe58d4d1de85befbda93cdcae"
+        }
+      },
+      {
+        "index": 2,
+        "type": {
+          "kind": "id",
+          "id": 3
+        },
+        "name": {
+          "kind": "id",
+          "id": 3
+        },
+        "language": {
+          "kind": "id",
+          "id": 1033
+        },
+        "entry_locations": [
+          {
+            "offset": 19370000,
+            "bytes": 8
+          },
+          {
+            "offset": 19370064,
+            "bytes": 8
+          },
+          {
+            "offset": 19370256,
+            "bytes": 8
+          }
+        ],
+        "data_entry_location": {
+          "offset": 19370512,
+          "bytes": 16
+        },
+        "code_page": 0,
+        "reserved": 0,
+        "payload": {
+          "rva": 34842608,
+          "location": {
+            "offset": 19376112,
+            "bytes": 101303
+          },
+          "sha256": "e01b680a9998c9e36c77fa110ec1f8a3487e65b43c1dd80fb99835a437f5df5c"
+        }
+      },
+      {
+        "index": 3,
+        "type": {
+          "kind": "id",
+          "id": 3
+        },
+        "name": {
+          "kind": "id",
+          "id": 4
+        },
+        "language": {
+          "kind": "id",
+          "id": 1033
+        },
+        "entry_locations": [
+          {
+            "offset": 19370000,
+            "bytes": 8
+          },
+          {
+            "offset": 19370072,
+            "bytes": 8
+          },
+          {
+            "offset": 19370280,
+            "bytes": 8
+          }
+        ],
+        "data_entry_location": {
+          "offset": 19370528,
+          "bytes": 16
+        },
+        "code_page": 0,
+        "reserved": 0,
+        "payload": {
+          "rva": 34943912,
+          "location": {
+            "offset": 19477416,
+            "bytes": 9640
+          },
+          "sha256": "1bedf1e481aed9013b8be263ed83de0544c36e725a482bdfe8b258662f8af730"
+        }
+      },
+      {
+        "index": 4,
+        "type": {
+          "kind": "id",
+          "id": 3
+        },
+        "name": {
+          "kind": "id",
+          "id": 5
+        },
+        "language": {
+          "kind": "id",
+          "id": 1033
+        },
+        "entry_locations": [
+          {
+            "offset": 19370000,
+            "bytes": 8
+          },
+          {
+            "offset": 19370080,
+            "bytes": 8
+          },
+          {
+            "offset": 19370304,
+            "bytes": 8
+          }
+        ],
+        "data_entry_location": {
+          "offset": 19370544,
+          "bytes": 16
+        },
+        "code_page": 0,
+        "reserved": 0,
+        "payload": {
+          "rva": 34953616,
+          "location": {
+            "offset": 19487120,
+            "bytes": 1128
+          },
+          "sha256": "ed22d8f07b7f25b7b7da9f61de535f1adcb1e2a7975981382eaeb51902d75736"
+        }
+      },
+      {
+        "index": 5,
+        "type": {
+          "kind": "id",
+          "id": 3
+        },
+        "name": {
+          "kind": "id",
+          "id": 6
+        },
+        "language": {
+          "kind": "id",
+          "id": 1033
+        },
+        "entry_locations": [
+          {
+            "offset": 19370000,
+            "bytes": 8
+          },
+          {
+            "offset": 19370088,
+            "bytes": 8
+          },
+          {
+            "offset": 19370328,
+            "bytes": 8
+          }
+        ],
+        "data_entry_location": {
+          "offset": 19370560,
+          "bytes": 16
+        },
+        "code_page": 0,
+        "reserved": 0,
+        "payload": {
+          "rva": 34954744,
+          "location": {
+            "offset": 19488248,
+            "bytes": 4264
+          },
+          "sha256": "0f17f81b05f10b1cf8d7657a91163bbd76a409387048ea11285de506de40a23e"
+        }
+      },
+      {
+        "index": 6,
+        "type": {
+          "kind": "id",
+          "id": 3
+        },
+        "name": {
+          "kind": "id",
+          "id": 7
+        },
+        "language": {
+          "kind": "id",
+          "id": 1033
+        },
+        "entry_locations": [
+          {
+            "offset": 19370000,
+            "bytes": 8
+          },
+          {
+            "offset": 19370096,
+            "bytes": 8
+          },
+          {
+            "offset": 19370352,
+            "bytes": 8
+          }
+        ],
+        "data_entry_location": {
+          "offset": 19370576,
+          "bytes": 16
+        },
+        "code_page": 0,
+        "reserved": 0,
+        "payload": {
+          "rva": 34959008,
+          "location": {
+            "offset": 19492512,
+            "bytes": 59926
+          },
+          "sha256": "d506926eaa68058a2649ffba0833d5dc5e988a109bca9b07a08b7558a4a01d64"
+        }
+      },
+      {
+        "index": 7,
+        "type": {
+          "kind": "id",
+          "id": 3
+        },
+        "name": {
+          "kind": "id",
+          "id": 8
+        },
+        "language": {
+          "kind": "id",
+          "id": 1033
+        },
+        "entry_locations": [
+          {
+            "offset": 19370000,
+            "bytes": 8
+          },
+          {
+            "offset": 19370104,
+            "bytes": 8
+          },
+          {
+            "offset": 19370376,
+            "bytes": 8
+          }
+        ],
+        "data_entry_location": {
+          "offset": 19370592,
+          "bytes": 16
+        },
+        "code_page": 0,
+        "reserved": 0,
+        "payload": {
+          "rva": 35018936,
+          "location": {
+            "offset": 19552440,
+            "bytes": 9640
+          },
+          "sha256": "e5a6097109678c5932c231b9832abb6b097e713c4e70ee7782503f288984146b"
+        }
+      },
+      {
+        "index": 8,
+        "type": {
+          "kind": "id",
+          "id": 14
+        },
+        "name": {
+          "kind": "name",
+          "name": "IDI_ICON1",
+          "utf16le_hex": "4900440049005f00490043004f004e003100",
+          "location": {
+            "offset": 19370672,
+            "bytes": 20
+          }
+        },
+        "language": {
+          "kind": "id",
+          "id": 1033
+        },
+        "entry_locations": [
+          {
+            "offset": 19370008,
+            "bytes": 8
+          },
+          {
+            "offset": 19370128,
+            "bytes": 8
+          },
+          {
+            "offset": 19370400,
+            "bytes": 8
+          }
+        ],
+        "data_entry_location": {
+          "offset": 19370608,
+          "bytes": 16
+        },
+        "code_page": 0,
+        "reserved": 0,
+        "payload": {
+          "rva": 34953552,
+          "location": {
+            "offset": 19487056,
+            "bytes": 62
+          },
+          "sha256": "c3ff9bfb59fe2f9b1f7ebcd107f47d3ab634ae8df409509ccbe4e3a6b203f98b"
+        }
+      },
+      {
+        "index": 9,
+        "type": {
+          "kind": "id",
+          "id": 14
+        },
+        "name": {
+          "kind": "name",
+          "name": "IDI_ICON2",
+          "utf16le_hex": "4900440049005f00490043004f004e003200",
+          "location": {
+            "offset": 19370692,
+            "bytes": 20
+          }
+        },
+        "language": {
+          "kind": "id",
+          "id": 1033
+        },
+        "entry_locations": [
+          {
+            "offset": 19370008,
+            "bytes": 8
+          },
+          {
+            "offset": 19370136,
+            "bytes": 8
+          },
+          {
+            "offset": 19370424,
+            "bytes": 8
+          }
+        ],
+        "data_entry_location": {
+          "offset": 19370624,
+          "bytes": 16
+        },
+        "code_page": 0,
+        "reserved": 0,
+        "payload": {
+          "rva": 35028576,
+          "location": {
+            "offset": 19562080,
+            "bytes": 62
+          },
+          "sha256": "d3b0982e5ecf567fb4c8570de3426a0a9f3e17db1e46c8787fcaabef3f96ddcb"
+        }
+      },
+      {
+        "index": 10,
+        "type": {
+          "kind": "id",
+          "id": 16
+        },
+        "name": {
+          "kind": "id",
+          "id": 1
+        },
+        "language": {
+          "kind": "id",
+          "id": 1033
+        },
+        "entry_locations": [
+          {
+            "offset": 19370016,
+            "bytes": 8
+          },
+          {
+            "offset": 19370160,
+            "bytes": 8
+          },
+          {
+            "offset": 19370448,
+            "bytes": 8
+          }
+        ],
+        "data_entry_location": {
+          "offset": 19370640,
+          "bytes": 16
+        },
+        "code_page": 0,
+        "reserved": 0,
+        "payload": {
+          "rva": 35028640,
+          "location": {
+            "offset": 19562144,
+            "bytes": 540
+          },
+          "sha256": "114811b8d1898d08021e8997cdfac45190149bf96fbe45acb28ea86cf9bca426"
+        }
+      },
+      {
+        "index": 11,
+        "type": {
+          "kind": "id",
+          "id": 24
+        },
+        "name": {
+          "kind": "id",
+          "id": 1
+        },
+        "language": {
+          "kind": "id",
+          "id": 1033
+        },
+        "entry_locations": [
+          {
+            "offset": 19370024,
+            "bytes": 8
+          },
+          {
+            "offset": 19370184,
+            "bytes": 8
+          },
+          {
+            "offset": 19370472,
+            "bytes": 8
+          }
+        ],
+        "data_entry_location": {
+          "offset": 19370656,
+          "bytes": 16
+        },
+        "code_page": 0,
+        "reserved": 0,
+        "payload": {
+          "rva": 35029184,
+          "location": {
+            "offset": 19562688,
+            "bytes": 638
+          },
+          "sha256": "97b1dfac60ade39e293fb39a093e1fd01fec5438549c9bb1e341c7fc82d102fb"
+        }
+      }
+    ],
+    "icon_groups": [
+      {
+        "resource_index": 8,
+        "images": [
+          {
+            "location": {
+              "offset": 19487062,
+              "bytes": 14
+            },
+            "width": 16,
+            "height": 16,
+            "color_count": 0,
+            "reserved": 0,
+            "planes": 1,
+            "bit_count": 32,
+            "declared_bytes": 1128,
+            "resource_id": 1,
+            "candidate_resource_indices": [
+              0
+            ],
+            "same_language_resource_index": 0,
+            "size_matches": true
+          },
+          {
+            "location": {
+              "offset": 19487076,
+              "bytes": 14
+            },
+            "width": 32,
+            "height": 32,
+            "color_count": 0,
+            "reserved": 0,
+            "planes": 1,
+            "bit_count": 32,
+            "declared_bytes": 4264,
+            "resource_id": 2,
+            "candidate_resource_indices": [
+              1
+            ],
+            "same_language_resource_index": 1,
+            "size_matches": true
+          },
+          {
+            "location": {
+              "offset": 19487090,
+              "bytes": 14
+            },
+            "width": 0,
+            "height": 0,
+            "color_count": 0,
+            "reserved": 0,
+            "planes": 1,
+            "bit_count": 32,
+            "declared_bytes": 101303,
+            "resource_id": 3,
+            "candidate_resource_indices": [
+              2
+            ],
+            "same_language_resource_index": 2,
+            "size_matches": true
+          },
+          {
+            "location": {
+              "offset": 19487104,
+              "bytes": 14
+            },
+            "width": 48,
+            "height": 48,
+            "color_count": 0,
+            "reserved": 0,
+            "planes": 1,
+            "bit_count": 32,
+            "declared_bytes": 9640,
+            "resource_id": 4,
+            "candidate_resource_indices": [
+              3
+            ],
+            "same_language_resource_index": 3,
+            "size_matches": true
+          }
+        ]
+      },
+      {
+        "resource_index": 9,
+        "images": [
+          {
+            "location": {
+              "offset": 19562086,
+              "bytes": 14
+            },
+            "width": 16,
+            "height": 16,
+            "color_count": 0,
+            "reserved": 0,
+            "planes": 1,
+            "bit_count": 32,
+            "declared_bytes": 1128,
+            "resource_id": 5,
+            "candidate_resource_indices": [
+              4
+            ],
+            "same_language_resource_index": 4,
+            "size_matches": true
+          },
+          {
+            "location": {
+              "offset": 19562100,
+              "bytes": 14
+            },
+            "width": 32,
+            "height": 32,
+            "color_count": 0,
+            "reserved": 0,
+            "planes": 1,
+            "bit_count": 32,
+            "declared_bytes": 4264,
+            "resource_id": 6,
+            "candidate_resource_indices": [
+              5
+            ],
+            "same_language_resource_index": 5,
+            "size_matches": true
+          },
+          {
+            "location": {
+              "offset": 19562114,
+              "bytes": 14
+            },
+            "width": 0,
+            "height": 0,
+            "color_count": 0,
+            "reserved": 0,
+            "planes": 1,
+            "bit_count": 32,
+            "declared_bytes": 59926,
+            "resource_id": 7,
+            "candidate_resource_indices": [
+              6
+            ],
+            "same_language_resource_index": 6,
+            "size_matches": true
+          },
+          {
+            "location": {
+              "offset": 19562128,
+              "bytes": 14
+            },
+            "width": 48,
+            "height": 48,
+            "color_count": 0,
+            "reserved": 0,
+            "planes": 1,
+            "bit_count": 32,
+            "declared_bytes": 9640,
+            "resource_id": 8,
+            "candidate_resource_indices": [
+              7
+            ],
+            "same_language_resource_index": 7,
+            "size_matches": true
+          }
+        ]
+      }
+    ],
+    "coverage": {
+      "status": "complete",
+      "examined_entries": 28,
+      "resources": 12
+    },
+    "limitations": [
+      "Static PE32/PE32+ type/name/language resource inventory; payloads other than RT_GROUP_ICON remain opaque.",
+      "Icon candidates are resource-table relationships. Language fallback, image decoding and actual shell/window loading are not observed.",
+      "Exact shared byte ranges are retained; non-identical overlapping resource structures or payloads are rejected."
+    ]
+  },
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Static PE32/PE32+ type/name/language resource inventory; payloads other than RT_GROUP_ICON remain opaque.",
+    "Icon candidates are resource-table relationships. Language fallback, image decoding and actual shell/window loading are not observed.",
+    "Exact shared byte ranges are retained; non-identical overlapping resource structures or payloads are rejected."
+  ],
+  "relationship_coverage": null,
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/RPGMV.exe"
+    }
+  ],
+  "evidence_links": []
+}

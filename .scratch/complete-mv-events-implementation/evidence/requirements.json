@@ -11594,7 +11594,7 @@
     },
     {
       "id": "MV-S5-MAP-011",
-      "title": "Reject empty native event arrays before late-candidate publication",
+      "title": "Preserve empty and populated native Map event array shapes",
       "sources": [
         {
           "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
@@ -11603,6 +11603,10 @@
         {
           "path": ".scratch/complete-mv-events-implementation/issues/24-map-event-full-pages-and-note.md",
           "section": "## Acceptance criteria"
+        },
+        {
+          "path": "docs/adr/0012-event-saved-state-roundtrip-boundary.md",
+          "section": "# Preserve event saved state across the ownership boundary"
         }
       ],
       "dimensions": [
@@ -11612,20 +11616,20 @@
         "A8"
       ],
       "classifications": [
-        "negative",
+        "positive",
         "boundary",
         "combination"
       ],
-      "sourceKind": "synthetic-rejection",
-      "input": "Existing published valid Map/source/generated output, earlier Map changed to a valid new candidate, later Map002 has events:[] with external carrier; actual Clone and Decompile.",
+      "sourceKind": "synthetic-support",
+      "input": "A mixed project contains populated Map001 with trailing null holes, native new Map002 with events:[], Map003 with [null], and Map004 with [null,null,null]; actual Clone, Decompile, source Discovery/evaluation, Check, Compile, Diff and Push.",
       "fixture": {
         "path": "packages/rpgmaker-event-dsl/test/support/map-event-fixtures.ts",
         "sha256": "778c8dc026e49f65905eacb06353abbedc8889f8a63dd7ae620dff9fae809f5e"
       },
-      "expected": "Reject missing mandatory null slot0 with located Map shape diagnostic before source publication; source, Project Root, descriptor, Snapshot, generated output, config, manifest and Discovery remain exactly unchanged.",
+      "expected": "Publish only the actual event; Check changes no Workspace state; generated Maps exactly preserve all saved arrays and external carriers; Diff reports no affected files and non-destructive Push preserves Project Root and Snapshot bytes. This supersedes the former rejection assumption; historical results retain their original meaning.",
       "test": {
         "path": "packages/rpgmaker-event-dsl/test/map-event-workspace.test.ts",
-        "name": "MV-S5-MAP-011: rejects a late Map with an empty native events array without publishing or changing complete Workspace state"
+        "name": "MV-S5-MAP-011: round trips empty and populated native Map event arrays without changing their saved shape"
       },
       "nativeGroups": [],
       "execution": {
@@ -11633,7 +11637,7 @@
         "owner": "Codex automated verification",
         "layer": "Actual public Workspace API and real filesystem complete-state comparison"
       },
-      "slice": "24 / S5 merger correction",
+      "slice": "24 / S5 native empty-map correction (2026-10-20)",
       "required": true
     },
     {

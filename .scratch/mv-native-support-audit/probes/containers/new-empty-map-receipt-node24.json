@@ -1,0 +1,119 @@
+{
+  "startedAt": "2026-10-20T06:53:18.890Z",
+  "node": "v24.14.0",
+  "platform": "win32",
+  "repo": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\",
+  "base": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\mv-empty-map-audit-39VOvz",
+  "source": {
+    "targetSha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+    "template": {
+      "offset": 346222,
+      "sha256": "52fd4ca2a3f178712d94467c5770919cf716882e2ebc9a57bde0a963e9447165"
+    },
+    "mapTree": {
+      "offset": 8672102,
+      "sha256": "d74ef475802a5a8cb0083a5a340968877b4352db4c2e05b1631af0bcd701cb17",
+      "allocateFunctionSha256": "eae1bb013cd9fd1f3ca45de37602a3aa9adad96fe4f9c4b2e4bc97f4e79af2d9"
+    },
+    "dataManager": {
+      "offset": 909009,
+      "sha256": "9ce1877d3eac47699a558ada219ec4f217dbc4f215531a7f65ccacd8169c4f93",
+      "stringifyDatabaseSha256": "217834e05481e4c3964a0e8e22e3676444c1fb91e3b93aad9a71836d6deb05f9",
+      "stringifyMapSha256": "24607cb1585c757afa6ebb0f35ea8ed33d97e5dd8ea194b20af82500544f41bf"
+    },
+    "savedMapSha256": "ba82d379756808bc5fdae1f5e77492bbadd59770f65f706e5b557fc990d7ede5"
+  },
+  "cases": [
+    {
+      "route": "src",
+      "shape": "empty-native",
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\mv-empty-map-audit-39VOvz\\src-empty-native",
+      "entry": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\src\\workspace-api.ts",
+      "entrySha256": "735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2",
+      "operations": [],
+      "error": {
+        "name": "Error",
+        "message": "decompile error map:2: MV-MAP-EVENT-SHAPE: Invalid native Map Event saved shape. at events; expected nonempty dense event array with required null slot zero; actual "
+      },
+      "allBusinessFilesUnchanged": true,
+      "changedFiles": []
+    },
+    {
+      "route": "src",
+      "shape": "null-control",
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\mv-empty-map-audit-39VOvz\\src-null-control",
+      "entry": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\src\\workspace-api.ts",
+      "entrySha256": "735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2",
+      "operations": [
+        {
+          "stage": "decompile",
+          "ok": true
+        },
+        {
+          "stage": "compile-check",
+          "ok": true
+        },
+        {
+          "stage": "compile",
+          "ok": true
+        },
+        {
+          "stage": "diff",
+          "ok": true,
+          "result": "Structured Diff Summary\n\nNo changes.\n\nAffected Project Data Files:\n- none\n\nDestructive Changes: no"
+        },
+        {
+          "stage": "push",
+          "ok": true
+        }
+      ],
+      "map2Exact": true
+    },
+    {
+      "route": "dist",
+      "shape": "empty-native",
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\mv-empty-map-audit-39VOvz\\dist-empty-native",
+      "entry": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\workspace-api.mjs",
+      "entrySha256": "824203f0119529a48aa4397d9ba94139abead369e650d2d528273bc726bb4d17",
+      "operations": [],
+      "error": {
+        "name": "Error",
+        "message": "decompile error map:2: MV-MAP-EVENT-SHAPE: Invalid native Map Event saved shape. at events; expected nonempty dense event array with required null slot zero; actual "
+      },
+      "allBusinessFilesUnchanged": true,
+      "changedFiles": []
+    },
+    {
+      "route": "dist",
+      "shape": "null-control",
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\mv-empty-map-audit-39VOvz\\dist-null-control",
+      "entry": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\workspace-api.mjs",
+      "entrySha256": "824203f0119529a48aa4397d9ba94139abead369e650d2d528273bc726bb4d17",
+      "operations": [
+        {
+          "stage": "decompile",
+          "ok": true
+        },
+        {
+          "stage": "compile-check",
+          "ok": true
+        },
+        {
+          "stage": "compile",
+          "ok": true
+        },
+        {
+          "stage": "diff",
+          "ok": true,
+          "result": "Structured Diff Summary\n\nNo changes.\n\nAffected Project Data Files:\n- none\n\nDestructive Changes: no"
+        },
+        {
+          "stage": "push",
+          "ok": true
+        }
+      ],
+      "map2Exact": true
+    }
+  ],
+  "completedAt": "2026-10-20T06:53:24.414Z"
+}

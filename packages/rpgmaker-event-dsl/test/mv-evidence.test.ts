@@ -12,11 +12,7 @@ import {
   decompileWorkspace,
   initWorkspace,
 } from "../src/workspace-api.js";
-import { recordEvidence, validateRequirements } from "./support/mv-evidence.js";
-
-it("validates the evidence index, source references, fixture hashes, test links, and current recorded runs", async () => {
-  await validateRequirements();
-});
+import { recordEvidence } from "./support/mv-evidence.js";
 
 it("MV-S0-CE-001: discovers and evaluates Decompiled Source against independent saved data", async () => {
   const fixture = JSON.parse(
