@@ -15,12 +15,15 @@ import type {
 } from "../domain/types.js";
 import type { CommonEventInput } from "../domain/declarations.js";
 import { assertCommonEventInput } from "../validation/common-events.js";
+import { assertDslObject } from "../validation/dsl-command-inputs.js";
 
 export function troopEvent(input: Omit<TroopEventDefinition, "kind">): TroopEventDefinition {
+  assertDslObject(input, ["troopId", "pages"], "troopEvent");
   return { ...input, kind: "troopEvent" };
 }
 
 export function battlePage(input: BattleEventPage): BattleEventPage {
+  assertDslObject(input, ["conditions", "span", "commands"], "battlePage");
   return { ...input };
 }
 
@@ -33,6 +36,7 @@ export function mapEvent(input: {
   note?: string;
   pages: readonly [EventPage, ...EventPage[]];
 }): MapEventDefinition {
+  assertDslObject(input, ["mapId", "id", "name", "x", "y", "note", "pages"], "mapEvent");
   return {
     ...input,
     kind: "mapEvent",
@@ -76,6 +80,11 @@ export function page(input: {
   priority?: NonNullable<EventPage["priority"]>;
   options?: PageOptions;
 }): EventPage {
+  assertDslObject(
+    input,
+    ["conditions", "trigger", "commands", "movement", "image", "priority", "options"],
+    "page",
+  );
   return {
     ...input,
     conditions: input.conditions === undefined ? {} : input.conditions,

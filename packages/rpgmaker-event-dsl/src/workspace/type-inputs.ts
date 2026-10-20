@@ -6,7 +6,7 @@ import * as ts from "typescript";
 import { z } from "zod";
 
 // Bump when DSL types, validation, generated semantics or Compiler Defaults change.
-export const compileContractVersion = "mv-1.6.1/22";
+export const compileContractVersion = "mv-1.6.1/23";
 
 export const typeInputSchema = z
   .object({

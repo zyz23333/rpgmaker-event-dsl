@@ -1,9 +1,10 @@
 import { isDeepStrictEqual } from "node:util";
+import { renderJsonValue } from "./json-values.js";
 
 export function describeMapEventChanges(generated: unknown, snapshot: unknown): string {
   const changes: string[] = [];
   const describe = (value: unknown, present: boolean) =>
-    present ? JSON.stringify(value) : "<absent>";
+    present ? renderJsonValue(value) : "<absent>";
   const visit = (
     before: unknown,
     after: unknown,

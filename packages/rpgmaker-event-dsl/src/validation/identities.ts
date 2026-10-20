@@ -73,7 +73,13 @@ export function validateDeclarationIdentities(
           issues.push({
             level: "warning",
             code: "MV-MAP-PAGE-COUNT",
-            message: `Map event "${declaration.name}" has ${declaration.pages.length} pages; the editor creates at most 20. Page order and count are preserved.`,
+            stage: "compile",
+            identity: `map:${declaration.mapId}/event:${declaration.id}`,
+            nativePath: "pages",
+            dslPath: "pages",
+            expected: "at most 20 editor-created pages; saved pages are preserved",
+            actual: String(declaration.pages.length),
+            message: `compile warning map:${declaration.mapId}/event:${declaration.id}: MV-MAP-PAGE-COUNT at pages; expected at most 20 editor-created pages; actual ${declaration.pages.length}. Map event "${declaration.name}": page order and count are preserved.`,
           });
         validateMapEventPlacement(declaration, snapshotMapsById, occupiedCoordinates, issues);
         break;
