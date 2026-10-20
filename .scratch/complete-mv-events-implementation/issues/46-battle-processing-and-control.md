@@ -3,6 +3,7 @@
 Status: ready-for-agent
 Blocked by: 23, 25
 Stage: S6
+Execution batch: [敌人与战斗控制](../tickets.md#batch-battle)
 Created: 2026-10-19
 Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-implementation-spec.md)
 
