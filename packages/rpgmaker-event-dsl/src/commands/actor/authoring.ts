@@ -1,5 +1,4 @@
 import type {
-  ActorCommandTarget,
   ActorParameter,
   ActorResourceOperand,
   ActorResourceTarget,
@@ -19,12 +18,11 @@ import type {
   ChangeTpDslCommand,
   ChangeVehicleImageDslCommand,
   ImageAssetReference,
-  OperateValueOperand,
   RecoverAllDslCommand,
   ReferenceValue,
   VehicleTarget,
 } from "../../domain/types.js";
-import { assertActorResourceInput, assertActorSavedFlag } from "./validation.js";
+import { assertActorResourceInput } from "./validation.js";
 
 export function changeHp(input: {
   target: ActorResourceTarget;
@@ -79,53 +77,46 @@ export function recoverAll(input: { target: ActorResourceTarget }): RecoverAllDs
 }
 
 export function changeExp(input: {
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ActorResourceOperand;
   showLevelUp: boolean;
 }): ChangeExpDslCommand {
-  assertActorSavedFlag(315, "changeExp.showLevelUp", input.showLevelUp);
-  const node: ChangeExpDslCommand = {
+  assertActorResourceInput("changeExp", input, "changeExp");
+  return {
     kind: "changeExp",
     target: input.target,
     operation: input.operation,
     value: input.value,
+    showLevelUp: input.showLevelUp,
   };
 
-  if (input.showLevelUp !== undefined) {
-    node.showLevelUp = input.showLevelUp;
-  }
-
-  return node;
 }
 
 export function changeLevel(input: {
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ActorResourceOperand;
   showLevelUp: boolean;
 }): ChangeLevelDslCommand {
-  assertActorSavedFlag(316, "changeLevel.showLevelUp", input.showLevelUp);
-  const node: ChangeLevelDslCommand = {
+  assertActorResourceInput("changeLevel", input, "changeLevel");
+  return {
     kind: "changeLevel",
     target: input.target,
     operation: input.operation,
     value: input.value,
+    showLevelUp: input.showLevelUp,
   };
 
-  if (input.showLevelUp !== undefined) {
-    node.showLevelUp = input.showLevelUp;
-  }
-
-  return node;
 }
 
 export function changeParameter(input: {
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   parameter: ActorParameter;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ActorResourceOperand;
 }): ChangeParameterDslCommand {
+  assertActorResourceInput("changeParameter", input, "changeParameter");
   return {
     kind: "changeParameter",
     target: input.target,
@@ -136,10 +127,11 @@ export function changeParameter(input: {
 }
 
 export function changeSkill(input: {
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "learn" | "forget";
   skill: ReferenceValue<"skill">;
 }): ChangeSkillDslCommand {
+  assertActorResourceInput("changeSkill", input, "changeSkill");
   return {
     kind: "changeSkill",
     target: input.target,
@@ -150,14 +142,15 @@ export function changeSkill(input: {
 
 export function changeEquipment(input: {
   actor: ReferenceValue<"actor">;
-  equipmentTypeId: number;
-  itemId: number | null;
+  slotIndex: number;
+  equipment: ChangeEquipmentDslCommand["equipment"];
 }): ChangeEquipmentDslCommand {
+  assertActorResourceInput("changeEquipment", input, "changeEquipment");
   return {
     kind: "changeEquipment",
     actor: input.actor,
-    equipmentTypeId: input.equipmentTypeId,
-    itemId: input.itemId,
+    slotIndex: input.slotIndex,
+    equipment: input.equipment,
   };
 }
 
@@ -177,18 +170,14 @@ export function changeClass(input: {
   class: ReferenceValue<"class">;
   keepExp: boolean;
 }): ChangeClassDslCommand {
-  assertActorSavedFlag(321, "changeClass.keepExp", input.keepExp);
-  const node: ChangeClassDslCommand = {
+  assertActorResourceInput("changeClass", input, "changeClass");
+  return {
     kind: "changeClass",
     actor: input.actor,
     class: input.class,
+    keepExp: input.keepExp,
   };
 
-  if (input.keepExp !== undefined) {
-    node.keepExp = input.keepExp;
-  }
-
-  return node;
 }
 
 export function changeActorImages(input: {

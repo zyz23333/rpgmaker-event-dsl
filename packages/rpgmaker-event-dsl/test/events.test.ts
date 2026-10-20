@@ -876,7 +876,7 @@ describe("compileMapEvent", () => {
       kind: "runtimeSelector",
       scope: "actor",
       target: "actor",
-      actorId: 1,
+      actor: { kind: "actor", id: 1 },
     } as const;
     const actorResourceTarget = {
       kind: "runtimeSelector",
@@ -947,13 +947,13 @@ describe("compileMapEvent", () => {
                 state: stateRef({ name: "Poison" }),
               }),
               recoverAll({ target: partyTarget }),
-              changeExp({ target: actorTarget, operation: "gain", value: 50, showLevelUp: true }),
-              changeLevel({ target: actorTarget, operation: "lose", value: 1 }),
+              changeExp({ target: actorTarget, operation: "gain", value: { kind: "constant", value: 50 }, showLevelUp: true }),
+              changeLevel({ target: actorTarget, operation: "lose", value: { kind: "constant", value: 1 }, showLevelUp: false }),
               changeParameter({
                 target: actorTarget,
                 parameter: "atk",
                 operation: "gain",
-                value: 2,
+                value: { kind: "constant", value: 2 },
               }),
               changeSkill({
                 target: actorTarget,
@@ -962,8 +962,8 @@ describe("compileMapEvent", () => {
               }),
               changeEquipment({
                 actor: { kind: "actor", id: 1 },
-                equipmentTypeId: 1,
-                itemId: 1,
+                slotIndex: 0,
+                equipment: { kind: "runtimeSelector", scope: "equipment", target: "idForSlot", id: 1 },
               }),
               changeName({ actor: { kind: "actor", id: 1 }, name: "Alex" }),
               changeClass({

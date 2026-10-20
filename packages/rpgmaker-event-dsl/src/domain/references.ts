@@ -221,19 +221,7 @@ export type ActorResourceTarget =
 
 export type ActorResourceOperand = ConstantOperand | VariableOperand;
 
-export type ActorCommandTarget =
-  | (RuntimeSelector<"actor", "entireParty"> & {
-      actorId?: never;
-      variable?: never;
-    })
-  | (RuntimeSelector<"actor", "actor"> & {
-      actorId: number;
-      variable?: never;
-    })
-  | (RuntimeSelector<"actor", "actorFromVariable"> & {
-      actorId?: never;
-      variable: ReferenceValue<"variable">;
-    });
+export type EquipmentRuntimeSelector = RuntimeSelector<"equipment", "idForSlot"> & { id: number };
 
 export type EnemyCommandTarget =
   | (RuntimeSelector<"enemy", "all"> & {

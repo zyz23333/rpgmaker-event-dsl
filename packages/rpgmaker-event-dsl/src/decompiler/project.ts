@@ -171,6 +171,7 @@ async function buildDecompiledSourceFiles(
     for (const event of events) {
       for (const [pageIndex, page] of event.pages.entries()) {
         const inputOptions = {
+          equipmentTypes: system.equipTypes,
           identity: `map:${mapInfo.id}/event:${event.id}`,
           stage: "decompile" as const,
           scriptEnabled: options.scriptEnabled ?? false,
@@ -198,7 +199,8 @@ async function buildDecompiledSourceFiles(
           resolver,
         );
         const errors = inspectNativeCommandReferences(page.list ?? [], resolver, inputOptions);
-        if (errors.length) throw new Error(errors.map((issue) => issue.message).join("\n"));
+        issues.push(...errors.filter((issue) => issue.level === "warning"));
+        if (errors.some((issue) => issue.level === "error")) throw new Error(errors.filter((issue) => issue.level === "error").map((issue) => issue.message).join("\n"));
         assertSnapshotRendering(page.list ?? [], inputOptions.identity, inputOptions.prefix);
       }
     }
@@ -222,10 +224,12 @@ async function buildDecompiledSourceFiles(
       resolver,
     );
     const errors = inspectNativeCommandReferences(event.list ?? [], resolver, {
+      equipmentTypes: system.equipTypes,
       identity: `commonEvent:${event.id}`,
       stage: "decompile",
     });
-    if (errors.length) throw new Error(errors.map((issue) => issue.message).join("\n"));
+    issues.push(...errors.filter((issue) => issue.level === "warning"));
+    if (errors.some((issue) => issue.level === "error")) throw new Error(errors.filter((issue) => issue.level === "error").map((issue) => issue.message).join("\n"));
     assertSnapshotRendering(event.list ?? [], `commonEvent:${event.id}`);
   }
   files.push({
@@ -262,11 +266,13 @@ async function buildDecompiledSourceFiles(
         }),
       );
       const errors = inspectNativeCommandReferences(commands, resolver, {
+        equipmentTypes: system.equipTypes,
         identity,
         stage: "decompile",
         prefix,
       });
-      if (errors.length) throw new Error(errors.map(({ message }) => message).join("\n"));
+      issues.push(...errors.filter((issue) => issue.level === "warning"));
+      if (errors.some((issue) => issue.level === "error")) throw new Error(errors.filter((issue) => issue.level === "error").map(({ message }) => message).join("\n"));
       assertSnapshotReferences(commands, `${identity}.${prefix}list`, resolver);
       assertSnapshotRendering(commands, identity, prefix);
     }

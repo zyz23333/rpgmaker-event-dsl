@@ -324,33 +324,6 @@ export function validateNodes(
     if (node.kind === "nameInputProcessing") {
       captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
     }
-    if (
-      node.kind === "changeExp" ||
-      node.kind === "changeLevel" ||
-      node.kind === "changeParameter" ||
-      node.kind === "changeSkill"
-    ) {
-      validateActorCommandTarget(node.target, resolver, `${node.kind} target`, issues);
-    }
-    if (
-      node.kind === "changeExp" ||
-      node.kind === "changeLevel" ||
-      node.kind === "changeParameter"
-    ) {
-      validateOperateValueOperand(node.value, resolver, issues);
-    }
-    if (node.kind === "changeSkill") {
-      captureReferenceIssue(() => resolver.resolveReference(node.skill), issues);
-    }
-    if (node.kind === "changeEquipment") {
-      captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
-      validateCommandPositiveInteger(
-        node.equipmentTypeId,
-        "Change Equipment equipment type id",
-        issues,
-      );
-      validateCommandNonNegativeInteger(node.itemId ?? 0, "Change Equipment item id", issues);
-    }
     if (node.kind === "changeName") {
       captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
     }
@@ -529,61 +502,6 @@ export function validateCharacterRuntimeSelector(
   issues.push({
     level: "error",
     message: `${fieldName} target must be player, currentEvent, or event.`,
-  });
-}
-
-export function validateActorCommandTarget(
-  selector: RuntimeSelector,
-  resolver: ReferenceResolver,
-  fieldName: string,
-  issues: ValidationIssue[],
-): void {
-  if (selector.scope !== "actor") {
-    issues.push({
-      level: "error",
-      message: `${fieldName} must use the actor runtime selector scope.`,
-    });
-    return;
-  }
-
-  if (selector.target === "entireParty") {
-    return;
-  }
-
-  const actorSelector = selector as RuntimeSelector & {
-    actorId?: unknown;
-    variable?: ReferenceValue<"variable">;
-  };
-  if (selector.target === "actor") {
-    if (
-      typeof actorSelector.actorId !== "number" ||
-      !Number.isInteger(actorSelector.actorId) ||
-      actorSelector.actorId <= 0
-    ) {
-      issues.push({
-        level: "error",
-        message: `${fieldName} actor id must be a positive integer.`,
-      });
-    }
-    return;
-  }
-
-  if (selector.target === "actorFromVariable") {
-    const actorVariable = actorSelector.variable;
-    if (actorVariable === undefined) {
-      issues.push({
-        level: "error",
-        message: `${fieldName} actorFromVariable target requires a variable reference.`,
-      });
-      return;
-    }
-    captureReferenceIssue(() => resolver.resolveReference(actorVariable), issues);
-    return;
-  }
-
-  issues.push({
-    level: "error",
-    message: `${fieldName} target must be entireParty, actor, or actorFromVariable.`,
   });
 }
 

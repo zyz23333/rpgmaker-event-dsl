@@ -1,5 +1,4 @@
 import type {
-  ActorCommandTarget,
   ActorParameter,
   ActorResourceOperand,
   ActorResourceTarget,
@@ -13,6 +12,7 @@ import type {
   ControlVariablesGameDataOperand,
   Direction,
   EnemyCommandTarget,
+  EquipmentRuntimeSelector,
   EventLocationDestination,
   ImageAssetReference,
   LocationInfoType,
@@ -730,31 +730,31 @@ export type RecoverAllDslCommand = {
 
 export type ChangeExpDslCommand = {
   kind: "changeExp";
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ActorResourceOperand;
   showLevelUp: boolean;
 };
 
 export type ChangeLevelDslCommand = {
   kind: "changeLevel";
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ActorResourceOperand;
   showLevelUp: boolean;
 };
 
 export type ChangeParameterDslCommand = {
   kind: "changeParameter";
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   parameter: ActorParameter;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ActorResourceOperand;
 };
 
 export type ChangeSkillDslCommand = {
   kind: "changeSkill";
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "learn" | "forget";
   skill: ReferenceValue<"skill">;
 };
@@ -762,8 +762,8 @@ export type ChangeSkillDslCommand = {
 export type ChangeEquipmentDslCommand = {
   kind: "changeEquipment";
   actor: ReferenceValue<"actor">;
-  equipmentTypeId: number;
-  itemId: number | null;
+  slotIndex: number;
+  equipment: EquipmentRuntimeSelector | null;
 };
 
 export type ChangeNameDslCommand = {

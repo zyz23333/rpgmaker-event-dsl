@@ -75,14 +75,12 @@ export {
   shopGoodsTypeToCode,
 } from "./shared/branches.js";
 import {
-  compileActorCommandTarget,
   enemyTargetToCode,
   battlerTargetTypeToCode,
   battlerTargetIdToCode,
   actorParameterToCode,
 } from "./shared/targets.js";
 export {
-  compileActorCommandTarget,
   enemyTargetToCode,
   battlerTargetTypeToCode,
   battlerTargetIdToCode,
@@ -777,9 +775,9 @@ export function compileNodes(
           code: 315,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
-            node.showLevelUp ?? false,
+            ...compileActorResourceTarget(node.target, resolver),
+            ...compileActorResourceValue(node.operation, node.value, resolver),
+            node.showLevelUp,
           ],
         });
         break;
@@ -788,9 +786,9 @@ export function compileNodes(
           code: 316,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
-            node.showLevelUp ?? false,
+            ...compileActorResourceTarget(node.target, resolver),
+            ...compileActorResourceValue(node.operation, node.value, resolver),
+            node.showLevelUp,
           ],
         });
         break;
@@ -799,9 +797,9 @@ export function compileNodes(
           code: 317,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
+            ...compileActorResourceTarget(node.target, resolver),
             actorParameterToCode(node.parameter),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
+            ...compileActorResourceValue(node.operation, node.value, resolver),
           ],
         });
         break;
@@ -810,7 +808,7 @@ export function compileNodes(
           code: 318,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
+            ...compileActorResourceTarget(node.target, resolver),
             node.operation === "learn" ? 0 : 1,
             resolver.resolveReference(node.skill),
           ],
@@ -822,8 +820,8 @@ export function compileNodes(
           indent,
           parameters: [
             resolver.resolveReference(node.actor),
-            node.equipmentTypeId,
-            node.itemId ?? 0,
+            node.slotIndex + 1,
+            node.equipment === null ? 0 : node.equipment.id,
           ],
         });
         break;
@@ -841,7 +839,7 @@ export function compileNodes(
           parameters: [
             resolver.resolveReference(node.actor),
             resolver.resolveReference(node.class),
-            node.keepExp ?? false,
+            node.keepExp,
           ],
         });
         break;

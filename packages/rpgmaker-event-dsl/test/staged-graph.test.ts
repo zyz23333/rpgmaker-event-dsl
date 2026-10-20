@@ -822,11 +822,12 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Bad Equipment",
           commands: [
-            changeEquipment({
+            {
+              kind: "changeEquipment",
               actor: { kind: "actor", id: 1 },
-              equipmentTypeId: 0,
-              itemId: -1,
-            }),
+              slotIndex: -1,
+              equipment: { kind: "runtimeSelector", scope: "equipment", target: "idForSlot", id: -1 },
+            },
           ],
         }),
       ],
@@ -838,12 +839,9 @@ describe("validateDslOwnedDeclarations", () => {
       },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toEqual(
-      expect.arrayContaining([
-        "Change Equipment equipment type id must be a positive integer.",
-        "Change Equipment item id must be a non-negative integer.",
-      ]),
-    );
+    expect(result.issues).toEqual(expect.arrayContaining([
+      expect.objectContaining({ level: "error", code: "MV-E319-INPUT", dslPath: "pages[0].commands[0].slotIndex" }),
+    ]));
   });
 
   it("rejects Conditional Branch script conditions when scripts are disabled", () => {

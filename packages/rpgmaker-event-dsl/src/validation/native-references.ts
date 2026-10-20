@@ -3,6 +3,7 @@ import type { ReferenceKind } from "../domain/types.js";
 import type { ReferenceResolver, ValidationIssue } from "./types.js";
 import { CommandStructureError } from "./command-errors.js";
 import { renderJsonValue } from "../project-data/json-values.js";
+import { inspectEquipmentContext } from "../commands/actor/equipment-validation.js";
 
 // References already supported by current formal commands enter here after compilation,
 // so handwritten known raw cannot bypass those fixed-ID checks. Runtime selectors remain
@@ -15,11 +16,21 @@ export function inspectNativeCommandReferences(
     stage: "compile" | "decompile";
     prefix?: string;
     origins?: CommandOrigins;
+    equipmentTypes?: unknown;
   },
 ): ValidationIssue[] {
   const issues: ValidationIssue[] = [];
   for (const [index, command] of commands.entries()) {
     const p = command.parameters;
+    if (command.code === 319) {
+      const origin = options.origins?.get(command);
+      issues.push(...inspectEquipmentContext(p, resolver, {
+        equipmentTypes: options.equipmentTypes,
+        identity: options.identity, stage: options.stage,
+        nativePath: `${options.prefix ?? ""}list[${index}]`,
+        ...(origin ? { dslPath: origin.path, raw: origin.kind === "rawDslCommand" } : {}),
+      }));
+    }
     const refs: Array<[ReferenceKind, number]> = [];
     const ref = (kind: ReferenceKind, slot: number) => refs.push([kind, slot]);
     const operand = (type: number, value: number) => {

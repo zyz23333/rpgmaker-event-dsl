@@ -18,6 +18,12 @@ const codes = {
   changeMp: 312,
   changeState: 313,
   recoverAll: 314,
+  changeExp: 315,
+  changeLevel: 316,
+  changeParameter: 317,
+  changeSkill: 318,
+  changeEquipment: 319,
+  changeClass: 321,
   changeTp: 326,
 } as const;
 const fields = {
@@ -25,6 +31,12 @@ const fields = {
   changeMp: ["target", "operation", "value"],
   changeState: ["target", "operation", "state"],
   recoverAll: ["target"],
+  changeExp: ["target", "operation", "value", "showLevelUp"],
+  changeLevel: ["target", "operation", "value", "showLevelUp"],
+  changeParameter: ["target", "parameter", "operation", "value"],
+  changeSkill: ["target", "operation", "skill"],
+  changeEquipment: ["actor", "slotIndex", "equipment"],
+  changeClass: ["actor", "class", "keepExp"],
   changeTp: ["target", "operation", "value"],
 } as const;
 
@@ -72,6 +84,23 @@ export function assertActorResourceInput(
       }
     }
   };
+  if (family === "changeEquipment") {
+    reference(input.actor, "actor", `${path}.actor`);
+    if (!Number.isSafeInteger(input.slotIndex) || (input.slotIndex as number) < 0 || (input.slotIndex as number) >= Number.MAX_SAFE_INTEGER)
+      fail(`${path}.slotIndex`, "nonnegative safe zero-based slot index", input.slotIndex);
+    if (input.equipment !== null) {
+      assertDslObject(input.equipment, ["kind", "scope", "target", "id"], `${path}.equipment`);
+      if (input.equipment.kind !== "runtimeSelector" || input.equipment.scope !== "equipment" || input.equipment.target !== "idForSlot" || !Number.isSafeInteger(input.equipment.id) || (input.equipment.id as number) <= 0)
+        fail(`${path}.equipment`, "equipment idForSlot Runtime Selector with positive safe candidate ID, or null", input.equipment);
+    }
+    return;
+  }
+  if (family === "changeClass") {
+    reference(input.actor, "actor", `${path}.actor`);
+    reference(input.class, "class", `${path}.class`);
+    assertActorSavedFlag(code, `${path}.keepExp`, input.keepExp);
+    return;
+  }
   const targetPath = `${path}.target`;
   const target = input.target;
   assertDslObject(target, ["kind", "scope", "target", "actor", "variable"], targetPath);
@@ -92,19 +121,25 @@ export function assertActorResourceInput(
   if (target.target === "actorFromVariable")
     reference(target.variable, "variable", `${targetPath}.variable`);
   if (family === "recoverAll") return;
-  const operations = family === "changeState" ? ["add", "remove"] : ["gain", "lose"];
+  const operations = family === "changeState" ? ["add", "remove"] : family === "changeSkill" ? ["learn", "forget"] : ["gain", "lose"];
   if (!operations.includes(input.operation as string))
     fail(`${path}.operation`, operations.join(" or "), input.operation);
   if (family === "changeState") {
     reference(input.state, "state", `${path}.state`);
     return;
   }
+  if (family === "changeSkill") {
+    reference(input.skill, "skill", `${path}.skill`);
+    return;
+  }
+  if (family === "changeParameter" && !["mhp", "mmp", "atk", "def", "mat", "mdf", "agi", "luk"].includes(input.parameter as string))
+    fail(`${path}.parameter`, "mhp, mmp, atk, def, mat, mdf, agi or luk", input.parameter);
   const operandPath = `${path}.value`;
   const operand = input.value;
   assertDslObject(operand, ["kind", "value", "variable"], operandPath);
   if (operand.kind === "constant") {
     assertDslObject(operand, ["kind", "value"], operandPath);
-    const maximum = family === "changeTp" ? 100 : 9999;
+    const maximum = family === "changeExp" ? 9999999 : family === "changeLevel" ? 98 : family === "changeTp" ? 100 : 9999;
     if (
       !Number.isSafeInteger(operand.value) ||
       (operand.value as number) < 1 ||
@@ -117,4 +152,6 @@ export function assertActorResourceInput(
   } else fail(`${operandPath}.kind`, "constant or variable", operand.kind);
   if (family === "changeHp" && typeof input.allowDeath !== "boolean")
     fail(`${path}.allowDeath`, "explicit boolean", input.allowDeath);
+  if (family === "changeExp" || family === "changeLevel")
+    assertActorSavedFlag(code, `${path}.showLevelUp`, input.showLevelUp);
 }

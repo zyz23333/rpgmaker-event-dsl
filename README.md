@@ -491,6 +491,14 @@ resource quantities use a constant or variable operand, and HP requires its save
 `allowDeath` Boolean. See the [actor resource reference](packages/rpgmaker-event-dsl/README.md#actor-resources-and-states)
 for target variants, quantity ranges, reference checks and dynamic variable behavior.
 
+EXP, level, parameter and skill changes share those Actor targets. EXP/level
+changes require an explicit saved `showLevelUp` Boolean, and Class changes require
+`keepExp`. Dynamic equipment uses `changeEquipment({ actor, slotIndex, equipment })`:
+`slotIndex` is zero based within final System capacity; `equipment` is `null` for
+unload or an equipment Runtime Selector whose positive ID is interpreted by MV's
+runtime slot type. See [growth and class rules](packages/rpgmaker-event-dsl/README.md#actor-growth-skills-and-classes)
+and [equipment rules](packages/rpgmaker-event-dsl/README.md#dynamic-equipment-slots).
+
 JavaScript-bearing inputs are explicit Script Inputs and are gated by the workspace
 `scriptEnabled` setting. The Gate scans every saved script position, including empty
 or unreachable Script/continuation records, script conditions, Control Variables
