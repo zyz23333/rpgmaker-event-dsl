@@ -86,3 +86,15 @@ Battle 使用 fixed/variable/randomEncounter 模式；flags 默认固定 false�
 完整示例的 `heroBattler` 改用固定 Actor reference，Battle Processing 改用具名 fixed Troop 模式。外部 `check-full-example-battle-v2.mts` 从真实完整示例 AST 提取这两处调用与四个原始依赖常量，经当前 `loadDefinitionFile` 执行实际类型检查和 helper 求值：原 `f0dba9a1` 提取输入同时因 actor/troop 旧 API 被拒绝，更新后的输入通过。此检查只覆盖这两处精确源码及其依赖，不声称整份跨家族示例已验收。v1 检查脚本因 pnpm filter 改变 cwd，在运行求值前失败；原脚本与日志保留，v2 固定真实 repo 并使用 Node 22.23.0。
 
 同一外部 `battle-batch-temp` 下新增执行记录：`architecture-repair-cross-boundary-v1`（architecture、command-boundary、Enemy、Battle、context、common-native，6 文件、100/100）、`architecture-repair-types-v1`（包类型通过）、`architecture-repair-workspace-v1`（真实 Battle Workspace 3/3）及 `example-battle-v2/result.json`（上述示例精确提取输入通过）。`architecture-repair-scoped-lint-v1` 与 `architecture-repair-scoped-format-v1` 均通过全部六个受影响 TS 文件；lint stdout 为空且没有 `.log`，execution/completed 元数据保留退出码 0。原架构测试未改，2 worker 与原期限保留。没有 full/build/built/native 执行声明，最终 48–55 责任保持不变。
+
+## Final actual integration synchronization
+
+补修产品提交 `4cd941ad` 后先合实际 Map/Inventory 集成 `a53b84979a49175a3132bf37031ec71a8920125d`，再合实际 Text 集成 `8cec365e809d5d2ddabe0befd6557b500a74d384`；最终受测产品为 `d84e523a`。本段之后的交付提交只更新报告。
+
+最终保留全部 433 个实际 Text incoming requirement 对象并追加本批次原有五个稳定 ID，共 438 条；没有覆盖任何旧 requirement 或 result。按 ADR 0013，实际 incoming 的 contract20 加入本批次的新 Enemy/Battle 语义后统一为 `mv-1.6.1/21`。保留 Shop 的 ordered goods/purchaseOnly、独立 shop-native/shop-validation，及 Text 的 E303 Actor 所有权、Choices/native-message 拆分与明确的消息保存字段。完整示例组合新的 Battle result bodies 与 Text 必填 face/background/position；本批次测试、README 和敌人/战斗编写指南中的 comment 例子同步到 `{ lines }`。
+
+Map 合并后的 `map-incoming-interactions-v1` 通过 9 文件、117/117，包含 architecture、公共边界、Enemy/Battle/context、Decompile/Snapshot 和真实 Battle Workspace。`map-incoming-types-v1` 发现自动合并重复导入 ConstantOperand/VariableOperand；去重后 v2 通过。scoped lint v1 的两个旧 operand import warning 在移除无调用 import 后 v2 通过；保留仍有独立用途的 export。该清理不改变运行语义；最终 types/static 再次验证。
+
+最终 Text 同步产品的 `text-incoming-interactions-v1` 通过 8 文件、112/112（包含原 architecture 和真实 Battle Workspace 3/3）；`text-incoming-types-v1` 通过。`example-battle-evaluation-v3.log` / `example-battle-v3/result.json` 再次验证当前完整示例的两处精确调用及依赖常量通过实际源码类型检查/求值。`final-battle-freshness-v1` 通过目标 1 项、名称过滤 skip7，保留原期限，确认旧契约输出不授权 Diff/Push。`final-text-sync-scoped-lint-v1` 和 `final-text-sync-scoped-format-v1` 通过相对实际 incoming 的全部 35 个 TS 文件；lint stdout 为空且无 `.log`，完成元数据记录 exit0。
+
+上述记录均在原 M 外部日志目录，含真实执行命令、源码身份和退出码；未追加 full/build/built/native 或最终 48–55 通过声明。独立 merger 已复核原架构失败与补修，最终 whole-READY 仍由其接入实际集成。
