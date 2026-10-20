@@ -10,7 +10,6 @@ import type {
   CommandPosition,
   ConditionalBranchCondition,
   CommandOperand,
-  Direction,
   EnemyCommandTarget,
   EquipmentRuntimeSelector,
   EventLocationDestination,

@@ -8,7 +8,6 @@ import type {
   ChangeTransparencyDslCommand,
   ChangeWindowColorDslCommand,
   CharacterRuntimeSelector,
-  Direction,
   EventLocationDestination,
   EventRuntimeSelector,
   LocationDirection,
