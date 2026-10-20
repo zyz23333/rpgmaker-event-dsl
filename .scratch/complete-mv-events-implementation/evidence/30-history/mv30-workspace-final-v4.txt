@@ -1,0 +1,13 @@
+
+> rpgmaker-event-dsl@0.1.2 test C:\Users\Shuen\.codex\worktrees\mv-ticket-30\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> vitest run "test/label-script-plugin-workspace.test.ts"
+
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-30/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  02:22:54
+   Duration  25.64s (transform 928ms, setup 0ms, import 2.38s, tests 23.03s, environment 0ms)
+

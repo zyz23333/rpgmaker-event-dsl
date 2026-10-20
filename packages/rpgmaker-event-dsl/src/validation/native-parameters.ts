@@ -205,7 +205,7 @@ export function assertNativeCommandParameters(
       "MV-COMMAND-PARAMETERS",
       "Known command parameters do not match their native contract.",
       {
-        nativePath: `${path}.parameters`,
+        nativePath: `${path}.parameters${[118, 119, 355, 356, 655].includes(code) && parameters.length === 1 ? "[0]" : ""}`,
         expected: `E${code} saved slots ${signature || "[]"}`,
         actual: renderJsonValue(parameters),
       },

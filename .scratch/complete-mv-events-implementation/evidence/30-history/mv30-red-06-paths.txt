@@ -1,0 +1,37 @@
+
+> rpgmaker-event-dsl@0.1.2 test C:\Users\Shuen\.codex\worktrees\mv-ticket-30\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> vitest run "test/label-script-plugin.test.ts"
+
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-30/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/label-script-plugin.test.ts (6 tests | 1 failed) 25ms
+   × reports exact native and DSL parameter paths for invalid known text and Script records 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/label-script-plugin.test.ts > reports exact native and DSL parameter paths for invalid known text and Script records
+AssertionError: expected [Function] to throw error including 'list[0].parameters[0]' but got 'MV-COMMAND-PARAMETERS: Known command …'
+
+Expected: "list[0].parameters[0]"
+Received: "MV-COMMAND-PARAMETERS: Known command parameters do not match their native contract. at list[0].parameters; expected E118 saved slots s; actual [null]"
+
+ ❯ test/label-script-plugin.test.ts:102:84
+    100| it("reports exact native and DSL parameter paths for invalid known tex…
+    101|   for (const code of [118, 119, 355, 356]) {
+    102|     expect(() => renderDecompiledCommandList([{code,indent:0,parameter…
+       |                                                                                    ^
+    103|     const graph = buildStagedDataGraph({ declarations: [event([label({…
+    104|     expect(validateStagedDataGraph(graph, {scriptEnabled:true}).issues…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 5 passed (6)
+   Start at  02:14:13
+   Duration  1.29s (transform 379ms, setup 0ms, import 1.10s, tests 25ms, environment 0ms)
+
+C:\Users\Shuen\.codex\worktrees\mv-ticket-30\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run "test/label-script-plugin.test.ts"`
+Exit status 1

@@ -5,6 +5,7 @@ import { CommandStructureError } from "./command-errors.js";
 import { assertStrictJson, describeValue, StrictJsonError } from "../project-data/json-values.js";
 import { assertNativeCommandParameters } from "./native-parameters.js";
 import { renderJsonValue } from "../project-data/json-values.js";
+import { assertNativeScriptRecords } from "../commands/flow/native.js";
 export { CommandStructureError } from "./command-errors.js";
 
 export function assertNativeCommandEnvelope(
@@ -126,6 +127,7 @@ export function inspectCommandListStructure(
       );
     }
   }
+  assertNativeScriptRecords(commands);
   assertNativeMovementCommands(commands);
   assertNativeMessageGroups(commands);
   const breaksOutsideLoops: number[] = [];

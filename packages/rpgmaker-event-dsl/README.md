@@ -57,6 +57,23 @@ three saved numeric fields in every helper. `fadeoutBgm` and `fadeoutBgs` requir
 an integer duration of 1..999 seconds and return without adding a wait command.
 `saveBgm()`, `replayBgm()` and `stopSe()` take no arguments.
 
+Use `label({ name })` and `jumpToLabel({ name })` with complete exact strings.
+Each native event list has its own label scope; jumps select its first exact Label.
+Duplicate labels and missing targets warn without rewriting strings. CR/LF warnings
+describe editor parameter-reconfirmation risks while preserving all saved characters.
+
+Use `script({ code })` or `script(scriptInput({ code }))` under the Workspace
+`scriptEnabled` Gate. Code splits only on LF into 1–12 physical records, including
+empty and trailing records; CR stays literal. Empty and nested recognized raw scripts
+also require the Gate. Decompile may publish them with a warning while the Gate is
+closed. Single-slot Script Inputs in other command families retain their own full-string
+contract without this record-count limit.
+
+Use `pluginCommand({ line })` for a complete Plugin Command Line. The required string
+may be empty and preserves every space, Tab, CR and LF. Plugin Commands compile with
+the Script Command Gate closed; an optional Plugin Command Registry supplies lint,
+while plugin-specific runtime semantics stay outside validation.
+
 ## Map Event Pages
 
 `mapEvent({ mapId, id, name, x, y, note?, pages })` owns the complete event.

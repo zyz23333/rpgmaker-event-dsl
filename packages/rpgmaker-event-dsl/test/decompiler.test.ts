@@ -520,7 +520,7 @@ describe("decompiler command list rendering", () => {
         "gameOver(),",
         "returnToTitleScreen(),",
         'script({ code: "const x = 1;\\nconsole.log(x);" }),',
-        'pluginCommand({ command: "MyPlugin", args: ["arg1","arg2"] }),',
+        'pluginCommand({ line: "MyPlugin arg1 arg2" }),',
       ].join("\n"),
     });
   });
@@ -553,7 +553,7 @@ describe("decompiler command list rendering", () => {
       { code: 236, indent: 0, parameters: ["hail", 6, 50, true] },
       { code: 127, indent: 0, parameters: [1, 0, 0, 1, "false"] },
       { code: 129, indent: 0, parameters: [1, 2, false] },
-      { code: 356, indent: 0, parameters: ["Plugin  keeps  spaces"] },
+      { code: 356, indent: 0, parameters: ["Plugin  keeps  spaces", "extra slot"] },
       { code: 230, indent: 2, parameters: ["thirty"] },
     ];
     for (const command of cases) expect(() => renderDecompiledCommandList([command])).toThrow();

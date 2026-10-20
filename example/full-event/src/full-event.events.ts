@@ -414,8 +414,7 @@ export const practiceBattleEvent = mapEvent({
         }),
         openMenuScreen(),
         pluginCommand({
-          command: "FullEventPlugin",
-          args: ["alpha", "beta"],
+          line: "FullEventPlugin alpha beta",
         }),
         script({ code: "console.log('DSL practice station ran');" }),
         rawDslCommand({

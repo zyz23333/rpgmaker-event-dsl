@@ -158,7 +158,7 @@ describe("compileMapEvent", () => {
         name: "Plugin",
         x: 0,
         y: 0,
-        pages: [page({ commands: [pluginCommand({ command: "MyPlugin", args: [] })] })],
+        pages: [page({ commands: [pluginCommand({ line: "MyPlugin" })] })],
       },
       { nextId: 1, resolver },
     );
@@ -1077,7 +1077,7 @@ describe("compileMapEvent", () => {
               gameOver(),
               returnToTitleScreen(),
               script({ code: "const x = 1;\nconsole.log(x);" }),
-              pluginCommand({ command: "MyPlugin", args: ["arg1", "arg2"] }),
+              pluginCommand({ line: "MyPlugin arg1 arg2" }),
             ],
           }),
         ],
