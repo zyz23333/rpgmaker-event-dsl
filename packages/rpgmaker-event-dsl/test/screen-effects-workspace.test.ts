@@ -298,6 +298,12 @@ it("MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Sc
       [261, "const input={movie:null,other:true};", "playMovie({...input} as any)", ""],
       [261, "", '{kind:"playMovie"} as any', ".movie"],
       [261, "", 'playMovie({movie:movieAsset({name:"Ending",extension:"webm"} as any)})', ""],
+      [
+        261,
+        'const movie={name:"Ending",extension:"webm"};',
+        "playMovie({movie:movieAsset(movie)})",
+        "",
+      ],
       [223, "", "rawDslCommand({code:223,parameters:[[0,0,0,256],1,false]})", ".parameters[0][3]"],
       [236, "", 'rawDslCommand({code:236,parameters:["none",0,1,true]})', ".parameters[1]"],
     ] as const) {

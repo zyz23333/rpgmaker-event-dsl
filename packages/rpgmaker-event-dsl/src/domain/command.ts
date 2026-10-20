@@ -346,7 +346,7 @@ export type ChangeFormationAccessDslCommand = {
 
 export type ChangeWindowColorDslCommand = {
   kind: "changeWindowColor";
-  tone: Extract<ToneInput, { red: number }>;
+  tone: ToneInput;
 };
 
 export type ChangeDefeatMeDslCommand = {
@@ -497,14 +497,14 @@ export type FadeinScreenDslCommand = {
 
 export type TintScreenDslCommand = {
   kind: "tintScreen";
-  tone: Extract<ToneInput, { red: number }>;
+  tone: ToneInput;
   duration: number;
   wait: boolean;
 };
 
 export type FlashScreenDslCommand = {
   kind: "flashScreen";
-  color: Extract<ColorInput, { red: number }>;
+  color: ColorInput;
   duration: number;
   wait: boolean;
 };
@@ -558,7 +558,7 @@ export type RotatePictureDslCommand = {
 export type TintPictureDslCommand = {
   kind: "tintPicture";
   pictureId: number;
-  tone: Extract<ToneInput, { red: number }>;
+  tone: ToneInput;
   duration: number;
   wait: boolean;
 };

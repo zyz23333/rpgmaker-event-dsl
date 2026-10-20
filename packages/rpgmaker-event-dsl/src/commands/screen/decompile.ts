@@ -5,7 +5,7 @@ import { renderJsonValue } from "../../project-data/json-values.js";
 export function renderTintScreen(
   command: RawEventCommand,
 ): Omit<RenderedCommand, "nextIndex"> | null {
-  const tone = renderScreenComponents(command.parameters[0], "gray");
+  const tone = renderTone(command.parameters[0]);
   const duration = command.parameters[1];
   const wait = command.parameters[2];
 
@@ -20,7 +20,7 @@ export function renderTintScreen(
 export function renderFlashScreen(
   command: RawEventCommand,
 ): Omit<RenderedCommand, "nextIndex"> | null {
-  const color = renderScreenComponents(command.parameters[0], "alpha");
+  const color = renderColor(command.parameters[0]);
   const duration = command.parameters[1];
   const wait = command.parameters[2];
 
@@ -133,10 +133,7 @@ export function renderTintPicture(
   command: RawEventCommand,
 ): Omit<RenderedCommand, "nextIndex"> | null {
   const pictureId = readPositiveInteger(command.parameters[0]);
-  const value = command.parameters[1];
-  const tone = isNumberTuple(value, 4)
-    ? `{ red: ${literal(value[0])}, green: ${literal(value[1])}, blue: ${literal(value[2])}, gray: ${literal(value[3])} }`
-    : null;
+  const tone = renderTone(command.parameters[1]);
   const duration = command.parameters[2];
   const wait = command.parameters[3];
 
@@ -259,7 +256,7 @@ export function renderPictureDisplay(
 }
 
 export function renderTone(value: unknown): string | null {
-  return isNumberTuple(value, 4) ? literal(value) : null;
+  return renderScreenComponents(value, "gray");
 }
 
 function renderScreenComponents(value: unknown, last: "gray" | "alpha"): string | null {
@@ -269,7 +266,7 @@ function renderScreenComponents(value: unknown, last: "gray" | "alpha"): string 
 }
 
 export function renderColor(value: unknown): string | null {
-  return isNumberTuple(value, 4) ? literal(value) : null;
+  return renderScreenComponents(value, "alpha");
 }
 
 export function pictureOriginFromCode(value: unknown): "upperLeft" | "center" | null {

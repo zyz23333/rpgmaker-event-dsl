@@ -11,6 +11,13 @@ function checkPublicTypes() {
   dsl.gameOver();
   dsl.returnToTitleScreen();
 
+  // @ts-expect-error The shared Tone type has only named components across all three families.
+  const tupleTone: dsl.ToneInput = [0, 0, 0, 0];
+  // @ts-expect-error The shared Color type has only named components.
+  const tupleColor: dsl.ColorInput = [0, 0, 0, 0];
+  void tupleTone;
+  void tupleColor;
+
   // @ts-expect-error A Save Access flag is explicit.
   dsl.changeSaveAccess({});
   // @ts-expect-error A Menu Access flag is a boolean.
