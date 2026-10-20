@@ -145,3 +145,6 @@ product. No repeat broad/build run or final49–55 completion is claimed.
 
 Ticket33 is resolved with the replacement native evidence. Its new READY remains
 subject to independent merger review; the rejected READY commit is not acceptance.
+### 2026-10-20 — 最终52实际游戏补充
+
+52 实际复跑 R1固定页不自主移动、自主路线、强制无等待/等待及 Parallel推进，全部13条原谓词和15个标记通过，并新增当前 `MV-S6-MOVEMENT-006` 与 `MV-S5-MAP-R1-ROUTES` 结果。本次R1补充不代替其余53/54移动相关责任。 共同候选为 `2dc63901` / `mv-1.6.1/22`；详见[52最终报告与限制](../evidence/52-final-games.md)。52共33对/66个实际游戏通过，四份原始拒绝独立保留；本注只确认所列52责任，既有状态保持不变，最终索引及跨票完整性由55汇总。

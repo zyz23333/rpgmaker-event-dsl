@@ -1,0 +1,8 @@
+{
+  "purpose": "Static source-edit compatibility after final Text integration; no product or native execution",
+  "source": "conditional-scenarios-export-v1.cjs",
+  "sourceSha256": "b4a37c702156ea11ef0fea5b635a426fd4b94a681272e1e754fc84bffcf4fd0e",
+  "target": "conditional-scenarios-export-v2.cjs",
+  "targetSha256": "53d8941c61c3e28bb0b8af9c01c3d32180415e03968f1dea05e9280772911e90",
+  "change": "Seed-only comment removal accepts final named lines input and retains old historical form; no saved command or runtime oracle change"
+}

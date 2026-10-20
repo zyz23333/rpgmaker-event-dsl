@@ -1,0 +1,58 @@
+{
+  "at": "2026-10-20T03:22:36.228Z",
+  "scope": "Lightweight publication bytes only; no native/full/build/index run",
+  "candidate": "2dc639015f908de6fd524e50236e5422b5f8e990",
+  "productSourceFiles": 144,
+  "archivedBoundTools": 34,
+  "newResults": 15,
+  "newResultSourceEntries": 2196,
+  "uniqueFileHashesChecked": 201,
+  "copiedValidation": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games/validation/check-published-v1.mts",
+      "sha256": "e23331c4b3a04ad0da88dd0c8f4893c3cb20ec48081d962b148a566cb2b95bae",
+      "bytes": 3967
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games/validation/published-new-records-check-v1.log",
+      "sha256": "8fae455b786f3200fbe7539f413c7e332659bf890968482e0e2874652b70f784",
+      "bytes": 1003
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games/validation/check-published-v2.mts",
+      "sha256": "b5ba54f994ae41a8ed5b6fb1d67d901a1072df75455da959fac63215609beb6f",
+      "bytes": 3975
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games/validation/published-new-records-check-v2.log",
+      "sha256": "bba649d199ef56eccc5e6f66c01250ce354e344e8551adbfb2e4a08e2b60cb2a",
+      "bytes": 90
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games/validation/published-new-records-check-v2.json",
+      "sha256": "1b0f61814ed7d8a1f67017dc87058779ddb7c618cd6df948dd963c5b468f30ea",
+      "bytes": 5298
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games/validation/evidence-index-v1.json",
+      "sha256": "fbc3e128c780823c8c007c8d2cc6aa184de794847be52c178523c7ea80d063a8",
+      "bytes": 3353
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games/validation/evidence-index-v1.log",
+      "sha256": "74c98ceeb96f24ca0c3c0098de82552825cdaf40fa2a83956c9323aad2b2a974",
+      "bytes": 110
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games/validation/final-collection-v1.log",
+      "sha256": "acec1de72d2869823459b97d2e542e461a69c4f50e0afb712748689d9330a45b",
+      "bytes": 199
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games/validation/final-publication-v1.log",
+      "sha256": "8e34fbffc64e42c252e1913ec7ba4e3165866eef55848b6e99148532daece526",
+      "bytes": 245
+    }
+  ],
+  "passed": true
+}

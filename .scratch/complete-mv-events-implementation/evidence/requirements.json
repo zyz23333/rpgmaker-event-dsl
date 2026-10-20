@@ -21617,6 +21617,426 @@
       },
       "slice": "45/46 / required final native pending",
       "required": true
+    },
+    {
+      "id": "MV-S7-R1-TRIGGERS-052",
+      "title": "Final five Map triggers, page priority and Common triggers/call",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/52-final-game-pages-battles-and-control-flow.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T6 — 复验和完成声明"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "r1-triggers-pages-common",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games/input-bindings-v1.json",
+        "sha256": "cf04b2e9d80bf0a8313d73936f939b1455415e85fdb3886d7631d7bade5975c8"
+      },
+      "expected": "10 original cases, one execution each, correct page and inherited event/map context",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games.md",
+        "section": "## Actual game execution"
+      },
+      "nativeGroups": [
+        "R1"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0; actual MV1.6.1/NW.js0.29.0",
+        "owner": "Codex final52 /root/ticket_32",
+        "layer": "Independent literal and actual formal-compiled ordinary native games"
+      },
+      "slice": "52 final R1–R3",
+      "required": true
+    },
+    {
+      "id": "MV-S7-R1-ROUTES-052",
+      "title": "Final inactive/autonomous/forced Movement Route and waiting",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/52-final-game-pages-battles-and-control-flow.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T6 — 复验和完成声明"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "r1-autonomous-forced-route-waits",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games/input-bindings-v1.json",
+        "sha256": "cf04b2e9d80bf0a8313d73936f939b1455415e85fdb3886d7631d7bade5975c8"
+      },
+      "expected": "All15 original markers and13 original chronology/state predicates; native Parallel progress",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games.md",
+        "section": "## Actual game execution"
+      },
+      "nativeGroups": [
+        "R1"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0; actual MV1.6.1/NW.js0.29.0",
+        "owner": "Codex final52 /root/ticket_32",
+        "layer": "Independent literal and actual formal-compiled ordinary native games"
+      },
+      "slice": "52 final R1–R3",
+      "required": true
+    },
+    {
+      "id": "MV-S7-R2-SCHEDULING-052",
+      "title": "Full17-page three-turn original R2 scheduling with legal amount variant",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/52-final-game-pages-battles-and-control-flow.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T6 — 复验和完成声明"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "r2-legal-full-seventeen-pages-three-turns",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games/input-bindings-v1.json",
+        "sha256": "cf04b2e9d80bf0a8313d73936f939b1455415e85fdb3886d7631d7bade5975c8"
+      },
+      "expected": "All original pages, AND/all-disabled/turn0/A-B/three spans, complete ordering and original Conditional guard oracle; only documented9999999 to9999 correction",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games.md",
+        "section": "## Actual game execution"
+      },
+      "nativeGroups": [
+        "R2"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0; actual MV1.6.1/NW.js0.29.0",
+        "owner": "Codex final52 /root/ticket_32",
+        "layer": "Independent literal and actual formal-compiled ordinary native games"
+      },
+      "slice": "52 final R1–R3",
+      "required": true
+    },
+    {
+      "id": "MV-S7-R2-RESULTS-052",
+      "title": "Native victory, party Escape input and allowed-defeat callbacks",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/52-final-game-pages-battles-and-control-flow.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T6 — 复验和完成声明"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "r2-result-win; r2-result-escape; r2-result-lose",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games/input-bindings-v1.json",
+        "sha256": "cf04b2e9d80bf0a8313d73936f939b1455415e85fdb3886d7631d7bade5975c8"
+      },
+      "expected": "Three ordinary Scene_Battle results enter only the matching native result body and return to stopped Scene_Map",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games.md",
+        "section": "## Actual game execution"
+      },
+      "nativeGroups": [
+        "R2"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0; actual MV1.6.1/NW.js0.29.0",
+        "owner": "Codex final52 /root/ticket_32",
+        "layer": "Independent literal and actual formal-compiled ordinary native games"
+      },
+      "slice": "52 final R1–R3",
+      "required": true
+    },
+    {
+      "id": "MV-S7-R2-CONTEXTS-052",
+      "title": "Battle/Name skip, residual Troop objects and Abort phase consequences",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/52-final-game-pages-battles-and-control-flow.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T6 — 复验和完成声明"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "r2-battle-skip-name-skip-residual-troop-and-abort",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games/input-bindings-v1.json",
+        "sha256": "cf04b2e9d80bf0a8313d73936f939b1455415e85fdb3886d7631d7bade5975c8"
+      },
+      "expected": "Two actual battles preserve native in-battle skips, dead-target no-op and native-recovered living residual HP, outside-battle aborting across Wait, fresh setup and result1 native abort branch",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games.md",
+        "section": "## Actual game execution"
+      },
+      "nativeGroups": [
+        "R2"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0; actual MV1.6.1/NW.js0.29.0",
+        "owner": "Codex final52 /root/ticket_32",
+        "layer": "Independent literal and actual formal-compiled ordinary native games"
+      },
+      "slice": "52 final R1–R3",
+      "required": true
+    },
+    {
+      "id": "MV-S7-R3-CHOICES-052",
+      "title": "Actual Choices defaults, cancellation, out-of-range saved state and negative zero",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/52-final-game-pages-battles-and-control-flow.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T6 — 复验和完成声明"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "r3-choice-default-second; r3-choice-one-choice-cancel-selects-first; r3-choice-separate-cancel-body; r3-choice-disabled-cancel-keeps-wait; r3-choice-saved-cancel-five-without-403; r3-choice-saved-default-five-needs-navigation; r3-choice-no-default-down-selects-first; r3-choice-numeric-saved-both-negative-zero",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games/input-bindings-v1.json",
+        "sha256": "cf04b2e9d80bf0a8313d73936f939b1455415e85fdb3886d7631d7bade5975c8"
+      },
+      "expected": "Eight ordinary message-window scenarios retain exact native default/cancel consequences, separate403, navigation and disabled-cancel wait",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games.md",
+        "section": "## Actual game execution"
+      },
+      "nativeGroups": [
+        "R3"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0; actual MV1.6.1/NW.js0.29.0",
+        "owner": "Codex final52 /root/ticket_32",
+        "layer": "Independent literal and actual formal-compiled ordinary native games"
+      },
+      "slice": "52 final R1–R3",
+      "required": true
+    },
+    {
+      "id": "MV-S7-R3-CONTROL-052",
+      "title": "Exact/duplicate/missing Labels, Loop/Break/Exit and stagnation",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/52-final-game-pages-battles-and-control-flow.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T6 — 复验和完成声明"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "r3-control-label-full-whitespace-crlf-exact; r3-control-label-first-duplicate; r3-control-label-missing-continues; r3-control-label-empty-exact; r3-control-loop-break-exit; r3-control-nested-loop-mixed-body-markers; r3-control-break-outside-skips-to-list-end; r3-control-conditional-switch-then; r3-control-conditional-switch-else; r3-control-conditional-no-else-false; r3-control-label-self-jump-stagnation; r3-control-loop-with-wait-stagnation",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games/input-bindings-v1.json",
+        "sha256": "cf04b2e9d80bf0a8313d73936f939b1455415e85fdb3886d7631d7bade5975c8"
+      },
+      "expected": "Twelve original control scenarios retain complete markers, nested mixed bodies and both finite-window stagnation consequences",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games.md",
+        "section": "## Actual game execution"
+      },
+      "nativeGroups": [
+        "R3"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0; actual MV1.6.1/NW.js0.29.0",
+        "owner": "Codex final52 /root/ticket_32",
+        "layer": "Independent literal and actual formal-compiled ordinary native games"
+      },
+      "slice": "52 final R1–R3",
+      "required": true
+    },
+    {
+      "id": "MV-S7-R3-CONDITIONAL-052",
+      "title": "Complete Conditional modes in held/released/direct and three boarded vehicles",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/52-final-game-pages-battles-and-control-flow.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T6 — 复验和完成声明"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "conditional-boarded-boat; conditional-boarded-ship; conditional-boarded-airship; conditional-legal-shared-common-fourteen-modes-held; conditional-legal-direct-map-troop-fourteen-modes-held; conditional-legal-released-buttons-directions-marker-numeric",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games/input-bindings-v1.json",
+        "sha256": "cf04b2e9d80bf0a8313d73936f939b1455415e85fdb3886d7631d7bade5975c8"
+      },
+      "expected": "Six actual pairs retain all condition modes, Actor submodes, marker/numeric distinctions, native caller/context consequences and full unchanged oracle",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games.md",
+        "section": "## Actual game execution"
+      },
+      "nativeGroups": [
+        "R3"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0; actual MV1.6.1/NW.js0.29.0",
+        "owner": "Codex final52 /root/ticket_32",
+        "layer": "Independent literal and actual formal-compiled ordinary native games"
+      },
+      "slice": "52 final R1–R3",
+      "required": true
+    },
+    {
+      "id": "MV-S7-ORIGINAL-AMOUNT-REFUSALS-052",
+      "title": "Original four invalid Enemy HP amount inputs refuse before game launch",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/52-final-game-pages-battles-and-control-flow.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T6 — 复验和完成声明"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "negative",
+        "boundary"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "conditional-shared-common-fourteen-modes-held; conditional-direct-map-troop-fourteen-modes-held; conditional-released-buttons-directions-marker-numeric; conditional-original-full-r2-seventeen-pages-three-turns",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games/input-bindings-v1.json",
+        "sha256": "cf04b2e9d80bf0a8313d73936f939b1455415e85fdb3886d7631d7bade5975c8"
+      },
+      "expected": "All four original inputs actually fail public Decompile with MV-E331 finite1..9999 diagnostic; pairPassed remainsfalse and no native process launches",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/52-final-games.md",
+        "section": "## Actual game execution"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 public Workspace Decompile; no game launched",
+        "owner": "Codex final52 /root/ticket_32",
+        "layer": "Actual public API original invalid-input refusal"
+      },
+      "slice": "52 final R1–R3",
+      "required": true
     }
   ]
 }

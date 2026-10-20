@@ -66,3 +66,7 @@ See [the batch delivery and actual log pointers](../evidence/29-30-44-text-capab
 The independent merger's actual import-cycle regression and obsolete None boundary expectation are corrected in58252653; the exact legacy Comment injection in Choices011 is migrated in e61a27ef. Actual Inventory/Shop4c46520e is merged by47211924, preserving the incoming Shop APIs and pure guard. The union is416requirements with identical overlapping objects; the Text delivery advances actual incoming contract18 to19. Merged source passes typecheck,123affected tests,12selected actual Workspace cases, current index and contract freshness. All original merger, architecture-red, failed Workspace and formatting logs remain preserved with corrected runs.
 
 See [the correction checkpoints and actual logs](../evidence/29-30-44-text-capability-batch.md#independent-merger-corrections-and-latest-incoming). Development remains resolved; final48/full-build and51/52/54REA/game obligations remain pending, and combined native checkboxes stay unchecked.
+
+### 2026-10-20 — 最终52实际游戏补充
+
+52 的实际两战斗上下文补充观察确认 Name Input 在 battle 中被原生跳过，并保留前后顺序标记及 Map返回。其余角色文本/图像、R6/R7仍由54交付，本注不提前完成对应聚合要求。 共同候选为 `2dc63901` / `mv-1.6.1/22`；详见[52最终报告与限制](../evidence/52-final-games.md)。52共33对/66个实际游戏通过，四份原始拒绝独立保留；本注只确认所列52责任，既有状态保持不变，最终索引及跨票完整性由55汇总。
