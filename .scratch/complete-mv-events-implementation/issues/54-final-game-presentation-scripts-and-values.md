@@ -3,6 +3,7 @@
 Status: ready-for-agent
 Blocked by: 48
 Stage: S7
+Execution batch: [最终原生回归](../tickets.md#batch-native-regression)
 Created: 2026-10-19
 Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-implementation-spec.md)
 

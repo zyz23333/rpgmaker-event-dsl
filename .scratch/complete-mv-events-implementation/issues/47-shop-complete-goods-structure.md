@@ -3,6 +3,7 @@
 Status: ready-for-agent
 Blocked by: 07, 23
 Stage: S6
+Execution batch: [物品、队伍与商店](../tickets.md#batch-inventory-shop)
 Created: 2026-10-19
 Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-implementation-spec.md)
 
