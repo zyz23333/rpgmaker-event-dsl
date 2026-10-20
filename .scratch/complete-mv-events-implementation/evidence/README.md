@@ -658,7 +658,7 @@ Conditional 集成，契约 `/15`、374 条要求；开发票按用户执行修�
 
 ## Ticket31 Control Variables
 
-The five stable obligations below retain the original DEV records. Current development closure and affected reruns are recorded in the Ticket31 finalization report; `MV-S6-VARIABLES-005` remains unexecuted and is carried to49/51–54. Its complete64-sample Random, self-alias, once-before-loop Script and numeric runtime outcomes remain required. Daily index validity does not mark that native obligation passed.
+The five stable obligations below retain the original DEV records. Current development closure and affected reruns are recorded in the [Ticket31 finalization report](31-control-variables-finalization.md); `MV-S6-VARIABLES-005` remains unexecuted and is carried to49/51–54. Its complete64-sample Random, self-alias, once-before-loop Script and numeric runtime outcomes remain required. Daily index validity does not mark that native obligation passed.
 
 | Requirement | Obligation | Evidence kind | Required layer |
 | --- | --- | --- | --- |

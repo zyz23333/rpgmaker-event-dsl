@@ -1,6 +1,6 @@
 # 31: Control Variables 全操作数
 
-Status: claimed
+Status: resolved
 Blocked by: 09, 23, 25
 Stage: S6
 Execution batch: [变量操作数与求值](../tickets.md#batch-variables)
@@ -21,18 +21,18 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 ## Acceptance criteria
 
-- [ ] 范围、五类 operand、Game Data 八来源及全部 status/子型/枚举逐项有正负边界案例；反向范围与随机反向报错。
-- [ ] 常量/随机端点使用各自值域，运行变量/计算结果不套字面上限；Script Input 单槽字符串与 Gate 完整。
-- [ ] 真实 Common/战斗上下文与原生 R4 证明 Random 每目标独立采样，其余 operand 一次求值；E5/R7 分配场景与自动化往返齐备。
+- [x] 范围、五类 operand、Game Data 八来源及全部 status/子型/枚举逐项有正负边界案例；反向范围与随机反向报错。
+- [x] 常量/随机端点使用各自值域，运行变量/计算结果不套字面上限；Script Input 单槽字符串与 Gate 完整。
+- [x] 自动化往返及 Common/战斗上下文诊断完成；按2026-10-20用户执行修订，E5最终产品比较与R4/R7真实Common/战斗场景集中到49–54。Random逐目标采样、其余operand一次求值等原生义务保留为未执行的 `MV-S6-VARIABLES-005`，不计为通过。
 
 ### 共通要求（限本票适用范围）
 
-- [ ] 按规格 I1–I12 和对应完整参数附表实现；正式编写、编译、反编译、验证、已知 raw 及适用 Workspace 路径一起交付，实际发现并求值生成源码，预期独立于待测编译器。
-- [ ] 对本票拥有的字段/模式/枚举/None/独立保存值/默认/正负边界及已知相互作用建案例；完整比较键存在性、数组长度/顺序、页序、值、镜像、CR 和非激活配置。
-- [ ] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
-- [ ] 按规格 2026-10-20 用户执行修订，开发及批次合入执行 Windows / Node 22 受影响测试与必要检查；全量适用自动化及构建集中到 48。安全票仍验证用户可观察的源码、项目、Snapshot、manifest、Discovery 集合和诊断状态。
-- [ ] 本票原生场景可集中到 49–54 最终回归；开发票关闭时记录实际自动化结果，并明确指向待执行的最终场景，不把未执行记为通过。证据按规格 2026-10-20 用户执行修订保留必要版本、输入、命令和预期/实际日志。
-- [ ] 同步受影响的当前公开 API 文档、示例及编写指南；不保留旧 API 别名或迁移说明，不分发首方编辑器、runtime/源码或本地游戏资产。
+- [x] 按规格 I1–I12 和对应完整参数附表实现；正式编写、编译、反编译、验证、已知 raw 及适用 Workspace 路径一起交付，实际发现并求值生成源码，预期独立于待测编译器。
+- [x] 对本票拥有的字段/模式/枚举/None/独立保存值/默认/正负边界及已知相互作用建案例；完整比较键存在性、数组长度/顺序、页序、值、镜像、CR 和非激活配置。
+- [x] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
+- [x] 按规格 2026-10-20 用户执行修订，开发及批次合入执行 Windows / Node 22 受影响测试与必要检查；全量适用自动化及构建集中到 48。安全票仍验证用户可观察的源码、项目、Snapshot、manifest、Discovery 集合和诊断状态。
+- [x] 本票原生场景可集中到 49–54 最终回归；开发票关闭时记录实际自动化结果，并明确指向待执行的最终场景，不把未执行记为通过。证据按规格 2026-10-20 用户执行修订保留必要版本、输入、命令和预期/实际日志。
+- [x] 同步受影响的当前公开 API 文档、示例及编写指南；不保留旧 API 别名或迁移说明，不分发首方编辑器、runtime/源码或本地游戏资产。
 
 ## Verification
 
@@ -75,3 +75,11 @@ is unchanged. This ticket remains claimed: broad/build/built and allocated actua
 E5/R4/R7 acceptance still require the serialized finalization queue. See the
 [DEV record](../evidence/31-control-variables-dev.md) and
 [immutable audit](../evidence/31-control-variables-dev-audit.json).
+
+## Answer
+
+2026-10-20：本票按已接受的开发票执行修订 resolved。复用原DEV并合入实际主线 `57db7ed36cc48f4341ace65c83e4b319c924f76f`，当前产品 `e10356a0d2d2a7b8605fba95c1243cd8d94b1ad9`、契约 `mv-1.6.1/16`、379要求（完整incoming374+原own5）。另修复缺失Enemy导致E122运行位置偏移/消失时的上下文诊断，保存选择器不改写，hidden有效成员仍可读取。
+
+受影响自动化包括初次8文件427测试、Variables Workspace16测试、最终4文件185测试、共享Workspace/索引3文件41测试；最新整合后相交边界及379行索引5文件223测试、类型检查、相交lint/format通过。记录保留原DEV索引超时、新测试red及误含历史证据格式的失败命令，不重写原始失败。具体执行输入、M盘日志及结果见[当前交付报告](../evidence/31-control-variables-finalization.md)。
+
+`MV-S6-VARIABLES-005`仍required/unexecuted/zero results。完整64-sample Random、self-alias、Script一次求值、完整单槽字符串、floor/div/mod0、Common/战斗真实上下文继续指向49–54；48全量/构建，55最终状态审计。本次没有full/build/built/native或新大归档。
