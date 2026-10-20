@@ -11,6 +11,7 @@ import {
   variableTroopContext,
   type VariableInputContext,
 } from "../commands/variables/diagnostics.js";
+import { inspectMapLocationContext } from "../commands/map/location-context.js";
 
 export function validateCompiledCommandLists(
   graph: StagedDataGraph,
@@ -93,6 +94,22 @@ export function validateCompiledCommandLists(
         const { breaksOutsideLoops } = inspectCommandListStructure(commands, {
           requireTerminator: true,
         });
+        issues.push(
+          ...inspectMapLocationContext(commands, {
+            identity: list.identity,
+            stage: "compile",
+            prefix,
+            origins,
+            maps: (graph.snapshotMaps ?? []).map((map) => ({
+              ...map,
+              eventLocations: [...graph.mapEventsByIdentity.values()]
+                .filter((event) => event.mapId === map.id)
+                .map((event) => ({ eventId: event.id, x: event.x, y: event.y })),
+            })),
+            ...(declaration.kind === "mapEvent" ? { currentMapId: declaration.mapId } : {}),
+            battle: declaration.kind === "troopEvent",
+          }),
+        );
         issues.push(
           ...inspectNativeCommandInputs(commands, {
             ...options,

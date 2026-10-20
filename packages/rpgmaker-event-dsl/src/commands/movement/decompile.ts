@@ -19,7 +19,7 @@ export function renderTransferPlayer(
   const direction = command.parameters[4];
   const fadeType = command.parameters[5];
 
-  if (!isDirection(direction) || !isFadeType(fadeType)) {
+  if (!isEventLocationDirection(direction) || !isFadeType(fadeType)) {
     return null;
   }
 
@@ -102,7 +102,7 @@ export function renderSetEventLocation(
     return typeof x !== "number" || typeof y !== "number"
       ? null
       : {
-          expression: `setEventLocation({ character: ${character.expression}, destination: { kind: "direct", x: ${x}, y: ${y} }${renderOptionalEventDirection(direction)} })`,
+          expression: `setEventLocation({ target: ${character.expression}, destination: { kind: "direct", x: ${x}, y: ${y} }${renderOptionalEventDirection(direction)} })`,
           helperNames: ["setEventLocation"],
         };
   }
@@ -113,7 +113,7 @@ export function renderSetEventLocation(
     return xVariableId === null || yVariableId === null
       ? null
       : {
-          expression: `setEventLocation({ character: ${character.expression}, destination: { kind: "variables", x: variableRef({ id: ${xVariableId} }), y: variableRef({ id: ${yVariableId} }) }${renderOptionalEventDirection(direction)} })`,
+          expression: `setEventLocation({ target: ${character.expression}, destination: { kind: "variables", x: variableRef({ id: ${xVariableId} }), y: variableRef({ id: ${yVariableId} }) }${renderOptionalEventDirection(direction)} })`,
           helperNames: ["setEventLocation", "variableRef"],
         };
   }
@@ -123,7 +123,7 @@ export function renderSetEventLocation(
     return exchangeCharacter === null
       ? null
       : {
-          expression: `setEventLocation({ character: ${character.expression}, destination: { kind: "exchange", character: ${exchangeCharacter.expression} }${renderOptionalEventDirection(direction)} })`,
+          expression: `setEventLocation({ target: ${character.expression}, destination: { kind: "exchange", target: ${exchangeCharacter.expression} }${renderOptionalEventDirection(direction)} })`,
           helperNames: ["setEventLocation"],
         };
   }
@@ -534,22 +534,24 @@ export function renderCharacterRuntimeSelector(
 }
 
 export function renderOptionalDirectionAndFade(
-  direction: 2 | 4 | 6 | 8,
+  direction: 0 | 2 | 4 | 6 | 8,
   fadeType: 0 | 1 | 2,
 ): string {
   const fields: string[] = [];
-  if (direction !== 2) {
-    fields.push(`direction: ${direction}`);
+  if (direction !== 0) {
+    fields.push(`direction: ${literal({ 2: "down", 4: "left", 6: "right", 8: "up" }[direction])}`);
   }
   if (fadeType !== 0) {
-    fields.push(`fadeType: ${fadeType}`);
+    fields.push(`fade: ${literal({ 1: "white", 2: "none" }[fadeType])}`);
   }
 
   return fields.length === 0 ? "" : `, ${fields.join(", ")}`;
 }
 
 export function renderOptionalEventDirection(direction: 0 | 2 | 4 | 6 | 8): string {
-  return direction === 0 ? "" : `, direction: ${direction}`;
+  return direction === 0
+    ? ""
+    : `, direction: ${literal({ 2: "down", 4: "left", 6: "right", 8: "up" }[direction])}`;
 }
 
 export function balloonIconFromCode(value: unknown): string | null {

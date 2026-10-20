@@ -1,0 +1,40 @@
+
+> rpgmaker-event-dsl@0.1.2 test C:\Users\Shuen\.codex\worktrees\mv-ticket-34\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> vitest run "test/map-locations.test.ts"
+
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-34/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/map-locations.test.ts (10 tests | 1 failed) 65ms
+   × locates fixed Project Data Reference failures without rejecting unresolved runtime event selectors 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-locations.test.ts > locates fixed Project Data Reference failures without rejecting unresolved runtime event selectors
+AssertionError: expected [Function] to throw error matching /commands\[0\]\.destination\.map/ but got 'Unknown map reference id: 9'
+
+- Expected:
+/commands\[0\]\.destination\.map/
+
++ Received:
+"Unknown map reference id: 9"
+
+ ❯ test/map-locations.test.ts:58:76
+     56|   const event=commonEvent({id:1,name:"References",trigger:"none",comma…
+     57|   const graph=buildStagedDataGraph({declarations:[event]});
+     58|   expect(()=>compileCommonEvent(event,{nextId:1,resolver:graph.resolve…
+       |                                                                            ^
+     59|   expect(validateStagedDataGraph(graph,{scriptEnabled:false}).issues).…
+     60|     expect.objectContaining({code:"MV-E201-REFERENCE",dslPath:"command…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 9 passed (10)
+   Start at  02:56:30
+   Duration  1.45s (transform 459ms, setup 0ms, import 1.24s, tests 65ms, environment 0ms)
+
+C:\Users\Shuen\.codex\worktrees\mv-ticket-34\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run "test/map-locations.test.ts"`
+Exit status 1

@@ -79,10 +79,10 @@ export function locationInfoTypeFromCode(
 ):
   | "terrainTag"
   | "eventId"
-  | "tileIdLayer1"
-  | "tileIdLayer2"
-  | "tileIdLayer3"
-  | "tileIdLayer4"
+  | "tileLayer1"
+  | "tileLayer2"
+  | "tileLayer3"
+  | "tileLayer4"
   | "regionId"
   | null {
   switch (value) {
@@ -91,13 +91,13 @@ export function locationInfoTypeFromCode(
     case 1:
       return "eventId";
     case 2:
-      return "tileIdLayer1";
+      return "tileLayer1";
     case 3:
-      return "tileIdLayer2";
+      return "tileLayer2";
     case 4:
-      return "tileIdLayer3";
+      return "tileLayer3";
     case 5:
-      return "tileIdLayer4";
+      return "tileLayer4";
     case 6:
       return "regionId";
     default:

@@ -687,3 +687,14 @@ The five stable obligations below retain the original DEV records. Current devel
 | MV-S6-VARIABLES-003 | Native saved-shape and fixed-reference rejection before source publication | Synthetic DEV rejection; [record](31-control-variables-dev.md) |
 | MV-S6-VARIABLES-004 | Evaluated untyped source and known-raw Gate Check/Compile isolation | Synthetic DEV rejection; [record](31-control-variables-dev.md) |
 | MV-S6-VARIABLES-005 | Final built lifecycle and actual normal-Scene variable runtime observations | Required E5/R4/R7 pending; [record](31-control-variables-dev.md#remaining-finalization) |
+
+## Ticket34 Map Locations
+
+Original DEV records are retained; current batch closure will be recorded separately. `MV-S6-LOCATION-004` remains required and unexecuted for final E4/E6/R5.
+
+| Requirement | Obligation | Evidence |
+| --- | --- | --- |
+| MV-S6-LOCATION-001 | Complete Location modes through actual Workspace installation | Synthetic source Workspace; native not executed; [record](34-map-locations-dev-checkpoint.md) |
+| MV-S6-LOCATION-002 | Reject evaluated untyped Location sources without changing business state | Synthetic source Workspace; native not executed; [record](34-map-locations-dev-checkpoint.md) |
+| MV-S6-LOCATION-003 | Reject native Location coordinates and unsupported exchange padding atomically | Synthetic source Workspace; native not executed; [record](34-map-locations-dev-checkpoint.md) |
+| MV-S6-LOCATION-004 | Pending final E4/E6 product comparison and R5 native game acceptance | Pending E4/E6/R5; not executed; [record](34-map-locations-dev-checkpoint.md) |

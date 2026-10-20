@@ -8,7 +8,8 @@ import type {
   ControlSwitchesDslCommand,
   ControlTimerDslCommand,
   ControlVariablesDslCommand,
-  Direction,
+  LocationDirection,
+  TransferFade,
   MapDestination,
   OperateValueOperand,
   ReferenceRange,
@@ -17,12 +18,14 @@ import type {
 } from "../../domain/types.js";
 import { assertControlTimerInput } from "./validation.js";
 import { assertControlVariablesInput } from "./control-variables.js";
+import { assertMapLocationInput } from "../map/location-validation.js";
 
 export function transferPlayer(input: {
   destination: MapDestination;
-  direction?: Direction;
-  fadeType?: 0 | 1 | 2;
+  direction?: LocationDirection;
+  fade?: TransferFade;
 }): TransferPlayerDslCommand {
+  assertMapLocationInput("transferPlayer", input, "transferPlayer", false);
   const node: TransferPlayerDslCommand = {
     kind: "transferPlayer",
     destination: input.destination,
@@ -31,8 +34,8 @@ export function transferPlayer(input: {
   if (input.direction !== undefined) {
     node.direction = input.direction;
   }
-  if (input.fadeType !== undefined) {
-    node.fadeType = input.fadeType;
+  if (input.fade !== undefined) {
+    node.fade = input.fade;
   }
 
   return node;

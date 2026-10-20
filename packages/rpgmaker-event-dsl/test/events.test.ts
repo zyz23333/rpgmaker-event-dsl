@@ -267,8 +267,8 @@ describe("compileMapEvent", () => {
                   x: variableRef({ name: "X Var" }),
                   y: variableRef({ name: "Y Var" }),
                 },
-                direction: 4,
-                fadeType: 1,
+                direction: "left",
+                fade: "white",
               }),
               setVehicleLocation({
                 vehicle: "airship",
@@ -284,12 +284,12 @@ describe("compileMapEvent", () => {
                 },
               }),
               setEventLocation({
-                character: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
+                target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
                 destination: { kind: "direct", x: 6, y: 7 },
-                direction: 8,
+                direction: "up",
               }),
               setEventLocation({
-                character: { kind: "runtimeSelector", scope: "character", target: "event", id: 3 },
+                target: { kind: "runtimeSelector", scope: "character", target: "event", id: 3 },
                 destination: {
                   kind: "variables",
                   x: variableRef({ name: "X Var" }),
@@ -297,10 +297,10 @@ describe("compileMapEvent", () => {
                 },
               }),
               setEventLocation({
-                character: { kind: "runtimeSelector", scope: "character", target: "player" },
+                target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
                 destination: {
                   kind: "exchange",
-                  character: {
+                  target: {
                     kind: "runtimeSelector",
                     scope: "character",
                     target: "currentEvent",
@@ -429,7 +429,7 @@ describe("compileMapEvent", () => {
     expect(commands[31]).toEqual({ code: 202, indent: 0, parameters: [0, 1, 3, 4, 5] });
     expect(commands[32]).toEqual({ code: 203, indent: 0, parameters: [0, 0, 6, 7, 8] });
     expect(commands[33]).toEqual({ code: 203, indent: 0, parameters: [3, 1, 4, 5, 0] });
-    expect(commands[34]).toEqual({ code: 203, indent: 0, parameters: [-1, 2, 0, 0, 0] });
+    expect(commands[34]).toEqual({ code: 203, indent: 0, parameters: [0, 2, 0, 0, 0] });
     expect(commands[35]).toEqual({ code: 204, indent: 0, parameters: [6, 9, 5] });
     expect(commands[36]).toEqual({
       code: 205,
@@ -522,7 +522,7 @@ describe("compileMapEvent", () => {
     expect(event.pages?.[0]?.list?.[0]).toEqual({
       code: 201,
       indent: 0,
-      parameters: [0, 1, 4, 5, 2, 0],
+      parameters: [0, 1, 4, 5, 0, 0],
     });
   });
 
@@ -737,7 +737,7 @@ describe("compileMapEvent", () => {
               }),
               getLocationInfo({
                 variable: variableRef({ name: "Count B" }),
-                info: "tileIdLayer2",
+                info: "tileLayer2",
                 location: {
                   kind: "variables",
                   x: variableRef({ name: "X Var" }),

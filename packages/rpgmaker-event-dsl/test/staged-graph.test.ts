@@ -489,7 +489,7 @@ describe("validateDslOwnedDeclarations", () => {
               destination: { kind: "direct", map: { kind: "map", id: 1 }, x: 4, y: 5 },
             }),
             setEventLocation({
-              character: { kind: "runtimeSelector", scope: "character", target: "event", id: 99 },
+              target: { kind: "runtimeSelector", scope: "character", target: "event", id: 99 },
               destination: {
                 kind: "variables",
                 x: variableRef({ id: 2 }),
@@ -689,16 +689,18 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Bad Runtime Selectors",
           commands: [
-            setEventLocation({
-              character: {
+            {
+              kind: "setEventLocation",
+              target: {
                 kind: "runtimeSelector",
                 scope: "player",
                 target: "current",
               } as never,
               destination: { kind: "direct", x: 1, y: 2 },
-            }),
-            setEventLocation({
-              character: {
+            } as never,
+            {
+              kind: "setEventLocation",
+              target: {
                 kind: "runtimeSelector",
                 scope: "character",
                 target: "event",
@@ -708,29 +710,33 @@ describe("validateDslOwnedDeclarations", () => {
                 x: variableRef({ id: 1 }),
                 y: variableRef({ id: 2 }),
               },
-            }),
-            setEventLocation({
-              character: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
+            } as never,
+            {
+              kind: "setEventLocation",
+              target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
               destination: {
                 kind: "exchange",
-                character: {
+                target: {
                   kind: "runtimeSelector",
                   scope: "character",
                   target: "follower",
                 } as never,
               },
-            }),
+            } as never,
           ],
         }),
       ],
       { scriptEnabled: false },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toEqual(
+    expect(result.issues).toEqual(
       expect.arrayContaining([
-        "Set Event Location character must use the character runtime selector scope.",
-        "Set Event Location character event id must be a positive integer.",
-        "Set Event Location exchange character target must be player, currentEvent, or event.",
+        expect.objectContaining({ code: "MV-E203", dslPath: "pages[0].commands[0].target" }),
+        expect.objectContaining({ code: "MV-E203", dslPath: "pages[0].commands[1].target.id" }),
+        expect.objectContaining({
+          code: "MV-E203",
+          dslPath: "pages[0].commands[2].destination.target",
+        }),
       ]),
     );
   });

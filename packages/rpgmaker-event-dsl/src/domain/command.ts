@@ -14,8 +14,11 @@ import type {
   EnemyCommandTarget,
   EquipmentRuntimeSelector,
   EventLocationDestination,
+  EventRuntimeSelector,
   ImageAssetReference,
   LocationInfoType,
+  LocationDirection,
+  TransferFade,
   MapDestination,
   MovieAssetReference,
   OperateValueOperand,
@@ -238,8 +241,8 @@ export type PluginDslCommand = {
 export type TransferPlayerDslCommand = {
   kind: "transferPlayer";
   destination: MapDestination;
-  direction?: Direction;
-  fadeType?: 0 | 1 | 2;
+  direction?: LocationDirection;
+  fade?: TransferFade;
 };
 
 export type ControlSwitchesDslCommand = {
@@ -363,9 +366,9 @@ export type SetVehicleLocationDslCommand = {
 
 export type SetEventLocationDslCommand = {
   kind: "setEventLocation";
-  character: CharacterRuntimeSelector;
+  target: EventRuntimeSelector;
   destination: EventLocationDestination;
-  direction?: 0 | Direction;
+  direction?: LocationDirection;
 };
 
 export type ScrollMapDslCommand = {

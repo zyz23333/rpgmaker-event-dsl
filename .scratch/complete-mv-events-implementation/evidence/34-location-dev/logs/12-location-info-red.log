@@ -1,0 +1,35 @@
+
+> rpgmaker-event-dsl@0.1.2 test C:\Users\Shuen\.codex\worktrees\mv-ticket-34\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> vitest run "test/map-locations.test.ts"
+
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-34/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/map-locations.test.ts (6 tests | 1 failed) 24ms
+   × preserves all seven Location Info queries in direct and variable modes including unnamed output slots 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-locations.test.ts > preserves all seven Location Info queries in direct and variable modes including unnamed output slots
+Error: MV-STRICT-JSON: Expected strict representable JSON; received undefined at list[0].parameters[1]. at list[0].parameters[1] (commands[0]); expected strict representable JSON; actual undefined
+ ❯ compileNodes src/compiler/dispatch.ts:1204:15
+    1202|           path ? origins.get(output[Number(/^list\[(\d+)\]/u.exec(path…
+    1203|         const dslPath = dslAt(error.location.nativePath);
+    1204|         throw new CommandStructureError(error.code, error.detail, {
+       |               ^
+    1205|           ...error.location,
+    1206|           ...(dslPath ? { dslPath } : {}),
+ ❯ compileCommonEvent src/compiler/events.ts:122:11
+ ❯ test/map-locations.test.ts:34:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 5 passed (6)
+   Start at  02:50:27
+   Duration  1.40s (transform 418ms, setup 0ms, import 1.19s, tests 24ms, environment 0ms)
+
+C:\Users\Shuen\.codex\worktrees\mv-ticket-34\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run "test/map-locations.test.ts"`
+Exit status 1

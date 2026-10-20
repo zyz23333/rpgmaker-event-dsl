@@ -36,6 +36,7 @@ import {
 } from "../commands/movement/access-validation.js";
 import { assertSceneCommandInput } from "../commands/system/validation.js";
 import { assertActorResourceInput } from "../commands/actor/validation.js";
+import { assertMapLocationInput } from "../commands/map/location-validation.js";
 
 type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
@@ -105,6 +106,28 @@ export function validateNodes(
           error.issue(identity, "compile"),
         ),
       );
+    }
+    if (
+      ["transferPlayer", "setVehicleLocation", "setEventLocation", "getLocationInfo"].includes(
+        node.kind,
+      )
+    ) {
+      try {
+        assertMapLocationInput(
+          node.kind as
+            | "transferPlayer"
+            | "setVehicleLocation"
+            | "setEventLocation"
+            | "getLocationInfo",
+          node,
+          nodePath,
+        );
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+        continue;
+      }
     }
     if (node.kind === "loop") {
       try {
@@ -265,7 +288,7 @@ export function validateNodes(
       validateMapDestination(node.destination, resolver, issues);
     }
     if (node.kind === "setEventLocation") {
-      validateCharacterRuntimeSelector(node.character, "Set Event Location character", issues);
+      validateCharacterRuntimeSelector(node.target, "Set Event Location target", issues);
       validateEventLocationDestination(node.destination, resolver, issues);
     }
     if (node.kind === "setMovementRoute") {
@@ -481,7 +504,7 @@ export function validateEventLocationDestination(
 
   if (destination.kind === "exchange") {
     validateCharacterRuntimeSelector(
-      destination.character,
+      destination.target,
       "Set Event Location exchange character",
       issues,
     );

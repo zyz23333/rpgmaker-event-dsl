@@ -13,6 +13,17 @@ import { assertIncluded, assertNonEmptyString } from "./shared.js";
 import { assertMovieAssetInput } from "../commands/screen/validation.js";
 import { assertDslObject, assertRawDslInput } from "../validation/dsl-command-inputs.js";
 import { assertAudioAssetInput } from "../commands/audio/validation.js";
+import { CommandStructureError } from "../validation/command-errors.js";
+
+function assertLocationReferenceInput(value: unknown, path: string): void {
+  assertDslObject(value, ["id", "name"], path);
+  if (Object.hasOwn(value, "id") === Object.hasOwn(value, "name"))
+    throw new CommandStructureError(
+      "MV-REFERENCE-SHAPE",
+      "Reference helper requires exactly one id or name.",
+      { dslPath: path },
+    );
+}
 
 export function rawDslCommand(input: {
   code: number;
@@ -114,6 +125,7 @@ export function itemRef(value: { id: number } | { name: string }): ReferenceValu
 }
 
 export function mapRef(value: { id: number } | { name: string }): ReferenceValue<"map"> {
+  assertLocationReferenceInput(value, "mapRef");
   return createReference("map", value);
 }
 
@@ -138,6 +150,7 @@ export function troopRef(value: { id: number } | { name: string }): ReferenceVal
 }
 
 export function variableRef(value: { id: number } | { name: string }): ReferenceValue<"variable"> {
+  assertLocationReferenceInput(value, "variableRef");
   return createReference("variable", value);
 }
 
