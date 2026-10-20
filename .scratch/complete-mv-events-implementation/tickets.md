@@ -4,7 +4,11 @@ Published: 2026-10-19
 Parent: [实施规格](complete-mv-events-implementation-spec.md)
 Original breakdown: [已确认拆分记录](ticket-breakdown-draft.md#comments)
 
-### 2026-10-20 最终当前状态
+### 2026-10-20 复核修复后的当前状态
+
+当前产品为 `mv-1.6.1/23`，执行源码/构建提交 `ca8f8de5cbd6105261bab4ef17165cfdff72498a`；三项 P2 的[修复与受影响验收](evidence/55-final-review-fixes.md)均已闭环。459 项当前要求由 /23 受影响绿与明确未受影响的 /22 证据复用覆盖；原73个 native pair 保留 /22 执行身份，未宣称重跑。下节保留 /22 审计完成时的统计，父规格仍待根任务独立复核、关闭及清理。
+
+### 2026-10-20 /22 审计完成时状态
 
 55 张实施票现均为 resolved；最终 55 [逐项证据审计](evidence/55-final-audit.md)和[完整有效矩阵](evidence/55-final-audit/effective-matrix.json)记录全部 458 条前置要求及新增审计项（当前共 459 项），无未解除要求。产品执行候选为 `2dc639015f908de6fd524e50236e5422b5f8e990` / `mv-1.6.1/22`。52–54 与唯一 Battle 内 Transfer 补充共 73 个有效实际 native pair / 146 个进程；4 个原始非法输入实际拒绝及旧 native 复用分别记录。下方仍保留各批次交付时的「尚待 51/52/54」等历史说明，当前完成状态统一以 final55 为准。父规格仍由根任务在最终 Standards/Spec 评审、必要修复及清理后关闭。
 

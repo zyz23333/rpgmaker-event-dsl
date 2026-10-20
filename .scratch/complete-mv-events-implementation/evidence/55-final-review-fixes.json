@@ -1,0 +1,1832 @@
+{
+  "formatVersion": 1,
+  "generatedAt": "2026-10-20T04:22:29.822Z",
+  "status": "passed",
+  "candidate": {
+    "sourceCommit": "ca8f8de5cbd6105261bab4ef17165cfdff72498a",
+    "documentaryTestHead": "387bc3a03250801ced1c365d1d34978eb6041ab6",
+    "sourceTree": "ee738a365500a11a1f75368fa467dae73f4d2c7b",
+    "compileContractVersion": "mv-1.6.1/23",
+    "workspaceApiSha256": "824203f0119529a48aa4397d9ba94139abead369e650d2d528273bc726bb4d17",
+    "sourceFiles": [
+      {
+        "path": "authoring/declarations.ts",
+        "sha256": "40ba9976a339ea7a4bb132c7c1683a0b96cf42b9b76ebff11698906a65078c83"
+      },
+      {
+        "path": "authoring/index.ts",
+        "sha256": "a34c0182000d628b8ce2b4d3f16ad3f84f8bc596b91a1f142c871d770f1d33ea"
+      },
+      {
+        "path": "authoring/references.ts",
+        "sha256": "6c87a9ecf038bbb4751d76f72f4b4ca403adff894836c43d50779c5ba7652d6b"
+      },
+      {
+        "path": "authoring/shared.ts",
+        "sha256": "3865ac8c4b3768c96038a323a02cf30c33edd9f330544bd6cd2b204d2841408e"
+      },
+      {
+        "path": "cli.ts",
+        "sha256": "34c6e77e91a45126b1a2c5b15621f79241a98bab081924d2fbd535c5996fd4b0"
+      },
+      {
+        "path": "commands/actor/authoring.ts",
+        "sha256": "2195babfd4a27c64dce3cfaa7fff9a0e08737e15e37fe6ecdd6a9b42487d508e"
+      },
+      {
+        "path": "commands/actor/compile.ts",
+        "sha256": "d1b9e9a9f170db18e1a33ca14440d0e53ab8b20aabf76db8475eace550e84674"
+      },
+      {
+        "path": "commands/actor/decompile.ts",
+        "sha256": "3c1265434966498b7a3a9d9cf40ec81b6eb5723b2e9596e0c2f1e1cca25cd8a2"
+      },
+      {
+        "path": "commands/actor/equipment-validation.ts",
+        "sha256": "3cac92c08b9a10c35d1e7480cb9ea3b8b53e381d6b46231ea2c3660d64f08c80"
+      },
+      {
+        "path": "commands/actor/native-validation.ts",
+        "sha256": "0d126996f0eb421473d60c343c3c3a12d1fc5b4ced81555f8acc1ec5c1e378c0"
+      },
+      {
+        "path": "commands/actor/presentation-diagnostics.ts",
+        "sha256": "cf7e41f3334d57064593f12a86ee49b50a49196805b1cfe02e94f0cac8db0462"
+      },
+      {
+        "path": "commands/actor/presentation-native.ts",
+        "sha256": "c1e76037484d41719f8606f28b783750315f28a588c4e7a51d5455906b9070f2"
+      },
+      {
+        "path": "commands/actor/presentation-validation.ts",
+        "sha256": "634e4760ccf114a6a62f3e6b0810719cb6d2932bec8b47d94c297890c6cc6c04"
+      },
+      {
+        "path": "commands/actor/validation.ts",
+        "sha256": "84f4f8134cf3579afb935cd7ba0ca00dc3206a3ee17a8532c6b1a6278e64ded5"
+      },
+      {
+        "path": "commands/audio/authoring.ts",
+        "sha256": "4c1481015adf47e2bf5e421ee896fbede79d181b38412723dcf49fad534a3c75"
+      },
+      {
+        "path": "commands/audio/decompile.ts",
+        "sha256": "8917831db5d0ba0881e673f62b4b33f66d080a0d069c5cd8a724211f15a1a64b"
+      },
+      {
+        "path": "commands/audio/validation.ts",
+        "sha256": "06080f5a243f70163c73d9318bdb36fc11fa42bb27ee865e2ec24c3a55381ec8"
+      },
+      {
+        "path": "commands/battle/authoring.ts",
+        "sha256": "4ab32b1e281ae98be72e7c43373f29df42fbf9d2fce1a2fc20a2289ca9f35383"
+      },
+      {
+        "path": "commands/battle/decompile.ts",
+        "sha256": "ae7e52ebc6337ed71a3ff4dde8db54db657a41fd24e7cc94c111834d3afe47e7"
+      },
+      {
+        "path": "commands/battle/native-validation.ts",
+        "sha256": "1a47139a75859cf12a81e88bf20b06f25305d8964cf73cbef4b663fcd878d300"
+      },
+      {
+        "path": "commands/battle/shop-native.ts",
+        "sha256": "114c8f837f0fe213de38fc81cdd76ba4d835f270e0ee9bae3e5afad413feed8e"
+      },
+      {
+        "path": "commands/battle/shop-validation.ts",
+        "sha256": "47683b39e9cdb7537ed82471c137ae2ed8daa3206c751254d1ef3f636b06108e"
+      },
+      {
+        "path": "commands/battle/validation.ts",
+        "sha256": "74e0b368a43d84d52dd7561d92ce9b7e798958eb795f7392d70dd289165308f6"
+      },
+      {
+        "path": "commands/enemy/authoring.ts",
+        "sha256": "f464c3c65d2512c73b1f453a62972a22d851575054f037e298881ee815cc8f65"
+      },
+      {
+        "path": "commands/enemy/compile.ts",
+        "sha256": "6eb78d46b655559c0879f876c6e29327153f8ff29e5c0b1b50b008cdcef9b286"
+      },
+      {
+        "path": "commands/enemy/decompile.ts",
+        "sha256": "bc52174367cca4c94656f27e865a40c51c97042d76a0b7d6847d721c738c0741"
+      },
+      {
+        "path": "commands/enemy/native-validation.ts",
+        "sha256": "11828e4b1c9a5439e9d575ea03048a026c7a9c356529bfacbf22ca2054b711ee"
+      },
+      {
+        "path": "commands/enemy/validation.ts",
+        "sha256": "15f387cbfa831e18ac26d13e661589c1abc8b8d0c2356070fa353fb7b0ff8258"
+      },
+      {
+        "path": "commands/flow/authoring.ts",
+        "sha256": "11b95698f557cbf9963fa80d6f37bdd092086bc90b7b0405006bbe8c9998a451"
+      },
+      {
+        "path": "commands/flow/conditional-context.ts",
+        "sha256": "1979b80f2a01fce6947c05138d873e8575e0a6ce3c9535e87f91c15bdd74ba37"
+      },
+      {
+        "path": "commands/flow/conditional-validation.ts",
+        "sha256": "82162073c7cf09170389e5beb230389fe5bf1e9d53ca5d15c0a34a377dd36af3"
+      },
+      {
+        "path": "commands/flow/decompile.ts",
+        "sha256": "7e60a9d19e3d99a0c83b28fcd71beaabaa296470678d0f70f5856104d1e2ce8d"
+      },
+      {
+        "path": "commands/flow/diagnostics.ts",
+        "sha256": "03b9c4fb7135ccde3ca8c1cde46c1658753b9fb89427b26d6e5f1464886d0dc4"
+      },
+      {
+        "path": "commands/flow/native.ts",
+        "sha256": "58e6d320857df6d37c3ed1194b4dd4cd8a7f141ea38b300743a12834a47b136a"
+      },
+      {
+        "path": "commands/flow/validation.ts",
+        "sha256": "830ec023f4969eef909e35d19164a960c0697fcaa34144f2b91203eadb3d45a6"
+      },
+      {
+        "path": "commands/map/authoring.ts",
+        "sha256": "002f487dab5377652892fd30de03e1abbd582de5d443424232fefc3e92cc556c"
+      },
+      {
+        "path": "commands/map/compile.ts",
+        "sha256": "23104b634c94473a13c4a8087e33a32df025b0edc8df950171af4135e9a35085"
+      },
+      {
+        "path": "commands/map/decompile.ts",
+        "sha256": "f781c768bce17ce2b549afc5b9ff4276a5c06d63ffa894bcb3900717d5586cdd"
+      },
+      {
+        "path": "commands/map/location-context.ts",
+        "sha256": "21ced3f5bbcb9649757ca9e545f04323ac296279e8f974d7cb4c9f032ddcf6ef"
+      },
+      {
+        "path": "commands/map/location-validation.ts",
+        "sha256": "fa3e141599025b6c96b7d1b80549272b922af88f420998a60af5dc996567c883"
+      },
+      {
+        "path": "commands/map/native-validation.ts",
+        "sha256": "0bcd6f8adc582170080ec760e2d9e94c7a6c76420592c6e1dcfbaf5e374b677b"
+      },
+      {
+        "path": "commands/map/validation.ts",
+        "sha256": "0e30bf9ac24c999fc26bfb5171d776b8a94bf9d4ec8f1958ab13cd158f0b252e"
+      },
+      {
+        "path": "commands/message/authoring.ts",
+        "sha256": "11d070d5db0e0633c94eed9ee12137e00d6589ee27f7b1c67176e2c23266c21b"
+      },
+      {
+        "path": "commands/message/choices-validation.ts",
+        "sha256": "94e3de3bece2843fac28fa1e6e29edb6950d7a0ad5c5d24926dbd66c944202dc"
+      },
+      {
+        "path": "commands/message/compile.ts",
+        "sha256": "7d6f7b40e0655c6e237a80aee6a9e0b0cb40949f77f5a380ff8394aba4485337"
+      },
+      {
+        "path": "commands/message/decompile.ts",
+        "sha256": "68ad31d87166385b947016e2f25d03b1b0cdaab2968b3f4ff9ee93d8bdc121a9"
+      },
+      {
+        "path": "commands/message/native-validation.ts",
+        "sha256": "0c4f0b946fc9cc967e6f98e32b46e230ee409703f0b25832f5557e8ea7e0d5fc"
+      },
+      {
+        "path": "commands/message/validation.ts",
+        "sha256": "5c022a41db2fe07e6f1a84381cfd40ea0407f487b23b18d2836a05a7b41cfeec"
+      },
+      {
+        "path": "commands/movement/access-native-validation.ts",
+        "sha256": "8408624a53422f607bade1ae87774c7f867ea288536773018c46713ad986e8c6"
+      },
+      {
+        "path": "commands/movement/access-validation.ts",
+        "sha256": "c2d43dea8d4632268a91524796a023434571190fe7141af04324e5b678b1525a"
+      },
+      {
+        "path": "commands/movement/authoring.ts",
+        "sha256": "cb62f34c1e974488bd2f802e75b3454e48b41358c261634ec8d8f04694bc0a3c"
+      },
+      {
+        "path": "commands/movement/character-codes.ts",
+        "sha256": "434110fef7998edc170eb2612433ec902346978d4699fcb92e24545f8b3758cc"
+      },
+      {
+        "path": "commands/movement/character-native.ts",
+        "sha256": "6d8fa79a0575520552c2ff473722a5c8a01ba74263ed60c26a830fdacfd27e0f"
+      },
+      {
+        "path": "commands/movement/character-validation.ts",
+        "sha256": "cce2087d843589ae7616d03eae333f0ca61d14974ead3378f789af4f797b8cff"
+      },
+      {
+        "path": "commands/movement/compile.ts",
+        "sha256": "859c85840d2f1a0ab0d4ae9c33008944d6ad7f5f5bfbfee82b60a8a54a91d0d7"
+      },
+      {
+        "path": "commands/movement/decompile.ts",
+        "sha256": "80d4871e39c77b44128e05d50661a75f90e2b32aa5e9ed32fdfd3167ed9dbcd8"
+      },
+      {
+        "path": "commands/movement/page.ts",
+        "sha256": "9a74e9c8694d295e60a6d801a383dd52341d6ffb833c05d0127dcc89cc3c1743"
+      },
+      {
+        "path": "commands/movement/types.ts",
+        "sha256": "de4a2cb691fc6a8697ba91a2a831eaf17e1c15e541da4a2893f902f30a3a01b8"
+      },
+      {
+        "path": "commands/movement/validation.ts",
+        "sha256": "f49a357955d176c5930ca59d5d13e2c80d4b3cad1215364cf3df158817015e6d"
+      },
+      {
+        "path": "commands/screen/authoring.ts",
+        "sha256": "ed86808add59b452b87b0633cbab2b69e65c4a61f7075c9d9042edc20bb9716f"
+      },
+      {
+        "path": "commands/screen/compile.ts",
+        "sha256": "0bca9a58a72fad39cc6f00f49817f0859ef10602d9c1beffc987ef640f7d1728"
+      },
+      {
+        "path": "commands/screen/decompile.ts",
+        "sha256": "fa11fe9dcacdb5c665775d84ec9832afbbad76af9be257b4f9fa230a91fa28bd"
+      },
+      {
+        "path": "commands/screen/picture-inputs.ts",
+        "sha256": "30769f3c12d183cc869496689f2d43c069c300d62a546269a04e029ffce8a7a6"
+      },
+      {
+        "path": "commands/screen/picture-native.ts",
+        "sha256": "28c85fb6ded4a554190e862677de178a97e7fd0059c000b9e308a04ff4df9787"
+      },
+      {
+        "path": "commands/screen/picture-references.ts",
+        "sha256": "dfb2c4941a1a13e83d704e07dffe72a29ca811bdc41459ef9a8055a91f25560f"
+      },
+      {
+        "path": "commands/screen/validation.ts",
+        "sha256": "7ab61657f4a88daa3a3b53df9607f0654b74fe2965e169b9eedd0d1d5c808cff"
+      },
+      {
+        "path": "commands/system/authoring.ts",
+        "sha256": "6d4a17bab814fd4a46cf6421124f99ed93b58a6f9829366de8fd3793f9f17215"
+      },
+      {
+        "path": "commands/system/decompile.ts",
+        "sha256": "1314d29615be71c1fda8d61aba2558250f76fe0b924d488324fa3e708e5ff464"
+      },
+      {
+        "path": "commands/system/validation.ts",
+        "sha256": "97384ff0e88f23f940f71702d1b11404e89f9aaae8dbbae143022044f56b28e1"
+      },
+      {
+        "path": "commands/variables/authoring.ts",
+        "sha256": "884cc9435313fdb5de319e0045c5552664fe2de4a69ed928e4d787474f3d41b0"
+      },
+      {
+        "path": "commands/variables/compile.ts",
+        "sha256": "29438e00f3dbe9538c219cd10ae3f16096e1c86004aebe37e1eec81fb65b4070"
+      },
+      {
+        "path": "commands/variables/control-variables.ts",
+        "sha256": "cceefb113402b43980767a9a03c3473f207a0ceb4918d5e082b80fd654212c82"
+      },
+      {
+        "path": "commands/variables/decompile.ts",
+        "sha256": "670ef791e0560fcc36b5dcc46f63e7d9590469344c850ab9ff541696f5811624"
+      },
+      {
+        "path": "commands/variables/diagnostics.ts",
+        "sha256": "9a50270d196d151bd63c89db9ffe6ad4846e58da489dea7937d70ed5a98c8bfa"
+      },
+      {
+        "path": "commands/variables/inventory-native.ts",
+        "sha256": "18171a831072ff8c0d53ba16e9a9572695206bc147d4f2c74252da82b7f905a2"
+      },
+      {
+        "path": "commands/variables/inventory-validation.ts",
+        "sha256": "4b7c88f3c9eb267d40054adc149a77442f7e8bb6e25aaac69ccc09750a0ec743"
+      },
+      {
+        "path": "commands/variables/native-control-variables.ts",
+        "sha256": "853ae5bdd03063ec5197183c2240ec242dd79e55a5f6dde21b477df4f0fca507"
+      },
+      {
+        "path": "commands/variables/switch-inputs.ts",
+        "sha256": "b4caf49e7f3ca450f4b7b802df2d54c650103cf174dbef64b755d3d8beb5f2a7"
+      },
+      {
+        "path": "commands/variables/validation.ts",
+        "sha256": "dc6cf45a6d444369445037b465cac0f1651e06be341c69b493d2a658048036ca"
+      },
+      {
+        "path": "compiler/dispatch.ts",
+        "sha256": "36f7b22a26ab52d2b987de447b201ac75ad7e1163f355c52ee881177df9e563e"
+      },
+      {
+        "path": "compiler/events.ts",
+        "sha256": "f5ab237240ed7e698a6b386135b8c5a41d05ee52fc99a1ef62bce44fdc1abfd2"
+      },
+      {
+        "path": "compiler/shared/branches.ts",
+        "sha256": "be95da737f08b8600c57425eb25ff48e828c826387505809d32c1ed74fb57355"
+      },
+      {
+        "path": "compiler/shared/conditions.ts",
+        "sha256": "b544928635c0b0bc2c3c8b48b5a26028927939f7c20111f612676c803ffda103"
+      },
+      {
+        "path": "compiler/shared/media.ts",
+        "sha256": "39aff228f198f726c9d8cfffa9d0bebf03d465a4b0fe952511af77d08e04f751"
+      },
+      {
+        "path": "compiler/shared/targets.ts",
+        "sha256": "d9f81f92d0184dd273a2aa5acfa5e63450ae0a1cb5e8dba49d93d1c885487f7d"
+      },
+      {
+        "path": "compiler/types.ts",
+        "sha256": "b81ac88b5778268997bce55af43dc0953b5cee48625180f58733cfdde6ae91a1"
+      },
+      {
+        "path": "decompiler/core.ts",
+        "sha256": "9a6ba843e2baddcd7c66891a9e4e01614e75e6ad82734b17fd2f1f82c2642f98"
+      },
+      {
+        "path": "decompiler/dispatch.ts",
+        "sha256": "cc935dc518ac8f076c5754161e221555e8a870c8919bdc4d9563db74796d52d0"
+      },
+      {
+        "path": "decompiler/map-page.ts",
+        "sha256": "02bb18435816012730128a498e8515995a18c07e14a88b6e1329f5ba8dddecf8"
+      },
+      {
+        "path": "decompiler/project.ts",
+        "sha256": "00e250dc406ed4acd100af05b9143daa0f18b18ddb7ad68fce06599c4a495633"
+      },
+      {
+        "path": "decompiler/types.ts",
+        "sha256": "01dc14767746b1067ddc101f6acd5ea23247b6557a59e0c0cb467dd1f3903aa3"
+      },
+      {
+        "path": "domain/battle-page-defaults.ts",
+        "sha256": "4a6d7b43e65b2316987b846253c93504f85ac8e341901d3e47236c99de91027b"
+      },
+      {
+        "path": "domain/command.ts",
+        "sha256": "9483d54160fd8e564d2043008dc743c1782696e1f4fb097c47b8e68e4f7b658c"
+      },
+      {
+        "path": "domain/declarations.ts",
+        "sha256": "b0b1dd048040394dd8ef95fe080046a6b1541d44194d490dfa0ede891dd6a781"
+      },
+      {
+        "path": "domain/references.ts",
+        "sha256": "2c65c1c88185d85f908a94f5641e4f80c4d4774b60a0adab7e138cb3aed4361b"
+      },
+      {
+        "path": "domain/types.ts",
+        "sha256": "f5de302ec2e8b34ec7401fe55c84c26210c06520f65c8aa844c49416e399399f"
+      },
+      {
+        "path": "index.ts",
+        "sha256": "cac51b3cd154629880f6b30aaf8b54a8f1aecee91bb26182ebfd7ccdb3c90157"
+      },
+      {
+        "path": "map-event/native.ts",
+        "sha256": "b7016f2e83d117ad3c9a7c3f57990b5f62d73cdc12e54d455460be9109a79b43"
+      },
+      {
+        "path": "map-event/page.ts",
+        "sha256": "9251557930e667e258c6259c58e787cdeccd22e96dc5f0225947a98d35d275ed"
+      },
+      {
+        "path": "map-event/validation.ts",
+        "sha256": "00f5e0f8c6edb6008bc05a71ec55c3d0b923f7db5ef6ab2ab51076846adf70d7"
+      },
+      {
+        "path": "project-data/json-values.ts",
+        "sha256": "7d9f2a485a689dc159327f859a8cae48307b88294bea78aa2a81452813730af8"
+      },
+      {
+        "path": "project-data/map-event-diff.ts",
+        "sha256": "0803f6e322a697b2774c958deb2114210bef94749e25fde012f3ed3fe43ffe2a"
+      },
+      {
+        "path": "project-data/materialization.ts",
+        "sha256": "e52781cb2bccb01c58ac6c1ff0f069906980efce0a123b04348f4f18d80734d4"
+      },
+      {
+        "path": "project-data/project.ts",
+        "sha256": "1176a155e53c9f4383e03bbe3a3f7e13565a96d5eb47b3ac6fc58002ae91cd74"
+      },
+      {
+        "path": "project-data/structured-diff.ts",
+        "sha256": "4af2dfd1fb0e57c2d440b64a90fdbdfd1e88f02fffe6ff33c6f12eac64ff8590"
+      },
+      {
+        "path": "project-data/writer.ts",
+        "sha256": "d9ebfc5636d430eb7c94ecca75c4a40127e592e92bcd303cc73ed59cde674c80"
+      },
+      {
+        "path": "validation/battle-pages.ts",
+        "sha256": "9a809e500e22c57ed6d141b0704f3122674f7d06f9cd65e2d6b8936e1b44e68b"
+      },
+      {
+        "path": "validation/command-errors.ts",
+        "sha256": "d3da622a5d9616fd54f83415ec3782c45f54f95a3285d3525f1ddcf71f7deb9a"
+      },
+      {
+        "path": "validation/command-structure.ts",
+        "sha256": "835d3326049edb777378d1a600c02dd2419f6c3dd61ed6e1eae5f759f0c1266e"
+      },
+      {
+        "path": "validation/commands.ts",
+        "sha256": "fa4ef8da6bd9933f3b2ae6a0886ff71d03e799f2c6500f7f2e2632edffb9b553"
+      },
+      {
+        "path": "validation/common-events.ts",
+        "sha256": "dd331ebf8a13c720464cc96843ba4a8b69a2b6196ee740791ad7a4788ad89e34"
+      },
+      {
+        "path": "validation/compile-output.ts",
+        "sha256": "88adbe4a20aa0f2cb65c378b1f4d685ea3b86bd9e293c174912a1acca38f240d"
+      },
+      {
+        "path": "validation/compiled-commands.ts",
+        "sha256": "51d8418586ccc1b609290e74a01d2a334c585159830ea15343a327acebdce7f1"
+      },
+      {
+        "path": "validation/declarations.ts",
+        "sha256": "d7428305b08f45f2203aa37ffb5b3a1c3506730870a01171574cc10f0624f671"
+      },
+      {
+        "path": "validation/dsl-command-inputs.ts",
+        "sha256": "434d83d5a364d99504b148f7c629ef68c12b9134ba3a19bd55ff37cdf1c235d0"
+      },
+      {
+        "path": "validation/identities.ts",
+        "sha256": "48bc8b5d877affea519bccb8e594f4b6988d80dd9190815a2211b69ec4be093a"
+      },
+      {
+        "path": "validation/inspection.ts",
+        "sha256": "10a9923ffca925eb65ea7254a1d940c6580a3a60f3b7a14a4862cf08d11453e1"
+      },
+      {
+        "path": "validation/map-character-context.ts",
+        "sha256": "440ae32d2ced95feb8283a086cbd1bb322a41527b1b2d4df07f5d145192b72ad"
+      },
+      {
+        "path": "validation/native-battle-context.ts",
+        "sha256": "3b75992d3ed3053ba8c44f06c8f1ee530ebc0dad1274e67303a4c6273a2e3703"
+      },
+      {
+        "path": "validation/native-command-inputs.ts",
+        "sha256": "14a8b2d685ca3195c5b81d126da22437baf9c686de030d88bbee2c59669b3e81"
+      },
+      {
+        "path": "validation/native-context-references.ts",
+        "sha256": "7ddd26656a02361bf2ea5c7ecfc10ca8a32d5d0a22a37ba36cabb168ce2c680d"
+      },
+      {
+        "path": "validation/native-parameters.ts",
+        "sha256": "c00d6ff42bd22bff51e9598d77873b1539e10ed06c167944f733cd3f76f22b90"
+      },
+      {
+        "path": "validation/native-references.ts",
+        "sha256": "adf867369fccb7c891f6c5fbbdeb01b8199a37d1dd5836eeaba81a7fcb57c1ca"
+      },
+      {
+        "path": "validation/reference-inputs.ts",
+        "sha256": "5c86286d87d13b3574afd60650db56b647ea62ea19529a8c0bd57bd1dd49bf4f"
+      },
+      {
+        "path": "validation/references.ts",
+        "sha256": "01c968b0619bcaf4a1251a4e00932657823229362a7d722148d274cf37c23dfd"
+      },
+      {
+        "path": "validation/shared.ts",
+        "sha256": "6ad13ecbedcc6cf7fb3565ffcdfd919f8fadad1430eccbbcfd845af7e927af14"
+      },
+      {
+        "path": "validation/snapshot.ts",
+        "sha256": "b29956e100eb586e389ed69bd7d9b6603452b6a7f8371aa895e53193628ed4cd"
+      },
+      {
+        "path": "validation/staged-graph.ts",
+        "sha256": "24d9c025cedff9041b31ba5cfd428fe69c591db39869a0a8a8752c3958e5f384"
+      },
+      {
+        "path": "validation/types.ts",
+        "sha256": "c029add9797abd5e761e65baf304ca89a4dd6723ccd990d2d7cb0d5197103cb2"
+      },
+      {
+        "path": "workspace-api.ts",
+        "sha256": "735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2"
+      },
+      {
+        "path": "workspace/checks.ts",
+        "sha256": "dd02c917b0ed530fcbb8d3458802d5d230def90388d6bf488e849f2934688692"
+      },
+      {
+        "path": "workspace/config.ts",
+        "sha256": "3700d64dfaf53fe1e99beb91bf8a54032c8a01372f25b579cdddf2ab683fd84b"
+      },
+      {
+        "path": "workspace/decompile-publication.ts",
+        "sha256": "e70dcce23f98167dc53e908b3242a0a61a5fd1f7f92b2df6f700e91433faf185"
+      },
+      {
+        "path": "workspace/definition-identities.ts",
+        "sha256": "f9048d155cc06fa5770e6b26cae9fac58255dc1668b0a416fbb4578149db3b41"
+      },
+      {
+        "path": "workspace/definitions.ts",
+        "sha256": "642fdd2fc21b59d6ffb59f01bd61fbb0bca4e26ee2eab4c3d659a4077f901ed1"
+      },
+      {
+        "path": "workspace/guards.ts",
+        "sha256": "cec835079aba4c1c61d4a28f224fd7ac7617063568b05156a84cc08896e0ed89"
+      },
+      {
+        "path": "workspace/operation-lock.ts",
+        "sha256": "c39e910339321f63786bec52cf40fa5e9c114a259f8bbc0dc7842b29660866cd"
+      },
+      {
+        "path": "workspace/operations.ts",
+        "sha256": "436b51e6e623652e31ece1781aa9845fa567a4e07914f7d7dbe35467b15b53db"
+      },
+      {
+        "path": "workspace/push-recovery.ts",
+        "sha256": "4eb0a680285f3e7532891cff2aedc3433f067fb36ccf8d4c63b3975b66c97a76"
+      },
+      {
+        "path": "workspace/push.ts",
+        "sha256": "4a68f891cce5431344921baf4c9c0f3e3617c704c305732fa13b17825e74a25a"
+      },
+      {
+        "path": "workspace/source-discovery.ts",
+        "sha256": "aeec16adb3208ea5d89666c051064e3251defd8ef8bae48ac6fa12bebc7b98e0"
+      },
+      {
+        "path": "workspace/state.ts",
+        "sha256": "c493c31c466b7d49b86a9bdd45ad563963c67f3c9e4c5a28b1f1f3b54ebbf216"
+      },
+      {
+        "path": "workspace/type-inputs.ts",
+        "sha256": "46beac3ac74163df16476997fbdd2f5d6b30d5f2655b257acf3c07c78994847c"
+      },
+      {
+        "path": "workspace/types.ts",
+        "sha256": "f046ebe39de38d590d78bb0aa00f5c3f03a117f972f9aec6f49fa5f7275023fb"
+      }
+    ],
+    "distFiles": [
+      {
+        "path": "authoring-BPj5f60w.mjs",
+        "sha256": "99455ab0c8d51de5877d60213679a80f6a695b7fe5e025b11d977a1297f2a2bb"
+      },
+      {
+        "path": "authoring-BPj5f60w.mjs.map",
+        "sha256": "c3f1e79a649c0725774d3172c6d4850154d109b8da56de0c2ac4e08b103c9420"
+      },
+      {
+        "path": "cli.d.mts",
+        "sha256": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee"
+      },
+      {
+        "path": "cli.d.mts.map",
+        "sha256": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c"
+      },
+      {
+        "path": "cli.mjs",
+        "sha256": "49fc5c61c05bba83ad75a6c1ade376c3e077aa2f038a829243b6a66a803f20ad"
+      },
+      {
+        "path": "cli.mjs.map",
+        "sha256": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8"
+      },
+      {
+        "path": "index.d.mts",
+        "sha256": "84df6738b61413bd007bfbfbea0faa0bd8163ce9bb35bab50858ac485efb3e47"
+      },
+      {
+        "path": "index.d.mts.map",
+        "sha256": "2b63bd6ced0bcaf8cc28d2064bc32aa9c3c79fb727179d076c25f1e84aefb938"
+      },
+      {
+        "path": "index.mjs",
+        "sha256": "9cca8459f3f314b97f0b90cc6f1a60f0333d13f2c4dc6955a1b399cc1dbdb255"
+      },
+      {
+        "path": "index.mjs.map",
+        "sha256": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36"
+      },
+      {
+        "path": "operations-DzpzwyBY.mjs",
+        "sha256": "fb1541429238df36ca2435b76c381f48eb87b5062239ae13243f591cac683dfd"
+      },
+      {
+        "path": "operations-DzpzwyBY.mjs.map",
+        "sha256": "8c10a6f892a5bccd1994dbeb9c81368182719ee2977f1d2c507298cebd5a46f0"
+      },
+      {
+        "path": "workspace-api.d.mts",
+        "sha256": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594"
+      },
+      {
+        "path": "workspace-api.d.mts.map",
+        "sha256": "e865bc5bbe325d1e10afb88e1057bee5464f21fba0bfd211e74cb43c7b24a11c"
+      },
+      {
+        "path": "workspace-api.mjs",
+        "sha256": "824203f0119529a48aa4397d9ba94139abead369e650d2d528273bc726bb4d17"
+      }
+    ],
+    "retainedDist": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/dist-23",
+    "originalDist": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/old-dist"
+  },
+  "priorAcceptance": {
+    "executionCommit": "2dc639015f908de6fd524e50236e5422b5f8e990",
+    "contract": "mv-1.6.1/22",
+    "auditCommit": "65c79069ec7813d80123794f6a07bb0beeb1db18",
+    "matrix": {
+      "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/effective-matrix.json",
+      "sha256": "2a19e58a96e18a734192757edf9eb1c322708e44d2bb6a25fa47f5fd2b8bb8da"
+    },
+    "requirements": 459,
+    "newlyExecutedFinalNativePairs": 73,
+    "newlyExecutedFinalNativeProcesses": 146,
+    "expectedOriginalRefusals": 4
+  },
+  "changes": [
+    {
+      "finding": "Standards P2",
+      "responsibility": "Four declaration constructor inputs",
+      "behavior": "Validate original prototype/all own keys/descriptors before read/default/spread; reject constructor input kind; accepted fields/defaults/output unchanged.",
+      "tests": [
+        "declaration-input-shapes.test.ts",
+        "final-review-workspace.test.ts"
+      ]
+    },
+    {
+      "finding": "Spec P2 signed zero Diff",
+      "responsibility": "Map Diff rendering",
+      "behavior": "Use existing strict signed-zero-preserving renderer; parsed saved values and affected-file derivation unchanged.",
+      "tests": [
+        "final-review-workspace.test.ts"
+      ]
+    },
+    {
+      "finding": "Spec P2 page-count warnings",
+      "responsibility": "Map and independently reproduced same-kind Battle >20 warning",
+      "behavior": "Keep warning success and all pages; add stage/code/identity/native+DSL path/expected/actual and expose full context through default stderr message.",
+      "tests": [
+        "event-page-diagnostics.test.ts",
+        "final-review-workspace.test.ts"
+      ]
+    }
+  ],
+  "originals": [
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review/standards-review.md",
+      "sha256": "30309a6ea3796c77b9c9f3996f9fd8a70d03887ac9f086aead92cf7cac638149"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review/spec-review.md",
+      "sha256": "fa640b5ab43aec41eb1bb45a5443fc19dd90b52751275c63c65d254611762f1a"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review/standards-probe-constructors.mjs",
+      "sha256": "8c19b87bc3fb29dfc2502253b6d0cdf825f483a36c765645e2387bc375ef9f85"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review/standards-probe-constructors-node22-result.json",
+      "sha256": "14d633eef46c0c7979d9eef638800dd61312cd3410ff75d5b9a52dbfed035265"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review/standards-probe-source-boundary.mjs",
+      "sha256": "5cc1a448599047c83e5802bfb48cfe61bf742dbc9b29f297b60efbe72de5a02d"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review/standards-probe-source-boundary-node22-result.json",
+      "sha256": "18b5b8356f5c6f78d0c83fc5bb81f805cf49e85076d04a47a23793c9efb22622"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review/spec-focused-probe.mjs",
+      "sha256": "67764f569d784f2e53ade36e0c87922a275ba8075059b23adc714edf76d5520a"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review/spec-focused-probe-node22-output.txt",
+      "sha256": "0d55065b55f46645fa335c4bcbe615084881730e694e98baa72aef9fe2b48990"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review/standards-recheck.md",
+      "sha256": "a6291d157ac4af2bc80b5f026feee302ba97fd293ff542919ccd82b49679a66d"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review/standards-recheck-probe-ca8f8de5.mjs",
+      "sha256": "5e574386e60dd345f5f9c9f5506a53ac9a7103bd459e9131b4aeed55451a7cb9"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review/standards-recheck-probe-ca8f8de5-result.json",
+      "sha256": "cd973a19d57f8339b1c0ca0c59e4a7754e7c167b48f7e0ce8b74f758c311ace7"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review/spec-recheck.md",
+      "sha256": "f6fc2a6f562ee4bce2acb977a2d9cf9462654b74c2a4135258233b33af67506a"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review/spec-recheck-probe-node22-output.txt",
+      "sha256": "7e6f58612595853e17f39422aea1093458a4222510af14a6fffd83c3b6e3031e"
+    }
+  ],
+  "runs": [
+    {
+      "label": "constructors-red",
+      "runner": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/constructors-red.json",
+        "sha256": "161453f211d4572af9b356ae4e6d3deca13b29e9d23c21c9c99a2809a106e514"
+      },
+      "verdict": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/constructors-red-vitest.json",
+        "sha256": "9d20a794c37ff3af1ced9b9e801f707b405638c8fcbc3d7c556f09ff7eb27595"
+      },
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "test/declaration-input-shapes.test.ts",
+        "--reporter=json",
+        "--outputFile=M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/constructors-red-vitest.json"
+      ],
+      "cwd": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-docs-example-55/packages/rpgmaker-event-dsl",
+      "entry": "source",
+      "startedAt": "2026-10-20T04:06:48.608Z",
+      "completedAt": "2026-10-20T04:06:50.362Z",
+      "exitCode": 1,
+      "counts": {
+        "passed": 0,
+        "failed": 28,
+        "skipped": 0,
+        "total": 28
+      }
+    },
+    {
+      "label": "constructors-green",
+      "runner": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/constructors-green.json",
+        "sha256": "2d3edbfaddd07e2877a1066254b84a34d5ea318198b0184b534cb7b781d6da66"
+      },
+      "verdict": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/constructors-green-vitest.json",
+        "sha256": "11125a9be2914cd7f1421a08c372bd7ea03494b35b42326d898aaf9bec92c375"
+      },
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "test/declaration-input-shapes.test.ts",
+        "--reporter=json",
+        "--outputFile=M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/constructors-green-vitest.json"
+      ],
+      "cwd": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-docs-example-55/packages/rpgmaker-event-dsl",
+      "entry": "source",
+      "startedAt": "2026-10-20T04:07:08.832Z",
+      "completedAt": "2026-10-20T04:07:09.986Z",
+      "exitCode": 0,
+      "counts": {
+        "passed": 28,
+        "failed": 0,
+        "skipped": 0,
+        "total": 28
+      }
+    },
+    {
+      "label": "diff-red",
+      "runner": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/diff-red.json",
+        "sha256": "64f338edabbdb4ca7cb739a3f3f140fdd3076a8065735c049bb421a4047e57e6"
+      },
+      "verdict": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/diff-red-vitest.json",
+        "sha256": "d65db39948a5c795cdfe03ccf7d857fafb55c98085b3733c1c123b15e90e1a8c"
+      },
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "test/final-review-workspace.test.ts",
+        "-t",
+        "shows both directions",
+        "--reporter=json",
+        "--outputFile=M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/diff-red-vitest.json"
+      ],
+      "cwd": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-docs-example-55/packages/rpgmaker-event-dsl",
+      "entry": "source",
+      "startedAt": "2026-10-20T04:08:04.354Z",
+      "completedAt": "2026-10-20T04:08:08.949Z",
+      "exitCode": 1,
+      "counts": {
+        "passed": 0,
+        "failed": 1,
+        "skipped": 0,
+        "total": 1
+      }
+    },
+    {
+      "label": "diff-green",
+      "runner": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/diff-green.json",
+        "sha256": "bc48e2e5c1183aa4748530a4bb68bac5f798c912ce226dca1b32ab195e02ab51"
+      },
+      "verdict": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/diff-green-vitest.json",
+        "sha256": "9ad67378573039d3ddb04df8b9ad53ec37f01b0723a65a414cf8b75f7c754a5b"
+      },
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "test/final-review-workspace.test.ts",
+        "-t",
+        "shows both directions",
+        "--reporter=json",
+        "--outputFile=M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/diff-green-vitest.json"
+      ],
+      "cwd": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-docs-example-55/packages/rpgmaker-event-dsl",
+      "entry": "source",
+      "startedAt": "2026-10-20T04:08:24.451Z",
+      "completedAt": "2026-10-20T04:08:29.283Z",
+      "exitCode": 0,
+      "counts": {
+        "passed": 1,
+        "failed": 0,
+        "skipped": 0,
+        "total": 1
+      }
+    },
+    {
+      "label": "warnings-red",
+      "runner": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/warnings-red.json",
+        "sha256": "b45f72ee44d581b984fdc561df61cb6bf498ef75f2844962b7231cc91f5a221d"
+      },
+      "verdict": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/warnings-red-vitest.json",
+        "sha256": "ed3e311566cf186b1fd60731fc984bc7f6a1bd02637f2ffb914eda2298998d33"
+      },
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "test/event-page-diagnostics.test.ts",
+        "test/final-review-workspace.test.ts",
+        "-t",
+        "page-count",
+        "--reporter=json",
+        "--outputFile=M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/warnings-red-vitest.json"
+      ],
+      "cwd": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-docs-example-55/packages/rpgmaker-event-dsl",
+      "entry": "source",
+      "startedAt": "2026-10-20T04:09:17.009Z",
+      "completedAt": "2026-10-20T04:09:23.386Z",
+      "exitCode": 1,
+      "counts": {
+        "passed": 0,
+        "failed": 2,
+        "skipped": 1,
+        "total": 3
+      }
+    },
+    {
+      "label": "warnings-green",
+      "runner": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/warnings-green.json",
+        "sha256": "f8dc7064ae0346d93a6c45662bee7ab1897b7b5c5ee4811c06d4755b0dd26355"
+      },
+      "verdict": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/warnings-green-vitest.json",
+        "sha256": "865fe1d53de13ff4311327f578ce022e3a9d4d982b026c1480ce60dcff5143d8"
+      },
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "test/event-page-diagnostics.test.ts",
+        "test/final-review-workspace.test.ts",
+        "-t",
+        "page-count",
+        "--reporter=json",
+        "--outputFile=M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/warnings-green-vitest.json"
+      ],
+      "cwd": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-docs-example-55/packages/rpgmaker-event-dsl",
+      "entry": "source",
+      "startedAt": "2026-10-20T04:09:56.342Z",
+      "completedAt": "2026-10-20T04:10:02.469Z",
+      "exitCode": 0,
+      "counts": {
+        "passed": 2,
+        "failed": 0,
+        "skipped": 1,
+        "total": 3
+      }
+    },
+    {
+      "label": "source-final-new",
+      "runner": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/source-final-new.json",
+        "sha256": "aff2544e35b6f3b90e82c0120efdb13e3b6d134dfd90a32fcbf654c1506e600c"
+      },
+      "verdict": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/source-final-new-vitest.json",
+        "sha256": "410cbbe31cad77527839c1da3d9898548c04dcf1c44711634fc671f53788a065"
+      },
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "test/declaration-input-shapes.test.ts",
+        "test/event-page-diagnostics.test.ts",
+        "test/final-review-workspace.test.ts",
+        "--maxWorkers=1",
+        "--reporter=json",
+        "--outputFile=M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/source-final-new-vitest.json"
+      ],
+      "cwd": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-docs-example-55/packages/rpgmaker-event-dsl",
+      "entry": "source",
+      "startedAt": "2026-10-20T04:11:25.873Z",
+      "completedAt": "2026-10-20T04:11:51.660Z",
+      "exitCode": 0,
+      "counts": {
+        "passed": 36,
+        "failed": 0,
+        "skipped": 0,
+        "total": 36
+      }
+    },
+    {
+      "label": "source-affected",
+      "runner": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/source-affected.json",
+        "sha256": "2e1b9b4b88e630c09a7768a5204b31eecfaa0763ba5a228decf9f7f9e886005c"
+      },
+      "verdict": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/source-affected-vitest.json",
+        "sha256": "b664ad1afb3f9487dd827d8c97415f4d1f9e9d6e3af4cdbff7c0adbb7ddbc5ea"
+      },
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "test/declaration-input-shapes.test.ts",
+        "test/event-page-diagnostics.test.ts",
+        "test/final-review-workspace.test.ts",
+        "test/map-event.test.ts",
+        "test/troop-events.test.ts",
+        "--maxWorkers=1",
+        "--reporter=json",
+        "--outputFile=M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/source-affected-vitest.json"
+      ],
+      "cwd": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-docs-example-55/packages/rpgmaker-event-dsl",
+      "entry": "source",
+      "startedAt": "2026-10-20T04:13:53.218Z",
+      "completedAt": "2026-10-20T04:14:22.392Z",
+      "exitCode": 1,
+      "counts": {
+        "passed": 86,
+        "failed": 2,
+        "skipped": 0,
+        "total": 88
+      }
+    },
+    {
+      "label": "source-adjusted-tests",
+      "runner": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/source-adjusted-tests.json",
+        "sha256": "e5e2dbfb8222ec719f96fdf63e1b84b1e52df6a4c04a610385f34ed904dff52d"
+      },
+      "verdict": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/source-adjusted-tests-vitest.json",
+        "sha256": "c56c03aa71314ecca91ae545ea16e0d155ac7e8d3f7a9985b924b47ff2e53c8e"
+      },
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "test/map-event.test.ts",
+        "test/troop-events.test.ts",
+        "-t",
+        "unknown saved settings|requires unique existing",
+        "--maxWorkers=1",
+        "--reporter=json",
+        "--outputFile=M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/source-adjusted-tests-vitest.json"
+      ],
+      "cwd": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-docs-example-55/packages/rpgmaker-event-dsl",
+      "entry": "source",
+      "startedAt": "2026-10-20T04:15:18.341Z",
+      "completedAt": "2026-10-20T04:15:20.244Z",
+      "exitCode": 0,
+      "counts": {
+        "passed": 31,
+        "failed": 0,
+        "skipped": 21,
+        "total": 52
+      }
+    },
+    {
+      "label": "source-adjusted-map-final",
+      "runner": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/source-adjusted-map-final.json",
+        "sha256": "ca1efe15adcf17a8d87c2ed98820dcb48ce76292f53694413c52c87cb4a5b18b"
+      },
+      "verdict": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/source-adjusted-map-final-vitest.json",
+        "sha256": "aa484cadd6bf9421ff3a42d4fb01d2771e71c0fb7e97156100346b19b2edbd53"
+      },
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "test/map-event.test.ts",
+        "-t",
+        "unknown saved settings",
+        "--reporter=json",
+        "--outputFile=M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/source-adjusted-map-final-vitest.json"
+      ],
+      "cwd": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-docs-example-55/packages/rpgmaker-event-dsl",
+      "entry": "source",
+      "startedAt": "2026-10-20T04:16:45.369Z",
+      "completedAt": "2026-10-20T04:16:47.051Z",
+      "exitCode": 0,
+      "counts": {
+        "passed": 30,
+        "failed": 0,
+        "skipped": 15,
+        "total": 45
+      }
+    },
+    {
+      "label": "built-affected",
+      "runner": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/built-affected.json",
+        "sha256": "110be6a64980d61780e0eafde95451a5b90b8ab5ceef4b468490887ca375ff80"
+      },
+      "verdict": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/built-affected-vitest.json",
+        "sha256": "1c377db741c08387801da6ee0cae59d10efa3e06954fda981fe702f0de2cac1a"
+      },
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "test/final-review-workspace.test.ts",
+        "--maxWorkers=1",
+        "--reporter=json",
+        "--outputFile=M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/built-affected-vitest.json"
+      ],
+      "cwd": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-docs-example-55/packages/rpgmaker-event-dsl",
+      "entry": "built",
+      "startedAt": "2026-10-20T04:13:53.237Z",
+      "completedAt": "2026-10-20T04:14:14.641Z",
+      "exitCode": 0,
+      "counts": {
+        "passed": 7,
+        "failed": 0,
+        "skipped": 0,
+        "total": 7
+      }
+    },
+    {
+      "label": "source-freshness",
+      "runner": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/source-freshness.json",
+        "sha256": "572bfc725770d8c75d218f8de20774ca446558924a73cc8f47a58c41fdd5e787"
+      },
+      "verdict": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/source-freshness-vitest.json",
+        "sha256": "5311a33ce9b5448217ec4cae6d6455607e64d3d3f6d1baa87d04766f1407a749"
+      },
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "test/compile-inputs.test.ts",
+        "-t",
+        "MV-S4-INPUT-007",
+        "--reporter=json",
+        "--outputFile=M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/source-freshness-vitest.json"
+      ],
+      "cwd": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-docs-example-55/packages/rpgmaker-event-dsl",
+      "entry": "source",
+      "startedAt": "2026-10-20T04:16:17.627Z",
+      "completedAt": "2026-10-20T04:16:27.355Z",
+      "exitCode": 0,
+      "counts": {
+        "passed": 1,
+        "failed": 0,
+        "skipped": 7,
+        "total": 8
+      }
+    },
+    {
+      "label": "built-freshness",
+      "runner": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/built-freshness.json",
+        "sha256": "48318ca5244d88bf6b833d2c9c0ca179c6f64c3fd460da5af4a2b62992ee360d"
+      },
+      "verdict": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/built-freshness-vitest.json",
+        "sha256": "edcdca35af3add78397362e45640385efe3a47f6c9f30d3793320d2608d85aa2"
+      },
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "test/compile-inputs.test.ts",
+        "-t",
+        "MV-S4-INPUT-007",
+        "--reporter=json",
+        "--outputFile=M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/built-freshness-vitest.json"
+      ],
+      "cwd": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-docs-example-55/packages/rpgmaker-event-dsl",
+      "entry": "built",
+      "startedAt": "2026-10-20T04:16:17.633Z",
+      "completedAt": "2026-10-20T04:16:23.991Z",
+      "exitCode": 0,
+      "counts": {
+        "passed": 1,
+        "failed": 0,
+        "skipped": 7,
+        "total": 8
+      }
+    }
+  ],
+  "staticChecks": [
+    {
+      "label": "typecheck",
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/typecheck.json",
+      "sha256": "ddc106cc4136269ca4ff86c5955224471e46fe2b7b9fc5f71079a6f9d4bb9881",
+      "exitCode": 0,
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "node_modules/typescript/bin/tsc",
+        "-p",
+        "tsconfig.json",
+        "--noEmit"
+      ],
+      "startedAt": "2026-10-20T04:12:13.437Z",
+      "completedAt": "2026-10-20T04:12:17.674Z"
+    },
+    {
+      "label": "lint",
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/lint.json",
+      "sha256": "68d8e3b0428961d83b21fe75450cdf447878165c220c433f2e0046f0b097b06e",
+      "exitCode": 0,
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "../../node_modules/oxlint/bin/oxlint",
+        "src/authoring/declarations.ts",
+        "src/project-data/map-event-diff.ts",
+        "src/validation/battle-pages.ts",
+        "src/validation/identities.ts",
+        "src/workspace/type-inputs.ts",
+        "test/declaration-input-shapes.test.ts",
+        "test/event-page-diagnostics.test.ts",
+        "test/final-review-workspace.test.ts"
+      ],
+      "startedAt": "2026-10-20T04:12:13.431Z",
+      "completedAt": "2026-10-20T04:12:13.536Z"
+    },
+    {
+      "label": "format",
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/format.json",
+      "sha256": "cddd1e8f30f43514d2b98b8ba24b8b24d774b8ef474ca3266a007eae40b510e5",
+      "exitCode": 0,
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "../../node_modules/oxfmt/bin/oxfmt",
+        "--write",
+        "src/authoring/declarations.ts",
+        "src/project-data/map-event-diff.ts",
+        "src/validation/battle-pages.ts",
+        "src/validation/identities.ts",
+        "src/workspace/type-inputs.ts",
+        "test/declaration-input-shapes.test.ts",
+        "test/event-page-diagnostics.test.ts",
+        "test/final-review-workspace.test.ts"
+      ],
+      "startedAt": "2026-10-20T04:12:10.488Z",
+      "completedAt": "2026-10-20T04:12:10.733Z"
+    },
+    {
+      "label": "final-typecheck",
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/final-typecheck.json",
+      "sha256": "0e6f05c86cbfdc697b99ee1f3c0cf475841a93426a4c6baf2431db296c6a3a75",
+      "exitCode": 2,
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "node_modules/typescript/bin/tsc",
+        "-p",
+        "tsconfig.json",
+        "--noEmit"
+      ],
+      "startedAt": "2026-10-20T04:16:17.515Z",
+      "completedAt": "2026-10-20T04:16:21.624Z"
+    },
+    {
+      "label": "final-typecheck-v2",
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/final-typecheck-v2.json",
+      "sha256": "16990aa13befbf074811f3cb09155feb1645d41b4c1506298efc788adaeaf40f",
+      "exitCode": 0,
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "node_modules/typescript/bin/tsc",
+        "-p",
+        "tsconfig.json",
+        "--noEmit"
+      ],
+      "startedAt": "2026-10-20T04:16:45.295Z",
+      "completedAt": "2026-10-20T04:16:48.594Z"
+    },
+    {
+      "label": "final-lint",
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/final-lint.json",
+      "sha256": "590985eac75cd7fcb3ce2ae2294b8bc5b949ed173867a78c28fc55b2c75742e6",
+      "exitCode": 0,
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "../../node_modules/oxlint/bin/oxlint",
+        "src/authoring/declarations.ts",
+        "src/project-data/map-event-diff.ts",
+        "src/validation/battle-pages.ts",
+        "src/validation/identities.ts",
+        "src/workspace/type-inputs.ts",
+        "test/declaration-input-shapes.test.ts",
+        "test/event-page-diagnostics.test.ts",
+        "test/final-review-workspace.test.ts",
+        "test/map-event.test.ts",
+        "test/troop-events.test.ts"
+      ],
+      "startedAt": "2026-10-20T04:16:17.630Z",
+      "completedAt": "2026-10-20T04:16:17.718Z"
+    },
+    {
+      "label": "final-format",
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/final-format.json",
+      "sha256": "ee87b35b437c1bf4d857cf436eef55c1749bb40b1fa65bfa8401bc455291dec7",
+      "exitCode": 0,
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "../../node_modules/oxfmt/bin/oxfmt",
+        "--check",
+        "src/authoring/declarations.ts",
+        "src/project-data/map-event-diff.ts",
+        "src/validation/battle-pages.ts",
+        "src/validation/identities.ts",
+        "src/workspace/type-inputs.ts",
+        "test/declaration-input-shapes.test.ts",
+        "test/event-page-diagnostics.test.ts",
+        "test/final-review-workspace.test.ts",
+        "test/map-event.test.ts",
+        "test/troop-events.test.ts"
+      ],
+      "startedAt": "2026-10-20T04:16:17.771Z",
+      "completedAt": "2026-10-20T04:16:18.087Z"
+    },
+    {
+      "label": "build",
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review-fixes/build.json",
+      "sha256": "1c5c19036a8ea17091b15dc311846ad658be88bbef2a7cd21c612aa9c1fe2c4f",
+      "exitCode": 0,
+      "command": "C:/Users/Shuen/AppData/Local/pnpm-cache/dlx/e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7/1a152fc0f14-2f10/node_modules/.pnpm/node@22.23.0/node_modules/node/bin/node.exe",
+      "arguments": [
+        "node_modules/tsdown/dist/run.mjs"
+      ],
+      "startedAt": "2026-10-20T04:13:28.436Z",
+      "completedAt": "2026-10-20T04:13:30.341Z"
+    }
+  ],
+  "effective": {
+    "sourceUniquePassingAssertions": 89,
+    "builtPassingAssertions": 8,
+    "source": [
+      {
+        "title": "rejects original accessor battlePage input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original hidden-extra battlePage input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original extra battlePage input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original symbol battlePage input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original inherited battlePage input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original hidden-field battlePage input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original kind battlePage input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original accessor troopEvent input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original hidden-extra troopEvent input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original extra troopEvent input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original symbol troopEvent input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original inherited troopEvent input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original hidden-field troopEvent input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original kind troopEvent input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original accessor mapEvent input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original hidden-extra mapEvent input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original extra mapEvent input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original symbol mapEvent input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original inherited mapEvent input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original hidden-field mapEvent input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original kind mapEvent input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original accessor page input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original hidden-extra page input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original extra page input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original symbol page input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original inherited page input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original hidden-field page input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects original kind page input before reading or copying it",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "identifies each same-name Map and Troop page-count warning without rejecting saved pages",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "shows both directions of signed-zero saved Map values in the public Workspace Diff",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects source-local const extra kind at mapEvent without Check Compile or stale Push writes",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects source-local const extra kind at troopEvent without Check Compile or stale Push writes",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects source-local const extra kind at page without Check Compile or stale Push writes",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects source-local const extra kind at battlePage without Check Compile or stale Push writes",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "keeps an explicit old /22 contract stale until a normal current /23 Compile",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "prints identifiable page-count warnings on default stderr while preserving valid three-container output",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "complete Map Event saved state compiles omitted groups, empty groups and explicit defaults to the independent native blank",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "complete Map Event saved state keeps character index, tile and priority independent for $Big",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "complete Map Event saved state keeps character index, tile and priority independent for !$Big",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "complete Map Event saved state keeps character index, tile and priority independent for $!Big",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "complete Map Event saved state keeps character index, tile and priority independent for People1",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "complete Map Event saved state consumes only the selected tileset group for tile 1",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "complete Map Event saved state consumes only the selected tileset group for tile 255",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "complete Map Event saved state consumes only the selected tileset group for tile 256",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "complete Map Event saved state consumes only the selected tileset group for tile 511",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "complete Map Event saved state consumes only the selected tileset group for tile 512",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "complete Map Event saved state consumes only the selected tileset group for tile 767",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "complete Map Event saved state consumes only the selected tileset group for tile 768",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "complete Map Event saved state consumes only the selected tileset group for tile 1023",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "complete Map Event saved state allows disabled explicit saved IDs but resolves every enabled or named condition",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"conditions\":null}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"conditions\":{\"switch1\":{\"ref\":{\"id\":1,\"kind\":\"switch\"}}}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"conditions\":{\"switch1\":{\"enabled\":false,\"ref\":{\"id\":1,\"kind\":\"item\"}}}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"conditions\":{\"switch1\":{\"enabled\":false,\"ref\":{\"id\":-1,\"kind\":\"switch\"}}}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"conditions\":{\"variable\":{\"enabled\":false,\"ref\":{\"id\":0,\"kind\":\"variable\"},\"atLeast\":100000000}}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"conditions\":{\"selfSwitch\":{\"enabled\":false,\"value\":\"E\"}}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"image\":null}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"image\":{\"character\":{\"kind\":\"asset\",\"category\":\"image\",\"folder\":\"pictures\",\"name\":\"Wrong\"},\"tileId\":1}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"image\":{\"characterIndex\":8}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"image\":{\"characterIndex\":-1}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"image\":{\"characterIndex\":0.5}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"image\":{\"tileId\":1024}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"image\":{\"tileId\":-1}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"image\":{\"pattern\":3}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"image\":{\"direction\":\"south\"}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"priority\":\"middle\"}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"trigger\":\"none\"}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"options\":null}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"options\":{\"walkAnimation\":1}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"options\":{\"through\":null}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"movement\":null}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"movement\":{\"type\":\"manual\"}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"movement\":{\"speed\":0}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"movement\":{\"speed\":7}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"movement\":{\"frequency\":0}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"movement\":{\"frequency\":6}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"unknown\":true}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"conditions\":{\"unknown\":true}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"image\":{\"unknown\":true}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state rejects invalid or unknown saved settings even while inactive: {\"options\":{\"unknown\":true}}",
+        "status": "passed",
+        "runner": "source-adjusted-map-final"
+      },
+      {
+        "title": "complete Map Event saved state warns at 21 pages and retains page order without adding a 999 event-ID limit",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "authors a Troop Event with one complete fixed-default native Battle Event Page",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "rejects an enabled enemy condition when an earlier hidden member has a missing Enemy",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "preserves inactive saved condition values but rejects malformed inactive slots",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "requires unique existing Troop identities and nonempty ordered pages without an editor ID cap",
+        "status": "passed",
+        "runner": "source-adjusted-tests"
+      },
+      {
+        "title": "resolves active actor and switch names, keeps inactive ID exceptions local, and validates complete Troop command lists",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "locates an invalid inactive condition at its exact DSL field with expected and actual values",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "locates invalid span and fixed actor references with their saved actual values",
+        "status": "passed",
+        "runner": "source-affected"
+      },
+      {
+        "title": "MV-S4-INPUT-007: missing old or mismatched contract basis stays stale and Check creates no Freshness",
+        "status": "passed",
+        "runner": "source-freshness"
+      }
+    ],
+    "built": [
+      {
+        "title": "shows both directions of signed-zero saved Map values in the public Workspace Diff",
+        "status": "passed",
+        "runner": "built-affected"
+      },
+      {
+        "title": "rejects source-local const extra kind at mapEvent without Check Compile or stale Push writes",
+        "status": "passed",
+        "runner": "built-affected"
+      },
+      {
+        "title": "rejects source-local const extra kind at troopEvent without Check Compile or stale Push writes",
+        "status": "passed",
+        "runner": "built-affected"
+      },
+      {
+        "title": "rejects source-local const extra kind at page without Check Compile or stale Push writes",
+        "status": "passed",
+        "runner": "built-affected"
+      },
+      {
+        "title": "rejects source-local const extra kind at battlePage without Check Compile or stale Push writes",
+        "status": "passed",
+        "runner": "built-affected"
+      },
+      {
+        "title": "keeps an explicit old /22 contract stale until a normal current /23 Compile",
+        "status": "passed",
+        "runner": "built-affected"
+      },
+      {
+        "title": "prints identifiable page-count warnings on default stderr while preserving valid three-container output",
+        "status": "passed",
+        "runner": "built-affected"
+      },
+      {
+        "title": "MV-S4-INPUT-007: missing old or mismatched contract basis stays stale and Check creates no Freshness",
+        "status": "passed",
+        "runner": "built-freshness"
+      }
+    ],
+    "unresolved": 0,
+    "policy": "Actual runner verdict wins. The source88 run stays86passed/2failed; only its unaffected passes are reused, and exact affected tests supersede both failures after explicit constructor-input/test-expectation corrections. No fictional all-green rerun is claimed."
+  },
+  "coverage": {
+    "currentRequiredCount": 459,
+    "newRequirements": 0,
+    "allCurrentRequiredEffectiveStatus": "passed",
+    "affected": "Original constructor inputs, public source evaluation/refusal/complete business state, signed-zero Diff display, Map/Troop warning metadata+default stderr, contract freshness, authoring/default/disabled-condition controls.",
+    "unaffected": "Original /22 all-requirement matrix is reused only outside the three findings. All actual native observations keep their original executed /22 identity. Valid three-container output is checked under /23 against all15 independent original carrier values; added shape guards do not alter accepted values, defaults or emitters. Diff change is presentation only; warning changes are diagnostic only. Native interpreter/command semantics unchanged.",
+    "newGameExecutions": 0,
+    "newFullSuiteRuns": 0,
+    "buildRuns": 1
+  },
+  "retention": {
+    "originalMatrixAndReceiptUnmodified": true,
+    "originalResultsUnmodified": true,
+    "originalFailedProbesAndRunnersRetained": true,
+    "primaryDistNeverWritten": true
+  },
+  "limits": [
+    "No /23 game execution is claimed; final73 native pairs remain actual /22 observations with their preserved candidate/code/host identities.",
+    "Current completion is /23 affected green plus explicitly unaffected /22 evidence reuse. Original459 audit matrix remains /22 history.",
+    "Source-level tests were run at the bound product source bytes; the two corrected test files had recorded per-file hashes while uncommitted. Their final integration head has the same product source tree as the clean build commit.",
+    "The one intermediate TypeScript check failed on the invalid-case test union; its log is retained and the literal unknown-field fixture correction passes the final TypeScript check."
+  ]
+}

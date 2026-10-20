@@ -53,3 +53,7 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 ## Answer
 
 2026-10-20：按首份轻量实施修订完成最终证据审计。458条前置要求逐项有效闭环，新增MV-S7-COMPLETION-AUDIT-055记录本审计；见[最终报告](../evidence/55-final-audit.md)与[完整矩阵](../evidence/55-final-audit/effective-matrix.json)。真实runner verdict、具体native场景、旧native当前输入等价、Actor缺callback证明及已知counterexamples均单独归证；原失败不改写。候选2dc6390 / mv-1.6.1/22源码与15dist不变。仅新增受影响schema/link/hash检查，复用merger实际current-index，未重跑full/build/native。父规格仍待根任务最终两轴评审/必要修复及cleanup。
+
+### Final review supplement — current23
+
+三项最终 P2 已按 TDD 修复；当前459项接受状态由 /23 受影响绿与未受影响 /22 证据复用覆盖，见[增量报告](../evidence/55-final-review-fixes.md)。原 /22 审计与执行身份保持，55仍为resolved；父规格由root在独立复核和cleanup后关闭。
