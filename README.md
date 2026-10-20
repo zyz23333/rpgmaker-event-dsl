@@ -511,6 +511,19 @@ Project data references use helpers such as `switchRef(...)`, `variableRef(...)`
 Asset References instead: `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)`
 compile to MV filename stems without checking the filesystem or resolving database IDs.
 
+Actor HP/MP/TP, State and Recover All helpers use explicit Actor Runtime Selectors;
+resource quantities use a constant or variable operand, and HP requires its saved
+`allowDeath` Boolean. See the [actor resource reference](packages/rpgmaker-event-dsl/README.md#actor-resources-and-states)
+for target variants, quantity ranges, reference checks and dynamic variable behavior.
+
+EXP, level, parameter and skill changes share those Actor targets. EXP/level
+changes require an explicit saved `showLevelUp` Boolean, and Class changes require
+`keepExp`. Dynamic equipment uses `changeEquipment({ actor, slotIndex, equipment })`:
+`slotIndex` is zero based within final System capacity; `equipment` is `null` for
+unload or an equipment Runtime Selector whose positive ID is interpreted by MV's
+runtime slot type. See [growth and class rules](packages/rpgmaker-event-dsl/README.md#actor-growth-skills-and-classes)
+and [equipment rules](packages/rpgmaker-event-dsl/README.md#dynamic-equipment-slots).
+
 Use `conditional({ condition, then: { commands, endMarker? }, else? })` for
 momentary checks. An omitted `else` has no native Else record; an explicit
 `else: { commands: [] }` retains an empty branch. Each body defaults its own

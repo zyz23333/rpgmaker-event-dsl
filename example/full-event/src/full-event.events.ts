@@ -305,7 +305,8 @@ export const practiceBattleEvent = mapEvent({
         changeHp({
           target: entireParty,
           operation: "gain",
-          value: 25,
+          value: { kind: "constant", value: 25 },
+          allowDeath: false,
         }),
         changeSkill({
           target: { kind: "runtimeSelector", scope: "actor", target: "actor", actorId: 1 },

@@ -321,6 +321,117 @@ explicit consistency checks; an external editor may still save after the last ch
 self-switch letters are A–D. A Common Event called by a Map Event inherits its
 caller identity for self switches.
 
+## Actor resources and states
+
+`changeHp`, `changeMp`, `changeTp`, `changeState` and `recoverAll` share the
+`ActorResourceTarget` Runtime Selector:
+
+| Target                       | Shape                                                                                                        |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Entire party                 | `{ kind: "runtimeSelector", scope: "actor", target: "entireParty" }`                                         |
+| Fixed actor                  | `{ kind: "runtimeSelector", scope: "actor", target: "actor", actor: actorRef({ id: 1 }) }`                   |
+| Actor selected by a variable | `{ kind: "runtimeSelector", scope: "actor", target: "actorFromVariable", variable: variableRef({ id: 3 }) }` |
+
+HP, MP and TP require `operation: "gain" | "lose"` and an explicit
+`ActorResourceOperand`: `{ kind: "constant", value }` or
+`{ kind: "variable", variable: variableRef(...) }`. Constant HP/MP quantities are
+integers 1..9999; constant TP quantities are integers 1..100. HP also requires
+the independent Boolean `allowDeath`, including when gaining HP:
+
+```ts
+changeHp({
+  target: { kind: "runtimeSelector", scope: "actor", target: "entireParty" },
+  operation: "gain",
+  value: { kind: "constant", value: 25 },
+  allowDeath: false,
+});
+
+changeTp({
+  target: {
+    kind: "runtimeSelector",
+    scope: "actor",
+    target: "actorFromVariable",
+    variable: variableRef({ id: 3 }),
+  },
+  operation: "lose",
+  value: { kind: "variable", variable: variableRef({ id: 4 }) },
+});
+```
+
+The selector and variable operand remain dynamic. A target variable whose runtime
+value is 0 selects the entire party. A quantity variable may hold 0 or a negative
+value; compilation preserves the variable mode and leaves MV to evaluate it.
+Party iteration follows MV's execution context, including the participating
+members during battle. Runtime HP/MP/TP limits and death behavior belong to MV.
+
+Use `changeState({ target, operation: "add" | "remove", state: stateRef(...) })`
+with an existing State reference, and `recoverAll({ target })` for complete
+recovery. Fixed Actor and State references must exist in the Snapshot, and
+Variable references must resolve to valid System slots. Explicit IDs support
+existing unnamed records and slots. Every supplied field is required by its
+variant; extra fields and non-data objects are rejected. Known raw actor commands
+use the same exact saved-slot counts, ranges and reference checks. Native mode,
+operation and actor sentinel slots reject negative zero before conversion to
+named selectors.
+
+## Actor growth, skills and classes
+
+`changeExp`, `changeLevel`, `changeParameter` and `changeSkill` use the same
+`ActorResourceTarget` variants above. EXP, level and parameter changes require
+`operation: "gain" | "lose"` and an `ActorResourceOperand`. Constant EXP is an
+integer in 1..9,999,999, level in 1..98, and parameter quantity in 1..9999.
+Variable operands retain runtime values independently of those constant ranges.
+`changeParameter` requires `parameter: "mhp" | "mmp" | "atk" | "def" | "mat" |
+"mdf" | "agi" | "luk"`.
+
+```ts
+changeExp({
+  target: { kind: "runtimeSelector", scope: "actor", target: "actor", actor: actorRef({ id: 1 }) },
+  operation: "lose",
+  value: { kind: "constant", value: 100 },
+  showLevelUp: true,
+});
+changeSkill({
+  target: { kind: "runtimeSelector", scope: "actor", target: "entireParty" },
+  operation: "learn",
+  skill: skillRef({ id: 2 }),
+});
+changeClass({ actor: actorRef({ id: 1 }), class: classRef({ id: 2 }), keepExp: false });
+```
+
+`showLevelUp` is an explicit saved Boolean for both EXP and level changes,
+including loss operations. `changeSkill` requires `operation: "learn" | "forget"`
+and an existing Skill reference. `changeClass` requires existing Actor and Class
+references and the explicit Boolean `keepExp`. Keeping EXP transfers cumulative
+EXP to the new class; the resulting level depends on that class's EXP curve.
+Decompile preserves both Boolean values explicitly. Formal commands and known
+raw records use identical saved-slot, value and reference validation.
+
+## Dynamic equipment slots
+
+```ts
+changeEquipment({
+  actor: actorRef({ id: 1 }),
+  slotIndex: 1,
+  equipment: { kind: "runtimeSelector", scope: "equipment", target: "idForSlot", id: 3 },
+});
+changeEquipment({ actor: actorRef({ id: 1 }), slotIndex: 6, equipment: null });
+```
+
+`slotIndex` is zero based and must fit the final `System.equipTypes.length - 1`
+capacity. The native command stores `slotIndex + 1`; configurations with more
+than five slots remain supported. The Actor reference must exist. Explicit
+`null` means unload, while a nonempty equipment selector carries a positive safe
+integer candidate ID. MV chooses Weapon or Armor from the actor's execution-time
+slot type, including dual wield in the second slot. Initial Actor/Class traits
+do not freeze that choice.
+
+Missing candidates in a possible table warn with `MV-E319-CANDIDATE`; the native
+operation can unload equipment. `MV-E319-RUNTIME` describes the remaining slot,
+inventory and equipability uncertainty. Validation preserves the candidate and
+uses no substitute from another table. An invalid final System slot is an error
+(`MV-E319-SLOTS`) for formal commands, recognized raw records and Decompile.
+
 ## Timer saved slots
 
 ```ts
