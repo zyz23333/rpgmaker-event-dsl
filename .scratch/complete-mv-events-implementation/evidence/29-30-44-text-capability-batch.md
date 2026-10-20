@@ -1,13 +1,21 @@
 # Text, Script and Actor presentation batch 29/30/44
 
 Development is complete on `codex/mv-text-batch` under the specification's
-2026-10-20 user amendment. Actual integration `2ce2ba3b4a364dc3770f953323707d843a4f53c7`
-is merged by `4f39e1a2`; the product checkpoint is
-`59328ebd`, followed by formatting in `2e733ff73466ccfd6f4fbdf984f5e7c1d98ca2e9`
-and the type-only diagnostic dependency cleanup `d4e2dac9`. The latter replaces
-a dependency on the input-inspection coordinator with stable stage types; emitted
-behavior is unchanged, and the final typecheck/lint/format pass covers it.
-Compile Contract Version advances once from incoming `mv-1.6.1/17` to `/18`.
+2026-10-20 user amendment. The latest integrated product checkpoint is
+`47211924`, which includes actual Inventory/Shop integration
+`4c46520e5e826fb0e01864506f4682c73a41b045`, the independent merger's Text
+boundary corrections in `58252653`, and the generated Choices source migration
+in `e61a27ef`. The combined requirement index has416 rows, with all overlapping
+incoming rows unchanged. Compile Contract Version advances once from actual
+incoming `mv-1.6.1/18` to `/19` for the Text product change.
+
+The earlier Text readiness `e246d835` had merged actual integration
+`2ce2ba3b4a364dc3770f953323707d843a4f53c7` by `4f39e1a2`, with product
+checkpoint `59328ebd`, formatting in `2e733ff7`, and type-only diagnostic
+dependency cleanup `d4e2dac9`. Its original405-row/contract18 checks and compact
+result records below remain historical evidence, supplemented by the actual
+merger correction and latest-incoming checks below.
+
 Final full/build checks belong to48 and final REA/game acceptance to51/52/54.
 No editor UI or actual game execution is claimed by this batch.
 
@@ -64,16 +72,16 @@ All new execution used Windows, Node22.23.0, pnpm10.33.0, Vitest4.1.9, original
 deadlines and two workers. Logs remain at
 `M:/Shuen/Codex/mv-events-implementation-20261020/text-batch-temp/`.
 
-| Actual command / scope | Actual result | Original log |
-| --- | --- | --- |
-| `pnpm typecheck` after actual integration merge | passed |021-text-postmerge-typecheck.log |
-| `vitest run` message, label-script-plugin, actor-presentation, decompiler, events, dsl, staged-graph, conditional, control-variables |9files/342tests passed |022-text-postmerge-affected.log |
-| `vitest run` message-workspace, label-script-plugin-workspace, actor-presentation-workspace |3files/13tests passed |023-text-postmerge-workspace.log |
-| `vitest run test/compile-inputs.test.ts -t MV-S4-INPUT-007` |1test passed, other cases unselected |026-text-contract-freshness.log |
-| `oxlint` on all changed TypeScript paths relative to actual integration | passed |024-text-final-scoped-lint.log |
-| `oxfmt --check` on47 changed package/example/skill/document paths | passed |028-text-scoped-format-clean.log |
-| `vitest run test/mv-evidence.test.ts -t 'validates the evidence index'` |1test passed;405 current rows valid |029-text-index-current.log |
-| Final `pnpm typecheck` and one-file lint/format after type-only dependency cleanup | passed |030-text-final-typecheck.log,031-text-diagnostic-boundary-lint.log,032-text-diagnostic-boundary-format.log |
+| Actual command / scope                                                                                                               | Actual result                        | Original log                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| `pnpm typecheck` after actual integration merge                                                                                      | passed                               | 021-text-postmerge-typecheck.log                                                                           |
+| `vitest run` message, label-script-plugin, actor-presentation, decompiler, events, dsl, staged-graph, conditional, control-variables | 9files/342tests passed               | 022-text-postmerge-affected.log                                                                            |
+| `vitest run` message-workspace, label-script-plugin-workspace, actor-presentation-workspace                                          | 3files/13tests passed                | 023-text-postmerge-workspace.log                                                                           |
+| `vitest run test/compile-inputs.test.ts -t MV-S4-INPUT-007`                                                                          | 1test passed, other cases unselected | 026-text-contract-freshness.log                                                                            |
+| `oxlint` on all changed TypeScript paths relative to actual integration                                                              | passed                               | 024-text-final-scoped-lint.log                                                                             |
+| `oxfmt --check` on47 changed package/example/skill/document paths                                                                    | passed                               | 028-text-scoped-format-clean.log                                                                           |
+| `vitest run test/mv-evidence.test.ts -t 'validates the evidence index'`                                                              | 1test passed;405 current rows valid  | 029-text-index-current.log                                                                                 |
+| Final `pnpm typecheck` and one-file lint/format after type-only dependency cleanup                                                   | passed                               | 030-text-final-typecheck.log,031-text-diagnostic-boundary-lint.log,032-text-diagnostic-boundary-format.log |
 
 The actual source Workspace tests discover and evaluate all three containers,
 compare independently expected complete Compile Output and15 Project/Snapshot
@@ -105,6 +113,69 @@ the local Python default encoding. Commit `d7ae4a6a` stores UTF-8; logs018/019
 are the corrected checks. Log025 identifies three formatting-only merge callers;
 log027 applies their correction. These are harness/format issues, not changes to
 the accepted saved-value domains. All original logs remain at their listed paths.
+
+## Independent merger corrections and latest incoming
+
+The independent merger's original
+`M:/Shuen/Codex/mv-events-implementation-20261020/text-batch-merger/cross-boundary.log`
+records14 passes and two failures against Text readiness `e246d835`;
+`baseline-cross-boundary.log` in that directory records16 passes against actual
+integration `2ce2ba3b`. Both raw logs remain unchanged.
+
+One regression was a real import cycle: the generic DSL input guard imported
+message validation, while the same message module imported the generic guards
+for Choices. Native message-group validation also reached that mixed module.
+Commit `58252653` splits the unchanged Choices validator and pure native
+message-group validator into their own modules and updates the consumers.
+The architecture assertions stay intact. The other failure was an obsolete
+boundary expectation that rejected the now-supported E101 None/index3 shape;
+the replacement uses a complete literal E101/E401/end-marker list, exact
+canonical source and helper names, real public helper evaluation, exact complete
+compilation, and warning-free graph validation.
+
+Necessary Workspace verification then found a separate old API call inside a
+generated troop-event source string: Choices011 injected
+`comment(["Installed Choices"])`. Log039 preserves its actual type-check
+failure and the7 passing selected cases. The failing sandbox remains
+`M:/Shuen/Codex/mv-events-implementation-20261020/text-batch-temp/choices-three-containers-aN7bLT`.
+Commit `e61a27ef` changes only that injection to
+`comment({ lines: ["Installed Choices"] })`; the independent expected native
+E108 and complete-carrier/state assertions remain unchanged. This test file is
+not a current requirement fixture, so no requirement fixture hashes were changed.
+
+Actual Inventory/Shop integration `4c46520e` is merged by `47211924`.
+Conflict resolution preserves both Actor presentation and Inventory/Shop
+validators, the accepted `goods`/`purchaseOnly` APIs and the incoming pure
+Shop guard. The index is the incoming399 rows plus17 unique Text rows:416,
+with no differing overlapping requirement objects. Both parents had contract18
+for different product changes; the combined Text delivery uses contract19.
+
+All following logs remain under
+`M:/Shuen/Codex/mv-events-implementation-20261020/text-batch-temp/`.
+Original logs, including failed runs whose planned filenames said green, are
+preserved without renaming or overwriting.
+
+| Actual scope                                                                                                                                               | Actual result                                                                | Original log                                                                                                               |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Isolated architecture plus updated boundary assertion, before module split                                                                                 | 15passed/1failed; actual import cycle retained                               | 033-text-cross-boundary-isolated-red.log                                                                                   |
+| Architecture and complete command boundary after module split                                                                                              | 16passed                                                                     | 034-text-cross-boundary-green.log                                                                                          |
+| Scoped formatter/lint for boundary correction                                                                                                              | passed                                                                       | 035-text-boundary-format-write.log;036-text-boundary-lint.log                                                              |
+| Architecture, command boundary, Choices, Message, decompiler and DSL                                                                                       | 6files/102tests passed                                                       | 037-text-boundary-affected-green.log                                                                                       |
+| Typecheck after module split                                                                                                                               | passed                                                                       | 038-text-boundary-typecheck.log                                                                                            |
+| Necessary Message/Choices Workspace selection before generated-source migration                                                                            | 7passed/1failed/17unselected; legacy Comment call failure retained           | 039-text-boundary-workspace-green.log                                                                                      |
+| Exact formerly failing Choices011 edited Push                                                                                                              | 1passed/18unselected                                                         | 040-text-choices-edited-push-green.log                                                                                     |
+| Generated-source migration formatting/lint                                                                                                                 | Initial format refusal retained; lint and formatting correction passed       | 041-text-choices-harness-format.log;042-text-choices-harness-lint.log;043-text-choices-harness-format-write.log            |
+| Latest incoming conflict-resolution formatting                                                                                                             | passed                                                                       | 044-text-inventory-merge-format-write.log                                                                                  |
+| Typecheck on merged `47211924`                                                                                                                             | passed                                                                       | 045-text-inventory-postmerge-typecheck.log                                                                                 |
+| Architecture, boundary, Choices, Message, decompiler, DSL, Inventory and Shop on merged source                                                             | 8files/123tests passed                                                       | 046-text-inventory-postmerge-affected.log                                                                                  |
+| Scoped lint of all correction/conflict-resolution TypeScript paths                                                                                         | passed                                                                       | 047-text-inventory-postmerge-lint.log                                                                                      |
+| Current evidence index on merged source                                                                                                                    | 1test passed;416rows valid                                                   | 048-text-inventory-index-current.log                                                                                       |
+| Actual stale/missing/mismatched contract-basis Workspace behavior on contract19                                                                            | 1test passed                                                                 | 049-text-inventory-contract19-freshness.log                                                                                |
+| Message Workspace cases, nested Choices Script Gate, complete Choices edited Push, Inventory positive and Shop positive/rejection sources on merged source | 4files/12tests passed;50unselected                                           | 050-text-inventory-postmerge-workspace.log                                                                                 |
+| Final correction/report formatting                                                                                                                         | Initial five-Markdown format refusal retained; corrected17-path check passed | 051-text-final-correction-format.log;052-text-final-correction-format-write.log;053-text-final-correction-format-clean.log |
+
+These are source development and actual temporary-filesystem Workspace
+observations. Full/build and final REA/game checks retain the allocation below.
 
 ## Remaining final acceptance
 
