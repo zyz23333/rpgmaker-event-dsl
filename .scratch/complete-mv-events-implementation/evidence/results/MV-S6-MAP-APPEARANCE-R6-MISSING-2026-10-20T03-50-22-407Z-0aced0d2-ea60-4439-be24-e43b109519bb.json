@@ -1,0 +1,712 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-S6-MAP-APPEARANCE-R6-MISSING",
+  "runId": "2026-10-20T03-50-22-407Z-0aced0d2-ea60-4439-be24-e43b109519bb",
+  "status": "passed",
+  "startedAt": "2026-10-20T03:50:22.036Z",
+  "completedAt": "2026-10-20T03:50:22.407Z",
+  "operator": "Codex final55 documentary evidence audit; no new game or test execution",
+  "source": {
+    "revision": "201c48d05d66ec6e44581225f7dde86951223715",
+    "fingerprint": "981700ff523a74b0ad8c099cb23fb026a4f52ab733e5cec765cbaac629363625",
+    "files": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "sha256": "22e859380bc067748d6b238b57770726da093e6346de1921bf6ff50527829632"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/common-scheduling-reuse.json",
+        "sha256": "52499384f103d168a44cbff1f6875ba8e067633955852d59a2963c14c9019248"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/controlled-battle-transfer.json",
+        "sha256": "ec27ba98a6087422184400b90e9094905ab9cf79d34cc57fc3d33e4f0983a30b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/effective-matrix.json",
+        "sha256": "2a19e58a96e18a734192757edf9eb1c322708e44d2bb6a25fa47f5fd2b8bb8da"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/location-reuse.json",
+        "sha256": "b564a62134f3b9231c7d6282753e470c8d1d0d8cbd4f11df1c69b079033ec259"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/map-appearance-reuse.json",
+        "sha256": "9747d7d04b4c52acd7675e7a8e1405ed45e6641a42575109be2cdbea251bb960"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/native-obligations.json",
+        "sha256": "62b830c5d6d5001453653f56be72983dc2d25d6f3dbd585534b5642640322596"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/publication-script.cjs",
+        "sha256": "245c4718c0462c5148f000dd42a14a7ee7f4f0b0b08fb3f66858c92c4fc7c23f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/selected-runner-proofs.json",
+        "sha256": "d00f539608c193ae3b6933762a32e3784d4b8b1098a3b14723abc1d3ab5ee613"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/README.md",
+        "sha256": "dcdb62a2c86bf7e88cb02ce5cee9a3f7403bed24bd148443b1b1fded1e25d9ee"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+        "sha256": "c99f4a5c21520ed6dd82cdff63647ce2e1301284db046f44b45335b09ef70c8e"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/issues/55-completion-evidence-audit.md",
+        "sha256": "17e08ed5058fd8af690f055357580eb7ae0064dd03e0ce6875d844e81e96432a"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/tickets.md",
+        "sha256": "813ec37627fb634ab6c7ef71aed7e8719b92b8a2804dfa74b80168a94a2f66aa"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-e1-e7/comparison-receipt.json",
+        "sha256": "a43a677bda7caa67d4cf197659dd80c6ca5d98007e087c51157cdb51b34d5848"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-evidence-merge/merge-completion.json",
+        "sha256": "2581818d709f12aad03cdb96de4338e22b98025db6049eef27749a7e587cf01d"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-matrix/docs-example-55-verification/workspace-result.json",
+        "sha256": "f8ed2b89da78742d70705632e946a0e9df925b885ae730808dd99755e926282a"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final48-candidate.json",
+        "sha256": "2f4460874393ba6761740d6613c9c7b7cbbd161f8639a77c96a56ea84943bd63"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final54-effective-receipt.json",
+        "sha256": "a6dd90b195b7c438b130d62968f42877fc6619c3886de58e696fae6eee0e71c0"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final55-audit/e-supplement/comparison-receipt.json",
+        "sha256": "9b6c611214230b888228459651b4003b93a149b734875196c25c4613fe147b83"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/known-public-counterexample-closure-ledger.md",
+        "sha256": "179e9f66863bd4fb2880a9d3f8691ce3c792fcd1b87f902a75a6578042aa45eb"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/shared-constructor-input-finalization-followup.md",
+        "sha256": "35eaa938e2b134001b7e8eced2c627736369e33797b7a2dbd7dfe780b59b8d9a"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket53-final/tools/final-delivery-01a43682-7e25-403b-99c8-12a1de5452c3.json",
+        "sha256": "2f9e2df0e09da15ca9836173c5e7aeef5e19d9b72c2e900638a43c0e233b8d4a"
+      }
+    ]
+  },
+  "fixture": {
+    "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-appearance-cases.json",
+    "sha256": "5095b3be404a9d0025157989cf465cc0c88e96616ea5d6ba892242e35623790f"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "node": "v22.23.0",
+    "vitest": "4.1.9",
+    "typescript": "5.9.3",
+    "package": "0.1.2",
+    "native": {
+      "method": "game",
+      "mv": "RPG Maker MV1.6.1",
+      "runtime": "Aggregation of identified actual native observations; no new game execution by this audit",
+      "nwjs": "0.29.0",
+      "tools": {
+        "candidate": "2dc639015f908de6fd524e50236e5422b5f8e990",
+        "compileContractVersion": "mv-1.6.1/22",
+        "auditHead": "201c48d05d66ec6e44581225f7dde86951223715",
+        "evidenceMethod": "Exact original/current case references and preserved execution identities in native-obligations.json"
+      },
+      "artifacts": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/native-obligations.json",
+          "sha256": "62b830c5d6d5001453653f56be72983dc2d25d6f3dbd585534b5642640322596"
+        }
+      ]
+    }
+  },
+  "stages": [
+    "Read exact accepted requirement and current concrete obligation",
+    "Reconcile authoritative actual runner/native verdicts and retained original failures",
+    "Validate fixed candidate and explicit affected/unaffected input equivalence",
+    "Publish immutable effective audit result; no new test, build or game"
+  ],
+  "expected": "Ticket36 allocated actual missing-Tileset-image Loading Error and E282 stall pair",
+  "actual": {
+    "auditOnly": true,
+    "newGameExecutions": 0,
+    "newTestExecutions": 0,
+    "candidate": "2dc639015f908de6fd524e50236e5422b5f8e990",
+    "compileContractVersion": "mv-1.6.1/22",
+    "effectiveStatus": "passed",
+    "nativeObligation": {
+      "id": "MV-S6-MAP-APPEARANCE-R6-MISSING",
+      "status": "passed",
+      "note": "Retain original real existing-Tileset/missing-image native Loading Error, retry, original Tileset, E282 stall and following-switch nonexecution, with all nine predicates. Current-built complete15-carrier equivalence and exact unchanged engine/selected assets establish unaffected input; exact missing filename still absent. No new game launch.",
+      "proofs": [],
+      "priorNativeReuse": [
+        {
+          "id": "missing-tileset",
+          "priorPair": {
+            "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-missing-tileset-physical-delivery-v4-native-cdc47d24-b531-4c7a-8c56-e3df86ebb451\\pair-result.json",
+            "sha256": "ff0a1d835d390c2cc58da5e6097b178cb40cd4b6e555ba82083deec1cb14bdab"
+          },
+          "independentFixture": {
+            "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket36-delivery-v4\\mv36-physical-inputs-v4-60cdf9c3-756f-477a-9640-c952b3f03254\\missing-tileset-independent-input.json",
+            "sha256": "a4e03b1ea762f3e565747c461b899c9ae77c7fadee60e0a9a4416f126936c6e3"
+          },
+          "priorNativeStartedAt": "2026-10-19T19:02:27.497Z",
+          "priorNativeCompletedAt": "2026-10-19T19:03:30.985Z",
+          "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\map-reuse\\missing-tileset-TiJT23\\Workspace data only",
+          "source": {
+            "decompiled/common-events.events.ts": "e1ad11c1a0b4f599a9665afb6110b68313eb448862159e328e84e5a2fdf6bd95",
+            "decompiled/maps/Map001.events.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+            "decompiled/system.dsl.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+            "decompiled/troop-events.events.ts": "53c40cf97ab3bb6da3a49d804b94dc65c0f9757864bf436b06a52a24a9d17faa"
+          },
+          "warnings": [],
+          "mapTileset": {
+            "id": 1,
+            "mode": 0
+          },
+          "completeCarriers": [
+            {
+              "path": "Actors.json",
+              "completeValueEqual": true,
+              "bytesEqualPriorNativeCompiled": true,
+              "parsedCarrierEqualPriorNativeCompiled": true,
+              "priorLiteralSha256": "81704b5d5e3b9140a9c38c8bf363b828750d98545275542d01f2153599c392ef",
+              "finalOutputSha256": "81704b5d5e3b9140a9c38c8bf363b828750d98545275542d01f2153599c392ef",
+              "generated": false
+            },
+            {
+              "path": "Animations.json",
+              "completeValueEqual": true,
+              "bytesEqualPriorNativeCompiled": true,
+              "parsedCarrierEqualPriorNativeCompiled": true,
+              "priorLiteralSha256": "97a18b95e4f9a34c6054df9204520ab0019650783d26175d1ba3edf86fbcabb1",
+              "finalOutputSha256": "97a18b95e4f9a34c6054df9204520ab0019650783d26175d1ba3edf86fbcabb1",
+              "generated": false
+            },
+            {
+              "path": "Armors.json",
+              "completeValueEqual": true,
+              "bytesEqualPriorNativeCompiled": true,
+              "parsedCarrierEqualPriorNativeCompiled": true,
+              "priorLiteralSha256": "a0eb6b40c3e6335554bc530611985c7cdbfe6823a4d1efaeb310cc4f2eebd54d",
+              "finalOutputSha256": "a0eb6b40c3e6335554bc530611985c7cdbfe6823a4d1efaeb310cc4f2eebd54d",
+              "generated": false
+            },
+            {
+              "path": "Classes.json",
+              "completeValueEqual": true,
+              "bytesEqualPriorNativeCompiled": true,
+              "parsedCarrierEqualPriorNativeCompiled": true,
+              "priorLiteralSha256": "ee90a5d7d51613cd66ef8e40f124e434b3e552f3df051a15fefa6376acb1d862",
+              "finalOutputSha256": "ee90a5d7d51613cd66ef8e40f124e434b3e552f3df051a15fefa6376acb1d862",
+              "generated": false
+            },
+            {
+              "path": "CommonEvents.json",
+              "completeValueEqual": true,
+              "bytesEqualPriorNativeCompiled": true,
+              "parsedCarrierEqualPriorNativeCompiled": true,
+              "priorLiteralSha256": "ffc973f07b5714ff4cce7449b5c1740e61dcd0f2ed988ff90b363a14c490c0e0",
+              "finalOutputSha256": "c91d78538e238126399d1502e842500f92f8c7d9b817c768101cbc31eea4cdad",
+              "generated": true
+            },
+            {
+              "path": "Enemies.json",
+              "completeValueEqual": true,
+              "bytesEqualPriorNativeCompiled": true,
+              "parsedCarrierEqualPriorNativeCompiled": true,
+              "priorLiteralSha256": "d40c1a03a991c1c9961dc529d29190791e61f8c9a2926487a10a63c5a9520c27",
+              "finalOutputSha256": "d40c1a03a991c1c9961dc529d29190791e61f8c9a2926487a10a63c5a9520c27",
+              "generated": false
+            },
+            {
+              "path": "Items.json",
+              "completeValueEqual": true,
+              "bytesEqualPriorNativeCompiled": true,
+              "parsedCarrierEqualPriorNativeCompiled": true,
+              "priorLiteralSha256": "e3e75cd7ed104cfe1a3fd7e612831d88c693eb29086c31ce87442a3afc641d19",
+              "finalOutputSha256": "e3e75cd7ed104cfe1a3fd7e612831d88c693eb29086c31ce87442a3afc641d19",
+              "generated": false
+            },
+            {
+              "path": "Map001.json",
+              "completeValueEqual": true,
+              "bytesEqualPriorNativeCompiled": false,
+              "parsedCarrierEqualPriorNativeCompiled": true,
+              "priorLiteralSha256": "ae5150f0969202ec8ba0034e81d7cc63e8b4297017fd5cfdc0f0d13872d8dbbd",
+              "finalOutputSha256": "4034a6007e6c3239045a222bcdc4e0aa6b95367b14da11463876197db224a9e5",
+              "generated": true
+            },
+            {
+              "path": "MapInfos.json",
+              "completeValueEqual": true,
+              "bytesEqualPriorNativeCompiled": true,
+              "parsedCarrierEqualPriorNativeCompiled": true,
+              "priorLiteralSha256": "4bd82f17bf954f09f4b564dbda20e1903d27d680069e257f7b5edfa24c48d8a0",
+              "finalOutputSha256": "4bd82f17bf954f09f4b564dbda20e1903d27d680069e257f7b5edfa24c48d8a0",
+              "generated": false
+            },
+            {
+              "path": "Skills.json",
+              "completeValueEqual": true,
+              "bytesEqualPriorNativeCompiled": true,
+              "parsedCarrierEqualPriorNativeCompiled": true,
+              "priorLiteralSha256": "ae41a5a1664eba35005fa6c00c73979debd6b4b6aff314b9cb33270bf023f58f",
+              "finalOutputSha256": "ae41a5a1664eba35005fa6c00c73979debd6b4b6aff314b9cb33270bf023f58f",
+              "generated": false
+            },
+            {
+              "path": "States.json",
+              "completeValueEqual": true,
+              "bytesEqualPriorNativeCompiled": true,
+              "parsedCarrierEqualPriorNativeCompiled": true,
+              "priorLiteralSha256": "c1d6fa52702ee328c299eeec485010b4d9cca34b4f566b2fad50b212bc109dbd",
+              "finalOutputSha256": "c1d6fa52702ee328c299eeec485010b4d9cca34b4f566b2fad50b212bc109dbd",
+              "generated": false
+            },
+            {
+              "path": "System.json",
+              "completeValueEqual": true,
+              "bytesEqualPriorNativeCompiled": false,
+              "parsedCarrierEqualPriorNativeCompiled": true,
+              "priorLiteralSha256": "c5a95c39aa1f5ecad4f4a30100da6922edf62f84351c0fa08ef91af1d64aca74",
+              "finalOutputSha256": "3ae8a3a1fa8abf72b2712baa495fd603978ed469a3db0da4086a29c4d493af44",
+              "generated": true
+            },
+            {
+              "path": "Tilesets.json",
+              "completeValueEqual": true,
+              "bytesEqualPriorNativeCompiled": true,
+              "parsedCarrierEqualPriorNativeCompiled": true,
+              "priorLiteralSha256": "b3d9bebf018bdaf3fed67847fe6615910ba7bf83fad14222acf032405c6b9793",
+              "finalOutputSha256": "b3d9bebf018bdaf3fed67847fe6615910ba7bf83fad14222acf032405c6b9793",
+              "generated": false
+            },
+            {
+              "path": "Troops.json",
+              "completeValueEqual": true,
+              "bytesEqualPriorNativeCompiled": false,
+              "parsedCarrierEqualPriorNativeCompiled": true,
+              "priorLiteralSha256": "446aa046e637de0712741d51ff2c038fb6e665c000c1e8e41e268333814cb4ee",
+              "finalOutputSha256": "8c62b6ac64a1fe80c6da7b2bb552c44041bad40864eb5da4b1cae13743270c60",
+              "generated": true
+            },
+            {
+              "path": "Weapons.json",
+              "completeValueEqual": true,
+              "bytesEqualPriorNativeCompiled": true,
+              "parsedCarrierEqualPriorNativeCompiled": true,
+              "priorLiteralSha256": "6a875e98f0bca6f9b89e8245fb45c7ee99c1c24d298a13f6e42e65763e89ee6a",
+              "finalOutputSha256": "6a875e98f0bca6f9b89e8245fb45c7ee99c1c24d298a13f6e42e65763e89ee6a",
+              "generated": false
+            }
+          ],
+          "assets": [
+            {
+              "path": "img/tilesets/Dungeon_A1.png",
+              "sha256": "a35c6a3221256c42149309251b1f324f292ea777b7c61dbc3990450e1044a759",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/Dungeon_A2.png",
+              "sha256": "d272dfb3d8af46288cf23aa384d4e544036847db714c782fd7a2a46d8b23b36c",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/Dungeon_A4.png",
+              "sha256": "7d54acbb8a053a268b7198e8b3c32c011ac07feefc920bcd57cf138e9665cfb1",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/Dungeon_A5.png",
+              "sha256": "5fef61b9cce5e972dfd7d40221c68f4e7fde52bc132a482f15c5312944238a13",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/Dungeon_B.png",
+              "sha256": "95a1830aaa9dd12706831e701f374e2a85e9b842daca7686535b357ebcbef804",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/Dungeon_C.png",
+              "sha256": "3f91264f641e364dfbb14e884aeb5ae9a76ab53a6d774a0b65a613b397493112",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/Inside_A1.png",
+              "sha256": "1eeea767a5a4c2cd84b77cd62bb5fe2ba056dcecc6b6c7f042ee9bbc30e688f9",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/Inside_A2.png",
+              "sha256": "43892c4d96209adcdf4f2caae8a11b9361ae8e63fb35d3a4e4de4528c922a40d",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/Inside_A4.png",
+              "sha256": "85f15d7ce9adf0147aaab5187fc233be8eea1b03f37808ac42e30c5b7be9200f",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/Inside_A5.png",
+              "sha256": "7e910aa2f0747248277af3e8ac827c15445bee5c7eadd370d1279d19237569d6",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/Inside_B.png",
+              "sha256": "0589c9a1698eaa6f70dc189c9c500e88d505325c27619b6d15b5b544a7796055",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/Inside_C.png",
+              "sha256": "bf963ce396466f3e399c52aca9bcdc922523205ab4661fb128a2a6a431849212",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/MV36_Absent_Tileset_967ce7d8.png",
+              "absentBoth": true
+            },
+            {
+              "path": "img/tilesets/Outside_A1.png",
+              "sha256": "82223a25498bb288131d7fdcc6ab21196de0460b768d01b0655964b96eefb21d",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/Outside_A2.png",
+              "sha256": "382910680e21953b1fd6cd95ee6a53780a55951e70c1abaaeac8c62df592df6d",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/Outside_A3.png",
+              "sha256": "b9c8e56c3e02ae8b3f593171c84cfdb2a61ef3d87b7beebf25edba2014af64c5",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/Outside_A4.png",
+              "sha256": "e4b9f7de5e88b0d7a1922999a64054792f12b5a0c198df527aabd99b37f7190a",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/Outside_A5.png",
+              "sha256": "d8039c985bc745e9ddc15d7eccd9d09b68dce9ad8db58b11d889afa513a289e2",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/Outside_B.png",
+              "sha256": "45452c0ce18d748d39f153cb6a2e3bd8a0f3e09a97b073624b3d8d042d480300",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/Outside_C.png",
+              "sha256": "88c79c81cc1f478192f8c4c5a6d5b50b57fd4cfa344db9649b1a36c30354af5d",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/SF_Inside_A4.png",
+              "sha256": "609646776f3a62372d8a0e74a09afeed6307bcbe5d8af4bd4092803d81dd9aab",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/SF_Inside_B.png",
+              "sha256": "72938ed635eb1e8fe70ab9306373dd2b6145c1becbac70783d30674d48227f4b",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/SF_Inside_C.png",
+              "sha256": "46681c813938c0e918ce32de58670bf3cc476a34f0320b35b004e9dbbb21c432",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/SF_Outside_A3.png",
+              "sha256": "c52e9e0790cf6c72ee1d9e19cc070772ab7b51f57b9aeca5d6c20a30effec7a0",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/SF_Outside_A4.png",
+              "sha256": "d701dffa3d596706bace8c122f705bbec359fbb78dbc1fb36ba5bc81c4eb10ca",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/SF_Outside_A5.png",
+              "sha256": "6cab0b9ce200a872dea842f393e588ae1e7035c688fdb929c8804cd7c6096af7",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/SF_Outside_B.png",
+              "sha256": "a91aa273782b85eaebbd4d13b3f4e70aeec68f930c57a68deda165c54b3cdcfb",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/SF_Outside_C.png",
+              "sha256": "1211b3d5d0189695445b31fe933a791b4254eb7ccf44de13ddad363747ae24cf",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/World_A1.png",
+              "sha256": "80e86162d2a7961f852ecd45fbc4b1ddbc1864d1553bf9b19e40f7fe4ef09070",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/World_A2.png",
+              "sha256": "beaff5f5fcf47cf61fb454033456840178ee117bf0fcc79ae566f4702252eeed",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/World_B.png",
+              "sha256": "ec58b4999be39fb2aabd9e903ae637e60cf3e7c93e3b7326d35132770da3b574",
+              "unchanged": true
+            },
+            {
+              "path": "img/tilesets/World_C.png",
+              "sha256": "ca21733537766c8eeda5442f9803a2af9f752a7a9e8e5c294a8bf5c25954f8cd",
+              "unchanged": true
+            }
+          ],
+          "engineIdentityEqual": true,
+          "all15FinalLoadedCarrierValuesEqualPriorNativeCompiled": true,
+          "priorNativeReused": true,
+          "currentGameExecuted": false,
+          "passed": true,
+          "priorActual": {
+            "literal": {
+              "normalMapScene": true,
+              "originalTilesetRetained": true,
+              "requestedTilesetExists": true,
+              "actualImageAbsent": true,
+              "nativeLoadingError": true,
+              "nativeRetryPending": true,
+              "commonInterpreterStalled": true,
+              "followingSwitchNotExecuted": true,
+              "stableErrorObserved": true
+            },
+            "compiled": {
+              "normalMapScene": true,
+              "originalTilesetRetained": true,
+              "requestedTilesetExists": true,
+              "actualImageAbsent": true,
+              "nativeLoadingError": true,
+              "nativeRetryPending": true,
+              "commonInterpreterStalled": true,
+              "followingSwitchNotExecuted": true,
+              "stableErrorObserved": true
+            }
+          },
+          "priorPredicates": {
+            "normalMapScene": true,
+            "originalTilesetRetained": true,
+            "requestedTilesetExists": true,
+            "actualImageAbsent": true,
+            "nativeLoadingError": true,
+            "nativeRetryPending": true,
+            "commonInterpreterStalled": true,
+            "followingSwitchNotExecuted": true,
+            "stableErrorObserved": true
+          },
+          "priorNativeDetails": {
+            "literal": {
+              "errorText": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+              "stopped": true,
+              "index": 0,
+              "errorFrame": 396,
+              "samples": [
+                {
+                  "at": 1792436589893,
+                  "frame": 396,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436589992,
+                  "frame": 396,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436590092,
+                  "frame": 396,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436590192,
+                  "frame": 396,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436590293,
+                  "frame": 396,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436590392,
+                  "frame": 396,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436590492,
+                  "frame": 396,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436590593,
+                  "frame": 396,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436590692,
+                  "frame": 396,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436590794,
+                  "frame": 396,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436590892,
+                  "frame": 396,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436590992,
+                  "frame": 396,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                }
+              ]
+            },
+            "compiled": {
+              "errorText": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+              "stopped": true,
+              "index": 0,
+              "errorFrame": 397,
+              "samples": [
+                {
+                  "at": 1792436606941,
+                  "frame": 397,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436607040,
+                  "frame": 397,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436607140,
+                  "frame": 397,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436607241,
+                  "frame": 397,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436607340,
+                  "frame": 397,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436607441,
+                  "frame": 397,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436607540,
+                  "frame": 397,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436607640,
+                  "frame": 397,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436607740,
+                  "frame": 397,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436607841,
+                  "frame": 397,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                },
+                {
+                  "at": 1792436607941,
+                  "frame": 397,
+                  "index": 0,
+                  "error": "Loading ErrorFailed to load: img/tilesets/MV36_Absent_Tileset_967ce7d8.pngRetry",
+                  "stopped": true
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "comparisonReceipt": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final55-audit/map-reuse/effective-comparison-receipt-v3.json",
+        "sha256": "9747d7d04b4c52acd7675e7a8e1405ed45e6641a42575109be2cdbea251bb960"
+      },
+      "title": "Ticket36 allocated actual missing-Tileset-image Loading Error and E282 stall pair",
+      "groups": [
+        "R6"
+      ]
+    },
+    "actorAuthoritativeRunnerProof": null,
+    "automation": null,
+    "allRequiredAudit": null,
+    "limits": "Audit timestamp is not an underlying test/game execution timestamp. Original failed runs and exact expected-refusal versus native-pass classifications remain preserved."
+  },
+  "difference": null
+}

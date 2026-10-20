@@ -1,0 +1,875 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-R3-LOOP-013",
+  "runId": "2026-10-20T03-50-22-407Z-338b4ae6-1efc-462f-8e0d-33304994d9ff",
+  "status": "passed",
+  "startedAt": "2026-10-20T03:50:22.036Z",
+  "completedAt": "2026-10-20T03:50:22.407Z",
+  "operator": "Codex final55 documentary evidence audit; no new game or test execution",
+  "source": {
+    "revision": "201c48d05d66ec6e44581225f7dde86951223715",
+    "fingerprint": "981700ff523a74b0ad8c099cb23fb026a4f52ab733e5cec765cbaac629363625",
+    "files": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "sha256": "22e859380bc067748d6b238b57770726da093e6346de1921bf6ff50527829632"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/common-scheduling-reuse.json",
+        "sha256": "52499384f103d168a44cbff1f6875ba8e067633955852d59a2963c14c9019248"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/controlled-battle-transfer.json",
+        "sha256": "ec27ba98a6087422184400b90e9094905ab9cf79d34cc57fc3d33e4f0983a30b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/effective-matrix.json",
+        "sha256": "2a19e58a96e18a734192757edf9eb1c322708e44d2bb6a25fa47f5fd2b8bb8da"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/location-reuse.json",
+        "sha256": "b564a62134f3b9231c7d6282753e470c8d1d0d8cbd4f11df1c69b079033ec259"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/map-appearance-reuse.json",
+        "sha256": "9747d7d04b4c52acd7675e7a8e1405ed45e6641a42575109be2cdbea251bb960"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/native-obligations.json",
+        "sha256": "62b830c5d6d5001453653f56be72983dc2d25d6f3dbd585534b5642640322596"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/publication-script.cjs",
+        "sha256": "245c4718c0462c5148f000dd42a14a7ee7f4f0b0b08fb3f66858c92c4fc7c23f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/selected-runner-proofs.json",
+        "sha256": "d00f539608c193ae3b6933762a32e3784d4b8b1098a3b14723abc1d3ab5ee613"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/README.md",
+        "sha256": "dcdb62a2c86bf7e88cb02ce5cee9a3f7403bed24bd148443b1b1fded1e25d9ee"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+        "sha256": "c99f4a5c21520ed6dd82cdff63647ce2e1301284db046f44b45335b09ef70c8e"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/issues/55-completion-evidence-audit.md",
+        "sha256": "17e08ed5058fd8af690f055357580eb7ae0064dd03e0ce6875d844e81e96432a"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/tickets.md",
+        "sha256": "813ec37627fb634ab6c7ef71aed7e8719b92b8a2804dfa74b80168a94a2f66aa"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-e1-e7/comparison-receipt.json",
+        "sha256": "a43a677bda7caa67d4cf197659dd80c6ca5d98007e087c51157cdb51b34d5848"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-evidence-merge/merge-completion.json",
+        "sha256": "2581818d709f12aad03cdb96de4338e22b98025db6049eef27749a7e587cf01d"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-matrix/docs-example-55-verification/workspace-result.json",
+        "sha256": "f8ed2b89da78742d70705632e946a0e9df925b885ae730808dd99755e926282a"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final48-candidate.json",
+        "sha256": "2f4460874393ba6761740d6613c9c7b7cbbd161f8639a77c96a56ea84943bd63"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final54-effective-receipt.json",
+        "sha256": "a6dd90b195b7c438b130d62968f42877fc6619c3886de58e696fae6eee0e71c0"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final55-audit/e-supplement/comparison-receipt.json",
+        "sha256": "9b6c611214230b888228459651b4003b93a149b734875196c25c4613fe147b83"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/known-public-counterexample-closure-ledger.md",
+        "sha256": "179e9f66863bd4fb2880a9d3f8691ce3c792fcd1b87f902a75a6578042aa45eb"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/shared-constructor-input-finalization-followup.md",
+        "sha256": "35eaa938e2b134001b7e8eced2c627736369e33797b7a2dbd7dfe780b59b8d9a"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket53-final/tools/final-delivery-01a43682-7e25-403b-99c8-12a1de5452c3.json",
+        "sha256": "2f9e2df0e09da15ca9836173c5e7aeef5e19d9b72c2e900638a43c0e233b8d4a"
+      }
+    ]
+  },
+  "fixture": {
+    "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/loop-cases.json",
+    "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "node": "v22.23.0",
+    "vitest": "4.1.9",
+    "typescript": "5.9.3",
+    "package": "0.1.2",
+    "native": {
+      "method": "game",
+      "mv": "RPG Maker MV1.6.1",
+      "runtime": "Aggregation of identified actual native observations; no new game execution by this audit",
+      "nwjs": "0.29.0",
+      "tools": {
+        "candidate": "2dc639015f908de6fd524e50236e5422b5f8e990",
+        "compileContractVersion": "mv-1.6.1/22",
+        "auditHead": "201c48d05d66ec6e44581225f7dde86951223715",
+        "evidenceMethod": "Exact original/current case references and preserved execution identities in native-obligations.json"
+      },
+      "artifacts": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/native-obligations.json",
+          "sha256": "62b830c5d6d5001453653f56be72983dc2d25d6f3dbd585534b5642640322596"
+        }
+      ]
+    }
+  },
+  "stages": [
+    "Read exact accepted requirement and current concrete obligation",
+    "Reconcile authoritative actual runner/native verdicts and retained original failures",
+    "Validate fixed candidate and explicit affected/unaffected input equivalence",
+    "Publish immutable effective audit result; no new test, build or game"
+  ],
+  "expected": "Independent literal and actual compiled lists produce the same fresh-state switch values and stopped interpreter for all four cases; child Exit permits caller continuation.",
+  "actual": {
+    "auditOnly": true,
+    "newGameExecutions": 0,
+    "newTestExecutions": 0,
+    "candidate": "2dc639015f908de6fd524e50236e5422b5f8e990",
+    "compileContractVersion": "mv-1.6.1/22",
+    "effectiveStatus": "passed",
+    "nativeObligation": {
+      "id": "MV-R3-LOOP-013",
+      "status": "passed",
+      "note": "Retain the original concrete native oracle and its execution time. Exact independent original input is unchanged; current actual Workspace runner compares complete relevant output to it. Final52 normal Scene regression is additional evidence. No new legacy game launch is claimed.",
+      "proofs": [
+        {
+          "ticket": 52,
+          "case": "r3-control-loop-break-exit",
+          "pair": {
+            "path": "M:\\mv52\\batch-587c0a87-fba2-4160-b9cb-d8560d1fd3c1\\s-1c2d5e83e11a-240dc881\\pair-result.json",
+            "sha256": "eea601f13af8fab8e2ccf645d44e149d91601026abb7a43ea75b50ba26ea222b"
+          },
+          "anchors": [
+            "remainsRunning"
+          ]
+        },
+        {
+          "ticket": 52,
+          "case": "r3-control-nested-loop-mixed-body-markers",
+          "pair": {
+            "path": "M:\\mv52\\batch-587c0a87-fba2-4160-b9cb-d8560d1fd3c1\\s-5a9ba658b86a-42f7fe65\\pair-result.json",
+            "sha256": "53ad61515447892fbd01cb5f9faceeb5d3cda4064a0ba4d10ef8623481706503"
+          },
+          "anchors": [
+            "remainsRunning"
+          ]
+        },
+        {
+          "ticket": 52,
+          "case": "r3-control-break-outside-skips-to-list-end",
+          "pair": {
+            "path": "M:\\mv52\\batch-587c0a87-fba2-4160-b9cb-d8560d1fd3c1\\s-ccbf54adc90c-08a499fe\\pair-result.json",
+            "sha256": "90698095ed38b7323057683406ee7bf7c710e554007d9bd135bb0d382fe9b86e"
+          },
+          "anchors": [
+            "remainsRunning"
+          ]
+        },
+        {
+          "ticket": 52,
+          "case": "r3-control-loop-with-wait-stagnation",
+          "pair": {
+            "path": "M:\\mv52\\batch-587c0a87-fba2-4160-b9cb-d8560d1fd3c1\\s-c4a78f6d41b5-8fa6c020\\pair-result.json",
+            "sha256": "8993cb6ac798b88a0bcf55a0a39ab605e07195d5fdb82f6105c8667e708ca298"
+          },
+          "anchors": [
+            "remainsRunning"
+          ]
+        }
+      ],
+      "priorNativeReuse": {
+        "id": "MV-R3-LOOP-013",
+        "fixture": {
+          "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/loop-cases.json",
+          "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067",
+          "unchangedFromNativeInput": true
+        },
+        "currentExecutedProof": "loop-input-equivalence",
+        "priorNativeResult": {
+          "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\results\\MV-R3-LOOP-013-2026-10-19T08-24-47-995Z-076fff45-b4c5-47f1-b0d9-3cb2b4fe7592.json",
+          "sha256": "47f02d53db60ed51f317461dd55d0427bc34d71cefc783d95411ea73b0f361d8",
+          "revision": "cb77da2b4dc079c34d5c9d16ff9394292a908f7f",
+          "startedAt": "2026-10-19T08:21:06.847Z",
+          "completedAt": "2026-10-19T08:24:47.995Z"
+        },
+        "priorActual": {
+          "literal": {
+            "identity": {
+              "startedAt": "2026-10-19T08:21:06.847Z",
+              "completedAt": "2026-10-19T08:21:12.790Z",
+              "host": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/nwjs-win-test/game.exe",
+              "hostSha256": "78beb07fa8f2b905d468a40d64d0d5588b4cfa42d7822d5e16878245657da3aa",
+              "fixture": {
+                "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-13\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\test\\fixtures\\mv-evidence\\loop-cases.json",
+                "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+              },
+              "compiledSource": {
+                "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\loop-roundtrip-7xSH89\\最小 Workspace with spaces\\.rpgmaker-event-dsl\\generated-project-data\\CommonEvents.json",
+                "sha256": "3622826ededf4d27e6055cc5ae3d1ea73f2e5744860e1ba70e6de83ed0127643"
+              },
+              "exit": {
+                "code": 0,
+                "signal": null
+              },
+              "files": {
+                "observer.js": "f19ada5faca668cd515e4af4ead6bb51609c20c77b69a58495f6d3e955f813d4",
+                "cases.json": "ae2faa91ea593d13d00226292af3979c6cda4094ae944119228c9542325515df",
+                "data/CommonEvents.json": "e8e4afd01dd6aa388d99d6b78a6d4b992eb6be7a692faae8edba9a981bdc9894",
+                "data/Map001.json": "662c508f367f38f393c34f13eb192a872e5f32f609d2e8500d7bfd601e391b1b",
+                "runtime-result.json": "d1f6b1472a3e27182ee88f820a7c43d322ea94a1fd132fb0c761758583157cd2",
+                "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              }
+            },
+            "result": {
+              "timestamp": "2026-10-19T08:21:12.728Z",
+              "method": "actual-native-game",
+              "mode": "literal",
+              "engine": "1.6.1",
+              "versions": {
+                "http_parser": "2.7.0",
+                "node": "9.7.1",
+                "v8": "6.5.254.31",
+                "uv": "1.19.2",
+                "zlib": "1.2.11",
+                "ares": "1.13.0",
+                "modules": "59",
+                "nghttp2": "1.29.0",
+                "napi": "2",
+                "openssl": "1.0.2n",
+                "icu": "60.1",
+                "unicode": "10.0",
+                "cldr": "32.0",
+                "tz": "2017c",
+                "nw": "0.29.0",
+                "node-webkit": "0.29.0",
+                "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+                "nw-flavor": "sdk",
+                "chromium": "65.0.3325.146"
+              },
+              "scene": "Scene_Map",
+              "frameCount": 0,
+              "results": [
+                {
+                  "eventId": 1,
+                  "input": [
+                    {
+                      "code": 112,
+                      "indent": 0,
+                      "parameters": []
+                    },
+                    {
+                      "code": 121,
+                      "indent": 1,
+                      "parameters": [
+                        1,
+                        1,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 113,
+                      "indent": 1,
+                      "parameters": []
+                    },
+                    {
+                      "code": 0,
+                      "indent": 1,
+                      "parameters": []
+                    },
+                    {
+                      "code": 413,
+                      "indent": 0,
+                      "parameters": []
+                    },
+                    {
+                      "code": 115,
+                      "indent": 0,
+                      "parameters": []
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        2,
+                        2,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "before": [
+                    false,
+                    false
+                  ],
+                  "expected": [
+                    true,
+                    false
+                  ],
+                  "actual": [
+                    true,
+                    false
+                  ],
+                  "isRunning": false,
+                  "passed": true
+                },
+                {
+                  "eventId": 2,
+                  "input": [
+                    {
+                      "code": 112,
+                      "indent": 0,
+                      "parameters": []
+                    },
+                    {
+                      "code": 112,
+                      "indent": 1,
+                      "parameters": []
+                    },
+                    {
+                      "code": 121,
+                      "indent": 2,
+                      "parameters": [
+                        3,
+                        3,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 113,
+                      "indent": 2,
+                      "parameters": []
+                    },
+                    {
+                      "code": 0,
+                      "indent": 2,
+                      "parameters": []
+                    },
+                    {
+                      "code": 413,
+                      "indent": 1,
+                      "parameters": []
+                    },
+                    {
+                      "code": 113,
+                      "indent": 1,
+                      "parameters": []
+                    },
+                    {
+                      "code": 413,
+                      "indent": 0,
+                      "parameters": []
+                    },
+                    {
+                      "code": 115,
+                      "indent": 0,
+                      "parameters": []
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        4,
+                        4,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "before": [
+                    false,
+                    false
+                  ],
+                  "expected": [
+                    true,
+                    false
+                  ],
+                  "actual": [
+                    true,
+                    false
+                  ],
+                  "isRunning": false,
+                  "passed": true
+                },
+                {
+                  "eventId": 3,
+                  "input": [
+                    {
+                      "code": 113,
+                      "indent": 0,
+                      "parameters": []
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        5,
+                        5,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 115,
+                      "indent": 0,
+                      "parameters": []
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        6,
+                        6,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "before": [
+                    false,
+                    false
+                  ],
+                  "expected": [
+                    false,
+                    false
+                  ],
+                  "actual": [
+                    false,
+                    false
+                  ],
+                  "isRunning": false,
+                  "passed": true
+                },
+                {
+                  "eventId": 5,
+                  "input": [
+                    {
+                      "code": 117,
+                      "indent": 0,
+                      "parameters": [
+                        4
+                      ]
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        9,
+                        9,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 115,
+                      "indent": 0,
+                      "parameters": []
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        10,
+                        10,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "before": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ],
+                  "expected": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "actual": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "isRunning": false,
+                  "passed": true
+                }
+              ],
+              "passed": true
+            }
+          },
+          "compiled": {
+            "identity": {
+              "startedAt": "2026-10-19T08:21:12.803Z",
+              "completedAt": "2026-10-19T08:21:18.671Z",
+              "host": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/nwjs-win-test/game.exe",
+              "hostSha256": "78beb07fa8f2b905d468a40d64d0d5588b4cfa42d7822d5e16878245657da3aa",
+              "fixture": {
+                "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-13\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\test\\fixtures\\mv-evidence\\loop-cases.json",
+                "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+              },
+              "compiledSource": {
+                "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\loop-roundtrip-7xSH89\\最小 Workspace with spaces\\.rpgmaker-event-dsl\\generated-project-data\\CommonEvents.json",
+                "sha256": "3622826ededf4d27e6055cc5ae3d1ea73f2e5744860e1ba70e6de83ed0127643"
+              },
+              "exit": {
+                "code": 0,
+                "signal": null
+              },
+              "files": {
+                "observer.js": "927983194732528ffb117a362e2538567714ae93ff9f31f816d2aadce45ef973",
+                "cases.json": "ae2faa91ea593d13d00226292af3979c6cda4094ae944119228c9542325515df",
+                "data/CommonEvents.json": "e8e4afd01dd6aa388d99d6b78a6d4b992eb6be7a692faae8edba9a981bdc9894",
+                "data/Map001.json": "662c508f367f38f393c34f13eb192a872e5f32f609d2e8500d7bfd601e391b1b",
+                "runtime-result.json": "722f25d8ac02e1d0057550cfab6dee240e7ff93c363810dd87c5cc1cf1f5b064",
+                "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              }
+            },
+            "result": {
+              "timestamp": "2026-10-19T08:21:18.619Z",
+              "method": "actual-native-game",
+              "mode": "compiled",
+              "engine": "1.6.1",
+              "versions": {
+                "http_parser": "2.7.0",
+                "node": "9.7.1",
+                "v8": "6.5.254.31",
+                "uv": "1.19.2",
+                "zlib": "1.2.11",
+                "ares": "1.13.0",
+                "modules": "59",
+                "nghttp2": "1.29.0",
+                "napi": "2",
+                "openssl": "1.0.2n",
+                "icu": "60.1",
+                "unicode": "10.0",
+                "cldr": "32.0",
+                "tz": "2017c",
+                "nw": "0.29.0",
+                "node-webkit": "0.29.0",
+                "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+                "nw-flavor": "sdk",
+                "chromium": "65.0.3325.146"
+              },
+              "scene": "Scene_Map",
+              "frameCount": 0,
+              "results": [
+                {
+                  "eventId": 1,
+                  "input": [
+                    {
+                      "code": 112,
+                      "indent": 0,
+                      "parameters": []
+                    },
+                    {
+                      "code": 121,
+                      "indent": 1,
+                      "parameters": [
+                        1,
+                        1,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 113,
+                      "indent": 1,
+                      "parameters": []
+                    },
+                    {
+                      "code": 0,
+                      "indent": 1,
+                      "parameters": []
+                    },
+                    {
+                      "code": 413,
+                      "indent": 0,
+                      "parameters": []
+                    },
+                    {
+                      "code": 115,
+                      "indent": 0,
+                      "parameters": []
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        2,
+                        2,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "before": [
+                    false,
+                    false
+                  ],
+                  "expected": [
+                    true,
+                    false
+                  ],
+                  "actual": [
+                    true,
+                    false
+                  ],
+                  "isRunning": false,
+                  "passed": true
+                },
+                {
+                  "eventId": 2,
+                  "input": [
+                    {
+                      "code": 112,
+                      "indent": 0,
+                      "parameters": []
+                    },
+                    {
+                      "code": 112,
+                      "indent": 1,
+                      "parameters": []
+                    },
+                    {
+                      "code": 121,
+                      "indent": 2,
+                      "parameters": [
+                        3,
+                        3,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 113,
+                      "indent": 2,
+                      "parameters": []
+                    },
+                    {
+                      "code": 0,
+                      "indent": 2,
+                      "parameters": []
+                    },
+                    {
+                      "code": 413,
+                      "indent": 1,
+                      "parameters": []
+                    },
+                    {
+                      "code": 113,
+                      "indent": 1,
+                      "parameters": []
+                    },
+                    {
+                      "code": 413,
+                      "indent": 0,
+                      "parameters": []
+                    },
+                    {
+                      "code": 115,
+                      "indent": 0,
+                      "parameters": []
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        4,
+                        4,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "before": [
+                    false,
+                    false
+                  ],
+                  "expected": [
+                    true,
+                    false
+                  ],
+                  "actual": [
+                    true,
+                    false
+                  ],
+                  "isRunning": false,
+                  "passed": true
+                },
+                {
+                  "eventId": 3,
+                  "input": [
+                    {
+                      "code": 113,
+                      "indent": 0,
+                      "parameters": []
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        5,
+                        5,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 115,
+                      "indent": 0,
+                      "parameters": []
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        6,
+                        6,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "before": [
+                    false,
+                    false
+                  ],
+                  "expected": [
+                    false,
+                    false
+                  ],
+                  "actual": [
+                    false,
+                    false
+                  ],
+                  "isRunning": false,
+                  "passed": true
+                },
+                {
+                  "eventId": 5,
+                  "input": [
+                    {
+                      "code": 117,
+                      "indent": 0,
+                      "parameters": [
+                        4
+                      ]
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        9,
+                        9,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 115,
+                      "indent": 0,
+                      "parameters": []
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        10,
+                        10,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "before": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ],
+                  "expected": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "actual": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "isRunning": false,
+                  "passed": true
+                }
+              ],
+              "passed": true
+            }
+          }
+        },
+        "priorExpected": "Independent literal and actual compiled lists produce the same fresh-state switch values and stopped interpreter for all four cases; child Exit permits caller continuation.",
+        "currentGameExecuted": false,
+        "disposition": "Prior concrete native oracle retained; exact independent input unchanged; current real source-evaluated Workspace compares complete saved output to that input; final52/54 normal Scene impacted regression is additional, separately identified evidence."
+      },
+      "title": "Actual native Loop/Break/Exit control flow and Common Event caller continuation",
+      "groups": [
+        "R1",
+        "R3"
+      ]
+    },
+    "actorAuthoritativeRunnerProof": null,
+    "automation": null,
+    "allRequiredAudit": null,
+    "limits": "Audit timestamp is not an underlying test/game execution timestamp. Original failed runs and exact expected-refusal versus native-pass classifications remain preserved."
+  },
+  "difference": null
+}

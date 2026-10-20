@@ -1,0 +1,148 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-S6-AUDIO-002",
+  "runId": "2026-10-20T03-50-22-407Z-293fef2d-b0ae-4fa0-ae85-021b9c057dfa",
+  "status": "passed",
+  "startedAt": "2026-10-20T03:50:22.036Z",
+  "completedAt": "2026-10-20T03:50:22.407Z",
+  "operator": "Codex final55 documentary evidence audit; no new game or test execution",
+  "source": {
+    "revision": "201c48d05d66ec6e44581225f7dde86951223715",
+    "fingerprint": "981700ff523a74b0ad8c099cb23fb026a4f52ab733e5cec765cbaac629363625",
+    "files": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "sha256": "22e859380bc067748d6b238b57770726da093e6346de1921bf6ff50527829632"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/common-scheduling-reuse.json",
+        "sha256": "52499384f103d168a44cbff1f6875ba8e067633955852d59a2963c14c9019248"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/controlled-battle-transfer.json",
+        "sha256": "ec27ba98a6087422184400b90e9094905ab9cf79d34cc57fc3d33e4f0983a30b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/effective-matrix.json",
+        "sha256": "2a19e58a96e18a734192757edf9eb1c322708e44d2bb6a25fa47f5fd2b8bb8da"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/location-reuse.json",
+        "sha256": "b564a62134f3b9231c7d6282753e470c8d1d0d8cbd4f11df1c69b079033ec259"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/map-appearance-reuse.json",
+        "sha256": "9747d7d04b4c52acd7675e7a8e1405ed45e6641a42575109be2cdbea251bb960"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/native-obligations.json",
+        "sha256": "62b830c5d6d5001453653f56be72983dc2d25d6f3dbd585534b5642640322596"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/publication-script.cjs",
+        "sha256": "245c4718c0462c5148f000dd42a14a7ee7f4f0b0b08fb3f66858c92c4fc7c23f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/selected-runner-proofs.json",
+        "sha256": "d00f539608c193ae3b6933762a32e3784d4b8b1098a3b14723abc1d3ab5ee613"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/README.md",
+        "sha256": "dcdb62a2c86bf7e88cb02ce5cee9a3f7403bed24bd148443b1b1fded1e25d9ee"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+        "sha256": "c99f4a5c21520ed6dd82cdff63647ce2e1301284db046f44b45335b09ef70c8e"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/issues/55-completion-evidence-audit.md",
+        "sha256": "17e08ed5058fd8af690f055357580eb7ae0064dd03e0ce6875d844e81e96432a"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/tickets.md",
+        "sha256": "813ec37627fb634ab6c7ef71aed7e8719b92b8a2804dfa74b80168a94a2f66aa"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-e1-e7/comparison-receipt.json",
+        "sha256": "a43a677bda7caa67d4cf197659dd80c6ca5d98007e087c51157cdb51b34d5848"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-evidence-merge/merge-completion.json",
+        "sha256": "2581818d709f12aad03cdb96de4338e22b98025db6049eef27749a7e587cf01d"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-matrix/docs-example-55-verification/workspace-result.json",
+        "sha256": "f8ed2b89da78742d70705632e946a0e9df925b885ae730808dd99755e926282a"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final48-candidate.json",
+        "sha256": "2f4460874393ba6761740d6613c9c7b7cbbd161f8639a77c96a56ea84943bd63"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final54-effective-receipt.json",
+        "sha256": "a6dd90b195b7c438b130d62968f42877fc6619c3886de58e696fae6eee0e71c0"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final55-audit/e-supplement/comparison-receipt.json",
+        "sha256": "9b6c611214230b888228459651b4003b93a149b734875196c25c4613fe147b83"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/known-public-counterexample-closure-ledger.md",
+        "sha256": "179e9f66863bd4fb2880a9d3f8691ce3c792fcd1b87f902a75a6578042aa45eb"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/shared-constructor-input-finalization-followup.md",
+        "sha256": "35eaa938e2b134001b7e8eced2c627736369e33797b7a2dbd7dfe780b59b8d9a"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket53-final/tools/final-delivery-01a43682-7e25-403b-99c8-12a1de5452c3.json",
+        "sha256": "2f9e2df0e09da15ca9836173c5e7aeef5e19d9b72c2e900638a43c0e233b8d4a"
+      }
+    ]
+  },
+  "fixture": {
+    "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/audio-command-cases.json",
+    "sha256": "53aa731e256053fb2d8887f48deed19a4e9b425d39632e71ab5642f5bfa1fa52"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "node": "v22.23.0",
+    "vitest": "4.1.9",
+    "typescript": "5.9.3",
+    "package": "0.1.2",
+    "native": "not-executed"
+  },
+  "stages": [
+    "Read exact accepted requirement and current concrete obligation",
+    "Reconcile authoritative actual runner/native verdicts and retained original failures",
+    "Validate fixed candidate and explicit affected/unaffected input equivalence",
+    "Publish immutable effective audit result; no new test, build or game"
+  ],
+  "expected": "refuses evaluated malformed helper direct and known raw audio sources without changing complete business state",
+  "actual": {
+    "auditOnly": true,
+    "newGameExecutions": 0,
+    "newTestExecutions": 0,
+    "candidate": "2dc639015f908de6fd524e50236e5422b5f8e990",
+    "compileContractVersion": "mv-1.6.1/22",
+    "effectiveStatus": "passed",
+    "nativeObligation": null,
+    "actorAuthoritativeRunnerProof": null,
+    "automation": {
+      "authoritativeTests": [],
+      "affectedReruns": [
+        "source-audio-batches",
+        "built-fixtures-audio"
+      ],
+      "replacements": [
+        "source-audio-batches",
+        "built-fixtures-audio"
+      ]
+    },
+    "allRequiredAudit": null,
+    "limits": "Audit timestamp is not an underlying test/game execution timestamp. Original failed runs and exact expected-refusal versus native-pass classifications remain preserved."
+  },
+  "difference": null
+}

@@ -1,0 +1,617 @@
+{
+  "formatVersion": 1,
+  "startedAt": "2026-10-20T03:45:48.687Z",
+  "completedAt": "2026-10-20T03:45:51.088Z",
+  "passed": true,
+  "method": "One data-only current-built Workspace Decompile/Check/Compile comparison against all 15 complete retained native literal carrier values. Prior actual full-R5 literal observation reused after exact input, engine and host identity checks. No current game, build or test suite executed.",
+  "candidate": "2dc639015f908de6fd524e50236e5422b5f8e990",
+  "compileContractVersion": "mv-1.6.1/22",
+  "candidateManifest": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final48-candidate.json",
+    "sha256": "2f4460874393ba6761740d6613c9c7b7cbbd161f8639a77c96a56ea84943bd63"
+  },
+  "workspaceApiSha256": "24369d6d1d686b082665cda3b5e76292ed778420eadcfdad431a9cea11169788",
+  "priorNative": {
+    "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-r5-locations-pair-preparation-literal-bfa46dae-744c-423b-a522-bbd9cb78446a\\literal-result.json",
+    "sha256": "bb71c8a5ec1bdd4f192e955ade67322fe19b21fb7503df524a34d5f002b407bb",
+    "startedAt": "2026-10-19T12:02:23.012Z",
+    "completedAt": "2026-10-19T12:02:31.868Z",
+    "purpose": "Literal native control preparation only; no product or ticket acceptance",
+    "validation": {
+      "exit0": true,
+      "runtimePassed": true,
+      "diskInputUnchanged": true,
+      "loadedCarriersMatch": true,
+      "engineIdentityMatches": true,
+      "stdoutEmpty": true,
+      "stderrEmpty": true
+    },
+    "exit": {
+      "exitCode": 0,
+      "signal": null
+    },
+    "actual": [
+      {
+        "id": "start",
+        "value": true,
+        "context": {
+          "eventId": 1,
+          "mapId": 1,
+          "inBattle": false
+        }
+      },
+      {
+        "id": "out-of-bounds-alias",
+        "value": [
+          0,
+          0,
+          101,
+          201,
+          301,
+          401,
+          0
+        ],
+        "context": {
+          "eventId": 1,
+          "mapId": 1,
+          "inBattle": false
+        }
+      },
+      {
+        "id": "in-bounds-seven-kinds",
+        "value": [
+          3,
+          1,
+          101,
+          201,
+          301,
+          401,
+          77
+        ],
+        "context": {
+          "eventId": 1,
+          "mapId": 1,
+          "inBattle": false
+        }
+      },
+      {
+        "id": "variable-seven-kinds",
+        "value": [
+          0,
+          0,
+          101,
+          201,
+          301,
+          401,
+          0
+        ],
+        "context": {
+          "eventId": 1,
+          "mapId": 1,
+          "inBattle": false
+        }
+      },
+      {
+        "id": "moved-event-exact-match",
+        "value": [
+          0,
+          1,
+          102,
+          0,
+          0,
+          0,
+          0
+        ],
+        "context": {
+          "eventId": 1,
+          "mapId": 1,
+          "inBattle": false
+        }
+      },
+      {
+        "id": "event-variable-and-exchange",
+        "value": [
+          [
+            4,
+            0,
+            8
+          ],
+          [
+            5,
+            0,
+            4
+          ]
+        ],
+        "context": {
+          "eventId": 1,
+          "mapId": 1,
+          "inBattle": false
+        }
+      },
+      {
+        "id": "all-vehicles",
+        "value": [
+          [
+            1,
+            6,
+            0
+          ],
+          [
+            1,
+            4,
+            0
+          ],
+          [
+            1,
+            8,
+            0
+          ]
+        ],
+        "context": {
+          "eventId": 1,
+          "mapId": 1,
+          "inBattle": false
+        }
+      },
+      {
+        "id": "direct-transfer-retained-coordinate",
+        "value": [
+          1,
+          7,
+          0,
+          2,
+          4,
+          3
+        ],
+        "context": {
+          "eventId": 1,
+          "mapId": 1,
+          "inBattle": false
+        }
+      },
+      {
+        "id": "variable-transfer-retained-coordinate",
+        "value": [
+          1,
+          9,
+          0,
+          8,
+          4,
+          3
+        ],
+        "context": {
+          "eventId": 1,
+          "mapId": 1,
+          "inBattle": false
+        }
+      },
+      {
+        "id": "complete",
+        "value": true,
+        "context": {
+          "eventId": 1,
+          "mapId": 1,
+          "inBattle": false
+        }
+      }
+    ]
+  },
+  "independentFixture": {
+    "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-r5-locations-pair-preparation-literal-bfa46dae-744c-423b-a522-bbd9cb78446a\\independent-fixture.json",
+    "sha256": "0875136e13569f33e9ec133a61a9ef522d2d729497e7fca6b9c771d34032d8a1",
+    "expected": [
+      {
+        "id": "start",
+        "value": true,
+        "context": {
+          "eventId": 1,
+          "mapId": 1,
+          "inBattle": false
+        }
+      },
+      {
+        "id": "out-of-bounds-alias",
+        "value": [
+          0,
+          0,
+          101,
+          201,
+          301,
+          401,
+          0
+        ],
+        "context": {
+          "eventId": 1,
+          "mapId": 1,
+          "inBattle": false
+        }
+      },
+      {
+        "id": "in-bounds-seven-kinds",
+        "value": [
+          3,
+          1,
+          101,
+          201,
+          301,
+          401,
+          77
+        ],
+        "context": {
+          "eventId": 1,
+          "mapId": 1,
+          "inBattle": false
+        }
+      },
+      {
+        "id": "variable-seven-kinds",
+        "value": [
+          0,
+          0,
+          101,
+          201,
+          301,
+          401,
+          0
+        ],
+        "context": {
+          "eventId": 1,
+          "mapId": 1,
+          "inBattle": false
+        }
+      },
+      {
+        "id": "moved-event-exact-match",
+        "value": [
+          0,
+          1,
+          102,
+          0,
+          0,
+          0,
+          0
+        ],
+        "context": {
+          "eventId": 1,
+          "mapId": 1,
+          "inBattle": false
+        }
+      },
+      {
+        "id": "event-variable-and-exchange",
+        "value": [
+          [
+            4,
+            0,
+            8
+          ],
+          [
+            5,
+            0,
+            4
+          ]
+        ],
+        "context": {
+          "eventId": 1,
+          "mapId": 1,
+          "inBattle": false
+        }
+      },
+      {
+        "id": "all-vehicles",
+        "value": [
+          [
+            1,
+            6,
+            0
+          ],
+          [
+            1,
+            4,
+            0
+          ],
+          [
+            1,
+            8,
+            0
+          ]
+        ],
+        "context": {
+          "eventId": 1,
+          "mapId": 1,
+          "inBattle": false
+        }
+      },
+      {
+        "id": "direct-transfer-retained-coordinate",
+        "value": [
+          1,
+          7,
+          0,
+          2,
+          4,
+          3
+        ],
+        "context": {
+          "eventId": 1,
+          "mapId": 1,
+          "inBattle": false
+        }
+      },
+      {
+        "id": "variable-transfer-retained-coordinate",
+        "value": [
+          1,
+          9,
+          0,
+          8,
+          4,
+          3
+        ],
+        "context": {
+          "eventId": 1,
+          "mapId": 1,
+          "inBattle": false
+        }
+      },
+      {
+        "id": "complete",
+        "value": true,
+        "context": {
+          "eventId": 1,
+          "mapId": 1,
+          "inBattle": false
+        }
+      }
+    ]
+  },
+  "scenario": {
+    "path": "C:\\Users\\Shuen\\.codex\\tmp\\mv-r5-locations-pair-preparation-literal-bfa46dae-744c-423b-a522-bbd9cb78446a\\scenario-original.cjs",
+    "sha256": "52a7c5315e90e4cc248f08361d1e2c5e4e75956e9c85aabcd6ba1cea3d7a95fa"
+  },
+  "currentNativeIdentityReceipt": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-game-54\\final54-battlebacks-both-49d29028-f262-4fe3-b3e4-c6f31c3b9304\\pair-result.json",
+    "sha256": "23565fbad47a98f0ebd539dc50831ff645e34226a0e466938040916cd0e82ffb"
+  },
+  "nativeIdentity": {
+    "host": {
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\nwjs-win-test\\game.exe",
+      "sha256": "78beb07fa8f2b905d468a40d64d0d5588b4cfa42d7822d5e16878245657da3aa"
+    },
+    "modules": {
+      "nw.dll": {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\nwjs-win-test\\nw.dll",
+        "sha256": "805e7c76008be83acf5da3401c638ff67a0fa897361996a5ef1788c5cc759ef2"
+      },
+      "node.dll": {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\nwjs-win-test\\node.dll",
+        "sha256": "547975eb298eac7a4bd4a452ef3d451d25a85c5fc7c01dd74dc2705cae80a85c"
+      }
+    },
+    "engine": {
+      "rpg_core.js": "9ad9914cc421af6d054c3f01b022b7383863b047ec3f6f76aa897e6cfbf864c6",
+      "rpg_managers.js": "b3d5c746cf52234bdd34af746dbf3caecf96bb3477cc6d24121c4a1a11241114",
+      "rpg_objects.js": "2d43dd9d8974c88a1b82ffa493d6d8a02c4ce1d0dfc8f05e6c0ab731e3f0573e",
+      "rpg_scenes.js": "a76ea8c14ec7414a0e2bb488b19734603cc3d8aace3f163e3aa82fc3d0d20d20",
+      "rpg_sprites.js": "f13e67ef4ed308afe71c8503dbe4da65b478cb772a7c0cea88d0e280a4e4fcb0",
+      "rpg_windows.js": "2501aea15906d84a2fb51de20e6dc006f847249674f14802ec2ac2dd5361bb99",
+      "main.js": "dcab1427f95c4bcedf1ed595b828d0c423d4c8d1767452c9a4e651a9c07a3ab9"
+    }
+  },
+  "script": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\compare-location-reuse.cjs",
+    "sha256": "6fcc5a7b4a461ff46ed3547e002833e8574bca7f4413ad5a03a77e3dcbd56a67"
+  },
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.0"
+  },
+  "workspaceRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\location-reuse\\full-r5-2DffFU\\Workspace data only",
+  "source": {
+    "decompiled/common-events.events.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+    "decompiled/maps/Map001.events.ts": "d5e8a1d3ea8cd495d36c6bdfc281121c71803fbe45c0baa654d83c08d0b0b934",
+    "decompiled/system.dsl.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+    "decompiled/troop-events.events.ts": "53c40cf97ab3bb6da3a49d804b94dc65c0f9757864bf436b06a52a24a9d17faa"
+  },
+  "warnings": [
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Event ID uses an exact coordinate match and may find an event outside bounds; no match returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Event ID uses an exact coordinate match and may find an event outside bounds; no match returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.",
+    "This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.",
+    "This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.",
+    "This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Event ID uses an exact coordinate match and may find an event outside bounds; no match returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Event ID uses an exact coordinate match and may find an event outside bounds; no match returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.",
+    "This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.",
+    "This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.",
+    "This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Event ID uses an exact coordinate match and may find an event outside bounds; no match returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Event ID uses an exact coordinate match and may find an event outside bounds; no match returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.",
+    "If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.",
+    "This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.",
+    "This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.",
+    "This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping."
+  ],
+  "completeCarriers": [
+    {
+      "path": "Actors.json",
+      "completeValueEqual": true,
+      "bytesEqualPriorNativeLiteral": true,
+      "parsedCarrierEqualPriorNativeLiteral": true,
+      "priorLiteralSha256": "782f49f5bb2cb5a02f34f891f513f93783762e3a16091a6fd09d43bdfaead7ed",
+      "finalOutputSha256": "782f49f5bb2cb5a02f34f891f513f93783762e3a16091a6fd09d43bdfaead7ed",
+      "generated": false
+    },
+    {
+      "path": "Animations.json",
+      "completeValueEqual": true,
+      "bytesEqualPriorNativeLiteral": true,
+      "parsedCarrierEqualPriorNativeLiteral": true,
+      "priorLiteralSha256": "e3f0e4ba8c72e493eea5fd5db2a714723d9f350bfc78e160ed40742d647b21da",
+      "finalOutputSha256": "e3f0e4ba8c72e493eea5fd5db2a714723d9f350bfc78e160ed40742d647b21da",
+      "generated": false
+    },
+    {
+      "path": "Armors.json",
+      "completeValueEqual": true,
+      "bytesEqualPriorNativeLiteral": true,
+      "parsedCarrierEqualPriorNativeLiteral": true,
+      "priorLiteralSha256": "7b5cb0e7c19646d4fd0f698c1ba844eee76fa04a92efe68015eb688d36dcc68e",
+      "finalOutputSha256": "7b5cb0e7c19646d4fd0f698c1ba844eee76fa04a92efe68015eb688d36dcc68e",
+      "generated": false
+    },
+    {
+      "path": "Classes.json",
+      "completeValueEqual": true,
+      "bytesEqualPriorNativeLiteral": true,
+      "parsedCarrierEqualPriorNativeLiteral": true,
+      "priorLiteralSha256": "500d7510ef6b2215fa8c2ba69748603cab0d2fe3bfed402dee26b91bd4658d2f",
+      "finalOutputSha256": "500d7510ef6b2215fa8c2ba69748603cab0d2fe3bfed402dee26b91bd4658d2f",
+      "generated": false
+    },
+    {
+      "path": "CommonEvents.json",
+      "completeValueEqual": true,
+      "bytesEqualPriorNativeLiteral": true,
+      "parsedCarrierEqualPriorNativeLiteral": true,
+      "priorLiteralSha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+      "finalOutputSha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b",
+      "generated": true
+    },
+    {
+      "path": "Enemies.json",
+      "completeValueEqual": true,
+      "bytesEqualPriorNativeLiteral": true,
+      "parsedCarrierEqualPriorNativeLiteral": true,
+      "priorLiteralSha256": "848b0827d7a1ccb6440592e2965f0b0e110d3a83eb0fef3b41eb32e18cabda4d",
+      "finalOutputSha256": "848b0827d7a1ccb6440592e2965f0b0e110d3a83eb0fef3b41eb32e18cabda4d",
+      "generated": false
+    },
+    {
+      "path": "Items.json",
+      "completeValueEqual": true,
+      "bytesEqualPriorNativeLiteral": true,
+      "parsedCarrierEqualPriorNativeLiteral": true,
+      "priorLiteralSha256": "b8b3344c8b5d3534707eb1d273c5b152a36ecb8e0dd567c0f1cd0923e49a408d",
+      "finalOutputSha256": "b8b3344c8b5d3534707eb1d273c5b152a36ecb8e0dd567c0f1cd0923e49a408d",
+      "generated": false
+    },
+    {
+      "path": "Map001.json",
+      "completeValueEqual": true,
+      "bytesEqualPriorNativeLiteral": false,
+      "parsedCarrierEqualPriorNativeLiteral": true,
+      "priorLiteralSha256": "94f42d2b95ef2bcd5361df6272cb06e3f8451668fb5ea23d84a4065efcb60342",
+      "finalOutputSha256": "8a24a9572c16c29c8c611fb4739de1f3f76b2932907833e7c70fef6019995bc7",
+      "generated": true
+    },
+    {
+      "path": "MapInfos.json",
+      "completeValueEqual": true,
+      "bytesEqualPriorNativeLiteral": true,
+      "parsedCarrierEqualPriorNativeLiteral": true,
+      "priorLiteralSha256": "d1f6336147136c2fc68e55b60d6d1a356e8170e4d0a0c4471d12e45264f16536",
+      "finalOutputSha256": "d1f6336147136c2fc68e55b60d6d1a356e8170e4d0a0c4471d12e45264f16536",
+      "generated": false
+    },
+    {
+      "path": "Skills.json",
+      "completeValueEqual": true,
+      "bytesEqualPriorNativeLiteral": true,
+      "parsedCarrierEqualPriorNativeLiteral": true,
+      "priorLiteralSha256": "b6c7d7dee520581a2a1b62ae06f75764d52620943531244b467fbed17bf0f36a",
+      "finalOutputSha256": "b6c7d7dee520581a2a1b62ae06f75764d52620943531244b467fbed17bf0f36a",
+      "generated": false
+    },
+    {
+      "path": "States.json",
+      "completeValueEqual": true,
+      "bytesEqualPriorNativeLiteral": true,
+      "parsedCarrierEqualPriorNativeLiteral": true,
+      "priorLiteralSha256": "25344e6d723dbaf1f5476aba83117be6e5e1d65ae9fcecd4aec53d63c01ee579",
+      "finalOutputSha256": "25344e6d723dbaf1f5476aba83117be6e5e1d65ae9fcecd4aec53d63c01ee579",
+      "generated": false
+    },
+    {
+      "path": "System.json",
+      "completeValueEqual": true,
+      "bytesEqualPriorNativeLiteral": false,
+      "parsedCarrierEqualPriorNativeLiteral": true,
+      "priorLiteralSha256": "45ab407b7e2156b4c79d24f04a742a4ad3279cdccc398e42874e3b7e7f6ac223",
+      "finalOutputSha256": "df7a90cce625e8b4269e63d1e94df041ffef71f939b85805f00500a416ae02bf",
+      "generated": true
+    },
+    {
+      "path": "Tilesets.json",
+      "completeValueEqual": true,
+      "bytesEqualPriorNativeLiteral": true,
+      "parsedCarrierEqualPriorNativeLiteral": true,
+      "priorLiteralSha256": "2477f751d9f8bf2e1ae299f4f15fc5a4ee8c985a12abf2911f554935a8602848",
+      "finalOutputSha256": "2477f751d9f8bf2e1ae299f4f15fc5a4ee8c985a12abf2911f554935a8602848",
+      "generated": false
+    },
+    {
+      "path": "Troops.json",
+      "completeValueEqual": true,
+      "bytesEqualPriorNativeLiteral": false,
+      "parsedCarrierEqualPriorNativeLiteral": true,
+      "priorLiteralSha256": "bc648267369814f36ba814f736255f54ccdd4fb98557f6889f67cce9c116be23",
+      "finalOutputSha256": "8c62b6ac64a1fe80c6da7b2bb552c44041bad40864eb5da4b1cae13743270c60",
+      "generated": true
+    },
+    {
+      "path": "Weapons.json",
+      "completeValueEqual": true,
+      "bytesEqualPriorNativeLiteral": true,
+      "parsedCarrierEqualPriorNativeLiteral": true,
+      "priorLiteralSha256": "6e301f0a754c00473595e09ef5274f5ad1cabe188d1bb082fa9c80682c9d4b4f",
+      "finalOutputSha256": "6e301f0a754c00473595e09ef5274f5ad1cabe188d1bb082fa9c80682c9d4b4f",
+      "generated": false
+    }
+  ],
+  "all15FinalLoadedCarrierValuesEqualPriorNativeLiteral": true,
+  "priorNativeReused": true,
+  "currentGameExecuted": false,
+  "limits": [
+    "The preserved old receipt is a passing actual native literal control, not an old successful product pair. The failed old product Decompile attempt is not promoted.",
+    "Current built output equivalence is complete parsed JSON equality, not raw-byte equality; no new native timestamp is invented.",
+    "The independent fixture binds seven location queries, direct/variable/exchange event location, three vehicles, and direct/variable Map transfers. Controlled Battle Transfer has its own separate final supplement."
+  ]
+}
