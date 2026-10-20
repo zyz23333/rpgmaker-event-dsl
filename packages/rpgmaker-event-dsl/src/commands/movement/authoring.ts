@@ -1,16 +1,11 @@
 import type {
-  AudioPayload,
   BalloonIcon,
-  ChangeBattleBgmDslCommand,
-  ChangeDefeatMeDslCommand,
-  ChangeEncounterDisableDslCommand,
+  ChangeEncounterDslCommand,
   ChangeFormationAccessDslCommand,
   ChangeMenuAccessDslCommand,
   ChangePlayerFollowersDslCommand,
   ChangeSaveAccessDslCommand,
   ChangeTransparencyDslCommand,
-  ChangeVehicleBgmDslCommand,
-  ChangeVictoryMeDslCommand,
   ChangeWindowColorDslCommand,
   CharacterRuntimeSelector,
   Direction,
@@ -25,25 +20,12 @@ import type {
   SetVehicleLocationDslCommand,
   ShowAnimationDslCommand,
   ShowBalloonIconDslCommand,
-  ToneInput,
   VehicleTarget,
 } from "../../domain/types.js";
-
-export function changeBattleBgm(input: { audio: AudioPayload }): ChangeBattleBgmDslCommand {
-  return {
-    kind: "changeBattleBgm",
-    audio: input.audio,
-  };
-}
-
-export function changeVictoryMe(input: { audio: AudioPayload }): ChangeVictoryMeDslCommand {
-  return {
-    kind: "changeVictoryMe",
-    audio: input.audio,
-  };
-}
+import { assertSystemAccessInput, assertWindowColorInput } from "./access-validation.js";
 
 export function changeSaveAccess(input: { enabled: boolean }): ChangeSaveAccessDslCommand {
+  assertSystemAccessInput("changeSaveAccess", input, "changeSaveAccess");
   return {
     kind: "changeSaveAccess",
     enabled: input.enabled,
@@ -51,52 +33,38 @@ export function changeSaveAccess(input: { enabled: boolean }): ChangeSaveAccessD
 }
 
 export function changeMenuAccess(input: { enabled: boolean }): ChangeMenuAccessDslCommand {
+  assertSystemAccessInput("changeMenuAccess", input, "changeMenuAccess");
   return {
     kind: "changeMenuAccess",
     enabled: input.enabled,
   };
 }
 
-export function changeEncounterDisable(input: {
-  disabled: boolean;
-}): ChangeEncounterDisableDslCommand {
+export function changeEncounter(input: { enabled: boolean }): ChangeEncounterDslCommand {
+  assertSystemAccessInput("changeEncounter", input, "changeEncounter");
   return {
-    kind: "changeEncounterDisable",
-    disabled: input.disabled,
+    kind: "changeEncounter",
+    enabled: input.enabled,
   };
 }
 
 export function changeFormationAccess(input: {
   enabled: boolean;
 }): ChangeFormationAccessDslCommand {
+  assertSystemAccessInput("changeFormationAccess", input, "changeFormationAccess");
   return {
     kind: "changeFormationAccess",
     enabled: input.enabled,
   };
 }
 
-export function changeWindowColor(input: { tone: ToneInput }): ChangeWindowColorDslCommand {
+export function changeWindowColor(input: {
+  tone: ChangeWindowColorDslCommand["tone"];
+}): ChangeWindowColorDslCommand {
+  assertWindowColorInput("changeWindowColor", input, "changeWindowColor");
   return {
     kind: "changeWindowColor",
     tone: input.tone,
-  };
-}
-
-export function changeDefeatMe(input: { audio: AudioPayload }): ChangeDefeatMeDslCommand {
-  return {
-    kind: "changeDefeatMe",
-    audio: input.audio,
-  };
-}
-
-export function changeVehicleBgm(input: {
-  vehicle: VehicleTarget;
-  audio: AudioPayload;
-}): ChangeVehicleBgmDslCommand {
-  return {
-    kind: "changeVehicleBgm",
-    vehicle: input.vehicle,
-    audio: input.audio,
   };
 }
 

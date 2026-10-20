@@ -571,7 +571,7 @@ export function renderSimpleCommand(
     case 135:
       return renderBooleanSystemCommand(command, "changeMenuAccess", "enabled", false);
     case 136:
-      return renderBooleanSystemCommand(command, "changeEncounterDisable", "disabled", true);
+      return renderBooleanSystemCommand(command, "changeEncounter", "enabled", false);
     case 137:
       return renderBooleanSystemCommand(command, "changeFormationAccess", "enabled", false);
     case 138:
@@ -641,7 +641,7 @@ export function renderSimpleCommand(
       const frames = command.parameters[0];
       return typeof frames === "number"
         ? {
-            expression: `wait(${frames})`,
+            expression: `wait({ frames: ${frames} })`,
             helperNames: ["wait"],
           }
         : null;
@@ -672,8 +672,8 @@ export function renderSimpleCommand(
     case 244:
       return command.parameters.length === 0
         ? {
-            expression: "resumeBgm()",
-            helperNames: ["resumeBgm"],
+            expression: "replayBgm()",
+            helperNames: ["replayBgm"],
           }
         : null;
     case 245:

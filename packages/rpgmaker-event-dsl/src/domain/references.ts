@@ -66,10 +66,10 @@ export type AudioAssetFolder = (typeof audioAssetFolders)[number];
 
 export type ImageAssetFolder = (typeof imageAssetFolders)[number];
 
-export type AudioAssetReference = {
+export type AudioAssetReference<Folder extends AudioAssetFolder = AudioAssetFolder> = {
   kind: "asset";
   category: "audio";
-  folder: AudioAssetFolder;
+  folder: Folder;
   name: string;
 };
 
@@ -315,29 +315,25 @@ export type EventLocationDestination =
   | VariableEventLocationDestination
   | ExchangeEventLocationDestination;
 
-export type ToneInput =
-  | readonly [red: number, green: number, blue: number, gray: number]
-  | {
-      red: number;
-      green: number;
-      blue: number;
-      gray: number;
-    };
+export type ToneInput = {
+  red: number;
+  green: number;
+  blue: number;
+  gray: number;
+};
 
-export type ColorInput =
-  | readonly [red: number, green: number, blue: number, alpha: number]
-  | {
-      red: number;
-      green: number;
-      blue: number;
-      alpha: number;
-    };
+export type ColorInput = {
+  red: number;
+  green: number;
+  blue: number;
+  alpha: number;
+};
 
-export type AudioPayload = {
-  asset: AudioAssetReference;
-  volume?: number;
-  pitch?: number;
-  pan?: number;
+export type AudioPayload<Folder extends AudioAssetFolder = AudioAssetFolder> = {
+  asset: AudioAssetReference<Folder> | null;
+  volume: number;
+  pitch: number;
+  pan: number;
 };
 
 export type LocationInfoType =

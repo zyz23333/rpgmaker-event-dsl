@@ -115,6 +115,21 @@ seconds field even when it is zero. Numeric seconds preserve negative zero;
 native categorical action codes reject it. Recognized raw Timer records receive
 the same slot and range checks.
 
+Use `changeSaveAccess({ enabled })`, `changeMenuAccess({ enabled })`,
+`changeEncounter({ enabled })` and `changeFormationAccess({ enabled })` with an
+explicit Boolean. All four encode false as native 0 and true as native 1;
+encounter changes also reset the encounter count. Give `changeWindowColor` a
+required named Tone object `{ red, green, blue, gray }`: RGB integers −255..255,
+gray integer 0..255. Preserve hidden gray and numeric negative zero. Choose the
+color explicitly instead of relying on the project's current window tone.
+
+Use `openMenuScreen()`, `openSaveScreen()`, `gameOver()` and
+`returnToTitleScreen()` without inputs. Menu and Save open on a map even when
+their ordinary access is disabled; they skip in battle. Game Over and Title
+transition from map and battle. Game Over needs no dead-actor condition. Check
+the event's intended continuation around these scene transitions, and perform
+actual save experiments only in an isolated temporary game project.
+
 Use `loop({ body: { commands: [...] } })` for repeated work and `breakLoop()`
 inside its body to finish it. `body.commands` is required. The optional
 `body.endMarker` defaults to `"present"`; use `"absent"` only when preserving
@@ -166,6 +181,36 @@ empty-name targets. Enemy positions and dynamic equipment candidates keep their
 Runtime Selector meaning even when a fixed project target cannot be inferred.
 
 Use Asset Reference helpers for files, not Project Data Reference helpers. `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)` are no-scan filename-stem references; they do not validate that a file exists on disk.
+
+For screen effects, use parameterless `fadeoutScreen()`/`fadeinScreen()` and
+`wait({ frames })` with required integer frames 1..999. Give `tintScreen` a
+complete named `tone: { red, green, blue, gray }`: integer RGB −255..255 and gray
+0..255. Give `flashScreen` complete named `color: { red, green, blue, alpha }`
+with integer components 0..255; alpha zero remains an explicit saved value.
+Give `shakeScreen` integer power and speed 1..9. Tint, Flash, Shake and Weather
+all require duration 1..999 and explicit Boolean wait. Preserve numeric negative
+zero in accepted tone/color components.
+
+Give `setWeatherEffect` weather none/rain/storm/snow and power 1..9 even for
+None; retain power, duration and wait when inactive. Battle execution skips the
+weather effect and its wait and produces a contextual warning. Common Events
+inherit their eventual caller's context. Give `playMovie` an explicit movies
+Asset Reference or `null` for None. Movie None continues without a video wait.
+Use `movieAsset({ name: "Ending" })` for a nonempty filename stem; check the
+actual movie in the game because asset references do not scan files or codecs.
+
+For audio playback and system settings, supply all four `audio` fields: `asset`
+is an Audio Asset Reference or explicit `null`, `volume` is integer 0..100,
+`pitch` is integer 50..150, and `pan` is integer -100..100. Preserve all numeric
+fields with None, including negative zero in volume/pan and values between the
+editor's arrow steps. Use the exact nonempty filename stem and matching folder:
+`bgm` for BGM/battle/vehicle, `bgs` for BGS, `me` for ME/victory/defeat, and `se`
+for SE. Give `changeVehicleBgm` boat, ship or airship explicitly. BGM/BGS None
+stops its stream; ME None stops ME and may restore BGM; SE None leaves active SE
+playing. Use `stopSe()` to stop SE, and `saveBgm()` / `replayBgm()` to retain and
+restore BGM playback position. These three helpers accept no arguments. Give
+`fadeoutBgm` / `fadeoutBgs` integer `duration` in 1..999 seconds; author a separate
+`wait({ frames })` only when the intended flow should pause during the fade.
 
 For map appearance, give `changeMapNameDisplay` an explicit Boolean `enabled`, and
 give `changeTileset` an existing `tilesetRef` without None. Give `changeBattleBack`

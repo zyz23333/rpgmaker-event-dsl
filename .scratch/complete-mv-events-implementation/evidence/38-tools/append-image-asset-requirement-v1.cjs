@@ -1,0 +1,12 @@
+const fs=require('node:fs'),path=require('node:path');
+const root='M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-38',relative='.scratch/complete-mv-events-implementation/evidence/requirements.json',file=path.join(root,relative),original=fs.readFileSync(file,'utf8');
+if(original.includes('MV-S6-PICTURE-008'))throw Error('already appended');
+const parsed=JSON.parse(original),row=structuredClone(parsed.requirements.find(row=>row.id==='MV-S6-PICTURE-003'));
+row.id='MV-S6-PICTURE-008';row.title='imageAsset refuses extra own input fields before projection into Picture values';
+row.input='Untyped public imageAsset input plus actual source-local, const, spread and cast object inputs containing an unsupported own field; valid pictures and faces assets retain exact CR names without scanning files.';
+row.expected='The constructor rejects unsupported own fields before projection with imageAsset location; actual Workspace Check/Compile preserve complete source, Discovery, Project Root, Snapshot, generated, config, descriptor and manifest state, and stale Diff/Push refuse.';
+row.test={path:'packages/rpgmaker-event-dsl/test/pictures-workspace.test.ts',name:'rejects imageAsset input fields before projection'};
+const end=original.match(/\r?\n  \]\r?\n\}\r?\n?$/);if(!end)throw Error('ending');
+fs.writeFileSync(file,original.slice(0,end.index)+',\n'+JSON.stringify(row,null,2).split('\n').map(line=>'    '+line).join('\n')+end[0]);
+fs.appendFileSync(path.join(root,'.scratch/complete-mv-events-implementation/evidence/README.md'),'\n| Requirement | Obligation | Evidence kind | Required layer |\n| --- | --- | --- | --- |\n| MV-S6-PICTURE-008 | imageAsset refuses extra own inputs before projection into Picture values | synthetic-rejection | Public constructor and actual Workspace complete failure-state assertions |\n');
+console.log(JSON.stringify({incoming:parsed.requirements.length,appended:1,total:parsed.requirements.length+1}));

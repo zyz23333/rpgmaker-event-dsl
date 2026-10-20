@@ -1,0 +1,21 @@
+
+> rpgmaker-event-dsl@0.1.2 typecheck M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-38\packages\rpgmaker-event-dsl
+> tsc -p tsconfig.json --noEmit
+
+test/dsl.test.ts(281,51): error TS2353: Object literal may only specify known properties, and 'origin' does not exist in type 'DirectPosition'.
+test/dsl.test.ts(285,19): error TS2345: Argument of type '{ pictureId: number; position: { kind: "variables"; x: ReferenceValue<"variable">; y: ReferenceValue<"variable">; }; duration: number; wait: true; }' is not assignable to parameter of type 'Omit<MovePictureDslCommand, "kind">'.
+  Type '{ pictureId: number; position: { kind: "variables"; x: ReferenceValue<"variable">; y: ReferenceValue<"variable">; }; duration: number; wait: true; }' is missing the following properties from type 'Omit<MovePictureDslCommand, "kind">': opacity, blendMode, origin, scaleX, scaleY
+test/dsl.test.ts(293,40): error TS2739: Type 'number[]' is missing the following properties from type '{ red: number; green: number; blue: number; gray: number; }': red, green, blue, gray
+test/events.test.ts(561,59): error TS2353: Object literal may only specify known properties, and 'origin' does not exist in type 'DirectPosition'.
+test/events.test.ts(565,17): error TS2322: Type 'number' is not assignable to type '"normal" | "additive" | "multiply" | "screen"'.
+test/events.test.ts(577,17): error TS2322: Type 'number' is not assignable to type '"normal" | "additive" | "multiply" | "screen"'.
+test/events.test.ts(582,43): error TS2739: Type 'number[]' is missing the following properties from type '{ red: number; green: number; blue: number; gray: number; }': red, green, blue, gray
+test/pictures.test.ts(29,158): error TS2322: Type 'number | undefined' is not assignable to type 'string | number'.
+  Type 'undefined' is not assignable to type 'string | number'.
+test/staged-graph.test.ts(629,25): error TS2345: Argument of type '{ pictureId: number; image: ImageAssetReference; position: { kind: "variables"; x: ReferenceValue<"variable">; y: ReferenceValue<"variable">; }; }' is not assignable to parameter of type 'Omit<ShowPictureDslCommand, "kind">'.
+  Type '{ pictureId: number; image: ImageAssetReference; position: { kind: "variables"; x: ReferenceValue<"variable">; y: ReferenceValue<"variable">; }; }' is missing the following properties from type 'Omit<ShowPictureDslCommand, "kind">': opacity, blendMode, origin, scaleX, scaleY
+test/staged-graph.test.ts(638,25): error TS2345: Argument of type '{ pictureId: number; position: { kind: "variables"; x: ReferenceValue<"variable">; y: ReferenceValue<"variable">; }; duration: number; }' is not assignable to parameter of type 'Omit<MovePictureDslCommand, "kind">'.
+  Type '{ pictureId: number; position: { kind: "variables"; x: ReferenceValue<"variable">; y: ReferenceValue<"variable">; }; duration: number; }' is missing the following properties from type 'Omit<MovePictureDslCommand, "kind">': wait, opacity, blendMode, origin, and 2 more.
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-38\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 typecheck: `tsc -p tsconfig.json --noEmit`
+Exit status 2

@@ -1,0 +1,272 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-38/packages/rpgmaker-event-dsl
+
+ ❯ test/command-boundary.test.ts (13 tests | 1 failed) 29ms
+   × reports the real raw source position before a native record exists 10ms
+ ❯ test/loop.test.ts (32 tests | 6 failed) 35ms
+   × rejects malformed known raw envelopes without coercion before Check or Compile 5ms
+   × rejects malformed known raw envelopes without coercion before Check or Compile 1ms
+   × rejects malformed known raw envelopes without coercion before Check or Compile 1ms
+   × rejects malformed known raw envelopes without coercion before Check or Compile 1ms
+   × rejects malformed known raw envelopes without coercion before Check or Compile 1ms
+   × rejects 'extra known parameter' in known raw output and native decompilation with an exact location 1ms
+ ❯ test/staged-graph.test.ts (31 tests | 1 failed) 33ms
+     × validates Screen picture variable positions without scanning image assets 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/command-boundary.test.ts > reports the real raw source position before a native record exists
+AssertionError: expected { level: 'error', …(7) } to match object { dslPath: 'commands[1]' }
+(7 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "dslPath": "commands[1]",
++   "dslPath": "commands[1].parameters",
+  }
+
+ ❯ test/command-boundary.test.ts:23:17
+     21|     scriptEnabled: true,
+     22|   }).issues.find((candidate) => candidate.code === "MV-COMMAND-ENVELOP…
+     23|   expect(issue).toMatchObject({ dslPath: "commands[1]" });
+       |                 ^
+     24|   expect(issue?.nativePath).toBeUndefined();
+     25| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  test/loop.test.ts > rejects malformed known raw envelopes without coercion before Check or Compile
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-ENVELOPE",
+  "dslPath": "commands[0]",
+}
+
++ Received:
+[
+  {
+    "actual": "undefined",
+    "code": "MV-COMMAND-ENVELOPE",
+    "dslPath": "commands[0].parameters",
+    "expected": "present native field with a defined value",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-ENVELOPE: A required command field is missing or undefined. (commands[0].parameters); expected present native field with a defined value; actual undefined",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/loop.test.ts:83:82
+     81|     commands: [{ kind: "rawDslCommand", code: 113, ...input } as never…
+     82|   });
+     83|   expect(validateDslOwnedDeclarations([event], { scriptEnabled: false …
+       |                                                                                  ^
+     84|     expect.objectContaining({ code: "MV-COMMAND-ENVELOPE", dslPath: "c…
+     85|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  test/loop.test.ts > rejects malformed known raw envelopes without coercion before Check or Compile
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-ENVELOPE",
+  "dslPath": "commands[0]",
+}
+
++ Received:
+[
+  {
+    "actual": "null",
+    "code": "MV-COMMAND-ENVELOPE",
+    "dslPath": "commands[0].parameters",
+    "expected": "dense parameter array",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-ENVELOPE: parameters must be an array and cannot be missing. (commands[0].parameters); expected dense parameter array; actual null",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/loop.test.ts:83:82
+     81|     commands: [{ kind: "rawDslCommand", code: 113, ...input } as never…
+     82|   });
+     83|   expect(validateDslOwnedDeclarations([event], { scriptEnabled: false …
+       |                                                                                  ^
+     84|     expect.objectContaining({ code: "MV-COMMAND-ENVELOPE", dslPath: "c…
+     85|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  test/loop.test.ts > rejects malformed known raw envelopes without coercion before Check or Compile
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-ENVELOPE",
+  "dslPath": "commands[0]",
+}
+
++ Received:
+[
+  {
+    "actual": "\"\"",
+    "code": "MV-COMMAND-ENVELOPE",
+    "dslPath": "commands[0].parameters",
+    "expected": "dense parameter array",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-ENVELOPE: parameters must be an array and cannot be missing. (commands[0].parameters); expected dense parameter array; actual \"\"",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/loop.test.ts:83:82
+     81|     commands: [{ kind: "rawDslCommand", code: 113, ...input } as never…
+     82|   });
+     83|   expect(validateDslOwnedDeclarations([event], { scriptEnabled: false …
+       |                                                                                  ^
+     84|     expect.objectContaining({ code: "MV-COMMAND-ENVELOPE", dslPath: "c…
+     85|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+
+ FAIL  test/loop.test.ts > rejects malformed known raw envelopes without coercion before Check or Compile
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-ENVELOPE",
+  "dslPath": "commands[0]",
+}
+
++ Received:
+[
+  {
+    "actual": "null",
+    "code": "MV-COMMAND-ENVELOPE",
+    "dslPath": "commands[0].indent",
+    "expected": "nonnegative safe integer, excluding negative zero",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-ENVELOPE: indent must be a nonnegative safe integer. (commands[0].indent); expected nonnegative safe integer, excluding negative zero; actual null",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/loop.test.ts:83:82
+     81|     commands: [{ kind: "rawDslCommand", code: 113, ...input } as never…
+     82|   });
+     83|   expect(validateDslOwnedDeclarations([event], { scriptEnabled: false …
+       |                                                                                  ^
+     84|     expect.objectContaining({ code: "MV-COMMAND-ENVELOPE", dslPath: "c…
+     85|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/8]⎯
+
+ FAIL  test/loop.test.ts > rejects malformed known raw envelopes without coercion before Check or Compile
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-COMMAND-ENVELOPE",
+  "dslPath": "commands[0]",
+}
+
++ Received:
+[
+  {
+    "actual": "-1",
+    "code": "MV-COMMAND-ENVELOPE",
+    "dslPath": "commands[0].indent",
+    "expected": "nonnegative safe integer, excluding negative zero",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-ENVELOPE: indent must be a nonnegative safe integer. (commands[0].indent); expected nonnegative safe integer, excluding negative zero; actual -1",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/loop.test.ts:83:82
+     81|     commands: [{ kind: "rawDslCommand", code: 113, ...input } as never…
+     82|   });
+     83|   expect(validateDslOwnedDeclarations([event], { scriptEnabled: false …
+       |                                                                                  ^
+     84|     expect.objectContaining({ code: "MV-COMMAND-ENVELOPE", dslPath: "c…
+     85|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/8]⎯
+
+ FAIL  test/loop.test.ts > rejects 'extra known parameter' in known raw output and native decompilation with an exact location
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "dslPath": "commands[0]",
+  "identity": "commonEvent:1",
+  "level": "error",
+}
+
++ Received:
+[
+  {
+    "actual": "[1]",
+    "code": "MV-COMMAND-PARAMETERS",
+    "dslPath": "commands[0].parameters",
+    "expected": "E113 saved slots []",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-COMMAND-PARAMETERS: Known command parameters do not match their native contract. (commands[0].parameters); expected E113 saved slots []; actual [1]",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/loop.test.ts:306:84
+    304|     });
+    305|     expect(() => compileCommonEvent(event, { nextId: 1, resolver })).t…
+    306|     expect(validateDslOwnedDeclarations([event], { scriptEnabled: fals…
+       |                                                                                    ^
+    307|       expect.objectContaining({
+    308|         level: "error",
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/8]⎯
+
+ FAIL  test/staged-graph.test.ts > validateDslOwnedDeclarations > validates Screen picture variable positions without scanning image assets
+AssertionError: expected [ …(3) ] to deeply equal ArrayContaining{…}
+
+- Expected
++ Received
+
+- ArrayContaining [
+-   "Unknown variable reference id: 99",
+-   "Unknown variable reference id: 98",
++ [
++   "compile error map 1 event 1: MV-E231-REFERENCE: Unknown variable reference id: 99 (pages[0].commands[0].position.y); expected existing System Variable Slot; actual {\"id\":99,\"kind\":\"variable\"}",
++   "compile error map 1 event 1: MV-E232-REFERENCE: Unknown variable reference id: 98 (pages[0].commands[1].position.x); expected existing System Variable Slot; actual {\"id\":98,\"kind\":\"variable\"}",
++   "compile error map:1/event:1: MV-E231-REFERENCE: Unknown variable reference id: 99 (pages[0].commands[0].position.y); expected existing System Variable Slot; actual {\"id\":99,\"kind\":\"variable\"}",
+  ]
+
+ ❯ test/staged-graph.test.ts:664:57
+    662|     );
+    663|
+    664|     expect(result.issues.map((issue) => issue.message)).toEqual(
+       |                                                         ^
+    665|       expect.arrayContaining([
+    666|         "Unknown variable reference id: 99",
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/8]⎯
+
+
+ Test Files  3 failed | 5 passed (8)
+      Tests  8 failed | 96 passed (104)
+   Start at  04:21:52
+   Duration  11.60s (transform 654ms, setup 0ms, import 3.32s, tests 10.36s, environment 1ms)
+
+undefined
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-38\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/dsl.test.ts test/events.test.ts test/decompiler.test.ts test/staged-graph.test.ts test/snapshot-context.test.ts test/architecture.test.ts test/loop.test.ts test/command-boundary.test.ts

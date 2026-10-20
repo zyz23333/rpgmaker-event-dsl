@@ -1,0 +1,1886 @@
+{
+  "createdAt": "2026-10-19T21:31:22.425Z",
+  "records": 268,
+  "statusCounts": {
+    "passed": 257,
+    "failed": 11
+  },
+  "files": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S3-CONTEXT-001-2026-10-19T20-21-57-467Z-35a4c203-7c84-4d09-89df-a9e47ab3f29c.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S3-CONTEXT-001-2026-10-19T20-21-57-467Z-35a4c203-7c84-4d09-89df-a9e47ab3f29c.json",
+      "sha256": "76dd1cc7060498940f896a788b2cad7d09646cfef71cc42228758cb242c7b0c2",
+      "requirementId": "MV-S3-CONTEXT-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S3-CONTEXT-001-2026-10-19T20-28-05-184Z-9a20ef5f-a758-46cf-b1a8-61e475134678.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S3-CONTEXT-001-2026-10-19T20-28-05-184Z-9a20ef5f-a758-46cf-b1a8-61e475134678.json",
+      "sha256": "ec3637b6fca29b258955e4e755e72e6a8beafcdb40eb68b3818ef099f0e7d6b1",
+      "requirementId": "MV-S3-CONTEXT-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S3-CONTEXT-001-2026-10-19T21-22-59-041Z-d1b825b3-3dbc-4a0a-a4dc-29e3492b8330.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S3-CONTEXT-001-2026-10-19T21-22-59-041Z-d1b825b3-3dbc-4a0a-a4dc-29e3492b8330.json",
+      "sha256": "b6fa09254d6a68fd1159c9146fa04e589ae3b1cbae0fc4a460ce04552e36bb91",
+      "requirementId": "MV-S3-CONTEXT-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S3-CONTEXT-002-2026-10-19T20-22-03-075Z-6374ed3e-d3b0-4c70-a75f-d7373f2d18a7.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S3-CONTEXT-002-2026-10-19T20-22-03-075Z-6374ed3e-d3b0-4c70-a75f-d7373f2d18a7.json",
+      "sha256": "26bee7620d6aff1617f9c890f8d4a1325f18874a0f120df763862704a7ed8cb1",
+      "requirementId": "MV-S3-CONTEXT-002",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S3-CONTEXT-002-2026-10-19T20-28-11-496Z-47284ba7-d398-47de-ab07-cd041f304850.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S3-CONTEXT-002-2026-10-19T20-28-11-496Z-47284ba7-d398-47de-ab07-cd041f304850.json",
+      "sha256": "fa2a0d6c4b2009d34596bdab3d9c0b7b695211cb00eddac7dfeabbf011240d4b",
+      "requirementId": "MV-S3-CONTEXT-002",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S3-CONTEXT-002-2026-10-19T21-23-05-588Z-fa83dd83-c208-45dc-ad62-6cba37d1af06.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S3-CONTEXT-002-2026-10-19T21-23-05-588Z-fa83dd83-c208-45dc-ad62-6cba37d1af06.json",
+      "sha256": "659d142f8255c79e762fd6c56831dee89573d9cbb42f0431584f454f75fd534e",
+      "requirementId": "MV-S3-CONTEXT-002",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S3-CONTEXT-003-2026-10-19T20-22-02-995Z-b0b0f89e-b6f3-450f-a48d-74567dbc86aa.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S3-CONTEXT-003-2026-10-19T20-22-02-995Z-b0b0f89e-b6f3-450f-a48d-74567dbc86aa.json",
+      "sha256": "a9c5babdafbde74b8064e6aedead31803a1021a2b87fa1f56e184cd0cc43953c",
+      "requirementId": "MV-S3-CONTEXT-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S3-CONTEXT-003-2026-10-19T20-28-11-411Z-ebfe07c3-db63-48a4-b8d8-e19f0aca40c9.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S3-CONTEXT-003-2026-10-19T20-28-11-411Z-ebfe07c3-db63-48a4-b8d8-e19f0aca40c9.json",
+      "sha256": "299a7cb197f53b72d139257a183a529c4c85dec0453d5fa8054c5851434c1e71",
+      "requirementId": "MV-S3-CONTEXT-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S3-CONTEXT-003-2026-10-19T21-23-05-490Z-66c5b1a8-99cb-4a7b-b9e7-b0d4fab7e145.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S3-CONTEXT-003-2026-10-19T21-23-05-490Z-66c5b1a8-99cb-4a7b-b9e7-b0d4fab7e145.json",
+      "sha256": "7932382794cba23a3f58b47bab62ff76a54538228ec5351110248fdff5aa5776",
+      "requirementId": "MV-S3-CONTEXT-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S3-CONTEXT-004-2026-10-19T20-21-57-718Z-ad91d843-58cf-49a7-ae50-cc799ec793e2.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S3-CONTEXT-004-2026-10-19T20-21-57-718Z-ad91d843-58cf-49a7-ae50-cc799ec793e2.json",
+      "sha256": "f412b06693537be85f6b7967a10ea1aab813630db06a9cfbe63815b37d872b97",
+      "requirementId": "MV-S3-CONTEXT-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S3-CONTEXT-004-2026-10-19T20-28-05-844Z-4dfc606c-fe3e-4470-adf9-a4fa78bd969c.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S3-CONTEXT-004-2026-10-19T20-28-05-844Z-4dfc606c-fe3e-4470-adf9-a4fa78bd969c.json",
+      "sha256": "f88abd7512bfaae96650c170b1b6915a9d05ef799ca06baacd948b6b8e5b11f4",
+      "requirementId": "MV-S3-CONTEXT-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S3-CONTEXT-004-2026-10-19T21-22-59-344Z-f4fde23f-8303-4571-85d8-985046768c1d.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S3-CONTEXT-004-2026-10-19T21-22-59-344Z-f4fde23f-8303-4571-85d8-985046768c1d.json",
+      "sha256": "dc42acd7be25a01279c0a04b75ff2106d809c81aef1a0323115a71db128d2650",
+      "requirementId": "MV-S3-CONTEXT-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S3-CONTEXT-005-2026-10-19T20-22-03-990Z-97c7020a-2be7-4b2a-ad6c-15b06aee6854.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S3-CONTEXT-005-2026-10-19T20-22-03-990Z-97c7020a-2be7-4b2a-ad6c-15b06aee6854.json",
+      "sha256": "bda7f5bbdd17d3d3b189fa431bbd74b3756cbbf40d901b178173d22748cf9ceb",
+      "requirementId": "MV-S3-CONTEXT-005",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S3-CONTEXT-005-2026-10-19T20-28-12-509Z-470ba5cb-2c74-41a7-853e-efdfe56ac1b6.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S3-CONTEXT-005-2026-10-19T20-28-12-509Z-470ba5cb-2c74-41a7-853e-efdfe56ac1b6.json",
+      "sha256": "1e6019084c7d5d566a62e2f8e794702aa8a7d2b6c442467634b350f97c5030aa",
+      "requirementId": "MV-S3-CONTEXT-005",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S3-CONTEXT-005-2026-10-19T21-23-06-590Z-ff3f20b1-ff2a-452c-ba79-5a23ff60d6ed.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S3-CONTEXT-005-2026-10-19T21-23-06-590Z-ff3f20b1-ff2a-452c-ba79-5a23ff60d6ed.json",
+      "sha256": "667deb390b384d7920fdcbe517ffe37cec77e0fed7800972919ea7b2844a2b27",
+      "requirementId": "MV-S3-CONTEXT-005",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-001-2026-10-19T21-22-39-791Z-1de596c8-59db-447b-a9dc-b753f27c2bb5.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-001-2026-10-19T21-22-39-791Z-1de596c8-59db-447b-a9dc-b753f27c2bb5.json",
+      "sha256": "f80cb4a24b8f481eee49eee62cf1f991f14800a5124df470ad766d5035f61d3b",
+      "requirementId": "MV-S5-MAP-NUMERIC-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-001-2026-10-19T21-22-44-726Z-f22cda85-294f-4777-b852-1bb6dcf65fcf.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-001-2026-10-19T21-22-44-726Z-f22cda85-294f-4777-b852-1bb6dcf65fcf.json",
+      "sha256": "fe467f713c32525e5cd547bdb224fda306375328227e334241f5c1d347dc6153",
+      "requirementId": "MV-S5-MAP-NUMERIC-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-001-2026-10-19T21-22-49-422Z-0dd9e904-b05f-46c4-a17f-782f15fb7fe4.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-001-2026-10-19T21-22-49-422Z-0dd9e904-b05f-46c4-a17f-782f15fb7fe4.json",
+      "sha256": "c31a8b4eb499ebf73f18aed90fc110c13e29d4510acf4ea413a2122e19fc3b18",
+      "requirementId": "MV-S5-MAP-NUMERIC-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-001-2026-10-19T21-22-54-355Z-751e8703-50da-4fac-a685-b935e8cf37ec.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-001-2026-10-19T21-22-54-355Z-751e8703-50da-4fac-a685-b935e8cf37ec.json",
+      "sha256": "7247eea566a895096bd6d65344f68c4715f85cb565dd0df70480ab9d2cd3f821",
+      "requirementId": "MV-S5-MAP-NUMERIC-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-001-2026-10-19T21-22-59-056Z-07c2ecc4-7f98-4e01-a2dc-52126c5d72dd.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-001-2026-10-19T21-22-59-056Z-07c2ecc4-7f98-4e01-a2dc-52126c5d72dd.json",
+      "sha256": "8af41607e348dae0ce63359b6c8e92905a243694322237a0153d83206d07de0a",
+      "requirementId": "MV-S5-MAP-NUMERIC-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-001-2026-10-19T21-23-04-023Z-7f1915f9-becc-4058-a505-c9adbc67cac7.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-001-2026-10-19T21-23-04-023Z-7f1915f9-becc-4058-a505-c9adbc67cac7.json",
+      "sha256": "88d492638789976a10c16a5a8f1bb5e17cbd5a139546d6575aa3b927ddc10b51",
+      "requirementId": "MV-S5-MAP-NUMERIC-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-001-2026-10-19T21-23-09-024Z-667777fd-6025-4696-9dee-ea8007ecd873.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-001-2026-10-19T21-23-09-024Z-667777fd-6025-4696-9dee-ea8007ecd873.json",
+      "sha256": "4cf10ebb31360fa9f123c6ef1a0de82b66a8e24fdfcb3d56c487296490d64785",
+      "requirementId": "MV-S5-MAP-NUMERIC-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-001-2026-10-19T21-23-13-743Z-bc6876d4-2937-4304-980d-0e90c44cac23.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-001-2026-10-19T21-23-13-743Z-bc6876d4-2937-4304-980d-0e90c44cac23.json",
+      "sha256": "62bd9774a9996d323550b3277a037c1aee8ec8d1c296d9be01c0552cae46e626",
+      "requirementId": "MV-S5-MAP-NUMERIC-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-001-2026-10-19T21-23-18-652Z-d528efec-aba8-4ebc-a083-d30dbdaeaee1.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-001-2026-10-19T21-23-18-652Z-d528efec-aba8-4ebc-a083-d30dbdaeaee1.json",
+      "sha256": "8ca935873b9e7a549b652d5bc1ff114755be2a190210b00560d136155e76fcc4",
+      "requirementId": "MV-S5-MAP-NUMERIC-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-001-2026-10-19T21-23-23-383Z-5c77156c-f4e2-438c-b945-8efc58f8e2fd.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-001-2026-10-19T21-23-23-383Z-5c77156c-f4e2-438c-b945-8efc58f8e2fd.json",
+      "sha256": "90b52a548ab31f9e7bc4a7e0ca2f15d1011386b3f9c940e1e7e2ed2accf958f1",
+      "requirementId": "MV-S5-MAP-NUMERIC-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-002-2026-10-19T21-23-25-757Z-6288ce82-7cae-4bbe-b9fe-e10a33aece95.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-002-2026-10-19T21-23-25-757Z-6288ce82-7cae-4bbe-b9fe-e10a33aece95.json",
+      "sha256": "03ee1b00e527a1406aa6d151163a21b95751307c9b9d045f83d77ff8cb50fd93",
+      "requirementId": "MV-S5-MAP-NUMERIC-002",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-002-2026-10-19T21-23-28-153Z-a0824102-f4d1-48a0-bf15-ae079f30e4da.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-002-2026-10-19T21-23-28-153Z-a0824102-f4d1-48a0-bf15-ae079f30e4da.json",
+      "sha256": "03d7ab81c5961cec17ef96d1efd8f8a307d32095a268b9c7dbfbb64befb70805",
+      "requirementId": "MV-S5-MAP-NUMERIC-002",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-003-2026-10-19T21-23-28-495Z-256c1c85-4f6f-484a-848d-f6a960c6b2c7.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-003-2026-10-19T21-23-28-495Z-256c1c85-4f6f-484a-848d-f6a960c6b2c7.json",
+      "sha256": "55c33af18c025f296036abdd57ba098b0995ba73016855d9ec875c82d1173625",
+      "requirementId": "MV-S5-MAP-NUMERIC-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-003-2026-10-19T21-23-28-849Z-65b94547-3063-432d-a243-b8ffc33a543a.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-003-2026-10-19T21-23-28-849Z-65b94547-3063-432d-a243-b8ffc33a543a.json",
+      "sha256": "fe96c9ee181eb1eb5bde73e17131381604aa72ffcf2be61dd86860fc08938052",
+      "requirementId": "MV-S5-MAP-NUMERIC-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-003-2026-10-19T21-23-29-344Z-9b6a949a-474c-4582-833b-e4e41e37ca9f.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-003-2026-10-19T21-23-29-344Z-9b6a949a-474c-4582-833b-e4e41e37ca9f.json",
+      "sha256": "2099e56ce2e6dde734ea67ead93587a453b1e993a6b63c821c5b79ee2c30cd1d",
+      "requirementId": "MV-S5-MAP-NUMERIC-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-003-2026-10-19T21-23-29-691Z-486a85df-9f48-45ec-8787-b7bd0ef25213.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-003-2026-10-19T21-23-29-691Z-486a85df-9f48-45ec-8787-b7bd0ef25213.json",
+      "sha256": "8f574e6bc970afb0b302e200edba040e52c52c4323e8dcdd215d6cf2532fca5b",
+      "requirementId": "MV-S5-MAP-NUMERIC-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-003-2026-10-19T21-23-30-144Z-c204f65a-62be-4c40-83f8-889081554d38.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-003-2026-10-19T21-23-30-144Z-c204f65a-62be-4c40-83f8-889081554d38.json",
+      "sha256": "f3a4e34a410be6224cf41448eeaa32d31a663971911808f3c9c5b38fc4f48754",
+      "requirementId": "MV-S5-MAP-NUMERIC-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-003-2026-10-19T21-23-30-632Z-bb1784ed-ac14-48c0-ba35-5dd97c0e025a.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-003-2026-10-19T21-23-30-632Z-bb1784ed-ac14-48c0-ba35-5dd97c0e025a.json",
+      "sha256": "0bc4bd1591c3e3ea34d553988c20702e24326db75910bca6e2a36f495a5b6479",
+      "requirementId": "MV-S5-MAP-NUMERIC-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-003-2026-10-19T21-23-31-023Z-bb7f8b7e-fdef-493c-9d05-3908fda7a99f.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-003-2026-10-19T21-23-31-023Z-bb7f8b7e-fdef-493c-9d05-3908fda7a99f.json",
+      "sha256": "62b76bbc56dd5212c919450b72afb9885dc01557be3a246956c07af8218cdd05",
+      "requirementId": "MV-S5-MAP-NUMERIC-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-003-2026-10-19T21-23-31-407Z-e76bec09-c556-499c-b7dc-9c90f51dd87a.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-003-2026-10-19T21-23-31-407Z-e76bec09-c556-499c-b7dc-9c90f51dd87a.json",
+      "sha256": "88ad2ad1c16e8d5082fe4b5a2713ef7ce84a6a1652d36530559d81b9eb43bfb7",
+      "requirementId": "MV-S5-MAP-NUMERIC-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-004-2026-10-19T21-23-40-408Z-a5448d70-e73b-4676-abf2-04e9adb65c2f.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-004-2026-10-19T21-23-40-408Z-a5448d70-e73b-4676-abf2-04e9adb65c2f.json",
+      "sha256": "77550021a83d366d5be34c7f7827b12721a5a6904a5dce09b54bc1059c2a4cbe",
+      "requirementId": "MV-S5-MAP-NUMERIC-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S5-MAP-NUMERIC-004-2026-10-19T21-23-49-947Z-3b392405-3715-4ce6-be28-5344c9339fca.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S5-MAP-NUMERIC-004-2026-10-19T21-23-49-947Z-3b392405-3715-4ce6-be28-5344c9339fca.json",
+      "sha256": "c507fc4c11e223d28e5a907dc31a55f671ccda94807d47293a192233cd6209e9",
+      "requirementId": "MV-S5-MAP-NUMERIC-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T20-16-43-745Z-92205706-b2d5-44e7-b296-a4c2051e4074.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T20-16-43-745Z-92205706-b2d5-44e7-b296-a4c2051e4074.json",
+      "sha256": "ac926b5b4310677fdad69401db7abeacbd36159f82a158fe089a48b8b381a78a",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T20-16-43-809Z-6ef040fa-5698-4933-a812-d8fc30782c9b.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T20-16-43-809Z-6ef040fa-5698-4933-a812-d8fc30782c9b.json",
+      "sha256": "504c3a09cda45e3a4b15984e9bc20f67742831446e0adf944d69ef3a6a05bef9",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T20-16-43-872Z-849cfcd6-2dcd-41e4-84d5-ca2e1c3e328b.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T20-16-43-872Z-849cfcd6-2dcd-41e4-84d5-ca2e1c3e328b.json",
+      "sha256": "0bed71f1824182b43f460d604ac28d6bec902b2cb510c946000d6fcd0611cd30",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T20-16-43-923Z-cbc17caa-b0ef-4789-91d9-a0d50f58dcb8.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T20-16-43-923Z-cbc17caa-b0ef-4789-91d9-a0d50f58dcb8.json",
+      "sha256": "b65f808b611207b9cc29760bcad20077b045267f1f79258d105af1d4da58ecf1",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T20-16-43-972Z-6b490d4a-4c14-42f2-a74f-a6fd3c95dff3.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T20-16-43-972Z-6b490d4a-4c14-42f2-a74f-a6fd3c95dff3.json",
+      "sha256": "a9cfe7f3745cb1562a5001700ff70b0d8d35171366e4e15305bdd767bd7be219",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T20-16-44-024Z-97c85266-1381-4268-b66e-786a0c23cd66.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T20-16-44-024Z-97c85266-1381-4268-b66e-786a0c23cd66.json",
+      "sha256": "eeff2d34f8b03e2c04bcca2405a1aa195f72338740d475447028af2b880442ba",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T20-16-44-074Z-13a2e635-0f4f-4732-81b6-050ee5f0f7f1.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T20-16-44-074Z-13a2e635-0f4f-4732-81b6-050ee5f0f7f1.json",
+      "sha256": "b890e2e63ede3c9931cac9fbee979385bd11989983a2ea2d712cdb730dbcf6c7",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T20-21-10-980Z-961de371-618f-4d5a-984d-ec337897938f.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T20-21-10-980Z-961de371-618f-4d5a-984d-ec337897938f.json",
+      "sha256": "8bb160bf700c54e059876903cba8463227402046f516e713eeb03f092954ffcd",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T20-21-11-063Z-3af68071-7f8e-4cf8-900a-8aa1a125f129.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T20-21-11-063Z-3af68071-7f8e-4cf8-900a-8aa1a125f129.json",
+      "sha256": "dd6046b599265dbeea4ccfe9b101d1df77ab0709031d2c088cfaaf3be2f05bf6",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T20-28-17-526Z-0853b735-3c47-4da7-883e-f589d0c1a819.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T20-28-17-526Z-0853b735-3c47-4da7-883e-f589d0c1a819.json",
+      "sha256": "1b171ffe849c837f0a229e7767489447b741b287bc12173f259a3eea895530e3",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T20-28-17-597Z-ab6ac58f-2ecf-40da-a0fa-fb7ed868f273.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T20-28-17-597Z-ab6ac58f-2ecf-40da-a0fa-fb7ed868f273.json",
+      "sha256": "525bb3ab5f028de8cb8d06a6245b18aabfb1c7ffac0d12d5e4c0f3458e928a30",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T20-28-17-643Z-2db9f41f-867a-4434-bf4c-4cc9004dbf83.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T20-28-17-643Z-2db9f41f-867a-4434-bf4c-4cc9004dbf83.json",
+      "sha256": "d74a3de08459555773f8eeeb221e958323bdc4e6ee4737abb806d8fed7a30f2b",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T20-28-17-684Z-98b65953-d0a5-4633-b313-b66070c83962.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T20-28-17-684Z-98b65953-d0a5-4633-b313-b66070c83962.json",
+      "sha256": "7edf9ad4182def658a1d4cfea7a4608910e1d37237ca979e8b63e62f913e3d21",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T20-28-17-730Z-afc4b52d-95f0-4146-9c31-fdcdd94db751.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T20-28-17-730Z-afc4b52d-95f0-4146-9c31-fdcdd94db751.json",
+      "sha256": "0ed40353213893946b87d558b16c34b3897872f9dd34daa7ae2eb9f19648b59a",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T20-28-17-771Z-3ec56eba-90fb-4a66-8470-542914746e69.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T20-28-17-771Z-3ec56eba-90fb-4a66-8470-542914746e69.json",
+      "sha256": "c0ca9fccc7a352983a5d20fe70f4dd0cbdec7b28f9e57c1ed85c6efda897170b",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T20-28-17-829Z-e45a8622-70f3-42c6-bd8e-949d397c8215.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T20-28-17-829Z-e45a8622-70f3-42c6-bd8e-949d397c8215.json",
+      "sha256": "e0b92470f3654f5738770e4c8e629aabd29ad85cd6292242844c6ae4435d48eb",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T20-28-17-879Z-f9d1c095-340b-4f98-aa98-50fcfb3428a8.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T20-28-17-879Z-f9d1c095-340b-4f98-aa98-50fcfb3428a8.json",
+      "sha256": "bf80969f9a608adfd3809d43a047fa3558b68e10495c1a7ad46117ab16b4495f",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T20-28-17-922Z-0054584e-4e0a-45e6-a15d-f60acadb4204.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T20-28-17-922Z-0054584e-4e0a-45e6-a15d-f60acadb4204.json",
+      "sha256": "c4710c6caf9e1172278120cb3f442f9b7e5a4135ef900cf1f896ad35cb7cac70",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T21-23-55-002Z-49737f52-3d7d-4342-a3c5-a3c735440ce5.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T21-23-55-002Z-49737f52-3d7d-4342-a3c5-a3c735440ce5.json",
+      "sha256": "3c9243b1fa8cf027f175ab19b1b573146ec3ccaae6839e3bd74c0e8d5b73002b",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T21-23-55-077Z-4d5afdca-c529-462d-8867-0f98728a3eeb.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T21-23-55-077Z-4d5afdca-c529-462d-8867-0f98728a3eeb.json",
+      "sha256": "ba893d11adddf20421507ea25c6ef4eb5b3f8dfb803e72c4b6506da0aefd755f",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T21-23-55-129Z-313ede6d-5706-4acc-8c7f-02985cbbd080.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T21-23-55-129Z-313ede6d-5706-4acc-8c7f-02985cbbd080.json",
+      "sha256": "8e7751c687411ada902d6f5f5eb09472880eece2c1ad522a18655139c5f388e3",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T21-23-55-176Z-e005aa8b-0f68-487c-b120-317ae1120b12.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T21-23-55-176Z-e005aa8b-0f68-487c-b120-317ae1120b12.json",
+      "sha256": "bb385ddc77f2cbbec1d22c41a920e655a29d54204b65873b05e9bbfe3691ce54",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T21-23-55-229Z-9da6e771-8b60-4df4-8b0e-ae1f55879520.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T21-23-55-229Z-9da6e771-8b60-4df4-8b0e-ae1f55879520.json",
+      "sha256": "c99524c4303c7113fb4a8b675760fa7cb108f952f1b4e71db479b6c0eafa37ac",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T21-23-55-278Z-15667421-fef9-44c9-8f27-837b5b740290.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T21-23-55-278Z-15667421-fef9-44c9-8f27-837b5b740290.json",
+      "sha256": "bd3aa08150c02e2e1c65b3387d1dbe612b17dda93ccc836db4e4ed6caa6f0351",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T21-23-55-323Z-49b90757-f108-41de-8512-393078a0ddb6.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T21-23-55-323Z-49b90757-f108-41de-8512-393078a0ddb6.json",
+      "sha256": "691b3baa833dd068ecfd64a947b09cb1ede74882abf749fae84256c35f6599d0",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T21-23-55-384Z-aeeeddd3-5cb9-41f1-979a-ebbd953d3d3a.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T21-23-55-384Z-aeeeddd3-5cb9-41f1-979a-ebbd953d3d3a.json",
+      "sha256": "506967649a69c0b5722c8aea7d9763c613abc9314ce041bd372bad18250a3632",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-001-2026-10-19T21-23-55-437Z-a3cd5a45-43f3-4eb1-9065-118431b4ef4a.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-001-2026-10-19T21-23-55-437Z-a3cd5a45-43f3-4eb1-9065-118431b4ef4a.json",
+      "sha256": "46fec48fa06586838650f26895344fdd2d4269fcc163150157e534e4f959d2e0",
+      "requirementId": "MV-S6-PICTURE-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-002-2026-10-19T20-16-33-089Z-b00f7e1b-2771-4ae4-9dd1-91a3f8ee6331.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-002-2026-10-19T20-16-33-089Z-b00f7e1b-2771-4ae4-9dd1-91a3f8ee6331.json",
+      "sha256": "9af45254ef062fe265be1091d6102f2eb405219ba00ac5bed51083a5e5d39824",
+      "requirementId": "MV-S6-PICTURE-002",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-002-2026-10-19T20-16-47-532Z-354a6175-9510-4386-85be-ad8653bb7904.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-002-2026-10-19T20-16-47-532Z-354a6175-9510-4386-85be-ad8653bb7904.json",
+      "sha256": "39d9c74af125e3c53fe46ee85f398ad19ed372e1c3e143028dc27cdda258eaf9",
+      "requirementId": "MV-S6-PICTURE-002",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-002-2026-10-19T20-27-44-037Z-c0518b91-e24b-457f-861a-e20587024593.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-002-2026-10-19T20-27-44-037Z-c0518b91-e24b-457f-861a-e20587024593.json",
+      "sha256": "98be02ca979af0d563405584ab7cf13d7e1b4f62a557c5708b708673de022823",
+      "requirementId": "MV-S6-PICTURE-002",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-002-2026-10-19T21-23-10-725Z-e2d96c74-070b-409a-a0c7-a286873b731e.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-002-2026-10-19T21-23-10-725Z-e2d96c74-070b-409a-a0c7-a286873b731e.json",
+      "sha256": "3fdf1ae90f21e3198b523ed610e119bb7c0b1032f2ed41f2ce590e99bc0715a3",
+      "requirementId": "MV-S6-PICTURE-002",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-16-49-501Z-43fde567-9164-447e-a0f4-4ed545d254cd.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-16-49-501Z-43fde567-9164-447e-a0f4-4ed545d254cd.json",
+      "sha256": "a1ba9a6c6eb3ef1e339e26249757cef64ab2b765b20d7e03a3fceb8069416fff",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-16-51-335Z-8288f48f-bc32-4fd7-9c4c-0ae70dc88970.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-16-51-335Z-8288f48f-bc32-4fd7-9c4c-0ae70dc88970.json",
+      "sha256": "7414b9cdc375dc4a65692e4eed54b9a48dbb4a601eec2a685868e85add9b0f31",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-16-53-094Z-73c9d8bd-a4cb-4e4d-866d-678ef8bfb8f5.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-16-53-094Z-73c9d8bd-a4cb-4e4d-866d-678ef8bfb8f5.json",
+      "sha256": "e81e6610b4ce8a7eb7cc05e6e0a4668ebfef76e41608972bc6c3da519ec49ec9",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-16-54-469Z-8fdd4911-ef5c-45fd-9855-b3d6414ff864.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-16-54-469Z-8fdd4911-ef5c-45fd-9855-b3d6414ff864.json",
+      "sha256": "ac7154648342aaa0ebb98eac17166b20d664d7327f8e9c71dcb08d2a50af0c4c",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "failed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-16-56-106Z-d0941c0c-ca4c-4b34-ad8f-ba686bc7baba.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-16-56-106Z-d0941c0c-ca4c-4b34-ad8f-ba686bc7baba.json",
+      "sha256": "f9ec6d8109f5da669715aa561fa1dd7aea2cae6db6c0e2d29dfb8e6d214f7800",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-16-57-956Z-3ca64e07-cb7d-4bd0-9131-8c375832d33e.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-16-57-956Z-3ca64e07-cb7d-4bd0-9131-8c375832d33e.json",
+      "sha256": "341ba97f5be9421e8a575081116bc9be2462db3df1ec1b3ccdd6e961cbda821c",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-16-59-562Z-c1ad936b-7411-4824-960b-5e4bd461da3c.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-16-59-562Z-c1ad936b-7411-4824-960b-5e4bd461da3c.json",
+      "sha256": "11d783646b184cd3994c3d7575109de92a32db718772b288d10cae4204061de3",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-00-926Z-963a0aba-a1a9-4992-96cd-e5ccfa834902.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-00-926Z-963a0aba-a1a9-4992-96cd-e5ccfa834902.json",
+      "sha256": "5283ebd2bc11ab8d0f7724109ffd7ae5d4d7f8eb23ab1ec5eb59035feb32b709",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "failed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-02-551Z-2f326797-894b-4e4b-8838-d22165d9cbe5.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-02-551Z-2f326797-894b-4e4b-8838-d22165d9cbe5.json",
+      "sha256": "3bc6c6bbc87c164629ce47fd9e56056989fba3594da63b40ea9bbedfd1f89b3f",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-04-141Z-2aabaa05-32db-4b84-a5c4-4d0f2a594b33.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-04-141Z-2aabaa05-32db-4b84-a5c4-4d0f2a594b33.json",
+      "sha256": "df7ac48f9bc38fd0b50f5fe5264993382418ab1909f3e5c7539c872efa14ab0e",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-05-756Z-4374d79f-2ef3-4086-9206-9f7c45149526.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-05-756Z-4374d79f-2ef3-4086-9206-9f7c45149526.json",
+      "sha256": "0c5e929aa57e74ce63751e223309f064e2d48cc300926ef57085383d4ed56a70",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-07-120Z-a99e6ead-33b2-491d-8519-93f5ae1fcea5.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-07-120Z-a99e6ead-33b2-491d-8519-93f5ae1fcea5.json",
+      "sha256": "d62ebe4ea298345a8e7cf2d286f89c1df8de77e93c95d4a86ce41b8f2b7c283c",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "failed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-08-796Z-fe856be9-a897-4c36-8e09-27f9fab21fae.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-08-796Z-fe856be9-a897-4c36-8e09-27f9fab21fae.json",
+      "sha256": "c2753aded95c239d4afba4bad27a868c41bd5a4d5c2df8a6a2296d9a7afea6f4",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-10-384Z-5fb90e47-3f5f-4c05-a010-607bc7d620e8.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-10-384Z-5fb90e47-3f5f-4c05-a010-607bc7d620e8.json",
+      "sha256": "e145a5d54bd1bd76fbc763fe01c65870e728758a439f280c7f2b5e111377d478",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-11-973Z-cf18d8aa-74e6-4a3c-8ff0-f0e0df77564d.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-11-973Z-cf18d8aa-74e6-4a3c-8ff0-f0e0df77564d.json",
+      "sha256": "a428a3b58c99f61fc2678be321f30f93efee61c05efa75934529b883f95bead0",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-13-306Z-334c1fb4-d630-4a17-9dd3-af18f060d172.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-13-306Z-334c1fb4-d630-4a17-9dd3-af18f060d172.json",
+      "sha256": "7980bd1fe7e542346ac9333e046c73eaed733e26a6be13bd3b667ca2c00e4afb",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "failed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-14-912Z-986791ec-b503-442a-8879-8695b61f830d.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-14-912Z-986791ec-b503-442a-8879-8695b61f830d.json",
+      "sha256": "a9a339f877417490144952dacae799895e9462ae84671bc793d57949c9bc9988",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-16-555Z-632c400f-1b7e-4e4e-adb0-bd71cf8a057c.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-16-555Z-632c400f-1b7e-4e4e-adb0-bd71cf8a057c.json",
+      "sha256": "fbb9d14b2c0a6794707af779cc474584182a5a74efc9c14d27e2e73778510633",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-18-233Z-b9c1a947-3535-4e00-a945-e087d7faa38b.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-18-233Z-b9c1a947-3535-4e00-a945-e087d7faa38b.json",
+      "sha256": "d5c38dcfb4923ccdc7a1a95cd0e98efc513daf5b087c038b199f281a189f751c",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-19-605Z-eb878b65-cf52-4046-b6dd-76e8aaff0fcf.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-19-605Z-eb878b65-cf52-4046-b6dd-76e8aaff0fcf.json",
+      "sha256": "f6e208b547a5781f903e4a60d3d76391f14df1a45ded83c81bda065c83bc5523",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "failed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-21-234Z-8e54927f-2f46-4022-a71a-9df4e43764e7.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-21-234Z-8e54927f-2f46-4022-a71a-9df4e43764e7.json",
+      "sha256": "3c368f40f643a33cab618b4cd468af66d46972701a4f84ca45bb094724584533",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-23-648Z-8048eebb-7a00-4e55-a305-da9ea2fa2319.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-23-648Z-8048eebb-7a00-4e55-a305-da9ea2fa2319.json",
+      "sha256": "3867282f31a07b103aa8694e93457e626fbd0c818dfecf92891fade4b1b6339f",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-25-368Z-b581e01b-dfec-455e-915b-eac2d54d322e.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-25-368Z-b581e01b-dfec-455e-915b-eac2d54d322e.json",
+      "sha256": "8c447665afeb8fb01d121da3886a8108e6e1226dc0ec8700244acb10e46acfe1",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-27-853Z-e3452f81-2056-4a13-b903-b366b04f450b.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-27-853Z-e3452f81-2056-4a13-b903-b366b04f450b.json",
+      "sha256": "3a58981ac34298a6958f711dbaa268cd0bd04e9722fe745dcd3cedfc7b2a89ec",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-29-513Z-5d40eb94-61fb-45de-a291-aa0157ba12a6.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-29-513Z-5d40eb94-61fb-45de-a291-aa0157ba12a6.json",
+      "sha256": "47c7470fb768a7d5a5314200a75e18a2c36f5060a4994951370e0e4a1239dfb7",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-32-018Z-62d0fc53-e6ee-4b71-8be2-1852b0b2eeac.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-32-018Z-62d0fc53-e6ee-4b71-8be2-1852b0b2eeac.json",
+      "sha256": "4f4b3dcc62255be64fc1aebfe1f5a5b36900fd236a1155ecc61779cac84a7297",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-33-582Z-aa6c51d1-94eb-47ee-81c9-c05d4ca645dd.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-33-582Z-aa6c51d1-94eb-47ee-81c9-c05d4ca645dd.json",
+      "sha256": "2fc1732490b6b0bc2f5485e49b04c486d330716183c7f252dd78a1ab6f0c5c42",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-35-847Z-7bc3320b-f1e1-46ba-945c-0ab4b7c9169b.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-35-847Z-7bc3320b-f1e1-46ba-945c-0ab4b7c9169b.json",
+      "sha256": "d1795a08cc17983a589ee3211186349e7b45705231370ce8df80087742dbab9a",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-37-459Z-22c72b06-b077-44e1-b60a-7bc691d7359b.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-37-459Z-22c72b06-b077-44e1-b60a-7bc691d7359b.json",
+      "sha256": "ef839e79b9954dcc3e423c6b0b642388be6ac3986959f51dac82e5531f15f364",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-17-39-797Z-c07f7625-c85e-4b3b-adf7-65283e4d3456.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-17-39-797Z-c07f7625-c85e-4b3b-adf7-65283e4d3456.json",
+      "sha256": "a42f5d3f0a8595e279df32b49fc1cd3f3b8e3dda6a3f54528b4fa0d3285a6f4e",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-21-18-414Z-46d505ac-3f13-4cf7-9ced-4846ca0e7d48.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-21-18-414Z-46d505ac-3f13-4cf7-9ced-4846ca0e7d48.json",
+      "sha256": "6a5f9182dac820ea628a819b0b87efe191da55bdbd1a05ee817a1913ab59c25c",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-21-20-721Z-31a0b27f-c4b7-4bf1-bef3-ac40512f7cd9.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-21-20-721Z-31a0b27f-c4b7-4bf1-bef3-ac40512f7cd9.json",
+      "sha256": "94df8512bf88274e504a92912fa7e92b5c791c81ff11d653f9b3729ec8d2af39",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-21-23-086Z-98663b50-aa56-489f-8e2c-3171b0a5ff90.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-21-23-086Z-98663b50-aa56-489f-8e2c-3171b0a5ff90.json",
+      "sha256": "a96b46d2f41442ea79fae26485d31a25387004d2b5cc41ed863ffe5455617889",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-21-25-417Z-0245d052-a544-4ecf-9f0f-9cdb07b071fb.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-21-25-417Z-0245d052-a544-4ecf-9f0f-9cdb07b071fb.json",
+      "sha256": "753b19b0b285c40b0f7f7f107d8aab12da22dea3e31ea4a8d69fcf712168f573",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-21-27-829Z-8392ae41-11de-492b-afbf-62c79dce3067.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-21-27-829Z-8392ae41-11de-492b-afbf-62c79dce3067.json",
+      "sha256": "f87884faf8615a01dc9115b40be1931396cf996082325d057c1c184fdfe8b26d",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-21-30-109Z-2aa8b56e-5fb8-431e-967d-cccc6369c2bc.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-21-30-109Z-2aa8b56e-5fb8-431e-967d-cccc6369c2bc.json",
+      "sha256": "bf95b2913d612f13d86971c589a720ae365a6a36ca45f8de6e7e82da8757d618",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-21-32-527Z-0805c4cb-3ebf-4a69-af51-f3f7d063e200.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-21-32-527Z-0805c4cb-3ebf-4a69-af51-f3f7d063e200.json",
+      "sha256": "e8b0a07b1a30730094c12ea2b5df340720cea80b44d6891d2a048545745f7275",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-21-35-109Z-8c6809ec-e395-4c4e-b1ba-c4b4dd01521a.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-21-35-109Z-8c6809ec-e395-4c4e-b1ba-c4b4dd01521a.json",
+      "sha256": "72d23f157729fd250ace8c544a53027c7f07021861235682c067e011c4a10be9",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-21-37-386Z-d3aade66-b7fd-4fc4-852e-6d3f7442d41d.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-21-37-386Z-d3aade66-b7fd-4fc4-852e-6d3f7442d41d.json",
+      "sha256": "03775024edb70351ae3d6008e607281a8b84b968686f8ef34996341887d86aeb",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-21-39-724Z-bebce0f4-8ecb-4835-b351-d40cc36c1fca.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-21-39-724Z-bebce0f4-8ecb-4835-b351-d40cc36c1fca.json",
+      "sha256": "e2777f0c859caf1b6a6294058cc6fc6aec28bc84778670e2b660b742759fa209",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-27-50-673Z-f3f4f9dc-620e-4d6c-94bc-87b5777441ef.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-27-50-673Z-f3f4f9dc-620e-4d6c-94bc-87b5777441ef.json",
+      "sha256": "4a69bed3eb23db0ab0ee5088c82def15c36fea25675cd7c293b0198b6f72248d",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-27-52-445Z-f6f5397a-4d15-45af-91ed-1d8dfd00100d.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-27-52-445Z-f6f5397a-4d15-45af-91ed-1d8dfd00100d.json",
+      "sha256": "b51d45a6e5e11cb3f3601fd40cf88f8b2fbd38d283ac98559ddf0e37c2e59f75",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-27-54-178Z-e26b7f03-5415-478f-a71a-eccc0b22a63a.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-27-54-178Z-e26b7f03-5415-478f-a71a-eccc0b22a63a.json",
+      "sha256": "e5a0351200b56c75203fd94fcfb714d049a99d8c8f84f04cc6c52f9966b97222",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-27-56-769Z-b7f9aa10-ee5d-42d3-9510-0b54d9184462.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-27-56-769Z-b7f9aa10-ee5d-42d3-9510-0b54d9184462.json",
+      "sha256": "f1e09d4ad342e006c05bd7798f2f1c693eb29ad3bd8c541d9f5c764bdf65bb7c",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-27-58-689Z-786925c0-9158-4b50-b5ee-6fad270f480d.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-27-58-689Z-786925c0-9158-4b50-b5ee-6fad270f480d.json",
+      "sha256": "62322195d739ddac81f4f9ac579b17a480349d632a6ed26a9e57fcb1631d4cd4",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-00-575Z-a417ded9-3791-47c2-bd4c-d66d9ce7f1f8.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-00-575Z-a417ded9-3791-47c2-bd4c-d66d9ce7f1f8.json",
+      "sha256": "cea39310e185a269e1451d34c5654c46447591645b149cfbfa8c293c6dfdae4b",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-02-407Z-561da156-6af3-44c5-86ad-99027b79de71.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-02-407Z-561da156-6af3-44c5-86ad-99027b79de71.json",
+      "sha256": "4ac9043165954584e407517a1b508ebd42d7aef9870e43ba9ee5a4eed3648fe7",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-04-982Z-a019fc9d-b118-448f-a569-1c6309c9537a.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-04-982Z-a019fc9d-b118-448f-a569-1c6309c9537a.json",
+      "sha256": "9ced389e348ae909325bd3149ff93de14b830cfd911dea120520ecf803f95c15",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-07-068Z-fc052301-e8df-4d81-9bed-a95e6368f590.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-07-068Z-fc052301-e8df-4d81-9bed-a95e6368f590.json",
+      "sha256": "7523aa5ad3442ccede8104b73e23702428cf80fc426d5450af697c6345847878",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-08-737Z-bc6c898d-2313-4aca-b97d-a7d9f7027382.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-08-737Z-bc6c898d-2313-4aca-b97d-a7d9f7027382.json",
+      "sha256": "2debc7d9c6f1a638fa4bd669403fcf27d3ef40bb563cfaf7f41a5085f85f5bff",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-10-444Z-df6c1909-3c2f-4381-926e-88b58c6eb4b2.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-10-444Z-df6c1909-3c2f-4381-926e-88b58c6eb4b2.json",
+      "sha256": "42739f6911db0e210f3a229253b850290d923d30baea8ed519c55c99e6aad330",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-13-080Z-ba1f2d60-aa86-4feb-9f71-52a9f496ff37.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-13-080Z-ba1f2d60-aa86-4feb-9f71-52a9f496ff37.json",
+      "sha256": "4cca7d381ca0375ca92cbe2eed6b2295b13f50f0bfefef67dc8d1f4815141429",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-15-004Z-e990a1f8-3a1b-4e20-9e13-26d3053fc09f.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-15-004Z-e990a1f8-3a1b-4e20-9e13-26d3053fc09f.json",
+      "sha256": "a6899ba273b90a3092091018919af5691d9bdf320c47bcf611f2c2f04b66694f",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-16-697Z-02204cb9-ec84-4b81-9bb3-9de93cebc5d5.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-16-697Z-02204cb9-ec84-4b81-9bb3-9de93cebc5d5.json",
+      "sha256": "75b2bd9134cf9523422651cff82e4a0f3b11ee0127719e45c0543110f9aaa1b9",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-18-679Z-2187654d-44b0-4652-8123-9391b74f6060.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-18-679Z-2187654d-44b0-4652-8123-9391b74f6060.json",
+      "sha256": "c58c64af5559b5268152ccaf045e1dfde974d92275d870979238b94e0745d8bd",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-21-157Z-80406f8b-976d-42d9-86b0-446c23485a1a.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-21-157Z-80406f8b-976d-42d9-86b0-446c23485a1a.json",
+      "sha256": "47ab62fcf42b77f1a9eba0f680e8810584e2f12db934fe044b6799a68600ed6c",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-22-949Z-7e87a5c3-3475-4ea7-97e0-9d9efab621c6.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-22-949Z-7e87a5c3-3475-4ea7-97e0-9d9efab621c6.json",
+      "sha256": "c8b42f608871967523513caabdc9c75feefe87c67cff5c19abd43564adcff7a7",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-24-659Z-974995c2-8882-45a8-9bb5-d076883f4279.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-24-659Z-974995c2-8882-45a8-9bb5-d076883f4279.json",
+      "sha256": "64ce78083deab32bcdcfff7b0ad0d4cf3f9a266be2fa44de1ad192b0ffff1bd7",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-26-334Z-3e3ed75a-f2a7-4ce1-a081-7db603ae5904.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-26-334Z-3e3ed75a-f2a7-4ce1-a081-7db603ae5904.json",
+      "sha256": "7bcf22b846f315d08a9d277edfb8e85344ad319d6cfdb96261a8d9ef619785f3",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-28-689Z-bd703a79-159d-4ebc-8aaa-e9b36e325514.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-28-689Z-bd703a79-159d-4ebc-8aaa-e9b36e325514.json",
+      "sha256": "c73ed2ab518794959b6c9d8672a600b246248f04a956411e675a81a60bf0d1a8",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-30-295Z-43d7dbc0-1851-438c-a2e7-ff7b200d3bde.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-30-295Z-43d7dbc0-1851-438c-a2e7-ff7b200d3bde.json",
+      "sha256": "c70f01f32906d31be05edf4efb8f5a72d572c76b9c20e565eb3ac7f069c428ee",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-32-795Z-6fbe1099-e590-4ee5-8ed3-d4c7f2b3a910.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-32-795Z-6fbe1099-e590-4ee5-8ed3-d4c7f2b3a910.json",
+      "sha256": "1246e6fbb7c7142304eff0d91ab7991e7f987714e83f55cea1a11b0beaff10e7",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-34-392Z-b42e08c1-f73b-43d9-a3ad-82720ffdc399.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-34-392Z-b42e08c1-f73b-43d9-a3ad-82720ffdc399.json",
+      "sha256": "1e9bbf5d38e340557461a3fec37e2f6cf918623b6416200e8c753af0b8f823ed",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-37-086Z-afbe389e-687c-4330-99cb-2b42fded1d38.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-37-086Z-afbe389e-687c-4330-99cb-2b42fded1d38.json",
+      "sha256": "e5fc85723de48ac7ae89e2a417dc5f4d157f30f35766cffc81621c3e077e0ed6",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-38-857Z-4b0f28fb-5af8-46f3-b82d-a8adc07f1a79.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-38-857Z-4b0f28fb-5af8-46f3-b82d-a8adc07f1a79.json",
+      "sha256": "88d2af3de286c7a1c46ba9fe697e82174ee0b627fdc1d529a138e0d6dd0cd776",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-41-535Z-653e2037-4110-40dd-8328-00fd334a794f.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-41-535Z-653e2037-4110-40dd-8328-00fd334a794f.json",
+      "sha256": "877496411798fed2790689975504fe025a76fd042736cb6e20fffb448a98f904",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-48-806Z-112aedcb-376b-45c9-abe6-4c9748b03688.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-48-806Z-112aedcb-376b-45c9-abe6-4c9748b03688.json",
+      "sha256": "9a796526793837e20123817ba6a2b81fce8a2e3ec5a59eca65d76aa068f74e8a",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-53-892Z-cc281430-b7ae-4925-a74c-c6baa93fd868.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-53-892Z-cc281430-b7ae-4925-a74c-c6baa93fd868.json",
+      "sha256": "6c4f5c5c23eeaaa15a9eefeb1dd35c4d67a179e63040e3a461d4c35cc118707f",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-55-596Z-731db4b4-87eb-42b6-a75a-6efaf00e3277.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-55-596Z-731db4b4-87eb-42b6-a75a-6efaf00e3277.json",
+      "sha256": "9094413a749084999a97bac03160bdf95f1cf4f4cbc7c67e9d89de6c38a67da2",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T20-28-58-005Z-6ab81bd4-6ce0-430b-88e4-a0e312a2603f.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T20-28-58-005Z-6ab81bd4-6ce0-430b-88e4-a0e312a2603f.json",
+      "sha256": "62a57f2aecc092187235c979c1fa410f1abe8f72d654dcee85b178c4001d8c24",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-23-24-563Z-3778d1fa-58ab-4476-8188-f4292c03c923.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-23-24-563Z-3778d1fa-58ab-4476-8188-f4292c03c923.json",
+      "sha256": "1a7cd97814620f8c5985201a86fd870916fd9cec0e33c0c9952f771f4d2ef061",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-23-26-569Z-7afeaae0-2459-4c33-ba5c-3d2ce1329736.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-23-26-569Z-7afeaae0-2459-4c33-ba5c-3d2ce1329736.json",
+      "sha256": "e9de2089fa6a3defc49fdf05474fe4ea16a69580a3ee0a06349a53d44a195d85",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-23-28-300Z-1ebfffb9-7133-49e1-9b78-d9774256cb35.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-23-28-300Z-1ebfffb9-7133-49e1-9b78-d9774256cb35.json",
+      "sha256": "0a91927a0a2a6c9e9468b13f5b3c6466200975f38d74ff6e8136c572f4d63d1c",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-23-30-977Z-2aca89b2-444b-452f-a013-bcb93f6e741d.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-23-30-977Z-2aca89b2-444b-452f-a013-bcb93f6e741d.json",
+      "sha256": "6ec769660e3828719dca7ba1ae48da81910513e773343c3af186a5d2443a927a",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-23-32-756Z-833d2d01-1021-49b0-8447-a888a12296be.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-23-32-756Z-833d2d01-1021-49b0-8447-a888a12296be.json",
+      "sha256": "e5de34134a5ba57909268e29832bb5dbffe1441171bfcb3fc413d45db1ce4d65",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-23-34-471Z-d0512a5d-ddf9-4d40-b1c6-001628f5fafb.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-23-34-471Z-d0512a5d-ddf9-4d40-b1c6-001628f5fafb.json",
+      "sha256": "3952535f7cdf736c079d0dd7251b8ab55be34d30f16d61754ccc1168f109b8fd",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-23-36-179Z-11fc7c14-c2e2-4e6d-a5fa-af4c0e0a1df8.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-23-36-179Z-11fc7c14-c2e2-4e6d-a5fa-af4c0e0a1df8.json",
+      "sha256": "310141e6609f524389e1ff9378c63f9fe32ef59ecbaa912f64248cf60467ca44",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-23-38-638Z-eace5c84-9fe7-4731-ae9c-531c1ad3fc74.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-23-38-638Z-eace5c84-9fe7-4731-ae9c-531c1ad3fc74.json",
+      "sha256": "d05e2049433a2a8866fc7f66bef97b0e5b51a7dedeecc71407da1eec7c9efd62",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-23-40-394Z-43f3ffb8-4c1e-4ff3-83b3-2dcc72025002.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-23-40-394Z-43f3ffb8-4c1e-4ff3-83b3-2dcc72025002.json",
+      "sha256": "3a88ce92b80f9f2561ba30a6f06c7fc70727e8a4f4541e2a593bc3848b0369ac",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-23-42-257Z-50a44250-cbbb-466f-8147-8823d4c158fc.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-23-42-257Z-50a44250-cbbb-466f-8147-8823d4c158fc.json",
+      "sha256": "e6fb50f7d7b65ca49e3700db075a2a22daa49b18e41dd2ac5abcc3aec789f42a",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-23-44-389Z-264cd460-56b4-496d-b9e7-74908e086a1a.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-23-44-389Z-264cd460-56b4-496d-b9e7-74908e086a1a.json",
+      "sha256": "009b70b1d05b186356b339232168fed93d865f9172e8406d136c257e40683869",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-23-46-998Z-9a1271c7-634f-424e-bc5c-013145090d7e.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-23-46-998Z-9a1271c7-634f-424e-bc5c-013145090d7e.json",
+      "sha256": "294dab19b7156fbb521b98862ebe3040c487a347df8550fdee36380c5ddc87f1",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-23-48-768Z-02b721f6-4de5-4fee-b2d2-6ac7e6367083.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-23-48-768Z-02b721f6-4de5-4fee-b2d2-6ac7e6367083.json",
+      "sha256": "e5c60211784e40718e599b83cca51dc9b2a89ac6c2b8f93468d0377c37c8db56",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-23-50-560Z-83d700c2-5dc3-4b41-bced-1e97e3276999.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-23-50-560Z-83d700c2-5dc3-4b41-bced-1e97e3276999.json",
+      "sha256": "c177545136d4c182fdc8dd2fed33d00be695446abfd0ea68ba1100a4e824ac12",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-23-52-322Z-c355b4b3-7d69-4cd3-89e9-338af0666363.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-23-52-322Z-c355b4b3-7d69-4cd3-89e9-338af0666363.json",
+      "sha256": "71955d3da478f46aae283b96e783383410abafdbcaea16e7c7f8232af8b174a4",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-23-55-045Z-0308d332-c829-4fbf-93a9-56167bf88f3c.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-23-55-045Z-0308d332-c829-4fbf-93a9-56167bf88f3c.json",
+      "sha256": "3877c1434b40d0b1afeb1d0f2ae99687bb5dcc586d0941fe1427a10ef8b0eacb",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-23-56-950Z-2893a36e-7c0b-440e-9218-7c6bdbd20a5b.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-23-56-950Z-2893a36e-7c0b-440e-9218-7c6bdbd20a5b.json",
+      "sha256": "bdebcc0433033c9bfe4ed16179c9626168f90ec91004511c57284a2ffb2d5a21",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-23-58-649Z-412891bc-8158-4211-919e-a35141e15256.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-23-58-649Z-412891bc-8158-4211-919e-a35141e15256.json",
+      "sha256": "690622335ab14908e63b8ff2dc4c3d03b105197edd68de92e4b2be8bf4240594",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-24-00-788Z-9cae52f1-ea28-4e68-91bc-ccf7af4963ba.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-24-00-788Z-9cae52f1-ea28-4e68-91bc-ccf7af4963ba.json",
+      "sha256": "a90e30418b0d8dc312d931cf26bc3ddb698739173f7c5b482143585b477ef147",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-24-03-669Z-835e6a26-2fd0-49a9-9b47-17198b4641a6.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-24-03-669Z-835e6a26-2fd0-49a9-9b47-17198b4641a6.json",
+      "sha256": "810105f7eedaa771e34a705fb295ee5054f3405194b0f7fb6d9e41ff8f65bc4a",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-24-05-815Z-0e0a4b5f-17c8-4054-b296-8fa02179f0f3.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-24-05-815Z-0e0a4b5f-17c8-4054-b296-8fa02179f0f3.json",
+      "sha256": "3729d92002cc8a4b028fa16aee998a5b2b52dc56776e264c2bf2d615709dd559",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-24-08-186Z-38258d6f-6b8d-49c2-8799-8c6e8744b087.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-24-08-186Z-38258d6f-6b8d-49c2-8799-8c6e8744b087.json",
+      "sha256": "66da1ed8d36e075def73832752802557a3dafdba87c2d8f5b306ae7862d3b322",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-24-09-910Z-f1857659-2dd6-4297-a496-2c584fe21a39.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-24-09-910Z-f1857659-2dd6-4297-a496-2c584fe21a39.json",
+      "sha256": "b8908680afbb8bf530413cdc9761f01ad6bb629d66987ec70e934d05892d597e",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-24-12-276Z-e3a0826f-8eb1-4b40-b5d3-3e52af3f863e.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-24-12-276Z-e3a0826f-8eb1-4b40-b5d3-3e52af3f863e.json",
+      "sha256": "6a877bd9c0a570eec07aa13b2fb1f0c3a52fb899606ac210c2949a3a1216f4a4",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-24-13-931Z-3b3ac31b-d576-45ae-98f6-2e85b78cc808.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-24-13-931Z-3b3ac31b-d576-45ae-98f6-2e85b78cc808.json",
+      "sha256": "4e5346fe6e4a11b76c4f35a2a28ee3394defaf4fb7e2736d157a09cdce336ba2",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-24-16-230Z-ca83be50-dd84-4950-9fcf-785508520649.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-24-16-230Z-ca83be50-dd84-4950-9fcf-785508520649.json",
+      "sha256": "3976da64905833d03a170c18864cfc37f9e60315be1a268f425913070dd99592",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-24-17-799Z-4f50797a-feb4-41d9-9bd3-29159e31812a.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-24-17-799Z-4f50797a-feb4-41d9-9bd3-29159e31812a.json",
+      "sha256": "dedd90a61feaa04760bacdef0a69d96ac51487a33a7dc0ff82d1bbc012ea8db3",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-24-20-116Z-9543716b-b8d5-49aa-8536-c3ac8e2697d7.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-24-20-116Z-9543716b-b8d5-49aa-8536-c3ac8e2697d7.json",
+      "sha256": "da594672d8fa9a725bfffa6f377f86445ee651cc93e4d660e0d8c9c749d8257a",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-24-21-683Z-16aaf4e2-ff9f-4ad3-990c-95dd99a99cba.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-24-21-683Z-16aaf4e2-ff9f-4ad3-990c-95dd99a99cba.json",
+      "sha256": "c359f2da9f17d62b58fd635a55d3a48ea8ec5c75fe2c237ff0a3015c23c311d4",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-003-2026-10-19T21-24-23-987Z-c3097f63-f2de-4d90-b2e4-720479fd32a9.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-003-2026-10-19T21-24-23-987Z-c3097f63-f2de-4d90-b2e4-720479fd32a9.json",
+      "sha256": "8cea2f6b03caa51b2f9ac0cf9ed51bb3e937ab3405a9b76db04c10612d22d72e",
+      "requirementId": "MV-S6-PICTURE-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-17-39-898Z-08b9232d-045e-4f7a-953f-2a2511224f2c.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-17-39-898Z-08b9232d-045e-4f7a-953f-2a2511224f2c.json",
+      "sha256": "50245abefcad4eaf13cfa045463dc4bc14089bb6cc5624eaae14957011e76d72",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-17-42-183Z-3ef132c7-6eae-4e80-9858-b0ad8b8f91e0.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-17-42-183Z-3ef132c7-6eae-4e80-9858-b0ad8b8f91e0.json",
+      "sha256": "4c0e144b5a5bf1631c55470ad6ce7638d18c4223efab836008da8f15ac70482d",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-17-42-272Z-bb92bb78-ba01-4695-b8b7-86bc338bf082.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-17-42-272Z-bb92bb78-ba01-4695-b8b7-86bc338bf082.json",
+      "sha256": "2d305462b4e01b92425a18abef85162ad05fdc2cce3b47c8e8f4eef259300161",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-17-44-557Z-a7d4c74c-76e8-4a21-851f-3f4b296c4061.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-17-44-557Z-a7d4c74c-76e8-4a21-851f-3f4b296c4061.json",
+      "sha256": "f10b7aab0f29d07777bf7ac3bb3ac8658ce6c5d6f455ff43b45c456ea32b13d8",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-17-44-670Z-4bde708a-ab54-4e57-a635-552f8d36562d.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-17-44-670Z-4bde708a-ab54-4e57-a635-552f8d36562d.json",
+      "sha256": "40a1ab9f4c546308d14a351a36baef503a2434d36634f5621f392b89cd77f7a6",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-17-46-985Z-56295ac1-e211-484c-8107-702a26e63e53.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-17-46-985Z-56295ac1-e211-484c-8107-702a26e63e53.json",
+      "sha256": "9bda027e15859ae4f5242e50f18e73262f00993b9dcd8dc9ed1ac520221a3e2e",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-17-47-073Z-17b68b19-8bbb-4858-a070-ab95d7624b24.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-17-47-073Z-17b68b19-8bbb-4858-a070-ab95d7624b24.json",
+      "sha256": "8ac32264138151bbba57dc4bad172641a3932434e3e81cda337ab93b712997fc",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-17-49-388Z-22a2e0ab-29f8-414c-bdb4-936bf475c476.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-17-49-388Z-22a2e0ab-29f8-414c-bdb4-936bf475c476.json",
+      "sha256": "634a364e7d32d7dffdd1febba2acff0f2343dabf01968a2bb1c20e87dc074e56",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-17-49-478Z-7431e644-dd9a-43d9-91c6-573bd30d4bab.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-17-49-478Z-7431e644-dd9a-43d9-91c6-573bd30d4bab.json",
+      "sha256": "6786d7910b828cb6773bd9046e69d28214f8c05d616dbdb3b8941e3433b10b57",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-17-51-767Z-f694bc40-991b-4528-b3d0-74b4923168ec.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-17-51-767Z-f694bc40-991b-4528-b3d0-74b4923168ec.json",
+      "sha256": "48ce9eb8528e02dc07e80bd3810e0642c1672beadf5c1bc69ccfb4b0fa779794",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-17-51-859Z-eb0e22e1-82fb-4dd3-9fb2-68e00b19a300.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-17-51-859Z-eb0e22e1-82fb-4dd3-9fb2-68e00b19a300.json",
+      "sha256": "e22496ef24e862be16f5c62af132505fa4e29507697fffe4916aa6ddf773bcc4",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-17-54-350Z-0a40836f-4ae4-4802-b8d5-8ef5b6062766.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-17-54-350Z-0a40836f-4ae4-4802-b8d5-8ef5b6062766.json",
+      "sha256": "f44fd00ea5ac1875f096e4d62e5d007ba0d4b227a9fbe17af23aa140ddbad34c",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-17-54-509Z-620b2d6e-ef24-4d12-9657-0b1af2b48963.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-17-54-509Z-620b2d6e-ef24-4d12-9657-0b1af2b48963.json",
+      "sha256": "7a663866f21089fcd648caee6c7a12f40a46e2cdb77942ae846b382caf284d99",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-17-57-192Z-dc291ac1-9d0c-4109-a838-e3c54aee543d.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-17-57-192Z-dc291ac1-9d0c-4109-a838-e3c54aee543d.json",
+      "sha256": "ec68fec043829fd4969b7de36d0e349895cf420f0a4ab3ed8afcd3d6a94326f6",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-17-57-331Z-8029d10c-d3e8-4510-8e3b-099cd138f1c6.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-17-57-331Z-8029d10c-d3e8-4510-8e3b-099cd138f1c6.json",
+      "sha256": "f1d6fa2de7bc1dc7e5e30d6980a14503bc725120bf78736ef6e606641bfb7e77",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-17-59-986Z-e5e210b6-6055-4687-ab9b-f8ce8935ed1e.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-17-59-986Z-e5e210b6-6055-4687-ab9b-f8ce8935ed1e.json",
+      "sha256": "f44bb86d42753daca47a06195a5c0159eb2ef8ebdcf5b6121387ba946415e283",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-18-00-102Z-57bc4139-c3a9-4d39-9b21-58b5f8f5902b.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-18-00-102Z-57bc4139-c3a9-4d39-9b21-58b5f8f5902b.json",
+      "sha256": "d9c37737b2a63aab97d0c322cc26433a723261328ea6a3c1cbab22301c30dab1",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "failed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-18-02-561Z-eba4ab6b-7d78-4ebe-8c05-d1ec5ad8608d.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-18-02-561Z-eba4ab6b-7d78-4ebe-8c05-d1ec5ad8608d.json",
+      "sha256": "1fac941dc62632566b0926c0ae62a156fe49d14293e18f8b733c997c815c81e7",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-21-39-831Z-05a406cc-a477-4c2c-9166-900cca0e55a2.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-21-39-831Z-05a406cc-a477-4c2c-9166-900cca0e55a2.json",
+      "sha256": "e81773a547a3a18c169e19190ff84e65c6757558fac3b562a740856393f7b181",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-28-58-263Z-353bdd05-49da-4a29-abf2-95bb198dbbbc.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-28-58-263Z-353bdd05-49da-4a29-abf2-95bb198dbbbc.json",
+      "sha256": "a581cc4c1f884b673f1c773b2c1c1f1563876fa0d63d39afddfd28b9f841e04d",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-29-00-689Z-0101881d-34ea-410f-8361-507be5628f97.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-29-00-689Z-0101881d-34ea-410f-8361-507be5628f97.json",
+      "sha256": "2bc33ffd118b1a393a2864003718c6dd1913b63f83e41e9a3351892baf60076c",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-29-00-792Z-cb80da8c-daa8-4aea-b309-aad6a0896b02.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-29-00-792Z-cb80da8c-daa8-4aea-b309-aad6a0896b02.json",
+      "sha256": "d39529937c426b8989ba4d43297b10a64aef570f6d61aafe38316a6810eeba93",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-29-03-181Z-ff350d1b-331b-46b5-a1d8-d304894366ab.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-29-03-181Z-ff350d1b-331b-46b5-a1d8-d304894366ab.json",
+      "sha256": "dc08ad2e1dade42905ee7798046190df3139fb6584557b9d569b9caa41dc82a1",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-29-03-317Z-7fe0d311-9c11-436c-8e76-2a31b017d79d.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-29-03-317Z-7fe0d311-9c11-436c-8e76-2a31b017d79d.json",
+      "sha256": "0310f9b7145c901827568c587206dd38aa5e6e1394f9e5630ae62383ab40a0af",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-29-06-917Z-5fa92493-9c92-4de3-980a-3626179f63f9.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-29-06-917Z-5fa92493-9c92-4de3-980a-3626179f63f9.json",
+      "sha256": "5a672baa7f3e8773ec2e35458b700331137db7e9954ea93f1ec88364b91c6da1",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-29-07-019Z-8b4d30b4-d61e-411d-9871-6ea6bb85d4bb.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-29-07-019Z-8b4d30b4-d61e-411d-9871-6ea6bb85d4bb.json",
+      "sha256": "a211489b6e24a41853f4e69f932d29b6370cd1d2b5a9480e60eb6a58c7a6eac9",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-29-09-369Z-bf0b0930-ff4d-478a-bb3c-75833a2187d7.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-29-09-369Z-bf0b0930-ff4d-478a-bb3c-75833a2187d7.json",
+      "sha256": "5312051a35fd07f37731eff442aca579b37c59e406e35a4da23ddaca999d80f1",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-29-09-601Z-2d252373-4425-4239-aca5-e8021523bbc3.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-29-09-601Z-2d252373-4425-4239-aca5-e8021523bbc3.json",
+      "sha256": "3a9f3af83d25db46a2b9d0763e85404e98b58e90b375650659e3c3a6fb1e3f9c",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-29-11-890Z-bce73099-5b86-4381-b741-649e88357ed0.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-29-11-890Z-bce73099-5b86-4381-b741-649e88357ed0.json",
+      "sha256": "9c7ea2751f3a77a7c85535beaeeda5fac1cf68989d98881d0c25c50309f58c22",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-29-11-986Z-5e3ee967-4445-41fc-a3d2-ca66cf9e318e.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-29-11-986Z-5e3ee967-4445-41fc-a3d2-ca66cf9e318e.json",
+      "sha256": "88ca73f4c32669e376c283cccecd4a0dfdcbeb0d6e73c949adec7f801a165193",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-29-14-333Z-3d6965ac-b503-4df7-a2a2-702c687cea4a.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-29-14-333Z-3d6965ac-b503-4df7-a2a2-702c687cea4a.json",
+      "sha256": "1031ef517d7474ecc8197b3a731b8153a00983d7c502594902e770b1b86c7ba7",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-29-14-456Z-bdd84901-7e15-4495-87b8-62548846973b.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-29-14-456Z-bdd84901-7e15-4495-87b8-62548846973b.json",
+      "sha256": "920bf866cfdf65ae7504da19feb09023585cfa1261954357f0bb5c8bbdad52bc",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-29-17-756Z-01f1e7d9-cde3-4f26-be83-8f291936dca6.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-29-17-756Z-01f1e7d9-cde3-4f26-be83-8f291936dca6.json",
+      "sha256": "6f88626ead37372b2bb1878248a47b59318537e3c5f3999d7223e54605b9d53f",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-29-18-173Z-d92daba9-8381-4477-8727-7dd5e7c23799.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-29-18-173Z-d92daba9-8381-4477-8727-7dd5e7c23799.json",
+      "sha256": "da837946c7daa63dca5086266813dc3e3ccc9528d309532086e3c67c7681f9aa",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-29-20-559Z-aeed8455-8c3c-46d0-83a1-fdd2778f900b.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-29-20-559Z-aeed8455-8c3c-46d0-83a1-fdd2778f900b.json",
+      "sha256": "033a4dce5eca9f50a2fa205e57607a51fdbf02a3b46a7bd0b88d102228eb3edb",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-29-20-684Z-7e21119f-4e72-4c52-836e-3065796ac853.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-29-20-684Z-7e21119f-4e72-4c52-836e-3065796ac853.json",
+      "sha256": "6d9be01431883b02896727e92ba78400a0401a85bdbc62f60bc3a2940b0e760f",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T20-29-23-953Z-bc9fbd9f-82e2-4185-80ca-eec46eeb7417.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T20-29-23-953Z-bc9fbd9f-82e2-4185-80ca-eec46eeb7417.json",
+      "sha256": "4bdfde0d09cb2fcc71f662e96428aad911a842e29ba954b85f2155db17893349",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T21-24-24-079Z-1fca353a-1f35-4c6b-acb6-a67de8443079.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T21-24-24-079Z-1fca353a-1f35-4c6b-acb6-a67de8443079.json",
+      "sha256": "5b91a41cd20b3209d7fc0e4d04700314a36a69fff70728f596b7a073d0c89e93",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T21-24-26-386Z-cb0062e3-f16b-40b6-91ae-2ab3c415ac9d.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T21-24-26-386Z-cb0062e3-f16b-40b6-91ae-2ab3c415ac9d.json",
+      "sha256": "8de60b0fd31e213b8e0de3e5527c1cdd5bd2a5eaea117995dfd84b153cd8440f",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T21-24-26-486Z-0699c1bf-564c-4aa5-9b09-9ab32974d35b.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T21-24-26-486Z-0699c1bf-564c-4aa5-9b09-9ab32974d35b.json",
+      "sha256": "6153b52c751efb028b2ce7d577fb4939d64819672a647506749b11e056fec558",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T21-24-28-810Z-201d4a86-358e-4aee-aba6-131246d3d830.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T21-24-28-810Z-201d4a86-358e-4aee-aba6-131246d3d830.json",
+      "sha256": "19b8ab2117bb0cf2ec773eb865217a08bc963645560c846ffecb3af4291f0f7c",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T21-24-28-911Z-1756c410-89ab-4752-83a6-d27b9f86fa97.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T21-24-28-911Z-1756c410-89ab-4752-83a6-d27b9f86fa97.json",
+      "sha256": "e9aff76725dcffe8b9aafff5f0961d42f395a1d98d2fed57949d22ad9c4a82b2",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T21-24-31-192Z-553b98a5-9ee5-48d7-a80f-9ade11510caf.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T21-24-31-192Z-553b98a5-9ee5-48d7-a80f-9ade11510caf.json",
+      "sha256": "fe201730da28bbbd7efa37310476839e44af1f17830e8062659a4c1c75d25053",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T21-24-31-284Z-1a70ce4e-2b9a-4675-94e7-147994e1459d.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T21-24-31-284Z-1a70ce4e-2b9a-4675-94e7-147994e1459d.json",
+      "sha256": "56e03423a718bc73c9e702a9cb614e19bb000317dcfc077a5418b7b1d71fdd24",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T21-24-33-590Z-e9f12acb-0b88-408a-8280-9d7eeb98cdf6.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T21-24-33-590Z-e9f12acb-0b88-408a-8280-9d7eeb98cdf6.json",
+      "sha256": "732b7805791e436cae94ed8f5a86de934cfc5fc61d14d3b6d760b3081c61b80b",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T21-24-33-685Z-0db00e5a-9f54-4a7b-9dd6-4f858fa8fc0f.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T21-24-33-685Z-0db00e5a-9f54-4a7b-9dd6-4f858fa8fc0f.json",
+      "sha256": "d9309038dd39f0570e7050aa2fc316baaa8687af5c9a7053cee140875cd8e873",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T21-24-35-960Z-45db68f9-d3f3-47d8-a937-37d46d7f94b4.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T21-24-35-960Z-45db68f9-d3f3-47d8-a937-37d46d7f94b4.json",
+      "sha256": "a5165379af72c085c756f1809e2c547e860ac47f06e0955dd179805a373df473",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T21-24-36-056Z-fed34fa5-a1be-4eed-b641-e54e09aa2407.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T21-24-36-056Z-fed34fa5-a1be-4eed-b641-e54e09aa2407.json",
+      "sha256": "b0b9e647cce4f8700218efd75c6cc1d71fe2c08a0be4183145f92f8369e26b18",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T21-24-38-370Z-29da70c5-91da-45c5-abbf-348746747d81.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T21-24-38-370Z-29da70c5-91da-45c5-abbf-348746747d81.json",
+      "sha256": "a9b4298f179471fb852c28618f637138553785e543fe44a6c8be1987aaf5905b",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T21-24-38-467Z-92ee5738-bf00-420a-b4bf-56960b44796c.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T21-24-38-467Z-92ee5738-bf00-420a-b4bf-56960b44796c.json",
+      "sha256": "81b33c9c7c60c5e47af1c3708f3f2e7326ee54e930e688f2bedb31963069deeb",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T21-24-40-769Z-c29b2e2a-fd06-439b-ae45-682299c9e9e9.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T21-24-40-769Z-c29b2e2a-fd06-439b-ae45-682299c9e9e9.json",
+      "sha256": "838a27f6d6a8be2baf9a220db0acec71c37412029da648637588bd98239cd588",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T21-24-40-873Z-b0d1efd6-da7b-48c8-af88-22a07037dcc1.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T21-24-40-873Z-b0d1efd6-da7b-48c8-af88-22a07037dcc1.json",
+      "sha256": "e5cd822ffc7f227f180db17677fe54469b788f529d0f4a5072d1e1dce72bf0ac",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T21-24-43-155Z-a1cde151-9eb3-4112-a8e2-e6815ceef04e.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T21-24-43-155Z-a1cde151-9eb3-4112-a8e2-e6815ceef04e.json",
+      "sha256": "b1fcb12cf63ae9e9d91c260c372ef2fb483894c3b1a5a2217f4b782041eea203",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T21-24-43-253Z-1ee06e51-2aab-4072-b90e-13d891b7e8ea.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T21-24-43-253Z-1ee06e51-2aab-4072-b90e-13d891b7e8ea.json",
+      "sha256": "697aeccae4ffc6c700cf55c0d3789f71c8a3e075c31bf05563090ef2a0d45c7f",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-004-2026-10-19T21-24-45-564Z-927d3c6c-4b99-4e08-9552-d734e6981e67.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-004-2026-10-19T21-24-45-564Z-927d3c6c-4b99-4e08-9552-d734e6981e67.json",
+      "sha256": "c59954bc34b87002d1f2d2cb8c01fb011ac84d6d595844947bff41b23cac9426",
+      "requirementId": "MV-S6-PICTURE-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-005-2026-10-19T20-18-05-445Z-909473a9-b3cd-4270-9ff2-35af6279d0e3.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-005-2026-10-19T20-18-05-445Z-909473a9-b3cd-4270-9ff2-35af6279d0e3.json",
+      "sha256": "9d5c1d1cf76cf38532a2f673aacd885b822e8d22addb0135d069bcfd8aa20a6c",
+      "requirementId": "MV-S6-PICTURE-005",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-005-2026-10-19T20-18-08-316Z-c2d9c296-5d20-4e25-bec4-4ffcac61e6ff.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-005-2026-10-19T20-18-08-316Z-c2d9c296-5d20-4e25-bec4-4ffcac61e6ff.json",
+      "sha256": "6881d96fb1b602b7cace21f61b697bc7bbd7046914f9d63670247d217003f80a",
+      "requirementId": "MV-S6-PICTURE-005",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-005-2026-10-19T20-18-11-095Z-71d53dcd-9d21-4129-bf04-0e22d5fca8fb.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-005-2026-10-19T20-18-11-095Z-71d53dcd-9d21-4129-bf04-0e22d5fca8fb.json",
+      "sha256": "2a48318c4304d8b8120a235d9afdcca9b01e90a68fdc3b6fb347da0de0a66083",
+      "requirementId": "MV-S6-PICTURE-005",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-005-2026-10-19T20-29-27-678Z-647071f4-cbc3-49ed-8d2b-21c0ebb3a875.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-005-2026-10-19T20-29-27-678Z-647071f4-cbc3-49ed-8d2b-21c0ebb3a875.json",
+      "sha256": "98d5eac6c3f8d33a81ff8e99ac6afee7bb3e81387859e3e052aa4683fa1ddbd4",
+      "requirementId": "MV-S6-PICTURE-005",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-005-2026-10-19T20-29-30-861Z-04b304c9-e998-4e65-84fb-bc7b6bb2fc92.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-005-2026-10-19T20-29-30-861Z-04b304c9-e998-4e65-84fb-bc7b6bb2fc92.json",
+      "sha256": "46ca91c9bc05ec203c0974bd6fd951d5763e759cfd6fa921b5201eb7068db3c2",
+      "requirementId": "MV-S6-PICTURE-005",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-005-2026-10-19T20-29-33-671Z-a2366425-6536-4576-972b-6e5284b240a6.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-005-2026-10-19T20-29-33-671Z-a2366425-6536-4576-972b-6e5284b240a6.json",
+      "sha256": "1f40ffc74eec6917a692e703f7bfc3e1aae22a83cb9f18232150d8a3b9221c1b",
+      "requirementId": "MV-S6-PICTURE-005",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-005-2026-10-19T21-24-48-289Z-449b6e41-1532-4d0c-95bf-91b3afe46a95.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-005-2026-10-19T21-24-48-289Z-449b6e41-1532-4d0c-95bf-91b3afe46a95.json",
+      "sha256": "1dfdf6e289b7dc530bb4080a2e8723fb875b36816a78833835a2e30e5ff09816",
+      "requirementId": "MV-S6-PICTURE-005",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-005-2026-10-19T21-24-51-364Z-3aaf1fa7-2a8d-4864-b09e-a574c1c8acbd.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-005-2026-10-19T21-24-51-364Z-3aaf1fa7-2a8d-4864-b09e-a574c1c8acbd.json",
+      "sha256": "fae9af1c9526f9eae56e02252c0a066dc9949bf0dcbec78bd5513dba2b015b98",
+      "requirementId": "MV-S6-PICTURE-005",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-005-2026-10-19T21-24-54-205Z-32896152-c602-43e3-b342-5208dd33e12f.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-005-2026-10-19T21-24-54-205Z-32896152-c602-43e3-b342-5208dd33e12f.json",
+      "sha256": "da06d27da2f3e104610dc994f35530c4cdad64c1bb905aeef2f010e7bb61cff7",
+      "requirementId": "MV-S6-PICTURE-005",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-006-2026-10-19T20-18-12-104Z-49defb8c-6df8-44c2-b909-a78a63acf8c3.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-006-2026-10-19T20-18-12-104Z-49defb8c-6df8-44c2-b909-a78a63acf8c3.json",
+      "sha256": "fb99bef4321462e39a01ec161908a31db8786a1fa6cbf6de9257b5baa87c00cd",
+      "requirementId": "MV-S6-PICTURE-006",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-006-2026-10-19T20-18-13-010Z-41b3ae00-0e35-45c4-811b-a20e2ef2ce50.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-006-2026-10-19T20-18-13-010Z-41b3ae00-0e35-45c4-811b-a20e2ef2ce50.json",
+      "sha256": "c295372dce35b69bfdba430c53c946d88db46828bc459bd39bb137e5e313ad43",
+      "requirementId": "MV-S6-PICTURE-006",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-006-2026-10-19T20-18-13-987Z-fbf26d2a-17e3-4cc4-9471-e6a81058af66.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-006-2026-10-19T20-18-13-987Z-fbf26d2a-17e3-4cc4-9471-e6a81058af66.json",
+      "sha256": "dedee959c232677ae4e3faaf5cb4767931571d6cdc68a17d2d4f2299e7a015db",
+      "requirementId": "MV-S6-PICTURE-006",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-006-2026-10-19T20-18-15-037Z-5b2b3b0e-d5a7-4308-a869-53ac33950fe6.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-006-2026-10-19T20-18-15-037Z-5b2b3b0e-d5a7-4308-a869-53ac33950fe6.json",
+      "sha256": "8e072edb182fcb6f4fb3eea6780f1f07c178264d379d6f22efe73f23f4e6e5bf",
+      "requirementId": "MV-S6-PICTURE-006",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-006-2026-10-19T20-18-16-001Z-9fcbd2f1-b30c-48b1-96aa-eeb2217f7af5.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-006-2026-10-19T20-18-16-001Z-9fcbd2f1-b30c-48b1-96aa-eeb2217f7af5.json",
+      "sha256": "f0fad7f15e3f1982cfe8049633590b4d2ab1993bec65c8ba96170e23aa9335d0",
+      "requirementId": "MV-S6-PICTURE-006",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-006-2026-10-19T20-18-16-986Z-85c98043-26bb-4779-82f2-c20ae3fa3b4c.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-006-2026-10-19T20-18-16-986Z-85c98043-26bb-4779-82f2-c20ae3fa3b4c.json",
+      "sha256": "742c1b5739d9a5a15b3fa8c12c91c43ea361614b3facf4d24ce1478c2a3d0895",
+      "requirementId": "MV-S6-PICTURE-006",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-006-2026-10-19T20-29-34-649Z-d3a4a6f7-20f5-4ac7-b88c-c797511e75c7.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-006-2026-10-19T20-29-34-649Z-d3a4a6f7-20f5-4ac7-b88c-c797511e75c7.json",
+      "sha256": "f0493c22c4a85eb4f84b385fb3927e45714486296e4fbc0ec90c121f4ef870ed",
+      "requirementId": "MV-S6-PICTURE-006",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-006-2026-10-19T20-29-35-607Z-34b5ac4f-6988-4474-a34b-e7a7106c42da.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-006-2026-10-19T20-29-35-607Z-34b5ac4f-6988-4474-a34b-e7a7106c42da.json",
+      "sha256": "0c0779cc8627bc6f9f0fc54fa471849d2241d6f134665bb5ce13a7854b69278b",
+      "requirementId": "MV-S6-PICTURE-006",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-006-2026-10-19T20-29-36-613Z-ab46475e-e048-479a-b40e-3bb212625563.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-006-2026-10-19T20-29-36-613Z-ab46475e-e048-479a-b40e-3bb212625563.json",
+      "sha256": "d1880f0d32d5bf29dd7c9ad0498089235cee9a964022e0d1ff8f6161f3f75b73",
+      "requirementId": "MV-S6-PICTURE-006",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-006-2026-10-19T20-29-37-676Z-9bb3c986-0123-4d03-9e22-ed1d75120a66.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-006-2026-10-19T20-29-37-676Z-9bb3c986-0123-4d03-9e22-ed1d75120a66.json",
+      "sha256": "6a606e0823f4757ae22c24471d077c8c1679f950c82d7901aa8da96f861e086d",
+      "requirementId": "MV-S6-PICTURE-006",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-006-2026-10-19T20-29-38-656Z-6f674ce1-4bc2-4c95-a0e8-4ea8fbbba03c.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-006-2026-10-19T20-29-38-656Z-6f674ce1-4bc2-4c95-a0e8-4ea8fbbba03c.json",
+      "sha256": "d72fb8ddd83cce951d47d75b752219aa7e642b5d105c1589337326edf25c6abe",
+      "requirementId": "MV-S6-PICTURE-006",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-006-2026-10-19T20-29-39-602Z-b5e15c85-f947-414d-bf36-e5dca74b505b.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-006-2026-10-19T20-29-39-602Z-b5e15c85-f947-414d-bf36-e5dca74b505b.json",
+      "sha256": "596a1c348cb367e09fcd98fdc59e84d9ff7ceb42c53de362167d12361080135b",
+      "requirementId": "MV-S6-PICTURE-006",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-006-2026-10-19T21-24-55-203Z-a75b8073-c8db-47a3-b656-28443b3b7f02.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-006-2026-10-19T21-24-55-203Z-a75b8073-c8db-47a3-b656-28443b3b7f02.json",
+      "sha256": "80f09ec7087ebf2169dd68ee9b052dadb46715b2a7cae5ddb0f3488117d289d8",
+      "requirementId": "MV-S6-PICTURE-006",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-006-2026-10-19T21-24-56-150Z-d8d944da-bdaa-4f71-8ee4-421de4a560fa.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-006-2026-10-19T21-24-56-150Z-d8d944da-bdaa-4f71-8ee4-421de4a560fa.json",
+      "sha256": "e1495c9557003ba8971a5333d46995bb5d3c135cad5d355a1ab9ee6d56969645",
+      "requirementId": "MV-S6-PICTURE-006",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-006-2026-10-19T21-24-57-075Z-c789f2c2-1625-4b09-ab22-6f2983f27f47.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-006-2026-10-19T21-24-57-075Z-c789f2c2-1625-4b09-ab22-6f2983f27f47.json",
+      "sha256": "0172765e343da8ba99e9a082e99d9893deb5b3f3ecac79851273812385a5c279",
+      "requirementId": "MV-S6-PICTURE-006",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-006-2026-10-19T21-24-58-014Z-586210ae-ebb6-4c2e-a284-65af0e03e465.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-006-2026-10-19T21-24-58-014Z-586210ae-ebb6-4c2e-a284-65af0e03e465.json",
+      "sha256": "442cbe796efd5a2fb9a59db0b98fa36a554ec04b08816d2ffe935546fea3bbe6",
+      "requirementId": "MV-S6-PICTURE-006",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-006-2026-10-19T21-24-58-931Z-a63f784b-e083-4e0e-90ee-9ec14c463e9a.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-006-2026-10-19T21-24-58-931Z-a63f784b-e083-4e0e-90ee-9ec14c463e9a.json",
+      "sha256": "a8119685f46108706072222590204dc5bf6190dc29a5c03bfa4b43a3d8121118",
+      "requirementId": "MV-S6-PICTURE-006",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-006-2026-10-19T21-24-59-850Z-e5e0bd2b-7adc-4333-a38d-dc149bf106c5.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-006-2026-10-19T21-24-59-850Z-e5e0bd2b-7adc-4333-a38d-dc149bf106c5.json",
+      "sha256": "d18d9d45b12cc84244ec35043332950a46cc8650b860d86cd65b13d8edf392df",
+      "requirementId": "MV-S6-PICTURE-006",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-007-2026-10-19T20-21-15-712Z-666b5c03-47d5-4145-a526-e32b56dcd618.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-007-2026-10-19T20-21-15-712Z-666b5c03-47d5-4145-a526-e32b56dcd618.json",
+      "sha256": "27730f220827c11df3d0b8bfb5ed51cb535126ccb4392fca02b94b6f3cd05056",
+      "requirementId": "MV-S6-PICTURE-007",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-007-2026-10-19T20-27-48-729Z-3933242a-c1f0-4f54-a498-9f1ed10fe67f.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-007-2026-10-19T20-27-48-729Z-3933242a-c1f0-4f54-a498-9f1ed10fe67f.json",
+      "sha256": "52705b03dc960d967c458ba2d9a715c8fa173991dcb07c5656243abe329ed251",
+      "requirementId": "MV-S6-PICTURE-007",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-007-2026-10-19T21-23-22-627Z-54f39e29-f9ed-4074-9db9-07ccac0de0dc.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-007-2026-10-19T21-23-22-627Z-54f39e29-f9ed-4074-9db9-07ccac0de0dc.json",
+      "sha256": "a40aa9bcd38c656f4834a347c88fd780168648bce74a9cce4fda06d01da3aac4",
+      "requirementId": "MV-S6-PICTURE-007",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-008-2026-10-19T20-51-04-000Z-d63131d7-165b-4727-b780-eae72cb25f57.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-008-2026-10-19T20-51-04-000Z-d63131d7-165b-4727-b780-eae72cb25f57.json",
+      "sha256": "3a4867e1a250cfb84587aadbf1a3fbe385bd46669bdf010497d3253d46fe0311",
+      "requirementId": "MV-S6-PICTURE-008",
+      "status": "failed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-008-2026-10-19T20-58-13-269Z-72e96800-04b8-4287-9cb8-037ab0141fc0.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-008-2026-10-19T20-58-13-269Z-72e96800-04b8-4287-9cb8-037ab0141fc0.json",
+      "sha256": "b1a4bd7068d4c7d962a1af381f5c388b72d021b762eaa714c015fe56b83ea216",
+      "requirementId": "MV-S6-PICTURE-008",
+      "status": "failed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-008-2026-10-19T20-58-15-335Z-f19f3164-6365-4543-8758-36d2d6a6e178.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-008-2026-10-19T20-58-15-335Z-f19f3164-6365-4543-8758-36d2d6a6e178.json",
+      "sha256": "a0ed2de13a7633912580a872faf06b20731cc91484ee0e2e65a3565fbd09f89a",
+      "requirementId": "MV-S6-PICTURE-008",
+      "status": "failed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-008-2026-10-19T20-58-17-151Z-09a324ab-c338-432e-8c9b-1bb91b8fc3b5.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-008-2026-10-19T20-58-17-151Z-09a324ab-c338-432e-8c9b-1bb91b8fc3b5.json",
+      "sha256": "306e0964afcb3a38bdd76c55e76a765298e8fac5995bc2b4070135d7600741c4",
+      "requirementId": "MV-S6-PICTURE-008",
+      "status": "failed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-008-2026-10-19T20-58-19-031Z-365481c2-5bb4-4af8-a702-9e19699458dd.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-008-2026-10-19T20-58-19-031Z-365481c2-5bb4-4af8-a702-9e19699458dd.json",
+      "sha256": "2b6922dbd42d79e32b39743593b035ad759f1ed32c6ae970ed64afcaf02b2660",
+      "requirementId": "MV-S6-PICTURE-008",
+      "status": "failed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-008-2026-10-19T20-58-43-482Z-82c77dd8-02f2-4026-a8e8-e32d202c5997.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-008-2026-10-19T20-58-43-482Z-82c77dd8-02f2-4026-a8e8-e32d202c5997.json",
+      "sha256": "7ed3299a12a2f4d06b19d4c449a3e7193c23475b040fb3fee619be3335b95eb2",
+      "requirementId": "MV-S6-PICTURE-008",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-008-2026-10-19T20-58-45-625Z-eb96d7e6-c612-45ba-b3c3-45b8c690496c.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-008-2026-10-19T20-58-45-625Z-eb96d7e6-c612-45ba-b3c3-45b8c690496c.json",
+      "sha256": "5373aeded6792864fc5de99b8200eef930e35e96075d9ffd084c5d6a93c79fa0",
+      "requirementId": "MV-S6-PICTURE-008",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-008-2026-10-19T20-58-47-367Z-625d5866-3a11-445d-ad78-7ccac30638c5.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-008-2026-10-19T20-58-47-367Z-625d5866-3a11-445d-ad78-7ccac30638c5.json",
+      "sha256": "68926b8a3d50c5319186c36a423424865309de9dae845651614bb2012fb48bba",
+      "requirementId": "MV-S6-PICTURE-008",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-008-2026-10-19T20-58-49-027Z-94a532b9-9576-4fd0-a66e-8a7edb3b9572.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-008-2026-10-19T20-58-49-027Z-94a532b9-9576-4fd0-a66e-8a7edb3b9572.json",
+      "sha256": "dba6bb9029bb4af015a170228ecc1a643fc70e27deb7b3eaeedcbe9697285074",
+      "requirementId": "MV-S6-PICTURE-008",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-008-2026-10-19T20-58-50-745Z-a2a15c46-4c03-45b1-8cc7-261d077dc997.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-008-2026-10-19T20-58-50-745Z-a2a15c46-4c03-45b1-8cc7-261d077dc997.json",
+      "sha256": "cc07111a0ca4f724de82bac5f8cb1fe248b921979aad1788a41f97725fc05609",
+      "requirementId": "MV-S6-PICTURE-008",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-008-2026-10-19T21-23-12-653Z-8ee7ec20-9810-43f7-b441-69c23b9a99e8.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-008-2026-10-19T21-23-12-653Z-8ee7ec20-9810-43f7-b441-69c23b9a99e8.json",
+      "sha256": "45e16c7aac0b89219bf9d1da1d5add7f29874bdb5e687a1c1f68e2f80562c72d",
+      "requirementId": "MV-S6-PICTURE-008",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-008-2026-10-19T21-23-14-514Z-63b7c27d-b635-48c0-89a6-98a2bac76fc7.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-008-2026-10-19T21-23-14-514Z-63b7c27d-b635-48c0-89a6-98a2bac76fc7.json",
+      "sha256": "054456929c874ff92a83810c8aa002e895cf95655a57515abe13bd15506ee4e7",
+      "requirementId": "MV-S6-PICTURE-008",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-008-2026-10-19T21-23-16-453Z-348f5e16-c3aa-4804-8911-7e6b2e1428fd.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-008-2026-10-19T21-23-16-453Z-348f5e16-c3aa-4804-8911-7e6b2e1428fd.json",
+      "sha256": "185357dcb9f8d9ad970474265a1e10d527b00d655a11e06fe06af9b436fe12b6",
+      "requirementId": "MV-S6-PICTURE-008",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-008-2026-10-19T21-23-18-293Z-611176e3-60af-4133-aa95-76b82ef9a197.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-008-2026-10-19T21-23-18-293Z-611176e3-60af-4133-aa95-76b82ef9a197.json",
+      "sha256": "6f494f4a4b5ceb5d32b74aff189005e9b4c2b34b884473f8ed65f50dc770f1b4",
+      "requirementId": "MV-S6-PICTURE-008",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/38-dev/MV-S6-PICTURE-008-2026-10-19T21-23-54-932Z-cd0ff24c-6cdc-44be-a88c-1c89ff8dea17.json",
+      "original": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\results\\MV-S6-PICTURE-008-2026-10-19T21-23-54-932Z-cd0ff24c-6cdc-44be-a88c-1c89ff8dea17.json",
+      "sha256": "acb2b3b1a1ad30167637af90949e6012104c4022eb804b5d746f2c664d4fdd9c",
+      "requirementId": "MV-S6-PICTURE-008",
+      "status": "passed"
+    }
+  ]
+}

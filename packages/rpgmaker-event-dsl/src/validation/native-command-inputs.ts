@@ -2,6 +2,7 @@ import type { RawEventCommand, CommandOrigins } from "../compiler/types.js";
 import type { ValidationIssue } from "./types.js";
 import type { NativeMovementRoute } from "../commands/movement/types.js";
 import { isKnownCommandCode } from "./native-parameters.js";
+import { inspectNativeScreenContext } from "../commands/screen/validation.js";
 import { renderJsonValue } from "../project-data/json-values.js";
 
 export type NativeInputOptions = {
@@ -136,6 +137,14 @@ export function inspectNativeCommandInputs(
           });
       }
     }
+    issues.push(
+      ...inspectNativeScreenContext(command.code, {
+        identity: options.identity,
+        stage: options.stage,
+        nativePath: path,
+        ...(origin ? { dslPath: origin.path } : {}),
+      }),
+    );
     if (command.code === 205) {
       const route = command.parameters[1] as NativeMovementRoute;
       for (const [routeIndex, record] of route.list.entries())

@@ -166,7 +166,7 @@ it("MV-S6-CHOICES-003: keeps a valid nested raw body's marker separate from its 
             endMarker: "absent",
           },
         ],
-        cancel: { kind: "branch", commands: [wait(1)], endMarker: "absent" },
+        cancel: { kind: "branch", commands: [wait({ frames: 1 })], endMarker: "absent" },
       }),
     ],
   });
@@ -327,7 +327,7 @@ it("MV-S6-CHOICES-003: rejects a raw own marker contradicting the cancel body", 
         choices: [{ text: "", commands: [] }],
         cancel: {
           kind: "branch",
-          commands: [wait(1), rawDslCommand({ code: 0, parameters: [] })],
+          commands: [wait({ frames: 1 }), rawDslCommand({ code: 0, parameters: [] })],
           endMarker: "absent",
         },
       }),

@@ -1,0 +1,101 @@
+{
+  "requirementCount": 300,
+  "mismatches": [
+    {
+      "id": "MV-S5-COMMON-001",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "indexed": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "actual": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-002",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "indexed": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "actual": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-003",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "indexed": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "actual": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-004",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "indexed": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "actual": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-005",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "indexed": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "actual": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-006",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "indexed": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "actual": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-007",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "indexed": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "actual": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-008",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "indexed": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "actual": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-009",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "indexed": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "actual": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-010",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "indexed": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "actual": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-011",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "indexed": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "actual": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-012",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "indexed": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "actual": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-013",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "indexed": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "actual": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-014",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "indexed": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "actual": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-015",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "indexed": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "actual": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    },
+    {
+      "id": "MV-S5-COMMON-016",
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "indexed": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6",
+      "actual": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
+    }
+  ]
+}

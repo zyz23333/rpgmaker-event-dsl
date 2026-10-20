@@ -1,0 +1,15 @@
+{
+  "createdAt": "2026-10-19T20:31:34.076Z",
+  "base": "38542767606ff9712e45d2a8e4894558e3a7d385",
+  "own": "4d37538",
+  "incoming": "888b95019192806b88c73d7804f0662e4cce7e8b",
+  "incomingRequirements": 300,
+  "ownRequirements": 8,
+  "totalRequirements": 308,
+  "incomingRawRequirementPrefixExact": true,
+  "ownRawRequirementTailExact": true,
+  "incomingReadmePrefixExact": true,
+  "ownReadmeSuffixExact": true,
+  "requirementsSha256": "73ca941d7db71ff13e4d60bb940677f223776de4296e96d5fabfb7d75841f0e4",
+  "readmeSha256": "6ae2c762641d4110688faad99ed2b15e27318a3358d4c1c76e57dd2b2c7ebe81"
+}

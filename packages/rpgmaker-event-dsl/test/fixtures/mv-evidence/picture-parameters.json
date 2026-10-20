@@ -1,0 +1,97 @@
+{
+  "formatVersion": 1,
+  "sourceKind": "synthetic-support",
+  "provenance": "Independent complete Picture literals from accepted visual-map E231-E235 domains; self-authored, no first-party/editor/game content. Record text deliberately preserves signed zero.",
+  "commonRecords": [
+    "{\"code\":231,\"indent\":0,\"parameters\":[1,\"Wide picture\",1,0,-9999,9999,-2000,2000,0,0]}",
+    "{\"code\":231,\"indent\":0,\"parameters\":[100,\"\",0,1,1,2,0,-0,255,1]}",
+    "{\"code\":231,\"indent\":0,\"parameters\":[2,\"CR\\rname\",0,0,0,-0,100,100,-0,2]}",
+    "{\"code\":231,\"indent\":0,\"parameters\":[3,\"\",1,0,9999,-9999,1,-1,128,3]}",
+    "{\"code\":232,\"indent\":0,\"parameters\":[100,0,1,0,-0,0,-0,0,-0,3,1,false]}",
+    "{\"code\":232,\"indent\":0,\"parameters\":[1,0,0,1,2,1,2000,-2000,255,0,999,true]}",
+    "{\"code\":233,\"indent\":0,\"parameters\":[100,-90]}",
+    "{\"code\":233,\"indent\":0,\"parameters\":[1,90]}",
+    "{\"code\":233,\"indent\":0,\"parameters\":[100,-0]}",
+    "{\"code\":233,\"indent\":0,\"parameters\":[1,0]}",
+    "{\"code\":234,\"indent\":0,\"parameters\":[100,[-255,255,-255,255],999,true]}",
+    "{\"code\":234,\"indent\":0,\"parameters\":[1,[-0,0,-0,-0],1,false]}",
+    "{\"code\":235,\"indent\":0,\"parameters\":[100]}",
+    "{\"code\":235,\"indent\":0,\"parameters\":[1]}",
+    "{\"code\":108,\"indent\":0,\"parameters\":[\"Independent CR\\rkept\"]}",
+    "{\"code\":0,\"indent\":0,\"parameters\":[]}"
+  ],
+  "projectFiles": {
+    "Actors.json": [null],
+    "Animations.json": [null],
+    "Armors.json": [null],
+    "Classes.json": [null],
+    "CommonEvents.json": [null],
+    "Enemies.json": [null],
+    "Items.json": [null],
+    "MapInfos.json": [null, { "id": 1, "name": "Picture map" }],
+    "Map001.json": {
+      "width": 2,
+      "height": 2,
+      "tilesetId": 1,
+      "events": [null],
+      "external": { "keep": [null, "", 0, [], {}] }
+    },
+    "Skills.json": [null],
+    "States.json": [null],
+    "System.json": {
+      "gameTitle": "Independent Picture matrix",
+      "switches": ["", ""],
+      "variables": ["", "X", ""],
+      "external": { "keep": [null, "", []] }
+    },
+    "Tilesets.json": [null, { "id": 1, "name": "" }],
+    "Troops.json": [null],
+    "Weapons.json": [null]
+  },
+  "negativeNative": [
+    {
+      "code": 231,
+      "parameters": "[1,\"\",-0,0,0,0,100,100,255,0]",
+      "suffix": "[2]",
+      "diagnostic": "PARAMETERS"
+    },
+    {
+      "code": 231,
+      "parameters": "[1,\"\",0,-0,0,0,100,100,255,0]",
+      "suffix": "[3]",
+      "diagnostic": "PARAMETERS"
+    },
+    {
+      "code": 231,
+      "parameters": "[1,\"\",0,0,0,0,100,100,255,-0]",
+      "suffix": "[9]",
+      "diagnostic": "PARAMETERS"
+    },
+    {
+      "code": 232,
+      "parameters": "[1,-0,0,0,0,0,100,100,255,0,1,false]",
+      "suffix": "[1]",
+      "diagnostic": "SAVED-SHAPE"
+    },
+    {
+      "code": 232,
+      "parameters": "[1,1,0,0,0,0,100,100,255,0,1,false]",
+      "suffix": "[1]",
+      "diagnostic": "SAVED-SHAPE"
+    },
+    { "code": 233, "parameters": "[1,91]", "suffix": "[1]", "diagnostic": "PARAMETERS" },
+    {
+      "code": 234,
+      "parameters": "[1,[0,0,0,-1],1,false]",
+      "suffix": "[1][3]",
+      "diagnostic": "PARAMETERS"
+    },
+    { "code": 235, "parameters": "[0]", "suffix": "[0]", "diagnostic": "PARAMETERS" },
+    {
+      "code": 231,
+      "parameters": "[1,\"\",0,1,1,3,100,100,255,0]",
+      "suffix": "[5]",
+      "diagnostic": "REFERENCE"
+    }
+  ]
+}

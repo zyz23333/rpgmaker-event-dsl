@@ -1,0 +1,36 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-39/packages/rpgmaker-event-dsl
+
+ ❯ test/audio-commands.test.ts (4 tests | 1 failed | 3 skipped) 18ms
+   × applies complete AUDIO and matching asset categories to playback and all system audio settings 17ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/audio-commands.test.ts > applies complete AUDIO and matching asset categories to playback and all system audio settings
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/audio-commands.test.ts:97:37
+     95|       { ...extra, audio: { asset: null, volume: 0, pitch: 50, pan: 0 }…
+     96|     ]) {
+     97|       expect(() => helper(invalid)).toThrow(new RegExp(`MV-E${code}`));
+       |                                     ^
+     98|       expect(() => compile([{ kind, ...invalid } as never])).toThrow(n…
+     99|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 skipped (4)
+   Start at  04:16:49
+   Duration  1.44s (transform 407ms, setup 0ms, import 1.26s, tests 18ms, environment 0ms)
+
+undefined
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-39\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/audio-commands.test.ts -t applies complete AUDIO

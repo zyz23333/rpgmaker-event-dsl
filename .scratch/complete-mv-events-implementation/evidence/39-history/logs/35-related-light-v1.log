@@ -1,0 +1,71 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-39/packages/rpgmaker-event-dsl
+
+ ❯ test/command-boundary.test.ts (13 tests | 1 failed) 31ms
+   × reports the real raw source position before a native record exists 10ms
+ ❯ test/movement-route.test.ts (45 tests | 1 failed) 25ms
+   × rejects extra array keys in recognized raw movement parameters before compilation can copy the array 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/command-boundary.test.ts > reports the real raw source position before a native record exists
+AssertionError: expected { level: 'error', …(7) } to match object { dslPath: 'commands[1]' }
+(7 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "dslPath": "commands[1]",
++   "dslPath": "commands[1].parameters",
+  }
+
+ ❯ test/command-boundary.test.ts:23:17
+     21|     scriptEnabled: true,
+     22|   }).issues.find((candidate) => candidate.code === "MV-COMMAND-ENVELOP…
+     23|   expect(issue).toMatchObject({ dslPath: "commands[1]" });
+       |                 ^
+     24|   expect(issue?.nativePath).toBeUndefined();
+     25| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/movement-route.test.ts > rejects extra array keys in recognized raw movement parameters before compilation can copy the array
+AssertionError: expected [ { level: 'error', …(7) } ] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-STRICT-JSON",
+  "dslPath": "commands[1]",
+}
+
++ Received:
+[
+  {
+    "actual": "array with extra properties",
+    "code": "MV-STRICT-JSON",
+    "dslPath": "commands[1].parameters",
+    "expected": "strict representable JSON",
+    "identity": "commonEvent:1",
+    "level": "error",
+    "message": "compile error commonEvent:1: MV-STRICT-JSON: Expected strict representable JSON; received array with extra properties at list[0].parameters. (commands[1].parameters); expected strict representable JSON; actual array with extra properties",
+    "stage": "compile",
+  },
+]
+
+ ❯ test/movement-route.test.ts:169:82
+    167|     ],
+    168|   });
+    169|   expect(validateDslOwnedDeclarations([event], { scriptEnabled: false …
+       |                                                                                  ^
+    170|     expect.objectContaining({ code: "MV-STRICT-JSON", dslPath: "comman…
+    171|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 5 passed (7)
+      Tests  2 failed | 416 passed (418)
+   Start at  04:50:46
+   Duration  2.36s (transform 601ms, setup 0ms, import 3.02s, tests 572ms, environment 0ms)
+

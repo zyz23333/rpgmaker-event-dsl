@@ -8,10 +8,10 @@ export function compileAudioPayload(audio: AudioPayload): {
   volume: number;
 } {
   return {
-    name: audio.asset.name,
-    volume: audio.volume ?? 90,
-    pitch: audio.pitch ?? 100,
-    pan: audio.pan ?? 0,
+    name: audio.asset?.name ?? "",
+    volume: audio.volume,
+    pitch: audio.pitch,
+    pan: audio.pan,
   };
 }
 

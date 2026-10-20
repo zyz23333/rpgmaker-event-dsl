@@ -629,6 +629,11 @@ describe("validateDslOwnedDeclarations", () => {
             showPicture({
               pictureId: 1,
               image: imageAsset({ folder: "pictures", name: "Poster" }),
+              origin: "upperLeft",
+              scaleX: 100,
+              scaleY: 100,
+              opacity: 255,
+              blendMode: "normal",
               position: {
                 kind: "variables",
                 x: variableRef({ id: 1 }),
@@ -637,12 +642,18 @@ describe("validateDslOwnedDeclarations", () => {
             }),
             movePicture({
               pictureId: 1,
+              origin: "upperLeft",
+              scaleX: 100,
+              scaleY: 100,
+              opacity: 255,
+              blendMode: "normal",
               position: {
                 kind: "variables",
                 x: variableRef({ id: 98 }),
                 y: variableRef({ id: 1 }),
               },
               duration: 30,
+              wait: false,
             }),
           ],
         }),
@@ -650,10 +661,18 @@ describe("validateDslOwnedDeclarations", () => {
       { scriptEnabled: false },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toEqual(
+    expect(result.issues).toEqual(
       expect.arrayContaining([
-        "Unknown variable reference id: 99",
-        "Unknown variable reference id: 98",
+        expect.objectContaining({
+          code: "MV-E231-REFERENCE",
+          dslPath: "pages[0].commands[0].position.y",
+          message: expect.stringContaining("Unknown variable reference id: 99"),
+        }),
+        expect.objectContaining({
+          code: "MV-E232-REFERENCE",
+          dslPath: "pages[0].commands[1].position.x",
+          message: expect.stringContaining("Unknown variable reference id: 98"),
+        }),
       ]),
     );
   });

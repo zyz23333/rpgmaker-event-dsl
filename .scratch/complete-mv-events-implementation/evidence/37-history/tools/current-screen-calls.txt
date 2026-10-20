@@ -1,0 +1,59 @@
+example\full-event\src\full-event.events.ts:218:        wait(15),
+example\full-event\src\full-event.events.ts:385:        flashScreen({
+example\full-event\src\full-event.events.ts:389:        setWeatherEffect({
+packages\rpgmaker-event-dsl\README.md:378:const commands = [loop({ body: { commands: [wait(1), breakLoop()] } }), exitEventProcessing()];
+packages\rpgmaker-event-dsl\test\common-event-workspace.test.ts:541:        input: 'name:"Original",trigger:"none",commands:[wait(3)]',
+packages\rpgmaker-event-dsl\src\commands\screen\decompile.ts:15:        expression: `tintScreen({ tone: ${tone}, duration: ${duration}, wait: ${wait} })`,
+packages\rpgmaker-event-dsl\src\commands\screen\decompile.ts:30:        expression: `flashScreen({ color: ${color}, duration: ${duration}, wait: ${wait} })`,
+packages\rpgmaker-event-dsl\src\commands\screen\decompile.ts:49:        expression: `shakeScreen({ power: ${power}, speed: ${speed}, duration: ${duration}, wait: ${wait} })`,
+packages\rpgmaker-event-dsl\src\commands\screen\decompile.ts:173:        expression: `setWeatherEffect({ weather: ${literal(weather)}, power: ${power}, duration: ${duration}, wait: ${wait} })`,
+packages\rpgmaker-event-dsl\test\decompiler.test.ts:215:        "wait(30),",
+packages\rpgmaker-event-dsl\test\decompiler.test.ts:250:        "tintScreen({ tone: [68,-34,-34,0], duration: 60, wait: true }),",
+packages\rpgmaker-event-dsl\test\decompiler.test.ts:251:        "flashScreen({ color: [255,255,255,160], duration: 30 }),",
+packages\rpgmaker-event-dsl\test\decompiler.test.ts:252:        "shakeScreen({ power: 5, speed: 7, duration: 40, wait: true }),",
+packages\rpgmaker-event-dsl\test\decompiler.test.ts:258:        'setWeatherEffect({ weather: "rain", power: 6, duration: 50, wait: true }),',
+packages\rpgmaker-event-dsl\test\decompiler.test.ts:330:        'showChoices({ choices: ["Yes","No"], branches: [[wait(10),], [eraseEvent(),]], cancelType: -2, cancelBranch: [showText({ lines: ["Canceled"] }),] }),',
+packages\rpgmaker-event-dsl\test\decompiler.test.ts:353:        'conditional({ condition: { kind: "switch", switch: switchRef({ id: 2 }), value: true }, then: [wait(10),], else: [conditional({ condition: {   kind: "script",   script: scriptInput({ code: "$gameParty.gold() > 10" }), }, then: [eraseEvent(),] }),] }),',
+packages\rpgmaker-event-dsl\test\decompiler.test.ts:354:        "wait(30),",
+packages\rpgmaker-event-dsl\test\decompiler.test.ts:488:        'battleProcessing({ troop: { kind: "troop", variable: variableRef({ id: 2 }) }, canEscape: true, canLose: true, win: [wait(1),], escape: [wait(2),], lose: [wait(3),] }),',
+packages\rpgmaker-event-dsl\src\commands\screen\authoring.ts:38:export function tintScreen(input: {
+packages\rpgmaker-event-dsl\src\commands\screen\authoring.ts:52:export function flashScreen(input: {
+packages\rpgmaker-event-dsl\src\commands\screen\authoring.ts:66:export function shakeScreen(input: {
+packages\rpgmaker-event-dsl\src\commands\screen\authoring.ts:82:export function wait(input: { frames: number }): WaitDslCommand {
+packages\rpgmaker-event-dsl\src\commands\screen\authoring.ts:166:export function setWeatherEffect(input: {
+packages\rpgmaker-event-dsl\src\decompiler\dispatch.ts:638:            expression: `wait({ frames: ${frames} })`,
+packages\rpgmaker-event-dsl\test\events.test.ts:194:                branches: [[wait(10)], [eraseEvent()]],
+packages\rpgmaker-event-dsl\test\events.test.ts:551:              tintScreen({ tone: [68, -34, -34, 0], duration: 60, wait: true }),
+packages\rpgmaker-event-dsl\test\events.test.ts:552:              flashScreen({
+packages\rpgmaker-event-dsl\test\events.test.ts:556:              shakeScreen({ power: 5, speed: 7, duration: 40, wait: true }),
+packages\rpgmaker-event-dsl\test\events.test.ts:557:              wait(12),
+packages\rpgmaker-event-dsl\test\events.test.ts:584:              setWeatherEffect({ weather: "rain", power: 6, duration: 50, wait: true }),
+packages\rpgmaker-event-dsl\test\events.test.ts:741:                then: [wait(1)],
+packages\rpgmaker-event-dsl\test\events.test.ts:742:                else: [wait(2)],
+packages\rpgmaker-event-dsl\test\events.test.ts:909:                win: [wait(1)],
+packages\rpgmaker-event-dsl\test\events.test.ts:910:                escape: [wait(2)],
+packages\rpgmaker-event-dsl\test\events.test.ts:911:                lose: [wait(3)],
+packages\rpgmaker-event-dsl\test\dsl.test.ts:274:    expect(tintScreen({ tone: [0, 0, 0, 0], duration: 30 }).kind).toBe("tintScreen");
+packages\rpgmaker-event-dsl\test\dsl.test.ts:275:    expect(flashScreen({ color: [255, 255, 255, 128], duration: 20 }).kind).toBe("flashScreen");
+packages\rpgmaker-event-dsl\test\dsl.test.ts:276:    expect(shakeScreen({ power: 5, speed: 5, duration: 30 }).kind).toBe("shakeScreen");
+packages\rpgmaker-event-dsl\test\dsl.test.ts:297:    expect(setWeatherEffect({ weather: "rain", power: 5, duration: 60 }).kind).toBe(
+packages\rpgmaker-event-dsl\test\dsl.test.ts:342:    expect(wait(60).kind).toBe("wait");
+packages\rpgmaker-event-dsl\test\dsl.test.ts:348:        win: [wait(1)],
+packages\rpgmaker-event-dsl\test\screen-effects.test.ts:15:  const weather = setWeatherEffect({ weather: "storm", power: 9, duration: 999, wait: true });
+packages\rpgmaker-event-dsl\test\screen-effects.test.ts:31:  expect(wait({ frames: 1 } as never)).toStrictEqual({ kind: "wait", frames: 1 });
+packages\rpgmaker-event-dsl\test\screen-effects.test.ts:32:  expect(compile([wait({ frames: 1 } as never), wait({ frames: 999 } as never)])).toStrictEqual([
+packages\rpgmaker-event-dsl\test\screen-effects.test.ts:37:  expect(() => wait(60 as never)).toThrow();
+packages\rpgmaker-event-dsl\test\screen-effects.test.ts:93:  expect(() => setWeatherEffect({ weather: "none", power: 9, duration: 999 } as never)).toThrow(/MV-E236/);
+packages\rpgmaker-event-dsl\test\screen-effects.test.ts:95:    const records = compile([setWeatherEffect({ weather, power: 9, duration: 999, wait: false })]);
+packages\rpgmaker-event-dsl\test\screen-effects.test.ts:99:  expect(() => setWeatherEffect({ weather: "none", power: 0, duration: 1, wait: true })).toThrow();
+packages\rpgmaker-event-dsl\test\screen-effects.test.ts:103:  expect(() => shakeScreen({ power: 1, speed: 9, duration: 1 } as never)).toThrow(/MV-E225/);
+packages\rpgmaker-event-dsl\test\screen-effects.test.ts:105:    shakeScreen({ power: 1, speed: 9, duration: 1, wait: false }),
+packages\rpgmaker-event-dsl\test\screen-effects.test.ts:106:    shakeScreen({ power: 9, speed: 1, duration: 999, wait: true }),
+packages\rpgmaker-event-dsl\test\screen-effects.test.ts:115:    expect(() => shakeScreen({ power: value, speed: 1, duration: 1, wait: false })).toThrow();
+packages\rpgmaker-event-dsl\test\screen-effects.test.ts:120:  expect(() => flashScreen({ color, duration: 999 } as never)).toThrow(/MV-E224/);
+packages\rpgmaker-event-dsl\test\screen-effects.test.ts:121:  const records = compile([flashScreen({ color, duration: 999, wait: false })]);
+packages\rpgmaker-event-dsl\test\screen-effects.test.ts:124:    'flashScreen({ color: { red: -0, green: 255, blue: -0, alpha: -0 }, duration: 999, wait: false })',
+packages\rpgmaker-event-dsl\test\screen-effects.test.ts:130:  expect(() => tintScreen({ tone, duration: 1 } as never)).toThrow(/MV-E223/);
+packages\rpgmaker-event-dsl\test\screen-effects.test.ts:131:  const records = compile([tintScreen({ tone, duration: 1, wait: false })]);
+packages\rpgmaker-event-dsl\test\screen-effects.test.ts:137:    'tintScreen({ tone: { red: -0, green: -255, blue: 255, gray: -0 }, duration: 1, wait: false })',
+packages\rpgmaker-event-dsl\test\screen-effects.test.ts:139:  expect(() => tintScreen({ tone: [0, 0, 0, 0], duration: 1, wait: false } as never)).toThrow();

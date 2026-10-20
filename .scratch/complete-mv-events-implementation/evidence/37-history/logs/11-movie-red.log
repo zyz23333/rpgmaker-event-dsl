@@ -1,0 +1,32 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-37/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/screen-effects.test.ts (6 tests | 1 failed) 16ms
+   × expresses explicit Movie None and a named movie without inventing an asset 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/screen-effects.test.ts > expresses explicit Movie None and a named movie without inventing an asset
+TypeError: Cannot read properties of null (reading 'name')
+ ❯ compileNodes src/compiler/dispatch.ts:1105:35
+
+    1103|           code: 261,
+    1104|           indent,
+    1105|           parameters: [node.movie.name],
+       |                                   ^
+    1106|         });
+    1107|         break;
+ Test Files  1 failed (1)
+      Tests  1 failed | 5 passed (6)
+   Start at  03:23:30
+   Duration  1.29s (transform 379ms, setup 0ms, import 1.12s, tests 16ms, environment 0ms)
+
+ ❯ compileCommonEvent src/compiler/events.ts:122:11
+ ❯ compile test/screen-effects.test.ts:11:10
+ ❯ test/screen-effects.test.ts:25:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/screen-effects.test.ts

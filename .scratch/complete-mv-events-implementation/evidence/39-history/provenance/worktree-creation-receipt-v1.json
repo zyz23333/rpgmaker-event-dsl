@@ -1,0 +1,30 @@
+{
+  "purpose": "Dedicated manually Git-registered M worktree; no app attachment is asserted",
+  "at": "2026-10-19T20:06:02.3624929Z",
+  "primaryRoot": "F:/Shuen/RPG/rpgmaker-event-dsl",
+  "primaryBranch": "codex/complete-mv-events-implementation",
+  "primaryHead": "38542767606ff9712e45d2a8e4894558e3a7d385",
+  "targetRoot": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\worktrees\\mv-ticket-39",
+  "branch": "codex/mv-ticket-39",
+  "startSha": "38542767606ff9712e45d2a8e4894558e3a7d385",
+  "command": [
+    "git",
+    "-C",
+    "F:/Shuen/RPG/rpgmaker-event-dsl",
+    "worktree",
+    "add",
+    "-b",
+    "codex/mv-ticket-39",
+    "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\worktrees\\mv-ticket-39",
+    "38542767606ff9712e45d2a8e4894558e3a7d385"
+  ],
+  "commandExit": 0,
+  "registryScript": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\create-recorded-worktree.ps1",
+  "registryScriptSha256": "4ff8dc2d057b0cf1471c01acd804f9c5038478936e8b52b03c8fe505443b5c20",
+  "dependenciesCreated": false,
+  "appAttachmentClaimed": false,
+  "passed": true,
+  "actualHead": "38542767606ff9712e45d2a8e4894558e3a7d385",
+  "actualBranch": "codex/mv-ticket-39",
+  "actualStatus": ""
+}

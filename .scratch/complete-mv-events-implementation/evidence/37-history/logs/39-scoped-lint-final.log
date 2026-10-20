@@ -1,0 +1,2 @@
+Files: 19
+packages/rpgmaker-event-dsl/test/screen-effects.test.ts:195:14: warning eslint(no-sparse-arrays): Unexpected comma in middle of array help: remove the comma or insert `undefined`

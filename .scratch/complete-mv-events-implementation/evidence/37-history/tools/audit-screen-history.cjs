@@ -1,0 +1,14 @@
+const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process');
+const root=path.resolve(process.argv[2]),base=process.argv[3],output=process.argv[4];
+const git=args=>cp.execFileSync('git',['-c','core.longpaths=true',...args],{cwd:root,encoding:'utf8',maxBuffer:32*1024*1024});
+const evidence='.scratch/complete-mv-events-implementation/evidence/';const index=evidence+'requirements.json';
+const old=git(['show',`${base}:${index}`]),current=fs.readFileSync(path.join(root,index),'utf8');
+const oldRows=JSON.parse(old).requirements,newRows=JSON.parse(current).requirements;
+const firstOwn=current.indexOf(',\n    {\n      "id": "MV-S6-SCREEN-001"');const tail=current.lastIndexOf('\n  ]');
+if(firstOwn<0||current.slice(0,firstOwn)+current.slice(tail)!==old)throw Error('Incoming original index bytes were changed');
+if(JSON.stringify(newRows.slice(0,oldRows.length))!==JSON.stringify(oldRows))throw Error('Incoming semantic rows changed');
+const tree=git(['ls-tree','-r',base,'--',evidence]).trim().split('\n').map(line=>{const [metadata,file]=line.split('\t');return{file,blob:metadata.split(' ')[2]};});
+const changed=git(['diff','--name-only',base,'--',evidence]).trim().split(/\r?\n/).filter(Boolean);
+const incoming=new Set(tree.map(item=>item.file));const invalid=changed.filter(file=>incoming.has(file)&&![index,evidence+'README.md'].includes(file));if(invalid.length)throw Error('Incoming history changed: '+invalid.join(','));
+const record={base,incomingRequirements:oldRows.length,finalRequirements:newRows.length,addedRequirements:newRows.slice(oldRows.length).map(row=>row.id),incomingHistoricalEvidenceFiles:tree.filter(item=>![index,evidence+'README.md'].includes(item.file)).length,preservedIncomingIndexBytes:true,preservedIncomingEvidence:invalid.length===0};
+fs.writeFileSync(output,JSON.stringify(record,null,2)+'\n');process.stdout.write(JSON.stringify(record)+'\n');

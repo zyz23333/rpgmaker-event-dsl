@@ -1,0 +1,36 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-39/packages/rpgmaker-event-dsl
+
+ ❯ test/audio-commands.test.ts (3 tests | 1 failed | 2 skipped) 7ms
+   × rejects exact BGM native and known raw slot defects with field diagnostics 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/audio-commands.test.ts > rejects exact BGM native and known raw slot defects with field diagnostics
+AssertionError: expected [Function] to throw error matching /MV-E241-PARAMETER/ but got 'MV-COMMAND-PARAMETERS: Known command …'
+
+- Expected:
+/MV-E241-PARAMETER/
+
++ Received:
+"MV-COMMAND-PARAMETERS: Known command parameters do not match their native contract. at list[0].parameters; expected E241 saved slots o; actual []"
+
+ ❯ test/audio-commands.test.ts:60:63
+     58|   ] as const) {
+     59|     const command = { code: 241, indent: 0, parameters: [...parameters…
+     60|     expect(() => renderDecompiledCommandList([command, end])).toThrow(…
+       |                                                               ^
+     61|     try { renderDecompiledCommandList([command, end]); expect.fail("Ex…
+     62|     catch (error) { expect(error).toMatchObject({ location: { nativePa…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 skipped (3)
+   Start at  04:15:59
+   Duration  1.29s (transform 370ms, setup 0ms, import 1.14s, tests 7ms, environment 0ms)
+
+undefined
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-39\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/audio-commands.test.ts -t rejects exact BGM native

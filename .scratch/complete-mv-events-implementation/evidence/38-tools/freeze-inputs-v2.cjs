@@ -1,0 +1,10 @@
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),cp=require('node:child_process');
+const root=process.cwd(),label=process.argv[2],temp='M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp';
+if(!label||!/^[a-z0-9-]+$/u.test(label))throw Error('valid unique label required');
+const out=path.join(temp,'source-snapshots',label);if(fs.existsSync(out))throw Error('immutable snapshot exists');
+const walk=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)]);
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const paths=[...walk('packages/rpgmaker-event-dsl/src'),...walk('packages/rpgmaker-event-dsl/test'),'.scratch/complete-mv-events-implementation/evidence/requirements.json','.github/workflows/ci.yml','package.json','pnpm-lock.yaml','pnpm-workspace.yaml','.oxlintrc.json','.oxfmtrc.json','.oxfmtignore','packages/rpgmaker-event-dsl/package.json','packages/rpgmaker-event-dsl/vitest.config.ts','packages/rpgmaker-event-dsl/vitest.windows.config.ts','packages/rpgmaker-event-dsl/tsconfig.json','tsconfig.base.json'].sort();
+const files=paths.map(p=>{const bytes=fs.readFileSync(p),target=path.join(out,p);fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,bytes);return {path:p.replaceAll('\\','/'),sha256:sha(bytes)};});
+fs.writeFileSync(path.join(out,'manifest.json'),JSON.stringify({createdAt:new Date().toISOString(),root,revision:cp.execFileSync('git',['rev-parse','HEAD']).toString().trim(),status:cp.execFileSync('git',['status','--porcelain=v1']).toString(),fingerprint:sha(JSON.stringify(files)),files},null,2)+'\n');
+console.log(JSON.stringify({label,files:files.length,fingerprint:sha(JSON.stringify(files)),out}));

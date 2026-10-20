@@ -1,0 +1,23 @@
+{
+  "mode": "before",
+  "head": "25bff519801c3924270b27038dd3c789d00e0faf",
+  "sharedHelperCommit": "b066c6244fe86c1cfce41645b5cf3cdfe4144aa7",
+  "allProductSourceBytesEqualExecuted449Tests": true,
+  "productSourceFiles": 100,
+  "productSourceFingerprint": "abe373f247077dd30695f14db4c5af659856f141533a68a20004fe880cfb3daa",
+  "executedCapture": "capture-v5",
+  "executedCaptureFingerprint": "937a13f929e1ded1a360d553d227db8efc92cf84acffa640f7be4ebf7ec64128",
+  "changedCapturedInputs": [],
+  "metadata": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/39-audio-and-system-audio-dev-checkpoint.md",
+      "target": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket39-temp/metadata-before-evidence-helper-v1/.scratch/complete-mv-events-implementation/evidence/39-audio-and-system-audio-dev-checkpoint.md",
+      "sha256": "12ef735fbffb4d536de9d67a4b5e0b7d43a148edb7c15e0a5c7907aa8715e13a"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/issues/39-audio-and-system-audio-settings.md",
+      "target": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket39-temp/metadata-before-evidence-helper-v1/.scratch/complete-mv-events-implementation/issues/39-audio-and-system-audio-settings.md",
+      "sha256": "d4b6487f44704134b3efe270fb209353dd19b86a769a55d240655cd60ff52571"
+    }
+  ]
+}

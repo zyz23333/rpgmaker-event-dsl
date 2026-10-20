@@ -10031,7 +10031,7 @@
       "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
       "fixture": {
         "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
-        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+        "sha256": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
       },
       "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
       "test": {
@@ -10081,7 +10081,7 @@
       "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
       "fixture": {
         "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
-        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+        "sha256": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
       },
       "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
       "test": {
@@ -10131,7 +10131,7 @@
       "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
       "fixture": {
         "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
-        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+        "sha256": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
       },
       "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
       "test": {
@@ -10181,7 +10181,7 @@
       "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
       "fixture": {
         "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
-        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+        "sha256": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
       },
       "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
       "test": {
@@ -10231,7 +10231,7 @@
       "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
       "fixture": {
         "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
-        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+        "sha256": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
       },
       "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
       "test": {
@@ -10281,7 +10281,7 @@
       "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
       "fixture": {
         "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
-        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+        "sha256": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
       },
       "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
       "test": {
@@ -10331,7 +10331,7 @@
       "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
       "fixture": {
         "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
-        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+        "sha256": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
       },
       "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
       "test": {
@@ -10381,7 +10381,7 @@
       "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
       "fixture": {
         "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
-        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+        "sha256": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
       },
       "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
       "test": {
@@ -10431,7 +10431,7 @@
       "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
       "fixture": {
         "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
-        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+        "sha256": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
       },
       "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
       "test": {
@@ -10481,7 +10481,7 @@
       "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
       "fixture": {
         "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
-        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+        "sha256": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
       },
       "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
       "test": {
@@ -10531,7 +10531,7 @@
       "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
       "fixture": {
         "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
-        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+        "sha256": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
       },
       "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
       "test": {
@@ -10581,7 +10581,7 @@
       "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
       "fixture": {
         "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
-        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+        "sha256": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
       },
       "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
       "test": {
@@ -10631,7 +10631,7 @@
       "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
       "fixture": {
         "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
-        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+        "sha256": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
       },
       "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
       "test": {
@@ -10681,7 +10681,7 @@
       "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
       "fixture": {
         "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
-        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+        "sha256": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
       },
       "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
       "test": {
@@ -10731,7 +10731,7 @@
       "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
       "fixture": {
         "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
-        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+        "sha256": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
       },
       "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
       "test": {
@@ -10780,7 +10780,7 @@
       "input": "Independent self-authored literal CommonEvents and formal TypeScript inputs in the linked public Workspace test; no compiler-derived expected data. Parameter variants are recorded as separate actual runs under this requirement.",
       "fixture": {
         "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
-        "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+        "sha256": "59dc76e57e706b0117c8b962efd589e1d29c2186e032787faef780628e8dbedb"
       },
       "expected": "The named behavior passes through actual discovered source evaluation and public Workspace API/CLI. Complete saved-state comparison includes presence, null holes, capacity, order and exact strings. Failure and Check paths compare config, Discovery, all source, project and Workspace state bytes.",
       "test": {
@@ -15804,6 +15804,2289 @@
         "path": ".scratch/complete-mv-events-implementation/evidence/27-choices-complete-branches.md",
         "section": "## R3 原生游戏对照"
       }
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-001",
+      "title": "compiles all four explicit access flags with false zero and true one",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I2 — 完整保存与默认"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E134 — Change Save Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E135 — Change Menu Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E136 — Change Encounter"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E137 — Change Formation Access"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A5"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored independent saved-slot literals and actual public helpers; no editor UI or game observation claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes.json",
+        "sha256": "3b56301bf600e0fdb70cbcfc0fbf6456105f99f145a0e1c8112f2a222debb378"
+      },
+      "expected": "E134–137 require explicit booleans and encode false as numeric zero and true as numeric one; E136 is changeEncounter with no disabled alias",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-001: compiles all four explicit access flags with false zero and true one"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Approved public authoring, command compiler, native rendering and known raw boundaries as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-002",
+      "title": "rejects missing or nonboolean access flags and unsupported own shapes before projection",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I2 — 完整保存与默认"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E134 — Change Save Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E135 — Change Menu Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E136 — Change Encounter"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E137 — Change Formation Access"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent saved-slot literals and actual public source/command or Workspace boundaries; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes.json",
+        "sha256": "3b56301bf600e0fdb70cbcfc0fbf6456105f99f145a0e1c8112f2a222debb378"
+      },
+      "expected": "rejects missing or nonboolean access flags and unsupported own shapes before projection",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-002: rejects missing or nonboolean access flags and unsupported own shapes before projection"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Approved public authoring, command compiler, native rendering and known raw boundaries as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-003",
+      "title": "requires exact named window Tone fields and preserves hidden gray and numeric negative zero",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I2 — 完整保存与默认"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "## 共享参数组（各节引用即纳入该节完整契约）"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E138 — Change Window Color"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent saved-slot literals and actual public source/command or Workspace boundaries; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes.json",
+        "sha256": "3b56301bf600e0fdb70cbcfc0fbf6456105f99f145a0e1c8112f2a222debb378"
+      },
+      "expected": "requires exact named window Tone fields and preserves hidden gray and numeric negative zero",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-003: requires exact named window Tone fields and preserves hidden gray and numeric negative zero"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Approved public authoring, command compiler, native rendering and known raw boundaries as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-004",
+      "title": "validates exact native access flag slots before decompilation or known raw compilation",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I2 — 完整保存与默认"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E134 — Change Save Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E135 — Change Menu Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E136 — Change Encounter"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E137 — Change Formation Access"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent saved-slot literals and actual public source/command or Workspace boundaries; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes.json",
+        "sha256": "3b56301bf600e0fdb70cbcfc0fbf6456105f99f145a0e1c8112f2a222debb378"
+      },
+      "expected": "validates exact native access flag slots before decompilation or known raw compilation",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-004: validates exact native access flag slots before decompilation or known raw compilation"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Approved public authoring, command compiler, native rendering and known raw boundaries as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-005",
+      "title": "validates exact native Window Tone shape and ranges while preserving all numeric zero signs",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I2 — 完整保存与默认"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "## 共享参数组（各节引用即纳入该节完整契约）"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E138 — Change Window Color"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent saved-slot literals and actual public source/command or Workspace boundaries; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes.json",
+        "sha256": "3b56301bf600e0fdb70cbcfc0fbf6456105f99f145a0e1c8112f2a222debb378"
+      },
+      "expected": "validates exact native Window Tone shape and ranges while preserving all numeric zero signs",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-005: validates exact native Window Tone shape and ranges while preserving all numeric zero signs"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Approved public authoring, command compiler, native rendering and known raw boundaries as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-006",
+      "title": "decompiles all access flags with explicit booleans and only the new Encounter helper",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I2 — 完整保存与默认"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E134 — Change Save Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E135 — Change Menu Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E136 — Change Encounter"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E137 — Change Formation Access"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent saved-slot literals and actual public source/command or Workspace boundaries; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes.json",
+        "sha256": "3b56301bf600e0fdb70cbcfc0fbf6456105f99f145a0e1c8112f2a222debb378"
+      },
+      "expected": "decompiles all access flags with explicit booleans and only the new Encounter helper",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-006: decompiles all access flags with explicit booleans and only the new Encounter helper"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Approved public authoring, command compiler, native rendering and known raw boundaries as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-007",
+      "title": "decompiles Window Tone as four explicit named fields including hidden gray and negative zero",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I2 — 完整保存与默认"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "## 共享参数组（各节引用即纳入该节完整契约）"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E138 — Change Window Color"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent saved-slot literals and actual public source/command or Workspace boundaries; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes.json",
+        "sha256": "3b56301bf600e0fdb70cbcfc0fbf6456105f99f145a0e1c8112f2a222debb378"
+      },
+      "expected": "decompiles Window Tone as four explicit named fields including hidden gray and negative zero",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-007: decompiles Window Tone as four explicit named fields including hidden gray and negative zero"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Approved public authoring, command compiler, native rendering and known raw boundaries as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-008",
+      "title": "requires zero scene helper inputs and exact direct command fields",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I2 — 完整保存与默认"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E351 — Open Menu Screen"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E352 — Open Save Screen"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E353 — Game Over"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E354 — Return to Title Screen"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent saved-slot literals and actual public source/command or Workspace boundaries; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes.json",
+        "sha256": "3b56301bf600e0fdb70cbcfc0fbf6456105f99f145a0e1c8112f2a222debb378"
+      },
+      "expected": "requires zero scene helper inputs and exact direct command fields",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-008: requires zero scene helper inputs and exact direct command fields"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Approved public authoring, command compiler, native rendering and known raw boundaries as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-009",
+      "title": "accepts only empty saved scene slots through native and both known raw compilation inputs",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I2 — 完整保存与默认"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E351 — Open Menu Screen"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E352 — Open Save Screen"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E353 — Game Over"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E354 — Return to Title Screen"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent saved-slot literals and actual public source/command or Workspace boundaries; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes.json",
+        "sha256": "3b56301bf600e0fdb70cbcfc0fbf6456105f99f145a0e1c8112f2a222debb378"
+      },
+      "expected": "accepts only empty saved scene slots through native and both known raw compilation inputs",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-009: accepts only empty saved scene slots through native and both known raw compilation inputs"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Approved public authoring, command compiler, native rendering and known raw boundaries as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-010",
+      "title": "decompiles full native carriers and evaluates discovered formal source with read-only Check",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T1 — 已确认的测试边界与现有基础"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E134 — Change Save Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E135 — Change Menu Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E136 — Change Encounter"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E137 — Change Formation Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "## 共享参数组（各节引用即纳入该节完整契约）"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E138 — Change Window Color"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E351 — Open Menu Screen"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E352 — Open Save Screen"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E353 — Game Over"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E354 — Return to Title Screen"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent full fifteen-carrier native fixture, actual source Discovery/evaluation and public Workspace filesystem operations; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes-project.json",
+        "sha256": "dadab6940ca061f5242c15e9a9c7cf03648e583f07122868a56dac43d7b769e3"
+      },
+      "expected": "decompiles full native carriers and evaluates discovered formal source with read-only Check",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes-workspace.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-010: decompiles full native carriers and evaluates discovered formal source with read-only Check"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original ten-second case deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Actual public Workspace operations, source evaluation and complete filesystem/data state as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-011",
+      "title": "compiles all generated carriers and really pushes independent formal edits in all three event containers",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T1 — 已确认的测试边界与现有基础"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E134 — Change Save Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E135 — Change Menu Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E136 — Change Encounter"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E137 — Change Formation Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "## 共享参数组（各节引用即纳入该节完整契约）"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E138 — Change Window Color"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E351 — Open Menu Screen"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E352 — Open Save Screen"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E353 — Game Over"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E354 — Return to Title Screen"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent full fifteen-carrier native fixture, actual source Discovery/evaluation and public Workspace filesystem operations; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes-project.json",
+        "sha256": "dadab6940ca061f5242c15e9a9c7cf03648e583f07122868a56dac43d7b769e3"
+      },
+      "expected": "compiles all generated carriers and really pushes independent formal edits in all three event containers",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes-workspace.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-011: compiles all generated carriers and really pushes independent formal edits in all three event containers"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original ten-second case deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Actual public Workspace operations, source evaluation and complete filesystem/data state as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-012",
+      "title": "evaluates every known raw command in three containers and really pushes exact independent saved state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T1 — 已确认的测试边界与现有基础"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E134 — Change Save Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E135 — Change Menu Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E136 — Change Encounter"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E137 — Change Formation Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "## 共享参数组（各节引用即纳入该节完整契约）"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E138 — Change Window Color"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E351 — Open Menu Screen"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E352 — Open Save Screen"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E353 — Game Over"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E354 — Return to Title Screen"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent full fifteen-carrier native fixture, actual source Discovery/evaluation and public Workspace filesystem operations; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes-project.json",
+        "sha256": "dadab6940ca061f5242c15e9a9c7cf03648e583f07122868a56dac43d7b769e3"
+      },
+      "expected": "evaluates every known raw command in three containers and really pushes exact independent saved state",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes-workspace.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-012: evaluates every known raw command in three containers and really pushes exact independent saved state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original ten-second case deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Actual public Workspace operations, source evaluation and complete filesystem/data state as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-013",
+      "title": "rejects helper local-const extra access fields before projection and preserves complete stale Workspace state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T1 — 已确认的测试边界与现有基础"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E134 — Change Save Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E135 — Change Menu Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E136 — Change Encounter"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E137 — Change Formation Access"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent full fifteen-carrier native fixture, actual source Discovery/evaluation and public Workspace filesystem operations; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes-project.json",
+        "sha256": "dadab6940ca061f5242c15e9a9c7cf03648e583f07122868a56dac43d7b769e3"
+      },
+      "expected": "rejects helper local-const extra access fields before projection and preserves complete stale Workspace state",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes-workspace.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-013: rejects helper local-const extra access fields before projection and preserves complete stale Workspace state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original ten-second case deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Actual public Workspace operations, source evaluation and complete filesystem/data state as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-014",
+      "title": "rejects nested spread Tone extras before projection and preserves complete stale Workspace state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T1 — 已确认的测试边界与现有基础"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "## 共享参数组（各节引用即纳入该节完整契约）"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E138 — Change Window Color"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent full fifteen-carrier native fixture, actual source Discovery/evaluation and public Workspace filesystem operations; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes-project.json",
+        "sha256": "dadab6940ca061f5242c15e9a9c7cf03648e583f07122868a56dac43d7b769e3"
+      },
+      "expected": "rejects nested spread Tone extras before projection and preserves complete stale Workspace state",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes-workspace.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-014: rejects nested spread Tone extras before projection and preserves complete stale Workspace state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original ten-second case deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Actual public Workspace operations, source evaluation and complete filesystem/data state as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-015",
+      "title": "rejects runtime scene inputs from a typed local helper alias and preserves complete stale Workspace state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T1 — 已确认的测试边界与现有基础"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E351 — Open Menu Screen"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E352 — Open Save Screen"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E353 — Game Over"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E354 — Return to Title Screen"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent full fifteen-carrier native fixture, actual source Discovery/evaluation and public Workspace filesystem operations; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes-project.json",
+        "sha256": "dadab6940ca061f5242c15e9a9c7cf03648e583f07122868a56dac43d7b769e3"
+      },
+      "expected": "rejects runtime scene inputs from a typed local helper alias and preserves complete stale Workspace state",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes-workspace.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-015: rejects runtime scene inputs from a typed local helper alias and preserves complete stale Workspace state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original ten-second case deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Actual public Workspace operations, source evaluation and complete filesystem/data state as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-016",
+      "title": "rejects directly constructed nonboolean access state with exact identity and authored slot",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T1 — 已确认的测试边界与现有基础"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E134 — Change Save Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E135 — Change Menu Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E136 — Change Encounter"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E137 — Change Formation Access"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent full fifteen-carrier native fixture, actual source Discovery/evaluation and public Workspace filesystem operations; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes-project.json",
+        "sha256": "dadab6940ca061f5242c15e9a9c7cf03648e583f07122868a56dac43d7b769e3"
+      },
+      "expected": "rejects directly constructed nonboolean access state with exact identity and authored slot",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes-workspace.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-016: rejects directly constructed nonboolean access state with exact identity and authored slot"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original ten-second case deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Actual public Workspace operations, source evaluation and complete filesystem/data state as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-017",
+      "title": "rejects directly constructed missing hidden gray with exact map identity and authored Tone field",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T1 — 已确认的测试边界与现有基础"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "## 共享参数组（各节引用即纳入该节完整契约）"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E138 — Change Window Color"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent full fifteen-carrier native fixture, actual source Discovery/evaluation and public Workspace filesystem operations; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes-project.json",
+        "sha256": "dadab6940ca061f5242c15e9a9c7cf03648e583f07122868a56dac43d7b769e3"
+      },
+      "expected": "rejects directly constructed missing hidden gray with exact map identity and authored Tone field",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes-workspace.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-017: rejects directly constructed missing hidden gray with exact map identity and authored Tone field"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original ten-second case deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Actual public Workspace operations, source evaluation and complete filesystem/data state as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-018",
+      "title": "rejects known raw categorical negative zero with exact authored slot and preserves stale guards",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T1 — 已确认的测试边界与现有基础"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E134 — Change Save Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E135 — Change Menu Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E136 — Change Encounter"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E137 — Change Formation Access"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent full fifteen-carrier native fixture, actual source Discovery/evaluation and public Workspace filesystem operations; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes-project.json",
+        "sha256": "dadab6940ca061f5242c15e9a9c7cf03648e583f07122868a56dac43d7b769e3"
+      },
+      "expected": "rejects known raw categorical negative zero with exact authored slot and preserves stale guards",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes-workspace.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-018: rejects known raw categorical negative zero with exact authored slot and preserves stale guards"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original ten-second case deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Actual public Workspace operations, source evaluation and complete filesystem/data state as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-019",
+      "title": "rejects known raw out-of-range Window Tone with exact nested authored slot and preserves stale guards",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T1 — 已确认的测试边界与现有基础"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "## 共享参数组（各节引用即纳入该节完整契约）"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E138 — Change Window Color"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent full fifteen-carrier native fixture, actual source Discovery/evaluation and public Workspace filesystem operations; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes-project.json",
+        "sha256": "dadab6940ca061f5242c15e9a9c7cf03648e583f07122868a56dac43d7b769e3"
+      },
+      "expected": "rejects known raw out-of-range Window Tone with exact nested authored slot and preserves stale guards",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes-workspace.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-019: rejects known raw out-of-range Window Tone with exact nested authored slot and preserves stale guards"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original ten-second case deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Actual public Workspace operations, source evaluation and complete filesystem/data state as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-020",
+      "title": "rejects known raw scene extra slots with exact troop authored path and preserves stale guards",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T1 — 已确认的测试边界与现有基础"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E351 — Open Menu Screen"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E352 — Open Save Screen"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E353 — Game Over"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E354 — Return to Title Screen"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent full fifteen-carrier native fixture, actual source Discovery/evaluation and public Workspace filesystem operations; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes-project.json",
+        "sha256": "dadab6940ca061f5242c15e9a9c7cf03648e583f07122868a56dac43d7b769e3"
+      },
+      "expected": "rejects known raw scene extra slots with exact troop authored path and preserves stale guards",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes-workspace.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-020: rejects known raw scene extra slots with exact troop authored path and preserves stale guards"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original ten-second case deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Actual public Workspace operations, source evaluation and complete filesystem/data state as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-021",
+      "title": "rejects native common access negative zero before any source publication with complete state preserved",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T1 — 已确认的测试边界与现有基础"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E134 — Change Save Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E135 — Change Menu Access"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E136 — Change Encounter"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E137 — Change Formation Access"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent full fifteen-carrier native fixture, actual source Discovery/evaluation and public Workspace filesystem operations; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes-project.json",
+        "sha256": "dadab6940ca061f5242c15e9a9c7cf03648e583f07122868a56dac43d7b769e3"
+      },
+      "expected": "rejects native common access negative zero before any source publication with complete state preserved",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes-workspace.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-021: rejects native common access negative zero before any source publication with complete state preserved"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original ten-second case deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Actual public Workspace operations, source evaluation and complete filesystem/data state as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-022",
+      "title": "rejects native map Window Tone bounds before any source publication with exact nested slot",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T1 — 已确认的测试边界与现有基础"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "## 共享参数组（各节引用即纳入该节完整契约）"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E138 — Change Window Color"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent full fifteen-carrier native fixture, actual source Discovery/evaluation and public Workspace filesystem operations; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes-project.json",
+        "sha256": "dadab6940ca061f5242c15e9a9c7cf03648e583f07122868a56dac43d7b769e3"
+      },
+      "expected": "rejects native map Window Tone bounds before any source publication with exact nested slot",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes-workspace.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-022: rejects native map Window Tone bounds before any source publication with exact nested slot"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original ten-second case deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Actual public Workspace operations, source evaluation and complete filesystem/data state as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-023",
+      "title": "rejects native troop scene extra slots before any source publication with complete state preserved",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T1 — 已确认的测试边界与现有基础"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E351 — Open Menu Screen"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E352 — Open Save Screen"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E353 — Game Over"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E354 — Return to Title Screen"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent full fifteen-carrier native fixture, actual source Discovery/evaluation and public Workspace filesystem operations; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes-project.json",
+        "sha256": "dadab6940ca061f5242c15e9a9c7cf03648e583f07122868a56dac43d7b769e3"
+      },
+      "expected": "rejects native troop scene extra slots before any source publication with complete state preserved",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes-workspace.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-023: rejects native troop scene extra slots before any source publication with complete state preserved"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original ten-second case deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Actual public Workspace operations, source evaluation and complete filesystem/data state as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SYSTEM-SCENES-024",
+      "title": "rejects direct scene unknown fields under an assertion with exact map authored path",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T1 — 已确认的测试边界与现有基础"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E351 — Open Menu Screen"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E352 — Open Save Screen"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E353 — Game Over"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E354 — Return to Title Screen"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent full fifteen-carrier native fixture, actual source Discovery/evaluation and public Workspace filesystem operations; no editor UI or game execution claim",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-access-window-scenes-project.json",
+        "sha256": "dadab6940ca061f5242c15e9a9c7cf03648e583f07122868a56dac43d7b769e3"
+      },
+      "expected": "rejects direct scene unknown fields under an assertion with exact map authored path",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/system-access-window-scenes-workspace.test.ts",
+        "name": "MV-S6-SYSTEM-SCENES-024: rejects direct scene unknown fields under an assertion with exact map authored path"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; source entry, two workers and original ten-second case deadlines",
+        "owner": "Ticket40 focused development; full/built/native finalization coordinated separately",
+        "layer": "Actual public Workspace operations, source evaluation and complete filesystem/data state as asserted"
+      },
+      "slice": "40 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SCREEN-001",
+      "title": "reconstructs every Screen mode and signed zero through evaluated formal and known raw source and real 15-carrier Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E221"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/37-screen-weather-waits-and-movies.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored literal saved screen commands, signed zero and all owned modes; actual evaluated source or independently malformed native slots. No editor UI or game capture claim.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/screen-effect-cases.json",
+        "sha256": "428a9f0c9f011083d302c76373db00e8d88797e333e56914721ba785d4cf88c7"
+      },
+      "expected": "reconstructs every Screen mode and signed zero through evaluated formal and known raw source and real 15-carrier Push",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/screen-effects-workspace.test.ts",
+        "name": "MV-S6-SCREEN-001: reconstructs every Screen mode and signed zero through evaluated formal and known raw source and real 15-carrier Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API",
+        "owner": "Codex automated verification",
+        "layer": "Public Workspace API, actual source evaluation and complete filesystem state"
+      },
+      "slice": "37 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SCREEN-002",
+      "title": "rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E221"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/37-screen-weather-waits-and-movies.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Self-authored literal saved screen commands, signed zero and all owned modes; actual evaluated source or independently malformed native slots. No editor UI or game capture claim.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/screen-effect-cases.json",
+        "sha256": "428a9f0c9f011083d302c76373db00e8d88797e333e56914721ba785d4cf88c7"
+      },
+      "expected": "rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/screen-effects-workspace.test.ts",
+        "name": "MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API",
+        "owner": "Codex automated verification",
+        "layer": "Public Workspace API, actual source evaluation and complete filesystem state"
+      },
+      "slice": "37 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SCREEN-003",
+      "title": "rejects late malformed native Screen slots before source publication without changing existing business state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E221"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/37-screen-weather-waits-and-movies.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Self-authored literal saved screen commands, signed zero and all owned modes; actual evaluated source or independently malformed native slots. No editor UI or game capture claim.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/screen-effect-cases.json",
+        "sha256": "428a9f0c9f011083d302c76373db00e8d88797e333e56914721ba785d4cf88c7"
+      },
+      "expected": "rejects late malformed native Screen slots before source publication without changing existing business state",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/screen-effects-workspace.test.ts",
+        "name": "MV-S6-SCREEN-003: rejects late malformed native Screen slots before source publication without changing existing business state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API",
+        "owner": "Codex automated verification",
+        "layer": "Public Workspace API, actual source evaluation and complete filesystem state"
+      },
+      "slice": "37 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SCREEN-R6",
+      "title": "Current built normal-Scene screen waits, parallel effects, Weather and Movie runtime acceptance",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/37-screen-weather-waits-and-movies.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Current built public candidate and independent literal normal-Scene game pair, physically isolated under the ticket33 gate; not executed in focused DEV.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/screen-effect-cases.json",
+        "sha256": "428a9f0c9f011083d302c76373db00e8d88797e333e56914721ba785d4cf88c7"
+      },
+      "expected": "Actual deterministic per-side simulation and visible/native observations agree with independent expected behavior; preserve raw failures and candidate identities.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/37-screen-weather-waits-and-movies-dev-checkpoint.md",
+        "section": "## R6 pending game observation"
+      },
+      "nativeGroups": [
+        "R6"
+      ],
+      "execution": {
+        "environment": "Windows / MV1.6.1 / actual project runtime NW.js",
+        "owner": "Codex native verification",
+        "layer": "Actual game normal Scenes from current built Workspace output"
+      },
+      "slice": "37 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-PICTURE-001",
+      "title": "Complete Picture public command and native parameter domains",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E231"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/38-picture-complete-parameters.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Picture literals and actual public source, including None, signed zero, exact mode/enum/reserved slots and negative inputs; not editor or game captures.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/picture-parameters.json",
+        "sha256": "f1aa90623a716d2cf8d37af8e44c657c003ef519ca298449409e3ded915b089d"
+      },
+      "expected": "Complete Picture public command and native parameter domains",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/pictures.test.ts",
+        "name": "preserves explicit Show Picture None and every independent display field"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API; native layer pending",
+        "owner": "Codex automated verification",
+        "layer": "Public command and actual Workspace source/filesystem boundary"
+      },
+      "slice": "38 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-PICTURE-002",
+      "title": "Complete Picture matrix through actual Workspace and real Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E231"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/38-picture-complete-parameters.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Picture literals and actual public source, including None, signed zero, exact mode/enum/reserved slots and negative inputs; not editor or game captures.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/picture-parameters.json",
+        "sha256": "f1aa90623a716d2cf8d37af8e44c657c003ef519ca298449409e3ded915b089d"
+      },
+      "expected": "Complete Picture matrix through actual Workspace and real Push",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/pictures-workspace.test.ts",
+        "name": "preserves complete independent Picture matrix through discovered source and real Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API; native layer pending",
+        "owner": "Codex automated verification",
+        "layer": "Public command and actual Workspace source/filesystem boundary"
+      },
+      "slice": "38 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-PICTURE-003",
+      "title": "Actual Picture helper/direct/nested fields reject projection loss",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E231"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/38-picture-complete-parameters.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent complete native Picture literals and actual public source, including None, signed zero, exact mode/enum/reserved slots and negative inputs; not editor or game captures.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/picture-parameters.json",
+        "sha256": "f1aa90623a716d2cf8d37af8e44c657c003ef519ca298449409e3ded915b089d"
+      },
+      "expected": "Actual Picture helper/direct/nested fields reject projection loss",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/pictures-workspace.test.ts",
+        "name": "rejects evaluated"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API; native layer pending",
+        "owner": "Codex automated verification",
+        "layer": "Public command and actual Workspace source/filesystem boundary"
+      },
+      "slice": "38 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-PICTURE-004",
+      "title": "Picture malformed native and known raw refusal preserves complete state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E231"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/38-picture-complete-parameters.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent complete native Picture literals and actual public source, including None, signed zero, exact mode/enum/reserved slots and negative inputs; not editor or game captures.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/picture-parameters.json",
+        "sha256": "f1aa90623a716d2cf8d37af8e44c657c003ef519ca298449409e3ded915b089d"
+      },
+      "expected": "Picture malformed native and known raw refusal preserves complete state",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/pictures-workspace.test.ts",
+        "name": "refuses ${origin} Picture shape"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API; native layer pending",
+        "owner": "Codex automated verification",
+        "layer": "Public command and actual Workspace source/filesystem boundary"
+      },
+      "slice": "38 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-PICTURE-005",
+      "title": "Picture signed numeric zero through formal direct and raw real Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E231"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/38-picture-complete-parameters.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native Picture literals and actual public source, including None, signed zero, exact mode/enum/reserved slots and negative inputs; not editor or game captures.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/picture-parameters.json",
+        "sha256": "f1aa90623a716d2cf8d37af8e44c657c003ef519ca298449409e3ded915b089d"
+      },
+      "expected": "Picture signed numeric zero through formal direct and raw real Push",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/pictures-workspace.test.ts",
+        "name": "preserves signed Picture values from actual"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API; native layer pending",
+        "owner": "Codex automated verification",
+        "layer": "Public command and actual Workspace source/filesystem boundary"
+      },
+      "slice": "38 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-PICTURE-006",
+      "title": "Picture current public types reject incomplete and legacy forms",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E231"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/38-picture-complete-parameters.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent complete native Picture literals and actual public source, including None, signed zero, exact mode/enum/reserved slots and negative inputs; not editor or game captures.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/picture-parameters.json",
+        "sha256": "f1aa90623a716d2cf8d37af8e44c657c003ef519ca298449409e3ded915b089d"
+      },
+      "expected": "Picture current public types reject incomplete and legacy forms",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/pictures-workspace.test.ts",
+        "name": "public types reject incomplete or legacy Picture form"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API; native layer pending",
+        "owner": "Codex automated verification",
+        "layer": "Public command and actual Workspace source/filesystem boundary"
+      },
+      "slice": "38 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-PICTURE-R6",
+      "title": "Picture allocated R6 actual current built game validation pending",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E231"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/38-picture-complete-parameters.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Current built product and independent native pair with self-authored picture assets, not executed in focused DEV.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/picture-parameters.json",
+        "sha256": "f1aa90623a716d2cf8d37af8e44c657c003ef519ca298449409e3ded915b089d"
+      },
+      "expected": "Picture allocated R6 actual current built game validation pending",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/38-picture-complete-parameters.md",
+        "section": "## R6 — pending actual game validation"
+      },
+      "nativeGroups": [
+        "R6"
+      ],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API; native layer pending",
+        "owner": "Codex automated verification",
+        "layer": "Pending actual current built product and literal native game pair"
+      },
+      "slice": "38 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-PICTURE-007",
+      "title": "Picture Map and Battle page carriers preserve complete inactive state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E231"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/38-picture-complete-parameters.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent full Map Event Page and ordered Battle Event Pages with all five Picture commands, disabled condition values, inactive route flags and retained external data.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/picture-carriers.json",
+        "sha256": "d07f8af6b8a1877533179fda226345a01fcd16f0c5f9706b6bf327ad9f20b1fc"
+      },
+      "expected": "Actual public Workspace native Decompile, Discovery/evaluation, Check/Compile, complete all15 Project Root/Snapshot and all4 generated comparisons, clean Diff and harmless real Push retain independent carrier values.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/pictures-workspace.test.ts",
+        "name": "preserves Picture commands in Map and Battle pages with inactive saved values and real Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API; native layer pending",
+        "owner": "Codex automated verification",
+        "layer": "Public command and actual Workspace source/filesystem boundary"
+      },
+      "slice": "38 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-PICTURE-008",
+      "title": "imageAsset refuses extra own input fields before projection into Picture values",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E231"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/38-picture-complete-parameters.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Untyped public imageAsset input plus actual source-local, const, spread and cast object inputs containing an unsupported own field; valid pictures and faces assets retain exact CR names without scanning files.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/picture-parameters.json",
+        "sha256": "f1aa90623a716d2cf8d37af8e44c657c003ef519ca298449409e3ded915b089d"
+      },
+      "expected": "The constructor rejects unsupported own fields before projection with imageAsset location; actual Workspace Check/Compile preserve complete source, Discovery, Project Root, Snapshot, generated, config, descriptor and manifest state, and stale Diff/Push refuse.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/pictures-workspace.test.ts",
+        "name": "rejects imageAsset input fields before projection"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and actual built Workspace API; native layer pending",
+        "owner": "Codex automated verification",
+        "layer": "Public command and actual Workspace source/filesystem boundary"
+      },
+      "slice": "38 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-AUDIO-001",
+      "title": "reconstructs all audio modes and signed zero through evaluated formal and raw source with real15-carrier Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "| AUDIO(folder) |"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/39-audio-and-system-audio-settings.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored independent literal audio saved records: all13 codes, matching asset categories or explicit None, independent volume/pitch/pan, boundaries and non-step values, numeric negative zero, all three vehicles and seconds fades. Complete15-carrier Map/Common/Troop project.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/audio-command-cases.json",
+        "sha256": "53aa731e256053fb2d8887f48deed19a4e9b425d39632e71ab5642f5bfa1fa52"
+      },
+      "expected": "reconstructs all audio modes and signed zero through evaluated formal and raw source with real15-carrier Push",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/audio-commands-workspace.test.ts",
+        "name": "MV-S6-AUDIO-001: reconstructs all audio modes and signed zero through evaluated formal and raw source with real15-carrier Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and current built Workspace API",
+        "owner": "Codex automated verification",
+        "layer": "Public helpers and actual Workspace native/source/filesystem boundary"
+      },
+      "slice": "39 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-AUDIO-E4",
+      "title": "Ticket39 allocated E4 shipped audio editor resources and current built product comparison",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "| AUDIO(folder) |"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/39-audio-and-system-audio-settings.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Self-authored independent literal audio saved records: all13 codes, matching asset categories or explicit None, independent volume/pitch/pan, boundaries and non-step values, numeric negative zero, all three vehicles and seconds fades. Complete15-carrier Map/Common/Troop project.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/audio-command-cases.json",
+        "sha256": "53aa731e256053fb2d8887f48deed19a4e9b425d39632e71ab5642f5bfa1fa52"
+      },
+      "expected": "Ticket39 allocated E4 shipped audio editor resources and current built product comparison",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/39-audio-and-system-audio-dev-checkpoint.md",
+        "section": "## E4 pending reverse-engineering comparison"
+      },
+      "nativeGroups": [
+        "E4"
+      ],
+      "execution": {
+        "environment": "Actual identified MV1.6.1 editor resources / native NW0.29.0 and Node22 tooling",
+        "owner": "Codex automated verification",
+        "layer": "Pending allocated current built product/native comparison; no DEV acceptance claim"
+      },
+      "slice": "39 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-AUDIO-R6",
+      "title": "Ticket39 allocated R6 current built normal-Scene audio and system audio pairs",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "| AUDIO(folder) |"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/39-audio-and-system-audio-settings.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Self-authored independent literal audio saved records: all13 codes, matching asset categories or explicit None, independent volume/pitch/pan, boundaries and non-step values, numeric negative zero, all three vehicles and seconds fades. Complete15-carrier Map/Common/Troop project.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/audio-command-cases.json",
+        "sha256": "53aa731e256053fb2d8887f48deed19a4e9b425d39632e71ab5642f5bfa1fa52"
+      },
+      "expected": "Ticket39 allocated R6 current built normal-Scene audio and system audio pairs",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/39-audio-and-system-audio-dev-checkpoint.md",
+        "section": "## R6 pending game observation"
+      },
+      "nativeGroups": [
+        "R6"
+      ],
+      "execution": {
+        "environment": "Actual identified MV1.6.1 editor resources / native NW0.29.0 and Node22 tooling",
+        "owner": "Codex automated verification",
+        "layer": "Pending allocated current built product/native comparison; no DEV acceptance claim"
+      },
+      "slice": "39 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-AUDIO-002",
+      "title": "refuses evaluated malformed helper direct and known raw audio sources without changing complete business state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "| AUDIO(folder) |"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/39-audio-and-system-audio-settings.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Self-authored independent literal audio saved records: all13 codes, matching asset categories or explicit None, independent volume/pitch/pan, boundaries and non-step values, numeric negative zero, all three vehicles and seconds fades. Complete15-carrier Map/Common/Troop project.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/audio-command-cases.json",
+        "sha256": "53aa731e256053fb2d8887f48deed19a4e9b425d39632e71ab5642f5bfa1fa52"
+      },
+      "expected": "refuses evaluated malformed helper direct and known raw audio sources without changing complete business state",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/audio-commands-workspace.test.ts",
+        "name": "MV-S6-AUDIO-002: refuses evaluated malformed helper direct and known raw audio sources without changing complete business state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and current built Workspace API",
+        "owner": "Codex automated verification",
+        "layer": "Public helpers and actual Workspace native/source/filesystem boundary"
+      },
+      "slice": "39 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-AUDIO-003",
+      "title": "refuses late malformed saved audio records before Decompile publication and preserves every existing business file",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "| AUDIO(folder) |"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/39-audio-and-system-audio-settings.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Self-authored independent literal audio saved records: all13 codes, matching asset categories or explicit None, independent volume/pitch/pan, boundaries and non-step values, numeric negative zero, all three vehicles and seconds fades. Complete15-carrier Map/Common/Troop project.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/audio-command-cases.json",
+        "sha256": "53aa731e256053fb2d8887f48deed19a4e9b425d39632e71ab5642f5bfa1fa52"
+      },
+      "expected": "refuses late malformed saved audio records before Decompile publication and preserves every existing business file",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/audio-commands-workspace.test.ts",
+        "name": "MV-S6-AUDIO-003: refuses late malformed saved audio records before Decompile publication and preserves every existing business file"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source and current built Workspace API",
+        "owner": "Codex automated verification",
+        "layer": "Public helpers and actual Workspace native/source/filesystem boundary"
+      },
+      "slice": "39 / S6",
+      "required": true
     },
     {
       "id": "MV-S6-CONDITIONAL-R2-GUARD",
