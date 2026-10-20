@@ -182,7 +182,13 @@ export function renderChangeActorImages(
     ? null
     : {
         expression: `changeActorImages({ actor: actorRef({ id: ${actorId} }), character: { image: ${renderImage(characterName, "characters")}, index: ${literal(characterIndex)} }, face: { image: ${renderImage(faceName, "faces")}, index: ${literal(faceIndex)} }, battler: ${renderImage(battlerName, "sv_actors")} })`,
-        helperNames: ["actorRef", "changeActorImages", ...([characterName, faceName, battlerName].some((name) => name !== "") ? ["imageAsset"] : [])],
+        helperNames: [
+          "actorRef",
+          "changeActorImages",
+          ...([characterName, faceName, battlerName].some((name) => name !== "")
+            ? ["imageAsset"]
+            : []),
+        ],
       };
 }
 
@@ -201,7 +207,9 @@ export function renderChangeVehicleImage(
 }
 
 function renderImage(name: string, folder: string): string {
-  return name === "" ? "null" : `imageAsset({ folder: ${literal(folder)}, name: ${literal(name)} })`;
+  return name === ""
+    ? "null"
+    : `imageAsset({ folder: ${literal(folder)}, name: ${literal(name)} })`;
 }
 
 function renderActorResourceTarget(
