@@ -66,3 +66,10 @@ E1只读身份再核对34资源和E117/picker，并将当前Common16组100个sou
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [核心指令参数附表](../../complete-mv-events/research/command-parameters/core.md)。
 - [原生事件数据](../../complete-mv-events/research/native-event-data.md)、[编辑器保存证据](../../complete-mv-events/research/editor-serialization.md)：Common Event 独立保存开关的依据。
+
+
+## Comments
+
+### 2026-10-20 — 最终52实际游戏补充
+
+52 在最终候选上实际复跑 R1 Common 调用、Autorun、Parallel 和开关后果；它们属于完整10场景触发/页组。新增当前 `MV-S5-COMMON-R1-TRIGGERS` 结果；原有 fixture 和历史结果不变。 共同候选为 `2dc63901` / `mv-1.6.1/22`；详见[52最终报告与限制](../evidence/52-final-games.md)。52共33对/66个实际游戏通过，四份原始拒绝独立保留；本注只确认所列52责任，既有状态保持不变，最终索引及跨票完整性由55汇总。

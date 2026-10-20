@@ -94,3 +94,7 @@ ticket 26 的共享 raw suffix mapping 待实际最新集成时协调，不复�
 实际E2重核13条同身份03资源，built公共Workspace真实源码改动和Push比较完整15live/4generated，并验证6负例完整状态。实际R3经root独立exact prepare审查释放后，原7Choices完整谓词/Input和新增数值负零通过8对/16原生游戏进程；完整15disk/4generated/4loaded、1100文件独立物理副本、reference/seed不变、真实进程/host/7engine、唯一profile/exit0/空日志均由独立读取器复核。当前公开API文档、示例及编写指南已同步并复核。首方runtime/源码/assets与完整原生carrier只保留M盘外部，仓库提交安全摘要和原件hash，不分发。
 
 328条requirements完整保留入站314和DEV274；最终索引与历史/归档/执行字节审计通过。9项criteria全部完成，状态resolved；参见[最终历史](../evidence/27-final-history/README.md)、[byte audit](../evidence/27-final-history/final-byte-audit-v1.json)及[关闭后索引原输出](../evidence/27-final-history/post-archive/final-index-v2/stdout.log)。规格最终49–55责任仍独立推进。最终索引v1曾在原10秒期限超时；完整8389文件输入及所有诊断/失败保留，后续有效全量profile未复现、原因仍未确定。根审核后一次无插件原CLI v2实际1pass/2filtered（4.86秒）完成门槛，未修改helper/领域或将诊断通过冒充正式门槛。
+
+### 2026-10-20 — 最终52实际游戏补充
+
+52 在最终候选上实际复跑全部八种 Choices 默认/取消/越界/403/等待/负零场景，保留原生 Input和全部分支后果，并新增当前 `MV-S6-CHOICES-R3-PAIRS` 结果。 共同候选为 `2dc63901` / `mv-1.6.1/22`；详见[52最终报告与限制](../evidence/52-final-games.md)。52共33对/66个实际游戏通过，四份原始拒绝独立保留；本注只确认所列52责任，既有状态保持不变，最终索引及跨票完整性由55汇总。

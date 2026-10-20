@@ -57,3 +57,10 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 按规格用户执行修订关闭开发功能。共同产品 `dde334b3e8fedecf8408f3bf94e4c33c752a413d` 已合入实际集成 `2ce2ba3b4a364dc3770f953323707d843a4f53c7`，契约 `/18`；Windows / Node22.23.0 合并后18受影响文件663/663、包类型、33TS scoped lint/format通过。
 
 [45/46批次交付](../evidence/battle-batch-delivery.md)包含独立输入、实际命令/日志、3项Workspace当前结果、原始失败和边界。索引当前393稳定ID；`MV-S6-BATTLE-004`/`005`明确保留最终逆向/产品比较及实际游戏责任。48全量/构建、49/50适用E2/E4及52/53/54适用R2/R4/R6未记为通过；完整原始17页/三turn R2不以缩小样本替代。
+
+
+## Comments
+
+### 2026-10-20 — 最终52实际游戏补充
+
+52 实际完成完整17页三回合R2、AND/全关/三span/turn0与A-B、原guard和全部调度oracle，及独立胜/逃/允许败分支。两战斗上下文还验证战斗中Battle/Name跳过、战斗外aborting跨原生Wait、下一场setup重置和Abort result1/escapeCount1。原失败不改写；`MV-S6-BATTLE-005`包含53/54责任，52不将其全局标为完成。 共同候选为 `2dc63901` / `mv-1.6.1/22`；详见[52最终报告与限制](../evidence/52-final-games.md)。52共33对/66个实际游戏通过，四份原始拒绝独立保留；本注只确认所列52责任，既有状态保持不变，最终索引及跨票完整性由55汇总。

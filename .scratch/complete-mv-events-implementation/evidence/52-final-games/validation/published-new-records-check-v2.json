@@ -1,0 +1,95 @@
+{
+  "at": "2026-10-20T03:19:28.246Z",
+  "purpose": "Lightweight new52 requirement/schema/link/fixture/source-fingerprint validation only; no repeated current/historical index or native/full/build run",
+  "requirementsParsed": 447,
+  "oldRequirementObjectsUnchanged": 438,
+  "newRequirementLinksAndHashesChecked": 9,
+  "newResultsSchemaAndFixtureChecked": 15,
+  "results": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-COMMON-R1-TRIGGERS-2026-10-20T03-13-28-605Z-12e1a105-41d6-4b4a-a4ab-47551ab3fa1d.json",
+      "sha256": "cd96d30c447ce42ec0aa253c9067b063854d41e8d3a2c67e4284c64ad7790cfc",
+      "id": "MV-S5-COMMON-R1-TRIGGERS"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-MAP-R1-ROUTES-2026-10-20T03-13-28-433Z-b0487f8b-eb87-4974-95c6-96685c17e64b.json",
+      "sha256": "6c3eb24b0572565ea2d5b634eb0dc0e7823c92d578740f0ade3387bfe3631bf3",
+      "id": "MV-S5-MAP-R1-ROUTES"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-MAP-R1-TRIGGERS-2026-10-20T03-13-28-331Z-62614188-e1b8-41da-9136-4aaa42614e48.json",
+      "sha256": "7d434e88fef95c6916efc1c152532d322eefea8b8a0be1c30a8d46cffe61a4d2",
+      "id": "MV-S5-MAP-R1-TRIGGERS"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-CHOICES-R3-PAIRS-2026-10-20T03-13-28-795Z-2b2a8983-b78e-47d2-9a0c-5ade265665c0.json",
+      "sha256": "45ef52884fb0caf6a190f5e5687b4276f31af8e122ef6809335f3803b6d00c3f",
+      "id": "MV-S6-CHOICES-R3-PAIRS"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-MOVEMENT-006-2026-10-20T03-13-28-713Z-84011b8a-d19a-4c15-a89d-25e11ab5836e.json",
+      "sha256": "b6681645a4c4e9c3bb39f59915f0b0b57b3a6d9a6fc04d96da3281fd1d4e9f76",
+      "id": "MV-S6-MOVEMENT-006"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-TEXT-R3-2026-10-20T03-13-28-882Z-6b755b8b-ee4d-459b-90f3-4af705d40f0e.json",
+      "sha256": "b9ed09cbac5f9e77081e8af22da05a0dc04e35794304bfa0c673e3bcfd86e46e",
+      "id": "MV-S6-TEXT-R3"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S7-ORIGINAL-AMOUNT-REFUSALS-052-2026-10-20T03-13-28-330Z-dc0cf80b-4336-4371-8949-6483c7f9cbd8.json",
+      "sha256": "e082b8e656f3978c7a013efbc85bea6e06fadd08e6440f90bef5ff4d52ee4514",
+      "id": "MV-S7-ORIGINAL-AMOUNT-REFUSALS-052"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S7-R1-ROUTES-052-2026-10-20T03-13-28-313Z-5efaf388-a2e0-41b6-9aa7-d7c4c0399019.json",
+      "sha256": "f5d746b57ff5621339c9a3b4981928e9281d08bc1354984f695f8fa3880734ee",
+      "id": "MV-S7-R1-ROUTES-052"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S7-R1-TRIGGERS-052-2026-10-20T03-13-28-311Z-8f10c6f1-abb7-4496-abff-81917f968208.json",
+      "sha256": "ffc7b153ad66f7f5b6c2735d664f6c188e0eabd84acf7e6668d112fedd891486",
+      "id": "MV-S7-R1-TRIGGERS-052"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S7-R2-CONTEXTS-052-2026-10-20T03-13-28-318Z-e2b5e3a7-c8b9-47e9-a8f5-f79b3e17358f.json",
+      "sha256": "4e3653a0ceb172d986d6b6294a44d749a547dd0a29e480608b1681700b207b9c",
+      "id": "MV-S7-R2-CONTEXTS-052"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S7-R2-RESULTS-052-2026-10-20T03-13-28-315Z-ee3fe1be-eb18-4a42-b0a3-c7981dab4354.json",
+      "sha256": "0ad7037c668f64599b0d0b65b99334951811afcf97658c9152a13ee1674eacae",
+      "id": "MV-S7-R2-RESULTS-052"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S7-R2-SCHEDULING-052-2026-10-20T03-13-28-314Z-036db97c-386d-4505-9df7-4a222a2a09bf.json",
+      "sha256": "c7785e83cb9d8d11dc851ac7d377e66b97bf81b96c341d92ca18871ebbbb4c82",
+      "id": "MV-S7-R2-SCHEDULING-052"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S7-R3-CHOICES-052-2026-10-20T03-13-28-320Z-fa98cc44-0cdc-41b1-8c08-b1fca33f5e1a.json",
+      "sha256": "fbee456a2cde7b84d321fc4ab278b8e8370199fb9fe87f47e44849632976fc80",
+      "id": "MV-S7-R3-CHOICES-052"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S7-R3-CONDITIONAL-052-2026-10-20T03-13-28-324Z-daf4ad50-0de6-4cdb-ae92-fd88dce1179f.json",
+      "sha256": "b11dc12ed6d9b099b59735d01c78f0c31fb901b8f5509d1078b81de78f7c0bfb",
+      "id": "MV-S7-R3-CONDITIONAL-052"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S7-R3-CONTROL-052-2026-10-20T03-13-28-322Z-2a58c209-76ea-4a29-9fba-a6c2e8fc882b.json",
+      "sha256": "c37e020cbba7fe879607869db1875ff4dae9078608842d24ad2d2830e5242b75",
+      "id": "MV-S7-R3-CONTROL-052"
+    }
+  ],
+  "passed": true,
+  "originalTargetedIndexFailureRetained": {
+    "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-game-52/evidence-index-v1.json",
+    "deadlineMs": 10000,
+    "durationMs": 10010.155600000002,
+    "message": "STACK_TRACE_ERROR",
+    "status": "failed",
+    "cause": "Not diagnosed; root concurrent I/O is not asserted as the cause"
+  },
+  "pending": "Merger/final55 integrated current index"
+}

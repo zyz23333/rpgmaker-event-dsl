@@ -79,3 +79,7 @@ See [the batch delivery and actual log pointers](../evidence/29-30-44-text-capab
 The independent merger's actual import-cycle regression and obsolete None boundary expectation are corrected in58252653; the exact legacy Comment injection in Choices011 is migrated in e61a27ef. Actual Inventory/Shop4c46520e is merged by47211924, preserving the incoming Shop APIs and pure guard. The union is416requirements with identical overlapping objects; the Text delivery advances actual incoming contract18 to19. Merged source passes typecheck,123affected tests,12selected actual Workspace cases, current index and contract freshness. All original merger, architecture-red, failed Workspace and formatting logs remain preserved with corrected runs.
 
 See [the correction checkpoints and actual logs](../evidence/29-30-44-text-capability-batch.md#independent-merger-corrections-and-latest-incoming). Development remains resolved; final48/full-build and51/52/54REA/game obligations remain pending, and combined native checkboxes stay unchecked.
+
+### 2026-10-20 — 最终52实际游戏补充
+
+52 的12种实际 R3控制流场景覆盖精确/空/重复/不存在 Label、条件、Loop/Break/Exit、嵌套标记和有界观察的两类停滞，并新增当前 `MV-S6-TEXT-R3` 结果。R6/R7、其余 Script/Plugin最终责任仍由54和55汇总。 共同候选为 `2dc63901` / `mv-1.6.1/22`；详见[52最终报告与限制](../evidence/52-final-games.md)。52共33对/66个实际游戏通过，四份原始拒绝独立保留；本注只确认所列52责任，既有状态保持不变，最终索引及跨票完整性由55汇总。

@@ -1,0 +1,13 @@
+{
+  "runner": "run-final-v2.cjs",
+  "support": "native-pair-support-v3.cjs",
+  "originalSupport": "native-pair-support-v2.cjs",
+  "candidateChanged": false,
+  "scenarioRoot": "s-<sha256(slug)[0:12]>-<uuid[0:8]>",
+  "reason": "Windows physical output path length only",
+  "oracleChanged": false,
+  "fixtureChanged": false,
+  "originalRunner": "run-final-v1.cjs",
+  "at": "2026-10-20T02:33:17.9136420Z",
+  "outputRoot": "M:/mv52"
+}

@@ -850,3 +850,19 @@ records exact portions of older family IDs for55's aggregation; earlier pending
 development text remains historical. In particular54's four Battle-background
 cases do not replace the original eight-case obligation or separate missing
 Tileset Loading Error control. No blanket old-family pass is added here.
+
+## Final actual game ticket52
+
+[Actual final52 execution](52-final-games.md) records33 native pairs and four separate original invalid-input refusals.
+
+| Requirement | Actual obligation |
+| --- | --- |
+| MV-S7-R1-TRIGGERS-052 | Final five Map triggers, page priority and Common triggers/call |
+| MV-S7-R1-ROUTES-052 | Final inactive/autonomous/forced Movement Route and waiting |
+| MV-S7-R2-SCHEDULING-052 | Full17-page three-turn original R2 scheduling with legal amount variant |
+| MV-S7-R2-RESULTS-052 | Native victory, party Escape input and allowed-defeat callbacks |
+| MV-S7-R2-CONTEXTS-052 | Battle/Name skip, residual Troop objects and Abort phase consequences |
+| MV-S7-R3-CHOICES-052 | Actual Choices defaults, cancellation, out-of-range saved state and negative zero |
+| MV-S7-R3-CONTROL-052 | Exact/duplicate/missing Labels, Loop/Break/Exit and stagnation |
+| MV-S7-R3-CONDITIONAL-052 | Complete Conditional modes in held/released/direct and three boarded vehicles |
+| MV-S7-ORIGINAL-AMOUNT-REFUSALS-052 | Original four invalid Enemy HP amount inputs refuse before game launch |

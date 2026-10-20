@@ -61,3 +61,7 @@ The original `MV-S5-TROOP-R2` row and its full runner/input remain unchanged and
 
 - [实施规格](../complete-mv-events-implementation-spec.md)：I2–I3、I7–I10、T1–T4；完整契约与未在本票重复列出的参数规则以规格及其规范附表为准。
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
+
+### 2026-10-20 — 最终52实际游戏补充
+
+52 保留原完整 R2 的17页、三回合、E122/E111/E121 guard及全部16条有序 trace。原输入含非法 E331 金额9999999，实际公共 Decompile拒绝仍保留；只将一个金额字段改为9999的完整合法变体实际游戏两侧通过，未缩小为 Script guard，也未覆盖旧拒绝。 共同候选为 `2dc63901` / `mv-1.6.1/22`；详见[52最终报告与限制](../evidence/52-final-games.md)。52共33对/66个实际游戏通过，四份原始拒绝独立保留；本注只确认所列52责任，既有状态保持不变，最终索引及跨票完整性由55汇总。

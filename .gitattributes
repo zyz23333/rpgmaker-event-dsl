@@ -27,3 +27,6 @@
 
 # Ticket35 retains original focused DEV scripts and raw runner output byte-for-byte.
 /.scratch/complete-mv-events-implementation/evidence/35-dev-tools/** -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol
+
+# Ticket52 preserves exact game-evidence bindings, archived tools, and original logs.
+/.scratch/complete-mv-events-implementation/evidence/52-final-games/** -text -whitespace
