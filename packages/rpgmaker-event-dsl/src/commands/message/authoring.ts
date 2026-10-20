@@ -6,7 +6,7 @@ import type {
   ShowScrollingTextDslCommand,
   ShowTextDslCommand,
 } from "../../domain/types.js";
-import { assertShowChoicesInput } from "./validation.js";
+import { assertShowChoicesInput } from "./choices-validation.js";
 
 import {
   assertShowText,

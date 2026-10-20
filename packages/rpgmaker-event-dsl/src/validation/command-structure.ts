@@ -1,6 +1,6 @@
 import type { RawEventCommand } from "../compiler/types.js";
 import { assertNativeMovementCommands } from "../commands/movement/validation.js";
-import { assertNativeMessageGroups } from "../commands/message/validation.js";
+import { assertNativeMessageGroups } from "../commands/message/native-validation.js";
 import { CommandStructureError } from "./command-errors.js";
 import { assertStrictJson, describeValue, StrictJsonError } from "../project-data/json-values.js";
 import { assertNativeCommandParameters } from "./native-parameters.js";

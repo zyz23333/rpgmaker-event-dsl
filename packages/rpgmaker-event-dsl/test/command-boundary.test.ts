@@ -1,5 +1,12 @@
 import { expect, it } from "vitest";
-import { commonEvent, rawDslCommand, mapEvent, page } from "../src/index.js";
+import {
+  commonEvent,
+  rawDslCommand,
+  mapEvent,
+  page,
+  showText,
+  type DslCommand,
+} from "../src/index.js";
 import { compileCommonEvent, compileMapEvent } from "../src/compiler/events.js";
 import { renderDecompiledCommandList } from "../src/decompiler/dispatch.js";
 import { readRawCommandList } from "../src/decompiler/core.js";
@@ -336,14 +343,32 @@ it("rejects misleading array prototypes and negative zero in the known movement 
   }
 });
 
-it("reports currently unrepresented known saved variants instead of silently dropping their slots", () => {
-  for (const list of [
-    [
-      { code: 101, indent: 0, parameters: ["", 3, 0, 2] },
-      { code: 401, indent: 0, parameters: [""] },
-    ],
-  ])
-    expect(() => renderDecompiledCommandList(list)).toThrow(/MV-COMMAND-UNSUPPORTED/);
+it("preserves a represented None face with its independent saved index through formal source", () => {
+  const expected = [
+    { code: 101, indent: 0, parameters: ["", 3, 0, 2] },
+    { code: 401, indent: 0, parameters: [""] },
+    { code: 0, indent: 0, parameters: [] },
+  ];
+  const rendered = renderDecompiledCommandList(readRawCommandList(expected));
+  expect(rendered.helperNames).toStrictEqual(["showText"]);
+  expect(rendered.source).toBe(
+    'showText({ lines: [""], face: { image: null, index: 3 }, background: "window", position: "bottom" }),',
+  );
+  const commands = new Function("showText", `return [${rendered.source}];`)(
+    showText,
+  ) as DslCommand[];
+  const declaration = commonEvent({
+    id: 1,
+    name: "Independent None index",
+    trigger: "none",
+    commands,
+  });
+  expect(compileCommonEvent(declaration, { nextId: 1, resolver }).list).toStrictEqual(expected);
+  expect(
+    validateStagedDataGraph(buildStagedDataGraph({ declarations: [declaration] }), {
+      scriptEnabled: false,
+    }).issues,
+  ).toStrictEqual([]);
 });
 
 it("represents a Conditional body containing content and its own saved end marker", () => {

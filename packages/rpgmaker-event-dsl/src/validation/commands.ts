@@ -28,7 +28,7 @@ import {
   assertConditionalCommand,
   inspectConditionalReferences,
 } from "../commands/flow/conditional-validation.js";
-import { assertShowChoicesInput } from "../commands/message/validation.js";
+import { assertShowChoicesInput } from "../commands/message/choices-validation.js";
 import { assertMapAppearanceInput } from "../commands/map/validation.js";
 import {
   assertSystemAccessInput,

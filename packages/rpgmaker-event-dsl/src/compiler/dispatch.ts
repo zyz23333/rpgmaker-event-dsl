@@ -6,7 +6,7 @@ import { assertControlTimerInput } from "../commands/variables/validation.js";
 import { compileShowText } from "../commands/message/compile.js";
 import { resolveMessageVariable } from "../commands/message/validation.js";
 import { assertDslCommandList } from "../validation/dsl-command-inputs.js";
-import { assertShowChoicesInput } from "../commands/message/validation.js";
+import { assertShowChoicesInput } from "../commands/message/choices-validation.js";
 import { assertScreenInput } from "../commands/screen/validation.js";
 import { assertMapAppearanceInput } from "../commands/map/validation.js";
 import { assertPictureInput } from "../commands/screen/picture-inputs.js";
