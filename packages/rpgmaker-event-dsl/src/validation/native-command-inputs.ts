@@ -91,7 +91,10 @@ export function inspectNativeCommandInputs(
   commands: readonly RawEventCommand[],
   options: NativeInputOptions,
 ): ValidationIssue[] {
-  const issues: ValidationIssue[] = [...inspectNativeVariableInputs(commands, options), ...inspectNativeLabelInputs(commands, options)];
+  const issues: ValidationIssue[] = [
+    ...inspectNativeVariableInputs(commands, options),
+    ...inspectNativeLabelInputs(commands, options),
+  ];
   for (const [index, command] of commands.entries()) {
     const path = `${options.prefix ?? ""}list[${index}]`;
     const origin = options.origins?.get(command);
