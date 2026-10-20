@@ -1,0 +1,18 @@
+{
+  "integration": "73504ec28bad98ae424a9d452f68774b009579d0",
+  "checkpoint": "5f1c6902aec303114df79724139dd68cf6fa7468",
+  "originalRows": 296,
+  "incomingRows": 314,
+  "added": 5,
+  "total": 319,
+  "allOriginalAndIncomingRowsDeepEqual": true,
+  "incomingIndexSha256": "8c5f3c294183190332808ce7764adf7f6c0d5d09868fbf0ea07e6809bc4addba",
+  "ownIds": [
+    "MV-S6-AUDIO-001",
+    "MV-S6-AUDIO-E4",
+    "MV-S6-AUDIO-R6",
+    "MV-S6-AUDIO-002",
+    "MV-S6-AUDIO-003"
+  ],
+  "mergedIndexSha256": "a6ccccdf5b032ba9dd73c04611a6eea996ffcfe240a7f5ba65b98c5afc4e47e4"
+}

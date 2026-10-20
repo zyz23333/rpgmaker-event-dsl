@@ -1,0 +1,7 @@
+
+> rpgmaker-event-dsl-workspace@0.0.0 typecheck M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-38
+> pnpm -r typecheck
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl typecheck$ tsc -p tsconfig.json --noEmit
+packages/rpgmaker-event-dsl typecheck: Done

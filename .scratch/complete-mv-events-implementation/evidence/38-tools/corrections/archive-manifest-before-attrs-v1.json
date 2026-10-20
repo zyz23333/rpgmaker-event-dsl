@@ -1,0 +1,1026 @@
+{
+  "createdAt": "2026-10-19T21:40:30.351Z",
+  "purpose": "Exact self-authored Picture tools, original failed/passed raw logs and immutable source snapshot manifests. Full source snapshots and sandboxes remain external on M; no first-party target code/runtime/assets.",
+  "files": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/append-carrier-requirement.log",
+      "sha256": "2b84b4bfa0eb5c5ef023a11ae10cb4ecf21e94344ee8b26c1113f804a66eef47",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/append-carrier-requirement.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/append-image-asset-requirement-v1.cjs",
+      "sha256": "b37aced38cae81ebcc5bfd893530f20b1d6b7e10e9d83b5ed5184f0fef537757",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/append-image-asset-requirement-v1.cjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/append-image-asset-requirement-v1.log",
+      "sha256": "c33946cd34cdef6fd97470655ae6fe45479f555bb58785377e26260a1b7fc2ad",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/append-image-asset-requirement-v1.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/append-picture-carrier-requirement.cjs",
+      "sha256": "015690d65ff781ae74f59d18d52ed622f20f567fa784a4d92a6daae1bc4dea8f",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/append-picture-carrier-requirement.cjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/append-picture-requirements.cjs",
+      "sha256": "6665a1ff4323b2aa56ef71b75111e4998804d96f1acc3c2086c5b2a109cb78bc",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/append-picture-requirements.cjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/append-requirements.log",
+      "sha256": "711a88e7333bf43d003133a6de37fa34cb0ae8910eedb159a7f0ebb5a586a17d",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/append-requirements.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/archive-tools-v1.cjs",
+      "sha256": "7c7248ed88a500599bb128fb32c93de63d3be0cfb610adc57a20e16cccf70609",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/archive-tools-v1.cjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/audit-and-freeze-v1.cjs",
+      "sha256": "782544df5f40f9f0be0259612f2e3eaadae80b15524ee75c0c2001298e3f6c79",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/audit-and-freeze-v1.cjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/audit-and-freeze-v1.log",
+      "sha256": "6eba605b6b68b61c4f9a592f8ae8fb4c550316f621a8d92b5948af1688bac709",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/audit-and-freeze-v1.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/authored-shapes-green-driver.log",
+      "sha256": "9302e6fbff4b69a8e306091fdb394824fce3df32b062c2335eccf0a86b095998",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/authored-shapes-green-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/authored-shapes-green-freeze.log",
+      "sha256": "9a67b8781b83b59cb7dcc499489f7a97af0264cbf28175c8392b949a484a60af",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/authored-shapes-green-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/authored-shapes-green.log",
+      "sha256": "fabe045e3c2f060607712ac68ef7b5894f747198faf29f3daa4c0c94a46e94f6",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/authored-shapes-green.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/authored-shapes-red-driver.log",
+      "sha256": "9ad7e8758f4bee3b2fe0dcbe71965f9de6a787eb6db37e77e3b7008621392c8a",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/authored-shapes-red-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/authored-shapes-red-freeze.log",
+      "sha256": "df7baec4d077f2b9e3a0a026f0e731da74053ac3b24b95084eca65bd4c0f433c",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/authored-shapes-red-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/authored-shapes-red.log",
+      "sha256": "1a4d53ead53420767ed60c2054ff33070265600732bea3944a6b7e58e2cac3ce",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/authored-shapes-red.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/capture-premerge-v1.cjs",
+      "sha256": "d029e1994f5c47a8663fab9d6aea4dc5fb045ae1ba58472a00edec68e75e0822",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/capture-premerge-v1.cjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/consumed-dependency-realpaths.json",
+      "sha256": "19c9215e5a43acff7d4b89e157c9468b2eeef20268f34d37f3eaa42a2ab0bc81",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/consumed-dependency-realpaths.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/copy-result-records-v1.cjs",
+      "sha256": "ea655192754bef92471c60b9b6ad02fc24c9874813a65f2c693026321779a367",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/copy-result-records-v1.cjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/copy-result-records-v1.log",
+      "sha256": "4a5e84cbf0a9c1417e50d9e8dc5724957e94f24abf5230a468690095017ff7d6",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/copy-result-records-v1.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/dependency-junction-receipt.json",
+      "sha256": "8796f40e6278432501d34d37d5e37ddd7aec8f32790f410693e38810969f25fa",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/dependency-junction-receipt.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/evidence-index-cpu-summary-v1.json",
+      "sha256": "72a58f84c92439f07fe4da9781ab11b02ae08a877c693c7f40486e8c3dee6d87",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/evidence-index-cpu-summary-v1.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/evidence-index-profile-v1.json",
+      "sha256": "fc11d61380bf0bb4fb78db2d3b762e9a330c9c1df87f176d798f875d54796fb3",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/evidence-index-profile-v1.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/evidence-index-support-before-fix-v1.ts",
+      "sha256": "6fd1f48baa9fe3a102c352e4ece50947386e7aa687ab024250cab7a90e7cf78c",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/evidence-index-support-before-fix-v1.ts"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/focused-complete-v3-driver.log",
+      "sha256": "9b723f5064c939c7772522f24c177c180e86c96c17301104856c9b16d9faaa2b",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/focused-complete-v3-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/focused-complete-v3-freeze.log",
+      "sha256": "e65107fa6c92bf0b4a5e0f94381e72bbe5f369d9f644bc06e9b55110610632d4",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/focused-complete-v3-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/focused-complete-v3.log",
+      "sha256": "6ac156ff1ec4789acf6d9e596b8494473cb9e5da63edc509403cdf534f831014",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/focused-complete-v3.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/focused-static-v1-driver.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/focused-static-v1-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/focused-static-v1-format-check.log",
+      "sha256": "29622173f31a4a2a6df86d87c0d4d8707796bc37a9d17dc12aadbe57f17eba27",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/focused-static-v1-format-check.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/focused-static-v1-freeze.log",
+      "sha256": "c54a6d1bdd64e5b68bf9152e2843f3eb6ff2a8d1b314684c0962fcc140f84428",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/focused-static-v1-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/focused-static-v1-lint.log",
+      "sha256": "73477439818109433c567f1425efc784bd0204260bc78aa313c0d7e84e36bace",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/focused-static-v1-lint.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/focused-static-v1-results.json",
+      "sha256": "cc2dd3be5ad3881409b286693972070a34a3078ecb29332800ec4cbed602f43c",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/focused-static-v1-results.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/focused-static-v1-typecheck.log",
+      "sha256": "2a94bf83f8141b4284936cedc02a32763f9f5a806da2ae96bf59f19e31181629",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/focused-static-v1-typecheck.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/focused-static-v1-whitespace.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/focused-static-v1-whitespace.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/format-image-asset-red-v1.log",
+      "sha256": "745ae8acb8b555341bd9b2ad2aa959300c22f0c34f11ae22f1e475b7f13f65e5",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/format-image-asset-red-v1.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/format-initial.log",
+      "sha256": "00ccbeabe6e03a96b9b05c8302a5ffa37101957653b29dc61e7b209862557236",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/format-initial.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/format-owned-v2.log",
+      "sha256": "dfed42613e894184721ef5181e5e297870db6a94dd17042a4c252be9933c93a5",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/format-owned-v2.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/format-related-v2.log",
+      "sha256": "c37e32dda0d4b6ec85ece4db500b7556eb1dc6dc9a4df8df6e6a756b78e9696f",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/format-related-v2.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/format-workspace-v1.log",
+      "sha256": "57cc9c2d3b3dda921521598ea814210b6f0405d3b22ce537cae5e829cbbdfbad",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/format-workspace-v1.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/freeze-image-asset-v1.cjs",
+      "sha256": "a9f6c2aa2873de371541f503b6b3308841f3a354deb443cf0c719c0dae2b8426",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/freeze-image-asset-v1.cjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/freeze-inputs-v2.cjs",
+      "sha256": "6930b42ad4670ab1e9e81d4d68fc5d795a600edd55ea9b7d9061244471efc483",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/freeze-inputs-v2.cjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/freeze-inputs.cjs",
+      "sha256": "172c01973bcb1653a39b1a53374d10517938af8839d9b71c5af3a42baa0dcea2",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/freeze-inputs.cjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/image-asset-five-green-v1-driver.log",
+      "sha256": "ae1d20e388e291b32a3cdf760371ac6b400f67db94d397ee2f12504a68fd8227",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/image-asset-five-green-v1-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/image-asset-five-green-v1-freeze.log",
+      "sha256": "18ddfd3909e4fbf0ca3e09c1e2b84c4aa4e4cec1662beabedc7bdd02eaedd2b4",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/image-asset-five-green-v1-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/image-asset-five-green-v1.log",
+      "sha256": "d45804ee51e1e4e8a65b6ae43c869513e4670fb0ec96340d2b6291db2650572e",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/image-asset-five-green-v1.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/image-asset-helper-red-v1-driver.log",
+      "sha256": "d9aaea716a452b9b02292e0d3ccebb6b265c7de61ffe6e84a6fbba5ce0782f3d",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/image-asset-helper-red-v1-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/image-asset-helper-red-v1-freeze.log",
+      "sha256": "299b5e02fc1ce4acf6cb12744f9a54d33abd03fe083e7c653556551f1b67496d",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/image-asset-helper-red-v1-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/image-asset-helper-red-v1.log",
+      "sha256": "56abe2cb5d31cc48a15687c8886a1024fab57214fb1e48ecb1cc21de8e136e5e",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/image-asset-helper-red-v1.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/image-asset-red-green-freeze-v1.log",
+      "sha256": "fc11f00cbb9bd2093eeaf047a4f70872e6b2d69b3061c5b2f461f0b34fba7777",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/image-asset-red-green-freeze-v1.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/image-asset-static-v1-driver.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/image-asset-static-v1-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/image-asset-static-v1-freeze.log",
+      "sha256": "6013c795180ffdc6f3a54564ffc4489e2c52d4a001a3ef369d6e8817ca249437",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/image-asset-static-v1-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/image-asset-static-v1-results.json",
+      "sha256": "29f30230f848c6151140d70b0b8e5c17948cf1b94a267b1ec444b16e717b211b",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/image-asset-static-v1-results.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/image-asset-static-v1-scoped-format.log",
+      "sha256": "81dc0bfadf627335f1500098ac68f87b8a69df08aff4f684d6a04861e339ae47",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/image-asset-static-v1-scoped-format.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/image-asset-static-v1-scoped-lint.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/image-asset-static-v1-scoped-lint.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/image-asset-static-v1-typecheck.log",
+      "sha256": "a391662e1919c91e6a95de7fcd644edbe5eb32ed0b8beaae5635d7ae1b5a0e59",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/image-asset-static-v1-typecheck.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/image-asset-static-v1-whitespace.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/image-asset-static-v1-whitespace.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/image-asset-workspace-red-v1-driver.log",
+      "sha256": "939859b5cf1eb974059f4b6cab01bc1af3ec58a7d8bbee87d3f0a274717c596e",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/image-asset-workspace-red-v1-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/image-asset-workspace-red-v1-freeze.log",
+      "sha256": "5f8f0d9860f46153a2854c7aa63483b7f37c3954f0baff3f1db758f8ff4d3eaa",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/image-asset-workspace-red-v1-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/image-asset-workspace-red-v1.log",
+      "sha256": "fbac0674afaa027635f326f97a5992feee198d769951bcaba4b3f93667200aee",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/image-asset-workspace-red-v1.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/index-perf-static-v1-driver.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/index-perf-static-v1-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/index-perf-static-v1-freeze.log",
+      "sha256": "e5c423b48815a2ff77a9d36c46ac3ca9edfe9bc0ee2f1dbee0bd8ecc7000fc5f",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/index-perf-static-v1-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/index-perf-static-v1-results.json",
+      "sha256": "02d20231f55915e5da2e3242d5c6643af8266b718055da067b7cf2a5459d7ca8",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/index-perf-static-v1-results.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/index-perf-static-v1-scoped-format.log",
+      "sha256": "1df8694bdc612076710c1016e262b829911f14cf540f389984cdbdf49694cd84",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/index-perf-static-v1-scoped-format.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/index-perf-static-v1-scoped-lint.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/index-perf-static-v1-scoped-lint.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/index-perf-static-v1-typecheck.log",
+      "sha256": "a391662e1919c91e6a95de7fcd644edbe5eb32ed0b8beaae5635d7ae1b5a0e59",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/index-perf-static-v1-typecheck.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/index-perf-static-v1-whitespace.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/index-perf-static-v1-whitespace.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/merge73504ec-conflict-loop-test.txt",
+      "sha256": "8c189a7974a69e893caa02e87600deaeab14e32e0a2e3a04e5c3467824b307ef",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/merge73504ec-conflict-loop-test.txt"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/merge73504ec-conflict-native-parameters.txt",
+      "sha256": "c44b84952b287fb32ee9ca904014c1c3a8bb051ecd1a5d5565fd268497b03d20",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/merge73504ec-conflict-native-parameters.txt"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/merge73504ec-conflict-readme.txt",
+      "sha256": "856bf7c53ae440b16ee438fdcd988f9596b75271ba80143b6c472e0c45ee49a2",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/merge73504ec-conflict-readme.txt"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/merge73504ec-conflict-requirements.txt",
+      "sha256": "ca46c520d97f29493aec277067395403a93de01c6c6e53c69871ccb77e245f34",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/merge73504ec-conflict-requirements.txt"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/merge73504ec-reconciliation.json",
+      "sha256": "c7a526bcb2761641f8b2346041b5af4c3e9297f57e09784f3fa0e8e25f0fbf1f",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/merge73504ec-reconciliation.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/merge73504ec-reconciliation.log",
+      "sha256": "cb825ee0335df96b85b7201198824e61f0a0d170a96b432a458ddb8f17289ccb",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/merge73504ec-reconciliation.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/merge73504ec-v1.log",
+      "sha256": "c8f1cb65b09fe5750316f7fa112267622c0a6bf4ff0934a6dc8cb33bdd38dcab",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/merge73504ec-v1.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/merge888b-conflict-readme.txt",
+      "sha256": "8c408a9b6bdb3418cea2ff37fb5d5d37e272e08fc9eb775828f3e6723f94345d",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/merge888b-conflict-readme.txt"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/merge888b-conflict-requirements.txt",
+      "sha256": "589a71504bc2f454520e0e27f94961c32b48161fa9fd9c7f7e34df4ffe3d6387",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/merge888b-conflict-requirements.txt"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/merge888b-reconciliation.json",
+      "sha256": "e3eae2088689dbbead3d824197b0fd8a37dbbbd3fef5be1f045c4914a191da67",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/merge888b-reconciliation.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/move-complete-green-driver.log",
+      "sha256": "d3809bd7448cdd2fa562910fffb15a7dc47f8f2a8e092119efe9f1b6c012c4d7",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/move-complete-green-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/move-complete-green-freeze.log",
+      "sha256": "a74024203a261944965547160bbc7bdaa0c651f1a518f42dcd7c794535e72f9a",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/move-complete-green-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/move-complete-green.log",
+      "sha256": "33bcde7c44f5d3f407b1b74344283c9e74aa2ea207b55f7f20bcc316b1692495",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/move-complete-green.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/move-complete-red-driver.log",
+      "sha256": "e7ebc7e75a791ca672fc11572e0bd9ec67baabc9fd1f955e9321adf5a0abb347",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/move-complete-red-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/move-complete-red-freeze.log",
+      "sha256": "d01063a1288f2cdd55c334b4ba563f06222b1a76d446fc937fa5193ed12dcc7f",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/move-complete-red-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/move-complete-red.log",
+      "sha256": "8c5eaa3c65ee32038fd38c20c2be0977f63fd952ee144c91e51c155083083490",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/move-complete-red.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/native-domains-green-driver.log",
+      "sha256": "36d660f2063c661ec08560000e8f52d075cf2d5c66f260ca3762a32ab8dd7536",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/native-domains-green-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/native-domains-green-freeze.log",
+      "sha256": "6d233d29ab0ff76201f4414556f47b017abefb5a9ad00413c529297d1f88fb47",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/native-domains-green-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/native-domains-green.log",
+      "sha256": "65eb2928e85819f34228c5ee9e83f487d014209110400811faab14da1e9d554e",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/native-domains-green.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/native-domains-red-driver.log",
+      "sha256": "7a53515738b546ce1ca9e2192792ad2868788d05e9ab0943c44f1d15c4c94e83",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/native-domains-red-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/native-domains-red-freeze.log",
+      "sha256": "d941c87a81f939cfd5ceb5edb2d56db84af6a32f82049778f16acdf3c13aec6d",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/native-domains-red-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/native-domains-red.log",
+      "sha256": "36409ccb88dd81303d67b768d23b013b2b2ed0282e1d9c4624e74e3eed2f4385",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/native-domains-red.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/nested-values-green-driver.log",
+      "sha256": "c4c29af1f648798f458f1bb907a40abe31e56abb6bf760304f33911261b89f6d",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/nested-values-green-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/nested-values-green-freeze.log",
+      "sha256": "2f51763a2d5686141bc297c75cf82041b68e03e5c6467d4c7c2c36482d922c5a",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/nested-values-green-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/nested-values-green.log",
+      "sha256": "280e2f2fa640905bfd1135b29f6550b1e6e1a3a56a0432ae1ce6744fb2cd2b64",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/nested-values-green.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/nested-values-red-driver.log",
+      "sha256": "34b42c855dd9d6f7e65ea428855ac872433d9a9fe1e85744a026e27ed9c2ac85",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/nested-values-red-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/nested-values-red-freeze.log",
+      "sha256": "24df6573ff66f6f0593d85db62ad4feb9c2e60ce49f9761a4295ded89629a630",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/nested-values-red-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/nested-values-red.log",
+      "sha256": "76d3a1a53f218d3b9906ca23c056cd29d1c79fc1f88fa75350ebcffa2a82e7b4",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/nested-values-red.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/owned-corrections-v2-driver.log",
+      "sha256": "4966c08e7212251845d3a6856671cf16456e488580c558b8b11b227b07c2a1f3",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/owned-corrections-v2-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/owned-corrections-v2-freeze.log",
+      "sha256": "4a810ce29e4a17dd9ab7f4865d1a4c7192a14dcef721378fe53e3565ed097872",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/owned-corrections-v2-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/owned-corrections-v2.log",
+      "sha256": "639162010f29c7d14358c46842daf49c3b70d34c6e6927039d478c37bd5a06a5",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/owned-corrections-v2.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/picture-owned-v1-driver.log",
+      "sha256": "7a6a2095719d86001a2f18dcb68420944e53f2bcba1195a9b0756b94cfb14fe3",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/picture-owned-v1-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/picture-owned-v1-freeze.log",
+      "sha256": "16a2f39b426d3fa148f277cfb3152c393b0898f90590a849ef411ad5fd5bed1a",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/picture-owned-v1-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/picture-owned-v1.log",
+      "sha256": "d526522f59aa57ff6547bcb94ca6983341f8f251fd0815305b705dcb7a9c5d20",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/picture-owned-v1.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/pictures-seven-green-driver.log",
+      "sha256": "7e97516d27cf058c4381800a25164fbacc8f5194608e9d2ccebe57abe66c0ede",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/pictures-seven-green-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/pictures-seven-green-freeze.log",
+      "sha256": "989c7b4684094164e8ddc7bdfa683fdd10637a6eb5472a5695984113c0455eed",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/pictures-seven-green-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/pictures-seven-green.log",
+      "sha256": "de8b3d042a659b37b0c16d210fd84d6176323c15a2aa6cf3493060d72b0d9ca8",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/pictures-seven-green.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/post73504ec-evidence-index-batch32-v1-driver.log",
+      "sha256": "7344240acd8a8e1f9c45382faf569299f375369194ffaf373651c9bbc08af54f",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/post73504ec-evidence-index-batch32-v1-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/post73504ec-evidence-index-batch32-v1-freeze.log",
+      "sha256": "6fcfe8191700fcc43ec98cf9db3abd6c1687ff7f2242d30865b5921859405579",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/post73504ec-evidence-index-batch32-v1-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/post73504ec-evidence-index-batch32-v1.log",
+      "sha256": "fe041f40d1b5c8749a19897befcc46eef3ccf13791d95b60dcc89813579c6a0b",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/post73504ec-evidence-index-batch32-v1.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/post73504ec-evidence-index-v1-driver.log",
+      "sha256": "0cdcc7aff1093f5ea5f382a1a6bee011d530eaf96b471c8062d1aa96f95e56a6",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/post73504ec-evidence-index-v1-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/post73504ec-evidence-index-v1-freeze.log",
+      "sha256": "788b794821826ca6120db468be479634b65dd3a068c7211e7ba84a4276ebf648",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/post73504ec-evidence-index-v1-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/post73504ec-evidence-index-v1.log",
+      "sha256": "8c45ca87ae3a3ce6b844dda30fd54fc70caccfeeea8116f4cf80296d9acf65ad",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/post73504ec-evidence-index-v1.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/post73504ec-final-record-index-v1-driver.log",
+      "sha256": "fd33336815649b7b413955f72b97e7a74741fe919d8b4542fbf7bf26eab328ac",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/post73504ec-final-record-index-v1-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/post73504ec-final-record-index-v1-freeze.log",
+      "sha256": "321533ca5921a57a5d609bec19c647ec7447f36731409af4de0ccb59df3cfcf5",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/post73504ec-final-record-index-v1-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/post73504ec-final-record-index-v1-report.json",
+      "sha256": "67675a840fe34f16c024ca609f3ed59063ded70efc56f63fe85e8475a4e1c88c",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/post73504ec-final-record-index-v1-report.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/post73504ec-final-record-index-v1.log",
+      "sha256": "bece94aefd5c27d5b3267d249197eb5517c375aec03c96f537c242c276763ebe",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/post73504ec-final-record-index-v1.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/post73504ec-focused-complete-v1-driver.log",
+      "sha256": "12e28c88bdca7afdf8806d499001fe08b64ba6197e721b8f8ee4dc8cfc0f2526",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/post73504ec-focused-complete-v1-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/post73504ec-focused-complete-v1-freeze.log",
+      "sha256": "d4bfafc853449ce547bf28febe1937e7f7bbcbd079104b96bb20bfd846bdf880",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/post73504ec-focused-complete-v1-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/post73504ec-focused-complete-v1.log",
+      "sha256": "e50b00ab1f869c77bf0745a46fd8fdabe8a6622473d90212992b639503d570b4",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/post73504ec-focused-complete-v1.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/post73504ec-static-v1-driver.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/post73504ec-static-v1-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/post73504ec-static-v1-freeze.log",
+      "sha256": "2ff8c96ff2a1ee7ceb1a264a01f8d42c92441d8c33d9616d89aa5b14946960c3",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/post73504ec-static-v1-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/post73504ec-static-v1-results.json",
+      "sha256": "d53d944319ddf8134779ca304f644ddeda915a4afed2ac285478b8ed7dbdba15",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/post73504ec-static-v1-results.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/post73504ec-static-v1-scoped-format.log",
+      "sha256": "e9fd14be2306004bdc3c38f60e5659126984cfb64c785bf24f42181a0cba19c1",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/post73504ec-static-v1-scoped-format.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/post73504ec-static-v1-scoped-lint.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/post73504ec-static-v1-scoped-lint.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/post73504ec-static-v1-typecheck.log",
+      "sha256": "a391662e1919c91e6a95de7fcd644edbe5eb32ed0b8beaae5635d7ae1b5a0e59",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/post73504ec-static-v1-typecheck.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/post73504ec-static-v1-whitespace.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/post73504ec-static-v1-whitespace.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/profile-evidence-index-v1.log",
+      "sha256": "2f07e174c92eeb41b947916d4dd92b911729bd4374192815437e58d42bdea5a5",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/profile-evidence-index-v1.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/profile-evidence-index-v1.mjs",
+      "sha256": "81114b6a5ae4d8c305e22da73b3d34edef07515f7a6abb28c92d4fa7d673cd96",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/profile-evidence-index-v1.mjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/reconcile-incoming73504ec-v1.cjs",
+      "sha256": "de45b6361b90e2f0fa44bde92190068cf04eb302636980f2c9de7b7ade633628",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/reconcile-incoming73504ec-v1.cjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/reconcile-incoming888b-v1.cjs",
+      "sha256": "0e68cce225f5c93c21cf4f6979174332f3a7a375d8ea81fd1c0b9a4a24ff1f98",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/reconcile-incoming888b-v1.cjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/related-v1-driver.log",
+      "sha256": "7d3b1ad9c87e522401d5a2b94af8eeba6093214b592a811687c90183cb1fd8de",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/related-v1-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/related-v1-freeze.log",
+      "sha256": "1acbfa007c0638e14b1831b4a67a01ed09d675df7fc68d512937d2ebb33ab7c8",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/related-v1-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/related-v1.log",
+      "sha256": "087955f70063f7701df88dc95dda14d88237fd3b554685c31009537c7513076a",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/related-v1.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/result-records-copy-v1.json",
+      "sha256": "8aaf7eb46a4572148af8df39bc8583bc7a3179b0df04f29db16145a32e355cfc",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/result-records-copy-v1.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/run-postmerge-static-v1.ps1",
+      "sha256": "0b355bfbe5b355ba03775c3358734a3e72d128738331a2832daad46d1b12af01",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/run-postmerge-static-v1.ps1"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/run-slice-v2.ps1",
+      "sha256": "2986d8caa2caa2ac929728ef185847cdd8b0e6ddacc1c16853b1ab58cc1363f9",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/run-slice-v2.ps1"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/run-slice.ps1",
+      "sha256": "2a519a381b2b440cb8a012d7992a887a7cc5f05b8be6ed808d7cca9b669cd313",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/run-slice.ps1"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/run-static-v1.ps1",
+      "sha256": "e30cb74695df5ded1fd6f8a1cfdad8df91b5f076b2692d8bc937ab750a50c5e7",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/run-static-v1.ps1"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/run-static-v2.ps1",
+      "sha256": "97315b53569e9b062979c2c6ac057a74a85be6c174fe867ace7eb03c19f450ac",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/run-static-v2.ps1"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/show-none-green-driver.log",
+      "sha256": "0c49b68ac7678aac83df78c52ab0d2f52496cd36dcdcc9a6ee3c708c56c649e2",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/show-none-green-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/show-none-green-freeze.log",
+      "sha256": "083a8ac6c8d440365ddab8352ae78f133b41aed90ce72598945d57aac6a56401",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/show-none-green-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/show-none-green.log",
+      "sha256": "bd52d5f2fade05d1208aa1a7d2ffa0d86c81e4437c5e3b17aa4ba1536174d8b7",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/show-none-green.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/show-none-red-driver.log",
+      "sha256": "51ef35601b85ae4b1ed9c2fcb30ae641b9ffdd7adc1fc054d48c42637a764a52",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/show-none-red-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/show-none-red-freeze.log",
+      "sha256": "89051bab7d57a9f5761920f5e023a0ce51ccd7343ba37e87808720f46ed2f627",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/show-none-red-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/show-none-red.log",
+      "sha256": "c4d60377ea39d6cec91b6458cb2bef152346c2be356ea59e52a49fa2cb35b5e5",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/show-none-red.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/summarize-index-cpu-v1.cjs",
+      "sha256": "6bb6270bf27f07e3b3e212b376bc4f128cf71332cc684699bcd639f5fba6b673",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/summarize-index-cpu-v1.cjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/summarize-index-cpu-v1.log",
+      "sha256": "84d76acfde3e196d68adc03e3b7133e951a0fc5afc3036c1bd59c26714d8c7f2",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/summarize-index-cpu-v1.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/tone-zero-green-driver.log",
+      "sha256": "ded404dce9c7c2900b1d3e69b12b500e2eb8e81583380c833be9fc5cae4e829b",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/tone-zero-green-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/tone-zero-green-freeze.log",
+      "sha256": "ed3d7921dd72b52cf3af0af38228d6520d0d6b808c95f25bd00557c482064a44",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/tone-zero-green-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/tone-zero-green.log",
+      "sha256": "5903f744f542f1d7eede93c0c3547fc885dd46a45dd9d5abd47c83d563ce3b0d",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/tone-zero-green.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/tone-zero-red-driver.log",
+      "sha256": "81aa15b76ff11534632b552f3133d13296dedc3046fe39e3b8c1b2f49d8acf81",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/tone-zero-red-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/tone-zero-red-freeze.log",
+      "sha256": "b17c166b8431f41fd0882ea065edf3b5fdc05f123c77dce8ec237c6bc5bfdc7d",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/tone-zero-red-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/tone-zero-red.log",
+      "sha256": "45705eb93f27d3ddf40220e197614483fb322b8169e74b0b6c5a03a303c2ca83",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/tone-zero-red.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/typecheck-adapted-freeze.log",
+      "sha256": "0a247e096e9c521ce5547605e526ffb59e39083df2b7f6ce88c5ac549462c256",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/typecheck-adapted-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/typecheck-adapted.log",
+      "sha256": "2a94bf83f8141b4284936cedc02a32763f9f5a806da2ae96bf59f19e31181629",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/typecheck-adapted.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/typecheck-initial-freeze.log",
+      "sha256": "cc7a016f187294fc5ebf90a94b7899b4a0cd55e701af697c7c151140c0447332",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/typecheck-initial-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/typecheck-initial.log",
+      "sha256": "38b4b9ce635492b7002a5fe28e4532d4035634a19cb47c32b6250ca6542804c2",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/typecheck-initial.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/typecheck-workspace-v2-freeze.log",
+      "sha256": "df007dd4dd392ed8e4260839819bfb8f45a1e16ac26e3b8ee3b4678948a4310d",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/typecheck-workspace-v2-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/typecheck-workspace-v2.log",
+      "sha256": "2a94bf83f8141b4284936cedc02a32763f9f5a806da2ae96bf59f19e31181629",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/typecheck-workspace-v2.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/variable-references-green-driver.log",
+      "sha256": "86c46a1ebe40206a208f52c712fca6e90713abe6cfb4c0501926bb35453e96fd",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/variable-references-green-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/variable-references-green-freeze.log",
+      "sha256": "57cbe56f70966e545dd117f28d6cb2b7570b29cdcbf43be33e8fb869fbbc18e0",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/variable-references-green-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/variable-references-green.log",
+      "sha256": "e13187d273225a567dae5043f9763e6a4412416f8819bb8b7124ca1a146d746e",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/variable-references-green.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/variable-references-red-driver.log",
+      "sha256": "2bf801162a8d1c824d0dbf13452e43abfc253f891093154039d4e451050d2634",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/variable-references-red-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/variable-references-red-freeze.log",
+      "sha256": "96f156fe6224067b411f41a1ba6a3488ab567aff8fb4002b343bba05c05728e5",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/variable-references-red-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/variable-references-red.log",
+      "sha256": "c74c4ff01ead90bc05c77338626fe3b0aefaad2be61b2dc4bf69d1cd4d9a7d53",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/variable-references-red.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/verify-staged-v1.cjs",
+      "sha256": "1d2c80608f984313e1538f6eec0c1c25550041d3f79220db1d33c5c7bd6e464e",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/verify-staged-v1.cjs"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/workspace-matrix-v1-driver.log",
+      "sha256": "9c3ca75d537e4ab2ece9562cb557db7f54de15f55a6fefa71d396d85bc42ee8f",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/workspace-matrix-v1-driver.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/workspace-matrix-v1-freeze.log",
+      "sha256": "5d12544bd5ac98602996d69a9048049d5fe9f3165ecef5fcafbbf8f26167ed58",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/workspace-matrix-v1-freeze.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/workspace-matrix-v1.log",
+      "sha256": "fa89a65aff3d6aa4659c06b1182dc9fbfa70e36d42a64b1ba80d2c759154afe3",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/workspace-matrix-v1.log"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/authored-shapes-green.json",
+      "sha256": "4cf173e156f3db9c37342fd6ade964e5c0bcf13c257ad9de45a77e72e83f8013",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/authored-shapes-green/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/authored-shapes-red.json",
+      "sha256": "be4210590154f26a6754f9724c497a6443f9b83d7b59907950eb5f7b1e3e716e",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/authored-shapes-red/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/focused-complete-v3.json",
+      "sha256": "371124245f2956c4a54fafaa09a56e4367fe9deb2384f98972b1890f95da2ba6",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/focused-complete-v3/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/focused-static-v1.json",
+      "sha256": "42d5a441db33dfd3f4ab4b5a66f196660090e13d923df7de5d53150721bcd070",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/focused-static-v1/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/image-asset-five-green-v1.json",
+      "sha256": "5fad55d84640435669197860d1c8f88e91f8f6310355a33d961e850076b876d5",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/image-asset-five-green-v1/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/image-asset-helper-red-v1.json",
+      "sha256": "245d1f28fc99061118952c3259e19a1aeb8db7ddc9f4a6fe0fca6650f88d2001",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/image-asset-helper-red-v1/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/image-asset-static-v1.json",
+      "sha256": "865b77f4cf051f1be2a269e7763471b99599ded7fadf11ce8f988595f2946d9a",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/image-asset-static-v1/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/image-asset-workspace-red-v1.json",
+      "sha256": "765a9b8380e9082f6885e0c16211d674acc3ccee5e903da2f3899a2eceabac06",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/image-asset-workspace-red-v1/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/index-perf-static-v1.json",
+      "sha256": "c60992fb778ddadb5983ce9fe4925f7b003523dc735330245f32f85793b3fcf4",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/index-perf-static-v1/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/move-complete-green.json",
+      "sha256": "d4561bff130d179326dd04c3bae61a7f47a4e3b2c3fa8b49e2f9ae1a086b38bd",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/move-complete-green/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/move-complete-red.json",
+      "sha256": "1a7ba7eaf1f7cf0a9ff4ad40b304d304e21718e25f6bd8d9bf4be07623b177cf",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/move-complete-red/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/native-domains-green.json",
+      "sha256": "f202f9c971e4ab37d6260a82e951dc79ea4a58f7016e3d507ef309bc1ae412f4",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/native-domains-green/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/native-domains-red.json",
+      "sha256": "f5cc757a20b8584e85cd88e2deb614ac4d8d316706ea3cf29fbdf20fec81ee66",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/native-domains-red/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/nested-values-green.json",
+      "sha256": "99d7fd1d88a22cdb5fb814dda88cd0fcdc980a8ea7410707b1bb9f29e8c6d123",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/nested-values-green/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/nested-values-red.json",
+      "sha256": "2b01e53935a84ff65f6a8a21bb682b9938320336d763ea3298de33391971d562",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/nested-values-red/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/owned-corrections-v2.json",
+      "sha256": "ea75555a8274d400f449f01d77a7f972331710bda6f41fedbeba3b123755c384",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/owned-corrections-v2/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/picture-owned-v1.json",
+      "sha256": "753d09c52c7fc5cfcf401ca5aa1272c65c8d7845371a2fc66d4b1d2d032282fe",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/picture-owned-v1/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/pictures-seven-green.json",
+      "sha256": "a705f8748a05b2455ee818d84280212eac4ff43b67d14a949e882a6daeea69e9",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/pictures-seven-green/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/post73504ec-evidence-index-batch32-v1.json",
+      "sha256": "716afeea4113c946b2c028d495f86701faaac0c2b7d554688403a6500fa559d5",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/post73504ec-evidence-index-batch32-v1/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/post73504ec-evidence-index-v1.json",
+      "sha256": "021f885f25a4bde6468d2027626a82dea2f6f5faf1ea930725c25ac97d039c4c",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/post73504ec-evidence-index-v1/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/post73504ec-final-record-index-v1.json",
+      "sha256": "d002cea72b6f2c041f5e2aa43809274a7e56a95278080d5d137801c615c8d4f7",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/post73504ec-final-record-index-v1/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/post73504ec-focused-complete-v1.json",
+      "sha256": "d5f01b0784f0dcc324d1b2688e11982bb90d1285f255a46be0dfd9cc5a540911",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/post73504ec-focused-complete-v1/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/post73504ec-static-v1.json",
+      "sha256": "65fc2c5d83b6adf50caad63fd9ead5b7370bdf11aa6d6c1be16e6456852654c4",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/post73504ec-static-v1/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/related-v1.json",
+      "sha256": "d96a4e98ccabdef834112de9b026eb8274aa21643ff74bc8b2d10070c8ad28a1",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/related-v1/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/show-none-green.json",
+      "sha256": "f25d7ed9e0611899c469bf4dd4024f55a2c1b8edde4f90fa6c08312a3b585ab2",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/show-none-green/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/show-none-red.json",
+      "sha256": "fd1251eebb616b14968cd477d46912f736732981858f37e68194548b99dcb536",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/show-none-red/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/tone-zero-green.json",
+      "sha256": "5d815b50dbbe1e9d8542f06974c9f423476a71b1a183f9c0c652bd46f92582ec",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/tone-zero-green/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/tone-zero-red.json",
+      "sha256": "4806db3191078070c884dde54ced7bc1185396d9ea9085740bdf04b2cc26bdcc",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/tone-zero-red/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/typecheck-adapted.json",
+      "sha256": "d400bf3481b4d62c1ed6fb02ad88479c4ccd52be3f5410886e377ef75abf8fc7",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/typecheck-adapted/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/typecheck-initial.json",
+      "sha256": "b6a96779da0d64e4a9ac5eea35f0f4933dedc932dce39a3727e741b7d3ef5863",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/typecheck-initial/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/typecheck-workspace-v2.json",
+      "sha256": "d27fc0266325eb1af21c2d7727bb0aed9d3d040adbcf72146bfa64c05c3099c4",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/typecheck-workspace-v2/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/variable-references-green.json",
+      "sha256": "3bbc6a6349a64f5500aebf184cfc837a503903013cbb39f33e9d1d006efa4867",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/variable-references-green/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/variable-references-red.json",
+      "sha256": "0f331385b7256738df9eadd137f576a782037c1b225556fe93fd1aac0d0a9e16",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/variable-references-red/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/snapshot-manifests/workspace-matrix-v1.json",
+      "sha256": "9713bafea934ae6cdc6c859e09127d6901a672d0c8e6448cc834c382e3ca5a2f",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/source-snapshots/workspace-matrix-v1/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/final-source-freeze-manifest.json",
+      "sha256": "83fdcc07a3767705a916622ff6f25d30cd97f79d2d0fdb58cb4f617d8ebacb5f",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/final-source-freeze-v1/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/premerge-3854-source-freeze-manifest.json",
+      "sha256": "957c6bf8c299ca5e41e8a5a7f26ce05038c46f73621202997ee1ff13b28a7db8",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/premerge-3854-source-freeze/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/image-asset-red-green-freeze-manifest.json",
+      "sha256": "61b2226b6081124fb0d8b94383a525ed58b326cbc72448c243d290de84032b02",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/image-asset-red-green-freeze-v1/manifest.json"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/index-profile/evidence-index-v1.cpuprofile",
+      "sha256": "88b881301e10c3fc7a9af74b9954bcdbf036ab6a0619d8c200cdb998c8857249",
+      "original": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/index-profile-v1/evidence-index-v1.cpuprofile"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-tools/.gitattributes",
+      "sha256": "ef5c230f4d8b87142cf574d3b391a2b4ac5ccaf1776980fac2bd8cb3305cdc06",
+      "original": "self-authored archive byte-preservation rule"
+    }
+  ]
+}

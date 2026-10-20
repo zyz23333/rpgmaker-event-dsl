@@ -1,0 +1,24 @@
+[
+  {
+    "startedAt": "2026-10-19T20:24:18.2726183Z",
+    "exitCode": 0,
+    "check": "typecheck",
+    "completedAt": "2026-10-19T20:24:21.4844821Z"
+  },
+  {
+    "startedAt": "2026-10-19T20:24:21.4851834Z",
+    "exitCode": 0,
+    "check": "lint",
+    "completedAt": "2026-10-19T20:24:21.8644481Z"
+  },
+  {
+    "startedAt": "2026-10-19T20:24:21.8645281Z",
+    "exitCode": 0,
+    "check": "format:check",
+    "completedAt": "2026-10-19T20:24:22.6176558Z"
+  },
+  {
+    "check": "git diff --check",
+    "exitCode": 0
+  }
+]

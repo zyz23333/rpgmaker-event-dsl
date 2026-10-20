@@ -14,6 +14,8 @@ import { captureReferenceIssue } from "./shared.js";
 import { isReferenceValue } from "./inspection.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
 import { assertControlVariablesInput } from "../commands/variables/control-variables.js";
+import { assertPictureInput } from "../commands/screen/picture-inputs.js";
+import { assertPictureReferences } from "../commands/screen/picture-references.js";
 import { assertNativeContextReferences } from "./native-context-references.js";
 import { resolveCommonEventCall, assertLoopCommand } from "../commands/flow/validation.js";
 import {
@@ -28,6 +30,11 @@ import {
 } from "../commands/flow/conditional-validation.js";
 import { assertShowChoicesInput } from "../commands/message/validation.js";
 import { assertMapAppearanceInput } from "../commands/map/validation.js";
+import {
+  assertSystemAccessInput,
+  assertWindowColorInput,
+} from "../commands/movement/access-validation.js";
+import { assertSceneCommandInput } from "../commands/system/validation.js";
 
 type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
@@ -66,6 +73,10 @@ export function validateNodes(
     const nodePath = `${options.path ?? "commands"}[${nodeIndex}]`;
     try {
       assertMapAppearanceInput(node.kind, node, nodePath, true, resolver);
+      assertSystemAccessInput(node.kind, node, nodePath, true);
+      assertWindowColorInput(node.kind, node, nodePath, true);
+      assertSceneCommandInput(node.kind, node, nodePath);
+      assertPictureInput(node.kind, node, nodePath, true, resolver);
     } catch (error) {
       if (error instanceof CommandStructureError)
         issues.push(error.issue(options.identity ?? "event", "compile"));
@@ -165,12 +176,16 @@ export function validateNodes(
     }
     if (node.kind === "rawDslCommand") {
       try {
+        assertPictureReferences(node.code, node.parameters, resolver, { dslPath: nodePath });
         assertNativeContextReferences(node.code, node.parameters, resolver);
       } catch (error) {
-        issues.push({
-          level: "error",
-          message: `validation ${options.identity ?? "event"}.${nodePath}: ${error instanceof Error ? error.message : String(error)}`,
-        });
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else
+          issues.push({
+            level: "error",
+            message: `validation ${options.identity ?? "event"}.${nodePath}: ${error instanceof Error ? error.message : String(error)}`,
+          });
       }
     }
     if (node.kind === "controlVariables") {

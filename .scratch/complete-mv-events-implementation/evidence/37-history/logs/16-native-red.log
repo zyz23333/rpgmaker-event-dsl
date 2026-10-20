@@ -1,0 +1,41 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-37/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/screen-effects.test.ts (8 tests | 1 failed) 24ms
+   × rejects the same native and known-raw Screen value violations at their saved slots 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/screen-effects.test.ts > rejects the same native and known-raw Screen value violations at their saved slots
+AssertionError: expected Error: accepted invalid native to match object { Object (location) }
+
+- Expected
++ Received
+
+- {
+-   "location": {
+-     "nativePath": "list[0].parameters[0][0]",
+-   },
++ Error {
++   "message": "accepted invalid native",
+  }
+
+ ❯ test/screen-effects.test.ts:39:35
+     37|   ] as const) {
+     38|     try { readRawCommandList([{ code, indent: 0, parameters }, { code:…
+     39|     catch (error) { expect(error).toMatchObject({ location: { nativePa…
+       |                                   ^
+     40|     expect(() => compile([{ kind: "rawDslCommand", code, parameters } …
+     41|   }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 7 passed (8)
+   Start at  03:25:35
+   Duration  1.35s (transform 408ms, setup 0ms, import 1.16s, tests 24ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/screen-effects.test.ts

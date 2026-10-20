@@ -53,7 +53,7 @@ export type DslCommand =
   | ChangeVictoryMeDslCommand
   | ChangeSaveAccessDslCommand
   | ChangeMenuAccessDslCommand
-  | ChangeEncounterDisableDslCommand
+  | ChangeEncounterDslCommand
   | ChangeFormationAccessDslCommand
   | ChangeWindowColorDslCommand
   | ChangeDefeatMeDslCommand
@@ -83,7 +83,7 @@ export type DslCommand =
   | PlayBgmDslCommand
   | FadeoutBgmDslCommand
   | SaveBgmDslCommand
-  | ResumeBgmDslCommand
+  | ReplayBgmDslCommand
   | PlayBgsDslCommand
   | FadeoutBgsDslCommand
   | PlayMeDslCommand
@@ -309,12 +309,12 @@ export type ChangePartyMemberDslCommand = {
 
 export type ChangeBattleBgmDslCommand = {
   kind: "changeBattleBgm";
-  audio: AudioPayload;
+  audio: AudioPayload<"bgm">;
 };
 
 export type ChangeVictoryMeDslCommand = {
   kind: "changeVictoryMe";
-  audio: AudioPayload;
+  audio: AudioPayload<"me">;
 };
 
 export type ChangeSaveAccessDslCommand = {
@@ -327,9 +327,9 @@ export type ChangeMenuAccessDslCommand = {
   enabled: boolean;
 };
 
-export type ChangeEncounterDisableDslCommand = {
-  kind: "changeEncounterDisable";
-  disabled: boolean;
+export type ChangeEncounterDslCommand = {
+  kind: "changeEncounter";
+  enabled: boolean;
 };
 
 export type ChangeFormationAccessDslCommand = {
@@ -344,13 +344,13 @@ export type ChangeWindowColorDslCommand = {
 
 export type ChangeDefeatMeDslCommand = {
   kind: "changeDefeatMe";
-  audio: AudioPayload;
+  audio: AudioPayload<"me">;
 };
 
 export type ChangeVehicleBgmDslCommand = {
   kind: "changeVehicleBgm";
   vehicle: VehicleTarget;
-  audio: AudioPayload;
+  audio: AudioPayload<"bgm">;
 };
 
 export type SetVehicleLocationDslCommand = {
@@ -492,14 +492,14 @@ export type TintScreenDslCommand = {
   kind: "tintScreen";
   tone: ToneInput;
   duration: number;
-  wait?: boolean;
+  wait: boolean;
 };
 
 export type FlashScreenDslCommand = {
   kind: "flashScreen";
   color: ColorInput;
   duration: number;
-  wait?: boolean;
+  wait: boolean;
 };
 
 export type ShakeScreenDslCommand = {
@@ -507,7 +507,7 @@ export type ShakeScreenDslCommand = {
   power: number;
   speed: number;
   duration: number;
-  wait?: boolean;
+  wait: boolean;
 };
 
 export type WaitDslCommand = {
@@ -517,21 +517,20 @@ export type WaitDslCommand = {
 
 export type PictureOrigin = "upperLeft" | "center";
 
-export type PicturePosition = CommandPosition & {
-  origin?: PictureOrigin;
-};
+export type PicturePosition = CommandPosition;
 
 export type PictureDisplayInput = {
-  scaleX?: number;
-  scaleY?: number;
-  opacity?: number;
-  blendMode?: 0 | 1 | 2 | 3;
+  origin: PictureOrigin;
+  scaleX: number;
+  scaleY: number;
+  opacity: number;
+  blendMode: "normal" | "additive" | "multiply" | "screen";
 };
 
 export type ShowPictureDslCommand = {
   kind: "showPicture";
   pictureId: number;
-  image: ImageAssetReference;
+  image: ImageAssetReference | null;
   position: PicturePosition;
 } & PictureDisplayInput;
 
@@ -540,7 +539,7 @@ export type MovePictureDslCommand = {
   pictureId: number;
   position: PicturePosition;
   duration: number;
-  wait?: boolean;
+  wait: boolean;
 } & PictureDisplayInput;
 
 export type RotatePictureDslCommand = {
@@ -554,7 +553,7 @@ export type TintPictureDslCommand = {
   pictureId: number;
   tone: ToneInput;
   duration: number;
-  wait?: boolean;
+  wait: boolean;
 };
 
 export type ErasePictureDslCommand = {
@@ -569,12 +568,12 @@ export type SetWeatherEffectDslCommand = {
   weather: WeatherEffectType;
   power: number;
   duration: number;
-  wait?: boolean;
+  wait: boolean;
 };
 
 export type PlayBgmDslCommand = {
   kind: "playBgm";
-  audio: AudioPayload;
+  audio: AudioPayload<"bgm">;
 };
 
 export type FadeoutBgmDslCommand = {
@@ -586,13 +585,13 @@ export type SaveBgmDslCommand = {
   kind: "saveBgm";
 };
 
-export type ResumeBgmDslCommand = {
-  kind: "resumeBgm";
+export type ReplayBgmDslCommand = {
+  kind: "replayBgm";
 };
 
 export type PlayBgsDslCommand = {
   kind: "playBgs";
-  audio: AudioPayload;
+  audio: AudioPayload<"bgs">;
 };
 
 export type FadeoutBgsDslCommand = {
@@ -602,12 +601,12 @@ export type FadeoutBgsDslCommand = {
 
 export type PlayMeDslCommand = {
   kind: "playMe";
-  audio: AudioPayload;
+  audio: AudioPayload<"me">;
 };
 
 export type PlaySeDslCommand = {
   kind: "playSe";
-  audio: AudioPayload;
+  audio: AudioPayload<"se">;
 };
 
 export type StopSeDslCommand = {
@@ -616,7 +615,7 @@ export type StopSeDslCommand = {
 
 export type PlayMovieDslCommand = {
   kind: "playMovie";
-  movie: MovieAssetReference;
+  movie: MovieAssetReference | null;
 };
 
 export type ChangeMapNameDisplayDslCommand = {

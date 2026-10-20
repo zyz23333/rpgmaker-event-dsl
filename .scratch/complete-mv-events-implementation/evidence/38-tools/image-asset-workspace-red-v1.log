@@ -1,0 +1,57 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-38/packages/rpgmaker-event-dsl
+
+stderr | test/pictures-workspace.test.ts > MV-S6-PICTURE-008: rejects imageAsset input fields before projection via actual local source
+Windows verification sandbox retained: M:\Shuen\Codex\mv-events-implementation-20261020\ticket38-temp\sandboxes\picture-asset-input-local-ozyfPz
+
+stderr | test/pictures-workspace.test.ts > MV-S6-PICTURE-008: rejects imageAsset input fields before projection via actual const source
+Windows verification sandbox retained: M:\Shuen\Codex\mv-events-implementation-20261020\ticket38-temp\sandboxes\picture-asset-input-const-qM9XPt
+
+stderr | test/pictures-workspace.test.ts > MV-S6-PICTURE-008: rejects imageAsset input fields before projection via actual spread source
+Windows verification sandbox retained: M:\Shuen\Codex\mv-events-implementation-20261020\ticket38-temp\sandboxes\picture-asset-input-spread-QTXNlp
+
+stderr | test/pictures-workspace.test.ts > MV-S6-PICTURE-008: rejects imageAsset input fields before projection via actual cast source
+Windows verification sandbox retained: M:\Shuen\Codex\mv-events-implementation-20261020\ticket38-temp\sandboxes\picture-asset-input-cast-7A0ZR4
+
+ ❯ test/pictures-workspace.test.ts (63 tests | 4 failed | 59 skipped) 7923ms
+   × MV-S6-PICTURE-008: rejects imageAsset input fields before projection via actual local source 2168ms
+   × MV-S6-PICTURE-008: rejects imageAsset input fields before projection via actual const source 2061ms
+   × MV-S6-PICTURE-008: rejects imageAsset input fields before projection via actual spread source 1814ms
+   × MV-S6-PICTURE-008: rejects imageAsset input fields before projection via actual cast source 1879ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/pictures-workspace.test.ts > MV-S6-PICTURE-008: rejects imageAsset input fields before projection via actual local source
+ FAIL  test/pictures-workspace.test.ts > MV-S6-PICTURE-008: rejects imageAsset input fields before projection via actual const source
+ FAIL  test/pictures-workspace.test.ts > MV-S6-PICTURE-008: rejects imageAsset input fields before projection via actual spread source
+ FAIL  test/pictures-workspace.test.ts > MV-S6-PICTURE-008: rejects imageAsset input fields before projection via actual cast source
+AssertionError: expected '' to contain 'MV-DSL-SHAPE'
+
+- Expected
++ Received
+
+- MV-DSL-SHAPE
+
+ ❯ rejectSource test/pictures-workspace.test.ts:142:21
+    140|       message = error instanceof Error ? error.message : String(error);
+    141|     }
+    142|     expect(message).toContain(diagnostic);
+       |                     ^
+    143|     expect(message).toContain(path);
+    144|     expect(await state(root)).toStrictEqual(before);
+ ❯ test/pictures-workspace.test.ts:231:9
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/pictures-workspace.test.ts:227:7
+ ❯ test/pictures-workspace.test.ts:42:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 59 skipped (63)
+   Start at  04:58:09
+   Duration  9.46s (transform 461ms, setup 0ms, import 1.40s, tests 7.92s, environment 0ms)
+
+undefined
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-38\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/pictures-workspace.test.ts -t rejects imageAsset input fields before projection

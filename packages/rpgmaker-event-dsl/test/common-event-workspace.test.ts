@@ -538,7 +538,7 @@ it("MV-S5-COMMON-008: reports independent saved-field changes and safely removes
         expected: { id: 1, name: "Original", trigger: 2, switchId: 2, list: [end] },
       },
       {
-        input: 'name:"Original",trigger:"none",commands:[wait(3)]',
+        input: 'name:"Original",trigger:"none",commands:[wait({ frames: 3 })]',
         expected: {
           id: 1,
           name: "Original",

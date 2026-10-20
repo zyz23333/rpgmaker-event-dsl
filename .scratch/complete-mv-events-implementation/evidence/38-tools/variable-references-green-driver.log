@@ -1,0 +1,10 @@
+{"label":"variable-references-green","files":167,"fingerprint":"3732cbd1b49b45589d31bf89ba2ccff80e6f99eb741e73da03ff04c30024fe51","out":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\source-snapshots\\variable-references-green"}
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-38/packages/rpgmaker-event-dsl
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed | 6 skipped (7)
+   Start at  04:09:25
+   Duration  1.29s (transform 368ms, setup 0ms, import 1.15s, tests 6ms, environment 0ms)
+

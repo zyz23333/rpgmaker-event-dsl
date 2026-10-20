@@ -1,0 +1,11 @@
+const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const temp='M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp',sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const entries=fs.readdirSync(temp+'/results').filter(p=>p.endsWith('.json')).map(p=>({p,r:JSON.parse(fs.readFileSync(temp+'/results/'+p))}));
+const final=entries.filter(x=>x.r.status==='passed').sort((a,b)=>a.r.completedAt.localeCompare(b.r.completedAt)).at(-1);assert.ok(final);
+const target=temp+'/premerge-3854-source-freeze';if(fs.existsSync(target))throw Error('immutable target exists');fs.mkdirSync(target,{recursive:true});
+for(const f of final.r.source.files){const bytes=fs.readFileSync(f.path);assert.equal(sha(bytes),f.sha256,'not final execution bytes '+f.path);const out=path.join(target,'files',f.path);fs.mkdirSync(path.dirname(out),{recursive:true});fs.writeFileSync(out,bytes);}
+const ownPaths=[...cp.execFileSync('git',['diff','--name-only']).toString().trim().split('\n'),...cp.execFileSync('git',['ls-files','--others','--exclude-standard']).toString().trim().split('\n')].filter(Boolean);
+const authored=ownPaths.map(p=>{const bytes=fs.readFileSync(p),out=path.join(target,'authored',p);fs.mkdirSync(path.dirname(out),{recursive:true});fs.writeFileSync(out,bytes);return{path:p,sha256:sha(bytes)};});
+const status=cp.execFileSync('git',['status','--porcelain=v1']).toString();
+const manifest={createdAt:new Date().toISOString(),base:cp.execFileSync('git',['rev-parse','HEAD']).toString().trim(),sourceFingerprint:final.r.source.fingerprint,sourceFiles:final.r.source.files,sourceRecord:temp+'/results/'+final.p,authored,status,results:entries.map(({p,r})=>({path:temp+'/results/'+p,sha256:sha(fs.readFileSync(temp+'/results/'+p)),status:r.status,requirementId:r.requirementId}))};
+fs.writeFileSync(target+'/manifest.json',JSON.stringify(manifest,null,2)+'\n');console.log(JSON.stringify({target,sourceFingerprint:manifest.sourceFingerprint,sourceFiles:manifest.sourceFiles.length,authored:authored.length,records:entries.length,manifestSha256:sha(fs.readFileSync(target+'/manifest.json'))}));

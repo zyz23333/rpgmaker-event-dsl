@@ -1,6 +1,5 @@
 import type { RawEventCommand, RenderedCommand } from "../../decompiler/types.js";
-import { literal } from "../../decompiler/core.js";
-import { renderTone } from "../screen/decompile.js";
+import { isNumberTuple, literal } from "../../decompiler/core.js";
 
 export function renderBooleanSystemCommand(
   command: RawEventCommand,
@@ -23,13 +22,15 @@ export function renderBooleanSystemCommand(
 export function renderChangeWindowColor(
   command: RawEventCommand,
 ): Omit<RenderedCommand, "nextIndex"> | null {
-  const tone = renderTone(command.parameters[0]);
-  return tone === null
-    ? null
-    : {
-        expression: `changeWindowColor({ tone: ${tone} })`,
-        helperNames: ["changeWindowColor"],
-      };
+  const tone = command.parameters[0];
+  if (!isNumberTuple(tone, 4)) return null;
+  const fields = ["red", "green", "blue", "gray"].map(
+    (field, index) => `${field}: ${literal(tone[index])}`,
+  );
+  return {
+    expression: `changeWindowColor({ tone: { ${fields.join(", ")} } })`,
+    helperNames: ["changeWindowColor"],
+  };
 }
 
 export function renderPluginCommand(

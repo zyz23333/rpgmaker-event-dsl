@@ -1,0 +1,7 @@
+* -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol
+merge73504ec-conflict-loop-test.txt -diff
+merge73504ec-conflict-native-parameters.txt -diff
+merge73504ec-conflict-readme.txt -diff
+merge73504ec-conflict-requirements.txt -diff
+merge888b-conflict-readme.txt -diff
+merge888b-conflict-requirements.txt -diff

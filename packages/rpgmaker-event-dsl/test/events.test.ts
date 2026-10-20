@@ -12,7 +12,7 @@ import {
   changeBattleBgm,
   changeClass,
   changeDefeatMe,
-  changeEncounterDisable,
+  changeEncounter,
   changeEnemyHp,
   changeEnemyMp,
   changeEnemyState,
@@ -79,7 +79,7 @@ import {
   pluginCommand,
   recoverAll,
   rotatePicture,
-  resumeBgm,
+  replayBgm,
   returnToTitleScreen,
   saveBgm,
   script,
@@ -191,7 +191,7 @@ describe("compileMapEvent", () => {
               }),
               showChoices({
                 choices: [
-                  { text: "Yes", commands: [wait(10)], endMarker: "absent" },
+                  { text: "Yes", commands: [wait({ frames: 10 })], endMarker: "absent" },
                   { text: "No", commands: [eraseEvent()], endMarker: "absent" },
                 ],
                 cancel: {
@@ -553,24 +553,31 @@ describe("compileMapEvent", () => {
               gatherFollowers(),
               fadeoutScreen(),
               fadeinScreen(),
-              tintScreen({ tone: [68, -34, -34, 0], duration: 60, wait: true }),
+              tintScreen({
+                tone: { red: 68, green: -34, blue: -34, gray: 0 },
+                duration: 60,
+                wait: true,
+              }),
               flashScreen({
                 color: { red: 255, green: 255, blue: 255, alpha: 160 },
                 duration: 30,
+                wait: false,
               }),
               shakeScreen({ power: 5, speed: 7, duration: 40, wait: true }),
-              wait(12),
+              wait({ frames: 12 }),
               showPicture({
                 pictureId: 1,
                 image: imageAsset({ folder: "pictures", name: "Poster" }),
-                position: { kind: "direct", x: 10, y: 20, origin: "center" },
+                origin: "center",
+                position: { kind: "direct", x: 10, y: 20 },
                 scaleX: 120,
                 scaleY: 80,
                 opacity: 200,
-                blendMode: 1,
+                blendMode: "additive",
               }),
               movePicture({
                 pictureId: 1,
+                origin: "upperLeft",
                 position: {
                   kind: "variables",
                   x: variableRef({ name: "X Var" }),
@@ -579,12 +586,17 @@ describe("compileMapEvent", () => {
                 scaleX: 100,
                 scaleY: 100,
                 opacity: 255,
-                blendMode: 0,
+                blendMode: "normal",
                 duration: 45,
                 wait: true,
               }),
               rotatePicture({ pictureId: 1, speed: -5 }),
-              tintPicture({ pictureId: 1, tone: [0, 0, 0, 255], duration: 30 }),
+              tintPicture({
+                pictureId: 1,
+                tone: { red: 0, green: 0, blue: 0, gray: 255 },
+                duration: 30,
+                wait: false,
+              }),
               erasePicture({ pictureId: 1 }),
               setWeatherEffect({ weather: "rain", power: 6, duration: 50, wait: true }),
             ],
@@ -630,35 +642,79 @@ describe("compileMapEvent", () => {
           page({
             commands: [
               changeBattleBgm({
-                audio: { asset: audioAsset({ folder: "bgm", name: "Battle1" }), volume: 80 },
+                audio: {
+                  asset: audioAsset({ folder: "bgm", name: "Battle1" }),
+                  volume: 80,
+                  pitch: 100,
+                  pan: 0,
+                },
               }),
               changeVictoryMe({
-                audio: { asset: audioAsset({ folder: "me", name: "Victory1" }), pitch: 105 },
+                audio: {
+                  asset: audioAsset({ folder: "me", name: "Victory1" }),
+                  pitch: 105,
+                  volume: 90,
+                  pan: 0,
+                },
               }),
               changeSaveAccess({ enabled: false }),
               changeMenuAccess({ enabled: true }),
-              changeEncounterDisable({ disabled: true }),
+              changeEncounter({ enabled: false }),
               changeFormationAccess({ enabled: false }),
-              changeWindowColor({ tone: [12, -24, 36, 0] }),
+              changeWindowColor({ tone: { red: 12, green: -24, blue: 36, gray: 0 } }),
               changeDefeatMe({
-                audio: { asset: audioAsset({ folder: "me", name: "Defeat1" }), pan: -10 },
+                audio: {
+                  asset: audioAsset({ folder: "me", name: "Defeat1" }),
+                  pan: -10,
+                  volume: 90,
+                  pitch: 100,
+                },
               }),
               changeVehicleBgm({
                 vehicle: "ship",
-                audio: { asset: audioAsset({ folder: "bgm", name: "Ship1" }) },
+                audio: {
+                  asset: audioAsset({ folder: "bgm", name: "Ship1" }),
+                  volume: 90,
+                  pitch: 100,
+                  pan: 0,
+                },
               }),
               playBgm({
-                audio: { asset: audioAsset({ folder: "bgm", name: "Theme1" }), volume: 70 },
+                audio: {
+                  asset: audioAsset({ folder: "bgm", name: "Theme1" }),
+                  volume: 70,
+                  pitch: 100,
+                  pan: 0,
+                },
               }),
               fadeoutBgm({ duration: 45 }),
               saveBgm(),
-              resumeBgm(),
+              replayBgm(),
               playBgs({
-                audio: { asset: audioAsset({ folder: "bgs", name: "Rain" }), pitch: 90 },
+                audio: {
+                  asset: audioAsset({ folder: "bgs", name: "Rain" }),
+                  pitch: 90,
+                  volume: 90,
+                  pan: 0,
+                },
               }),
               fadeoutBgs({ duration: 30 }),
-              playMe({ audio: { asset: audioAsset({ folder: "me", name: "Fanfare" }) } }),
-              playSe({ audio: { asset: audioAsset({ folder: "se", name: "Cursor" }) } }),
+              playMe({
+                audio: {
+                  asset: audioAsset({ folder: "me", name: "Fanfare" }),
+                  volume: 90,
+                  pitch: 100,
+                  pan: 0,
+                },
+              }),
+              playSe({
+                audio: {
+                  asset: audioAsset({ folder: "se", name: "Cursor" }),
+                  volume: 90,
+                  pitch: 100,
+                  pan: 0,
+                },
+              }),
               stopSe(),
               playMovie({ movie: movieAsset({ name: "Intro" }) }),
               changeMapNameDisplay({ enabled: false }),
@@ -743,8 +799,8 @@ describe("compileMapEvent", () => {
             commands: [
               conditional({
                 condition: { kind: "switch", switch: switchRef({ name: "Gate" }), value: true },
-                then: { commands: [wait(1)] },
-                else: { commands: [wait(2)] },
+                then: { commands: [wait({ frames: 1 })] },
+                else: { commands: [wait({ frames: 2 })] },
               }),
               conditional({
                 condition: {
@@ -915,9 +971,9 @@ describe("compileMapEvent", () => {
                 troop: { kind: "troop", variable: variableRef({ name: "Count" }) },
                 canEscape: true,
                 canLose: true,
-                win: [wait(1)],
-                escape: [wait(2)],
-                lose: [wait(3)],
+                win: [wait({ frames: 1 })],
+                escape: [wait({ frames: 2 })],
+                lose: [wait({ frames: 3 })],
               }),
               shopProcessing({
                 goods: [

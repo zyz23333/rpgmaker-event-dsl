@@ -574,6 +574,88 @@ Ticket27 final-index-v1 actually timed out at the original10s. Complete8389-file
 
 Ticket27 closure audit passed:328 requirements retain incoming314 in order and own274 by ID;7610 historical raw blobs/prefixes,3030 initial archive source/copy pairs and193 physical/current execution inputs including15dist remain exact. The final selected index passed at the original10s/2workers. Closed captures append via27-final-history/post-archive-index-v1.json. Ticket27 is resolved after allocated actual E2/R3; final49–54 remain separate.
 
+| MV-S6-SYSTEM-SCENES-001 | Four explicit E134–137 access flags; independent false-zero/true-one saved slots | 40 focused DEV; source automation, no native claim |
+
+| MV-S6-SYSTEM-SCENES-002 | rejects missing or nonboolean access flags and unsupported own shapes before projection | 40 focused DEV; source automation, no native claim |
+
+| MV-S6-SYSTEM-SCENES-003 | requires exact named window Tone fields and preserves hidden gray and numeric negative zero | 40 focused DEV; source automation, no native claim |
+
+| MV-S6-SYSTEM-SCENES-004 | validates exact native access flag slots before decompilation or known raw compilation | 40 focused DEV; source automation, no native claim |
+
+| MV-S6-SYSTEM-SCENES-005 | validates exact native Window Tone shape and ranges while preserving all numeric zero signs | 40 focused DEV; source automation, no native claim |
+
+| MV-S6-SYSTEM-SCENES-006 | decompiles all access flags with explicit booleans and only the new Encounter helper | 40 focused DEV; source automation, no native claim |
+
+| MV-S6-SYSTEM-SCENES-007 | decompiles Window Tone as four explicit named fields including hidden gray and negative zero | 40 focused DEV; source automation, no native claim |
+
+| MV-S6-SYSTEM-SCENES-008 | requires zero scene helper inputs and exact direct command fields | 40 focused DEV; source automation, no native claim |
+
+| MV-S6-SYSTEM-SCENES-009 | accepts only empty saved scene slots through native and both known raw compilation inputs | 40 focused DEV; source automation, no native claim |
+
+| MV-S6-SYSTEM-SCENES-010 | decompiles full native carriers and evaluates discovered formal source with read-only Check | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-011 | compiles all generated carriers and really pushes independent formal edits in all three event containers | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-012 | evaluates every known raw command in three containers and really pushes exact independent saved state | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-013 | rejects helper local-const extra access fields before projection and preserves complete stale Workspace state | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-014 | rejects nested spread Tone extras before projection and preserves complete stale Workspace state | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-015 | rejects runtime scene inputs from a typed local helper alias and preserves complete stale Workspace state | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-016 | rejects directly constructed nonboolean access state with exact identity and authored slot | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-017 | rejects directly constructed missing hidden gray with exact map identity and authored Tone field | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-018 | rejects known raw categorical negative zero with exact authored slot and preserves stale guards | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-019 | rejects known raw out-of-range Window Tone with exact nested authored slot and preserves stale guards | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-020 | rejects known raw scene extra slots with exact troop authored path and preserves stale guards | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-021 | rejects native common access negative zero before any source publication with complete state preserved | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-022 | rejects native map Window Tone bounds before any source publication with exact nested slot | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-023 | rejects native troop scene extra slots before any source publication with complete state preserved | 40 focused DEV; source Workspace automation, no native claim |
+| MV-S6-SYSTEM-SCENES-024 | rejects direct scene unknown fields under an assertion with exact map authored path | 40 focused DEV; source Workspace automation, no native claim |
+
+Ticket37 focused DEV appends independent screen cases; its R6 game gate remains pending.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-SCREEN-001 | reconstructs every Screen mode and signed zero through evaluated formal and known raw source and real 15-carrier Push | synthetic-support | Public Workspace API, actual source evaluation and complete filesystem state |
+| MV-S6-SCREEN-002 | rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state | synthetic-rejection | Public Workspace API, actual source evaluation and complete filesystem state |
+| MV-S6-SCREEN-003 | rejects late malformed native Screen slots before source publication without changing existing business state | synthetic-rejection | Public Workspace API, actual source evaluation and complete filesystem state |
+| MV-S6-SCREEN-R6 | Current built normal-Scene screen waits, parallel effects, Weather and Movie runtime acceptance | game-observation | Actual game normal Scenes from current built Workspace output |
+
+Ticket38 focused DEV uses independent Picture literals and actual Workspace operations. Full/build/built/native remain pending.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-PICTURE-001 | Complete Picture public command and native parameter domains | synthetic-support | Public command and actual Workspace source/filesystem boundary |
+| MV-S6-PICTURE-002 | Complete Picture matrix through actual Workspace and real Push | synthetic-support | Public command and actual Workspace source/filesystem boundary |
+| MV-S6-PICTURE-003 | Actual Picture helper/direct/nested fields reject projection loss | synthetic-rejection | Public command and actual Workspace source/filesystem boundary |
+| MV-S6-PICTURE-004 | Picture malformed native and known raw refusal preserves complete state | synthetic-rejection | Public command and actual Workspace source/filesystem boundary |
+| MV-S6-PICTURE-005 | Picture signed numeric zero through formal direct and raw real Push | synthetic-support | Public command and actual Workspace source/filesystem boundary |
+| MV-S6-PICTURE-006 | Picture current public types reject incomplete and legacy forms | synthetic-rejection | Public command and actual Workspace source/filesystem boundary |
+| MV-S6-PICTURE-R6 | Picture allocated R6 actual current built game validation pending | game-observation | Pending actual current built product and literal native game pair |
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-PICTURE-007 | Picture Map and Battle page carriers preserve complete inactive state | synthetic-support | Public Workspace and complete carrier/state assertions |
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-PICTURE-008 | imageAsset refuses extra own inputs before projection into Picture values | synthetic-rejection | Public constructor and actual Workspace complete failure-state assertions |
+
+Ticket39 focused DEV adds independent audio saved literals and public Workspace obligations. E4/R6 remain pending finalization.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-AUDIO-001 | reconstructs all audio modes and signed zero through evaluated formal and raw source with real15-carrier Push | synthetic-support | Public helpers and actual Workspace native/source/filesystem boundary |
+| MV-S6-AUDIO-E4 | Ticket39 allocated E4 shipped audio editor resources and current built product comparison | reverse-engineering-observation | Pending allocated current built product/native comparison; no DEV acceptance claim |
+| MV-S6-AUDIO-R6 | Ticket39 allocated R6 current built normal-Scene audio and system audio pairs | game-observation | Pending allocated current built product/native comparison; no DEV acceptance claim |
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-AUDIO-002 | refuses evaluated malformed helper direct and known raw audio sources without changing complete business state | synthetic-rejection | Public helpers and actual Workspace native/source/filesystem boundary |
+| MV-S6-AUDIO-003 | refuses late malformed saved audio records before Decompile publication and preserves every existing business file | synthetic-rejection | Public helpers and actual Workspace native/source/filesystem boundary |
+
+2026-10-20：37–40 的当前功能及受影响自动化交付统一见
+[批次交付记录](presentation-batch-delivery.md)。最终产品 `8e51e031` 已合入实际
+Conditional 集成，契约 `/15`、374 条要求；开发票按用户执行修订关闭，
+48 的最终全量/构建、50/51 的适用逆向/产品比较及 54 的实际 R6 继续待执行。
+历史 DEV 记录及原始失败保留，不把旧执行冒称为最终候选全量或游戏通过。
+
 ## Ticket31 Control Variables
 
 The five stable obligations below retain the original DEV records. Current development closure and affected reruns are recorded in the Ticket31 finalization report; `MV-S6-VARIABLES-005` remains unexecuted and is carried to49/51–54. Its complete64-sample Random, self-alias, once-before-loop Script and numeric runtime outcomes remain required. Daily index validity does not mark that native obligation passed.

@@ -1,0 +1,1773 @@
+{
+  "createdAt": "2026-10-19T20:30:31.066Z",
+  "base": "38542767606ff9712e45d2a8e4894558e3a7d385",
+  "sourceFingerprint": "b33d18f0bcd6990ad88cd6f2d0bf8a6af354388aadb300fcca46446e21168191",
+  "sourceFiles": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "36542499fb5c9eed991023c9142cc539bab40fbd01dab6a822f3f24f909d82bd"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+      "sha256": "c3d8849fc0fef04331cabc2da96116667a1ab8d259a75f9adf1f5a52d70ff5bc"
+    },
+    {
+      "path": "package.json",
+      "sha256": "770e4e3a85243faa5f7a4e029097699e7c024f0655342a18bd47d507bf7af8b4"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/package.json",
+      "sha256": "2344a542d3836993009639da4efa83e5fb4df1849b026e6f0051648bee4d1a7d"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/authoring/declarations.ts",
+      "sha256": "a773bba2f8016d64f81a352da4050aa8c2e83b2cba353fe49fe5a953072eaf78"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/authoring/index.ts",
+      "sha256": "45d6f03be8e26f0f19abb5cea7f9a7a971846296e3c0f3b809feb7de3af049ef"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/authoring/references.ts",
+      "sha256": "b3f3cefa64f45da752a8f58bc6eca2d92bb6b30773be42f51036fd60df9c89de"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/authoring/shared.ts",
+      "sha256": "3865ac8c4b3768c96038a323a02cf30c33edd9f330544bd6cd2b204d2841408e"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/cli.ts",
+      "sha256": "34c6e77e91a45126b1a2c5b15621f79241a98bab081924d2fbd535c5996fd4b0"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/actor/authoring.ts",
+      "sha256": "adc9b6aa805739dad7594246236f6314cc8a08299f1bd323b8ae729cf6b2fdf3"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/actor/decompile.ts",
+      "sha256": "2e83a179cabb9ae19ff9207904c822bb84c6b5bc45581386d2aca7b1b005b56d"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/audio/authoring.ts",
+      "sha256": "08a68ae8b97095ec1c3a6d8517ed5649eb79ffb1b66f59aa34a7506356e0e513"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/audio/decompile.ts",
+      "sha256": "18acdf8e035ad2b8f3879622e18c39a7cde1e6279c14013fca2e6dbd0edb3811"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/battle/authoring.ts",
+      "sha256": "a5249dd85dde78f2f0183d33a9a79d69bca93e88b5d2f0404f9005a25f115377"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/battle/decompile.ts",
+      "sha256": "4da781567fb9baf2580ec050564d66506d542890dfab3a6966eef1c008ac44b0"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/enemy/authoring.ts",
+      "sha256": "3ff830df557837e08ed73054eb47085cd0ba262e1aad746defc05578a14ce602"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/enemy/decompile.ts",
+      "sha256": "334fc1efeda29f27cf9a7e504501ea7e693fb9b041a96bb827c90ec957ff2cd2"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/flow/authoring.ts",
+      "sha256": "2781ac07a176994435f124947fb0ac9c1873a3c37ea4b61b5f5fc0c35cabfc40"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/flow/decompile.ts",
+      "sha256": "db0508df65d743ada28e4b175d85cfbfa6a70a0547ff17cc2ecc2ab9a0feac31"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/flow/validation.ts",
+      "sha256": "d88ca16a1e3d2c688a6876ae041bc772c125eda0b1cf2e818b8ec55c29090dad"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/map/authoring.ts",
+      "sha256": "981b86f2bfcbfaaf01c24ae6ed7c147d7ff870f91fed6e0a53dfc804c3e9b17a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/map/decompile.ts",
+      "sha256": "7b6c6a5b316e1273787d7dbedc867d3b557c09db512aceec9a54ae1faac8ebcb"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/map/native-validation.ts",
+      "sha256": "0bcd6f8adc582170080ec760e2d9e94c7a6c76420592c6e1dcfbaf5e374b677b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/map/validation.ts",
+      "sha256": "0e30bf9ac24c999fc26bfb5171d776b8a94bf9d4ec8f1958ab13cd158f0b252e"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/message/authoring.ts",
+      "sha256": "76bfc91b2a89a8c62546542396ff47c8baf9f13d54c1c1ba5a0b58031b413d68"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/message/decompile.ts",
+      "sha256": "174c78169c65eec74592a466381b97e083688c691381e470b0a707dd47273a24"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/movement/authoring.ts",
+      "sha256": "af1985013fa73af61d72cc440de0f83d99f78c94da4744f3a7ab1d7b56daf909"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/movement/compile.ts",
+      "sha256": "07ec22fe5fbcb0a54d16eb6ef1dd505cfd6b942912e378c4ed17255010044760"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/movement/decompile.ts",
+      "sha256": "c61816d9d97960df23eba76af04735a3a98dc01c6bb2c05a56bdcc5075432ebe"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/movement/page.ts",
+      "sha256": "ead6952e28f64bd25ba6fbd55d9be36f09ddadca5967ec4ddd7722ee1e18ceac"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/movement/types.ts",
+      "sha256": "de4a2cb691fc6a8697ba91a2a831eaf17e1c15e541da4a2893f902f30a3a01b8"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/movement/validation.ts",
+      "sha256": "f49a357955d176c5930ca59d5d13e2c80d4b3cad1215364cf3df158817015e6d"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/screen/authoring.ts",
+      "sha256": "4b56c13a8e28e3596b47ab45958708ddc77392461883b4cb13439b684371b792"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/screen/compile.ts",
+      "sha256": "f1af364211bafd02b0fcd0872fe06ede765a9ac67379ee40cb7d500d2dd6b077"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/screen/decompile.ts",
+      "sha256": "5b155c63ef05d4592648ec4b9d799c9dbcfdc7be17a5e54c7648e970f125740a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/screen/picture-inputs.ts",
+      "sha256": "30769f3c12d183cc869496689f2d43c069c300d62a546269a04e029ffce8a7a6"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/screen/picture-native.ts",
+      "sha256": "28c85fb6ded4a554190e862677de178a97e7fd0059c000b9e308a04ff4df9787"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/screen/picture-references.ts",
+      "sha256": "dfb2c4941a1a13e83d704e07dffe72a29ca811bdc41459ef9a8055a91f25560f"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/system/authoring.ts",
+      "sha256": "71b37822f2d2abd58349a1ea7eed84fea0c886cf8045beb6341dbfba2c02814d"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/system/decompile.ts",
+      "sha256": "56c3cba9e576bd289050463bfe2d284c39d54196fcf5fa59a8dde3ccdc33ad77"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/variables/authoring.ts",
+      "sha256": "a2bbedd0a2d9aacb7e3eb2772e4f7431c49ccef39166cc74f4b615a6494a3f22"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/variables/compile.ts",
+      "sha256": "9e4a295fac91434e34e28bd3c84b9b5a5dc526685f821f574582e7ac22bb4c27"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/variables/decompile.ts",
+      "sha256": "c32df1e9d77b36d30fd135bc6c8919f0cf84a19acaf6a86d3e66d700762b9773"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/variables/validation.ts",
+      "sha256": "8996604b8bfcb1fd9ba8a5100b8bd598e720aad9b946d001e77e89ddf5609867"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+      "sha256": "537bd544aaa03bc9c39cc204fbe49507c110f4ec727d766039c5090aff44a8fc"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/compiler/events.ts",
+      "sha256": "f5ab237240ed7e698a6b386135b8c5a41d05ee52fc99a1ef62bce44fdc1abfd2"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/compiler/shared/branches.ts",
+      "sha256": "44f965a1c5ea89cdf03fca12e3a49c2bce866efa9e6dc97ffa32c45a51f4d606"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/compiler/shared/conditions.ts",
+      "sha256": "4b44eb3bb078dc6dd9a996ba7ac8aac5dbc6cc4a4151763ff9dc6c21d786e990"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/compiler/shared/media.ts",
+      "sha256": "9bc3cc0ec9fd97a6368711dc4e73cba05dc4abaee7697624132577bb465e3e68"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/compiler/shared/targets.ts",
+      "sha256": "11c907ed9a847ba54fdc222c7d04757e1b0d74205c7111426e4fec8d80be7ce2"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/compiler/types.ts",
+      "sha256": "b81ac88b5778268997bce55af43dc0953b5cee48625180f58733cfdde6ae91a1"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/decompiler/core.ts",
+      "sha256": "c6a020c7eb5f987f883488b955f4dae2d5550d93a21272284939d54a04bb98b0"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/decompiler/dispatch.ts",
+      "sha256": "7024e6d242f1c42d5fb4ff13dc906e8110e1485f31fb4f7ec136a871725e1f30"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/decompiler/map-page.ts",
+      "sha256": "05a14de564f72e81566bf5db192a38c71c9595e21abfa9181b49a12b724c751b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/decompiler/project.ts",
+      "sha256": "4698c495ec38612ec12a43cc68b3dcde934b347905fc26ae188615e8e7a0d189"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/decompiler/types.ts",
+      "sha256": "01dc14767746b1067ddc101f6acd5ea23247b6557a59e0c0cb467dd1f3903aa3"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/domain/battle-page-defaults.ts",
+      "sha256": "4a6d7b43e65b2316987b846253c93504f85ac8e341901d3e47236c99de91027b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/domain/command.ts",
+      "sha256": "03beb7bdbe940a13b86b51ffe5e6aed0e96c25ae55827d20a9616f20eba82b3b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/domain/declarations.ts",
+      "sha256": "b0b1dd048040394dd8ef95fe080046a6b1541d44194d490dfa0ede891dd6a781"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/domain/references.ts",
+      "sha256": "44874ce22c90697572c8bd777f0a8070bcf89b556247072964ac59246761fc44"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/domain/types.ts",
+      "sha256": "5327c422c15864473a2b77938e10199e01ae0ed49399f37397cbd93ced3d16eb"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/index.ts",
+      "sha256": "cac51b3cd154629880f6b30aaf8b54a8f1aecee91bb26182ebfd7ccdb3c90157"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/map-event/native.ts",
+      "sha256": "a87ca1545e80ecd25205f6e7fb40a48d977317b93da65de8053afcaacf611384"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/map-event/page.ts",
+      "sha256": "9251557930e667e258c6259c58e787cdeccd22e96dc5f0225947a98d35d275ed"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/map-event/validation.ts",
+      "sha256": "e2dddc54dff942929af1f58dd6e48305e9d774c8cfb5a4c58af39e08e3937805"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/project-data/json-values.ts",
+      "sha256": "7d9f2a485a689dc159327f859a8cae48307b88294bea78aa2a81452813730af8"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/project-data/map-event-diff.ts",
+      "sha256": "7055058d85ef232a8ad2f94e9a3634ef709c5d352283ac1678f4dc03836be992"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/project-data/materialization.ts",
+      "sha256": "e52781cb2bccb01c58ac6c1ff0f069906980efce0a123b04348f4f18d80734d4"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/project-data/project.ts",
+      "sha256": "1176a155e53c9f4383e03bbe3a3f7e13565a96d5eb47b3ac6fc58002ae91cd74"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/project-data/structured-diff.ts",
+      "sha256": "4af2dfd1fb0e57c2d440b64a90fdbdfd1e88f02fffe6ff33c6f12eac64ff8590"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/project-data/writer.ts",
+      "sha256": "d9ebfc5636d430eb7c94ecca75c4a40127e592e92bcd303cc73ed59cde674c80"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/battle-pages.ts",
+      "sha256": "e8bb5f47b3ad4c6d09c3df5f09785bc64e6704b8f458e0253f5a3e3953a20c8b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/command-errors.ts",
+      "sha256": "d3da622a5d9616fd54f83415ec3782c45f54f95a3285d3525f1ddcf71f7deb9a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/command-structure.ts",
+      "sha256": "e75f7edfa9b9fd520eeb7f4b42b4e110bc2a533fe3fd365c78750ecd226df6d4"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/commands.ts",
+      "sha256": "31ba6924ef2e33882dc7319b6dea616ab7ea96e542b379dcce34fb331c80d62b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/common-events.ts",
+      "sha256": "dd331ebf8a13c720464cc96843ba4a8b69a2b6196ee740791ad7a4788ad89e34"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/compile-output.ts",
+      "sha256": "921536abaed802c2f030229f0ff72e3037aba9a6855abc9dcd7e47d1f4857681"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/compiled-commands.ts",
+      "sha256": "54ac1cd1aef427fc8af3681b8d5a6907a2b2e336727ba790ad7e44a5467fae94"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/declarations.ts",
+      "sha256": "d7428305b08f45f2203aa37ffb5b3a1c3506730870a01171574cc10f0624f671"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/dsl-command-inputs.ts",
+      "sha256": "cc6e0d4a69d7d4185d68a441ecf5f30569d024963fc7e9981cc807a6e3c25c6a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/identities.ts",
+      "sha256": "8d43c5417552dc7e1b6c5a5c3c423d3571d22277d719bf10f34f555ef39bf2b1"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/inspection.ts",
+      "sha256": "10a9923ffca925eb65ea7254a1d940c6580a3a60f3b7a14a4862cf08d11453e1"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/native-command-inputs.ts",
+      "sha256": "a50f5a80417e53340fababa5c0aaa7eb619c9652e35f453cc9a37c45fd839fd0"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/native-context-references.ts",
+      "sha256": "7ddd26656a02361bf2ea5c7ecfc10ca8a32d5d0a22a37ba36cabb168ce2c680d"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/native-parameters.ts",
+      "sha256": "4e9372723b9063a46a26cc7b0691646d3af155d310e1793483be788f7286b51d"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/native-references.ts",
+      "sha256": "34ab7b62af6418491d00f3325fca6c843f2010e4170a24ec57cc8d6099a945b7"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/references.ts",
+      "sha256": "01c968b0619bcaf4a1251a4e00932657823229362a7d722148d274cf37c23dfd"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/shared.ts",
+      "sha256": "6ad13ecbedcc6cf7fb3565ffcdfd919f8fadad1430eccbbcfd845af7e927af14"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/snapshot.ts",
+      "sha256": "b29956e100eb586e389ed69bd7d9b6603452b6a7f8371aa895e53193628ed4cd"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/staged-graph.ts",
+      "sha256": "eb93aeb3a16a413f74719a42394fd0883365d735a9c0c6139295569505408693"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/types.ts",
+      "sha256": "df660ce939aa4e7924d4f98a54d63cb14cb3c637c48e53215477e0282c3f27dd"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace-api.ts",
+      "sha256": "735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/checks.ts",
+      "sha256": "dd02c917b0ed530fcbb8d3458802d5d230def90388d6bf488e849f2934688692"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/config.ts",
+      "sha256": "3700d64dfaf53fe1e99beb91bf8a54032c8a01372f25b579cdddf2ab683fd84b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/decompile-publication.ts",
+      "sha256": "e70dcce23f98167dc53e908b3242a0a61a5fd1f7f92b2df6f700e91433faf185"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/definition-identities.ts",
+      "sha256": "f9048d155cc06fa5770e6b26cae9fac58255dc1668b0a416fbb4578149db3b41"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/definitions.ts",
+      "sha256": "642fdd2fc21b59d6ffb59f01bd61fbb0bca4e26ee2eab4c3d659a4077f901ed1"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/guards.ts",
+      "sha256": "cec835079aba4c1c61d4a28f224fd7ac7617063568b05156a84cc08896e0ed89"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/operation-lock.ts",
+      "sha256": "c39e910339321f63786bec52cf40fa5e9c114a259f8bbc0dc7842b29660866cd"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/operations.ts",
+      "sha256": "a5d8a46bd2fb28a09e2724028c7e9800d2ee23deed6e5e6a84196fb76b1ccead"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/push-recovery.ts",
+      "sha256": "4eb0a680285f3e7532891cff2aedc3433f067fb36ccf8d4c63b3975b66c97a76"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/push.ts",
+      "sha256": "4a68f891cce5431344921baf4c9c0f3e3617c704c305732fa13b17825e74a25a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/source-discovery.ts",
+      "sha256": "aeec16adb3208ea5d89666c051064e3251defd8ef8bae48ac6fa12bebc7b98e0"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/state.ts",
+      "sha256": "c493c31c466b7d49b86a9bdd45ad563963c67f3c9e4c5a28b1f1f3b54ebbf216"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts",
+      "sha256": "19aa473eb09a54680cb057c5348ba7212abd83066adadf03a48f0e58451c4c98"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/types.ts",
+      "sha256": "f046ebe39de38d590d78bb0aa00f5c3f03a117f972f9aec6f49fa5f7275023fb"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/architecture.test.ts",
+      "sha256": "3229d46f278ed361e8629291203e60e26486ca88441aaabf879121214572e9cd"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/cli-entry.test.ts",
+      "sha256": "6dd400343ebc7d3341911a43f261cc9752ae1c4e99fb915acdf5feea183e93d5"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/cli.test.ts",
+      "sha256": "6640d901282cf3f76178d5bba1e72f1f6059280096f4ef3b22493f8a647a840a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/command-boundary-workspace.test.ts",
+      "sha256": "67bd911d5049242cf379c9146435ea8d5066f51bc8fa35e63a6b4729a505ebe5"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/command-boundary.test.ts",
+      "sha256": "4333775c98643b8939dbd82fca4952a3dcd65ae8dc2a05425f87be0563232e1e"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts",
+      "sha256": "0354d1e2293b1212b62f23d79936253e06fae1412059c4b97eae31cc4559fdf6"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/common-native-boundaries.test.ts",
+      "sha256": "753086580887ae763c959668b376897171e9d22231cea8f7ca25eb9d61255db7"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/compile-inputs.test.ts",
+      "sha256": "19de1ac1ff4417485e2953199b2e326670722b8518083015c908535ac5f00fa9"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/compile-publication.test.ts",
+      "sha256": "8e7b0305058398b5abab1334bb38ed7a13baa6b442be40ecbfb212d6176c6d6a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/decompile-publication.test.ts",
+      "sha256": "2dd677c7f499f4b67f537855f3d4d073c7d9f07d45a606910964b4319521f73e"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/decompiler.test.ts",
+      "sha256": "4aa851885f132d4a403cd664f384a2210c1a43b86379619b29808c28d0f56c4b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/definitions.test.ts",
+      "sha256": "e067a44adf0bbb8c4061836ef6b70dd234646c4ced51423792e090fcc55427c4"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/dsl.test.ts",
+      "sha256": "de31ff38e04c52e28c80ec1e34b7cc0152851627ff9cc9fce580fc3b0e02d8b3"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/events.test.ts",
+      "sha256": "37405c679d4819a7ee8ef89bbf39e876211a0063616c5484e17e34cd914242d6"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/command-boundary-cases.json",
+      "sha256": "2bbe5b59b8df23286f616189655e87d898e3524dd63c10466d2a9f2b1b9aaf30"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/loop-cases.json",
+      "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-appearance-cases.json",
+      "sha256": "5095b3be404a9d0025157989cf465cc0c88e96616ea5d6ba892242e35623790f"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-battle-context-project.json",
+      "sha256": "bf4ca095b5d86c9824ce36c0c30113871d56a22032a4a1c4d3eb33af75a80864"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-parallax-negative-zero.json",
+      "sha256": "b6cf81c93f03262e75813581f948f12524d5907b642a288073167d75198430d9"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/movement-route-cases.json",
+      "sha256": "c5f48d068f867f56817a9f65f3ed70c79c1c69c9534468ced3f3fdd35e0fec4c"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/movement-saved-numbers.json",
+      "sha256": "dc54a131301a4abd5b149dc2833d5c8f549a6dafaa0a365c1d0542062c5f3923"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/picture-carriers.json",
+      "sha256": "d07f8af6b8a1877533179fda226345a01fcd16f0c5f9706b6bf327ad9f20b1fc"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/picture-parameters.json",
+      "sha256": "f1aa90623a716d2cf8d37af8e44c657c003ef519ca298449409e3ded915b089d"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-slots-project.json",
+      "sha256": "eae9d3c30c431a9a66a2af6e822100309da6920f794ba34b84fea15566bdde38"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+      "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/index.test.ts",
+      "sha256": "9afd6a1323db0d41f32ae8047dff223f2dd96d4050ae260d4dfda638741e9211"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/loop-workspace.test.ts",
+      "sha256": "cb376eaa85f5c2e78a0d7876e5c6980874a9f2fa3239bf7c870dda170ad524a6"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/loop.test.ts",
+      "sha256": "a93442731fa36a19f24ff84f5cf56630bffab504abe10b5eb76af02eb8ed2aee"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts",
+      "sha256": "c0cd86130ecc865ce9437691b77ea0f6ebe68a5b855fa2434db01e8d34f99b49"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/map-event-workspace.test.ts",
+      "sha256": "19c81193a6d59d6bcb7785332e0df3b1082a413ac821e73177626034e735455f"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/map-event.test.ts",
+      "sha256": "22f106478ebf46c770d52023a9778ab49d353b385c16b94c4fcc5110fbe4417c"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/movement-instructions-workspace.test.ts",
+      "sha256": "9846730a85ad0289876563c4159ccbed5418c9dfd3cc2495f3ad3bef5fae2879"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/movement-instructions.test.ts",
+      "sha256": "eb0c965446a476c1854e24b989a206a229f878977deadede51de1c8135d1a096"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/movement-route-workspace.test.ts",
+      "sha256": "354d09a5fb72bfc04f3740ec28e2e7e6e373f52494ca9a7f3aa7c6089c73e855"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/movement-route.test.ts",
+      "sha256": "04fd4ca535ad97c66b65dd50546511d60c341c402df81e7ae547fcc136b3a412"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/mv-evidence.test.ts",
+      "sha256": "5d158ea357c657807c3101a2896c71ce9fbc24b08263727d1ead3d85a98c03f5"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/pictures-workspace.test.ts",
+      "sha256": "8f05afaaef3f6e4cd59e7b385068eb42ecbdda5ba6ac26899ee715b82dff465f"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/pictures.test.ts",
+      "sha256": "021d56e189987b3389323d8d84ce7fc29133165910000e713739b9f9a07613bc"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/project.test.ts",
+      "sha256": "c43c6a1193d093e53e847de47d45554673795de729575fd7a7e21c9a91190025"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/push-drift.test.ts",
+      "sha256": "5e4f1a63eb3dd0151f6a4d76b19dfc65a8c9c0c0e7f342ce0208ead5dd890a25"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/push-recovery.test.ts",
+      "sha256": "f69123bb46b67aab4acb3171a8a6f92ad02def97203a02fee9af8285559f4335"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/snapshot-binding.test.ts",
+      "sha256": "2ba604411129fac6ea1dd9c28e3082589e1b519364e4fd12e67a33b2475e2889"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/snapshot-context.test.ts",
+      "sha256": "62423a34014043d892b458cba5071bebc84295cea0b1813e63e6ee4554fd6ae9"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/staged-graph.test.ts",
+      "sha256": "f06a755d96f319490b0376cf1b96748a939d00440991aeab862e09b9792bc74f"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/structured-diff.test.ts",
+      "sha256": "7dea3d7fbb5ca2147c1e6b36adfb8ba241f996373ba24d8de390a15ede7f6ed3"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/support/map-event-fixtures.ts",
+      "sha256": "778c8dc026e49f65905eacb06353abbedc8889f8a63dd7ae620dff9fae809f5e"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/support/movement-instruction-fixtures.ts",
+      "sha256": "4c0e39bd366faceeb1fb3b00433afd25a4f034925eb9e1e3075b21f99ed322dc"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/support/mv-evidence.ts",
+      "sha256": "cb43d7bd2c6295f695a3c1a570fd8b3f648daaf981feb9923683631983bea76d"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/support/troop-evidence.ts",
+      "sha256": "a7651ad47c9f4b8641287ba9d0c68858ec97eaa66ca8fc002cea56b88195bf4b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/support/windows-sandbox.ts",
+      "sha256": "ebbb2cd2bd9559ca432c83774132a9a2fd1f6270828d044675f7002912273c71"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+      "sha256": "34d85cba041c62d18575b37cee7b1f6c15f720cebca55f5ffe8ede7374261261"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/support/workspace-operation-process.ts",
+      "sha256": "ee45257ab8b046d3cce02fc42dd3a0a308d96c6a78a894ddab3df19eeace0bbe"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/system-slots.test.ts",
+      "sha256": "b7127820553f4b883e0b612bdee686e081606d4a30cc67c59501923e9d30fa38"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/troop-events.test.ts",
+      "sha256": "1bccd4472979133272860629a0fa1869f9da0a9b27d2a296fb892501b84718dd"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/troop-safety.test.ts",
+      "sha256": "aee9ec36995d2e0e70f79e46ae845198dcb1033a6d480daf9d4e7bdcef2df98e"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/troop-workflow.test.ts",
+      "sha256": "b344a2075affaadf5e72d368034a6dd800630dd803c7c38c3d34b47f74863fad"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/windows-baseline.test.ts",
+      "sha256": "3b06218264c3c651a956b982a282b096fe557ca999ff88b81ada3dd02343df87"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/workflow.test.ts",
+      "sha256": "5d52e441b1e33ce8adf0a4d33ac31d94858b1a697927318601635f2186882fd0"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/workspace-locking.test.ts",
+      "sha256": "54e51682c54551ae568a7861bbe5a309242a094b16008ea2ecebf98baeedd492"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/workspace.test.ts",
+      "sha256": "9d6c6e6be74210fbd74f13c545286be7bc9da40c8d2d1c04c72533e310f3d9bf"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/tsconfig.json",
+      "sha256": "103060b50f26a5ee2fa0f8525824e89166f01ad12c8155172b06647bd9810ed6"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/vitest.config.ts",
+      "sha256": "205dcf739555549758afcdf2051835bb37173e071987af8de2bc2870e5039e39"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/vitest.windows.config.ts",
+      "sha256": "a632f777ca08991f4fc2cf8587e5b8b4fe0d06a5733bb6e9b5b8b9ad2aab0dc0"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "4f685f5fccae0de0bef4666fb12f314fd0b26ae81ac68a26cc90cf2dd247c5b5"
+    },
+    {
+      "path": "tsconfig.base.json",
+      "sha256": "5b0437fc9ebfe797ceafbe026fb673ade339605add242db2bbe8e6011c2ec63a"
+    }
+  ],
+  "sourceRecord": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-006-2026-10-19T20-29-39-602Z-b5e15c85-f947-414d-bf36-e5dca74b505b.json",
+  "authored": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/README.md",
+      "sha256": "6b22b5ad3284acfd2ab39807043e22395c54ad76ad60e02a27d0c9f39b73890f"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+      "sha256": "c3d8849fc0fef04331cabc2da96116667a1ab8d259a75f9adf1f5a52d70ff5bc"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/issues/38-picture-complete-parameters.md",
+      "sha256": "2ba56c6dfb38364656e57dad2f1792fb5c484eab71dc01e498622ca87f44f1a7"
+    },
+    {
+      "path": "README.md",
+      "sha256": "ee208fda8d2ff3d94c587a3061d36c3445aa2b9ea22c895fceb39bdf691d30d6"
+    },
+    {
+      "path": "example/full-event/src/full-event.events.ts",
+      "sha256": "8253e5a340b00ddca200194118c4ba30c7df6d679f992ad8e66c63cd9d7250b0"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/README.md",
+      "sha256": "1083199b898246eaf46cd27705ad8877532e2f65ba09c04ea37d981c33962434"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/screen/authoring.ts",
+      "sha256": "4b56c13a8e28e3596b47ab45958708ddc77392461883b4cb13439b684371b792"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/screen/compile.ts",
+      "sha256": "f1af364211bafd02b0fcd0872fe06ede765a9ac67379ee40cb7d500d2dd6b077"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/screen/decompile.ts",
+      "sha256": "5b155c63ef05d4592648ec4b9d799c9dbcfdc7be17a5e54c7648e970f125740a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+      "sha256": "537bd544aaa03bc9c39cc204fbe49507c110f4ec727d766039c5090aff44a8fc"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/decompiler/project.ts",
+      "sha256": "4698c495ec38612ec12a43cc68b3dcde934b347905fc26ae188615e8e7a0d189"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/domain/command.ts",
+      "sha256": "03beb7bdbe940a13b86b51ffe5e6aed0e96c25ae55827d20a9616f20eba82b3b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/commands.ts",
+      "sha256": "31ba6924ef2e33882dc7319b6dea616ab7ea96e542b379dcce34fb331c80d62b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/dsl-command-inputs.ts",
+      "sha256": "cc6e0d4a69d7d4185d68a441ecf5f30569d024963fc7e9981cc807a6e3c25c6a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/native-parameters.ts",
+      "sha256": "4e9372723b9063a46a26cc7b0691646d3af155d310e1793483be788f7286b51d"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/command-boundary.test.ts",
+      "sha256": "4333775c98643b8939dbd82fca4952a3dcd65ae8dc2a05425f87be0563232e1e"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/decompiler.test.ts",
+      "sha256": "4aa851885f132d4a403cd664f384a2210c1a43b86379619b29808c28d0f56c4b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/dsl.test.ts",
+      "sha256": "de31ff38e04c52e28c80ec1e34b7cc0152851627ff9cc9fce580fc3b0e02d8b3"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/events.test.ts",
+      "sha256": "37405c679d4819a7ee8ef89bbf39e876211a0063616c5484e17e34cd914242d6"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/loop.test.ts",
+      "sha256": "a93442731fa36a19f24ff84f5cf56630bffab504abe10b5eb76af02eb8ed2aee"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/staged-graph.test.ts",
+      "sha256": "f06a755d96f319490b0376cf1b96748a939d00440991aeab862e09b9792bc74f"
+    },
+    {
+      "path": "skills/rpgmaker-event-authoring/SKILL.md",
+      "sha256": "e6fdfaf75c079a70a14610b898990f532461de729e8bcc63da39600ae59b64af"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/38-picture-complete-parameters.md",
+      "sha256": "70fb308c899c4e567205250881685a5a2b51d547ee317da15d8d2a03aee19eec"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/screen/picture-inputs.ts",
+      "sha256": "30769f3c12d183cc869496689f2d43c069c300d62a546269a04e029ffce8a7a6"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/screen/picture-native.ts",
+      "sha256": "28c85fb6ded4a554190e862677de178a97e7fd0059c000b9e308a04ff4df9787"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/screen/picture-references.ts",
+      "sha256": "dfb2c4941a1a13e83d704e07dffe72a29ca811bdc41459ef9a8055a91f25560f"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/picture-carriers.json",
+      "sha256": "d07f8af6b8a1877533179fda226345a01fcd16f0c5f9706b6bf327ad9f20b1fc"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/picture-parameters.json",
+      "sha256": "f1aa90623a716d2cf8d37af8e44c657c003ef519ca298449409e3ded915b089d"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/pictures-workspace.test.ts",
+      "sha256": "8f05afaaef3f6e4cd59e7b385068eb42ecbdda5ba6ac26899ee715b82dff465f"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/pictures.test.ts",
+      "sha256": "021d56e189987b3389323d8d84ce7fc29133165910000e713739b9f9a07613bc"
+    },
+    {
+      "path": "skills/rpgmaker-event-authoring/references/pictures.md",
+      "sha256": "c051afba6671183732ec6c6d7f86820d17c00f11b6861aa7ab935dd50f7e1b1c"
+    }
+  ],
+  "status": " M .scratch/complete-mv-events-implementation/evidence/README.md\n M .scratch/complete-mv-events-implementation/evidence/requirements.json\n M .scratch/complete-mv-events-implementation/issues/38-picture-complete-parameters.md\n M README.md\n M example/full-event/src/full-event.events.ts\n M packages/rpgmaker-event-dsl/README.md\n M packages/rpgmaker-event-dsl/src/commands/screen/authoring.ts\n M packages/rpgmaker-event-dsl/src/commands/screen/compile.ts\n M packages/rpgmaker-event-dsl/src/commands/screen/decompile.ts\n M packages/rpgmaker-event-dsl/src/compiler/dispatch.ts\n M packages/rpgmaker-event-dsl/src/decompiler/project.ts\n M packages/rpgmaker-event-dsl/src/domain/command.ts\n M packages/rpgmaker-event-dsl/src/validation/commands.ts\n M packages/rpgmaker-event-dsl/src/validation/dsl-command-inputs.ts\n M packages/rpgmaker-event-dsl/src/validation/native-parameters.ts\n M packages/rpgmaker-event-dsl/test/command-boundary.test.ts\n M packages/rpgmaker-event-dsl/test/decompiler.test.ts\n M packages/rpgmaker-event-dsl/test/dsl.test.ts\n M packages/rpgmaker-event-dsl/test/events.test.ts\n M packages/rpgmaker-event-dsl/test/loop.test.ts\n M packages/rpgmaker-event-dsl/test/staged-graph.test.ts\n M skills/rpgmaker-event-authoring/SKILL.md\n?? .scratch/complete-mv-events-implementation/evidence/38-picture-complete-parameters.md\n?? packages/rpgmaker-event-dsl/src/commands/screen/picture-inputs.ts\n?? packages/rpgmaker-event-dsl/src/commands/screen/picture-native.ts\n?? packages/rpgmaker-event-dsl/src/commands/screen/picture-references.ts\n?? packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/picture-carriers.json\n?? packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/picture-parameters.json\n?? packages/rpgmaker-event-dsl/test/pictures-workspace.test.ts\n?? packages/rpgmaker-event-dsl/test/pictures.test.ts\n?? skills/rpgmaker-event-authoring/references/pictures.md\n",
+  "results": [
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S3-CONTEXT-001-2026-10-19T20-21-57-467Z-35a4c203-7c84-4d09-89df-a9e47ab3f29c.json",
+      "sha256": "76dd1cc7060498940f896a788b2cad7d09646cfef71cc42228758cb242c7b0c2",
+      "status": "passed",
+      "requirementId": "MV-S3-CONTEXT-001"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S3-CONTEXT-001-2026-10-19T20-28-05-184Z-9a20ef5f-a758-46cf-b1a8-61e475134678.json",
+      "sha256": "ec3637b6fca29b258955e4e755e72e6a8beafcdb40eb68b3818ef099f0e7d6b1",
+      "status": "passed",
+      "requirementId": "MV-S3-CONTEXT-001"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S3-CONTEXT-002-2026-10-19T20-22-03-075Z-6374ed3e-d3b0-4c70-a75f-d7373f2d18a7.json",
+      "sha256": "26bee7620d6aff1617f9c890f8d4a1325f18874a0f120df763862704a7ed8cb1",
+      "status": "passed",
+      "requirementId": "MV-S3-CONTEXT-002"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S3-CONTEXT-002-2026-10-19T20-28-11-496Z-47284ba7-d398-47de-ab07-cd041f304850.json",
+      "sha256": "fa2a0d6c4b2009d34596bdab3d9c0b7b695211cb00eddac7dfeabbf011240d4b",
+      "status": "passed",
+      "requirementId": "MV-S3-CONTEXT-002"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S3-CONTEXT-003-2026-10-19T20-22-02-995Z-b0b0f89e-b6f3-450f-a48d-74567dbc86aa.json",
+      "sha256": "a9c5babdafbde74b8064e6aedead31803a1021a2b87fa1f56e184cd0cc43953c",
+      "status": "passed",
+      "requirementId": "MV-S3-CONTEXT-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S3-CONTEXT-003-2026-10-19T20-28-11-411Z-ebfe07c3-db63-48a4-b8d8-e19f0aca40c9.json",
+      "sha256": "299a7cb197f53b72d139257a183a529c4c85dec0453d5fa8054c5851434c1e71",
+      "status": "passed",
+      "requirementId": "MV-S3-CONTEXT-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S3-CONTEXT-004-2026-10-19T20-21-57-718Z-ad91d843-58cf-49a7-ae50-cc799ec793e2.json",
+      "sha256": "f412b06693537be85f6b7967a10ea1aab813630db06a9cfbe63815b37d872b97",
+      "status": "passed",
+      "requirementId": "MV-S3-CONTEXT-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S3-CONTEXT-004-2026-10-19T20-28-05-844Z-4dfc606c-fe3e-4470-adf9-a4fa78bd969c.json",
+      "sha256": "f88abd7512bfaae96650c170b1b6915a9d05ef799ca06baacd948b6b8e5b11f4",
+      "status": "passed",
+      "requirementId": "MV-S3-CONTEXT-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S3-CONTEXT-005-2026-10-19T20-22-03-990Z-97c7020a-2be7-4b2a-ad6c-15b06aee6854.json",
+      "sha256": "bda7f5bbdd17d3d3b189fa431bbd74b3756cbbf40d901b178173d22748cf9ceb",
+      "status": "passed",
+      "requirementId": "MV-S3-CONTEXT-005"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S3-CONTEXT-005-2026-10-19T20-28-12-509Z-470ba5cb-2c74-41a7-853e-efdfe56ac1b6.json",
+      "sha256": "1e6019084c7d5d566a62e2f8e794702aa8a7d2b6c442467634b350f97c5030aa",
+      "status": "passed",
+      "requirementId": "MV-S3-CONTEXT-005"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-001-2026-10-19T20-16-43-745Z-92205706-b2d5-44e7-b296-a4c2051e4074.json",
+      "sha256": "ac926b5b4310677fdad69401db7abeacbd36159f82a158fe089a48b8b381a78a",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-001"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-001-2026-10-19T20-16-43-809Z-6ef040fa-5698-4933-a812-d8fc30782c9b.json",
+      "sha256": "504c3a09cda45e3a4b15984e9bc20f67742831446e0adf944d69ef3a6a05bef9",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-001"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-001-2026-10-19T20-16-43-872Z-849cfcd6-2dcd-41e4-84d5-ca2e1c3e328b.json",
+      "sha256": "0bed71f1824182b43f460d604ac28d6bec902b2cb510c946000d6fcd0611cd30",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-001"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-001-2026-10-19T20-16-43-923Z-cbc17caa-b0ef-4789-91d9-a0d50f58dcb8.json",
+      "sha256": "b65f808b611207b9cc29760bcad20077b045267f1f79258d105af1d4da58ecf1",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-001"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-001-2026-10-19T20-16-43-972Z-6b490d4a-4c14-42f2-a74f-a6fd3c95dff3.json",
+      "sha256": "a9cfe7f3745cb1562a5001700ff70b0d8d35171366e4e15305bdd767bd7be219",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-001"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-001-2026-10-19T20-16-44-024Z-97c85266-1381-4268-b66e-786a0c23cd66.json",
+      "sha256": "eeff2d34f8b03e2c04bcca2405a1aa195f72338740d475447028af2b880442ba",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-001"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-001-2026-10-19T20-16-44-074Z-13a2e635-0f4f-4732-81b6-050ee5f0f7f1.json",
+      "sha256": "b890e2e63ede3c9931cac9fbee979385bd11989983a2ea2d712cdb730dbcf6c7",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-001"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-001-2026-10-19T20-21-10-980Z-961de371-618f-4d5a-984d-ec337897938f.json",
+      "sha256": "8bb160bf700c54e059876903cba8463227402046f516e713eeb03f092954ffcd",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-001"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-001-2026-10-19T20-21-11-063Z-3af68071-7f8e-4cf8-900a-8aa1a125f129.json",
+      "sha256": "dd6046b599265dbeea4ccfe9b101d1df77ab0709031d2c088cfaaf3be2f05bf6",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-001"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-001-2026-10-19T20-28-17-526Z-0853b735-3c47-4da7-883e-f589d0c1a819.json",
+      "sha256": "1b171ffe849c837f0a229e7767489447b741b287bc12173f259a3eea895530e3",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-001"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-001-2026-10-19T20-28-17-597Z-ab6ac58f-2ecf-40da-a0fa-fb7ed868f273.json",
+      "sha256": "525bb3ab5f028de8cb8d06a6245b18aabfb1c7ffac0d12d5e4c0f3458e928a30",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-001"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-001-2026-10-19T20-28-17-643Z-2db9f41f-867a-4434-bf4c-4cc9004dbf83.json",
+      "sha256": "d74a3de08459555773f8eeeb221e958323bdc4e6ee4737abb806d8fed7a30f2b",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-001"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-001-2026-10-19T20-28-17-684Z-98b65953-d0a5-4633-b313-b66070c83962.json",
+      "sha256": "7edf9ad4182def658a1d4cfea7a4608910e1d37237ca979e8b63e62f913e3d21",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-001"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-001-2026-10-19T20-28-17-730Z-afc4b52d-95f0-4146-9c31-fdcdd94db751.json",
+      "sha256": "0ed40353213893946b87d558b16c34b3897872f9dd34daa7ae2eb9f19648b59a",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-001"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-001-2026-10-19T20-28-17-771Z-3ec56eba-90fb-4a66-8470-542914746e69.json",
+      "sha256": "c0ca9fccc7a352983a5d20fe70f4dd0cbdec7b28f9e57c1ed85c6efda897170b",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-001"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-001-2026-10-19T20-28-17-829Z-e45a8622-70f3-42c6-bd8e-949d397c8215.json",
+      "sha256": "e0b92470f3654f5738770e4c8e629aabd29ad85cd6292242844c6ae4435d48eb",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-001"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-001-2026-10-19T20-28-17-879Z-f9d1c095-340b-4f98-aa98-50fcfb3428a8.json",
+      "sha256": "bf80969f9a608adfd3809d43a047fa3558b68e10495c1a7ad46117ab16b4495f",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-001"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-001-2026-10-19T20-28-17-922Z-0054584e-4e0a-45e6-a15d-f60acadb4204.json",
+      "sha256": "c4710c6caf9e1172278120cb3f442f9b7e5a4135ef900cf1f896ad35cb7cac70",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-001"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-002-2026-10-19T20-16-33-089Z-b00f7e1b-2771-4ae4-9dd1-91a3f8ee6331.json",
+      "sha256": "9af45254ef062fe265be1091d6102f2eb405219ba00ac5bed51083a5e5d39824",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-002"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-002-2026-10-19T20-16-47-532Z-354a6175-9510-4386-85be-ad8653bb7904.json",
+      "sha256": "39d9c74af125e3c53fe46ee85f398ad19ed372e1c3e143028dc27cdda258eaf9",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-002"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-002-2026-10-19T20-27-44-037Z-c0518b91-e24b-457f-861a-e20587024593.json",
+      "sha256": "98be02ca979af0d563405584ab7cf13d7e1b4f62a557c5708b708673de022823",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-002"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-16-49-501Z-43fde567-9164-447e-a0f4-4ed545d254cd.json",
+      "sha256": "a1ba9a6c6eb3ef1e339e26249757cef64ab2b765b20d7e03a3fceb8069416fff",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-16-51-335Z-8288f48f-bc32-4fd7-9c4c-0ae70dc88970.json",
+      "sha256": "7414b9cdc375dc4a65692e4eed54b9a48dbb4a601eec2a685868e85add9b0f31",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-16-53-094Z-73c9d8bd-a4cb-4e4d-866d-678ef8bfb8f5.json",
+      "sha256": "e81e6610b4ce8a7eb7cc05e6e0a4668ebfef76e41608972bc6c3da519ec49ec9",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-16-54-469Z-8fdd4911-ef5c-45fd-9855-b3d6414ff864.json",
+      "sha256": "ac7154648342aaa0ebb98eac17166b20d664d7327f8e9c71dcb08d2a50af0c4c",
+      "status": "failed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-16-56-106Z-d0941c0c-ca4c-4b34-ad8f-ba686bc7baba.json",
+      "sha256": "f9ec6d8109f5da669715aa561fa1dd7aea2cae6db6c0e2d29dfb8e6d214f7800",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-16-57-956Z-3ca64e07-cb7d-4bd0-9131-8c375832d33e.json",
+      "sha256": "341ba97f5be9421e8a575081116bc9be2462db3df1ec1b3ccdd6e961cbda821c",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-16-59-562Z-c1ad936b-7411-4824-960b-5e4bd461da3c.json",
+      "sha256": "11d783646b184cd3994c3d7575109de92a32db718772b288d10cae4204061de3",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-00-926Z-963a0aba-a1a9-4992-96cd-e5ccfa834902.json",
+      "sha256": "5283ebd2bc11ab8d0f7724109ffd7ae5d4d7f8eb23ab1ec5eb59035feb32b709",
+      "status": "failed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-02-551Z-2f326797-894b-4e4b-8838-d22165d9cbe5.json",
+      "sha256": "3bc6c6bbc87c164629ce47fd9e56056989fba3594da63b40ea9bbedfd1f89b3f",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-04-141Z-2aabaa05-32db-4b84-a5c4-4d0f2a594b33.json",
+      "sha256": "df7ac48f9bc38fd0b50f5fe5264993382418ab1909f3e5c7539c872efa14ab0e",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-05-756Z-4374d79f-2ef3-4086-9206-9f7c45149526.json",
+      "sha256": "0c5e929aa57e74ce63751e223309f064e2d48cc300926ef57085383d4ed56a70",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-07-120Z-a99e6ead-33b2-491d-8519-93f5ae1fcea5.json",
+      "sha256": "d62ebe4ea298345a8e7cf2d286f89c1df8de77e93c95d4a86ce41b8f2b7c283c",
+      "status": "failed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-08-796Z-fe856be9-a897-4c36-8e09-27f9fab21fae.json",
+      "sha256": "c2753aded95c239d4afba4bad27a868c41bd5a4d5c2df8a6a2296d9a7afea6f4",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-10-384Z-5fb90e47-3f5f-4c05-a010-607bc7d620e8.json",
+      "sha256": "e145a5d54bd1bd76fbc763fe01c65870e728758a439f280c7f2b5e111377d478",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-11-973Z-cf18d8aa-74e6-4a3c-8ff0-f0e0df77564d.json",
+      "sha256": "a428a3b58c99f61fc2678be321f30f93efee61c05efa75934529b883f95bead0",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-13-306Z-334c1fb4-d630-4a17-9dd3-af18f060d172.json",
+      "sha256": "7980bd1fe7e542346ac9333e046c73eaed733e26a6be13bd3b667ca2c00e4afb",
+      "status": "failed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-14-912Z-986791ec-b503-442a-8879-8695b61f830d.json",
+      "sha256": "a9a339f877417490144952dacae799895e9462ae84671bc793d57949c9bc9988",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-16-555Z-632c400f-1b7e-4e4e-adb0-bd71cf8a057c.json",
+      "sha256": "fbb9d14b2c0a6794707af779cc474584182a5a74efc9c14d27e2e73778510633",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-18-233Z-b9c1a947-3535-4e00-a945-e087d7faa38b.json",
+      "sha256": "d5c38dcfb4923ccdc7a1a95cd0e98efc513daf5b087c038b199f281a189f751c",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-19-605Z-eb878b65-cf52-4046-b6dd-76e8aaff0fcf.json",
+      "sha256": "f6e208b547a5781f903e4a60d3d76391f14df1a45ded83c81bda065c83bc5523",
+      "status": "failed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-21-234Z-8e54927f-2f46-4022-a71a-9df4e43764e7.json",
+      "sha256": "3c368f40f643a33cab618b4cd468af66d46972701a4f84ca45bb094724584533",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-23-648Z-8048eebb-7a00-4e55-a305-da9ea2fa2319.json",
+      "sha256": "3867282f31a07b103aa8694e93457e626fbd0c818dfecf92891fade4b1b6339f",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-25-368Z-b581e01b-dfec-455e-915b-eac2d54d322e.json",
+      "sha256": "8c447665afeb8fb01d121da3886a8108e6e1226dc0ec8700244acb10e46acfe1",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-27-853Z-e3452f81-2056-4a13-b903-b366b04f450b.json",
+      "sha256": "3a58981ac34298a6958f711dbaa268cd0bd04e9722fe745dcd3cedfc7b2a89ec",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-29-513Z-5d40eb94-61fb-45de-a291-aa0157ba12a6.json",
+      "sha256": "47c7470fb768a7d5a5314200a75e18a2c36f5060a4994951370e0e4a1239dfb7",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-32-018Z-62d0fc53-e6ee-4b71-8be2-1852b0b2eeac.json",
+      "sha256": "4f4b3dcc62255be64fc1aebfe1f5a5b36900fd236a1155ecc61779cac84a7297",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-33-582Z-aa6c51d1-94eb-47ee-81c9-c05d4ca645dd.json",
+      "sha256": "2fc1732490b6b0bc2f5485e49b04c486d330716183c7f252dd78a1ab6f0c5c42",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-35-847Z-7bc3320b-f1e1-46ba-945c-0ab4b7c9169b.json",
+      "sha256": "d1795a08cc17983a589ee3211186349e7b45705231370ce8df80087742dbab9a",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-37-459Z-22c72b06-b077-44e1-b60a-7bc691d7359b.json",
+      "sha256": "ef839e79b9954dcc3e423c6b0b642388be6ac3986959f51dac82e5531f15f364",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-17-39-797Z-c07f7625-c85e-4b3b-adf7-65283e4d3456.json",
+      "sha256": "a42f5d3f0a8595e279df32b49fc1cd3f3b8e3dda6a3f54528b4fa0d3285a6f4e",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-21-18-414Z-46d505ac-3f13-4cf7-9ced-4846ca0e7d48.json",
+      "sha256": "6a5f9182dac820ea628a819b0b87efe191da55bdbd1a05ee817a1913ab59c25c",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-21-20-721Z-31a0b27f-c4b7-4bf1-bef3-ac40512f7cd9.json",
+      "sha256": "94df8512bf88274e504a92912fa7e92b5c791c81ff11d653f9b3729ec8d2af39",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-21-23-086Z-98663b50-aa56-489f-8e2c-3171b0a5ff90.json",
+      "sha256": "a96b46d2f41442ea79fae26485d31a25387004d2b5cc41ed863ffe5455617889",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-21-25-417Z-0245d052-a544-4ecf-9f0f-9cdb07b071fb.json",
+      "sha256": "753b19b0b285c40b0f7f7f107d8aab12da22dea3e31ea4a8d69fcf712168f573",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-21-27-829Z-8392ae41-11de-492b-afbf-62c79dce3067.json",
+      "sha256": "f87884faf8615a01dc9115b40be1931396cf996082325d057c1c184fdfe8b26d",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-21-30-109Z-2aa8b56e-5fb8-431e-967d-cccc6369c2bc.json",
+      "sha256": "bf95b2913d612f13d86971c589a720ae365a6a36ca45f8de6e7e82da8757d618",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-21-32-527Z-0805c4cb-3ebf-4a69-af51-f3f7d063e200.json",
+      "sha256": "e8b0a07b1a30730094c12ea2b5df340720cea80b44d6891d2a048545745f7275",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-21-35-109Z-8c6809ec-e395-4c4e-b1ba-c4b4dd01521a.json",
+      "sha256": "72d23f157729fd250ace8c544a53027c7f07021861235682c067e011c4a10be9",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-21-37-386Z-d3aade66-b7fd-4fc4-852e-6d3f7442d41d.json",
+      "sha256": "03775024edb70351ae3d6008e607281a8b84b968686f8ef34996341887d86aeb",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-21-39-724Z-bebce0f4-8ecb-4835-b351-d40cc36c1fca.json",
+      "sha256": "e2777f0c859caf1b6a6294058cc6fc6aec28bc84778670e2b660b742759fa209",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-27-50-673Z-f3f4f9dc-620e-4d6c-94bc-87b5777441ef.json",
+      "sha256": "4a69bed3eb23db0ab0ee5088c82def15c36fea25675cd7c293b0198b6f72248d",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-27-52-445Z-f6f5397a-4d15-45af-91ed-1d8dfd00100d.json",
+      "sha256": "b51d45a6e5e11cb3f3601fd40cf88f8b2fbd38d283ac98559ddf0e37c2e59f75",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-27-54-178Z-e26b7f03-5415-478f-a71a-eccc0b22a63a.json",
+      "sha256": "e5a0351200b56c75203fd94fcfb714d049a99d8c8f84f04cc6c52f9966b97222",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-27-56-769Z-b7f9aa10-ee5d-42d3-9510-0b54d9184462.json",
+      "sha256": "f1e09d4ad342e006c05bd7798f2f1c693eb29ad3bd8c541d9f5c764bdf65bb7c",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-27-58-689Z-786925c0-9158-4b50-b5ee-6fad270f480d.json",
+      "sha256": "62322195d739ddac81f4f9ac579b17a480349d632a6ed26a9e57fcb1631d4cd4",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-00-575Z-a417ded9-3791-47c2-bd4c-d66d9ce7f1f8.json",
+      "sha256": "cea39310e185a269e1451d34c5654c46447591645b149cfbfa8c293c6dfdae4b",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-02-407Z-561da156-6af3-44c5-86ad-99027b79de71.json",
+      "sha256": "4ac9043165954584e407517a1b508ebd42d7aef9870e43ba9ee5a4eed3648fe7",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-04-982Z-a019fc9d-b118-448f-a569-1c6309c9537a.json",
+      "sha256": "9ced389e348ae909325bd3149ff93de14b830cfd911dea120520ecf803f95c15",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-07-068Z-fc052301-e8df-4d81-9bed-a95e6368f590.json",
+      "sha256": "7523aa5ad3442ccede8104b73e23702428cf80fc426d5450af697c6345847878",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-08-737Z-bc6c898d-2313-4aca-b97d-a7d9f7027382.json",
+      "sha256": "2debc7d9c6f1a638fa4bd669403fcf27d3ef40bb563cfaf7f41a5085f85f5bff",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-10-444Z-df6c1909-3c2f-4381-926e-88b58c6eb4b2.json",
+      "sha256": "42739f6911db0e210f3a229253b850290d923d30baea8ed519c55c99e6aad330",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-13-080Z-ba1f2d60-aa86-4feb-9f71-52a9f496ff37.json",
+      "sha256": "4cca7d381ca0375ca92cbe2eed6b2295b13f50f0bfefef67dc8d1f4815141429",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-15-004Z-e990a1f8-3a1b-4e20-9e13-26d3053fc09f.json",
+      "sha256": "a6899ba273b90a3092091018919af5691d9bdf320c47bcf611f2c2f04b66694f",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-16-697Z-02204cb9-ec84-4b81-9bb3-9de93cebc5d5.json",
+      "sha256": "75b2bd9134cf9523422651cff82e4a0f3b11ee0127719e45c0543110f9aaa1b9",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-18-679Z-2187654d-44b0-4652-8123-9391b74f6060.json",
+      "sha256": "c58c64af5559b5268152ccaf045e1dfde974d92275d870979238b94e0745d8bd",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-21-157Z-80406f8b-976d-42d9-86b0-446c23485a1a.json",
+      "sha256": "47ab62fcf42b77f1a9eba0f680e8810584e2f12db934fe044b6799a68600ed6c",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-22-949Z-7e87a5c3-3475-4ea7-97e0-9d9efab621c6.json",
+      "sha256": "c8b42f608871967523513caabdc9c75feefe87c67cff5c19abd43564adcff7a7",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-24-659Z-974995c2-8882-45a8-9bb5-d076883f4279.json",
+      "sha256": "64ce78083deab32bcdcfff7b0ad0d4cf3f9a266be2fa44de1ad192b0ffff1bd7",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-26-334Z-3e3ed75a-f2a7-4ce1-a081-7db603ae5904.json",
+      "sha256": "7bcf22b846f315d08a9d277edfb8e85344ad319d6cfdb96261a8d9ef619785f3",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-28-689Z-bd703a79-159d-4ebc-8aaa-e9b36e325514.json",
+      "sha256": "c73ed2ab518794959b6c9d8672a600b246248f04a956411e675a81a60bf0d1a8",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-30-295Z-43d7dbc0-1851-438c-a2e7-ff7b200d3bde.json",
+      "sha256": "c70f01f32906d31be05edf4efb8f5a72d572c76b9c20e565eb3ac7f069c428ee",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-32-795Z-6fbe1099-e590-4ee5-8ed3-d4c7f2b3a910.json",
+      "sha256": "1246e6fbb7c7142304eff0d91ab7991e7f987714e83f55cea1a11b0beaff10e7",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-34-392Z-b42e08c1-f73b-43d9-a3ad-82720ffdc399.json",
+      "sha256": "1e9bbf5d38e340557461a3fec37e2f6cf918623b6416200e8c753af0b8f823ed",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-37-086Z-afbe389e-687c-4330-99cb-2b42fded1d38.json",
+      "sha256": "e5fc85723de48ac7ae89e2a417dc5f4d157f30f35766cffc81621c3e077e0ed6",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-38-857Z-4b0f28fb-5af8-46f3-b82d-a8adc07f1a79.json",
+      "sha256": "88d2af3de286c7a1c46ba9fe697e82174ee0b627fdc1d529a138e0d6dd0cd776",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-41-535Z-653e2037-4110-40dd-8328-00fd334a794f.json",
+      "sha256": "877496411798fed2790689975504fe025a76fd042736cb6e20fffb448a98f904",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-48-806Z-112aedcb-376b-45c9-abe6-4c9748b03688.json",
+      "sha256": "9a796526793837e20123817ba6a2b81fce8a2e3ec5a59eca65d76aa068f74e8a",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-53-892Z-cc281430-b7ae-4925-a74c-c6baa93fd868.json",
+      "sha256": "6c4f5c5c23eeaaa15a9eefeb1dd35c4d67a179e63040e3a461d4c35cc118707f",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-55-596Z-731db4b4-87eb-42b6-a75a-6efaf00e3277.json",
+      "sha256": "9094413a749084999a97bac03160bdf95f1cf4f4cbc7c67e9d89de6c38a67da2",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-003-2026-10-19T20-28-58-005Z-6ab81bd4-6ce0-430b-88e4-a0e312a2603f.json",
+      "sha256": "62a57f2aecc092187235c979c1fa410f1abe8f72d654dcee85b178c4001d8c24",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-003"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-17-39-898Z-08b9232d-045e-4f7a-953f-2a2511224f2c.json",
+      "sha256": "50245abefcad4eaf13cfa045463dc4bc14089bb6cc5624eaae14957011e76d72",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-17-42-183Z-3ef132c7-6eae-4e80-9858-b0ad8b8f91e0.json",
+      "sha256": "4c0e144b5a5bf1631c55470ad6ce7638d18c4223efab836008da8f15ac70482d",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-17-42-272Z-bb92bb78-ba01-4695-b8b7-86bc338bf082.json",
+      "sha256": "2d305462b4e01b92425a18abef85162ad05fdc2cce3b47c8e8f4eef259300161",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-17-44-557Z-a7d4c74c-76e8-4a21-851f-3f4b296c4061.json",
+      "sha256": "f10b7aab0f29d07777bf7ac3bb3ac8658ce6c5d6f455ff43b45c456ea32b13d8",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-17-44-670Z-4bde708a-ab54-4e57-a635-552f8d36562d.json",
+      "sha256": "40a1ab9f4c546308d14a351a36baef503a2434d36634f5621f392b89cd77f7a6",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-17-46-985Z-56295ac1-e211-484c-8107-702a26e63e53.json",
+      "sha256": "9bda027e15859ae4f5242e50f18e73262f00993b9dcd8dc9ed1ac520221a3e2e",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-17-47-073Z-17b68b19-8bbb-4858-a070-ab95d7624b24.json",
+      "sha256": "8ac32264138151bbba57dc4bad172641a3932434e3e81cda337ab93b712997fc",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-17-49-388Z-22a2e0ab-29f8-414c-bdb4-936bf475c476.json",
+      "sha256": "634a364e7d32d7dffdd1febba2acff0f2343dabf01968a2bb1c20e87dc074e56",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-17-49-478Z-7431e644-dd9a-43d9-91c6-573bd30d4bab.json",
+      "sha256": "6786d7910b828cb6773bd9046e69d28214f8c05d616dbdb3b8941e3433b10b57",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-17-51-767Z-f694bc40-991b-4528-b3d0-74b4923168ec.json",
+      "sha256": "48ce9eb8528e02dc07e80bd3810e0642c1672beadf5c1bc69ccfb4b0fa779794",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-17-51-859Z-eb0e22e1-82fb-4dd3-9fb2-68e00b19a300.json",
+      "sha256": "e22496ef24e862be16f5c62af132505fa4e29507697fffe4916aa6ddf773bcc4",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-17-54-350Z-0a40836f-4ae4-4802-b8d5-8ef5b6062766.json",
+      "sha256": "f44fd00ea5ac1875f096e4d62e5d007ba0d4b227a9fbe17af23aa140ddbad34c",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-17-54-509Z-620b2d6e-ef24-4d12-9657-0b1af2b48963.json",
+      "sha256": "7a663866f21089fcd648caee6c7a12f40a46e2cdb77942ae846b382caf284d99",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-17-57-192Z-dc291ac1-9d0c-4109-a838-e3c54aee543d.json",
+      "sha256": "ec68fec043829fd4969b7de36d0e349895cf420f0a4ab3ed8afcd3d6a94326f6",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-17-57-331Z-8029d10c-d3e8-4510-8e3b-099cd138f1c6.json",
+      "sha256": "f1d6fa2de7bc1dc7e5e30d6980a14503bc725120bf78736ef6e606641bfb7e77",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-17-59-986Z-e5e210b6-6055-4687-ab9b-f8ce8935ed1e.json",
+      "sha256": "f44bb86d42753daca47a06195a5c0159eb2ef8ebdcf5b6121387ba946415e283",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-18-00-102Z-57bc4139-c3a9-4d39-9b21-58b5f8f5902b.json",
+      "sha256": "d9c37737b2a63aab97d0c322cc26433a723261328ea6a3c1cbab22301c30dab1",
+      "status": "failed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-18-02-561Z-eba4ab6b-7d78-4ebe-8c05-d1ec5ad8608d.json",
+      "sha256": "1fac941dc62632566b0926c0ae62a156fe49d14293e18f8b733c997c815c81e7",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-21-39-831Z-05a406cc-a477-4c2c-9166-900cca0e55a2.json",
+      "sha256": "e81773a547a3a18c169e19190ff84e65c6757558fac3b562a740856393f7b181",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-28-58-263Z-353bdd05-49da-4a29-abf2-95bb198dbbbc.json",
+      "sha256": "a581cc4c1f884b673f1c773b2c1c1f1563876fa0d63d39afddfd28b9f841e04d",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-29-00-689Z-0101881d-34ea-410f-8361-507be5628f97.json",
+      "sha256": "2bc33ffd118b1a393a2864003718c6dd1913b63f83e41e9a3351892baf60076c",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-29-00-792Z-cb80da8c-daa8-4aea-b309-aad6a0896b02.json",
+      "sha256": "d39529937c426b8989ba4d43297b10a64aef570f6d61aafe38316a6810eeba93",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-29-03-181Z-ff350d1b-331b-46b5-a1d8-d304894366ab.json",
+      "sha256": "dc08ad2e1dade42905ee7798046190df3139fb6584557b9d569b9caa41dc82a1",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-29-03-317Z-7fe0d311-9c11-436c-8e76-2a31b017d79d.json",
+      "sha256": "0310f9b7145c901827568c587206dd38aa5e6e1394f9e5630ae62383ab40a0af",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-29-06-917Z-5fa92493-9c92-4de3-980a-3626179f63f9.json",
+      "sha256": "5a672baa7f3e8773ec2e35458b700331137db7e9954ea93f1ec88364b91c6da1",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-29-07-019Z-8b4d30b4-d61e-411d-9871-6ea6bb85d4bb.json",
+      "sha256": "a211489b6e24a41853f4e69f932d29b6370cd1d2b5a9480e60eb6a58c7a6eac9",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-29-09-369Z-bf0b0930-ff4d-478a-bb3c-75833a2187d7.json",
+      "sha256": "5312051a35fd07f37731eff442aca579b37c59e406e35a4da23ddaca999d80f1",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-29-09-601Z-2d252373-4425-4239-aca5-e8021523bbc3.json",
+      "sha256": "3a9f3af83d25db46a2b9d0763e85404e98b58e90b375650659e3c3a6fb1e3f9c",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-29-11-890Z-bce73099-5b86-4381-b741-649e88357ed0.json",
+      "sha256": "9c7ea2751f3a77a7c85535beaeeda5fac1cf68989d98881d0c25c50309f58c22",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-29-11-986Z-5e3ee967-4445-41fc-a3d2-ca66cf9e318e.json",
+      "sha256": "88ca73f4c32669e376c283cccecd4a0dfdcbeb0d6e73c949adec7f801a165193",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-29-14-333Z-3d6965ac-b503-4df7-a2a2-702c687cea4a.json",
+      "sha256": "1031ef517d7474ecc8197b3a731b8153a00983d7c502594902e770b1b86c7ba7",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-29-14-456Z-bdd84901-7e15-4495-87b8-62548846973b.json",
+      "sha256": "920bf866cfdf65ae7504da19feb09023585cfa1261954357f0bb5c8bbdad52bc",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-29-17-756Z-01f1e7d9-cde3-4f26-be83-8f291936dca6.json",
+      "sha256": "6f88626ead37372b2bb1878248a47b59318537e3c5f3999d7223e54605b9d53f",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-29-18-173Z-d92daba9-8381-4477-8727-7dd5e7c23799.json",
+      "sha256": "da837946c7daa63dca5086266813dc3e3ccc9528d309532086e3c67c7681f9aa",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-29-20-559Z-aeed8455-8c3c-46d0-83a1-fdd2778f900b.json",
+      "sha256": "033a4dce5eca9f50a2fa205e57607a51fdbf02a3b46a7bd0b88d102228eb3edb",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-29-20-684Z-7e21119f-4e72-4c52-836e-3065796ac853.json",
+      "sha256": "6d9be01431883b02896727e92ba78400a0401a85bdbc62f60bc3a2940b0e760f",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-004-2026-10-19T20-29-23-953Z-bc9fbd9f-82e2-4185-80ca-eec46eeb7417.json",
+      "sha256": "4bdfde0d09cb2fcc71f662e96428aad911a842e29ba954b85f2155db17893349",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-004"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-005-2026-10-19T20-18-05-445Z-909473a9-b3cd-4270-9ff2-35af6279d0e3.json",
+      "sha256": "9d5c1d1cf76cf38532a2f673aacd885b822e8d22addb0135d069bcfd8aa20a6c",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-005"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-005-2026-10-19T20-18-08-316Z-c2d9c296-5d20-4e25-bec4-4ffcac61e6ff.json",
+      "sha256": "6881d96fb1b602b7cace21f61b697bc7bbd7046914f9d63670247d217003f80a",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-005"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-005-2026-10-19T20-18-11-095Z-71d53dcd-9d21-4129-bf04-0e22d5fca8fb.json",
+      "sha256": "2a48318c4304d8b8120a235d9afdcca9b01e90a68fdc3b6fb347da0de0a66083",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-005"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-005-2026-10-19T20-29-27-678Z-647071f4-cbc3-49ed-8d2b-21c0ebb3a875.json",
+      "sha256": "98d5eac6c3f8d33a81ff8e99ac6afee7bb3e81387859e3e052aa4683fa1ddbd4",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-005"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-005-2026-10-19T20-29-30-861Z-04b304c9-e998-4e65-84fb-bc7b6bb2fc92.json",
+      "sha256": "46ca91c9bc05ec203c0974bd6fd951d5763e759cfd6fa921b5201eb7068db3c2",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-005"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-005-2026-10-19T20-29-33-671Z-a2366425-6536-4576-972b-6e5284b240a6.json",
+      "sha256": "1f40ffc74eec6917a692e703f7bfc3e1aae22a83cb9f18232150d8a3b9221c1b",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-005"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-006-2026-10-19T20-18-12-104Z-49defb8c-6df8-44c2-b909-a78a63acf8c3.json",
+      "sha256": "fb99bef4321462e39a01ec161908a31db8786a1fa6cbf6de9257b5baa87c00cd",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-006"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-006-2026-10-19T20-18-13-010Z-41b3ae00-0e35-45c4-811b-a20e2ef2ce50.json",
+      "sha256": "c295372dce35b69bfdba430c53c946d88db46828bc459bd39bb137e5e313ad43",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-006"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-006-2026-10-19T20-18-13-987Z-fbf26d2a-17e3-4cc4-9471-e6a81058af66.json",
+      "sha256": "dedee959c232677ae4e3faaf5cb4767931571d6cdc68a17d2d4f2299e7a015db",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-006"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-006-2026-10-19T20-18-15-037Z-5b2b3b0e-d5a7-4308-a869-53ac33950fe6.json",
+      "sha256": "8e072edb182fcb6f4fb3eea6780f1f07c178264d379d6f22efe73f23f4e6e5bf",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-006"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-006-2026-10-19T20-18-16-001Z-9fcbd2f1-b30c-48b1-96aa-eeb2217f7af5.json",
+      "sha256": "f0fad7f15e3f1982cfe8049633590b4d2ab1993bec65c8ba96170e23aa9335d0",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-006"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-006-2026-10-19T20-18-16-986Z-85c98043-26bb-4779-82f2-c20ae3fa3b4c.json",
+      "sha256": "742c1b5739d9a5a15b3fa8c12c91c43ea361614b3facf4d24ce1478c2a3d0895",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-006"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-006-2026-10-19T20-29-34-649Z-d3a4a6f7-20f5-4ac7-b88c-c797511e75c7.json",
+      "sha256": "f0493c22c4a85eb4f84b385fb3927e45714486296e4fbc0ec90c121f4ef870ed",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-006"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-006-2026-10-19T20-29-35-607Z-34b5ac4f-6988-4474-a34b-e7a7106c42da.json",
+      "sha256": "0c0779cc8627bc6f9f0fc54fa471849d2241d6f134665bb5ce13a7854b69278b",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-006"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-006-2026-10-19T20-29-36-613Z-ab46475e-e048-479a-b40e-3bb212625563.json",
+      "sha256": "d1880f0d32d5bf29dd7c9ad0498089235cee9a964022e0d1ff8f6161f3f75b73",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-006"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-006-2026-10-19T20-29-37-676Z-9bb3c986-0123-4d03-9e22-ed1d75120a66.json",
+      "sha256": "6a606e0823f4757ae22c24471d077c8c1679f950c82d7901aa8da96f861e086d",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-006"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-006-2026-10-19T20-29-38-656Z-6f674ce1-4bc2-4c95-a0e8-4ea8fbbba03c.json",
+      "sha256": "d72fb8ddd83cce951d47d75b752219aa7e642b5d105c1589337326edf25c6abe",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-006"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-006-2026-10-19T20-29-39-602Z-b5e15c85-f947-414d-bf36-e5dca74b505b.json",
+      "sha256": "596a1c348cb367e09fcd98fdc59e84d9ff7ceb42c53de362167d12361080135b",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-006"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-007-2026-10-19T20-21-15-712Z-666b5c03-47d5-4145-a526-e32b56dcd618.json",
+      "sha256": "27730f220827c11df3d0b8bfb5ed51cb535126ccb4392fca02b94b6f3cd05056",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-007"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket38-temp/results/MV-S6-PICTURE-007-2026-10-19T20-27-48-729Z-3933242a-c1f0-4f54-a498-9f1ed10fe67f.json",
+      "sha256": "52705b03dc960d967c458ba2d9a715c8fa173991dcb07c5656243abe329ed251",
+      "status": "passed",
+      "requirementId": "MV-S6-PICTURE-007"
+    }
+  ]
+}

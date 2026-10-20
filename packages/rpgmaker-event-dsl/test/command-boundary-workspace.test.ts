@@ -123,9 +123,9 @@ it("decompiles with the Gate closed, reports every saved script location, and ch
     const failureState = await fileState(workspaceRoot);
     const check = await runCli(sandbox, ["compile", "--check"], { allowFailure: true });
     expect(check.exitCode).not.toBe(0);
-    expect(check.stderr).toContain("MV-COMMAND-PARAMETERS");
+    expect(check.stderr).toContain("MV-E230-PARAMETER");
     await expect(compileWorkspace({ workspaceRoot, check: false })).rejects.toThrow(
-      /MV-COMMAND-PARAMETERS/,
+      /MV-E230-PARAMETER/,
     );
     expect(await fileState(workspaceRoot)).toStrictEqual(failureState);
     await writeFile(commonFile, source);
@@ -233,7 +233,7 @@ it("rejects malformed native records, conflicting mirrors and saved route refere
         variant === "envelope"
           ? "MV-COMMAND-ENVELOPE"
           : variant === "parameters"
-            ? "MV-COMMAND-PARAMETERS"
+            ? "MV-E230-PARAMETER"
             : variant === "mirror"
               ? "MV-MOVEMENT-MIRROR"
               : "MV-MOVEMENT-REFERENCE",

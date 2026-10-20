@@ -1,6 +1,7 @@
 import type {
   CommandPosition,
-  PicturePosition,
+  PictureOrigin,
+  PictureDisplayInput,
   ShowBalloonIconDslCommand,
   ToneInput,
   ColorInput,
@@ -38,19 +39,19 @@ export function balloonIconToCode(balloon: ShowBalloonIconDslCommand["balloon"])
 }
 
 export function compileTone(tone: ToneInput): [number, number, number, number] {
-  return "red" in tone
-    ? [tone.red, tone.green, tone.blue, tone.gray]
-    : [tone[0], tone[1], tone[2], tone[3]];
+  return [tone.red, tone.green, tone.blue, tone.gray];
 }
 
 export function compileColor(color: ColorInput): [number, number, number, number] {
-  return "red" in color
-    ? [color.red, color.green, color.blue, color.alpha]
-    : [color[0], color[1], color[2], color[3]];
+  return [color.red, color.green, color.blue, color.alpha];
 }
 
-export function pictureOriginToCode(origin: PicturePosition["origin"]): number {
+export function pictureOriginToCode(origin: PictureOrigin): number {
   return origin === "center" ? 1 : 0;
+}
+
+export function pictureBlendToCode(blend: PictureDisplayInput["blendMode"]): number {
+  return ["normal", "additive", "multiply", "screen"].indexOf(blend);
 }
 
 export function compilePicturePosition(

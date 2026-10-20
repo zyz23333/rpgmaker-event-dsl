@@ -1,0 +1,33 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-38/packages/rpgmaker-event-dsl
+
+ ❯ test/pictures.test.ts (6 tests | 1 failed | 5 skipped) 9ms
+   × refuses known native and raw Picture domains and categorical negative zero at exact slots 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/pictures.test.ts > refuses known native and raw Picture domains and categorical negative zero at exact slots
+AssertionError: expected [Function] to throw error including 'MV-E231-PARAMETERS' but got 'decompile error MV-COMMAND-UNSUPPORTE…'
+
+Expected: "MV-E231-PARAMETERS"
+Received: "decompile error MV-COMMAND-UNSUPPORTED: Known native command cannot be represented by its current formal helper; raw fallback is unavailable. at list[0].parameters; expected supported formal native command; actual [0,"",0,0,0,0,100,100,255,0]"
+
+ ❯ test/pictures.test.ts:25:51
+
+     23|     const diagnostic=code===232?"MV-E232-SAVED-SHAPE":`MV-E${code}-PAR…
+     24|     const list=[{code,indent:0,parameters},{code:0,indent:0,parameters…
+     25|     expect(()=>renderDecompiledCommandList(list)).toThrow(diagnostic);…
+       |                                                   ^
+     26|     const event=commonEvent({id:1,name:"Native refusals",trigger:"none…
+     27|     expect(validateDslOwnedDeclarations([event],{scriptEnabled:false})…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 5 skipped (6)
+   Start at  04:07:35
+   Duration  1.46s (transform 417ms, setup 0ms, import 1.30s, tests 9ms, environment 0ms)
+
+undefined
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-38\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/pictures.test.ts -t known native and raw

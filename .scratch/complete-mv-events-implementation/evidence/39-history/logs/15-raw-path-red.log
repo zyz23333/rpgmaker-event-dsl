@@ -1,0 +1,36 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-39/packages/rpgmaker-event-dsl
+
+ ❯ test/audio-commands.test.ts (8 tests | 1 failed | 7 skipped) 8ms
+   × reports the exact known raw Audio field at its actual authored command position 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/audio-commands.test.ts > reports the exact known raw Audio field at its actual authored command position
+AssertionError: expected [Function] to throw error matching /commands\[1\]\.parameters\[0\]\.pan/ but got 'MV-E250-PARAMETER: Invalid saved audi…'
+
+- Expected:
+/commands\[1\]\.parameters\[0\]\.pan/
+
++ Received:
+"MV-E250-PARAMETER: Invalid saved audio parameter. (commands[1]); expected integer -100..100; actual 101"
+
+ ❯ test/audio-commands.test.ts:154:46
+    152| it("reports the exact known raw Audio field at its actual authored com…
+    153|   const raw = dsl.rawDslCommand({ code:250, parameters:[{name:"",volum…
+    154|   expect(() => compile([dsl.saveBgm(),raw])).toThrow(/commands\[1\]\.p…
+       |                                              ^
+    155| });
+    156|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 7 skipped (8)
+   Start at  04:20:11
+   Duration  1.26s (transform 359ms, setup 0ms, import 1.11s, tests 8ms, environment 0ms)
+
+undefined
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-39\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/audio-commands.test.ts -t reports the exact known raw Audio

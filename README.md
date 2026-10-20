@@ -146,6 +146,31 @@ Asset Reference name is invalid. Tilesets must exist in the Snapshot and have no
 None value. Asset filenames are preserved without scanning local image files;
 a valid reference does not guarantee that MV can load its images.
 
+System access commands each require an explicit Boolean `enabled`:
+
+```ts
+changeSaveAccess({ enabled: false });
+changeMenuAccess({ enabled: true });
+changeEncounter({ enabled: false });
+changeFormationAccess({ enabled: true });
+changeWindowColor({ tone: { red: 12, green: -24, blue: 36, gray: 113 } });
+openMenuScreen();
+openSaveScreen();
+gameOver();
+returnToTitleScreen();
+```
+
+All four access commands encode false as native 0 and true as native 1.
+Changing encounters also resets MV's encounter count. Window color requires all
+four named Tone fields: RGB integers −255..255 and gray integer 0..255. Preserve
+gray even though the window editor hides it, and preserve numeric negative zero
+in Tone components. Color comes from the declaration; compilation does not read
+`System.windowTone` as a default. The four scene commands take no inputs.
+Open Menu and Open Save run on the map even when ordinary menu/save access is
+disabled, and skip in battle. Game Over and Return to Title transition from both
+map and battle; Game Over does not require dead actors. These commands do not
+add an automatic save operation.
+
 ## Writing Your First DSL File
 
 A DSL file is a TypeScript file that exports RPG Maker MV declarations. For example,
@@ -727,6 +752,51 @@ rpgmaker-event-dsl push --allow-destructive
 
 Destructive Push does not bypass Generated Freshness, Generated Project Data integrity,
 or Project Drift checks.
+
+## Picture commands
+
+Picture commands use explicit complete display settings. `showPicture` requires a
+`pictures` image Asset Reference or `image: null`; `movePicture` has no image field.
+Both require top-level `origin: "upperLeft" | "center"`, direct integer coordinates
+in −9999..9999 or two variable references, integer `scaleX`/`scaleY` in −2000..2000,
+integer `opacity` in 0..255 and named `blendMode` (`normal`, `additive`, `multiply`,
+`screen`). Negative scales flip the picture. None retains the Picture settings;
+`erasePicture` erases the slot. Picture IDs 1..100 are runtime selectors and need no
+prior Show. `rotatePicture` speed is integer −90..90, with zero stopping rotation.
+Move and Tint require integer duration 1..999 and explicit Boolean `wait`.
+`tintPicture` requires a named `{ red, green, blue, gray }` Tone object, with RGB
+in −255..255 and gray in 0..255. See the complete
+[Picture authoring reference](skills/rpgmaker-event-authoring/references/pictures.md).
+
+## Audio Commands
+
+Playback and system audio settings require a complete `audio` value:
+
+```ts
+playBgm({
+  audio: { asset: audioAsset({ folder: "bgm", name: "Theme1" }), volume: 90, pitch: 100, pan: 0 },
+});
+playBgs({ audio: { asset: null, volume: 1, pitch: 51, pan: -0 } });
+fadeoutBgm({ duration: 2 });
+saveBgm();
+replayBgm();
+stopSe();
+```
+
+All four fields are required. `volume` is an integer from 0 to 100, `pitch` from
+50 to 150, and `pan` from -100 to 100. Values between the editor's arrow steps
+are valid; numeric negative zero is preserved in volume and pan. An Audio Asset
+Reference has a nonempty exact filename stem and does not scan the project.
+Use `bgm` for `playBgm`, `changeBattleBgm` and `changeVehicleBgm`; `bgs` for
+`playBgs`; `me` for `playMe`, `changeVictoryMe` and `changeDefeatMe`; and `se` for
+`playSe`. `changeVehicleBgm` also requires `vehicle: "boat"`, `"ship"` or
+`"airship"`. System settings use the explicit authored values.
+
+Use `asset: null` for None and retain all three numeric values. In MV, BGM/BGS
+None stops that stream, ME None first stops the current ME and may restore BGM,
+and SE None leaves already playing SE active. `stopSe()` stops SE explicitly.
+`fadeoutBgm` and `fadeoutBgs` require an integer `duration` from 1 to 999 seconds;
+they do not add a wait command. Save BGM, Replay BGM and Stop SE take no arguments.
 
 ## Example Project
 

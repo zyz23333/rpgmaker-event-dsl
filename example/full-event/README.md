@@ -12,6 +12,13 @@ Timer Start requires seconds in 0..5999. Stop without seconds preserves an absen
 saved slot; the example also shows an explicit saved Stop value. Keep that value
 when decompiling even though Stop does not consume it during game execution.
 
+System access commands use an explicit `enabled` Boolean. Their native flag is
+false→0/true→1, including `changeEncounter`, which also resets the encounter
+count. The window color example supplies all four named Tone components,
+including the independently saved gray field. Scene helpers take no inputs;
+Open Menu and Open Save skip in battle and do not require ordinary access to be
+enabled on a map. Game Over and Title can transition from either context.
+
 It also defines a Troop Event for the existing troop ID 1. Its ordered pages run a
 message at turn zero once per battle. `troopEvent` replaces only the complete page
 list; the troop's name, members, positions and other carrier fields stay external.

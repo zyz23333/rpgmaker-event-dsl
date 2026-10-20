@@ -1,0 +1,13 @@
+const fs=require('node:fs'),cp=require('node:child_process'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const e='.scratch/complete-mv-events-implementation/evidence/',sha=b=>crypto.createHash('sha256').update(b).digest('hex'),git=(args,o={})=>cp.execFileSync('git',args,{maxBuffer:256*1024*1024,...o});
+const audit=JSON.parse(fs.readFileSync(e+'38-history-audit.json')),archive=JSON.parse(fs.readFileSync(e+'38-tools/archive-manifest.json'));
+const files=[...audit.results,...audit.source.capturedInputFiles,...archive.files],output=git(['cat-file','--batch'],{input:files.map(f=>':'+f.path+'\n').join('')});let offset=0;
+for(const f of files){const end=output.indexOf(10,offset);assert.ok(end>=0);const [blob,type,length]=output.subarray(offset,end).toString().split(' ');assert.equal(type,'blob','not staged '+f.path);const size=Number(length);offset=end+1;assert.equal(sha(output.subarray(offset,offset+size)),f.sha256,'staged bytes differ '+f.path);offset+=size+1;}
+assert.equal(offset,output.length);
+const index=new Map(git(['ls-files','--stage','-z']).toString().split('\0').filter(Boolean).map(l=>{const [meta,p]=l.split('\t');const [mode,blob,stage]=meta.split(' ');assert.equal(stage,'0');return[p,blob];}));
+for(const f of audit.history.files)assert.equal(index.get(f.path),f.blob,'historical staged byte change '+f.path);
+const actual=git(['rev-parse','codex/complete-mv-events-implementation']).toString().trim();assert.equal(actual,audit.base,'actual integration advanced');
+const req=JSON.parse(git(['show',':'+e+'requirements.json'])),incoming=JSON.parse(git(['show',audit.base+':'+e+'requirements.json']));assert.deepStrictEqual(req.requirements.slice(0,incoming.requirements.length),incoming.requirements);assert.equal(req.requirements.length,audit.totalRequirements);
+assert.ok(git(['show',':packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts']).toString().includes(`compileContractVersion = "${audit.source.contract}"`));
+const result={verifiedAt:new Date().toISOString(),base:audit.base,actualIntegration:actual,results:audit.results.length,capturedInputs:audit.source.capturedInputFiles.length,archivedTools:archive.files.length,historicalBlobs:audit.history.preservedBlobFiles,stagedResultBytesExact:true,stagedCapturedSourceBytesExact:true,stagedArchiveBytesExact:true,inheritedBlobsExact:true,requirements:audit.totalRequirements,contract:audit.source.contract,stage:'focused DEV only; no READY/full/build/built/native/version increment',method:'git cat-file --batch and complete git ls-files --stage identities'};
+fs.writeFileSync(e+'38-staged-verification.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));

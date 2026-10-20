@@ -11,7 +11,7 @@ import {
   changeBattleBgm,
   changeClass,
   changeDefeatMe,
-  changeEncounterDisable,
+  changeEncounter,
   changeEnemyHp,
   changeEnemyMp,
   changeEnemyState,
@@ -87,7 +87,7 @@ import {
   playMovie,
   playSe,
   rotatePicture,
-  resumeBgm,
+  replayBgm,
   returnToTitleScreen,
   saveBgm,
   script,
@@ -209,23 +209,51 @@ describe("collectDslOwnedDeclarations", () => {
       "changePartyMember",
     );
     expect(
-      changeBattleBgm({ audio: { asset: audioAsset({ folder: "bgm", name: "Battle1" }) } }).kind,
+      changeBattleBgm({
+        audio: {
+          asset: audioAsset({ folder: "bgm", name: "Battle1" }),
+          volume: 90,
+          pitch: 100,
+          pan: 0,
+        },
+      }).kind,
     ).toBe("changeBattleBgm");
     expect(
-      changeVictoryMe({ audio: { asset: audioAsset({ folder: "me", name: "Victory1" }) } }).kind,
+      changeVictoryMe({
+        audio: {
+          asset: audioAsset({ folder: "me", name: "Victory1" }),
+          volume: 90,
+          pitch: 100,
+          pan: 0,
+        },
+      }).kind,
     ).toBe("changeVictoryMe");
     expect(changeSaveAccess({ enabled: true }).kind).toBe("changeSaveAccess");
     expect(changeMenuAccess({ enabled: false }).kind).toBe("changeMenuAccess");
-    expect(changeEncounterDisable({ disabled: true }).kind).toBe("changeEncounterDisable");
+    expect(changeEncounter({ enabled: false }).kind).toBe("changeEncounter");
     expect(changeFormationAccess({ enabled: true }).kind).toBe("changeFormationAccess");
-    expect(changeWindowColor({ tone: [0, 0, 0, 0] }).kind).toBe("changeWindowColor");
+    expect(changeWindowColor({ tone: { red: 0, green: 0, blue: 0, gray: 0 } }).kind).toBe(
+      "changeWindowColor",
+    );
     expect(
-      changeDefeatMe({ audio: { asset: audioAsset({ folder: "me", name: "Defeat1" }) } }).kind,
+      changeDefeatMe({
+        audio: {
+          asset: audioAsset({ folder: "me", name: "Defeat1" }),
+          volume: 90,
+          pitch: 100,
+          pan: 0,
+        },
+      }).kind,
     ).toBe("changeDefeatMe");
     expect(
       changeVehicleBgm({
         vehicle: "ship",
-        audio: { asset: audioAsset({ folder: "bgm", name: "Ship1" }) },
+        audio: {
+          asset: audioAsset({ folder: "bgm", name: "Ship1" }),
+          volume: 90,
+          pitch: 100,
+          pan: 0,
+        },
       }).kind,
     ).toBe("changeVehicleBgm");
     expect(
@@ -275,48 +303,99 @@ describe("collectDslOwnedDeclarations", () => {
     expect(gatherFollowers().kind).toBe("gatherFollowers");
     expect(fadeoutScreen().kind).toBe("fadeoutScreen");
     expect(fadeinScreen().kind).toBe("fadeinScreen");
-    expect(tintScreen({ tone: [0, 0, 0, 0], duration: 30 }).kind).toBe("tintScreen");
-    expect(flashScreen({ color: [255, 255, 255, 128], duration: 20 }).kind).toBe("flashScreen");
-    expect(shakeScreen({ power: 5, speed: 5, duration: 30 }).kind).toBe("shakeScreen");
+    expect(
+      tintScreen({ tone: { red: 0, green: 0, blue: 0, gray: 0 }, duration: 30, wait: false }).kind,
+    ).toBe("tintScreen");
+    expect(
+      flashScreen({
+        color: { red: 255, green: 255, blue: 255, alpha: 128 },
+        duration: 20,
+        wait: false,
+      }).kind,
+    ).toBe("flashScreen");
+    expect(shakeScreen({ power: 5, speed: 5, duration: 30, wait: false }).kind).toBe("shakeScreen");
     expect(
       showPicture({
         pictureId: 1,
         image: imageAsset({ folder: "pictures", name: "Poster" }),
-        position: { kind: "direct", x: 10, y: 20, origin: "center" },
+        origin: "center",
+        position: { kind: "direct", x: 10, y: 20 },
+        scaleX: 100,
+        scaleY: 100,
+        opacity: 255,
+        blendMode: "normal",
       }).kind,
     ).toBe("showPicture");
     expect(
       movePicture({
         pictureId: 1,
+        origin: "upperLeft",
         position: { kind: "variables", x: variableRef({ id: 1 }), y: variableRef({ id: 2 }) },
+        scaleX: 100,
+        scaleY: 100,
+        opacity: 255,
+        blendMode: "normal",
         duration: 60,
         wait: true,
       }).kind,
     ).toBe("movePicture");
     expect(rotatePicture({ pictureId: 1, speed: 5 }).kind).toBe("rotatePicture");
-    expect(tintPicture({ pictureId: 1, tone: [68, -34, -34, 0], duration: 30 }).kind).toBe(
-      "tintPicture",
-    );
+    expect(
+      tintPicture({
+        pictureId: 1,
+        tone: { red: 68, green: -34, blue: -34, gray: 0 },
+        duration: 30,
+        wait: false,
+      }).kind,
+    ).toBe("tintPicture");
     expect(erasePicture({ pictureId: 1 }).kind).toBe("erasePicture");
-    expect(setWeatherEffect({ weather: "rain", power: 5, duration: 60 }).kind).toBe(
+    expect(setWeatherEffect({ weather: "rain", power: 5, duration: 60, wait: false }).kind).toBe(
       "setWeatherEffect",
     );
-    expect(playBgm({ audio: { asset: audioAsset({ folder: "bgm", name: "Theme" }) } }).kind).toBe(
-      "playBgm",
-    );
+    expect(
+      playBgm({
+        audio: {
+          asset: audioAsset({ folder: "bgm", name: "Theme" }),
+          volume: 90,
+          pitch: 100,
+          pan: 0,
+        },
+      }).kind,
+    ).toBe("playBgm");
     expect(fadeoutBgm({ duration: 60 }).kind).toBe("fadeoutBgm");
     expect(saveBgm().kind).toBe("saveBgm");
-    expect(resumeBgm().kind).toBe("resumeBgm");
-    expect(playBgs({ audio: { asset: audioAsset({ folder: "bgs", name: "Rain" }) } }).kind).toBe(
-      "playBgs",
-    );
+    expect(replayBgm().kind).toBe("replayBgm");
+    expect(
+      playBgs({
+        audio: {
+          asset: audioAsset({ folder: "bgs", name: "Rain" }),
+          volume: 90,
+          pitch: 100,
+          pan: 0,
+        },
+      }).kind,
+    ).toBe("playBgs");
     expect(fadeoutBgs({ duration: 30 }).kind).toBe("fadeoutBgs");
-    expect(playMe({ audio: { asset: audioAsset({ folder: "me", name: "Fanfare" }) } }).kind).toBe(
-      "playMe",
-    );
-    expect(playSe({ audio: { asset: audioAsset({ folder: "se", name: "Cursor" }) } }).kind).toBe(
-      "playSe",
-    );
+    expect(
+      playMe({
+        audio: {
+          asset: audioAsset({ folder: "me", name: "Fanfare" }),
+          volume: 90,
+          pitch: 100,
+          pan: 0,
+        },
+      }).kind,
+    ).toBe("playMe");
+    expect(
+      playSe({
+        audio: {
+          asset: audioAsset({ folder: "se", name: "Cursor" }),
+          volume: 90,
+          pitch: 100,
+          pan: 0,
+        },
+      }).kind,
+    ).toBe("playSe");
     expect(stopSe().kind).toBe("stopSe");
     expect(playMovie({ movie: movieAsset({ name: "Intro" }) }).kind).toBe("playMovie");
     expect(changeMapNameDisplay({ enabled: true }).kind).toBe("changeMapNameDisplay");
@@ -343,13 +422,13 @@ describe("collectDslOwnedDeclarations", () => {
         location: { kind: "direct", x: 1, y: 2 },
       }).kind,
     ).toBe("getLocationInfo");
-    expect(wait(60).kind).toBe("wait");
+    expect(wait({ frames: 60 }).kind).toBe("wait");
     expect(eraseEvent().kind).toBe("eraseEvent");
     expect(battleProcessing({ troop: troopRef({ id: 1 }) }).kind).toBe("battleProcessing");
     expect(
       battleProcessing({
         troop: { kind: "troop", variable: variableRef({ id: 1 }) },
-        win: [wait(1)],
+        win: [wait({ frames: 1 })],
       }).kind,
     ).toBe("battleProcessing");
     expect(

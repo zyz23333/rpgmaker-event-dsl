@@ -1,0 +1,7 @@
+const fs=require('node:fs'),path=require('node:path');const root=process.argv[2],dir=path.join(root,'.scratch/complete-mv-events-implementation/evidence'),file=path.join(dir,'requirements.json'),text=fs.readFileSync(file,'utf8'),index=JSON.parse(text);
+if(index.requirements.length!==299)throw Error('Unexpected incoming count');
+const base=index.requirements.find(x=>x.id==='MV-S6-AUDIO-001');
+const names={ '002':'refuses evaluated malformed helper direct and known raw audio sources without changing complete business state', '003':'refuses late malformed saved audio records before Decompile publication and preserves every existing business file' };
+const rows=Object.entries(names).map(([key,title])=>({...base,id:`MV-S6-AUDIO-${key}`,title,sourceKind:'synthetic-rejection',classifications:['negative','boundary','combination'],expected:title,test:{path:base.test.path,name:`MV-S6-AUDIO-${key}: ${title}`}}));
+const end=text.lastIndexOf('  ]');fs.writeFileSync(file,text.slice(0,end).replace(/\s*$/u,'')+',\n'+rows.map(x=>JSON.stringify(x,null,2).split('\n').map(line=>'    '+line).join('\n')).join(',\n')+'\n'+text.slice(end));
+fs.appendFileSync(path.join(dir,'README.md'),'\n| Requirement | Obligation | Evidence kind | Required layer |\n| --- | --- | --- | --- |\n'+rows.map(x=>`| ${x.id} | ${x.title} | ${x.sourceKind} | ${x.execution.layer} |`).join('\n')+'\n');console.log(JSON.stringify({added:2,total:301}));

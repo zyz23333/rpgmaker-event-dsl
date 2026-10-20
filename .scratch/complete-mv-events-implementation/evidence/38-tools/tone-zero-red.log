@@ -1,0 +1,38 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-38/packages/rpgmaker-event-dsl
+
+ ❯ test/pictures.test.ts (3 tests | 1 failed | 2 skipped) 16ms
+   × preserves named Picture Tone, signed numeric zero, explicit false wait and unshown slot operations 15ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/pictures.test.ts > preserves named Picture Tone, signed numeric zero, explicit false wait and unshown slot operations
+AssertionError: expected 'rotatePicture({ pictureId: 100, speed…' to contain 'speed: -0'
+
+- Expected
++ Received
+
+- speed: -0
++ rotatePicture({ pictureId: 100, speed: 0 }),
++ tintPicture({ pictureId: 100, tone: [-255,255,-0,-0], duration: 1 }),
++ erasePicture({ pictureId: 100 }),
+
+ ❯ test/pictures.test.ts:21:18
+     19|   expect(compileCommonEvent(commonEvent({id:1,name:"Unshown operations…
+     20|   const source=renderDecompiledCommandList(expected).source;
+     21|   expect(source).toContain("speed: -0");expect(source).toContain("tone…
+       |                  ^
+     22| });
+     23|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 skipped (3)
+   Start at  04:04:56
+   Duration  1.28s (transform 359ms, setup 0ms, import 1.13s, tests 16ms, environment 0ms)
+
+undefined
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-38\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/pictures.test.ts -t named Picture Tone

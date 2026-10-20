@@ -4,26 +4,31 @@ import type {
   OpenSaveScreenDslCommand,
   ReturnToTitleScreenDslCommand,
 } from "../../domain/types.js";
+import { assertSceneArguments } from "./validation.js";
 
-export function openMenuScreen(): OpenMenuScreenDslCommand {
+export function openMenuScreen(...inputs: []): OpenMenuScreenDslCommand {
+  assertSceneArguments("openMenuScreen", inputs);
   return {
     kind: "openMenuScreen",
   };
 }
 
-export function openSaveScreen(): OpenSaveScreenDslCommand {
+export function openSaveScreen(...inputs: []): OpenSaveScreenDslCommand {
+  assertSceneArguments("openSaveScreen", inputs);
   return {
     kind: "openSaveScreen",
   };
 }
 
-export function gameOver(): GameOverDslCommand {
+export function gameOver(...inputs: []): GameOverDslCommand {
+  assertSceneArguments("gameOver", inputs);
   return {
     kind: "gameOver",
   };
 }
 
-export function returnToTitleScreen(): ReturnToTitleScreenDslCommand {
+export function returnToTitleScreen(...inputs: []): ReturnToTitleScreenDslCommand {
+  assertSceneArguments("returnToTitleScreen", inputs);
   return {
     kind: "returnToTitleScreen",
   };

@@ -5,8 +5,12 @@ import {
   assertNativeSwitchCommand,
   assertNativeTimerParameters,
 } from "../commands/variables/validation.js";
+import { assertNativeScreenParameters } from "../commands/screen/validation.js";
 import { assertNativeMapAppearanceParameters } from "../commands/map/native-validation.js";
 import { assertNativeControlVariables } from "../commands/variables/native-control-variables.js";
+import { assertNativeSystemSettingsParameters } from "../commands/movement/access-native-validation.js";
+import { assertNativePictureParameters } from "../commands/screen/picture-native.js";
+import { assertNativeAudioParameters } from "../commands/audio/validation.js";
 
 // Shared saved-slot envelopes. Family validators retain ownership of semantic ranges,
 // references and mode-specific saved values; this table is not full family acceptance.
@@ -145,6 +149,11 @@ export function assertNativeCommandParameters(
   path: string,
 ): void {
   if (!isKnownCommandCode(code)) return;
+  if (code >= 231 && code <= 235) {
+    assertNativePictureParameters(code, parameters, path);
+    return;
+  }
+  assertNativeAudioParameters(code, parameters, path);
   if (code === 111) {
     assertNativeConditionalParameters(parameters, path);
     return;
@@ -155,6 +164,7 @@ export function assertNativeCommandParameters(
   }
   assertNativeMapAppearanceParameters(code, parameters, path);
   if (code === 122) assertNativeControlVariables(parameters, path);
+  assertNativeSystemSettingsParameters(code, parameters, path);
   try {
     assertNativeSwitchCommand(code, parameters);
   } catch (error) {
@@ -175,6 +185,7 @@ export function assertNativeCommandParameters(
       ({ 0: "nnnnn", 1: "nnnnn", 2: "nnnnnn", 3: "nnnnnnn", 4: "nnnns" } as Record<number, string>)[
         parameters[3] as number
       ] ?? "?";
+  assertNativeScreenParameters(code, parameters, path);
   const matches = (value: unknown, kind: string) =>
     kind === "x" ||
     (kind === "n"
@@ -307,7 +318,6 @@ export function assertNativeCommandParameters(
     [138, 0],
     [223, 0],
     [224, 0],
-    [234, 1],
   ] as const)
     if (code === event)
       slot(

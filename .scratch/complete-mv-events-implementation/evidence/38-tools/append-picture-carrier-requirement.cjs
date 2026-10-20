@@ -1,0 +1,16 @@
+const fs=require('node:fs');const path=require('node:path');const crypto=require('node:crypto');
+const root='M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-38';
+const file='.scratch/complete-mv-events-implementation/evidence/requirements.json';
+const original=fs.readFileSync(path.join(root,file),'utf8');const parsed=JSON.parse(original);
+if(original.includes('MV-S6-PICTURE-007'))throw Error('already appended');
+const row=structuredClone(parsed.requirements.find(row=>row.id==='MV-S6-PICTURE-002'));
+row.id='MV-S6-PICTURE-007';row.title='Picture Map and Battle page carriers preserve complete inactive state';
+row.fixture.path='packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/picture-carriers.json';
+row.fixture.sha256=crypto.createHash('sha256').update(fs.readFileSync(path.join(root,row.fixture.path))).digest('hex');
+row.test.name='preserves Picture commands in Map and Battle pages with inactive saved values and real Push';
+row.input='Independent full Map Event Page and ordered Battle Event Pages with all five Picture commands, disabled condition values, inactive route flags and retained external data.';
+row.expected='Actual public Workspace native Decompile, Discovery/evaluation, Check/Compile, complete all15 Project Root/Snapshot and all4 generated comparisons, clean Diff and harmless real Push retain independent carrier values.';
+const end=original.match(/\r?\n  \]\r?\n\}\r?\n?$/);if(!end)throw Error('ending');
+fs.writeFileSync(path.join(root,file),original.slice(0,end.index)+',\n'+JSON.stringify(row,null,2).split('\n').map(line=>'    '+line).join('\n')+end[0]);
+fs.appendFileSync(path.join(root,'.scratch/complete-mv-events-implementation/evidence/README.md'),'\n| Requirement | Obligation | Evidence kind | Required layer |\n| --- | --- | --- | --- |\n| '+row.id+' | '+row.title+' | synthetic-support | Public Workspace and complete carrier/state assertions |\n');
+console.log(JSON.stringify({fixture:row.fixture,incoming:parsed.requirements.length,total:parsed.requirements.length+1}));

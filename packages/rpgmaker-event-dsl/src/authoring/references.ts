@@ -8,9 +8,11 @@ import type {
   ReferenceValue,
   ScriptInput,
 } from "../domain/types.js";
-import { audioAssetFolders, createReference, imageAssetFolders } from "../domain/references.js";
+import { createReference, imageAssetFolders } from "../domain/references.js";
 import { assertIncluded, assertNonEmptyString } from "./shared.js";
+import { assertMovieAssetInput } from "../commands/screen/validation.js";
 import { assertDslObject, assertRawDslInput } from "../validation/dsl-command-inputs.js";
+import { assertAudioAssetInput } from "../commands/audio/validation.js";
 
 export function rawDslCommand(input: {
   code: number;
@@ -31,9 +33,11 @@ export function rawDslCommand(input: {
   return node;
 }
 
-export function audioAsset(input: { folder: AudioAssetFolder; name: string }): AudioAssetReference {
-  assertIncluded(audioAssetFolders, input.folder, "audio asset folder");
-  assertNonEmptyString(input.name, "Audio asset name");
+export function audioAsset<Folder extends AudioAssetFolder>(input: {
+  folder: Folder;
+  name: string;
+}): AudioAssetReference<Folder> {
+  assertAudioAssetInput(input);
 
   return {
     kind: "asset",
@@ -44,6 +48,7 @@ export function audioAsset(input: { folder: AudioAssetFolder; name: string }): A
 }
 
 export function imageAsset(input: { folder: ImageAssetFolder; name: string }): ImageAssetReference {
+  assertDslObject(input, ["folder", "name"], "imageAsset");
   assertIncluded(imageAssetFolders, input.folder, "image asset folder");
   assertNonEmptyString(input.name, "Image asset name");
 
@@ -56,7 +61,7 @@ export function imageAsset(input: { folder: ImageAssetFolder; name: string }): I
 }
 
 export function movieAsset(input: { name: string }): MovieAssetReference {
-  assertNonEmptyString(input.name, "Movie asset name");
+  assertMovieAssetInput(input);
 
   return {
     kind: "asset",

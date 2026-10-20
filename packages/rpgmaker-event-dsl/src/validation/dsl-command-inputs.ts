@@ -61,7 +61,7 @@ export function assertRawDslInput(
       const { nativePath, ...location } = error.location;
       throw new CommandStructureError(error.code, error.detail, {
         ...location,
-        dslPath: path + (nativePath?.replace(/^list\[0\]/u, "") ?? ""),
+        dslPath: `${path}${nativePath?.replace(/^list\[\d+\]/u, "") ?? ""}`,
       });
     }
     throw error;

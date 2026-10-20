@@ -1,0 +1,36 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-37/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/screen-effects.test.ts (5 tests | 1 failed) 13ms
+   × retains the inactive Weather None power and requires all four fields 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/screen-effects.test.ts > retains the inactive Weather None power and requires all four fields
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/screen-effects.test.ts:25:89
+     23|
+     24| it("retains the inactive Weather None power and requires all four fiel…
+     25|   expect(() => setWeatherEffect({ weather: "none", power: 9, duration:…
+       |                                                                                         ^
+     26|   for (const weather of ["none", "rain", "storm", "snow"] as const) {
+     27|     const records = compile([setWeatherEffect({ weather, power: 9, dur…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  03:22:37
+   Duration  1.24s (transform 366ms, setup 0ms, import 1.09s, tests 13ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/screen-effects.test.ts

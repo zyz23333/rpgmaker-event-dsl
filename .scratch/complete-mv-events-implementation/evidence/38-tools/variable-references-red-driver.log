@@ -1,0 +1,37 @@
+{"label":"variable-references-red","files":166,"fingerprint":"fd9f1c4fcd409a52eb9acc808d1f6cb496b8d69216339a8c4359e97b48817cfd","out":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\source-snapshots\\variable-references-red"}
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-38/packages/rpgmaker-event-dsl
+
+ ❯ test/pictures.test.ts (7 tests | 1 failed | 6 skipped) 11ms
+   × resolves Picture variable positions at exact formal and known raw paths without requiring a shown picture 10ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/pictures.test.ts > resolves Picture variable positions at exact formal and known raw paths without requiring a shown picture
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/pictures.test.ts:22:75
+
+     20|     const event=commonEvent({id:1,name:"Variable positions",trigger:"n…
+     21|     expect(validateDslOwnedDeclarations([event],{scriptEnabled:false,s…
+     22|     expect(()=>compileCommonEvent(event,{nextId:1,resolver:refResolver…
+       |                                                                           ^
+     23|   }
+     24| });
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 skipped (7)
+   Start at  04:09:03
+   Duration  1.33s (transform 403ms, setup 0ms, import 1.17s, tests 11ms, environment 0ms)
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+undefined
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-38\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/pictures.test.ts -t resolves Picture variable
