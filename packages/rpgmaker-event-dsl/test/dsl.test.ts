@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  actorRef,
   animationRef,
   abortBattle,
   battleProcessing,
@@ -447,14 +448,20 @@ describe("collectDslOwnedDeclarations", () => {
       changeHp({
         target: { kind: "runtimeSelector", scope: "actor", target: "entireParty" },
         operation: "lose",
-        value: 1,
+        value: { kind: "constant", value: 1 },
+        allowDeath: false,
       }).kind,
     ).toBe("changeHp");
     expect(
       changeMp({
-        target: { kind: "runtimeSelector", scope: "actor", target: "actor", actorId: 1 },
+        target: {
+          kind: "runtimeSelector",
+          scope: "actor",
+          target: "actor",
+          actor: { kind: "actor", id: 1 },
+        },
         operation: "gain",
-        value: variableRef({ id: 1 }),
+        value: { kind: "variable", variable: variableRef({ id: 1 }) },
       }).kind,
     ).toBe("changeMp");
     expect(
@@ -471,41 +478,68 @@ describe("collectDslOwnedDeclarations", () => {
     ).toBe("changeState");
     expect(
       changeExp({
-        target: { kind: "runtimeSelector", scope: "actor", target: "actor", actorId: 1 },
+        target: {
+          kind: "runtimeSelector",
+          scope: "actor",
+          target: "actor",
+          actor: actorRef({ id: 1 }),
+        },
         operation: "gain",
-        value: 10,
+        value: { kind: "constant", value: 10 },
+        showLevelUp: false,
       }).kind,
     ).toBe("changeExp");
     expect(
       changeLevel({
-        target: { kind: "runtimeSelector", scope: "actor", target: "actor", actorId: 1 },
+        target: {
+          kind: "runtimeSelector",
+          scope: "actor",
+          target: "actor",
+          actor: actorRef({ id: 1 }),
+        },
         operation: "gain",
-        value: 1,
+        value: { kind: "constant", value: 1 },
+        showLevelUp: false,
       }).kind,
     ).toBe("changeLevel");
     expect(
       changeParameter({
-        target: { kind: "runtimeSelector", scope: "actor", target: "actor", actorId: 1 },
+        target: {
+          kind: "runtimeSelector",
+          scope: "actor",
+          target: "actor",
+          actor: actorRef({ id: 1 }),
+        },
         parameter: "atk",
         operation: "gain",
-        value: 2,
+        value: { kind: "constant", value: 2 },
       }).kind,
     ).toBe("changeParameter");
     expect(
       changeSkill({
-        target: { kind: "runtimeSelector", scope: "actor", target: "actor", actorId: 1 },
+        target: {
+          kind: "runtimeSelector",
+          scope: "actor",
+          target: "actor",
+          actor: actorRef({ id: 1 }),
+        },
         operation: "learn",
         skill: { kind: "skill", id: 1 },
       }).kind,
     ).toBe("changeSkill");
     expect(
-      changeEquipment({ actor: { kind: "actor", id: 1 }, equipmentTypeId: 1, itemId: 1 }).kind,
+      changeEquipment({
+        actor: { kind: "actor", id: 1 },
+        slotIndex: 0,
+        equipment: { kind: "runtimeSelector", scope: "equipment", target: "idForSlot", id: 1 },
+      }).kind,
     ).toBe("changeEquipment");
     expect(changeName({ actor: { kind: "actor", id: 1 }, name: "Alex" }).kind).toBe("changeName");
     expect(
       changeClass({
         actor: { kind: "actor", id: 1 },
         class: { kind: "class", id: 1 },
+        keepExp: false,
       }).kind,
     ).toBe("changeClass");
     expect(
@@ -531,9 +565,14 @@ describe("collectDslOwnedDeclarations", () => {
     );
     expect(
       changeTp({
-        target: { kind: "runtimeSelector", scope: "actor", target: "actor", actorId: 1 },
+        target: {
+          kind: "runtimeSelector",
+          scope: "actor",
+          target: "actor",
+          actor: { kind: "actor", id: 1 },
+        },
         operation: "gain",
-        value: 5,
+        value: { kind: "constant", value: 5 },
       }).kind,
     ).toBe("changeTp");
     expect(
