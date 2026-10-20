@@ -5,6 +5,7 @@ import { createRequire } from "node:module";
 import { arch, release } from "node:os";
 import { basename, dirname, isAbsolute, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { inspect } from "node:util";
 
 import { z } from "zod";
 
@@ -381,7 +382,7 @@ export async function recordEvidence(input: {
         ? null
         : input.error instanceof Error
           ? (input.error.stack ?? input.error.message)
-          : String(input.error),
+          : inspect(input.error, { customInspect: false, getters: false }),
   });
   const output = resolve(
     process.env.MV_EVIDENCE_OUTPUT ?? join(repositoryRoot, "test-results/mv-evidence"),

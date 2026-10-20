@@ -43,7 +43,7 @@ it("reports the complete DSL path for an invalid Loop inside another parent's bo
     commands: [
       conditional({
         condition: { kind: "button", button: "ok" },
-        then: { commands: [loop({ body: { commands: [], endMarker: "absent" } })] },
+        then: { commands: [{ kind: "loop", body: { commands: [], endMarker: "absent" } }] },
       }),
     ],
   });
@@ -323,7 +323,7 @@ it("rejects an empty Loop whose declared Body End Marker is absent before Compil
     id: 1,
     name: "Invalid body",
     trigger: "none",
-    commands: [loop({ body: { commands: [], endMarker: "absent" } })],
+    commands: [{ kind: "loop", body: { commands: [], endMarker: "absent" } }],
   });
   const result = validateDslOwnedDeclarations([event], { scriptEnabled: false });
   expect(result.issues).toContainEqual(

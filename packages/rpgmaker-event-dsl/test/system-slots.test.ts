@@ -328,7 +328,7 @@ evidenceIt(
     expect(issues.map(({ message }) => message)).toEqual([
       "MV-E121-REFERENCE validation common event 1.commands[0].switch: Unknown switch reference id: 4",
       "MV-E121-REFERENCE validation common event 1.commands[1].switch: Unknown switch reference: Snapshot switch",
-      "Unknown variable reference id: 3",
+      'compile error common event 1: MV-E103-REFERENCE: Unknown variable reference id: 3 (commands[2].variable); expected existing variable slot within final System capacity; actual {"id":3,"kind":"variable"}',
       'compile error common event 1: MV-E126-INPUT: Invalid inventory or party command input. (commands[3].item); expected existing uniquely resolved item reference; actual "Unknown item reference id: 2"',
     ]);
     expect(

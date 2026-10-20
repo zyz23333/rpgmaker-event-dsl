@@ -412,8 +412,8 @@ Validation failure publishes nothing. A filesystem error or process interruption
 during publication can leave local generated data unusable; run Compile again to
 restore it. Diff and Push verify freshness, actual file bytes and the complete owned
 output file set independently of the manifest's list. The current set contains
-`CommonEvents.json`, `System.json` and every map registered in the Snapshot's
-`MapInfos.json`. Compile preserves the Snapshot and Project Root.
+`CommonEvents.json`, `System.json`, `Troops.json` and every map registered in the
+Snapshot's `MapInfos.json`. Compile preserves the Snapshot and Project Root.
 
 Review what would change:
 
