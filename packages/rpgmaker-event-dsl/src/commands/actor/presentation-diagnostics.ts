@@ -1,12 +1,16 @@
-import type { RawEventCommand } from "../../compiler/types.js";
-import type { NativeInputOptions } from "../../validation/native-command-inputs.js";
+import type { CommandOrigins, RawEventCommand } from "../../compiler/types.js";
 import type { ValidationIssue } from "../../validation/types.js";
 import { describeValue } from "../../project-data/json-values.js";
 
 export function inspectNativeActorPresentation(
   command: RawEventCommand,
   path: string,
-  options: NativeInputOptions,
+  options: {
+    identity: string;
+    stage: "compile" | "decompile";
+    prefix?: string;
+    origins?: CommandOrigins;
+  },
 ): ValidationIssue[] {
   const issues: ValidationIssue[] = [];
   const origin = options.origins?.get(command);
