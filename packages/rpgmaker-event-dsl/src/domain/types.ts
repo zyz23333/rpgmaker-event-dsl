@@ -17,8 +17,9 @@ export type {
   VariableDefinition,
 } from "./declarations.js";
 export type {
-  ActorCommandTarget,
   ActorParameter,
+  ActorResourceOperand,
+  ActorResourceTarget,
   AssetReference,
   AudioAssetFolder,
   AudioAssetReference,
@@ -37,6 +38,7 @@ export type {
   DirectPosition,
   Direction,
   EnemyCommandTarget,
+  EquipmentRuntimeSelector,
   EventLocationDestination,
   ExchangeEventLocationDestination,
   ImageAssetFolder,

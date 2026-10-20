@@ -1,0 +1,147 @@
+{
+  "formatVersion": 1,
+  "sourceKind": "synthetic-support",
+  "provenance": "Independent self-authored MV 1.6.1 actor resource saved records; not compiler output, editor capture or game observation.",
+  "commands": [
+    {
+      "code": 311,
+      "indent": 0,
+      "parameters": [0, 0, 0, 0, 1, true]
+    },
+    {
+      "code": 311,
+      "indent": 0,
+      "parameters": [0, 2, 1, 0, 9999, false]
+    },
+    {
+      "code": 311,
+      "indent": 0,
+      "parameters": [1, 3, 0, 1, 4, true]
+    },
+    {
+      "code": 311,
+      "indent": 0,
+      "parameters": [0, 1, 1, 1, 3, true]
+    },
+    {
+      "code": 311,
+      "indent": 0,
+      "parameters": [1, 4, 1, 0, 1, false]
+    },
+    {
+      "code": 311,
+      "indent": 0,
+      "parameters": [0, 0, 0, 0, 9999, false]
+    },
+    {
+      "code": 312,
+      "indent": 0,
+      "parameters": [0, 0, 1, 0, 1]
+    },
+    {
+      "code": 312,
+      "indent": 0,
+      "parameters": [0, 2, 0, 0, 9999]
+    },
+    {
+      "code": 312,
+      "indent": 0,
+      "parameters": [1, 3, 1, 1, 4]
+    },
+    {
+      "code": 312,
+      "indent": 0,
+      "parameters": [0, 1, 0, 1, 3]
+    },
+    {
+      "code": 312,
+      "indent": 0,
+      "parameters": [1, 4, 0, 0, 1]
+    },
+    {
+      "code": 312,
+      "indent": 0,
+      "parameters": [0, 0, 1, 0, 9999]
+    },
+    {
+      "code": 326,
+      "indent": 0,
+      "parameters": [0, 0, 0, 0, 1]
+    },
+    {
+      "code": 326,
+      "indent": 0,
+      "parameters": [0, 2, 1, 0, 100]
+    },
+    {
+      "code": 326,
+      "indent": 0,
+      "parameters": [1, 3, 0, 1, 4]
+    },
+    {
+      "code": 326,
+      "indent": 0,
+      "parameters": [0, 1, 1, 1, 3]
+    },
+    {
+      "code": 326,
+      "indent": 0,
+      "parameters": [1, 4, 1, 0, 1]
+    },
+    {
+      "code": 326,
+      "indent": 0,
+      "parameters": [0, 0, 0, 0, 100]
+    },
+    {
+      "code": 313,
+      "indent": 0,
+      "parameters": [0, 0, 0, 1]
+    },
+    {
+      "code": 313,
+      "indent": 0,
+      "parameters": [0, 0, 1, 2]
+    },
+    {
+      "code": 313,
+      "indent": 0,
+      "parameters": [0, 2, 0, 2]
+    },
+    {
+      "code": 313,
+      "indent": 0,
+      "parameters": [0, 2, 1, 1]
+    },
+    {
+      "code": 313,
+      "indent": 0,
+      "parameters": [1, 3, 0, 1]
+    },
+    {
+      "code": 313,
+      "indent": 0,
+      "parameters": [1, 4, 1, 2]
+    },
+    {
+      "code": 314,
+      "indent": 0,
+      "parameters": [0, 0]
+    },
+    {
+      "code": 314,
+      "indent": 0,
+      "parameters": [0, 2]
+    },
+    {
+      "code": 314,
+      "indent": 0,
+      "parameters": [1, 3]
+    },
+    {
+      "code": 0,
+      "indent": 0,
+      "parameters": []
+    }
+  ]
+}

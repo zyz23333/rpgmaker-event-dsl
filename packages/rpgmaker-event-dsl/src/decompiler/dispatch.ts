@@ -177,7 +177,6 @@ export {
   renderChangeClass,
   renderChangeActorImages,
   renderChangeVehicleImage,
-  renderActorCommandTarget,
   actorParameterFromCode,
 } from "../commands/actor/decompile.js";
 import {

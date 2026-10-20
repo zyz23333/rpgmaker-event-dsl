@@ -656,6 +656,26 @@ Conditional 集成，契约 `/15`、374 条要求；开发票按用户执行修�
 48 的最终全量/构建、50/51 的适用逆向/产品比较及 54 的实际 R6 继续待执行。
 历史 DEV 记录及原始失败保留，不把旧执行冒称为最终候选全量或游戏通过。
 
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-ACTOR-RESOURCES-001 | Independent formal, named-reference, known raw and edit/Push Actor resource Workspace behaviors; all 4 independently bounded scenarios required | synthetic-support | Actual public Workspace API, Discovery/evaluation and filesystem |
+| MV-S6-ACTOR-RESOURCES-002 | Original Actor helper inputs fail public Workspace operations without changing business state; all 13 independently bounded scenarios required | synthetic-rejection | Actual public Workspace API, Discovery/evaluation and filesystem |
+| MV-S6-ACTOR-RESOURCES-003 | Direct and known raw Actor inputs share complete Workspace refusal boundaries; all 15 independently bounded scenarios required | synthetic-rejection | Actual public Workspace API, Discovery/evaluation and filesystem |
+| MV-S6-ACTOR-RESOURCES-004 | Late malformed native Actor records fail Decompile before source publication; all 21 independently bounded scenarios required | synthetic-rejection | Actual public Workspace API, Discovery/evaluation and filesystem |
+
+
+## Actor capability batch 41/42/43 development completion
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-ACTOR-GROWTH-001 | Complete growth and dynamic equipment three-container saved data through actual evaluated Workspace and Push | synthetic-support | Actual Workspace API, Discovery/evaluation and filesystem |
+| MV-S6-ACTOR-GROWTH-002 | Untyped saved growth flag and invalid final equipment slot refuse Workspace operations without business writes | synthetic-rejection | Actual Workspace API, Discovery/evaluation and filesystem |
+| MV-S6-ACTOR-EQUIPMENT-001 | Late native equipment slot outside final System capacity fails before source publication | synthetic-rejection | Actual Workspace API, Discovery/evaluation and filesystem |
+| MV-S6-ACTOR-GROWTH-003 | Growth saved flags, literal domains, exact authored forms and fixed references | synthetic-rejection | Existing authoring/compiler/decompiler/validation seams |
+| MV-S6-ACTOR-EQUIPMENT-002 | Final System equipment capacity and candidate warnings preserve runtime identity without fixed-table substitution | synthetic-support | Existing authoring/compiler/decompiler/validation seams |
+
+[Current batch report](41-43-actor-capability-batch.md) links the executed source version, independent inputs, actual commands and original logs. Development is complete; final E7 product comparison and R4/R7 actual game execution remain required in51/53/54. Existing41 raw results and all prior failures stay at their original paths. No per-ticket full/build/native or large archive was added under the 2026-10-20 user amendment.
+
 ## Ticket31 Control Variables
 
 The five stable obligations below retain the original DEV records. Current development closure and affected reruns are recorded in the [Ticket31 finalization report](31-control-variables-finalization.md); `MV-S6-VARIABLES-005` remains unexecuted and is carried to49/51–54. Its complete64-sample Random, self-alias, once-before-loop Script and numeric runtime outcomes remain required. Daily index validity does not mark that native obligation passed.

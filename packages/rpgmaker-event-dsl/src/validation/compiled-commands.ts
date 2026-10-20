@@ -105,6 +105,7 @@ export function validateCompiledCommandLists(
         );
         issues.push(
           ...inspectNativeCommandReferences(commands, graph.resolver, {
+            equipmentTypes: graph.snapshotEquipmentTypes,
             stage: "compile",
             identity: list.identity,
             prefix,

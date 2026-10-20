@@ -1,7 +1,9 @@
 export type {
   AbortBattleDslCommand,
-  ActorCommandTarget,
   ActorParameter,
+  ActorResourceOperand,
+  ActorResourceTarget,
+  EquipmentRuntimeSelector,
   AssetReference,
   AudioAssetFolder,
   AudioAssetReference,

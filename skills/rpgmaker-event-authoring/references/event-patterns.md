@@ -145,6 +145,43 @@ Treat a Break Loop warning outside a Loop as actionable: MV can skip all
 remaining commands while seeking Repeat Above. Loop child commands retain
 ordinary reference validation and the Workspace Script Command Gate.
 
+For `changeHp`, `changeMp`, `changeTp`, `changeState` and `recoverAll`, use an Actor
+Runtime Selector with `kind: "runtimeSelector"`, `scope: "actor"`, and one complete
+target variant: `target: "entireParty"`; `target: "actor", actor: actorRef(...)`;
+or `target: "actorFromVariable", variable: variableRef(...)`. Resolve fixed Actor
+and State references against the Snapshot, including unnamed records by ID. A
+target variable's runtime value 0 selects the entire party; party membership
+follows MV's current execution context.
+
+Give HP/MP/TP `operation: "gain" | "lose"` and either
+`value: { kind: "constant", value: n }` or
+`value: { kind: "variable", variable: variableRef(...) }`. Constant HP/MP quantities
+are integers 1..9999 and TP quantities 1..100. Give HP an explicit Boolean
+`allowDeath` even with gain, and retain that saved choice. Quantity variables
+remain dynamic and may evaluate to 0 or negative values. Use
+`changeState({ target, operation: "add" | "remove", state: stateRef(...) })`
+and `recoverAll({ target })` for state changes and full recovery. Keep each
+variant's fields complete; known raw actor commands retain the same parameter
+and reference validation.
+
+Use the same Actor targets for `changeExp`, `changeLevel`, `changeParameter` and
+`changeSkill`. EXP/level/parameter changes require gain/lose and a constant or
+variable operand. Literal ranges are EXP 1..9,999,999, level 1..98, and parameter
+quantity 1..9999; variables stay dynamic. Give EXP and level an explicit Boolean
+`showLevelUp` even for loss. Parameter names are mhp/mmp/atk/def/mat/mdf/agi/luk.
+Give Skill learn/forget and an existing `skillRef(...)`. Use
+`changeClass({ actor: actorRef(...), class: classRef(...), keepExp: false })` with
+an explicit saved Boolean; keeping cumulative EXP can change the resulting
+level on the new Class curve.
+
+Use `changeEquipment({ actor: actorRef(...), slotIndex, equipment })` with a zero
+based slot inside final `System.equipTypes.length - 1`. Use `equipment: null` to
+unload, or `{ kind: "runtimeSelector", scope: "equipment", target: "idForSlot",
+id: positiveInteger }`. Keep the ID as a runtime candidate: MV chooses its table
+from the current slot type, including dynamic dual wield. Review missing-candidate
+and inventory/equipability warnings in the game; preserve the candidate rather
+than freezing initial Actor/Class traits or substituting another table.
+
 Use supported helpers for RPG Maker MV editor command families. Representative groups include message commands, flow control, game progression, party changes, system settings, movement, character commands, screen commands, audio and video, map commands, scene control, actor commands, enemy commands, advanced commands, and nested Set Movement Route commands.
 
 Continuation commands are not standalone authoring units. Keep text continuations inside `showText(...)` or `showScrollingText(...)`, choice branches inside `showChoices(...)`, battle result branches inside `battleProcessing(...)`, shop goods inside `shopProcessing(...)`, script continuations inside `script(...)`, and move route command objects inside `setMovementRoute(...)`.
