@@ -1,5 +1,6 @@
 import { CommandStructureError } from "./command-errors.js";
 import { renderJsonValue } from "../project-data/json-values.js";
+import { assertNativeConditionalParameters } from "../commands/flow/conditional-validation.js";
 import {
   assertNativeSwitchCommand,
   assertNativeTimerParameters,
@@ -143,6 +144,10 @@ export function assertNativeCommandParameters(
   path: string,
 ): void {
   if (!isKnownCommandCode(code)) return;
+  if (code === 111) {
+    assertNativeConditionalParameters(parameters, path);
+    return;
+  }
   if (code === 124) {
     assertNativeTimerParameters(parameters, path);
     return;
@@ -163,30 +168,6 @@ export function assertNativeCommandParameters(
     );
   }
   let signature = signatures[code]!;
-  if (code === 111) {
-    const mode = parameters[0];
-    signature =
-      typeof mode === "number"
-        ? ((
-            {
-              0: "nnn",
-              1: "nnnnn",
-              2: "nsn",
-              3: "nnn",
-              4: parameters[2] === 0 ? "nnn" : "nnnx",
-              5: parameters[2] === 0 ? "nnn" : "nnnn",
-              6: "nnn",
-              7: "nnn",
-              8: "nn",
-              9: "nnb",
-              10: "nnb",
-              11: "ns",
-              12: "ns",
-              13: "nn",
-            } as Record<number, string>
-          )[mode] ?? "?")
-        : "?";
-  }
   if (code === 122)
     signature =
       ({ 0: "nnnnn", 1: "nnnnn", 2: "nnnnnn", 3: "nnnnnnn", 4: "nnnns" } as Record<number, string>)[
@@ -267,23 +248,6 @@ export function assertNativeCommandParameters(
     );
     oneOf(3, [0, 1, 2]);
     oneOf(4, [0, 1, 2]);
-  }
-  if (code === 111) {
-    const mode = parameters[0];
-    if (mode === 0 || mode === 2 || mode === 3) oneOf(2, [0, 1]);
-    if (mode === 1) {
-      oneOf(2, [0, 1]);
-      oneOf(4, [0, 1, 2, 3, 4, 5]);
-    }
-    if (mode === 2) oneOf(1, ["A", "B", "C", "D"]);
-    if (mode === 4) {
-      oneOf(2, [0, 1, 2, 3, 4, 5, 6]);
-      if (parameters[2] === 1) slot(3, typeof parameters[3] === "string", "actor name string");
-    }
-    if (mode === 5) oneOf(2, [0, 1]);
-    if (mode === 6) oneOf(2, [2, 4, 6, 8]);
-    if (mode === 7) oneOf(2, [0, 1, 2]);
-    if (mode === 13) oneOf(1, [0, 1, 2]);
   }
   if (code === 122) {
     oneOf(2, [0, 1, 2, 3, 4, 5]);

@@ -2,6 +2,7 @@ import type { RawEventCommand, CommandOrigins } from "../compiler/types.js";
 import type { ValidationIssue } from "./types.js";
 import type { NativeMovementRoute } from "../commands/movement/types.js";
 import { isKnownCommandCode } from "./native-parameters.js";
+import { renderJsonValue } from "../project-data/json-values.js";
 
 export type NativeInputOptions = {
   identity: string;
@@ -85,6 +86,30 @@ export function inspectNativeCommandInputs(
   for (const [index, command] of commands.entries()) {
     const path = `${options.prefix ?? ""}list[${index}]`;
     const origin = options.origins?.get(command);
+    if (
+      command.code === 111 &&
+      command.parameters[0] === 12 &&
+      /[\r\n]/u.test(command.parameters[1] as string)
+    ) {
+      const nativePath = `${path}.parameters[1]`;
+      issues.push({
+        code: "MV-E111-SCRIPT-RECONFIRM",
+        level: "warning",
+        stage: options.stage,
+        identity: options.identity,
+        nativePath,
+        ...(origin
+          ? {
+              dslPath:
+                origin.path +
+                (origin.kind === "rawDslCommand" ? ".parameters[1]" : ".condition.script.code"),
+            }
+          : {}),
+        expected: "reconfirm the complete single-slot script containing CR or LF",
+        actual: renderJsonValue(command.parameters[1]),
+        message: `${options.stage} warning ${options.identity}: MV-E111-SCRIPT-RECONFIRM at ${nativePath}: Conditional Script contains CR or LF; reconfirm the complete single-slot expression before writing it back.`,
+      });
+    }
     if (command.code === 102) {
       const count = (command.parameters[0] as unknown[]).length;
       for (const slot of [1, 2]) {

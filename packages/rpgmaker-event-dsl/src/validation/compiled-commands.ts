@@ -6,6 +6,7 @@ import { compilePageMovement } from "../commands/movement/page.js";
 import { validateNativeMovementRouteInputs } from "../commands/movement/validation.js";
 import { inspectNativeCommandReferences } from "./native-references.js";
 import type { RawEventCommand, CommandOrigins } from "../compiler/types.js";
+import { inspectConditionalContext } from "../commands/flow/conditional-context.js";
 
 export function validateCompiledCommandLists(
   graph: StagedDataGraph,
@@ -92,6 +93,27 @@ export function validateCompiledCommandLists(
             prefix,
             origins,
           }),
+        );
+        issues.push(
+          ...inspectConditionalContext(
+            commands,
+            declaration.kind === "mapEvent"
+              ? {
+                  kind: "map",
+                  eventIds: [...graph.mapEventsByIdentity.values()]
+                    .filter((event) => event.mapId === declaration.mapId)
+                    .map((event) => event.id),
+                }
+              : declaration.kind === "troopEvent"
+                ? {
+                    kind: "troop",
+                    members: graph.snapshotTroops?.find((troop) => troop.id === declaration.troopId)
+                      ?.members,
+                  }
+                : { kind: "common" },
+            graph.resolver,
+            { identity: list.identity, stage: "compile", prefix, origins },
+          ),
         );
         for (const index of breaksOutsideLoops)
           issues.push({

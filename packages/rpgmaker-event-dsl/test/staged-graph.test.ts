@@ -859,7 +859,7 @@ describe("validateDslOwnedDeclarations", () => {
                 kind: "script",
                 script: scriptInput({ code: "$gameSwitches.value(1)" }),
               },
-              then: [],
+              then: { commands: [] },
             }),
           ],
         }),
@@ -867,8 +867,13 @@ describe("validateDslOwnedDeclarations", () => {
       { scriptEnabled: false },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toContain(
-      "Conditional Branch script conditions require explicit config enablement.",
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-SCRIPT-GATE",
+        identity: "map:1/event:1",
+        nativePath: "pages[0].list[0].parameters[1]",
+        dslPath: "pages[0].commands[0].condition.script.code",
+      }),
     );
   });
 
@@ -886,16 +891,16 @@ describe("validateDslOwnedDeclarations", () => {
                 actor: { kind: "actor", id: 1 },
                 check: { kind: "class", class: classRef({ id: 99 }) },
               },
-              then: [],
+              then: { commands: [] },
             }),
             conditional({
               condition: {
                 kind: "variable",
                 variable: variableRef({ id: 99 }),
                 operator: "eq",
-                value: variableRef({ id: 100 }),
+                value: { kind: "variable", variable: variableRef({ id: 100 }) },
               },
-              then: [],
+              then: { commands: [] },
             }),
           ],
         }),
@@ -908,11 +913,23 @@ describe("validateDslOwnedDeclarations", () => {
       },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toEqual(
+    expect(result.issues).toEqual(
       expect.arrayContaining([
-        "Unknown class reference id: 99",
-        "Unknown variable reference id: 99",
-        "Unknown variable reference id: 100",
+        expect.objectContaining({
+          code: "MV-E111-REFERENCE",
+          dslPath: "pages[0].commands[0].condition.check.class",
+          actual: expect.stringContaining("99"),
+        }),
+        expect.objectContaining({
+          code: "MV-E111-REFERENCE",
+          dslPath: "pages[0].commands[1].condition.variable",
+          actual: expect.stringContaining("99"),
+        }),
+        expect.objectContaining({
+          code: "MV-E111-REFERENCE",
+          dslPath: "pages[0].commands[1].condition.value.variable",
+          actual: expect.stringContaining("100"),
+        }),
       ]),
     );
   });
@@ -931,7 +948,7 @@ describe("validateDslOwnedDeclarations", () => {
                 actor: { kind: "actor", id: 1 },
                 check: { kind: "class", class: classRef({ name: "Warrior" }) },
               },
-              then: [],
+              then: { commands: [] },
             }),
           ],
         }),

@@ -39,6 +39,7 @@ import {
 } from "../validation/native-command-inputs.js";
 import { renderMovementRoute } from "../commands/movement/decompile.js";
 import { validateNativeMovementRouteInputs } from "../commands/movement/validation.js";
+import { inspectConditionalContext } from "../commands/flow/conditional-context.js";
 import { inspectNativeCommandReferences } from "../validation/native-references.js";
 import { CommandStructureError } from "../validation/command-errors.js";
 import { assertNativeBattlePages, type NativeBattleEventPage } from "../validation/battle-pages.js";
@@ -177,6 +178,14 @@ async function buildDecompiledSourceFiles(
           prefix: `pages[${pageIndex}].`,
         };
         issues.push(...inspectNativeCommandInputs(page.list ?? [], inputOptions));
+        issues.push(
+          ...inspectConditionalContext(
+            page.list ?? [],
+            { kind: "map", eventIds: events.map((event) => event.id) },
+            resolver,
+            inputOptions,
+          ),
+        );
         if (page.movement !== undefined) {
           const path = `pages[${pageIndex}].moveRoute`;
           const referenceIssues: ValidationIssue[] = [];
@@ -209,6 +218,12 @@ async function buildDecompiledSourceFiles(
   }
 
   for (const event of commonEvents) {
+    issues.push(
+      ...inspectConditionalContext(event.list ?? [], { kind: "common" }, resolver, {
+        identity: `commonEvent:${event.id}`,
+        stage: "decompile",
+      }),
+    );
     issues.push(
       ...inspectNativeCommandInputs(event.list ?? [], {
         identity: `commonEvent:${event.id}`,
@@ -253,6 +268,14 @@ async function buildDecompiledSourceFiles(
     for (const [pageIndex, page] of troop.pages.entries()) {
       const prefix = `pages[${pageIndex}].`;
       const commands = readRawCommandList(page.list, identity, prefix);
+      issues.push(
+        ...inspectConditionalContext(
+          commands,
+          { kind: "troop", members: troop.members },
+          resolver,
+          { identity, stage: "decompile", prefix },
+        ),
+      );
       issues.push(
         ...inspectNativeCommandInputs(commands, {
           identity,
