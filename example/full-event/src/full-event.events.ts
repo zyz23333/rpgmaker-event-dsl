@@ -163,7 +163,7 @@ export const sampleCommonEventDefinition = commonEvent({
     controlVariables({
       variable: visitCountVariable,
       operation: "add",
-      value: 1,
+      value: { kind: "constant", value: 1 },
     }),
   ],
 });
@@ -196,7 +196,7 @@ export const guideEvent = mapEvent({
         controlVariables({
           variable: visitCountVariable,
           operation: "add",
-          value: 1,
+          value: { kind: "constant", value: 1 },
         }),
         inputNumber({
           variable: inputDigitsVariable,

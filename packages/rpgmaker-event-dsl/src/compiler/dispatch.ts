@@ -304,7 +304,11 @@ export function compileNodes(
         output.push({
           code: 122,
           indent,
-          parameters: compileControlVariablesParameters(node, resolver),
+          parameters: compileControlVariablesParameters(
+            node,
+            resolver,
+            `${sourcePath}[${nodeIndex}]`,
+          ),
         });
         break;
       case "controlSelfSwitch":

@@ -1,0 +1,113 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const cp = require('node:child_process');
+const crypto = require('node:crypto');
+const assert = require('node:assert/strict');
+const root = 'C:/Users/Shuen/.codex/worktrees/mv-ticket-31/rpgmaker-event-dsl';
+const external = 'C:/Users/Shuen/.codex/tmp/mv31-dev-20261020-run1';
+const evidence = '.scratch/complete-mv-events-implementation/evidence';
+const baseline = 'c2a40a41c094ccdda47faccd4399891952739008';
+const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
+const read = rel => fs.readFileSync(path.join(root, rel));
+const git = args => cp.execFileSync('git', args, {cwd: root, maxBuffer: 80e6});
+const json = bytes => JSON.parse(bytes.toString('utf8'));
+const oldIndex = json(git(['show', baseline + ':' + evidence + '/requirements.json']));
+const index = json(read(evidence + '/requirements.json'));
+assert.equal(oldIndex.requirements.length, 286);
+assert.equal(index.requirements.length, 291);
+assert.deepStrictEqual(index.requirements.slice(0, 286), oldIndex.requirements);
+const added = index.requirements.slice(286);
+assert.deepStrictEqual(added.map(row => row.id), ['001', '002', '003', '004', '005'].map(id => 'MV-S6-VARIABLES-' + id));
+const checklist = read(evidence + '/README.md').toString('utf8');
+const checklistIds = [...checklist.matchAll(/^\|\s*(MV-[A-Z0-9-]+)\s*\|/gmu)].map(match => match[1]);
+assert.equal(checklistIds.length, 291);
+assert.equal(new Set(checklistIds).size, 291);
+for (const row of index.requirements) {
+  assert(checklistIds.includes(row.id));
+  for (const source of row.sources) assert(read(source.path).toString('utf8').includes(source.section));
+  assert.equal(hash(read(row.fixture.path)), row.fixture.sha256);
+  if (row.test) assert(read(row.test.path).toString('utf8').includes(row.test.name));
+  else {
+    const review = read(row.review.path).toString('utf8');
+    assert(review.includes(row.review.section));
+    assert(review.includes(row.id));
+  }
+}
+const inherited = git(['ls-tree', '-r', '-z', baseline, '--', evidence]).toString('utf8').split('\0').filter(Boolean).map(entry => {
+  const match = /^\d+ blob ([a-f0-9]+)\t(.+)$/su.exec(entry);
+  assert(match, entry);
+  return {blob: match[1], path: match[2]};
+}).filter(entry => !['README.md', 'requirements.json'].some(name => entry.path === evidence + '/' + name));
+const rawHashes = cp.execFileSync('git', ['hash-object', '--no-filters', '--stdin-paths'], {
+  cwd: root, input: inherited.map(file => file.path).join('\n') + '\n', encoding: 'utf8', maxBuffer: 10e6,
+}).trim().split(/\r?\n/u);
+assert.equal(rawHashes.length, inherited.length);
+for (const [i, file] of inherited.entries()) assert.equal(rawHashes[i], file.blob, file.path);
+const resultFiles = fs.readdirSync(path.join(external, 'results')).filter(name => name.endsWith('.json')).sort();
+assert.equal(resultFiles.length, 17);
+const resultRecords = resultFiles.map(name => ({name, bytes: fs.readFileSync(path.join(external, 'results', name))}));
+const results = resultRecords.map(({bytes}) => json(bytes));
+assert.equal(new Set(results.map(row => row.runId)).size, 17);
+const counts = Object.fromEntries(added.map(row => [row.id, results.filter(result => result.requirementId === row.id).length]));
+assert.deepStrictEqual(Object.values(counts), [1, 1, 9, 6, 0]);
+const frozen = path.join(external, 'preserved-source');
+const sourceFiles = results[0].source.files;
+for (const result of results) {
+  assert.equal(result.status, 'passed');
+  assert.equal(result.environment.native, 'not-executed');
+  assert.equal(result.difference, null);
+  assert.deepStrictEqual(result.source.files, sourceFiles);
+  assert.equal(hash(JSON.stringify(result.source.files)), result.source.fingerprint);
+}
+for (const file of sourceFiles) {
+  const bytes = read(file.path);
+  assert.equal(hash(bytes), file.sha256, file.path);
+  const target = path.join(frozen, file.path);
+  fs.mkdirSync(path.dirname(target), {recursive: true});
+  fs.writeFileSync(target, bytes, {flag: 'wx'});
+}
+const history = path.join(root, evidence, '31-history', '20261020-dev');
+fs.mkdirSync(history, {recursive: true});
+fs.writeFileSync(path.join(root, evidence, '31-history', '.gitattributes'), '# Preserve original hashed DEV execution bytes.\n* -text -whitespace\n', {flag: 'wx'});
+for (const record of resultRecords) {
+  fs.writeFileSync(path.join(root, evidence, 'results', record.name), record.bytes, {flag: 'wx'});
+  assert.equal(hash(fs.readFileSync(path.join(root, evidence, 'results', record.name))), hash(record.bytes));
+}
+const archived = [];
+const archive = (origin, relativeTarget) => {
+  const bytes = fs.readFileSync(origin);
+  const target = path.join(history, relativeTarget);
+  fs.mkdirSync(path.dirname(target), {recursive: true});
+  fs.writeFileSync(target, bytes, {flag: 'wx'});
+  archived.push({path: relativeTarget.replaceAll('\\', '/'), sha256: hash(bytes), origin: origin.replaceAll('\\', '/')});
+};
+for (const name of ['typecheck.log', 'focused-vitest.log', 'scoped-oxlint.log', 'scoped-oxfmt.log', 'diff-check.log', 'evidence-index.log', 'archive-and-audit.cjs']) archive(path.join(external, name), name === 'archive-and-audit.cjs' ? 'tooling/archive-and-audit.cjs.bytes' : 'logs/' + name);
+for (const name of ['control-variable-cases.ts', 'control-variable-evidence.ts']) archive(path.join(root, 'packages/rpgmaker-event-dsl/test/support', name), 'inputs/' + name + '.bytes');
+for (const name of ['control-variables.test.ts', 'control-variables-workspace.test.ts']) archive(path.join(root, 'packages/rpgmaker-event-dsl/test', name), 'inputs/' + name + '.bytes');
+const manifest = {
+  purpose: 'Frozen exact current source/test/config inputs for focused synthetic DEV results; no dist or native execution',
+  sourceRevision: results[0].source.revision,
+  sourceFingerprint: results[0].source.fingerprint,
+  externallyPreservedRoot: frozen.replaceAll('\\', '/'),
+  sourceFiles,
+  archived,
+  results: resultRecords.map(({name, bytes}) => ({path: evidence + '/results/' + name, sha256: hash(bytes)})),
+};
+fs.writeFileSync(path.join(history, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n', {flag: 'wx'});
+const audit = {
+  purpose: 'Ticket31 focused synthetic DEV checkpoint only; final built/native acceptance remains pending',
+  at: new Date().toISOString(),
+  baseline,
+  sourceRevisionAtRun: results[0].source.revision,
+  contract: 'mv-1.6.1/9 unchanged',
+  requirements: {inherited: 286, added: 5, total: 291, inheritedObjectsAndOrderUnchanged: true, completeFixtureAndSourceTestReviewLinksValid: true},
+  inheritedEvidenceFilesRawBytesUnchanged: inherited.length,
+  currentSourceInputs: {files: sourceFiles.length, fingerprint: results[0].source.fingerprint, allResultReferencesMatchCurrentBytes: true, completeBytesPreservedExternally: true},
+  newResults: {total: 17, passed: 17, nativeNotExecuted: 17, counts, exactExternalResultBytesCopied: true},
+  checks: {focused: '11 files / 297 tests passed', typecheck: 'passed', scopedLint: 'passed', scopedFormat: '30 files passed', diffCheck: 'passed', standardEvidenceIndex: 'failed original 10000ms timeout; preserved original log; no deadline change; shared optimization and final rerun required'},
+  pending: ['broad Windows/Node22 check', 'build', 'built Windows baseline', 'allocated actual E5/R4/R7 normal-Scene acceptance', 'latest integration reconciliation', 'compile contract increment', 'READY/resolution'],
+  manifest: evidence + '/31-history/20261020-dev/manifest.json',
+};
+fs.writeFileSync(path.join(root, evidence, '31-control-variables-dev-audit.json'), JSON.stringify(audit, null, 2) + '\n', {flag: 'wx'});
+fs.writeFileSync(path.join(external, 'audit.json'), JSON.stringify(audit, null, 2) + '\n', {flag: 'wx'});
+console.log(JSON.stringify(audit, null, 2));

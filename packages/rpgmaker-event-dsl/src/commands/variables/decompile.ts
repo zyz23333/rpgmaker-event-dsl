@@ -1,5 +1,6 @@
 import type { RawEventCommand, RenderedCommand } from "../../decompiler/types.js";
 import { literal, readPositiveInteger } from "../../decompiler/core.js";
+import { renderJsonValue } from "../../project-data/json-values.js";
 
 export function renderControlVariables(
   command: RawEventCommand,
@@ -25,7 +26,7 @@ export function renderControlVariables(
 
   if (operandKind === 0 && typeof command.parameters[4] === "number") {
     return {
-      expression: `controlVariables({ variable: ${renderReferenceTarget("variableRef", startVariableId, endVariableId)}, operation: ${literal(operation)}, value: ${command.parameters[4]} })`,
+      expression: `controlVariables({ variable: ${renderReferenceTarget("variableRef", startVariableId, endVariableId)}, operation: ${literal(operation)}, value: { kind: "constant", value: ${renderJsonValue(command.parameters[4])} } })`,
       helperNames: ["controlVariables", "variableRef"],
     };
   }
@@ -35,7 +36,7 @@ export function renderControlVariables(
     return sourceVariableId === null
       ? null
       : {
-          expression: `controlVariables({ variable: ${renderReferenceTarget("variableRef", startVariableId, endVariableId)}, operation: ${literal(operation)}, value: variableRef({ id: ${sourceVariableId} }) })`,
+          expression: `controlVariables({ variable: ${renderReferenceTarget("variableRef", startVariableId, endVariableId)}, operation: ${literal(operation)}, value: { kind: "variable", variable: variableRef({ id: ${sourceVariableId} }) } })`,
           helperNames: ["controlVariables", "variableRef"],
         };
   }
@@ -46,7 +47,7 @@ export function renderControlVariables(
     typeof command.parameters[5] === "number"
   ) {
     return {
-      expression: `controlVariables({ variable: ${renderReferenceTarget("variableRef", startVariableId, endVariableId)}, operation: ${literal(operation)}, value: { kind: "random", from: ${command.parameters[4]}, to: ${command.parameters[5]} } })`,
+      expression: `controlVariables({ variable: ${renderReferenceTarget("variableRef", startVariableId, endVariableId)}, operation: ${literal(operation)}, value: { kind: "random", from: ${renderJsonValue(command.parameters[4])}, to: ${renderJsonValue(command.parameters[5])} } })`,
       helperNames: ["controlVariables", "variableRef"],
     };
   }
@@ -157,7 +158,7 @@ export function renderControlVariablesGameDataOperand(
     case 6:
       return typeof param1 === "number" && Number.isInteger(param1) && param1 >= 0
         ? {
-            expression: `{ kind: "gameData", source: "party", memberIndex: ${param1} }`,
+            expression: `{ kind: "gameData", source: "party", member: { kind: "runtimeSelector", scope: "party", target: "member", index: ${renderJsonValue(param1)} } }`,
             helperNames: [],
           }
         : null;
@@ -199,7 +200,7 @@ export function renderEnemyGameDataOperand(
     enemyIndex >= 0 &&
     value !== null
     ? {
-        expression: `{ kind: "gameData", source: "enemy", enemyIndex: ${enemyIndex}, value: ${literal(value)} }`,
+        expression: `{ kind: "gameData", source: "enemy", enemy: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: ${renderJsonValue(enemyIndex)} }, value: ${literal(value)} }`,
         helperNames: [],
       }
     : null;
@@ -212,7 +213,7 @@ export function renderCharacterGameDataOperand(
   const value = characterGameDataValueFromCode(valueParameter);
   return typeof characterId === "number" && Number.isInteger(characterId) && value !== null
     ? {
-        expression: `{ kind: "gameData", source: "character", characterId: ${characterId}, value: ${literal(value)} }`,
+        expression: `{ kind: "gameData", source: "character", target: { kind: "runtimeSelector", scope: "character", target: ${literal(characterId === -1 ? "player" : characterId === 0 ? "currentEvent" : "event")}${Number(characterId) > 0 ? `, id: ${characterId}` : ""} }, value: ${literal(value)} }`,
         helperNames: [],
       }
     : null;

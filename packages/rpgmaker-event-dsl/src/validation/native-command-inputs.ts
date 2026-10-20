@@ -3,6 +3,10 @@ import type { ValidationIssue } from "./types.js";
 import type { NativeMovementRoute } from "../commands/movement/types.js";
 import { isKnownCommandCode } from "./native-parameters.js";
 import { renderJsonValue } from "../project-data/json-values.js";
+import {
+  inspectNativeVariableInputs,
+  type VariableInputContext,
+} from "../commands/variables/diagnostics.js";
 
 export type NativeInputOptions = {
   identity: string;
@@ -10,6 +14,7 @@ export type NativeInputOptions = {
   scriptEnabled: boolean;
   prefix?: string;
   origins?: CommandOrigins;
+  variableContext?: VariableInputContext;
 };
 
 export function scriptGateIssue(
@@ -82,7 +87,7 @@ export function inspectNativeCommandInputs(
   commands: readonly RawEventCommand[],
   options: NativeInputOptions,
 ): ValidationIssue[] {
-  const issues: ValidationIssue[] = [];
+  const issues: ValidationIssue[] = inspectNativeVariableInputs(commands, options);
   for (const [index, command] of commands.entries()) {
     const path = `${options.prefix ?? ""}list[${index}]`;
     const origin = options.origins?.get(command);

@@ -573,3 +573,13 @@ Ticket27 native audit addendum: all8 pairs have76data/11full checkpoints. Origin
 Ticket27 final-index-v1 actually timed out at the original10s. Complete8389-file timeout inputs remain physically retained and independently rehashed. Full phase probes did not reproduce the timeout; its cause remains undetermined. After root review, one original-CLI/no-plugin final-index-v2 recheck passed1test/2filtered in4.86s at original10s/2workers. This actual gate pass, original failure and all diagnostic limitations are preserved. Original archive-v3 EISDIR and boundedv4 handling of14 historical src junctions/756regular files/196original source snapshot files also remain explicit.
 
 Ticket27 closure audit passed:328 requirements retain incoming314 in order and own274 by ID;7610 historical raw blobs/prefixes,3030 initial archive source/copy pairs and193 physical/current execution inputs including15dist remain exact. The final selected index passed at the original10s/2workers. Closed captures append via27-final-history/post-archive-index-v1.json. Ticket27 is resolved after allocated actual E2/R3; final49–54 remain separate.
+
+## Ticket31 Control Variables
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-VARIABLES-001 | Independent six-operation/five-mode and all Game Data saved-parameter cases | Synthetic DEV; [record](31-control-variables-dev.md) |
+| MV-S6-VARIABLES-002 | Actual source Discovery, Check, Compile, Diff and complete-carrier real Push | Synthetic DEV E5 support; [record](31-control-variables-dev.md) |
+| MV-S6-VARIABLES-003 | Native saved-shape and fixed-reference rejection before source publication | Synthetic DEV rejection; [record](31-control-variables-dev.md) |
+| MV-S6-VARIABLES-004 | Evaluated untyped source and known-raw Gate Check/Compile isolation | Synthetic DEV rejection; [record](31-control-variables-dev.md) |
+| MV-S6-VARIABLES-005 | Final built lifecycle and actual normal-Scene variable runtime observations | Required E5/R4/R7 pending; [record](31-control-variables-dev.md#remaining-finalization) |

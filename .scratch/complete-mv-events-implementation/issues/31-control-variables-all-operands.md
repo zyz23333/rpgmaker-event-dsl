@@ -58,3 +58,20 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 ### 2026-10-20 — 变量批次认领
 
 在记录创建的M工作树 `mv-variables-batch`、分支 `codex/mv-variables-batch`，基于实际集成 `6dfa75eb96cc089bb00d85012c643ec9af2cdad7` 认领本批次。复用既有DEV `e3f947a592cf8251211803a7a04ccf4e40a3e553`，按已接受T1公开DSL/真实Workspace测试边界完成最新整合及必要受影响验证；48集中全量/构建，E5/R4/R7与原64sampleRandom等运行求值义务保留给49–54最终实测，不重做既有red或历史大归档。
+
+### Retained original DEV checkpoint
+
+2026-10-20 — Focused synthetic DEV checkpoint on `codex/mv-ticket-31`, after merging
+integration c2a40a41c094ccdda47faccd4399891952739008. The named five-mode E122 model,
+all Game Data source/status cases, strict formal/native/known-raw validation,
+precise input paths, complete Script Input/Gate behavior and contextual warnings
+are implemented. Windows / Node 22.23.0 focused 11 files / 297 tests, package typecheck,
+scoped lint/format and diff checks passed. The standard evidence-index test hit
+its unchanged 10000 ms deadline; its original failure remains recorded for the
+shared performance fix and final rerun. The append-only audit preserves 286
+inherited requirement objects and 2989 inherited evidence file bytes, appends five
+requirements, and records 17 synthetic passes with native not-executed. Contract 9
+is unchanged. This ticket remains claimed: broad/build/built and allocated actual
+E5/R4/R7 acceptance still require the serialized finalization queue. See the
+[DEV record](../evidence/31-control-variables-dev.md) and
+[immutable audit](../evidence/31-control-variables-dev-audit.json).

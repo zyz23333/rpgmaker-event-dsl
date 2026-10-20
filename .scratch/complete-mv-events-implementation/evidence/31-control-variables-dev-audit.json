@@ -1,0 +1,52 @@
+{
+  "purpose": "Ticket31 focused synthetic DEV checkpoint only; final built/native acceptance remains pending",
+  "at": "2026-10-19T18:36:09.956Z",
+  "baseline": "c2a40a41c094ccdda47faccd4399891952739008",
+  "sourceRevisionAtRun": "4fb26bb80d8467f710315085e77e3445237724bd",
+  "contract": "mv-1.6.1/9 unchanged",
+  "requirements": {
+    "inherited": 286,
+    "added": 5,
+    "total": 291,
+    "inheritedObjectsAndOrderUnchanged": true,
+    "completeFixtureAndSourceTestReviewLinksValid": true
+  },
+  "inheritedEvidenceFilesRawBytesUnchanged": 2989,
+  "currentSourceInputs": {
+    "files": 167,
+    "fingerprint": "05ec028aa8dc76a461f37a2cee775ed8e59bddcb53086540e288d9e677af5d9d",
+    "allResultReferencesMatchCurrentBytes": true,
+    "completeBytesPreservedExternally": true
+  },
+  "newResults": {
+    "total": 17,
+    "passed": 17,
+    "nativeNotExecuted": 17,
+    "counts": {
+      "MV-S6-VARIABLES-001": 1,
+      "MV-S6-VARIABLES-002": 1,
+      "MV-S6-VARIABLES-003": 9,
+      "MV-S6-VARIABLES-004": 6,
+      "MV-S6-VARIABLES-005": 0
+    },
+    "exactExternalResultBytesCopied": true
+  },
+  "checks": {
+    "focused": "11 files / 297 tests passed",
+    "typecheck": "passed",
+    "scopedLint": "passed",
+    "scopedFormat": "30 files passed",
+    "diffCheck": "passed",
+    "standardEvidenceIndex": "failed original 10000ms timeout; preserved original log; no deadline change; shared optimization and final rerun required"
+  },
+  "pending": [
+    "broad Windows/Node22 check",
+    "build",
+    "built Windows baseline",
+    "allocated actual E5/R4/R7 normal-Scene acceptance",
+    "latest integration reconciliation",
+    "compile contract increment",
+    "READY/resolution"
+  ],
+  "manifest": ".scratch/complete-mv-events-implementation/evidence/31-history/20261020-dev/manifest.json"
+}
