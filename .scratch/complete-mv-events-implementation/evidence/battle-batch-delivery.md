@@ -75,7 +75,7 @@ Battle 使用 fixed/variable/randomEncounter 模式；flags 默认固定 false�
 | 53 | R4 Common 多上下文、hidden/缺失成员位置、Force 主体/技能 scope/last/random/0..7 以及运行无作用和异常后果 |
 | 54 | R6 Enemy Animation 的单敌/全敌、独立 index 与实际图像/运行观察，含缺位置、hidden/死亡等适用状态 |
 
-52/53 的 Battle 控制必须记录实际跳过、Force 调度、Abort 残留 aborting 和后续效果；静态 runtime 解释或 Node 仿写不能替代实际 MV1.6.1/NW.js。编辑器侧按已接受 REA 修订区分代码事实、有条件推导和 UI 捕获。`MV-S6-BATTLE-004`/`005` 仍未执行通过，最终 55 的完整支持结论继续依赖 49–54 完成。
+52/53 的 Battle 控制必须记录实际跳过、Force 调度、Abort 残留 aborting 和后续效果；静态 runtime 解释或 Node 仿写不能替代实际 MV1.6.1/NW.js。编辑器侧按已接受 REA 修订区分代码事实、有条件推导和 UI 捕获。`MV-S6-BATTLE-004` 与 `MV-S6-BATTLE-005` 仍未执行通过，最终 55 的完整支持结论继续依赖 49–54 完成。
 
 ## Independent merge review correction — 2026-10-20
 

@@ -133,6 +133,24 @@ const topDefinitions = [
   ["controlSelfSwitch", '{selfSwitch:"A",value:true,unexpected:"must refuse"}'],
   ["loop", '{body:{commands:[]},unexpected:"must refuse"}'],
 ] as const;
+
+evidenceIt(
+  "MV-S3-INPUT-002: rejects an invalid Loop body during actual source evaluation without publishing",
+  async () => {
+    await withWindowsSandbox("loop-invalid-body", async ({ workspaceRoot }) => {
+      await prepare(workspaceRoot);
+      await decompileWorkspace({ workspaceRoot });
+      await compileWorkspace({ workspaceRoot, check: false });
+      await assertRejectedSource(
+        workspaceRoot,
+        `${imports}const command=loop({body:{commands:[],endMarker:"absent"}});\n${declaration}`,
+        "MV-CHILD-BODY",
+        "loop.body.endMarker",
+      );
+    });
+  },
+);
+
 for (const [helper, input] of topDefinitions) {
   for (const [index, expression] of ["input", "{...input}", "input as never"].entries())
     evidenceIt(
