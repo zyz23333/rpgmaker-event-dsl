@@ -567,16 +567,31 @@ for (const [index, [code, parameters, diagnostic, suffix]] of nativeCases.entrie
       await cloneWorkspace({ workspaceRoot });
       const before = await state(workspaceRoot);
       completeCounts(before, true);
-      await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatchObject({
-        code: `MV-E${code}-${diagnostic}`,
-        stage: "decompile",
-        identity: "commonEvent:1",
-        location: {
-          nativePath: `list[27].parameters${suffix}`,
-          expected: expect.any(String),
-          actual: expect.any(String),
-        },
-      });
+      if (diagnostic === "REFERENCE") {
+        const failure: unknown = await decompileWorkspace({ workspaceRoot }).then(
+          () => undefined,
+          (error: unknown) => error,
+        );
+        expect(failure).toBeInstanceOf(Error);
+        if (!(failure instanceof Error)) throw new Error("Expected native reference refusal");
+        expect(failure.message).toContain(`MV-E${code}-REFERENCE`);
+        expect(failure.message).toContain("decompile error");
+        expect(failure.message).toContain("commonEvent:1");
+        expect(failure.message).toContain(`list[27].parameters${suffix}`);
+        expect(failure.message).toContain("expected existing");
+        expect(failure.message).toContain("actual");
+      } else {
+        await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatchObject({
+          code: `MV-E${code}-${diagnostic}`,
+          stage: "decompile",
+          identity: "commonEvent:1",
+          location: {
+            nativePath: `list[27].parameters${suffix}`,
+            expected: expect.any(String),
+            actual: expect.any(String),
+          },
+        });
+      }
       expect(await state(workspaceRoot)).toStrictEqual(before);
     });
   });

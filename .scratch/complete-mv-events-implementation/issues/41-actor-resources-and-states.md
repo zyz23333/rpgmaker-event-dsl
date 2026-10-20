@@ -49,3 +49,8 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [角色、战斗与场景参数附表](../../complete-mv-events/research/command-parameters/actors-battle.md)。
+
+## Comments
+
+- 2026-10-20 focused DEV：五条指令的正式类型/helper、原始输入检查、Compile、Decompile、已知 raw、引用与槽位校验及公开文档已实现；实际 integration `e5740784690645963759aef55a69780205de5a3c` 已合入本分支。实际 Workspace 的 53 个独立场景在 v26/v27 两次冻结输入上覆盖通过，保留 4 条原始失败与其仅测试前提修正后的重跑，共 57 条原始结果；当前 v28 仅索引格式变化，未重跑，不记成同一当前输入全跑。另有合并后 31 项 focused tests、TypeScript、scoped lint/format 通过。详见 [Actor resources DEV record](../evidence/41-actor-resources-and-states.md)。目前仍 `claimed`，DEV 归档/索引、全量检查、build、built API、实际 R4 和最终合入验收待排程；不据此勾选最终验收或关闭。
+- 2026-10-20 用户执行修订：按 `tickets.md` 的角色状态、成长与装备批次，在当前分支继续42/43；上述大型 DEV 归档/索引审计不再执行，原始结果与失败原地保留并引用。开发改为受影响测试，批次候选集中一次适用全量、build/built 和必要 E/R；41 仍 claimed，实际 R4 保留。

@@ -565,3 +565,11 @@ Ticket27 native audit addendum: all8 pairs have76data/11full checkpoints. Origin
 Ticket27 final-index-v1 actually timed out at the original10s. Complete8389-file timeout inputs remain physically retained and independently rehashed. Full phase probes did not reproduce the timeout; its cause remains undetermined. After root review, one original-CLI/no-plugin final-index-v2 recheck passed1test/2filtered in4.86s at original10s/2workers. This actual gate pass, original failure and all diagnostic limitations are preserved. Original archive-v3 EISDIR and boundedv4 handling of14 historical src junctions/756regular files/196original source snapshot files also remain explicit.
 
 Ticket27 closure audit passed:328 requirements retain incoming314 in order and own274 by ID;7610 historical raw blobs/prefixes,3030 initial archive source/copy pairs and193 physical/current execution inputs including15dist remain exact. The final selected index passed at the original10s/2workers. Closed captures append via27-final-history/post-archive-index-v1.json. Ticket27 is resolved after allocated actual E2/R3; final49–54 remain separate.
+
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-ACTOR-RESOURCES-001 | Independent formal, named-reference, known raw and edit/Push Actor resource Workspace behaviors; all 4 independently bounded scenarios required | synthetic-support | Actual public Workspace API, Discovery/evaluation and filesystem |
+| MV-S6-ACTOR-RESOURCES-002 | Original Actor helper inputs fail public Workspace operations without changing business state; all 13 independently bounded scenarios required | synthetic-rejection | Actual public Workspace API, Discovery/evaluation and filesystem |
+| MV-S6-ACTOR-RESOURCES-003 | Direct and known raw Actor inputs share complete Workspace refusal boundaries; all 15 independently bounded scenarios required | synthetic-rejection | Actual public Workspace API, Discovery/evaluation and filesystem |
+| MV-S6-ACTOR-RESOURCES-004 | Late malformed native Actor records fail Decompile before source publication; all 21 independently bounded scenarios required | synthetic-rejection | Actual public Workspace API, Discovery/evaluation and filesystem |
