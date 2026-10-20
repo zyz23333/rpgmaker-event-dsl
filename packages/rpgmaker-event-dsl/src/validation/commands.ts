@@ -35,6 +35,7 @@ import {
 } from "../commands/movement/access-validation.js";
 import { assertSceneCommandInput } from "../commands/system/validation.js";
 import { assertActorResourceInput } from "../commands/actor/validation.js";
+import { assertShopInput } from "../commands/battle/shop-validation.js";
 import {
   assertInventoryInput,
   isInventoryCommandKind,
@@ -82,6 +83,7 @@ export function validateNodes(
       assertSceneCommandInput(node.kind, node, nodePath);
       assertPictureInput(node.kind, node, nodePath, true, resolver);
       assertActorResourceInput(node.kind, node, nodePath, true, resolver);
+      if (node.kind === "shopProcessing") assertShopInput(node, nodePath, true, resolver);
     } catch (error) {
       if (error instanceof CommandStructureError)
         issues.push(error.issue(options.identity ?? "event", "compile"));
@@ -340,7 +342,10 @@ export function validateNodes(
     }
     if (node.kind === "shopProcessing") {
       for (const goods of node.goods) {
-        captureReferenceIssue(() => resolver.resolveReference(goods.item), issues);
+        if (goods.kind === "placeholder") continue;
+        const reference =
+          goods.kind === "item" ? goods.item : goods.kind === "weapon" ? goods.weapon : goods.armor;
+        captureReferenceIssue(() => resolver.resolveReference(reference), issues);
       }
     }
     if (node.kind === "nameInputProcessing") {

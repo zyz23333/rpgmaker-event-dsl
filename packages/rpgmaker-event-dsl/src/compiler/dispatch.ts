@@ -84,6 +84,7 @@ import {
   compileBattleProcessingParameters,
   compileShopGoodsParameters,
 } from "./shared/branches.js";
+import { assertShopInput } from "../commands/battle/shop-validation.js";
 export {
   compileChoiceBranches,
   compileBattleProcessingParameters,
@@ -752,13 +753,17 @@ export function compileNodes(
         output.push({ code: 404, indent, parameters: [] });
         break;
       case "shopProcessing":
+        assertShopInput(node, `${sourcePath}[${nodeIndex}]`, true, resolver);
+        if (node.goods.length === 0) {
+          output.push({ code: 302, indent, parameters: [0, 0, 0, 0, node.purchaseOnly ?? false] });
+        }
         node.goods.forEach((goods, index) => {
           output.push({
             code: index === 0 ? 302 : 605,
             indent,
             parameters:
               index === 0
-                ? [...compileShopGoodsParameters(goods, resolver), node.allowSelling ?? false]
+                ? [...compileShopGoodsParameters(goods, resolver), node.purchaseOnly ?? false]
                 : compileShopGoodsParameters(goods, resolver),
           });
         });

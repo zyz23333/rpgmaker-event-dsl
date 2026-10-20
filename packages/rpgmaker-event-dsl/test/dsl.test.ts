@@ -448,7 +448,7 @@ describe("collectDslOwnedDeclarations", () => {
     expect(
       shopProcessing({
         goods: [{ kind: "item", item: itemRef({ id: 1 }), price: 1 }],
-        allowSelling: true,
+        purchaseOnly: false,
       }).kind,
     ).toBe("shopProcessing");
     expect(nameInputProcessing({ actor: { kind: "actor", id: 1 }, maxCharacters: 8 }).kind).toBe(

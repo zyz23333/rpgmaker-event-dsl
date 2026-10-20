@@ -26,6 +26,28 @@ which only Push can resolve.
 This project is in early development. The TypeScript API, DSL syntax, CLI workflow,
 generated output, and workspace format may change before `1.0.0`.
 
+## Shop Processing
+
+```ts
+shopProcessing({
+  goods: [
+    { kind: "item", item: itemRef({ id: 1 }) },
+    { kind: "weapon", weapon: weaponRef({ id: 2 }), price: 0 },
+    { kind: "placeholder" },
+    { kind: "armor", armor: armorRef({ id: 3 }), price: 999999 },
+  ],
+  purchaseOnly: true,
+});
+```
+
+`goods` is required and may be empty. Each real good uses an existing reference
+from its matching category. Omitted `price` means standard price; a custom price
+is an integer 0..999999. `purchaseOnly` defaults to false. Goods preserve order
+and duplicates. A structural `{ kind: "placeholder" }` has no reference or price
+and preserves the exact native four-zero entry, even when mixed or repeated.
+Empty goods emits one placeholder; only a sole placeholder decompiles to empty
+goods. All 605 continuation records belong to their 302 Shop command.
+
 ## Audio Commands
 
 Give each playback or system audio helper a complete payload, including None:

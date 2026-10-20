@@ -483,6 +483,16 @@ owns MV text continuation records, `showChoices(...)` owns choice branches,
 `battleProcessing(...)` owns battle result branches, `shopProcessing(...)` owns goods
 continuations, and `setMovementRoute(...)` owns nested move route commands.
 
+`shopProcessing({ goods, purchaseOnly? })` requires an ordered goods list and
+defaults `purchaseOnly` to false. Use `{ kind: "item", item: itemRef(...) }`,
+`{ kind: "weapon", weapon: weaponRef(...) }`, or
+`{ kind: "armor", armor: armorRef(...) }` with matching existing references.
+Omit `price` for standard pricing, or give an integer 0..999999 for a custom
+price. Repeated goods stay in order. `{ kind: "placeholder" }` preserves an
+exact native structural placeholder, including repeated or interleaved entries;
+it carries no reference or price. An empty `goods: []` emits the sole placeholder,
+and only that sole placeholder decompiles back to an empty list.
+
 `showChoices({ choices: [{ text, commands, endMarker? }], defaultChoice?, cancel?, position?, background? })`
 keeps each of its 1–6 choices with its required child commands. Default choice and
 cancel modes use named objects; saved choice indices are zero-based integers 0–5.

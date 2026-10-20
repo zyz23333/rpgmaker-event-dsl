@@ -991,10 +991,10 @@ describe("compileMapEvent", () => {
               shopProcessing({
                 goods: [
                   { kind: "item", item: itemRef({ name: "Potion" }) },
-                  { kind: "weapon", item: { kind: "weapon", id: 1 }, price: 250 },
-                  { kind: "armor", item: { kind: "armor", id: 1 } },
+                  { kind: "weapon", weapon: { kind: "weapon", id: 1 }, price: 250 },
+                  { kind: "armor", armor: { kind: "armor", id: 1 } },
                 ],
-                allowSelling: true,
+                purchaseOnly: true,
               }),
               nameInputProcessing({ actor: { kind: "actor", id: 1 }, maxCharacters: 8 }),
               changeHp({

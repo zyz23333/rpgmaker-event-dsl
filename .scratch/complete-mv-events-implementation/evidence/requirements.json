@@ -19127,6 +19127,166 @@
       },
       "slice": "32 / S6 final acceptance pending",
       "required": true
+    },
+    {
+      "id": "MV-S6-SHOP-001",
+      "title": "Exact ordered placeholders, categories, standard/custom prices and purchaseOnly survive Decompile, evaluated source, Check, Compile, Diff and real Push with complete carriers",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I4 — 参数覆盖与结构化命令"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent Shop saved-slot fixture with ordered repeated exact placeholders, all real categories, empty Shop, standard/custom0/max prices and both purchaseOnly states; original malformed source/native inputs.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/shop-cases.json",
+        "sha256": "5ad46501b631316e8d50fc425c8764018f54a4c9b3954e6c4a1d18b1be4dba9d"
+      },
+      "expected": "Exact ordered placeholders, categories, standard/custom prices and purchaseOnly survive Decompile, evaluated source, Check, Compile, Diff and real Push with complete carriers",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/shop-workspace.test.ts",
+        "name": "MV-S6-SHOP-001: evaluates Shop source in three containers and installs complete independent carriers"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; synthetic inputs; native not executed",
+        "owner": "Automated test runner",
+        "layer": "Actual public Workspace API, Discovery/evaluation and filesystem"
+      },
+      "slice": "47 focused development; final REA and games pending",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SHOP-002",
+      "title": "Evaluated original placeholder extra fields reject Check, Compile, stale Diff and Push while preserving all business state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I4 — 参数覆盖与结构化命令"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent Shop saved-slot fixture with ordered repeated exact placeholders, all real categories, empty Shop, standard/custom0/max prices and both purchaseOnly states; original malformed source/native inputs.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/shop-cases.json",
+        "sha256": "5ad46501b631316e8d50fc425c8764018f54a4c9b3954e6c4a1d18b1be4dba9d"
+      },
+      "expected": "Evaluated original placeholder extra fields reject Check, Compile, stale Diff and Push while preserving all business state",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/shop-workspace.test.ts",
+        "name": "MV-S6-SHOP-002: refuses evaluated spread placeholder inputs without publishing business state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; synthetic inputs; native not executed",
+        "owner": "Automated test runner",
+        "layer": "Actual public Workspace API, Discovery/evaluation and filesystem"
+      },
+      "slice": "47 focused development; final REA and games pending",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SHOP-003",
+      "title": "Late malformed Shop in Troop fails before publishing any source with complete business state unchanged",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I4 — 参数覆盖与结构化命令"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent Shop saved-slot fixture with ordered repeated exact placeholders, all real categories, empty Shop, standard/custom0/max prices and both purchaseOnly states; original malformed source/native inputs.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/shop-cases.json",
+        "sha256": "5ad46501b631316e8d50fc425c8764018f54a4c9b3954e6c4a1d18b1be4dba9d"
+      },
+      "expected": "Late malformed Shop in Troop fails before publishing any source with complete business state unchanged",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/shop-workspace.test.ts",
+        "name": "MV-S6-SHOP-003: refuses late malformed native zero identities before any source publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; synthetic inputs; native not executed",
+        "owner": "Automated test runner",
+        "layer": "Actual public Workspace API, Discovery/evaluation and filesystem"
+      },
+      "slice": "47 focused development; final REA and games pending",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SHOP-004",
+      "title": "Item, weapon and armor native IDs must exist in their actual category before source publication; another category cannot substitute",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I4 — 参数覆盖与结构化命令"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent Shop saved-slot fixture with ordered repeated exact placeholders, all real categories, empty Shop, standard/custom0/max prices and both purchaseOnly states; original malformed source/native inputs.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/shop-cases.json",
+        "sha256": "5ad46501b631316e8d50fc425c8764018f54a4c9b3954e6c4a1d18b1be4dba9d"
+      },
+      "expected": "Item, weapon and armor native IDs must exist in their actual category before source publication; another category cannot substitute",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/shop-workspace.test.ts",
+        "name": "MV-S6-SHOP-004: refuses missing category-specific native references (%i/%i)"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; synthetic inputs; native not executed",
+        "owner": "Automated test runner",
+        "layer": "Actual public Workspace API, Discovery/evaluation and filesystem"
+      },
+      "slice": "47 focused development; final REA and games pending",
+      "required": true
     }
   ]
 }

@@ -335,7 +335,7 @@ export const practiceBattleEvent = mapEvent({
         abortBattle(),
         shopProcessing({
           goods: [{ kind: "item", item: potion, price: 1 }],
-          allowSelling: true,
+          purchaseOnly: false,
         }),
         nameInputProcessing({
           actor: heroActor,

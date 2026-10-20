@@ -1,4 +1,5 @@
 import { CommandStructureError } from "./command-errors.js";
+import { assertNativeShopParameters } from "../commands/battle/shop-native.js";
 import { renderJsonValue } from "../project-data/json-values.js";
 import { assertNativeConditionalParameters } from "../commands/flow/conditional-validation.js";
 import {
@@ -150,6 +151,10 @@ export function assertNativeCommandParameters(
   path: string,
 ): void {
   if (!isKnownCommandCode(code)) return;
+  if (code === 302 || code === 605) {
+    assertNativeShopParameters(code, parameters, path);
+    return;
+  }
   if (code >= 231 && code <= 235) {
     assertNativePictureParameters(code, parameters, path);
     return;
@@ -274,11 +279,6 @@ export function assertNativeCommandParameters(
     oneOf(1, [null]);
   }
   if (code === 232) oneOf(1, [0]);
-  if (code === 302 || code === 605) {
-    oneOf(0, [0, 1, 2]);
-    oneOf(2, [0, 1]);
-    if (parameters[2] === 0) oneOf(3, [0]);
-  }
   if (code === 201) {
     oneOf(0, [0, 1]);
     if (parameters[0] === 0) {

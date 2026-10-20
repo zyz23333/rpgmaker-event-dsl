@@ -684,16 +684,16 @@ export type BattleProcessingDslCommand = {
   lose?: readonly DslCommand[];
 };
 
-export type ShopGoods = {
-  kind: "item" | "weapon" | "armor";
-  item: ReferenceValue<"item"> | ReferenceValue<"weapon"> | ReferenceValue<"armor">;
-  price?: number;
-};
+export type ShopGoods =
+  | { kind: "placeholder" }
+  | { kind: "item"; item: ReferenceValue<"item">; price?: number }
+  | { kind: "weapon"; weapon: ReferenceValue<"weapon">; price?: number }
+  | { kind: "armor"; armor: ReferenceValue<"armor">; price?: number };
 
 export type ShopProcessingDslCommand = {
   kind: "shopProcessing";
-  goods: readonly [ShopGoods, ...ShopGoods[]];
-  allowSelling?: boolean;
+  goods: readonly ShopGoods[];
+  purchaseOnly?: boolean;
 };
 
 export type NameInputProcessingDslCommand = {

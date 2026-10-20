@@ -1,6 +1,6 @@
 # 47: Shop 完整商品结构
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 07, 23
 Stage: S6
 Execution batch: [物品、队伍与商店](../tickets.md#batch-inventory-shop)

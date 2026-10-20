@@ -486,7 +486,7 @@ describe("decompiler command list rendering", () => {
       ],
       source: [
         'battleProcessing({ troop: { kind: "troop", variable: variableRef({ id: 2 }) }, canEscape: true, canLose: true, win: [wait({ frames: 1 }),], escape: [wait({ frames: 2 }),], lose: [wait({ frames: 3 }),] }),',
-        'shopProcessing({ goods: [{ kind: "item", item: itemRef({ id: 1 }) }, { kind: "weapon", item: weaponRef({ id: 2 }), price: 250 }], allowSelling: true }),',
+        'shopProcessing({ goods: [{ kind: "item", item: itemRef({ id: 1 }) }, { kind: "weapon", weapon: weaponRef({ id: 2 }), price: 250 }], purchaseOnly: true }),',
         "nameInputProcessing({ actor: actorRef({ id: 1 }), maxCharacters: 8 }),",
         'changeHp({ target: { kind: "runtimeSelector", scope: "actor", target: "entireParty" }, operation: "lose", value: { kind: "constant", value: 10 }, allowDeath: true }),',
         'changeMp({ target: { kind: "runtimeSelector", scope: "actor", target: "actorFromVariable", variable: variableRef({ id: 2 }) }, operation: "gain", value: { kind: "variable", variable: variableRef({ id: 3 }) } }),',
