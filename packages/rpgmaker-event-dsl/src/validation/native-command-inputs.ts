@@ -5,6 +5,7 @@ import { isKnownCommandCode } from "./native-parameters.js";
 import { inspectNativeScreenContext } from "../commands/screen/validation.js";
 import { renderJsonValue } from "../project-data/json-values.js";
 
+import { inspectNativeActorPresentation } from "../commands/actor/presentation-diagnostics.js";
 import { inspectNativeLabelInputs } from "../commands/flow/diagnostics.js";
 
 export type NativeInputOptions = {
@@ -89,6 +90,7 @@ export function inspectNativeCommandInputs(
   for (const [index, command] of commands.entries()) {
     const path = `${options.prefix ?? ""}list[${index}]`;
     const origin = options.origins?.get(command);
+    issues.push(...inspectNativeActorPresentation(command, path, options));
     if (
       command.code === 111 &&
       command.parameters[0] === 12 &&

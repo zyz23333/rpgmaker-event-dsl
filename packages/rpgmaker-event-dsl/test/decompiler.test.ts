@@ -327,8 +327,8 @@ describe("decompiler command list rendering", () => {
         "wait",
       ],
       source: [
-        'showText({ lines: ["Hello"], face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 2 }, background: 1, positionType: 0 }),',
-        'showChoices({ choices: [{ text: "Yes", commands: [wait({ frames: 10 }),], endMarker: "absent" }, { text: "No", commands: [eraseEvent(),], endMarker: "absent" }], cancel: { kind: "branch", commands: [showText({ lines: ["Canceled"] }),], endMarker: "absent" } }),',
+        'showText({ lines: ["Hello"], face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 2 }, background: "dim", position: "top" }),',
+        'showChoices({ choices: [{ text: "Yes", commands: [wait({ frames: 10 }),], endMarker: "absent" }, { text: "No", commands: [eraseEvent(),], endMarker: "absent" }], cancel: { kind: "branch", commands: [showText({ lines: ["Canceled"], face: { image: null, index: 0 }, background: "window", position: "bottom" }),], endMarker: "absent" } }),',
         "inputNumber({ variable: variableRef({ id: 3 }), digits: 4 }),",
         'selectItem({ variable: variableRef({ id: 3 }), itemType: "regular" }),',
         'showScrollingText({ lines: ["Scroll","More"], speed: 5, noFastForward: true }),',

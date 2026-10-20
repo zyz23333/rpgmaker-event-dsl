@@ -230,8 +230,26 @@ export const guideEvent = mapEvent({
             switch: chestOpenedSwitch,
             value: true,
           },
-          then: { commands: [showText({ lines: ["The reward chest has already been opened."] })] },
-          else: { commands: [showText({ lines: ["The reward chest is still waiting."] })] },
+          then: {
+            commands: [
+              showText({
+                lines: ["The reward chest has already been opened."],
+                face: { image: null, index: 0 },
+                background: "window",
+                position: "bottom",
+              }),
+            ],
+          },
+          else: {
+            commands: [
+              showText({
+                lines: ["The reward chest is still waiting."],
+                face: { image: null, index: 0 },
+                background: "window",
+                position: "bottom",
+              }),
+            ],
+          },
         }),
         conditional({
           condition: {
@@ -239,20 +257,32 @@ export const guideEvent = mapEvent({
             script: scriptInput({ code: "$gameParty.gold() >= 0" }),
           },
           then: {
-            commands: [showText({ lines: ["Script conditions are explicit Script Inputs."] })],
+            commands: [
+              showText({
+                lines: ["Script conditions are explicit Script Inputs."],
+                face: { image: null, index: 0 },
+                background: "window",
+                position: "bottom",
+              }),
+            ],
           },
         }),
         showChoices({
-          choices: ["Call common event", "Stop here"],
-          branches: [[callCommonEvent(sampleCommonEvent)], [exitEvent()]],
-          cancelBranch: [
-            showText({
-              lines: ["Canceled."],
-              face: { image: null, index: 0 },
-              background: "window",
-              position: "bottom",
-            }),
+          choices: [
+            { text: "Call common event", commands: [callCommonEvent(sampleCommonEvent)] },
+            { text: "Stop here", commands: [exitEvent()] },
           ],
+          cancel: {
+            kind: "branch",
+            commands: [
+              showText({
+                lines: ["Canceled."],
+                face: { image: null, index: 0 },
+                background: "window",
+                position: "bottom",
+              }),
+            ],
+          },
         }),
         wait({ frames: 15 }),
       ],
@@ -546,14 +576,14 @@ export const labelDemoEvent = mapEvent({
           background: "window",
           position: "bottom",
         }),
-        jumpToLabel("AfterSkippedLine"),
+        jumpToLabel({ name: "AfterSkippedLine" }),
         showText({
           lines: ["You should not see this skipped line."],
           face: { image: null, index: 0 },
           background: "window",
           position: "bottom",
         }),
-        label("AfterSkippedLine"),
+        label({ name: "AfterSkippedLine" }),
         showText({
           lines: ["Jump target reached."],
           face: { image: null, index: 0 },
@@ -661,8 +691,26 @@ export const partyStateStationEvent = mapEvent({
             actor: heroActor,
             check: { kind: "state", state: poisonState },
           },
-          then: { commands: [showText({ lines: ["The hero is poisoned."] })] },
-          else: { commands: [showText({ lines: ["The hero is not poisoned."] })] },
+          then: {
+            commands: [
+              showText({
+                lines: ["The hero is poisoned."],
+                face: { image: null, index: 0 },
+                background: "window",
+                position: "bottom",
+              }),
+            ],
+          },
+          else: {
+            commands: [
+              showText({
+                lines: ["The hero is not poisoned."],
+                face: { image: null, index: 0 },
+                background: "window",
+                position: "bottom",
+              }),
+            ],
+          },
         }),
         conditional({
           condition: {
@@ -686,7 +734,16 @@ export const partyStateStationEvent = mapEvent({
             kind: "item",
             item: potion,
           },
-          then: { commands: [showText({ lines: ["The party has at least one potion."] })] },
+          then: {
+            commands: [
+              showText({
+                lines: ["The party has at least one potion."],
+                face: { image: null, index: 0 },
+                background: "window",
+                position: "bottom",
+              }),
+            ],
+          },
         }),
         controlTimer({ action: "start", seconds: 30 }),
         controlTimer({ action: "stop" }),

@@ -17,6 +17,7 @@ import {
 } from "../commands/movement/access-validation.js";
 import { assertSceneCommandInput } from "../commands/system/validation.js";
 import { assertAudioCommandInput } from "../commands/audio/validation.js";
+import { assertActorPresentationInput } from "../commands/actor/presentation-validation.js";
 import { assertActorResourceInput } from "../commands/actor/validation.js";
 import {
   compileActorResourceTarget,
@@ -153,6 +154,7 @@ export function compileNodes(
     assertWindowColorInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true);
     assertSceneCommandInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
     assertActorResourceInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
+    assertActorPresentationInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     const outputStart = output.length;
     switch (node.kind) {
       case "showText":
@@ -903,7 +905,11 @@ export function compileNodes(
         output.push({
           code: 323,
           indent,
-          parameters: [vehicleToCode(node.vehicle), node.image === null ? "" : node.image.name, node.index],
+          parameters: [
+            vehicleToCode(node.vehicle),
+            node.image === null ? "" : node.image.name,
+            node.index,
+          ],
         });
         break;
       case "changeNickname":

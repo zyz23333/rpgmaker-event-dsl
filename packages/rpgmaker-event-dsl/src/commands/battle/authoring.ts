@@ -1,7 +1,6 @@
 import type {
   BattleProcessingDslCommand,
   DslCommand,
-  NameInputProcessingDslCommand,
   ReferenceValue,
   ShopGoods,
   ShopProcessingDslCommand,
@@ -62,15 +61,4 @@ export function shopProcessing(input: {
   }
 
   return node;
-}
-
-export function nameInputProcessing(input: {
-  actor: ReferenceValue<"actor">;
-  maxCharacters: number;
-}): NameInputProcessingDslCommand {
-  return {
-    kind: "nameInputProcessing",
-    actor: input.actor,
-    maxCharacters: input.maxCharacters,
-  };
 }

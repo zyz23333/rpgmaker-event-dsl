@@ -309,3 +309,36 @@ indent of zero is absolute. Let formal owners generate their continuations and m
 handwritten raw records must still form a valid complete structure.
 Confirm code, parameters, and indentation from project data, Decompiled Source, nearby
 examples, or reliable MV command mapping.
+
+## Actor Text and Images
+
+```ts
+nameInputProcessing({ actor: actorRef({ id: 1 }), maxCharacters: 16 });
+changeName({ actor: actorRef({ id: 1 }), name: "" });
+changeNickname({ actor: actorRef({ id: 1 }), nickname: "  Mira  " });
+changeProfile({ actor: actorRef({ id: 1 }), profile: "First line\nSecond line\n" });
+changeActorImages({
+  actor: actorRef({ id: 1 }),
+  character: { image: null, index: 7 },
+  face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 11 },
+  battler: null,
+});
+changeVehicleImage({ vehicle: "airship", image: null, index: 7 });
+```
+
+All shown fields are required. Name Input uses a fixed existing Actor and an integer
+`maxCharacters` from 1 through 16. Battle execution skips its Name scene and produces
+a context warning. Name, nickname and profile are complete strings, including empty
+text, whitespace, CR, LF, CRLF and trailing characters, without a product length cap.
+Name and nickname warn on LF; profile warns on two or more LF characters, including
+trailing LF. CR independently warns about parameter reconfirmation. These strings
+remain one saved slot and do not require the Script Command Gate.
+
+Character and vehicle images use the `characters` folder, faces use `faces`, and
+battlers use `sv_actors`. Explicit `null` selects None. Character and vehicle indices
+are independent integers 0 through 7, including with None or a large character image.
+Face indices use 0 through 2,147,483,647 excluding negative zero. A non-None face
+index of at least 8 warns that it exceeds the official two-row layout and its asset
+dimensions are unchecked; None preserves the index without that warning. Vehicles
+are `boat`, `ship` or `airship`. In battle, Change Vehicle Image changes the held map
+vehicle object, with a warning that immediate visibility is uncertain.

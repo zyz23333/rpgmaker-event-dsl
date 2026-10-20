@@ -18,10 +18,12 @@ import type {
   ChangeTpDslCommand,
   ChangeVehicleImageDslCommand,
   ImageAssetReference,
+  NameInputProcessingDslCommand,
   RecoverAllDslCommand,
   ReferenceValue,
   VehicleTarget,
 } from "../../domain/types.js";
+import { assertActorPresentationInput } from "./presentation-validation.js";
 import { assertActorResourceInput } from "./validation.js";
 
 export function changeHp(input: {
@@ -156,6 +158,7 @@ export function changeName(input: {
   actor: ReferenceValue<"actor">;
   name: string;
 }): ChangeNameDslCommand {
+  assertActorPresentationInput("changeName", input, "changeName");
   return {
     kind: "changeName",
     actor: input.actor,
@@ -183,6 +186,7 @@ export function changeActorImages(input: {
   face: { image: ImageAssetReference | null; index: number };
   battler: ImageAssetReference | null;
 }): ChangeActorImagesDslCommand {
+  assertActorPresentationInput("changeActorImages", input, "changeActorImages");
   return {
     kind: "changeActorImages",
     actor: input.actor,
@@ -197,6 +201,7 @@ export function changeVehicleImage(input: {
   image: ImageAssetReference | null;
   index: number;
 }): ChangeVehicleImageDslCommand {
+  assertActorPresentationInput("changeVehicleImage", input, "changeVehicleImage");
   return {
     kind: "changeVehicleImage",
     vehicle: input.vehicle,
@@ -209,6 +214,7 @@ export function changeNickname(input: {
   actor: ReferenceValue<"actor">;
   nickname: string;
 }): ChangeNicknameDslCommand {
+  assertActorPresentationInput("changeNickname", input, "changeNickname");
   return {
     kind: "changeNickname",
     actor: input.actor,
@@ -220,6 +226,7 @@ export function changeProfile(input: {
   actor: ReferenceValue<"actor">;
   profile: string;
 }): ChangeProfileDslCommand {
+  assertActorPresentationInput("changeProfile", input, "changeProfile");
   return {
     kind: "changeProfile",
     actor: input.actor,
@@ -239,4 +246,12 @@ export function changeTp(input: {
     operation: input.operation,
     value: input.value,
   };
+}
+
+export function nameInputProcessing(input: {
+  actor: ReferenceValue<"actor">;
+  maxCharacters: number;
+}): NameInputProcessingDslCommand {
+  assertActorPresentationInput("nameInputProcessing", input, "nameInputProcessing");
+  return { kind: "nameInputProcessing", actor: input.actor, maxCharacters: input.maxCharacters };
 }

@@ -34,6 +34,7 @@ import {
   assertWindowColorInput,
 } from "../commands/movement/access-validation.js";
 import { assertSceneCommandInput } from "../commands/system/validation.js";
+import { assertActorPresentationInput } from "../commands/actor/presentation-validation.js";
 import { assertActorResourceInput } from "../commands/actor/validation.js";
 
 import { resolveMessageVariable } from "../commands/message/validation.js";
@@ -80,6 +81,7 @@ export function validateNodes(
       assertSceneCommandInput(node.kind, node, nodePath);
       assertPictureInput(node.kind, node, nodePath, true, resolver);
       assertActorResourceInput(node.kind, node, nodePath, true, resolver);
+      assertActorPresentationInput(node.kind, node, nodePath, true, resolver);
     } catch (error) {
       if (error instanceof CommandStructureError)
         issues.push(error.issue(options.identity ?? "event", "compile"));

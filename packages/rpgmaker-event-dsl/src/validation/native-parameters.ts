@@ -10,6 +10,7 @@ import { assertNativeMapAppearanceParameters } from "../commands/map/native-vali
 import { assertNativeSystemSettingsParameters } from "../commands/movement/access-native-validation.js";
 import { assertNativePictureParameters } from "../commands/screen/picture-native.js";
 import { assertNativeAudioParameters } from "../commands/audio/validation.js";
+import { assertNativeActorPresentationParameters } from "../commands/actor/presentation-native.js";
 import { assertNativeActorResourceParameters } from "../commands/actor/native-validation.js";
 
 // Shared saved-slot envelopes. Family validators retain ownership of semantic ranges,
@@ -165,6 +166,7 @@ export function assertNativeCommandParameters(
   assertNativeMapAppearanceParameters(code, parameters, path);
   assertNativeSystemSettingsParameters(code, parameters, path);
   assertNativeActorResourceParameters(code, parameters, path);
+  assertNativeActorPresentationParameters(code, parameters, path);
   try {
     assertNativeSwitchCommand(code, parameters);
   } catch (error) {
@@ -236,7 +238,6 @@ export function assertNativeCommandParameters(
       `integer ${minimum}..${maximum}, excluding negative zero`,
     );
   if (code === 101) integer(1, 0, 2147483647);
-  if (code === 322) integer(4, 0);
   if (code === 101) {
     oneOf(2, [0, 1, 2]);
     oneOf(3, [0, 1, 2]);
