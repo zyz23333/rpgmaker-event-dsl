@@ -90,7 +90,6 @@ export function changeExp(input: {
     value: input.value,
     showLevelUp: input.showLevelUp,
   };
-
 }
 
 export function changeLevel(input: {
@@ -107,7 +106,6 @@ export function changeLevel(input: {
     value: input.value,
     showLevelUp: input.showLevelUp,
   };
-
 }
 
 export function changeParameter(input: {
@@ -177,7 +175,6 @@ export function changeClass(input: {
     class: input.class,
     keepExp: input.keepExp,
   };
-
 }
 
 export function changeActorImages(input: {

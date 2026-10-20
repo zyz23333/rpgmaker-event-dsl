@@ -6,7 +6,19 @@ export function assertNativeActorResourceParameters(
   parameters: readonly unknown[],
   path: string,
 ): void {
-  const counts: Record<number, number> = { 311: 6, 312: 5, 313: 4, 314: 2, 315: 6, 316: 6, 317: 6, 318: 4, 319: 3, 321: 3, 326: 5 };
+  const counts: Record<number, number> = {
+    311: 6,
+    312: 5,
+    313: 4,
+    314: 2,
+    315: 6,
+    316: 6,
+    317: 6,
+    318: 4,
+    319: 3,
+    321: 3,
+    326: 5,
+  };
   if (!Object.hasOwn(counts, code)) return;
   const fail = (index: number | undefined, expected: string, actual: unknown): never => {
     throw new CommandStructureError(
@@ -63,7 +75,19 @@ export function assertNativeActorResourceParameters(
     return;
   }
   categorical(3);
-  integer(4, 1, parameters[3] === 1 ? Number.MAX_SAFE_INTEGER : code === 315 ? 9999999 : code === 316 ? 98 : code === 326 ? 100 : 9999);
+  integer(
+    4,
+    1,
+    parameters[3] === 1
+      ? Number.MAX_SAFE_INTEGER
+      : code === 315
+        ? 9999999
+        : code === 316
+          ? 98
+          : code === 326
+            ? 100
+            : 9999,
+  );
   if ((code === 311 || code === 315 || code === 316) && typeof parameters[5] !== "boolean")
     fail(5, "explicit boolean", parameters[5]);
 }

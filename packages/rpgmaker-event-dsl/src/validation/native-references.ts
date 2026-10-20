@@ -24,12 +24,15 @@ export function inspectNativeCommandReferences(
     const p = command.parameters;
     if (command.code === 319) {
       const origin = options.origins?.get(command);
-      issues.push(...inspectEquipmentContext(p, resolver, {
-        equipmentTypes: options.equipmentTypes,
-        identity: options.identity, stage: options.stage,
-        nativePath: `${options.prefix ?? ""}list[${index}]`,
-        ...(origin ? { dslPath: origin.path, raw: origin.kind === "rawDslCommand" } : {}),
-      }));
+      issues.push(
+        ...inspectEquipmentContext(p, resolver, {
+          equipmentTypes: options.equipmentTypes,
+          identity: options.identity,
+          stage: options.stage,
+          nativePath: `${options.prefix ?? ""}list[${index}]`,
+          ...(origin ? { dslPath: origin.path, raw: origin.kind === "rawDslCommand" } : {}),
+        }),
+      );
     }
     const refs: Array<[ReferenceKind, number]> = [];
     const ref = (kind: ReferenceKind, slot: number) => refs.push([kind, slot]);

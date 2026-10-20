@@ -42,7 +42,8 @@ export function renderActorOperateValueCommand(
       : hasTrailingBoolean
         ? `, showLevelUp: ${literal(trailing)}`
         : "";
-  const value = command.parameters[3] === 0
+  const value =
+    command.parameters[3] === 0
       ? `{ kind: "constant", value: ${operand.expression} }`
       : `{ kind: "variable", variable: ${operand.expression} }`;
 

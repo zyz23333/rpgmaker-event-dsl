@@ -209,7 +209,13 @@ async function buildDecompiledSourceFiles(
         );
         const errors = inspectNativeCommandReferences(page.list ?? [], resolver, inputOptions);
         issues.push(...errors.filter((issue) => issue.level === "warning"));
-        if (errors.some((issue) => issue.level === "error")) throw new Error(errors.filter((issue) => issue.level === "error").map((issue) => issue.message).join("\n"));
+        if (errors.some((issue) => issue.level === "error"))
+          throw new Error(
+            errors
+              .filter((issue) => issue.level === "error")
+              .map((issue) => issue.message)
+              .join("\n"),
+          );
         assertSnapshotRendering(page.list ?? [], inputOptions.identity, inputOptions.prefix);
       }
     }
@@ -244,7 +250,13 @@ async function buildDecompiledSourceFiles(
       stage: "decompile",
     });
     issues.push(...errors.filter((issue) => issue.level === "warning"));
-    if (errors.some((issue) => issue.level === "error")) throw new Error(errors.filter((issue) => issue.level === "error").map((issue) => issue.message).join("\n"));
+    if (errors.some((issue) => issue.level === "error"))
+      throw new Error(
+        errors
+          .filter((issue) => issue.level === "error")
+          .map((issue) => issue.message)
+          .join("\n"),
+      );
     assertSnapshotRendering(event.list ?? [], `commonEvent:${event.id}`);
   }
   files.push({
@@ -295,7 +307,13 @@ async function buildDecompiledSourceFiles(
         prefix,
       });
       issues.push(...errors.filter((issue) => issue.level === "warning"));
-      if (errors.some((issue) => issue.level === "error")) throw new Error(errors.filter((issue) => issue.level === "error").map(({ message }) => message).join("\n"));
+      if (errors.some((issue) => issue.level === "error"))
+        throw new Error(
+          errors
+            .filter((issue) => issue.level === "error")
+            .map(({ message }) => message)
+            .join("\n"),
+        );
       assertSnapshotReferences(commands, `${identity}.${prefix}list`, resolver);
       assertSnapshotRendering(commands, identity, prefix);
     }

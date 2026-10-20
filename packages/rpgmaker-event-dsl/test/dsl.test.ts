@@ -392,7 +392,12 @@ describe("collectDslOwnedDeclarations", () => {
     ).toBe("changeState");
     expect(
       changeExp({
-        target: { kind: "runtimeSelector", scope: "actor", target: "actor", actor: actorRef({ id: 1 }) },
+        target: {
+          kind: "runtimeSelector",
+          scope: "actor",
+          target: "actor",
+          actor: actorRef({ id: 1 }),
+        },
         operation: "gain",
         value: { kind: "constant", value: 10 },
         showLevelUp: false,
@@ -400,7 +405,12 @@ describe("collectDslOwnedDeclarations", () => {
     ).toBe("changeExp");
     expect(
       changeLevel({
-        target: { kind: "runtimeSelector", scope: "actor", target: "actor", actor: actorRef({ id: 1 }) },
+        target: {
+          kind: "runtimeSelector",
+          scope: "actor",
+          target: "actor",
+          actor: actorRef({ id: 1 }),
+        },
         operation: "gain",
         value: { kind: "constant", value: 1 },
         showLevelUp: false,
@@ -408,7 +418,12 @@ describe("collectDslOwnedDeclarations", () => {
     ).toBe("changeLevel");
     expect(
       changeParameter({
-        target: { kind: "runtimeSelector", scope: "actor", target: "actor", actor: actorRef({ id: 1 }) },
+        target: {
+          kind: "runtimeSelector",
+          scope: "actor",
+          target: "actor",
+          actor: actorRef({ id: 1 }),
+        },
         parameter: "atk",
         operation: "gain",
         value: { kind: "constant", value: 2 },
@@ -416,13 +431,22 @@ describe("collectDslOwnedDeclarations", () => {
     ).toBe("changeParameter");
     expect(
       changeSkill({
-        target: { kind: "runtimeSelector", scope: "actor", target: "actor", actor: actorRef({ id: 1 }) },
+        target: {
+          kind: "runtimeSelector",
+          scope: "actor",
+          target: "actor",
+          actor: actorRef({ id: 1 }),
+        },
         operation: "learn",
         skill: { kind: "skill", id: 1 },
       }).kind,
     ).toBe("changeSkill");
     expect(
-      changeEquipment({ actor: { kind: "actor", id: 1 }, slotIndex: 0, equipment: { kind: "runtimeSelector", scope: "equipment", target: "idForSlot", id: 1 } }).kind,
+      changeEquipment({
+        actor: { kind: "actor", id: 1 },
+        slotIndex: 0,
+        equipment: { kind: "runtimeSelector", scope: "equipment", target: "idForSlot", id: 1 },
+      }).kind,
     ).toBe("changeEquipment");
     expect(changeName({ actor: { kind: "actor", id: 1 }, name: "Alex" }).kind).toBe("changeName");
     expect(

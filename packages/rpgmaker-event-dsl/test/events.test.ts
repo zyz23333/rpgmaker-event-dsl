@@ -951,8 +951,18 @@ describe("compileMapEvent", () => {
                 state: stateRef({ name: "Poison" }),
               }),
               recoverAll({ target: partyTarget }),
-              changeExp({ target: actorTarget, operation: "gain", value: { kind: "constant", value: 50 }, showLevelUp: true }),
-              changeLevel({ target: actorTarget, operation: "lose", value: { kind: "constant", value: 1 }, showLevelUp: false }),
+              changeExp({
+                target: actorTarget,
+                operation: "gain",
+                value: { kind: "constant", value: 50 },
+                showLevelUp: true,
+              }),
+              changeLevel({
+                target: actorTarget,
+                operation: "lose",
+                value: { kind: "constant", value: 1 },
+                showLevelUp: false,
+              }),
               changeParameter({
                 target: actorTarget,
                 parameter: "atk",
@@ -967,7 +977,12 @@ describe("compileMapEvent", () => {
               changeEquipment({
                 actor: { kind: "actor", id: 1 },
                 slotIndex: 0,
-                equipment: { kind: "runtimeSelector", scope: "equipment", target: "idForSlot", id: 1 },
+                equipment: {
+                  kind: "runtimeSelector",
+                  scope: "equipment",
+                  target: "idForSlot",
+                  id: 1,
+                },
               }),
               changeName({ actor: { kind: "actor", id: 1 }, name: "Alex" }),
               changeClass({

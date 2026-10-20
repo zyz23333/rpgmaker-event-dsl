@@ -826,7 +826,12 @@ describe("validateDslOwnedDeclarations", () => {
               kind: "changeEquipment",
               actor: { kind: "actor", id: 1 },
               slotIndex: -1,
-              equipment: { kind: "runtimeSelector", scope: "equipment", target: "idForSlot", id: -1 },
+              equipment: {
+                kind: "runtimeSelector",
+                scope: "equipment",
+                target: "idForSlot",
+                id: -1,
+              },
             },
           ],
         }),
@@ -839,9 +844,15 @@ describe("validateDslOwnedDeclarations", () => {
       },
     );
 
-    expect(result.issues).toEqual(expect.arrayContaining([
-      expect.objectContaining({ level: "error", code: "MV-E319-INPUT", dslPath: "pages[0].commands[0].slotIndex" }),
-    ]));
+    expect(result.issues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          level: "error",
+          code: "MV-E319-INPUT",
+          dslPath: "pages[0].commands[0].slotIndex",
+        }),
+      ]),
+    );
   });
 
   it("rejects Conditional Branch script conditions when scripts are disabled", () => {
