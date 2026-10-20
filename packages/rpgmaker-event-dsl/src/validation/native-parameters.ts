@@ -1,3 +1,5 @@
+import { assertNativeBattleParameters } from "../commands/battle/validation.js";
+import { assertNativeEnemyParameters } from "../commands/enemy/validation.js";
 import { CommandStructureError } from "./command-errors.js";
 import { renderJsonValue } from "../project-data/json-values.js";
 import { assertNativeConditionalParameters } from "../commands/flow/conditional-validation.js";
@@ -148,6 +150,8 @@ export function assertNativeCommandParameters(
   path: string,
 ): void {
   if (!isKnownCommandCode(code)) return;
+  if (assertNativeBattleParameters(code, parameters, path)) return;
+  if (assertNativeEnemyParameters(code, parameters, path)) return;
   if (code >= 231 && code <= 235) {
     assertNativePictureParameters(code, parameters, path);
     return;

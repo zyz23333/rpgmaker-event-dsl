@@ -66,20 +66,14 @@ export function compileBattleProcessingParameters(
   node: BattleProcessingDslCommand,
   resolver: ReferenceResolver,
 ): unknown[] {
-  if ("useRandomEncounter" in node.troop) {
-    return [2, 0, node.canEscape ?? false, node.canLose ?? false];
-  }
-
-  if ("variable" in node.troop) {
-    return [
-      1,
-      resolver.resolveReference(node.troop.variable),
-      node.canEscape ?? false,
-      node.canLose ?? false,
-    ];
-  }
-
-  return [0, resolver.resolveReference(node.troop), node.canEscape ?? false, node.canLose ?? false];
+  const troop = node.troop;
+  const prefix =
+    troop.kind === "randomEncounter"
+      ? [2, 0]
+      : troop.kind === "variable"
+        ? [1, resolver.resolveReference(troop.variable)]
+        : [0, resolver.resolveReference(troop.troop)];
+  return [...prefix, node.canEscape ?? false, node.canLose ?? false];
 }
 
 export function compileShopGoodsParameters(

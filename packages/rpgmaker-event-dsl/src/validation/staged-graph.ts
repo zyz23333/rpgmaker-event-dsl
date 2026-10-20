@@ -46,8 +46,6 @@ export {
   validateEventLocationDestination,
   validateCharacterRuntimeSelector,
   validateActorCommandTarget,
-  validateEnemyCommandTarget,
-  validateBattlerCommandTarget,
   validateOperateValueOperand,
   validateCommandPositiveInteger,
   validateCommandNonNegativeInteger,

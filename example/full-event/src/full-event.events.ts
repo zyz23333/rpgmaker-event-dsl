@@ -316,21 +316,20 @@ export const practiceBattleEvent = mapEvent({
           troop: batTroop,
           canEscape: true,
           canLose: true,
-          win: [showText({ lines: ["Battle branch: win."] })],
-          escape: [showText({ lines: ["Battle branch: escape."] })],
-          lose: [showText({ lines: ["Battle branch: lose."] })],
+          win: { commands: [showText({ lines: ["Battle branch: win."] })], endMarker: "absent" },
+          escape: {
+            commands: [showText({ lines: ["Battle branch: escape."] })],
+            endMarker: "absent",
+          },
+          lose: { commands: [showText({ lines: ["Battle branch: lose."] })], endMarker: "absent" },
         }),
         changeEnemyHp({
           target: allEnemies,
           operation: "lose",
-          value: 1,
+          value: { kind: "constant", value: 1 },
           allowDeath: true,
         }),
-        forceAction({
-          subject: heroBattler,
-          skill: attackSkill,
-          targetIndex: -2,
-        }),
+        forceAction({ subject: heroBattler, skill: attackSkill, target: { kind: "lastTarget" } }),
         abortBattle(),
         shopProcessing({
           goods: [{ kind: "item", item: potion, price: 1 }],
@@ -577,7 +576,7 @@ export const partyStateStationEvent = mapEvent({
               changeEnemyHp({
                 target: firstEnemy,
                 operation: "lose",
-                value: 10,
+                value: { kind: "constant", value: 10 },
                 allowDeath: true,
               }),
             ],

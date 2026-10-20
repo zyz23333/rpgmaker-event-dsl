@@ -771,14 +771,7 @@ describe("validateDslOwnedDeclarations", () => {
           mapId: 1,
           id: 1,
           name: "Random Battle",
-          commands: [
-            battleProcessing({
-              troop: {
-                kind: "troop",
-                useRandomEncounter: true,
-              },
-            }),
-          ],
+          commands: [battleProcessing({ troop: { kind: "randomEncounter" } })],
         }),
       ],
       { scriptEnabled: false },
@@ -789,15 +782,20 @@ describe("validateDslOwnedDeclarations", () => {
           mapId: 1,
           id: 1,
           name: "Fixed Battle",
-          commands: [battleProcessing({ troop: troopRef({ id: 99 }) })],
+          commands: [battleProcessing({ troop: { kind: "fixed", troop: troopRef({ id: 99 }) } })],
         }),
       ],
       { scriptEnabled: false },
     );
 
     expect(randomEncounterResult.issues).toEqual([]);
-    expect(missingTroopResult.issues.map((issue) => issue.message)).toContain(
-      "Unknown troop reference id: 99",
+    expect(missingTroopResult.issues).toContainEqual(
+      expect.objectContaining({
+        level: "error",
+        code: "MV-E301-REFERENCE",
+        dslPath: "pages[0].commands[0].troop.troop",
+        message: expect.stringContaining("Unknown troop reference id: 99"),
+      }),
     );
   });
 
@@ -809,11 +807,12 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Invalid Battle Branches",
           commands: [
-            battleProcessing({
-              troop: troopRef({ id: 1 }),
-              escape: [],
-              lose: [],
-            }),
+            {
+              kind: "battleProcessing",
+              troop: { kind: "fixed", troop: troopRef({ id: 1 }) },
+              escape: { commands: [] },
+              lose: { commands: [] },
+            } as never,
           ],
         }),
       ],
@@ -825,11 +824,13 @@ describe("validateDslOwnedDeclarations", () => {
       },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toEqual(
-      expect.arrayContaining([
-        "Battle Processing escape branch requires canEscape: true.",
-        "Battle Processing lose branch requires canLose: true.",
-      ]),
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        level: "error",
+        code: "MV-E301",
+        dslPath: "pages[0].commands[0].escape",
+        expected: "body absent when its flag is false",
+      }),
     );
   });
 
@@ -1044,7 +1045,8 @@ describe("validateDslOwnedDeclarations", () => {
             changeEnemyHp({
               target: { kind: "runtimeSelector", scope: "enemy", target: "all" },
               operation: "lose",
-              value: 5,
+              value: { kind: "constant", value: 5 },
+              allowDeath: false,
             }),
           ],
         }),
@@ -1073,9 +1075,18 @@ describe("validateDslOwnedDeclarations", () => {
       { scriptEnabled: false },
     );
 
-    expect(validResult.issues).toEqual([]);
-    expect(invalidResult.issues.map((issue) => issue.message)).toContain(
-      "MV-E336-REFERENCE validation map 1 event 1.pages[0].commands[0].enemy: Unknown enemy reference id: 99",
+    expect(validResult.issues.filter((issue) => issue.level === "error")).toEqual([]);
+    expect(validResult.issues.map((issue) => issue.code)).toEqual([
+      "MV-E336-ENEMY-CONTEXT",
+      "MV-E331-ENEMY-CONTEXT",
+    ]);
+    expect(invalidResult.issues).toContainEqual(
+      expect.objectContaining({
+        level: "error",
+        code: "MV-E336-REFERENCE",
+        dslPath: "pages[0].commands[0].enemy",
+        message: expect.stringContaining("Unknown enemy reference id: 99"),
+      }),
     );
   });
 

@@ -420,11 +420,15 @@ describe("collectDslOwnedDeclarations", () => {
     ).toBe("getLocationInfo");
     expect(wait({ frames: 60 }).kind).toBe("wait");
     expect(eraseEvent().kind).toBe("eraseEvent");
-    expect(battleProcessing({ troop: troopRef({ id: 1 }) }).kind).toBe("battleProcessing");
+    expect(battleProcessing({ troop: { kind: "fixed", troop: troopRef({ id: 1 }) } }).kind).toBe(
+      "battleProcessing",
+    );
     expect(
       battleProcessing({
-        troop: { kind: "troop", variable: variableRef({ id: 1 }) },
-        win: [wait({ frames: 1 })],
+        troop: { kind: "variable", variable: variableRef({ id: 1 }) },
+        win: { commands: [wait({ frames: 1 })], endMarker: "absent" },
+        canEscape: true,
+        escape: { commands: [] },
       }).kind,
     ).toBe("battleProcessing");
     expect(
@@ -533,14 +537,15 @@ describe("collectDslOwnedDeclarations", () => {
       changeEnemyHp({
         target: { kind: "runtimeSelector", scope: "enemy", target: "all" },
         operation: "lose",
-        value: 1,
+        value: { kind: "constant", value: 1 },
+        allowDeath: false,
       }).kind,
     ).toBe("changeEnemyHp");
     expect(
       changeEnemyMp({
         target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
         operation: "gain",
-        value: 1,
+        value: { kind: "constant", value: 1 },
       }).kind,
     ).toBe("changeEnemyMp");
     expect(
@@ -568,15 +573,21 @@ describe("collectDslOwnedDeclarations", () => {
     ).toBe("enemyTransform");
     expect(
       showBattleAnimation({
-        target: { kind: "runtimeSelector", scope: "enemy", target: "all" },
+        target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
         animation: animationRef({ id: 1 }),
+        allEnemies: true,
       }).kind,
     ).toBe("showBattleAnimation");
     expect(
       forceAction({
-        subject: { kind: "runtimeSelector", scope: "battler", target: "actor", actorId: 1 },
+        subject: {
+          kind: "runtimeSelector",
+          scope: "battler",
+          target: "actor",
+          actor: { kind: "actor", id: 1 },
+        },
         skill: { kind: "skill", id: 1 },
-        targetIndex: -2,
+        target: { kind: "lastTarget" },
       }).kind,
     ).toBe("forceAction");
     expect(abortBattle().kind).toBe("abortBattle");
@@ -584,7 +595,7 @@ describe("collectDslOwnedDeclarations", () => {
       changeEnemyTp({
         target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
         operation: "gain",
-        value: 4,
+        value: { kind: "constant", value: 4 },
       }).kind,
     ).toBe("changeEnemyTp");
     expect(openMenuScreen().kind).toBe("openMenuScreen");

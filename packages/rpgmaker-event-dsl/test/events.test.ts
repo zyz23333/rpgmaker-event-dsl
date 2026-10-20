@@ -376,7 +376,12 @@ describe("compileMapEvent", () => {
                 },
               }),
               getOnOffVehicle(),
-              battleProcessing({ troop: troopRef({ name: "Slime" }), canEscape: true }),
+              battleProcessing({
+                troop: { kind: "fixed", troop: troopRef({ name: "Slime" }) },
+                canEscape: true,
+                win: { commands: [] },
+                escape: { commands: [] },
+              }),
             ],
           }),
         ],
@@ -493,8 +498,14 @@ describe("compileMapEvent", () => {
     });
     expect(commands[82]).toEqual({ code: 206, indent: 0, parameters: [] });
     expect(commands[83]).toEqual({ code: 301, indent: 0, parameters: [0, 1, true, false] });
-    expect(commands[84]).toEqual({ code: 604, indent: 0, parameters: [] });
-    expect(commands[85]).toEqual({ code: 0, indent: 0, parameters: [] });
+    expect(commands.slice(84)).toEqual([
+      { code: 601, indent: 0, parameters: [] },
+      { code: 0, indent: 1, parameters: [] },
+      { code: 602, indent: 0, parameters: [] },
+      { code: 0, indent: 1, parameters: [] },
+      { code: 604, indent: 0, parameters: [] },
+      { code: 0, indent: 0, parameters: [] },
+    ]);
   });
 
   it("compiles direct Transfer Player destinations with resolved map references", () => {
@@ -968,12 +979,12 @@ describe("compileMapEvent", () => {
           page({
             commands: [
               battleProcessing({
-                troop: { kind: "troop", variable: variableRef({ name: "Count" }) },
+                troop: { kind: "variable", variable: variableRef({ name: "Count" }) },
                 canEscape: true,
                 canLose: true,
-                win: [wait({ frames: 1 })],
-                escape: [wait({ frames: 2 })],
-                lose: [wait({ frames: 3 })],
+                win: { commands: [wait({ frames: 1 })], endMarker: "absent" },
+                escape: { commands: [wait({ frames: 2 })], endMarker: "absent" },
+                lose: { commands: [wait({ frames: 3 })], endMarker: "absent" },
               }),
               shopProcessing({
                 goods: [
@@ -1045,13 +1056,13 @@ describe("compileMapEvent", () => {
               changeEnemyHp({
                 target: allEnemiesTarget,
                 operation: "lose",
-                value: 10,
+                value: { kind: "constant", value: 10 },
                 allowDeath: true,
               }),
               changeEnemyMp({
                 target: enemyTarget,
                 operation: "gain",
-                value: variableRef({ name: "Count" }),
+                value: { kind: "variable", variable: variableRef({ name: "Count" }) },
               }),
               changeEnemyState({
                 target: enemyTarget,
@@ -1062,16 +1073,26 @@ describe("compileMapEvent", () => {
               enemyAppear({ target: enemyTarget }),
               enemyTransform({ target: enemyTarget, enemy: enemyRef({ name: "Bat" }) }),
               showBattleAnimation({
-                target: allEnemiesTarget,
+                target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
                 animation: animationRef({ name: "Sparkle" }),
+                allEnemies: true,
               }),
               forceAction({
-                subject: { kind: "runtimeSelector", scope: "battler", target: "actor", actorId: 1 },
+                subject: {
+                  kind: "runtimeSelector",
+                  scope: "battler",
+                  target: "actor",
+                  actor: { kind: "actor", id: 1 },
+                },
                 skill: skillRef({ name: "Heal" }),
-                targetIndex: -2,
+                target: { kind: "lastTarget" },
               }),
               abortBattle(),
-              changeEnemyTp({ target: enemyTarget, operation: "gain", value: 4 }),
+              changeEnemyTp({
+                target: enemyTarget,
+                operation: "gain",
+                value: { kind: "constant", value: 4 },
+              }),
               openMenuScreen(),
               openSaveScreen(),
               gameOver(),

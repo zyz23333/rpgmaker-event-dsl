@@ -220,7 +220,7 @@ evidenceIt(
 export const context = commonEvent({ id: 1, name: "Context check", trigger: "none", commands: [${command}] });\n`;
       await writeFile(
         sourcePath,
-        source(`battleProcessing({ troop: troopRef({ id: 4 }) }),
+        source(`battleProcessing({ troop: { kind: 'fixed', troop: troopRef({ id: 4 }) } }),
 enemyAppear({ target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 2 } }),
 changeEquipment({ actor: actorRef({ id: 1 }), equipmentTypeId: 6, itemId: 77 })`),
       );
@@ -239,7 +239,7 @@ changeEquipment({ actor: actorRef({ id: 1 }), equipmentTypeId: 6, itemId: 77 })`
           "enemyTransform({ target: { kind: 'runtimeSelector', scope: 'enemy', target: 'enemy', index: 0 }, enemy: enemyRef({ id: 99 }) })",
           "enemy",
         ],
-        ["battleProcessing({ troop: troopRef({ id: 99 }) })", "troop"],
+        ["battleProcessing({ troop: { kind: 'fixed', troop: troopRef({ id: 99 }) } })", "troop"],
         ["rawDslCommand({ code: 212, parameters: [0, 99, false] })", "animation"],
         ["rawDslCommand({ code: 282, parameters: [99] })", "tileset"],
         ["rawDslCommand({ code: 336, parameters: [0, 99] })", "enemy"],
@@ -253,7 +253,9 @@ changeEquipment({ actor: actorRef({ id: 1 }), equipmentTypeId: 6, itemId: 77 })`
               ? command!.startsWith("rawDslCommand")
                 ? "MV-E282-PARAMETERS"
                 : "MV-E282-INPUT"
-              : `Unknown ${kind} reference id: ${id}`;
+              : id === 0 && (kind === "enemy" || kind === "troop")
+                ? `MV-E${kind === "enemy" ? 336 : 301}`
+                : `Unknown ${kind} reference id: ${id}`;
           await expect(compileWorkspace({ workspaceRoot, check: true })).rejects.toThrow(
             diagnostic,
           );

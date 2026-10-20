@@ -213,17 +213,42 @@ export function inspectCommandListStructure(
       const choices = command.code === 102;
       const battle =
         command.code === 301 &&
-        commands[index + 1]?.indent === indent &&
-        [601, 602, 603, 604].includes(commands[index + 1]!.code);
+        (command.parameters[2] === true ||
+          command.parameters[3] === true ||
+          (commands[index + 1]?.indent === indent &&
+            [601, 602, 603, 604].includes(commands[index + 1]!.code)));
+      const expectedBattle =
+        command.parameters[2] || command.parameters[3]
+          ? [601, ...(command.parameters[2] ? [602] : []), ...(command.parameters[3] ? [603] : [])]
+          : [];
+      const battleFail = (at: number): never => {
+        throw new CommandStructureError(
+          "MV-BATTLE-BRANCH",
+          "Battle branches must agree with flags in win/escape/lose order, then close exactly once.",
+          {
+            nativePath: `list[${at}]`,
+            expected: describeValue(expectedBattle),
+            actual: describeValue(commands[at]),
+            relatedLocations: [
+              {
+                nativePath: `list[${index}].parameters`,
+                value: renderJsonValue(command.parameters),
+              },
+            ],
+          },
+        );
+      };
       if (choices || battle) {
         const branches = choices ? [402, 403] : [601, 602, 603];
         const close = choices ? 404 : 604;
+        if (battle && expectedBattle.length === 0) battleFail(index + 1);
         let end = index + 1;
         let choiceIndex = 0;
         let cancelSeen = false;
         const seen = new Set<number>();
         while (isBoundary(end, { indent, codes: branches })) {
           const branch = commands[end]!;
+          if (battle && expectedBattle[seen.size] !== branch.code) battleFail(end);
           if (seen.has(branch.code) && branch.code !== 402)
             fail(end, "Duplicate parent-owned branch.");
           seen.add(branch.code);
@@ -288,6 +313,7 @@ export function inspectCommandListStructure(
             fail(body.index, "An empty branch requires a Body End Marker.", "MV-CHILD-BODY");
           end = body.index;
         }
+        if (battle && seen.size !== expectedBattle.length) battleFail(end);
         if (choices && choiceIndex !== (command.parameters[0] as unknown[]).length)
           throw new CommandStructureError(
             "MV-CHOICE-MIRROR",

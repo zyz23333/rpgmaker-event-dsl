@@ -1,6 +1,6 @@
 # 46: Battle Processing 与战斗控制
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 23, 25
 Stage: S6
 Execution batch: [敌人与战斗控制](../tickets.md#batch-battle)

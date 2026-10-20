@@ -28,8 +28,11 @@ export function battlerTargetTypeToCode(target: BattlerCommandTarget): number {
   return target.target === "enemy" ? 0 : 1;
 }
 
-export function battlerTargetIdToCode(target: BattlerCommandTarget): number {
-  return target.target === "enemy" ? target.index : target.actorId;
+export function battlerTargetIdToCode(
+  target: BattlerCommandTarget,
+  resolver: ReferenceResolver,
+): number {
+  return target.target === "enemy" ? target.index : resolver.resolveReference(target.actor);
 }
 
 export function actorParameterToCode(parameter: ActorParameter): number {

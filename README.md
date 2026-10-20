@@ -468,6 +468,13 @@ owns MV text continuation records, `showChoices(...)` owns choice branches,
 `battleProcessing(...)` owns battle result branches, `shopProcessing(...)` owns goods
 continuations, and `setMovementRoute(...)` owns nested move route commands.
 
+Battle Processing uses named `fixed`/`variable`/`randomEncounter` troop modes and
+flag-dependent `{ commands, endMarker? }` result bodies. Enemy commands preserve
+hidden member positions and Animation's independent saved index. Force Action uses
+an Actor reference or single enemy subject with named `lastTarget`/`random`/`index`
+targets. See [Enemies and battle control](packages/rpgmaker-event-dsl/README.md#enemies-and-battle-control)
+for parameter ranges, complete examples and execution-context warnings.
+
 `showChoices({ choices: [{ text, commands, endMarker? }], defaultChoice?, cancel?, position?, background? })`
 keeps each of its 1–6 choices with its required child commands. Default choice and
 cancel modes use named objects; saved choice indices are zero-based integers 0–5.
