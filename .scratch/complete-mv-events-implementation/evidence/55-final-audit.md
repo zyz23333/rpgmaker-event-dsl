@@ -113,3 +113,7 @@ Commit2fa4955 corrected seven old API patterns in the complete example, current 
 This ticket publishes only authored evidence projections, hashes, immutable audit results and current metadata. First-party binaries, decoded source, runtime/data/assets and native captures remain Git-external. Original failed observations, workspaces and pre-correction scripts remain at their original paths. The newly affected publication checker validates actual requirement/result schemas, fixture/source/review links and hashes, old-domain-field preservation, full row coverage and exact retained tool bytes. It does not scan historical payloads or rerun full/build/native/current-index checks. Its final receipt is [publication-check](55-final-audit/publication-check.json).
 
 The ticket55 criteria close only after that check passes with no remaining requirement. Parent final Standards/Spec reviews, any resulting affected fixes and authorized cleanup remain with the root task; this report does not pre-approve them or close the parent specification.
+
+## Current contract23 supplement
+
+The preceding459-item audit records the actual /22 candidate and executions. Final review found three P2 issues; their fixes and current /23 acceptance are recorded in [the review supplement](55-final-review-fixes.md) and its [affected increment](55-final-review-fixes.json). Current completion is /23 affected green plus explicitly unaffected /22 reuse; no original game is claimed to have run under /23. This append preserves the preceding matrix, receipt and failure history.

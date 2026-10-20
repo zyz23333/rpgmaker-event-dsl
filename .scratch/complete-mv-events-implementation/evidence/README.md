@@ -1,6 +1,8 @@
 # MV acceptance evidence
 
-Current status: final55 audits all 458 preceding requirements at product candidate `2dc639015f908de6fd524e50236e5422b5f8e990` / contract `mv-1.6.1/22`, with no unresolved requirement. The additional `MV-S7-COMPLETION-AUDIT-055` records this audit. See [final55](55-final-audit.md) and its [complete effective matrix](55-final-audit/effective-matrix.json). The early ticket paragraphs below retain their original bounded-stage history; current completion and exact effective references are recorded by final55. Original failed executions remain failed. Parent final reviews and project cleanup are coordinated separately.
+Current status: contract `mv-1.6.1/23` after the [final review fixes](55-final-review-fixes.md), with459 required obligations effectively passed through affected /23 checks plus explicitly unaffected /22 evidence reuse. Original source/build/native identities and failures are retained.
+
+Historical /22 audit status: final55 audits all 458 preceding requirements at product candidate `2dc639015f908de6fd524e50236e5422b5f8e990` / contract `mv-1.6.1/22`, with no unresolved requirement. The additional `MV-S7-COMPLETION-AUDIT-055` records this audit. See [final55](55-final-audit.md) and its [complete effective matrix](55-final-audit/effective-matrix.json). The early ticket paragraphs below retain their original bounded-stage history; current completion and exact effective references are recorded by final55. Original failed executions remain failed. Parent final reviews and project cleanup are coordinated separately.
 
 Ticket15 adds [finite raw boundary and recursive Script Gate acceptance](15-command-boundary-and-script-gate.md).
 Its original independent fixture runs through actual source Discovery/evaluation and

@@ -1,0 +1,154 @@
+{
+  "formatVersion": 1,
+  "status": "passed",
+  "startedAt": "2026-10-20T04:24:54.755Z",
+  "completedAt": "2026-10-20T04:24:55.149Z",
+  "method": "Affected actual schema/link/hash preservation check. Parses only459 requirement metadata and11 new result payloads; does not invoke current-index, test runner, build, native games or historical result payload scan.",
+  "baselineHead": "387bc3a03250801ced1c365d1d34978eb6041ab6",
+  "sourceCommit": "ca8f8de5cbd6105261bab4ef17165cfdff72498a",
+  "sourceTree": "ee738a365500a11a1f75368fa467dae73f4d2c7b",
+  "contract": "mv-1.6.1/23",
+  "requirements": 459,
+  "unchangedRequirementRows": 458,
+  "selfAuditUpdatedOnly": [
+    "fixture",
+    "review"
+  ],
+  "originalMatrix": {
+    "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/effective-matrix.json",
+    "sha256": "2a19e58a96e18a734192757edf9eb1c322708e44d2bb6a25fa47f5fd2b8bb8da"
+  },
+  "originalPublicationCheck": {
+    "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/publication-check.json",
+    "sha256": "4953105f819a93a4cdd8cdd9489c737b9dc128296b423bb2ba1c71764bac754f"
+  },
+  "original55Report": {
+    "originalPrefixPreserved": true,
+    "appendOnly": true
+  },
+  "priorResultsModified": 0,
+  "newResults": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-INPUT-007-2026-10-20T04-16-23-887Z-77c96788-da91-41c1-b615-7329bfee79f2.json",
+      "sha256": "ffaf5d179e6e66558ab3055d8b50b9003791756ecd63742083f95a9b762163e1",
+      "requirementId": "MV-S4-INPUT-007",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S4-INPUT-007-2026-10-20T04-16-27-213Z-b4d460a9-d366-4206-8844-afdfd9c9ea06.json",
+      "sha256": "f2165abb39c2d7e3fc3cd0203cd9d0ac18e72a89f16833152734dd0b6653779c",
+      "requirementId": "MV-S4-INPUT-007",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-AUTHOR-001-2026-10-20T04-14-21-300Z-5604867b-0856-4545-b8aa-9ba9a1acb8cf.json",
+      "sha256": "07338b7cb2c47fea5de7465f15e6f873886ed437ce61e5617b6beb6eaa0f07c0",
+      "requirementId": "MV-S5-TROOP-AUTHOR-001",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-AUTHOR-002-2026-10-20T04-14-21-361Z-f6eaa238-de6e-4c01-886b-e8a437d3adb5.json",
+      "sha256": "571b5d1aa83c8bc0100989d5c6ae8da42bfd99becb3298482de6aee8b02cf9f2",
+      "requirementId": "MV-S5-TROOP-AUTHOR-002",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-AUTHOR-003-2026-10-20T04-14-21-412Z-0dca89c4-dd0f-4aa5-a879-38d7855dbdf5.json",
+      "sha256": "25e85606e682a13b89f9186b8fadfb9930dfb5688fcfd237202f0ea0fd61a850",
+      "requirementId": "MV-S5-TROOP-AUTHOR-003",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-AUTHOR-004-2026-10-20T04-14-21-455Z-ed868f1a-f778-4f36-9b7b-a6d59a2d6608.json",
+      "sha256": "46bdf7c81b097fcef0c07464d975511f3a2a45ef3e0d07c2bead27f9322a6032",
+      "requirementId": "MV-S5-TROOP-AUTHOR-004",
+      "status": "failed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-AUTHOR-004-2026-10-20T04-15-19-900Z-83be5175-4640-4933-b230-61eaed902853.json",
+      "sha256": "f4caa1e9f6b7662c0597033e8955456d1842cc51374e14d309b2891c7d62edc8",
+      "requirementId": "MV-S5-TROOP-AUTHOR-004",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-AUTHOR-005-2026-10-20T04-14-21-505Z-53a4ee1b-c66e-4edd-a4c8-74fd331f86ec.json",
+      "sha256": "1a0a4b7ed4f19fd8db40188202db7e0ea566dc14d4d779dbabaf25157539d667",
+      "requirementId": "MV-S5-TROOP-AUTHOR-005",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-AUTHOR-006-2026-10-20T04-14-21-549Z-d492f99c-4635-49bd-864e-9ec1517bf906.json",
+      "sha256": "b5f453ee45f5c7dbef034f1ea098565ccf471f92aba5298ab93c6a1d1b2072aa",
+      "requirementId": "MV-S5-TROOP-AUTHOR-006",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S5-TROOP-AUTHOR-007-2026-10-20T04-14-21-594Z-cd0562ce-42c6-474d-b6a0-d59d2d863a98.json",
+      "sha256": "49e14ed28378cf647c78da0ff99ce43b391958edf3d55f3f622c319ee2f870a5",
+      "requirementId": "MV-S5-TROOP-AUTHOR-007",
+      "status": "passed"
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S7-COMPLETION-AUDIT-055-2026-10-20T04-22-29-912Z-b5d8f90f-97f5-4507-9acf-6683f5ee050c.json",
+      "sha256": "a684578f24b48207e1b03ca2f8ce7cb781882af2cf36a48e79946011b05cb6f9",
+      "requirementId": "MV-S7-COMPLETION-AUDIT-055",
+      "status": "passed"
+    }
+  ],
+  "fixture": {
+    "path": ".scratch/complete-mv-events-implementation/evidence/55-final-review-fixes.json",
+    "sha256": "5053a4d75a25cf21e12852ab9a831017e8c440d09810b53c26c8cbde77093cac"
+  },
+  "report": {
+    "path": ".scratch/complete-mv-events-implementation/evidence/55-final-review-fixes.md",
+    "sha256": "ce68f220ecef6005ec6c159f15a1b7684690d63a66cf0f07b97ee375fe30ea7a"
+  },
+  "sourceEffectivePassingAssertions": 89,
+  "builtPassingAssertions": 8,
+  "originalFailuresRetained": true,
+  "finalTypecheckPassed": true,
+  "buildRuns": 1,
+  "retainedOldDistFiles": 15,
+  "retainedNewDistFiles": 15,
+  "workspaceApiSha256": "824203f0119529a48aa4397d9ba94139abead369e650d2d528273bc726bb4d17",
+  "newGameExecutions": 0,
+  "newFullSuiteRuns": 0,
+  "linkChecks": [
+    {
+      "from": ".scratch/complete-mv-events-implementation/evidence/55-final-review-fixes.md",
+      "to": "55-final-review-fixes.json"
+    },
+    {
+      "from": ".scratch/complete-mv-events-implementation/evidence/55-final-review-fixes.md",
+      "to": "55-final-audit.md"
+    },
+    {
+      "from": ".scratch/complete-mv-events-implementation/evidence/55-final-review-fixes.md",
+      "to": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review/standards-recheck.md"
+    },
+    {
+      "from": ".scratch/complete-mv-events-implementation/evidence/55-final-review-fixes.md",
+      "to": "M:/Shuen/Codex/mv-events-implementation-20261020/final-review/spec-recheck.md"
+    },
+    {
+      "from": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+      "to": "55-final-review-fixes.md"
+    },
+    {
+      "from": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+      "to": "55-final-review-fixes.json"
+    },
+    {
+      "from": ".scratch/complete-mv-events-implementation/evidence/README.md",
+      "to": "55-final-review-fixes.md"
+    },
+    {
+      "from": ".scratch/complete-mv-events-implementation/tickets.md",
+      "to": "evidence/55-final-review-fixes.md"
+    },
+    {
+      "from": ".scratch/complete-mv-events-implementation/issues/55-completion-evidence-audit.md",
+      "to": "../evidence/55-final-review-fixes.md"
+    }
+  ]
+}

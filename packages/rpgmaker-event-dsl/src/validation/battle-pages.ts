@@ -46,9 +46,14 @@ export function validateBattlePages(
   if (definition.pages.length > 20)
     issues.push({
       level: "warning",
+      code: "MV-BATTLE-PAGE-COUNT",
+      stage: "compile",
       identity,
+      nativePath: "pages",
       dslPath: "pages",
-      message: `${identity}: ${definition.pages.length} Battle Event Pages exceed the editor's 20-page picker; all pages are preserved.`,
+      expected: "at most 20 editor-created pages; saved pages are preserved",
+      actual: String(definition.pages.length),
+      message: `compile warning ${identity}: MV-BATTLE-PAGE-COUNT at pages; expected at most 20 editor-created pages; actual ${definition.pages.length}. Battle Event Page order and count are preserved.`,
     });
   for (const [pageIndex, page] of definition.pages.entries()) {
     try {

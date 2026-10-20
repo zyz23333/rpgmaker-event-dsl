@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "scope": "Complete MV1.6.1 event DSL implementation at the accepted105-event/45-movement command and A1–A8 finite contracts. Final E1–E7 REA/product comparisons, actual R1–R7 games, explicit unaffected native reuse, authoritative source/built affected-run reconciliation, current docs/examples and final55 all-requirement audit are recorded. Original facts, deductions, synthetic support, failures and actual execution identities remain separate.",
+  "scope": "Current complete MV1.6.1 accepted finite contracts at mv-1.6.1/23: final review fixes validate original declaration input, preserve signed-zero Diff and identify Map/Troop page warnings. All459 required obligations have effective passing coverage through exact affected /23 runner/build checks plus explicit unaffected /22 evidence reuse. Original /22 matrix, receipts, native identities and failures remain history.",
   "requirements": [
     {
       "id": "MV-S0-CE-001",
@@ -22553,13 +22553,13 @@
       "sourceKind": "synthetic-support",
       "input": "Existing exact accepted requirements, actual authoritative source/built runner verdicts, final REA/built comparisons, actual native receipts, current output-equivalence proofs, known counterexamples, API documentation and full example; no new game/test execution claimed by the audit.",
       "fixture": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/effective-matrix.json",
-        "sha256": "2a19e58a96e18a734192757edf9eb1c322708e44d2bb6a25fa47f5fd2b8bb8da"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-review-fixes.json",
+        "sha256": "5053a4d75a25cf21e12852ab9a831017e8c440d09810b53c26c8cbde77093cac"
       },
       "expected": "Every preceding required obligation has explicit effective passing evidence or a precise accepted not-applicable rule; no unresolved failed/blocked/not-executed/retest-required obligation. Native observations, REA facts, conditional deductions and synthetic support stay distinct; original failed attempts stay unchanged.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
-        "section": "## Final effective matrix"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-review-fixes.md",
+        "section": "## Current completion at contract23"
       },
       "nativeGroups": [],
       "execution": {
