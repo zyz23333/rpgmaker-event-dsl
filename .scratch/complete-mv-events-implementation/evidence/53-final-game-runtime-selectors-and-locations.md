@@ -2,6 +2,8 @@
 
 ## Execution status
 
+Requirement `MV-S7-GAME-R4-053` is required and **not executed**.
+
 **Preparation only. Product lifecycle and native games are not executed.**
 Ticket53 is claimed and remains blocked on ticket48's recorded final candidate
 and freshly built package. The first2026-10-20 specification amendment governs
@@ -34,6 +36,8 @@ supplements extend their coverage.
 | final-r5-original-location-consequences | Original complete small-map coordinate and terrain/region/tile alias/event ID differences, Event/Boat locations and normal native Transfer                                  |
 
 ## R5 scenario
+
+Requirement `MV-S7-GAME-R5-053` is required and **not executed**.
 
 The original R5 normal-Scene control is retained without shrinking its three
 expected traces: invalid-x queries produce `[0,0,101,0,77,1]`; Event/Vehicle
@@ -80,6 +84,29 @@ Logs remain under the sibling `logs/` directory.
 
 These checks use `new Function` only to parse observer strings. They do not
 execute engine code in Node and do not prove runtime expectations.
+
+## Latest incoming and retained preparation failures
+
+The preparation branch merges actual Map/Text/Battle integration
+`03c87fbf0a45c0304c612dbce64a49bbf8a16235`. Its438 incoming requirements
+remain unchanged, followed by the two pending53 identities, giving440.
+No Compile Contract Version change is made for this evidence/tooling preparation.
+
+The initial union script incorrectly assumed433 incoming rows and stopped its
+assertion before writing; subsequent queued Git commands committed the unresolved
+index at `b4a51244`. This affected only the private53 branch. The immediate
+correction reads the actual438-row input, retains every incoming object and its
+raw prefix, and appends only the two53 rows. The original intermediate commit
+remains visible rather than being rewritten.
+
+Log010 is the actual current-index failure on an incoming documentary reference:
+`MV-S6-BATTLE-005` was abbreviated in its report rather than present literally.
+The owning root was notified; this is not a native observation or a changed
+domain rule. Log011 is scoped lint with zero errors and three unused-variable
+warnings in the preserved Common wrapper and deterministic comparison.
+Log012 passes observer syntax and independent fixture assembly for all eleven
+formatted inputs. Source construction and formatting do not prove any game
+expectation. The original failed log002 also remains unchanged.
 
 ## Final execution entry point
 
