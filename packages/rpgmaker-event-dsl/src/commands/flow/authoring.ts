@@ -17,6 +17,7 @@ import { isScriptInput } from "../../domain/references.js";
 import { scriptInput } from "../../authoring/references.js";
 import { assertCommonEventCall } from "./validation.js";
 import { assertConditionalCommand } from "./conditional-validation.js";
+import { assertDslObject } from "../../validation/dsl-command-inputs.js";
 
 export function conditional(input: {
   condition: ConditionalBranchCondition;
@@ -38,6 +39,7 @@ export function conditional(input: {
 }
 
 export function loop(input: { body: LoopDslCommand["body"] }): LoopDslCommand {
+  assertDslObject(input, ["body"], "loop");
   return { kind: "loop", body: input.body };
 }
 

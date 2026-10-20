@@ -5,6 +5,7 @@ import type {
   ImageAssetReference,
   MovieAssetReference,
   RawDslCommand,
+  ReferenceKind,
   ReferenceValue,
   ScriptInput,
 } from "../domain/types.js";
@@ -13,16 +14,14 @@ import { assertIncluded, assertNonEmptyString } from "./shared.js";
 import { assertMovieAssetInput } from "../commands/screen/validation.js";
 import { assertDslObject, assertRawDslInput } from "../validation/dsl-command-inputs.js";
 import { assertAudioAssetInput } from "../commands/audio/validation.js";
-import { CommandStructureError } from "../validation/command-errors.js";
+import { assertReferenceInput } from "../validation/reference-inputs.js";
 
-function assertLocationReferenceInput(value: unknown, path: string): void {
-  assertDslObject(value, ["id", "name"], path);
-  if (Object.hasOwn(value, "id") === Object.hasOwn(value, "name"))
-    throw new CommandStructureError(
-      "MV-REFERENCE-SHAPE",
-      "Reference helper requires exactly one id or name.",
-      { dslPath: path },
-    );
+function authoredReference<TKind extends ReferenceKind>(
+  kind: TKind,
+  value: { id: number } | { name: string },
+): ReferenceValue<TKind> {
+  assertReferenceInput(value, kind, `${kind}Ref`);
+  return createReference(kind, value);
 }
 
 export function rawDslCommand(input: {
@@ -93,67 +92,65 @@ export function scriptInput(input: { code: string }): ScriptInput {
 }
 
 export function actorRef(value: { id: number } | { name: string }): ReferenceValue<"actor"> {
-  return createReference("actor", value);
+  return authoredReference("actor", value);
 }
 
 export function animationRef(
   value: { id: number } | { name: string },
 ): ReferenceValue<"animation"> {
-  return createReference("animation", value);
+  return authoredReference("animation", value);
 }
 
 export function armorRef(value: { id: number } | { name: string }): ReferenceValue<"armor"> {
-  return createReference("armor", value);
+  return authoredReference("armor", value);
 }
 
 export function classRef(value: { id: number } | { name: string }): ReferenceValue<"class"> {
-  return createReference("class", value);
+  return authoredReference("class", value);
 }
 
 export function commonEventRef(
   value: { id: number } | { name: string },
 ): ReferenceValue<"commonEvent"> {
-  return createReference("commonEvent", value);
+  return authoredReference("commonEvent", value);
 }
 
 export function enemyRef(value: { id: number } | { name: string }): ReferenceValue<"enemy"> {
-  return createReference("enemy", value);
+  return authoredReference("enemy", value);
 }
 
 export function itemRef(value: { id: number } | { name: string }): ReferenceValue<"item"> {
-  return createReference("item", value);
+  return authoredReference("item", value);
 }
 
 export function mapRef(value: { id: number } | { name: string }): ReferenceValue<"map"> {
-  assertLocationReferenceInput(value, "mapRef");
-  return createReference("map", value);
+  return authoredReference("map", value);
 }
 
 export function skillRef(value: { id: number } | { name: string }): ReferenceValue<"skill"> {
-  return createReference("skill", value);
+  return authoredReference("skill", value);
 }
 
 export function stateRef(value: { id: number } | { name: string }): ReferenceValue<"state"> {
-  return createReference("state", value);
+  return authoredReference("state", value);
 }
 
 export function switchRef(value: { id: number } | { name: string }): ReferenceValue<"switch"> {
-  return createReference("switch", value);
+  return authoredReference("switch", value);
 }
 
 export function tilesetRef(value: { id: number } | { name: string }): ReferenceValue<"tileset"> {
-  return createReference("tileset", value);
+  return authoredReference("tileset", value);
 }
 
 export function troopRef(value: { id: number } | { name: string }): ReferenceValue<"troop"> {
-  return createReference("troop", value);
+  return authoredReference("troop", value);
 }
 
 export function variableRef(value: { id: number } | { name: string }): ReferenceValue<"variable"> {
-  assertLocationReferenceInput(value, "variableRef");
-  return createReference("variable", value);
+  return authoredReference("variable", value);
 }
 
 export function weaponRef(value: { id: number } | { name: string }): ReferenceValue<"weapon"> {
-  return createReference("weapon", value);
+  return authoredReference("weapon", value);
 }

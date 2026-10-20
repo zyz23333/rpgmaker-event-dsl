@@ -198,6 +198,10 @@ example project:
 
 https://github.com/zyz23333/rpgmaker-event-dsl
 
+Project Data Reference helpers require exactly one numeric `id` or string `name`
+and reject unsupported own fields before constructing the reference. The command
+or page context still determines the accepted saved ID domain and target existence.
+
 Switch and variable references by ID accept unnamed slots within the final System
 capacity: the larger of Snapshot capacity and the highest DSL declaration ID.
 Removing a name retains that capacity; referencing an ID does not expand it.

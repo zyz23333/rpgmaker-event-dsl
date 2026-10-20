@@ -19520,6 +19520,366 @@
       },
       "slice": "S6 / ticket35",
       "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-001",
+      "title": "Public command boundaries refuse discarded fields and symbolic negative zero",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "Public command boundaries refuse discarded fields and symbolic negative zero",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+        "name": "rejects symbolic switch negative zero before Decompile or known raw mapping and retains positive zero controls"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Approved public command / actual Discovery and evaluated Workspace source boundary"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-002",
+      "title": "Actual local, spread, asserted and direct source fields refuse before output",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E112 — Loop"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "Actual local, spread, asserted and direct source fields refuse before output",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+        "name": "MV-S3-INPUT-002:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Approved public command / actual Discovery and evaluated Workspace source boundary"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-003",
+      "title": "All fifteen reference constructors preserve valid controls and reject discarded source fields",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "All fifteen reference constructors preserve valid controls and reject discarded source fields",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+        "name": "MV-S3-INPUT-003:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Approved public command / actual Discovery and evaluated Workspace source boundary"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-004",
+      "title": "Nested direct switch references and ranges refuse excess and ambiguous fields",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "Nested direct switch references and ranges refuse excess and ambiguous fields",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+        "name": "MV-S3-INPUT-004:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Approved public command / actual Discovery and evaluated Workspace source boundary"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-005",
+      "title": "Native categorical signed zero refuses before publication while positive-zero controls roundtrip",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "Native categorical signed zero refuses before publication while positive-zero controls roundtrip",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+        "name": "MV-S3-INPUT-005:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Approved public command / actual Discovery and evaluated Workspace source boundary"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-006",
+      "title": "Evaluated known raw categorical signed zero reports its precise authored slot",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "Evaluated known raw categorical signed zero reports its precise authored slot",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+        "name": "MV-S3-INPUT-006:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Approved public command / actual Discovery and evaluated Workspace source boundary"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-007",
+      "title": "Pending final integrated source/build/built and impacted R1/R3 validation",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "Pending final integrated source/build/built and impacted R1/R3 validation",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-dev.md",
+        "section": "## Pending final integration verification"
+      },
+      "nativeGroups": [
+        "R1",
+        "R3"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Not executed: final integrated delivery and native normal-Scene game regression"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
     }
   ]
 }

@@ -711,3 +711,17 @@ Original DEV records are retained; current batch closure will be recorded separa
 | MV-S6-CHARACTER-004 | Current public types require named enums and explicit wait |
 | MV-S6-CHARACTER-005 | Approved command seams validate complete map-character contract |
 | MV-S6-CHARACTER-006 | Pending actual R1/R4/R6 normal Scene product comparison |
+
+## Shared S3 / Loop input supplement
+
+All fifteen constructors and original DEV controls are retained. Current batch closure is separate; `MV-S3-INPUT-007` remains unexecuted for final candidate/full/build/built and applicable normal-Scene regressions.
+
+| Requirement | Obligation | Evidence |
+| --- | --- | --- |
+| MV-S3-INPUT-001 | Public command boundaries refuse discarded fields and symbolic negative zero | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-002 | Actual local, spread, asserted and direct source fields refuse before output | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-003 | All fifteen reference constructors preserve valid controls and reject discarded source fields | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-004 | Nested direct switch references and ranges refuse excess and ambiguous fields | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-005 | Native categorical signed zero refuses before publication while positive-zero controls roundtrip | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-006 | Evaluated known raw categorical signed zero reports its precise authored slot | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-007 | Pending final integrated source/build/built and impacted R1/R3 validation | synthetic-support | Not executed: final integrated delivery and native normal-Scene game regression |

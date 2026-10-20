@@ -10,6 +10,7 @@ import { assertControlTimerInput } from "../commands/variables/validation.js";
 import { assertDslCommandList } from "../validation/dsl-command-inputs.js";
 import { assertShowChoicesInput } from "../commands/message/validation.js";
 import { assertScreenInput } from "../commands/screen/validation.js";
+import { assertSwitchCommandInput } from "../commands/variables/switch-inputs.js";
 import { assertMapAppearanceInput } from "../commands/map/validation.js";
 import { assertPictureInput } from "../commands/screen/picture-inputs.js";
 import { assertPictureReferences } from "../commands/screen/picture-references.js";
@@ -155,6 +156,7 @@ export function compileNodes(
   for (const [nodeIndex, node] of nodes.entries()) {
     assertPictureInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     assertAudioCommandInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
+    assertSwitchCommandInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
     assertMapAppearanceInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     assertSystemAccessInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true);
     assertWindowColorInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true);

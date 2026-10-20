@@ -19,6 +19,7 @@ import type {
 import { assertControlTimerInput } from "./validation.js";
 import { assertControlVariablesInput } from "./control-variables.js";
 import { assertMapLocationInput } from "../map/location-validation.js";
+import { assertSwitchCommandInput } from "./switch-inputs.js";
 
 export function transferPlayer(input: {
   destination: MapDestination;
@@ -45,6 +46,7 @@ export function controlSwitches(input: {
   switch: ReferenceValue<"switch"> | ReferenceRange<"switch">;
   value: boolean;
 }): ControlSwitchesDslCommand {
+  assertSwitchCommandInput("controlSwitches", input, "controlSwitches", false);
   return {
     kind: "controlSwitches",
     switch: input.switch,
@@ -68,6 +70,7 @@ export function controlSelfSwitch(input: {
   selfSwitch: "A" | "B" | "C" | "D";
   value: boolean;
 }): ControlSelfSwitchDslCommand {
+  assertSwitchCommandInput("controlSelfSwitch", input, "controlSelfSwitch", false);
   return {
     kind: "controlSelfSwitch",
     selfSwitch: input.selfSwitch,

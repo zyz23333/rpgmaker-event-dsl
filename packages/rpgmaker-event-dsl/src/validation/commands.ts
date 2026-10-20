@@ -16,6 +16,7 @@ import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
 import { assertControlVariablesInput } from "../commands/variables/control-variables.js";
 import { assertPictureInput } from "../commands/screen/picture-inputs.js";
 import { assertPictureReferences } from "../commands/screen/picture-references.js";
+import { assertSwitchCommandInput } from "../commands/variables/switch-inputs.js";
 import { assertNativeContextReferences } from "./native-context-references.js";
 import { resolveCommonEventCall, assertLoopCommand } from "../commands/flow/validation.js";
 import {
@@ -85,6 +86,7 @@ export function validateNodes(
       assertSceneCommandInput(node.kind, node, nodePath);
       assertPictureInput(node.kind, node, nodePath, true, resolver);
       assertActorResourceInput(node.kind, node, nodePath, true, resolver);
+      assertSwitchCommandInput(node.kind, node, nodePath);
     } catch (error) {
       if (error instanceof CommandStructureError)
         issues.push(error.issue(options.identity ?? "event", "compile"));
