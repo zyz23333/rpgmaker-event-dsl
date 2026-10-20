@@ -1,5 +1,10 @@
 # Ticket41 Actor resources and states — focused DEV record
 
+The completed41/42/43 batch is recorded in
+[the current capability-batch report](41-43-actor-capability-batch.md). Its
+2026-10-20 development closure supersedes pending work/claim statements below;
+this earlier DEV history and the external raw records remain unchanged.
+
 Ticket41 remains `claimed`. This record describes focused source and real Workspace validation of E311, E312, E313, E314 and E326 on `codex/mv-ticket-41`; full checks, a candidate build, built public API execution, actual R4 games, final integration reconciliation and acceptance remain pending.
 
 The current HEAD is `275753601418d18fd98557a8d32a99ad8377e98d`, with parents `b50f7490e82f229f1e4dd0913693deec19950b7a` and actual integration `e5740784690645963759aef55a69780205de5a3c`. Contract `mv-1.6.1/13` is inherited and has not been incremented for DEV. The evidence index retains all 328 incoming rows in their original order and appends four Actor resource obligations, for 332 rows. The current evidence helper SHA-256 is `343a11790df3a07ded5b34aa17a2e5fd0fcb7b65e5e25776ee995e6d451fddba`.

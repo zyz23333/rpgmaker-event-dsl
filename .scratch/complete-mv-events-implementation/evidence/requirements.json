@@ -16261,6 +16261,302 @@
       },
       "slice": "41 / S6",
       "required": true
+    },
+    {
+      "id": "MV-S6-ACTOR-GROWTH-001",
+      "title": "Complete growth and dynamic equipment three-container saved data through actual evaluated Workspace and Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/42-actor-growth-skills-and-classes.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-20 用户执行修订：按批次开发，减少全量与证据开销"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E315 — Change EXP"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E316 — Change Level"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E317 — Change Parameter"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E318 — Change Skill"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E319 — Change Equipment"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E321 — Change Class"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored native arrays and malformed source variations in the linked version-controlled tests; 29-command synthetic growth/equipment fixture. No editor-origin or game-observation claim.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/actor-growth-equipment-cases.json",
+        "sha256": "e20e645eb1842d60d09502a86a33e1bb8e40c8fb64a985beceaa1daa767cba34"
+      },
+      "expected": "The independent 29-command fixture roundtrips Map, Common and Troop containers through actual Discovery/evaluation, read-only Check and complete four-carrier Compile Output. An authored Common Event edit installs all 15 independently expected Project and Snapshot files; source/Discovery remain exact and pending Push is absent.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/actor-growth-equipment-workspace.test.ts",
+        "name": "MV-S6-ACTOR-GROWTH-001:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22.23.0 / pnpm 10.33.0 / Vitest 4.1.9; original 10000ms deadline and two workers for new tests",
+        "owner": "Actor capability batch 41/42/43; actual logs and source checkpoint in 41-43-actor-capability-batch.md; final native checks remain with 51/53/54",
+        "layer": "Public Workspace API, actual source Discovery/evaluation and complete temporary filesystem state"
+      },
+      "slice": "42/43 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-ACTOR-GROWTH-002",
+      "title": "Untyped saved growth flag and invalid final equipment slot refuse Workspace operations without business writes",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/42-actor-growth-skills-and-classes.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-20 用户执行修订：按批次开发，减少全量与证据开销"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E315 — Change EXP"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E319 — Change Equipment"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent self-authored native arrays and malformed source variations in the linked version-controlled tests; 29-command synthetic growth/equipment fixture. No editor-origin or game-observation claim.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/actor-growth-equipment-cases.json",
+        "sha256": "e20e645eb1842d60d09502a86a33e1bb8e40c8fb64a985beceaa1daa767cba34"
+      },
+      "expected": "Both actual source scenarios, untyped missing showLevelUp and direct equipment outside final System capacity, refuse Check and Compile with the specified diagnostic and then refuse stale Push. Project, Snapshot, generated data, source, Discovery, manifest, config, descriptor and pending state remain unchanged after each refusal.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/actor-growth-equipment-workspace.test.ts",
+        "name": "MV-S6-ACTOR-GROWTH-002:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22.23.0 / pnpm 10.33.0 / Vitest 4.1.9; original 10000ms deadline and two workers for new tests",
+        "owner": "Actor capability batch 41/42/43; actual logs and source checkpoint in 41-43-actor-capability-batch.md; final native checks remain with 51/53/54",
+        "layer": "Public Workspace API, actual source Discovery/evaluation and complete temporary filesystem state"
+      },
+      "slice": "42/43 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-ACTOR-EQUIPMENT-001",
+      "title": "Late native equipment slot outside final System capacity fails before source publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/43-runtime-equipment-slots.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-20 用户执行修订：按批次开发，减少全量与证据开销"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E319 — Change Equipment"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent self-authored native arrays and malformed source variations in the linked version-controlled tests; 29-command synthetic growth/equipment fixture. No editor-origin or game-observation claim.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/actor-growth-equipment-cases.json",
+        "sha256": "e20e645eb1842d60d09502a86a33e1bb8e40c8fb64a985beceaa1daa767cba34"
+      },
+      "expected": "A native E319 at list[29] after 29 valid fixture commands fails Decompile with MV-E319-SLOTS at parameters[1], before publishing source, and the complete observed Workspace business state remains unchanged.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/actor-growth-equipment-workspace.test.ts",
+        "name": "MV-S6-ACTOR-EQUIPMENT-001:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22.23.0 / pnpm 10.33.0 / Vitest 4.1.9; original 10000ms deadline and two workers for new tests",
+        "owner": "Actor capability batch 41/42/43; actual logs and source checkpoint in 41-43-actor-capability-batch.md; final native checks remain with 51/53/54",
+        "layer": "Public Workspace API, actual source Discovery/evaluation and complete temporary filesystem state"
+      },
+      "slice": "43 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-ACTOR-GROWTH-003",
+      "title": "Growth saved flags, literal domains, exact authored forms and fixed references",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/42-actor-growth-skills-and-classes.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-20 用户执行修订：按批次开发，减少全量与证据开销"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E315 — Change EXP"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E316 — Change Level"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E317 — Change Parameter"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E318 — Change Skill"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E321 — Change Class"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent self-authored native arrays and malformed source variations in the linked version-controlled tests; 29-command synthetic growth/equipment fixture. No editor-origin or game-observation claim.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/actor-growth-equipment-cases.json",
+        "sha256": "e20e645eb1842d60d09502a86a33e1bb8e40c8fb64a985beceaa1daa767cba34"
+      },
+      "expected": "Helpers and direct authored input refuse malformed target/reference/operand shapes, invalid literal ranges, unknown parameter/operation modes and missing independent flags. The same unit file separately verifies literal compiler/decompiler vectors, all fixture enums and exact native/known raw counts and categorical slots.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/actor-growth.test.ts",
+        "name": "applies growth literal domains, exact nested forms and fixed references to helper and direct input"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22.23.0 / pnpm 10.33.0 / Vitest 4.1.9; original 10000ms deadline and two workers for new tests",
+        "owner": "Actor capability batch 41/42/43; actual logs and source checkpoint in 41-43-actor-capability-batch.md; final native checks remain with 51/53/54",
+        "layer": "Existing public authoring, compile, Decompile and validation seams"
+      },
+      "slice": "42 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-ACTOR-EQUIPMENT-002",
+      "title": "Final System equipment capacity and candidate warnings preserve runtime identity without fixed-table substitution",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/43-runtime-equipment-slots.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-20 用户执行修订：按批次开发，减少全量与证据开销"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E319 — Change Equipment"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored native arrays and malformed source variations in the linked version-controlled tests; 29-command synthetic growth/equipment fixture. No editor-origin or game-observation claim.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/actor-growth-equipment-cases.json",
+        "sha256": "e20e645eb1842d60d09502a86a33e1bb8e40c8fb64a985beceaa1daa767cba34"
+      },
+      "expected": "Formal and known raw equipment accept None and first/last positions in seven-slot capacity, reject the next slot, preserve second-slot dual-wield candidate identity, and warn rather than error for possible-table candidate absence. Separate cases in the same file verify strict helper/direct shapes and exact native saved-slot refusal.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/actor-equipment.test.ts",
+        "name": "validates final System slot capacity and warns about dynamic candidates without fixed-table substitution"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22.23.0 / pnpm 10.33.0 / Vitest 4.1.9; original 10000ms deadline and two workers for new tests",
+        "owner": "Actor capability batch 41/42/43; actual logs and source checkpoint in 41-43-actor-capability-batch.md; final native checks remain with 51/53/54",
+        "layer": "Existing public authoring, compile, Decompile and validation seams"
+      },
+      "slice": "43 / S6",
+      "required": true
     }
   ]
 }

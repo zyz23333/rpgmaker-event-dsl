@@ -581,3 +581,16 @@ Ticket27 closure audit passed:328 requirements retain incoming314 in order and o
 | MV-S6-ACTOR-RESOURCES-002 | Original Actor helper inputs fail public Workspace operations without changing business state; all 13 independently bounded scenarios required | synthetic-rejection | Actual public Workspace API, Discovery/evaluation and filesystem |
 | MV-S6-ACTOR-RESOURCES-003 | Direct and known raw Actor inputs share complete Workspace refusal boundaries; all 15 independently bounded scenarios required | synthetic-rejection | Actual public Workspace API, Discovery/evaluation and filesystem |
 | MV-S6-ACTOR-RESOURCES-004 | Late malformed native Actor records fail Decompile before source publication; all 21 independently bounded scenarios required | synthetic-rejection | Actual public Workspace API, Discovery/evaluation and filesystem |
+
+
+## Actor capability batch 41/42/43 development completion
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-ACTOR-GROWTH-001 | Complete growth and dynamic equipment three-container saved data through actual evaluated Workspace and Push | synthetic-support | Actual Workspace API, Discovery/evaluation and filesystem |
+| MV-S6-ACTOR-GROWTH-002 | Untyped saved growth flag and invalid final equipment slot refuse Workspace operations without business writes | synthetic-rejection | Actual Workspace API, Discovery/evaluation and filesystem |
+| MV-S6-ACTOR-EQUIPMENT-001 | Late native equipment slot outside final System capacity fails before source publication | synthetic-rejection | Actual Workspace API, Discovery/evaluation and filesystem |
+| MV-S6-ACTOR-GROWTH-003 | Growth saved flags, literal domains, exact authored forms and fixed references | synthetic-rejection | Existing authoring/compiler/decompiler/validation seams |
+| MV-S6-ACTOR-EQUIPMENT-002 | Final System equipment capacity and candidate warnings preserve runtime identity without fixed-table substitution | synthetic-support | Existing authoring/compiler/decompiler/validation seams |
+
+[Current batch report](41-43-actor-capability-batch.md) links the executed source version, independent inputs, actual commands and original logs. Development is complete; final E7 product comparison and R4/R7 actual game execution remain required in51/53/54. Existing41 raw results and all prior failures stay at their original paths. No per-ticket full/build/native or large archive was added under the 2026-10-20 user amendment.
