@@ -1,9 +1,13 @@
 # MV 1.6.1 原生事件完整支持实施规格
 
-Status: ready-for-agent
+Status: resolved
 Created: 2026-10-19
 Source: [完整支持 MV 原生事件的决策地图](../complete-mv-events/map.md)
 Baseline: cdec508afc07f0543fb0c6751d4aab924d4a3aa7
+
+Completed: 2026-10-20
+Integration branch: `codex/complete-mv-events-implementation`
+Current delivery: [最终两轴评审与问题关闭](evidence/55-final-review.md)、[/23 修复与验证增量](evidence/55-final-review-fixes.md)。55 张实施票全部 resolved，459 项当前验收要求已闭环；正文中的发布与待实施说明保留为原规格历史。
 
 ## 2026-10-20 用户执行修订：按批次开发，减少全量与证据开销
 
@@ -388,3 +392,15 @@ S1 优先核对可能推翻静态假设的移动外壳/indent/M0、403 与一项
 ### 2026-10-19 — 平台范围调整为仅 Windows
 
 用户明确要求当前仅支持 Windows。本规格据此将支持平台、自动化、CI 和最终验收范围收敛到 Windows / Node 22；Linux 等其他平台不构成本阶段完成门槛。已同步验收决策、实施任务及当前 CI，保留 Windows 文件系统安全必验和全部 E1–E7/R1–R7 原生检查。此次只调整平台范围，55 张任务的编号与依赖、105+45 指令覆盖和事件保存契约保持不变。
+
+### 2026-10-20 — 实施、最终验证与独立评审完成
+
+完整实现已集成到 `codex/complete-mv-events-implementation`，55 张票全部 resolved。Windows / Node 22 下的 Map、Common、Troop 容器、105 类事件指令、45 类移动指令、保存结构和 Workspace 发布/同步/恢复责任由 [55 审计](evidence/55-final-audit.md)及其 459 项逐项证据索引闭环。
+
+最终独立 Standards/Spec 评审固定在 `cdec508...d6b1d24`，分别发现 1 项和 2 项 P2；同一实现者统一修复，原审查者独立复核后全部关闭。修复产品提交 `ca8f8de5` 的源码树为 `ee738a365500a11a1f75368fa467dae73f4d2c7b`，编译契约为 `mv-1.6.1/23`。完整修复包通过正常 merge `80fc334e` 集成；其 15 个实际 dist 文件直接取自同一次构建，Workspace API SHA256 为 `824203f0119529a48aa4397d9ba94139abead369e650d2d528273bc726bb4d17`。
+
+按首个 2026-10-20 执行修订，保留原全量失败并以明确对应的定向通过与未受影响结果构成有效验收；没有虚构第二次全量全绿。评审修复的有效 source 验证覆盖 89 项通过，built 8 项通过，最终 typecheck/lint/format/freshness 检查通过；实际命令、原始失败和独立复核见[最终评审汇总](evidence/55-final-review.md)与[修复报告](evidence/55-final-review-fixes.md)。
+
+E1–E7 由逆向代码事实、明确限制和产品比较完成，不冒称编辑器 UI 实测。R1–R7 的最终有效执行共 73 组对照、146 次实际 MV/NW.js 游戏；Movie 保留原 strict false 和 host 日志，必需实际行为另行通过。新增 Battle201 场景观察原生连续停滞，不声称自然返回地图。上述游戏实际执行于原 `/22` 候选 `2dc6390`；`/23` 只收紧原始非法输入并修正诊断，实际完整合法产物不变，依 T6 复用未受影响游戏结果。原始捕获、旧构建和失败结果不改写。
+
+本记录关闭父规格。后续工作树清理按已验证的精确清单执行，保留可恢复 Git 历史、忽略文件原字节、原失败、游戏沙箱和依赖对应关系；不包含 push、发布或 PR。
