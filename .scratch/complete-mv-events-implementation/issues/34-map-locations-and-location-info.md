@@ -3,6 +3,7 @@
 Status: ready-for-agent
 Blocked by: 06, 23, 24
 Stage: S6
+Execution batch: [地图位置与角色行为](../tickets.md#batch-map)
 Created: 2026-10-19
 Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-implementation-spec.md)
 

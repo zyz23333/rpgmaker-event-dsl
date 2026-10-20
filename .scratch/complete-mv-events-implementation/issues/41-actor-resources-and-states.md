@@ -3,6 +3,7 @@
 Status: claimed
 Blocked by: 23
 Stage: S6
+Execution batch: [角色状态、成长与装备](../tickets.md#batch-actors)
 Created: 2026-10-19
 Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-implementation-spec.md)
 
