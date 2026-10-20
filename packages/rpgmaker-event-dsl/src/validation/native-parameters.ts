@@ -233,11 +233,27 @@ export function assertNativeCommandParameters(
         (parameters[index] as number) <= maximum,
       `integer ${minimum}..${maximum}, excluding negative zero`,
     );
-  if (code === 101 || code === 322) integer(code === 101 ? 1 : 4, 0);
+  if (code === 101) integer(1, 0, 2147483647);
+  if (code === 322) integer(4, 0);
   if (code === 101) {
     oneOf(2, [0, 1, 2]);
     oneOf(3, [0, 1, 2]);
   }
+  if (code === 103 || code === 104) integer(0, 1);
+  if (code === 103) integer(1, 1, 8);
+  if (code === 104) oneOf(1, [1, 2, 3, 4]);
+  if (code === 105) integer(0, 1, 8);
+  if ([401, 405, 108, 408].includes(code))
+    if ((parameters[0] as string).includes("\n"))
+      throw new CommandStructureError(
+        "MV-MESSAGE-LINE",
+        "A saved physical line cannot contain LF.",
+        {
+          nativePath: `${path}.parameters[0]`,
+          expected: "one physical line without LF; CR and empty text are preserved",
+          actual: renderJsonValue(parameters[0]),
+        },
+      );
   if (code === 102) {
     slot(
       0,

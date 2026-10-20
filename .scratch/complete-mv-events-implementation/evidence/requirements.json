@@ -18275,6 +18275,326 @@
       },
       "slice": "28 / S6 DEV",
       "required": true
+    },
+    {
+      "id": "MV-S6-MESSAGE-001",
+      "title": "Exact messages in complete Map/Common/Troop through discovered source and edited Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/29-messages-scrolling-text-and-comments.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E103 — Input Number"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E104 — Select Item"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E105 — Show Scrolling Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E108 — Comment"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent literal native message records and complete synthetic carriers; required named formal input, untyped input and known raw anomalies. No editor UI or game execution is claimed.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/message-workspace.test.ts",
+        "sha256": "65f8b327c82f2bb594e3e2ee34cdf6db2c5aa641ab6fe9e026b6eb2e8423f23d"
+      },
+      "expected": "Exact messages in complete Map/Common/Troop through discovered source and edited Push",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/message-workspace.test.ts",
+        "name": "discovers and evaluates generated formal messages in Map/Common/Troop before exact Compile/Diff/Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "29 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-MESSAGE-002",
+      "title": "Authored helper-before-copy, forged known messages and stale Push preserve complete business state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/29-messages-scrolling-text-and-comments.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E103 — Input Number"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E104 — Select Item"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E105 — Show Scrolling Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E108 — Comment"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent literal native message records and complete synthetic carriers; required named formal input, untyped input and known raw anomalies. No editor UI or game execution is claimed.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/message-workspace.test.ts",
+        "sha256": "65f8b327c82f2bb594e3e2ee34cdf6db2c5aa641ab6fe9e026b6eb2e8423f23d"
+      },
+      "expected": "Authored helper-before-copy, forged known messages and stale Push preserve complete business state",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/message-workspace.test.ts",
+        "name": "rejects helper-before-copy and forged messages without changing complete Workspace business state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "29 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-MESSAGE-003",
+      "title": "Invalid native physical records fail before publishing any generated source in every carrier",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/29-messages-scrolling-text-and-comments.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E103 — Input Number"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E104 — Select Item"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E105 — Show Scrolling Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E108 — Comment"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent literal native message records and complete synthetic carriers; required named formal input, untyped input and known raw anomalies. No editor UI or game execution is claimed.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/message-workspace.test.ts",
+        "sha256": "65f8b327c82f2bb594e3e2ee34cdf6db2c5aa641ab6fe9e026b6eb2e8423f23d"
+      },
+      "expected": "Invalid native physical records fail before publishing any generated source in every carrier",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/message-workspace.test.ts",
+        "name": "rejects invalid saved %s messages before source publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "29 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-MESSAGE-004",
+      "title": "Actual TypeScript source rejects missing required settings and removed positional/numeric forms",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/29-messages-scrolling-text-and-comments.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E103 — Input Number"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E104 — Select Item"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E105 — Show Scrolling Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E108 — Comment"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent literal native message records and complete synthetic carriers; required named formal input, untyped input and known raw anomalies. No editor UI or game execution is claimed.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/message-workspace.test.ts",
+        "sha256": "65f8b327c82f2bb594e3e2ee34cdf6db2c5aa641ab6fe9e026b6eb2e8423f23d"
+      },
+      "expected": "Actual TypeScript source rejects missing required settings and removed positional/numeric forms",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/message-workspace.test.ts",
+        "name": "rejects omitted or positional public message fields in actual TypeScript source"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "29 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-MESSAGE-005",
+      "title": "Complete message value domains and exact saved fields through public compiler/decompiler and Staged Data Graph",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/29-messages-scrolling-text-and-comments.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E103 — Input Number"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E104 — Select Item"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E105 — Show Scrolling Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E108 — Comment"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent literal native message records and complete synthetic carriers; required named formal input, untyped input and known raw anomalies. No editor UI or game execution is claimed.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/message.test.ts",
+        "sha256": "5e7ac40426cd745284791105fbd9e36befc7ba2b351bd92cbd864e6fcb30dc16"
+      },
+      "expected": "Complete message value domains and exact saved fields through public compiler/decompiler and Staged Data Graph",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/message.test.ts",
+        "name": "preserves None with an independent nonzero face index and named message settings"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public authoring, compiler/decompiler and Staged Data Graph; no native execution claimed"
+      },
+      "slice": "29 / S6",
+      "required": true
     }
   ]
 }

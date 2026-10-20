@@ -655,3 +655,13 @@ Ticket39 focused DEV adds independent audio saved literals and public Workspace 
 Conditional 集成，契约 `/15`、374 条要求；开发票按用户执行修订关闭，
 48 的最终全量/构建、50/51 的适用逆向/产品比较及 54 的实际 R6 继续待执行。
 历史 DEV 记录及原始失败保留，不把旧执行冒称为最终候选全量或游戏通过。
+
+Ticket29 adds focused synthetic message delivery checks; its E5/E6 reverse-engineering product comparisons and R6 actual game delivery remain separate and pending.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-MESSAGE-001 | Exact messages in complete Map/Common/Troop through discovered source and edited Push | synthetic-support | Actual source/built Workspace API and independent complete state |
+| MV-S6-MESSAGE-002 | Authored helper-before-copy, forged known messages and stale Push preserve complete business state | synthetic-rejection | Actual source/built Workspace API and independent complete state |
+| MV-S6-MESSAGE-003 | Invalid native physical records fail before publishing any generated source in every carrier | synthetic-rejection | Actual source/built Workspace API and independent complete state |
+| MV-S6-MESSAGE-004 | Actual TypeScript source rejects missing required settings and removed positional/numeric forms | synthetic-rejection | Actual source/built Workspace API and independent complete state |
+| MV-S6-MESSAGE-005 | Complete message value domains and exact saved fields through public compiler/decompiler and Staged Data Graph | synthetic-support | Public authoring/compiler/decompiler/Staged Data Graph |

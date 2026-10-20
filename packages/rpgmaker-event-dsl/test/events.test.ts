@@ -182,12 +182,12 @@ describe("compileMapEvent", () => {
         pages: [
           page({
             commands: [
-              comment(["note"]),
+              comment({ lines: ["note"] }),
               showText({
                 lines: ["Hello"],
                 face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 2 },
-                background: 1,
-                positionType: 0,
+                background: "dim",
+                position: "top",
               }),
               showChoices({
                 choices: [
@@ -201,7 +201,7 @@ describe("compileMapEvent", () => {
                 },
               }),
               inputNumber({ variable: variableRef({ name: "Count" }), digits: 3 }),
-              selectItem({ variable: variableRef({ name: "Count" }), itemType: 1 }),
+              selectItem({ variable: variableRef({ name: "Count" }), itemType: "regular" }),
               showScrollingText({ lines: ["Scroll", "More"], speed: 5, noFastForward: true }),
               controlVariables({
                 variable: variableRef({ name: "Count" }),

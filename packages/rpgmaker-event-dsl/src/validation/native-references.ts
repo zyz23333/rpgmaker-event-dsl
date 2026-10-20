@@ -209,7 +209,15 @@ export function inspectNativeCommandReferences(
             {
               nativePath: `${options.prefix ?? ""}list[${index}]${suffix}`,
               ...(origin
-                ? { dslPath: origin.path + (origin.kind === "rawDslCommand" ? suffix : "") }
+                ? {
+                    dslPath:
+                      origin.path +
+                      (origin.kind === "rawDslCommand"
+                        ? suffix
+                        : [103, 104].includes(command.code)
+                          ? ".variable"
+                          : ""),
+                  }
                 : {}),
               expected: `existing ${kind} ID`,
               actual: renderJsonValue(p[slot]),

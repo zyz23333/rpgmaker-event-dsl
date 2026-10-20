@@ -174,6 +174,28 @@ export function inspectNativeCommandInputs(
             : undefined,
         ),
       );
+    if (
+      command.code === 101 &&
+      command.parameters[0] !== "" &&
+      (command.parameters[1] as number) >= 8
+    )
+      issues.push({
+        code: "MV-E101-FACE-LAYOUT",
+        level: "warning",
+        stage: options.stage,
+        identity: options.identity,
+        nativePath: `${path}.parameters[1]`,
+        ...(origin
+          ? {
+              dslPath:
+                origin.path + (origin.kind === "rawDslCommand" ? ".parameters[1]" : ".face.index"),
+            }
+          : {}),
+        expected:
+          "official two-row layout uses indices 0..7; saved nonnegative 32-bit index is preserved",
+        actual: String(command.parameters[1]),
+        message: `${options.stage} warning ${options.identity}: MV-E101-FACE-LAYOUT at ${path}.parameters[1]: saved face index ${command.parameters[1]} is beyond the official two-row layout; asset dimensions are unchecked.`,
+      });
     if (!isKnownCommandCode(command.code))
       issues.push({
         code: "MV-UNKNOWN-COMMAND",

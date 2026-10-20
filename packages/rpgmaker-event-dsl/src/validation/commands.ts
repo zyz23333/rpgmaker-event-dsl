@@ -35,6 +35,8 @@ import {
 } from "../commands/movement/access-validation.js";
 import { assertSceneCommandInput } from "../commands/system/validation.js";
 
+import { resolveMessageVariable } from "../commands/message/validation.js";
+
 type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
 export function validatePages(
@@ -234,7 +236,18 @@ export function validateNodes(
       captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
     }
     if (node.kind === "inputNumber" || node.kind === "selectItem") {
-      captureReferenceIssue(() => resolver.resolveReference(node.variable), issues);
+      try {
+        resolveMessageVariable(
+          node.variable,
+          node.kind === "inputNumber" ? 103 : 104,
+          resolver,
+          `${nodePath}.variable`,
+        );
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+      }
     }
     if (node.kind === "showChoices") {
       try {

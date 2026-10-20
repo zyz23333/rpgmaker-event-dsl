@@ -131,6 +131,36 @@ Diff reports zero-based native paths and one-based page positions. Push preserve
 external Map fields and null holes; removing an event nulls its slot and uses the
 existing Destructive Push guard.
 
+## Message Commands
+
+Message helpers use complete named settings:
+
+```ts
+showText({
+  lines: ["Welcome.\r", ""],
+  face: { image: null, index: 11 },
+  background: "window",
+  position: "bottom",
+});
+inputNumber({ variable: variableRef({ id: 2 }), digits: 8 });
+selectItem({ variable: variableRef({ id: 2 }), itemType: "hiddenB" });
+showScrollingText({ lines: ["Credits", ""], speed: 2, noFastForward: false });
+comment({ lines: ["Quest state", ""] });
+```
+
+All shown message fields are required. Each line is one physical saved record:
+CR, whitespace and trailing empty strings are preserved, while embedded LF fails.
+Show Text has 1–4 lines, Comment 1–6, and Scrolling Text at least one. Author
+multiple Show Text calls for longer dialogue. Background is window/dim/transparent;
+position is top/middle/bottom. Face image is a `faces` Asset Reference or None
+(`null`), with an independent required index 0–2,147,483,647 excluding negative zero.
+Non-None indices at least 8 warn about the official two-row layout; image files and
+dimensions are unchecked. None preserves its saved index without that warning.
+Digits and scrolling speed are integers 1–8; `noFastForward` is an explicit Boolean.
+Select Item types are regular/key/hiddenA/hiddenB, and its variable is the result
+destination, resolved using final System capacity. Valid message records are
+available with the Script Command Gate disabled.
+
 ## Install
 
 The current stage supports Windows, with Node.js 22 as the runtime and CI baseline.

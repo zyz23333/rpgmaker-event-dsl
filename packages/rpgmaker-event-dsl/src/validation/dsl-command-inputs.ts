@@ -2,6 +2,13 @@ import type { DslCommand } from "../domain/types.js";
 import { describeValue } from "../project-data/json-values.js";
 import { CommandStructureError } from "./command-errors.js";
 import { assertNativeCommandEnvelope } from "./command-structure.js";
+import {
+  assertShowText,
+  assertInputNumber,
+  assertSelectItem,
+  assertShowScrollingText,
+  assertComment,
+} from "../commands/message/validation.js";
 
 export function assertDslObject(
   value: unknown,
@@ -99,5 +106,10 @@ export function assertDslCommandList(
     if (!Object.hasOwn(node, "kind") || typeof node.kind !== "string")
       fail(at, "missing command kind");
     if (node.kind === "rawDslCommand") assertRawDslInput(node, at, 0, true, validateRaw);
+    if (node.kind === "showText") assertShowText(node, at);
+    if (node.kind === "inputNumber") assertInputNumber(node, at);
+    if (node.kind === "selectItem") assertSelectItem(node, at);
+    if (node.kind === "showScrollingText") assertShowScrollingText(node, at);
+    if (node.kind === "comment") assertComment(node, at);
   }
 }

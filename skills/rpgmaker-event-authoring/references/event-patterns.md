@@ -43,6 +43,23 @@ Use event pages for persistent top-level state changes. Use `conditional(...)` i
 
 NPC dialogue usually uses a Map Event with an action trigger. Use pages when dialogue changes by quest or story state. Use `showChoices(...)` when the player decides.
 
+For dialogue use `showText({ lines, face: { image, index }, background, position })`.
+Every field is required. Background is window/dim/transparent; position is
+top/middle/bottom. Use a `faces` `imageAsset(...)` or `null` for None, and preserve
+the independent index even for None. Index accepts 0–2,147,483,647 and rejects
+negative zero. A non-None index at least 8 warns about the official two-row layout;
+image files and dimensions are unchecked. Each line is one physical record:
+keep CR, whitespace and trailing empty strings, and never embed LF. Show Text
+requires 1–4 lines; author multiple calls when more are needed. Use
+`showScrollingText({ lines, speed, noFastForward })` with at least one line,
+integer speed 1–8 and an explicit Boolean. Use `comment({ lines })` for 1–6 lines.
+Text records work with the Script Command Gate disabled.
+
+Use `inputNumber({ variable, digits })` with required integer digits 1–8, or
+`selectItem({ variable, itemType })` with required regular/key/hiddenA/hiddenB.
+Both variables are result destinations and resolve as ordinary System Variable
+Slots. Item cancellation writes runtime value zero; it does not authorize slot zero.
+
 A one-time chest usually uses two pages: unopened page gives the reward and turns self switch A on; opened page is conditioned by self switch A and shows short "empty" feedback or no commands.
 
 A locked door usually uses an action-triggered Map Event. Use `conditional(...)` when the door looks the same; use pages when it has a persistent opened or unlocked state. Use `transferPlayer(...)` for doors that move the player.

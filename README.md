@@ -58,7 +58,7 @@ agent to change safely.
 The DSL gives those raw records readable names and typed structure:
 
 ```ts
-commands: [showText({ lines: ["Welcome."] })];
+commands: [showText({ lines: ["Welcome."] , face: { image: null, index: 0 }, background: "window", position: "bottom" })];
 ```
 
 That single DSL command compiles into the raw command list above. `code: 101` starts the
@@ -188,7 +188,7 @@ export const introCommonEvent = commonEvent({
   id: 1,
   name: "Intro",
   trigger: "none",
-  commands: [showText({ lines: ["Welcome."] })],
+  commands: [showText({ lines: ["Welcome."] , face: { image: null, index: 0 }, background: "window", position: "bottom" })],
 });
 ```
 
@@ -477,6 +477,35 @@ are preserved with a warning. Each choice and a separate cancel branch own their
 Body End Marker; see the [Choices example](packages/rpgmaker-event-dsl/README.md#choices)
 for the complete authoring shape.
 
+Message helpers require their complete named settings:
+
+```ts
+showText({
+  lines: ["Welcome.\r", ""],
+  face: { image: null, index: 11 },
+  background: "window",
+  position: "bottom",
+});
+inputNumber({ variable: variableRef({ id: 2 }), digits: 8 });
+selectItem({ variable: variableRef({ id: 2 }), itemType: "hiddenB" });
+showScrollingText({ lines: ["Credits", ""], speed: 2, noFastForward: false });
+comment({ lines: ["Quest state", ""] });
+```
+
+Each `lines` element is one physical saved record. Preserve CR, whitespace and empty
+or trailing empty lines; an embedded LF is rejected. Show Text requires 1–4 lines,
+Comment 1–6, and Scrolling Text at least one. Split longer dialogue into explicit
+`showText` calls. The compiler never trims or splits a group automatically.
+Background is `window`/`dim`/`transparent`, and position is `top`/`middle`/`bottom`.
+Face `image` is a `faces` image Asset Reference or `null` for None; its independent
+integer `index` is required, accepts 0–2,147,483,647 and rejects negative zero.
+Non-None indices at least 8 warn about the official two-row layout while preserving
+the saved value. Asset files and dimensions are unchecked; None retains its index.
+Number input requires digits 1–8. Item selection requires `regular`, `key`, `hiddenA`
+or `hiddenB`; its variable is the result destination and must resolve to an existing
+System Variable Slot. Scrolling speed is an integer 1–8 and `noFastForward` is an
+explicit Boolean. These text records do not require the Script Command Gate.
+
 `setMovementRoute({ target, route: { commands, repeat?, skippable?, wait?, terminator? } })`
 uses the shared `MovementRoute` model. `commands` is required and may be empty;
 the route defaults are `repeat: true`, `skippable: false`, and `wait: false`.
@@ -594,7 +623,7 @@ export const introCommonEvent = commonEvent({
   id: 1,
   name: "Intro",
   trigger: "none",
-  commands: [showText({ lines: ["Welcome."] })],
+  commands: [showText({ lines: ["Welcome."] , face: { image: null, index: 0 }, background: "window", position: "bottom" })],
 });
 
 export const doorEvent = mapEvent({
@@ -609,7 +638,7 @@ export const doorEvent = mapEvent({
         switch1: { enabled: true, ref: switchRef({ id: 1 }) },
       },
       commands: [
-        showText({ lines: ["The door is open."] }),
+        showText({ lines: ["The door is open."] , face: { image: null, index: 0 }, background: "window", position: "bottom" }),
         callCommonEvent({ commonEvent: commonEventRef({ id: 1 }) }),
       ],
     }),
