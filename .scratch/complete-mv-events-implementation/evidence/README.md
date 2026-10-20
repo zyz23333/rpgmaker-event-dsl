@@ -710,39 +710,39 @@ The five stable obligations below retain the original DEV records. Current devel
 
 Original DEV records are retained. [Current batch development closure](map-batch-delivery.md) records actual affected and real Workspace checks. `MV-S6-LOCATION-004` remains required and unexecuted for final E4/E6/R5 in50/51/53.
 
-| Requirement | Obligation | Evidence |
-| --- | --- | --- |
-| MV-S6-LOCATION-001 | Complete Location modes through actual Workspace installation | Synthetic source Workspace; native not executed; [record](34-map-locations-dev-checkpoint.md) |
-| MV-S6-LOCATION-002 | Reject evaluated untyped Location sources without changing business state | Synthetic source Workspace; native not executed; [record](34-map-locations-dev-checkpoint.md) |
+| Requirement        | Obligation                                                                     | Evidence                                                                                      |
+| ------------------ | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
+| MV-S6-LOCATION-001 | Complete Location modes through actual Workspace installation                  | Synthetic source Workspace; native not executed; [record](34-map-locations-dev-checkpoint.md) |
+| MV-S6-LOCATION-002 | Reject evaluated untyped Location sources without changing business state      | Synthetic source Workspace; native not executed; [record](34-map-locations-dev-checkpoint.md) |
 | MV-S6-LOCATION-003 | Reject native Location coordinates and unsupported exchange padding atomically | Synthetic source Workspace; native not executed; [record](34-map-locations-dev-checkpoint.md) |
-| MV-S6-LOCATION-004 | Pending final E4/E6 product comparison and R5 native game acceptance | Pending E4/E6/R5; not executed; [record](34-map-locations-dev-checkpoint.md) |
+| MV-S6-LOCATION-004 | Pending final E4/E6 product comparison and R5 native game acceptance           | Pending E4/E6/R5; not executed; [record](34-map-locations-dev-checkpoint.md)                  |
 
 ## Ticket35 Map Characters
 
 Original DEV records are retained. [Current batch development closure](map-batch-delivery.md) records actual affected and real Workspace checks. `MV-S6-CHARACTER-006` remains required and unexecuted for final R1/R4/R6 in52–54.
 
-| Requirement | Obligation | Evidence |
-| --- | --- | --- |
-| MV-S6-CHARACTER-001 | Complete native matrix through real Workspace evaluation and Push |
-| MV-S6-CHARACTER-002 | Evaluated helper and direct-node excess fields refuse before projection |
+| Requirement         | Obligation                                                                    | Evidence |
+| ------------------- | ----------------------------------------------------------------------------- | -------- |
+| MV-S6-CHARACTER-001 | Complete native matrix through real Workspace evaluation and Push             |
+| MV-S6-CHARACTER-002 | Evaluated helper and direct-node excess fields refuse before projection       |
 | MV-S6-CHARACTER-003 | Invalid native slots and fixed animation references refuse before publication |
-| MV-S6-CHARACTER-004 | Current public types require named enums and explicit wait |
-| MV-S6-CHARACTER-005 | Approved command seams validate complete map-character contract |
-| MV-S6-CHARACTER-006 | Pending actual R1/R4/R6 normal Scene product comparison |
+| MV-S6-CHARACTER-004 | Current public types require named enums and explicit wait                    |
+| MV-S6-CHARACTER-005 | Approved command seams validate complete map-character contract               |
+| MV-S6-CHARACTER-006 | Pending actual R1/R4/R6 normal Scene product comparison                       |
 
 ## Shared S3 / Loop input supplement
 
 All fifteen constructors and original DEV controls are retained. [Current batch development closure](map-batch-delivery.md) records all15 actual-source constructor/Push cases and the original-switch-target correction. `MV-S3-INPUT-007` remains unexecuted for final candidate/full/build/built in48 and applicable R1/R3 normal-Scene regressions in52.
 
-| Requirement | Obligation | Evidence |
-| --- | --- | --- |
-| MV-S3-INPUT-001 | Public command boundaries refuse discarded fields and symbolic negative zero | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
-| MV-S3-INPUT-002 | Actual local, spread, asserted and direct source fields refuse before output | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
-| MV-S3-INPUT-003 | All fifteen reference constructors preserve valid controls and reject discarded source fields | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
-| MV-S3-INPUT-004 | Nested direct switch references and ranges refuse excess and ambiguous fields | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| Requirement     | Obligation                                                                                       | Evidence          |
+| --------------- | ------------------------------------------------------------------------------------------------ | ----------------- | ---------------------------------------------------------------------------------- |
+| MV-S3-INPUT-001 | Public command boundaries refuse discarded fields and symbolic negative zero                     | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-002 | Actual local, spread, asserted and direct source fields refuse before output                     | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-003 | All fifteen reference constructors preserve valid controls and reject discarded source fields    | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-004 | Nested direct switch references and ranges refuse excess and ambiguous fields                    | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
 | MV-S3-INPUT-005 | Native categorical signed zero refuses before publication while positive-zero controls roundtrip | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
-| MV-S3-INPUT-006 | Evaluated known raw categorical signed zero reports its precise authored slot | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
-| MV-S3-INPUT-007 | Pending final integrated source/build/built and impacted R1/R3 validation | synthetic-support | Not executed: final integrated delivery and native normal-Scene game regression |
+| MV-S3-INPUT-006 | Evaluated known raw categorical signed zero reports its precise authored slot                    | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-007 | Pending final integrated source/build/built and impacted R1/R3 validation                        | synthetic-support | Not executed: final integrated delivery and native normal-Scene game regression    |
 
 Ticket29 adds focused synthetic message delivery checks; its E5/E6 reverse-engineering product comparisons and R6 actual game delivery remain separate and pending.
 
@@ -768,13 +768,13 @@ Ticket29 adds focused synthetic message delivery checks; its E5/E6 reverse-engin
 
 [Current batch report](29-30-44-text-capability-batch.md) records actual source, inputs, commands, logs and retained failures. Development resolves under the user amendment; final E5/E6, R3 and R6/R7 remain with51/52/54.
 
-| Requirement                     | Obligation                                                                                | Actual layer                                                                                    |
-| ------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| MV-S6-ACTOR-PRESENTATION-001    | Actor presentation in complete three-container evaluated Workspace and edited Push        | Actual public source tests and complete temporary filesystem                                    |
-| MV-S6-ACTOR-PRESENTATION-002    | Original helper and forged Actor presentation source refuse writes and stale Push         | Actual public source tests and complete temporary filesystem                                    |
-| MV-S6-ACTOR-PRESENTATION-003    | Late malformed recognized Actor image refuses all source publication                      | Actual public source tests and complete temporary filesystem                                    |
-| MV-S6-ACTOR-PRESENTATION-004    | Public Actor text and image helpers compiler decompiler raw domains and accurate warnings | Actual public source tests and complete temporary filesystem                                    |
-| MV-S6-ACTOR-PRESENTATION-NATIVE | Final E5/E6 product comparison and actual R6 Actor text image display remain required     | Pending51/54; not executed                                                                      |
+| Requirement                     | Obligation                                                                                | Actual layer                                                 |
+| ------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| MV-S6-ACTOR-PRESENTATION-001    | Actor presentation in complete three-container evaluated Workspace and edited Push        | Actual public source tests and complete temporary filesystem |
+| MV-S6-ACTOR-PRESENTATION-002    | Original helper and forged Actor presentation source refuse writes and stale Push         | Actual public source tests and complete temporary filesystem |
+| MV-S6-ACTOR-PRESENTATION-003    | Late malformed recognized Actor image refuses all source publication                      | Actual public source tests and complete temporary filesystem |
+| MV-S6-ACTOR-PRESENTATION-004    | Public Actor text and image helpers compiler decompiler raw domains and accurate warnings | Actual public source tests and complete temporary filesystem |
+| MV-S6-ACTOR-PRESENTATION-NATIVE | Final E5/E6 product comparison and actual R6 Actor text image display remain required     | Pending51/54; not executed                                   |
 
 ## Enemy and battle batch 45/46
 
@@ -808,3 +808,24 @@ small Workspace groups. Final native requirements remain pending.
 ## Final editor domain supplement
 
 [Supplement report](49-51-editor-supplement.md) and [independent saved inputs / portion receipts](49-51-editor-supplement-cases.json) close the Audio E4 evidence gap and the Inventory E4 / Location E4,E6 portions on the fixed contract22 build. Only `MV-S6-AUDIO-E4` gains a passing aggregate result here. `MV-S6-INVENTORY-006` and `MV-S6-LOCATION-004` still await final53 actual R4/R5 game receipts. Prior results and the original fixture failure remain preserved.
+
+## Final53 R4–R5 actual game closure
+
+[Final execution and retained failures](53-final-game-runtime-selectors-and-locations.md)
+records twelve final passing literal/product pairs and24 actual native processes
+on candidate `2dc639015f908de6fd524e50236e5422b5f8e990`, contract `mv-1.6.1/22`.
+All original eleven complete controls and the required Script-context supplement
+ran through the real final built Workspace lifecycle and fresh MV1.6.1/NW.js
+games. Four failed pair attempts remain preserved. Three immutable passed result
+records close the two rows below and `MV-S5-COMMON-R4-CONTEXT`.
+
+| Requirement       | Obligation                                                                                         | Actual layer           |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ---------------------- |
+| MV-S7-GAME-R4-053 | Complete dynamic Common, Variables, Actor0/state/equipment/Inventory and Force Action actual pairs | Passed actual game pairs |
+| MV-S7-GAME-R5-053 | Actual location, small-map query differences and vehicle/follower consequences                     | Passed actual game pairs |
+
+The report's final receipt records only53's assigned native portions for the
+mixed VARIABLES-005, LOCATION-004, INVENTORY-006, CHARACTER-006 and BATTLE-005
+requirements. Their other E/R portions remain with51/52/54 and final55's
+aggregation; the earlier development/pending statements above retain their
+historical meaning.

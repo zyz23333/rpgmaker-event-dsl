@@ -66,3 +66,21 @@ The recorded worktree creation receipt is `M:/Shuen/Codex/mv-events-implementati
 Original literal preparation supports planning and is not final compiled product acceptance. Domain/history pointers remain in `M:/Shuen/Codex/mv-events-implementation-20261020/remaining-batch-handoffs.md`, `M:/Shuen/Codex/mv-events-implementation-20261020/ticket31-finalization-preparation.md`, `C:/Users/Shuen/.codex/tmp/mv31-control-variables-preparation-20261020.md`, `C:/Users/Shuen/.codex/tmp/mv-runtime-execution-baseline.md` (lines125–129) and `C:/Users/Shuen/.codex/tmp/mv-common-operands-native-probe.cjs`. Older operational freeze/root-release requirements in preparation records are superseded by the accepted execution policy.
 
 Original literal project: `C:/Users/Shuen/.codex/tmp/mv-common-operands-native-control-20261019-0d33d41e-892e-421d-81c4-9550275bd869`. Its baseline hashes remain: result `9bc0c0e9750623f4e6e3cb55e23db71628e1f583f9d7b48915d8cd9c980c807b`; observer `44b4fb2b3448322f9ea4091da5b3fb9767db2fa316a42cacd5c98cdacd5dfb86`; inputs `dc05c569f413b8bade3483bc7f83805111404a0febdeca5a999e1e935cc42c76`; setup `d0855c079335240e8d991a1fe5418b62d0165bc5c1d026393268eba101c31bf1`.
+
+## Final53 assigned native portion passed
+
+The then-pending native obligations above are now executed on final candidate
+`2dc639015f908de6fd524e50236e5422b5f8e990`, contract `mv-1.6.1/22`.
+The [final53 report and compact receipt](53-final-game-runtime-selectors-and-locations.md#final-requirement-receipts-and-aggregation)
+retain every original64-sample Random, self-alias2,3,4→4,6,8 and Script counter
+predicate, all six operations and native numeric storage outcomes, all eight Game
+Data source kinds, and unavailable selectors in complete Common/Map/Battle
+contexts. A separate actual paired game verifies empty Script stored undefined
+versus public0, full CRLF multiline Script evaluating once across three targets,
+and native interpreter eventId7 in Map versus0 in Battle. Each final pair passed
+both native games and the actual final built public Workspace lifecycle.
+
+This closes53's assigned native portion of `MV-S6-VARIABLES-005`. No blanket
+passed result is emitted for that mixed E5/R4/R7 requirement: final55 must
+aggregate51's E5 and52/54's applicable R7 receipts. The original development
+wording, inputs and failures above remain preserved as historical checkpoints.

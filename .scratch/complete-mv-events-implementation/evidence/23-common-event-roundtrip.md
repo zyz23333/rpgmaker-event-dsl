@@ -127,3 +127,14 @@ E1再次只读核验同一编辑器34份资源及E117/picker，fresh identity JS
 - empty: `C:\Users\Shuen\.codex\tmp\mv23-merger-common-empty-1f40debb-adfe-40b2-ac04-e9ef9ff19d9f\result.json`，SHA256 `2ea021b47f984f51994d28ef265392d3f94becc8264bd1c8c90d6b45786fe82c`；原字节副本23-history/mv23-review-merger-recheck-empty-original-result.json
 - null-only: `C:\Users\Shuen\.codex\tmp\mv23-merger-common-null-only-4f0f0027-c9c2-4c43-a5ee-268b84fea96f\result.json`，SHA256 `23480dd87fc42bf6066ee22dd720c4ee53dc4464f66b1b81b7c02ea2e0019967`；原字节副本23-history/mv23-review-merger-recheck-null-only-original-result.json
 - negative-zero-trigger: `C:\Users\Shuen\.codex\tmp\mv23-merger-common-negative-zero-trigger-f4811bbc-0bd8-4650-b9b9-78dba7d9b053\result.json`，SHA256 `fe4f9ed5793b3c3b683f8715ca272fa20126eb1f70f55b3e5792f72cd28a4256`；原字节副本23-history/mv23-review-merger-recheck-negative-zero-trigger-original-result.json
+
+## Final53 current R4 context receipt
+
+The [final53 execution report](53-final-game-runtime-selectors-and-locations.md#final-requirement-receipts-and-aggregation)
+records a fresh passing `MV-S5-COMMON-R4-CONTEXT` result on final candidate
+`2dc639015f908de6fd524e50236e5422b5f8e990`, contract `mv-1.6.1/22`.
+The complete original Common control, the unavailable-selector/context supplement
+and empty/multiline Script Map/Battle supplement each passed both actual games
+after the real public built Workspace Check/Compile/Diff/Push lifecycle.
+The exact receipt, result hashes and retained failures are linked there. This
+current R4 closure supplements the historical23 executions; final52 owns R1.

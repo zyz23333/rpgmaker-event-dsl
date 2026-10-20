@@ -21912,6 +21912,100 @@
       },
       "slice": "49–51 final editor/product",
       "required": true
+    },
+    {
+      "id": "MV-S7-GAME-R4-053",
+      "title": "Final actual R4 independent literal versus final built Workspace product games",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/53-final-game-runtime-selectors-and-locations.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Self-authored independent native records, original full controls and the separately versioned Script-context supplement; executed final48 candidate public built Workspace lifecycle and actual MV1.6.1/NW.js game pairs with complete per-side consequence observations.",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/53-runtime-scenarios.cjs",
+        "sha256": "969a90440be948f29d89f5bef8af505dac466dd3e826a30b396bdd2abe092641"
+      },
+      "expected": "Every assigned R4 scenario preserves complete native carriers through formal public source, Check/Compile/Diff/Push; each private actual game satisfies the independent context/target/value/location consequences with unchanged engine and reliable owned process exit. Preparation is not a pass.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/53-final-game-runtime-selectors-and-locations.md",
+        "section": "## Execution status"
+      },
+      "nativeGroups": [
+        "R4"
+      ],
+      "execution": {
+        "environment": "Windows / Node22 tooling; actual MV1.6.1 and NW.js game runtime",
+        "owner": "Codex final53 executor",
+        "layer": "Final built public Workspace product and actual native normal-Scene game pairs"
+      },
+      "slice": "S7 final53",
+      "required": true
+    },
+    {
+      "id": "MV-S7-GAME-R5-053",
+      "title": "Final actual R5 independent literal versus final built Workspace product games",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/53-final-game-runtime-selectors-and-locations.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Self-authored independent native records and original full location control plus Map-character consequences; executed final48 candidate public built Workspace lifecycle and actual MV1.6.1/NW.js game pairs with complete per-side consequence observations.",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/53-runtime-scenarios.cjs",
+        "sha256": "969a90440be948f29d89f5bef8af505dac466dd3e826a30b396bdd2abe092641"
+      },
+      "expected": "Every assigned R5 scenario preserves complete native carriers through formal public source, Check/Compile/Diff/Push; each private actual game satisfies the independent context/target/value/location consequences with unchanged engine and reliable owned process exit. Preparation is not a pass.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/53-final-game-runtime-selectors-and-locations.md",
+        "section": "## R5 scenario"
+      },
+      "nativeGroups": [
+        "R5"
+      ],
+      "execution": {
+        "environment": "Windows / Node22 tooling; actual MV1.6.1 and NW.js game runtime",
+        "owner": "Codex final53 executor",
+        "layer": "Final built public Workspace product and actual native normal-Scene game pairs"
+      },
+      "slice": "S7 final53",
+      "required": true
     }
   ]
 }
