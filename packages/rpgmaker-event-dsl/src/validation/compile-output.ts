@@ -18,6 +18,11 @@ export function assertCompileOutput(
   scriptEnabled: boolean,
 ): void {
   const issues: ValidationIssue[] = [];
+  const system = files.get("System.json");
+  const equipmentTypes =
+    system !== null && typeof system === "object" && "equipTypes" in system
+      ? system.equipTypes
+      : undefined;
   const list = (commands: RawEventCommand[], identity: string, prefix = "") => {
     try {
       inspectCommandListStructure(commands, { requireTerminator: true });
@@ -35,7 +40,12 @@ export function assertCompileOutput(
       }),
     );
     issues.push(
-      ...inspectNativeCommandReferences(commands, resolver, { identity, stage: "compile", prefix }),
+      ...inspectNativeCommandReferences(commands, resolver, {
+        identity,
+        stage: "compile",
+        prefix,
+        equipmentTypes,
+      }),
     );
   };
   const require = (condition: boolean, path: string, expected: string) => {

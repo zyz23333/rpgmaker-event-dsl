@@ -23,6 +23,7 @@ import {
 import { renderCommands } from "./dispatch.js";
 import { renderDecompiledCommandList } from "./dispatch.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
+import { variableTroopContext } from "../commands/variables/diagnostics.js";
 import { assertNativeContextReferences } from "../validation/native-context-references.js";
 import { assertPictureReferences } from "../commands/screen/picture-references.js";
 import { buildSnapshotReferenceInput } from "../validation/staged-graph.js";
@@ -174,10 +175,12 @@ async function buildDecompiledSourceFiles(
     for (const event of events) {
       for (const [pageIndex, page] of event.pages.entries()) {
         const inputOptions = {
+          equipmentTypes: system.equipTypes,
           identity: `map:${mapInfo.id}/event:${event.id}`,
           stage: "decompile" as const,
           scriptEnabled: options.scriptEnabled ?? false,
           prefix: `pages[${pageIndex}].`,
+          variableContext: { mapEventIds: events.map(({ id }) => id) },
         };
         issues.push(...inspectNativeCommandInputs(page.list ?? [], inputOptions));
         issues.push(
@@ -217,7 +220,14 @@ async function buildDecompiledSourceFiles(
           resolver,
         );
         const errors = inspectNativeCommandReferences(page.list ?? [], resolver, inputOptions);
-        if (errors.length) throw new Error(errors.map((issue) => issue.message).join("\n"));
+        issues.push(...errors.filter((issue) => issue.level === "warning"));
+        if (errors.some((issue) => issue.level === "error"))
+          throw new Error(
+            errors
+              .filter((issue) => issue.level === "error")
+              .map((issue) => issue.message)
+              .join("\n"),
+          );
         assertSnapshotRendering(page.list ?? [], inputOptions.identity, inputOptions.prefix);
       }
     }
@@ -253,10 +263,18 @@ async function buildDecompiledSourceFiles(
       resolver,
     );
     const errors = inspectNativeCommandReferences(event.list ?? [], resolver, {
+      equipmentTypes: system.equipTypes,
       identity: `commonEvent:${event.id}`,
       stage: "decompile",
     });
-    if (errors.length) throw new Error(errors.map((issue) => issue.message).join("\n"));
+    issues.push(...errors.filter((issue) => issue.level === "warning"));
+    if (errors.some((issue) => issue.level === "error"))
+      throw new Error(
+        errors
+          .filter((issue) => issue.level === "error")
+          .map((issue) => issue.message)
+          .join("\n"),
+      );
     assertSnapshotRendering(event.list ?? [], `commonEvent:${event.id}`);
   }
   files.push({
@@ -306,14 +324,23 @@ async function buildDecompiledSourceFiles(
           stage: "decompile",
           scriptEnabled: options.scriptEnabled ?? false,
           prefix,
+          variableContext: variableTroopContext(troop.members, resolver),
         }),
       );
       const errors = inspectNativeCommandReferences(commands, resolver, {
+        equipmentTypes: system.equipTypes,
         identity,
         stage: "decompile",
         prefix,
       });
-      if (errors.length) throw new Error(errors.map(({ message }) => message).join("\n"));
+      issues.push(...errors.filter((issue) => issue.level === "warning"));
+      if (errors.some((issue) => issue.level === "error"))
+        throw new Error(
+          errors
+            .filter((issue) => issue.level === "error")
+            .map(({ message }) => message)
+            .join("\n"),
+        );
       assertSnapshotReferences(commands, `${identity}.${prefix}list`, resolver);
       assertSnapshotRendering(commands, identity, prefix);
     }

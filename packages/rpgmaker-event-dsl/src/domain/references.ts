@@ -170,19 +170,19 @@ export type ControlVariablesGameDataOperand =
   | {
       kind: "gameData";
       source: "enemy";
-      enemyIndex: number;
+      enemy: RuntimeSelector<"enemy", "enemy"> & { index: number };
       value: "hp" | "mp" | "mhp" | "mmp" | "atk" | "def" | "mat" | "mdf" | "agi" | "luk";
     }
   | {
       kind: "gameData";
       source: "character";
-      characterId: number;
+      target: CharacterRuntimeSelector;
       value: "mapX" | "mapY" | "direction" | "screenX" | "screenY";
     }
   | {
       kind: "gameData";
       source: "party";
-      memberIndex: number;
+      member: RuntimeSelector<"party", "member"> & { index: number };
     }
   | {
       kind: "gameData";
@@ -214,19 +214,14 @@ export type OperateValueInput = {
   operand: OperateValueOperand;
 };
 
-export type ActorCommandTarget =
-  | (RuntimeSelector<"actor", "entireParty"> & {
-      actorId?: never;
-      variable?: never;
-    })
-  | (RuntimeSelector<"actor", "actor"> & {
-      actorId: number;
-      variable?: never;
-    })
-  | (RuntimeSelector<"actor", "actorFromVariable"> & {
-      actorId?: never;
-      variable: ReferenceValue<"variable">;
-    });
+export type ActorResourceTarget =
+  | RuntimeSelector<"actor", "entireParty">
+  | (RuntimeSelector<"actor", "actor"> & { actor: ReferenceValue<"actor"> })
+  | (RuntimeSelector<"actor", "actorFromVariable"> & { variable: ReferenceValue<"variable"> });
+
+export type ActorResourceOperand = ConstantOperand | VariableOperand;
+
+export type EquipmentRuntimeSelector = RuntimeSelector<"equipment", "idForSlot"> & { id: number };
 
 export type EnemyCommandTarget =
   | (RuntimeSelector<"enemy", "all"> & {

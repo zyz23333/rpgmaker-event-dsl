@@ -1,6 +1,6 @@
 # 31: Control Variables 全操作数
 
-Status: ready-for-agent
+Status: resolved
 Blocked by: 09, 23, 25
 Stage: S6
 Execution batch: [变量操作数与求值](../tickets.md#batch-variables)
@@ -21,18 +21,18 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 ## Acceptance criteria
 
-- [ ] 范围、五类 operand、Game Data 八来源及全部 status/子型/枚举逐项有正负边界案例；反向范围与随机反向报错。
-- [ ] 常量/随机端点使用各自值域，运行变量/计算结果不套字面上限；Script Input 单槽字符串与 Gate 完整。
-- [ ] 真实 Common/战斗上下文与原生 R4 证明 Random 每目标独立采样，其余 operand 一次求值；E5/R7 分配场景与自动化往返齐备。
+- [x] 范围、五类 operand、Game Data 八来源及全部 status/子型/枚举逐项有正负边界案例；反向范围与随机反向报错。
+- [x] 常量/随机端点使用各自值域，运行变量/计算结果不套字面上限；Script Input 单槽字符串与 Gate 完整。
+- [x] 自动化往返及 Common/战斗上下文诊断完成；按2026-10-20用户执行修订，E5最终产品比较与R4/R7真实Common/战斗场景集中到49–54。Random逐目标采样、其余operand一次求值等原生义务保留为未执行的 `MV-S6-VARIABLES-005`，不计为通过。
 
 ### 共通要求（限本票适用范围）
 
-- [ ] 按规格 I1–I12 和对应完整参数附表实现；正式编写、编译、反编译、验证、已知 raw 及适用 Workspace 路径一起交付，实际发现并求值生成源码，预期独立于待测编译器。
-- [ ] 对本票拥有的字段/模式/枚举/None/独立保存值/默认/正负边界及已知相互作用建案例；完整比较键存在性、数组长度/顺序、页序、值、镜像、CR 和非激活配置。
-- [ ] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
-- [ ] 按规格 2026-10-20 用户执行修订，开发及批次合入执行 Windows / Node 22 受影响测试与必要检查；全量适用自动化及构建集中到 48。安全票仍验证用户可观察的源码、项目、Snapshot、manifest、Discovery 集合和诊断状态。
-- [ ] 本票原生场景可集中到 49–54 最终回归；开发票关闭时记录实际自动化结果，并明确指向待执行的最终场景，不把未执行记为通过。证据按规格 2026-10-20 用户执行修订保留必要版本、输入、命令和预期/实际日志。
-- [ ] 同步受影响的当前公开 API 文档、示例及编写指南；不保留旧 API 别名或迁移说明，不分发首方编辑器、runtime/源码或本地游戏资产。
+- [x] 按规格 I1–I12 和对应完整参数附表实现；正式编写、编译、反编译、验证、已知 raw 及适用 Workspace 路径一起交付，实际发现并求值生成源码，预期独立于待测编译器。
+- [x] 对本票拥有的字段/模式/枚举/None/独立保存值/默认/正负边界及已知相互作用建案例；完整比较键存在性、数组长度/顺序、页序、值、镜像、CR 和非激活配置。
+- [x] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
+- [x] 按规格 2026-10-20 用户执行修订，开发及批次合入执行 Windows / Node 22 受影响测试与必要检查；全量适用自动化及构建集中到 48。安全票仍验证用户可观察的源码、项目、Snapshot、manifest、Discovery 集合和诊断状态。
+- [x] 本票原生场景可集中到 49–54 最终回归；开发票关闭时记录实际自动化结果，并明确指向待执行的最终场景，不把未执行记为通过。证据按规格 2026-10-20 用户执行修订保留必要版本、输入、命令和预期/实际日志。
+- [x] 同步受影响的当前公开 API 文档、示例及编写指南；不保留旧 API 别名或迁移说明，不分发首方编辑器、runtime/源码或本地游戏资产。
 
 ## Verification
 
@@ -52,3 +52,40 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [核心指令参数附表](../../complete-mv-events/research/command-parameters/core.md)。
+
+## Comments
+
+### 2026-10-20 — 变量批次认领
+
+在记录创建的M工作树 `mv-variables-batch`、分支 `codex/mv-variables-batch`，基于实际集成 `6dfa75eb96cc089bb00d85012c643ec9af2cdad7` 认领本批次。复用既有DEV `e3f947a592cf8251211803a7a04ccf4e40a3e553`，按已接受T1公开DSL/真实Workspace测试边界完成最新整合及必要受影响验证；48集中全量/构建，E5/R4/R7与原64sampleRandom等运行求值义务保留给49–54最终实测，不重做既有red或历史大归档。
+
+### Retained original DEV checkpoint
+
+2026-10-20 — Focused synthetic DEV checkpoint on `codex/mv-ticket-31`, after merging
+integration c2a40a41c094ccdda47faccd4399891952739008. The named five-mode E122 model,
+all Game Data source/status cases, strict formal/native/known-raw validation,
+precise input paths, complete Script Input/Gate behavior and contextual warnings
+are implemented. Windows / Node 22.23.0 focused 11 files / 297 tests, package typecheck,
+scoped lint/format and diff checks passed. The standard evidence-index test hit
+its unchanged 10000 ms deadline; its original failure remains recorded for the
+shared performance fix and final rerun. The append-only audit preserves 286
+inherited requirement objects and 2989 inherited evidence file bytes, appends five
+requirements, and records 17 synthetic passes with native not-executed. Contract 9
+is unchanged. This ticket remains claimed: broad/build/built and allocated actual
+E5/R4/R7 acceptance still require the serialized finalization queue. See the
+[DEV record](../evidence/31-control-variables-dev.md) and
+[immutable audit](../evidence/31-control-variables-dev-audit.json).
+
+## Answer
+
+2026-10-20：本票按已接受的开发票执行修订 resolved。复用原DEV并合入实际主线 `57db7ed36cc48f4341ace65c83e4b319c924f76f`，当前产品 `e10356a0d2d2a7b8605fba95c1243cd8d94b1ad9`、契约 `mv-1.6.1/16`、379要求（完整incoming374+原own5）。另修复缺失Enemy导致E122运行位置偏移/消失时的上下文诊断，保存选择器不改写，hidden有效成员仍可读取。
+
+受影响自动化包括初次8文件427测试、Variables Workspace16测试、最终4文件185测试、共享Workspace/索引3文件41测试；最新整合后相交边界及379行索引5文件223测试、类型检查、相交lint/format通过。记录保留原DEV索引超时、新测试red及误含历史证据格式的失败命令，不重写原始失败。具体执行输入、M盘日志及结果见[当前交付报告](../evidence/31-control-variables-finalization.md)。
+
+`MV-S6-VARIABLES-005`仍required/unexecuted/zero results。完整64-sample Random、self-alias、Script一次求值、完整单槽字符串、floor/div/mod0、Common/战斗真实上下文继续指向49–54；48全量/构建，55最终状态审计。本次没有full/build/built/native或新大归档。
+
+### 2026-10-20 — 独立审查退回后的修订交付
+
+首个READY `b9b1b12c` 因原始嵌套变量target在own-data检查前读取kind getter被退回。修复 `6a3c79b6` 将plain/own-data完整检查移到判别前，不改变已接受领域契约。新增Variable Reference/Reference Range × own accessor/inherited accessor/non-enumerable data × helper/direct graph/direct compile共18例，原版真实12fail/6pass，修复后18pass且getter读取0。独立复现和原red日志保留，见[报告中的修订记录](../evidence/31-control-variables-finalization.md#current-correction-after-independent-review)。
+
+已合入实际Actor主线 `ad04129163119da21efac04a0bc374f55d5fda98`；当前产品 `89eb3e34a86f15b6d303d085d261e3c75ba7842d`，契约17，388要求=完整incoming383 metadata/原序对象+原own5。该clean输入上6文件257测试通过（含Variables188、真实Workspace16及共享边界/当前索引），package typecheck、相交lint/format通过。本票保持resolved；005仍required/unexecuted/zero results，48–55与完整64sample/self-alias/Script once/floor/div/mod0等最终义务保持原分配。

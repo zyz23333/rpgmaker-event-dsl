@@ -72,6 +72,7 @@ export function movieAsset(input: { name: string }): MovieAssetReference {
 }
 
 export function scriptInput(input: { code: string }): ScriptInput {
+  assertDslObject(input, ["code"], "scriptInput");
   if (typeof input.code !== "string") throw new Error("Script input code must be a string.");
 
   return {

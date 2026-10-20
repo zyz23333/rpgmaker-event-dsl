@@ -5,7 +5,6 @@ import {
   battleProcessing,
   callCommonEvent,
   changeEnemyHp,
-  changeEquipment,
   enemyRef,
   enemyTransform,
   changeItems,
@@ -282,7 +281,7 @@ describe("validateDslOwnedDeclarations", () => {
             controlVariables({
               variable: variableRef({ name: "Snapshot Variable" }),
               operation: "set",
-              value: 1,
+              value: { kind: "constant", value: 1 },
             }),
           ],
         }),
@@ -301,7 +300,7 @@ describe("validateDslOwnedDeclarations", () => {
       expect.arrayContaining([
         expect.stringContaining("Unknown commonEvent reference: Snapshot Common"),
         "MV-E121-REFERENCE validation common event 1.commands[1].switch: Unknown switch reference: Snapshot Switch",
-        "Unknown variable reference: Snapshot Variable",
+        expect.stringContaining("Unknown variable reference: Snapshot Variable"),
       ]),
     );
     expect(result.issues).toContainEqual(
@@ -437,8 +436,11 @@ describe("validateDslOwnedDeclarations", () => {
       { scriptEnabled: false },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toContain(
-      "Control Variables script operands require explicit config enablement.",
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-SCRIPT-GATE",
+        dslPath: "pages[0].commands[0].value.script.code",
+      }),
     );
   });
 
@@ -842,11 +844,17 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Bad Equipment",
           commands: [
-            changeEquipment({
+            {
+              kind: "changeEquipment",
               actor: { kind: "actor", id: 1 },
-              equipmentTypeId: 0,
-              itemId: -1,
-            }),
+              slotIndex: -1,
+              equipment: {
+                kind: "runtimeSelector",
+                scope: "equipment",
+                target: "idForSlot",
+                id: -1,
+              },
+            },
           ],
         }),
       ],
@@ -858,10 +866,13 @@ describe("validateDslOwnedDeclarations", () => {
       },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toEqual(
+    expect(result.issues).toEqual(
       expect.arrayContaining([
-        "Change Equipment equipment type id must be a positive integer.",
-        "Change Equipment item id must be a non-negative integer.",
+        expect.objectContaining({
+          level: "error",
+          code: "MV-E319-INPUT",
+          dslPath: "pages[0].commands[0].slotIndex",
+        }),
       ]),
     );
   });

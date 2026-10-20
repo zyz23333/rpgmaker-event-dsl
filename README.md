@@ -463,6 +463,26 @@ Use MV-aligned helper names such as `controlSwitches(...)`, `controlVariables(..
 `showScrollingText(...)`, `setMovementRoute(...)`, `playBgm(...)`, `changeHp(...)`, and
 `forceAction(...)` instead of hand-writing raw command records.
 
+`controlVariables({ variable, operation, value })` requires a Variable reference or
+an ordered `referenceRange`, one of `set/add/sub/mul/div/mod`, and a named operand:
+`{ kind: "constant", value }`, `{ kind: "variable", variable: variableRef(...) }`,
+`{ kind: "random", from, to }`, a `gameData` source, or
+`{ kind: "script", script: scriptInput({ code }) }`. Constants and random endpoints
+are integers −99,999,999..99,999,999; runtime values keep MV's own numeric behavior.
+Random samples separately for every target; other operands are evaluated once for
+the complete target range. Game Data has item, weapon, armor, actor, enemy,
+character, party and other sources. Enemy positions use
+`enemy: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index }`;
+party positions use `member: { kind: "runtimeSelector", scope: "party", target: "member", index }`.
+Both positions are 0..7. Character Game Data uses `target` with a character Runtime
+Selector for player, currentEvent or a positive event ID. Fixed references must
+resolve; runtime positions may warn without changing their saved value.
+
+Single-slot Control Variables Script Inputs preserve empty text, whitespace,
+CR/LF/CRLF and trailing characters without a character or line limit. LF and CR
+produce parameter-reconfirmation risk warnings and retain the original string.
+Every saved script operand requires the Script Command Gate during Check and Compile.
+
 Continuation commands are represented by their parent helper. For example, `showText(...)`
 owns MV text continuation records, `showChoices(...)` owns choice branches,
 `battleProcessing(...)` owns battle result branches, `shopProcessing(...)` owns goods
@@ -517,6 +537,19 @@ Project data references use helpers such as `switchRef(...)`, `variableRef(...)`
 `actorRef(...)`, `skillRef(...)`, and `tilesetRef(...)`. Asset parameters use no-scan
 Asset References instead: `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)`
 compile to MV filename stems without checking the filesystem or resolving database IDs.
+
+Actor HP/MP/TP, State and Recover All helpers use explicit Actor Runtime Selectors;
+resource quantities use a constant or variable operand, and HP requires its saved
+`allowDeath` Boolean. See the [actor resource reference](packages/rpgmaker-event-dsl/README.md#actor-resources-and-states)
+for target variants, quantity ranges, reference checks and dynamic variable behavior.
+
+EXP, level, parameter and skill changes share those Actor targets. EXP/level
+changes require an explicit saved `showLevelUp` Boolean, and Class changes require
+`keepExp`. Dynamic equipment uses `changeEquipment({ actor, slotIndex, equipment })`:
+`slotIndex` is zero based within final System capacity; `equipment` is `null` for
+unload or an equipment Runtime Selector whose positive ID is interpreted by MV's
+runtime slot type. See [growth and class rules](packages/rpgmaker-event-dsl/README.md#actor-growth-skills-and-classes)
+and [equipment rules](packages/rpgmaker-event-dsl/README.md#dynamic-equipment-slots).
 
 Use `conditional({ condition, then: { commands, endMarker? }, else? })` for
 momentary checks. An omitted `else` has no native Else record; an explicit

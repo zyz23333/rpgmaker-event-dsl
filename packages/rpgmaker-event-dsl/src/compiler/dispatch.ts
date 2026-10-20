@@ -17,6 +17,11 @@ import {
 } from "../commands/movement/access-validation.js";
 import { assertSceneCommandInput } from "../commands/system/validation.js";
 import { assertAudioCommandInput } from "../commands/audio/validation.js";
+import { assertActorResourceInput } from "../commands/actor/validation.js";
+import {
+  compileActorResourceTarget,
+  compileActorResourceValue,
+} from "../commands/actor/compile.js";
 import {
   assertConditionalCommand,
   assertConditionalBodyOutput,
@@ -88,14 +93,12 @@ export {
   shopGoodsTypeToCode,
 } from "./shared/branches.js";
 import {
-  compileActorCommandTarget,
   enemyTargetToCode,
   battlerTargetTypeToCode,
   battlerTargetIdToCode,
   actorParameterToCode,
 } from "./shared/targets.js";
 export {
-  compileActorCommandTarget,
   enemyTargetToCode,
   battlerTargetTypeToCode,
   battlerTargetIdToCode,
@@ -149,6 +152,7 @@ export function compileNodes(
     assertWindowColorInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true);
     assertSceneCommandInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
     assertEnemyInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
+    assertActorResourceInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     const outputStart = output.length;
     switch (node.kind) {
       case "showText":
@@ -323,7 +327,11 @@ export function compileNodes(
         output.push({
           code: 122,
           indent,
-          parameters: compileControlVariablesParameters(node, resolver),
+          parameters: compileControlVariablesParameters(
+            node,
+            resolver,
+            `${sourcePath}[${nodeIndex}]`,
+          ),
         });
         break;
       case "controlSelfSwitch":
@@ -752,9 +760,9 @@ export function compileNodes(
           code: 311,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
-            node.allowDeath ?? false,
+            ...compileActorResourceTarget(node.target, resolver),
+            ...compileActorResourceValue(node.operation, node.value, resolver),
+            node.allowDeath,
           ],
         });
         break;
@@ -763,8 +771,8 @@ export function compileNodes(
           code: 312,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
+            ...compileActorResourceTarget(node.target, resolver),
+            ...compileActorResourceValue(node.operation, node.value, resolver),
           ],
         });
         break;
@@ -773,7 +781,7 @@ export function compileNodes(
           code: 313,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
+            ...compileActorResourceTarget(node.target, resolver),
             node.operation === "add" ? 0 : 1,
             resolver.resolveReference(node.state),
           ],
@@ -783,7 +791,7 @@ export function compileNodes(
         output.push({
           code: 314,
           indent,
-          parameters: compileActorCommandTarget(node.target, resolver),
+          parameters: compileActorResourceTarget(node.target, resolver),
         });
         break;
       case "changeExp":
@@ -791,9 +799,9 @@ export function compileNodes(
           code: 315,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
-            node.showLevelUp ?? false,
+            ...compileActorResourceTarget(node.target, resolver),
+            ...compileActorResourceValue(node.operation, node.value, resolver),
+            node.showLevelUp,
           ],
         });
         break;
@@ -802,9 +810,9 @@ export function compileNodes(
           code: 316,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
-            node.showLevelUp ?? false,
+            ...compileActorResourceTarget(node.target, resolver),
+            ...compileActorResourceValue(node.operation, node.value, resolver),
+            node.showLevelUp,
           ],
         });
         break;
@@ -813,9 +821,9 @@ export function compileNodes(
           code: 317,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
+            ...compileActorResourceTarget(node.target, resolver),
             actorParameterToCode(node.parameter),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
+            ...compileActorResourceValue(node.operation, node.value, resolver),
           ],
         });
         break;
@@ -824,7 +832,7 @@ export function compileNodes(
           code: 318,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
+            ...compileActorResourceTarget(node.target, resolver),
             node.operation === "learn" ? 0 : 1,
             resolver.resolveReference(node.skill),
           ],
@@ -836,8 +844,8 @@ export function compileNodes(
           indent,
           parameters: [
             resolver.resolveReference(node.actor),
-            node.equipmentTypeId,
-            node.itemId ?? 0,
+            node.slotIndex + 1,
+            node.equipment === null ? 0 : node.equipment.id,
           ],
         });
         break;
@@ -855,7 +863,7 @@ export function compileNodes(
           parameters: [
             resolver.resolveReference(node.actor),
             resolver.resolveReference(node.class),
-            node.keepExp ?? false,
+            node.keepExp,
           ],
         });
         break;
@@ -899,8 +907,8 @@ export function compileNodes(
           code: 326,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
+            ...compileActorResourceTarget(node.target, resolver),
+            ...compileActorResourceValue(node.operation, node.value, resolver),
           ],
         });
         break;

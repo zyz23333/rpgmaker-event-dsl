@@ -9,9 +9,11 @@ import {
 } from "../commands/variables/validation.js";
 import { assertNativeScreenParameters } from "../commands/screen/validation.js";
 import { assertNativeMapAppearanceParameters } from "../commands/map/native-validation.js";
+import { assertNativeControlVariables } from "../commands/variables/native-control-variables.js";
 import { assertNativeSystemSettingsParameters } from "../commands/movement/access-native-validation.js";
 import { assertNativePictureParameters } from "../commands/screen/picture-native.js";
 import { assertNativeAudioParameters } from "../commands/audio/validation.js";
+import { assertNativeActorResourceParameters } from "../commands/actor/native-validation.js";
 
 // Shared saved-slot envelopes. Family validators retain ownership of semantic ranges,
 // references and mode-specific saved values; this table is not full family acceptance.
@@ -166,7 +168,9 @@ export function assertNativeCommandParameters(
     return;
   }
   assertNativeMapAppearanceParameters(code, parameters, path);
+  if (code === 122) assertNativeControlVariables(parameters, path);
   assertNativeSystemSettingsParameters(code, parameters, path);
+  assertNativeActorResourceParameters(code, parameters, path);
   try {
     assertNativeSwitchCommand(code, parameters);
   } catch (error) {

@@ -1,24 +1,9 @@
 import type {
-  ActorCommandTarget,
   BattlerCommandTarget,
   EnemyCommandTarget,
   ActorParameter,
 } from "../../domain/types.js";
 import type { ReferenceResolver } from "../../validation/types.js";
-
-export function compileActorCommandTarget(
-  target: ActorCommandTarget,
-  resolver: ReferenceResolver,
-): [number, number] {
-  switch (target.target) {
-    case "entireParty":
-      return [0, 0];
-    case "actor":
-      return [0, target.actorId];
-    case "actorFromVariable":
-      return [1, resolver.resolveReference(target.variable)];
-  }
-}
 
 export function enemyTargetToCode(target: EnemyCommandTarget): number {
   return target.target === "all" ? -1 : target.index;

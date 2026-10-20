@@ -104,7 +104,7 @@ export const context = commonEvent({ id: 1, name: "Snapshot contexts", trigger: 
   rawDslCommand({ code: 282, indent: 0, parameters: [2] }),
   rawDslCommand({ code: 336, indent: 0, parameters: [0, 1] }),
   enemyAppear({ target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 2 } }),
-  changeEquipment({ actor: actorRef({ id: 1 }), equipmentTypeId: 1, itemId: 77 }),
+  changeEquipment({ actor: actorRef({ id: 1 }), slotIndex: 0, equipment: { kind: "runtimeSelector", scope: "equipment", target: "idForSlot", id: 77 } }),
 ] });\n`,
       );
       await compileWorkspace({ workspaceRoot, check: true });
@@ -222,7 +222,7 @@ export const context = commonEvent({ id: 1, name: "Context check", trigger: "non
         sourcePath,
         source(`battleProcessing({ troop: { kind: 'fixed', troop: troopRef({ id: 4 }) } }),
 enemyAppear({ target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 2 } }),
-changeEquipment({ actor: actorRef({ id: 1 }), equipmentTypeId: 6, itemId: 77 })`),
+changeEquipment({ actor: actorRef({ id: 1 }), slotIndex: 5, equipment: { kind: "runtimeSelector", scope: "equipment", target: "idForSlot", id: 77 } })`),
       );
       const stateRoot = join(workspaceRoot, ".rpgmaker-event-dsl");
       const manifest = await readFile(join(stateRoot, "sync-manifest.json"), "utf8");

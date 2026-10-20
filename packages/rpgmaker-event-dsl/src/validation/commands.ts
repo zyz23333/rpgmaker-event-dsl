@@ -14,6 +14,7 @@ import { isProjectDataReference } from "../domain/references.js";
 import type { ReferenceResolver, ValidationIssue } from "./types.js";
 import { captureReferenceIssue } from "./shared.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
+import { assertControlVariablesInput } from "../commands/variables/control-variables.js";
 import { assertPictureInput } from "../commands/screen/picture-inputs.js";
 import { assertPictureReferences } from "../commands/screen/picture-references.js";
 import { assertNativeContextReferences } from "./native-context-references.js";
@@ -35,6 +36,7 @@ import {
   assertWindowColorInput,
 } from "../commands/movement/access-validation.js";
 import { assertSceneCommandInput } from "../commands/system/validation.js";
+import { assertActorResourceInput } from "../commands/actor/validation.js";
 
 type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
@@ -77,6 +79,7 @@ export function validateNodes(
       assertWindowColorInput(node.kind, node, nodePath, true);
       assertSceneCommandInput(node.kind, node, nodePath);
       assertPictureInput(node.kind, node, nodePath, true, resolver);
+      assertActorResourceInput(node.kind, node, nodePath, true, resolver);
     } catch (error) {
       if (error instanceof CommandStructureError)
         issues.push(error.issue(options.identity ?? "event", "compile"));
@@ -197,21 +200,12 @@ export function validateNodes(
       }
     }
     if (node.kind === "controlVariables") {
-      validateReferenceOrRange(node.variable, resolver, issues);
-      if (isVariableReferenceValue(node.value)) {
-        const valueRef = node.value;
-        captureReferenceIssue(() => resolver.resolveReference(valueRef), issues);
-      }
-      if (typeof node.value === "object" && node.value !== null && "kind" in node.value) {
-        if (node.value.kind === "script" && !options.scriptEnabled) {
-          issues.push({
-            level: "error",
-            message: "Control Variables script operands require explicit config enablement.",
-          });
-        }
-        if (node.value.kind === "gameData") {
-          validateControlVariablesGameDataOperand(node.value, resolver, issues);
-        }
+      try {
+        assertControlVariablesInput(node, nodePath, true, resolver);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
       }
     }
     if (node.kind === "changeItems") {
@@ -343,44 +337,6 @@ export function validateNodes(
     }
     if (node.kind === "nameInputProcessing") {
       captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
-    }
-    if (
-      node.kind === "changeHp" ||
-      node.kind === "changeMp" ||
-      node.kind === "recoverAll" ||
-      node.kind === "changeExp" ||
-      node.kind === "changeLevel" ||
-      node.kind === "changeParameter" ||
-      node.kind === "changeSkill" ||
-      node.kind === "changeTp"
-    ) {
-      validateActorCommandTarget(node.target, resolver, `${node.kind} target`, issues);
-    }
-    if (
-      node.kind === "changeHp" ||
-      node.kind === "changeMp" ||
-      node.kind === "changeExp" ||
-      node.kind === "changeLevel" ||
-      node.kind === "changeParameter" ||
-      node.kind === "changeTp"
-    ) {
-      validateOperateValueOperand(node.value, resolver, issues);
-    }
-    if (node.kind === "changeState") {
-      validateActorCommandTarget(node.target, resolver, "Change State target", issues);
-      captureReferenceIssue(() => resolver.resolveReference(node.state), issues);
-    }
-    if (node.kind === "changeSkill") {
-      captureReferenceIssue(() => resolver.resolveReference(node.skill), issues);
-    }
-    if (node.kind === "changeEquipment") {
-      captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
-      validateCommandPositiveInteger(
-        node.equipmentTypeId,
-        "Change Equipment equipment type id",
-        issues,
-      );
-      validateCommandNonNegativeInteger(node.itemId ?? 0, "Change Equipment item id", issues);
     }
     if (node.kind === "changeName") {
       captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
@@ -527,61 +483,6 @@ export function validateCharacterRuntimeSelector(
   issues.push({
     level: "error",
     message: `${fieldName} target must be player, currentEvent, or event.`,
-  });
-}
-
-export function validateActorCommandTarget(
-  selector: RuntimeSelector,
-  resolver: ReferenceResolver,
-  fieldName: string,
-  issues: ValidationIssue[],
-): void {
-  if (selector.scope !== "actor") {
-    issues.push({
-      level: "error",
-      message: `${fieldName} must use the actor runtime selector scope.`,
-    });
-    return;
-  }
-
-  if (selector.target === "entireParty") {
-    return;
-  }
-
-  const actorSelector = selector as RuntimeSelector & {
-    actorId?: unknown;
-    variable?: ReferenceValue<"variable">;
-  };
-  if (selector.target === "actor") {
-    if (
-      typeof actorSelector.actorId !== "number" ||
-      !Number.isInteger(actorSelector.actorId) ||
-      actorSelector.actorId <= 0
-    ) {
-      issues.push({
-        level: "error",
-        message: `${fieldName} actor id must be a positive integer.`,
-      });
-    }
-    return;
-  }
-
-  if (selector.target === "actorFromVariable") {
-    const actorVariable = actorSelector.variable;
-    if (actorVariable === undefined) {
-      issues.push({
-        level: "error",
-        message: `${fieldName} actorFromVariable target requires a variable reference.`,
-      });
-      return;
-    }
-    captureReferenceIssue(() => resolver.resolveReference(actorVariable), issues);
-    return;
-  }
-
-  issues.push({
-    level: "error",
-    message: `${fieldName} target must be entireParty, actor, or actorFromVariable.`,
   });
 }
 
