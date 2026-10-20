@@ -1,0 +1,1844 @@
+{
+  "formatVersion": 1,
+  "sourceKind": "synthetic-support",
+  "provenance": "Independent original saved literals from accepted domain tables and existing independent fixtures; no compiler-made oracle, editor UI capture or actual game.",
+  "candidate": {
+    "revision": "2dc639015f908de6fd524e50236e5422b5f8e990",
+    "executionHead": "2dc639015f908de6fd524e50236e5422b5f8e990",
+    "compileContractVersion": "mv-1.6.1/22",
+    "packageRoot": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl",
+    "manifest": {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final48-candidate.json",
+      "sha256": "2f4460874393ba6761740d6613c9c7b7cbbd161f8639a77c96a56ea84943bd63"
+    },
+    "dist": {
+      "authoring-DglMrmuD.mjs": "a6e722fdc8fb67451910cd52fc9c90e98331356e8814bff6597b08ee7e6c1771",
+      "authoring-DglMrmuD.mjs.map": "3c6f7deb86b6e161d06745bf3e78ff95fb4eb0af7f116625ddcc4fb26d3bbc47",
+      "cli.d.mts": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee",
+      "cli.d.mts.map": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c",
+      "cli.mjs": "dcbb6173dd5956c8b2fc2c78d2b9c276e36e24e20c7f8276ae024d61fc3ecaf6",
+      "cli.mjs.map": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8",
+      "index.d.mts": "84df6738b61413bd007bfbfbea0faa0bd8163ce9bb35bab50858ac485efb3e47",
+      "index.d.mts.map": "cea267e56ff1029cfbd4d898d82222db44818aec71b29af177ed7808931471c9",
+      "index.mjs": "21a3ba0d3640b05357c04aebd2979decaf566ffc0f16b8047f8d6d5351198cb2",
+      "index.mjs.map": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36",
+      "operations-DYUBy4eN.mjs": "b3fe23bc09dd45bc1e954703dfe9c6bc4986c359eaf2c22c47d017354f0e1107",
+      "operations-DYUBy4eN.mjs.map": "721ca954ab8e48b9a02fb93df9d200e7ce7521d6d41e1e1303e65ffd515479ed",
+      "workspace-api.d.mts": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594",
+      "workspace-api.d.mts.map": "e865bc5bbe325d1e10afb88e1057bee5464f21fba0bfd211e74cb43c7b24a11c",
+      "workspace-api.mjs": "24369d6d1d686b082665cda3b5e76292ed778420eadcfdad431a9cea11169788"
+    },
+    "workspaceApiSha256": "24369d6d1d686b082665cda3b5e76292ed778420eadcfdad431a9cea11169788"
+  },
+  "comparisonReceipt": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\e-supplement\\comparison-receipt.json",
+    "sha256": "9b6c611214230b888228459651b4003b93a149b734875196c25c4613fe147b83"
+  },
+  "script": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\e-supplement\\compare-supplement.cjs",
+    "sha256": "538e27139a8addb2719e84c81a83699a135f3edfa64782f70e5ecb2a13c9550d"
+  },
+  "input": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\e-supplement\\supplement-input.json",
+    "sha256": "73890a852e5314b87882648dc006fb68d2ac98574eebe2b832575180c104cd02",
+    "sources": [
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-e1-e7/final-editor-input.json",
+        "sha256": "fbf9d4c4699738d847e83068242de07aa4637617bf0a57f70f57b052291477e4"
+      },
+      {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\worktrees\\mv-docs-example-55\\packages\\rpgmaker-event-dsl\\test\\fixtures\\mv-evidence\\audio-command-cases.json",
+        "sha256": "53aa731e256053fb2d8887f48deed19a4e9b425d39632e71ab5642f5bfa1fa52"
+      },
+      {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\worktrees\\mv-docs-example-55\\packages\\rpgmaker-event-dsl\\test\\fixtures\\mv-evidence\\inventory-party.json",
+        "sha256": "e3b1b7daf286f125863a1610027a8035835c66f37438f177233e9c9199ae28fd"
+      }
+    ]
+  },
+  "resourceReceipts": [
+    {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\e-supplement\\resource-identity-receipt.json",
+      "sha256": "7482f9a8db1445fd9dd8f8cf66c80d8178a75437fe729fef8f1d803dfc8b3817"
+    },
+    {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\e-supplement\\audio-child-resource-receipt.json",
+      "sha256": "5726359ef1c6da58829bcf1984c49fa3995b1bf552e9ed23c4f9981ff1a557c8"
+    }
+  ],
+  "execution": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\e-supplement\\comparison-run-v2.json",
+    "sha256": "63ca4e649a570597458b8568894634bf6df700ca8aa02ae329ed1c1bb27a9254",
+    "log": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\e-supplement\\comparison-run-v2.log",
+    "logSha256": "45dec40e4d5bdb9913e584367cb29be0cf46e8e32237ce630499f9ec2cfb1b3b"
+  },
+  "systemAudio": {
+    "battleBgm": {
+      "name": "SystemBattle",
+      "volume": 23,
+      "pitch": 67,
+      "pan": -17
+    },
+    "victoryMe": {
+      "name": "SystemVictory",
+      "volume": 29,
+      "pitch": 71,
+      "pan": 19
+    },
+    "defeatMe": {
+      "name": "",
+      "volume": 31,
+      "pitch": 73,
+      "pan": -23
+    },
+    "boat": {
+      "name": "SystemBoat",
+      "volume": 37,
+      "pitch": 79,
+      "pan": 29
+    },
+    "ship": {
+      "name": "",
+      "volume": 41,
+      "pitch": 83,
+      "pan": -31
+    },
+    "airship": {
+      "name": "SystemAirship",
+      "volume": 43,
+      "pitch": 89,
+      "pan": 37
+    }
+  },
+  "portions": [
+    {
+      "name": "Audio supplement",
+      "obligation": "MV-S6-AUDIO-E4",
+      "groups": [
+        "E4"
+      ],
+      "commands": 53,
+      "portionStatus": "passed",
+      "actualGame": "not-executed",
+      "wholeRequirementStatus": "passed",
+      "nativeList": [
+        {
+          "code": 132,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": 0,
+              "pitch": 50,
+              "pan": -100
+            }
+          ]
+        },
+        {
+          "code": 132,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "Battle",
+              "volume": 100,
+              "pitch": 150,
+              "pan": 100
+            }
+          ]
+        },
+        {
+          "code": 132,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": 1,
+              "pitch": 51,
+              "pan": 1
+            }
+          ]
+        },
+        {
+          "code": 132,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": -0,
+              "pitch": 100,
+              "pan": -0
+            }
+          ]
+        },
+        {
+          "code": 133,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": 0,
+              "pitch": 50,
+              "pan": -100
+            }
+          ]
+        },
+        {
+          "code": 133,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "Victory",
+              "volume": 100,
+              "pitch": 150,
+              "pan": 100
+            }
+          ]
+        },
+        {
+          "code": 133,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": 1,
+              "pitch": 51,
+              "pan": 1
+            }
+          ]
+        },
+        {
+          "code": 133,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": -0,
+              "pitch": 100,
+              "pan": -0
+            }
+          ]
+        },
+        {
+          "code": 139,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": 0,
+              "pitch": 50,
+              "pan": -100
+            }
+          ]
+        },
+        {
+          "code": 139,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "Defeat",
+              "volume": 100,
+              "pitch": 150,
+              "pan": 100
+            }
+          ]
+        },
+        {
+          "code": 139,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": 1,
+              "pitch": 51,
+              "pan": 1
+            }
+          ]
+        },
+        {
+          "code": 139,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": -0,
+              "pitch": 100,
+              "pan": -0
+            }
+          ]
+        },
+        {
+          "code": 140,
+          "indent": 0,
+          "parameters": [
+            0,
+            {
+              "name": "",
+              "volume": 0,
+              "pitch": 50,
+              "pan": -100
+            }
+          ]
+        },
+        {
+          "code": 140,
+          "indent": 0,
+          "parameters": [
+            0,
+            {
+              "name": "Boat",
+              "volume": 100,
+              "pitch": 150,
+              "pan": 100
+            }
+          ]
+        },
+        {
+          "code": 140,
+          "indent": 0,
+          "parameters": [
+            0,
+            {
+              "name": "",
+              "volume": 1,
+              "pitch": 51,
+              "pan": 1
+            }
+          ]
+        },
+        {
+          "code": 140,
+          "indent": 0,
+          "parameters": [
+            0,
+            {
+              "name": "",
+              "volume": -0,
+              "pitch": 100,
+              "pan": -0
+            }
+          ]
+        },
+        {
+          "code": 140,
+          "indent": 0,
+          "parameters": [
+            1,
+            {
+              "name": "",
+              "volume": 0,
+              "pitch": 50,
+              "pan": -100
+            }
+          ]
+        },
+        {
+          "code": 140,
+          "indent": 0,
+          "parameters": [
+            1,
+            {
+              "name": "Ship",
+              "volume": 100,
+              "pitch": 150,
+              "pan": 100
+            }
+          ]
+        },
+        {
+          "code": 140,
+          "indent": 0,
+          "parameters": [
+            1,
+            {
+              "name": "",
+              "volume": 1,
+              "pitch": 51,
+              "pan": 1
+            }
+          ]
+        },
+        {
+          "code": 140,
+          "indent": 0,
+          "parameters": [
+            1,
+            {
+              "name": "",
+              "volume": -0,
+              "pitch": 100,
+              "pan": -0
+            }
+          ]
+        },
+        {
+          "code": 140,
+          "indent": 0,
+          "parameters": [
+            2,
+            {
+              "name": "",
+              "volume": 0,
+              "pitch": 50,
+              "pan": -100
+            }
+          ]
+        },
+        {
+          "code": 140,
+          "indent": 0,
+          "parameters": [
+            2,
+            {
+              "name": "Airship",
+              "volume": 100,
+              "pitch": 150,
+              "pan": 100
+            }
+          ]
+        },
+        {
+          "code": 140,
+          "indent": 0,
+          "parameters": [
+            2,
+            {
+              "name": "",
+              "volume": 1,
+              "pitch": 51,
+              "pan": 1
+            }
+          ]
+        },
+        {
+          "code": 140,
+          "indent": 0,
+          "parameters": [
+            2,
+            {
+              "name": "",
+              "volume": -0,
+              "pitch": 100,
+              "pan": -0
+            }
+          ]
+        },
+        {
+          "code": 241,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": 0,
+              "pitch": 50,
+              "pan": -100
+            }
+          ]
+        },
+        {
+          "code": 241,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "Theme",
+              "volume": 100,
+              "pitch": 150,
+              "pan": 100
+            }
+          ]
+        },
+        {
+          "code": 241,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": 1,
+              "pitch": 51,
+              "pan": 1
+            }
+          ]
+        },
+        {
+          "code": 241,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": -0,
+              "pitch": 100,
+              "pan": -0
+            }
+          ]
+        },
+        {
+          "code": 245,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": 0,
+              "pitch": 50,
+              "pan": -100
+            }
+          ]
+        },
+        {
+          "code": 245,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "Rain",
+              "volume": 100,
+              "pitch": 150,
+              "pan": 100
+            }
+          ]
+        },
+        {
+          "code": 245,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": 1,
+              "pitch": 51,
+              "pan": 1
+            }
+          ]
+        },
+        {
+          "code": 245,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": -0,
+              "pitch": 100,
+              "pan": -0
+            }
+          ]
+        },
+        {
+          "code": 249,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": 0,
+              "pitch": 50,
+              "pan": -100
+            }
+          ]
+        },
+        {
+          "code": 249,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "Fanfare",
+              "volume": 100,
+              "pitch": 150,
+              "pan": 100
+            }
+          ]
+        },
+        {
+          "code": 249,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": 1,
+              "pitch": 51,
+              "pan": 1
+            }
+          ]
+        },
+        {
+          "code": 249,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": -0,
+              "pitch": 100,
+              "pan": -0
+            }
+          ]
+        },
+        {
+          "code": 250,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": 0,
+              "pitch": 50,
+              "pan": -100
+            }
+          ]
+        },
+        {
+          "code": 250,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": " \r\n ",
+              "volume": 100,
+              "pitch": 150,
+              "pan": 100
+            }
+          ]
+        },
+        {
+          "code": 250,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": 1,
+              "pitch": 51,
+              "pan": 1
+            }
+          ]
+        },
+        {
+          "code": 250,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": -0,
+              "pitch": 100,
+              "pan": -0
+            }
+          ]
+        },
+        {
+          "code": 242,
+          "indent": 0,
+          "parameters": [
+            1
+          ]
+        },
+        {
+          "code": 242,
+          "indent": 0,
+          "parameters": [
+            999
+          ]
+        },
+        {
+          "code": 246,
+          "indent": 0,
+          "parameters": [
+            1
+          ]
+        },
+        {
+          "code": 246,
+          "indent": 0,
+          "parameters": [
+            999
+          ]
+        },
+        {
+          "code": 243,
+          "indent": 0,
+          "parameters": []
+        },
+        {
+          "code": 244,
+          "indent": 0,
+          "parameters": []
+        },
+        {
+          "code": 251,
+          "indent": 0,
+          "parameters": []
+        },
+        {
+          "code": 132,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "SystemBattle",
+              "volume": 23,
+              "pitch": 67,
+              "pan": -17
+            }
+          ]
+        },
+        {
+          "code": 133,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "SystemVictory",
+              "volume": 29,
+              "pitch": 71,
+              "pan": 19
+            }
+          ]
+        },
+        {
+          "code": 139,
+          "indent": 0,
+          "parameters": [
+            {
+              "name": "",
+              "volume": 31,
+              "pitch": 73,
+              "pan": -23
+            }
+          ]
+        },
+        {
+          "code": 140,
+          "indent": 0,
+          "parameters": [
+            0,
+            {
+              "name": "SystemBoat",
+              "volume": 37,
+              "pitch": 79,
+              "pan": 29
+            }
+          ]
+        },
+        {
+          "code": 140,
+          "indent": 0,
+          "parameters": [
+            1,
+            {
+              "name": "",
+              "volume": 41,
+              "pitch": 83,
+              "pan": -31
+            }
+          ]
+        },
+        {
+          "code": 140,
+          "indent": 0,
+          "parameters": [
+            2,
+            {
+              "name": "SystemAirship",
+              "volume": 43,
+              "pitch": 89,
+              "pan": 37
+            }
+          ]
+        },
+        {
+          "code": 0,
+          "indent": 0,
+          "parameters": []
+        }
+      ],
+      "remaining": []
+    },
+    {
+      "name": "Inventory supplement",
+      "obligation": "MV-S6-INVENTORY-006",
+      "groups": [
+        "E4"
+      ],
+      "commands": 28,
+      "portionStatus": "passed",
+      "actualGame": "not-executed",
+      "wholeRequirementStatus": "pending-R-portion",
+      "nativeList": [
+        {
+          "code": 125,
+          "indent": 0,
+          "parameters": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "code": 125,
+          "indent": 0,
+          "parameters": [
+            1,
+            0,
+            9999999
+          ]
+        },
+        {
+          "code": 125,
+          "indent": 0,
+          "parameters": [
+            0,
+            1,
+            3
+          ]
+        },
+        {
+          "code": 125,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            3
+          ]
+        },
+        {
+          "code": 126,
+          "indent": 0,
+          "parameters": [
+            1,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "code": 126,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            0,
+            9999
+          ]
+        },
+        {
+          "code": 126,
+          "indent": 0,
+          "parameters": [
+            1,
+            0,
+            1,
+            3
+          ]
+        },
+        {
+          "code": 126,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            1,
+            3
+          ]
+        },
+        {
+          "code": 127,
+          "indent": 0,
+          "parameters": [
+            1,
+            0,
+            0,
+            1,
+            false
+          ]
+        },
+        {
+          "code": 127,
+          "indent": 0,
+          "parameters": [
+            1,
+            0,
+            0,
+            9999,
+            true
+          ]
+        },
+        {
+          "code": 127,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            0,
+            1,
+            false
+          ]
+        },
+        {
+          "code": 127,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            0,
+            9999,
+            true
+          ]
+        },
+        {
+          "code": 127,
+          "indent": 0,
+          "parameters": [
+            1,
+            0,
+            1,
+            3,
+            false
+          ]
+        },
+        {
+          "code": 127,
+          "indent": 0,
+          "parameters": [
+            1,
+            0,
+            1,
+            3,
+            true
+          ]
+        },
+        {
+          "code": 127,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            1,
+            3,
+            false
+          ]
+        },
+        {
+          "code": 127,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            1,
+            3,
+            true
+          ]
+        },
+        {
+          "code": 128,
+          "indent": 0,
+          "parameters": [
+            1,
+            0,
+            0,
+            1,
+            false
+          ]
+        },
+        {
+          "code": 128,
+          "indent": 0,
+          "parameters": [
+            1,
+            0,
+            0,
+            9999,
+            true
+          ]
+        },
+        {
+          "code": 128,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            0,
+            1,
+            false
+          ]
+        },
+        {
+          "code": 128,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            0,
+            9999,
+            true
+          ]
+        },
+        {
+          "code": 128,
+          "indent": 0,
+          "parameters": [
+            1,
+            0,
+            1,
+            3,
+            false
+          ]
+        },
+        {
+          "code": 128,
+          "indent": 0,
+          "parameters": [
+            1,
+            0,
+            1,
+            3,
+            true
+          ]
+        },
+        {
+          "code": 128,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            1,
+            3,
+            false
+          ]
+        },
+        {
+          "code": 128,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            1,
+            3,
+            true
+          ]
+        },
+        {
+          "code": 129,
+          "indent": 0,
+          "parameters": [
+            1,
+            0,
+            false
+          ]
+        },
+        {
+          "code": 129,
+          "indent": 0,
+          "parameters": [
+            1,
+            0,
+            true
+          ]
+        },
+        {
+          "code": 129,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            false
+          ]
+        },
+        {
+          "code": 129,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            true
+          ]
+        },
+        {
+          "code": 0,
+          "indent": 0,
+          "parameters": []
+        }
+      ],
+      "remaining": [
+        "R4 final53 actual independent literal/compiled game receipt"
+      ]
+    },
+    {
+      "name": "Location supplement",
+      "obligation": "MV-S6-LOCATION-004",
+      "groups": [
+        "E4",
+        "E6"
+      ],
+      "commands": 65,
+      "portionStatus": "passed",
+      "actualGame": "not-executed",
+      "wholeRequirementStatus": "pending-R-portion",
+      "nativeList": [
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            0,
+            1,
+            10000,
+            2147483647,
+            0,
+            0
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            2,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            0,
+            1,
+            10000,
+            2147483647,
+            0,
+            1
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            2,
+            3,
+            0,
+            1
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            0,
+            1,
+            10000,
+            2147483647,
+            0,
+            2
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            2,
+            3,
+            0,
+            2
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            0,
+            1,
+            10000,
+            2147483647,
+            2,
+            0
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            2,
+            3,
+            2,
+            0
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            0,
+            1,
+            10000,
+            2147483647,
+            2,
+            1
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            2,
+            3,
+            2,
+            1
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            0,
+            1,
+            10000,
+            2147483647,
+            2,
+            2
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            2,
+            3,
+            2,
+            2
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            0,
+            1,
+            10000,
+            2147483647,
+            4,
+            0
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            2,
+            3,
+            4,
+            0
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            0,
+            1,
+            10000,
+            2147483647,
+            4,
+            1
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            2,
+            3,
+            4,
+            1
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            0,
+            1,
+            10000,
+            2147483647,
+            4,
+            2
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            2,
+            3,
+            4,
+            2
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            0,
+            1,
+            10000,
+            2147483647,
+            6,
+            0
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            2,
+            3,
+            6,
+            0
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            0,
+            1,
+            10000,
+            2147483647,
+            6,
+            1
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            2,
+            3,
+            6,
+            1
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            0,
+            1,
+            10000,
+            2147483647,
+            6,
+            2
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            2,
+            3,
+            6,
+            2
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            0,
+            1,
+            10000,
+            2147483647,
+            8,
+            0
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            2,
+            3,
+            8,
+            0
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            0,
+            1,
+            10000,
+            2147483647,
+            8,
+            1
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            2,
+            3,
+            8,
+            1
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            0,
+            1,
+            10000,
+            2147483647,
+            8,
+            2
+          ]
+        },
+        {
+          "code": 201,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            2,
+            3,
+            8,
+            2
+          ]
+        },
+        {
+          "code": 202,
+          "indent": 0,
+          "parameters": [
+            0,
+            0,
+            1,
+            2147483647,
+            0
+          ]
+        },
+        {
+          "code": 202,
+          "indent": 0,
+          "parameters": [
+            0,
+            1,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "code": 202,
+          "indent": 0,
+          "parameters": [
+            1,
+            0,
+            1,
+            2147483647,
+            0
+          ]
+        },
+        {
+          "code": 202,
+          "indent": 0,
+          "parameters": [
+            1,
+            1,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "code": 202,
+          "indent": 0,
+          "parameters": [
+            2,
+            0,
+            1,
+            2147483647,
+            0
+          ]
+        },
+        {
+          "code": 202,
+          "indent": 0,
+          "parameters": [
+            2,
+            1,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "code": 203,
+          "indent": 0,
+          "parameters": [
+            0,
+            0,
+            2147483647,
+            10000,
+            0
+          ]
+        },
+        {
+          "code": 203,
+          "indent": 0,
+          "parameters": [
+            99,
+            1,
+            2,
+            3,
+            0
+          ]
+        },
+        {
+          "code": 203,
+          "indent": 0,
+          "parameters": [
+            0,
+            2,
+            99,
+            0,
+            0
+          ]
+        },
+        {
+          "code": 203,
+          "indent": 0,
+          "parameters": [
+            0,
+            0,
+            2147483647,
+            10000,
+            2
+          ]
+        },
+        {
+          "code": 203,
+          "indent": 0,
+          "parameters": [
+            99,
+            1,
+            2,
+            3,
+            2
+          ]
+        },
+        {
+          "code": 203,
+          "indent": 0,
+          "parameters": [
+            0,
+            2,
+            99,
+            0,
+            2
+          ]
+        },
+        {
+          "code": 203,
+          "indent": 0,
+          "parameters": [
+            0,
+            0,
+            2147483647,
+            10000,
+            4
+          ]
+        },
+        {
+          "code": 203,
+          "indent": 0,
+          "parameters": [
+            99,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "code": 203,
+          "indent": 0,
+          "parameters": [
+            0,
+            2,
+            99,
+            0,
+            4
+          ]
+        },
+        {
+          "code": 203,
+          "indent": 0,
+          "parameters": [
+            0,
+            0,
+            2147483647,
+            10000,
+            6
+          ]
+        },
+        {
+          "code": 203,
+          "indent": 0,
+          "parameters": [
+            99,
+            1,
+            2,
+            3,
+            6
+          ]
+        },
+        {
+          "code": 203,
+          "indent": 0,
+          "parameters": [
+            0,
+            2,
+            99,
+            0,
+            6
+          ]
+        },
+        {
+          "code": 203,
+          "indent": 0,
+          "parameters": [
+            0,
+            0,
+            2147483647,
+            10000,
+            8
+          ]
+        },
+        {
+          "code": 203,
+          "indent": 0,
+          "parameters": [
+            99,
+            1,
+            2,
+            3,
+            8
+          ]
+        },
+        {
+          "code": 203,
+          "indent": 0,
+          "parameters": [
+            0,
+            2,
+            99,
+            0,
+            8
+          ]
+        },
+        {
+          "code": 285,
+          "indent": 0,
+          "parameters": [
+            3,
+            0,
+            0,
+            10000,
+            2147483647
+          ]
+        },
+        {
+          "code": 285,
+          "indent": 0,
+          "parameters": [
+            3,
+            0,
+            1,
+            1,
+            2
+          ]
+        },
+        {
+          "code": 285,
+          "indent": 0,
+          "parameters": [
+            3,
+            1,
+            0,
+            10000,
+            2147483647
+          ]
+        },
+        {
+          "code": 285,
+          "indent": 0,
+          "parameters": [
+            3,
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        {
+          "code": 285,
+          "indent": 0,
+          "parameters": [
+            3,
+            2,
+            0,
+            10000,
+            2147483647
+          ]
+        },
+        {
+          "code": 285,
+          "indent": 0,
+          "parameters": [
+            3,
+            2,
+            1,
+            1,
+            2
+          ]
+        },
+        {
+          "code": 285,
+          "indent": 0,
+          "parameters": [
+            3,
+            3,
+            0,
+            10000,
+            2147483647
+          ]
+        },
+        {
+          "code": 285,
+          "indent": 0,
+          "parameters": [
+            3,
+            3,
+            1,
+            1,
+            2
+          ]
+        },
+        {
+          "code": 285,
+          "indent": 0,
+          "parameters": [
+            3,
+            4,
+            0,
+            10000,
+            2147483647
+          ]
+        },
+        {
+          "code": 285,
+          "indent": 0,
+          "parameters": [
+            3,
+            4,
+            1,
+            1,
+            2
+          ]
+        },
+        {
+          "code": 285,
+          "indent": 0,
+          "parameters": [
+            3,
+            5,
+            0,
+            10000,
+            2147483647
+          ]
+        },
+        {
+          "code": 285,
+          "indent": 0,
+          "parameters": [
+            3,
+            5,
+            1,
+            1,
+            2
+          ]
+        },
+        {
+          "code": 285,
+          "indent": 0,
+          "parameters": [
+            3,
+            6,
+            0,
+            10000,
+            2147483647
+          ]
+        },
+        {
+          "code": 285,
+          "indent": 0,
+          "parameters": [
+            3,
+            6,
+            1,
+            1,
+            2
+          ]
+        },
+        {
+          "code": 0,
+          "indent": 0,
+          "parameters": []
+        }
+      ],
+      "remaining": [
+        "R5 final53 actual independent literal/compiled game receipt"
+      ]
+    }
+  ],
+  "firstFailure": {
+    "cause": "Combined independent fixture omitted referenced Weapon/Armor entry1; product rejected those references before source publication. Corrected fixture adds actual empty-name records1; product and domains unchanged.",
+    "script": {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\e-supplement\\compare-supplement-v1.cjs",
+      "sha256": "73f4a9525cdb24b77da36d4c6dcceb0a263cf99a6d1e983281c37e8f0b6766df"
+    },
+    "input": {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\e-supplement\\supplement-input-v1.json",
+      "sha256": "bee037f3c590cd589149670cbfcdc689a254594371f40441b364cf7cb082b3d2"
+    },
+    "run": {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\e-supplement\\comparison-run-v1.json",
+      "sha256": "7d2f5ac7bdb6436da4e6eed2d77a6599a3f85c245a4d4049d4fecffa6164ab42"
+    },
+    "log": {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\e-supplement\\comparison-run-v1.log",
+      "sha256": "5c04280f611b0351f665768b77efd577e667229a21422df2c02c81a81e2f5580"
+    }
+  },
+  "limits": [
+    "Same-identity shipped code facts and conditional deductions are separate from actual built saved-output comparison.",
+    "Qt signals/loading/focus/timing and actual editor write success remain unexecuted.",
+    "No actual R game verdict is supplied by this supplement."
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-S6-AUDIO-E4",
+  "runId": "2026-10-20T03-01-23-271Z-adc277cb-cbfa-47f2-aea7-7e66f9a6b5a8",
+  "status": "passed",
+  "startedAt": "2026-10-20T03:01:17.694Z",
+  "completedAt": "2026-10-20T03:01:23.271Z",
+  "operator": "Codex final E supplement standalone built comparison",
+  "source": {
+    "revision": "2dc639015f908de6fd524e50236e5422b5f8e990",
+    "fingerprint": "335d8860cae1d470b5a47ff1dc36fcd093ae339e1c26fde932f9e30ae2b48996",
+    "files": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-editor-supplement-cases.json",
+        "sha256": "f3676a9d4eec8d707847c2cab419c09cddf924a43c3159c9c268b6fd2945ddbf"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-editor-supplement.md",
+        "sha256": "4da07e6398aa300a2da13b196894d2a138066f7fc2492937373cde289daccc91"
+      },
+      {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\authoring-DglMrmuD.mjs",
+        "sha256": "a6e722fdc8fb67451910cd52fc9c90e98331356e8814bff6597b08ee7e6c1771"
+      },
+      {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\authoring-DglMrmuD.mjs.map",
+        "sha256": "3c6f7deb86b6e161d06745bf3e78ff95fb4eb0af7f116625ddcc4fb26d3bbc47"
+      },
+      {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\cli.d.mts",
+        "sha256": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee"
+      },
+      {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\cli.d.mts.map",
+        "sha256": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c"
+      },
+      {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\cli.mjs",
+        "sha256": "dcbb6173dd5956c8b2fc2c78d2b9c276e36e24e20c7f8276ae024d61fc3ecaf6"
+      },
+      {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\cli.mjs.map",
+        "sha256": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8"
+      },
+      {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\index.d.mts",
+        "sha256": "84df6738b61413bd007bfbfbea0faa0bd8163ce9bb35bab50858ac485efb3e47"
+      },
+      {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\index.d.mts.map",
+        "sha256": "cea267e56ff1029cfbd4d898d82222db44818aec71b29af177ed7808931471c9"
+      },
+      {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\index.mjs",
+        "sha256": "21a3ba0d3640b05357c04aebd2979decaf566ffc0f16b8047f8d6d5351198cb2"
+      },
+      {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\index.mjs.map",
+        "sha256": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36"
+      },
+      {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\operations-DYUBy4eN.mjs",
+        "sha256": "b3fe23bc09dd45bc1e954703dfe9c6bc4986c359eaf2c22c47d017354f0e1107"
+      },
+      {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\operations-DYUBy4eN.mjs.map",
+        "sha256": "721ca954ab8e48b9a02fb93df9d200e7ce7521d6d41e1e1303e65ffd515479ed"
+      },
+      {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\workspace-api.d.mts",
+        "sha256": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594"
+      },
+      {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\workspace-api.d.mts.map",
+        "sha256": "e865bc5bbe325d1e10afb88e1057bee5464f21fba0bfd211e74cb43c7b24a11c"
+      },
+      {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\dist\\workspace-api.mjs",
+        "sha256": "24369d6d1d686b082665cda3b5e76292ed778420eadcfdad431a9cea11169788"
+      },
+      {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\e-supplement\\audio-child-resource-receipt.json",
+        "sha256": "5726359ef1c6da58829bcf1984c49fa3995b1bf552e9ed23c4f9981ff1a557c8"
+      },
+      {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\e-supplement\\compare-supplement.cjs",
+        "sha256": "538e27139a8addb2719e84c81a83699a135f3edfa64782f70e5ecb2a13c9550d"
+      },
+      {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\e-supplement\\comparison-receipt.json",
+        "sha256": "9b6c611214230b888228459651b4003b93a149b734875196c25c4613fe147b83"
+      },
+      {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\e-supplement\\resource-identity-receipt.json",
+        "sha256": "7482f9a8db1445fd9dd8f8cf66c80d8178a75437fe729fef8f1d803dfc8b3817"
+      },
+      {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\e-supplement\\supplement-input.json",
+        "sha256": "73890a852e5314b87882648dc006fb68d2ac98574eebe2b832575180c104cd02"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/audio-command-cases.json",
+        "sha256": "53aa731e256053fb2d8887f48deed19a4e9b425d39632e71ab5642f5bfa1fa52"
+      }
+    ]
+  },
+  "fixture": {
+    "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/audio-command-cases.json",
+    "sha256": "53aa731e256053fb2d8887f48deed19a4e9b425d39632e71ab5642f5bfa1fa52"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "node": "v22.23.0",
+    "vitest": "not-used; standalone actual built API comparison",
+    "typescript": "5.9.3 (candidate source evaluation)",
+    "package": "0.1.2",
+    "native": {
+      "method": "reverse-engineering",
+      "mv": "1.6.1 self-report; same identified editor bytes",
+      "runtime": "Editor UI and actual game not executed",
+      "nwjs": "not-executed",
+      "tools": {
+        "node": "v22.23.0",
+        "decoder": "Read-only fs/zlib/crypto; existing PE Evidence reused; no new REA Evidence ID"
+      },
+      "artifacts": [
+        {
+          "path": "references/RPGMV/RPGMV.exe",
+          "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281"
+        }
+      ]
+    }
+  },
+  "stages": [
+    "Final built Decompile of complete Audio/Inventory/Location saved input in three containers",
+    "Actual Discovery/source evaluation and Check with unchanged business tree",
+    "Complete independent CommonEvents/Map001/System/Troops generated equality including negative zero",
+    "Harmless real source edit, Compile/Diff/Push; all15 project carriers and complete Snapshot equal"
+  ],
+  "expected": "Ticket39 allocated E4 shipped audio editor resources and current built product comparison",
+  "actual": {
+    "groups": [
+      "E4"
+    ],
+    "completeCarrierEquality": true,
+    "comparedCarriers": 15,
+    "sourcePaths": [
+      "decompiled/common-events.events.ts",
+      "decompiled/maps/Map001.events.ts",
+      "decompiled/system.dsl.ts",
+      "decompiled/troop-events.events.ts"
+    ],
+    "comparisonReceipt": {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\e-supplement\\comparison-receipt.json",
+      "sha256": "9b6c611214230b888228459651b4003b93a149b734875196c25c4613fe147b83"
+    },
+    "resourceReceipts": [
+      {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\e-supplement\\resource-identity-receipt.json",
+        "sha256": "7482f9a8db1445fd9dd8f8cf66c80d8178a75437fe729fef8f1d803dfc8b3817"
+      },
+      {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final55-audit\\e-supplement\\audio-child-resource-receipt.json",
+        "sha256": "5726359ef1c6da58829bcf1984c49fa3995b1bf552e9ed23c4f9981ff1a557c8"
+      }
+    ],
+    "candidate": {
+      "revision": "2dc639015f908de6fd524e50236e5422b5f8e990",
+      "executionHead": "2dc639015f908de6fd524e50236e5422b5f8e990",
+      "compileContractVersion": "mv-1.6.1/22",
+      "packageRoot": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl",
+      "manifest": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final48-candidate.json",
+        "sha256": "2f4460874393ba6761740d6613c9c7b7cbbd161f8639a77c96a56ea84943bd63"
+      },
+      "dist": {
+        "authoring-DglMrmuD.mjs": "a6e722fdc8fb67451910cd52fc9c90e98331356e8814bff6597b08ee7e6c1771",
+        "authoring-DglMrmuD.mjs.map": "3c6f7deb86b6e161d06745bf3e78ff95fb4eb0af7f116625ddcc4fb26d3bbc47",
+        "cli.d.mts": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee",
+        "cli.d.mts.map": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c",
+        "cli.mjs": "dcbb6173dd5956c8b2fc2c78d2b9c276e36e24e20c7f8276ae024d61fc3ecaf6",
+        "cli.mjs.map": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8",
+        "index.d.mts": "84df6738b61413bd007bfbfbea0faa0bd8163ce9bb35bab50858ac485efb3e47",
+        "index.d.mts.map": "cea267e56ff1029cfbd4d898d82222db44818aec71b29af177ed7808931471c9",
+        "index.mjs": "21a3ba0d3640b05357c04aebd2979decaf566ffc0f16b8047f8d6d5351198cb2",
+        "index.mjs.map": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36",
+        "operations-DYUBy4eN.mjs": "b3fe23bc09dd45bc1e954703dfe9c6bc4986c359eaf2c22c47d017354f0e1107",
+        "operations-DYUBy4eN.mjs.map": "721ca954ab8e48b9a02fb93df9d200e7ce7521d6d41e1e1303e65ffd515479ed",
+        "workspace-api.d.mts": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594",
+        "workspace-api.d.mts.map": "e865bc5bbe325d1e10afb88e1057bee5464f21fba0bfd211e74cb43c7b24a11c",
+        "workspace-api.mjs": "24369d6d1d686b082665cda3b5e76292ed778420eadcfdad431a9cea11169788"
+      },
+      "workspaceApiSha256": "24369d6d1d686b082665cda3b5e76292ed778420eadcfdad431a9cea11169788"
+    },
+    "commands": 53,
+    "actualGame": "not-executed"
+  },
+  "difference": null
+}

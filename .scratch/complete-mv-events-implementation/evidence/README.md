@@ -804,3 +804,7 @@ small Workspace groups. Final native requirements remain pending.
 | MV-S7-E5 | Final physical records and complete single-slot strings | Synthetic support plus reused REA observations | Final built Workspace comparison and identified editor code paths |
 | MV-S7-E6 | Final independent image indices and shrunk-map saved values | Synthetic support plus reused REA observations | Final built Workspace comparison and identified editor code paths |
 | MV-S7-E7 | Final EXP bound, flags and all three refusal paths | Synthetic support plus reused REA observations | Final built Workspace comparison and identified editor code paths |
+
+## Final editor domain supplement
+
+[Supplement report](49-51-editor-supplement.md) and [independent saved inputs / portion receipts](49-51-editor-supplement-cases.json) close the Audio E4 evidence gap and the Inventory E4 / Location E4,E6 portions on the fixed contract22 build. Only `MV-S6-AUDIO-E4` gains a passing aggregate result here. `MV-S6-INVENTORY-006` and `MV-S6-LOCATION-004` still await final53 actual R4/R5 game receipts. Prior results and the original fixture failure remain preserved.
