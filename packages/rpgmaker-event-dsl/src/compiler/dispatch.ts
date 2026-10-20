@@ -1,3 +1,6 @@
+import { assertBattleInput } from "../commands/battle/validation.js";
+import { assertEnemyInput } from "../commands/enemy/validation.js";
+import { compileEnemyResourceValue } from "../commands/enemy/compile.js";
 import type { CommonEventDefinition, DslCommand } from "../domain/types.js";
 import { scrollDirections } from "../commands/movement/character-codes.js";
 import {
@@ -81,7 +84,6 @@ import {
   resolveControlValue,
   compileControlVariablesParameters,
   compileReferenceTargetRange,
-  compileOperateValueParameters,
   compileQuantityParameters,
 } from "../commands/variables/compile.js";
 export {
@@ -172,6 +174,7 @@ export function compileNodes(
     assertSystemAccessInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true);
     assertWindowColorInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true);
     assertSceneCommandInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
+    assertEnemyInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     assertActorResourceInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     assertActorPresentationInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     if (isInventoryCommandKind(node.kind))
@@ -510,59 +513,43 @@ export function compileNodes(
           parameters: [],
         });
         break;
-      case "battleProcessing":
+      case "battleProcessing": {
+        const path = `${sourcePath}[${nodeIndex}]`;
+        assertBattleInput(node, path, true, resolver);
         output.push({
           code: 301,
           indent,
           parameters: compileBattleProcessingParameters(node, resolver),
         });
-        if (node.win) {
-          output.push({ code: 601, indent, parameters: [] });
-          output.push(
-            ...compileNodes(
-              node.win,
-              indent + 1,
-              resolver,
-              false,
-              `${sourcePath}[${nodeIndex}].win`,
-              origins,
-            ),
+        for (const [field, code] of [
+          ["win", 601],
+          ["escape", 602],
+          ["lose", 603],
+        ] as const) {
+          const body = node[field];
+          if (body === undefined) continue;
+          output.push({ code, indent, parameters: [] });
+          const commands = compileNodes(
+            body.commands,
+            indent + 1,
+            resolver,
+            false,
+            `${path}.${field}.commands`,
+            origins,
           );
-          if (node.win.length === 0) output.push({ code: 0, indent: indent + 1, parameters: [] });
-        }
-        if (node.escape) {
-          output.push({ code: 602, indent, parameters: [] });
-          output.push(
-            ...compileNodes(
-              node.escape,
-              indent + 1,
-              resolver,
-              false,
-              `${sourcePath}[${nodeIndex}].escape`,
-              origins,
-            ),
-          );
-          if (node.escape.length === 0)
+          if (commands.at(-1)?.code === 0 && commands.at(-1)?.indent === indent + 1)
+            throw new CommandStructureError(
+              "MV-BODY-MARKER-CONFLICT",
+              "Raw output contradicts the owning Battle body's declared Body End Marker.",
+              { dslPath: `${path}.${field}.endMarker` },
+            );
+          output.push(...commands);
+          if (body.endMarker !== "absent")
             output.push({ code: 0, indent: indent + 1, parameters: [] });
         }
-        if (node.lose) {
-          output.push({ code: 603, indent, parameters: [] });
-          output.push(
-            ...compileNodes(
-              node.lose,
-              indent + 1,
-              resolver,
-              false,
-              `${sourcePath}[${nodeIndex}].lose`,
-              origins,
-            ),
-          );
-          if (node.lose.length === 0) output.push({ code: 0, indent: indent + 1, parameters: [] });
-        }
-        if (node.canEscape || node.canLose || node.win || node.escape || node.lose) {
-          output.push({ code: 604, indent, parameters: [] });
-        }
+        if (node.canEscape || node.canLose) output.push({ code: 604, indent, parameters: [] });
         break;
+      }
       case "script":
         assertDslObject(node, ["kind", "script"], `${sourcePath}[${nodeIndex}]`);
         assertDslTextInput(
@@ -1006,8 +993,8 @@ export function compileNodes(
           indent,
           parameters: [
             enemyTargetToCode(node.target),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
-            node.allowDeath ?? false,
+            ...compileEnemyResourceValue(node.operation, node.value, resolver),
+            node.allowDeath,
           ],
         });
         break;
@@ -1017,7 +1004,7 @@ export function compileNodes(
           indent,
           parameters: [
             enemyTargetToCode(node.target),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
+            ...compileEnemyResourceValue(node.operation, node.value, resolver),
           ],
         });
         break;
@@ -1050,9 +1037,9 @@ export function compileNodes(
           code: 337,
           indent,
           parameters: [
-            node.target.target === "all" ? 0 : node.target.index,
+            node.target.index,
             resolver.resolveReference(node.animation),
-            node.target.target === "all",
+            node.allEnemies,
           ],
         });
         break;
@@ -1062,9 +1049,13 @@ export function compileNodes(
           indent,
           parameters: [
             battlerTargetTypeToCode(node.subject),
-            battlerTargetIdToCode(node.subject),
+            battlerTargetIdToCode(node.subject, resolver),
             resolver.resolveReference(node.skill),
-            node.targetIndex,
+            node.target.kind === "lastTarget"
+              ? -2
+              : node.target.kind === "random"
+                ? -1
+                : node.target.index,
           ],
         });
         break;
@@ -1077,7 +1068,7 @@ export function compileNodes(
           indent,
           parameters: [
             enemyTargetToCode(node.target),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
+            ...compileEnemyResourceValue(node.operation, node.value, resolver),
           ],
         });
         break;

@@ -161,7 +161,7 @@ const heroBattler = {
   kind: "runtimeSelector",
   scope: "battler",
   target: "actor",
-  actorId: 1,
+  actor: heroActor,
 } as const;
 
 export const sampleCommonEventDefinition = commonEvent({
@@ -395,45 +395,50 @@ export const practiceBattleEvent = mapEvent({
           skill: attackSkill,
         }),
         battleProcessing({
-          troop: batTroop,
+          troop: { kind: "fixed", troop: batTroop },
           canEscape: true,
           canLose: true,
-          win: [
-            showText({
-              lines: ["Battle branch: win."],
-              face: { image: null, index: 0 },
-              background: "window",
-              position: "bottom",
-            }),
-          ],
-          escape: [
-            showText({
-              lines: ["Battle branch: escape."],
-              face: { image: null, index: 0 },
-              background: "window",
-              position: "bottom",
-            }),
-          ],
-          lose: [
-            showText({
-              lines: ["Battle branch: lose."],
-              face: { image: null, index: 0 },
-              background: "window",
-              position: "bottom",
-            }),
-          ],
+          win: {
+            commands: [
+              showText({
+                lines: ["Battle branch: win."],
+                face: { image: null, index: 0 },
+                background: "window",
+                position: "bottom",
+              }),
+            ],
+            endMarker: "absent",
+          },
+          escape: {
+            commands: [
+              showText({
+                lines: ["Battle branch: escape."],
+                face: { image: null, index: 0 },
+                background: "window",
+                position: "bottom",
+              }),
+            ],
+            endMarker: "absent",
+          },
+          lose: {
+            commands: [
+              showText({
+                lines: ["Battle branch: lose."],
+                face: { image: null, index: 0 },
+                background: "window",
+                position: "bottom",
+              }),
+            ],
+            endMarker: "absent",
+          },
         }),
         changeEnemyHp({
           target: allEnemies,
           operation: "lose",
-          value: 1,
+          value: { kind: "constant", value: 1 },
           allowDeath: true,
         }),
-        forceAction({
-          subject: heroBattler,
-          skill: attackSkill,
-          targetIndex: -2,
-        }),
+        forceAction({ subject: heroBattler, skill: attackSkill, target: { kind: "lastTarget" } }),
         abortBattle(),
         shopProcessing({
           goods: [{ kind: "item", item: potion, price: 1 }],
@@ -724,7 +729,7 @@ export const partyStateStationEvent = mapEvent({
               changeEnemyHp({
                 target: firstEnemy,
                 operation: "lose",
-                value: 10,
+                value: { kind: "constant", value: 10 },
                 allowDeath: true,
               }),
             ],

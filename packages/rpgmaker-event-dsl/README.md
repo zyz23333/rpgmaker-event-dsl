@@ -949,6 +949,64 @@ Move has no image field and requires duration 1..999 and explicit Boolean `wait`
 Rotate speed is integer −90..90, including zero to stop. Tint requires named RGB
 integers −255..255, gray 0..255, duration 1..999 and explicit Boolean `wait`.
 
+## Enemies and battle control
+
+Enemy resource commands use named operands and explicit saved selectors:
+
+```ts
+changeEnemyHp({
+  target: { kind: "runtimeSelector", scope: "enemy", target: "all" },
+  operation: "lose",
+  value: { kind: "constant", value: 10 },
+  allowDeath: false,
+});
+showBattleAnimation({
+  target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 7 },
+  animation: animationRef({ id: 1 }),
+  allEnemies: true,
+});
+battleProcessing({
+  troop: { kind: "fixed", troop: troopRef({ id: 1 }) },
+  canEscape: true,
+  win: { commands: [comment({ lines: ["Victory"] })] },
+  escape: { commands: [] },
+});
+forceAction({
+  subject: {
+    kind: "runtimeSelector",
+    scope: "battler",
+    target: "actor",
+    actor: actorRef({ id: 1 }),
+  },
+  skill: skillRef({ id: 1 }),
+  target: { kind: "lastTarget" },
+});
+abortBattle();
+```
+
+Enemy positions are integers 0..7 and include hidden members in their saved order.
+HP/MP/TP/State/Recover All accept `target: "all"` as well. Appear, Transform and
+Animation require a single index; Animation retains it independently of its required
+`allEnemies` Boolean. HP/MP constants are 1..9999, TP constants 1..100. Resource
+changes require `operation: "gain" | "lose"` and either `{ kind: "constant", value }`
+or `{ kind: "variable", variable: variableRef(...) }`. HP requires `allowDeath`.
+State uses `operation: "add" | "remove"` with a State reference; Transform and
+Animation require existing Enemy and Animation references respectively.
+
+Battle's troop modes are `fixed` with a Troop reference, `variable` with a Variable
+reference, or `{ kind: "randomEncounter" }`. Escape/Lose flags default to false.
+Both false forbids result bodies; either true requires `win`, and each true flag
+requires its matching `escape`/`lose` body. Bodies require `commands` and default
+their `endMarker` to `"present"`; only a nonempty saved body may select `"absent"`.
+
+Force Action's subject is one enemy position or fixed Actor reference. Its target
+is `lastTarget`, `random`, or `{ kind: "index", index }` with index 0..7. Skill scope
+determines its execution meaning, so the index is preserved independently of current
+Troop size. Abort Battle has no inputs. Missing fixed references are errors; legal
+runtime positions, unknown Common callers and incompatible map/battle contexts
+produce warnings. MV skips Battle Processing in battle and Force Action outside
+battle; Abort Battle can set residual aborting state outside an active battle.
+
 ## Map location commands
 
 `transferPlayer({ destination, direction?, fade? })` and

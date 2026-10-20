@@ -775,3 +775,18 @@ Ticket29 adds focused synthetic message delivery checks; its E5/E6 reverse-engin
 | MV-S6-ACTOR-PRESENTATION-003    | Late malformed recognized Actor image refuses all source publication                      | Actual public source tests and complete temporary filesystem                                    |
 | MV-S6-ACTOR-PRESENTATION-004    | Public Actor text and image helpers compiler decompiler raw domains and accurate warnings | Actual public source tests and complete temporary filesystem                                    |
 | MV-S6-ACTOR-PRESENTATION-NATIVE | Final E5/E6 product comparison and actual R6 Actor text image display remain required     | Pending51/54; not executed                                                                      |
+
+## Enemy and battle batch 45/46
+
+[Batch delivery](battle-batch-delivery.md) records the actual merged product, focused
+Windows/Node 22 verification and original logs. Scalar boundaries use public unit
+cases; actual Discovery/evaluation, full business state and genuine Push use three
+small Workspace groups. Final native requirements remain pending.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-BATTLE-001 | Complete Enemy/Force/Battle slots and nested bodies in formal/raw source and all three carriers, changed Diff and real 15-file Push | synthetic-support | Actual public Workspace API, Discovery/evaluation and filesystem |
+| MV-S6-BATTLE-002 | Evaluated helper/local/direct/raw/reference/nested Gate refusals preserve complete business state | synthetic-rejection | Actual public Workspace API, Discovery/evaluation and filesystem |
+| MV-S6-BATTLE-003 | Late known-native rejection publishes no partial Decompiled Source | synthetic-rejection | Actual public Workspace API and complete business state |
+| MV-S6-BATTLE-004 | Final E2/E4 editor code-path facts and independent final product comparison | Required pending | Final49/50 REA/product comparison |
+| MV-S6-BATTLE-005 | Full original R2, R4 forced/selector contexts and R6 Enemy Animation | Required pending | Final52/53/54 actual MV1.6.1/NW.js game pairs |

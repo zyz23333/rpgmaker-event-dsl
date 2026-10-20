@@ -21,7 +21,6 @@ import type {
   TransferFade,
   MapDestination,
   MovieAssetReference,
-  OperateValueOperand,
   ReferenceRange,
   ReferenceValue,
   ScriptInput,
@@ -667,20 +666,14 @@ export type EraseEventDslCommand = {
 export type BattleProcessingDslCommand = {
   kind: "battleProcessing";
   troop:
-    | ReferenceValue<"troop">
-    | {
-        kind: "troop";
-        variable: ReferenceValue<"variable">;
-      }
-    | {
-        kind: "troop";
-        useRandomEncounter: true;
-      };
+    | { kind: "fixed"; troop: ReferenceValue<"troop"> }
+    | { kind: "variable"; variable: ReferenceValue<"variable"> }
+    | { kind: "randomEncounter" };
   canEscape?: boolean;
   canLose?: boolean;
-  win?: readonly DslCommand[];
-  escape?: readonly DslCommand[];
-  lose?: readonly DslCommand[];
+  win?: ChildCommandBody;
+  escape?: ChildCommandBody;
+  lose?: ChildCommandBody;
 };
 
 export type ShopGoods =
@@ -817,15 +810,15 @@ export type ChangeEnemyHpDslCommand = {
   kind: "changeEnemyHp";
   target: EnemyCommandTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
-  allowDeath?: boolean;
+  value: ConstantOperand | VariableOperand;
+  allowDeath: boolean;
 };
 
 export type ChangeEnemyMpDslCommand = {
   kind: "changeEnemyMp";
   target: EnemyCommandTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ConstantOperand | VariableOperand;
 };
 
 export type ChangeEnemyStateDslCommand = {
@@ -842,26 +835,27 @@ export type EnemyRecoverAllDslCommand = {
 
 export type EnemyAppearDslCommand = {
   kind: "enemyAppear";
-  target: EnemyCommandTarget;
+  target: Extract<EnemyCommandTarget, { target: "enemy" }>;
 };
 
 export type EnemyTransformDslCommand = {
   kind: "enemyTransform";
-  target: EnemyCommandTarget;
+  target: Extract<EnemyCommandTarget, { target: "enemy" }>;
   enemy: ReferenceValue<"enemy">;
 };
 
 export type ShowBattleAnimationDslCommand = {
   kind: "showBattleAnimation";
-  target: EnemyCommandTarget;
+  target: Extract<EnemyCommandTarget, { target: "enemy" }>;
   animation: ReferenceValue<"animation">;
+  allEnemies: boolean;
 };
 
 export type ForceActionDslCommand = {
   kind: "forceAction";
   subject: BattlerCommandTarget;
   skill: ReferenceValue<"skill">;
-  targetIndex: number;
+  target: { kind: "lastTarget" } | { kind: "random" } | { kind: "index"; index: number };
 };
 
 export type AbortBattleDslCommand = {
@@ -872,7 +866,7 @@ export type ChangeEnemyTpDslCommand = {
   kind: "changeEnemyTp";
   target: EnemyCommandTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ConstantOperand | VariableOperand;
 };
 
 export type OpenMenuScreenDslCommand = {

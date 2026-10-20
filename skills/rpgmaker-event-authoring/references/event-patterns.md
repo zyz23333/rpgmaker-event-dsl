@@ -82,7 +82,9 @@ Common Events inherit the caller's runtime context. Choose self switches and
 current-event selectors with that caller in mind; no context annotation or static
 call graph is required.
 
-Shopkeepers use `shopProcessing(...)`. Event-driven battles use `battleProcessing(...)` and record outcomes only when later events depend on them.
+Shopkeepers use `shopProcessing(...)`. Event-driven battles use `battleProcessing(...)`.
+Read [Enemies and Battle Control](enemies-and-battle.md) for its named troop modes,
+flag-dependent result bodies, enemy selector subsets and forced action targets.
 
 Shop requires `goods`, which may be empty, and defaults `purchaseOnly` to false.
 Real goods use matching fields and references: `{ kind: "item", item: itemRef(...) }`,

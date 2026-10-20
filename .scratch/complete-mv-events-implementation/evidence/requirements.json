@@ -21359,6 +21359,264 @@
       },
       "slice": "44 / S6",
       "required": true
+    },
+    {
+      "id": "MV-S6-BATTLE-001",
+      "title": "preserves Enemy selectors and nested Battle bodies through evaluated formal and raw source and complete Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/45-enemy-state-and-appearance.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/46-battle-processing-and-control.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E301"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored exact native command records, all three event carriers and real Discovery/loadDefinitionFile; hidden external members retained.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/battle-command-cases.json",
+        "sha256": "3cbfc7ef5d0762e0b81fd7d2e5a535baa53a6368c6d705c5a2162f5703fa0b63"
+      },
+      "expected": "All complete saved carriers match literal input; Check is read-only; formal/raw Compile agree with independent fixture; changed Diff and real Push retain all15 project data files.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/battle-workspace.test.ts",
+        "name": "MV-S6-BATTLE-001: preserves Enemy selectors and nested Battle bodies through evaluated formal and raw source and complete Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0; focused source-entry DEV; final built checks belong to48",
+        "owner": "Codex45/46 implementer /root/ticket_32",
+        "layer": "Public Workspace API, actual Discovery/evaluation and filesystem; native game execution not claimed"
+      },
+      "slice": "45/46 / S6 DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S6-BATTLE-002",
+      "title": "rejects evaluated malformed helper direct raw reference and nested Gate sources without publishing business state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/45-enemy-state-and-appearance.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/46-battle-processing-and-control.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E301"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Evaluated helper/direct/raw command sources with invalid fields, references, local constants, required fields and nested disabled Script Command Gate.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/battle-command-cases.json",
+        "sha256": "3cbfc7ef5d0762e0b81fd7d2e5a535baa53a6368c6d705c5a2162f5703fa0b63"
+      },
+      "expected": "Check/Compile reject with intended diagnostics and preserve source/project/Snapshot/generated/manifest/config/Discovery/pending state; Push refuses stale output.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/battle-workspace.test.ts",
+        "name": "MV-S6-BATTLE-002: rejects evaluated malformed helper direct raw reference and nested Gate sources without publishing business state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0; focused source-entry DEV; final built checks belong to48",
+        "owner": "Codex45/46 implementer /root/ticket_32",
+        "layer": "Public Workspace API, actual Discovery/evaluation and filesystem; native game execution not claimed"
+      },
+      "slice": "45/46 / S6 DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S6-BATTLE-003",
+      "title": "refuses late malformed Enemy and Battle native records before Decompile publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/45-enemy-state-and-appearance.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/46-battle-processing-and-control.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E301"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Late known-native rejection for E331/332/333/334/335/336/337/342/339/340/301 in real Common carrier.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/battle-command-cases.json",
+        "sha256": "3cbfc7ef5d0762e0b81fd7d2e5a535baa53a6368c6d705c5a2162f5703fa0b63"
+      },
+      "expected": "Decompile rejects before publishing source, identifies exact native list position and preserves complete business state.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/battle-workspace.test.ts",
+        "name": "MV-S6-BATTLE-003: refuses late malformed Enemy and Battle native records before Decompile publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0; focused source-entry DEV; final built checks belong to48",
+        "owner": "Codex45/46 implementer /root/ticket_32",
+        "layer": "Public Workspace API, actual Discovery/evaluation and filesystem; native game execution not claimed"
+      },
+      "slice": "45/46 / S6 DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S6-BATTLE-004",
+      "title": "final Enemy and Battle editor reverse-engineering comparison remains required",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/45-enemy-state-and-appearance.md",
+          "section": "## Scope"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/46-battle-processing-and-control.md",
+          "section": "## Scope"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Final candidate E2 Battle flags/bodies and E4 fixed defaults/saved modes against editor initialization/load/confirm/save code; not executed in45/46 DEV.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/battle-command-cases.json",
+        "sha256": "3cbfc7ef5d0762e0b81fd7d2e5a535baa53a6368c6d705c5a2162f5703fa0b63"
+      },
+      "expected": "Final49/50 bind same-identity REA facts and independent product output; static inference is not editor UI capture.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/battle-batch-delivery.md",
+        "section": "## Final native work"
+      },
+      "nativeGroups": [
+        "E2",
+        "E4"
+      ],
+      "execution": {
+        "environment": "Windows / MV1.6.1 / actual final candidate; pending final48–54",
+        "owner": "Final49/50 and52/53/54 implementers",
+        "layer": "Editor REA plus independent final product comparison"
+      },
+      "slice": "45/46 / required final native pending",
+      "required": true
+    },
+    {
+      "id": "MV-S6-BATTLE-005",
+      "title": "final actual Enemy and Battle runtime validation remains required",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/45-enemy-state-and-appearance.md",
+          "section": "## Scope"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/46-battle-processing-and-control.md",
+          "section": "## Scope"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Final52/53/54 actual MV1.6.1/NW.js pairs: full original17-page/three-turn R2, Force/selector contexts and Enemy animations. Not executed in45/46 DEV.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/battle-command-cases.json",
+        "sha256": "3cbfc7ef5d0762e0b81fd7d2e5a535baa53a6368c6d705c5a2162f5703fa0b63"
+      },
+      "expected": "Preserve full battle page scheduling/results, hidden/member behavior, Force skill-scope targets, residual Abort state, animation effect/visibility and no-op/error consequences under actual game runtime; no patched engine substitute.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/battle-batch-delivery.md",
+        "section": "## Final native work"
+      },
+      "nativeGroups": [
+        "R2",
+        "R4",
+        "R6"
+      ],
+      "execution": {
+        "environment": "Windows / MV1.6.1 / actual final candidate; pending final48–54",
+        "owner": "Final49/50 and52/53/54 implementers",
+        "layer": "Actual MV1.6.1/NW.js game pairs; no runtime result claimed"
+      },
+      "slice": "45/46 / required final native pending",
+      "required": true
     }
   ]
 }

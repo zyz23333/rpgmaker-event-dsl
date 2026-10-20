@@ -131,7 +131,9 @@ it("roundtrips an unbranched Battle Processing launch without inventing a result
       join(workspaceRoot, "src/decompiled/common-events.events.ts"),
       "utf8",
     );
-    expect(source).toContain("battleProcessing({ troop: troopRef({ id: 1 }) })");
+    expect(source).toContain(
+      'battleProcessing({ troop: { kind: "fixed", troop: troopRef({ id: 1 }) } })',
+    );
     expect(source).not.toContain("rawDslCommand");
     const before = await observe(workspaceRoot);
     await compileWorkspace({ workspaceRoot, check: true });

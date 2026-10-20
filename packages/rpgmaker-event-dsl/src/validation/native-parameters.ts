@@ -1,3 +1,5 @@
+import { assertNativeBattleParameters } from "../commands/battle/native-validation.js";
+import { assertNativeEnemyParameters } from "../commands/enemy/native-validation.js";
 import { CommandStructureError } from "./command-errors.js";
 import { assertNativeShopParameters } from "../commands/battle/shop-native.js";
 import { renderJsonValue } from "../project-data/json-values.js";
@@ -155,6 +157,8 @@ export function assertNativeCommandParameters(
   path: string,
 ): void {
   if (!isKnownCommandCode(code)) return;
+  if (assertNativeBattleParameters(code, parameters, path)) return;
+  if (assertNativeEnemyParameters(code, parameters, path)) return;
   if (code === 302 || code === 605) {
     assertNativeShopParameters(code, parameters, path);
     return;

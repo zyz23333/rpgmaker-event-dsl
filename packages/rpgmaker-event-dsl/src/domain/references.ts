@@ -237,7 +237,7 @@ export type BattlerCommandTarget =
       actorId?: never;
     })
   | (RuntimeSelector<"battler", "actor"> & {
-      actorId: number;
+      actor: ReferenceValue<"actor">;
       index?: never;
     });
 

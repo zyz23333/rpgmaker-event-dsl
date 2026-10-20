@@ -469,6 +469,7 @@ async function readSnapshotMapValidationEntry(
     ...(width === undefined ? {} : { width }),
     ...(height === undefined ? {} : { height }),
     ...("tilesetId" in map ? { tilesetId: map.tilesetId } : {}),
+    ...("encounterList" in map ? { encounterList: map.encounterList } : {}),
     eventLocations,
   };
 }

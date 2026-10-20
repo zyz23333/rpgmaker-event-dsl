@@ -42,6 +42,7 @@ import {
 import { renderMovementRoute } from "../commands/movement/decompile.js";
 import { validateNativeMovementRouteInputs } from "../commands/movement/validation.js";
 import { inspectConditionalContext } from "../commands/flow/conditional-context.js";
+import { inspectBattleCommandContext } from "../validation/native-battle-context.js";
 import { inspectNativeCommandReferences } from "../validation/native-references.js";
 import { CommandStructureError } from "../validation/command-errors.js";
 import { assertNativeBattlePages, type NativeBattleEventPage } from "../validation/battle-pages.js";
@@ -210,6 +211,14 @@ async function buildDecompiledSourceFiles(
         };
         issues.push(...inspectNativeCommandInputs(page.list ?? [], inputOptions));
         issues.push(
+          ...inspectBattleCommandContext(
+            page.list ?? [],
+            { kind: "map", encounterList: mapData.encounterList },
+            resolver,
+            inputOptions,
+          ),
+        );
+        issues.push(
           ...inspectConditionalContext(
             page.list ?? [],
             { kind: "map", eventIds: events.map((event) => event.id) },
@@ -265,6 +274,12 @@ async function buildDecompiledSourceFiles(
   }
 
   for (const event of commonEvents) {
+    issues.push(
+      ...inspectBattleCommandContext(event.list ?? [], { kind: "common" }, resolver, {
+        identity: `commonEvent:${event.id}`,
+        stage: "decompile",
+      }),
+    );
     issues.push(
       ...inspectConditionalContext(event.list ?? [], { kind: "common" }, resolver, {
         identity: `commonEvent:${event.id}`,
@@ -332,6 +347,14 @@ async function buildDecompiledSourceFiles(
     for (const [pageIndex, page] of troop.pages.entries()) {
       const prefix = `pages[${pageIndex}].`;
       const commands = readRawCommandList(page.list, identity, prefix);
+      issues.push(
+        ...inspectBattleCommandContext(
+          commands,
+          { kind: "troop", members: troop.members },
+          resolver,
+          { identity, stage: "decompile", prefix },
+        ),
+      );
       issues.push(
         ...inspectConditionalContext(
           commands,
