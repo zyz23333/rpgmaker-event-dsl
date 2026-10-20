@@ -1,6 +1,6 @@
 # 35: 地图角色、动画与跟随者
 
-Status: ready-for-agent
+Status: resolved
 Blocked by: 23, 24
 Stage: S6
 Execution batch: [地图位置与角色行为](../tickets.md#batch-map)
@@ -21,18 +21,19 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 ## Acceptance criteria
 
-- [ ] E204/E206/E211/E212/E213/E214/E216/E217 所有参数、目标、方向、等待与引用检查在正式/raw/反编译一致。
-- [ ] 真实 Map 与 Common 上下文区分固定引用失败和 selector 的无作用/残留对象/停滞风险，不扩展合法目标子集。
-- [ ] 取得 R1/R4/R6 对应行为证据，独立样本经完整工作流保存，更新对应当前编写文档。
+- [x] E204/E206/E211/E212/E213/E214/E216/E217 所有参数、目标、方向、等待与引用检查在正式/raw/反编译一致。
+- [x] 真实 Map 与 Common 上下文区分固定引用失败和 selector 的无作用/残留对象/停滞风险，不扩展合法目标子集。
+- [x] 独立样本经完整真实 Workspace 工作流保存，更新对应当前编写文档。
+- [ ] 实际 R1/R4/R6 游戏行为仍由52–54执行，`MV-S6-CHARACTER-006` 保持未执行；按用户执行修订不阻塞开发票关闭。
 
 ### 共通要求（限本票适用范围）
 
-- [ ] 按规格 I1–I12 和对应完整参数附表实现；正式编写、编译、反编译、验证、已知 raw 及适用 Workspace 路径一起交付，实际发现并求值生成源码，预期独立于待测编译器。
-- [ ] 对本票拥有的字段/模式/枚举/None/独立保存值/默认/正负边界及已知相互作用建案例；完整比较键存在性、数组长度/顺序、页序、值、镜像、CR 和非激活配置。
-- [ ] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
-- [ ] 按规格 2026-10-20 用户执行修订，开发及批次合入执行 Windows / Node 22 受影响测试与必要检查；全量适用自动化及构建集中到 48。安全票仍验证用户可观察的源码、项目、Snapshot、manifest、Discovery 集合和诊断状态。
-- [ ] 本票原生场景可集中到 49–54 最终回归；开发票关闭时记录实际自动化结果，并明确指向待执行的最终场景，不把未执行记为通过。证据按规格 2026-10-20 用户执行修订保留必要版本、输入、命令和预期/实际日志。
-- [ ] 同步受影响的当前公开 API 文档、示例及编写指南；不保留旧 API 别名或迁移说明，不分发首方编辑器、runtime/源码或本地游戏资产。
+- [x] 按规格 I1–I12 和对应完整参数附表实现；正式编写、编译、反编译、验证、已知 raw 及适用 Workspace 路径一起交付，实际发现并求值生成源码，预期独立于待测编译器。
+- [x] 对本票拥有的字段/模式/枚举/None/独立保存值/默认/正负边界及已知相互作用建案例；完整比较键存在性、数组长度/顺序、页序、值、镜像、CR 和非激活配置。
+- [x] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
+- [x] 按规格 2026-10-20 用户执行修订，开发及批次合入执行 Windows / Node 22 受影响测试与必要检查；全量适用自动化及构建集中到 48。安全票仍验证用户可观察的源码、项目、Snapshot、manifest、Discovery 集合和诊断状态。
+- [x] 本票原生场景可集中到 49–54 最终回归；开发票关闭时记录实际自动化结果，并明确指向待执行的最终场景，不把未执行记为通过。证据按规格 2026-10-20 用户执行修订保留必要版本、输入、命令和预期/实际日志。
+- [x] 同步受影响的当前公开 API 文档、示例及编写指南；不保留旧 API 别名或迁移说明，不分发首方编辑器、runtime/源码或本地游戏资产。
 
 ## Verification
 
@@ -51,3 +52,33 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [系统、地图与表现参数附表](../../complete-mv-events/research/command-parameters/visual-map.md)。
+
+## Comments
+
+### 2026-10-20 — 地图批次认领
+
+记录创建的M工作树 `mv-map-batch`、分支 `codex/mv-map-batch` 已快进至实际集成 `2ce2ba3b4a364dc3770f953323707d843a4f53c7`（契约17、388要求）。复用35DEV `b8ce66548a10bcfcd54a7f45a306b22378c9929d`，与34及S3/Loop补充连续整合；按当前用户轻量策略验证受影响公共DSL及必要真实Workspace/类型/静态检查。R1/R4/R6保留到49–54最终回归，48负责全量/构建，55审计最终验收；不重做已通过的历史red或大归档。
+
+### Retained original35 DEV checkpoint
+
+### 2026-10-20 — 聚焦开发领取
+
+独立分支 `codex/mv-ticket-35`，基于实际 integration `c2a40a41c094ccdda47faccd4399891952739008`。按规格 T1 已确认 seams 逐切片 red→green；本检查点仅 focused DEV，保留历史证据，不进行 full/build/built/native、契约版本增量或最终验收。R1/R4/R6 与独立 merger 均待后续队列完成。
+
+### 2026-10-20 — 聚焦 DEV 检查点，仍待最终验收
+
+本票八个指令已贯通正式/raw/反编译、引用与上下文诊断，并更新当前文档与示例。
+同步实际 integration `38542767606ff9712e45d2a8e4894558e3a7d385`，保留 contract10；
+此前 c2 的 53 owned、72 related、9-case capture 通过，当前受影响批次 134 tests 通过。
+该批次的 evidence index 原10s超时保留，结果拷贝后隔离复验通过（3.49s test）。
+当前 typecheck、24TS scoped lint/format、package README format 与 diff whitespace 通过。
+296 incoming requirements、4,278 incoming历史blobs全部保留；新增6 rows、235 execution records
+（207 passed/28 failed），所有失败原样保留。实现、原始失败、完整状态断言、源码指纹与冻结位置见
+[DEV证据](../evidence/35-map-characters-dev.md) 和
+[历史审计](../evidence/35-map-characters-history-audit.json)。
+本检查点不满足 full/build/built、R1/R4/R6、最终 contract 增量和独立 merger 要求，状态保持 claimed。
+
+
+## Answer — 2026-10-20 开发批次完成
+
+与另一地图票及11/13输入补充整合到实际集成2ce2ba3b。当前功能源码99128dda；6352d5f5仅删除两个未用类型导入。contract18、405要求，完整保留incoming388及原DEV记录。11files/135原范围通过；当前5files/67受影响检查（含405行索引与18条原始Switch getter回归）、3files/43定向真实Workspace、typecheck与scoped lint/format通过。输入、实际命令、版本及原始失败见[批次交付记录](../evidence/map-batch-delivery.md)。本票关闭开发范围，最终原生/产品比较保持上方未勾选义务，48负责最终全量/构建、49–54最终E/R、55完成审计；未记原生通过。

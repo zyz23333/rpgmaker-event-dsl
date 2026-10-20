@@ -1,0 +1,17 @@
+
+> rpgmaker-event-dsl@0.1.2 typecheck C:\Users\Shuen\.codex\worktrees\mv-ticket-34\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> tsc -p tsconfig.json --noEmit
+
+test/dsl.test.ts(235,9): error TS2353: Object literal may only specify known properties, and 'character' does not exist in type '{ target: EventRuntimeSelector; destination: EventLocationDestination; direction?: LocationDirection; }'.
+test/events.test.ts(265,17): error TS2322: Type 'number' is not assignable to type 'LocationDirection'.
+test/events.test.ts(284,17): error TS2322: Type 'number' is not assignable to type 'LocationDirection'.
+test/events.test.ts(287,17): error TS2353: Object literal may only specify known properties, and 'character' does not exist in type '{ target: EventRuntimeSelector; destination: EventLocationDestination; direction?: LocationDirection; }'.
+test/events.test.ts(298,19): error TS2353: Object literal may only specify known properties, and 'character' does not exist in type 'ExchangeEventLocationDestination'.
+test/events.test.ts(679,17): error TS2820: Type '"tileIdLayer2"' is not assignable to type 'LocationInfoType'. Did you mean '"tileLayer2"'?
+test/staged-graph.test.ts(490,15): error TS2353: Object literal may only specify known properties, and 'character' does not exist in type '{ target: EventRuntimeSelector; destination: EventLocationDestination; direction?: LocationDirection; }'.
+test/staged-graph.test.ts(672,15): error TS2353: Object literal may only specify known properties, and 'character' does not exist in type '{ target: EventRuntimeSelector; destination: EventLocationDestination; direction?: LocationDirection; }'.
+test/staged-graph.test.ts(680,15): error TS2353: Object literal may only specify known properties, and 'character' does not exist in type '{ target: EventRuntimeSelector; destination: EventLocationDestination; direction?: LocationDirection; }'.
+test/staged-graph.test.ts(695,17): error TS2353: Object literal may only specify known properties, and 'character' does not exist in type 'ExchangeEventLocationDestination'.
+C:\Users\Shuen\.codex\worktrees\mv-ticket-34\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 typecheck: `tsc -p tsconfig.json --noEmit`
+Exit status 2

@@ -1,0 +1,37 @@
+{"label":"helper-fields-red","files":164,"fingerprint":"10612dfcf871d52d5e642d8f87f34b30211710d110db9df3f42928c822561cee","out":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\control-input-fix-temp\\source-snapshots\\helper-fields-red"}
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-control-input-fix/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/control-input-boundaries.test.ts (2 tests | 1 failed | 1 skipped) 6ms
+   × rejects helper input fields before switch, self-switch or Loop projection 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/control-input-boundaries.test.ts > rejects helper input fields before switch, self-switch or Loop projection
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/control-input-boundaries.test.ts:31:46
+     29|   const selfSwitchInput = { selfSwitch: "A" as const, value: true, une…
+     30|   const loopInput = { body: { commands: [] }, unexpected: "must refuse…
+     31|   expect(() => controlSwitches(switchInput)).toThrow(/MV-DSL-SHAPE.*co…
+       |                                              ^
+     32|   expect(() => controlSelfSwitch({ ...selfSwitchInput })).toThrow(/MV-…
+     33|   expect(() => loop(loopInput)).toThrow(/MV-DSL-SHAPE.*loop/u);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 skipped (2)
+   Start at  03:38:21
+   Duration  1.44s (transform 433ms, setup 0ms, import 1.26s, tests 6ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-control-input-fix\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/control-input-boundaries.test.ts -t rejects helper input fields

@@ -1,0 +1,13 @@
+
+> rpgmaker-event-dsl@0.1.2 test C:\Users\Shuen\.codex\worktrees\mv-ticket-34\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> vitest run "test/map-locations.test.ts"
+
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-34/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  02:47:46
+   Duration  763ms (transform 240ms, setup 0ms, import 587ms, tests 9ms, environment 0ms)
+

@@ -1,0 +1,23 @@
+{
+  "typecheck": 0,
+  "whitespace": 0,
+  "node": "v22.23.0",
+  "files": [
+    "packages/rpgmaker-event-dsl/src/authoring/references.ts",
+    "packages/rpgmaker-event-dsl/src/commands/flow/authoring.ts",
+    "packages/rpgmaker-event-dsl/src/commands/variables/authoring.ts",
+    "packages/rpgmaker-event-dsl/src/commands/variables/validation.ts",
+    "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+    "packages/rpgmaker-event-dsl/src/validation/commands.ts",
+    "packages/rpgmaker-event-dsl/src/validation/dsl-command-inputs.ts",
+    "packages/rpgmaker-event-dsl/test/command-boundary.test.ts",
+    "packages/rpgmaker-event-dsl/test/loop.test.ts",
+    "packages/rpgmaker-event-dsl/src/commands/variables/switch-inputs.ts",
+    "packages/rpgmaker-event-dsl/src/validation/reference-inputs.ts",
+    "packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+    "packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts"
+  ],
+  "pnpm": "10.33.0",
+  "format": 0,
+  "lint": 0
+}

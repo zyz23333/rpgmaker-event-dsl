@@ -282,11 +282,11 @@ describe("collectDslOwnedDeclarations", () => {
     ).toBe("setVehicleLocation");
     expect(
       setEventLocation({
-        character: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
+        target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
         destination: { kind: "direct", x: 2, y: 3 },
       }).kind,
     ).toBe("setEventLocation");
-    expect(scrollMap({ direction: 2, distance: 8, speed: 4 }).kind).toBe("scrollMap");
+    expect(scrollMap({ direction: "down", distance: 8, speed: 4 }).kind).toBe("scrollMap");
     expect(
       setMovementRoute({
         target: { kind: "runtimeSelector", scope: "character", target: "player" },
@@ -315,6 +315,7 @@ describe("collectDslOwnedDeclarations", () => {
       showBalloonIcon({
         target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
         balloon: "exclamation",
+        wait: false,
       }).kind,
     ).toBe("showBalloonIcon");
     expect(changePlayerFollowers({ visible: false }).kind).toBe("changePlayerFollowers");

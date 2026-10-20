@@ -1,0 +1,13 @@
+const fs=require('node:fs'),cp=require('node:child_process'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const e='.scratch/complete-mv-events-implementation/evidence/',sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const git=args=>cp.execFileSync('git',args,{maxBuffer:64*1024*1024});
+const staged=p=>git(['show',':'+p]);
+const audit=JSON.parse(fs.readFileSync(e+'35-map-characters-history-audit.json'));
+for(const f of [...audit.results,...audit.source.capturedInputFiles])assert.equal(sha(staged(f.path)),f.sha256,'staged bytes differ: '+f.path);
+const archive=JSON.parse(fs.readFileSync(e+'35-dev-tools/archive-manifest.json'));
+for(const f of archive.files)assert.equal(sha(staged(f.path)),f.sha256,'archive staged bytes differ: '+f.path);
+for(const [base,history]of Object.entries(audit.histories))for(const f of history.files)assert.equal(git(['rev-parse',':'+f.path]).toString().trim(),f.blob,'historical staged blob differs '+f.path);
+const actual=git(['rev-parse','codex/complete-mv-events-implementation']).toString().trim();assert.equal(actual,audit.base,'integration advanced before delivery');
+const result={verifiedAt:new Date().toISOString(),base:audit.base,actualIntegration:actual,results:audit.results.length,capturedInputs:audit.source.capturedInputFiles.length,archivedTools:archive.files.length,historicalBlobs:audit.histories[audit.base].preservedBlobFiles,stagedResultBytesExact:true,stagedCapturedSourceBytesExact:true,stagedArchiveBytesExact:true,inheritedBlobsExact:true,contract:'mv-1.6.1/10',stage:'focused DEV only; no READY/native/build/built/full/contract delivery'};
+fs.writeFileSync(e+'35-map-characters-staged-verification.json',JSON.stringify(result,null,2)+'\n');
+console.log(JSON.stringify(result));

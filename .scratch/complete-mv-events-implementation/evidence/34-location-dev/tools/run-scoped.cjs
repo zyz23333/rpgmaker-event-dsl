@@ -1,0 +1,11 @@
+const fs = require('node:fs');
+const cp = require('node:child_process');
+const root = 'C:/Users/Shuen/.codex/worktrees/mv-ticket-34/rpgmaker-event-dsl';
+const files = [...new Set(['diff --name-only', 'ls-files --others --exclude-standard'].flatMap(cmd => cp.execFileSync('git', ['-c', 'core.longpaths=true', ...cmd.split(' '), '--', '*.ts'], {cwd:root, encoding:'utf8'}).trim().split(/\r?\n/).filter(file => file.startsWith('packages/rpgmaker-event-dsl/'))))];
+const action = process.argv[2];
+const args = action === 'lint' ? ['node_modules/oxlint/bin/oxlint', ...files] : ['node_modules/oxfmt/bin/oxfmt', action === 'format' ? '--write' : '--check', ...files];
+const result = cp.spawnSync(process.execPath, args, {cwd:root, encoding:'utf8'});
+const text = `Files: ${files.length}\n${result.stdout || ''}${result.stderr || ''}${result.error || ''}`;
+fs.writeFileSync(process.argv[3], text);
+process.stdout.write(text);
+process.exit(result.status ?? 1);

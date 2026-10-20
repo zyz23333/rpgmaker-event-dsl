@@ -11,6 +11,7 @@ import {
 import { vehicleFromCode } from "../flow/decompile.js";
 import { assertNativeMovementRoute, assertNativeMovementRecord } from "./validation.js";
 import { renderJsonValue } from "../../project-data/json-values.js";
+import { scrollDirections } from "./character-codes.js";
 
 export function renderTransferPlayer(
   command: RawEventCommand,
@@ -19,7 +20,7 @@ export function renderTransferPlayer(
   const direction = command.parameters[4];
   const fadeType = command.parameters[5];
 
-  if (!isDirection(direction) || !isFadeType(fadeType)) {
+  if (!isEventLocationDirection(direction) || !isFadeType(fadeType)) {
     return null;
   }
 
@@ -102,7 +103,7 @@ export function renderSetEventLocation(
     return typeof x !== "number" || typeof y !== "number"
       ? null
       : {
-          expression: `setEventLocation({ character: ${character.expression}, destination: { kind: "direct", x: ${x}, y: ${y} }${renderOptionalEventDirection(direction)} })`,
+          expression: `setEventLocation({ target: ${character.expression}, destination: { kind: "direct", x: ${x}, y: ${y} }${renderOptionalEventDirection(direction)} })`,
           helperNames: ["setEventLocation"],
         };
   }
@@ -113,7 +114,7 @@ export function renderSetEventLocation(
     return xVariableId === null || yVariableId === null
       ? null
       : {
-          expression: `setEventLocation({ character: ${character.expression}, destination: { kind: "variables", x: variableRef({ id: ${xVariableId} }), y: variableRef({ id: ${yVariableId} }) }${renderOptionalEventDirection(direction)} })`,
+          expression: `setEventLocation({ target: ${character.expression}, destination: { kind: "variables", x: variableRef({ id: ${xVariableId} }), y: variableRef({ id: ${yVariableId} }) }${renderOptionalEventDirection(direction)} })`,
           helperNames: ["setEventLocation", "variableRef"],
         };
   }
@@ -123,7 +124,7 @@ export function renderSetEventLocation(
     return exchangeCharacter === null
       ? null
       : {
-          expression: `setEventLocation({ character: ${character.expression}, destination: { kind: "exchange", character: ${exchangeCharacter.expression} }${renderOptionalEventDirection(direction)} })`,
+          expression: `setEventLocation({ target: ${character.expression}, destination: { kind: "exchange", target: ${exchangeCharacter.expression} }${renderOptionalEventDirection(direction)} })`,
           helperNames: ["setEventLocation"],
         };
   }
@@ -137,10 +138,13 @@ export function renderScrollMap(
   const direction = command.parameters[0];
   const distance = command.parameters[1];
   const speed = command.parameters[2];
+  const directionName = Object.entries(scrollDirections).find(
+    ([, code]) => code === direction,
+  )?.[0];
 
   return isDirection(direction) && typeof distance === "number" && typeof speed === "number"
     ? {
-        expression: `scrollMap({ direction: ${direction}, distance: ${distance}, speed: ${speed} })`,
+        expression: `scrollMap({ direction: ${literal(directionName)}, distance: ${literal(distance)}, speed: ${literal(speed)} })`,
         helperNames: ["scrollMap"],
       }
     : null;
@@ -222,7 +226,7 @@ export function renderShowAnimation(
   return target === null || animationId === null || typeof wait !== "boolean"
     ? null
     : {
-        expression: `showAnimation({ target: ${target.expression}, animation: animationRef({ id: ${animationId} })${wait ? ", wait: true" : ""} })`,
+        expression: `showAnimation({ target: ${target.expression}, animation: animationRef({ id: ${animationId} }), wait: ${wait} })`,
         helperNames: ["animationRef", "showAnimation"],
       };
 }
@@ -237,7 +241,7 @@ export function renderShowBalloonIcon(
   return target === null || balloon === null || typeof wait !== "boolean"
     ? null
     : {
-        expression: `showBalloonIcon({ target: ${target.expression}, balloon: ${balloon}${wait ? ", wait: true" : ""} })`,
+        expression: `showBalloonIcon({ target: ${target.expression}, balloon: ${balloon}, wait: ${wait} })`,
         helperNames: ["showBalloonIcon"],
       };
 }
@@ -534,22 +538,24 @@ export function renderCharacterRuntimeSelector(
 }
 
 export function renderOptionalDirectionAndFade(
-  direction: 2 | 4 | 6 | 8,
+  direction: 0 | 2 | 4 | 6 | 8,
   fadeType: 0 | 1 | 2,
 ): string {
   const fields: string[] = [];
-  if (direction !== 2) {
-    fields.push(`direction: ${direction}`);
+  if (direction !== 0) {
+    fields.push(`direction: ${literal({ 2: "down", 4: "left", 6: "right", 8: "up" }[direction])}`);
   }
   if (fadeType !== 0) {
-    fields.push(`fadeType: ${fadeType}`);
+    fields.push(`fade: ${literal({ 1: "white", 2: "none" }[fadeType])}`);
   }
 
   return fields.length === 0 ? "" : `, ${fields.join(", ")}`;
 }
 
 export function renderOptionalEventDirection(direction: 0 | 2 | 4 | 6 | 8): string {
-  return direction === 0 ? "" : `, direction: ${direction}`;
+  return direction === 0
+    ? ""
+    : `, direction: ${literal({ 2: "down", 4: "left", 6: "right", 8: "up" }[direction])}`;
 }
 
 export function balloonIconFromCode(value: unknown): string | null {
@@ -574,9 +580,17 @@ export function balloonIconFromCode(value: unknown): string | null {
       return '"lightBulb"';
     case 10:
       return '"zzz"';
+    case 11:
+      return '"userDefined1"';
+    case 12:
+      return '"userDefined2"';
+    case 13:
+      return '"userDefined3"';
+    case 14:
+      return '"userDefined4"';
+    case 15:
+      return '"userDefined5"';
     default:
-      return typeof value === "number" && Number.isInteger(value) && value > 0
-        ? String(value)
-        : null;
+      return null;
   }
 }

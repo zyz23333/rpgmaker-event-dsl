@@ -1,0 +1,36 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-control-input-fix/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/control-input-boundaries.test.ts (4 tests | 1 failed | 3 skipped) 5ms
+   × all reference helpers refuse unknown fields and id-name ambiguity without inventing a numeric domain 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/control-input-boundaries.test.ts > all reference helpers refuse unknown fields and id-name ambiguity without inventing a numeric domain
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/control-input-boundaries.test.ts:33:33
+
+     31|     const extra = { id: 1, unexpected: "must refuse" };
+     32|     const ambiguous = { id: 1, name: "must not discard" };
+     33|     expect(() => helper(extra)).toThrow("MV-DSL-SHAPE");
+       |                                 ^
+     34|     expect(() => helper(ambiguous)).toThrow("MV-REFERENCE-INPUT");
+     35|     expect(() => helper({} as never)).toThrow("MV-REFERENCE-INPUT");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 skipped (4)
+   Start at  03:40:00
+   Duration  1.46s (transform 445ms, setup 0ms, import 1.30s, tests 5ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-control-input-fix\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/control-input-boundaries.test.ts -t all reference helpers

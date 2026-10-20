@@ -1,0 +1,468 @@
+
+> rpgmaker-event-dsl@0.1.2 test C:\Users\Shuen\.codex\worktrees\mv-ticket-34\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> vitest run "test/map-locations.test.ts" "test/map-locations-workspace.test.ts" "test/decompiler.test.ts" "test/events.test.ts" "test/dsl.test.ts" "test/staged-graph.test.ts" "test/command-boundary.test.ts" "test/architecture.test.ts"
+
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-34/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/staged-graph.test.ts (31 tests | 1 failed) 33ms
+     × rejects invalid Set Event Location character runtime selectors 4ms
+stderr | test/map-locations-workspace.test.ts > round trips all Location modes through actual discovered sources, Check, Compile, Diff and real Push with all fifteen carriers
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Event ID uses an exact coordinate match and may find an event outside bounds; no match returns 0.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Event ID uses an exact coordinate match and may find an event outside bounds; no match returns 0.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+
+stderr | test/map-locations-workspace.test.ts > round trips all Location modes through actual discovered sources, Check, Compile, Diff and real Push with all fifteen carriers
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Event ID uses an exact coordinate match and may find an event outside bounds; no match returns 0.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Event ID uses an exact coordinate match and may find an event outside bounds; no match returns 0.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.
+
+stderr | test/map-locations-workspace.test.ts > round trips all Location modes through actual discovered sources, Check, Compile, Diff and real Push with all fifteen carriers
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Event ID uses an exact coordinate match and may find an event outside bounds; no match returns 0.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Event ID uses an exact coordinate match and may find an event outside bounds; no match returns 0.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.
+
+stderr | test/map-locations-workspace.test.ts > round trips all Location modes through actual discovered sources, Check, Compile, Diff and real Push with all fifteen carriers
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+This fixed-map x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. The saved coordinate is retained without clamping.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. The saved coordinate is retained without clamping.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If this command executes on its containing map, the selected event is absent; other running maps are not predicted.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Event ID uses an exact coordinate match and may find an event outside bounds; no match returns 0.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Event ID uses an exact coordinate match and may find an event outside bounds; no match returns 0.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Tile layers use a direct data array index that may alias another tile; a missing value returns 0.
+If executed on its containing map, this x coordinate is outside Snapshot map 1 width 4. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.
+If executed on its containing map, this y coordinate is outside Snapshot map 1 height 3. Terrain Tag and Region ID return 0 when the running map considers the position out of bounds.
+
+stderr | test/map-locations-workspace.test.ts > round trips all Location modes through actual discovered sources, Check, Compile, Diff and real Push with all fifteen carriers
+Windows verification sandbox retained: M:\Shuen\Codex\mv-events-implementation-20261020\ticket34-temp\location-roundtrip-3E3RoE
+
+ ❯ test/map-locations-workspace.test.ts (2 tests | 1 failed) 7801ms
+   × round trips all Location modes through actual discovered sources, Check, Compile, Diff and real Push with all fifteen carriers 6041ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-locations-workspace.test.ts > round trips all Location modes through actual discovered sources, Check, Compile, Diff and real Push with all fifteen carriers
+AssertionError: expected '"Structured Diff Report\n\nCommon Eve…' to contain 'Location evaluated'
+
+Expected: "Location evaluated"
+Received: ""Structured Diff Report\n\nCommon Event\n- [changed] commonEventId 1: Generated entry differs from snapshot entry.\n\nAffected Project Data Files:\n- CommonEvents.json\n\nDestructive Changes: no""
+
+ ❯ test/map-locations-workspace.test.ts:61:40
+     59|     await compileWorkspace({workspaceRoot,check:false});
+     60|     const difference=await diffWorkspace({workspaceRoot});
+     61|     expect(JSON.stringify(difference)).toContain("Location evaluated");
+       |                                        ^
+     62|     (expected["CommonEvents.json"] as Array<null|{name:string}>)[1]!.n…
+     63|     await pushWorkspace({workspaceRoot,allowDestructive:false});
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/map-locations-workspace.test.ts:36:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/staged-graph.test.ts > validateDslOwnedDeclarations > rejects invalid Set Event Location character runtime selectors
+Error: MV-E203: Invalid map location command input. (setEventLocation.target); expected currentEvent or event character Runtime Selector (player is unsupported); actual {"kind":"runtimeSelector","scope":"player","target":"current"}
+ ❯ fail src/commands/map/location-validation.ts:12:11
+     10|   const fail = (at: string, expected: string, actual: unknown): never …
+     11|     const code = {transferPlayer:201,setVehicleLocation:202,setEventLo…
+     12|     throw new CommandStructureError(`MV-E${code}`, "Invalid map locati…
+       |           ^
+     13|       dslPath: at, expected, actual: describeValue(actual),
+     14|     });
+ ❯ selector src/commands/map/location-validation.ts:49:7
+ ❯ assertMapLocationInput src/commands/map/location-validation.ts:78:36
+ ❯ setEventLocation src/commands/movement/authoring.ts:123:3
+ ❯ test/staged-graph.test.ts:671:13
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 6 passed (8)
+      Tests  2 failed | 77 passed (79)
+   Start at  03:00:07
+   Duration  9.11s (transform 1.03s, setup 0ms, import 3.54s, tests 8.19s, environment 1ms)
+
+C:\Users\Shuen\.codex\worktrees\mv-ticket-34\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run "test/map-locations.test.ts" "test/map-locations-workspace.test.ts" "test/decompiler.test.ts" "test/events.test.ts" "test/dsl.test.ts" "test/staged-graph.test.ts" "test/command-boundary.test.ts" "test/architecture.test.ts"`
+Exit status 1

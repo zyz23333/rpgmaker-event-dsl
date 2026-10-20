@@ -16,6 +16,7 @@ import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
 import { assertControlVariablesInput } from "../commands/variables/control-variables.js";
 import { assertPictureInput } from "../commands/screen/picture-inputs.js";
 import { assertPictureReferences } from "../commands/screen/picture-references.js";
+import { assertSwitchCommandInput } from "../commands/variables/switch-inputs.js";
 import { assertNativeContextReferences } from "./native-context-references.js";
 import { resolveCommonEventCall, assertLoopCommand } from "../commands/flow/validation.js";
 import {
@@ -41,6 +42,12 @@ import {
   assertInventoryInput,
   isInventoryCommandKind,
 } from "../commands/variables/inventory-validation.js";
+import { assertMapLocationInput } from "../commands/map/location-validation.js";
+
+import {
+  assertMapCharacterInput,
+  isMapCharacterKind,
+} from "../commands/movement/character-validation.js";
 
 type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
@@ -85,6 +92,7 @@ export function validateNodes(
       assertPictureInput(node.kind, node, nodePath, true, resolver);
       assertActorResourceInput(node.kind, node, nodePath, true, resolver);
       if (node.kind === "shopProcessing") assertShopInput(node, nodePath, true, resolver);
+      assertSwitchCommandInput(node.kind, node, nodePath);
     } catch (error) {
       if (error instanceof CommandStructureError)
         issues.push(error.issue(options.identity ?? "event", "compile"));
@@ -100,6 +108,16 @@ export function validateNodes(
         else throw error;
       }
       continue;
+    }
+    if (isMapCharacterKind(node.kind)) {
+      try {
+        assertMapCharacterInput(node.kind, node, nodePath, true, resolver);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+        continue;
+      }
     }
     const childOptions = (field: string): CommandValidationOptions => ({
       ...options,
@@ -121,6 +139,28 @@ export function validateNodes(
           error.issue(identity, "compile"),
         ),
       );
+    }
+    if (
+      ["transferPlayer", "setVehicleLocation", "setEventLocation", "getLocationInfo"].includes(
+        node.kind,
+      )
+    ) {
+      try {
+        assertMapLocationInput(
+          node.kind as
+            | "transferPlayer"
+            | "setVehicleLocation"
+            | "setEventLocation"
+            | "getLocationInfo",
+          node,
+          nodePath,
+        );
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+        continue;
+      }
     }
     if (node.kind === "loop") {
       try {
@@ -253,7 +293,7 @@ export function validateNodes(
       validateMapDestination(node.destination, resolver, issues);
     }
     if (node.kind === "setEventLocation") {
-      validateCharacterRuntimeSelector(node.character, "Set Event Location character", issues);
+      validateCharacterRuntimeSelector(node.target, "Set Event Location target", issues);
       validateEventLocationDestination(node.destination, resolver, issues);
     }
     if (node.kind === "setMovementRoute") {
@@ -283,15 +323,6 @@ export function validateNodes(
         if (error instanceof CommandStructureError)
           issues.push(error.issue(options.identity ?? "event", "compile"));
       }
-    }
-    if (node.kind === "showAnimation") {
-      validateCharacterRuntimeSelector(node.target, "Show Animation target", issues);
-      captureSwitchIssue("MV-E212-REFERENCE", "animation", () =>
-        resolver.resolveReference(node.animation),
-      );
-    }
-    if (node.kind === "showBalloonIcon") {
-      validateCharacterRuntimeSelector(node.target, "Show Balloon Icon target", issues);
     }
     if (node.kind === "showPicture" || node.kind === "movePicture") {
       validateCommandPosition(node.position, resolver, issues);
@@ -472,7 +503,7 @@ export function validateEventLocationDestination(
 
   if (destination.kind === "exchange") {
     validateCharacterRuntimeSelector(
-      destination.character,
+      destination.target,
       "Set Event Location exchange character",
       issues,
     );

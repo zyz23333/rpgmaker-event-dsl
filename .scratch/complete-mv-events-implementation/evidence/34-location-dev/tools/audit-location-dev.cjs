@@ -1,0 +1,50 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const cp = require('node:child_process');
+const crypto = require('node:crypto');
+const assert = require('node:assert/strict');
+const root = 'C:/Users/Shuen/.codex/worktrees/mv-ticket-34/rpgmaker-event-dsl';
+const base = 'c2a40a41c094ccdda47faccd4399891952739008';
+const relRoot = '.scratch/complete-mv-events-implementation/evidence';
+const evidence = path.join(root, relRoot);
+const hash = b => crypto.createHash('sha256').update(b).digest('hex');
+const git = args => cp.execFileSync('git', ['-c','core.longpaths=true',...args],{cwd:root,maxBuffer:20*1024*1024});
+const prior = git(['ls-tree','-rz',base,'--',relRoot]).toString('utf8').split('\0').filter(Boolean).map(line => {
+  const [head,file] = line.split('\t'); return {oid:head.split(' ')[2],path:file};
+});
+const inherited = prior.filter(file => ![`${relRoot}/README.md`,`${relRoot}/requirements.json`].includes(file.path));
+for (const file of inherited) {
+  const bytes = fs.readFileSync(path.join(root, file.path));
+  const oid = crypto.createHash('sha1').update(Buffer.from(`blob ${bytes.length}\0`)).update(bytes).digest('hex');
+  assert.equal(oid, file.oid, `Historical evidence bytes changed: ${file.path}`);
+}
+const oldIndexBytes = git(['show',`${base}:${relRoot}/requirements.json`]);
+const currentIndexBytes = fs.readFileSync(path.join(evidence,'requirements.json'));
+const oldIndex = JSON.parse(oldIndexBytes), currentIndex = JSON.parse(currentIndexBytes);
+assert.equal(oldIndex.requirements.length,286);
+assert.equal(currentIndex.requirements.length,290);
+assert.deepEqual(currentIndex.requirements.slice(0,286),oldIndex.requirements);
+const oldPrefix = oldIndexBytes.toString('utf8').replace(/\r?\n  \]\r?\n}\r?\n?$/,'');
+assert(currentIndexBytes.toString('utf8').startsWith(oldPrefix+',\n'));
+assert.equal(currentIndex.scope,oldIndex.scope);
+const oldReadme = git(['show',`${base}:${relRoot}/README.md`]);
+assert(fs.readFileSync(path.join(evidence,'README.md')).subarray(0,oldReadme.length).equals(oldReadme));
+const files = directory => fs.readdirSync(directory,{withFileTypes:true}).flatMap(e => e.isDirectory() ? files(path.join(directory,e.name)) : [path.join(directory,e.name)]);
+const results = files(path.join(evidence,'results/34-location-dev')).map(file => {
+  const bytes = fs.readFileSync(file), r = JSON.parse(bytes);
+  const original = fs.readFileSync(path.join('M:/Shuen/Codex/mv-events-implementation-20261020/ticket34-temp/results',path.basename(file)));
+  assert(bytes.equals(original));
+  assert.equal(hash(JSON.stringify(r.source.files)),r.source.fingerprint);
+  for (const input of r.source.files) assert.equal(hash(fs.readFileSync(path.join(evidence,'inputs/34-location-dev',r.source.fingerprint,input.path))),input.sha256);
+  assert.equal(r.environment.native,'not-executed');
+  return {path:path.relative(root,file).replaceAll('\\','/'),sha256:hash(bytes),requirement:r.requirementId,status:r.status,fingerprint:r.source.fingerprint,inputs:r.source.files.length};
+});
+assert(!results.some(r => r.requirement === 'MV-S6-LOCATION-004'));
+const current = results.filter(r => r.requirement.startsWith('MV-S6-LOCATION-') && r.fingerprint === 'acf2bc58333604df05f934040119ed72e210aa1054a606cc3d651e033d8b9caf');
+assert.equal(current.length,3); assert(current.every(r=>r.status==='passed'));
+const contract = fs.readFileSync(path.join(root,'packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts'),'utf8');
+const oldContract = git(['show',`${base}:packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts`]).toString('utf8');
+assert.equal(contract,oldContract);
+const result = {formatVersion:1,base,scope:'Focused synthetic DEV checkpoint only; not READY; original 10s index test timed out; full/build/built/REA-product/game pending',inheritedEvidenceFiles:inherited.length,historicalBlobBytesUnchanged:true,historicalRequirements:286,appendedRequirements:4,requirementRawPrefixUnchanged:true,checklistRawPrefixUnchanged:true,scopeUnchanged:true,semanticContractUnchanged:true,results,capturedInputs:files(path.join(evidence,'inputs/34-location-dev')).length,sourceFingerprints:[...new Set(results.map(r=>r.fingerprint))],notExecuted:['MV-S6-LOCATION-004','full check','build','built Windows','E4/E6 product comparison','R5 game']};
+fs.writeFileSync(path.join(evidence,'34-location-dev-history-audit-v1.json'),JSON.stringify(result,null,2)+'\n',{flag:'wx'});
+console.log(JSON.stringify({inheritedEvidenceFiles:inherited.length,results:results.length,capturedInputs:result.capturedInputs,sourceFingerprints:result.sourceFingerprints,contractUnchanged:true}));
