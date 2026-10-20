@@ -790,3 +790,24 @@ small Workspace groups. Final native requirements remain pending.
 | MV-S6-BATTLE-003 | Late known-native rejection publishes no partial Decompiled Source | synthetic-rejection | Actual public Workspace API and complete business state |
 | MV-S6-BATTLE-004 | Final E2/E4 editor code-path facts and independent final product comparison | Required pending | Final49/50 REA/product comparison |
 | MV-S6-BATTLE-005 | Full original R2, R4 forced/selector contexts and R6 Enemy Animation | Required pending | Final52/53/54 actual MV1.6.1/NW.js game pairs |
+
+## Final54 assigned R6–R7 actual game closure
+
+[Final54 execution and retained strict results](54-final-game-r6-r7.md) records
+27 final effective literal/product pairs and54 actual native processes on fixed
+candidate `2dc639015f908de6fd524e50236e5422b5f8e990`, contract `mv-1.6.1/22`.
+26 pairs strictly pass; Movie passes its required native behavior with the exact
+retained Chromium diagnostic while its original strict result stays failed.
+The [safe manifest](54-final-game-manifest.json) binds original/effective pairs,
+actual loaded-versus-on-disk harness identities and the frozen root receipt.
+
+| Requirement | Obligation | Actual layer |
+| --- | --- | --- |
+| MV-S7-GAME-R6-054 | Complete assigned Face/message/choices, Picture/audio/None/waits, Map/Battle appearance, System scenes, Actor/Enemy/Character presentation, actual Movie and movement None | Passed required actual game behavior; Movie strict failure and exact diagnostic retained |
+| MV-S7-GAME-R7-054 | Assigned controlled single-slot/multiline/empty Script, complete Plugin Line, EXP and both native M45 route entrances | Both actual game pairs strictly passed |
+
+Two immutable new results close only these assigned54 requirements. The manifest
+records exact portions of older family IDs for55's aggregation; earlier pending
+development text remains historical. In particular54's four Battle-background
+cases do not replace the original eight-case obligation or separate missing
+Tileset Loading Error control. No blanket old-family pass is added here.

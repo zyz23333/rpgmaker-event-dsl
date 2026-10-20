@@ -21617,6 +21617,100 @@
       },
       "slice": "45/46 / required final native pending",
       "required": true
+    },
+    {
+      "id": "MV-S7-GAME-R6-054",
+      "title": "Final assigned actual R6 independent literal versus final built Workspace product games",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/54-final-game-presentation-scripts-and-values.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Complete original controls and declared supplements in the version-bound final54 manifest; actual final48 built public lifecycle and real MV1.6.1/NW.js game pairs, with original failures and exact host diagnostics retained.",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/54-final-game-manifest.json",
+        "sha256": "c89a4e490b4abf6ba1faa1bd2351b3b31f54c4ed3cbe95813aadb9423683e9bc"
+      },
+      "expected": "Every assigned R6 game satisfies its independent complete native behavior oracle and public Check/Compile/Diff/Push carrier installation; exact expected native error/stall/host diagnostic consequences remain explicitly distinguished from strict harness failures.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/54-final-game-r6-r7.md",
+        "section": "## R6 results — MV-S7-GAME-R6-054"
+      },
+      "nativeGroups": [
+        "R6"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0 tooling; actual MV1.6.1 / NW.js0.29.0 / bundled Node9.7.1 / Chromium65.0.3325.146",
+        "owner": "Codex final54 native operator and evidence implementer",
+        "layer": "Final built public Workspace product and actual native normal-Scene literal/product game pairs"
+      },
+      "slice": "S7 final54",
+      "required": true
+    },
+    {
+      "id": "MV-S7-GAME-R7-054",
+      "title": "Final assigned actual R7 independent literal versus final built Workspace product games",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/54-final-game-presentation-scripts-and-values.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Complete original controls and declared supplements in the version-bound final54 manifest; actual final48 built public lifecycle and real MV1.6.1/NW.js game pairs, with original failures and exact host diagnostics retained.",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/54-final-game-manifest.json",
+        "sha256": "c89a4e490b4abf6ba1faa1bd2351b3b31f54c4ed3cbe95813aadb9423683e9bc"
+      },
+      "expected": "Every assigned R7 game satisfies its independent complete native behavior oracle and public Check/Compile/Diff/Push carrier installation; exact expected native error/stall/host diagnostic consequences remain explicitly distinguished from strict harness failures.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/54-final-game-r6-r7.md",
+        "section": "## R7 results — MV-S7-GAME-R7-054"
+      },
+      "nativeGroups": [
+        "R7"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0 tooling; actual MV1.6.1 / NW.js0.29.0 / bundled Node9.7.1 / Chromium65.0.3325.146",
+        "owner": "Codex final54 native operator and evidence implementer",
+        "layer": "Final built public Workspace product and actual native normal-Scene literal/product game pairs"
+      },
+      "slice": "S7 final54",
+      "required": true
     }
   ]
 }

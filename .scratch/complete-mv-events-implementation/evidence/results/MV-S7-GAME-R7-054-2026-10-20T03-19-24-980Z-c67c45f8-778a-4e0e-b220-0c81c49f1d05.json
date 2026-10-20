@@ -1,0 +1,875 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-S7-GAME-R7-054",
+  "runId": "2026-10-20T03-19-24-980Z-c67c45f8-778a-4e0e-b220-0c81c49f1d05",
+  "status": "passed",
+  "startedAt": "2026-10-20T02:29:54.418Z",
+  "completedAt": "2026-10-20T03:19:24.980Z",
+  "operator": "Codex final54 actual native operator; evidence implementer ticket34",
+  "source": {
+    "revision": "2dc639015f908de6fd524e50236e5422b5f8e990",
+    "fingerprint": "00f0247a2598ccf45282080ae8320e201c2555e97df93afc16ae692a16a7f1b8",
+    "files": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/54-final-game-manifest.json",
+        "sha256": "c89a4e490b4abf6ba1faa1bd2351b3b31f54c4ed3cbe95813aadb9423683e9bc"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final48-candidate.json",
+        "sha256": "2f4460874393ba6761740d6613c9c7b7cbbd161f8639a77c96a56ea84943bd63"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final54-effective-receipt-v1.cjs",
+        "sha256": "8effc9f5f6b47293021770e2a4ba9658753f65f65dba9f857541350fccc4497a"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final54-effective-receipt.json",
+        "sha256": "a6dd90b195b7c438b130d62968f42877fc6619c3886de58e696fae6eee0e71c0"
+      },
+      {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket54-final\\tools\\deliver-final54-v1.cjs",
+        "sha256": "1f558ff517fbd55c6a4f74ca8dd8bdc8ff87eb350b6c3bf39d924a7a0114e73b"
+      }
+    ]
+  },
+  "fixture": {
+    "path": ".scratch/complete-mv-events-implementation/evidence/54-final-game-manifest.json",
+    "sha256": "c89a4e490b4abf6ba1faa1bd2351b3b31f54c4ed3cbe95813aadb9423683e9bc"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "node": "v22.23.0",
+    "vitest": "not invoked by native runner",
+    "typescript": "candidate public Check uses package declaration types",
+    "package": "0.1.2",
+    "native": {
+      "method": "game",
+      "mv": "1.6.1",
+      "runtime": "Actual private native Game processes with fresh profiles; bundled Node9.7.1 / Chromium65.0.3325.146",
+      "nwjs": "0.29.0",
+      "tools": {
+        "node": "C:\\Users\\Shuen\\AppData\\Local\\pnpm-cache\\dlx\\e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7\\1a152fc0f14-2f10\\node_modules\\.pnpm\\node@22.23.0\\node_modules\\node\\bin\\node.exe",
+        "host": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\nwjs-win-test\\game.exe",
+        "originalRunner": "M:/Shuen/Codex/mv-events-implementation-20261020/final-game-54-runner.cjs",
+        "finalAudioRunner": "M:/Shuen/Codex/mv-events-implementation-20261020/final54-audio-focused-v5.cjs",
+        "receipt": "M:/Shuen/Codex/mv-events-implementation-20261020/final54-effective-receipt.json"
+      },
+      "artifacts": [
+        {
+          "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final54-effective-receipt.json",
+          "sha256": "a6dd90b195b7c438b130d62968f42877fc6619c3886de58e696fae6eee0e71c0"
+        },
+        {
+          "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-game-54\\summary-36572.json",
+          "sha256": "4c0017e6e78b214c333dffeafa02629347382d4fb2151fd7b1a553e1672bc6ce"
+        }
+      ]
+    }
+  },
+  "stages": [
+    "Independent complete original controls and declared supplemental literal records",
+    "Fixed final48 public built Init/Clone/Decompile and actual formal owned-source edit",
+    "Public Check/Compile/Diff/Push with complete business-state/carrier equality and actual replacement",
+    "Fresh literal/product actual native normal Scenes; per-side expected/actual oracle and owned exit0",
+    "Exact strict results retained; Movie only classified by required behavior and exact one-line diagnostic"
+  ],
+  "expected": {
+    "scope": "Only assigned final54 R7 cases",
+    "candidate": {
+      "revision": "2dc639015f908de6fd524e50236e5422b5f8e990",
+      "sourceTree": "b3129c0fc5814e35b71bd203ad48a40c813e5c63",
+      "compileContractVersion": "mv-1.6.1/22",
+      "apiSha256": "24369d6d1d686b082665cda3b5e76292ed778420eadcfdad431a9cea11169788"
+    },
+    "everyRequiredBehaviorPassed": true,
+    "strictFailuresPreserved": true,
+    "legacyMixedRequirementsRequireFinal55Aggregation": true
+  },
+  "actual": {
+    "effectiveReceipt": {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final54-effective-receipt.json",
+      "sha256": "a6dd90b195b7c438b130d62968f42877fc6619c3886de58e696fae6eee0e71c0"
+    },
+    "caseCount": 2,
+    "nativeProcessCount": 4,
+    "strictPairCount": 2,
+    "cases": [
+      {
+        "case": "script-exp",
+        "groups": [
+          "R7"
+        ],
+        "effectivePassed": true,
+        "classification": "strict-native-pair-passed",
+        "originalPair": {
+          "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-game-54\\final54-script-exp-3018e1ea-a06d-42e3-9867-f19c6ea43875\\pair-result.json",
+          "sha256": "0e52706ed556f6f03723337f4aa0080b785c7806392a6f51dcdd26c51b28e1e4",
+          "strictPassed": true
+        },
+        "effectivePair": {
+          "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-game-54\\final54-script-exp-3018e1ea-a06d-42e3-9867-f19c6ea43875\\pair-result.json",
+          "sha256": "0e52706ed556f6f03723337f4aa0080b785c7806392a6f51dcdd26c51b28e1e4",
+          "strictPassed": true
+        },
+        "executedLoadedHarnessSha256": "36169a1747e6d16030b530d2581950eb1d178e59af3263756d35a7b5e4708974",
+        "reportedOnDiskHarnessSha256": "085091b1b316eaab2d76257e9f7d119fc13df95ffaa84ad2fd321e3c45954c0b",
+        "actual": {
+          "literal": {
+            "trace": [
+              {
+                "id": "single-slot-crlf-once-and-record-multiline-empty",
+                "actual": {
+                  "values": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "evaluations": 1,
+                  "multiline": [
+                    1,
+                    2,
+                    3
+                  ]
+                }
+              },
+              {
+                "id": "plugin-original-line-native-tokenization",
+                "actual": [
+                  {
+                    "command": "",
+                    "args": [
+                      "",
+                      "ControlledReceiver",
+                      "",
+                      "a\t",
+                      "b\r\n",
+                      ""
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "constant-maximum-gain",
+                "actual": 9999999
+              },
+              {
+                "id": "constant-maximum-lose",
+                "actual": 0
+              },
+              {
+                "id": "larger-variable-gain",
+                "actual": 10000000
+              },
+              {
+                "id": "larger-variable-lose",
+                "actual": 0
+              },
+              {
+                "id": "constant-minimum-gain",
+                "actual": 1
+              },
+              {
+                "id": "negative-variable-lose-adds",
+                "actual": 4
+              }
+            ],
+            "activation": false,
+            "finished": true
+          },
+          "compiled": {
+            "trace": [
+              {
+                "id": "single-slot-crlf-once-and-record-multiline-empty",
+                "actual": {
+                  "values": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "evaluations": 1,
+                  "multiline": [
+                    1,
+                    2,
+                    3
+                  ]
+                }
+              },
+              {
+                "id": "plugin-original-line-native-tokenization",
+                "actual": [
+                  {
+                    "command": "",
+                    "args": [
+                      "",
+                      "ControlledReceiver",
+                      "",
+                      "a\t",
+                      "b\r\n",
+                      ""
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "constant-maximum-gain",
+                "actual": 9999999
+              },
+              {
+                "id": "constant-maximum-lose",
+                "actual": 0
+              },
+              {
+                "id": "larger-variable-gain",
+                "actual": 10000000
+              },
+              {
+                "id": "larger-variable-lose",
+                "actual": 0
+              },
+              {
+                "id": "constant-minimum-gain",
+                "actual": 1
+              },
+              {
+                "id": "negative-variable-lose-adds",
+                "actual": 4
+              }
+            ],
+            "activation": false,
+            "finished": true
+          }
+        },
+        "hostDiagnostics": [],
+        "fixture": {
+          "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-game-54\\final54-script-exp-3018e1ea-a06d-42e3-9867-f19c6ea43875\\independent-fixture.json",
+          "sha256": "bdf7fac3432e2cd8368ed97d84fba42b5e8878f6fe6fe78bb1b38f705827398d"
+        },
+        "scenarioCopy": {
+          "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-game-54\\final54-script-exp-3018e1ea-a06d-42e3-9867-f19c6ea43875\\scenario-original.cjs",
+          "sha256": "45242e1be838cbef1af579becc8750cd933ef682d6370d0f36368fd9c7ab4a24"
+        },
+        "copiedOnDiskHarness": {
+          "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-game-54\\final54-script-exp-3018e1ea-a06d-42e3-9867-f19c6ea43875\\harness-original.cjs",
+          "sha256": "085091b1b316eaab2d76257e9f7d119fc13df95ffaa84ad2fd321e3c45954c0b"
+        },
+        "formalSourceFingerprint": "3167e4314528e09c97f2260155983dbe474f5a217054bf6d5f7ca541f145ed66",
+        "sourceEdits": [
+          {
+            "file": "src\\decompiled\\common-events.events.ts",
+            "beforeSha256": "bf3f3caa293da842ce047475629e2971572bde8692549259add192623981f399",
+            "afterSha256": "8489adf437e677d1ad6ae84bf77362cbf4b11dbe1994a2256fbc10511dd2a6c1"
+          }
+        ],
+        "sides": {
+          "literal": {
+            "strictPassed": true,
+            "validation": {
+              "freshExplicitProfile": true,
+              "declaredProfile": true,
+              "identityParsed": true,
+              "declaredHost": true,
+              "declaredProject": true,
+              "ownedProcess": true,
+              "isolatedAppName": true,
+              "appDataPathRecorded": true,
+              "stdoutEmpty": true,
+              "stderrEmpty": true,
+              "exit0": true,
+              "runtimePassed": true,
+              "diskInputUnchanged": true,
+              "loadedCarriersMatch": true,
+              "engineIdentityMatches": true
+            },
+            "exitCode": 0,
+            "engine": "1.6.1",
+            "versions": {
+              "http_parser": "2.7.0",
+              "node": "9.7.1",
+              "v8": "6.5.254.31",
+              "uv": "1.19.2",
+              "zlib": "1.2.11",
+              "ares": "1.13.0",
+              "modules": "59",
+              "nghttp2": "1.29.0",
+              "napi": "2",
+              "openssl": "1.0.2n",
+              "icu": "60.1",
+              "unicode": "10.0",
+              "cldr": "32.0",
+              "tz": "2017c",
+              "nw": "0.29.0",
+              "node-webkit": "0.29.0",
+              "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+              "nw-flavor": "sdk",
+              "chromium": "65.0.3325.146"
+            },
+            "pid": 26612,
+            "expected": {
+              "trace": [
+                {
+                  "id": "single-slot-crlf-once-and-record-multiline-empty",
+                  "actual": {
+                    "values": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "evaluations": 1,
+                    "multiline": [
+                      1,
+                      2,
+                      3
+                    ]
+                  }
+                },
+                {
+                  "id": "plugin-original-line-native-tokenization",
+                  "actual": [
+                    {
+                      "command": "",
+                      "args": [
+                        "",
+                        "ControlledReceiver",
+                        "",
+                        "a\t",
+                        "b\r\n",
+                        ""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "constant-maximum-gain",
+                  "actual": 9999999
+                },
+                {
+                  "id": "constant-maximum-lose",
+                  "actual": 0
+                },
+                {
+                  "id": "larger-variable-gain",
+                  "actual": 10000000
+                },
+                {
+                  "id": "larger-variable-lose",
+                  "actual": 0
+                },
+                {
+                  "id": "constant-minimum-gain",
+                  "actual": 1
+                },
+                {
+                  "id": "negative-variable-lose-adds",
+                  "actual": 4
+                }
+              ],
+              "activation": false,
+              "finished": true
+            },
+            "actual": {
+              "trace": [
+                {
+                  "id": "single-slot-crlf-once-and-record-multiline-empty",
+                  "actual": {
+                    "values": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "evaluations": 1,
+                    "multiline": [
+                      1,
+                      2,
+                      3
+                    ]
+                  }
+                },
+                {
+                  "id": "plugin-original-line-native-tokenization",
+                  "actual": [
+                    {
+                      "command": "",
+                      "args": [
+                        "",
+                        "ControlledReceiver",
+                        "",
+                        "a\t",
+                        "b\r\n",
+                        ""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "constant-maximum-gain",
+                  "actual": 9999999
+                },
+                {
+                  "id": "constant-maximum-lose",
+                  "actual": 0
+                },
+                {
+                  "id": "larger-variable-gain",
+                  "actual": 10000000
+                },
+                {
+                  "id": "larger-variable-lose",
+                  "actual": 0
+                },
+                {
+                  "id": "constant-minimum-gain",
+                  "actual": 1
+                },
+                {
+                  "id": "negative-variable-lose-adds",
+                  "actual": 4
+                }
+              ],
+              "activation": false,
+              "finished": true
+            },
+            "checks": null,
+            "error": null
+          },
+          "compiled": {
+            "strictPassed": true,
+            "validation": {
+              "freshExplicitProfile": true,
+              "declaredProfile": true,
+              "identityParsed": true,
+              "declaredHost": true,
+              "declaredProject": true,
+              "ownedProcess": true,
+              "isolatedAppName": true,
+              "appDataPathRecorded": true,
+              "stdoutEmpty": true,
+              "stderrEmpty": true,
+              "exit0": true,
+              "runtimePassed": true,
+              "diskInputUnchanged": true,
+              "loadedCarriersMatch": true,
+              "engineIdentityMatches": true
+            },
+            "exitCode": 0,
+            "engine": "1.6.1",
+            "versions": {
+              "http_parser": "2.7.0",
+              "node": "9.7.1",
+              "v8": "6.5.254.31",
+              "uv": "1.19.2",
+              "zlib": "1.2.11",
+              "ares": "1.13.0",
+              "modules": "59",
+              "nghttp2": "1.29.0",
+              "napi": "2",
+              "openssl": "1.0.2n",
+              "icu": "60.1",
+              "unicode": "10.0",
+              "cldr": "32.0",
+              "tz": "2017c",
+              "nw": "0.29.0",
+              "node-webkit": "0.29.0",
+              "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+              "nw-flavor": "sdk",
+              "chromium": "65.0.3325.146"
+            },
+            "pid": 44500,
+            "expected": {
+              "trace": [
+                {
+                  "id": "single-slot-crlf-once-and-record-multiline-empty",
+                  "actual": {
+                    "values": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "evaluations": 1,
+                    "multiline": [
+                      1,
+                      2,
+                      3
+                    ]
+                  }
+                },
+                {
+                  "id": "plugin-original-line-native-tokenization",
+                  "actual": [
+                    {
+                      "command": "",
+                      "args": [
+                        "",
+                        "ControlledReceiver",
+                        "",
+                        "a\t",
+                        "b\r\n",
+                        ""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "constant-maximum-gain",
+                  "actual": 9999999
+                },
+                {
+                  "id": "constant-maximum-lose",
+                  "actual": 0
+                },
+                {
+                  "id": "larger-variable-gain",
+                  "actual": 10000000
+                },
+                {
+                  "id": "larger-variable-lose",
+                  "actual": 0
+                },
+                {
+                  "id": "constant-minimum-gain",
+                  "actual": 1
+                },
+                {
+                  "id": "negative-variable-lose-adds",
+                  "actual": 4
+                }
+              ],
+              "activation": false,
+              "finished": true
+            },
+            "actual": {
+              "trace": [
+                {
+                  "id": "single-slot-crlf-once-and-record-multiline-empty",
+                  "actual": {
+                    "values": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "evaluations": 1,
+                    "multiline": [
+                      1,
+                      2,
+                      3
+                    ]
+                  }
+                },
+                {
+                  "id": "plugin-original-line-native-tokenization",
+                  "actual": [
+                    {
+                      "command": "",
+                      "args": [
+                        "",
+                        "ControlledReceiver",
+                        "",
+                        "a\t",
+                        "b\r\n",
+                        ""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "constant-maximum-gain",
+                  "actual": 9999999
+                },
+                {
+                  "id": "constant-maximum-lose",
+                  "actual": 0
+                },
+                {
+                  "id": "larger-variable-gain",
+                  "actual": 10000000
+                },
+                {
+                  "id": "larger-variable-lose",
+                  "actual": 0
+                },
+                {
+                  "id": "constant-minimum-gain",
+                  "actual": 1
+                },
+                {
+                  "id": "negative-variable-lose-adds",
+                  "actual": 4
+                }
+              ],
+              "activation": false,
+              "finished": true
+            },
+            "checks": null,
+            "error": null
+          }
+        }
+      },
+      {
+        "case": "movement-none-script",
+        "groups": [
+          "R6",
+          "R7"
+        ],
+        "effectivePassed": true,
+        "classification": "strict-native-pair-passed",
+        "originalPair": {
+          "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-game-54\\final54-movement-none-script-92f14317-6154-4ac8-aa60-7a78c6a21493\\pair-result.json",
+          "sha256": "91b4848a9ee90f3313c4ae1c73ddc9c6605d84daf06f1a34cfef6e54e15030cd",
+          "strictPassed": true
+        },
+        "effectivePair": {
+          "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-game-54\\final54-movement-none-script-92f14317-6154-4ac8-aa60-7a78c6a21493\\pair-result.json",
+          "sha256": "91b4848a9ee90f3313c4ae1c73ddc9c6605d84daf06f1a34cfef6e54e15030cd",
+          "strictPassed": true
+        },
+        "executedLoadedHarnessSha256": "36169a1747e6d16030b530d2581950eb1d178e59af3263756d35a7b5e4708974",
+        "reportedOnDiskHarnessSha256": "085091b1b316eaab2d76257e9f7d119fc13df95ffaa84ad2fd321e3c45954c0b",
+        "actual": {
+          "literal": {
+            "allMarkersOnce": true,
+            "inactiveSavedRouteNeverRuns": true,
+            "fixedPageRetainsInitialLocation": true,
+            "customRouteExecutesNatively": true,
+            "autonomousWaitDoesNotBlockMain": true,
+            "parallelDuringAutonomous": true,
+            "forcedNoWaitReturnsSameFrame": true,
+            "forcedRouteStartsAfterContinuation": true,
+            "forcedNoWaitMovesAndFinishes": true,
+            "forcedWaitFinishesBeforeContinuation": true,
+            "forcedWaitIncludesMovementAndDelay": true,
+            "parallelDuringForcedWait": true,
+            "finished": true,
+            "singleSlotScriptInBothEntrances": true,
+            "scriptThisBinding": true,
+            "noneImageKeepsIndex": true,
+            "noneSeKeepsBufferPlaying": true,
+            "realAudioSignalBeforeAfterNone": true,
+            "routeSavedStateFlags": true
+          },
+          "compiled": {
+            "allMarkersOnce": true,
+            "inactiveSavedRouteNeverRuns": true,
+            "fixedPageRetainsInitialLocation": true,
+            "customRouteExecutesNatively": true,
+            "autonomousWaitDoesNotBlockMain": true,
+            "parallelDuringAutonomous": true,
+            "forcedNoWaitReturnsSameFrame": true,
+            "forcedRouteStartsAfterContinuation": true,
+            "forcedNoWaitMovesAndFinishes": true,
+            "forcedWaitFinishesBeforeContinuation": true,
+            "forcedWaitIncludesMovementAndDelay": true,
+            "parallelDuringForcedWait": true,
+            "finished": true,
+            "singleSlotScriptInBothEntrances": true,
+            "scriptThisBinding": true,
+            "noneImageKeepsIndex": true,
+            "noneSeKeepsBufferPlaying": true,
+            "realAudioSignalBeforeAfterNone": true,
+            "routeSavedStateFlags": true
+          }
+        },
+        "hostDiagnostics": [],
+        "fixture": {
+          "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-game-54\\final54-movement-none-script-92f14317-6154-4ac8-aa60-7a78c6a21493\\independent-fixture.json",
+          "sha256": "fe6cda9455329e72e8d74dc2eaa778d245a956481cc023bb90e9628e857ab928"
+        },
+        "scenarioCopy": {
+          "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-game-54\\final54-movement-none-script-92f14317-6154-4ac8-aa60-7a78c6a21493\\scenario-original.cjs",
+          "sha256": "45242e1be838cbef1af579becc8750cd933ef682d6370d0f36368fd9c7ab4a24"
+        },
+        "copiedOnDiskHarness": {
+          "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-game-54\\final54-movement-none-script-92f14317-6154-4ac8-aa60-7a78c6a21493\\harness-original.cjs",
+          "sha256": "085091b1b316eaab2d76257e9f7d119fc13df95ffaa84ad2fd321e3c45954c0b"
+        },
+        "formalSourceFingerprint": "007660f9d30a59be6b962fdf43757cc7c815381013d007c0a7871aabb223ff26",
+        "sourceEdits": [
+          {
+            "file": "src\\decompiled\\maps\\Map001.events.ts",
+            "beforeSha256": "d2b52d88371300232a08f94d57c6761b63aeb352381162a6b02fa632e39bfa57",
+            "afterSha256": "b14754397e1b26750ed4c068d9d4412dd2119011645637914c0381bbc4baa52c"
+          }
+        ],
+        "sides": {
+          "literal": {
+            "strictPassed": true,
+            "validation": {
+              "freshExplicitProfile": true,
+              "declaredProfile": true,
+              "identityParsed": true,
+              "declaredHost": true,
+              "declaredProject": true,
+              "ownedProcess": true,
+              "isolatedAppName": true,
+              "appDataPathRecorded": true,
+              "stdoutEmpty": true,
+              "stderrEmpty": true,
+              "exit0": true,
+              "runtimePassed": true,
+              "diskInputUnchanged": true,
+              "loadedCarriersMatch": true,
+              "engineIdentityMatches": true
+            },
+            "exitCode": 0,
+            "engine": "1.6.1",
+            "versions": {
+              "http_parser": "2.7.0",
+              "node": "9.7.1",
+              "v8": "6.5.254.31",
+              "uv": "1.19.2",
+              "zlib": "1.2.11",
+              "ares": "1.13.0",
+              "modules": "59",
+              "nghttp2": "1.29.0",
+              "napi": "2",
+              "openssl": "1.0.2n",
+              "icu": "60.1",
+              "unicode": "10.0",
+              "cldr": "32.0",
+              "tz": "2017c",
+              "nw": "0.29.0",
+              "node-webkit": "0.29.0",
+              "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+              "nw-flavor": "sdk",
+              "chromium": "65.0.3325.146"
+            },
+            "pid": 38920,
+            "expected": {
+              "allMarkersOnce": true,
+              "inactiveSavedRouteNeverRuns": true,
+              "fixedPageRetainsInitialLocation": true,
+              "customRouteExecutesNatively": true,
+              "autonomousWaitDoesNotBlockMain": true,
+              "parallelDuringAutonomous": true,
+              "forcedNoWaitReturnsSameFrame": true,
+              "forcedRouteStartsAfterContinuation": true,
+              "forcedNoWaitMovesAndFinishes": true,
+              "forcedWaitFinishesBeforeContinuation": true,
+              "forcedWaitIncludesMovementAndDelay": true,
+              "parallelDuringForcedWait": true,
+              "finished": true,
+              "singleSlotScriptInBothEntrances": true,
+              "scriptThisBinding": true,
+              "noneImageKeepsIndex": true,
+              "noneSeKeepsBufferPlaying": true,
+              "realAudioSignalBeforeAfterNone": true,
+              "routeSavedStateFlags": true
+            },
+            "actual": {
+              "allMarkersOnce": true,
+              "inactiveSavedRouteNeverRuns": true,
+              "fixedPageRetainsInitialLocation": true,
+              "customRouteExecutesNatively": true,
+              "autonomousWaitDoesNotBlockMain": true,
+              "parallelDuringAutonomous": true,
+              "forcedNoWaitReturnsSameFrame": true,
+              "forcedRouteStartsAfterContinuation": true,
+              "forcedNoWaitMovesAndFinishes": true,
+              "forcedWaitFinishesBeforeContinuation": true,
+              "forcedWaitIncludesMovementAndDelay": true,
+              "parallelDuringForcedWait": true,
+              "finished": true,
+              "singleSlotScriptInBothEntrances": true,
+              "scriptThisBinding": true,
+              "noneImageKeepsIndex": true,
+              "noneSeKeepsBufferPlaying": true,
+              "realAudioSignalBeforeAfterNone": true,
+              "routeSavedStateFlags": true
+            },
+            "checks": null,
+            "error": null
+          },
+          "compiled": {
+            "strictPassed": true,
+            "validation": {
+              "freshExplicitProfile": true,
+              "declaredProfile": true,
+              "identityParsed": true,
+              "declaredHost": true,
+              "declaredProject": true,
+              "ownedProcess": true,
+              "isolatedAppName": true,
+              "appDataPathRecorded": true,
+              "stdoutEmpty": true,
+              "stderrEmpty": true,
+              "exit0": true,
+              "runtimePassed": true,
+              "diskInputUnchanged": true,
+              "loadedCarriersMatch": true,
+              "engineIdentityMatches": true
+            },
+            "exitCode": 0,
+            "engine": "1.6.1",
+            "versions": {
+              "http_parser": "2.7.0",
+              "node": "9.7.1",
+              "v8": "6.5.254.31",
+              "uv": "1.19.2",
+              "zlib": "1.2.11",
+              "ares": "1.13.0",
+              "modules": "59",
+              "nghttp2": "1.29.0",
+              "napi": "2",
+              "openssl": "1.0.2n",
+              "icu": "60.1",
+              "unicode": "10.0",
+              "cldr": "32.0",
+              "tz": "2017c",
+              "nw": "0.29.0",
+              "node-webkit": "0.29.0",
+              "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+              "nw-flavor": "sdk",
+              "chromium": "65.0.3325.146"
+            },
+            "pid": 32728,
+            "expected": {
+              "allMarkersOnce": true,
+              "inactiveSavedRouteNeverRuns": true,
+              "fixedPageRetainsInitialLocation": true,
+              "customRouteExecutesNatively": true,
+              "autonomousWaitDoesNotBlockMain": true,
+              "parallelDuringAutonomous": true,
+              "forcedNoWaitReturnsSameFrame": true,
+              "forcedRouteStartsAfterContinuation": true,
+              "forcedNoWaitMovesAndFinishes": true,
+              "forcedWaitFinishesBeforeContinuation": true,
+              "forcedWaitIncludesMovementAndDelay": true,
+              "parallelDuringForcedWait": true,
+              "finished": true,
+              "singleSlotScriptInBothEntrances": true,
+              "scriptThisBinding": true,
+              "noneImageKeepsIndex": true,
+              "noneSeKeepsBufferPlaying": true,
+              "realAudioSignalBeforeAfterNone": true,
+              "routeSavedStateFlags": true
+            },
+            "actual": {
+              "allMarkersOnce": true,
+              "inactiveSavedRouteNeverRuns": true,
+              "fixedPageRetainsInitialLocation": true,
+              "customRouteExecutesNatively": true,
+              "autonomousWaitDoesNotBlockMain": true,
+              "parallelDuringAutonomous": true,
+              "forcedNoWaitReturnsSameFrame": true,
+              "forcedRouteStartsAfterContinuation": true,
+              "forcedNoWaitMovesAndFinishes": true,
+              "forcedWaitFinishesBeforeContinuation": true,
+              "forcedWaitIncludesMovementAndDelay": true,
+              "parallelDuringForcedWait": true,
+              "finished": true,
+              "singleSlotScriptInBothEntrances": true,
+              "scriptThisBinding": true,
+              "noneImageKeepsIndex": true,
+              "noneSeKeepsBufferPlaying": true,
+              "realAudioSignalBeforeAfterNone": true,
+              "routeSavedStateFlags": true
+            },
+            "checks": null,
+            "error": null
+          }
+        }
+      }
+    ]
+  },
+  "difference": null
+}
