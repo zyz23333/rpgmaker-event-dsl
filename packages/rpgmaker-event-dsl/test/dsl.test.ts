@@ -133,7 +133,14 @@ describe("collectDslOwnedDeclarations", () => {
         y: 2,
         pages: [
           page({
-            commands: [showText({ lines: ["Hello"] })],
+            commands: [
+              showText({
+                lines: ["Hello"],
+                face: { image: null, index: 0 },
+                background: "window",
+                position: "bottom",
+              }),
+            ],
           }),
         ],
       }),
@@ -183,7 +190,7 @@ describe("collectDslOwnedDeclarations", () => {
     expect(imageAsset({ folder: "pictures", name: "Poster" }).kind).toBe("asset");
     expect(movieAsset({ name: "Intro" }).folder).toBe("movies");
     expect(scriptInput({ code: "console.log(1);" }).kind).toBe("scriptInput");
-    expect(comment(["A", "B"]).kind).toBe("comment");
+    expect(comment({ lines: ["A", "B"] }).kind).toBe("comment");
     expect(controlSwitches({ switch: switchRef({ id: 1 }), value: true }).kind).toBe(
       "controlSwitches",
     );
@@ -282,11 +289,11 @@ describe("collectDslOwnedDeclarations", () => {
     ).toBe("setVehicleLocation");
     expect(
       setEventLocation({
-        character: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
+        target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
         destination: { kind: "direct", x: 2, y: 3 },
       }).kind,
     ).toBe("setEventLocation");
-    expect(scrollMap({ direction: 2, distance: 8, speed: 4 }).kind).toBe("scrollMap");
+    expect(scrollMap({ direction: "down", distance: 8, speed: 4 }).kind).toBe("scrollMap");
     expect(
       setMovementRoute({
         target: { kind: "runtimeSelector", scope: "character", target: "player" },
@@ -315,6 +322,7 @@ describe("collectDslOwnedDeclarations", () => {
       showBalloonIcon({
         target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
         balloon: "exclamation",
+        wait: false,
       }).kind,
     ).toBe("showBalloonIcon");
     expect(changePlayerFollowers({ visible: false }).kind).toBe("changePlayerFollowers");
@@ -442,11 +450,15 @@ describe("collectDslOwnedDeclarations", () => {
     ).toBe("getLocationInfo");
     expect(wait({ frames: 60 }).kind).toBe("wait");
     expect(eraseEvent().kind).toBe("eraseEvent");
-    expect(battleProcessing({ troop: troopRef({ id: 1 }) }).kind).toBe("battleProcessing");
+    expect(battleProcessing({ troop: { kind: "fixed", troop: troopRef({ id: 1 }) } }).kind).toBe(
+      "battleProcessing",
+    );
     expect(
       battleProcessing({
-        troop: { kind: "troop", variable: variableRef({ id: 1 }) },
-        win: [wait({ frames: 1 })],
+        troop: { kind: "variable", variable: variableRef({ id: 1 }) },
+        win: { commands: [wait({ frames: 1 })], endMarker: "absent" },
+        canEscape: true,
+        escape: { commands: [] },
       }).kind,
     ).toBe("battleProcessing");
     expect(
@@ -593,14 +605,15 @@ describe("collectDslOwnedDeclarations", () => {
       changeEnemyHp({
         target: { kind: "runtimeSelector", scope: "enemy", target: "all" },
         operation: "lose",
-        value: 1,
+        value: { kind: "constant", value: 1 },
+        allowDeath: false,
       }).kind,
     ).toBe("changeEnemyHp");
     expect(
       changeEnemyMp({
         target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
         operation: "gain",
-        value: 1,
+        value: { kind: "constant", value: 1 },
       }).kind,
     ).toBe("changeEnemyMp");
     expect(
@@ -628,15 +641,21 @@ describe("collectDslOwnedDeclarations", () => {
     ).toBe("enemyTransform");
     expect(
       showBattleAnimation({
-        target: { kind: "runtimeSelector", scope: "enemy", target: "all" },
+        target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
         animation: animationRef({ id: 1 }),
+        allEnemies: true,
       }).kind,
     ).toBe("showBattleAnimation");
     expect(
       forceAction({
-        subject: { kind: "runtimeSelector", scope: "battler", target: "actor", actorId: 1 },
+        subject: {
+          kind: "runtimeSelector",
+          scope: "battler",
+          target: "actor",
+          actor: { kind: "actor", id: 1 },
+        },
         skill: { kind: "skill", id: 1 },
-        targetIndex: -2,
+        target: { kind: "lastTarget" },
       }).kind,
     ).toBe("forceAction");
     expect(abortBattle().kind).toBe("abortBattle");
@@ -644,7 +663,7 @@ describe("collectDslOwnedDeclarations", () => {
       changeEnemyTp({
         target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
         operation: "gain",
-        value: 4,
+        value: { kind: "constant", value: 4 },
       }).kind,
     ).toBe("changeEnemyTp");
     expect(openMenuScreen().kind).toBe("openMenuScreen");
@@ -656,8 +675,8 @@ describe("collectDslOwnedDeclarations", () => {
       showText({
         lines: ["Portrait line"],
         face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 3 },
-        background: 1,
-        positionType: 0,
+        background: "dim",
+        position: "top",
       }),
     ).toEqual({
       kind: "showText",
@@ -671,12 +690,16 @@ describe("collectDslOwnedDeclarations", () => {
         },
         index: 3,
       },
-      background: 1,
-      positionType: 0,
+      background: "dim",
+      position: "top",
     });
     expect(inputNumber({ variable: variableRef({ id: 1 }), digits: 4 }).kind).toBe("inputNumber");
-    expect(selectItem({ variable: variableRef({ id: 1 }), itemType: 1 }).kind).toBe("selectItem");
-    expect(showScrollingText({ lines: ["A", "B"], speed: 4 }).kind).toBe("showScrollingText");
+    expect(selectItem({ variable: variableRef({ id: 1 }), itemType: "regular" }).kind).toBe(
+      "selectItem",
+    );
+    expect(showScrollingText({ lines: ["A", "B"], speed: 4, noFastForward: false }).kind).toBe(
+      "showScrollingText",
+    );
     expect(
       showChoices({
         choices: [

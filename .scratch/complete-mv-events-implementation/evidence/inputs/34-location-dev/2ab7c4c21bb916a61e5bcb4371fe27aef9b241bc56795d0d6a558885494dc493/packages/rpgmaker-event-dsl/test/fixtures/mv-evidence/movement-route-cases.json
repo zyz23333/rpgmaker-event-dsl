@@ -1,0 +1,288 @@
+{
+  "provenance": "Original independent literal native fixtures derived from accepted ADR0015 and command-parameters/movement.md; no compiler output or first-party bytes.",
+  "events": [
+    null,
+    {
+      "id": 1,
+      "name": "Movement envelope matrix",
+      "trigger": 0,
+      "switchId": 1,
+      "list": [
+        {
+          "code": 205,
+          "indent": 0,
+          "parameters": [
+            -1,
+            {
+              "list": [
+                { "code": 16 },
+                { "code": 17, "indent": null },
+                { "code": 18, "indent": 0 },
+                { "code": 14, "parameters": [0, 0] },
+                { "code": 15, "parameters": [2], "indent": null },
+                { "code": 27, "parameters": [1], "indent": 0 },
+                {
+                  "code": 44,
+                  "parameters": [{ "name": "Cursor1", "volume": 37, "pitch": 102, "pan": -5 }],
+                  "indent": null
+                },
+                { "code": 45, "parameters": ["$gameSwitches.setValue(2, true);\r\n"], "indent": 0 },
+                { "code": 0 }
+              ],
+              "repeat": false,
+              "skippable": true,
+              "wait": true
+            }
+          ]
+        },
+        { "code": 505, "indent": 0, "parameters": [{ "code": 16 }] },
+        { "code": 505, "indent": 0, "parameters": [{ "code": 17, "indent": null }] },
+        { "code": 505, "indent": 0, "parameters": [{ "code": 18, "indent": 0 }] },
+        { "code": 505, "indent": 0, "parameters": [{ "code": 14, "parameters": [0, 0] }] },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [{ "code": 15, "parameters": [2], "indent": null }]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [{ "code": 27, "parameters": [1], "indent": 0 }]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            {
+              "code": 44,
+              "parameters": [{ "name": "Cursor1", "volume": 37, "pitch": 102, "pan": -5 }],
+              "indent": null
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [
+            { "code": 45, "parameters": ["$gameSwitches.setValue(2, true);\r\n"], "indent": 0 }
+          ]
+        },
+        { "code": 121, "indent": 0, "parameters": [3, 3, 0] },
+        { "code": 0, "indent": 0, "parameters": [] }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Empty route defaults",
+      "trigger": 0,
+      "switchId": 1,
+      "list": [
+        {
+          "code": 205,
+          "indent": 0,
+          "parameters": [
+            -1,
+            {
+              "list": [{ "code": 0, "parameters": [] }],
+              "repeat": true,
+              "skippable": false,
+              "wait": false
+            }
+          ]
+        },
+        { "code": 0, "indent": 0, "parameters": [] }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Nonblocking route",
+      "trigger": 0,
+      "switchId": 1,
+      "list": [
+        {
+          "code": 205,
+          "indent": 0,
+          "parameters": [
+            -1,
+            {
+              "list": [
+                { "code": 15, "parameters": [10] },
+                { "code": 27, "parameters": [1] },
+                { "code": 0, "parameters": [] }
+              ],
+              "repeat": false,
+              "skippable": false,
+              "wait": false
+            }
+          ]
+        },
+        { "code": 505, "indent": 0, "parameters": [{ "code": 15, "parameters": [10] }] },
+        { "code": 505, "indent": 0, "parameters": [{ "code": 27, "parameters": [1] }] },
+        { "code": 121, "indent": 0, "parameters": [3, 3, 0] },
+        { "code": 0, "indent": 0, "parameters": [] }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Repeating wait",
+      "trigger": 0,
+      "switchId": 1,
+      "list": [
+        {
+          "code": 205,
+          "indent": 0,
+          "parameters": [
+            -1,
+            {
+              "list": [
+                { "code": 27, "parameters": [1], "indent": 0 },
+                { "code": 15, "parameters": [1], "indent": null },
+                { "code": 0 }
+              ],
+              "repeat": true,
+              "skippable": false,
+              "wait": true
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [{ "code": 27, "parameters": [1], "indent": 0 }]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [{ "code": 15, "parameters": [1], "indent": null }]
+        },
+        { "code": 121, "indent": 0, "parameters": [3, 3, 0] },
+        { "code": 0, "indent": 0, "parameters": [] }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Blocked unskippable route",
+      "trigger": 0,
+      "switchId": 1,
+      "list": [
+        {
+          "code": 205,
+          "indent": 0,
+          "parameters": [
+            -1,
+            {
+              "list": [
+                { "code": 2, "indent": null },
+                { "code": 18 },
+                { "code": 27, "parameters": [1] },
+                { "code": 0, "parameters": [] }
+              ],
+              "repeat": false,
+              "skippable": false,
+              "wait": true
+            }
+          ]
+        },
+        { "code": 505, "indent": 0, "parameters": [{ "code": 2, "indent": null }] },
+        { "code": 505, "indent": 0, "parameters": [{ "code": 18 }] },
+        { "code": 505, "indent": 0, "parameters": [{ "code": 27, "parameters": [1] }] },
+        { "code": 121, "indent": 0, "parameters": [3, 3, 0] },
+        { "code": 0, "indent": 0, "parameters": [] }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Blocked skippable route",
+      "trigger": 0,
+      "switchId": 1,
+      "list": [
+        {
+          "code": 205,
+          "indent": 0,
+          "parameters": [
+            -1,
+            {
+              "list": [
+                { "code": 2, "indent": 0 },
+                { "code": 18 },
+                { "code": 27, "parameters": [1] },
+                { "code": 0 }
+              ],
+              "repeat": false,
+              "skippable": true,
+              "wait": true
+            }
+          ]
+        },
+        { "code": 505, "indent": 0, "parameters": [{ "code": 2, "indent": 0 }] },
+        { "code": 505, "indent": 0, "parameters": [{ "code": 18 }] },
+        { "code": 505, "indent": 0, "parameters": [{ "code": 27, "parameters": [1] }] },
+        { "code": 121, "indent": 0, "parameters": [3, 3, 0] },
+        { "code": 0, "indent": 0, "parameters": [] }
+      ]
+    }
+  ],
+  "runtimeCases": [
+    {
+      "eventId": 1,
+      "frames": 90,
+      "expected": {
+        "switches": [true, true, true],
+        "running": false,
+        "forcing": false,
+        "x": 0,
+        "y": 0,
+        "direction": 6
+      }
+    },
+    {
+      "eventId": 3,
+      "frames": 90,
+      "first": { "switches": [false, false, true], "running": false, "forcing": true },
+      "expected": {
+        "switches": [true, false, true],
+        "running": false,
+        "forcing": false,
+        "x": 0,
+        "y": 0,
+        "direction": 2
+      }
+    },
+    {
+      "eventId": 4,
+      "frames": 90,
+      "expected": {
+        "switches": [true, false, false],
+        "running": true,
+        "forcing": true,
+        "x": 0,
+        "y": 0,
+        "direction": 2
+      }
+    },
+    {
+      "eventId": 5,
+      "frames": 90,
+      "expected": {
+        "switches": [false, false, false],
+        "running": true,
+        "forcing": true,
+        "x": 0,
+        "y": 0,
+        "direction": 4
+      }
+    },
+    {
+      "eventId": 6,
+      "frames": 90,
+      "expected": {
+        "switches": [true, false, true],
+        "running": false,
+        "forcing": false,
+        "x": 0,
+        "y": 0,
+        "direction": 6
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+
+> rpgmaker-event-dsl@0.1.2 test C:\Users\Shuen\.codex\worktrees\mv-ticket-34\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> vitest run "test/map-locations.test.ts"
+
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-34/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/map-locations.test.ts (5 tests | 1 failed) 24ms
+   × expresses Event Location direct, variables and exchange with the event-only selector subset 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-locations.test.ts > expresses Event Location direct, variables and exchange with the event-only selector subset
+TypeError: Cannot read properties of undefined (reading 'target')
+ ❯ characterSelectorToCode src/commands/movement/compile.ts:15:20
+     13|
+     14| export function characterSelectorToCode(selector: CharacterRuntimeSele…
+     15|   switch (selector.target) {
+       |                    ^
+     16|     case "player":
+     17|       return -1;
+ ❯ compileSetEventLocationParameters src/commands/movement/compile.ts:54:23
+ ❯ compileNodes src/compiler/dispatch.ts:557:23
+ ❯ compileCommonEvent src/compiler/events.ts:122:11
+ ❯ test/map-locations.test.ts:35:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  02:49:41
+   Duration  1.36s (transform 417ms, setup 0ms, import 1.18s, tests 24ms, environment 0ms)
+
+C:\Users\Shuen\.codex\worktrees\mv-ticket-34\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run "test/map-locations.test.ts"`
+Exit status 1

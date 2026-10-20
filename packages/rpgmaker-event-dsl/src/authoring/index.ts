@@ -86,6 +86,7 @@ export type {
   ErasePictureDslCommand,
   EventDefinition,
   EventLocationDestination,
+  EventRuntimeSelector,
   EventPage,
   AutonomousMovement,
   ExchangeEventLocationDestination,
@@ -106,6 +107,8 @@ export type {
   JumpToLabelDslCommand,
   LabelDslCommand,
   LocationInfoType,
+  LocationDirection,
+  TransferFade,
   LoopDslCommand,
   MapDestination,
   MapEventDefinition,
@@ -281,12 +284,9 @@ export {
   getLocationInfo,
   eraseEvent,
 } from "../commands/map/authoring.js";
+export { battleProcessing, shopProcessing } from "../commands/battle/authoring.js";
 export {
-  battleProcessing,
-  shopProcessing,
   nameInputProcessing,
-} from "../commands/battle/authoring.js";
-export {
   changeHp,
   changeMp,
   changeState,

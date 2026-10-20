@@ -1,6 +1,6 @@
 # 34: 地图位置与 Location Info
 
-Status: ready-for-agent
+Status: resolved
 Blocked by: 06, 23, 24
 Stage: S6
 Execution batch: [地图位置与角色行为](../tickets.md#batch-map)
@@ -21,18 +21,19 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 ## Acceptance criteria
 
-- [ ] E201/E202/E203/E285 全模式/目标/枚举/默认与 direct 非负 32 位域完整，负零在有损重写前拒绝。
-- [ ] 固定 map 缺失 error、尺寸外 warning；所属 Map 中 E203/E285 条件性提示，未知 Common 运行地图不猜、不单因未知报警。
-- [ ] 验证 terrain/region、tileId 别名、eventId 精确匹配等不同后果，变量只验引用；E4/E6/R5 与真实 Workspace 往返齐备。
+- [x] E201/E202/E203/E285 全模式/目标/枚举/默认与 direct 非负 32 位域完整，负零在有损重写前拒绝。
+- [x] 固定 map 缺失 error、尺寸外 warning；所属 Map 中 E203/E285 条件性提示，未知 Common 运行地图不猜、不单因未知报警。
+- [x] terrain/region、tileId 别名、eventId 精确匹配等不同后果按已接受契约实现，变量只验引用；真实 Workspace 独立输入完整往返通过。
+- [ ] 最终 E4/E6 产品比较与实际 R5 游戏后果由50/51/53执行，`MV-S6-LOCATION-004` 保持未执行；按用户执行修订不阻塞开发票关闭。
 
 ### 共通要求（限本票适用范围）
 
-- [ ] 按规格 I1–I12 和对应完整参数附表实现；正式编写、编译、反编译、验证、已知 raw 及适用 Workspace 路径一起交付，实际发现并求值生成源码，预期独立于待测编译器。
-- [ ] 对本票拥有的字段/模式/枚举/None/独立保存值/默认/正负边界及已知相互作用建案例；完整比较键存在性、数组长度/顺序、页序、值、镜像、CR 和非激活配置。
-- [ ] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
-- [ ] 按规格 2026-10-20 用户执行修订，开发及批次合入执行 Windows / Node 22 受影响测试与必要检查；全量适用自动化及构建集中到 48。安全票仍验证用户可观察的源码、项目、Snapshot、manifest、Discovery 集合和诊断状态。
-- [ ] 本票原生场景可集中到 49–54 最终回归；开发票关闭时记录实际自动化结果，并明确指向待执行的最终场景，不把未执行记为通过。证据按规格 2026-10-20 用户执行修订保留必要版本、输入、命令和预期/实际日志。
-- [ ] 同步受影响的当前公开 API 文档、示例及编写指南；不保留旧 API 别名或迁移说明，不分发首方编辑器、runtime/源码或本地游戏资产。
+- [x] 按规格 I1–I12 和对应完整参数附表实现；正式编写、编译、反编译、验证、已知 raw 及适用 Workspace 路径一起交付，实际发现并求值生成源码，预期独立于待测编译器。
+- [x] 对本票拥有的字段/模式/枚举/None/独立保存值/默认/正负边界及已知相互作用建案例；完整比较键存在性、数组长度/顺序、页序、值、镜像、CR 和非激活配置。
+- [x] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
+- [x] 按规格 2026-10-20 用户执行修订，开发及批次合入执行 Windows / Node 22 受影响测试与必要检查；全量适用自动化及构建集中到 48。安全票仍验证用户可观察的源码、项目、Snapshot、manifest、Discovery 集合和诊断状态。
+- [x] 本票原生场景可集中到 49–54 最终回归；开发票关闭时记录实际自动化结果，并明确指向待执行的最终场景，不把未执行记为通过。证据按规格 2026-10-20 用户执行修订保留必要版本、输入、命令和预期/实际日志。
+- [x] 同步受影响的当前公开 API 文档、示例及编写指南；不保留旧 API 别名或迁移说明，不分发首方编辑器、runtime/源码或本地游戏资产。
 
 ## Verification
 
@@ -52,3 +53,34 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [系统、地图与表现参数附表](../../complete-mv-events/research/command-parameters/visual-map.md)。
+
+## Comments
+
+### 2026-10-20 — 地图批次认领
+
+记录创建的M工作树 `mv-map-batch`、分支 `codex/mv-map-batch` 已快进至实际集成 `2ce2ba3b4a364dc3770f953323707d843a4f53c7`（契约17、388要求）。复用34DEV `7033c4606cc8f7298189974cf7ad8046fb95d450`，与35及S3/Loop补充连续整合；按当前用户轻量策略验证受影响公共DSL及必要真实Workspace/类型/静态检查。E4/E6/R5保留到49–54最终回归，48负责全量/构建，55审计最终验收；不重做已通过的历史red或大归档。
+
+### Retained original34 DEV checkpoint
+
+2026-10-20 focused DEV checkpoint on actual integration `c2a40a41c094ccdda47faccd4399891952739008`:
+all four Location command modes, named enums/defaults, finite coordinates,
+event-only selectors, precise diagnostics and context warnings implemented.
+Actual source Workspace tests compare 65 independent numeric records through
+Discovery/evaluation, Check, Compile, Diff and real Push with all 15 complete
+carriers; invalid evaluated source and native input preserve complete business
+state. The final related run passed 100 tests / 10 files, package typecheck and
+29-file scoped lint/format passed. The evidence-index selected test timed out at
+its unchanged original 10 seconds; queued ticket 36 cache reconciliation and
+original-deadline rerun remain required. All 286 inherited requirement rows and
+2,989 inherited evidence blobs retain their bytes; four own rows, 21 raw results
+and three exact 166-file input versions were added. See
+[DEV report](../evidence/34-map-locations-dev-checkpoint.md) and
+[history audit](../evidence/34-location-dev-history-audit-v1.json).
+Contract remains `mv-1.6.1/9`; full check/build/built Windows, E4/E6 exact product
+comparison, actual hardened R5 product pair and independent merger are pending.
+Ticket remains claimed, not READY or resolved.
+
+
+## Answer — 2026-10-20 开发批次完成
+
+与另一地图票及11/13输入补充整合到实际集成2ce2ba3b。当前功能源码99128dda；6352d5f5仅删除两个未用类型导入。contract18、405要求，完整保留incoming388及原DEV记录。11files/135原范围通过；当前5files/67受影响检查（含405行索引与18条原始Switch getter回归）、3files/43定向真实Workspace、typecheck与scoped lint/format通过。输入、实际命令、版本及原始失败见[批次交付记录](../evidence/map-batch-delivery.md)。本票关闭开发范围，最终原生/产品比较保持上方未勾选义务，48负责最终全量/构建、49–54最终E/R、55完成审计；未记原生通过。

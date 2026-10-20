@@ -90,6 +90,7 @@ export type SnapshotMapValidationEntry = {
   width?: number;
   height?: number;
   tilesetId?: unknown;
+  encounterList?: unknown;
   eventLocations: readonly {
     eventId: number;
     x: number;

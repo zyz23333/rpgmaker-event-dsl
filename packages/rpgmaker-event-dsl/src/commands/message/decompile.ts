@@ -9,7 +9,6 @@ import {
   isMessagePositionType,
   isStringArray,
   literal,
-  readStringParameter,
 } from "../../decompiler/core.js";
 
 export function renderShowTextCommand(
@@ -45,25 +44,19 @@ export function renderShowTextCommand(
   ) {
     const next = commands[nextIndex + 1];
     const line = next?.parameters[0];
-    lines.push(typeof line === "string" ? line : "");
+    lines.push(line as string);
     nextIndex += 1;
   }
 
-  const fields = [`lines: ${literal(lines.length > 0 ? lines : [""])}`];
+  const fields = [`lines: ${literal(lines)}`];
   const helperNames = ["showText"];
 
-  if (faceName.length > 0) {
-    fields.push(
-      `face: { image: imageAsset({ folder: "faces", name: ${literal(faceName)} }), index: ${faceIndex} }`,
-    );
-    helperNames.push("imageAsset");
-  }
-  if (background !== 0) {
-    fields.push(`background: ${background}`);
-  }
-  if (positionType !== 2) {
-    fields.push(`positionType: ${positionType}`);
-  }
+  const image =
+    faceName === "" ? "null" : `imageAsset({ folder: "faces", name: ${literal(faceName)} })`;
+  fields.push(`face: { image: ${image}, index: ${literal(faceIndex)} }`);
+  if (faceName !== "") helperNames.push("imageAsset");
+  fields.push(`background: ${literal(["window", "dim", "transparent"][background])}`);
+  fields.push(`position: ${literal(["top", "middle", "bottom"][positionType])}`);
 
   return {
     expression: `showText({ ${fields.join(", ")} })`,
@@ -215,13 +208,11 @@ export function renderShowScrollingTextCommand(
     nextIndex += 1;
   }
 
-  const fields = [`lines: ${literal(lines.length > 0 ? lines : [""])}`];
-  if (speed !== 2) {
-    fields.push(`speed: ${speed}`);
-  }
-  if (noFastForward) {
-    fields.push("noFastForward: true");
-  }
+  const fields = [
+    `lines: ${literal(lines)}`,
+    `speed: ${speed}`,
+    `noFastForward: ${literal(noFastForward)}`,
+  ];
 
   return {
     expression: `showScrollingText({ ${fields.join(", ")} })`,
@@ -239,7 +230,7 @@ export function renderCommentCommand(
     throw new Error("Cannot render missing Comment command.");
   }
 
-  const lines = [readStringParameter(command.parameters[0])];
+  const lines = [command.parameters[0] as string];
   let nextIndex = index;
 
   while (
@@ -247,12 +238,12 @@ export function renderCommentCommand(
     commands[nextIndex + 1]?.indent === command.indent
   ) {
     const next = commands[nextIndex + 1];
-    lines.push(readStringParameter(next?.parameters[0]));
+    lines.push(next!.parameters[0] as string);
     nextIndex += 1;
   }
 
   return {
-    expression: `comment(${literal(lines)})`,
+    expression: `comment({ lines: ${literal(lines)} })`,
     helperNames: ["comment"],
     nextIndex,
   };

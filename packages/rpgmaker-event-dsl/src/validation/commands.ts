@@ -1,3 +1,5 @@
+import { assertBattleInput } from "../commands/battle/validation.js";
+import { assertEnemyInput } from "../commands/enemy/validation.js";
 import type {
   ConditionalBranchCondition,
   DslCommand,
@@ -11,11 +13,11 @@ import type {
 import { isProjectDataReference } from "../domain/references.js";
 import type { ReferenceResolver, ValidationIssue } from "./types.js";
 import { captureReferenceIssue } from "./shared.js";
-import { isReferenceValue } from "./inspection.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
 import { assertControlVariablesInput } from "../commands/variables/control-variables.js";
 import { assertPictureInput } from "../commands/screen/picture-inputs.js";
 import { assertPictureReferences } from "../commands/screen/picture-references.js";
+import { assertSwitchCommandInput } from "../commands/variables/switch-inputs.js";
 import { assertNativeContextReferences } from "./native-context-references.js";
 import { resolveCommonEventCall, assertLoopCommand } from "../commands/flow/validation.js";
 import {
@@ -28,19 +30,28 @@ import {
   assertConditionalCommand,
   inspectConditionalReferences,
 } from "../commands/flow/conditional-validation.js";
-import { assertShowChoicesInput } from "../commands/message/validation.js";
+import { assertShowChoicesInput } from "../commands/message/choices-validation.js";
 import { assertMapAppearanceInput } from "../commands/map/validation.js";
 import {
   assertSystemAccessInput,
   assertWindowColorInput,
 } from "../commands/movement/access-validation.js";
 import { assertSceneCommandInput } from "../commands/system/validation.js";
+import { assertActorPresentationInput } from "../commands/actor/presentation-validation.js";
 import { assertActorResourceInput } from "../commands/actor/validation.js";
 import { assertShopInput } from "../commands/battle/shop-validation.js";
 import {
   assertInventoryInput,
   isInventoryCommandKind,
 } from "../commands/variables/inventory-validation.js";
+import { assertMapLocationInput } from "../commands/map/location-validation.js";
+
+import {
+  assertMapCharacterInput,
+  isMapCharacterKind,
+} from "../commands/movement/character-validation.js";
+
+import { resolveMessageVariable } from "../commands/message/validation.js";
 
 type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
@@ -84,7 +95,9 @@ export function validateNodes(
       assertSceneCommandInput(node.kind, node, nodePath);
       assertPictureInput(node.kind, node, nodePath, true, resolver);
       assertActorResourceInput(node.kind, node, nodePath, true, resolver);
+      assertActorPresentationInput(node.kind, node, nodePath, true, resolver);
       if (node.kind === "shopProcessing") assertShopInput(node, nodePath, true, resolver);
+      assertSwitchCommandInput(node.kind, node, nodePath);
     } catch (error) {
       if (error instanceof CommandStructureError)
         issues.push(error.issue(options.identity ?? "event", "compile"));
@@ -101,10 +114,28 @@ export function validateNodes(
       }
       continue;
     }
+    if (isMapCharacterKind(node.kind)) {
+      try {
+        assertMapCharacterInput(node.kind, node, nodePath, true, resolver);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+        continue;
+      }
+    }
     const childOptions = (field: string): CommandValidationOptions => ({
       ...options,
       path: `${nodePath}.${field}`,
     });
+    try {
+      assertEnemyInput(node.kind, node, nodePath, true, resolver);
+    } catch (error) {
+      if (error instanceof CommandStructureError)
+        issues.push(error.issue(options.identity ?? "event", "compile"));
+      else throw error;
+      continue;
+    }
     if (node.kind === "conditional") {
       const identity = (options.identity ?? "event")
         .replace(/^common event (\d+)$/u, "commonEvent:$1")
@@ -121,6 +152,28 @@ export function validateNodes(
           error.issue(identity, "compile"),
         ),
       );
+    }
+    if (
+      ["transferPlayer", "setVehicleLocation", "setEventLocation", "getLocationInfo"].includes(
+        node.kind,
+      )
+    ) {
+      try {
+        assertMapLocationInput(
+          node.kind as
+            | "transferPlayer"
+            | "setVehicleLocation"
+            | "setEventLocation"
+            | "getLocationInfo",
+          node,
+          nodePath,
+        );
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+        continue;
+      }
     }
     if (node.kind === "loop") {
       try {
@@ -216,7 +269,18 @@ export function validateNodes(
       }
     }
     if (node.kind === "inputNumber" || node.kind === "selectItem") {
-      captureReferenceIssue(() => resolver.resolveReference(node.variable), issues);
+      try {
+        resolveMessageVariable(
+          node.variable,
+          node.kind === "inputNumber" ? 103 : 104,
+          resolver,
+          `${nodePath}.variable`,
+        );
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+      }
     }
     if (node.kind === "showChoices") {
       try {
@@ -253,7 +317,7 @@ export function validateNodes(
       validateMapDestination(node.destination, resolver, issues);
     }
     if (node.kind === "setEventLocation") {
-      validateCharacterRuntimeSelector(node.character, "Set Event Location character", issues);
+      validateCharacterRuntimeSelector(node.target, "Set Event Location target", issues);
       validateEventLocationDestination(node.destination, resolver, issues);
     }
     if (node.kind === "setMovementRoute") {
@@ -284,53 +348,21 @@ export function validateNodes(
           issues.push(error.issue(options.identity ?? "event", "compile"));
       }
     }
-    if (node.kind === "showAnimation") {
-      validateCharacterRuntimeSelector(node.target, "Show Animation target", issues);
-      captureSwitchIssue("MV-E212-REFERENCE", "animation", () =>
-        resolver.resolveReference(node.animation),
-      );
-    }
-    if (node.kind === "showBalloonIcon") {
-      validateCharacterRuntimeSelector(node.target, "Show Balloon Icon target", issues);
-    }
     if (node.kind === "showPicture" || node.kind === "movePicture") {
       validateCommandPosition(node.position, resolver, issues);
     }
-    if (node.kind === "battleProcessing" && isReferenceValue(node.troop)) {
-      const troopRef = node.troop;
-      captureReferenceIssue(() => resolver.resolveReference(troopRef), issues);
-    }
-    if (
-      node.kind === "battleProcessing" &&
-      typeof node.troop === "object" &&
-      node.troop.kind === "troop" &&
-      "variable" in node.troop
-    ) {
-      const troopVariable = node.troop.variable;
-      captureReferenceIssue(() => resolver.resolveReference(troopVariable), issues);
-    }
     if (node.kind === "battleProcessing") {
-      if (node.win) {
-        validateNodes(node.win, resolver, childOptions("win"), issues);
+      try {
+        assertBattleInput(node, nodePath, true, resolver);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+        continue;
       }
-      if (node.escape) {
-        if (node.canEscape !== true) {
-          issues.push({
-            level: "error",
-            message: "Battle Processing escape branch requires canEscape: true.",
-          });
-        }
-        validateNodes(node.escape, resolver, childOptions("escape"), issues);
-      }
-      if (node.lose) {
-        if (node.canLose !== true) {
-          issues.push({
-            level: "error",
-            message: "Battle Processing lose branch requires canLose: true.",
-          });
-        }
-        validateNodes(node.lose, resolver, childOptions("lose"), issues);
-      }
+      for (const field of ["win", "escape", "lose"] as const)
+        if (node[field] !== undefined)
+          validateNodes(node[field].commands, resolver, childOptions(field + ".commands"), issues);
     }
     if (node.kind === "shopProcessing") {
       for (const goods of node.goods) {
@@ -355,38 +387,6 @@ export function validateNodes(
     }
     if (node.kind === "changeNickname" || node.kind === "changeProfile") {
       captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
-    }
-    if (
-      node.kind === "changeEnemyHp" ||
-      node.kind === "changeEnemyMp" ||
-      node.kind === "enemyRecoverAll" ||
-      node.kind === "enemyAppear" ||
-      node.kind === "enemyTransform" ||
-      node.kind === "showBattleAnimation" ||
-      node.kind === "changeEnemyTp"
-    ) {
-      validateEnemyCommandTarget(node.target, `${node.kind} target`, issues);
-    }
-    if (
-      node.kind === "changeEnemyHp" ||
-      node.kind === "changeEnemyMp" ||
-      node.kind === "changeEnemyTp"
-    ) {
-      validateOperateValueOperand(node.value, resolver, issues);
-    }
-    if (node.kind === "changeEnemyState") {
-      validateEnemyCommandTarget(node.target, "Change Enemy State target", issues);
-      captureReferenceIssue(() => resolver.resolveReference(node.state), issues);
-    }
-    if (node.kind === "enemyTransform") {
-      captureSwitchIssue("MV-E336-REFERENCE", "enemy", () => resolver.resolveReference(node.enemy));
-    }
-    if (node.kind === "showBattleAnimation") {
-      captureReferenceIssue(() => resolver.resolveReference(node.animation), issues);
-    }
-    if (node.kind === "forceAction") {
-      validateBattlerCommandTarget(node.subject, "Force Action subject", issues);
-      captureReferenceIssue(() => resolver.resolveReference(node.skill), issues);
     }
     if (node.kind === "changeTileset") {
       captureSwitchIssue("MV-E282-REFERENCE", "tileset", () =>
@@ -472,7 +472,7 @@ export function validateEventLocationDestination(
 
   if (destination.kind === "exchange") {
     validateCharacterRuntimeSelector(
-      destination.character,
+      destination.target,
       "Set Event Location exchange character",
       issues,
     );
@@ -520,92 +520,6 @@ export function validateCharacterRuntimeSelector(
   issues.push({
     level: "error",
     message: `${fieldName} target must be player, currentEvent, or event.`,
-  });
-}
-
-export function validateEnemyCommandTarget(
-  selector: RuntimeSelector,
-  fieldName: string,
-  issues: ValidationIssue[],
-): void {
-  if (selector.scope !== "enemy") {
-    issues.push({
-      level: "error",
-      message: `${fieldName} must use the enemy runtime selector scope.`,
-    });
-    return;
-  }
-
-  if (selector.target === "all") {
-    return;
-  }
-
-  const enemySelector = selector as RuntimeSelector & { index?: unknown };
-  if (selector.target === "enemy") {
-    if (
-      typeof enemySelector.index !== "number" ||
-      !Number.isInteger(enemySelector.index) ||
-      enemySelector.index < 0
-    ) {
-      issues.push({
-        level: "error",
-        message: `${fieldName} enemy index must be a zero-based integer.`,
-      });
-    }
-    return;
-  }
-
-  issues.push({
-    level: "error",
-    message: `${fieldName} target must be all or enemy.`,
-  });
-}
-
-export function validateBattlerCommandTarget(
-  selector: RuntimeSelector,
-  fieldName: string,
-  issues: ValidationIssue[],
-): void {
-  if (selector.scope !== "battler") {
-    issues.push({
-      level: "error",
-      message: `${fieldName} must use the battler runtime selector scope.`,
-    });
-    return;
-  }
-
-  const battlerSelector = selector as RuntimeSelector & { actorId?: unknown; index?: unknown };
-  if (selector.target === "enemy") {
-    if (
-      typeof battlerSelector.index !== "number" ||
-      !Number.isInteger(battlerSelector.index) ||
-      battlerSelector.index < 0
-    ) {
-      issues.push({
-        level: "error",
-        message: `${fieldName} enemy index must be a zero-based integer.`,
-      });
-    }
-    return;
-  }
-
-  if (selector.target === "actor") {
-    if (
-      typeof battlerSelector.actorId !== "number" ||
-      !Number.isInteger(battlerSelector.actorId) ||
-      battlerSelector.actorId <= 0
-    ) {
-      issues.push({
-        level: "error",
-        message: `${fieldName} actor id must be a positive integer.`,
-      });
-    }
-    return;
-  }
-
-  issues.push({
-    level: "error",
-    message: `${fieldName} target must be enemy or actor.`,
   });
 }
 

@@ -1,0 +1,63 @@
+{"label":"owned-first","files":168,"fingerprint":"0144bbd86873e078cbc677a378f769cf1e3e233d4d9bf2d29119fb3ca1750e9e","out":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\control-input-fix-temp\\source-snapshots\\owned-first"}
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-control-input-fix/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/control-input-workspace.test.ts > MV-S3-INPUT-005: refuses native E121 signed zero before publication with complete state preserved
+Windows verification sandbox retained: M:\Shuen\Codex\mv-events-implementation-20261020\control-input-fix-temp\sandboxes\control-native-zero-121-AimJJV
+
+stderr | test/control-input-workspace.test.ts > MV-S3-INPUT-005: refuses native E123 signed zero before publication with complete state preserved
+Windows verification sandbox retained: M:\Shuen\Codex\mv-events-implementation-20261020\control-input-fix-temp\sandboxes\control-native-zero-123-hwbSXV
+
+ ❯ test/control-input-workspace.test.ts (42 tests | 2 failed) 133043ms
+   × MV-S3-INPUT-005: refuses native E121 signed zero before publication with complete state preserved 149ms
+   × MV-S3-INPUT-005: refuses native E123 signed zero before publication with complete state preserved 150ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/control-input-workspace.test.ts > MV-S3-INPUT-005: refuses native E121 signed zero before publication with complete state preserved
+AssertionError: expected 'decompile error commonEvent:1: MV-E12…' to contain 'common:1'
+
+Expected: "common:1"
+Received: "decompile error commonEvent:1: MV-E121-VALUE: MV-E121-VALUE parameters[2]: expected native ON 0 or OFF 1, excluding negative zero; received -0. at list[0].parameters[2]; expected valid E121 switch parameters; actual [1,1,-0]"
+
+ ❯ test/control-input-workspace.test.ts:303:25
+    301|         expect(message).toContain(`list[0].parameters[${invalid.slot}]…
+    302|         expect(message).toContain("decompile");
+    303|         expect(message).toContain("common:1");
+       |                         ^
+    304|         expect(message).toContain("-0");
+    305|         expect(await state(workspaceRoot)).toStrictEqual(before);
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/control-input-workspace.test.ts:289:7
+ ❯ test/control-input-workspace.test.ts:39:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/control-input-workspace.test.ts > MV-S3-INPUT-005: refuses native E123 signed zero before publication with complete state preserved
+AssertionError: expected 'decompile error commonEvent:1: MV-E12…' to contain 'common:1'
+
+Expected: "common:1"
+Received: "decompile error commonEvent:1: MV-E123-VALUE: MV-E123-VALUE parameters[1]: expected native ON 0 or OFF 1, excluding negative zero; received -0. at list[0].parameters[1]; expected valid E123 switch parameters; actual ["A",-0]"
+
+ ❯ test/control-input-workspace.test.ts:303:25
+    301|         expect(message).toContain(`list[0].parameters[${invalid.slot}]…
+    302|         expect(message).toContain("decompile");
+    303|         expect(message).toContain("common:1");
+       |                         ^
+    304|         expect(message).toContain("-0");
+    305|         expect(await state(workspaceRoot)).toStrictEqual(before);
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/control-input-workspace.test.ts:289:7
+ ❯ test/control-input-workspace.test.ts:39:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  2 failed | 45 passed (47)
+   Start at  03:49:04
+   Duration  135.09s (transform 1.13s, setup 0ms, import 3.55s, tests 133.54s, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-control-input-fix\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/control-input-boundaries.test.ts test/control-input-workspace.test.ts

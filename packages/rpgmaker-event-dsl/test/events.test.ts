@@ -158,7 +158,7 @@ describe("compileMapEvent", () => {
         name: "Plugin",
         x: 0,
         y: 0,
-        pages: [page({ commands: [pluginCommand({ command: "MyPlugin", args: [] })] })],
+        pages: [page({ commands: [pluginCommand({ line: "MyPlugin" })] })],
       },
       { nextId: 1, resolver },
     );
@@ -182,12 +182,12 @@ describe("compileMapEvent", () => {
         pages: [
           page({
             commands: [
-              comment(["note"]),
+              comment({ lines: ["note"] }),
               showText({
                 lines: ["Hello"],
                 face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 2 },
-                background: 1,
-                positionType: 0,
+                background: "dim",
+                position: "top",
               }),
               showChoices({
                 choices: [
@@ -196,12 +196,19 @@ describe("compileMapEvent", () => {
                 ],
                 cancel: {
                   kind: "branch",
-                  commands: [showText({ lines: ["Canceled"] })],
+                  commands: [
+                    showText({
+                      lines: ["Canceled"],
+                      face: { image: null, index: 0 },
+                      background: "window",
+                      position: "bottom",
+                    }),
+                  ],
                   endMarker: "absent",
                 },
               }),
               inputNumber({ variable: variableRef({ name: "Count" }), digits: 3 }),
-              selectItem({ variable: variableRef({ name: "Count" }), itemType: 1 }),
+              selectItem({ variable: variableRef({ name: "Count" }), itemType: "regular" }),
               showScrollingText({ lines: ["Scroll", "More"], speed: 5, noFastForward: true }),
               controlVariables({
                 variable: variableRef({ name: "Count" }),
@@ -274,8 +281,8 @@ describe("compileMapEvent", () => {
                   x: variableRef({ name: "X Var" }),
                   y: variableRef({ name: "Y Var" }),
                 },
-                direction: 4,
-                fadeType: 1,
+                direction: "left",
+                fade: "white",
               }),
               setVehicleLocation({
                 vehicle: "airship",
@@ -291,12 +298,12 @@ describe("compileMapEvent", () => {
                 },
               }),
               setEventLocation({
-                character: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
+                target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
                 destination: { kind: "direct", x: 6, y: 7 },
-                direction: 8,
+                direction: "up",
               }),
               setEventLocation({
-                character: { kind: "runtimeSelector", scope: "character", target: "event", id: 3 },
+                target: { kind: "runtimeSelector", scope: "character", target: "event", id: 3 },
                 destination: {
                   kind: "variables",
                   x: variableRef({ name: "X Var" }),
@@ -304,17 +311,17 @@ describe("compileMapEvent", () => {
                 },
               }),
               setEventLocation({
-                character: { kind: "runtimeSelector", scope: "character", target: "player" },
+                target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
                 destination: {
                   kind: "exchange",
-                  character: {
+                  target: {
                     kind: "runtimeSelector",
                     scope: "character",
                     target: "currentEvent",
                   },
                 },
               }),
-              scrollMap({ direction: 6, distance: 9, speed: 5 }),
+              scrollMap({ direction: "right", distance: 9, speed: 5 }),
               setMovementRoute({
                 target: { kind: "runtimeSelector", scope: "character", target: "event", id: 4 },
                 route: {
@@ -383,7 +390,12 @@ describe("compileMapEvent", () => {
                 },
               }),
               getOnOffVehicle(),
-              battleProcessing({ troop: troopRef({ name: "Slime" }), canEscape: true }),
+              battleProcessing({
+                troop: { kind: "fixed", troop: troopRef({ name: "Slime" }) },
+                canEscape: true,
+                win: { commands: [] },
+                escape: { commands: [] },
+              }),
             ],
           }),
         ],
@@ -436,7 +448,7 @@ describe("compileMapEvent", () => {
     expect(commands[31]).toEqual({ code: 202, indent: 0, parameters: [0, 1, 3, 4, 5] });
     expect(commands[32]).toEqual({ code: 203, indent: 0, parameters: [0, 0, 6, 7, 8] });
     expect(commands[33]).toEqual({ code: 203, indent: 0, parameters: [3, 1, 4, 5, 0] });
-    expect(commands[34]).toEqual({ code: 203, indent: 0, parameters: [-1, 2, 0, 0, 0] });
+    expect(commands[34]).toEqual({ code: 203, indent: 0, parameters: [0, 2, 0, 0, 0] });
     expect(commands[35]).toEqual({ code: 204, indent: 0, parameters: [6, 9, 5] });
     expect(commands[36]).toEqual({
       code: 205,
@@ -500,8 +512,14 @@ describe("compileMapEvent", () => {
     });
     expect(commands[82]).toEqual({ code: 206, indent: 0, parameters: [] });
     expect(commands[83]).toEqual({ code: 301, indent: 0, parameters: [0, 1, true, false] });
-    expect(commands[84]).toEqual({ code: 604, indent: 0, parameters: [] });
-    expect(commands[85]).toEqual({ code: 0, indent: 0, parameters: [] });
+    expect(commands.slice(84)).toEqual([
+      { code: 601, indent: 0, parameters: [] },
+      { code: 0, indent: 1, parameters: [] },
+      { code: 602, indent: 0, parameters: [] },
+      { code: 0, indent: 1, parameters: [] },
+      { code: 604, indent: 0, parameters: [] },
+      { code: 0, indent: 0, parameters: [] },
+    ]);
   });
 
   it("compiles direct Transfer Player destinations with resolved map references", () => {
@@ -529,7 +547,7 @@ describe("compileMapEvent", () => {
     expect(event.pages?.[0]?.list?.[0]).toEqual({
       code: 201,
       indent: 0,
-      parameters: [0, 1, 4, 5, 2, 0],
+      parameters: [0, 1, 4, 5, 0, 0],
     });
   });
 
@@ -554,6 +572,7 @@ describe("compileMapEvent", () => {
               showBalloonIcon({
                 target: { kind: "runtimeSelector", scope: "character", target: "player" },
                 balloon: "question",
+                wait: false,
               }),
               eraseEvent(),
               changePlayerFollowers({ visible: false }),
@@ -744,7 +763,7 @@ describe("compileMapEvent", () => {
               }),
               getLocationInfo({
                 variable: variableRef({ name: "Count B" }),
-                info: "tileIdLayer2",
+                info: "tileLayer2",
                 location: {
                   kind: "variables",
                   x: variableRef({ name: "X Var" }),
@@ -981,12 +1000,12 @@ describe("compileMapEvent", () => {
           page({
             commands: [
               battleProcessing({
-                troop: { kind: "troop", variable: variableRef({ name: "Count" }) },
+                troop: { kind: "variable", variable: variableRef({ name: "Count" }) },
                 canEscape: true,
                 canLose: true,
-                win: [wait({ frames: 1 })],
-                escape: [wait({ frames: 2 })],
-                lose: [wait({ frames: 3 })],
+                win: { commands: [wait({ frames: 1 })], endMarker: "absent" },
+                escape: { commands: [wait({ frames: 2 })], endMarker: "absent" },
+                lose: { commands: [wait({ frames: 3 })], endMarker: "absent" },
               }),
               shopProcessing({
                 goods: [
@@ -1077,13 +1096,13 @@ describe("compileMapEvent", () => {
               changeEnemyHp({
                 target: allEnemiesTarget,
                 operation: "lose",
-                value: 10,
+                value: { kind: "constant", value: 10 },
                 allowDeath: true,
               }),
               changeEnemyMp({
                 target: enemyTarget,
                 operation: "gain",
-                value: variableRef({ name: "Count" }),
+                value: { kind: "variable", variable: variableRef({ name: "Count" }) },
               }),
               changeEnemyState({
                 target: enemyTarget,
@@ -1094,22 +1113,32 @@ describe("compileMapEvent", () => {
               enemyAppear({ target: enemyTarget }),
               enemyTransform({ target: enemyTarget, enemy: enemyRef({ name: "Bat" }) }),
               showBattleAnimation({
-                target: allEnemiesTarget,
+                target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
                 animation: animationRef({ name: "Sparkle" }),
+                allEnemies: true,
               }),
               forceAction({
-                subject: { kind: "runtimeSelector", scope: "battler", target: "actor", actorId: 1 },
+                subject: {
+                  kind: "runtimeSelector",
+                  scope: "battler",
+                  target: "actor",
+                  actor: { kind: "actor", id: 1 },
+                },
                 skill: skillRef({ name: "Heal" }),
-                targetIndex: -2,
+                target: { kind: "lastTarget" },
               }),
               abortBattle(),
-              changeEnemyTp({ target: enemyTarget, operation: "gain", value: 4 }),
+              changeEnemyTp({
+                target: enemyTarget,
+                operation: "gain",
+                value: { kind: "constant", value: 4 },
+              }),
               openMenuScreen(),
               openSaveScreen(),
               gameOver(),
               returnToTitleScreen(),
               script({ code: "const x = 1;\nconsole.log(x);" }),
-              pluginCommand({ command: "MyPlugin", args: ["arg1", "arg2"] }),
+              pluginCommand({ line: "MyPlugin arg1 arg2" }),
             ],
           }),
         ],

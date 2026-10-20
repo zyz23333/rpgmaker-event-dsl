@@ -1,0 +1,67 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-35/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/command-boundary.test.ts (13 tests | 1 failed) 29ms
+   × reports the real raw source position before a native record exists 9ms
+stderr | test/snapshot-context.test.ts > MV-S3-CONTEXT-003: checks fixed external references while retaining unknown-caller runtime selectors
+Windows verification sandbox retained: M:\Shuen\Codex\mv-events-implementation-20261020\ticket35-temp\sandboxes\snapshot-context-references-g7LbJL
+
+ ❯ test/snapshot-context.test.ts (5 tests | 1 failed) 5265ms
+   × MV-S3-CONTEXT-003: checks fixed external references while retaining unknown-caller runtime selectors 433ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/command-boundary.test.ts > reports the real raw source position before a native record exists
+AssertionError: expected { level: 'error', …(7) } to match object { dslPath: 'commands[1]' }
+(7 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "dslPath": "commands[1]",
++   "dslPath": "commands[1].parameters",
+  }
+
+ ❯ test/command-boundary.test.ts:23:17
+
+     21|     scriptEnabled: true,
+     22|   }).issues.find((candidate) => candidate.code === "MV-COMMAND-ENVELOP…
+     23|   expect(issue).toMatchObject({ dslPath: "commands[1]" });
+       |                 ^
+     24|   expect(issue?.nativePath).toBeUndefined();
+     25| });
+ Test Files  2 failed | 5 passed (7)
+      Tests  2 failed | 70 passed (72)
+   Start at  03:19:55
+   Duration  6.88s (transform 706ms, setup 0ms, import 2.82s, tests 5.65s, environment 0ms)
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/snapshot-context.test.ts > MV-S3-CONTEXT-003: checks fixed external references while retaining unknown-caller runtime selectors
+AssertionError: expected [Function] to throw error including 'Unknown animation reference id: 0' but got 'TypeScript diagnostics failed for M:\…'
+
+- Expected
++ Received
+
+- Unknown animation reference id: 0
++ TypeScript diagnostics failed for M:\Shuen\Codex\mv-events-implementation-20261020\ticket35-temp\sandboxes\snapshot-context-references-g7LbJL\最小 Workspace with spaces\src\context.events.ts:
++ - MV-E212-INPUT: Invalid map character command input. (showAnimation.animation); expected animation reference with exactly one positive safe integer id or string name; actual {"id":0,"kind":"animation"}
+
+ ❯ test/snapshot-context.test.ts:251:73
+    249|           const currentSource = source(command!.replace("99", String(i…
+    250|           await writeFile(sourcePath, currentSource);
+    251|           await expect(compileWorkspace({ workspaceRoot, check: true }…
+       |                                                                         ^
+    252|             `Unknown ${kind} reference id: ${id}`,
+    253|           );
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/snapshot-context.test.ts:214:5
+ ❯ test/snapshot-context.test.ts:38:24
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-35\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/dsl.test.ts test/events.test.ts test/decompiler.test.ts test/staged-graph.test.ts test/snapshot-context.test.ts test/architecture.test.ts test/command-boundary.test.ts

@@ -7,10 +7,13 @@ import { validateNativeMovementRouteInputs } from "../commands/movement/validati
 import { inspectNativeCommandReferences } from "./native-references.js";
 import type { RawEventCommand, CommandOrigins } from "../compiler/types.js";
 import { inspectConditionalContext } from "../commands/flow/conditional-context.js";
+import { inspectBattleCommandContext } from "./native-battle-context.js";
 import {
   variableTroopContext,
   type VariableInputContext,
 } from "../commands/variables/diagnostics.js";
+import { inspectMapCharacterContext } from "./map-character-context.js";
+import { inspectMapLocationContext } from "../commands/map/location-context.js";
 
 export function validateCompiledCommandLists(
   graph: StagedDataGraph,
@@ -94,6 +97,39 @@ export function validateCompiledCommandLists(
           requireTerminator: true,
         });
         issues.push(
+          ...inspectMapCharacterContext(commands, {
+            identity: list.identity,
+            stage: "compile",
+            prefix,
+            origins,
+            ...(declaration.kind === "mapEvent"
+              ? {
+                  eventIds: new Set(
+                    [...graph.mapEventsByIdentity.values()]
+                      .filter((event) => event.mapId === declaration.mapId)
+                      .map((event) => event.id),
+                  ),
+                }
+              : {}),
+          }),
+        );
+        issues.push(
+          ...inspectMapLocationContext(commands, {
+            identity: list.identity,
+            stage: "compile",
+            prefix,
+            origins,
+            maps: (graph.snapshotMaps ?? []).map((map) => ({
+              ...map,
+              eventLocations: [...graph.mapEventsByIdentity.values()]
+                .filter((event) => event.mapId === map.id)
+                .map((event) => ({ eventId: event.id, x: event.x, y: event.y })),
+            })),
+            ...(declaration.kind === "mapEvent" ? { currentMapId: declaration.mapId } : {}),
+            battle: declaration.kind === "troopEvent",
+          }),
+        );
+        issues.push(
           ...inspectNativeCommandInputs(commands, {
             ...options,
             stage: "compile",
@@ -121,6 +157,26 @@ export function validateCompiledCommandLists(
                   eventIds: [...graph.mapEventsByIdentity.values()]
                     .filter((event) => event.mapId === declaration.mapId)
                     .map((event) => event.id),
+                }
+              : declaration.kind === "troopEvent"
+                ? {
+                    kind: "troop",
+                    members: graph.snapshotTroops?.find((troop) => troop.id === declaration.troopId)
+                      ?.members,
+                  }
+                : { kind: "common" },
+            graph.resolver,
+            { identity: list.identity, stage: "compile", prefix, origins },
+          ),
+        );
+        issues.push(
+          ...inspectBattleCommandContext(
+            commands,
+            declaration.kind === "mapEvent"
+              ? {
+                  kind: "map",
+                  encounterList: graph.snapshotMaps?.find((map) => map.id === declaration.mapId)
+                    ?.encounterList,
                 }
               : declaration.kind === "troopEvent"
                 ? {

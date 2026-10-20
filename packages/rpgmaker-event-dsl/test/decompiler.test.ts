@@ -43,7 +43,7 @@ describe("decompiler command list rendering", () => {
         { code: 202, indent: 0, parameters: [2, 0, 12, 4, 5] },
         { code: 203, indent: 0, parameters: [0, 0, 6, 7, 8] },
         { code: 203, indent: 0, parameters: [4, 1, 10, 11, 0] },
-        { code: 203, indent: 0, parameters: [-1, 2, 0, 0, 0] },
+        { code: 203, indent: 0, parameters: [0, 2, 0, 0, 0] },
         { code: 204, indent: 0, parameters: [6, 9, 5] },
         {
           code: 205,
@@ -231,17 +231,17 @@ describe("decompiler command list rendering", () => {
         "changeWindowColor({ tone: { red: 12, green: -24, blue: 36, gray: 0 } }),",
         'changeDefeatMe({ audio: { asset: audioAsset({ folder: "me", name: "Defeat1" }), volume: 90, pitch: 100, pan: -10 } }),',
         'changeVehicleBgm({ vehicle: "ship", audio: { asset: audioAsset({ folder: "bgm", name: "Ship1" }), volume: 90, pitch: 100, pan: 0 } }),',
-        'transferPlayer({ destination: { kind: "variables", map: variableRef({ id: 9 }), x: variableRef({ id: 10 }), y: variableRef({ id: 11 }) }, direction: 4, fadeType: 1 }),',
+        'transferPlayer({ destination: { kind: "variables", map: variableRef({ id: 9 }), x: variableRef({ id: 10 }), y: variableRef({ id: 11 }) }, direction: "left", fade: "white" }),',
         'setVehicleLocation({ vehicle: "airship", destination: { kind: "direct", map: mapRef({ id: 12 }), x: 4, y: 5 } }),',
-        'setEventLocation({ character: { kind: "runtimeSelector", scope: "character", target: "currentEvent" }, destination: { kind: "direct", x: 6, y: 7 }, direction: 8 }),',
-        'setEventLocation({ character: { kind: "runtimeSelector", scope: "character", target: "event", id: 4 }, destination: { kind: "variables", x: variableRef({ id: 10 }), y: variableRef({ id: 11 }) } }),',
-        'setEventLocation({ character: { kind: "runtimeSelector", scope: "character", target: "player" }, destination: { kind: "exchange", character: { kind: "runtimeSelector", scope: "character", target: "currentEvent" } } }),',
-        "scrollMap({ direction: 6, distance: 9, speed: 5 }),",
+        'setEventLocation({ target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" }, destination: { kind: "direct", x: 6, y: 7 }, direction: "up" }),',
+        'setEventLocation({ target: { kind: "runtimeSelector", scope: "character", target: "event", id: 4 }, destination: { kind: "variables", x: variableRef({ id: 10 }), y: variableRef({ id: 11 }) } }),',
+        'setEventLocation({ target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" }, destination: { kind: "exchange", target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" } } }),',
+        'scrollMap({ direction: "right", distance: 9, speed: 5 }),',
         'setMovementRoute({ target: { kind: "runtimeSelector", scope: "character", target: "event", id: 4 }, route: { commands: [{ kind: "moveDown" }, { kind: "jump", x: 2, y: -1 }, { kind: "wait", frames: 10 }, { kind: "turn90Right" }, { kind: "switchOn", switch: switchRef({ id: 2 }) }, { kind: "switchOff", switch: switchRef({ id: 3 }) }, { kind: "changeSpeed", speed: 5 }, { kind: "changeFrequency", frequency: 4 }, { kind: "walkAnimation", enabled: true }, { kind: "stepAnimation", enabled: false }, { kind: "directionFix", enabled: true }, { kind: "through", enabled: false }, { kind: "transparent", enabled: true }, { kind: "changeImage", character: imageAsset({ folder: "characters", name: "Actor1" }), characterIndex: 3 }, { kind: "changeOpacity", opacity: 128 }, { kind: "changeBlendMode", blendMode: "additive" }, { kind: "playSe", audio: { asset: audioAsset({ folder: "se", name: "Cursor1" }), volume: 80, pitch: 100, pan: 0 } }, { kind: "script", script: scriptInput({ code: "this.moveForward();" }) }], repeat: false, skippable: true, wait: true } }),',
         "getOnOffVehicle(),",
         "changeTransparency({ transparent: true }),",
         'showAnimation({ target: { kind: "runtimeSelector", scope: "character", target: "event", id: 3 }, animation: animationRef({ id: 4 }), wait: true }),',
-        'showBalloonIcon({ target: { kind: "runtimeSelector", scope: "character", target: "player" }, balloon: "question" }),',
+        'showBalloonIcon({ target: { kind: "runtimeSelector", scope: "character", target: "player" }, balloon: "question", wait: false }),',
         "eraseEvent(),",
         "changePlayerFollowers({ visible: false }),",
         "gatherFollowers(),",
@@ -271,7 +271,7 @@ describe("decompiler command list rendering", () => {
         'changeBattleBack({ battleback1: imageAsset({ folder: "battlebacks1", name: "Grassland" }), battleback2: imageAsset({ folder: "battlebacks2", name: "Forest" }) }),',
         'changeParallax({ image: imageAsset({ folder: "parallaxes", name: "Clouds" }), loopX: true, loopY: false, sx: 2, sy: 0 }),',
         'getLocationInfo({ variable: variableRef({ id: 3 }), info: "regionId", location: { kind: "direct", x: 4, y: 5 } }),',
-        'getLocationInfo({ variable: variableRef({ id: 5 }), info: "tileIdLayer2", location: { kind: "variables", x: variableRef({ id: 10 }), y: variableRef({ id: 11 }) } }),',
+        'getLocationInfo({ variable: variableRef({ id: 5 }), info: "tileLayer2", location: { kind: "variables", x: variableRef({ id: 10 }), y: variableRef({ id: 11 }) } }),',
       ].join("\n"),
     });
   });
@@ -287,9 +287,10 @@ describe("decompiler command list rendering", () => {
       ]),
     ).toEqual({
       helperNames: ["comment", "showText"],
-      source: ['showText({ lines: ["Hello","World"] }),', 'comment(["First","Second"]),'].join(
-        "\n",
-      ),
+      source: [
+        'showText({ lines: ["Hello","World"], face: { image: null, index: 0 }, background: "window", position: "bottom" }),',
+        'comment({ lines: ["First","Second"] }),',
+      ].join("\n"),
     });
   });
 
@@ -326,10 +327,10 @@ describe("decompiler command list rendering", () => {
         "wait",
       ],
       source: [
-        'showText({ lines: ["Hello"], face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 2 }, background: 1, positionType: 0 }),',
-        'showChoices({ choices: [{ text: "Yes", commands: [wait({ frames: 10 }),], endMarker: "absent" }, { text: "No", commands: [eraseEvent(),], endMarker: "absent" }], cancel: { kind: "branch", commands: [showText({ lines: ["Canceled"] }),], endMarker: "absent" } }),',
+        'showText({ lines: ["Hello"], face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 2 }, background: "dim", position: "top" }),',
+        'showChoices({ choices: [{ text: "Yes", commands: [wait({ frames: 10 }),], endMarker: "absent" }, { text: "No", commands: [eraseEvent(),], endMarker: "absent" }], cancel: { kind: "branch", commands: [showText({ lines: ["Canceled"], face: { image: null, index: 0 }, background: "window", position: "bottom" }),], endMarker: "absent" } }),',
         "inputNumber({ variable: variableRef({ id: 3 }), digits: 4 }),",
-        "selectItem({ variable: variableRef({ id: 3 }), itemType: 1 }),",
+        'selectItem({ variable: variableRef({ id: 3 }), itemType: "regular" }),',
         'showScrollingText({ lines: ["Scroll","More"], speed: 5, noFastForward: true }),',
       ].join("\n"),
     });
@@ -485,7 +486,7 @@ describe("decompiler command list rendering", () => {
         "weaponRef",
       ],
       source: [
-        'battleProcessing({ troop: { kind: "troop", variable: variableRef({ id: 2 }) }, canEscape: true, canLose: true, win: [wait({ frames: 1 }),], escape: [wait({ frames: 2 }),], lose: [wait({ frames: 3 }),] }),',
+        'battleProcessing({ troop: { kind: "variable", variable: variableRef({ id: 2 }) }, canEscape: true, canLose: true, win: { commands: [wait({ frames: 1 }),], endMarker: "absent" }, escape: { commands: [wait({ frames: 2 }),], endMarker: "absent" }, lose: { commands: [wait({ frames: 3 }),], endMarker: "absent" } }),',
         'shopProcessing({ goods: [{ kind: "item", item: itemRef({ id: 1 }) }, { kind: "weapon", weapon: weaponRef({ id: 2 }), price: 250 }], purchaseOnly: true }),',
         "nameInputProcessing({ actor: actorRef({ id: 1 }), maxCharacters: 8 }),",
         'changeHp({ target: { kind: "runtimeSelector", scope: "actor", target: "entireParty" }, operation: "lose", value: { kind: "constant", value: 10 }, allowDeath: true }),',
@@ -504,22 +505,22 @@ describe("decompiler command list rendering", () => {
         'changeNickname({ actor: actorRef({ id: 1 }), nickname: "Ace" }),',
         'changeProfile({ actor: actorRef({ id: 1 }), profile: "Profile" }),',
         'changeTp({ target: { kind: "runtimeSelector", scope: "actor", target: "actor", actor: actorRef({ id: 1 }) }, operation: "gain", value: { kind: "constant", value: 5 } }),',
-        'changeEnemyHp({ target: { kind: "runtimeSelector", scope: "enemy", target: "all" }, operation: "lose", value: 10, allowDeath: true }),',
-        'changeEnemyMp({ target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 }, operation: "gain", value: variableRef({ id: 3 }) }),',
+        'changeEnemyHp({ target: { kind: "runtimeSelector", scope: "enemy", target: "all" }, operation: "lose", value: { kind: "constant", value: 10 }, allowDeath: true }),',
+        'changeEnemyMp({ target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 }, operation: "gain", value: { kind: "variable", variable: variableRef({ id: 3 }) } }),',
         'changeEnemyState({ target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 }, operation: "remove", state: stateRef({ id: 4 }) }),',
         'enemyRecoverAll({ target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 } }),',
         'enemyAppear({ target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 } }),',
         'enemyTransform({ target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 }, enemy: enemyRef({ id: 8 }) }),',
-        'showBattleAnimation({ target: { kind: "runtimeSelector", scope: "enemy", target: "all" }, animation: animationRef({ id: 9 }) }),',
-        'forceAction({ subject: { kind: "runtimeSelector", scope: "battler", target: "actor", actorId: 1 }, skill: skillRef({ id: 5 }), targetIndex: -2 }),',
+        'showBattleAnimation({ target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 }, animation: animationRef({ id: 9 }), allEnemies: true }),',
+        'forceAction({ subject: { kind: "runtimeSelector", scope: "battler", target: "actor", actor: actorRef({ id: 1 }) }, skill: skillRef({ id: 5 }), target: { kind: "lastTarget" } }),',
         "abortBattle(),",
-        'changeEnemyTp({ target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 }, operation: "gain", value: 4 }),',
+        'changeEnemyTp({ target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 }, operation: "gain", value: { kind: "constant", value: 4 } }),',
         "openMenuScreen(),",
         "openSaveScreen(),",
         "gameOver(),",
         "returnToTitleScreen(),",
         'script({ code: "const x = 1;\\nconsole.log(x);" }),',
-        'pluginCommand({ command: "MyPlugin", args: ["arg1","arg2"] }),',
+        'pluginCommand({ line: "MyPlugin arg1 arg2" }),',
       ].join("\n"),
     });
   });
@@ -552,7 +553,7 @@ describe("decompiler command list rendering", () => {
       { code: 236, indent: 0, parameters: ["hail", 6, 50, true] },
       { code: 127, indent: 0, parameters: [1, 0, 0, 1, "false"] },
       { code: 129, indent: 0, parameters: [1, 2, false] },
-      { code: 356, indent: 0, parameters: ["Plugin  keeps  spaces"] },
+      { code: 356, indent: 0, parameters: ["Plugin  keeps  spaces", "extra slot"] },
       { code: 230, indent: 2, parameters: ["thirty"] },
     ];
     for (const command of cases) expect(() => renderDecompiledCommandList([command])).toThrow();

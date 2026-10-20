@@ -1,3 +1,5 @@
+import { assertNativeBattleParameters } from "../commands/battle/native-validation.js";
+import { assertNativeEnemyParameters } from "../commands/enemy/native-validation.js";
 import { CommandStructureError } from "./command-errors.js";
 import { assertNativeShopParameters } from "../commands/battle/shop-native.js";
 import { renderJsonValue } from "../project-data/json-values.js";
@@ -12,8 +14,11 @@ import { assertNativeControlVariables } from "../commands/variables/native-contr
 import { assertNativeSystemSettingsParameters } from "../commands/movement/access-native-validation.js";
 import { assertNativePictureParameters } from "../commands/screen/picture-native.js";
 import { assertNativeAudioParameters } from "../commands/audio/validation.js";
+import { assertNativeActorPresentationParameters } from "../commands/actor/presentation-native.js";
 import { assertNativeActorResourceParameters } from "../commands/actor/native-validation.js";
 import { assertNativeInventoryCommand } from "../commands/variables/inventory-native.js";
+
+import { assertNativeMapCharacterParameters } from "../commands/movement/character-native.js";
 
 // Shared saved-slot envelopes. Family validators retain ownership of semantic ranges,
 // references and mode-specific saved values; this table is not full family acceptance.
@@ -152,6 +157,8 @@ export function assertNativeCommandParameters(
   path: string,
 ): void {
   if (!isKnownCommandCode(code)) return;
+  if (assertNativeBattleParameters(code, parameters, path)) return;
+  if (assertNativeEnemyParameters(code, parameters, path)) return;
   if (code === 302 || code === 605) {
     assertNativeShopParameters(code, parameters, path);
     return;
@@ -173,7 +180,10 @@ export function assertNativeCommandParameters(
   if (code === 122) assertNativeControlVariables(parameters, path);
   assertNativeSystemSettingsParameters(code, parameters, path);
   assertNativeActorResourceParameters(code, parameters, path);
+  assertNativeActorPresentationParameters(code, parameters, path);
   assertNativeInventoryCommand(code, parameters, path);
+
+  assertNativeMapCharacterParameters(code, parameters, path);
   try {
     assertNativeSwitchCommand(code, parameters);
   } catch (error) {
@@ -216,7 +226,7 @@ export function assertNativeCommandParameters(
       "MV-COMMAND-PARAMETERS",
       "Known command parameters do not match their native contract.",
       {
-        nativePath: `${path}.parameters`,
+        nativePath: `${path}.parameters${[118, 119, 355, 356, 655].includes(code) && parameters.length === 1 ? "[0]" : ""}`,
         expected: `E${code} saved slots ${signature || "[]"}`,
         actual: renderJsonValue(parameters),
       },
@@ -244,11 +254,26 @@ export function assertNativeCommandParameters(
         (parameters[index] as number) <= maximum,
       `integer ${minimum}..${maximum}, excluding negative zero`,
     );
-  if (code === 101 || code === 322) integer(code === 101 ? 1 : 4, 0);
+  if (code === 101) integer(1, 0, 2147483647);
   if (code === 101) {
     oneOf(2, [0, 1, 2]);
     oneOf(3, [0, 1, 2]);
   }
+  if (code === 103 || code === 104) integer(0, 1);
+  if (code === 103) integer(1, 1, 8);
+  if (code === 104) oneOf(1, [1, 2, 3, 4]);
+  if (code === 105) integer(0, 1, 8);
+  if ([401, 405, 108, 408].includes(code))
+    if ((parameters[0] as string).includes("\n"))
+      throw new CommandStructureError(
+        "MV-MESSAGE-LINE",
+        "A saved physical line cannot contain LF.",
+        {
+          nativePath: `${path}.parameters[0]`,
+          expected: "one physical line without LF; CR and empty text are preserved",
+          actual: renderJsonValue(parameters[0]),
+        },
+      );
   if (code === 102) {
     slot(
       0,
@@ -283,9 +308,13 @@ export function assertNativeCommandParameters(
   if (code === 232) oneOf(1, [0]);
   if (code === 201) {
     oneOf(0, [0, 1]);
+    integer(1, 1);
     if (parameters[0] === 0) {
-      integer(2, 0);
-      integer(3, 0);
+      integer(2, 0, 2147483647);
+      integer(3, 0, 2147483647);
+    } else {
+      integer(2, 1);
+      integer(3, 1);
     }
     oneOf(4, [0, 2, 4, 6, 8]);
     oneOf(5, [0, 1, 2]);
@@ -293,18 +322,53 @@ export function assertNativeCommandParameters(
   if (code === 202) {
     oneOf(0, [0, 1, 2]);
     oneOf(1, [0, 1]);
+    integer(2, 1);
     if (parameters[1] === 0) {
-      integer(3, 0);
-      integer(4, 0);
+      integer(3, 0, 2147483647);
+      integer(4, 0, 2147483647);
+    } else {
+      integer(3, 1);
+      integer(4, 1);
     }
   }
   if (code === 203) {
+    integer(0, 0);
     oneOf(1, [0, 1, 2]);
     if (parameters[1] === 0) {
+      integer(2, 0, 2147483647);
+      integer(3, 0, 2147483647);
+    } else if (parameters[1] === 1) {
+      integer(2, 1);
+      integer(3, 1);
+    } else {
       integer(2, 0);
-      integer(3, 0);
+      if (!Object.is(parameters[3], 0))
+        throw new CommandStructureError(
+          "MV-E203-UNSUPPORTED",
+          "Unsupported saved exchange padding; only exact positive zero is represented.",
+          {
+            nativePath: `${path}.parameters[3]`,
+            expected: "exact numeric zero",
+            actual: renderJsonValue(parameters[3]),
+          },
+        );
     }
     oneOf(4, [0, 2, 4, 6, 8]);
+  }
+  if (code === 285) {
+    integer(0, 1);
+    oneOf(1, [0, 1, 2, 3, 4, 5, 6]);
+    oneOf(2, [0, 1]);
+    integer(
+      3,
+      parameters[2] === 0 ? 0 : 1,
+      parameters[2] === 0 ? 2147483647 : Number.MAX_SAFE_INTEGER,
+    );
+    integer(
+      4,
+      parameters[2] === 0 ? 0 : 1,
+      parameters[2] === 0 ? 2147483647 : Number.MAX_SAFE_INTEGER,
+    );
   }
   if ([132, 133, 139, 140, 241, 245, 249, 250].includes(code)) {
     const index = code === 140 ? 1 : 0;

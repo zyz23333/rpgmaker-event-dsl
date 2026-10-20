@@ -10,10 +10,6 @@ import type {
 import type { ReferenceResolver } from "../../validation/types.js";
 
 export function balloonIconToCode(balloon: ShowBalloonIconDslCommand["balloon"]): number {
-  if (typeof balloon === "number") {
-    return balloon;
-  }
-
   switch (balloon) {
     case "exclamation":
       return 1;
@@ -35,6 +31,16 @@ export function balloonIconToCode(balloon: ShowBalloonIconDslCommand["balloon"])
       return 9;
     case "zzz":
       return 10;
+    case "userDefined1":
+      return 11;
+    case "userDefined2":
+      return 12;
+    case "userDefined3":
+      return 13;
+    case "userDefined4":
+      return 14;
+    case "userDefined5":
+      return 15;
   }
 }
 

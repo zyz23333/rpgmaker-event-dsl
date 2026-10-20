@@ -203,11 +203,13 @@ export declare function mapEvent(input: {
   pages: readonly unknown[];
 }): { kind: "mapEvent"; pages: readonly [{ commands: readonly unknown[] }] };
 export declare function page(input: { commands: readonly unknown[] }): unknown;
-export declare function selectItem(input: { variable: unknown; itemType?: 1 | 2 | 3 | 4 }): unknown;
-export declare function showScrollingText(input: { lines: readonly [string, ...string[]]; speed?: number }): unknown;
+export declare function selectItem(input: { variable: unknown; itemType: "regular" | "key" | "hiddenA" | "hiddenB" }): unknown;
+export declare function showScrollingText(input: { lines: readonly [string, ...string[]]; speed: number; noFastForward: boolean }): unknown;
 export declare function showText(input: {
   lines: readonly [string, ...string[]];
-  face?: { image: unknown; index?: number };
+  face: { image: unknown | null; index: number };
+  background: "window" | "dim" | "transparent";
+  position: "top" | "middle" | "bottom";
 }): unknown;
 export declare function variableRef(value: { id: number } | { name: string }): unknown;
 `,
@@ -238,10 +240,10 @@ export const message = mapEvent({
         showText({
           lines: ["Hello"],
           face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 0 },
-        }),
+         background: "window", position: "bottom" }),
         inputNumber({ variable: variableRef({ id: 1 }), digits: 3 }),
-        selectItem({ variable: variableRef({ id: 1 }), itemType: 2 }),
-        showScrollingText({ lines: ["Scroll"], speed: 4 }),
+        selectItem({ variable: variableRef({ id: 1 }), itemType: "key" }),
+        showScrollingText({ lines: ["Scroll"], speed: 4 , noFastForward: false }),
       ],
     }),
   ],

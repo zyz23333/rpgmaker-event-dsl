@@ -1,0 +1,40 @@
+
+> rpgmaker-event-dsl@0.1.2 test C:\Users\Shuen\.codex\worktrees\mv-ticket-34\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> vitest run "test/map-locations.test.ts"
+
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-34/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/map-locations.test.ts (3 tests | 1 failed) 13ms
+   × refuses unknown Transfer fields and invalid direct coordinates before mapping 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-locations.test.ts > refuses unknown Transfer fields and invalid direct coordinates before mapping
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/map-locations.test.ts:52:51
+     50|     { destination: { ...destination, y: undefined } },
+     51|     { destination: { ...destination, unused: true } },
+     52|   ]) expect(() => transferPlayer(input as never)).toThrow(/MV-E201/);
+       |                                                   ^
+     53| });
+     54|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  02:48:06
+   Duration  733ms (transform 237ms, setup 0ms, import 564ms, tests 13ms, environment 0ms)
+
+C:\Users\Shuen\.codex\worktrees\mv-ticket-34\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run "test/map-locations.test.ts"`
+Exit status 1

@@ -220,7 +220,7 @@ evidenceIt(
 export const context = commonEvent({ id: 1, name: "Context check", trigger: "none", commands: [${command}] });\n`;
       await writeFile(
         sourcePath,
-        source(`battleProcessing({ troop: troopRef({ id: 4 }) }),
+        source(`battleProcessing({ troop: { kind: 'fixed', troop: troopRef({ id: 4 }) } }),
 enemyAppear({ target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 2 } }),
 changeEquipment({ actor: actorRef({ id: 1 }), slotIndex: 5, equipment: { kind: "runtimeSelector", scope: "equipment", target: "idForSlot", id: 77 } })`),
       );
@@ -231,7 +231,7 @@ changeEquipment({ actor: actorRef({ id: 1 }), slotIndex: 5, equipment: { kind: "
       expect(await readFile(join(stateRoot, "sync-manifest.json"), "utf8")).toBe(manifest);
       const missing = [
         [
-          "showAnimation({ target: { kind: 'runtimeSelector', scope: 'character', target: 'currentEvent' }, animation: animationRef({ id: 99 }) })",
+          "showAnimation({ target: { kind: 'runtimeSelector', scope: 'character', target: 'currentEvent' }, animation: animationRef({ id: 99 }), wait: false })",
           "animation",
         ],
         ["changeTileset({ tileset: tilesetRef({ id: 99 }) })", "tileset"],
@@ -239,7 +239,7 @@ changeEquipment({ actor: actorRef({ id: 1 }), slotIndex: 5, equipment: { kind: "
           "enemyTransform({ target: { kind: 'runtimeSelector', scope: 'enemy', target: 'enemy', index: 0 }, enemy: enemyRef({ id: 99 }) })",
           "enemy",
         ],
-        ["battleProcessing({ troop: troopRef({ id: 99 }) })", "troop"],
+        ["battleProcessing({ troop: { kind: 'fixed', troop: troopRef({ id: 99 }) } })", "troop"],
         ["rawDslCommand({ code: 212, parameters: [0, 99, false] })", "animation"],
         ["rawDslCommand({ code: 282, parameters: [99] })", "tileset"],
         ["rawDslCommand({ code: 336, parameters: [0, 99] })", "enemy"],
@@ -249,11 +249,17 @@ changeEquipment({ actor: actorRef({ id: 1 }), slotIndex: 5, equipment: { kind: "
           const currentSource = source(command!.replace("99", String(id)));
           await writeFile(sourcePath, currentSource);
           const diagnostic =
-            kind === "tileset" && id === 0
+            id === 0 && (kind === "tileset" || kind === "animation")
               ? command!.startsWith("rawDslCommand")
-                ? "MV-E282-PARAMETERS"
-                : "MV-E282-INPUT"
-              : `Unknown ${kind} reference id: ${id}`;
+                ? kind === "tileset"
+                  ? "MV-E282-PARAMETERS"
+                  : "MV-E212-PARAMETERS"
+                : kind === "tileset"
+                  ? "MV-E282-INPUT"
+                  : "MV-E212-INPUT"
+              : id === 0 && (kind === "enemy" || kind === "troop")
+                ? `MV-E${kind === "enemy" ? 336 : 301}`
+                : `Unknown ${kind} reference id: ${id}`;
           await expect(compileWorkspace({ workspaceRoot, check: true })).rejects.toThrow(
             diagnostic,
           );

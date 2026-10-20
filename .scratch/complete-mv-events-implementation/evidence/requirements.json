@@ -15160,6 +15160,7 @@
       }
     },
     {
+<<<<<<< HEAD
       "id": "MV-S7-GAME-R4-053",
       "title": "Final actual R4 independent literal versus final built Workspace product games",
       "sources": [
@@ -15219,6 +15220,2062 @@
         "layer": "Final built public Workspace product and actual native normal-Scene game pairs"
       },
       "slice": "S7 final53",
+=======
+      "id": "MV-S6-LOCATION-001",
+      "title": "Complete Location modes through actual Workspace installation",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/34-map-locations-and-location-info.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent literal numeric saved records for 30 Transfer, 6 Vehicle, 15 Event and 14 Location Info combinations, in both Map and Common carriers, plus a harmless actual source name edit.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-location-fixtures.ts",
+        "sha256": "5d2799e1e19cdde07996a5cadf87672e98c05e412b7c693f158f4082131be58c"
+      },
+      "expected": "Actual Discovery/evaluation, Check, Compile, Diff and real Push preserve all independent numeric records and all fifteen complete project carriers; generated output includes all four mandatory owned carriers.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-locations-workspace.test.ts",
+        "name": "round trips all Location modes through actual discovered sources, Check, Compile, Diff and real Push with all fifteen carriers"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source Workspace API; native not-executed",
+        "owner": "Codex focused automated verification",
+        "layer": "Actual public Workspace API and complete filesystem values"
+      },
+      "slice": "34 / S6 focused DEV checkpoint",
+      "required": true
+    },
+    {
+      "id": "MV-S6-LOCATION-002",
+      "title": "Reject evaluated untyped Location sources without changing business state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/34-map-locations-and-location-info.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "All four helpers and direct nodes evaluated from actual local-constant/spread/as-any source containing an extra own field, with complete business state retained.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-location-fixtures.ts",
+        "sha256": "5d2799e1e19cdde07996a5cadf87672e98c05e412b7c693f158f4082131be58c"
+      },
+      "expected": "Check, Compile and Push refuse all eight actual evaluated invalid source forms, preserving source, Project Root, Snapshot, generated output, manifest and Discovery.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-locations-workspace.test.ts",
+        "name": "rejects actual untyped Location sources at Check, Compile and Push without changing complete business state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source Workspace API; native not-executed",
+        "owner": "Codex focused automated verification",
+        "layer": "Actual public Workspace API and complete filesystem values"
+      },
+      "slice": "34 / S6 focused DEV checkpoint",
+      "required": true
+    },
+    {
+      "id": "MV-S6-LOCATION-003",
+      "title": "Reject native Location coordinates and unsupported exchange padding atomically",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/34-map-locations-and-location-info.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent native JSON contains negative-zero Transfer x or unsupported Event exchange padding 42, after an existing successful source publication.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-location-fixtures.ts",
+        "sha256": "5d2799e1e19cdde07996a5cadf87672e98c05e412b7c693f158f4082131be58c"
+      },
+      "expected": "Decompile refuses precise native coordinate and unsupported padding diagnostics before source publication, preserving complete business state and every carrier.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-locations-workspace.test.ts",
+        "name": "refuses native Location coordinate and unsupported exchange states before source publication while retaining every carrier"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source Workspace API; native not-executed",
+        "owner": "Codex focused automated verification",
+        "layer": "Actual public Workspace API and complete filesystem values"
+      },
+      "slice": "34 / S6 focused DEV checkpoint",
+      "required": true
+    },
+    {
+      "id": "MV-S6-LOCATION-004",
+      "title": "Pending final E4/E6 product comparison and R5 native game acceptance",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/34-map-locations-and-location-info.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Final built Location product compared with E4/E6 shipped editor code facts and an independently bound R5 native game product pair; not executed by this DEV checkpoint.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-location-fixtures.ts",
+        "sha256": "5d2799e1e19cdde07996a5cadf87672e98c05e412b7c693f158f4082131be58c"
+      },
+      "expected": "E4/E6 exact target and code evidence compared with final built output; actual hardened R5 game pair exercises direct/variables/exchange/query and controlled battle Transfer, with all physical protection gates. This requirement remains pending.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/34-map-locations-dev-checkpoint.md",
+        "section": "## Pending native comparison and game acceptance"
+      },
+      "nativeGroups": [
+        "E4",
+        "E6",
+        "R5"
+      ],
+      "execution": {
+        "environment": "Pending Windows / Node22 final built Workspace and identified MV1.6.1 native game runtime",
+        "owner": "Codex finalization queue; pending",
+        "layer": "Pending exact REA comparison and actual game product pair"
+      },
+      "slice": "34 / S6 focused DEV checkpoint",
+      "required": true
+    },
+    {
+      "id": "MV-S6-CHARACTER-001",
+      "title": "Complete native matrix through real Workspace evaluation and Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E204 — Scroll Map"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "32 independent saved records cover four scroll directions, numeric distance -0, all selectors, explicit wait/flag values and all fifteen balloon names; all fifteen carriers compare through Discovery/evaluation and harmless real Push.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-characters.json",
+        "sha256": "8562b55021c4b2c1cfcd8661a509aafc68793239b5348e227a11ce4edb50f517"
+      },
+      "expected": "32 independent saved records cover four scroll directions, numeric distance -0, all selectors, explicit wait/flag values and all fifteen balloon names; all fifteen carriers compare through Discovery/evaluation and harmless real Push.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-characters-workspace.test.ts",
+        "name": "preserves the complete native matrix through real Workspace evaluation and Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 / synthetic public product verification",
+        "owner": "Codex implementer and independent finalizer",
+        "layer": "focused DEV automated"
+      },
+      "slice": "S6 / ticket35",
+      "required": true
+    },
+    {
+      "id": "MV-S6-CHARACTER-002",
+      "title": "Evaluated helper and direct-node excess fields refuse before projection",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E204 — Scroll Map"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A5",
+        "A6",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "All eight owned helpers/direct kinds are exercised as local const, spread, asserted and direct values; Check/Compile identify owned excess fields, and Diff/Push freshness refusal preserves all source, Discovery, Project Root, Snapshot, generated files, config and manifest bytes.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-characters.json",
+        "sha256": "8562b55021c4b2c1cfcd8661a509aafc68793239b5348e227a11ce4edb50f517"
+      },
+      "expected": "All eight owned helpers/direct kinds are exercised as local const, spread, asserted and direct values; Check/Compile identify owned excess fields, and Diff/Push freshness refusal preserves all source, Discovery, Project Root, Snapshot, generated files, config and manifest bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-characters-workspace.test.ts",
+        "name": "rejects evaluated"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 / synthetic public product verification",
+        "owner": "Codex implementer and independent finalizer",
+        "layer": "focused DEV automated"
+      },
+      "slice": "S6 / ticket35",
+      "required": true
+    },
+    {
+      "id": "MV-S6-CHARACTER-003",
+      "title": "Invalid native slots and fixed animation references refuse before publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E204 — Scroll Map"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A6",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Located invalid native saved slots, categorical negative zero and missing fixed Animations entries refuse Decompile before publishing candidate source and preserve complete business state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-characters.json",
+        "sha256": "8562b55021c4b2c1cfcd8661a509aafc68793239b5348e227a11ce4edb50f517"
+      },
+      "expected": "Located invalid native saved slots, categorical negative zero and missing fixed Animations entries refuse Decompile before publishing candidate source and preserve complete business state.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-characters-workspace.test.ts",
+        "name": "refuses saved"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 / synthetic public product verification",
+        "owner": "Codex implementer and independent finalizer",
+        "layer": "focused DEV automated"
+      },
+      "slice": "S6 / ticket35",
+      "required": true
+    },
+    {
+      "id": "MV-S6-CHARACTER-004",
+      "title": "Current public types require named enums and explicit wait",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E204 — Scroll Map"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "negative"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Numeric direction/balloon aliases and missing animation wait fail actual public package type checking without changing business state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-characters.json",
+        "sha256": "8562b55021c4b2c1cfcd8661a509aafc68793239b5348e227a11ce4edb50f517"
+      },
+      "expected": "Numeric direction/balloon aliases and missing animation wait fail actual public package type checking without changing business state.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-characters-workspace.test.ts",
+        "name": "public types reject incomplete or numeric aliases"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 / synthetic public product verification",
+        "owner": "Codex implementer and independent finalizer",
+        "layer": "focused DEV automated"
+      },
+      "slice": "S6 / ticket35",
+      "required": true
+    },
+    {
+      "id": "MV-S6-CHARACTER-005",
+      "title": "Approved command seams validate complete map-character contract",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E204 — Scroll Map"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent command literals cover enum maps, parameterless arrays, complete flags, shape/value/native/raw failures, precise paths and Map/Common/Troop selector warnings versus fixed-reference errors.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-characters.json",
+        "sha256": "8562b55021c4b2c1cfcd8661a509aafc68793239b5348e227a11ce4edb50f517"
+      },
+      "expected": "Independent command literals cover enum maps, parameterless arrays, complete flags, shape/value/native/raw failures, precise paths and Map/Common/Troop selector warnings versus fixed-reference errors.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-characters.test.ts",
+        "name": "MV-S6-CHARACTER-005:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 / synthetic public product verification",
+        "owner": "Codex implementer and independent finalizer",
+        "layer": "focused DEV automated"
+      },
+      "slice": "S6 / ticket35",
+      "required": true
+    },
+    {
+      "id": "MV-S6-CHARACTER-006",
+      "title": "Pending actual R1/R4/R6 normal Scene product comparison",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E204 — Scroll Map"
+        }
+      ],
+      "dimensions": [
+        "A4",
+        "A5"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "static-inference",
+      "input": "Final R1/R4/R6 native literal/compiled built-product pairs remain required; no game execution is claimed by focused DEV.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-characters.json",
+        "sha256": "8562b55021c4b2c1cfcd8661a509aafc68793239b5348e227a11ce4edb50f517"
+      },
+      "expected": "Final R1/R4/R6 native literal/compiled built-product pairs remain required; no game execution is claimed by focused DEV.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/35-map-characters-dev.md",
+        "section": "Pending native R1/R4/R6"
+      },
+      "nativeGroups": [
+        "R1",
+        "R4",
+        "R6"
+      ],
+      "execution": {
+        "environment": "Final isolated MV1.6.1 / runtime / NW.js normal Scene scheduler",
+        "owner": "Codex implementer and independent finalizer",
+        "layer": "pending allocated native acceptance"
+      },
+      "slice": "S6 / ticket35",
+      "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-001",
+      "title": "Public command boundaries refuse discarded fields and symbolic negative zero",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "Public command boundaries refuse discarded fields and symbolic negative zero",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+        "name": "rejects symbolic switch negative zero before Decompile or known raw mapping and retains positive zero controls"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Approved public command / actual Discovery and evaluated Workspace source boundary"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-002",
+      "title": "Actual local, spread, asserted and direct source fields refuse before output",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E112 — Loop"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "Actual local, spread, asserted and direct source fields refuse before output",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+        "name": "MV-S3-INPUT-002:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Approved public command / actual Discovery and evaluated Workspace source boundary"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-003",
+      "title": "All fifteen reference constructors preserve valid controls and reject discarded source fields",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "All fifteen reference constructors preserve valid controls and reject discarded source fields",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+        "name": "MV-S3-INPUT-003:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Approved public command / actual Discovery and evaluated Workspace source boundary"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-004",
+      "title": "Nested direct switch references and ranges refuse excess and ambiguous fields",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "Nested direct switch references and ranges refuse excess and ambiguous fields",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+        "name": "MV-S3-INPUT-004:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Approved public command / actual Discovery and evaluated Workspace source boundary"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-005",
+      "title": "Native categorical signed zero refuses before publication while positive-zero controls roundtrip",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "Native categorical signed zero refuses before publication while positive-zero controls roundtrip",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+        "name": "MV-S3-INPUT-005:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Approved public command / actual Discovery and evaluated Workspace source boundary"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-006",
+      "title": "Evaluated known raw categorical signed zero reports its precise authored slot",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "Evaluated known raw categorical signed zero reports its precise authored slot",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+        "name": "MV-S3-INPUT-006:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Approved public command / actual Discovery and evaluated Workspace source boundary"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-007",
+      "title": "Pending final integrated source/build/built and impacted R1/R3 validation",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "Pending final integrated source/build/built and impacted R1/R3 validation",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-dev.md",
+        "section": "## Pending final integration verification"
+      },
+      "nativeGroups": [
+        "R1",
+        "R3"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Not executed: final integrated delivery and native normal-Scene game regression"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S6-MESSAGE-001",
+      "title": "Exact messages in complete Map/Common/Troop through discovered source and edited Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/29-messages-scrolling-text-and-comments.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E103 — Input Number"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E104 — Select Item"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E105 — Show Scrolling Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E108 — Comment"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent literal native message records and complete synthetic carriers; required named formal input, untyped input and known raw anomalies. No editor UI or game execution is claimed.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/message-workspace.test.ts",
+        "sha256": "65f8b327c82f2bb594e3e2ee34cdf6db2c5aa641ab6fe9e026b6eb2e8423f23d"
+      },
+      "expected": "Exact messages in complete Map/Common/Troop through discovered source and edited Push",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/message-workspace.test.ts",
+        "name": "discovers and evaluates generated formal messages in Map/Common/Troop before exact Compile/Diff/Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "29 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-MESSAGE-002",
+      "title": "Authored helper-before-copy, forged known messages and stale Push preserve complete business state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/29-messages-scrolling-text-and-comments.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E103 — Input Number"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E104 — Select Item"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E105 — Show Scrolling Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E108 — Comment"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent literal native message records and complete synthetic carriers; required named formal input, untyped input and known raw anomalies. No editor UI or game execution is claimed.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/message-workspace.test.ts",
+        "sha256": "65f8b327c82f2bb594e3e2ee34cdf6db2c5aa641ab6fe9e026b6eb2e8423f23d"
+      },
+      "expected": "Authored helper-before-copy, forged known messages and stale Push preserve complete business state",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/message-workspace.test.ts",
+        "name": "rejects helper-before-copy and forged messages without changing complete Workspace business state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "29 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-MESSAGE-003",
+      "title": "Invalid native physical records fail before publishing any generated source in every carrier",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/29-messages-scrolling-text-and-comments.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E103 — Input Number"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E104 — Select Item"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E105 — Show Scrolling Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E108 — Comment"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent literal native message records and complete synthetic carriers; required named formal input, untyped input and known raw anomalies. No editor UI or game execution is claimed.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/message-workspace.test.ts",
+        "sha256": "65f8b327c82f2bb594e3e2ee34cdf6db2c5aa641ab6fe9e026b6eb2e8423f23d"
+      },
+      "expected": "Invalid native physical records fail before publishing any generated source in every carrier",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/message-workspace.test.ts",
+        "name": "rejects invalid saved %s messages before source publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "29 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-MESSAGE-004",
+      "title": "Actual TypeScript source rejects missing required settings and removed positional/numeric forms",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/29-messages-scrolling-text-and-comments.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E103 — Input Number"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E104 — Select Item"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E105 — Show Scrolling Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E108 — Comment"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent literal native message records and complete synthetic carriers; required named formal input, untyped input and known raw anomalies. No editor UI or game execution is claimed.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/message-workspace.test.ts",
+        "sha256": "65f8b327c82f2bb594e3e2ee34cdf6db2c5aa641ab6fe9e026b6eb2e8423f23d"
+      },
+      "expected": "Actual TypeScript source rejects missing required settings and removed positional/numeric forms",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/message-workspace.test.ts",
+        "name": "rejects omitted or positional public message fields in actual TypeScript source"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public Workspace API, actual Discovery and TypeScript evaluation; no native execution claimed"
+      },
+      "slice": "29 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-MESSAGE-005",
+      "title": "Complete message value domains and exact saved fields through public compiler/decompiler and Staged Data Graph",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/29-messages-scrolling-text-and-comments.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E101 — Show Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E103 — Input Number"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E104 — Select Item"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E105 — Show Scrolling Text"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E108 — Comment"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent literal native message records and complete synthetic carriers; required named formal input, untyped input and known raw anomalies. No editor UI or game execution is claimed.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/message.test.ts",
+        "sha256": "5e7ac40426cd745284791105fbd9e36befc7ba2b351bd92cbd864e6fcb30dc16"
+      },
+      "expected": "Complete message value domains and exact saved fields through public compiler/decompiler and Staged Data Graph",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/message.test.ts",
+        "name": "preserves None with an independent nonzero face index and named message settings"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22; actual temporary filesystem and source or freshly built public entry",
+        "owner": "Automated test runner; agent records reviewed run",
+        "layer": "Public authoring, compiler/decompiler and Staged Data Graph; no native execution claimed"
+      },
+      "slice": "29 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-TEXT-001",
+      "title": "round trips exact Label Script and Plugin records in all three event containers and all fifteen carriers",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E355 — Script"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent complete native E118/E119/E355/E356 records in Map/Common/Troop carriers.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/label-script-plugin-cases.json",
+        "sha256": "f32ae15b4fc3d70ada9ae03c3d3b9408313193a951ccedaa7419937cf6f5066c"
+      },
+      "expected": "Exact parsed fifteen-carrier equality through discovered/evaluated source, no-op and actual owned-difference Push.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/label-script-plugin-workspace.test.ts",
+        "name": "MV-S6-TEXT-001: round trips exact Label Script and Plugin records in all three event containers and all fifteen carriers"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "ticket 30 implementer",
+        "layer": "source-product Workspace synthetic development"
+      },
+      "slice": "30",
+      "required": true
+    },
+    {
+      "id": "MV-S6-TEXT-002",
+      "title": "malformed known Script groups refuse complete Decompile publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E355 — Script"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3",
+        "A4",
+        "A6",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Invalid known native groups, closed Script Command Gate or source-local const/spread/as and direct untyped values.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/label-script-plugin-cases.json",
+        "sha256": "f32ae15b4fc3d70ada9ae03c3d3b9408313193a951ccedaa7419937cf6f5066c"
+      },
+      "expected": "Refuse invalid inputs with applicable complete source, configuration, Discovery, Project Root, Snapshot and manifest state retained.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/label-script-plugin-workspace.test.ts",
+        "name": "MV-S6-TEXT-002: malformed known Script groups refuse complete Decompile publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "ticket 30 implementer",
+        "layer": "source-product Workspace synthetic development"
+      },
+      "slice": "30",
+      "required": true
+    },
+    {
+      "id": "MV-S6-TEXT-003",
+      "title": "closed Gate permits Decompile and complete Plugin lines but rejects nested and raw empty scripts without publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E355 — Script"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3",
+        "A4",
+        "A6",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Invalid known native groups, closed Script Command Gate or source-local const/spread/as and direct untyped values.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/label-script-plugin-cases.json",
+        "sha256": "f32ae15b4fc3d70ada9ae03c3d3b9408313193a951ccedaa7419937cf6f5066c"
+      },
+      "expected": "Refuse invalid inputs with applicable complete source, configuration, Discovery, Project Root, Snapshot and manifest state retained.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/label-script-plugin-workspace.test.ts",
+        "name": "MV-S6-TEXT-003: closed Gate permits Decompile and complete Plugin lines but rejects nested and raw empty scripts without publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "ticket 30 implementer",
+        "layer": "source-product Workspace synthetic development"
+      },
+      "slice": "30",
+      "required": true
+    },
+    {
+      "id": "MV-S6-TEXT-004",
+      "title": "source const spread casts and direct untyped commands retain strict text validation",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I6 — 文本、素材与 Native Saved Value"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E355 — Script"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3",
+        "A4",
+        "A6",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Invalid known native groups, closed Script Command Gate or source-local const/spread/as and direct untyped values.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/label-script-plugin-cases.json",
+        "sha256": "f32ae15b4fc3d70ada9ae03c3d3b9408313193a951ccedaa7419937cf6f5066c"
+      },
+      "expected": "Refuse invalid inputs with applicable complete source, configuration, Discovery, Project Root, Snapshot and manifest state retained.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/label-script-plugin-workspace.test.ts",
+        "name": "MV-S6-TEXT-004: source const spread casts and direct untyped commands retain strict text validation"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node 22",
+        "owner": "ticket 30 implementer",
+        "layer": "source-product Workspace synthetic development"
+      },
+      "slice": "30",
+      "required": true
+    },
+    {
+      "id": "MV-S6-TEXT-E5",
+      "title": "Ticket 30 allocated E5 final product/native verification",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/30-labels-scripts-and-plugin-lines.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3",
+        "A4",
+        "A5"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Final built public product and independently isolated native literal/compiled projects after latest integration.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/label-script-plugin-cases.json",
+        "sha256": "f32ae15b4fc3d70ada9ae03c3d3b9408313193a951ccedaa7419937cf6f5066c"
+      },
+      "expected": "Allocated E5 product comparison or actual MV 1.6.1 normal-scene R3/R7 execution with independent expectations and physical isolation proof; pending at DEV checkpoint.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/30-text-dev-checkpoint.md",
+        "section": "## Pending native and final verification"
+      },
+      "nativeGroups": [
+        "E5"
+      ],
+      "execution": {
+        "environment": "Windows / Node 22 / MV 1.6.1 runtime",
+        "owner": "ticket 30 finalizer after root serialization",
+        "layer": "pending final native product verification"
+      },
+      "slice": "30",
+      "required": true
+    },
+    {
+      "id": "MV-S6-TEXT-R3",
+      "title": "Ticket 30 allocated R3 final product/native verification",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/30-labels-scripts-and-plugin-lines.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3",
+        "A4",
+        "A5"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Final built public product and independently isolated native literal/compiled projects after latest integration.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/label-script-plugin-cases.json",
+        "sha256": "f32ae15b4fc3d70ada9ae03c3d3b9408313193a951ccedaa7419937cf6f5066c"
+      },
+      "expected": "Allocated E5 product comparison or actual MV 1.6.1 normal-scene R3/R7 execution with independent expectations and physical isolation proof; pending at DEV checkpoint.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/30-text-dev-checkpoint.md",
+        "section": "## Pending native and final verification"
+      },
+      "nativeGroups": [
+        "R3"
+      ],
+      "execution": {
+        "environment": "Windows / Node 22 / MV 1.6.1 runtime",
+        "owner": "ticket 30 finalizer after root serialization",
+        "layer": "pending final native product verification"
+      },
+      "slice": "30",
+      "required": true
+    },
+    {
+      "id": "MV-S6-TEXT-R7",
+      "title": "Ticket 30 allocated R7 final product/native verification",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/30-labels-scripts-and-plugin-lines.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3",
+        "A4",
+        "A5"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Final built public product and independently isolated native literal/compiled projects after latest integration.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/label-script-plugin-cases.json",
+        "sha256": "f32ae15b4fc3d70ada9ae03c3d3b9408313193a951ccedaa7419937cf6f5066c"
+      },
+      "expected": "Allocated E5 product comparison or actual MV 1.6.1 normal-scene R3/R7 execution with independent expectations and physical isolation proof; pending at DEV checkpoint.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/30-text-dev-checkpoint.md",
+        "section": "## Pending native and final verification"
+      },
+      "nativeGroups": [
+        "R7"
+      ],
+      "execution": {
+        "environment": "Windows / Node 22 / MV 1.6.1 runtime",
+        "owner": "ticket 30 finalizer after root serialization",
+        "layer": "pending final native product verification"
+      },
+      "slice": "30",
+      "required": true
+    },
+    {
+      "id": "MV-S6-ACTOR-PRESENTATION-001",
+      "title": "Actor presentation in complete three-container evaluated Workspace and edited Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/44-actor-text-and-character-images.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-20 用户执行修订：按批次开发，减少全量与证据开销"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E303"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E320"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E323"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E324"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independently authored synthetic native arrays, original/untyped helper inputs and actual generated TypeScript source in linked tests. No editor UI or actual game execution claim.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/actor-presentation-cases.json",
+        "sha256": "e4670ed4be1e6f383c0ebcafcfbf1deb6b458776630b79f29c5cb7800aa7e9c6"
+      },
+      "expected": "Independent19-command fixture roundtrips Map/Common/Troop via Discovery/evaluation; Check is read-only; complete four-file Compile Output and all15 Project/Snapshot files match independent expected data after an authored edit and Push.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/actor-presentation-workspace.test.ts",
+        "name": "MV-S6-ACTOR-PRESENTATION-001:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / Vitest4.1.9; original deadlines and two workers",
+        "owner": "Text capability batch29/30/44; current actual logs in29-30-44-text-capability-batch.md",
+        "layer": "Public authoring/compiler/decompiler/graph and actual Workspace source evaluation/filesystem"
+      },
+      "slice": "44 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-ACTOR-PRESENTATION-002",
+      "title": "Original helper and forged Actor presentation source refuse writes and stale Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/44-actor-text-and-character-images.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-20 用户执行修订：按批次开发，减少全量与证据开销"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E303"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E320"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E323"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E324"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independently authored synthetic native arrays, original/untyped helper inputs and actual generated TypeScript source in linked tests. No editor UI or actual game execution claim.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/actor-presentation-cases.json",
+        "sha256": "e4670ed4be1e6f383c0ebcafcfbf1deb6b458776630b79f29c5cb7800aa7e9c6"
+      },
+      "expected": "Both original helper extra-field and direct native-domain violations reject Check/Compile and stale Push while complete source, Project, Snapshot, generated data, manifest, config/descriptor, pending state and Discovery remain unchanged.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/actor-presentation-workspace.test.ts",
+        "name": "MV-S6-ACTOR-PRESENTATION-002:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / Vitest4.1.9; original deadlines and two workers",
+        "owner": "Text capability batch29/30/44; current actual logs in29-30-44-text-capability-batch.md",
+        "layer": "Public authoring/compiler/decompiler/graph and actual Workspace source evaluation/filesystem"
+      },
+      "slice": "44 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-ACTOR-PRESENTATION-003",
+      "title": "Late malformed recognized Actor image refuses all source publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/44-actor-text-and-character-images.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-20 用户执行修订：按批次开发，减少全量与证据开销"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E303"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E320"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E323"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E324"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independently authored synthetic native arrays, original/untyped helper inputs and actual generated TypeScript source in linked tests. No editor UI or actual game execution claim.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/actor-presentation-cases.json",
+        "sha256": "e4670ed4be1e6f383c0ebcafcfbf1deb6b458776630b79f29c5cb7800aa7e9c6"
+      },
+      "expected": "A late native E322 out-of-domain face index fails with a located parameters[4] diagnostic before any source is published; all Workspace business state remains unchanged.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/actor-presentation-workspace.test.ts",
+        "name": "MV-S6-ACTOR-PRESENTATION-003:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / Vitest4.1.9; original deadlines and two workers",
+        "owner": "Text capability batch29/30/44; current actual logs in29-30-44-text-capability-batch.md",
+        "layer": "Public authoring/compiler/decompiler/graph and actual Workspace source evaluation/filesystem"
+      },
+      "slice": "44 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-ACTOR-PRESENTATION-004",
+      "title": "Public Actor text and image helpers compiler decompiler raw domains and accurate warnings",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/44-actor-text-and-character-images.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-20 用户执行修订：按批次开发，减少全量与证据开销"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E303"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E320"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E323"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E324"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independently authored synthetic native arrays, original/untyped helper inputs and actual generated TypeScript source in linked tests. No editor UI or actual game execution claim.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/actor-presentation-cases.json",
+        "sha256": "e4670ed4be1e6f383c0ebcafcfbf1deb6b458776630b79f29c5cb7800aa7e9c6"
+      },
+      "expected": "The five Actor presentation public-seam cases preserve independent None/index and complete19-record vectors, evaluate canonical source, reject original/native/raw malformed fields and face domains, retain long/control-character text and numeric signed zero, and emit exact text/layout/battle diagnostics.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/actor-presentation.test.ts",
+        "name": "evaluates canonical Actor presentation source against independent complete saved vectors"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / Vitest4.1.9; original deadlines and two workers",
+        "owner": "Text capability batch29/30/44; current actual logs in29-30-44-text-capability-batch.md",
+        "layer": "Public authoring/compiler/decompiler/graph and actual Workspace source evaluation/filesystem"
+      },
+      "slice": "44 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-ACTOR-PRESENTATION-NATIVE",
+      "title": "Final E5/E6 product comparison and actual R6 Actor text image display remain required",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/44-actor-text-and-character-images.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-20 用户执行修订：按批次开发，减少全量与证据开销"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E303"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E320"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E323"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E324"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Final built product, same-identity editor code evidence08/09 and isolated actual MV1.6.1/NW.js normal-scene R6 controls. Not executed by this development batch.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/actor-presentation-cases.json",
+        "sha256": "e4670ed4be1e6f383c0ebcafcfbf1deb6b458776630b79f29c5cb7800aa7e9c6"
+      },
+      "expected": "51 completes final E5/E6 REA/product comparisons;54 observes actual R6 Name Input, complete Actor strings and independent None/character/face/battler/vehicle display behavior. Synthetic extremes retain their source classification.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/29-30-44-text-capability-batch.md",
+        "section": "## Remaining final acceptance"
+      },
+      "nativeGroups": [
+        "E5",
+        "E6",
+        "R6"
+      ],
+      "execution": {
+        "environment": "Windows / Node22 / final built product and MV1.6.1/NW.js",
+        "owner": "Final51 and54 runners",
+        "layer": "Final REA/product comparison and actual game observation; pending"
+      },
+      "slice": "44 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-BATTLE-001",
+      "title": "preserves Enemy selectors and nested Battle bodies through evaluated formal and raw source and complete Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/45-enemy-state-and-appearance.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/46-battle-processing-and-control.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E301"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored exact native command records, all three event carriers and real Discovery/loadDefinitionFile; hidden external members retained.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/battle-command-cases.json",
+        "sha256": "3cbfc7ef5d0762e0b81fd7d2e5a535baa53a6368c6d705c5a2162f5703fa0b63"
+      },
+      "expected": "All complete saved carriers match literal input; Check is read-only; formal/raw Compile agree with independent fixture; changed Diff and real Push retain all15 project data files.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/battle-workspace.test.ts",
+        "name": "MV-S6-BATTLE-001: preserves Enemy selectors and nested Battle bodies through evaluated formal and raw source and complete Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0; focused source-entry DEV; final built checks belong to48",
+        "owner": "Codex45/46 implementer /root/ticket_32",
+        "layer": "Public Workspace API, actual Discovery/evaluation and filesystem; native game execution not claimed"
+      },
+      "slice": "45/46 / S6 DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S6-BATTLE-002",
+      "title": "rejects evaluated malformed helper direct raw reference and nested Gate sources without publishing business state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/45-enemy-state-and-appearance.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/46-battle-processing-and-control.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E301"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Evaluated helper/direct/raw command sources with invalid fields, references, local constants, required fields and nested disabled Script Command Gate.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/battle-command-cases.json",
+        "sha256": "3cbfc7ef5d0762e0b81fd7d2e5a535baa53a6368c6d705c5a2162f5703fa0b63"
+      },
+      "expected": "Check/Compile reject with intended diagnostics and preserve source/project/Snapshot/generated/manifest/config/Discovery/pending state; Push refuses stale output.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/battle-workspace.test.ts",
+        "name": "MV-S6-BATTLE-002: rejects evaluated malformed helper direct raw reference and nested Gate sources without publishing business state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0; focused source-entry DEV; final built checks belong to48",
+        "owner": "Codex45/46 implementer /root/ticket_32",
+        "layer": "Public Workspace API, actual Discovery/evaluation and filesystem; native game execution not claimed"
+      },
+      "slice": "45/46 / S6 DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S6-BATTLE-003",
+      "title": "refuses late malformed Enemy and Battle native records before Decompile publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/45-enemy-state-and-appearance.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/46-battle-processing-and-control.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E301"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Late known-native rejection for E331/332/333/334/335/336/337/342/339/340/301 in real Common carrier.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/battle-command-cases.json",
+        "sha256": "3cbfc7ef5d0762e0b81fd7d2e5a535baa53a6368c6d705c5a2162f5703fa0b63"
+      },
+      "expected": "Decompile rejects before publishing source, identifies exact native list position and preserves complete business state.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/battle-workspace.test.ts",
+        "name": "MV-S6-BATTLE-003: refuses late malformed Enemy and Battle native records before Decompile publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0; focused source-entry DEV; final built checks belong to48",
+        "owner": "Codex45/46 implementer /root/ticket_32",
+        "layer": "Public Workspace API, actual Discovery/evaluation and filesystem; native game execution not claimed"
+      },
+      "slice": "45/46 / S6 DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S6-BATTLE-004",
+      "title": "final Enemy and Battle editor reverse-engineering comparison remains required",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/45-enemy-state-and-appearance.md",
+          "section": "## Scope"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/46-battle-processing-and-control.md",
+          "section": "## Scope"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Final candidate E2 Battle flags/bodies and E4 fixed defaults/saved modes against editor initialization/load/confirm/save code; not executed in45/46 DEV.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/battle-command-cases.json",
+        "sha256": "3cbfc7ef5d0762e0b81fd7d2e5a535baa53a6368c6d705c5a2162f5703fa0b63"
+      },
+      "expected": "Final49/50 bind same-identity REA facts and independent product output; static inference is not editor UI capture.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/battle-batch-delivery.md",
+        "section": "## Final native work"
+      },
+      "nativeGroups": [
+        "E2",
+        "E4"
+      ],
+      "execution": {
+        "environment": "Windows / MV1.6.1 / actual final candidate; pending final48–54",
+        "owner": "Final49/50 and52/53/54 implementers",
+        "layer": "Editor REA plus independent final product comparison"
+      },
+      "slice": "45/46 / required final native pending",
+      "required": true
+    },
+    {
+      "id": "MV-S6-BATTLE-005",
+      "title": "final actual Enemy and Battle runtime validation remains required",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/45-enemy-state-and-appearance.md",
+          "section": "## Scope"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/46-battle-processing-and-control.md",
+          "section": "## Scope"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Final52/53/54 actual MV1.6.1/NW.js pairs: full original17-page/three-turn R2, Force/selector contexts and Enemy animations. Not executed in45/46 DEV.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/battle-command-cases.json",
+        "sha256": "3cbfc7ef5d0762e0b81fd7d2e5a535baa53a6368c6d705c5a2162f5703fa0b63"
+      },
+      "expected": "Preserve full battle page scheduling/results, hidden/member behavior, Force skill-scope targets, residual Abort state, animation effect/visibility and no-op/error consequences under actual game runtime; no patched engine substitute.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/battle-batch-delivery.md",
+        "section": "## Final native work"
+      },
+      "nativeGroups": [
+        "R2",
+        "R4",
+        "R6"
+      ],
+      "execution": {
+        "environment": "Windows / MV1.6.1 / actual final candidate; pending final48–54",
+        "owner": "Final49/50 and52/53/54 implementers",
+        "layer": "Actual MV1.6.1/NW.js game pairs; no runtime result claimed"
+      },
+      "slice": "45/46 / required final native pending",
+>>>>>>> 03c87fbf0a45c0304c612dbce64a49bbf8a16235
       "required": true
     }
   ]

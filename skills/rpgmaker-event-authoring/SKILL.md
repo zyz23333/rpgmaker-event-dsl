@@ -43,11 +43,22 @@ Turn RPG Maker MV gameplay intent into idiomatic Event DSL source. Use Workspace
    `references/inventory-party.md` before choosing quantity modes, project targets
    or inactive saved equipment and initialization flags.
 
+   For Transfer, vehicle placement, Event Location or Location Info, read
+   `references/map-locations.md` before choosing modes, selectors, coordinates,
+   defaults or interpreting bounds warnings.
+
+   For scrolling, vehicle boarding, transparency, animations, balloons, event
+   erasure or followers, read `references/map-characters.md` before choosing
+   directions, targets, required flags, waits or caller-dependent behavior.
+
+   For enemy state or battle control, read `references/enemies-and-battle.md`
+   before choosing selectors, resource operands, result bodies or forced targets.
+
 4. Author Definition Source.
 
    Edit Definition Source selected by the Workspace Config. Preserve existing Entry Identity and local source style. Use the MV-aligned DSL helpers for RPG Maker MV 1.6.1 editor command families. Keep continuation commands inside their parent helper, such as text lines in `showText(...)`, choice branches in `showChoices(...)`, battle result branches in `battleProcessing(...)`, shop goods continuations in `shopProcessing(...)`, and route commands in `setMovementRoute(...)`.
 
-   Use Project Data Reference helpers for database-backed data and no-scan Asset Reference helpers for assets: `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)`. Use `script(...)` or `scriptInput(...)` only when the Workspace Script Command Gate allows JavaScript-bearing inputs. Use `pluginCommand(...)` only for MV's native plugin command string and do not invent plugin-specific validation. Use `rawDslCommand(...)` only for confirmed raw MV command shapes that intentionally remain escape hatches.
+   Use Project Data Reference helpers for database-backed data and no-scan Asset Reference helpers for assets: `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)`. Use `label({ name })` and `jumpToLabel({ name })` for exact per-list Label targets. Use `script({ code })` or `scriptInput({ code })` only when the Workspace Script Command Gate allows JavaScript-bearing inputs. Use `pluginCommand({ line })` for a complete MV Plugin Command Line. Read [event patterns](references/event-patterns.md) for Label scope, Script physical records and Plugin whitespace. Use `rawDslCommand(...)` only for confirmed raw MV command shapes that intentionally remain escape hatches.
 
    Completion criterion: each intended RPG Maker MV event command is represented by a supported DSL Command or a justified, explicit escape hatch.
 

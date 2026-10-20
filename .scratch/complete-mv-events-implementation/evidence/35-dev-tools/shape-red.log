@@ -1,0 +1,36 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-35/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/map-characters.test.ts (4 tests | 1 failed) 19ms
+   × refuses owned helper fields before projection and direct command unknown fields 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-characters.test.ts > refuses owned helper fields before projection and direct command unknown fields
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/map-characters.test.ts:42:64
+     40|   ] as const;
+     41|   for (const [helper, input] of cases) {
+     42|     expect(() => helper({...input, unexpected:true} as never)).toThrow…
+       |                                                                ^
+     43|     const valid = helper(input as never);
+     44|     expect(() => compile([{...valid,unexpected:true} as never])).toThr…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  03:06:02
+   Duration  1.28s (transform 384ms, setup 0ms, import 1.12s, tests 19ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-35\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/map-characters.test.ts

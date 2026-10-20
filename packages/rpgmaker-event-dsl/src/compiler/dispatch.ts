@@ -1,10 +1,22 @@
+import { assertBattleInput } from "../commands/battle/validation.js";
+import { assertEnemyInput } from "../commands/enemy/validation.js";
+import { compileEnemyResourceValue } from "../commands/enemy/compile.js";
 import type { CommonEventDefinition, DslCommand } from "../domain/types.js";
+import { scrollDirections } from "../commands/movement/character-codes.js";
+import {
+  assertMapCharacterInput,
+  isMapCharacterKind,
+} from "../commands/movement/character-validation.js";
 import type { ReferenceResolver } from "../validation/types.js";
 import type { RawEventCommand, CommandOrigins } from "./types.js";
 import { assertControlTimerInput } from "../commands/variables/validation.js";
+
+import { compileShowText } from "../commands/message/compile.js";
+import { resolveMessageVariable } from "../commands/message/validation.js";
 import { assertDslCommandList } from "../validation/dsl-command-inputs.js";
-import { assertShowChoicesInput } from "../commands/message/validation.js";
+import { assertShowChoicesInput } from "../commands/message/choices-validation.js";
 import { assertScreenInput } from "../commands/screen/validation.js";
+import { assertSwitchCommandInput } from "../commands/variables/switch-inputs.js";
 import { assertMapAppearanceInput } from "../commands/map/validation.js";
 import { assertPictureInput } from "../commands/screen/picture-inputs.js";
 import { assertPictureReferences } from "../commands/screen/picture-references.js";
@@ -14,6 +26,7 @@ import {
 } from "../commands/movement/access-validation.js";
 import { assertSceneCommandInput } from "../commands/system/validation.js";
 import { assertAudioCommandInput } from "../commands/audio/validation.js";
+import { assertActorPresentationInput } from "../commands/actor/presentation-validation.js";
 import { assertActorResourceInput } from "../commands/actor/validation.js";
 import {
   compileActorResourceTarget,
@@ -24,6 +37,13 @@ import {
   assertConditionalBodyOutput,
   assertConditionalReferences,
 } from "../commands/flow/conditional-validation.js";
+import { assertDslObject, assertDslTextInput } from "../validation/dsl-command-inputs.js";
+import {
+  locationDirectionToCode,
+  transferFadeToCode,
+  resolveLocationReference,
+} from "../commands/map/compile.js";
+import { assertMapLocationInput } from "../commands/map/location-validation.js";
 import {
   resolveCommonEventCall,
   assertLoopCommand,
@@ -64,7 +84,6 @@ import {
   resolveControlValue,
   compileControlVariablesParameters,
   compileReferenceTargetRange,
-  compileOperateValueParameters,
   compileQuantityParameters,
 } from "../commands/variables/compile.js";
 export {
@@ -150,53 +169,59 @@ export function compileNodes(
   for (const [nodeIndex, node] of nodes.entries()) {
     assertPictureInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     assertAudioCommandInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
+    assertSwitchCommandInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
     assertMapAppearanceInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     assertSystemAccessInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true);
     assertWindowColorInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true);
     assertSceneCommandInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
+    assertEnemyInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     assertActorResourceInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
+    assertActorPresentationInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     if (isInventoryCommandKind(node.kind))
       assertInventoryInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
+
+    if (isMapCharacterKind(node.kind))
+      assertMapCharacterInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     const outputStart = output.length;
     switch (node.kind) {
       case "showText":
-        output.push({
-          code: 101,
-          indent,
-          parameters: [
-            node.face?.image.name ?? "",
-            node.face?.index ?? 0,
-            node.background ?? 0,
-            node.positionType ?? 2,
-          ],
-        });
-        for (const line of node.lines) {
-          output.push({
-            code: 401,
-            indent,
-            parameters: [line],
-          });
-        }
+        output.push(...compileShowText(node, indent));
         break;
       case "inputNumber":
         output.push({
           code: 103,
           indent,
-          parameters: [resolver.resolveReference(node.variable), node.digits],
+          parameters: [
+            resolveMessageVariable(
+              node.variable,
+              103,
+              resolver,
+              `${sourcePath}[${nodeIndex}].variable`,
+            ),
+            node.digits,
+          ],
         });
         break;
       case "selectItem":
         output.push({
           code: 104,
           indent,
-          parameters: [resolver.resolveReference(node.variable), node.itemType ?? 2],
+          parameters: [
+            resolveMessageVariable(
+              node.variable,
+              104,
+              resolver,
+              `${sourcePath}[${nodeIndex}].variable`,
+            ),
+            { regular: 1, key: 2, hiddenA: 3, hiddenB: 4 }[node.itemType],
+          ],
         });
         break;
       case "showScrollingText":
         output.push({
           code: 105,
           indent,
-          parameters: [node.speed ?? 2, node.noFastForward ?? false],
+          parameters: [node.speed, node.noFastForward],
         });
         for (const line of node.lines) {
           output.push({
@@ -313,9 +338,11 @@ export function compileNodes(
         });
         break;
       case "label":
+        assertDslTextInput(node, "name", `${sourcePath}[${nodeIndex}]`, "label");
         output.push({ code: 118, indent, parameters: [node.name] });
         break;
       case "jumpToLabel":
+        assertDslTextInput(node, "name", `${sourcePath}[${nodeIndex}]`, "jumpToLabel");
         output.push({ code: 119, indent, parameters: [node.name] });
         break;
       case "controlSwitches": {
@@ -486,60 +513,51 @@ export function compileNodes(
           parameters: [],
         });
         break;
-      case "battleProcessing":
+      case "battleProcessing": {
+        const path = `${sourcePath}[${nodeIndex}]`;
+        assertBattleInput(node, path, true, resolver);
         output.push({
           code: 301,
           indent,
           parameters: compileBattleProcessingParameters(node, resolver),
         });
-        if (node.win) {
-          output.push({ code: 601, indent, parameters: [] });
-          output.push(
-            ...compileNodes(
-              node.win,
-              indent + 1,
-              resolver,
-              false,
-              `${sourcePath}[${nodeIndex}].win`,
-              origins,
-            ),
+        for (const [field, code] of [
+          ["win", 601],
+          ["escape", 602],
+          ["lose", 603],
+        ] as const) {
+          const body = node[field];
+          if (body === undefined) continue;
+          output.push({ code, indent, parameters: [] });
+          const commands = compileNodes(
+            body.commands,
+            indent + 1,
+            resolver,
+            false,
+            `${path}.${field}.commands`,
+            origins,
           );
-          if (node.win.length === 0) output.push({ code: 0, indent: indent + 1, parameters: [] });
-        }
-        if (node.escape) {
-          output.push({ code: 602, indent, parameters: [] });
-          output.push(
-            ...compileNodes(
-              node.escape,
-              indent + 1,
-              resolver,
-              false,
-              `${sourcePath}[${nodeIndex}].escape`,
-              origins,
-            ),
-          );
-          if (node.escape.length === 0)
+          if (commands.at(-1)?.code === 0 && commands.at(-1)?.indent === indent + 1)
+            throw new CommandStructureError(
+              "MV-BODY-MARKER-CONFLICT",
+              "Raw output contradicts the owning Battle body's declared Body End Marker.",
+              { dslPath: `${path}.${field}.endMarker` },
+            );
+          output.push(...commands);
+          if (body.endMarker !== "absent")
             output.push({ code: 0, indent: indent + 1, parameters: [] });
         }
-        if (node.lose) {
-          output.push({ code: 603, indent, parameters: [] });
-          output.push(
-            ...compileNodes(
-              node.lose,
-              indent + 1,
-              resolver,
-              false,
-              `${sourcePath}[${nodeIndex}].lose`,
-              origins,
-            ),
-          );
-          if (node.lose.length === 0) output.push({ code: 0, indent: indent + 1, parameters: [] });
-        }
-        if (node.canEscape || node.canLose || node.win || node.escape || node.lose) {
-          output.push({ code: 604, indent, parameters: [] });
-        }
+        if (node.canEscape || node.canLose) output.push({ code: 604, indent, parameters: [] });
         break;
+      }
       case "script":
+        assertDslObject(node, ["kind", "script"], `${sourcePath}[${nodeIndex}]`);
+        assertDslTextInput(
+          node.script,
+          "code",
+          `${sourcePath}[${nodeIndex}].script`,
+          "scriptInput",
+        );
         output.push({
           code: 355,
           indent,
@@ -554,28 +572,31 @@ export function compileNodes(
         }
         break;
       case "pluginCommand":
+        assertDslTextInput(node, "line", `${sourcePath}[${nodeIndex}]`, "pluginCommand");
         output.push({
           code: 356,
           indent,
-          parameters: [
-            node.args !== undefined && node.args.length > 0
-              ? `${node.command} ${node.args.join(" ")}`
-              : node.command,
-          ],
+          parameters: [node.line],
         });
         break;
       case "transferPlayer":
+        assertMapLocationInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         if (node.destination.kind === "direct") {
           output.push({
             code: 201,
             indent,
             parameters: [
               0,
-              resolver.resolveReference(node.destination.map),
+              resolveLocationReference(
+                node.destination.map,
+                resolver,
+                `${sourcePath}[${nodeIndex}].destination.map`,
+                201,
+              ),
               node.destination.x,
               node.destination.y,
-              node.direction ?? 2,
-              node.fadeType ?? 0,
+              locationDirectionToCode(node.direction),
+              transferFadeToCode(node.fade),
             ],
           });
         } else {
@@ -584,34 +605,60 @@ export function compileNodes(
             indent,
             parameters: [
               1,
-              resolver.resolveReference(node.destination.map),
-              resolver.resolveReference(node.destination.x),
-              resolver.resolveReference(node.destination.y),
-              node.direction ?? 2,
-              node.fadeType ?? 0,
+              resolveLocationReference(
+                node.destination.map,
+                resolver,
+                `${sourcePath}[${nodeIndex}].destination.map`,
+                201,
+              ),
+              resolveLocationReference(
+                node.destination.x,
+                resolver,
+                `${sourcePath}[${nodeIndex}].destination.x`,
+                201,
+              ),
+              resolveLocationReference(
+                node.destination.y,
+                resolver,
+                `${sourcePath}[${nodeIndex}].destination.y`,
+                201,
+              ),
+              locationDirectionToCode(node.direction),
+              transferFadeToCode(node.fade),
             ],
           });
         }
         break;
       case "setVehicleLocation":
+        assertMapLocationInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 202,
           indent,
-          parameters: compileSetVehicleLocationParameters(node.vehicle, node.destination, resolver),
+          parameters: compileSetVehicleLocationParameters(
+            node.vehicle,
+            node.destination,
+            resolver,
+            `${sourcePath}[${nodeIndex}]`,
+          ),
         });
         break;
       case "setEventLocation":
+        assertMapLocationInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 203,
           indent,
-          parameters: compileSetEventLocationParameters(node, resolver),
+          parameters: compileSetEventLocationParameters(
+            node,
+            resolver,
+            `${sourcePath}[${nodeIndex}]`,
+          ),
         });
         break;
       case "scrollMap":
         output.push({
           code: 204,
           indent,
-          parameters: [node.direction, node.distance, node.speed],
+          parameters: [scrollDirections[node.direction], node.distance, node.speed],
         });
         break;
       case "setMovementRoute": {
@@ -651,7 +698,7 @@ export function compileNodes(
           parameters: [
             characterSelectorToCode(node.target),
             resolver.resolveReference(node.animation),
-            node.wait ?? false,
+            node.wait,
           ],
         });
         break;
@@ -662,7 +709,7 @@ export function compileNodes(
           parameters: [
             characterSelectorToCode(node.target),
             balloonIconToCode(node.balloon),
-            node.wait ?? false,
+            node.wait,
           ],
         });
         break;
@@ -897,11 +944,11 @@ export function compileNodes(
           indent,
           parameters: [
             resolver.resolveReference(node.actor),
-            node.character.image.name,
+            node.character.image === null ? "" : node.character.image.name,
             node.character.index,
-            node.face.image.name,
+            node.face.image === null ? "" : node.face.image.name,
             node.face.index,
-            node.battler.name,
+            node.battler === null ? "" : node.battler.name,
           ],
         });
         break;
@@ -909,7 +956,11 @@ export function compileNodes(
         output.push({
           code: 323,
           indent,
-          parameters: [vehicleToCode(node.vehicle), node.image.name, node.index],
+          parameters: [
+            vehicleToCode(node.vehicle),
+            node.image === null ? "" : node.image.name,
+            node.index,
+          ],
         });
         break;
       case "changeNickname":
@@ -942,8 +993,8 @@ export function compileNodes(
           indent,
           parameters: [
             enemyTargetToCode(node.target),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
-            node.allowDeath ?? false,
+            ...compileEnemyResourceValue(node.operation, node.value, resolver),
+            node.allowDeath,
           ],
         });
         break;
@@ -953,7 +1004,7 @@ export function compileNodes(
           indent,
           parameters: [
             enemyTargetToCode(node.target),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
+            ...compileEnemyResourceValue(node.operation, node.value, resolver),
           ],
         });
         break;
@@ -986,9 +1037,9 @@ export function compileNodes(
           code: 337,
           indent,
           parameters: [
-            node.target.target === "all" ? 0 : node.target.index,
+            node.target.index,
             resolver.resolveReference(node.animation),
-            node.target.target === "all",
+            node.allEnemies,
           ],
         });
         break;
@@ -998,9 +1049,13 @@ export function compileNodes(
           indent,
           parameters: [
             battlerTargetTypeToCode(node.subject),
-            battlerTargetIdToCode(node.subject),
+            battlerTargetIdToCode(node.subject, resolver),
             resolver.resolveReference(node.skill),
-            node.targetIndex,
+            node.target.kind === "lastTarget"
+              ? -2
+              : node.target.kind === "random"
+                ? -1
+                : node.target.index,
           ],
         });
         break;
@@ -1013,7 +1068,7 @@ export function compileNodes(
           indent,
           parameters: [
             enemyTargetToCode(node.target),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
+            ...compileEnemyResourceValue(node.operation, node.value, resolver),
           ],
         });
         break;
@@ -1192,13 +1247,23 @@ export function compileNodes(
         });
         break;
       case "getLocationInfo":
+        assertMapLocationInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 285,
           indent,
           parameters: [
-            resolver.resolveReference(node.variable),
+            resolveLocationReference(
+              node.variable,
+              resolver,
+              `${sourcePath}[${nodeIndex}].variable`,
+              285,
+            ),
             locationInfoTypeToCode(node.info),
-            ...compileLocationInfoPosition(node.location, resolver),
+            ...compileLocationInfoPosition(
+              node.location,
+              resolver,
+              `${sourcePath}[${nodeIndex}].location`,
+            ),
           ],
         });
         break;
@@ -1256,8 +1321,23 @@ export function compileNodes(
       inspectCommandListStructure(output, { requireTerminator: true });
     } catch (error) {
       if (error instanceof CommandStructureError) {
-        const dslAt = (path: string | undefined) =>
-          path ? origins.get(output[Number(/^list\[(\d+)\]/u.exec(path)?.[1])]!)?.path : undefined;
+        const dslAt = (path: string | undefined) => {
+          if (!path) return undefined;
+          const record = output[Number(/^list\[(\d+)\]/u.exec(path)?.[1])]!;
+          const origin = origins.get(record);
+          if (!origin) return undefined;
+          if (![118, 119, 355, 356, 655].includes(record.code)) return origin.path;
+          return (
+            origin.path +
+            (origin.kind === "rawDslCommand"
+              ? path.replace(/^list\[\d+\]/u, "")
+              : origin.kind === "script"
+                ? ".script.code"
+                : origin.kind === "pluginCommand"
+                  ? ".line"
+                  : ".name")
+          );
+        };
         const dslPath = dslAt(error.location.nativePath);
         throw new CommandStructureError(error.code, error.detail, {
           ...error.location,

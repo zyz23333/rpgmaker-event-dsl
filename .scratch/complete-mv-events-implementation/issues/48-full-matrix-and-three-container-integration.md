@@ -1,6 +1,6 @@
 # 48: 全矩阵与三类事件集成
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47
 Stage: S7
 Execution batch: [全矩阵与三类事件集成](../tickets.md#batch-integration)

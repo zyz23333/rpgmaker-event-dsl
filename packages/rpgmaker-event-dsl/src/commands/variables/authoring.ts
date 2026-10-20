@@ -8,7 +8,8 @@ import type {
   ControlSwitchesDslCommand,
   ControlTimerDslCommand,
   ControlVariablesDslCommand,
-  Direction,
+  LocationDirection,
+  TransferFade,
   MapDestination,
   ReferenceRange,
   ReferenceValue,
@@ -17,12 +18,15 @@ import type {
 import { assertControlTimerInput } from "./validation.js";
 import { assertInventoryInput } from "./inventory-validation.js";
 import { assertControlVariablesInput } from "./control-variables.js";
+import { assertMapLocationInput } from "../map/location-validation.js";
+import { assertSwitchCommandInput } from "./switch-inputs.js";
 
 export function transferPlayer(input: {
   destination: MapDestination;
-  direction?: Direction;
-  fadeType?: 0 | 1 | 2;
+  direction?: LocationDirection;
+  fade?: TransferFade;
 }): TransferPlayerDslCommand {
+  assertMapLocationInput("transferPlayer", input, "transferPlayer", false);
   const node: TransferPlayerDslCommand = {
     kind: "transferPlayer",
     destination: input.destination,
@@ -31,8 +35,8 @@ export function transferPlayer(input: {
   if (input.direction !== undefined) {
     node.direction = input.direction;
   }
-  if (input.fadeType !== undefined) {
-    node.fadeType = input.fadeType;
+  if (input.fade !== undefined) {
+    node.fade = input.fade;
   }
 
   return node;
@@ -42,6 +46,7 @@ export function controlSwitches(input: {
   switch: ReferenceValue<"switch"> | ReferenceRange<"switch">;
   value: boolean;
 }): ControlSwitchesDslCommand {
+  assertSwitchCommandInput("controlSwitches", input, "controlSwitches", false);
   return {
     kind: "controlSwitches",
     switch: input.switch,
@@ -65,6 +70,7 @@ export function controlSelfSwitch(input: {
   selfSwitch: "A" | "B" | "C" | "D";
   value: boolean;
 }): ControlSelfSwitchDslCommand {
+  assertSwitchCommandInput("controlSelfSwitch", input, "controlSelfSwitch", false);
   return {
     kind: "controlSelfSwitch",
     selfSwitch: input.selfSwitch,

@@ -1,0 +1,17 @@
+{
+  "verifiedAt": "2026-10-19T19:33:56.588Z",
+  "base": "38542767606ff9712e45d2a8e4894558e3a7d385",
+  "actualIntegration": "38542767606ff9712e45d2a8e4894558e3a7d385",
+  "results": 235,
+  "capturedInputs": 172,
+  "archivedTools": 63,
+  "supplementalTools": 3,
+  "historicalBlobs": 4278,
+  "stagedResultBytesExact": true,
+  "stagedCapturedSourceBytesExact": true,
+  "stagedArchiveBytesExact": true,
+  "inheritedBlobsExact": true,
+  "contract": "mv-1.6.1/10",
+  "stage": "focused DEV only; no READY/native/build/built/full/contract delivery",
+  "method": "git cat-file --batch exact staged bytes plus complete git ls-files --stage object identities"
+}

@@ -1,0 +1,384 @@
+{
+  "createdAt": "2026-10-19T19:30:09.636Z",
+  "purpose": "Original self-authored ticket35 focused DEV tooling and complete raw logs; no first-party artifacts",
+  "files": [
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/actual3854-focused-driver.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\actual3854-focused-driver.log",
+      "sha256": "40f7c46d2fc3ce4071ae95f7424e499cd235b122844d8b81f3a285f5b4cda7fd",
+      "size": 1695
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/actual3854-focused.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\actual3854-focused.log",
+      "sha256": "40f7c46d2fc3ce4071ae95f7424e499cd235b122844d8b81f3a285f5b4cda7fd",
+      "size": 1695
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/archive-dev-tools.cjs",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\archive-dev-tools.cjs",
+      "sha256": "8ab41e5f65b0886d33217b79ca6f0a44652be83ce3301692b273f06dfcb5852e",
+      "size": 1654
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/audit-and-freeze-dev.cjs",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\audit-and-freeze-dev.cjs",
+      "sha256": "c0eaaf9f2bb5fe9d240b431095296119471532ad3479d8467ace417114991f5a",
+      "size": 4777
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/audit-and-freeze-dev.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\audit-and-freeze-dev.log",
+      "sha256": "c73c59ab019f2ba83549fa9a9073520ef1f571c1f6a374f1ba17a8f9ad47eb42",
+      "size": 647
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/balloon-wait-green.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\balloon-wait-green.log",
+      "sha256": "83cef002403b8df7a481639f4dbc8f6464c104bb217e9d94b6f3788a1ae55f14",
+      "size": 283
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/balloon-wait-red.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\balloon-wait-red.log",
+      "sha256": "0144a0bc3772bd4a0b3973cd1b7f7265eda24b64ba8848ed1bee9688d53959c4",
+      "size": 3006
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/capture-final-driver.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\capture-final-driver.log",
+      "sha256": "fdd20372daa5fb7934752770166ce1562b4010117701e161e8dc14aef6872799",
+      "size": 298
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/capture-final.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\capture-final.log",
+      "sha256": "fdd20372daa5fb7934752770166ce1562b4010117701e161e8dc14aef6872799",
+      "size": 298
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/checks-actual3854-summary.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\checks-actual3854-summary.log",
+      "sha256": "e1dc1347e92fcdf325d51f249babeceb2748948667c5db256e0e76a32e51cb16",
+      "size": 94
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/checks-delivery-summary.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\checks-delivery-summary.log",
+      "sha256": "8383fc0959822cc6f8ea3bd83b31f0df70af38507353f3a57486eab2623f0f1e",
+      "size": 82
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/checks-final-summary.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\checks-final-summary.log",
+      "sha256": "2adef49acc9be55a3148550e2eadca1aa6262fba72c5e76932d56d49b83c6ea3",
+      "size": 87
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/context-green.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\context-green.log",
+      "sha256": "133d848fd768188a28f3beb9bbfaafc88af245f8404ffa76bb24b301543cf70a",
+      "size": 283
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/context-red.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\context-red.log",
+      "sha256": "236e43e44cbc0dacc10ba04512b8b5e3b0e0b152278268112ac7af6003f48b56",
+      "size": 2585
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/diff-check-actual3854.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\diff-check-actual3854.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/diff-check-delivery.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\diff-check-delivery.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/domains-green-2.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\domains-green-2.log",
+      "sha256": "c167fb072ceabe4be5763c8b1de45fd2b503799094ab6af666e5e7a3b926b58d",
+      "size": 283
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/domains-green.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\domains-green.log",
+      "sha256": "a033258ec30ecade1b03725067331e0f46484debb40678b7ab962289a82abd7e",
+      "size": 1748
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/domains-red.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\domains-red.log",
+      "sha256": "c6f2e5465e1b2a303c03b45ae204868841518ebbf852cda5b492e3a13da7f5ce",
+      "size": 2715
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/evidence-precopy-driver.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\evidence-precopy-driver.log",
+      "sha256": "a712980aa01f7003123f0c5a7a65f1efa49ada6e0dd30a0da979e17a6f9cc60b",
+      "size": 1400
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/evidence-precopy.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\evidence-precopy.log",
+      "sha256": "a712980aa01f7003123f0c5a7a65f1efa49ada6e0dd30a0da979e17a6f9cc60b",
+      "size": 1400
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/final-actual3854-source-manifest.json",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\final-actual3854-source-freeze\\manifest.json",
+      "sha256": "3042e3c19ae3c6c5875d44c20b46054db519b07d28f78f6d4ed6af5e50f2d99b",
+      "size": 50003
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/focused-final-driver.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\focused-final-driver.log",
+      "sha256": "3f304a0f0d9c75ba8ee30c19b501e301a333dcab420156130ce4df203b99ae2d",
+      "size": 288
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/focused-final.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\focused-final.log",
+      "sha256": "3f304a0f0d9c75ba8ee30c19b501e301a333dcab420156130ce4df203b99ae2d",
+      "size": 288
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/format-actual3854.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\format-actual3854.log",
+      "sha256": "f64a3ea63a69b1d97d4a394705598cdce66adf7bcde1ac67e733bcb1a2ee168b",
+      "size": 118
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/format-delivery.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\format-delivery.log",
+      "sha256": "f88443a097fe393b502c81ef9e054a59002a7715d0e4679fcde0918587530456",
+      "size": 197
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/format-doc-fixture.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\format-doc-fixture.log",
+      "sha256": "18e714bf48c08bbfabd11157bd0dde0a321397a88e7559aa84bf2ae9efeeb69c",
+      "size": 117
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/format-final.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\format-final.log",
+      "sha256": "51c78673c8c86bdf67b4e5da9d873bea04318b757dd0aa2d4f214a405e135ee8",
+      "size": 118
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/format-merge-write.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\format-merge-write.log",
+      "sha256": "b319d89f0c9e9f0dc6b602f7a41753e9becd0005cd9a57232c7e65baf18ec7c7",
+      "size": 48
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/format-related.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\format-related.log",
+      "sha256": "7a7dc43aa1dbe20e6932869cdae3bec271dcad28cb3481e2d38336c374029972",
+      "size": 48
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/format-write.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\format-write.log",
+      "sha256": "71ec82e219bb6f96405c3ed5c8c7496b667cade4575f9c32270f30daeb50fca8",
+      "size": 49
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/index-isolated-postcopy-driver.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\index-isolated-postcopy-driver.log",
+      "sha256": "751739bb5850218bb8a966f1a8d2b52ae09fae1c2ba1f7f5afd01789181ef098",
+      "size": 296
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/index-isolated-postcopy.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\index-isolated-postcopy.log",
+      "sha256": "751739bb5850218bb8a966f1a8d2b52ae09fae1c2ba1f7f5afd01789181ef098",
+      "size": 296
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/lint-actual3854.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\lint-actual3854.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/lint-delivery.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\lint-delivery.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/lint-final.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\lint-final.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/lint-first.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\lint-first.log",
+      "sha256": "9a4068d056e75247ce5fb636a33cffdce77d5322b6f35107fbb4a07734044bf6",
+      "size": 257
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/premerge-c2-source-manifest.json",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\premerge-c2-freeze\\manifest.json",
+      "sha256": "1b6417cfe602ed975beb74e5a8b5d486e2cbf2383307a726f63a47976833eb29",
+      "size": 36019
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/preserve-premerge.cjs",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\preserve-premerge.cjs",
+      "sha256": "b1c57b5713cd2ada1c8022c49e4f5a6e1402f55cb10bbaf40b201c49ddd0c54d",
+      "size": 2443
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/preserve-premerge.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\preserve-premerge.log",
+      "sha256": "87c53137e259e2fb750a5bb1d520c671acb3d6795269df02ed27bf44371130cb",
+      "size": 287
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/reconcile-actual3854.cjs",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\reconcile-actual3854.cjs",
+      "sha256": "26d47c8dcc1bdfdbe570e9d4a754d51c23b47def92e3cb955be9c778ce690b25",
+      "size": 2900
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/reconcile-actual3854.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\reconcile-actual3854.log",
+      "sha256": "bd64acd22e60d47fb8522d2350a035d4d8f5fc798dc2adf3986a91f7bbf795dc",
+      "size": 140
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/related-first-driver.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\related-first-driver.log",
+      "sha256": "3b1c9cfc035b1c8f7f80225057a2ffeefb929eeceacf879ca8224a14f5068efa",
+      "size": 3557
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/related-first.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\related-first.log",
+      "sha256": "3b1c9cfc035b1c8f7f80225057a2ffeefb929eeceacf879ca8224a14f5068efa",
+      "size": 3557
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/related-green-driver.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\related-green-driver.log",
+      "sha256": "6ae5faf143be9941608c4ec724d179ef774a43dbff8f44fa7aca89e18fd4913d",
+      "size": 288
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/related-green.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\related-green.log",
+      "sha256": "6ae5faf143be9941608c4ec724d179ef774a43dbff8f44fa7aca89e18fd4913d",
+      "size": 288
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/run-focused.ps1",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\run-focused.ps1",
+      "sha256": "d9a9b2d89fff06b4429c0c330a2bebfad0605cccf4b5fa7fd1be97ae496576c7",
+      "size": 642
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/scoped-actual3854-files.txt",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\scoped-actual3854-files.txt",
+      "sha256": "c1aa30a37da7709e61d4d5c740ef2ee8e72fbd961238c150de98a008cfe4ddea",
+      "size": 1434
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/scoped-files.txt",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\scoped-files.txt",
+      "sha256": "c1aa30a37da7709e61d4d5c740ef2ee8e72fbd961238c150de98a008cfe4ddea",
+      "size": 1434
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/scroll-green.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\scroll-green.log",
+      "sha256": "1b68c395ef84f35a6c9e00bcd8b48ca40f4a00ee85a80c14061544b045075c85",
+      "size": 282
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/scroll-red.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\scroll-red.log",
+      "sha256": "5885681b09bd1201b49f82b401c1e58b9ca764e348726892179c08315f510033",
+      "size": 1628
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/shape-green.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\shape-green.log",
+      "sha256": "4ac535840d4e9860baf7f6ca7ad572c6a6c9bd69de533776f593d4294f4c56d5",
+      "size": 283
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/shape-red.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\shape-red.log",
+      "sha256": "094d90326ecdc782c77f8d9abb3ccc6c88e9242695def06e788766188a266644",
+      "size": 1446
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/stage-requirements.cjs",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\stage-requirements.cjs",
+      "sha256": "383a84e9fd8649aedec466fdff90d5b2c7c9fdb4e606b68bad8dcc94c703ccea",
+      "size": 5356
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/typecheck-actual3854.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\typecheck-actual3854.log",
+      "sha256": "7c198539e95de5e2a097fbc58c43e310168a2244a59bccf28c0de40001942a45",
+      "size": 167
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/typecheck-final.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\typecheck-final.log",
+      "sha256": "7c198539e95de5e2a097fbc58c43e310168a2244a59bccf28c0de40001942a45",
+      "size": 167
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/typecheck-first.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\typecheck-first.log",
+      "sha256": "7c198539e95de5e2a097fbc58c43e310168a2244a59bccf28c0de40001942a45",
+      "size": 167
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/verify-staged-dev.cjs",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\verify-staged-dev.cjs",
+      "sha256": "dc99699df9fc52cc26b1bdcc9b0794a17ec16db3ae41ac9db67066307b8e2257",
+      "size": 1774
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/workspace-controls-driver.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\workspace-controls-driver.log",
+      "sha256": "6a953727ecb97b53eae703c3e25d715d987b7af9cba35bd3b6ab2a90216a812c",
+      "size": 43494
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/workspace-controls.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\workspace-controls.log",
+      "sha256": "6a953727ecb97b53eae703c3e25d715d987b7af9cba35bd3b6ab2a90216a812c",
+      "size": 43494
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/workspace-first.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\workspace-first.log",
+      "sha256": "c1416782a7ee97f7315c4138c3cf859aefcf6e302b2a11eb8392278be6be7520",
+      "size": 741942
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/workspace-green-driver.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\workspace-green-driver.log",
+      "sha256": "136dd84f335a22ecf45e610743136e5444f11543928c6bb31a54c9260de72029",
+      "size": 42955
+    },
+    {
+      "path": ".scratch/complete-mv-events-implementation/evidence/35-dev-tools/workspace-green.log",
+      "origin": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket35-temp\\workspace-green.log",
+      "sha256": "136dd84f335a22ecf45e610743136e5444f11543928c6bb31a54c9260de72029",
+      "size": 42955
+    }
+  ]
+}

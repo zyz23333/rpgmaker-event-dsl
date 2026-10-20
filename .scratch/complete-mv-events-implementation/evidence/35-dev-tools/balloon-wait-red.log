@@ -1,0 +1,54 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-35/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/map-characters.test.ts (3 tests | 2 failed) 22ms
+   × supports all fifteen named balloon icons without numeric aliases 6ms
+   × decompiles explicit false waits for animations and balloons 10ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-characters.test.ts > supports all fifteen named balloon icons without numeric aliases
+Error: MV-STRICT-JSON: Expected strict representable JSON; received undefined at list[0].parameters[1]. at list[0].parameters[1] (commands[0]); expected strict representable JSON; actual undefined
+ ❯ compileNodes src/compiler/dispatch.ts:1202:15
+
+    1200|           path ? origins.get(output[Number(/^list\[(\d+)\]/u.exec(path…
+    1201|         const dslPath = dslAt(error.location.nativePath);
+    1202|         throw new CommandStructureError(error.code, error.detail, {
+       |               ^
+    1203|           ...error.location,
+    1204|           ...(dslPath ? { dslPath } : {}),
+ Test Files  1 failed (1)
+      Tests  2 failed | 1 passed (3)
+   Start at  03:05:13
+   Duration  1.25s (transform 363ms, setup 0ms, import 1.08s, tests 22ms, environment 0ms)
+
+ ❯ compileCommonEvent src/compiler/events.ts:122:11
+ ❯ compile test/map-characters.test.ts:10:10
+ ❯ test/map-characters.test.ts:40:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/map-characters.test.ts > decompiles explicit false waits for animations and balloons
+AssertionError: expected 'showAnimation({ target: { kind: "runt…' to be 'showAnimation({ target: { kind: "runt…' // Object.is equality
+
+- Expected
++ Received
+
+- showAnimation({ target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" }, animation: animationRef({ id: 1 }), wait: false }),
++ showAnimation({ target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" }, animation: animationRef({ id: 1 }) }),
+- showBalloonIcon({ target: { kind: "runtimeSelector", scope: "character", target: "event", id: 1 }, balloon: "userDefined5", wait: false }),
++ showBalloonIcon({ target: { kind: "runtimeSelector", scope: "character", target: "event", id: 1 }, balloon: 15 }),
+
+ ❯ test/map-characters.test.ts:59:14
+     57|     {code:212,indent:0,parameters:[0,1,false]},
+     58|     {code:213,indent:0,parameters:[1,15,false]},
+     59|   ]).source).toBe([
+       |              ^
+     60|     'showAnimation({ target: { kind: "runtimeSelector", scope: "charac…
+     61|     'showBalloonIcon({ target: { kind: "runtimeSelector", scope: "char…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-35\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/map-characters.test.ts
