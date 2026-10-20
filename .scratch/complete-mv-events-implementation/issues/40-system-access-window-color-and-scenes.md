@@ -62,3 +62,11 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 专有命令单元及既有回归四文件实际通过 30／30，包 TypeScript 与专有静态检查通过。010–024 的 15 个独立 Workspace 案例也已实际执行通过，涵盖真实 Discovery、已发布源码求值、Check、正式表达与已知 raw 的 Compile／Diff／真实 Push，以及源码或原生失败时完整文件状态保全和陈旧输出拒绝。全部使用原 10 秒 case 期限与两个 worker；名称筛选 skip 未计为通过。
 
 共享证据 helper 的唯一获准更新为本树提交 6ba40682006c7c95101a4edd9c66e3d77e2ee92a，原 30 个 dirty 文件逐字节保全。完整输入身份、历史失败与五批 Workspace 日志见[本票证据记录](../evidence/40-system-access-window-color-and-scenes.md)。最新实际集成、Tone 统一、全量／构建／built、最终 E4 比较和真实 R6 尚待统一验收；本票保持 claimed，未据定向结果关闭。
+
+### 2026-10-20 — 实际 post27 合并与 focused 复验
+
+已实际合入 e5740784690645963759aef55a69780205de5a3c，合并提交 12f7159ee0a7ea13cb27f08f2bb0a2b2e97d9f2d。保留原三方 Git 字节、冲突与 reconciliation，传入 328 条要求的原字节前缀加本票原 24 条，当前共 352 条；编译契约原字节继承 mv-1.6.1/13，没有 DEV bump。该 clean 候选实际通过 5 文件 95 项命令回归、本票 15 项 Workspace、相交 Choices 19 项 Workspace 及包 TypeScript；全部执行保持原期限和 worker。窗口已闭合并释放。Tone 统一、index/archive、全量／构建／built、最终 E4/R6 与关闭仍由后续统一验收完成；本票保持 claimed。
+
+### 2026-10-20 — 转入能力批次
+
+按用户新策略，独立 DEV 以[简短交接](../evidence/40-focused-dev-handoff.md)结束，原日志留外部路径；原待命的大体积 archive/index/freeze 审计取消。接下来在[画面、图片、音频与系统场景批次](../tickets.md#batch-presentation)统一 37–40 的实现、共享类型与必要验收，同一候选集中一次全量和构建，最终游戏实跑仍保留。本票保持 claimed，尚未将未执行项记为通过。

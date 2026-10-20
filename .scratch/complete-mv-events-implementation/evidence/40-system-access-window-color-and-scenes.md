@@ -135,6 +135,52 @@ carrier，包含隐藏 gray、非默认 System Tone 和数字负零。013–020�
 完整状态不变。本窗口未执行 post27 合并、index、archive、全量检查、
 构建、built 入口或实际游戏运行。独占窗口在上述运行完成后立即释放。
 
+## 实际 post27 集成与 focused 复验
+
+实际合入的传入提交为 `e5740784690645963759aef55a69780205de5a3c`。
+`premerge-dirty-v1` 完整保留此前 30 个 dirty 文件、状态及补丁；逐字节
+复核后建立 focused 开发检查点
+`f7d37878b259d27bd5d1ee9d823d5326732f31f4`。真正执行的三方合并输入
+固定为 base `73504ec28bad98ae424a9d452f68774b009579d0`、ours
+`f7d37878b259d27bd5d1ee9d823d5326732f31f4`、theirs
+`e5740784690645963759aef55a69780205de5a3c`；46 个相关路径的各方
+完整 Git blob 字节与身份保存在 `merge-inputs-v1`。
+
+原始合并仅在 evidence README 和 requirements 出现内容冲突。
+`merge-reconciliation-v1` 保存原冲突文件、三方 stage 身份及明确的
+reconciliation receipt：完整保留传入 328 条要求的原字节前缀，再追加
+本票原 24 条，实际 352 条且 ID 无重复；README 保留传入整个文件的字节
+前缀与本票原附录字节。编译契约文件与传入字节完全相同，继承
+`mv-1.6.1/13`，没有 DEV 自行升级。产品代码自动合并后另检查共享
+compiler/domain/validation 的实际差异，Choices 与本票行为均保留。
+
+合并提交为 `12f7159ee0a7ea13cb27f08f2bb0a2b2e97d9f2d`，实际树为
+`4edcda04cdc68cc838911cf9e35827ca3c006792`。下列实际运行均绑定此
+clean 合并身份与同一 185 个完整输入，freeze fingerprint 为
+`7a98049d4ab57c7809fa6a5485bd1dde6b38a8b77988f9cf675eae08760d16fa`。
+
+原始 freeze helper 的嵌入 `git status` 未带 command-scoped
+`core.longpaths=true`，所以这四份原 manifest 的 status 各记录了 736 个
+传入历史超长路径的 `D` 误报。原 manifest 完整保留，没有改写成 clean；
+实际执行的 185 个 source/test/config/requirements 文件字节与 SHA256
+已完整冻结，合并及闭合检查均用 scoped longpaths 得到真实 Git 身份。
+`postmerge-status-metadata-limitation-v1.json` 记录这一差异。已准备只修
+Git 调用参数的外部 freeze/runner v2，未借此重跑产品测试；完整旧 Git
+历史的逐 blob 核验留给获准的 archive 窗口。
+
+| 实际批次标签 | 实际结果 | 总耗时／tests 耗时 |
+| --- | --- | --- |
+| `postmerge-focused-unit-v1` | 本票命令、Choices 及既有 DSL/events/decompiler，5 文件、95／95 | 3.95s／3.02s |
+| `postmerge-own-workspace-v1` | 本票 010–024，15／15 | 28.69s／27.12s |
+| `postmerge-choices-workspace-v1` | 相交 Choices Workspace，19／19 | 26.43s／24.80s |
+| `postmerge-typecheck-v1` | 包 TypeScript，含公开类型拒绝断言 | exit 0 |
+
+仍使用原 10 秒 case 期限与两个 worker。该窗口没有新增失败，历史失败
+与首次运行未被覆盖。`postmerge-window-closed-v1.json` 记录所有运行的
+exit 0、clean Git 身份及实际 CIM 检查未发现本任务残留 Node/pnpm 进程。
+窗口完成后立即释放。index、archive、full、build、built、E4 最终比较和
+R6 实际游戏仍未在这一合并候选执行，后续受统一调度。
+
 ## E4 产品比较（待 finalization）
 
 `MV-S6-SYSTEM-SCENES-E4-COMPARE` 预留给实际最终构建输出与版本绑定的
