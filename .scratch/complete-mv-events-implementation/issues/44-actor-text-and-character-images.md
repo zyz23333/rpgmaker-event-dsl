@@ -1,6 +1,6 @@
 # 44: 角色文本与人物／载具图像
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 08, 09, 23
 Stage: S6
 Execution batch: [文本、脚本与角色展示](../tickets.md#batch-text)
