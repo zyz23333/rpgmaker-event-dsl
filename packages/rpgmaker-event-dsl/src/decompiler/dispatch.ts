@@ -672,8 +672,8 @@ export function renderSimpleCommand(
     case 244:
       return command.parameters.length === 0
         ? {
-            expression: "resumeBgm()",
-            helperNames: ["resumeBgm"],
+            expression: "replayBgm()",
+            helperNames: ["replayBgm"],
           }
         : null;
     case 245:

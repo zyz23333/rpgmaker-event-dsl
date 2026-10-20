@@ -8,6 +8,7 @@ import { assertNativeScreenParameters } from "../commands/screen/validation.js";
 import { assertNativeMapAppearanceParameters } from "../commands/map/native-validation.js";
 import { assertNativeSystemSettingsParameters } from "../commands/movement/access-native-validation.js";
 import { assertNativePictureParameters } from "../commands/screen/picture-native.js";
+import { assertNativeAudioParameters } from "../commands/audio/validation.js";
 
 // Shared saved-slot envelopes. Family validators retain ownership of semantic ranges,
 // references and mode-specific saved values; this table is not full family acceptance.
@@ -150,6 +151,7 @@ export function assertNativeCommandParameters(
     assertNativePictureParameters(code, parameters, path);
     return;
   }
+  assertNativeAudioParameters(code, parameters, path);
   if (code === 124) {
     assertNativeTimerParameters(parameters, path);
     return;

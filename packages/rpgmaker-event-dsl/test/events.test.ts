@@ -79,7 +79,7 @@ import {
   pluginCommand,
   recoverAll,
   rotatePicture,
-  resumeBgm,
+  replayBgm,
   returnToTitleScreen,
   saveBgm,
   script,
@@ -642,10 +642,20 @@ describe("compileMapEvent", () => {
           page({
             commands: [
               changeBattleBgm({
-                audio: { asset: audioAsset({ folder: "bgm", name: "Battle1" }), volume: 80 },
+                audio: {
+                  asset: audioAsset({ folder: "bgm", name: "Battle1" }),
+                  volume: 80,
+                  pitch: 100,
+                  pan: 0,
+                },
               }),
               changeVictoryMe({
-                audio: { asset: audioAsset({ folder: "me", name: "Victory1" }), pitch: 105 },
+                audio: {
+                  asset: audioAsset({ folder: "me", name: "Victory1" }),
+                  pitch: 105,
+                  volume: 90,
+                  pan: 0,
+                },
               }),
               changeSaveAccess({ enabled: false }),
               changeMenuAccess({ enabled: true }),
@@ -653,24 +663,58 @@ describe("compileMapEvent", () => {
               changeFormationAccess({ enabled: false }),
               changeWindowColor({ tone: { red: 12, green: -24, blue: 36, gray: 0 } }),
               changeDefeatMe({
-                audio: { asset: audioAsset({ folder: "me", name: "Defeat1" }), pan: -10 },
+                audio: {
+                  asset: audioAsset({ folder: "me", name: "Defeat1" }),
+                  pan: -10,
+                  volume: 90,
+                  pitch: 100,
+                },
               }),
               changeVehicleBgm({
                 vehicle: "ship",
-                audio: { asset: audioAsset({ folder: "bgm", name: "Ship1" }) },
+                audio: {
+                  asset: audioAsset({ folder: "bgm", name: "Ship1" }),
+                  volume: 90,
+                  pitch: 100,
+                  pan: 0,
+                },
               }),
               playBgm({
-                audio: { asset: audioAsset({ folder: "bgm", name: "Theme1" }), volume: 70 },
+                audio: {
+                  asset: audioAsset({ folder: "bgm", name: "Theme1" }),
+                  volume: 70,
+                  pitch: 100,
+                  pan: 0,
+                },
               }),
               fadeoutBgm({ duration: 45 }),
               saveBgm(),
-              resumeBgm(),
+              replayBgm(),
               playBgs({
-                audio: { asset: audioAsset({ folder: "bgs", name: "Rain" }), pitch: 90 },
+                audio: {
+                  asset: audioAsset({ folder: "bgs", name: "Rain" }),
+                  pitch: 90,
+                  volume: 90,
+                  pan: 0,
+                },
               }),
               fadeoutBgs({ duration: 30 }),
-              playMe({ audio: { asset: audioAsset({ folder: "me", name: "Fanfare" }) } }),
-              playSe({ audio: { asset: audioAsset({ folder: "se", name: "Cursor" }) } }),
+              playMe({
+                audio: {
+                  asset: audioAsset({ folder: "me", name: "Fanfare" }),
+                  volume: 90,
+                  pitch: 100,
+                  pan: 0,
+                },
+              }),
+              playSe({
+                audio: {
+                  asset: audioAsset({ folder: "se", name: "Cursor" }),
+                  volume: 90,
+                  pitch: 100,
+                  pan: 0,
+                },
+              }),
               stopSe(),
               playMovie({ movie: movieAsset({ name: "Intro" }) }),
               changeMapNameDisplay({ enabled: false }),

@@ -1,0 +1,35 @@
+{
+  "createdAt": "2026-10-19T20:12:44.243Z",
+  "worktree": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-39",
+  "branch": "codex/mv-ticket-39",
+  "head": "38542767606ff9712e45d2a8e4894558e3a7d385",
+  "claimStatus": "claimed",
+  "dependency23Resolved": true,
+  "creationReceipt": {
+    "path": "M:/Shuen/Codex/mv-events-implementation-20261020/worktree-registry/mv-ticket-39-486a60f3-7456-4138-a53c-b0194dbee6d6/creation-receipt.json",
+    "sha256": "6b81981e3e6f0445b85fd6acc38f00e38a614f775ee2409887bc7ee23ef0c1ef"
+  },
+  "appAttachmentClaimed": false,
+  "node": {
+    "executable": "C:\\Users\\Shuen\\AppData\\Local\\pnpm-cache\\dlx\\e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7\\1a152fc0f14-2f10\\node_modules\\.pnpm\\node@22.23.0\\node_modules\\node\\bin\\node.exe",
+    "version": "v22.23.0",
+    "sha256": "17347995af08dadcc73a1a154f0942559fbc3f37b9ba57d4576b4d2bcb2834a2"
+  },
+  "links": [
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-39/node_modules",
+      "junctionTarget": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules",
+      "realTarget": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules",
+      "expectedPrimaryTarget": "F:/Shuen/RPG/rpgmaker-event-dsl/node_modules",
+      "actualPrimaryRealTarget": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\node_modules"
+    },
+    {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-39/packages/rpgmaker-event-dsl/node_modules",
+      "junctionTarget": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\node_modules",
+      "realTarget": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\node_modules",
+      "expectedPrimaryTarget": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/node_modules",
+      "actualPrimaryRealTarget": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\node_modules"
+    }
+  ],
+  "cleanupWarning": "Consumption junctions only; never recursively delete or move resolved primary dependency targets."
+}

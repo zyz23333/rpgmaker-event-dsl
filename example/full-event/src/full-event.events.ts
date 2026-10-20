@@ -369,13 +369,28 @@ export const presentationStationEvent = mapEvent({
           ],
         }),
         changeBattleBgm({
-          audio: { asset: audioAsset({ folder: "bgm", name: "Battle1" }), volume: 80 },
+          audio: {
+            asset: audioAsset({ folder: "bgm", name: "Battle1" }),
+            volume: 80,
+            pitch: 100,
+            pan: 0,
+          },
         }),
         playBgm({
-          audio: { asset: audioAsset({ folder: "bgm", name: "Theme6" }), volume: 70 },
+          audio: {
+            asset: audioAsset({ folder: "bgm", name: "Theme6" }),
+            volume: 70,
+            pitch: 100,
+            pan: 0,
+          },
         }),
         playSe({
-          audio: { asset: audioAsset({ folder: "se", name: "Cursor2" }) },
+          audio: {
+            asset: audioAsset({ folder: "se", name: "Cursor2" }),
+            volume: 90,
+            pitch: 100,
+            pan: 0,
+          },
         }),
         changeBattleBack({
           battleback1: imageAsset({ folder: "battlebacks1", name: "Grassland" }),
@@ -487,7 +502,15 @@ export const movementStationEvent = mapEvent({
               { kind: "moveForward" },
               { kind: "routeWait", frames: 10 },
               { kind: "switchOn", switch: sampleRouteCompleteSwitch },
-              { kind: "playSe", audio: { asset: audioAsset({ folder: "se", name: "Cursor2" }) } },
+              {
+                kind: "playSe",
+                audio: {
+                  asset: audioAsset({ folder: "se", name: "Cursor2" }),
+                  volume: 90,
+                  pitch: 100,
+                  pan: 0,
+                },
+              },
               { kind: "script", script: scriptInput({ code: "this.turnTowardPlayer();" }) },
             ],
             skippable: true,

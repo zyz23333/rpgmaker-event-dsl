@@ -628,3 +628,16 @@ Ticket38 focused DEV uses independent Picture literals and actual Workspace oper
 | Requirement | Obligation | Evidence kind | Required layer |
 | --- | --- | --- | --- |
 | MV-S6-PICTURE-008 | imageAsset refuses extra own inputs before projection into Picture values | synthetic-rejection | Public constructor and actual Workspace complete failure-state assertions |
+
+Ticket39 focused DEV adds independent audio saved literals and public Workspace obligations. E4/R6 remain pending finalization.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-AUDIO-001 | reconstructs all audio modes and signed zero through evaluated formal and raw source with real15-carrier Push | synthetic-support | Public helpers and actual Workspace native/source/filesystem boundary |
+| MV-S6-AUDIO-E4 | Ticket39 allocated E4 shipped audio editor resources and current built product comparison | reverse-engineering-observation | Pending allocated current built product/native comparison; no DEV acceptance claim |
+| MV-S6-AUDIO-R6 | Ticket39 allocated R6 current built normal-Scene audio and system audio pairs | game-observation | Pending allocated current built product/native comparison; no DEV acceptance claim |
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-AUDIO-002 | refuses evaluated malformed helper direct and known raw audio sources without changing complete business state | synthetic-rejection | Public helpers and actual Workspace native/source/filesystem boundary |
+| MV-S6-AUDIO-003 | refuses late malformed saved audio records before Decompile publication and preserves every existing business file | synthetic-rejection | Public helpers and actual Workspace native/source/filesystem boundary |

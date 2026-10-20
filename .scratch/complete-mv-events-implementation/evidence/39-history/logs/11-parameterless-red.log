@@ -1,0 +1,36 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-39/packages/rpgmaker-event-dsl
+
+ ❯ test/audio-commands.test.ts (6 tests | 1 failed | 5 skipped) 6ms
+   × uses parameterless Save BGM, Replay BGM and Stop SE with no alias or discarded arguments 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/audio-commands.test.ts > uses parameterless Save BGM, Replay BGM and Stop SE with no alias or discarded arguments
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ test/audio-commands.test.ts:124:30
+    122|
+    123| it("uses parameterless Save BGM, Replay BGM and Stop SE with no alias …
+    124|   expect("resumeBgm" in dsl).toBe(false);
+       |                              ^
+    125|   for (const [kind, code] of [["saveBgm",243],["replayBgm",244],["stop…
+    126|     const helper = (dsl as unknown as Record<string, (...args: unknown…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 5 skipped (6)
+   Start at  04:18:43
+   Duration  1.25s (transform 359ms, setup 0ms, import 1.11s, tests 6ms, environment 0ms)
+
+undefined
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-39\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/audio-commands.test.ts -t uses parameterless

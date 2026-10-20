@@ -1,0 +1,36 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-39/packages/rpgmaker-event-dsl
+
+ ❯ test/audio-commands.test.ts (5 tests | 1 failed | 4 skipped) 11ms
+   × keeps audio fade durations in seconds with one required positive saved slot and no wait 10ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/audio-commands.test.ts > keeps audio fade durations in seconds with one required positive saved slot and no wait
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/audio-commands.test.ts:113:47
+    111|     }
+    112|     for (const input of [{}, { duration: 1, wait: true }, { frames: 60…
+    113|       expect(() => dsl[kind](input as never)).toThrow(new RegExp(`MV-E…
+       |                                               ^
+    114|       expect(() => compile([{ kind, ...input } as never])).toThrow(new…
+    115|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 skipped (5)
+   Start at  04:17:56
+   Duration  1.48s (transform 460ms, setup 0ms, import 1.29s, tests 11ms, environment 0ms)
+
+undefined
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-39\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/audio-commands.test.ts -t keeps audio fade durations

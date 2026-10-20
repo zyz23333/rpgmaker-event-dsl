@@ -13,6 +13,7 @@ import {
   assertWindowColorInput,
 } from "../commands/movement/access-validation.js";
 import { assertSceneCommandInput } from "../commands/system/validation.js";
+import { assertAudioCommandInput } from "../commands/audio/validation.js";
 import {
   resolveCommonEventCall,
   assertLoopCommand,
@@ -134,6 +135,7 @@ export function compileNodes(
 
   for (const [nodeIndex, node] of nodes.entries()) {
     assertPictureInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
+    assertAudioCommandInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
     assertMapAppearanceInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     assertSystemAccessInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true);
     assertWindowColorInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true);
@@ -1080,7 +1082,7 @@ export function compileNodes(
           parameters: [],
         });
         break;
-      case "resumeBgm":
+      case "replayBgm":
         output.push({
           code: 244,
           indent,

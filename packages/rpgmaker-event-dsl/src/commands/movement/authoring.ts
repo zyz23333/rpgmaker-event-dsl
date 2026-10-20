@@ -1,16 +1,11 @@
 import type {
-  AudioPayload,
   BalloonIcon,
-  ChangeBattleBgmDslCommand,
-  ChangeDefeatMeDslCommand,
   ChangeEncounterDslCommand,
   ChangeFormationAccessDslCommand,
   ChangeMenuAccessDslCommand,
   ChangePlayerFollowersDslCommand,
   ChangeSaveAccessDslCommand,
   ChangeTransparencyDslCommand,
-  ChangeVehicleBgmDslCommand,
-  ChangeVictoryMeDslCommand,
   ChangeWindowColorDslCommand,
   CharacterRuntimeSelector,
   Direction,
@@ -28,20 +23,6 @@ import type {
   VehicleTarget,
 } from "../../domain/types.js";
 import { assertSystemAccessInput, assertWindowColorInput } from "./access-validation.js";
-
-export function changeBattleBgm(input: { audio: AudioPayload }): ChangeBattleBgmDslCommand {
-  return {
-    kind: "changeBattleBgm",
-    audio: input.audio,
-  };
-}
-
-export function changeVictoryMe(input: { audio: AudioPayload }): ChangeVictoryMeDslCommand {
-  return {
-    kind: "changeVictoryMe",
-    audio: input.audio,
-  };
-}
 
 export function changeSaveAccess(input: { enabled: boolean }): ChangeSaveAccessDslCommand {
   assertSystemAccessInput("changeSaveAccess", input, "changeSaveAccess");
@@ -84,24 +65,6 @@ export function changeWindowColor(input: {
   return {
     kind: "changeWindowColor",
     tone: input.tone,
-  };
-}
-
-export function changeDefeatMe(input: { audio: AudioPayload }): ChangeDefeatMeDslCommand {
-  return {
-    kind: "changeDefeatMe",
-    audio: input.audio,
-  };
-}
-
-export function changeVehicleBgm(input: {
-  vehicle: VehicleTarget;
-  audio: AudioPayload;
-}): ChangeVehicleBgmDslCommand {
-  return {
-    kind: "changeVehicleBgm",
-    vehicle: input.vehicle,
-    audio: input.audio,
   };
 }
 

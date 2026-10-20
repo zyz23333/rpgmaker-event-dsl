@@ -1,0 +1,398 @@
+import { readFile, readdir, rename, writeFile } from "node:fs/promises";
+import { join } from "node:path";
+import { expect, it as test } from "vitest";
+import { recordEvidence } from "./support/mv-evidence.js";
+import { workspaceApiEntry } from "./support/workspace-operation-process.js";
+import { createMinimalProject, withWindowsSandbox } from "./support/windows-sandbox.js";
+import { blankEvent, blankPage } from "./support/map-event-fixtures.js";
+import { discoverDefinitionFiles, loadDefinitionFile } from "../src/workspace/definitions.js";
+import { getWorkspaceStatePaths } from "../src/workspace/state.js";
+
+const {
+  initWorkspace,
+  cloneWorkspace,
+  decompileWorkspace,
+  compileWorkspace,
+  diffWorkspace,
+  pushWorkspace,
+}: typeof import("../src/workspace-api.js") = await import(workspaceApiEntry);
+const discovery = {
+  sourceRoot: "src",
+  sourceInclude: ["**/*.events.ts", "**/*.dsl.ts"],
+  sourceExclude: [],
+};
+type SavedCommand = { code: number; indent: number; parameters: unknown[] };
+const commands: SavedCommand[] = JSON.parse(
+  await readFile(
+    new URL("./fixtures/mv-evidence/audio-command-cases.json", import.meta.url),
+    "utf8",
+  ),
+);
+
+function it(name: string, body: () => Promise<void>) {
+  test(
+    name,
+    async () => {
+      const startedAt = new Date().toISOString();
+      let failure: unknown;
+      try {
+        await body();
+      } catch (error) {
+        failure = error;
+        throw error;
+      } finally {
+        await recordEvidence({
+          requirementId: name.split(":")[0]!,
+          startedAt,
+          stages: [
+            "Independent literal native audio input",
+            "Real public Workspace operations and evaluated source",
+            "Complete15-carrier data, diagnostics and applicable business-state assertions",
+          ],
+          expected: name,
+          actual: { entry: workspaceApiEntry, assertionsCompleted: failure === undefined },
+          ...(failure === undefined ? {} : { error: failure }),
+        });
+      }
+    },
+    30_000,
+  );
+}
+
+function savedJson(value: unknown): string {
+  return JSON.stringify(value, (_key, item: unknown) =>
+    typeof item === "number" && Object.is(item, -0) ? "__AUDIO_SIGNED_ZERO__" : item,
+  ).replaceAll('"__AUDIO_SIGNED_ZERO__"', "-0");
+}
+
+async function prepare(workspaceRoot: string) {
+  const fixture = await createMinimalProject(workspaceRoot);
+  const files: Record<string, unknown> = structuredClone(fixture.projectFiles);
+  files["CommonEvents.json"] = [
+    null,
+    { id: 1, name: "Audio Common", trigger: 0, switchId: 1, list: commands },
+  ];
+  files["MapInfos.json"] = [null, { id: 1, name: "Audio Map" }];
+  files["Tilesets.json"] = [null, { id: 1, name: "Field" }];
+  files["Map001.json"] = {
+    width: 17,
+    height: 13,
+    tilesetId: 1,
+    external: { retain: [null, "", 9] },
+    events: [
+      null,
+      {
+        ...structuredClone(blankEvent),
+        name: "Audio Event",
+        pages: [{ ...structuredClone(blankPage), list: commands }],
+      },
+      null,
+    ],
+  };
+  files["Troops.json"] = [
+    null,
+    {
+      id: 1,
+      name: "External troop",
+      members: [],
+      external: { retain: true },
+      pages: [
+        {
+          conditions: {
+            actorHp: 50,
+            actorId: 1,
+            actorValid: false,
+            enemyHp: 50,
+            enemyIndex: 0,
+            enemyValid: false,
+            switchId: 1,
+            switchValid: false,
+            turnA: 0,
+            turnB: 0,
+            turnEnding: false,
+            turnValid: false,
+          },
+          span: 0,
+          list: commands,
+        },
+      ],
+    },
+  ];
+  for (const [name, value] of Object.entries(files))
+    await writeFile(join(workspaceRoot, "Game/data", name), savedJson(value));
+  await initWorkspace({ workspaceRoot, projectRoot: "./Game" });
+  await cloneWorkspace({ workspaceRoot });
+  return structuredClone(files);
+}
+
+async function directory(path: string): Promise<Record<string, string> | null> {
+  try {
+    return Object.fromEntries(
+      await Promise.all(
+        (await readdir(path))
+          .sort()
+          .map(async (name) => [name, await readFile(join(path, name), "utf8")]),
+      ),
+    );
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return null;
+    throw error;
+  }
+}
+function parsed(files: Record<string, string> | null) {
+  return files === null
+    ? null
+    : Object.fromEntries(Object.entries(files).map(([name, bytes]) => [name, JSON.parse(bytes)]));
+}
+async function tree(path: string): Promise<Record<string, unknown> | null> {
+  try {
+    return Object.fromEntries(
+      await Promise.all(
+        (await readdir(path, { withFileTypes: true }))
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .map(async (entry) => [
+            entry.name,
+            entry.isDirectory()
+              ? await tree(join(path, entry.name))
+              : await readFile(join(path, entry.name), "utf8"),
+          ]),
+      ),
+    );
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return null;
+    throw error;
+  }
+}
+async function state(workspaceRoot: string) {
+  const paths = getWorkspaceStatePaths(workspaceRoot),
+    files = await discoverDefinitionFiles(workspaceRoot, discovery);
+  return {
+    project: await directory(join(workspaceRoot, "Game/data")),
+    snapshot: await directory(paths.projectDataSnapshotDirectory),
+    generated: await directory(paths.generatedProjectDataDirectory),
+    manifest: await readFile(paths.syncManifestPath, "utf8"),
+    config: await readFile(join(workspaceRoot, "rpgmaker-event-dsl.config.json"), "utf8"),
+    descriptor: await readFile(join(workspaceRoot, "Game/Game.rpgproject"), "utf8"),
+    sourceTree: await tree(join(workspaceRoot, "src")),
+    pendingPush: await tree(paths.pendingPushDirectory),
+    files,
+    sources: await Promise.all(files.map((file) => readFile(file, "utf8"))),
+  };
+}
+
+it("MV-S6-AUDIO-001: reconstructs all audio modes and signed zero through evaluated formal and raw source with real15-carrier Push", async () => {
+  await withWindowsSandbox("audio-roundtrip", async ({ workspaceRoot }) => {
+    const expected = await prepare(workspaceRoot);
+    await decompileWorkspace({ workspaceRoot });
+    const files = await discoverDefinitionFiles(workspaceRoot, discovery);
+    expect(files).toHaveLength(4);
+    const definitions = (await Promise.all(files.map((file) => loadDefinitionFile(file)))).flat();
+    expect(
+      definitions.filter((value) => ["mapEvent", "commonEvent", "troopEvent"].includes(value.kind)),
+    ).toHaveLength(3);
+    const sourcePath = join(workspaceRoot, "src/decompiled/common-events.events.ts"),
+      source = await readFile(sourcePath, "utf8");
+    for (const expression of [
+      "replayBgm()",
+      "saveBgm()",
+      "stopSe()",
+      "asset: null, volume: -0, pitch: 100, pan: -0",
+      'vehicle: "boat"',
+      'vehicle: "ship"',
+      'vehicle: "airship"',
+      "fadeoutBgm({ duration: 999 })",
+      "fadeoutBgs({ duration: 1 })",
+    ])
+      expect(source).toContain(expression);
+    expect(source).not.toContain("resumeBgm");
+    const beforeCheck = await state(workspaceRoot);
+    await compileWorkspace({ workspaceRoot, check: true });
+    expect(await state(workspaceRoot)).toStrictEqual(beforeCheck);
+    await compileWorkspace({ workspaceRoot, check: false });
+    const paths = getWorkspaceStatePaths(workspaceRoot);
+    const generated = Object.fromEntries(
+      ["CommonEvents.json", "Map001.json", "System.json", "Troops.json"].map((name) => [
+        name,
+        expected[name],
+      ]),
+    );
+    expect(parsed(await directory(paths.generatedProjectDataDirectory))).toStrictEqual(generated);
+    const raw = commands
+      .slice(0, -1)
+      .map(
+        ({ code, indent, parameters }) =>
+          `rawDslCommand({ code:${code}, indent:${indent}, parameters:${savedJson(parameters)} })`,
+      )
+      .join(",\n");
+    await writeFile(
+      sourcePath,
+      `import { commonEvent, rawDslCommand } from "rpgmaker-event-dsl";\nexport const rawAudio = commonEvent({ id:1, name:"Audio Common", trigger:"none", commands:[${raw}] });\n`,
+    );
+    await compileWorkspace({ workspaceRoot, check: false });
+    expect(parsed(await directory(paths.generatedProjectDataDirectory))).toStrictEqual(generated);
+    await writeFile(sourcePath, source.replace("Audio Common", "Audio Common edited"));
+    await compileWorkspace({ workspaceRoot, check: true });
+    await compileWorkspace({ workspaceRoot, check: false });
+    expect(await diffWorkspace({ workspaceRoot })).toContain("[changed] commonEventId 1");
+    expect(
+      JSON.parse(
+        await readFile(join(paths.generatedProjectDataDirectory, "CommonEvents.json"), "utf8"),
+      )[1].name,
+    ).toBe("Audio Common edited");
+    await pushWorkspace({ workspaceRoot, allowDestructive: false });
+    (expected["CommonEvents.json"] as Array<null | { name: string }>)[1]!.name =
+      "Audio Common edited";
+    const installed = await directory(join(workspaceRoot, "Game/data"));
+    expect(Object.keys(installed!)).toHaveLength(15);
+    expect(parsed(installed)).toStrictEqual(expected);
+    expect(await directory(paths.projectDataSnapshotDirectory)).toStrictEqual(installed);
+  });
+});
+
+it("MV-S6-AUDIO-002: refuses evaluated malformed helper direct and known raw audio sources without changing complete business state", async () => {
+  const good = "{ asset:null, volume:1, pitch:51, pan:1 }";
+  const cases: Array<[string, string, string, string?]> = [
+    ["playBgm({audio:{...audio, pitch:undefined}} as any)", "MV-E241", "playBgm.audio.pitch"],
+    ["playBgs({audio:{...audio, extra:true}} as any)", "MV-E245", "playBgs.audio"],
+    [
+      "playMe({audio:{...audio, asset:audioAsset({folder:'bgm',name:'Wrong'})}} as any)",
+      "MV-E249",
+      "playMe.audio.asset",
+    ],
+    ["playSe({audio:{...audio, asset:undefined}} as any)", "MV-E250", "playSe.audio.asset"],
+    ["playBgm({audio, extra:1} as any)", "MV-E241", "playBgm"],
+    [
+      "{kind:'changeBattleBgm',audio:{...audio,volume:-1}} as any",
+      "MV-E132",
+      "commands[1].audio.volume",
+    ],
+    [
+      "{kind:'changeVictoryMe',audio:{...audio,pitch:151}} as any",
+      "MV-E133",
+      "commands[1].audio.pitch",
+    ],
+    [
+      "{kind:'changeDefeatMe',audio:{...audio,pan:-101}} as any",
+      "MV-E139",
+      "commands[1].audio.pan",
+    ],
+    ["{kind:'changeVehicleBgm',vehicle:'car',audio} as any", "MV-E140", "commands[1].vehicle"],
+    ["{kind:'playBgm',audio:null} as any", "MV-E241", "commands[1].audio"],
+    [
+      "{kind:'playBgs',audio:{volume:1,pitch:51,pan:1}} as any",
+      "MV-E245",
+      "commands[1].audio.asset",
+    ],
+    [
+      "{kind:'playMe',audio:{...audio,asset:{kind:'asset',category:'image',folder:'me',name:'Wrong'}}} as any",
+      "MV-E249",
+      "commands[1].audio.asset",
+    ],
+    [
+      "{kind:'playSe',audio:{...audio,asset:{kind:'asset',category:'audio',folder:'se',name:''}}} as any",
+      "MV-E250",
+      "commands[1].audio.asset",
+    ],
+    ["fadeoutBgm({duration:0} as any)", "MV-E242", "fadeoutBgm.duration"],
+    ["{kind:'fadeoutBgs',duration:1000} as any", "MV-E246", "commands[1].duration"],
+    ["{kind:'saveBgm',extra:true} as any", "MV-E243", "commands[1]"],
+    ["{kind:'replayBgm',duration:1} as any", "MV-E244", "commands[1]"],
+    ["{kind:'stopSe',audio} as any", "MV-E251", "commands[1]"],
+    ["call({discarded:true})", "MV-E243", "saveBgm", "const call = saveBgm as any;"],
+    [
+      "playBgm({audio:{...audio,asset:audioAsset({folder:'bgm',name:'Track',extra:true} as any)}})",
+      "MV-AUDIO-ASSET",
+      "audioAsset",
+    ],
+    [
+      "rawDslCommand({code:250,parameters:[{name:'',volume:1,pitch:51,pan:101}]})",
+      "MV-E250-PARAMETER",
+      "commands[1].parameters[0].pan",
+    ],
+    [
+      "{kind:'rawDslCommand',code:140,parameters:[-0,{name:'',volume:1,pitch:51,pan:1}]} as any",
+      "MV-E140-PARAMETER",
+      "commands[1].parameters[0]",
+    ],
+    ["rawDslCommand({code:244,parameters:[0]})", "MV-E244-PARAMETER", "commands[1].parameters"],
+  ];
+  await withWindowsSandbox("audio-source-refusal", async ({ workspaceRoot }) => {
+    await prepare(workspaceRoot);
+    await decompileWorkspace({ workspaceRoot });
+    await compileWorkspace({ workspaceRoot, check: false });
+    const sourcePath = join(workspaceRoot, "src/decompiled/common-events.events.ts");
+    for (const [expression, code, path, prelude = ""] of cases) {
+      await writeFile(
+        sourcePath,
+        `import {commonEvent,audioAsset,playBgm,playBgs,playMe,playSe,fadeoutBgm,saveBgm,rawDslCommand} from "rpgmaker-event-dsl";\nconst audio=${good};\n${prelude}\nexport const entry=commonEvent({id:1,name:"Audio Common",trigger:"none",commands:[saveBgm(),${expression}]});\n`,
+      );
+      const before = await state(workspaceRoot);
+      for (const check of [true, false]) {
+        const failure = await compileWorkspace({ workspaceRoot, check }).then(
+          () => undefined,
+          (error) => error,
+        );
+        expect(failure).toBeInstanceOf(Error);
+        expect(failure.message).toContain(code);
+        expect(failure.message).toContain(path);
+        expect(failure.message).toContain("expected");
+        expect(failure.message).toContain("actual");
+        expect(await state(workspaceRoot)).toStrictEqual(before);
+      }
+      await expect(pushWorkspace({ workspaceRoot, allowDestructive: false })).rejects.toThrow(
+        /stale before push/,
+      );
+      expect(await state(workspaceRoot)).toStrictEqual(before);
+    }
+  });
+});
+
+it("MV-S6-AUDIO-003: refuses late malformed saved audio records before Decompile publication and preserves every existing business file", async () => {
+  const audio = { name: "", volume: 1, pitch: 51, pan: 1 };
+  const cases: Array<[number, unknown[], string]> = [
+    [132, [], ""],
+    [133, [{ ...audio, extra: true }], "[0]"],
+    [139, [{ name: "", volume: 1, pitch: 51 }], "[0].pan"],
+    [140, [-0, audio], "[0]"],
+    [140, [3, audio], "[0]"],
+    [140, [0, null], "[1]"],
+    [241, [{ ...audio, volume: 101 }], "[0].volume"],
+    [241, [{ ...audio, name: null }], "[0].name"],
+    [242, [0], "[0]"],
+    [243, [1], ""],
+    [244, [1], ""],
+    [245, [{ ...audio, pitch: 49 }], "[0].pitch"],
+    [246, [1000], "[0]"],
+    [246, [1, false], ""],
+    [249, [{ ...audio, pan: -101 }], "[0].pan"],
+    [250, [{ ...audio, pan: 0.5 }], "[0].pan"],
+    [250, [audio, audio], ""],
+    [251, [1], ""],
+  ];
+  await withWindowsSandbox("audio-native-refusal", async ({ workspaceRoot }) => {
+    const expected = await prepare(workspaceRoot);
+    await decompileWorkspace({ workspaceRoot });
+    await rename(join(workspaceRoot, "src/decompiled"), join(workspaceRoot, "src/existing"));
+    await compileWorkspace({ workspaceRoot, check: false });
+    for (const [code, parameters, suffix] of cases) {
+      const carrier = structuredClone(expected["CommonEvents.json"]) as Array<null | {
+        list: SavedCommand[];
+      }>;
+      carrier[1]!.list.splice(47, 0, { code, indent: 0, parameters });
+      await writeFile(join(workspaceRoot, "Game/data/CommonEvents.json"), savedJson(carrier));
+      await cloneWorkspace({ workspaceRoot });
+      const before = await state(workspaceRoot);
+      await expect(decompileWorkspace({ workspaceRoot })).rejects.toMatchObject({
+        code: `MV-E${code}-PARAMETER`,
+        stage: "decompile",
+        identity: "commonEvent:1",
+        location: {
+          nativePath: `list[47].parameters${suffix}`,
+          expected: expect.any(String),
+          actual: expect.any(String),
+        },
+      });
+      expect(await state(workspaceRoot)).toStrictEqual(before);
+    }
+  });
+});
