@@ -8,17 +8,16 @@ import type {
   ControlSwitchesDslCommand,
   ControlTimerDslCommand,
   ControlVariablesDslCommand,
-  ControlVariablesGameDataOperand,
   Direction,
   MapDestination,
-  RandomOperand,
+  OperateValueOperand,
   ReferenceRange,
   ReferenceValue,
-  ScriptOperand,
   TransferPlayerDslCommand,
 } from "../../domain/types.js";
 import { assertControlTimerInput } from "./validation.js";
 import { assertInventoryInput } from "./inventory-validation.js";
+import { assertControlVariablesInput } from "./control-variables.js";
 
 export function transferPlayer(input: {
   destination: MapDestination;
@@ -51,16 +50,10 @@ export function controlSwitches(input: {
   };
 }
 
-export function controlVariables(input: {
-  variable: ReferenceValue<"variable"> | ReferenceRange<"variable">;
-  operation: "set" | "add" | "sub" | "mul" | "div" | "mod";
-  value:
-    | number
-    | ReferenceValue<"variable">
-    | RandomOperand
-    | ControlVariablesGameDataOperand
-    | ScriptOperand;
-}): ControlVariablesDslCommand {
+export function controlVariables(
+  input: Omit<ControlVariablesDslCommand, "kind">,
+): ControlVariablesDslCommand {
+  assertControlVariablesInput(input);
   return {
     kind: "controlVariables",
     variable: input.variable,

@@ -34,6 +34,9 @@ Turn RPG Maker MV gameplay intent into idiomatic Event DSL source. Use Workspace
    For page or forced movement routes, read `references/movement-routes.md` before
    choosing instruction fields, None assets, parameter ranges or saved envelopes.
 
+   For Control Variables operands, Game Data sources, or runtime selection, read
+   `references/control-variables.md` before choosing fields or validation behavior.
+
    For Picture commands, read `references/pictures.md` before choosing image None,
    position, origin, display fields, Tone, rotation or waiting behavior.
    For gold, item, weapon, armor or party membership changes, read

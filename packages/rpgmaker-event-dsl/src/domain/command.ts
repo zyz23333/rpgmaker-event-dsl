@@ -10,7 +10,7 @@ import type {
   CommandPosition,
   ConstantOperand,
   ConditionalBranchCondition,
-  ControlVariablesGameDataOperand,
+  CommandOperand,
   Direction,
   EnemyCommandTarget,
   EquipmentRuntimeSelector,
@@ -20,11 +20,9 @@ import type {
   MapDestination,
   MovieAssetReference,
   OperateValueOperand,
-  RandomOperand,
   ReferenceRange,
   ReferenceValue,
   ScriptInput,
-  ScriptOperand,
   ToneInput,
   VehicleTarget,
   VariableOperand,
@@ -256,12 +254,7 @@ export type ControlVariablesDslCommand = {
   kind: "controlVariables";
   variable: ReferenceValue<"variable"> | ReferenceRange<"variable">;
   operation: "set" | "add" | "sub" | "mul" | "div" | "mod";
-  value:
-    | number
-    | ReferenceValue<"variable">
-    | RandomOperand
-    | ControlVariablesGameDataOperand
-    | ScriptOperand;
+  value: CommandOperand;
 };
 
 export type ControlSelfSwitchDslCommand = {

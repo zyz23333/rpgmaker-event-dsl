@@ -281,7 +281,7 @@ describe("validateDslOwnedDeclarations", () => {
             controlVariables({
               variable: variableRef({ name: "Snapshot Variable" }),
               operation: "set",
-              value: 1,
+              value: { kind: "constant", value: 1 },
             }),
           ],
         }),
@@ -300,7 +300,7 @@ describe("validateDslOwnedDeclarations", () => {
       expect.arrayContaining([
         expect.stringContaining("Unknown commonEvent reference: Snapshot Common"),
         "MV-E121-REFERENCE validation common event 1.commands[1].switch: Unknown switch reference: Snapshot Switch",
-        "Unknown variable reference: Snapshot Variable",
+        expect.stringContaining("Unknown variable reference: Snapshot Variable"),
       ]),
     );
     expect(result.issues).toContainEqual(
@@ -449,8 +449,11 @@ describe("validateDslOwnedDeclarations", () => {
       { scriptEnabled: false },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toContain(
-      "Control Variables script operands require explicit config enablement.",
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-SCRIPT-GATE",
+        dslPath: "pages[0].commands[0].value.script.code",
+      }),
     );
   });
 

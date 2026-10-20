@@ -206,7 +206,7 @@ describe("compileMapEvent", () => {
               controlVariables({
                 variable: variableRef({ name: "Count" }),
                 operation: "add",
-                value: 3,
+                value: { kind: "constant", value: 3 },
               }),
               controlSwitches({ switch: switchRef({ name: "Gate" }), value: true }),
               changeGold({ operation: "gain", value: { kind: "constant", value: 5 } }),

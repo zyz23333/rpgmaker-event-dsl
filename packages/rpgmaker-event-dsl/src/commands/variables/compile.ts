@@ -8,6 +8,7 @@ import type {
   ReferenceValue,
 } from "../../domain/types.js";
 import type { ReferenceResolver } from "../../validation/types.js";
+import { assertControlVariablesInput } from "./control-variables.js";
 
 export function resolveControlValue(value: boolean): number {
   return value ? 0 : 1;
@@ -25,7 +26,9 @@ export function isReferenceValue(value: unknown): value is ReferenceValue<"varia
 export function compileControlVariablesParameters(
   node: ControlVariablesDslCommand,
   resolver: ReferenceResolver,
+  path = "controlVariables",
 ): unknown[] {
+  assertControlVariablesInput(node, path, true, resolver);
   const [startVariableId, endVariableId] = compileReferenceTargetRange(node.variable, resolver);
   const operation =
     node.operation === "set"
@@ -40,8 +43,8 @@ export function compileControlVariablesParameters(
               ? 4
               : 5;
 
-  if (typeof node.value === "number") {
-    return [startVariableId, endVariableId, operation, 0, node.value];
+  if (node.value.kind === "constant") {
+    return [startVariableId, endVariableId, operation, 0, node.value.value];
   }
 
   if ("kind" in node.value && node.value.kind === "random") {
@@ -62,7 +65,13 @@ export function compileControlVariablesParameters(
     ];
   }
 
-  return [startVariableId, endVariableId, operation, 1, resolver.resolveReference(node.value)];
+  return [
+    startVariableId,
+    endVariableId,
+    operation,
+    1,
+    resolver.resolveReference(node.value.variable),
+  ];
 }
 
 export function compileReferenceTargetRange<TKind extends ReferenceKind>(
@@ -113,11 +122,19 @@ export function compileControlVariablesGameDataOperand(
     case "actor":
       return [3, resolver.resolveReference(operand.actor), actorGameDataValueToCode(operand.value)];
     case "enemy":
-      return [4, operand.enemyIndex, enemyGameDataValueToCode(operand.value)];
+      return [4, operand.enemy.index, enemyGameDataValueToCode(operand.value)];
     case "character":
-      return [5, operand.characterId, characterGameDataValueToCode(operand.value)];
+      return [
+        5,
+        operand.target.target === "player"
+          ? -1
+          : operand.target.target === "currentEvent"
+            ? 0
+            : operand.target.id,
+        characterGameDataValueToCode(operand.value),
+      ];
     case "party":
-      return [6, operand.memberIndex, 0];
+      return [6, operand.member.index, 0];
     case "other":
       return [7, otherGameDataValueToCode(operand.value), 0];
   }

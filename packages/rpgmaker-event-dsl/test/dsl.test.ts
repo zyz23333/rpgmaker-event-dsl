@@ -188,7 +188,11 @@ describe("collectDslOwnedDeclarations", () => {
       "controlSwitches",
     );
     expect(
-      controlVariables({ variable: variableRef({ id: 2 }), operation: "add", value: 3 }).kind,
+      controlVariables({
+        variable: variableRef({ id: 2 }),
+        operation: "add",
+        value: { kind: "constant", value: 3 },
+      }).kind,
     ).toBe("controlVariables");
     expect(controlSelfSwitch({ selfSwitch: "A", value: false }).kind).toBe("controlSelfSwitch");
     expect(changeGold({ operation: "gain", value: { kind: "constant", value: 5 } }).kind).toBe(

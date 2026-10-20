@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-19T18:37:37.856Z",
+  "purpose": "Prove staged Git blobs preserve the exact focused execution, result and archived-input bytes",
+  "sourceFiles": 167,
+  "results": 17,
+  "archivedInputsAndLogs": 13,
+  "checkedBlobs": 197,
+  "allStagedSha256MatchRecordedRawBytes": true,
+  "sourceFingerprint": "05ec028aa8dc76a461f37a2cee775ed8e59bddcb53086540e288d9e677af5d9d",
+  "firstPartyRuntimeOrAssetsAdded": false
+}

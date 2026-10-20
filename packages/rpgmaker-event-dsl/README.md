@@ -581,6 +581,57 @@ changeWeapons({
 changePartyMember({ actor: actorRef({ id: 1 }), operation: "remove", initialize: true });
 ```
 
+## Control Variables
+
+Control Variables uses a named operand and an explicit operation:
+
+```ts
+controlVariables({
+  variable: variableRef({ id: 1 }),
+  operation: "add",
+  value: { kind: "constant", value: 1 },
+});
+controlVariables({
+  variable: { kind: "referenceRange", from: variableRef({ id: 1 }), to: variableRef({ id: 3 }) },
+  operation: "set",
+  value: { kind: "variable", variable: variableRef({ id: 2 }) },
+});
+```
+
+Operations are `set`, `add`, `sub`, `mul`, `div`, `mod`. Operand modes are
+constant, variable, random, gameData and script. Constants and random endpoints
+are integers −99,999,999..99,999,999, retaining numeric negative zero. Ranges and
+random endpoints must be ordered. Runtime variable, Game Data and Script values
+use native MV evaluation, including flooring when storing numbers, without
+literal bounds or clamping. Random samples for each target; every other operand
+is evaluated once before the range loop, including self-aliasing variable sources.
+
+Game Data sources use `{ kind: "gameData", source, ... }`:
+
+| source                | Required inputs                                                                                                                          |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| item / weapon / armor | matching item / weapon / armor Project Data Reference                                                                                    |
+| actor                 | actorRef and value level/exp/hp/mp/mhp/mmp/atk/def/mat/mdf/agi/luk                                                                       |
+| enemy                 | enemy Runtime Selector (`scope: "enemy", target: "enemy", index: 0..7`) and value hp/mp/mhp/mmp/atk/def/mat/mdf/agi/luk                  |
+| character             | target Runtime Selector (`scope: "character"`, player/currentEvent/event with positive id) and value mapX/mapY/direction/screenX/screenY |
+| party                 | member Runtime Selector (`scope: "party", target: "member", index: 0..7`)                                                                |
+| other                 | value mapId/partyMembers/gold/steps/playTime/timer/saveCount/battleCount/winCount/escapeCount                                            |
+
+Every Runtime Selector includes `kind: "runtimeSelector"`. Enemy and party
+positions retain numeric negative zero. Fixed references must resolve; unknown
+Common Event runtime context is allowed. Determinable unavailable runtime targets
+warn and may return native 0. Missing Enemy entries are skipped when a Troop's
+runtime members are constructed; saved positions can shift or become unavailable,
+and warnings preserve those positions. A hidden member still supplies Game Data.
+Inventory Game Data counts exclude equipped items;
+actor/enemy status sources have no TP. Script mode uses
+`{ kind: "script", script: scriptInput({ code }) }`: the complete single-slot
+string is preserved, including empty text, whitespace, CR/LF/CRLF and trailing
+characters, without a character or line limit. LF/CR warn about parameter
+reconfirmation while retaining text. Native symbolic operation/source/status
+codes, character symbolic targets and unused Game Data padding reject negative
+zero before conversion; supported numeric values keep it.
+
 ## Raw commands and the Script Command Gate
 
 `rawDslCommand({ code, indent?, parameters })` carries one event command. Explicit
