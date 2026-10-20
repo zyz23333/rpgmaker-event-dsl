@@ -19071,6 +19071,1308 @@
       "required": true
     },
     {
+      "id": "MV-S6-INVENTORY-001",
+      "title": "Complete native quantity mode and independent flag matrix through actual Workspace publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I4 — 参数覆盖与结构化命令"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E125 — Change Gold"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/32-inventory-and-party-changes.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored independent E125–E129 literals: both operations and quantity modes; all equipment/initialization boolean saved combinations; 1/max constant boundaries; unnamed variable slot3; owned extras, invalid native slots and missing references.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/inventory-party.json",
+        "sha256": "e3b1b7daf286f125863a1610027a8035835c66f37438f177233e9c9199ae28fd"
+      },
+      "expected": "Complete native saved values and all15 project carriers preserve exact inactive flags and explicit mode references. Invalid inputs refuse with located diagnostics and preserve source, Discovery, Project Root, Snapshot, generated and manifest.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/inventory-party-workspace.test.ts",
+        "name": "MV-S6-INVENTORY-001: evaluates the complete native mode and inactive flag matrix and performs a real harmless Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; synthetic fixtures; native not executed",
+        "owner": "Automated test runner",
+        "layer": "Actual public Workspace API and filesystem"
+      },
+      "slice": "32 / S6 focused DEV; final acceptance pending",
+      "required": true
+    },
+    {
+      "id": "MV-S6-INVENTORY-002",
+      "title": "Local const helper and direct node unknown fields fail without changing business state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I4 — 参数覆盖与结构化命令"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E125 — Change Gold"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/32-inventory-and-party-changes.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A5",
+        "A6",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Self-authored independent E125–E129 literals: both operations and quantity modes; all equipment/initialization boolean saved combinations; 1/max constant boundaries; unnamed variable slot3; owned extras, invalid native slots and missing references.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/inventory-party.json",
+        "sha256": "e3b1b7daf286f125863a1610027a8035835c66f37438f177233e9c9199ae28fd"
+      },
+      "expected": "Complete native saved values and all15 project carriers preserve exact inactive flags and explicit mode references. Invalid inputs refuse with located diagnostics and preserve source, Discovery, Project Root, Snapshot, generated and manifest.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/inventory-party-workspace.test.ts",
+        "name": "MV-S6-INVENTORY-002: $helper $mode refuses source local const extra fields before publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; synthetic fixtures; native not executed",
+        "owner": "Automated test runner",
+        "layer": "Actual public Workspace API and filesystem"
+      },
+      "slice": "32 / S6 focused DEV; final acceptance pending",
+      "required": true
+    },
+    {
+      "id": "MV-S6-INVENTORY-003",
+      "title": "Native invalid saved slots fail before source publication including categorical negative zero",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I4 — 参数覆盖与结构化命令"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E125 — Change Gold"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/32-inventory-and-party-changes.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A5",
+        "A6",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Self-authored independent E125–E129 literals: both operations and quantity modes; all equipment/initialization boolean saved combinations; 1/max constant boundaries; unnamed variable slot3; owned extras, invalid native slots and missing references.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/inventory-party.json",
+        "sha256": "e3b1b7daf286f125863a1610027a8035835c66f37438f177233e9c9199ae28fd"
+      },
+      "expected": "Complete native saved values and all15 project carriers preserve exact inactive flags and explicit mode references. Invalid inputs refuse with located diagnostics and preserve source, Discovery, Project Root, Snapshot, generated and manifest.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/inventory-party-workspace.test.ts",
+        "name": "MV-S6-INVENTORY-003: E$code rejects native invalid saved input before source publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; synthetic fixtures; native not executed",
+        "owner": "Automated test runner",
+        "layer": "Actual public Workspace API and filesystem"
+      },
+      "slice": "32 / S6 focused DEV; final acceptance pending",
+      "required": true
+    },
+    {
+      "id": "MV-S6-INVENTORY-004",
+      "title": "Native fixed references must exist in their real project category before takeover",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I4 — 参数覆盖与结构化命令"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E125 — Change Gold"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/32-inventory-and-party-changes.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Self-authored independent E125–E129 literals: both operations and quantity modes; all equipment/initialization boolean saved combinations; 1/max constant boundaries; unnamed variable slot3; owned extras, invalid native slots and missing references.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/inventory-party.json",
+        "sha256": "e3b1b7daf286f125863a1610027a8035835c66f37438f177233e9c9199ae28fd"
+      },
+      "expected": "Complete native saved values and all15 project carriers preserve exact inactive flags and explicit mode references. Invalid inputs refuse with located diagnostics and preserve source, Discovery, Project Root, Snapshot, generated and manifest.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/inventory-party-workspace.test.ts",
+        "name": "MV-S6-INVENTORY-004: E$code rejects missing fixed project references before source publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; synthetic fixtures; native not executed",
+        "owner": "Automated test runner",
+        "layer": "Actual public Workspace API and filesystem"
+      },
+      "slice": "32 / S6 focused DEV; final acceptance pending",
+      "required": true
+    },
+    {
+      "id": "MV-S6-INVENTORY-005",
+      "title": "Formal helpers, direct nodes, native and recognized raw share complete inventory and party domains",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I4 — 参数覆盖与结构化命令"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E125 — Change Gold"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/32-inventory-and-party-changes.md",
+          "section": "## Acceptance criteria"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Self-authored independent E125–E129 literals: both operations and quantity modes; all equipment/initialization boolean saved combinations; 1/max constant boundaries; unnamed variable slot3; owned extras, invalid native slots and missing references.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/inventory-party.json",
+        "sha256": "e3b1b7daf286f125863a1610027a8035835c66f37438f177233e9c9199ae28fd"
+      },
+      "expected": "Complete native saved values and all15 project carriers preserve exact inactive flags and explicit mode references. Invalid inputs refuse with located diagnostics and preserve source, Discovery, Project Root, Snapshot, generated and manifest.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/inventory-party.test.ts",
+        "name": "inventory quantities and inactive flags reconstruct their independently specified native records"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; synthetic fixtures; native not executed",
+        "owner": "Automated test runner",
+        "layer": "Public command compiler/decompiler and validation seams"
+      },
+      "slice": "32 / S6 focused DEV; final acceptance pending",
+      "required": true
+    },
+    {
+      "id": "MV-S6-INVENTORY-006",
+      "title": "Same-identity E4 reverse-engineering product comparison and actual R4 inventory/party execution",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/32-inventory-and-party-changes.md",
+          "section": "## Scope"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Final built product and independent native contexts with variable zero/negative quantities, runtime caps, insufficient stock/equipped loss, inactive gain+true/remove+true saved flags, duplicate add and actor initialization.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/inventory-party.json",
+        "sha256": "e3b1b7daf286f125863a1610027a8035835c66f37438f177233e9c9199ae28fd"
+      },
+      "expected": "Actual isolated normal-Scene literal and compiled games agree with original native semantics; E4 shipped editor code paths and final product output compare separately. Not executed by focused DEV.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/32-inventory-party-dev.md",
+        "section": "## Pending E4/R4 acceptance"
+      },
+      "nativeGroups": [
+        "E4",
+        "R4"
+      ],
+      "execution": {
+        "environment": "MV1.6.1 / identified NW.js; hardened physical independent data trees",
+        "owner": "Finalization implementer after root serialized gate release",
+        "layer": "REA/product comparison and actual game runtime"
+      },
+      "slice": "32 / S6 final acceptance pending",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SHOP-001",
+      "title": "Exact ordered placeholders, categories, standard/custom prices and purchaseOnly survive Decompile, evaluated source, Check, Compile, Diff and real Push with complete carriers",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I4 — 参数覆盖与结构化命令"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent Shop saved-slot fixture with ordered repeated exact placeholders, all real categories, empty Shop, standard/custom0/max prices and both purchaseOnly states; original malformed source/native inputs.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/shop-cases.json",
+        "sha256": "5ad46501b631316e8d50fc425c8764018f54a4c9b3954e6c4a1d18b1be4dba9d"
+      },
+      "expected": "Exact ordered placeholders, categories, standard/custom prices and purchaseOnly survive Decompile, evaluated source, Check, Compile, Diff and real Push with complete carriers",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/shop-workspace.test.ts",
+        "name": "MV-S6-SHOP-001: evaluates Shop source in three containers and installs complete independent carriers"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; synthetic inputs; native not executed",
+        "owner": "Automated test runner",
+        "layer": "Actual public Workspace API, Discovery/evaluation and filesystem"
+      },
+      "slice": "47 focused development; final REA and games pending",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SHOP-002",
+      "title": "Evaluated original placeholder extra fields reject Check, Compile, stale Diff and Push while preserving all business state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I4 — 参数覆盖与结构化命令"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent Shop saved-slot fixture with ordered repeated exact placeholders, all real categories, empty Shop, standard/custom0/max prices and both purchaseOnly states; original malformed source/native inputs.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/shop-cases.json",
+        "sha256": "5ad46501b631316e8d50fc425c8764018f54a4c9b3954e6c4a1d18b1be4dba9d"
+      },
+      "expected": "Evaluated original placeholder extra fields reject Check, Compile, stale Diff and Push while preserving all business state",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/shop-workspace.test.ts",
+        "name": "MV-S6-SHOP-002: refuses evaluated spread placeholder inputs without publishing business state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; synthetic inputs; native not executed",
+        "owner": "Automated test runner",
+        "layer": "Actual public Workspace API, Discovery/evaluation and filesystem"
+      },
+      "slice": "47 focused development; final REA and games pending",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SHOP-003",
+      "title": "Late malformed Shop in Troop fails before publishing any source with complete business state unchanged",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I4 — 参数覆盖与结构化命令"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent Shop saved-slot fixture with ordered repeated exact placeholders, all real categories, empty Shop, standard/custom0/max prices and both purchaseOnly states; original malformed source/native inputs.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/shop-cases.json",
+        "sha256": "5ad46501b631316e8d50fc425c8764018f54a4c9b3954e6c4a1d18b1be4dba9d"
+      },
+      "expected": "Late malformed Shop in Troop fails before publishing any source with complete business state unchanged",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/shop-workspace.test.ts",
+        "name": "MV-S6-SHOP-003: refuses late malformed native zero identities before any source publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; synthetic inputs; native not executed",
+        "owner": "Automated test runner",
+        "layer": "Actual public Workspace API, Discovery/evaluation and filesystem"
+      },
+      "slice": "47 focused development; final REA and games pending",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SHOP-004",
+      "title": "Item, weapon and armor native IDs must exist in their actual category before source publication; another category cannot substitute",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I4 — 参数覆盖与结构化命令"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent Shop saved-slot fixture with ordered repeated exact placeholders, all real categories, empty Shop, standard/custom0/max prices and both purchaseOnly states; original malformed source/native inputs.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/shop-cases.json",
+        "sha256": "5ad46501b631316e8d50fc425c8764018f54a4c9b3954e6c4a1d18b1be4dba9d"
+      },
+      "expected": "Item, weapon and armor native IDs must exist in their actual category before source publication; another category cannot substitute",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/shop-workspace.test.ts",
+        "name": "MV-S6-SHOP-004: refuses missing category-specific native references (%i/%i)"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22; synthetic inputs; native not executed",
+        "owner": "Automated test runner",
+        "layer": "Actual public Workspace API, Discovery/evaluation and filesystem"
+      },
+      "slice": "47 focused development; final REA and games pending",
+      "required": true
+    },
+    {
+      "id": "MV-S6-SHOP-005",
+      "title": "Final E2/E4 Shop saved-state product comparison and actual Shop Scene consequences",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I4 — 参数覆盖与结构化命令"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Final built candidate and identity-bound native Shop saving paths; actual separate literal and compiled Shop games, empty and ordered/repeated placeholder goods with standard/custom prices and purchaseOnly.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/shop-cases.json",
+        "sha256": "5ad46501b631316e8d50fc425c8764018f54a4c9b3954e6c4a1d18b1be4dba9d"
+      },
+      "expected": "Final product preserves the accepted saved forms and actual Shop Scene consequences agree with native control; not executed in this development batch.",
+      "nativeGroups": [
+        "E2",
+        "E4",
+        "R6"
+      ],
+      "execution": {
+        "environment": "Identified MV1.6.1 / NW.js and final built package",
+        "owner": "Final regression implementer",
+        "layer": "REA/product comparison and actual isolated native games"
+      },
+      "slice": "47 final acceptance pending",
+      "required": true,
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/32-47-inventory-shop-capability-batch.md",
+        "section": "## Pending native acceptance"
+      }
+    },
+    {
+      "id": "MV-S6-LOCATION-001",
+      "title": "Complete Location modes through actual Workspace installation",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/34-map-locations-and-location-info.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent literal numeric saved records for 30 Transfer, 6 Vehicle, 15 Event and 14 Location Info combinations, in both Map and Common carriers, plus a harmless actual source name edit.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-location-fixtures.ts",
+        "sha256": "5d2799e1e19cdde07996a5cadf87672e98c05e412b7c693f158f4082131be58c"
+      },
+      "expected": "Actual Discovery/evaluation, Check, Compile, Diff and real Push preserve all independent numeric records and all fifteen complete project carriers; generated output includes all four mandatory owned carriers.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-locations-workspace.test.ts",
+        "name": "round trips all Location modes through actual discovered sources, Check, Compile, Diff and real Push with all fifteen carriers"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source Workspace API; native not-executed",
+        "owner": "Codex focused automated verification",
+        "layer": "Actual public Workspace API and complete filesystem values"
+      },
+      "slice": "34 / S6 focused DEV checkpoint",
+      "required": true
+    },
+    {
+      "id": "MV-S6-LOCATION-002",
+      "title": "Reject evaluated untyped Location sources without changing business state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/34-map-locations-and-location-info.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "All four helpers and direct nodes evaluated from actual local-constant/spread/as-any source containing an extra own field, with complete business state retained.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-location-fixtures.ts",
+        "sha256": "5d2799e1e19cdde07996a5cadf87672e98c05e412b7c693f158f4082131be58c"
+      },
+      "expected": "Check, Compile and Push refuse all eight actual evaluated invalid source forms, preserving source, Project Root, Snapshot, generated output, manifest and Discovery.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-locations-workspace.test.ts",
+        "name": "rejects actual untyped Location sources at Check, Compile and Push without changing complete business state"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source Workspace API; native not-executed",
+        "owner": "Codex focused automated verification",
+        "layer": "Actual public Workspace API and complete filesystem values"
+      },
+      "slice": "34 / S6 focused DEV checkpoint",
+      "required": true
+    },
+    {
+      "id": "MV-S6-LOCATION-003",
+      "title": "Reject native Location coordinates and unsupported exchange padding atomically",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/34-map-locations-and-location-info.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independent native JSON contains negative-zero Transfer x or unsupported Event exchange padding 42, after an existing successful source publication.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-location-fixtures.ts",
+        "sha256": "5d2799e1e19cdde07996a5cadf87672e98c05e412b7c693f158f4082131be58c"
+      },
+      "expected": "Decompile refuses precise native coordinate and unsupported padding diagnostics before source publication, preserving complete business state and every carrier.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-locations-workspace.test.ts",
+        "name": "refuses native Location coordinate and unsupported exchange states before source publication while retaining every carrier"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 source Workspace API; native not-executed",
+        "owner": "Codex focused automated verification",
+        "layer": "Actual public Workspace API and complete filesystem values"
+      },
+      "slice": "34 / S6 focused DEV checkpoint",
+      "required": true
+    },
+    {
+      "id": "MV-S6-LOCATION-004",
+      "title": "Pending final E4/E6 product comparison and R5 native game acceptance",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/34-map-locations-and-location-info.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T3 — 夹具、索引和结果"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A3",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Final built Location product compared with E4/E6 shipped editor code facts and an independently bound R5 native game product pair; not executed by this DEV checkpoint.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/support/map-location-fixtures.ts",
+        "sha256": "5d2799e1e19cdde07996a5cadf87672e98c05e412b7c693f158f4082131be58c"
+      },
+      "expected": "E4/E6 exact target and code evidence compared with final built output; actual hardened R5 game pair exercises direct/variables/exchange/query and controlled battle Transfer, with all physical protection gates. This requirement remains pending.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/34-map-locations-dev-checkpoint.md",
+        "section": "## Pending native comparison and game acceptance"
+      },
+      "nativeGroups": [
+        "E4",
+        "E6",
+        "R5"
+      ],
+      "execution": {
+        "environment": "Pending Windows / Node22 final built Workspace and identified MV1.6.1 native game runtime",
+        "owner": "Codex finalization queue; pending",
+        "layer": "Pending exact REA comparison and actual game product pair"
+      },
+      "slice": "34 / S6 focused DEV checkpoint",
+      "required": true
+    },
+    {
+      "id": "MV-S6-CHARACTER-001",
+      "title": "Complete native matrix through real Workspace evaluation and Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E204 — Scroll Map"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "32 independent saved records cover four scroll directions, numeric distance -0, all selectors, explicit wait/flag values and all fifteen balloon names; all fifteen carriers compare through Discovery/evaluation and harmless real Push.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-characters.json",
+        "sha256": "8562b55021c4b2c1cfcd8661a509aafc68793239b5348e227a11ce4edb50f517"
+      },
+      "expected": "32 independent saved records cover four scroll directions, numeric distance -0, all selectors, explicit wait/flag values and all fifteen balloon names; all fifteen carriers compare through Discovery/evaluation and harmless real Push.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-characters-workspace.test.ts",
+        "name": "preserves the complete native matrix through real Workspace evaluation and Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 / synthetic public product verification",
+        "owner": "Codex implementer and independent finalizer",
+        "layer": "focused DEV automated"
+      },
+      "slice": "S6 / ticket35",
+      "required": true
+    },
+    {
+      "id": "MV-S6-CHARACTER-002",
+      "title": "Evaluated helper and direct-node excess fields refuse before projection",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E204 — Scroll Map"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A5",
+        "A6",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "All eight owned helpers/direct kinds are exercised as local const, spread, asserted and direct values; Check/Compile identify owned excess fields, and Diff/Push freshness refusal preserves all source, Discovery, Project Root, Snapshot, generated files, config and manifest bytes.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-characters.json",
+        "sha256": "8562b55021c4b2c1cfcd8661a509aafc68793239b5348e227a11ce4edb50f517"
+      },
+      "expected": "All eight owned helpers/direct kinds are exercised as local const, spread, asserted and direct values; Check/Compile identify owned excess fields, and Diff/Push freshness refusal preserves all source, Discovery, Project Root, Snapshot, generated files, config and manifest bytes.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-characters-workspace.test.ts",
+        "name": "rejects evaluated"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 / synthetic public product verification",
+        "owner": "Codex implementer and independent finalizer",
+        "layer": "focused DEV automated"
+      },
+      "slice": "S6 / ticket35",
+      "required": true
+    },
+    {
+      "id": "MV-S6-CHARACTER-003",
+      "title": "Invalid native slots and fixed animation references refuse before publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E204 — Scroll Map"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A6",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Located invalid native saved slots, categorical negative zero and missing fixed Animations entries refuse Decompile before publishing candidate source and preserve complete business state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-characters.json",
+        "sha256": "8562b55021c4b2c1cfcd8661a509aafc68793239b5348e227a11ce4edb50f517"
+      },
+      "expected": "Located invalid native saved slots, categorical negative zero and missing fixed Animations entries refuse Decompile before publishing candidate source and preserve complete business state.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-characters-workspace.test.ts",
+        "name": "refuses saved"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 / synthetic public product verification",
+        "owner": "Codex implementer and independent finalizer",
+        "layer": "focused DEV automated"
+      },
+      "slice": "S6 / ticket35",
+      "required": true
+    },
+    {
+      "id": "MV-S6-CHARACTER-004",
+      "title": "Current public types require named enums and explicit wait",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E204 — Scroll Map"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A5",
+        "A6"
+      ],
+      "classifications": [
+        "negative"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Numeric direction/balloon aliases and missing animation wait fail actual public package type checking without changing business state.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-characters.json",
+        "sha256": "8562b55021c4b2c1cfcd8661a509aafc68793239b5348e227a11ce4edb50f517"
+      },
+      "expected": "Numeric direction/balloon aliases and missing animation wait fail actual public package type checking without changing business state.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-characters-workspace.test.ts",
+        "name": "public types reject incomplete or numeric aliases"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 / synthetic public product verification",
+        "owner": "Codex implementer and independent finalizer",
+        "layer": "focused DEV automated"
+      },
+      "slice": "S6 / ticket35",
+      "required": true
+    },
+    {
+      "id": "MV-S6-CHARACTER-005",
+      "title": "Approved command seams validate complete map-character contract",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E204 — Scroll Map"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent command literals cover enum maps, parameterless arrays, complete flags, shape/value/native/raw failures, precise paths and Map/Common/Troop selector warnings versus fixed-reference errors.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-characters.json",
+        "sha256": "8562b55021c4b2c1cfcd8661a509aafc68793239b5348e227a11ce4edb50f517"
+      },
+      "expected": "Independent command literals cover enum maps, parameterless arrays, complete flags, shape/value/native/raw failures, precise paths and Map/Common/Troop selector warnings versus fixed-reference errors.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/map-characters.test.ts",
+        "name": "MV-S6-CHARACTER-005:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22 / synthetic public product verification",
+        "owner": "Codex implementer and independent finalizer",
+        "layer": "focused DEV automated"
+      },
+      "slice": "S6 / ticket35",
+      "required": true
+    },
+    {
+      "id": "MV-S6-CHARACTER-006",
+      "title": "Pending actual R1/R4/R6 normal Scene product comparison",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/visual-map.md",
+          "section": "### E204 — Scroll Map"
+        }
+      ],
+      "dimensions": [
+        "A4",
+        "A5"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "static-inference",
+      "input": "Final R1/R4/R6 native literal/compiled built-product pairs remain required; no game execution is claimed by focused DEV.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-characters.json",
+        "sha256": "8562b55021c4b2c1cfcd8661a509aafc68793239b5348e227a11ce4edb50f517"
+      },
+      "expected": "Final R1/R4/R6 native literal/compiled built-product pairs remain required; no game execution is claimed by focused DEV.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/35-map-characters-dev.md",
+        "section": "Pending native R1/R4/R6"
+      },
+      "nativeGroups": [
+        "R1",
+        "R4",
+        "R6"
+      ],
+      "execution": {
+        "environment": "Final isolated MV1.6.1 / runtime / NW.js normal Scene scheduler",
+        "owner": "Codex implementer and independent finalizer",
+        "layer": "pending allocated native acceptance"
+      },
+      "slice": "S6 / ticket35",
+      "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-001",
+      "title": "Public command boundaries refuse discarded fields and symbolic negative zero",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "Public command boundaries refuse discarded fields and symbolic negative zero",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+        "name": "rejects symbolic switch negative zero before Decompile or known raw mapping and retains positive zero controls"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Approved public command / actual Discovery and evaluated Workspace source boundary"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-002",
+      "title": "Actual local, spread, asserted and direct source fields refuse before output",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E112 — Loop"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "Actual local, spread, asserted and direct source fields refuse before output",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+        "name": "MV-S3-INPUT-002:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Approved public command / actual Discovery and evaluated Workspace source boundary"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-003",
+      "title": "All fifteen reference constructors preserve valid controls and reject discarded source fields",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "All fifteen reference constructors preserve valid controls and reject discarded source fields",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+        "name": "MV-S3-INPUT-003:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Approved public command / actual Discovery and evaluated Workspace source boundary"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-004",
+      "title": "Nested direct switch references and ranges refuse excess and ambiguous fields",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "Nested direct switch references and ranges refuse excess and ambiguous fields",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+        "name": "MV-S3-INPUT-004:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Approved public command / actual Discovery and evaluated Workspace source boundary"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-005",
+      "title": "Native categorical signed zero refuses before publication while positive-zero controls roundtrip",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "Native categorical signed zero refuses before publication while positive-zero controls roundtrip",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+        "name": "MV-S3-INPUT-005:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Approved public command / actual Discovery and evaluated Workspace source boundary"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-006",
+      "title": "Evaluated known raw categorical signed zero reports its precise authored slot",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "Evaluated known raw categorical signed zero reports its precise authored slot",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+        "name": "MV-S3-INPUT-006:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Approved public command / actual Discovery and evaluated Workspace source boundary"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S3-INPUT-007",
+      "title": "Pending final integrated source/build/built and impacted R1/R3 validation",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I7 — 引用、上下文、Gate 与诊断"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I8 — 未知与异常数据"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E121 — Control Switches"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independent self-authored complete fifteen-file Project Data carrier, literal E121/E123 negative-zero JSON text, and actual local/spread/asserted/direct TypeScript source; no editor or native game capture.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/control-input-boundaries.json",
+        "sha256": "94e307f6e6099b421efc4afd0c02fd1f48029c275d877d1ff2df310b475a67ab"
+      },
+      "expected": "Pending final integrated source/build/built and impacted R1/R3 validation",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-dev.md",
+        "section": "## Pending final integration verification"
+      },
+      "nativeGroups": [
+        "R1",
+        "R3"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / two Vitest workers and original ten-second deadline",
+        "owner": "Codex automated verification",
+        "layer": "Not executed: final integrated delivery and native normal-Scene game regression"
+      },
+      "slice": "Supplemental11/13 / focused DEV",
+      "required": true
+    },
+    {
       "id": "MV-S6-BATTLE-001",
       "title": "preserves Enemy selectors and nested Battle bodies through evaluated formal and raw source and complete Push",
       "sources": [

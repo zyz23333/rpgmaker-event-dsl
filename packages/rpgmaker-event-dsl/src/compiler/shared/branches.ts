@@ -80,15 +80,18 @@ export function compileShopGoodsParameters(
   goods: ShopGoods,
   resolver: ReferenceResolver,
 ): unknown[] {
+  if (goods.kind === "placeholder") return [0, 0, 0, 0];
+  const reference =
+    goods.kind === "item" ? goods.item : goods.kind === "weapon" ? goods.weapon : goods.armor;
   return [
     shopGoodsTypeToCode(goods.kind),
-    resolver.resolveReference(goods.item),
+    resolver.resolveReference(reference),
     goods.price === undefined ? 0 : 1,
     goods.price ?? 0,
   ];
 }
 
-export function shopGoodsTypeToCode(kind: ShopGoods["kind"]): number {
+export function shopGoodsTypeToCode(kind: Exclude<ShopGoods["kind"], "placeholder">): number {
   switch (kind) {
     case "item":
       return 0;

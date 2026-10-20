@@ -676,6 +676,26 @@ Conditional 集成，契约 `/15`、374 条要求；开发票按用户执行修�
 
 [Current batch report](41-43-actor-capability-batch.md) links the executed source version, independent inputs, actual commands and original logs. Development is complete; final E7 product comparison and R4/R7 actual game execution remain required in51/53/54. Existing41 raw results and all prior failures stay at their original paths. No per-ticket full/build/native or large archive was added under the 2026-10-20 user amendment.
 
+| Requirement | Case | Scope |
+| --- | --- | --- |
+| MV-S6-INVENTORY-001 | Complete native quantity mode and independent flag matrix through actual Workspace publication | Synthetic focused DEV; native:not-executed |
+| MV-S6-INVENTORY-002 | Local const helper and direct node unknown fields fail without changing business state | Synthetic focused DEV; native:not-executed |
+| MV-S6-INVENTORY-003 | Native invalid saved slots fail before source publication including categorical negative zero | Synthetic focused DEV; native:not-executed |
+| MV-S6-INVENTORY-004 | Native fixed references must exist in their real project category before takeover | Synthetic focused DEV; native:not-executed |
+| MV-S6-INVENTORY-005 | Formal helpers, direct nodes, native and recognized raw share complete inventory and party domains | Synthetic focused DEV; native:not-executed |
+| MV-S6-INVENTORY-006 | Same-identity E4/product comparison and actual R4 execution | Pending; [DEV record](32-inventory-party-dev.md#pending-e4r4-acceptance) |
+
+
+| Requirement | Obligation | Evidence kind |
+| --- | --- | --- |
+| MV-S6-SHOP-001 | Exact ordered placeholders, categories, standard/custom prices and purchaseOnly survive Decompile, evaluated source, Check, Compile, Diff and real Push with complete carriers | synthetic-support |
+| MV-S6-SHOP-002 | Evaluated original placeholder extra fields reject Check, Compile, stale Diff and Push while preserving all business state | synthetic-rejection |
+| MV-S6-SHOP-003 | Late malformed Shop in Troop fails before publishing any source with complete business state unchanged | synthetic-rejection |
+
+
+| Requirement | Obligation | Evidence kind |
+| --- | --- | --- |
+| MV-S6-SHOP-004 | Item, weapon and armor native IDs must exist in their actual category before source publication; another category cannot substitute | synthetic-rejection |
 ## Ticket31 Control Variables
 
 The five stable obligations below retain the original DEV records. Current development closure and affected reruns are recorded in the [Ticket31 finalization report](31-control-variables-finalization.md); `MV-S6-VARIABLES-005` remains unexecuted and is carried to49/51–54. Its complete64-sample Random, self-alias, once-before-loop Script and numeric runtime outcomes remain required. Daily index validity does not mark that native obligation passed.
@@ -687,6 +707,46 @@ The five stable obligations below retain the original DEV records. Current devel
 | MV-S6-VARIABLES-003 | Native saved-shape and fixed-reference rejection before source publication | Synthetic DEV rejection; [record](31-control-variables-dev.md) |
 | MV-S6-VARIABLES-004 | Evaluated untyped source and known-raw Gate Check/Compile isolation | Synthetic DEV rejection; [record](31-control-variables-dev.md) |
 | MV-S6-VARIABLES-005 | Final built lifecycle and actual normal-Scene variable runtime observations | Required E5/R4/R7 pending; [record](31-control-variables-dev.md#remaining-finalization) |
+
+| MV-S6-SHOP-005 | Final E2/E4 and actual R6 Shop Scene consequences | Pending; see [batch report](32-47-inventory-shop-capability-batch.md#pending-native-acceptance) |
+
+## Ticket34 Map Locations
+
+Original DEV records are retained. [Current batch development closure](map-batch-delivery.md) records actual affected and real Workspace checks. `MV-S6-LOCATION-004` remains required and unexecuted for final E4/E6/R5 in50/51/53.
+
+| Requirement | Obligation | Evidence |
+| --- | --- | --- |
+| MV-S6-LOCATION-001 | Complete Location modes through actual Workspace installation | Synthetic source Workspace; native not executed; [record](34-map-locations-dev-checkpoint.md) |
+| MV-S6-LOCATION-002 | Reject evaluated untyped Location sources without changing business state | Synthetic source Workspace; native not executed; [record](34-map-locations-dev-checkpoint.md) |
+| MV-S6-LOCATION-003 | Reject native Location coordinates and unsupported exchange padding atomically | Synthetic source Workspace; native not executed; [record](34-map-locations-dev-checkpoint.md) |
+| MV-S6-LOCATION-004 | Pending final E4/E6 product comparison and R5 native game acceptance | Pending E4/E6/R5; not executed; [record](34-map-locations-dev-checkpoint.md) |
+
+## Ticket35 Map Characters
+
+Original DEV records are retained. [Current batch development closure](map-batch-delivery.md) records actual affected and real Workspace checks. `MV-S6-CHARACTER-006` remains required and unexecuted for final R1/R4/R6 in52–54.
+
+| Requirement | Obligation | Evidence |
+| --- | --- | --- |
+| MV-S6-CHARACTER-001 | Complete native matrix through real Workspace evaluation and Push |
+| MV-S6-CHARACTER-002 | Evaluated helper and direct-node excess fields refuse before projection |
+| MV-S6-CHARACTER-003 | Invalid native slots and fixed animation references refuse before publication |
+| MV-S6-CHARACTER-004 | Current public types require named enums and explicit wait |
+| MV-S6-CHARACTER-005 | Approved command seams validate complete map-character contract |
+| MV-S6-CHARACTER-006 | Pending actual R1/R4/R6 normal Scene product comparison |
+
+## Shared S3 / Loop input supplement
+
+All fifteen constructors and original DEV controls are retained. [Current batch development closure](map-batch-delivery.md) records all15 actual-source constructor/Push cases and the original-switch-target correction. `MV-S3-INPUT-007` remains unexecuted for final candidate/full/build/built in48 and applicable R1/R3 normal-Scene regressions in52.
+
+| Requirement | Obligation | Evidence |
+| --- | --- | --- |
+| MV-S3-INPUT-001 | Public command boundaries refuse discarded fields and symbolic negative zero | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-002 | Actual local, spread, asserted and direct source fields refuse before output | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-003 | All fifteen reference constructors preserve valid controls and reject discarded source fields | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-004 | Nested direct switch references and ranges refuse excess and ambiguous fields | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-005 | Native categorical signed zero refuses before publication while positive-zero controls roundtrip | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-006 | Evaluated known raw categorical signed zero reports its precise authored slot | synthetic-support | Approved public command / actual Discovery and evaluated Workspace source boundary |
+| MV-S3-INPUT-007 | Pending final integrated source/build/built and impacted R1/R3 validation | synthetic-support | Not executed: final integrated delivery and native normal-Scene game regression |
 
 ## Enemy and battle batch 45/46
 

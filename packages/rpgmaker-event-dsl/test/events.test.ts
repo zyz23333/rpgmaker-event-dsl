@@ -209,7 +209,7 @@ describe("compileMapEvent", () => {
                 value: { kind: "constant", value: 3 },
               }),
               controlSwitches({ switch: switchRef({ name: "Gate" }), value: true }),
-              changeGold({ operation: "gain", value: 5 }),
+              changeGold({ operation: "gain", value: { kind: "constant", value: 5 } }),
               controlSwitches({
                 switch: {
                   kind: "referenceRange",
@@ -241,18 +241,25 @@ describe("compileMapEvent", () => {
               }),
               controlTimer({ action: "start", seconds: 45 }),
               controlTimer({ action: "stop" }),
-              changeGold({ operation: "lose", value: variableRef({ name: "Count" }) }),
-              changeItems({ item: itemRef({ name: "Potion" }), operation: "lose", amount: 1 }),
+              changeGold({
+                operation: "lose",
+                value: { kind: "variable", variable: variableRef({ name: "Count" }) },
+              }),
+              changeItems({
+                item: itemRef({ name: "Potion" }),
+                operation: "lose",
+                amount: { kind: "constant", value: 1 },
+              }),
               changeWeapons({
                 weapon: { kind: "weapon", id: 1 },
                 operation: "gain",
-                amount: variableRef({ name: "Count" }),
+                amount: { kind: "variable", variable: variableRef({ name: "Count" }) },
                 includeEquipment: true,
               }),
               changeArmors({
                 armor: { kind: "armor", id: 1 },
                 operation: "lose",
-                amount: 2,
+                amount: { kind: "constant", value: 2 },
                 includeEquipment: false,
               }),
               changePartyMember({
@@ -267,8 +274,8 @@ describe("compileMapEvent", () => {
                   x: variableRef({ name: "X Var" }),
                   y: variableRef({ name: "Y Var" }),
                 },
-                direction: 4,
-                fadeType: 1,
+                direction: "left",
+                fade: "white",
               }),
               setVehicleLocation({
                 vehicle: "airship",
@@ -284,12 +291,12 @@ describe("compileMapEvent", () => {
                 },
               }),
               setEventLocation({
-                character: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
+                target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
                 destination: { kind: "direct", x: 6, y: 7 },
-                direction: 8,
+                direction: "up",
               }),
               setEventLocation({
-                character: { kind: "runtimeSelector", scope: "character", target: "event", id: 3 },
+                target: { kind: "runtimeSelector", scope: "character", target: "event", id: 3 },
                 destination: {
                   kind: "variables",
                   x: variableRef({ name: "X Var" }),
@@ -297,17 +304,17 @@ describe("compileMapEvent", () => {
                 },
               }),
               setEventLocation({
-                character: { kind: "runtimeSelector", scope: "character", target: "player" },
+                target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
                 destination: {
                   kind: "exchange",
-                  character: {
+                  target: {
                     kind: "runtimeSelector",
                     scope: "character",
                     target: "currentEvent",
                   },
                 },
               }),
-              scrollMap({ direction: 6, distance: 9, speed: 5 }),
+              scrollMap({ direction: "right", distance: 9, speed: 5 }),
               setMovementRoute({
                 target: { kind: "runtimeSelector", scope: "character", target: "event", id: 4 },
                 route: {
@@ -434,7 +441,7 @@ describe("compileMapEvent", () => {
     expect(commands[31]).toEqual({ code: 202, indent: 0, parameters: [0, 1, 3, 4, 5] });
     expect(commands[32]).toEqual({ code: 203, indent: 0, parameters: [0, 0, 6, 7, 8] });
     expect(commands[33]).toEqual({ code: 203, indent: 0, parameters: [3, 1, 4, 5, 0] });
-    expect(commands[34]).toEqual({ code: 203, indent: 0, parameters: [-1, 2, 0, 0, 0] });
+    expect(commands[34]).toEqual({ code: 203, indent: 0, parameters: [0, 2, 0, 0, 0] });
     expect(commands[35]).toEqual({ code: 204, indent: 0, parameters: [6, 9, 5] });
     expect(commands[36]).toEqual({
       code: 205,
@@ -533,7 +540,7 @@ describe("compileMapEvent", () => {
     expect(event.pages?.[0]?.list?.[0]).toEqual({
       code: 201,
       indent: 0,
-      parameters: [0, 1, 4, 5, 2, 0],
+      parameters: [0, 1, 4, 5, 0, 0],
     });
   });
 
@@ -558,6 +565,7 @@ describe("compileMapEvent", () => {
               showBalloonIcon({
                 target: { kind: "runtimeSelector", scope: "character", target: "player" },
                 balloon: "question",
+                wait: false,
               }),
               eraseEvent(),
               changePlayerFollowers({ visible: false }),
@@ -748,7 +756,7 @@ describe("compileMapEvent", () => {
               }),
               getLocationInfo({
                 variable: variableRef({ name: "Count B" }),
-                info: "tileIdLayer2",
+                info: "tileLayer2",
                 location: {
                   kind: "variables",
                   x: variableRef({ name: "X Var" }),
@@ -995,10 +1003,10 @@ describe("compileMapEvent", () => {
               shopProcessing({
                 goods: [
                   { kind: "item", item: itemRef({ name: "Potion" }) },
-                  { kind: "weapon", item: { kind: "weapon", id: 1 }, price: 250 },
-                  { kind: "armor", item: { kind: "armor", id: 1 } },
+                  { kind: "weapon", weapon: { kind: "weapon", id: 1 }, price: 250 },
+                  { kind: "armor", armor: { kind: "armor", id: 1 } },
                 ],
-                allowSelling: true,
+                purchaseOnly: true,
               }),
               nameInputProcessing({ actor: { kind: "actor", id: 1 }, maxCharacters: 8 }),
               changeHp({

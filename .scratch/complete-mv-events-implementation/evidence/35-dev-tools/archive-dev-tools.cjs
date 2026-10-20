@@ -1,0 +1,10 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const temp='M:/Shuen/Codex/mv-events-implementation-20261020/ticket35-temp',out='.scratch/complete-mv-events-implementation/evidence/35-dev-tools';
+const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+fs.mkdirSync(out,{recursive:true});
+const inputs=fs.readdirSync(temp,{withFileTypes:true}).filter(x=>x.isFile()&&/\.(?:cjs|ps1|log|txt)$/.test(x.name)).map(x=>({from:path.join(temp,x.name),name:x.name}));
+inputs.push({from:path.join(temp,'premerge-c2-freeze/manifest.json'),name:'premerge-c2-source-manifest.json'},{from:path.join(temp,'final-actual3854-source-freeze/manifest.json'),name:'final-actual3854-source-manifest.json'});
+const files=inputs.sort((a,b)=>a.name.localeCompare(b.name)).map(x=>{const bytes=fs.readFileSync(x.from),target=path.join(out,x.name);if(fs.existsSync(target))assert.deepStrictEqual(fs.readFileSync(target),bytes,'archive changed: '+x.name);else fs.writeFileSync(target,bytes);return {path:target.replaceAll('\\','/'),origin:x.from,sha256:hash(bytes),size:bytes.length};});
+const manifest={createdAt:new Date().toISOString(),purpose:'Original self-authored ticket35 focused DEV tooling and complete raw logs; no first-party artifacts',files};
+const target=path.join(out,'archive-manifest.json');if(fs.existsSync(target))throw Error('immutable archive manifest already exists');fs.writeFileSync(target,JSON.stringify(manifest,null,2)+'\n');
+console.log(JSON.stringify({archivedFiles:files.length,manifestSha256:hash(fs.readFileSync(target)),bytes:files.reduce((sum,x)=>sum+x.size,0)}));

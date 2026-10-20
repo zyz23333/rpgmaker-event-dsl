@@ -27,8 +27,6 @@ import {
   setEventLocation,
   setMovementRoute,
   setVehicleLocation,
-  showAnimation,
-  showBalloonIcon,
   showPicture,
   switchDefinition,
   switchRef,
@@ -322,7 +320,11 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Gate",
           commands: [
-            changeItems({ item: itemRef({ name: "Potion" }), operation: "gain", amount: 1 }),
+            changeItems({
+              item: itemRef({ name: "Potion" }),
+              operation: "gain",
+              amount: { kind: "constant", value: 1 },
+            }),
           ],
         }),
       ],
@@ -345,7 +347,11 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Gate",
           commands: [
-            changeItems({ item: itemRef({ name: "Potion" }), operation: "gain", amount: 1 }),
+            changeItems({
+              item: itemRef({ name: "Potion" }),
+              operation: "gain",
+              amount: { kind: "constant", value: 1 },
+            }),
           ],
         }),
       ],
@@ -360,8 +366,13 @@ describe("validateDslOwnedDeclarations", () => {
       },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toContain(
-      "Ambiguous item reference: Potion",
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        level: "error",
+        code: "MV-E126-INPUT",
+        dslPath: "pages[0].commands[0].item",
+        actual: '"Ambiguous item reference: Potion"',
+      }),
     );
   });
 
@@ -489,7 +500,7 @@ describe("validateDslOwnedDeclarations", () => {
               destination: { kind: "direct", map: { kind: "map", id: 1 }, x: 4, y: 5 },
             }),
             setEventLocation({
-              character: { kind: "runtimeSelector", scope: "character", target: "event", id: 99 },
+              target: { kind: "runtimeSelector", scope: "character", target: "event", id: 99 },
               destination: {
                 kind: "variables",
                 x: variableRef({ id: 2 }),
@@ -588,22 +599,32 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Character Commands",
           commands: [
-            showAnimation({
+            {
+              kind: "showAnimation",
               target: {
                 kind: "runtimeSelector",
                 scope: "player",
                 target: "current",
               } as never,
               animation: animationRef({ id: 99 }),
-            }),
-            showBalloonIcon({
+              wait: false,
+            },
+            {
+              kind: "showAnimation",
+              target: { kind: "runtimeSelector", scope: "character", target: "player" },
+              animation: animationRef({ id: 99 }),
+              wait: false,
+            },
+            {
+              kind: "showBalloonIcon",
               target: {
                 kind: "runtimeSelector",
                 scope: "character",
                 target: "event",
               } as never,
               balloon: "question",
-            }),
+              wait: false,
+            },
           ],
         }),
       ],
@@ -612,9 +633,11 @@ describe("validateDslOwnedDeclarations", () => {
 
     expect(result.issues.map((issue) => issue.message)).toEqual(
       expect.arrayContaining([
-        "Show Animation target must use the character runtime selector scope.",
-        "MV-E212-REFERENCE validation map 1 event 1.pages[0].commands[0].animation: Unknown animation reference id: 99",
-        "Show Balloon Icon target event id must be a positive integer.",
+        expect.stringMatching(/MV-E212-INPUT.*pages\[0\].commands\[0\].target/),
+        expect.stringMatching(
+          /MV-E212-REFERENCE.*Unknown animation reference id: 99.*pages\[0\].commands\[1\].animation/,
+        ),
+        expect.stringMatching(/MV-E213-INPUT.*pages\[0\].commands\[2\].target/),
       ]),
     );
   });
@@ -689,16 +712,18 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Bad Runtime Selectors",
           commands: [
-            setEventLocation({
-              character: {
+            {
+              kind: "setEventLocation",
+              target: {
                 kind: "runtimeSelector",
                 scope: "player",
                 target: "current",
               } as never,
               destination: { kind: "direct", x: 1, y: 2 },
-            }),
-            setEventLocation({
-              character: {
+            } as never,
+            {
+              kind: "setEventLocation",
+              target: {
                 kind: "runtimeSelector",
                 scope: "character",
                 target: "event",
@@ -708,29 +733,33 @@ describe("validateDslOwnedDeclarations", () => {
                 x: variableRef({ id: 1 }),
                 y: variableRef({ id: 2 }),
               },
-            }),
-            setEventLocation({
-              character: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
+            } as never,
+            {
+              kind: "setEventLocation",
+              target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
               destination: {
                 kind: "exchange",
-                character: {
+                target: {
                   kind: "runtimeSelector",
                   scope: "character",
                   target: "follower",
                 } as never,
               },
-            }),
+            } as never,
           ],
         }),
       ],
       { scriptEnabled: false },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toEqual(
+    expect(result.issues).toEqual(
       expect.arrayContaining([
-        "Set Event Location character must use the character runtime selector scope.",
-        "Set Event Location character event id must be a positive integer.",
-        "Set Event Location exchange character target must be player, currentEvent, or event.",
+        expect.objectContaining({ code: "MV-E203", dslPath: "pages[0].commands[0].target" }),
+        expect.objectContaining({ code: "MV-E203", dslPath: "pages[0].commands[1].target.id" }),
+        expect.objectContaining({
+          code: "MV-E203",
+          dslPath: "pages[0].commands[2].destination.target",
+        }),
       ]),
     );
   });

@@ -10,14 +10,17 @@ import type {
   ConstantOperand,
   VariableOperand,
   CommandPosition,
+  ConstantOperand,
   ConditionalBranchCondition,
   CommandOperand,
-  Direction,
   EnemyCommandTarget,
   EquipmentRuntimeSelector,
   EventLocationDestination,
+  EventRuntimeSelector,
   ImageAssetReference,
   LocationInfoType,
+  LocationDirection,
+  TransferFade,
   MapDestination,
   MovieAssetReference,
   OperateValueOperand,
@@ -26,6 +29,7 @@ import type {
   ScriptInput,
   ToneInput,
   VehicleTarget,
+  VariableOperand,
 } from "./references.js";
 
 export type DslCommand =
@@ -240,8 +244,8 @@ export type PluginDslCommand = {
 export type TransferPlayerDslCommand = {
   kind: "transferPlayer";
   destination: MapDestination;
-  direction?: Direction;
-  fadeType?: 0 | 1 | 2;
+  direction?: LocationDirection;
+  fade?: TransferFade;
 };
 
 export type ControlSwitchesDslCommand = {
@@ -278,37 +282,37 @@ export type ControlTimerDslCommand =
 export type ChangeGoldDslCommand = {
   kind: "changeGold";
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ConstantOperand | VariableOperand;
 };
 
 export type ChangeItemsDslCommand = {
   kind: "changeItems";
   item: ReferenceValue<"item">;
   operation: "gain" | "lose";
-  amount: OperateValueOperand;
+  amount: ConstantOperand | VariableOperand;
 };
 
 export type ChangeWeaponsDslCommand = {
   kind: "changeWeapons";
   weapon: ReferenceValue<"weapon">;
   operation: "gain" | "lose";
-  amount: OperateValueOperand;
-  includeEquipment?: boolean;
+  amount: ConstantOperand | VariableOperand;
+  includeEquipment: boolean;
 };
 
 export type ChangeArmorsDslCommand = {
   kind: "changeArmors";
   armor: ReferenceValue<"armor">;
   operation: "gain" | "lose";
-  amount: OperateValueOperand;
-  includeEquipment?: boolean;
+  amount: ConstantOperand | VariableOperand;
+  includeEquipment: boolean;
 };
 
 export type ChangePartyMemberDslCommand = {
   kind: "changePartyMember";
   actor: ReferenceValue<"actor">;
   operation: "add" | "remove";
-  initialize?: boolean;
+  initialize: boolean;
 };
 
 export type ChangeBattleBgmDslCommand = {
@@ -365,14 +369,14 @@ export type SetVehicleLocationDslCommand = {
 
 export type SetEventLocationDslCommand = {
   kind: "setEventLocation";
-  character: CharacterRuntimeSelector;
+  target: EventRuntimeSelector;
   destination: EventLocationDestination;
-  direction?: 0 | Direction;
+  direction?: LocationDirection;
 };
 
 export type ScrollMapDslCommand = {
   kind: "scrollMap";
-  direction: Direction;
+  direction: "down" | "left" | "right" | "up";
   distance: number;
   speed: number;
 };
@@ -453,7 +457,7 @@ export type ShowAnimationDslCommand = {
   kind: "showAnimation";
   target: CharacterRuntimeSelector;
   animation: ReferenceValue<"animation">;
-  wait?: boolean;
+  wait: boolean;
 };
 
 export type BalloonIcon =
@@ -466,13 +470,18 @@ export type BalloonIcon =
   | "cobweb"
   | "silence"
   | "lightBulb"
-  | "zzz";
+  | "zzz"
+  | "userDefined1"
+  | "userDefined2"
+  | "userDefined3"
+  | "userDefined4"
+  | "userDefined5";
 
 export type ShowBalloonIconDslCommand = {
   kind: "showBalloonIcon";
   target: CharacterRuntimeSelector;
-  balloon: BalloonIcon | number;
-  wait?: boolean;
+  balloon: BalloonIcon;
+  wait: boolean;
 };
 
 export type ChangePlayerFollowersDslCommand = {
@@ -671,16 +680,16 @@ export type BattleProcessingDslCommand = {
   lose?: ChildCommandBody;
 };
 
-export type ShopGoods = {
-  kind: "item" | "weapon" | "armor";
-  item: ReferenceValue<"item"> | ReferenceValue<"weapon"> | ReferenceValue<"armor">;
-  price?: number;
-};
+export type ShopGoods =
+  | { kind: "placeholder" }
+  | { kind: "item"; item: ReferenceValue<"item">; price?: number }
+  | { kind: "weapon"; weapon: ReferenceValue<"weapon">; price?: number }
+  | { kind: "armor"; armor: ReferenceValue<"armor">; price?: number };
 
 export type ShopProcessingDslCommand = {
   kind: "shopProcessing";
-  goods: readonly [ShopGoods, ...ShopGoods[]];
-  allowSelling?: boolean;
+  goods: readonly ShopGoods[];
+  purchaseOnly?: boolean;
 };
 
 export type NameInputProcessingDslCommand = {

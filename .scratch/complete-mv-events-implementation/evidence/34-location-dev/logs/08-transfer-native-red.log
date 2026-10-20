@@ -1,0 +1,36 @@
+
+> rpgmaker-event-dsl@0.1.2 test C:\Users\Shuen\.codex\worktrees\mv-ticket-34\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> vitest run "test/map-locations.test.ts"
+
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-34/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/map-locations.test.ts (4 tests | 1 failed) 26ms
+   × decompiles Transfer retain faithfully and refuses native coordinates beyond the finite saved domain 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-locations.test.ts > decompiles Transfer retain faithfully and refuses native coordinates beyond the finite saved domain
+Error: decompile error MV-COMMAND-UNSUPPORTED: Known native command cannot be represented by its current formal helper; raw fallback is unavailable. at list[0].parameters; expected supported formal native command; actual [0,1,10000,2147483647,0,0]
+ ❯ renderList src/decompiler/dispatch.ts:282:17
+    280|             );
+    281|           const nativePath = remap(error.location.nativePath);
+    282|           throw new CommandStructureError(
+       |                 ^
+    283|             error.code,
+    284|             error.detail,
+ ❯ renderDecompiledCommandList src/decompiler/dispatch.ts:304:10
+ ❯ render test/map-locations.test.ts:58:45
+ ❯ test/map-locations.test.ts:61:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  02:48:58
+   Duration  2.25s (transform 1.15s, setup 0ms, import 2.05s, tests 26ms, environment 0ms)
+
+C:\Users\Shuen\.codex\worktrees\mv-ticket-34\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run "test/map-locations.test.ts"`
+Exit status 1

@@ -39,6 +39,17 @@ Turn RPG Maker MV gameplay intent into idiomatic Event DSL source. Use Workspace
 
    For Picture commands, read `references/pictures.md` before choosing image None,
    position, origin, display fields, Tone, rotation or waiting behavior.
+   For gold, item, weapon, armor or party membership changes, read
+   `references/inventory-party.md` before choosing quantity modes, project targets
+   or inactive saved equipment and initialization flags.
+
+   For Transfer, vehicle placement, Event Location or Location Info, read
+   `references/map-locations.md` before choosing modes, selectors, coordinates,
+   defaults or interpreting bounds warnings.
+
+   For scrolling, vehicle boarding, transparency, animations, balloons, event
+   erasure or followers, read `references/map-characters.md` before choosing
+   directions, targets, required flags, waits or caller-dependent behavior.
 
    For enemy state or battle control, read `references/enemies-and-battle.md`
    before choosing selectors, resource operands, result bodies or forced targets.

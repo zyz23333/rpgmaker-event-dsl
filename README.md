@@ -112,6 +112,25 @@ Snapshot retains complete troop member order, including hidden members and missi
 Enemy IDs, and the complete System equipment slot configuration for contextual
 validation. Use `pull` to capture subsequent editor-side database changes.
 
+`scrollMap({ direction: "down", distance: 0, speed: 4 })` uses `down`, `left`,
+`right` or `up`; distance is an integer 0–100 and speed is 1–6. It waits for an
+earlier scroll to finish before starting and has no `wait` parameter.
+`showAnimation({ target, animation: animationRef(...), wait: false })` and
+`showBalloonIcon({ target, balloon: "userDefined5", wait: true })` require an
+explicit wait boolean. Their targets use the character Runtime Selector for
+`player`, `currentEvent`, or a positive event ID. Animation references must exist;
+selectors that may miss at execution produce contextual warnings.
+
+Balloon names are `exclamation`, `question`, `musicNote`, `heart`, `anger`, `sweat`,
+`cobweb`, `silence`, `lightBulb`, `zzz`, and `userDefined1` through `userDefined5`.
+`changeTransparency({ transparent })` and `changePlayerFollowers({ visible })`
+require booleans. `getOnOffVehicle()`, `eraseEvent()` and `gatherFollowers()` accept
+no arguments. Boarding depends on terrain and player state; erase acts on the
+calling map event, and gathering waits on the map. Common Events inherit the
+caller's context, while battle contexts can skip commands or address retained
+map-player state. Warnings preserve these saved settings without guaranteeing
+their runtime effect.
+
 `controlSwitches(...)` accepts one switch reference or an inclusive
 `{ kind: "referenceRange", from: switchRef({ id: 1 }), to: switchRef({ id: 3 }) }`.
 Both endpoints must exist in the final capacity; unnamed intermediate slots are
@@ -458,6 +477,21 @@ event commands. Set it to `true` only when Script Inputs are intentional and rev
 
 ## Event Command Coverage
 
+Gold, item, weapon and armor changes use explicit quantity modes. For example,
+`changeGold({ operation: "gain", value: { kind: "constant", value: 250 } })`
+and `changeItems({ item: itemRef({ id: 1 }), operation: "lose", amount:
+{ kind: "variable", variable: variableRef({ id: 3 }) } })`. Gold constants are
+integers 1..9,999,999; item, weapon and armor constants are integers 1..9999.
+Runtime variable values may be zero, negative or outside those literal ranges;
+MV applies them during execution along with its gold and inventory caps.
+
+`changeWeapons` and `changeArmors` require an explicit `includeEquipment` boolean
+even during gain. `changePartyMember({ actor: actorRef({ id: 1 }), operation:
+"remove", initialize: true })` keeps its required initialization flag even during
+removal. These inactive settings remain part of the saved event. Item, weapon,
+armor and actor targets use matching fixed project references; party operations
+are `add`/`remove`, and quantity operations are `gain`/`lose`.
+
 The public command helpers target the RPG Maker MV 1.6.1 editor event command surface.
 Use MV-aligned helper names such as `controlSwitches(...)`, `controlVariables(...)`,
 `showScrollingText(...)`, `setMovementRoute(...)`, `playBgm(...)`, `changeHp(...)`, and
@@ -494,6 +528,16 @@ hidden member positions and Animation's independent saved index. Force Action us
 an Actor reference or single enemy subject with named `lastTarget`/`random`/`index`
 targets. See [Enemies and battle control](packages/rpgmaker-event-dsl/README.md#enemies-and-battle-control)
 for parameter ranges, complete examples and execution-context warnings.
+
+`shopProcessing({ goods, purchaseOnly? })` requires an ordered goods list and
+defaults `purchaseOnly` to false. Use `{ kind: "item", item: itemRef(...) }`,
+`{ kind: "weapon", weapon: weaponRef(...) }`, or
+`{ kind: "armor", armor: armorRef(...) }` with matching existing references.
+Omit `price` for standard pricing, or give an integer 0..999999 for a custom
+price. Repeated goods stay in order. `{ kind: "placeholder" }` preserves an
+exact native structural placeholder, including repeated or interleaved entries;
+it carries no reference or price. An empty `goods: []` emits the sole placeholder,
+and only that sole placeholder decompiles back to an empty list.
 
 `showChoices({ choices: [{ text, commands, endMarker? }], defaultChoice?, cancel?, position?, background? })`
 keeps each of its 1–6 choices with its required child commands. Default choice and

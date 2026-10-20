@@ -9,6 +9,7 @@ import type { ReferenceResolver } from "../../validation/types.js";
 import { vehicleToCode } from "../../compiler/shared/conditions.js";
 import { assertMovementRoute, assertNativeMovementRecord } from "./validation.js";
 import type { NativeMovementRecord } from "./types.js";
+import { locationDirectionToCode, resolveLocationReference } from "../map/compile.js";
 export type { NativeMovementRecord } from "./types.js";
 
 export function characterSelectorToCode(selector: CharacterRuntimeSelector): number {
@@ -26,13 +27,14 @@ export function compileSetVehicleLocationParameters(
   vehicle: VehicleTarget,
   destination: Extract<DslCommand, { kind: "setVehicleLocation" }>["destination"],
   resolver: ReferenceResolver,
+  path = "setVehicleLocation",
 ): unknown[] {
   const vehicleCode = vehicleToCode(vehicle);
   if (destination.kind === "direct") {
     return [
       vehicleCode,
       0,
-      resolver.resolveReference(destination.map),
+      resolveLocationReference(destination.map, resolver, `${path}.destination.map`, 202),
       destination.x,
       destination.y,
     ];
@@ -41,36 +43,43 @@ export function compileSetVehicleLocationParameters(
   return [
     vehicleCode,
     1,
-    resolver.resolveReference(destination.map),
-    resolver.resolveReference(destination.x),
-    resolver.resolveReference(destination.y),
+    resolveLocationReference(destination.map, resolver, `${path}.destination.map`, 202),
+    resolveLocationReference(destination.x, resolver, `${path}.destination.x`, 202),
+    resolveLocationReference(destination.y, resolver, `${path}.destination.y`, 202),
   ];
 }
 
 export function compileSetEventLocationParameters(
   node: Extract<DslCommand, { kind: "setEventLocation" }>,
   resolver: ReferenceResolver,
+  path = "setEventLocation",
 ): unknown[] {
-  const characterId = characterSelectorToCode(node.character);
+  const characterId = characterSelectorToCode(node.target);
 
   switch (node.destination.kind) {
     case "direct":
-      return [characterId, 0, node.destination.x, node.destination.y, node.direction ?? 0];
+      return [
+        characterId,
+        0,
+        node.destination.x,
+        node.destination.y,
+        locationDirectionToCode(node.direction),
+      ];
     case "variables":
       return [
         characterId,
         1,
-        resolver.resolveReference(node.destination.x),
-        resolver.resolveReference(node.destination.y),
-        node.direction ?? 0,
+        resolveLocationReference(node.destination.x, resolver, `${path}.destination.x`, 203),
+        resolveLocationReference(node.destination.y, resolver, `${path}.destination.y`, 203),
+        locationDirectionToCode(node.direction),
       ];
     case "exchange":
       return [
         characterId,
         2,
-        characterSelectorToCode(node.destination.character),
+        characterSelectorToCode(node.destination.target),
         0,
-        node.direction ?? 0,
+        locationDirectionToCode(node.direction),
       ];
   }
 }

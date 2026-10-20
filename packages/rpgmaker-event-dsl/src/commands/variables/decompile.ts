@@ -116,6 +116,22 @@ export function renderOperateValueOperand(
   return null;
 }
 
+export function renderQuantityOperand(
+  operation: unknown,
+  source: unknown,
+  value: unknown,
+): ReturnType<typeof renderOperateValueOperand> {
+  const rendered = renderOperateValueOperand(operation, source, value);
+  if (rendered === null) return null;
+  return {
+    ...rendered,
+    expression:
+      source === 0
+        ? `{ kind: "constant", value: ${literal(value)} }`
+        : `{ kind: "variable", variable: ${rendered.expression} }`,
+  };
+}
+
 export function renderControlVariablesGameDataOperand(
   type: unknown,
   param1: unknown,

@@ -1,0 +1,252 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-35/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/map-characters-workspace.test.ts > MV-S6-CHARACTER-001: preserves the complete native matrix through real Workspace evaluation and Push
+decompile warning map:1/event:1: MV-E206-CONTEXT at pages[0].list[4]: Boarding or disembarking depends on the player's current vehicle, terrain and location. In battle or an inherited Common Event context this can address retained map-player state; success is not guaranteed.
+decompile warning map:1/event:1: MV-E217-CONTEXT at pages[0].list[31]: Gather Followers waits on the map until followers gather; blocked movement can keep that wait active. A Common Event inherits its caller's map/battle context.
+decompile warning commonEvent:1: MV-E204-CONTEXT at list[0]: The caller's context controls scrolling: battle skips it; a prior map scroll delays this scroll's start, without waiting for this new scroll to finish.
+decompile warning commonEvent:1: MV-E204-CONTEXT at list[1]: The caller's context controls scrolling: battle skips it; a prior map scroll delays this scroll's start, without waiting for this new scroll to finish.
+decompile warning commonEvent:1: MV-E204-CONTEXT at list[2]: The caller's context controls scrolling: battle skips it; a prior map scroll delays this scroll's start, without waiting for this new scroll to finish.
+decompile warning commonEvent:1: MV-E204-CONTEXT at list[3]: The caller's context controls scrolling: battle skips it; a prior map scroll delays this scroll's start, without waiting for this new scroll to finish.
+decompile warning commonEvent:1: MV-E206-CONTEXT at list[4]: Boarding or disembarking depends on the player's current vehicle, terrain and location. In battle or an inherited Common Event context this can address retained map-player state; success is not guaranteed.
+decompile warning commonEvent:1: MV-E211-CONTEXT at list[5]: Transparency changes the map-player object, including retained map state while in battle; a Common Event inherits its caller's context.
+decompile warning commonEvent:1: MV-E211-CONTEXT at list[6]: Transparency changes the map-player object, including retained map state while in battle; a Common Event inherits its caller's context.
+decompile warning commonEvent:1: MV-E212-CONTEXT at list[7].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E212-CONTEXT at list[8].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E212-CONTEXT at list[9].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E212-CONTEXT at list[10].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E212-CONTEXT at list[11].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E212-CONTEXT at list[12].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E213-CONTEXT at list[13].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E213-CONTEXT at list[14].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E213-CONTEXT at list[15].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E213-CONTEXT at list[16].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E213-CONTEXT at list[17].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E213-CONTEXT at list[18].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E213-CONTEXT at list[19].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E213-CONTEXT at list[20].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E213-CONTEXT at list[21].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E213-CONTEXT at list[22].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E213-CONTEXT at list[23].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E213-CONTEXT at list[24].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E213-CONTEXT at list[25].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E213-CONTEXT at list[26].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E213-CONTEXT at list[27].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+decompile warning commonEvent:1: MV-E214-CONTEXT at list[28]: Erase Event acts only on the calling event when its interpreter is on the current map with a positive event ID; an absent map-event context does nothing.
+decompile warning commonEvent:1: MV-E216-CONTEXT at list[29]: Follower visibility changes map-player state and refreshes the player, including retained map state while in battle; a Common Event inherits its caller's context.
+decompile warning commonEvent:1: MV-E216-CONTEXT at list[30]: Follower visibility changes map-player state and refreshes the player, including retained map state while in battle; a Common Event inherits its caller's context.
+decompile warning commonEvent:1: MV-E217-CONTEXT at list[31]: Gather Followers waits on the map until followers gather; blocked movement can keep that wait active. A Common Event inherits its caller's map/battle context.
+decompile warning troop:1: MV-E204-CONTEXT at pages[0].list[0]: Scroll Map is skipped in battle.
+decompile warning troop:1: MV-E204-CONTEXT at pages[0].list[1]: Scroll Map is skipped in battle.
+decompile warning troop:1: MV-E204-CONTEXT at pages[0].list[2]: Scroll Map is skipped in battle.
+decompile warning troop:1: MV-E204-CONTEXT at pages[0].list[3]: Scroll Map is skipped in battle.
+decompile warning troop:1: MV-E206-CONTEXT at pages[0].list[4]: Boarding or disembarking depends on the player's current vehicle, terrain and location. In battle or an inherited Common Event context this can address retained map-player state; success is not guaranteed.
+decompile warning troop:1: MV-E211-CONTEXT at pages[0].list[5]: Transparency changes the map-player object, including retained map state while in battle; a Common Event inherits its caller's context.
+decompile warning troop:1: MV-E211-CONTEXT at pages[0].list[6]: Transparency changes the map-player object, including retained map state while in battle; a Common Event inherits its caller's context.
+decompile warning troop:1: MV-E212-CONTEXT at pages[0].list[7].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E212-CONTEXT at pages[0].list[8].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E212-CONTEXT at pages[0].list[9].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E212-CONTEXT at pages[0].list[10].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E212-CONTEXT at pages[0].list[11].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E212-CONTEXT at pages[0].list[12].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E213-CONTEXT at pages[0].list[13].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E213-CONTEXT at pages[0].list[14].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E213-CONTEXT at pages[0].list[15].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E213-CONTEXT at pages[0].list[16].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E213-CONTEXT at pages[0].list[17].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E213-CONTEXT at pages[0].list[18].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E213-CONTEXT at pages[0].list[19].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E213-CONTEXT at pages[0].list[20].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E213-CONTEXT at pages[0].list[21].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E213-CONTEXT at pages[0].list[22].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E213-CONTEXT at pages[0].list[23].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E213-CONTEXT at pages[0].list[24].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E213-CONTEXT at pages[0].list[25].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E213-CONTEXT at pages[0].list[26].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E213-CONTEXT at pages[0].list[27].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+decompile warning troop:1: MV-E214-CONTEXT at pages[0].list[28]: Erase Event acts only on the calling event when its interpreter is on the current map with a positive event ID; an absent map-event context does nothing.
+decompile warning troop:1: MV-E216-CONTEXT at pages[0].list[29]: Follower visibility changes map-player state and refreshes the player, including retained map state while in battle; a Common Event inherits its caller's context.
+decompile warning troop:1: MV-E216-CONTEXT at pages[0].list[30]: Follower visibility changes map-player state and refreshes the player, including retained map state while in battle; a Common Event inherits its caller's context.
+decompile warning troop:1: MV-E217-CONTEXT at pages[0].list[31]: Gather Followers is skipped in battle.
+
+stderr | test/map-characters-workspace.test.ts > MV-S6-CHARACTER-001: preserves the complete native matrix through real Workspace evaluation and Push
+compile warning commonEvent:1: MV-E204-CONTEXT at list[0]: The caller's context controls scrolling: battle skips it; a prior map scroll delays this scroll's start, without waiting for this new scroll to finish.
+compile warning commonEvent:1: MV-E204-CONTEXT at list[1]: The caller's context controls scrolling: battle skips it; a prior map scroll delays this scroll's start, without waiting for this new scroll to finish.
+compile warning commonEvent:1: MV-E204-CONTEXT at list[2]: The caller's context controls scrolling: battle skips it; a prior map scroll delays this scroll's start, without waiting for this new scroll to finish.
+compile warning commonEvent:1: MV-E204-CONTEXT at list[3]: The caller's context controls scrolling: battle skips it; a prior map scroll delays this scroll's start, without waiting for this new scroll to finish.
+compile warning commonEvent:1: MV-E206-CONTEXT at list[4]: Boarding or disembarking depends on the player's current vehicle, terrain and location. In battle or an inherited Common Event context this can address retained map-player state; success is not guaranteed.
+compile warning commonEvent:1: MV-E211-CONTEXT at list[5]: Transparency changes the map-player object, including retained map state while in battle; a Common Event inherits its caller's context.
+compile warning commonEvent:1: MV-E211-CONTEXT at list[6]: Transparency changes the map-player object, including retained map state while in battle; a Common Event inherits its caller's context.
+compile warning commonEvent:1: MV-E212-CONTEXT at list[7].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E212-CONTEXT at list[8].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E212-CONTEXT at list[9].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E212-CONTEXT at list[10].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E212-CONTEXT at list[11].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E212-CONTEXT at list[12].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[13].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[14].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[15].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[16].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[17].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[18].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[19].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[20].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[21].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[22].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[23].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[24].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[25].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[26].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[27].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E214-CONTEXT at list[28]: Erase Event acts only on the calling event when its interpreter is on the current map with a positive event ID; an absent map-event context does nothing.
+compile warning commonEvent:1: MV-E216-CONTEXT at list[29]: Follower visibility changes map-player state and refreshes the player, including retained map state while in battle; a Common Event inherits its caller's context.
+compile warning commonEvent:1: MV-E216-CONTEXT at list[30]: Follower visibility changes map-player state and refreshes the player, including retained map state while in battle; a Common Event inherits its caller's context.
+compile warning commonEvent:1: MV-E217-CONTEXT at list[31]: Gather Followers waits on the map until followers gather; blocked movement can keep that wait active. A Common Event inherits its caller's map/battle context.
+compile warning map:1/event:1: MV-E206-CONTEXT at pages[0].list[4]: Boarding or disembarking depends on the player's current vehicle, terrain and location. In battle or an inherited Common Event context this can address retained map-player state; success is not guaranteed.
+compile warning map:1/event:1: MV-E217-CONTEXT at pages[0].list[31]: Gather Followers waits on the map until followers gather; blocked movement can keep that wait active. A Common Event inherits its caller's map/battle context.
+compile warning troop:1: MV-E204-CONTEXT at pages[0].list[0]: Scroll Map is skipped in battle.
+compile warning troop:1: MV-E204-CONTEXT at pages[0].list[1]: Scroll Map is skipped in battle.
+compile warning troop:1: MV-E204-CONTEXT at pages[0].list[2]: Scroll Map is skipped in battle.
+compile warning troop:1: MV-E204-CONTEXT at pages[0].list[3]: Scroll Map is skipped in battle.
+compile warning troop:1: MV-E206-CONTEXT at pages[0].list[4]: Boarding or disembarking depends on the player's current vehicle, terrain and location. In battle or an inherited Common Event context this can address retained map-player state; success is not guaranteed.
+compile warning troop:1: MV-E211-CONTEXT at pages[0].list[5]: Transparency changes the map-player object, including retained map state while in battle; a Common Event inherits its caller's context.
+compile warning troop:1: MV-E211-CONTEXT at pages[0].list[6]: Transparency changes the map-player object, including retained map state while in battle; a Common Event inherits its caller's context.
+compile warning troop:1: MV-E212-CONTEXT at pages[0].list[7].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E212-CONTEXT at pages[0].list[8].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E212-CONTEXT at pages[0].list[9].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E212-CONTEXT at pages[0].list[10].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E212-CONTEXT at pages[0].list[11].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E212-CONTEXT at pages[0].list[12].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[13].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[14].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[15].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[16].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[17].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[18].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[19].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[20].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[21].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[22].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[23].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[24].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[25].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[26].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[27].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E214-CONTEXT at pages[0].list[28]: Erase Event acts only on the calling event when its interpreter is on the current map with a positive event ID; an absent map-event context does nothing.
+compile warning troop:1: MV-E216-CONTEXT at pages[0].list[29]: Follower visibility changes map-player state and refreshes the player, including retained map state while in battle; a Common Event inherits its caller's context.
+compile warning troop:1: MV-E216-CONTEXT at pages[0].list[30]: Follower visibility changes map-player state and refreshes the player, including retained map state while in battle; a Common Event inherits its caller's context.
+compile warning troop:1: MV-E217-CONTEXT at pages[0].list[31]: Gather Followers is skipped in battle.
+
+stderr | test/map-characters-workspace.test.ts > MV-S6-CHARACTER-001: preserves the complete native matrix through real Workspace evaluation and Push
+compile warning commonEvent:1: MV-E204-CONTEXT at list[0]: The caller's context controls scrolling: battle skips it; a prior map scroll delays this scroll's start, without waiting for this new scroll to finish.
+compile warning commonEvent:1: MV-E204-CONTEXT at list[1]: The caller's context controls scrolling: battle skips it; a prior map scroll delays this scroll's start, without waiting for this new scroll to finish.
+compile warning commonEvent:1: MV-E204-CONTEXT at list[2]: The caller's context controls scrolling: battle skips it; a prior map scroll delays this scroll's start, without waiting for this new scroll to finish.
+compile warning commonEvent:1: MV-E204-CONTEXT at list[3]: The caller's context controls scrolling: battle skips it; a prior map scroll delays this scroll's start, without waiting for this new scroll to finish.
+compile warning commonEvent:1: MV-E206-CONTEXT at list[4]: Boarding or disembarking depends on the player's current vehicle, terrain and location. In battle or an inherited Common Event context this can address retained map-player state; success is not guaranteed.
+compile warning commonEvent:1: MV-E211-CONTEXT at list[5]: Transparency changes the map-player object, including retained map state while in battle; a Common Event inherits its caller's context.
+compile warning commonEvent:1: MV-E211-CONTEXT at list[6]: Transparency changes the map-player object, including retained map state while in battle; a Common Event inherits its caller's context.
+compile warning commonEvent:1: MV-E212-CONTEXT at list[7].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E212-CONTEXT at list[8].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E212-CONTEXT at list[9].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E212-CONTEXT at list[10].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E212-CONTEXT at list[11].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E212-CONTEXT at list[12].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[13].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[14].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[15].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[16].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[17].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[18].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[19].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[20].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[21].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[22].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[23].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[24].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[25].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[26].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E213-CONTEXT at list[27].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.
+compile warning commonEvent:1: MV-E214-CONTEXT at list[28]: Erase Event acts only on the calling event when its interpreter is on the current map with a positive event ID; an absent map-event context does nothing.
+compile warning commonEvent:1: MV-E216-CONTEXT at list[29]: Follower visibility changes map-player state and refreshes the player, including retained map state while in battle; a Common Event inherits its caller's context.
+compile warning commonEvent:1: MV-E216-CONTEXT at list[30]: Follower visibility changes map-player state and refreshes the player, including retained map state while in battle; a Common Event inherits its caller's context.
+compile warning commonEvent:1: MV-E217-CONTEXT at list[31]: Gather Followers waits on the map until followers gather; blocked movement can keep that wait active. A Common Event inherits its caller's map/battle context.
+compile warning map:1/event:1: MV-E206-CONTEXT at pages[0].list[4]: Boarding or disembarking depends on the player's current vehicle, terrain and location. In battle or an inherited Common Event context this can address retained map-player state; success is not guaranteed.
+compile warning map:1/event:1: MV-E217-CONTEXT at pages[0].list[31]: Gather Followers waits on the map until followers gather; blocked movement can keep that wait active. A Common Event inherits its caller's map/battle context.
+compile warning troop:1: MV-E204-CONTEXT at pages[0].list[0]: Scroll Map is skipped in battle.
+compile warning troop:1: MV-E204-CONTEXT at pages[0].list[1]: Scroll Map is skipped in battle.
+compile warning troop:1: MV-E204-CONTEXT at pages[0].list[2]: Scroll Map is skipped in battle.
+compile warning troop:1: MV-E204-CONTEXT at pages[0].list[3]: Scroll Map is skipped in battle.
+compile warning troop:1: MV-E206-CONTEXT at pages[0].list[4]: Boarding or disembarking depends on the player's current vehicle, terrain and location. In battle or an inherited Common Event context this can address retained map-player state; success is not guaranteed.
+compile warning troop:1: MV-E211-CONTEXT at pages[0].list[5]: Transparency changes the map-player object, including retained map state while in battle; a Common Event inherits its caller's context.
+compile warning troop:1: MV-E211-CONTEXT at pages[0].list[6]: Transparency changes the map-player object, including retained map state while in battle; a Common Event inherits its caller's context.
+compile warning troop:1: MV-E212-CONTEXT at pages[0].list[7].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E212-CONTEXT at pages[0].list[8].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E212-CONTEXT at pages[0].list[9].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E212-CONTEXT at pages[0].list[10].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E212-CONTEXT at pages[0].list[11].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E212-CONTEXT at pages[0].list[12].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[13].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[14].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[15].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[16].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[17].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[18].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[19].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[20].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[21].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[22].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[23].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[24].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[25].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[26].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E213-CONTEXT at pages[0].list[27].parameters[0]: Battle character selection returns no map character; this command does nothing and starts no animation/balloon wait.
+compile warning troop:1: MV-E214-CONTEXT at pages[0].list[28]: Erase Event acts only on the calling event when its interpreter is on the current map with a positive event ID; an absent map-event context does nothing.
+compile warning troop:1: MV-E216-CONTEXT at pages[0].list[29]: Follower visibility changes map-player state and refreshes the player, including retained map state while in battle; a Common Event inherits its caller's context.
+compile warning troop:1: MV-E216-CONTEXT at pages[0].list[30]: Follower visibility changes map-player state and refreshes the player, including retained map state while in battle; a Common Event inherits its caller's context.
+compile warning troop:1: MV-E217-CONTEXT at pages[0].list[31]: Gather Followers is skipped in battle.
+
+stderr | test/map-characters-workspace.test.ts > MV-S6-CHARACTER-001: preserves the complete native matrix through real Workspace evaluation and Push
+Windows verification sandbox retained: M:\Shuen\Codex\mv-events-implementation-20261020\ticket35-temp\sandboxes\character-matrix-v34Iyu
+
+ ❯ test/map-characters-workspace.test.ts (42 tests | 1 failed) 67899ms
+   × MV-S6-CHARACTER-001: preserves the complete native matrix through real Workspace evaluation and Push 2472ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-characters-workspace.test.ts > MV-S6-CHARACTER-001: preserves the complete native matrix through real Workspace evaluation and Push
+AssertionError: expected 'Structured Diff Report\n\nAffected Pr…' to contain 'No changes'
+
+- Expected
++ Received
+
+- No changes
++ Structured Diff Report
++
++ Affected Project Data Files:
++ - none
++
++ Destructive Changes: no
+
+ ❯ test/map-characters-workspace.test.ts:76:40
+     74|       expect(JSON.parse(await readFile(join(state,"project-data-snapsh…
+     75|     }
+     76|     expect(await api.diffWorkspace(s)).toContain("No changes");
+       |                                        ^
+     77|     const common=join(s.workspaceRoot,"src/decompiled/common-events.ev…
+     78|     await writeFile(common,(await readFile(common,"utf8")).replace("Ch…
+ ❯ test/map-characters-workspace.test.ts:57:72
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ evidence test/map-characters-workspace.test.ts:57:9
+ ❯ test/map-characters-workspace.test.ts:63:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 41 passed (42)
+   Start at  03:15:04
+   Duration  69.50s (transform 515ms, setup 0ms, import 1.47s, tests 67.90s, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-35\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/map-characters-workspace.test.ts

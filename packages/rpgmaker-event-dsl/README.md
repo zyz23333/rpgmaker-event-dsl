@@ -26,6 +26,28 @@ which only Push can resolve.
 This project is in early development. The TypeScript API, DSL syntax, CLI workflow,
 generated output, and workspace format may change before `1.0.0`.
 
+## Shop Processing
+
+```ts
+shopProcessing({
+  goods: [
+    { kind: "item", item: itemRef({ id: 1 }) },
+    { kind: "weapon", weapon: weaponRef({ id: 2 }), price: 0 },
+    { kind: "placeholder" },
+    { kind: "armor", armor: armorRef({ id: 3 }), price: 999999 },
+  ],
+  purchaseOnly: true,
+});
+```
+
+`goods` is required and may be empty. Each real good uses an existing reference
+from its matching category. Omitted `price` means standard price; a custom price
+is an integer 0..999999. `purchaseOnly` defaults to false. Goods preserve order
+and duplicates. A structural `{ kind: "placeholder" }` has no reference or price
+and preserves the exact native four-zero entry, even when mixed or repeated.
+Empty goods emits one placeholder; only a sole placeholder decompiles to empty
+goods. All 605 continuation records belong to their 302 Shop command.
+
 ## Audio Commands
 
 Give each playback or system audio helper a complete payload, including None:
@@ -198,6 +220,10 @@ example project:
 
 https://github.com/zyz23333/rpgmaker-event-dsl
 
+Project Data Reference helpers require exactly one numeric `id` or string `name`
+and reject unsupported own fields before constructing the reference. The command
+or page context still determines the accepted saved ID domain and target existence.
+
 Switch and variable references by ID accept unnamed slots within the final System
 capacity: the larger of Snapshot capacity and the highest DSL declaration ID.
 Removing a name retains that capacity; referencing an ID does not expand it.
@@ -247,6 +273,30 @@ no array alias, missing-component repair or project-dependent default.
 `returnToTitleScreen()` take no inputs. Menu and Save open on the map even when
 ordinary access is disabled and skip in battle. Game Over and Title transition
 from map or battle without a dead-actor precondition or automatic save.
+
+Map character commands use explicit saved settings:
+
+```ts
+scrollMap({ direction: "right", distance: 0, speed: 6 });
+showAnimation({ target: playerCharacter, animation: animationRef({ id: 1 }), wait: false });
+showBalloonIcon({ target: playerCharacter, balloon: "userDefined5", wait: true });
+changeTransparency({ transparent: false });
+changePlayerFollowers({ visible: true });
+getOnOffVehicle();
+eraseEvent();
+gatherFollowers();
+```
+
+Scroll directions are `down`/`left`/`right`/`up`, distance is an integer 0–100 and
+speed is 1–6; there is no scroll wait field. Animation and balloon targets support
+character selectors for player, currentEvent and positive event IDs, with required
+boolean `wait`. Balloons use the fifteen named icons: exclamation, question,
+musicNote, heart, anger, sweat, cobweb, silence, lightBulb, zzz and userDefined1–5.
+Animations require existing database entries; missing runtime targets warn and
+retain the selector. Common Event callers determine context. Boarding may fail
+because of player state or terrain; erase requires a current map-event identity,
+and Gather Followers waits on the map but skips battle. Context warnings also
+identify retained map-player effects during battle.
 
 Clone and Pull capture exact UTF-8 file bytes, their hashes and the map collection
 selected by the same MapInfos input. Invalid collections, missing registered maps,
@@ -531,6 +581,33 @@ slot, including more than twelve lines. LF warns about the editor's single-line
 input; CR warns that parameter reconfirmation needs verification. Warnings retain
 the exact text. Empty, inactive and unreachable M45 instructions still require
 `scriptEnabled: true` during Check and Compile.
+
+## Inventory and party changes
+
+`changeGold({ operation, value })` and `changeItems({ item, operation, amount })`
+use explicit quantity objects: `{ kind: "constant", value }` or
+`{ kind: "variable", variable: variableRef({ id }) }`. Gold constants are integers
+1..9,999,999; item, weapon and armor constants are integers 1..9999. The operation
+is `gain` or `lose`. Variable mode preserves its source reference and accepts
+runtime values outside the constant range, including zero and negative values;
+MV handles its runtime caps separately.
+
+`changeWeapons({ weapon, operation, amount, includeEquipment })` and
+`changeArmors({ armor, operation, amount, includeEquipment })` require the boolean
+flag, including gain mode. `changePartyMember({ actor, operation, initialize })`
+selects one fixed actor, uses `add` or `remove`, and requires the boolean
+initialization flag even during removal. All shown fields are required, and the
+fixed item/weapon/armor/actor references resolve in their matching project tables.
+
+```ts
+changeWeapons({
+  weapon: weaponRef({ id: 1 }),
+  operation: "gain",
+  amount: { kind: "variable", variable: variableRef({ id: 3 }) },
+  includeEquipment: true,
+});
+changePartyMember({ actor: actorRef({ id: 1 }), operation: "remove", initialize: true });
+```
 
 ## Control Variables
 
@@ -855,6 +932,37 @@ Troop size. Abort Battle has no inputs. Missing fixed references are errors; leg
 runtime positions, unknown Common callers and incompatible map/battle contexts
 produce warnings. MV skips Battle Processing in battle and Force Action outside
 battle; Abort Battle can set residual aborting state outside an active battle.
+
+## Map location commands
+
+`transferPlayer({ destination, direction?, fade? })` and
+`setVehicleLocation({ vehicle, destination })` accept a direct destination
+`{ kind: "direct", map: mapRef({ id: 1 }), x: 4, y: 5 }` or variable references
+`{ kind: "variables", map: variableRef({ id: 1 }), x: variableRef({ id: 2 }), y: variableRef({ id: 3 }) }`.
+Vehicle is `boat`, `ship` or `airship`. Transfer direction is
+`retain/down/left/right/up`, defaulting to `retain`; fade is `black/white/none`,
+defaulting to `black`.
+
+`setEventLocation({ target, destination, direction? })` uses a character Runtime
+Selector for `currentEvent` or a positive `event` ID. Its destination is direct
+numeric `x/y`, variable references `x/y`, or `{ kind: "exchange", target }` with
+the same event selector subset. Direction defaults to `retain` and uses the same
+five named values. A missing runtime event warns without becoming a missing
+Project Data Reference.
+
+`getLocationInfo({ variable, info, location })` writes to an existing Variable
+Slot, including an unnamed slot addressed by ID. Info is
+`terrainTag/eventId/tileLayer1/tileLayer2/tileLayer3/tileLayer4/regionId`;
+location is direct numeric `x/y` or variable references `x/y`.
+
+These four commands' direct coordinates are integers `0..2147483647`, excluding
+negative zero. Fixed-map bounds warnings preserve saved coordinates; current-map
+warnings are conditional on a containing Map Event. Unknown Common Event running
+maps do not trigger bounds warnings by themselves. Terrain and region queries
+return zero outside bounds, tile queries may alias another data-array element,
+and event queries match exact coordinates even outside dimensions. Variable
+references are checked without predicting their runtime values. Transfer during
+battle warns that execution may stall.
 
 ## Push safety
 

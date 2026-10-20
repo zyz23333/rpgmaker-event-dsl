@@ -47,6 +47,9 @@ import { inspectNativeCommandReferences } from "../validation/native-references.
 import { CommandStructureError } from "../validation/command-errors.js";
 import { assertNativeBattlePages, type NativeBattleEventPage } from "../validation/battle-pages.js";
 import { renderMapPageSettings } from "./map-page.js";
+import { inspectMapLocationContext } from "../commands/map/location-context.js";
+import type { SnapshotMapValidationEntry } from "../validation/types.js";
+import { inspectMapCharacterContext } from "../validation/map-character-context.js";
 
 export type DecompileFile = {
   content: string;
@@ -78,6 +81,30 @@ async function buildDecompiledSourceFiles(
   issues: ValidationIssue[],
 ): Promise<DecompileFile[]> {
   const mapInfos = parseMapInfos(await readSnapshotFile(options.statePaths, "MapInfos.json"));
+  const mapDataById = new Map(
+    await Promise.all(
+      mapInfos.map(
+        async (map) =>
+          [
+            map.id,
+            await readSnapshotObject(options.statePaths, formatMapFileName(map.id)),
+          ] as const,
+      ),
+    ),
+  );
+  const contextMaps: SnapshotMapValidationEntry[] = mapInfos.map((map) => {
+    const data = mapDataById.get(map.id)!;
+    return {
+      id: map.id,
+      ...(typeof data.width === "number" ? { width: data.width } : {}),
+      ...(typeof data.height === "number" ? { height: data.height } : {}),
+      eventLocations: readMapEvents(data, map.id).map((event) => ({
+        eventId: event.id,
+        x: event.x,
+        y: event.y,
+      })),
+    };
+  });
   const outputRoot = resolve(options.workspaceRoot, options.sourceRoot, "decompiled");
   const files: DecompileFile[] = [];
   const system = await readSnapshotObject(options.statePaths, "System.json");
@@ -170,7 +197,7 @@ async function buildDecompiledSourceFiles(
 
   for (const mapInfo of mapInfos) {
     const mapFileName = formatMapFileName(mapInfo.id);
-    const mapData = await readSnapshotObject(options.statePaths, mapFileName);
+    const mapData = mapDataById.get(mapInfo.id)!;
     const events = readMapEvents(mapData, mapInfo.id);
     for (const event of events) {
       for (const [pageIndex, page] of event.pages.entries()) {
@@ -198,6 +225,15 @@ async function buildDecompiledSourceFiles(
             resolver,
             inputOptions,
           ),
+          ...inspectMapLocationContext(page.list ?? [], {
+            ...inputOptions,
+            maps: contextMaps,
+            currentMapId: mapInfo.id,
+          }),
+          ...inspectMapCharacterContext(page.list ?? [], {
+            ...inputOptions,
+            eventIds: new Set(events.map((event) => event.id)),
+          }),
         );
         if (page.movement !== undefined) {
           const path = `pages[${pageIndex}].moveRoute`;
@@ -246,6 +282,15 @@ async function buildDecompiledSourceFiles(
     );
     issues.push(
       ...inspectConditionalContext(event.list ?? [], { kind: "common" }, resolver, {
+        identity: `commonEvent:${event.id}`,
+        stage: "decompile",
+      }),
+      ...inspectMapLocationContext(event.list ?? [], {
+        identity: `commonEvent:${event.id}`,
+        stage: "decompile",
+        maps: contextMaps,
+      }),
+      ...inspectMapCharacterContext(event.list ?? [], {
         identity: `commonEvent:${event.id}`,
         stage: "decompile",
       }),
@@ -317,6 +362,14 @@ async function buildDecompiledSourceFiles(
           resolver,
           { identity, stage: "decompile", prefix },
         ),
+        ...inspectMapLocationContext(commands, {
+          identity,
+          stage: "decompile",
+          maps: contextMaps,
+          battle: true,
+          prefix,
+        }),
+        ...inspectMapCharacterContext(commands, { identity, stage: "decompile", prefix }),
       );
       issues.push(
         ...inspectNativeCommandInputs(commands, {

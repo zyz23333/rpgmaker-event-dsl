@@ -195,20 +195,37 @@ describe("collectDslOwnedDeclarations", () => {
       }).kind,
     ).toBe("controlVariables");
     expect(controlSelfSwitch({ selfSwitch: "A", value: false }).kind).toBe("controlSelfSwitch");
-    expect(changeGold({ operation: "gain", value: 5 }).kind).toBe("changeGold");
-    expect(changeItems({ item: itemRef({ id: 1 }), operation: "lose", amount: 2 }).kind).toBe(
-      "changeItems",
+    expect(changeGold({ operation: "gain", value: { kind: "constant", value: 5 } }).kind).toBe(
+      "changeGold",
     );
+    expect(
+      changeItems({
+        item: itemRef({ id: 1 }),
+        operation: "lose",
+        amount: { kind: "constant", value: 2 },
+      }).kind,
+    ).toBe("changeItems");
     expect(controlTimer({ action: "start", seconds: 30 }).kind).toBe("controlTimer");
     expect(
-      changeWeapons({ weapon: { kind: "weapon", id: 1 }, operation: "gain", amount: 1 }).kind,
+      changeWeapons({
+        weapon: { kind: "weapon", id: 1 },
+        operation: "gain",
+        amount: { kind: "constant", value: 1 },
+        includeEquipment: false,
+      }).kind,
     ).toBe("changeWeapons");
     expect(
-      changeArmors({ armor: { kind: "armor", id: 1 }, operation: "lose", amount: 1 }).kind,
+      changeArmors({
+        armor: { kind: "armor", id: 1 },
+        operation: "lose",
+        amount: { kind: "constant", value: 1 },
+        includeEquipment: false,
+      }).kind,
     ).toBe("changeArmors");
-    expect(changePartyMember({ actor: { kind: "actor", id: 1 }, operation: "add" }).kind).toBe(
-      "changePartyMember",
-    );
+    expect(
+      changePartyMember({ actor: { kind: "actor", id: 1 }, operation: "add", initialize: false })
+        .kind,
+    ).toBe("changePartyMember");
     expect(
       changeBattleBgm({
         audio: {
@@ -265,11 +282,11 @@ describe("collectDslOwnedDeclarations", () => {
     ).toBe("setVehicleLocation");
     expect(
       setEventLocation({
-        character: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
+        target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
         destination: { kind: "direct", x: 2, y: 3 },
       }).kind,
     ).toBe("setEventLocation");
-    expect(scrollMap({ direction: 2, distance: 8, speed: 4 }).kind).toBe("scrollMap");
+    expect(scrollMap({ direction: "down", distance: 8, speed: 4 }).kind).toBe("scrollMap");
     expect(
       setMovementRoute({
         target: { kind: "runtimeSelector", scope: "character", target: "player" },
@@ -298,6 +315,7 @@ describe("collectDslOwnedDeclarations", () => {
       showBalloonIcon({
         target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
         balloon: "exclamation",
+        wait: false,
       }).kind,
     ).toBe("showBalloonIcon");
     expect(changePlayerFollowers({ visible: false }).kind).toBe("changePlayerFollowers");
@@ -439,7 +457,7 @@ describe("collectDslOwnedDeclarations", () => {
     expect(
       shopProcessing({
         goods: [{ kind: "item", item: itemRef({ id: 1 }), price: 1 }],
-        allowSelling: true,
+        purchaseOnly: false,
       }).kind,
     ).toBe("shopProcessing");
     expect(nameInputProcessing({ actor: { kind: "actor", id: 1 }, maxCharacters: 8 }).kind).toBe(

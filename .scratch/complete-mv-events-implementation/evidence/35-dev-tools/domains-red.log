@@ -1,0 +1,57 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-35/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/map-characters.test.ts (7 tests | 2 failed) 24ms
+   × requires complete authored value domains before enum or flag encoding 4ms
+   × rejects malformed known native and raw character slots before decompilation 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/map-characters.test.ts > requires complete authored value domains before enum or flag encoding
+AssertionError: scrollMap.direction helper: expected [Function] to throw an error
+ ❯ test/map-characters.test.ts:54:68
+     52|     cases.push(["showAnimation",showAnimation,{target:player,animation…
+     53|   for (const [kind,helper,input,field] of cases) {
+     54|     expect(() => helper(input as never),`${kind}.${field} helper`).toT…
+       |                                                                    ^
+     55|     try { compile([{kind,...input} as never]); expect.fail(`${kind}.${…
+     56|     catch(error) { expect(error).toMatchObject({location:{dslPath:expe…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/map-characters.test.ts > rejects malformed known native and raw character slots before decompilation
+AssertionError: expected Error: decompile error MV-COMMAND-UNSUPPO… { …(5) } to match object { code: 'MV-E204-PARAMETERS', …(1) }
+(5 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "code": "MV-E204-PARAMETERS",
++ CommandStructureError {
++   "code": "MV-COMMAND-UNSUPPORTED",
+    "location": {
+-     "nativePath": "list[0].parameters[0]",
++     "nativePath": "list[0].parameters",
+    },
+  }
+
+ ❯ test/map-characters.test.ts:73:32
+     71|   for(const [code,parameters,suffix] of cases) {
+     72|     try {renderDecompiledCommandList([{code,indent:0,parameters}]);exp…
+     73|     catch(error){expect(error).toMatchObject({code:`MV-E${code}-PARAME…
+       |                                ^
+     74|     try {rawDslCommand({code,parameters});expect.fail(`raw E${code} ac…
+     75|     catch(error){expect(error).toMatchObject({code:`MV-E${code}-PARAME…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 5 passed (7)
+   Start at  03:07:03
+   Duration  1.26s (transform 376ms, setup 0ms, import 1.09s, tests 24ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-35\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/map-characters.test.ts

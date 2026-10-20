@@ -17,6 +17,7 @@ import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
 import { assertControlVariablesInput } from "../commands/variables/control-variables.js";
 import { assertPictureInput } from "../commands/screen/picture-inputs.js";
 import { assertPictureReferences } from "../commands/screen/picture-references.js";
+import { assertSwitchCommandInput } from "../commands/variables/switch-inputs.js";
 import { assertNativeContextReferences } from "./native-context-references.js";
 import { resolveCommonEventCall, assertLoopCommand } from "../commands/flow/validation.js";
 import {
@@ -37,6 +38,17 @@ import {
 } from "../commands/movement/access-validation.js";
 import { assertSceneCommandInput } from "../commands/system/validation.js";
 import { assertActorResourceInput } from "../commands/actor/validation.js";
+import { assertShopInput } from "../commands/battle/shop-validation.js";
+import {
+  assertInventoryInput,
+  isInventoryCommandKind,
+} from "../commands/variables/inventory-validation.js";
+import { assertMapLocationInput } from "../commands/map/location-validation.js";
+
+import {
+  assertMapCharacterInput,
+  isMapCharacterKind,
+} from "../commands/movement/character-validation.js";
 
 type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
@@ -80,11 +92,33 @@ export function validateNodes(
       assertSceneCommandInput(node.kind, node, nodePath);
       assertPictureInput(node.kind, node, nodePath, true, resolver);
       assertActorResourceInput(node.kind, node, nodePath, true, resolver);
+      if (node.kind === "shopProcessing") assertShopInput(node, nodePath, true, resolver);
+      assertSwitchCommandInput(node.kind, node, nodePath);
     } catch (error) {
       if (error instanceof CommandStructureError)
         issues.push(error.issue(options.identity ?? "event", "compile"));
       else throw error;
       continue;
+    }
+    if (isInventoryCommandKind(node.kind)) {
+      try {
+        assertInventoryInput(node.kind, node, nodePath, true, resolver);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+      }
+      continue;
+    }
+    if (isMapCharacterKind(node.kind)) {
+      try {
+        assertMapCharacterInput(node.kind, node, nodePath, true, resolver);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+        continue;
+      }
     }
     const childOptions = (field: string): CommandValidationOptions => ({
       ...options,
@@ -114,6 +148,28 @@ export function validateNodes(
           error.issue(identity, "compile"),
         ),
       );
+    }
+    if (
+      ["transferPlayer", "setVehicleLocation", "setEventLocation", "getLocationInfo"].includes(
+        node.kind,
+      )
+    ) {
+      try {
+        assertMapLocationInput(
+          node.kind as
+            | "transferPlayer"
+            | "setVehicleLocation"
+            | "setEventLocation"
+            | "getLocationInfo",
+          node,
+          nodePath,
+        );
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+        continue;
+      }
     }
     if (node.kind === "loop") {
       try {
@@ -208,34 +264,6 @@ export function validateNodes(
         else throw error;
       }
     }
-    if (node.kind === "changeItems") {
-      captureReferenceIssue(() => resolver.resolveReference(node.item), issues);
-      if (isVariableReferenceValue(node.amount)) {
-        const amountRef = node.amount;
-        captureReferenceIssue(() => resolver.resolveReference(amountRef), issues);
-      }
-    }
-    if (node.kind === "changeWeapons") {
-      captureReferenceIssue(() => resolver.resolveReference(node.weapon), issues);
-      if (isVariableReferenceValue(node.amount)) {
-        const amountRef = node.amount;
-        captureReferenceIssue(() => resolver.resolveReference(amountRef), issues);
-      }
-    }
-    if (node.kind === "changeArmors") {
-      captureReferenceIssue(() => resolver.resolveReference(node.armor), issues);
-      if (isVariableReferenceValue(node.amount)) {
-        const amountRef = node.amount;
-        captureReferenceIssue(() => resolver.resolveReference(amountRef), issues);
-      }
-    }
-    if (node.kind === "changeGold" && isVariableReferenceValue(node.value)) {
-      const valueRef = node.value;
-      captureReferenceIssue(() => resolver.resolveReference(valueRef), issues);
-    }
-    if (node.kind === "changePartyMember") {
-      captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
-    }
     if (node.kind === "inputNumber" || node.kind === "selectItem") {
       captureReferenceIssue(() => resolver.resolveReference(node.variable), issues);
     }
@@ -274,7 +302,7 @@ export function validateNodes(
       validateMapDestination(node.destination, resolver, issues);
     }
     if (node.kind === "setEventLocation") {
-      validateCharacterRuntimeSelector(node.character, "Set Event Location character", issues);
+      validateCharacterRuntimeSelector(node.target, "Set Event Location target", issues);
       validateEventLocationDestination(node.destination, resolver, issues);
     }
     if (node.kind === "setMovementRoute") {
@@ -305,15 +333,6 @@ export function validateNodes(
           issues.push(error.issue(options.identity ?? "event", "compile"));
       }
     }
-    if (node.kind === "showAnimation") {
-      validateCharacterRuntimeSelector(node.target, "Show Animation target", issues);
-      captureSwitchIssue("MV-E212-REFERENCE", "animation", () =>
-        resolver.resolveReference(node.animation),
-      );
-    }
-    if (node.kind === "showBalloonIcon") {
-      validateCharacterRuntimeSelector(node.target, "Show Balloon Icon target", issues);
-    }
     if (node.kind === "showPicture" || node.kind === "movePicture") {
       validateCommandPosition(node.position, resolver, issues);
     }
@@ -332,7 +351,10 @@ export function validateNodes(
     }
     if (node.kind === "shopProcessing") {
       for (const goods of node.goods) {
-        captureReferenceIssue(() => resolver.resolveReference(goods.item), issues);
+        if (goods.kind === "placeholder") continue;
+        const reference =
+          goods.kind === "item" ? goods.item : goods.kind === "weapon" ? goods.weapon : goods.armor;
+        captureReferenceIssue(() => resolver.resolveReference(reference), issues);
       }
     }
     if (node.kind === "nameInputProcessing") {
@@ -435,7 +457,7 @@ export function validateEventLocationDestination(
 
   if (destination.kind === "exchange") {
     validateCharacterRuntimeSelector(
-      destination.character,
+      destination.target,
       "Set Event Location exchange character",
       issues,
     );

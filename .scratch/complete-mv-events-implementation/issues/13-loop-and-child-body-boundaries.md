@@ -66,3 +66,24 @@ E112/E113/E115 的最小闭环已完成。Loop 使用必填 body.commands 与有
 Windows / Node 22.23.0：pnpm check（typecheck/lint/format/156 tests）与 pnpm build 通过，34 项本票产品测试另留原始 Vitest JSON。实际 MV1.6.1 / NW0.29.0 的 literal 与 compiled 双进程对照通过全部四场景，各场景重新新游戏；覆盖 present、nested mixed marker、outside Break、Common Event 内 Exit 后 caller 继续，全部正常停止。观察器、原生输出、输入/host 身份及哈希已保留，没有提交首方 runtime/源码或资产。
 
 已合入集成94a3a41并保留11的引用诊断。其他父命令 API 迁移和各自完整参数/marker 验收留27/28/46；最终 E1–E7 产品比较、R1–R7 集成候选回归与完整支持声明继续由后续工单执行。
+
+## Supplementary correction — 2026-10-20
+
+Supplementary status: resolved
+
+在专用 `codex/mv-control-input-fix` 分支与11的补充开发一起闭合 Loop helper 输入投影
+丢弃未知字段的已知缺口；保留 direct Loop 既有拒绝、子体 marker、递归 Gate/引用和 raw
+组合义务。基于实际 integration3854276，仅既定 T1 focused DEV，不变更已接受领域契约，
+不重写原 Outcome 或已有证据，不标新的最终验收通过。
+
+Supplementary focused DEV outcome: Loop helper now rejects excess own input before
+projection; the prior direct Loop rejection and all marker/Gate/reference duties
+remain. Owned47, related115, final10 and index1 pass with original10s deadlines.
+[Correction report](../evidence/control-input-fix-dev.md) preserves prior failures,
+source identities and complete Workspace comparisons. Supplementary status remains
+claimed; final delivery and impacted R1/R3 normal-Scene game validation are pending.
+
+
+## Supplementary Answer — 2026-10-20 开发批次完成
+
+补充DEV717171be已与34/35共同整合。全部15引用构造器、原始helper/direct/nested反例、类别负零拒绝及正零/Loop控制均保留；另修正读取Switch目标kind前未验证原始对象的问题，18条独立公共入口测试保留12失败red与18通过green。当前受影响67tests、必要真实Workspace43tests（全部15构造器）及type/static通过，详见[批次交付记录](../evidence/map-batch-delivery.md)。本补充开发完成，原Outcome及历史失败不重写；`MV-S3-INPUT-007`仍零执行，最终full/build/built归48、适用R1/R3实际游戏归52、总审计归55。

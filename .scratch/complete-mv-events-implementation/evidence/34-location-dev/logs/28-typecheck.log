@@ -1,0 +1,9 @@
+
+> rpgmaker-event-dsl@0.1.2 typecheck C:\Users\Shuen\.codex\worktrees\mv-ticket-34\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> tsc -p tsconfig.json --noEmit
+
+test/map-locations-workspace.test.ts(55,93): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+test/map-locations-workspace.test.ts(65,127): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+C:\Users\Shuen\.codex\worktrees\mv-ticket-34\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 typecheck: `tsc -p tsconfig.json --noEmit`
+Exit status 2
