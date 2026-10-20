@@ -6,7 +6,7 @@ compile/push model.
 `src/full-event.events.ts` intentionally demonstrates representative RPG Maker MV 1.6.1
 command families rather than every helper. It includes message, flow control, switches,
 variables, party, movement, screen, audio, map, battle, actor, enemy, plugin, script, and
-explicit unknown raw command examples.
+explicit raw command examples.
 
 Timer Start requires seconds in 0..5999. Stop without seconds preserves an absent
 saved slot; the example also shows an explicit saved Stop value. Keep that value

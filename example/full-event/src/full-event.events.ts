@@ -34,7 +34,7 @@ import {
   fadeoutScreen,
   fadeinScreen,
   flashScreen,
-  exitEvent,
+  exitEventProcessing,
   forceAction,
   gatherFollowers,
   getLocationInfo,
@@ -269,8 +269,11 @@ export const guideEvent = mapEvent({
         }),
         showChoices({
           choices: [
-            { text: "Call common event", commands: [callCommonEvent(sampleCommonEvent)] },
-            { text: "Stop here", commands: [exitEvent()] },
+            {
+              text: "Call common event",
+              commands: [callCommonEvent({ commonEvent: sampleCommonEvent })],
+            },
+            { text: "Stop here", commands: [exitEventProcessing()] },
           ],
           cancel: {
             kind: "branch",
@@ -297,19 +300,6 @@ export const rewardChestEvent = mapEvent({
   x: 7,
   y: 6,
   pages: [
-    page({
-      conditions: {
-        selfSwitch: { enabled: true, value: "A" },
-      },
-      commands: [
-        showText({
-          lines: ["The chest is empty."],
-          face: { image: null, index: 0 },
-          background: "window",
-          position: "bottom",
-        }),
-      ],
-    }),
     page({
       commands: [
         comment({
@@ -353,6 +343,19 @@ export const rewardChestEvent = mapEvent({
         }),
       ],
     }),
+    page({
+      conditions: {
+        selfSwitch: { enabled: true, value: "A" },
+      },
+      commands: [
+        showText({
+          lines: ["The chest is empty."],
+          face: { image: null, index: 0 },
+          background: "window",
+          position: "bottom",
+        }),
+      ],
+    }),
   ],
 });
 
@@ -374,15 +377,19 @@ export const practiceBattleEvent = mapEvent({
           background: "window",
           position: "bottom",
         }),
-        loop([
-          showText({
-            lines: ["Loop body runs once, then breaks."],
-            face: { image: null, index: 0 },
-            background: "window",
-            position: "bottom",
-          }),
-          breakLoop(),
-        ]),
+        loop({
+          body: {
+            commands: [
+              showText({
+                lines: ["Loop body runs once, then breaks."],
+                face: { image: null, index: 0 },
+                background: "window",
+                position: "bottom",
+              }),
+              breakLoop(),
+            ],
+          },
+        }),
         changeHp({
           target: entireParty,
           operation: "gain",
@@ -390,7 +397,7 @@ export const practiceBattleEvent = mapEvent({
           allowDeath: false,
         }),
         changeSkill({
-          target: { kind: "runtimeSelector", scope: "actor", target: "actor", actorId: 1 },
+          target: { kind: "runtimeSelector", scope: "actor", target: "actor", actor: heroActor },
           operation: "learn",
           skill: attackSkill,
         }),
@@ -622,9 +629,9 @@ export const movementStationEvent = mapEvent({
           position: "bottom",
         }),
         setEventLocation({
-          character: currentEvent,
+          target: currentEvent,
           destination: { kind: "direct", x: 11, y: 7 },
-          direction: 2,
+          direction: "down",
         }),
         setMovementRoute({
           target: currentEvent,
@@ -632,7 +639,7 @@ export const movementStationEvent = mapEvent({
             commands: [
               { kind: "turnDown" },
               { kind: "moveForward" },
-              { kind: "routeWait", frames: 10 },
+              { kind: "wait", frames: 10 },
               { kind: "switchOn", switch: sampleRouteCompleteSwitch },
               {
                 kind: "playSe",
@@ -645,6 +652,7 @@ export const movementStationEvent = mapEvent({
               },
               { kind: "script", script: scriptInput({ code: "this.turnTowardPlayer();" }) },
             ],
+            repeat: false,
             skippable: true,
             wait: true,
           },
@@ -756,7 +764,7 @@ export const partyStateStationEvent = mapEvent({
         controlTimer({ action: "stop", seconds: 30 }),
         rawDslCommand({
           code: 108,
-          parameters: ["Unknown raw commands remain explicit in the sample workspace."],
+          parameters: ["Raw command comments remain explicit in the sample workspace."],
         }),
       ],
     }),
