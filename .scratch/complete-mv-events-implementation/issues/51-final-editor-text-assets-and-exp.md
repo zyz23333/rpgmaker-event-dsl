@@ -1,6 +1,6 @@
 # 51: 最终编辑器逆向与产品比较：文本、素材与 EXP
 
-Status: ready-for-agent
+Status: resolved
 Blocked by: 48
 Stage: S7
 Execution batch: [最终原生回归](../tickets.md#batch-native-regression)
@@ -21,13 +21,13 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 ## Acceptance criteria
 
-- [ ] 候选版本完成 E5 行记录计数/空尾和列明单槽 CR/LF/CRLF/尾字符，注入起点如实标识。
-- [ ] 完成 E6 脸图标准/三行/缩小/None、图像联动、缩图旧坐标和缺素材处理代码，以及 E7 EXP 两个临界值的校验/夹界/保存链；未决时序如实记录。
-- [ ] 验证 warning 与准确保存，允许记录原生调整/报错但不得静默归一化产品；保留逆向证据、实际产品比较和差异，不将推导写成 UI 捕获。
+- [x] 候选版本完成 E5 行记录计数/空尾和列明单槽 CR/LF/CRLF/尾字符，注入起点如实标识。
+- [x] 完成 E6 脸图标准/三行/缩小/None、图像联动、缩图旧坐标和缺素材处理代码，以及 E7 EXP 两个临界值的校验/夹界/保存链；未决时序如实记录。
+- [x] 验证 warning 与准确保存，允许记录原生调整/报错但不得静默归一化产品；保留逆向证据、实际产品比较和差异，不将推导写成 UI 捕获。
 
 ### 共通要求（限本票适用范围）
 
-- [ ] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
+- [x] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
 
 ## Verification
 
@@ -44,3 +44,17 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [实施规格](../complete-mv-events-implementation-spec.md)：T3–T4、T6（E5–E7）；完整契约与未在本票重复列出的参数规则以规格及其规范附表为准。
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
+
+## Comments
+
+### 2026-10-20 — 最终 E1–E7 比较批次认领
+
+与49/50同批在 `codex/mv-final-e1-e7` 准备，基于实际集成 `e3d7bd3f`。08脸图、09单槽及10EXP报告作为有身份约束的复用依据；图像异步调整、输入逐键/粘贴与数值载入分别保留限定，不伪造 UI 保存结果。待48交付最终 built 产品后完成字符串、独立索引、坐标及 EXP 的比较与诊断检查；尚未执行通过。
+
+### 2026-10-20 — E5–E7 最终候选验收完成
+
+在48实际候选 `2dc639015f908de6fd524e50236e5422b5f8e990`、契约22的built API（SHA256 `24369d6d1d686b082665cda3b5e76292ed778420eadcfdad431a9cea11169788`）完成最终比较，前后完整15项dist匹配。见[最终报告 E5–E7](../evidence/49-51-final-editor-comparison.md#e5)和[案例 manifest](../evidence/49-51-final-editor-cases.json)。四类物理行记录的空/尾空与条数，完整单槽CR/LF/CRLF/尾字符，标准/三行/None独立脸图索引、缺素材名及缩图后命令坐标均原样保存；Script Gate显式开启，warning理由保持single-line/CR/official two-row/no-clamping，无素材扫描假象。None加2147483647未误报face-layout。
+
+EXP 9999999、1、变量操作数和lose+showLevelUp=true通过完整六槽比较。10000000分别在原始helper、recognized Raw与native Decompile拒绝，位置为 `changeExp.value.value`、`commands[0].parameters[4]`、`list[0].parameters[4]`，业务树不变且Decompile未发布源码。最终源码负例保留其他Common声明，没有无关缺引用混淆。08–10复用资源和SpinBox/PE真实Evidence bundle身份一致；文本处理与数值setter候选、Qt图片异步/None时序仍保留条件和未知项。
+
+追加 `MV-S7-E5`、`MV-S7-E6`、`MV-S7-E7` 及旧E-only `MV-S6-TEXT-E5`有效结果。实际Decompile/Check/编辑Compile/Diff/Push和15carrier/Snapshot全比较通过；证据索引定点检查加 `--testTimeout 120000` 通过1 passed、2 skipped（41.08秒），原10秒超时原始日志保留，`git diff --check`通过。外部输入、脚本、日志、失败原始记录与收据均在 `M:/Shuen/Codex/mv-events-implementation-20261020/final-e1-e7/`。未修改产品、未运行build/full、编辑器UI或游戏；R1–R7仍由52–54验收。本票按修订后范围设为resolved。

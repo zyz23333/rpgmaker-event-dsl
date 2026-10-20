@@ -790,3 +790,21 @@ small Workspace groups. Final native requirements remain pending.
 | MV-S6-BATTLE-003 | Late known-native rejection publishes no partial Decompiled Source | synthetic-rejection | Actual public Workspace API and complete business state |
 | MV-S6-BATTLE-004 | Final E2/E4 editor code-path facts and independent final product comparison | Required pending | Final49/50 REA/product comparison |
 | MV-S6-BATTLE-005 | Full original R2, R4 forced/selector contexts and R6 Enemy Animation | Required pending | Final52/53/54 actual MV1.6.1/NW.js game pairs |
+
+## Final editor E1–E7
+
+[Final comparison](49-51-final-editor-comparison.md) binds ticket48 actual built output to independent saved arrays and same-identity editor facts. Qt timing limits remain explicit; actual R1–R7 game results remain separate.
+
+| Requirement | Obligation | Evidence kind | Actual layer |
+| --- | --- | --- | --- |
+| MV-S7-E1 | Final complete containers and saved page state | Synthetic support plus reused REA observations | Final built Workspace comparison and identified editor code paths |
+| MV-S7-E2 | Final structured child bodies, Battle flags and Shop goods | Synthetic support plus reused REA observations | Final built Workspace comparison and identified editor code paths |
+| MV-S7-E3 | Final Page/205 route shells and exact505 mirrors | Synthetic support plus reused REA observations | Final built Workspace comparison and identified editor code paths |
+| MV-S7-E4 | Final saved slots and defaults after parameter-mode edits | Synthetic support plus reused REA observations | Final built Workspace comparison and identified editor code paths |
+| MV-S7-E5 | Final physical records and complete single-slot strings | Synthetic support plus reused REA observations | Final built Workspace comparison and identified editor code paths |
+| MV-S7-E6 | Final independent image indices and shrunk-map saved values | Synthetic support plus reused REA observations | Final built Workspace comparison and identified editor code paths |
+| MV-S7-E7 | Final EXP bound, flags and all three refusal paths | Synthetic support plus reused REA observations | Final built Workspace comparison and identified editor code paths |
+
+## Final editor domain supplement
+
+[Supplement report](49-51-editor-supplement.md) and [independent saved inputs / portion receipts](49-51-editor-supplement-cases.json) close the Audio E4 evidence gap and the Inventory E4 / Location E4,E6 portions on the fixed contract22 build. Only `MV-S6-AUDIO-E4` gains a passing aggregate result here. `MV-S6-INVENTORY-006` and `MV-S6-LOCATION-004` still await final53 actual R4/R5 game receipts. Prior results and the original fixture failure remain preserved.

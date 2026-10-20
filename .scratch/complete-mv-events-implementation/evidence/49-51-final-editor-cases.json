@@ -1,0 +1,138 @@
+{
+  "formatVersion": 1,
+  "sourceKind": "synthetic-support",
+  "provenance": "Original final E-group obligations and independently composed native input; no editor UI or actual game capture; compiler never formed expected records",
+  "groups": [
+    {
+      "id": "E1",
+      "title": "Final complete containers and saved page state",
+      "basis": "23/24/25 container resources; editor-serialization; accepted I3",
+      "expected": "All three complete defaults, Map five triggers, Common three triggers, Battle three spans, active/dormant settings, exact note/image/route values, normal20-page and separately marked synthetic21-page/high-ID saved inputs are equal after final built evaluation and edited Push."
+    },
+    {
+      "id": "E2",
+      "title": "Final structured child bodies, Battle flags and Shop goods",
+      "basis": "03 branches/Battle and07 Shop same-identity reports; accepted I4/E302",
+      "expected": "Empty/nonempty/nested child bodies, absent/empty else,402/403/per-level0, all Battle flags and ordered/repeated mixed exact Shop placeholders/real goods preserve complete native shape and custom prices."
+    },
+    {
+      "id": "E3",
+      "title": "Final Page/205 route shells and exact505 mirrors",
+      "basis": "04 movement same-identity report and ADR0015",
+      "expected": "Page/205 routes preserve parameter envelopes, absent/null/zero nonterminal indent, bothM0 states, every complete505 mirror and independent flags; insertion/copy static deductions retain their stated conditions."
+    },
+    {
+      "id": "E4",
+      "title": "Final saved slots and defaults after parameter-mode edits",
+      "basis": "03/05/06/07 same-identity reports; Timer/Transfer/Battle/Shop accepted domains",
+      "expected": "Timer stop absent/zero/nonzero seconds, Transfer direct/variable coordinates, Shop and Battle flags remain independent; project initial selections do not become compiler defaults."
+    },
+    {
+      "id": "E5",
+      "title": "Final physical records and complete single-slot strings",
+      "basis": "09 text same-identity report; accepted I6",
+      "expected": "Four physical-line families preserve empty/trailing records and accepted counts, while listed single-slot strings retain original CR/LF/CRLF and trailing characters with stable reconfirmation warnings and explicit Script Gate."
+    },
+    {
+      "id": "E6",
+      "title": "Final independent image indices and shrunk-map saved values",
+      "basis": "08 face same-identity report; accepted I6 and coordinate policy",
+      "expected": "Standard/third-row/None/large independent face indices, residual Map image fields, missing image names and old coordinates retain exact saved values with truthful warnings and no asset-dimension scan; Qt async conditions remain unknown."
+    },
+    {
+      "id": "E7",
+      "title": "Final EXP bound, flags and all three refusal paths",
+      "basis": "10 EXP same-identity report; accepted constant1..9999999 domain",
+      "expected": "Constant9999999/lower1 and variable operands preserve all six slots/flags; constant10000000 fails original helper, recognized Raw and native Decompile without publication/state change. Text-handler and numeric-load conditional adjustments remain distinct from product behavior."
+    }
+  ],
+  "command": "Node22 compare-final.cjs with MV_FINAL_PACKAGE=F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl and MV_FINAL_REVISION=2dc639015f908de6fd524e50236e5422b5f8e990",
+  "input": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-e1-e7\\final-editor-input.json",
+    "sha256": "fbf9d4c4699738d847e83068242de07aa4637617bf0a57f70f57b052291477e4",
+    "fixtures": [
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/movement-route-cases.json",
+        "sha256": "c5f48d068f867f56817a9f65f3ed70c79c1c69c9534468ced3f3fdd35e0fec4c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/choices-complete.json",
+        "sha256": "96fa9216ffc39e59817f942b2d7db72ca9b8f5f4fa9ff6d14a681593d715e44a"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/loop-cases.json",
+        "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/battle-command-cases.json",
+        "sha256": "3cbfc7ef5d0762e0b81fd7d2e5a535baa53a6368c6d705c5a2162f5703fa0b63"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/timer-saved-slots.json",
+        "sha256": "7eaba31994d78312a61128d7e796891309eaae13b3b0554a14ffe9947ce248b1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/shop-cases.json",
+        "sha256": "5ad46501b631316e8d50fc425c8764018f54a4c9b3954e6c4a1d18b1be4dba9d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/actor-presentation-cases.json",
+        "sha256": "e4670ed4be1e6f383c0ebcafcfbf1deb6b458776630b79f29c5cb7800aa7e9c6"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/label-script-plugin-cases.json",
+        "sha256": "f32ae15b4fc3d70ada9ae03c3d3b9408313193a951ccedaa7419937cf6f5066c"
+      }
+    ]
+  },
+  "script": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-e1-e7\\compare-final.cjs",
+    "sha256": "8b1ef59e4416b18731dc483813f72460d074cb62438f2eb627fc7a77202a5f75"
+  },
+  "candidate": {
+    "packageRoot": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl",
+    "revision": "2dc639015f908de6fd524e50236e5422b5f8e990",
+    "executionHead": "2dc639015f908de6fd524e50236e5422b5f8e990",
+    "compileContractVersion": "mv-1.6.1/22",
+    "manifest": {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final48-candidate.json",
+      "sha256": "2f4460874393ba6761740d6613c9c7b7cbbd161f8639a77c96a56ea84943bd63"
+    },
+    "workspaceApiSha256": "24369d6d1d686b082665cda3b5e76292ed778420eadcfdad431a9cea11169788",
+    "indexSha256": "21a3ba0d3640b05357c04aebd2979decaf566ffc0f16b8047f8d6d5351198cb2",
+    "dist": {
+      "authoring-DglMrmuD.mjs": "a6e722fdc8fb67451910cd52fc9c90e98331356e8814bff6597b08ee7e6c1771",
+      "authoring-DglMrmuD.mjs.map": "3c6f7deb86b6e161d06745bf3e78ff95fb4eb0af7f116625ddcc4fb26d3bbc47",
+      "cli.d.mts": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee",
+      "cli.d.mts.map": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c",
+      "cli.mjs": "dcbb6173dd5956c8b2fc2c78d2b9c276e36e24e20c7f8276ae024d61fc3ecaf6",
+      "cli.mjs.map": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8",
+      "index.d.mts": "84df6738b61413bd007bfbfbea0faa0bd8163ce9bb35bab50858ac485efb3e47",
+      "index.d.mts.map": "cea267e56ff1029cfbd4d898d82222db44818aec71b29af177ed7808931471c9",
+      "index.mjs": "21a3ba0d3640b05357c04aebd2979decaf566ffc0f16b8047f8d6d5351198cb2",
+      "index.mjs.map": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36",
+      "operations-DYUBy4eN.mjs": "b3fe23bc09dd45bc1e954703dfe9c6bc4986c359eaf2c22c47d017354f0e1107",
+      "operations-DYUBy4eN.mjs.map": "721ca954ab8e48b9a02fb93df9d200e7ce7521d6d41e1e1303e65ffd515479ed",
+      "workspace-api.d.mts": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594",
+      "workspace-api.d.mts.map": "e865bc5bbe325d1e10afb88e1057bee5464f21fba0bfd211e74cb43c7b24a11c",
+      "workspace-api.mjs": "24369d6d1d686b082665cda3b5e76292ed778420eadcfdad431a9cea11169788"
+    },
+    "distFingerprint": "5dcb4e52d6d1533b8a0f12c4064f9386238ebc66bf54f368cc212aa738045277"
+  },
+  "comparisonReceipt": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-e1-e7\\comparison-receipt.json",
+    "sha256": "a43a677bda7caa67d4cf197659dd80c6ca5d98007e087c51157cdb51b34d5848"
+  },
+  "resourceReceipt": {
+    "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-e1-e7\\resource-identity-receipt.json",
+    "sha256": "b900cc6f5c0fbce919e91c58ab0590be92988ef38f97dd8b3062687b775e7966"
+  }
+}

@@ -17934,8 +17934,8 @@
       },
       "expected": "Ticket39 allocated E4 shipped audio editor resources and current built product comparison",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/39-audio-and-system-audio-dev-checkpoint.md",
-        "section": "## E4 pending reverse-engineering comparison"
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-editor-supplement.md",
+        "section": "## Audio E4"
       },
       "nativeGroups": [
         "E4"
@@ -19342,8 +19342,8 @@
       },
       "expected": "Actual isolated normal-Scene literal and compiled games agree with original native semantics; E4 shipped editor code paths and final product output compare separately. Not executed by focused DEV.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/32-inventory-party-dev.md",
-        "section": "## Pending E4/R4 acceptance"
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-editor-supplement.md",
+        "section": "## Inventory E4 portion"
       },
       "nativeGroups": [
         "E4",
@@ -19733,8 +19733,8 @@
       },
       "expected": "E4/E6 exact target and code evidence compared with final built output; actual hardened R5 game pair exercises direct/variables/exchange/query and controlled battle Transfer, with all physical protection gates. This requirement remains pending.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/34-map-locations-dev-checkpoint.md",
-        "section": "## Pending native comparison and game acceptance"
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-editor-supplement.md",
+        "section": "## Location E4/E6 portion"
       },
       "nativeGroups": [
         "E4",
@@ -21616,6 +21616,301 @@
         "layer": "Actual MV1.6.1/NW.js game pairs; no runtime result claimed"
       },
       "slice": "45/46 / required final native pending",
+      "required": true
+    },
+    {
+      "id": "MV-S7-E1",
+      "title": "Final complete containers and saved page state",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A4",
+        "A5",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "23/24/25 container resources; editor-serialization; accepted I3; independent compound saved input bound by manifest and external SHA256",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-final-editor-cases.json",
+        "sha256": "c6a8169198450ae1dd68fee7e637927c33204bbe280c9d1830720a09b82d0a3c"
+      },
+      "expected": "All three complete defaults, Map five triggers, Common three triggers, Battle three spans, active/dormant settings, exact note/image/route values, normal20-page and separately marked synthetic21-page/high-ID saved inputs are equal after final built evaluation and edited Push.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-final-editor-comparison.md",
+        "section": "## E1"
+      },
+      "nativeGroups": [
+        "E1"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / ticket48 actual final built product / MV1.6.1 identified editor",
+        "owner": "Final49–51",
+        "layer": "Same-identity REA facts/conditional deductions and actual built Workspace comparison; no editor UI or game"
+      },
+      "slice": "49–51 final editor/product",
+      "required": true
+    },
+    {
+      "id": "MV-S7-E2",
+      "title": "Final structured child bodies, Battle flags and Shop goods",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3",
+        "A5"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "03 branches/Battle and07 Shop same-identity reports; accepted I4/E302; independent compound saved input bound by manifest and external SHA256",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-final-editor-cases.json",
+        "sha256": "c6a8169198450ae1dd68fee7e637927c33204bbe280c9d1830720a09b82d0a3c"
+      },
+      "expected": "Empty/nonempty/nested child bodies, absent/empty else,402/403/per-level0, all Battle flags and ordered/repeated mixed exact Shop placeholders/real goods preserve complete native shape and custom prices.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-final-editor-comparison.md",
+        "section": "## E2"
+      },
+      "nativeGroups": [
+        "E2"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / ticket48 actual final built product / MV1.6.1 identified editor",
+        "owner": "Final49–51",
+        "layer": "Same-identity REA facts/conditional deductions and actual built Workspace comparison; no editor UI or game"
+      },
+      "slice": "49–51 final editor/product",
+      "required": true
+    },
+    {
+      "id": "MV-S7-E3",
+      "title": "Final Page/205 route shells and exact505 mirrors",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A5"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "04 movement same-identity report and ADR0015; independent compound saved input bound by manifest and external SHA256",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-final-editor-cases.json",
+        "sha256": "c6a8169198450ae1dd68fee7e637927c33204bbe280c9d1830720a09b82d0a3c"
+      },
+      "expected": "Page/205 routes preserve parameter envelopes, absent/null/zero nonterminal indent, bothM0 states, every complete505 mirror and independent flags; insertion/copy static deductions retain their stated conditions.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-final-editor-comparison.md",
+        "section": "## E3"
+      },
+      "nativeGroups": [
+        "E3"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / ticket48 actual final built product / MV1.6.1 identified editor",
+        "owner": "Final49–51",
+        "layer": "Same-identity REA facts/conditional deductions and actual built Workspace comparison; no editor UI or game"
+      },
+      "slice": "49–51 final editor/product",
+      "required": true
+    },
+    {
+      "id": "MV-S7-E4",
+      "title": "Final saved slots and defaults after parameter-mode edits",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3",
+        "A4",
+        "A5"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "03/05/06/07 same-identity reports; Timer/Transfer/Battle/Shop accepted domains; independent compound saved input bound by manifest and external SHA256",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-final-editor-cases.json",
+        "sha256": "c6a8169198450ae1dd68fee7e637927c33204bbe280c9d1830720a09b82d0a3c"
+      },
+      "expected": "Timer stop absent/zero/nonzero seconds, Transfer direct/variable coordinates, Shop and Battle flags remain independent; project initial selections do not become compiler defaults.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-final-editor-comparison.md",
+        "section": "## E4"
+      },
+      "nativeGroups": [
+        "E4"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / ticket48 actual final built product / MV1.6.1 identified editor",
+        "owner": "Final49–51",
+        "layer": "Same-identity REA facts/conditional deductions and actual built Workspace comparison; no editor UI or game"
+      },
+      "slice": "49–51 final editor/product",
+      "required": true
+    },
+    {
+      "id": "MV-S7-E5",
+      "title": "Final physical records and complete single-slot strings",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3",
+        "A4",
+        "A5"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "09 text same-identity report; accepted I6; independent compound saved input bound by manifest and external SHA256",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-final-editor-cases.json",
+        "sha256": "c6a8169198450ae1dd68fee7e637927c33204bbe280c9d1830720a09b82d0a3c"
+      },
+      "expected": "Four physical-line families preserve empty/trailing records and accepted counts, while listed single-slot strings retain original CR/LF/CRLF and trailing characters with stable reconfirmation warnings and explicit Script Gate.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-final-editor-comparison.md",
+        "section": "## E5"
+      },
+      "nativeGroups": [
+        "E5"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / ticket48 actual final built product / MV1.6.1 identified editor",
+        "owner": "Final49–51",
+        "layer": "Same-identity REA facts/conditional deductions and actual built Workspace comparison; no editor UI or game"
+      },
+      "slice": "49–51 final editor/product",
+      "required": true
+    },
+    {
+      "id": "MV-S7-E6",
+      "title": "Final independent image indices and shrunk-map saved values",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A4",
+        "A5"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "08 face same-identity report; accepted I6 and coordinate policy; independent compound saved input bound by manifest and external SHA256",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-final-editor-cases.json",
+        "sha256": "c6a8169198450ae1dd68fee7e637927c33204bbe280c9d1830720a09b82d0a3c"
+      },
+      "expected": "Standard/third-row/None/large independent face indices, residual Map image fields, missing image names and old coordinates retain exact saved values with truthful warnings and no asset-dimension scan; Qt async conditions remain unknown.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-final-editor-comparison.md",
+        "section": "## E6"
+      },
+      "nativeGroups": [
+        "E6"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / ticket48 actual final built product / MV1.6.1 identified editor",
+        "owner": "Final49–51",
+        "layer": "Same-identity REA facts/conditional deductions and actual built Workspace comparison; no editor UI or game"
+      },
+      "slice": "49–51 final editor/product",
+      "required": true
+    },
+    {
+      "id": "MV-S7-E7",
+      "title": "Final EXP bound, flags and all three refusal paths",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "2026-10-19 用户验收修订：编辑器逆向，保留游戏实测"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A5",
+        "A6",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "10 EXP same-identity report; accepted constant1..9999999 domain; independent compound saved input bound by manifest and external SHA256",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-final-editor-cases.json",
+        "sha256": "c6a8169198450ae1dd68fee7e637927c33204bbe280c9d1830720a09b82d0a3c"
+      },
+      "expected": "Constant9999999/lower1 and variable operands preserve all six slots/flags; constant10000000 fails original helper, recognized Raw and native Decompile without publication/state change. Text-handler and numeric-load conditional adjustments remain distinct from product behavior.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-final-editor-comparison.md",
+        "section": "## E7"
+      },
+      "nativeGroups": [
+        "E7"
+      ],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / ticket48 actual final built product / MV1.6.1 identified editor",
+        "owner": "Final49–51",
+        "layer": "Same-identity REA facts/conditional deductions and actual built Workspace comparison; no editor UI or game"
+      },
+      "slice": "49–51 final editor/product",
       "required": true
     }
   ]
