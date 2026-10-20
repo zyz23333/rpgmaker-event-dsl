@@ -133,7 +133,14 @@ describe("collectDslOwnedDeclarations", () => {
         y: 2,
         pages: [
           page({
-            commands: [showText({ lines: ["Hello"] })],
+            commands: [
+              showText({
+                lines: ["Hello"],
+                face: { image: null, index: 0 },
+                background: "window",
+                position: "bottom",
+              }),
+            ],
           }),
         ],
       }),
@@ -183,7 +190,7 @@ describe("collectDslOwnedDeclarations", () => {
     expect(imageAsset({ folder: "pictures", name: "Poster" }).kind).toBe("asset");
     expect(movieAsset({ name: "Intro" }).folder).toBe("movies");
     expect(scriptInput({ code: "console.log(1);" }).kind).toBe("scriptInput");
-    expect(comment(["A", "B"]).kind).toBe("comment");
+    expect(comment({ lines: ["A", "B"] }).kind).toBe("comment");
     expect(controlSwitches({ switch: switchRef({ id: 1 }), value: true }).kind).toBe(
       "controlSwitches",
     );
@@ -668,8 +675,8 @@ describe("collectDslOwnedDeclarations", () => {
       showText({
         lines: ["Portrait line"],
         face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 3 },
-        background: 1,
-        positionType: 0,
+        background: "dim",
+        position: "top",
       }),
     ).toEqual({
       kind: "showText",
@@ -683,12 +690,16 @@ describe("collectDslOwnedDeclarations", () => {
         },
         index: 3,
       },
-      background: 1,
-      positionType: 0,
+      background: "dim",
+      position: "top",
     });
     expect(inputNumber({ variable: variableRef({ id: 1 }), digits: 4 }).kind).toBe("inputNumber");
-    expect(selectItem({ variable: variableRef({ id: 1 }), itemType: 1 }).kind).toBe("selectItem");
-    expect(showScrollingText({ lines: ["A", "B"], speed: 4 }).kind).toBe("showScrollingText");
+    expect(selectItem({ variable: variableRef({ id: 1 }), itemType: "regular" }).kind).toBe(
+      "selectItem",
+    );
+    expect(showScrollingText({ lines: ["A", "B"], speed: 4, noFastForward: false }).kind).toBe(
+      "showScrollingText",
+    );
     expect(
       showChoices({
         choices: [

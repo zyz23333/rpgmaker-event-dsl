@@ -48,7 +48,7 @@ Keep raw markers with their owning body and preserve nested bodies independently
 battleProcessing({
   troop: { kind: "fixed", troop: troopRef({ id: 1 }) },
   canEscape: true,
-  win: { commands: [comment(["Record victory here"])] },
+  win: { commands: [comment({ lines: ["Record victory here"] })] },
   escape: { commands: [] },
 });
 ```

@@ -303,7 +303,7 @@ it("MV-S6-BATTLE-002: rejects evaluated malformed helper direct raw reference an
     for (const [expression, code, location, prelude = ""] of cases) {
       await writeFile(
         path,
-        `import {commonEvent,comment,changeEnemyHp,changeEnemyMp,enemyAppear,enemyTransform,showBattleAnimation,forceAction,battleProcessing,rawDslCommand,script,actorRef,enemyRef,animationRef,skillRef} from "rpgmaker-event-dsl";\nconst single={kind:"runtimeSelector",scope:"enemy",target:"enemy",index:7} as const;\nconst all={kind:"runtimeSelector",scope:"enemy",target:"all"} as const;\nconst hp={target:single,operation:"gain",value:{kind:"constant",value:1},allowDeath:false} as const;\n${prelude}\nexport const entry=commonEvent({id:1,name:"Battle Common",trigger:"none",commands:[comment(["valid prefix"]),${expression}]});\n`,
+        `import {commonEvent,comment,changeEnemyHp,changeEnemyMp,enemyAppear,enemyTransform,showBattleAnimation,forceAction,battleProcessing,rawDslCommand,script,actorRef,enemyRef,animationRef,skillRef} from "rpgmaker-event-dsl";\nconst single={kind:"runtimeSelector",scope:"enemy",target:"enemy",index:7} as const;\nconst all={kind:"runtimeSelector",scope:"enemy",target:"all"} as const;\nconst hp={target:single,operation:"gain",value:{kind:"constant",value:1},allowDeath:false} as const;\n${prelude}\nexport const entry=commonEvent({id:1,name:"Battle Common",trigger:"none",commands:[comment({ lines: ["valid prefix"] }),${expression}]});\n`,
       );
       const before = await state(workspaceRoot);
       for (const check of [true, false]) {

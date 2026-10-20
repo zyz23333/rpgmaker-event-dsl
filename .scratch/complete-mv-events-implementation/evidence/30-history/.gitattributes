@@ -1,0 +1,2 @@
+# Preserve original evidence and terminal log bytes, including CRLF and final blank lines.
+* -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol

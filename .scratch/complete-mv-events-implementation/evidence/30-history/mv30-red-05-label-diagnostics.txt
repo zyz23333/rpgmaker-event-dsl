@@ -1,0 +1,54 @@
+
+> rpgmaker-event-dsl@0.1.2 test C:\Users\Shuen\.codex\worktrees\mv-ticket-30\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> vitest run "test/label-script-plugin.test.ts"
+
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-30/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/label-script-plugin.test.ts (5 tests | 1 failed) 25ms
+   × diagnoses exact per-list Label targets across child bodies without changing their strings 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/label-script-plugin.test.ts > diagnoses exact per-list Label targets across child bodies without changing their strings
+AssertionError: expected [] to match object [ { level: 'warning', …(4) }, …(1) ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "actual": "\"A\"",
+-     "dslPath": "commands[1].body.commands[1].name",
+-     "identity": "commonEvent:1",
+-     "level": "warning",
+-     "nativePath": "list[3].parameters[0]",
+-   },
+-   {
+-     "actual": "\"elsewhere\"",
+-     "dslPath": "commands[7].name",
+-     "identity": "commonEvent:1",
+-     "level": "warning",
+-   },
+- ]
++ []
+
+ ❯ test/label-script-plugin.test.ts:40:69
+     38|   const second = commonEvent({ id: 2, name: "Separate list", trigger: …
+     39|   const issues = validateStagedDataGraph(buildStagedDataGraph({ declar…
+     40|   expect(issues.filter(issue => issue.code === "MV-LABEL-MISSING")).to…
+       |                                                                     ^
+     41|     { level: "warning", identity: "commonEvent:1", dslPath: "commands[…
+     42|     { level: "warning", identity: "commonEvent:1", dslPath: "commands[…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  02:08:36
+   Duration  1.26s (transform 372ms, setup 0ms, import 1.07s, tests 25ms, environment 0ms)
+
+C:\Users\Shuen\.codex\worktrees\mv-ticket-30\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run "test/label-script-plugin.test.ts"`
+Exit status 1

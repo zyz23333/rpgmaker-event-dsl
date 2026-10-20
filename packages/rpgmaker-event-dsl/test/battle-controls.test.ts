@@ -136,8 +136,8 @@ it("preserves absent and present Battle child markers independently", () => {
   const command = battleProcessing({
     troop: { kind: "randomEncounter" },
     canEscape: true,
-    win: { commands: [comment(["win"])], endMarker: "absent" },
-    escape: { commands: [comment(["escape"])] },
+    win: { commands: [comment({ lines: ["win"] })], endMarker: "absent" },
+    escape: { commands: [comment({ lines: ["escape"] })] },
   } as never);
   const expected = [
     { code: 301, indent: 0, parameters: [2, 0, true, false] },
@@ -151,7 +151,7 @@ it("preserves absent and present Battle child markers independently", () => {
   ];
   expect(compile(command)).toStrictEqual(expected);
   expect(renderDecompiledCommandList(expected).source).toContain(
-    'win: { commands: [comment(["win"]),], endMarker: "absent" }',
+    'win: { commands: [comment({ lines: ["win"] }),], endMarker: "absent" }',
   );
 });
 it.each([

@@ -287,9 +287,10 @@ describe("decompiler command list rendering", () => {
       ]),
     ).toEqual({
       helperNames: ["comment", "showText"],
-      source: ['showText({ lines: ["Hello","World"] }),', 'comment(["First","Second"]),'].join(
-        "\n",
-      ),
+      source: [
+        'showText({ lines: ["Hello","World"], face: { image: null, index: 0 }, background: "window", position: "bottom" }),',
+        'comment({ lines: ["First","Second"] }),',
+      ].join("\n"),
     });
   });
 
@@ -326,10 +327,10 @@ describe("decompiler command list rendering", () => {
         "wait",
       ],
       source: [
-        'showText({ lines: ["Hello"], face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 2 }, background: 1, positionType: 0 }),',
-        'showChoices({ choices: [{ text: "Yes", commands: [wait({ frames: 10 }),], endMarker: "absent" }, { text: "No", commands: [eraseEvent(),], endMarker: "absent" }], cancel: { kind: "branch", commands: [showText({ lines: ["Canceled"] }),], endMarker: "absent" } }),',
+        'showText({ lines: ["Hello"], face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 2 }, background: "dim", position: "top" }),',
+        'showChoices({ choices: [{ text: "Yes", commands: [wait({ frames: 10 }),], endMarker: "absent" }, { text: "No", commands: [eraseEvent(),], endMarker: "absent" }], cancel: { kind: "branch", commands: [showText({ lines: ["Canceled"], face: { image: null, index: 0 }, background: "window", position: "bottom" }),], endMarker: "absent" } }),',
         "inputNumber({ variable: variableRef({ id: 3 }), digits: 4 }),",
-        "selectItem({ variable: variableRef({ id: 3 }), itemType: 1 }),",
+        'selectItem({ variable: variableRef({ id: 3 }), itemType: "regular" }),',
         'showScrollingText({ lines: ["Scroll","More"], speed: 5, noFastForward: true }),',
       ].join("\n"),
     });
@@ -519,7 +520,7 @@ describe("decompiler command list rendering", () => {
         "gameOver(),",
         "returnToTitleScreen(),",
         'script({ code: "const x = 1;\\nconsole.log(x);" }),',
-        'pluginCommand({ command: "MyPlugin", args: ["arg1","arg2"] }),',
+        'pluginCommand({ line: "MyPlugin arg1 arg2" }),',
       ].join("\n"),
     });
   });
@@ -552,7 +553,7 @@ describe("decompiler command list rendering", () => {
       { code: 236, indent: 0, parameters: ["hail", 6, 50, true] },
       { code: 127, indent: 0, parameters: [1, 0, 0, 1, "false"] },
       { code: 129, indent: 0, parameters: [1, 2, false] },
-      { code: 356, indent: 0, parameters: ["Plugin  keeps  spaces"] },
+      { code: 356, indent: 0, parameters: ["Plugin  keeps  spaces", "extra slot"] },
       { code: 230, indent: 2, parameters: ["thirty"] },
     ];
     for (const command of cases) expect(() => renderDecompiledCommandList([command])).toThrow();

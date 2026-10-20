@@ -359,9 +359,13 @@ describe("decompile workflow", () => {
     expect(mapSource).toContain("mapId: 1");
     expect(mapSource).toContain("id: 1");
     expect(mapSource).toContain('name: "Gate"');
-    expect(mapSource).toContain('showText({ lines: ["Hello"] })');
+    expect(mapSource).toContain(
+      'showText({ lines: ["Hello"], face: { image: null, index: 0 }, background: "window", position: "bottom" })',
+    );
     expect(mapSource).toContain("inputNumber({ variable: variableRef({ id: 2 }), digits: 4 })");
-    expect(mapSource).toContain("selectItem({ variable: variableRef({ id: 2 }), itemType: 1 })");
+    expect(mapSource).toContain(
+      'selectItem({ variable: variableRef({ id: 2 }), itemType: "regular" })',
+    );
     expect(mapSource).toContain(
       'showScrollingText({ lines: ["Scrolling"], speed: 3, noFastForward: true })',
     );
@@ -710,7 +714,7 @@ export const alarm = {
   name: "Alarm",
   trigger: "parallel",
   switch: { kind: "switch", id: 1 },
-  commands: [{ kind: "showText", lines: ["Alarm"] }],
+  commands: [{ kind: "showText", lines: ["Alarm"], face: { image: null, index: 0 }, background: "window", position: "bottom" }],
 };
 
 export const gate = {
@@ -1447,7 +1451,7 @@ async function writeDslPackageTypes(workspaceRoot: string): Promise<void> {
     join(packageRoot, "index.d.ts"),
     `export declare function actorRef(value: { id: number } | { name: string }): unknown;
 export declare function callCommonEvent(input: { commonEvent: unknown }): unknown;
-export declare function comment(lines: readonly [string, ...string[]]): unknown;
+export declare function comment(input: { lines: readonly [string, ...string[]] }): unknown;
 export declare function commonEvent(input: {
   id: number;
   name: string;
@@ -1491,18 +1495,18 @@ export declare function rawDslCommand(input: {
 }): unknown;
 export declare function selectItem(input: {
   variable: unknown;
-  itemType?: 1 | 2 | 3 | 4;
+  itemType: "regular" | "key" | "hiddenA" | "hiddenB";
 }): unknown;
 export declare function showScrollingText(input: {
   lines: readonly [string, ...string[]];
-  speed?: number;
-  noFastForward?: boolean;
+  speed: number;
+  noFastForward: boolean;
 }): unknown;
 export declare function showText(input: {
   lines: readonly [string, ...string[]];
-  face?: { image: unknown; index?: number };
-  background?: 0 | 1 | 2;
-  positionType?: 0 | 1 | 2;
+  face: { image: unknown | null; index: number };
+  background: "window" | "dim" | "transparent";
+  position: "top" | "middle" | "bottom";
 }): unknown;
 export declare function switchDefinition(input: { id: number; name: string }): { kind: "switchDefinition"; id: number; name: string };
 export declare function switchRef(value: { id: number } | { name: string }): unknown;

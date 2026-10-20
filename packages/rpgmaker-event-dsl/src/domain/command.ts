@@ -140,12 +140,12 @@ export type DslCommand =
 export type ShowTextDslCommand = {
   kind: "showText";
   lines: readonly [string, ...string[]];
-  face?: {
-    image: ImageAssetReference;
-    index?: number;
+  face: {
+    image: ImageAssetReference | null;
+    index: number;
   };
-  background?: 0 | 1 | 2;
-  positionType?: 0 | 1 | 2;
+  background: "window" | "dim" | "transparent";
+  position: "top" | "middle" | "bottom";
 };
 
 export type InputNumberDslCommand = {
@@ -157,14 +157,14 @@ export type InputNumberDslCommand = {
 export type SelectItemDslCommand = {
   kind: "selectItem";
   variable: ReferenceValue<"variable">;
-  itemType?: 1 | 2 | 3 | 4;
+  itemType: "regular" | "key" | "hiddenA" | "hiddenB";
 };
 
 export type ShowScrollingTextDslCommand = {
   kind: "showScrollingText";
   lines: readonly [string, ...string[]];
-  speed?: number;
-  noFastForward?: boolean;
+  speed: number;
+  noFastForward: boolean;
 };
 
 export type ShowChoicesDslCommand = {
@@ -234,8 +234,7 @@ export type ScriptDslCommand = {
 
 export type PluginDslCommand = {
   kind: "pluginCommand";
-  command: string;
-  args?: readonly string[];
+  line: string;
 };
 
 export type TransferPlayerDslCommand = {
@@ -776,15 +775,15 @@ export type ChangeClassDslCommand = {
 export type ChangeActorImagesDslCommand = {
   kind: "changeActorImages";
   actor: ReferenceValue<"actor">;
-  character: { image: ImageAssetReference; index: number };
-  face: { image: ImageAssetReference; index: number };
-  battler: ImageAssetReference;
+  character: { image: ImageAssetReference | null; index: number };
+  face: { image: ImageAssetReference | null; index: number };
+  battler: ImageAssetReference | null;
 };
 
 export type ChangeVehicleImageDslCommand = {
   kind: "changeVehicleImage";
   vehicle: VehicleTarget;
-  image: ImageAssetReference;
+  image: ImageAssetReference | null;
   index: number;
 };
 

@@ -1,111 +1,228 @@
+import type {
+  ShowTextDslCommand,
+  InputNumberDslCommand,
+  SelectItemDslCommand,
+  ReferenceValue,
+  ShowScrollingTextDslCommand,
+  CommentDslCommand,
+} from "../../domain/types.js";
+import type { ReferenceResolver } from "../../validation/types.js";
 import { describeValue } from "../../project-data/json-values.js";
 import { CommandStructureError } from "../../validation/command-errors.js";
-import { assertDslCommandList, assertDslObject } from "../../validation/dsl-command-inputs.js";
 
-export function assertShowChoicesInput(value: unknown, path: string, withKind = true): void {
-  const fail = (at: string, expected: string, actual: unknown): never => {
-    throw new CommandStructureError("MV-CHOICES", "Invalid Show Choices input.", {
-      dslPath: at,
-      expected,
-      actual: describeValue(actual),
-    });
-  };
-  const object = (input: unknown, keys: readonly string[], at: string): Record<string, unknown> => {
-    try {
-      assertDslObject(input, keys, at);
-      return input;
-    } catch (error) {
-      if (!(error instanceof CommandStructureError)) throw error;
-      throw new CommandStructureError("MV-CHOICES", error.detail, error.location);
-    }
-  };
-  const body = (input: Record<string, unknown>, at: string): void => {
-    if (!Object.hasOwn(input, "commands"))
-      fail(`${at}.commands`, "required own commands array", undefined);
-    try {
-      assertDslCommandList(input.commands, `${at}.commands`, false);
-    } catch (error) {
-      if (!(error instanceof CommandStructureError)) throw error;
-      throw new CommandStructureError("MV-CHOICES", error.detail, error.location);
-    }
+function invalid(code: number, path: string, expected: string, value: unknown): never {
+  throw new CommandStructureError(`MV-E${code}-INPUT`, "Invalid message input.", {
+    dslPath: path,
+    expected,
+    actual: describeValue(value),
+  });
+}
+
+function object(
+  value: unknown,
+  fields: readonly string[],
+  code: number,
+  path: string,
+): Record<string, unknown> {
+  if (
+    typeof value !== "object" ||
+    value === null ||
+    Array.isArray(value) ||
+    ![Object.prototype, null].includes(Object.getPrototypeOf(value))
+  )
+    invalid(code, path, "plain object with supported own data fields", value);
+  for (const key of Reflect.ownKeys(value as object)) {
+    const descriptor = Object.getOwnPropertyDescriptor(value, key)!;
     if (
-      input.endMarker !== undefined &&
-      input.endMarker !== "present" &&
-      input.endMarker !== "absent"
+      typeof key !== "string" ||
+      !fields.includes(key) ||
+      !("value" in descriptor) ||
+      !descriptor.enumerable
     )
-      fail(`${at}.endMarker`, "present or absent", input.endMarker);
-    if ((input.commands as unknown[]).length === 0 && input.endMarker === "absent")
-      throw new CommandStructureError(
-        "MV-CHILD-BODY",
-        "An empty Child Command Body cannot omit its Body End Marker.",
-        { dslPath: `${at}.endMarker` },
+      invalid(
+        code,
+        `${path}.${String(key)}`,
+        `supported own data field: ${fields.join(", ")}`,
+        "unsupported field",
       );
-  };
-  const node = object(
+  }
+  return value as Record<string, unknown>;
+}
+
+function lines(value: unknown, maximum: number, code: number, path: string): void {
+  if (!Array.isArray(value) || Object.getPrototypeOf(value) !== Array.prototype)
+    invalid(code, path, "dense array of physical line strings", value);
+  const array = value as unknown[];
+  if (array.length < 1 || array.length > maximum)
+    invalid(code, path, `1..${maximum} physical lines`, array);
+  for (const key of Reflect.ownKeys(array)) {
+    if (key === "length") continue;
+    const descriptor = Object.getOwnPropertyDescriptor(array, key)!;
+    if (
+      typeof key !== "string" ||
+      !/^(0|[1-9]\d*)$/u.test(key) ||
+      Number(key) >= array.length ||
+      !("value" in descriptor) ||
+      !descriptor.enumerable
+    )
+      invalid(
+        code,
+        path,
+        "dense array without extra fields or accessors",
+        "unsupported array field",
+      );
+  }
+  for (let index = 0; index < array.length; index++) {
+    const descriptor = Object.getOwnPropertyDescriptor(array, String(index));
+    if (
+      !descriptor ||
+      !("value" in descriptor) ||
+      typeof descriptor.value !== "string" ||
+      descriptor.value.includes("\n")
+    )
+      invalid(
+        code,
+        `${path}[${index}]`,
+        "one physical string record without LF; CR and empty text are preserved",
+        descriptor && "value" in descriptor ? descriptor.value : undefined,
+      );
+  }
+}
+
+export function assertShowText(
+  value: unknown,
+  path: string,
+  withKind = true,
+): asserts value is ShowTextDslCommand {
+  const input = object(
     value,
-    [...(withKind ? ["kind"] : []), "choices", "defaultChoice", "cancel", "position", "background"],
+    [...(withKind ? ["kind"] : []), "lines", "face", "background", "position"],
+    101,
     path,
   );
-  const choices = node.choices;
+  lines(input.lines, 4, 101, `${path}.lines`);
+  const face = object(input.face, ["image", "index"], 101, `${path}.face`);
   if (
-    !Object.hasOwn(node, "choices") ||
-    !Array.isArray(choices) ||
-    Object.getPrototypeOf(choices) !== Array.prototype ||
-    choices.length < 1 ||
-    choices.length > 6
+    !Number.isInteger(face.index) ||
+    Object.is(face.index, -0) ||
+    (face.index as number) < 0 ||
+    (face.index as number) > 2147483647
   )
-    fail(`${path}.choices`, "dense array of 1..6 choices", choices);
-  for (const key of Reflect.ownKeys(choices as object)) {
-    if (
-      key !== "length" &&
-      (typeof key !== "string" ||
-        !/^(0|[1-9]\d*)$/u.test(key) ||
-        Number(key) >= (choices as unknown[]).length)
-    )
-      fail(`${path}.choices`, "only choice array slots", key);
+    invalid(
+      101,
+      `${path}.face.index`,
+      "integer 0..2147483647, excluding negative zero",
+      face.index,
+    );
+  if (face.image !== null) {
+    const image = object(
+      face.image,
+      ["kind", "category", "folder", "name"],
+      101,
+      `${path}.face.image`,
+    );
+    for (const [field, expected] of [
+      ["kind", "asset"],
+      ["category", "image"],
+      ["folder", "faces"],
+    ] as const)
+      if (image[field] !== expected)
+        invalid(101, `${path}.face.image.${field}`, expected, image[field]);
+    if (typeof image.name !== "string" || image.name.length === 0)
+      invalid(101, `${path}.face.image.name`, "nonempty face filename stem", image.name);
   }
-  for (let index = 0; index < (choices as unknown[]).length; index++) {
-    const at = `${path}.choices[${index}]`;
-    const descriptor = Object.getOwnPropertyDescriptor(choices, String(index));
-    if (!descriptor || !("value" in descriptor) || !descriptor.enumerable)
-      fail(at, "own data choice slot", "missing or non-data slot");
-    const choice = object(descriptor!.value, ["text", "commands", "endMarker"], at);
-    if (!Object.hasOwn(choice, "text") || typeof choice.text !== "string")
-      fail(`${at}.text`, "required own string", choice.text);
-    body(choice, at);
-  }
-  for (const field of ["defaultChoice", "cancel"] as const) {
-    if (node[field] === undefined) continue;
-    const at = `${path}.${field}`;
-    const mode = object(node[field], ["kind", "index", "commands", "endMarker"], at);
-    const kind = mode.kind;
-    if (!Object.hasOwn(mode, "kind")) fail(`${at}.kind`, "required own mode kind", undefined);
-    if (kind === "choice") {
-      object(mode, ["kind", "index"], at);
-      if (
-        !Object.hasOwn(mode, "index") ||
-        !Number.isInteger(mode.index) ||
-        (mode.index as number) < 0 ||
-        (mode.index as number) > 5
-      )
-        fail(`${at}.index`, "numeric choice position integer 0..5", mode.index);
-    } else if (kind === (field === "cancel" ? "disabled" : "none")) {
-      object(mode, ["kind"], at);
-    } else if (field === "cancel" && kind === "branch") {
-      object(mode, ["kind", "commands", "endMarker"], at);
-      body(mode, at);
-    } else
-      fail(
-        `${at}.kind`,
-        field === "cancel" ? "disabled, choice or branch" : "none or choice",
-        kind,
-      );
-  }
-  if (node.position !== undefined && !["left", "center", "right"].includes(node.position as string))
-    fail(`${path}.position`, "left, center or right", node.position);
+  if (!["window", "dim", "transparent"].includes(input.background as string))
+    invalid(101, `${path}.background`, "window | dim | transparent", input.background);
+  if (!["top", "middle", "bottom"].includes(input.position as string))
+    invalid(101, `${path}.position`, "top | middle | bottom", input.position);
+}
+
+export function assertShowScrollingText(
+  value: unknown,
+  path: string,
+  withKind = true,
+): asserts value is ShowScrollingTextDslCommand {
+  const input = object(
+    value,
+    [...(withKind ? ["kind"] : []), "lines", "speed", "noFastForward"],
+    105,
+    path,
+  );
+  lines(input.lines, Infinity, 105, `${path}.lines`);
+  if (!Number.isInteger(input.speed) || (input.speed as number) < 1 || (input.speed as number) > 8)
+    invalid(105, `${path}.speed`, "integer 1..8", input.speed);
+  if (typeof input.noFastForward !== "boolean")
+    invalid(105, `${path}.noFastForward`, "explicit boolean", input.noFastForward);
+}
+
+export function assertComment(
+  value: unknown,
+  path: string,
+  withKind = true,
+): asserts value is CommentDslCommand {
+  const input = object(value, [...(withKind ? ["kind"] : []), "lines"], 108, path);
+  lines(input.lines, 6, 108, `${path}.lines`);
+}
+
+export function assertMessageVariable(
+  value: unknown,
+  code: number,
+  path: string,
+): asserts value is ReferenceValue<"variable"> {
+  const reference = object(value, ["kind", "id", "name"], code, path);
+  if (reference.kind !== "variable") invalid(code, `${path}.kind`, "variable", reference.kind);
+  if (Object.hasOwn(reference, "id") === Object.hasOwn(reference, "name"))
+    invalid(code, path, "exactly one explicit variable ID or name", value);
+  if (Object.hasOwn(reference, "id")) {
+    if (!Number.isSafeInteger(reference.id) || (reference.id as number) < 1)
+      invalid(code, `${path}.id`, "positive safe integer variable ID", reference.id);
+  } else if (typeof reference.name !== "string" || reference.name.length === 0)
+    invalid(code, `${path}.name`, "nonempty variable name", reference.name);
+}
+
+export function assertInputNumber(
+  value: unknown,
+  path: string,
+  withKind = true,
+): asserts value is InputNumberDslCommand {
+  const input = object(value, [...(withKind ? ["kind"] : []), "variable", "digits"], 103, path);
+  assertMessageVariable(input.variable, 103, `${path}.variable`);
   if (
-    node.background !== undefined &&
-    !["window", "dim", "transparent"].includes(node.background as string)
+    !Number.isInteger(input.digits) ||
+    (input.digits as number) < 1 ||
+    (input.digits as number) > 8
   )
-    fail(`${path}.background`, "window, dim or transparent", node.background);
+    invalid(103, `${path}.digits`, "integer 1..8", input.digits);
+}
+
+export function assertSelectItem(
+  value: unknown,
+  path: string,
+  withKind = true,
+): asserts value is SelectItemDslCommand {
+  const input = object(value, [...(withKind ? ["kind"] : []), "variable", "itemType"], 104, path);
+  assertMessageVariable(input.variable, 104, `${path}.variable`);
+  if (!["regular", "key", "hiddenA", "hiddenB"].includes(input.itemType as string))
+    invalid(104, `${path}.itemType`, "regular | key | hiddenA | hiddenB", input.itemType);
+}
+
+export function resolveMessageVariable(
+  value: ReferenceValue<"variable">,
+  code: number,
+  resolver: ReferenceResolver,
+  path: string,
+): number {
+  try {
+    return resolver.resolveReference(value);
+  } catch (error) {
+    throw new CommandStructureError(
+      `MV-E${code}-REFERENCE`,
+      error instanceof Error ? error.message : String(error),
+      {
+        dslPath: path,
+        expected: "existing variable slot within final System capacity",
+        actual: describeValue(value),
+      },
+    );
+  }
 }

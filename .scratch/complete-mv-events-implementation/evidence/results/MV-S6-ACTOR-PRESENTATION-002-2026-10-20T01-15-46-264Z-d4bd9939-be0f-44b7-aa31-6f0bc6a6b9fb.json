@@ -1,0 +1,93 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-S6-ACTOR-PRESENTATION-002",
+  "runId": "2026-10-20T01-15-46-264Z-d4bd9939-be0f-44b7-aa31-6f0bc6a6b9fb",
+  "status": "passed",
+  "startedAt": "2026-10-20T01:11:08.403Z",
+  "completedAt": "2026-10-20T01:11:48.403Z",
+  "operator": "Codex text capability batch actual execution record",
+  "source": {
+    "revision": "2e733ff73466ccfd6f4fbdf984f5e7c1d98ca2e9",
+    "fingerprint": "64654c2acdfeaf58e912e2be66d861c6b28b298cd15502cc05371259cdd8c215",
+    "files": [
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/actor/authoring.ts",
+        "sha256": "2195babfd4a27c64dce3cfaa7fff9a0e08737e15e37fe6ecdd6a9b42487d508e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/actor/compile.ts",
+        "sha256": "d1b9e9a9f170db18e1a33ca14440d0e53ab8b20aabf76db8475eace550e84674"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/actor/decompile.ts",
+        "sha256": "3c1265434966498b7a3a9d9cf40ec81b6eb5723b2e9596e0c2f1e1cca25cd8a2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/actor/presentation-diagnostics.ts",
+        "sha256": "afe4c90bc475286f52c7802ff83b944c425bb8d93abd5c47ecdbf5fb8d91004d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/actor/presentation-native.ts",
+        "sha256": "c1e76037484d41719f8606f28b783750315f28a588c4e7a51d5455906b9070f2"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/commands/actor/presentation-validation.ts",
+        "sha256": "634e4760ccf114a6a62f3e6b0810719cb6d2932bec8b47d94c297890c6cc6c04"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+        "sha256": "3a3e0fe8ae4dc1da3b1ad45524b1734359adfd0f36ef396cb8ab192ed0373c1b"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/native-command-inputs.ts",
+        "sha256": "14a8b2d685ca3195c5b81d126da22437baf9c686de030d88bbee2c59669b3e81"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/validation/native-parameters.ts",
+        "sha256": "785c5a26b611417db84959c28aee07282ecfbb8929e4283baf33cfc9946af666"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts",
+        "sha256": "73094c4248cabcee7f8a00074195ea78f2ab907defdaab6c978bc9910cafcc8e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/actor-presentation-workspace.test.ts",
+        "sha256": "2ce72999062014a34a06a677619bf051b2671d68754f49533d06d58ea213e61e"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/actor-presentation.test.ts",
+        "sha256": "69da7c95d09b1904230d251175ba9a0444b8504b3c7f529724abada3e7d4b368"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/actor-presentation-cases.json",
+        "sha256": "e4670ed4be1e6f383c0ebcafcfbf1deb6b458776630b79f29c5cb7800aa7e9c6"
+      }
+    ]
+  },
+  "fixture": {
+    "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/actor-presentation-cases.json",
+    "sha256": "e4670ed4be1e6f383c0ebcafcfbf1deb6b458776630b79f29c5cb7800aa7e9c6"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "Windows",
+    "node": "22.23.0",
+    "vitest": "4.1.9",
+    "typescript": "5.9.3",
+    "package": "0.1.2",
+    "native": "not-executed"
+  },
+  "stages": [
+    "Actual source test execution on product59328ebd; subsequent2e733ff7 changes formatting only"
+  ],
+  "expected": "Both original helper extra-field and direct native-domain violations reject Check/Compile and stale Push while complete source, Project, Snapshot, generated data, manifest, config/descriptor, pending state and Discovery remain unchanged.",
+  "actual": {
+    "command": "pnpm --filter rpgmaker-event-dsl exec vitest run test/message-workspace.test.ts test/label-script-plugin-workspace.test.ts test/actor-presentation-workspace.test.ts",
+    "result": "3files/13tests passed; includes three Actor presentation cases",
+    "log": "M:/Shuen/Codex/mv-events-implementation-20261020/text-batch-temp/023-text-postmerge-workspace.log",
+    "logSha256": "afe52700a78eaea750b10ed88cfcbd2fd66b012215804d0318f303dac0c92090",
+    "timingNote": "Approximate execution window from actual original log completion time; exact Start/Duration remain in the original log."
+  },
+  "difference": null
+}

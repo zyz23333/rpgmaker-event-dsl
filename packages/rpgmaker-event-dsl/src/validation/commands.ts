@@ -30,13 +30,14 @@ import {
   assertConditionalCommand,
   inspectConditionalReferences,
 } from "../commands/flow/conditional-validation.js";
-import { assertShowChoicesInput } from "../commands/message/validation.js";
+import { assertShowChoicesInput } from "../commands/message/choices-validation.js";
 import { assertMapAppearanceInput } from "../commands/map/validation.js";
 import {
   assertSystemAccessInput,
   assertWindowColorInput,
 } from "../commands/movement/access-validation.js";
 import { assertSceneCommandInput } from "../commands/system/validation.js";
+import { assertActorPresentationInput } from "../commands/actor/presentation-validation.js";
 import { assertActorResourceInput } from "../commands/actor/validation.js";
 import { assertShopInput } from "../commands/battle/shop-validation.js";
 import {
@@ -49,6 +50,8 @@ import {
   assertMapCharacterInput,
   isMapCharacterKind,
 } from "../commands/movement/character-validation.js";
+
+import { resolveMessageVariable } from "../commands/message/validation.js";
 
 type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
@@ -92,6 +95,7 @@ export function validateNodes(
       assertSceneCommandInput(node.kind, node, nodePath);
       assertPictureInput(node.kind, node, nodePath, true, resolver);
       assertActorResourceInput(node.kind, node, nodePath, true, resolver);
+      assertActorPresentationInput(node.kind, node, nodePath, true, resolver);
       if (node.kind === "shopProcessing") assertShopInput(node, nodePath, true, resolver);
       assertSwitchCommandInput(node.kind, node, nodePath);
     } catch (error) {
@@ -265,7 +269,18 @@ export function validateNodes(
       }
     }
     if (node.kind === "inputNumber" || node.kind === "selectItem") {
-      captureReferenceIssue(() => resolver.resolveReference(node.variable), issues);
+      try {
+        resolveMessageVariable(
+          node.variable,
+          node.kind === "inputNumber" ? 103 : 104,
+          resolver,
+          `${nodePath}.variable`,
+        );
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+      }
     }
     if (node.kind === "showChoices") {
       try {

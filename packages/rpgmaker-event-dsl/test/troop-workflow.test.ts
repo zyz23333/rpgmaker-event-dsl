@@ -498,7 +498,7 @@ it.each([
       const source = `import { troopEvent, battlePage, actorRef, comment } from "rpgmaker-event-dsl";\nexport const blank = troopEvent({ troopId: 1, pages: [battlePage({commands: []})] });\nexport const changed = troopEvent({ troopId: 2, pages: [${pages
         .map((page) => {
           if (page === savedPage)
-            return 'battlePage({ conditions: { turn: { enabled: false, a: 8, b: 0 }, enemy: { enabled: false, index: 8, hpAtMost: 12 }, actor: { enabled: false, ref: actorRef({id: 0}), hpAtMost: 50 }, switch: { enabled: false, ref: {kind: "switch", id: 77} } }, span: "turn", commands: [comment(["owned troop comment"])] })';
+            return 'battlePage({ conditions: { turn: { enabled: false, a: 8, b: 0 }, enemy: { enabled: false, index: 8, hpAtMost: 12 }, actor: { enabled: false, ref: actorRef({id: 0}), hpAtMost: 50 }, switch: { enabled: false, ref: {kind: "switch", id: 77} } }, span: "turn", commands: [comment({ lines: ["owned troop comment"] })] })';
           return `battlePage({ ${page.conditions.actorId === 0 ? "conditions: {actor: {enabled: false, ref: actorRef({id: 0}), hpAtMost: 50}}," : ""} commands: [] })`;
         })
         .join(",")} ] });\n`;

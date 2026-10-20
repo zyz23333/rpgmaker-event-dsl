@@ -79,6 +79,23 @@ three saved numeric fields in every helper. `fadeoutBgm` and `fadeoutBgs` requir
 an integer duration of 1..999 seconds and return without adding a wait command.
 `saveBgm()`, `replayBgm()` and `stopSe()` take no arguments.
 
+Use `label({ name })` and `jumpToLabel({ name })` with complete exact strings.
+Each native event list has its own label scope; jumps select its first exact Label.
+Duplicate labels and missing targets warn without rewriting strings. CR/LF warnings
+describe editor parameter-reconfirmation risks while preserving all saved characters.
+
+Use `script({ code })` or `script(scriptInput({ code }))` under the Workspace
+`scriptEnabled` Gate. Code splits only on LF into 1–12 physical records, including
+empty and trailing records; CR stays literal. Empty and nested recognized raw scripts
+also require the Gate. Decompile may publish them with a warning while the Gate is
+closed. Single-slot Script Inputs in other command families retain their own full-string
+contract without this record-count limit.
+
+Use `pluginCommand({ line })` for a complete Plugin Command Line. The required string
+may be empty and preserves every space, Tab, CR and LF. Plugin Commands compile with
+the Script Command Gate closed; an optional Plugin Command Registry supplies lint,
+while plugin-specific runtime semantics stay outside validation.
+
 ## Map Event Pages
 
 `mapEvent({ mapId, id, name, x, y, note?, pages })` owns the complete event.
@@ -153,6 +170,36 @@ Diff reports zero-based native paths and one-based page positions. Push preserve
 external Map fields and null holes; removing an event nulls its slot and uses the
 existing Destructive Push guard.
 
+## Message Commands
+
+Message helpers use complete named settings:
+
+```ts
+showText({
+  lines: ["Welcome.\r", ""],
+  face: { image: null, index: 11 },
+  background: "window",
+  position: "bottom",
+});
+inputNumber({ variable: variableRef({ id: 2 }), digits: 8 });
+selectItem({ variable: variableRef({ id: 2 }), itemType: "hiddenB" });
+showScrollingText({ lines: ["Credits", ""], speed: 2, noFastForward: false });
+comment({ lines: ["Quest state", ""] });
+```
+
+All shown message fields are required. Each line is one physical saved record:
+CR, whitespace and trailing empty strings are preserved, while embedded LF fails.
+Show Text has 1–4 lines, Comment 1–6, and Scrolling Text at least one. Author
+multiple Show Text calls for longer dialogue. Background is window/dim/transparent;
+position is top/middle/bottom. Face image is a `faces` Asset Reference or None
+(`null`), with an independent required index 0–2,147,483,647 excluding negative zero.
+Non-None indices at least 8 warn about the official two-row layout; image files and
+dimensions are unchecked. None preserves its saved index without that warning.
+Digits and scrolling speed are integers 1–8; `noFastForward` is an explicit Boolean.
+Select Item types are regular/key/hiddenA/hiddenB, and its variable is the result
+destination, resolved using final System capacity. Valid message records are
+available with the Script Command Gate disabled.
+
 ## Install
 
 The current stage supports Windows, with Node.js 22 as the runtime and CI baseline.
@@ -211,7 +258,14 @@ export const introCommonEvent = commonEvent({
   id: 1,
   name: "Intro",
   trigger: "none",
-  commands: [showText({ lines: ["Welcome."] })],
+  commands: [
+    showText({
+      lines: ["Welcome."],
+      face: { image: null, index: 0 },
+      background: "window",
+      position: "bottom",
+    }),
+  ],
 });
 ```
 
@@ -732,11 +786,31 @@ import { showChoices, showText } from "rpgmaker-event-dsl";
 const commands = [
   showChoices({
     choices: [
-      { text: "Ask about the ruins", commands: [showText({ lines: ["Follow the river."] })] },
+      {
+        text: "Ask about the ruins",
+        commands: [
+          showText({
+            lines: ["Follow the river."],
+            face: { image: null, index: 0 },
+            background: "window",
+            position: "bottom",
+          }),
+        ],
+      },
       { text: "Leave", commands: [] },
     ],
     defaultChoice: { kind: "none" },
-    cancel: { kind: "branch", commands: [showText({ lines: ["Another time, then."] })] },
+    cancel: {
+      kind: "branch",
+      commands: [
+        showText({
+          lines: ["Another time, then."],
+          face: { image: null, index: 0 },
+          background: "window",
+          position: "bottom",
+        }),
+      ],
+    },
     position: "right",
     background: "window",
   }),
@@ -894,7 +968,7 @@ showBattleAnimation({
 battleProcessing({
   troop: { kind: "fixed", troop: troopRef({ id: 1 }) },
   canEscape: true,
-  win: { commands: [comment(["Victory"])] },
+  win: { commands: [comment({ lines: ["Victory"] })] },
   escape: { commands: [] },
 });
 forceAction({
@@ -1000,3 +1074,36 @@ Ordinary Freshness and full Project Drift checks then run before any new write.
 ## License
 
 MIT
+
+## Actor Text and Images
+
+```ts
+nameInputProcessing({ actor: actorRef({ id: 1 }), maxCharacters: 16 });
+changeName({ actor: actorRef({ id: 1 }), name: "" });
+changeNickname({ actor: actorRef({ id: 1 }), nickname: "  Mira  " });
+changeProfile({ actor: actorRef({ id: 1 }), profile: "First line\nSecond line\n" });
+changeActorImages({
+  actor: actorRef({ id: 1 }),
+  character: { image: null, index: 7 },
+  face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 11 },
+  battler: null,
+});
+changeVehicleImage({ vehicle: "airship", image: null, index: 7 });
+```
+
+All shown fields are required. Name Input uses a fixed existing Actor and an integer
+`maxCharacters` from 1 through 16. Battle execution skips its Name scene and produces
+a context warning. Name, nickname and profile are complete strings, including empty
+text, whitespace, CR, LF, CRLF and trailing characters, without a product length cap.
+Name and nickname warn on LF; profile warns on two or more LF characters, including
+trailing LF. CR independently warns about parameter reconfirmation. These strings
+remain one saved slot and do not require the Script Command Gate.
+
+Character and vehicle images use the `characters` folder, faces use `faces`, and
+battlers use `sv_actors`. Explicit `null` selects None. Character and vehicle indices
+are independent integers 0 through 7, including with None or a large character image.
+Face indices use 0 through 2,147,483,647 excluding negative zero. A non-None face
+index of at least 8 warns that it exceeds the official two-row layout and its asset
+dimensions are unchecked; None preserves the index without that warning. Vehicles
+are `boat`, `ship` or `airship`. In battle, Change Vehicle Image changes the held map
+vehicle object, with a warning that immediate visibility is uncertain.

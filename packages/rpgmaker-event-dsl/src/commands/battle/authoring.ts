@@ -1,8 +1,6 @@
 import { assertBattleInput } from "./validation.js";
 import type {
   BattleProcessingDslCommand,
-  NameInputProcessingDslCommand,
-  ReferenceValue,
   ShopGoods,
   ShopProcessingDslCommand,
 } from "../../domain/types.js";
@@ -30,15 +28,4 @@ export function shopProcessing(input: {
   }
 
   return node;
-}
-
-export function nameInputProcessing(input: {
-  actor: ReferenceValue<"actor">;
-  maxCharacters: number;
-}): NameInputProcessingDslCommand {
-  return {
-    kind: "nameInputProcessing",
-    actor: input.actor,
-    maxCharacters: input.maxCharacters,
-  };
 }

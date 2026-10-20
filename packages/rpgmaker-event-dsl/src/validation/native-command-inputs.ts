@@ -9,6 +9,9 @@ import {
   type VariableInputContext,
 } from "../commands/variables/diagnostics.js";
 
+import { inspectNativeActorPresentation } from "../commands/actor/presentation-diagnostics.js";
+import { inspectNativeLabelInputs } from "../commands/flow/diagnostics.js";
+
 export type NativeInputOptions = {
   identity: string;
   stage: "compile" | "decompile";
@@ -88,10 +91,14 @@ export function inspectNativeCommandInputs(
   commands: readonly RawEventCommand[],
   options: NativeInputOptions,
 ): ValidationIssue[] {
-  const issues: ValidationIssue[] = inspectNativeVariableInputs(commands, options);
+  const issues: ValidationIssue[] = [
+    ...inspectNativeVariableInputs(commands, options),
+    ...inspectNativeLabelInputs(commands, options),
+  ];
   for (const [index, command] of commands.entries()) {
     const path = `${options.prefix ?? ""}list[${index}]`;
     const origin = options.origins?.get(command);
+    issues.push(...inspectNativeActorPresentation(command, path, options));
     if (
       command.code === 111 &&
       command.parameters[0] === 12 &&
@@ -179,6 +186,28 @@ export function inspectNativeCommandInputs(
             : undefined,
         ),
       );
+    if (
+      command.code === 101 &&
+      command.parameters[0] !== "" &&
+      (command.parameters[1] as number) >= 8
+    )
+      issues.push({
+        code: "MV-E101-FACE-LAYOUT",
+        level: "warning",
+        stage: options.stage,
+        identity: options.identity,
+        nativePath: `${path}.parameters[1]`,
+        ...(origin
+          ? {
+              dslPath:
+                origin.path + (origin.kind === "rawDslCommand" ? ".parameters[1]" : ".face.index"),
+            }
+          : {}),
+        expected:
+          "official two-row layout uses indices 0..7; saved nonnegative 32-bit index is preserved",
+        actual: String(command.parameters[1]),
+        message: `${options.stage} warning ${options.identity}: MV-E101-FACE-LAYOUT at ${path}.parameters[1]: saved face index ${command.parameters[1]} is beyond the official two-row layout; asset dimensions are unchecked.`,
+      });
     if (!isKnownCommandCode(command.code))
       issues.push({
         code: "MV-UNKNOWN-COMMAND",
