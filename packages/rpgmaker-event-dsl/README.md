@@ -747,7 +747,7 @@ const branch = conditional({
     operator: "ge",
     value: { kind: "constant", value: 2 },
   },
-  then: { commands: [wait(1)] },
+  then: { commands: [wait({ frames: 1 })] },
   else: { commands: [] },
 });
 ```
