@@ -79,7 +79,6 @@ import {
   resolveControlValue,
   compileControlVariablesParameters,
   compileReferenceTargetRange,
-  compileOperateValueParameters,
   compileQuantityParameters,
 } from "../commands/variables/compile.js";
 export {
