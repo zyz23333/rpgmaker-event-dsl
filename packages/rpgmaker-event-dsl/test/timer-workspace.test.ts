@@ -214,7 +214,7 @@ it("MV-S6-TIMER-002: independently saved slots roundtrip all three containers an
       source = source.replace('name: "Saved Timer"', 'name: "Installed Timer"');
       source = source.replace('name: "Saved Map"', 'name: "Installed Map"');
       if (source.includes("troopEvent("))
-        source = `import {comment} from "rpgmaker-event-dsl";\n${source.replace("commands: [", 'commands: [comment(["Installed Timer"]),')}`;
+        source = `import {comment} from "rpgmaker-event-dsl";\n${source.replace("commands: [", 'commands: [comment({lines:["Installed Timer"]}),')}`;
       await writeFile(path, source);
     }
     await api.compileWorkspace({ ...s, check: true });

@@ -21,3 +21,15 @@ The single full source run started at HEAD `03c87fbf`, with contract21. It finis
 Original failures: five Picture 10s timeouts; one Audio 30s timeout; stale generated-source edits in Timer/Conditional tests after the Comment API migration; a stale Input Number diagnostic expectation; Choices input-change refusal; and a Troop recovery child that explicitly reported stale generated data. The latter two overlapped source/contract edits. Timeout causes remain unproven until inspected; a later pass alone is not a diagnosis of the original timeout.
 
 Build succeeded at `2026-10-20T02:13:10Z` after the Loop source and format correction. The built Windows baseline is still pending. Final failure corrections, focused rerun results, exact candidate/hash, matrix conclusions and ticket closure will be appended after execution.
+
+## Affected failure corrections and reruns
+
+The Timer source insertion and Conditional source-edit match now use the accepted `comment({lines:[...]})` API; complete independently expected installed carriers are retained. The System Slots test expects the current precise E103 reference diagnostic, including command path and actual reference. The evidence writer uses non-executing `node:util.inspect` for non-Error thrown values, avoiding a secondary logging exception that previously obscured the Timer failure.
+
+`final-48-fixture-corrections` passed all three affected source cases. `final-48-timeouts-and-overlap-rerun` passed the five original Picture cases, Choices default case and original complete interrupted Troop recovery case under their original deadlines. The sole remaining Audio aggregate reproduced its 30s timeout. Splitting its same 23 inputs into three independent batches (8/8/7), retaining both Check/Compile rejections, full state comparisons and stale Push refusal for every input, passed all three source tests in `final-audio-bounded-batches`. The existing 30s per-test limit remains unchanged. This diagnoses excessive aggregation in the Audio test; no cause is claimed for the historical Picture timeouts merely from a later pass.
+
+`final-48-built-fixture-corrections` passed five affected built-entry tests: Timer, Conditional and the three Audio batches. `final-48-corrected-static` passed typecheck/lint/format after those test-only corrections. Product source and built output are unchanged since the successful contract22 build; no repeated build or full source run was necessary.
+
+Current index check `final-48-current-index` passed. `final48-index-refresh.json` records only four Conditional shared-test fixture SHA pins and the Audio test-name link changed after correcting/splitting those tests. All five original values remain in Git and that receipt; requirement behavior and historical records are unchanged. The failed precheck is retained separately.
+
+The full-run Vitest verdict is authoritative for timeouts. A timed-out asynchronous test can later finish its own evidence writer, so a late per-requirement `status:passed` record alone does not supersede the original runner failure. The successful focused runner logs above establish the effective superseding results.
