@@ -1,0 +1,34 @@
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),cp=require('node:child_process'),assert=require('node:assert/strict');
+const root=path.resolve(process.argv[2]),external=path.resolve(process.argv[3]),base=process.argv[4];
+const evidence='.scratch/complete-mv-events-implementation/evidence',indexPath=evidence+'/requirements.json';
+const fixturePath='packages/rpgmaker-event-dsl/test/common-event-workspace.test.ts';
+const sha=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
+const git=args=>cp.execFileSync('git',['-c','core.longpaths=true',...args],{cwd:root,maxBuffer:64*1024*1024});
+const original=git(['show',`${base}:${indexPath}`]),fixtureBefore=git(['show',`${base}:${fixturePath}`]);
+const originalProofs=[indexPath,fixturePath].map(file=>{
+  const archived=path.join(root,evidence,'37-history/incoming-fixtures',file),bytes=fs.readFileSync(archived),expected=git(['show',`${base}:${file}`]);
+  assert.deepStrictEqual(bytes,expected);
+  const blob=git(['rev-parse',`${base}:${file}`]).toString().trim(),archivedBlob=git(['hash-object','--no-filters',archived]).toString().trim();
+  assert.equal(blob,archivedBlob);
+  return{path:file,archived:path.relative(root,archived).replaceAll('\\','/'),sha256:sha(bytes),gitBlob:blob,independentPhysicalBlobMatches:true};
+});
+const currentFixture=fs.readFileSync(path.join(root,fixturePath));
+const oldCall='commands:[wait(3)]',newCall='commands:[wait({ frames: 3 })]';
+assert.equal(fixtureBefore.toString().split(oldCall).length,2);
+assert.equal(fixtureBefore.toString().replace(oldCall,newCall),currentFixture.toString());
+const currentBytes=fs.readFileSync(path.join(root,indexPath),'utf8'),before=JSON.parse(original),current=JSON.parse(currentBytes);
+assert.equal(before.requirements.length,296);assert.equal(current.requirements.length,300);
+assert.deepStrictEqual(current.requirements.slice(0,296),before.requirements);
+const oldSha=sha(fixtureBefore),newSha=sha(currentFixture),allowlist=[];
+for(const row of current.requirements.slice(0,296))if(row.fixture.path===fixturePath){assert.equal(row.fixture.sha256,oldSha);allowlist.push({id:row.id,path:fixturePath,before:oldSha,after:newSha});row.fixture.sha256=newSha;}
+assert.deepStrictEqual(allowlist.map(row=>row.id),Array.from({length:16},(_,i)=>`MV-S5-COMMON-${String(i+1).padStart(3,'0')}`));
+assert.equal(currentBytes.split(oldSha).length,17);
+const updated=currentBytes.replaceAll(oldSha,newSha);assert.deepStrictEqual(JSON.parse(updated),current);
+const repaired=structuredClone(current.requirements.slice(0,296));for(const row of repaired)if(allowlist.some(item=>item.id===row.id))row.fixture.sha256=oldSha;
+assert.deepStrictEqual(repaired,before.requirements);
+fs.writeFileSync(path.join(root,indexPath),updated);
+const diff=git(['diff',base,'--',fixturePath]).toString();
+const record={base,authorization:'Root explicitly authorized the sole recorded active-index metadata exception; all old captures, results and history remain immutable.',originalProofs,incomingRows:296,currentRows:300,allowlist,changedFixture:fixturePath,mechanicalChange:{before:oldCall,after:newCall,onlyThisReplacement:true,diff},unchangedOtherFieldsOnIncomingRows:true,originalIndexSha256:sha(original),beforeRepairIndexSha256:sha(Buffer.from(currentBytes)),afterRepairIndexSha256:sha(Buffer.from(updated))};
+const output=path.join(external,'active-index-repair-v1.json');if(fs.existsSync(output))throw Error('Append-only output exists');fs.writeFileSync(output,JSON.stringify(record,null,2)+'\n');
+const target=path.join(root,evidence,'37-history/provenance/active-index-repair-v1.json');fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(output,target);
+process.stdout.write(JSON.stringify({rows:allowlist.length,oldSha,newSha,currentRows:300,originalProofs,output})+'\n');

@@ -1,0 +1,52 @@
+{
+  "formatVersion": 1,
+  "sourceKind": "synthetic-support",
+  "provenance": "Independent finite saved-number cases under accepted design13; no editor creation or game observation claimed. Literal negative zero must survive JSON parsing, Definition Source and installed project data.",
+  "accepted": [
+    {
+      "label": "M14 jump x",
+      "native": { "code": 14, "parameters": [-0, 0] },
+      "sourceFields": ["x: -0", "y: 0"]
+    },
+    {
+      "label": "M14 jump y",
+      "native": { "code": 14, "parameters": [0, -0] },
+      "sourceFields": ["x: 0", "y: -0"]
+    },
+    {
+      "label": "M41 None character index",
+      "native": { "code": 41, "parameters": ["", -0] },
+      "sourceFields": ["character: null", "characterIndex: -0"]
+    },
+    {
+      "label": "M41 named character index",
+      "native": { "code": 41, "parameters": ["Actor1", -0] },
+      "sourceFields": ["name: \"Actor1\"", "characterIndex: -0"]
+    },
+    {
+      "label": "M42 opacity",
+      "native": { "code": 42, "parameters": [-0] },
+      "sourceFields": ["opacity: -0"]
+    },
+    {
+      "label": "M44 None SE volume and pan",
+      "native": {
+        "code": 44,
+        "parameters": [{ "name": "", "volume": -0, "pitch": 100, "pan": -0 }]
+      },
+      "sourceFields": ["asset: null", "volume: -0", "pan: -0"]
+    },
+    {
+      "label": "M44 named SE volume and pan",
+      "native": {
+        "code": 44,
+        "parameters": [{ "name": "Bell1", "volume": -0, "pitch": 100, "pan": -0 }]
+      },
+      "sourceFields": ["name: \"Bell1\"", "volume: -0", "pan: -0"]
+    }
+  ],
+  "rejected": {
+    "native": { "code": 43, "parameters": [-0] },
+    "reason": "The formal normal/additive/multiply/screen symbols cannot reconstruct the negative sign of native code -0. Other zero-based saved numeric fields retain their sign."
+  }
+}

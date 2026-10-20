@@ -4,6 +4,7 @@ import {
   assertNativeSwitchCommand,
   assertNativeTimerParameters,
 } from "../commands/variables/validation.js";
+import { assertNativeScreenParameters } from "../commands/screen/validation.js";
 import { assertNativeMapAppearanceParameters } from "../commands/map/native-validation.js";
 import { assertNativeSystemSettingsParameters } from "../commands/movement/access-native-validation.js";
 
@@ -194,6 +195,7 @@ export function assertNativeCommandParameters(
       ({ 0: "nnnnn", 1: "nnnnn", 2: "nnnnnn", 3: "nnnnnnn", 4: "nnnns" } as Record<number, string>)[
         parameters[3] as number
       ] ?? "?";
+  assertNativeScreenParameters(code, parameters, path);
   const matches = (value: unknown, kind: string) =>
     kind === "x" ||
     (kind === "n"

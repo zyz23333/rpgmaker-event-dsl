@@ -12,6 +12,7 @@ import type {
   SaveBgmDslCommand,
   StopSeDslCommand,
 } from "../../domain/types.js";
+import { assertScreenInput } from "../screen/validation.js";
 
 export function playBgm(input: { audio: AudioPayload }): PlayBgmDslCommand {
   return {
@@ -73,7 +74,8 @@ export function stopSe(): StopSeDslCommand {
   };
 }
 
-export function playMovie(input: { movie: MovieAssetReference }): PlayMovieDslCommand {
+export function playMovie(input: { movie: MovieAssetReference | null }): PlayMovieDslCommand {
+  assertScreenInput("playMovie", input, "playMovie", false);
   return {
     kind: "playMovie",
     movie: input.movie,

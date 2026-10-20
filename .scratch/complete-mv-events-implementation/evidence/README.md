@@ -599,3 +599,12 @@ Ticket27 closure audit passed:328 requirements retain incoming314 in order and o
 | MV-S6-SYSTEM-SCENES-022 | rejects native map Window Tone bounds before any source publication with exact nested slot | 40 focused DEV; source Workspace automation, no native claim |
 | MV-S6-SYSTEM-SCENES-023 | rejects native troop scene extra slots before any source publication with complete state preserved | 40 focused DEV; source Workspace automation, no native claim |
 | MV-S6-SYSTEM-SCENES-024 | rejects direct scene unknown fields under an assertion with exact map authored path | 40 focused DEV; source Workspace automation, no native claim |
+
+Ticket37 focused DEV appends independent screen cases; its R6 game gate remains pending.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-SCREEN-001 | reconstructs every Screen mode and signed zero through evaluated formal and known raw source and real 15-carrier Push | synthetic-support | Public Workspace API, actual source evaluation and complete filesystem state |
+| MV-S6-SCREEN-002 | rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state | synthetic-rejection | Public Workspace API, actual source evaluation and complete filesystem state |
+| MV-S6-SCREEN-003 | rejects late malformed native Screen slots before source publication without changing existing business state | synthetic-rejection | Public Workspace API, actual source evaluation and complete filesystem state |
+| MV-S6-SCREEN-R6 | Current built normal-Scene screen waits, parallel effects, Weather and Movie runtime acceptance | game-observation | Actual game normal Scenes from current built Workspace output |

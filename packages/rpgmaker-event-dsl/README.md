@@ -457,7 +457,10 @@ including bodies the saved default or cancel setting cannot reach.
 ```ts
 import { breakLoop, exitEventProcessing, loop, wait } from "rpgmaker-event-dsl";
 
-const commands = [loop({ body: { commands: [wait(1), breakLoop()] } }), exitEventProcessing()];
+const commands = [
+  loop({ body: { commands: [wait({ frames: 1 }), breakLoop()] } }),
+  exitEventProcessing(),
+];
 ```
 
 Each Loop requires `body.commands`, which can be empty. Its optional `endMarker`
@@ -480,6 +483,49 @@ and one final event terminator. Malformed recognized flow commands fail before
 Decompile publishes source; their diagnostic identifies the event and native
 list position. Internal command-family renderers also accept command fragments,
 which are not complete saved event lists.
+
+## Screen effects, waits and movies
+
+Use `fadeoutScreen()` and `fadeinScreen()` without arguments. MV owns their fade
+speed and interpreter wait. Use `wait({ frames: 60 })` for an explicit wait;
+`frames` is a required integer from 1 to 999.
+
+```ts
+import {
+  tintScreen,
+  flashScreen,
+  shakeScreen,
+  setWeatherEffect,
+  playMovie,
+  movieAsset,
+} from "rpgmaker-event-dsl";
+
+const effects = [
+  tintScreen({ tone: { red: -68, green: -34, blue: 0, gray: 0 }, duration: 60, wait: true }),
+  flashScreen({ color: { red: 255, green: 255, blue: 255, alpha: 0 }, duration: 1, wait: false }),
+  shakeScreen({ power: 5, speed: 7, duration: 30, wait: false }),
+  setWeatherEffect({ weather: "none", power: 9, duration: 60, wait: true }),
+  playMovie({ movie: movieAsset({ name: "Ending" }) }),
+  playMovie({ movie: null }),
+];
+```
+
+Tint requires all four named tone components: integer RGB values from −255 to
+255 and gray from 0 to 255. Flash requires integer RGBA components from 0 to
+255, including explicit alpha zero. Both preserve numeric negative zero in
+their accepted component fields. Shake power and speed are integers from 1 to 9. Tint, Flash, Shake and Weather require integer `duration` from 1 to 999 and
+an explicit Boolean `wait`; their values remain saved when the visible effect
+is inactive.
+
+Weather is `"none"`, `"rain"`, `"storm"` or `"snow"`. Its power is always an
+integer from 1 to 9, including None. In battle MV skips both the weather effect
+and its wait, which produces a contextual warning. A Common Event's runtime
+context remains unknown until it is called.
+
+Movie requires a movies Asset Reference or explicit `null`. None emits the
+empty native filename and continues without a video wait. `movieAsset` takes
+only a nonempty filename stem, such as `"Ending"`; asset files are not scanned,
+and a valid reference does not guarantee a playable file or codec.
 
 ## Push safety
 

@@ -191,7 +191,7 @@ describe("compileMapEvent", () => {
               }),
               showChoices({
                 choices: [
-                  { text: "Yes", commands: [wait(10)], endMarker: "absent" },
+                  { text: "Yes", commands: [wait({ frames: 10 })], endMarker: "absent" },
                   { text: "No", commands: [eraseEvent()], endMarker: "absent" },
                 ],
                 cancel: {
@@ -553,13 +553,18 @@ describe("compileMapEvent", () => {
               gatherFollowers(),
               fadeoutScreen(),
               fadeinScreen(),
-              tintScreen({ tone: [68, -34, -34, 0], duration: 60, wait: true }),
+              tintScreen({
+                tone: { red: 68, green: -34, blue: -34, gray: 0 },
+                duration: 60,
+                wait: true,
+              }),
               flashScreen({
                 color: { red: 255, green: 255, blue: 255, alpha: 160 },
                 duration: 30,
+                wait: false,
               }),
               shakeScreen({ power: 5, speed: 7, duration: 40, wait: true }),
-              wait(12),
+              wait({ frames: 12 }),
               showPicture({
                 pictureId: 1,
                 image: imageAsset({ folder: "pictures", name: "Poster" }),
@@ -743,8 +748,8 @@ describe("compileMapEvent", () => {
             commands: [
               conditional({
                 condition: { kind: "switch", switch: switchRef({ name: "Gate" }), value: true },
-                then: [wait(1)],
-                else: [wait(2)],
+                then: [wait({ frames: 1 })],
+                else: [wait({ frames: 2 })],
               }),
               conditional({
                 condition: {
@@ -911,9 +916,9 @@ describe("compileMapEvent", () => {
                 troop: { kind: "troop", variable: variableRef({ name: "Count" }) },
                 canEscape: true,
                 canLose: true,
-                win: [wait(1)],
-                escape: [wait(2)],
-                lose: [wait(3)],
+                win: [wait({ frames: 1 })],
+                escape: [wait({ frames: 2 })],
+                lose: [wait({ frames: 3 })],
               }),
               shopProcessing({
                 goods: [

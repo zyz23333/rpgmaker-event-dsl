@@ -1,0 +1,99 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-37/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+decompile warning troop:1: MV-E236-BATTLE at pages[0].list[12]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+decompile warning troop:1: MV-E236-BATTLE at pages[0].list[13]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+decompile warning troop:1: MV-E236-BATTLE at pages[0].list[14]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+decompile warning troop:1: MV-E236-BATTLE at pages[0].list[15]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+decompile warning troop:1: MV-E236-BATTLE at pages[0].list[16]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+decompile warning troop:1: MV-E236-BATTLE at pages[0].list[17]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+decompile warning troop:1: MV-E236-BATTLE at pages[0].list[18]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+decompile warning troop:1: MV-E236-BATTLE at pages[0].list[19]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+
+stderr | test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+compile warning troop:1: MV-E236-BATTLE at pages[0].list[12]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+compile warning troop:1: MV-E236-BATTLE at pages[0].list[13]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+compile warning troop:1: MV-E236-BATTLE at pages[0].list[14]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+compile warning troop:1: MV-E236-BATTLE at pages[0].list[15]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+compile warning troop:1: MV-E236-BATTLE at pages[0].list[16]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+compile warning troop:1: MV-E236-BATTLE at pages[0].list[17]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+compile warning troop:1: MV-E236-BATTLE at pages[0].list[18]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+compile warning troop:1: MV-E236-BATTLE at pages[0].list[19]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+
+stderr | test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+Windows verification sandbox retained: M:\Shuen\Codex\mv-events-implementation-20261020\ticket37-temp\screen-authored-failure-sbY90v
+
+stderr | test/screen-effects-workspace.test.ts > MV-S6-SCREEN-003: rejects late malformed native Screen slots before source publication without changing existing business state
+Windows verification sandbox retained: M:\Shuen\Codex\mv-events-implementation-20261020\ticket37-temp\screen-late-261-Q12VSg
+
+ ❯ test/screen-effects-workspace.test.ts (3 tests | 2 failed) 10657ms
+   × MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state 1625ms
+   × MV-S6-SCREEN-003: rejects late malformed native Screen slots before source publication without changing existing business state 3061ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+AssertionError: expected [Function] to throw error including 'MV-E221' but got 'TypeScript diagnostics failed for M:\…'
+
+- Expected
++ Received
+
+- MV-E221
++ TypeScript diagnostics failed for M:\Shuen\Codex\mv-events-implementation-20261020\ticket37-temp\screen-authored-failure-sbY90v\最小 Workspace with spaces\src\decompiled\common-events.events.ts:
++ - Only identifier or property-access helper calls are allowed.
+
+ ❯ test/screen-effects-workspace.test.ts:310:65
+    308|       const before = await state(workspaceRoot);
+    309|       for (const check of [true, false])
+    310|         await expect(compileWorkspace({ workspaceRoot, check })).rejec…
+       |                                                                 ^
+    311|       await expect(pushWorkspace({ workspaceRoot, allowDestructive: fa…
+    312|       expect(await state(workspaceRoot)).toStrictEqual(before);
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/screen-effects-workspace.test.ts:262:3
+ ❯ test/screen-effects-workspace.test.ts:39:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/screen-effects-workspace.test.ts > MV-S6-SCREEN-003: rejects late malformed native Screen slots before source publication without changing existing business state
+AssertionError: expected Error: decompile error map:1/event:1: MV-… { …(5) } to match object { stage: 'decompile', …(2) }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
++ CommandStructureError {
+    "identity": "map:1/event:1",
+    "location": {
+      "actual": "[null]",
+      "expected": "E261 saved slots s",
+-     "nativePath": "pages[0].list[22].parameters[0]",
++     "nativePath": "pages[0].list[22].parameters",
+    },
+    "stage": "decompile",
+  }
+
+ ❯ test/screen-effects-workspace.test.ts:348:58
+    346|       await cloneWorkspace({ workspaceRoot });
+    347|       const before = await state(workspaceRoot);
+    348|       await expect(decompileWorkspace({ workspaceRoot })).rejects.toMa…
+       |                                                          ^
+    349|         stage: "decompile",
+    350|         identity: "map:1/event:1",
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/screen-effects-workspace.test.ts:332:5
+ ❯ test/screen-effects-workspace.test.ts:39:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 1 passed (3)
+   Start at  03:43:45
+   Duration  12.36s (transform 506ms, setup 0ms, import 1.56s, tests 10.66s, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/screen-effects-workspace.test.ts

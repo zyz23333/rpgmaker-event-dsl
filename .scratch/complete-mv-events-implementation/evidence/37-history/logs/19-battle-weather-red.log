@@ -1,0 +1,43 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-37/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/screen-effects.test.ts (9 tests | 1 failed) 40ms
+   × warns that battle Weather skips both effect and wait without rejecting its saved parameters 12ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/screen-effects.test.ts > warns that battle Weather skips both effect and wait without rejecting its saved parameters
+AssertionError: expected [] to deep equally contain ObjectContaining{…}
+
+- Expected:
+ObjectContaining {
+  "code": "MV-E236-BATTLE",
+  "dslPath": "pages[0].commands[0]",
+  "identity": "troop:1",
+  "level": "warning",
+  "message": StringContaining "both the weather effect and its wait",
+  "nativePath": "pages[0].list[0]",
+}
+
++ Received:
+[]
+
+ ❯ test/screen-effects.test.ts:23:18
+     21|   }).issues;
+     22|   expect(issues.filter(({ level }) => level === "error")).toEqual([]);
+     23|   expect(issues).toContainEqual(expect.objectContaining({
+       |                  ^
+     24|     code: "MV-E236-BATTLE", level: "warning", identity: "troop:1",
+     25|     nativePath: "pages[0].list[0]", dslPath: "pages[0].commands[0]",
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 8 passed (9)
+   Start at  03:29:07
+   Duration  1.70s (transform 532ms, setup 0ms, import 1.50s, tests 40ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/screen-effects.test.ts

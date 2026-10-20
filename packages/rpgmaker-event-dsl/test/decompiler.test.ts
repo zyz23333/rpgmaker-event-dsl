@@ -212,7 +212,7 @@ describe("decompiler command list rendering", () => {
         "weaponRef",
       ],
       source: [
-        "wait(30),",
+        "wait({ frames: 30 }),",
         "callCommonEvent({ commonEvent: commonEventRef({ id: 4 }) }),",
         'controlSwitches({ switch: { kind: "referenceRange", from: switchRef({ id: 2 }), to: switchRef({ id: 4 }) }, value: true }),',
         'controlVariables({ variable: { kind: "referenceRange", from: variableRef({ id: 3 }), to: variableRef({ id: 5 }) }, operation: "add", value: { kind: "gameData", source: "actor", actor: actorRef({ id: 1 }), value: "level" } }),',
@@ -247,8 +247,8 @@ describe("decompiler command list rendering", () => {
         "gatherFollowers(),",
         "fadeoutScreen(),",
         "fadeinScreen(),",
-        "tintScreen({ tone: [68,-34,-34,0], duration: 60, wait: true }),",
-        "flashScreen({ color: [255,255,255,160], duration: 30 }),",
+        "tintScreen({ tone: { red: 68, green: -34, blue: -34, gray: 0 }, duration: 60, wait: true }),",
+        "flashScreen({ color: { red: 255, green: 255, blue: 255, alpha: 160 }, duration: 30, wait: false }),",
         "shakeScreen({ power: 5, speed: 7, duration: 40, wait: true }),",
         'showPicture({ pictureId: 1, image: imageAsset({ folder: "pictures", name: "Poster" }), position: { kind: "direct", x: 10, y: 20, origin: "center" }, scaleX: 120, scaleY: 80, opacity: 200, blendMode: 1 }),',
         'movePicture({ pictureId: 1, position: { kind: "variables", x: variableRef({ id: 10 }), y: variableRef({ id: 11 }) }, duration: 45, wait: true }),',
@@ -327,7 +327,7 @@ describe("decompiler command list rendering", () => {
       ],
       source: [
         'showText({ lines: ["Hello"], face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 2 }, background: 1, positionType: 0 }),',
-        'showChoices({ choices: [{ text: "Yes", commands: [wait(10),], endMarker: "absent" }, { text: "No", commands: [eraseEvent(),], endMarker: "absent" }], cancel: { kind: "branch", commands: [showText({ lines: ["Canceled"] }),], endMarker: "absent" } }),',
+        'showChoices({ choices: [{ text: "Yes", commands: [wait({ frames: 10 }),], endMarker: "absent" }, { text: "No", commands: [eraseEvent(),], endMarker: "absent" }], cancel: { kind: "branch", commands: [showText({ lines: ["Canceled"] }),], endMarker: "absent" } }),',
         "inputNumber({ variable: variableRef({ id: 3 }), digits: 4 }),",
         "selectItem({ variable: variableRef({ id: 3 }), itemType: 1 }),",
         'showScrollingText({ lines: ["Scroll","More"], speed: 5, noFastForward: true }),',
@@ -350,8 +350,8 @@ describe("decompiler command list rendering", () => {
     ).toEqual({
       helperNames: ["conditional", "eraseEvent", "scriptInput", "switchRef", "wait"],
       source: [
-        'conditional({ condition: { kind: "switch", switch: switchRef({ id: 2 }), value: true }, then: [wait(10),], else: [conditional({ condition: {   kind: "script",   script: scriptInput({ code: "$gameParty.gold() > 10" }), }, then: [eraseEvent(),] }),] }),',
-        "wait(30),",
+        'conditional({ condition: { kind: "switch", switch: switchRef({ id: 2 }), value: true }, then: [wait({ frames: 10 }),], else: [conditional({ condition: {   kind: "script",   script: scriptInput({ code: "$gameParty.gold() > 10" }), }, then: [eraseEvent(),] }),] }),',
+        "wait({ frames: 30 }),",
       ].join("\n"),
     });
   });
@@ -485,7 +485,7 @@ describe("decompiler command list rendering", () => {
         "weaponRef",
       ],
       source: [
-        'battleProcessing({ troop: { kind: "troop", variable: variableRef({ id: 2 }) }, canEscape: true, canLose: true, win: [wait(1),], escape: [wait(2),], lose: [wait(3),] }),',
+        'battleProcessing({ troop: { kind: "troop", variable: variableRef({ id: 2 }) }, canEscape: true, canLose: true, win: [wait({ frames: 1 }),], escape: [wait({ frames: 2 }),], lose: [wait({ frames: 3 }),] }),',
         'shopProcessing({ goods: [{ kind: "item", item: itemRef({ id: 1 }) }, { kind: "weapon", item: weaponRef({ id: 2 }), price: 250 }], allowSelling: true }),',
         "nameInputProcessing({ actor: actorRef({ id: 1 }), maxCharacters: 8 }),",
         'changeHp({ target: { kind: "runtimeSelector", scope: "actor", target: "entireParty" }, operation: "lose", value: 10, allowDeath: true }),',

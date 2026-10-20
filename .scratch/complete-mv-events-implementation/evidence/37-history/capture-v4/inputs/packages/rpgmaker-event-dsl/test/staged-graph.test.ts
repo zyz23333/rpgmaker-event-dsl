@@ -1,0 +1,1083 @@
+import { describe, expect, it } from "vitest";
+
+import {
+  animationRef,
+  battleProcessing,
+  callCommonEvent,
+  changeEnemyHp,
+  changeEquipment,
+  enemyRef,
+  enemyTransform,
+  changeItems,
+  audioAsset,
+  changeTileset,
+  classRef,
+  commonEvent,
+  commonEventRef,
+  conditional,
+  controlSwitches,
+  controlVariables,
+  imageAsset,
+  itemRef,
+  mapEvent,
+  page,
+  script,
+  scriptInput,
+  rawDslCommand,
+  movePicture,
+  setEventLocation,
+  setMovementRoute,
+  setVehicleLocation,
+  showAnimation,
+  showBalloonIcon,
+  showPicture,
+  switchDefinition,
+  switchRef,
+  transferPlayer,
+  tilesetRef,
+  troopRef,
+  variableDefinition,
+  variableRef,
+} from "../src/index.js";
+import {
+  buildSnapshotReferenceInput,
+  inspectCommandInputPrimitives,
+  validateDslOwnedDeclarations,
+} from "../src/validation/staged-graph.js";
+
+describe("validateDslOwnedDeclarations", () => {
+  it("validates Map Event placement against snapshot map metadata", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        mapEvent({
+          mapId: 9,
+          id: 1,
+          name: "Missing Map",
+          x: 0,
+          y: 0,
+          pages: [page({ commands: [] })],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotMaps: [{ id: 1, width: 5, height: 5, eventLocations: [] }],
+      },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toContain(
+      'Map event "Missing Map" references unknown mapId 9.',
+    );
+  });
+
+  it("rejects out-of-bounds coordinates and warns on occupied coordinates", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        mapEvent({ mapId: 1, id: 1, name: "Out", x: 5, y: 0, pages: [page({ commands: [] })] }),
+        mapEvent({
+          mapId: 1,
+          id: 2,
+          name: "Occupied",
+          x: 1,
+          y: 1,
+          pages: [page({ commands: [] })],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotMaps: [
+          { id: 1, width: 5, height: 5, eventLocations: [{ eventId: 8, x: 1, y: 1 }] },
+        ],
+      },
+    );
+
+    expect(result.issues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          level: "error",
+          message: expect.stringContaining("x coordinate 5"),
+        }),
+        expect.objectContaining({
+          level: "warning",
+          message: expect.stringContaining("occupied coordinate"),
+        }),
+      ]),
+    );
+  });
+
+  it("rejects Page variable conditions that RPG Maker MV cannot represent", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        mapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Invalid Page Condition",
+          x: 0,
+          y: 0,
+          pages: [
+            page({
+              conditions: {
+                variable: {
+                  ref: variableRef({ id: 1 }),
+                  enabled: true,
+                  atLeast: variableRef({ id: 2 }) as unknown as number,
+                },
+              },
+              commands: [],
+            }),
+          ],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotReferences: { variables: [{ id: 1, name: "Counter" }] },
+      },
+    );
+
+    expect(result.issues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          code: "MV-MAP-PAGE-INPUT",
+          dslPath: "pages[0].conditions.variable.atLeast",
+        }),
+      ]),
+    );
+  });
+
+  it("rejects duplicate Common Event, Switch, and Variable ids", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        commonEvent({ id: 1, name: "Alarm A", trigger: "none", commands: [] }),
+        commonEvent({ id: 1, name: "Alarm B", trigger: "none", commands: [] }),
+        switchDefinition({ id: 2, name: "Gate A" }),
+        switchDefinition({ id: 2, name: "Gate B" }),
+        variableDefinition({ id: 3, name: "Count A" }),
+        variableDefinition({ id: 3, name: "Count B" }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toEqual(
+      expect.arrayContaining([
+        "Duplicate Common Event id: 1.",
+        "Duplicate Switch id: 2.",
+        "Duplicate Variable id: 3.",
+      ]),
+    );
+  });
+
+  it("rejects duplicate Map Event identity only within the same map", () => {
+    const validResult = validateDslOwnedDeclarations(
+      [
+        createMapEvent({ mapId: 1, id: 1, name: "Gate A" }),
+        createMapEvent({ mapId: 2, id: 1, name: "Gate B" }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    const invalidResult = validateDslOwnedDeclarations(
+      [
+        createMapEvent({ mapId: 1, id: 1, name: "Gate A" }),
+        createMapEvent({ mapId: 1, id: 1, name: "Gate B" }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(validResult.issues).toEqual([]);
+    expect(invalidResult.issues.map((issue) => issue.message)).toContain(
+      "Duplicate Map Event identity: mapId 1, eventId 1.",
+    );
+  });
+
+  it("allows duplicate Display Names when they are not referenced by name", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        commonEvent({ id: 1, name: "Shared", trigger: "none", commands: [] }),
+        commonEvent({ id: 2, name: "Shared", trigger: "none", commands: [] }),
+        switchDefinition({ id: 1, name: "Shared Switch" }),
+        switchDefinition({ id: 2, name: "Shared Switch" }),
+        variableDefinition({ id: 1, name: "Shared Variable" }),
+        variableDefinition({ id: 2, name: "Shared Variable" }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues).toEqual([]);
+  });
+
+  it("rejects missing and ambiguous name-based references in the visible scope", () => {
+    const missingResult = validateDslOwnedDeclarations(
+      [
+        commonEvent({
+          id: 1,
+          name: "Caller",
+          trigger: "none",
+          commands: [callCommonEvent({ commonEvent: commonEventRef({ name: "Missing" }) })],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    const ambiguousResult = validateDslOwnedDeclarations(
+      [
+        commonEvent({ id: 1, name: "Shared", trigger: "none", commands: [] }),
+        commonEvent({ id: 2, name: "Shared", trigger: "none", commands: [] }),
+        commonEvent({
+          id: 3,
+          name: "Caller",
+          trigger: "none",
+          commands: [callCommonEvent({ commonEvent: commonEventRef({ name: "Shared" }) })],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(missingResult.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-E117-REFERENCE",
+        dslPath: "commands[0].commonEvent",
+        message: expect.stringContaining("Unknown commonEvent reference: Missing"),
+      }),
+    );
+    expect(ambiguousResult.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-E117-REFERENCE",
+        dslPath: "commands[0].commonEvent",
+        message: expect.stringContaining("Ambiguous commonEvent reference: Shared"),
+      }),
+    );
+  });
+
+  it("rejects explicit id references that are absent from the visible scope", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        commonEvent({
+          id: 1,
+          name: "Caller",
+          trigger: "none",
+          commands: [callCommonEvent({ commonEvent: commonEventRef({ id: 99 }) })],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-E117-REFERENCE",
+        dslPath: "commands[0].commonEvent",
+        message: expect.stringContaining("Unknown commonEvent reference id: 99"),
+      }),
+    );
+  });
+
+  it("does not fall back to snapshot entries for DSL-owned domains", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        commonEvent({
+          id: 1,
+          name: "Caller",
+          trigger: "none",
+          commands: [
+            callCommonEvent({ commonEvent: commonEventRef({ name: "Snapshot Common" }) }),
+            controlSwitches({ switch: switchRef({ name: "Snapshot Switch" }), value: true }),
+            controlVariables({
+              variable: variableRef({ name: "Snapshot Variable" }),
+              operation: "set",
+              value: 1,
+            }),
+          ],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotReferences: {
+          commonEvents: [{ id: 7, name: "Snapshot Common" }],
+          switches: [{ id: 8, name: "Snapshot Switch" }],
+          variables: [{ id: 9, name: "Snapshot Variable" }],
+        },
+      },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toEqual(
+      expect.arrayContaining([
+        expect.stringContaining("Unknown commonEvent reference: Snapshot Common"),
+        "MV-E121-REFERENCE validation common event 1.commands[1].switch: Unknown switch reference: Snapshot Switch",
+        "Unknown variable reference: Snapshot Variable",
+      ]),
+    );
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-E117-REFERENCE",
+        dslPath: "commands[0].commonEvent",
+        message: expect.stringContaining("Unknown commonEvent reference: Snapshot Common"),
+      }),
+    );
+  });
+
+  it("resolves external references against the snapshot indexes", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        switchDefinition({ id: 1, name: "Gate" }),
+        variableDefinition({ id: 1, name: "Count" }),
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Gate",
+          commands: [
+            changeItems({ item: itemRef({ name: "Potion" }), operation: "gain", amount: 1 }),
+          ],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotReferences: {
+          items: [{ id: 1, name: "Potion" }],
+        },
+      },
+    );
+
+    expect(result.issues).toEqual([]);
+  });
+
+  it("rejects ambiguous external name references from snapshot indexes", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Gate",
+          commands: [
+            changeItems({ item: itemRef({ name: "Potion" }), operation: "gain", amount: 1 }),
+          ],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotReferences: buildSnapshotReferenceInput({
+          items: [
+            { id: 1, name: "Potion" },
+            { id: 2, name: "Potion" },
+          ],
+        }),
+      },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toContain(
+      "Ambiguous item reference: Potion",
+    );
+  });
+
+  it("checks recognizable native references in Raw DSL Commands", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Raw",
+          commands: [rawDslCommand({ code: 117, parameters: [999] })],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-E117-REFERENCE",
+        nativePath: "pages[0].list[0].parameters[0]",
+      }),
+    );
+  });
+
+  it("does not treat random variable operands as variable references", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        variableDefinition({ id: 1, name: "Count" }),
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Random Count",
+          commands: [
+            controlVariables({
+              variable: variableRef({ id: 1 }),
+              operation: "add",
+              value: {
+                kind: "random",
+                from: 1,
+                to: 3,
+              },
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues).toEqual([]);
+  });
+
+  it("rejects Control Variables script operands when scripts are disabled", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        variableDefinition({ id: 1, name: "Count" }),
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Script Count",
+          commands: [
+            controlVariables({
+              variable: variableRef({ id: 1 }),
+              operation: "set",
+              value: {
+                kind: "script",
+                script: scriptInput({ code: "$gameParty.gold()" }),
+              },
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toContain(
+      "Control Variables script operands require explicit config enablement.",
+    );
+  });
+
+  it("inspects command input primitives recursively without conflating categories", () => {
+    const inspection = inspectCommandInputPrimitives([
+      {
+        source: audioAsset({ folder: "bgm", name: "Theme" }),
+        image: imageAsset({ folder: "pictures", name: "Poster" }),
+        selector: { kind: "runtimeSelector", scope: "player", target: "current" } as const,
+        script: scriptInput({ code: "console.log(1);" }),
+        nested: {
+          ref: switchRef({ id: 1 }),
+        },
+      },
+    ]);
+
+    expect(inspection.assetReferences).toHaveLength(2);
+    expect(inspection.runtimeSelectors).toHaveLength(1);
+    expect(inspection.scriptInputs).toHaveLength(1);
+    expect(inspection.projectDataReferences).toHaveLength(1);
+    expect(inspection.projectDataReferences[0]).toEqual(switchRef({ id: 1 }));
+  });
+
+  it("validates Movement command references without resolving runtime selectors", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        switchDefinition({ id: 1, name: "Route Switch" }),
+        variableDefinition({ id: 1, name: "Map Var" }),
+        variableDefinition({ id: 2, name: "X Var" }),
+        variableDefinition({ id: 3, name: "Y Var" }),
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Mover",
+          commands: [
+            transferPlayer({
+              destination: {
+                kind: "variables",
+                map: variableRef({ id: 1 }),
+                x: variableRef({ id: 2 }),
+                y: variableRef({ id: 3 }),
+              },
+            }),
+            setVehicleLocation({
+              vehicle: "boat",
+              destination: { kind: "direct", map: { kind: "map", id: 1 }, x: 4, y: 5 },
+            }),
+            setEventLocation({
+              character: { kind: "runtimeSelector", scope: "character", target: "event", id: 99 },
+              destination: {
+                kind: "variables",
+                x: variableRef({ id: 2 }),
+                y: variableRef({ id: 3 }),
+              },
+            }),
+            setMovementRoute({
+              target: { kind: "runtimeSelector", scope: "character", target: "event", id: 99 },
+              route: {
+                commands: [
+                  { kind: "switchOn", switch: switchRef({ id: 1 }) },
+                  {
+                    kind: "changeImage",
+                    character: imageAsset({ folder: "characters", name: "Actor1" }),
+                    characterIndex: 0,
+                  },
+                ],
+              },
+            }),
+          ],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotReferences: {
+          maps: [{ id: 1, name: "Town" }],
+        },
+      },
+    );
+
+    expect(result.issues).toEqual([]);
+  });
+
+  it("rejects Set Movement Route script commands when scripts are disabled", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Scripted Route",
+          commands: [
+            setMovementRoute({
+              target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
+              route: {
+                commands: [
+                  { kind: "script", script: scriptInput({ code: "this.moveForward();" }) },
+                ],
+              },
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toContain(
+      "Set Movement Route script commands require explicit config enablement.",
+    );
+  });
+
+  it("validates Set Movement Route runtime selector and switch references", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Bad Route",
+          commands: [
+            setMovementRoute({
+              target: {
+                kind: "runtimeSelector",
+                scope: "player",
+                target: "current",
+              } as never,
+              route: { commands: [{ kind: "switchOff", switch: switchRef({ id: 99 }) }] },
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: true },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toEqual(
+      expect.arrayContaining([
+        "Set Movement Route target must use the character runtime selector scope.",
+        "Unknown switch reference id: 99",
+      ]),
+    );
+  });
+
+  it("validates Character command runtime selectors and animation references", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Character Commands",
+          commands: [
+            showAnimation({
+              target: {
+                kind: "runtimeSelector",
+                scope: "player",
+                target: "current",
+              } as never,
+              animation: animationRef({ id: 99 }),
+            }),
+            showBalloonIcon({
+              target: {
+                kind: "runtimeSelector",
+                scope: "character",
+                target: "event",
+              } as never,
+              balloon: "question",
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toEqual(
+      expect.arrayContaining([
+        "Show Animation target must use the character runtime selector scope.",
+        "MV-E212-REFERENCE validation map 1 event 1.pages[0].commands[0].animation: Unknown animation reference id: 99",
+        "Show Balloon Icon target event id must be a positive integer.",
+      ]),
+    );
+  });
+
+  it("validates Screen picture variable positions without scanning image assets", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        variableDefinition({ id: 1, name: "X Var" }),
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Pictures",
+          commands: [
+            showPicture({
+              pictureId: 1,
+              image: imageAsset({ folder: "pictures", name: "Poster" }),
+              position: {
+                kind: "variables",
+                x: variableRef({ id: 1 }),
+                y: variableRef({ id: 99 }),
+              },
+            }),
+            movePicture({
+              pictureId: 1,
+              position: {
+                kind: "variables",
+                x: variableRef({ id: 98 }),
+                y: variableRef({ id: 1 }),
+              },
+              duration: 30,
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toEqual(
+      expect.arrayContaining([
+        "Unknown variable reference id: 99",
+        "Unknown variable reference id: 98",
+      ]),
+    );
+  });
+
+  it("rejects invalid Set Event Location character runtime selectors", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        variableDefinition({ id: 1, name: "X Var" }),
+        variableDefinition({ id: 2, name: "Y Var" }),
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Bad Runtime Selectors",
+          commands: [
+            setEventLocation({
+              character: {
+                kind: "runtimeSelector",
+                scope: "player",
+                target: "current",
+              } as never,
+              destination: { kind: "direct", x: 1, y: 2 },
+            }),
+            setEventLocation({
+              character: {
+                kind: "runtimeSelector",
+                scope: "character",
+                target: "event",
+              } as never,
+              destination: {
+                kind: "variables",
+                x: variableRef({ id: 1 }),
+                y: variableRef({ id: 2 }),
+              },
+            }),
+            setEventLocation({
+              character: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
+              destination: {
+                kind: "exchange",
+                character: {
+                  kind: "runtimeSelector",
+                  scope: "character",
+                  target: "follower",
+                } as never,
+              },
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toEqual(
+      expect.arrayContaining([
+        "Set Event Location character must use the character runtime selector scope.",
+        "Set Event Location character event id must be a positive integer.",
+        "Set Event Location exchange character target must be player, currentEvent, or event.",
+      ]),
+    );
+  });
+
+  it("rejects missing variable references in Movement variable destinations", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Bad Mover",
+          commands: [
+            transferPlayer({
+              destination: {
+                kind: "variables",
+                map: variableRef({ id: 98 }),
+                x: variableRef({ id: 99 }),
+                y: variableRef({ id: 100 }),
+              },
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toEqual(
+      expect.arrayContaining([
+        "Unknown variable reference id: 98",
+        "Unknown variable reference id: 99",
+        "Unknown variable reference id: 100",
+      ]),
+    );
+  });
+
+  it("validates troop references without treating random encounters as references", () => {
+    const randomEncounterResult = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Random Battle",
+          commands: [
+            battleProcessing({
+              troop: {
+                kind: "troop",
+                useRandomEncounter: true,
+              },
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+    const missingTroopResult = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Fixed Battle",
+          commands: [battleProcessing({ troop: troopRef({ id: 99 }) })],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(randomEncounterResult.issues).toEqual([]);
+    expect(missingTroopResult.issues.map((issue) => issue.message)).toContain(
+      "Unknown troop reference id: 99",
+    );
+  });
+
+  it("rejects unreachable Battle Processing result branches", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Invalid Battle Branches",
+          commands: [
+            battleProcessing({
+              troop: troopRef({ id: 1 }),
+              escape: [],
+              lose: [],
+            }),
+          ],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotReferences: buildSnapshotReferenceInput({
+          troops: [{ id: 1, name: "Slime" }],
+        }),
+      },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toEqual(
+      expect.arrayContaining([
+        "Battle Processing escape branch requires canEscape: true.",
+        "Battle Processing lose branch requires canLose: true.",
+      ]),
+    );
+  });
+
+  it("validates Change Equipment native MV ids without equipment database references", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Bad Equipment",
+          commands: [
+            changeEquipment({
+              actor: { kind: "actor", id: 1 },
+              equipmentTypeId: 0,
+              itemId: -1,
+            }),
+          ],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotReferences: buildSnapshotReferenceInput({
+          actors: [{ id: 1, name: "Alex" }],
+        }),
+      },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toEqual(
+      expect.arrayContaining([
+        "Change Equipment equipment type id must be a positive integer.",
+        "Change Equipment item id must be a non-negative integer.",
+      ]),
+    );
+  });
+
+  it("rejects Conditional Branch script conditions when scripts are disabled", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Scripted Branch",
+          commands: [
+            conditional({
+              condition: {
+                kind: "script",
+                script: scriptInput({ code: "$gameSwitches.value(1)" }),
+              },
+              then: [],
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toContain(
+      "Conditional Branch script conditions require explicit config enablement.",
+    );
+  });
+
+  it("validates Project Data References inside Conditional Branch conditions", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Referenced Branch",
+          commands: [
+            conditional({
+              condition: {
+                kind: "actor",
+                actor: { kind: "actor", id: 1 },
+                check: { kind: "class", class: classRef({ id: 99 }) },
+              },
+              then: [],
+            }),
+            conditional({
+              condition: {
+                kind: "variable",
+                variable: variableRef({ id: 99 }),
+                operator: "eq",
+                value: variableRef({ id: 100 }),
+              },
+              then: [],
+            }),
+          ],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotReferences: {
+          actors: [{ id: 1, name: "Hero" }],
+        },
+      },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toEqual(
+      expect.arrayContaining([
+        "Unknown class reference id: 99",
+        "Unknown variable reference id: 99",
+        "Unknown variable reference id: 100",
+      ]),
+    );
+  });
+
+  it("resolves new Conditional Branch external reference scopes from snapshot input", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Class Branch",
+          commands: [
+            conditional({
+              condition: {
+                kind: "actor",
+                actor: { kind: "actor", id: 1 },
+                check: { kind: "class", class: classRef({ name: "Warrior" }) },
+              },
+              then: [],
+            }),
+          ],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotReferences: {
+          actors: [{ id: 1, name: "Hero" }],
+          classes: [{ id: 1, name: "Warrior" }],
+        },
+      },
+    );
+
+    expect(result.issues).toEqual([]);
+  });
+
+  it("validates Change Tileset through tileset project data references only", () => {
+    const validResult = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Tileset Changer",
+          commands: [changeTileset({ tileset: tilesetRef({ name: "Field" }) })],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotReferences: buildSnapshotReferenceInput({
+          tilesets: [{ id: 1, name: "Field" }],
+        }),
+      },
+    );
+    const missingResult = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Missing Tileset",
+          commands: [changeTileset({ tileset: tilesetRef({ id: 99 }) })],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(validResult.issues).toEqual([]);
+    expect(missingResult.issues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          level: "error",
+          code: "MV-E282-REFERENCE",
+          stage: "compile",
+          dslPath: "pages[0].commands[0].tileset",
+          expected: "existing tileset in the Project Data Snapshot",
+          actual: expect.stringContaining("99"),
+          message: expect.stringContaining("Unknown tileset reference id: 99"),
+        }),
+      ]),
+    );
+  });
+
+  it("validates enemy database references while keeping enemy targets as runtime selectors", () => {
+    const validResult = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Enemy Transform",
+          commands: [
+            enemyTransform({
+              target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
+              enemy: enemyRef({ name: "Bat" }),
+            }),
+            changeEnemyHp({
+              target: { kind: "runtimeSelector", scope: "enemy", target: "all" },
+              operation: "lose",
+              value: 5,
+            }),
+          ],
+        }),
+      ],
+      {
+        scriptEnabled: false,
+        snapshotReferences: buildSnapshotReferenceInput({
+          enemies: [{ id: 1, name: "Bat" }],
+        }),
+      },
+    );
+    const invalidResult = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Bad Enemy Transform",
+          commands: [
+            enemyTransform({
+              target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
+              enemy: enemyRef({ id: 99 }),
+            }),
+          ],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(validResult.issues).toEqual([]);
+    expect(invalidResult.issues.map((issue) => issue.message)).toContain(
+      "MV-E336-REFERENCE validation map 1 event 1.pages[0].commands[0].enemy: Unknown enemy reference id: 99",
+    );
+  });
+
+  it("enforces the schema-first Script command gate", () => {
+    const result = validateDslOwnedDeclarations(
+      [
+        createMapEvent({
+          mapId: 1,
+          id: 1,
+          name: "Script",
+          commands: [script({ code: "console.log(1);" })],
+        }),
+      ],
+      { scriptEnabled: false },
+    );
+
+    expect(result.issues.map((issue) => issue.message)).toContain(
+      "Script commands require explicit config enablement.",
+    );
+  });
+});
+
+function createMapEvent(input: {
+  mapId: number;
+  id: number;
+  name: string;
+  commands?: Parameters<typeof page>[0]["commands"];
+}) {
+  return mapEvent({
+    mapId: input.mapId,
+    id: input.id,
+    name: input.name,
+    x: 0,
+    y: 0,
+    pages: [
+      page({
+        commands: input.commands ?? [],
+      }),
+    ],
+  });
+}

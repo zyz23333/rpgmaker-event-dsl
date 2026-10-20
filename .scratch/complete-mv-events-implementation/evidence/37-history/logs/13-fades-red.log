@@ -1,0 +1,29 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-37/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/screen-effects.test.ts (7 tests | 1 failed) 21ms
+   × keeps Fade operations parameterless in helper and direct authored forms 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/screen-effects.test.ts > keeps Fade operations parameterless in helper and direct authored forms
+AssertionError: expected [Function] to throw an error
+ ❯ test/screen-effects.test.ts:26:82
+     24| it("keeps Fade operations parameterless in helper and direct authored …
+     25|   for (const helper of [fadeoutScreen, fadeinScreen])
+     26|     expect(() => (helper as (...input: unknown[]) => unknown)({ durati…
+       |                                                                                  ^
+     27|   for (const kind of ["fadeoutScreen", "fadeinScreen"])
+     28|     expect(() => compile([{ kind, duration: 60 } as never])).toThrow();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 passed (7)
+   Start at  03:24:15
+   Duration  1.30s (transform 390ms, setup 0ms, import 1.12s, tests 21ms, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-37\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/screen-effects.test.ts

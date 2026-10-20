@@ -141,12 +141,21 @@ const batTroop = troopRef({ id: 1 });
 const heroActor = actorRef({ id: 1 });
 const attackSkill = skillRef({ id: 1 });
 const poisonState = stateRef({ id: 4 });
-const currentEvent = { kind: "runtimeSelector", scope: "character", target: "currentEvent" } as const;
+const currentEvent = {
+  kind: "runtimeSelector",
+  scope: "character",
+  target: "currentEvent",
+} as const;
 const playerCharacter = { kind: "runtimeSelector", scope: "character", target: "player" } as const;
 const entireParty = { kind: "runtimeSelector", scope: "actor", target: "entireParty" } as const;
 const firstEnemy = { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 } as const;
 const allEnemies = { kind: "runtimeSelector", scope: "enemy", target: "all" } as const;
-const heroBattler = { kind: "runtimeSelector", scope: "battler", target: "actor", actorId: 1 } as const;
+const heroBattler = {
+  kind: "runtimeSelector",
+  scope: "battler",
+  target: "actor",
+  actorId: 1,
+} as const;
 
 export const sampleCommonEventDefinition = commonEvent({
   id: 1,
@@ -173,7 +182,10 @@ export const guideEvent = mapEvent({
       commands: [
         comment(["Visible entry point for the full-event sample workspace."]),
         showText({
-          lines: ["Event DSL sample", "Talk to nearby events to try representative command families."],
+          lines: [
+            "Event DSL sample",
+            "Talk to nearby events to try representative command families.",
+          ],
           face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 0 },
         }),
         showScrollingText({
@@ -218,7 +230,7 @@ export const guideEvent = mapEvent({
           branches: [[callCommonEvent(sampleCommonEvent)], [exitEvent()]],
           cancelBranch: [showText({ lines: ["Canceled."] })],
         }),
-        wait(15),
+        wait({ frames: 15 }),
       ],
     }),
   ],
@@ -350,7 +362,12 @@ export const presentationStationEvent = mapEvent({
   pages: [
     page({
       commands: [
-        showText({ lines: ["Presentation station", "This event uses screen, audio, picture, and map helpers."] }),
+        showText({
+          lines: [
+            "Presentation station",
+            "This event uses screen, audio, picture, and map helpers.",
+          ],
+        }),
         changeBattleBgm({
           audio: { asset: audioAsset({ folder: "bgm", name: "Battle1" }), volume: 80 },
         }),
@@ -389,13 +406,15 @@ export const presentationStationEvent = mapEvent({
           wait: true,
         }),
         flashScreen({
-          color: [255, 255, 255, 128],
+          color: { red: 255, green: 255, blue: 255, alpha: 128 },
           duration: 20,
+          wait: false,
         }),
         setWeatherEffect({
           weather: "rain",
           power: 2,
           duration: 30,
+          wait: false,
         }),
         playMovie({
           movie: movieAsset({ name: "Intro" }),
@@ -453,16 +472,17 @@ export const movementStationEvent = mapEvent({
         }),
         setMovementRoute({
           target: currentEvent,
-          route: { commands: [
-            { kind: "turnDown" },
-            { kind: "moveForward" },
-            { kind: "routeWait", frames: 10 },
-            { kind: "switchOn", switch: sampleRouteCompleteSwitch },
-            { kind: "playSe", audio: { asset: audioAsset({ folder: "se", name: "Cursor2" }) } },
-            { kind: "script", script: scriptInput({ code: "this.turnTowardPlayer();" }) },
-          ],
-          skippable: true,
-          wait: true,
+          route: {
+            commands: [
+              { kind: "turnDown" },
+              { kind: "moveForward" },
+              { kind: "routeWait", frames: 10 },
+              { kind: "switchOn", switch: sampleRouteCompleteSwitch },
+              { kind: "playSe", audio: { asset: audioAsset({ folder: "se", name: "Cursor2" }) } },
+              { kind: "script", script: scriptInput({ code: "this.turnTowardPlayer();" }) },
+            ],
+            skippable: true,
+            wait: true,
           },
         }),
         showBalloonIcon({
@@ -495,7 +515,9 @@ export const partyStateStationEvent = mapEvent({
   pages: [
     page({
       commands: [
-        showText({ lines: ["Party state station", "This event touches party, actor, and enemy helpers."] }),
+        showText({
+          lines: ["Party state station", "This event touches party, actor, and enemy helpers."],
+        }),
         changePartyMember({
           actor: heroActor,
           operation: "add",

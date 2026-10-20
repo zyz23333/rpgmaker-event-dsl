@@ -1,0 +1,120 @@
+{
+  "inputCount": 169,
+  "latestFingerprint": "4d94a39e7d38b3f99f826818596e10d38bf50f76d88a4c4bb3e0d7bfcae21eec",
+  "captureCount": 7,
+  "resultCount": 227,
+  "statuses": {
+    "passed": 223,
+    "failed": 4
+  },
+  "perFingerprint": {
+    "1b82c15883f775e19b23ee32785618b40aac8b94aa9f17ec2aad060c2e48f2a4": {
+      "passed": 111
+    },
+    "4d94a39e7d38b3f99f826818596e10d38bf50f76d88a4c4bb3e0d7bfcae21eec": {
+      "passed": 103
+    },
+    "5553fba191abd423d2e20ff29c95a746530bd8f92750c6c895c6e00048c3d517": {
+      "passed": 1,
+      "failed": 2
+    },
+    "e0ed3594381efd465dbf6ab2db6e1781a85491b8ecfd33f9892b191a6beb92d7": {
+      "passed": 2,
+      "failed": 1
+    },
+    "2a603d49c7b48402146ec52b4e22040c8031fe022aa68e9beabc8aa430c54dc3": {
+      "passed": 3
+    },
+    "29ccb1d1de744f9197a0d9857ddcec8d91695a146446c074c3c2780dd375ae84": {
+      "passed": 3
+    },
+    "a2ff223b93c1225532e3f238bdd34270c5adcfd8538d687c3c6c8bdfe9ef94fb": {
+      "failed": 1
+    }
+  },
+  "perRequirement": {
+    "MV-S5-COMMON-001": {
+      "passed": 2
+    },
+    "MV-S5-COMMON-002": {
+      "passed": 2
+    },
+    "MV-S5-COMMON-003": {
+      "passed": 44
+    },
+    "MV-S5-COMMON-004": {
+      "passed": 38
+    },
+    "MV-S5-COMMON-005": {
+      "passed": 26
+    },
+    "MV-S5-COMMON-006": {
+      "passed": 26
+    },
+    "MV-S5-COMMON-007": {
+      "passed": 6
+    },
+    "MV-S5-COMMON-008": {
+      "passed": 2
+    },
+    "MV-S5-COMMON-009": {
+      "passed": 10
+    },
+    "MV-S5-COMMON-010": {
+      "passed": 20
+    },
+    "MV-S5-COMMON-011": {
+      "passed": 2
+    },
+    "MV-S5-COMMON-012": {
+      "passed": 2
+    },
+    "MV-S5-COMMON-013": {
+      "passed": 2
+    },
+    "MV-S5-COMMON-014": {
+      "passed": 6
+    },
+    "MV-S5-COMMON-015": {
+      "passed": 10
+    },
+    "MV-S5-COMMON-016": {
+      "passed": 2
+    },
+    "MV-S6-MAP-APPEARANCE-001": {
+      "passed": 1
+    },
+    "MV-S6-MAP-APPEARANCE-002": {
+      "passed": 1
+    },
+    "MV-S6-MAP-APPEARANCE-003": {
+      "passed": 1
+    },
+    "MV-S6-MAP-APPEARANCE-004": {
+      "passed": 1
+    },
+    "MV-S6-MAP-APPEARANCE-005": {
+      "passed": 1
+    },
+    "MV-S6-MAP-APPEARANCE-006": {
+      "passed": 1
+    },
+    "MV-S6-MAP-APPEARANCE-007": {
+      "passed": 1
+    },
+    "MV-S6-SCREEN-001": {
+      "passed": 6
+    },
+    "MV-S6-SCREEN-002": {
+      "failed": 3,
+      "passed": 5
+    },
+    "MV-S6-SCREEN-003": {
+      "failed": 1,
+      "passed": 5
+    }
+  },
+  "allResultsHaveCapturedPreRunInputs": true,
+  "allResultsDeclareNativeNotExecuted": true,
+  "allCurrentInputBytesMatchLatestCapture": true
+}

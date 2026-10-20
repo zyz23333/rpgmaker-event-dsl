@@ -1,0 +1,58 @@
+import type {
+  CommonEventDefinition,
+  SwitchDefinition,
+  VariableDefinition,
+} from "../domain/types.js";
+import type { ReferenceEntry } from "./types.js";
+
+export function toReferenceEntry(
+  declaration: CommonEventDefinition | SwitchDefinition | VariableDefinition,
+): ReferenceEntry {
+  return {
+    id: declaration.id,
+    name: declaration.name,
+  };
+}
+
+export function readObjectReferenceEntries(values: readonly unknown[]): ReferenceEntry[] {
+  return values.flatMap((value) => {
+    if (!value || typeof value !== "object" || Array.isArray(value)) {
+      return [];
+    }
+    const record = value as Record<string, unknown>;
+    const id = readPositiveInteger(record.id);
+    const name = typeof record.name === "string" ? record.name : "";
+
+    return id === null ? [] : [{ id, name }];
+  });
+}
+
+export function readSystemNameEntries(
+  system: Record<string, unknown>,
+  key: "switches" | "variables",
+): ReferenceEntry[] {
+  const values = system[key];
+  if (!Array.isArray(values)) {
+    return [];
+  }
+
+  return values.flatMap((value, index) => {
+    if (typeof value === "string") {
+      return value.length > 0 ? [{ id: index, name: value }] : [];
+    }
+    if (!value || typeof value !== "object") {
+      return [];
+    }
+
+    const name = readNonEmptyString((value as Record<string, unknown>).name);
+    return name === null ? [] : [{ id: index, name }];
+  });
+}
+
+export function readPositiveInteger(value: unknown): number | null {
+  return typeof value === "number" && Number.isInteger(value) && value > 0 ? value : null;
+}
+
+export function readNonEmptyString(value: unknown): string | null {
+  return typeof value === "string" && value.length > 0 ? value : null;
+}

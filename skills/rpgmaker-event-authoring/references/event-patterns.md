@@ -159,6 +159,23 @@ Runtime Selector meaning even when a fixed project target cannot be inferred.
 
 Use Asset Reference helpers for files, not Project Data Reference helpers. `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)` are no-scan filename-stem references; they do not validate that a file exists on disk.
 
+For screen effects, use parameterless `fadeoutScreen()`/`fadeinScreen()` and
+`wait({ frames })` with required integer frames 1..999. Give `tintScreen` a
+complete named `tone: { red, green, blue, gray }`: integer RGB −255..255 and gray
+0..255. Give `flashScreen` complete named `color: { red, green, blue, alpha }`
+with integer components 0..255; alpha zero remains an explicit saved value.
+Give `shakeScreen` integer power and speed 1..9. Tint, Flash, Shake and Weather
+all require duration 1..999 and explicit Boolean wait. Preserve numeric negative
+zero in accepted tone/color components.
+
+Give `setWeatherEffect` weather none/rain/storm/snow and power 1..9 even for
+None; retain power, duration and wait when inactive. Battle execution skips the
+weather effect and its wait and produces a contextual warning. Common Events
+inherit their eventual caller's context. Give `playMovie` an explicit movies
+Asset Reference or `null` for None. Movie None continues without a video wait.
+Use `movieAsset({ name: "Ending" })` for a nonempty filename stem; check the
+actual movie in the game because asset references do not scan files or codecs.
+
 For map appearance, give `changeMapNameDisplay` an explicit Boolean `enabled`, and
 give `changeTileset` an existing `tilesetRef` without None. Give `changeBattleBack`
 both independent fields: `battleback1` uses `battlebacks1`, `battleback2` uses

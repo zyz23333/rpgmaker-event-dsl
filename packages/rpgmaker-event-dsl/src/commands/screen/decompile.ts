@@ -1,17 +1,18 @@
 import type { RawEventCommand, RenderedCommand } from "../../decompiler/types.js";
 import { isBlendMode, isNumberTuple, literal, readPositiveInteger } from "../../decompiler/core.js";
+import { renderJsonValue } from "../../project-data/json-values.js";
 
 export function renderTintScreen(
   command: RawEventCommand,
 ): Omit<RenderedCommand, "nextIndex"> | null {
-  const tone = renderTone(command.parameters[0]);
+  const tone = renderScreenComponents(command.parameters[0], "gray");
   const duration = command.parameters[1];
   const wait = command.parameters[2];
 
   return tone === null || typeof duration !== "number" || typeof wait !== "boolean"
     ? null
     : {
-        expression: `tintScreen({ tone: ${tone}, duration: ${duration}${wait ? ", wait: true" : ""} })`,
+        expression: `tintScreen({ tone: ${tone}, duration: ${duration}, wait: ${wait} })`,
         helperNames: ["tintScreen"],
       };
 }
@@ -19,14 +20,14 @@ export function renderTintScreen(
 export function renderFlashScreen(
   command: RawEventCommand,
 ): Omit<RenderedCommand, "nextIndex"> | null {
-  const color = renderColor(command.parameters[0]);
+  const color = renderScreenComponents(command.parameters[0], "alpha");
   const duration = command.parameters[1];
   const wait = command.parameters[2];
 
   return color === null || typeof duration !== "number" || typeof wait !== "boolean"
     ? null
     : {
-        expression: `flashScreen({ color: ${color}, duration: ${duration}${wait ? ", wait: true" : ""} })`,
+        expression: `flashScreen({ color: ${color}, duration: ${duration}, wait: ${wait} })`,
         helperNames: ["flashScreen"],
       };
 }
@@ -45,7 +46,7 @@ export function renderShakeScreen(
     typeof wait !== "boolean"
     ? null
     : {
-        expression: `shakeScreen({ power: ${power}, speed: ${speed}, duration: ${duration}${wait ? ", wait: true" : ""} })`,
+        expression: `shakeScreen({ power: ${power}, speed: ${speed}, duration: ${duration}, wait: ${wait} })`,
         helperNames: ["shakeScreen"],
       };
 }
@@ -169,7 +170,7 @@ export function renderSetWeatherEffect(
     typeof wait !== "boolean"
     ? null
     : {
-        expression: `setWeatherEffect({ weather: ${literal(weather)}, power: ${power}, duration: ${duration}${wait ? ", wait: true" : ""} })`,
+        expression: `setWeatherEffect({ weather: ${literal(weather)}, power: ${power}, duration: ${duration}, wait: ${wait} })`,
         helperNames: ["setWeatherEffect"],
       };
 }
@@ -266,6 +267,12 @@ export function renderPictureDisplay(
 
 export function renderTone(value: unknown): string | null {
   return isNumberTuple(value, 4) ? literal(value) : null;
+}
+
+function renderScreenComponents(value: unknown, last: "gray" | "alpha"): string | null {
+  return isNumberTuple(value, 4)
+    ? `{ ${["red", "green", "blue", last].map((key, index) => `${key}: ${renderJsonValue(value[index])}`).join(", ")} }`
+    : null;
 }
 
 export function renderColor(value: unknown): string | null {

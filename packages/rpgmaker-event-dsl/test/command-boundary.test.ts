@@ -229,7 +229,7 @@ it("recursively gates every recognizable native script location including empty 
 it("uses the same known parameter boundary for formal, handwritten raw and native input", () => {
   for (const parameters of [[], [null], ["30"], [30, 40]]) {
     expect(() => renderDecompiledCommandList([{ code: 230, indent: 0, parameters }])).toThrow(
-      /MV-COMMAND-PARAMETERS/,
+      /MV-E230-PARAMETER/,
     );
     const graph = buildStagedDataGraph({
       declarations: [
@@ -243,7 +243,7 @@ it("uses the same known parameter boundary for formal, handwritten raw and nativ
     });
     expect(validateStagedDataGraph(graph, { scriptEnabled: true }).issues).toContainEqual(
       expect.objectContaining({
-        code: "MV-COMMAND-PARAMETERS",
+        code: "MV-E230-PARAMETER",
         stage: "compile",
         identity: "commonEvent:1",
         level: "error",
@@ -261,7 +261,7 @@ it("uses the same known parameter boundary for formal, handwritten raw and nativ
     ],
   });
   expect(validateStagedDataGraph(graph, { scriptEnabled: true }).issues).toContainEqual(
-    expect.objectContaining({ code: "MV-COMMAND-PARAMETERS" }),
+    expect.objectContaining({ code: "MV-E230", dslPath: "commands[0].frames" }),
   );
 });
 
