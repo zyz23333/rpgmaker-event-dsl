@@ -1,5 +1,5 @@
-import { assertNativeBattleParameters } from "../commands/battle/validation.js";
-import { assertNativeEnemyParameters } from "../commands/enemy/validation.js";
+import { assertNativeBattleParameters } from "../commands/battle/native-validation.js";
+import { assertNativeEnemyParameters } from "../commands/enemy/native-validation.js";
 import { CommandStructureError } from "./command-errors.js";
 import { renderJsonValue } from "../project-data/json-values.js";
 import { assertNativeConditionalParameters } from "../commands/flow/conditional-validation.js";

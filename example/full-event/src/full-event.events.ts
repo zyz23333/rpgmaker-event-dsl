@@ -154,7 +154,7 @@ const heroBattler = {
   kind: "runtimeSelector",
   scope: "battler",
   target: "actor",
-  actorId: 1,
+  actor: heroActor,
 } as const;
 
 export const sampleCommonEventDefinition = commonEvent({
@@ -314,7 +314,7 @@ export const practiceBattleEvent = mapEvent({
           skill: attackSkill,
         }),
         battleProcessing({
-          troop: batTroop,
+          troop: { kind: "fixed", troop: batTroop },
           canEscape: true,
           canLose: true,
           win: { commands: [showText({ lines: ["Battle branch: win."] })], endMarker: "absent" },

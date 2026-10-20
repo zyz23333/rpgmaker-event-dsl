@@ -28,7 +28,7 @@ Battle 使用 fixed/variable/randomEncounter 模式；flags 默认固定 false�
 
 `M:/Shuen/Codex/mv-events-implementation-20261020/battle-batch-temp`
 
-下列每个执行标签均有 `-execution.json`、`-completed.json` 和 `.log`。入口为同目录 `run-focused-v1.ps1`；没有复制全部源码、构建或历史 payload。
+下列执行标签保留 `-execution.json`、`-completed.json` 及实际产生的 stdout 日志。`merged-scoped-lint-v1` 成功且 stdout 为空，未生成 `.log`；没有补写或声称存在该历史日志。入口为同目录 `run-focused-v1.ps1`；没有复制全部源码、构建或历史 payload。
 
 | 执行标签 | 实际结果 |
 | --- | --- |
@@ -76,3 +76,13 @@ Battle 使用 fixed/variable/randomEncounter 模式；flags 默认固定 false�
 | 54 | R6 Enemy Animation 的单敌/全敌、独立 index 与实际图像/运行观察，含缺位置、hidden/死亡等适用状态 |
 
 52/53 的 Battle 控制必须记录实际跳过、Force 调度、Abort 残留 aborting 和后续效果；静态 runtime 解释或 Node 仿写不能替代实际 MV1.6.1/NW.js。编辑器侧按已接受 REA 修订区分代码事实、有条件推导和 UI 捕获。`MV-S6-BATTLE-004`/`005` 仍未执行通过，最终 55 的完整支持结论继续依赖 49–54 完成。
+
+## Independent merge review correction — 2026-10-20
+
+独立 merger 对原 READY `f0dba9a1` 执行 architecture/command-boundary 得到 15 pass、1 fail；原始日志保留在 `M:/Shuen/Codex/mv-events-implementation-20261020/battle-batch-merger/cross-boundary-v1.log`。先前本批次的受影响检查没有覆盖 architecture；该原失败没有覆盖或重分类。
+
+真实依赖环为 `validation/native-parameters` → Battle/Enemy `validation` → `dsl-command-inputs` → `command-structure` → `native-parameters`。本次将两族的纯原生参数 guard 原样移至各自的 `native-validation.ts`，native dispatcher 直接依赖它们；DSL 校验仍拥有原始对象与子命令遍历。Enemy 原生 guard 显式列出同一组 owned code，保留原来的参数数量、有限值域、错误代码、路径与诊断消息。没有放宽已知 raw/native 输入，也没有更改 Compile Contract Version 或原生输出。
+
+完整示例的 `heroBattler` 改用固定 Actor reference，Battle Processing 改用具名 fixed Troop 模式。外部 `check-full-example-battle-v2.mts` 从真实完整示例 AST 提取这两处调用与四个原始依赖常量，经当前 `loadDefinitionFile` 执行实际类型检查和 helper 求值：原 `f0dba9a1` 提取输入同时因 actor/troop 旧 API 被拒绝，更新后的输入通过。此检查只覆盖这两处精确源码及其依赖，不声称整份跨家族示例已验收。v1 检查脚本因 pnpm filter 改变 cwd，在运行求值前失败；原脚本与日志保留，v2 固定真实 repo 并使用 Node 22.23.0。
+
+同一外部 `battle-batch-temp` 下新增执行记录：`architecture-repair-cross-boundary-v1`（architecture、command-boundary、Enemy、Battle、context、common-native，6 文件、100/100）、`architecture-repair-types-v1`（包类型通过）、`architecture-repair-workspace-v1`（真实 Battle Workspace 3/3）及 `example-battle-v2/result.json`（上述示例精确提取输入通过）。`architecture-repair-scoped-lint-v1` 与 `architecture-repair-scoped-format-v1` 均通过全部六个受影响 TS 文件；lint stdout 为空且没有 `.log`，execution/completed 元数据保留退出码 0。原架构测试未改，2 worker 与原期限保留。没有 full/build/built/native 执行声明，最终 48–55 责任保持不变。
