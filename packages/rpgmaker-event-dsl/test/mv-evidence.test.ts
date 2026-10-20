@@ -14,7 +14,7 @@ import {
 } from "../src/workspace-api.js";
 import { recordEvidence, validateRequirements } from "./support/mv-evidence.js";
 
-it("validates the evidence index, source references, fixture hashes, test links, and recorded runs", async () => {
+it("validates the evidence index, source references, fixture hashes, test links, and current recorded runs", async () => {
   await validateRequirements();
 });
 

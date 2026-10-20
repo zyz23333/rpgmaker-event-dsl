@@ -356,7 +356,7 @@ export type ConditionalBranchCondition =
       kind: "variable";
       variable: ReferenceValue<"variable">;
       operator: ConditionalVariableOperator;
-      value: number | ReferenceValue<"variable">;
+      value: ConstantOperand | VariableOperand;
     }
   | {
       kind: "selfSwitch";
@@ -382,12 +382,12 @@ export type ConditionalBranchCondition =
     }
   | {
       kind: "enemy";
-      enemyIndex: number;
+      enemy: Extract<EnemyCommandTarget, { target: "enemy" }>;
       check: { kind: "appeared" } | { kind: "state"; state: ReferenceValue<"state"> };
     }
   | {
       kind: "character";
-      characterId: number;
+      target: CharacterRuntimeSelector;
       direction: 2 | 4 | 6 | 8;
     }
   | {
@@ -402,12 +402,12 @@ export type ConditionalBranchCondition =
   | {
       kind: "weapon";
       weapon: ReferenceValue<"weapon">;
-      includeEquipment?: boolean;
+      includeEquipment: boolean;
     }
   | {
       kind: "armor";
       armor: ReferenceValue<"armor">;
-      includeEquipment?: boolean;
+      includeEquipment: boolean;
     }
   | {
       kind: "button";

@@ -184,8 +184,8 @@ export type ShowChoicesDslCommand = {
 export type ConditionalDslCommand = {
   kind: "conditional";
   condition: ConditionalBranchCondition;
-  then: readonly DslCommand[];
-  else?: readonly DslCommand[];
+  then: ChildCommandBody;
+  else?: ChildCommandBody;
 };
 
 export type ChildCommandBody = {

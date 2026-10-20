@@ -212,15 +212,17 @@ export const guideEvent = mapEvent({
             switch: chestOpenedSwitch,
             value: true,
           },
-          then: [showText({ lines: ["The reward chest has already been opened."] })],
-          else: [showText({ lines: ["The reward chest is still waiting."] })],
+          then: { commands: [showText({ lines: ["The reward chest has already been opened."] })] },
+          else: { commands: [showText({ lines: ["The reward chest is still waiting."] })] },
         }),
         conditional({
           condition: {
             kind: "script",
             script: scriptInput({ code: "$gameParty.gold() >= 0" }),
           },
-          then: [showText({ lines: ["Script conditions are explicit Script Inputs."] })],
+          then: {
+            commands: [showText({ lines: ["Script conditions are explicit Script Inputs."] })],
+          },
         }),
         showChoices({
           choices: ["Call common event", "Stop here"],
@@ -522,30 +524,32 @@ export const partyStateStationEvent = mapEvent({
             actor: heroActor,
             check: { kind: "state", state: poisonState },
           },
-          then: [showText({ lines: ["The hero is poisoned."] })],
-          else: [showText({ lines: ["The hero is not poisoned."] })],
+          then: { commands: [showText({ lines: ["The hero is poisoned."] })] },
+          else: { commands: [showText({ lines: ["The hero is not poisoned."] })] },
         }),
         conditional({
           condition: {
             kind: "enemy",
-            enemyIndex: 0,
+            enemy: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
             check: { kind: "appeared" },
           },
-          then: [
-            changeEnemyHp({
-              target: firstEnemy,
-              operation: "lose",
-              value: 10,
-              allowDeath: true,
-            }),
-          ],
+          then: {
+            commands: [
+              changeEnemyHp({
+                target: firstEnemy,
+                operation: "lose",
+                value: 10,
+                allowDeath: true,
+              }),
+            ],
+          },
         }),
         conditional({
           condition: {
             kind: "item",
             item: potion,
           },
-          then: [showText({ lines: ["The party has at least one potion."] })],
+          then: { commands: [showText({ lines: ["The party has at least one potion."] })] },
         }),
         controlTimer({ action: "start", seconds: 30 }),
         controlTimer({ action: "stop" }),

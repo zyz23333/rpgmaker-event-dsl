@@ -11,6 +11,11 @@ import {
   compileActorResourceValue,
 } from "../commands/actor/compile.js";
 import {
+  assertConditionalCommand,
+  assertConditionalBodyOutput,
+  assertConditionalReferences,
+} from "../commands/flow/conditional-validation.js";
+import {
   resolveCommonEventCall,
   assertLoopCommand,
   assertParameterlessFlowCommand,
@@ -178,43 +183,49 @@ export function compileNodes(
           });
         }
         break;
-      case "conditional":
+      case "conditional": {
+        const nodePath = `${sourcePath}[${nodeIndex}]`;
+        assertConditionalCommand(node, nodePath);
+        assertConditionalReferences(node, nodePath, resolver);
         output.push({
           code: 111,
           indent,
           parameters: compileConditionalBranchParameters(node.condition, resolver),
         });
-        output.push(
-          ...compileNodes(
-            node.then,
-            indent + 1,
-            resolver,
-            false,
-            `${sourcePath}[${nodeIndex}].then`,
-            origins,
-          ),
+        const then = compileNodes(
+          node.then.commands,
+          indent + 1,
+          resolver,
+          false,
+          `${sourcePath}[${nodeIndex}].then.commands`,
+          origins,
         );
-        if (node.then.length === 0) output.push({ code: 0, indent: indent + 1, parameters: [] });
-        if (node.else) {
+        assertConditionalBodyOutput(then, node.then, indent + 1, `${nodePath}.then`);
+        output.push(...then);
+        if (node.then.endMarker !== "absent")
+          output.push({ code: 0, indent: indent + 1, parameters: [] });
+        if (node.else !== undefined) {
           output.push({
             code: 411,
             indent,
             parameters: [],
           });
-          output.push(
-            ...compileNodes(
-              node.else,
-              indent + 1,
-              resolver,
-              false,
-              `${sourcePath}[${nodeIndex}].else`,
-              origins,
-            ),
+          const otherwise = compileNodes(
+            node.else.commands,
+            indent + 1,
+            resolver,
+            false,
+            `${sourcePath}[${nodeIndex}].else.commands`,
+            origins,
           );
-          if (node.else.length === 0) output.push({ code: 0, indent: indent + 1, parameters: [] });
+          assertConditionalBodyOutput(otherwise, node.else, indent + 1, `${nodePath}.else`);
+          output.push(...otherwise);
+          if (node.else.endMarker !== "absent")
+            output.push({ code: 0, indent: indent + 1, parameters: [] });
         }
         output.push({ code: 412, indent, parameters: [] });
         break;
+      }
       case "comment":
         output.push({
           code: 108,

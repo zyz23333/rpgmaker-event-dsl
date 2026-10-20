@@ -32,7 +32,9 @@ export function renderConditionalCommand(
   const helperNames = new Set<string>(["conditional", ...condition.helperNames]);
   const thenEndIndex = findConditionalBranchBodyEnd(commands, index + 1, command.indent);
   const thenCommands = commands.slice(index + 1, thenEndIndex);
-  const renderedThen = renderCommandList(thenCommands);
+  const thenMarker =
+    thenCommands.at(-1)?.code === 0 && thenCommands.at(-1)?.indent === command.indent + 1;
+  const renderedThen = renderCommandList(thenMarker ? thenCommands.slice(0, -1) : thenCommands);
 
   for (const helperName of renderedThen.helperNames) {
     helperNames.add(helperName);
@@ -40,19 +42,24 @@ export function renderConditionalCommand(
 
   const fields = [
     `condition: ${condition.expression}`,
-    `then: [${renderInlineCommandListSource(renderedThen.source)}]`,
+    `then: { commands: [${renderInlineCommandListSource(renderedThen.source)}]${thenMarker ? "" : ', endMarker: "absent"'} }`,
   ];
   let nextIndex = thenEndIndex - 1;
 
   if (commands[thenEndIndex]?.code === 411 && commands[thenEndIndex]?.indent === command.indent) {
     const elseEndIndex = findConditionalBranchBodyEnd(commands, thenEndIndex + 1, command.indent);
-    const renderedElse = renderCommandList(commands.slice(thenEndIndex + 1, elseEndIndex));
+    const elseCommands = commands.slice(thenEndIndex + 1, elseEndIndex);
+    const elseMarker =
+      elseCommands.at(-1)?.code === 0 && elseCommands.at(-1)?.indent === command.indent + 1;
+    const renderedElse = renderCommandList(elseMarker ? elseCommands.slice(0, -1) : elseCommands);
 
     for (const helperName of renderedElse.helperNames) {
       helperNames.add(helperName);
     }
 
-    fields.push(`else: [${renderInlineCommandListSource(renderedElse.source)}]`);
+    fields.push(
+      `else: { commands: [${renderInlineCommandListSource(renderedElse.source)}]${elseMarker ? "" : ', endMarker: "absent"'} }`,
+    );
     nextIndex = elseEndIndex - 1;
   }
 
@@ -163,7 +170,7 @@ export function renderVariableCondition(
 
   if (operandKind === 0 && typeof parameters[3] === "number") {
     return {
-      expression: `{ kind: "variable", variable: variableRef({ id: ${variableId} }), operator: ${literal(operator)}, value: ${parameters[3]} }`,
+      expression: `{ kind: "variable", variable: variableRef({ id: ${variableId} }), operator: ${literal(operator)}, value: { kind: "constant", value: ${literal(parameters[3])} } }`,
       helperNames: ["variableRef"],
     };
   }
@@ -173,7 +180,7 @@ export function renderVariableCondition(
     return sourceVariableId === null
       ? null
       : {
-          expression: `{ kind: "variable", variable: variableRef({ id: ${variableId} }), operator: ${literal(operator)}, value: variableRef({ id: ${sourceVariableId} }) }`,
+          expression: `{ kind: "variable", variable: variableRef({ id: ${variableId} }), operator: ${literal(operator)}, value: { kind: "variable", variable: variableRef({ id: ${sourceVariableId} }) } }`,
           helperNames: ["variableRef"],
         };
   }
@@ -203,7 +210,7 @@ export function renderTimerCondition(
 
   return typeof seconds === "number" && operator !== null
     ? {
-        expression: `{ kind: "timer", seconds: ${seconds}, operator: ${literal(operator)} }`,
+        expression: `{ kind: "timer", seconds: ${literal(seconds)}, operator: ${literal(operator)} }`,
         helperNames: [],
       }
     : null;
@@ -278,7 +285,7 @@ export function renderEnemyCondition(
 
   if (parameters[2] === 0) {
     return {
-      expression: `{ kind: "enemy", enemyIndex: ${enemyIndex}, check: { kind: "appeared" } }`,
+      expression: `{ kind: "enemy", enemy: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: ${literal(enemyIndex)} }, check: { kind: "appeared" } }`,
       helperNames: [],
     };
   }
@@ -288,7 +295,7 @@ export function renderEnemyCondition(
     return stateId === null
       ? null
       : {
-          expression: `{ kind: "enemy", enemyIndex: ${enemyIndex}, check: { kind: "state", state: stateRef({ id: ${stateId} }) } }`,
+          expression: `{ kind: "enemy", enemy: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: ${literal(enemyIndex)} }, check: { kind: "state", state: stateRef({ id: ${stateId} }) } }`,
           helperNames: ["stateRef"],
         };
   }
@@ -302,9 +309,15 @@ export function renderCharacterCondition(
   const characterId = parameters[1];
   const direction = parameters[2];
 
+  const target =
+    characterId === -1
+      ? '{ kind: "runtimeSelector", scope: "character", target: "player" }'
+      : characterId === 0
+        ? '{ kind: "runtimeSelector", scope: "character", target: "currentEvent" }'
+        : `{ kind: "runtimeSelector", scope: "character", target: "event", id: ${literal(characterId)} }`;
   return typeof characterId === "number" && isDirection(direction)
     ? {
-        expression: `{ kind: "character", characterId: ${characterId}, direction: ${direction} }`,
+        expression: `{ kind: "character", target: ${target}, direction: ${direction} }`,
         helperNames: [],
       }
     : null;
@@ -319,7 +332,7 @@ export function renderGoldCondition(
 
   return typeof amount === "number" && operator !== null
     ? {
-        expression: `{ kind: "gold", amount: ${amount}, operator: ${literal(operator)} }`,
+        expression: `{ kind: "gold", amount: ${literal(amount)}, operator: ${literal(operator)} }`,
         helperNames: [],
       }
     : null;

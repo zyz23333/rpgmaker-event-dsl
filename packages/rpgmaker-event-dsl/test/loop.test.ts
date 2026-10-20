@@ -43,14 +43,14 @@ it("reports the complete DSL path for an invalid Loop inside another parent's bo
     commands: [
       conditional({
         condition: { kind: "button", button: "ok" },
-        then: [loop({ body: { commands: [], endMarker: "absent" } })],
+        then: { commands: [loop({ body: { commands: [], endMarker: "absent" } })] },
       }),
     ],
   });
   expect(validateDslOwnedDeclarations([event], { scriptEnabled: false }).issues).toContainEqual(
     expect.objectContaining({
       code: "MV-CHILD-BODY",
-      dslPath: "commands[0].then[0].body.endMarker",
+      dslPath: "commands[0].then.commands[0].body.endMarker",
     }),
   );
 });
