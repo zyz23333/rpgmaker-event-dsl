@@ -649,3 +649,9 @@ Ticket39 focused DEV adds independent audio saved literals and public Workspace 
 | --- | --- | --- | --- |
 | MV-S6-AUDIO-002 | refuses evaluated malformed helper direct and known raw audio sources without changing complete business state | synthetic-rejection | Public helpers and actual Workspace native/source/filesystem boundary |
 | MV-S6-AUDIO-003 | refuses late malformed saved audio records before Decompile publication and preserves every existing business file | synthetic-rejection | Public helpers and actual Workspace native/source/filesystem boundary |
+
+2026-10-20：37–40 的当前功能及受影响自动化交付统一见
+[批次交付记录](presentation-batch-delivery.md)。最终产品 `8e51e031` 已合入实际
+Conditional 集成，契约 `/15`、374 条要求；开发票按用户执行修订关闭，
+48 的最终全量/构建、50/51 的适用逆向/产品比较及 54 的实际 R6 继续待执行。
+历史 DEV 记录及原始失败保留，不把旧执行冒称为最终候选全量或游戏通过。

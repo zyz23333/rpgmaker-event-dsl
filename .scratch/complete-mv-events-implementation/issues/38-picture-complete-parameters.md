@@ -1,6 +1,6 @@
 # 38: Picture 完整参数
 
-Status: claimed
+Status: resolved
 Blocked by: 23
 Stage: S6
 Execution batch: [画面、图片、音频与系统场景](../tickets.md#batch-presentation)
@@ -21,18 +21,19 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 ## Acceptance criteria
 
-- [ ] E231–E235 全部 Picture ID、原点、位置模式、scale、opacity、blend、duration/wait/angle/tone 准确表达。
-- [ ] 负 scale 按已证范围支持，图片坐标不误用地图 direct 域；None 与擦除的原生后果分别保留。
-- [ ] 独立边界/组合样本及真实 Workspace 往返齐备，R6 用自制素材核对产品输出。
+- [x] E231–E235 全部 Picture ID、原点、位置模式、scale、opacity、blend、duration/wait/angle/tone 准确表达。
+- [x] 负 scale 按已证范围支持，图片坐标不误用地图 direct 域；None 与擦除的原生后果分别保留。
+- [x] 独立边界/组合样本及真实 Workspace 往返齐备。
+- [ ] 最终 54 的 R6 用自制素材核对实际游戏中的图片效果；本票未记为通过。
 
 ### 共通要求（限本票适用范围）
 
-- [ ] 按规格 I1–I12 和对应完整参数附表实现；正式编写、编译、反编译、验证、已知 raw 及适用 Workspace 路径一起交付，实际发现并求值生成源码，预期独立于待测编译器。
-- [ ] 对本票拥有的字段/模式/枚举/None/独立保存值/默认/正负边界及已知相互作用建案例；完整比较键存在性、数组长度/顺序、页序、值、镜像、CR 和非激活配置。
-- [ ] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
-- [ ] 按规格 2026-10-20 用户执行修订，开发及批次合入执行 Windows / Node 22 受影响测试与必要检查；全量适用自动化及构建集中到 48。安全票仍验证用户可观察的源码、项目、Snapshot、manifest、Discovery 集合和诊断状态。
-- [ ] 本票原生场景可集中到 49–54 最终回归；开发票关闭时记录实际自动化结果，并明确指向待执行的最终场景，不把未执行记为通过。证据按规格 2026-10-20 用户执行修订保留必要版本、输入、命令和预期/实际日志。
-- [ ] 同步受影响的当前公开 API 文档、示例及编写指南；不保留旧 API 别名或迁移说明，不分发首方编辑器、runtime/源码或本地游戏资产。
+- [x] 按规格 I1–I12 和对应完整参数附表实现；正式编写、编译、反编译、验证、已知 raw 及适用 Workspace 路径一起交付，实际发现并求值生成源码，预期独立于待测编译器。
+- [x] 对本票拥有的字段/模式/枚举/None/独立保存值/默认/正负边界及已知相互作用建案例；完整比较键存在性、数组长度/顺序、页序、值、镜像、CR 和非激活配置。
+- [x] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
+- [x] 按规格 2026-10-20 用户执行修订，开发及批次合入执行 Windows / Node 22 受影响测试与必要检查；全量适用自动化及构建集中到 48。安全票仍验证用户可观察的源码、项目、Snapshot、manifest、Discovery 集合和诊断状态。
+- [x] 本票原生场景可集中到 49–54 最终回归；开发票关闭时记录实际自动化结果，并明确指向待执行的最终场景，不把未执行记为通过。证据按规格 2026-10-20 用户执行修订保留必要版本、输入、命令和预期/实际日志。
+- [x] 同步受影响的当前公开 API 文档、示例及编写指南；不保留旧 API 别名或迁移说明，不分发首方编辑器、runtime/源码或本地游戏资产。
 
 ## Verification
 
@@ -179,3 +180,20 @@ diff attributes; capture bytes remain unchanged. The final archive has208 entrie
 including the original204-entry manifest/staged receipt, the finite correction
 script and its receipt. Product/test diff behavior is unaffected. The final
 staged-byte check covers the208-entry archive before the clean DEV commit.
+
+### 2026-10-20 — 能力批次交付与开发关闭
+
+按规格顶部 2026-10-20 用户执行修订，本票功能及受影响自动化已完成，状态改为
+resolved。旧评论中逐票全量、build/built、冻结/归档及最终游戏后才可关闭的处方
+已由该修订取代；上方拆分后的最终原生验收框继续保持未勾选。
+
+共同交付见[37–40 批次记录](../evidence/presentation-batch-delivery.md)。共同实现
+`4c6e3385` 实际通过 521 单元/回归与 84 Workspace；合入实际 Conditional
+`6dfa75eb` 后的最终产品 `8e51e031` 另通过 271 相交单元/回归、4 Conditional
+Workspace、包 TypeScript 与冲突文件静态检查。全批次共用具名 Tone/Color，
+编译契约相对主线 `/14` 更新为 `/15`，当前验收索引 374 条、本批次 42 条。
+旧失败及新运行的确切命令、版本、输入/夹具与日志路径均见批次记录。
+
+48 仍负责最终集成的适用全量和 build/built；50/51 负责本批次适用 E4/素材
+逆向及最终产品比较；54 负责本票分配的实际 MV 1.6.1/NW.js R6。具体场景逐票
+列在批次记录末尾。没有将上述未执行项计为通过，完整支持仍待最终 55。
