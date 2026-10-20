@@ -887,11 +887,11 @@ export function compileNodes(
           indent,
           parameters: [
             resolver.resolveReference(node.actor),
-            node.character.image.name,
+            node.character.image === null ? "" : node.character.image.name,
             node.character.index,
-            node.face.image.name,
+            node.face.image === null ? "" : node.face.image.name,
             node.face.index,
-            node.battler.name,
+            node.battler === null ? "" : node.battler.name,
           ],
         });
         break;
@@ -899,7 +899,7 @@ export function compileNodes(
         output.push({
           code: 323,
           indent,
-          parameters: [vehicleToCode(node.vehicle), node.image.name, node.index],
+          parameters: [vehicleToCode(node.vehicle), node.image === null ? "" : node.image.name, node.index],
         });
         break;
       case "changeNickname":

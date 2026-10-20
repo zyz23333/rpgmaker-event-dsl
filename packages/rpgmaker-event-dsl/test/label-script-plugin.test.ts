@@ -280,10 +280,10 @@ it("recursively gates empty formal and raw Script groups in Loop Conditional and
     loop({ body: { commands: [empty] } }),
     conditional({
       condition: { kind: "script", script: scriptInput({ code: "" }) },
-      then: [empty],
-      else: [empty],
+      then: { commands: [empty] },
+      else: { commands: [empty] },
     }),
-    showChoices({ choices: [""], branches: [[empty]], cancelType: -2, cancelBranch: [empty] }),
+    showChoices({ choices: [{ text: "", commands: [empty] }], cancel: { kind: "branch", commands: [empty] } }),
     loop({
       body: {
         commands: [

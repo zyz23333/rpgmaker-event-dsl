@@ -196,7 +196,7 @@ describe("compileMapEvent", () => {
                 ],
                 cancel: {
                   kind: "branch",
-                  commands: [showText({ lines: ["Canceled"] })],
+                  commands: [showText({ lines: ["Canceled"], face: { image: null, index: 0 }, background: "window", position: "bottom" })],
                   endMarker: "absent",
                 },
               }),

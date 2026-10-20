@@ -177,8 +177,8 @@ export function renderChangeActorImages(
     typeof battlerName !== "string"
     ? null
     : {
-        expression: `changeActorImages({ actor: actorRef({ id: ${actorId} }), character: { image: imageAsset({ folder: "characters", name: ${literal(characterName)} }), index: ${characterIndex} }, face: { image: imageAsset({ folder: "faces", name: ${literal(faceName)} }), index: ${faceIndex} }, battler: imageAsset({ folder: "sv_actors", name: ${literal(battlerName)} }) })`,
-        helperNames: ["actorRef", "changeActorImages", "imageAsset"],
+        expression: `changeActorImages({ actor: actorRef({ id: ${actorId} }), character: { image: ${renderImage(characterName, "characters")}, index: ${literal(characterIndex)} }, face: { image: ${renderImage(faceName, "faces")}, index: ${literal(faceIndex)} }, battler: ${renderImage(battlerName, "sv_actors")} })`,
+        helperNames: ["actorRef", "changeActorImages", ...([characterName, faceName, battlerName].some((name) => name !== "") ? ["imageAsset"] : [])],
       };
 }
 
@@ -191,9 +191,13 @@ export function renderChangeVehicleImage(
   return vehicle === null || typeof imageName !== "string" || typeof index !== "number"
     ? null
     : {
-        expression: `changeVehicleImage({ vehicle: ${literal(vehicle)}, image: imageAsset({ folder: "characters", name: ${literal(imageName)} }), index: ${index} })`,
-        helperNames: ["changeVehicleImage", "imageAsset"],
+        expression: `changeVehicleImage({ vehicle: ${literal(vehicle)}, image: ${renderImage(imageName, "characters")}, index: ${literal(index)} })`,
+        helperNames: ["changeVehicleImage", ...(imageName === "" ? [] : ["imageAsset"])],
       };
+}
+
+function renderImage(name: string, folder: string): string {
+  return name === "" ? "null" : `imageAsset({ folder: ${literal(folder)}, name: ${literal(name)} })`;
 }
 
 export function renderActorCommandTarget(

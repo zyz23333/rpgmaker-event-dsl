@@ -188,9 +188,9 @@ export function changeClass(input: {
 
 export function changeActorImages(input: {
   actor: ReferenceValue<"actor">;
-  character: { image: ImageAssetReference; index: number };
-  face: { image: ImageAssetReference; index: number };
-  battler: ImageAssetReference;
+  character: { image: ImageAssetReference | null; index: number };
+  face: { image: ImageAssetReference | null; index: number };
+  battler: ImageAssetReference | null;
 }): ChangeActorImagesDslCommand {
   return {
     kind: "changeActorImages",
@@ -203,7 +203,7 @@ export function changeActorImages(input: {
 
 export function changeVehicleImage(input: {
   vehicle: VehicleTarget;
-  image: ImageAssetReference;
+  image: ImageAssetReference | null;
   index: number;
 }): ChangeVehicleImageDslCommand {
   return {
