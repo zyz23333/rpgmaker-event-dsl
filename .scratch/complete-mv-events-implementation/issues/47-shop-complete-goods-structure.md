@@ -1,6 +1,6 @@
 # 47: Shop 完整商品结构
 
-Status: claimed
+Status: resolved
 Blocked by: 07, 23
 Stage: S6
 Execution batch: [物品、队伍与商店](../tickets.md#batch-inventory-shop)
@@ -58,3 +58,8 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 ### 2026-10-19 — 07有限占位契约已接受，产品责任保留
 
 用户在实施会话中明确回答“接受有限占位变体及有序重复（推荐）”，接受[07报告](../evidence/07-shop-defaults-and-goods-reverse.md#契约比较与已接受修订)记录的空Shop重载后追加商品反例所需的有限正式占位变体。以上验收已同步精确四零、任意位置、有序混排/重复、sole placeholder goods=[]和其余零ID/价格异常拒绝。07只解除对应逆向/契约前置；本票仍须满足23等依赖，交付真实产品及Workspace往返与适用最终验证，没有因契约决定而resolved。
+
+
+### 2026-10-20 — Capability batch development completed
+
+按照规格首个2026-10-20用户执行修订，开发与受影响自动化已完成，详见[32/47批次交付](../evidence/32-47-inventory-shop-capability-batch.md)。Inventory原DEV已合并、最新Variables严格输入修复已合入，Shop使用完整goods/purchaseOnly及已接受有限占位契约。277项交叉单元及37项当前真实Workspace通过；原始失败保留，最终full/build/built归48，E2/E4归49/50，Inventory R4归53，Shop R6归54。以上开发关闭不把组合native验收框或pending需求记为通过。独立merger负责实际当前integration合入与必要交叉检查。

@@ -1,6 +1,6 @@
 # 32: 金钱、物品与队伍变更
 
-Status: claimed
+Status: resolved
 Blocked by: 23
 Stage: S6
 Execution batch: [物品、队伍与商店](../tickets.md#batch-inventory-shop)
@@ -62,3 +62,8 @@ E125–E129已覆盖正式mode对象、必填独立flags、精确原生槽、严
 44聚焦测试/2文件、58相关测试/6文件（含架构）、证据索引3测试、typecheck及scoped lint/format通过。新增6需求，286旧需求对象/原始字节前缀及2989旧证据blob保持一致。详细记录与不可变审计见[DEV证据](../evidence/32-inventory-party-dev.md)。保留C盘ENOSPC与初版检查失败记录；未执行native的结果明确标注not-executed。
 
 仍为claimed；后续需在实际最终integration上协调30/31变量family、26/28/30 raw错误路径重叠，按root队列完成契约版本增量、完整检查/构建/built、E4比较与实际R4，再由独立merger验收。本DEV提交不能关闭32。
+
+
+### 2026-10-20 — Capability batch development completed
+
+按照规格首个2026-10-20用户执行修订，开发与受影响自动化已完成，详见[32/47批次交付](../evidence/32-47-inventory-shop-capability-batch.md)。Inventory原DEV已合并、最新Variables严格输入修复已合入，Shop使用完整goods/purchaseOnly及已接受有限占位契约。277项交叉单元及37项当前真实Workspace通过；原始失败保留，最终full/build/built归48，E2/E4归49/50，Inventory R4归53，Shop R6归54。以上开发关闭不把组合native验收框或pending需求记为通过。独立merger负责实际当前integration合入与必要交叉检查。

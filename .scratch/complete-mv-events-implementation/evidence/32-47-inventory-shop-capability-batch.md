@@ -41,6 +41,15 @@ Logs and failed sandboxes are retained under
 | Shop and Inventory units plus actual Workspace |4files/58 passed, including37 Workspace cases |shop-inventory-focused.log |
 | After Variables integration: Shop, Inventory, Variables and crossing command/structure/architecture units |9files/277 passed |postvariables-units.log |
 | Package types after Variables merge and typed test cleanup |passed |typecheck-v2.log |
+| Final Shop/Inventory Workspace after Variables merge, including descriptor and pending-state assertions |2files/37 passed |postvariables-workspace.log |
+| Final package types /26 changed TS lint / formatting |passed, no warnings |typecheck-final.log / lint-final.log / format-final.log |
+| Current399-row index and contract freshness |2passed,9 name-filtered |index-freshness-final.log |
+
+Incoming remains actual `2ce2ba3b` while Text repairs are in progress. The batch
+advances `mv-1.6.1/17` once to `/18`; later independent integration reconciliation
+uses the real incoming version plus one. Six compact Shop Workspace result
+records are archived without copying historical payloads or first-party files.
+The final unused type-import removal has no behavior impact on the277/37 passes.
 
 Shop Workspace actually discovers and evaluates source in Map/Common/Troop,
 checks complete Compile Output, proves Check read-only, edits source and Pushes
