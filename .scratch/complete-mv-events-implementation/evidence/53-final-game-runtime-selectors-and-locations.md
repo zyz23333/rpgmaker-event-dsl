@@ -21,19 +21,19 @@ branch `codex/mv-final-r4-r5`, initially based on actual integration
 independent inputs. Existing complete controls remain individually mandatory;
 supplements extend their coverage.
 
-| Scenario                                | Required actual consequence                                                                                                                                                 |
-| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| final-r4-original-operands-64           | 64 actual Random targets, integer/range/distinct-observed predicates; self-alias multiply2,3,4→4,6,8; one Script evaluation and1,1,1; constant preservation                 |
-| final-r4-original-equipment-six         | Original six expectations: same ID chooses Armor versus Weapon after dual wield; missing candidate/None/insufficient inventory; variable Actor0 affects four members        |
-| final-r4-common-complete                | Original complete Map7 action→Common1→Battle→same Common1→native victory and normal Map return; all three owned containers receive real source edits                        |
-| final-r4-common-game-data-context       | Original Map/Battle caller supplemented by filtered missing Enemy, hidden runtime member, absent positions/Character/Party, scroll Battle skip and inherited-event erase    |
-| final-r4-force-full-range               | Original complete28 cases, actual Guard inputs for four Actors, targets0..7/last/random/hidden/appeared/dead, dead subjects and Map skip; original HP/delay/wait predicates |
-| final-r4-variable-operations-game-data  | All six operations, positive/negative floor, division/modulo0 raw storage versus public value, result beyond literal bounds and eight Game Data source kinds                |
-| final-r4-states-equipment-eligibility   | Variable Actor0 add/remove/recover state, fixed Actor distinction, death-state recovery and ineligible equipment returned to inventory                                      |
-| final-r4-inventory-party                | Gain/loss with negative/zero runtime quantity, stock cap/insufficient stock, included/excluded equipment and Party duplicate/add/remove initialize consequences             |
-| final-r4-r5-map-character-consequences  | Scroll starts immediately; next Scroll waits; terrain rejects/allows leaving Boat; followers show/hide refresh and Gather wait; missing event selector stays absent         |
-| final-r4-force-skill-scopes             | Separate one-friend/all-friends/all-visible-enemies/self/random-friend skill scope target sets and every actual HP consequence                                              |
-| final-r5-original-location-consequences | Original complete small-map coordinate and terrain/region/tile alias/event ID differences, Event/Boat locations and normal native Transfer                                  |
+| Scenario                                     | Required actual consequence                                                                                                                                                 |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| final-r4-original-operands-64                | 64 actual Random targets, integer/range/distinct-observed predicates; self-alias multiply2,3,4→4,6,8; one Script evaluation and1,1,1; constant preservation                 |
+| final-r4-original-equipment-six              | Original six expectations: same ID chooses Armor versus Weapon after dual wield; missing candidate/None/insufficient inventory; variable Actor0 affects four members        |
+| final-r4-common-complete-variable99          | Original complete Map7 action→Common1→Battle→same Common1→native victory and normal Map return; all three owned containers receive real source edits                        |
+| final-r4-common-game-data-context-variable99 | Original Map/Battle caller supplemented by filtered missing Enemy, hidden runtime member, absent positions/Character/Party, scroll Battle skip and inherited-event erase    |
+| final-r4-force-full-range-variable99         | Original complete28 cases, actual Guard inputs for four Actors, targets0..7/last/random/hidden/appeared/dead, dead subjects and Map skip; original HP/delay/wait predicates |
+| final-r4-variable-operations-game-data       | All six operations, positive/negative floor, division/modulo0 raw storage versus public value, result beyond literal bounds and eight Game Data source kinds                |
+| final-r4-states-equipment-eligibility        | Variable Actor0 add/remove/recover state, fixed Actor distinction, death-state recovery and ineligible equipment returned to inventory                                      |
+| final-r4-inventory-party                     | Gain/loss with negative/zero runtime quantity, stock cap/insufficient stock, included/excluded equipment and Party duplicate/add/remove initialize consequences             |
+| final-r4-r5-map-character-consequences       | Scroll starts immediately; next Scroll waits; terrain rejects/allows leaving Boat; followers show/hide refresh and Gather wait; missing event selector stays absent         |
+| final-r4-force-skill-scopes-variable99       | Separate one-friend/all-friends/all-visible-enemies/self/random-friend skill scope target sets and every actual HP consequence                                              |
+| final-r5-original-location-consequences      | Original complete small-map coordinate and terrain/region/tile alias/event ID differences, Event/Boat locations and normal native Transfer                                  |
 
 ## R5 scenario
 
@@ -84,6 +84,43 @@ Logs remain under the sibling `logs/` directory.
 
 These checks use `new Function` only to parse observer strings. They do not
 execute engine code in Node and do not prove runtime expectations.
+
+## Accepted native HP operand derivation
+
+The original Common and Force controls predate the final HP constant domain and
+contain the literal9999999 to create dead targets/subjects and native victory.
+The current contract accepts HP constants1..9999. The original files, all28
+Force definitions, complete Common flow and every original oracle remain
+preserved. The four separately named `variable99` scenarios use one finite
+derivation rather than changing the product domain or lowering the kill value:
+
+- Initialize Variable99 to9999999 with native122 at the original Map caller
+  before native301. Reserve its System name/capacity without changing other
+  variables.
+- Change only HP311/331 records whose constant operand is exactly9999999 to
+  variable mode with Variable99. The runtime quantity, operation, selector,
+  allow-death setting, ordering and full oracle remain the same.
+- Apply identical changes to each independent input and loaded-carrier
+  expectation. Keep the exact native path and before/after parameter tuples in
+  `nativeOperandAdaptation` in the retained independent-fixture record.
+
+Common/full-context/scopes each adapt one HP record; full Force adapts three.
+Log014 validates scenario syntax,015 formats the affected file,016 passes all
+eleven observer syntax/independent fixture assemblies including exact adaptation
+counts, and017 validates the current final runner syntax. Product lifecycle and
+native games still have not executed. This is an explicitly named legal-input
+derivation of each preserved control, not an observation of the original rejected
+literal through the product.
+
+Preparation review also corrected the supplementary Common current-event X
+prediction from9 to10: its original Common203 first moves Event7 to10,6,
+then the added Character Game Data query reads that current position. Shipped
+`rpg_objects.js` `command203`/`gameDataOperand` branches support this input-based
+prediction; it is still not an actual game observation. Log019 records scoped
+lint with zero errors and the same three preserved unused-variable warnings.
+Log021 repeats all eleven static assemblies after preserving Variable99's System
+name in the contextual supplement. Later affected static records retain the
+corrected X prediction.
 
 ## Latest incoming and retained preparation failures
 

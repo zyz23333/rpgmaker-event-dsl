@@ -52,3 +52,15 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 Claimed in dedicated M worktree `mv-final-r4-r5` on `codex/mv-final-r4-r5`, initially based on actual integration `4c46520e5e826fb0e01864506f4682c73a41b045`. The specification's first 2026-10-20 amendment governs evidence and check frequency. Before ticket48 supplies the recorded final candidate and built package, work is limited to independent scenario/oracle review, runner preparation and necessary static checks. No final native run or acceptance completion is claimed. Existing original failures and full controls remain intact.
 
 The eleven prepared independent scenarios and safe Common export are recorded in [the preparation report](../evidence/53-final-game-runtime-selectors-and-locations.md). Static syntax/fixture assembly checks are explicitly not native or product lifecycle acceptance. Final53 scope also includes the Actor state/equipability and Map-character supplements assigned from41–43/35;54 retains Actor growth/HP/TP and rendered animations, while52 retains Battle scheduling/Abort and R1 route contexts.
+
+### 2026-10-20 — finite legal HP operand preparation
+
+The original Common/Force controls retain literal9999999 HP quantities that
+predate the accepted constant1..9999 contract. Four separately named
+`variable99` derivations initialize native Variable99 to the unchanged9999999
+value before the original battle and change only those HP records to native
+variable operands. The original inputs, complete28 Force definitions and all
+oracles remain preserved. Exact native paths/before-after tuples are retained in
+the independent fixture metadata. No product domain is widened. The preparation
+report records affected syntax/fixture/lint checks; final48 candidate and actual
+game execution remain pending, so every acceptance box remains unchecked.

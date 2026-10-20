@@ -71,17 +71,90 @@ function current(scenario, slug) {
     },
   };
 }
+function withAcceptedHpOperand(scenario, expectedReplacements) {
+  return {
+    ...scenario,
+    async fixture(seed) {
+      // Retain the original full control/oracle. Its old kill quantity is still
+      // 9999999, now expressed through the accepted native variable operand.
+      const value = copy(await scenario.fixture(seed));
+      const adapt = (carriers) => {
+        const replacements = [];
+        const visit = (node, nativePath) => {
+          if (!node || typeof node !== "object") return;
+          if (node.code === 311 || node.code === 331) {
+            const modeIndex = node.code === 311 ? 3 : 2;
+            const quantityIndex = modeIndex + 1;
+            if (node.parameters[modeIndex] === 0 && node.parameters[quantityIndex] === 9999999) {
+              const before = copy(node.parameters);
+              node.parameters[modeIndex] = 1;
+              node.parameters[quantityIndex] = 99;
+              replacements.push({ nativePath, before, after: copy(node.parameters) });
+            }
+          }
+          for (const [key, child] of Object.entries(node)) visit(child, nativePath + "/" + key);
+        };
+        for (const [file, carrier] of Object.entries(carriers)) visit(carrier, file);
+        assert.equal(
+          replacements.length,
+          expectedReplacements,
+          "Exact legacy HP fixture adaptations",
+        );
+        const callers = [];
+        for (const [eventIndex, event] of carriers["Map001.json"].events.entries())
+          if (event)
+            for (const [pageIndex, page] of event.pages.entries())
+              if (page.list.some((command) => command.code === 301)) {
+                page.list.unshift(c(122, [99, 99, 0, 0, 9999999]));
+                callers.push(
+                  "Map001.json/events/" + eventIndex + "/pages/" + pageIndex + "/list/0",
+                );
+              }
+        assert.equal(
+          callers.length,
+          1,
+          "One original Map caller initializes the unchanged kill value",
+        );
+        const variables = carriers["System.json"].variables;
+        while (variables.length < 101) variables.push("");
+        variables[99] = "Independent final control HP quantity";
+        return { replacements, callers };
+      };
+      const literal = adapt(value.carriers);
+      const loaded = adapt(value.loadedCarriers);
+      assert.deepEqual(
+        loaded,
+        literal,
+        "Loaded-carrier expectation includes identical adaptations",
+      );
+      return {
+        ...value,
+        nativeOperandAdaptation: {
+          reason:
+            "Current HP constants accept 1..9999; native variable operand retains old 9999999 effect",
+          variableId: 99,
+          runtimeQuantity: 9999999,
+          originalFullOracleUnchanged: true,
+          ...literal,
+        },
+      };
+    },
+  };
+}
 function commonScenario() {
   return current(
-    {
-      ...common.scenario,
-      editSources: editOwnedSources(
-        ["R4 Common context caller", "R4 Common shared callee"],
-        "PAIR-SEED Troop owned source proof",
-        3,
-      ),
-    },
-    "final-r4-common-complete",
+    withAcceptedHpOperand(
+      {
+        ...common.scenario,
+        editSources: editOwnedSources(
+          ["R4 Common context caller", "R4 Common shared callee"],
+          "PAIR-SEED Troop owned source proof",
+          3,
+        ),
+      },
+      1,
+    ),
+    "final-r4-common-complete-variable99",
   );
 }
 function contextOperands() {
@@ -92,7 +165,7 @@ function contextOperands() {
       {
         eventId: 7,
         inBattle: false,
-        values: [0, 0, 0, 9, 8, 1, 0, 0, 1],
+        values: [0, 0, 0, 10, 8, 1, 0, 0, 1],
         erasedAfter: true,
         scrollEffect: true,
       },
@@ -150,7 +223,8 @@ function contextOperands() {
         const value = await scenario.fixture(seed);
         const list = value.carriers["CommonEvents.json"][1].list;
         list.splice(list.length - 1, 0, ...copy(added));
-        value.carriers["System.json"].variables = Array.from({ length: 101 }, () => "");
+        while (value.carriers["System.json"].variables.length < 101)
+          value.carriers["System.json"].variables.push("");
         value.carriers["Troops.json"][1].members = [
           { enemyId: 999, x: 100, y: 280, hidden: false },
           { enemyId: 1, x: 300, y: 280, hidden: false },
@@ -168,7 +242,7 @@ function contextOperands() {
         return { ...value, expected };
       },
     },
-    "final-r4-common-game-data-context",
+    "final-r4-common-game-data-context-variable99",
   );
 }
 function operations() {
@@ -596,18 +670,21 @@ function forceSkillScopes() {
       return comparisonDetails;
     },
   };
-  return current(scenario, "final-r4-force-skill-scopes");
+  return current(withAcceptedHpOperand(scenario, 1), "final-r4-force-skill-scopes-variable99");
 }
 function makeScenarios() {
   const force = current(
-    forceAdapters.makeForceFuturePair(
-      editOwnedSources(
-        ["Force Action range normal Scene"],
-        "PAIR-SEED owned harmless R4 range comment",
-        2,
+    withAcceptedHpOperand(
+      forceAdapters.makeForceFuturePair(
+        editOwnedSources(
+          ["Force Action range normal Scene"],
+          "PAIR-SEED owned harmless R4 range comment",
+          2,
+        ),
       ),
+      3,
     ),
-    "final-r4-force-full-range",
+    "final-r4-force-full-range-variable99",
   );
   force.timeoutMs = 145000;
   return [
