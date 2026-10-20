@@ -14,6 +14,7 @@ import { assertIncluded, assertNonEmptyString } from "./shared.js";
 import { assertMovieAssetInput } from "../commands/screen/validation.js";
 import { assertDslObject, assertRawDslInput } from "../validation/dsl-command-inputs.js";
 import { assertAudioAssetInput } from "../commands/audio/validation.js";
+import { assertDslTextInput } from "../validation/dsl-command-inputs.js";
 import { assertReferenceInput } from "../validation/reference-inputs.js";
 
 function authoredReference<TKind extends ReferenceKind>(
@@ -82,8 +83,7 @@ export function movieAsset(input: { name: string }): MovieAssetReference {
 }
 
 export function scriptInput(input: { code: string }): ScriptInput {
-  assertDslObject(input, ["code"], "scriptInput");
-  if (typeof input.code !== "string") throw new Error("Script input code must be a string.");
+  assertDslTextInput(input, "code", "scriptInput");
 
   return {
     kind: "scriptInput",

@@ -44,6 +44,8 @@ Original breakdown: [已确认拆分记录](ticket-breakdown-draft.md#comments)
 
 集中交付行记录、单槽字符串、CR/LF、脸图索引与 None、Label 和脚本 Gate；共享文本及素材边界案例，分别验证各指令自己的记录规则和运行后果。
 
+开发已完成；实际验证及尚待51/52/54的最终原生场景见[批次交付报告](evidence/29-30-44-text-capability-batch.md)。
+
 <a id="batch-inventory-shop"></a>
 
 ### 物品、队伍与商店

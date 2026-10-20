@@ -7,8 +7,11 @@ import {
 import type { ReferenceResolver } from "../validation/types.js";
 import type { RawEventCommand, CommandOrigins } from "./types.js";
 import { assertControlTimerInput } from "../commands/variables/validation.js";
+
+import { compileShowText } from "../commands/message/compile.js";
+import { resolveMessageVariable } from "../commands/message/validation.js";
 import { assertDslCommandList } from "../validation/dsl-command-inputs.js";
-import { assertShowChoicesInput } from "../commands/message/validation.js";
+import { assertShowChoicesInput } from "../commands/message/choices-validation.js";
 import { assertScreenInput } from "../commands/screen/validation.js";
 import { assertSwitchCommandInput } from "../commands/variables/switch-inputs.js";
 import { assertMapAppearanceInput } from "../commands/map/validation.js";
@@ -20,6 +23,7 @@ import {
 } from "../commands/movement/access-validation.js";
 import { assertSceneCommandInput } from "../commands/system/validation.js";
 import { assertAudioCommandInput } from "../commands/audio/validation.js";
+import { assertActorPresentationInput } from "../commands/actor/presentation-validation.js";
 import { assertActorResourceInput } from "../commands/actor/validation.js";
 import {
   compileActorResourceTarget,
@@ -30,6 +34,7 @@ import {
   assertConditionalBodyOutput,
   assertConditionalReferences,
 } from "../commands/flow/conditional-validation.js";
+import { assertDslObject, assertDslTextInput } from "../validation/dsl-command-inputs.js";
 import {
   locationDirectionToCode,
   transferFadeToCode,
@@ -168,6 +173,7 @@ export function compileNodes(
     assertWindowColorInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true);
     assertSceneCommandInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
     assertActorResourceInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
+    assertActorPresentationInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     if (isInventoryCommandKind(node.kind))
       assertInventoryInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
 
@@ -176,43 +182,43 @@ export function compileNodes(
     const outputStart = output.length;
     switch (node.kind) {
       case "showText":
-        output.push({
-          code: 101,
-          indent,
-          parameters: [
-            node.face?.image.name ?? "",
-            node.face?.index ?? 0,
-            node.background ?? 0,
-            node.positionType ?? 2,
-          ],
-        });
-        for (const line of node.lines) {
-          output.push({
-            code: 401,
-            indent,
-            parameters: [line],
-          });
-        }
+        output.push(...compileShowText(node, indent));
         break;
       case "inputNumber":
         output.push({
           code: 103,
           indent,
-          parameters: [resolver.resolveReference(node.variable), node.digits],
+          parameters: [
+            resolveMessageVariable(
+              node.variable,
+              103,
+              resolver,
+              `${sourcePath}[${nodeIndex}].variable`,
+            ),
+            node.digits,
+          ],
         });
         break;
       case "selectItem":
         output.push({
           code: 104,
           indent,
-          parameters: [resolver.resolveReference(node.variable), node.itemType ?? 2],
+          parameters: [
+            resolveMessageVariable(
+              node.variable,
+              104,
+              resolver,
+              `${sourcePath}[${nodeIndex}].variable`,
+            ),
+            { regular: 1, key: 2, hiddenA: 3, hiddenB: 4 }[node.itemType],
+          ],
         });
         break;
       case "showScrollingText":
         output.push({
           code: 105,
           indent,
-          parameters: [node.speed ?? 2, node.noFastForward ?? false],
+          parameters: [node.speed, node.noFastForward],
         });
         for (const line of node.lines) {
           output.push({
@@ -329,9 +335,11 @@ export function compileNodes(
         });
         break;
       case "label":
+        assertDslTextInput(node, "name", `${sourcePath}[${nodeIndex}]`, "label");
         output.push({ code: 118, indent, parameters: [node.name] });
         break;
       case "jumpToLabel":
+        assertDslTextInput(node, "name", `${sourcePath}[${nodeIndex}]`, "jumpToLabel");
         output.push({ code: 119, indent, parameters: [node.name] });
         break;
       case "controlSwitches": {
@@ -556,6 +564,13 @@ export function compileNodes(
         }
         break;
       case "script":
+        assertDslObject(node, ["kind", "script"], `${sourcePath}[${nodeIndex}]`);
+        assertDslTextInput(
+          node.script,
+          "code",
+          `${sourcePath}[${nodeIndex}].script`,
+          "scriptInput",
+        );
         output.push({
           code: 355,
           indent,
@@ -570,14 +585,11 @@ export function compileNodes(
         }
         break;
       case "pluginCommand":
+        assertDslTextInput(node, "line", `${sourcePath}[${nodeIndex}]`, "pluginCommand");
         output.push({
           code: 356,
           indent,
-          parameters: [
-            node.args !== undefined && node.args.length > 0
-              ? `${node.command} ${node.args.join(" ")}`
-              : node.command,
-          ],
+          parameters: [node.line],
         });
         break;
       case "transferPlayer":
@@ -945,11 +957,11 @@ export function compileNodes(
           indent,
           parameters: [
             resolver.resolveReference(node.actor),
-            node.character.image.name,
+            node.character.image === null ? "" : node.character.image.name,
             node.character.index,
-            node.face.image.name,
+            node.face.image === null ? "" : node.face.image.name,
             node.face.index,
-            node.battler.name,
+            node.battler === null ? "" : node.battler.name,
           ],
         });
         break;
@@ -957,7 +969,11 @@ export function compileNodes(
         output.push({
           code: 323,
           indent,
-          parameters: [vehicleToCode(node.vehicle), node.image.name, node.index],
+          parameters: [
+            vehicleToCode(node.vehicle),
+            node.image === null ? "" : node.image.name,
+            node.index,
+          ],
         });
         break;
       case "changeNickname":
@@ -1314,8 +1330,23 @@ export function compileNodes(
       inspectCommandListStructure(output, { requireTerminator: true });
     } catch (error) {
       if (error instanceof CommandStructureError) {
-        const dslAt = (path: string | undefined) =>
-          path ? origins.get(output[Number(/^list\[(\d+)\]/u.exec(path)?.[1])]!)?.path : undefined;
+        const dslAt = (path: string | undefined) => {
+          if (!path) return undefined;
+          const record = output[Number(/^list\[(\d+)\]/u.exec(path)?.[1])]!;
+          const origin = origins.get(record);
+          if (!origin) return undefined;
+          if (![118, 119, 355, 356, 655].includes(record.code)) return origin.path;
+          return (
+            origin.path +
+            (origin.kind === "rawDslCommand"
+              ? path.replace(/^list\[\d+\]/u, "")
+              : origin.kind === "script"
+                ? ".script.code"
+                : origin.kind === "pluginCommand"
+                  ? ".line"
+                  : ".name")
+          );
+        };
         const dslPath = dslAt(error.location.nativePath);
         throw new CommandStructureError(error.code, error.detail, {
           ...error.location,

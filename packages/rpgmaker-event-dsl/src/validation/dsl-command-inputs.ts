@@ -2,6 +2,13 @@ import type { DslCommand } from "../domain/types.js";
 import { describeValue } from "../project-data/json-values.js";
 import { CommandStructureError } from "./command-errors.js";
 import { assertNativeCommandEnvelope } from "./command-structure.js";
+import {
+  assertShowText,
+  assertInputNumber,
+  assertSelectItem,
+  assertShowScrollingText,
+  assertComment,
+} from "../commands/message/validation.js";
 
 export function assertDslObject(
   value: unknown,
@@ -68,6 +75,27 @@ export function assertRawDslInput(
   }
 }
 
+export function assertDslTextInput(
+  value: unknown,
+  field: "name" | "line" | "code",
+  path: string,
+  kind?: string,
+): void {
+  assertDslObject(value, kind === undefined ? [field] : ["kind", field], path);
+  if (kind !== undefined && (!Object.hasOwn(value, "kind") || value.kind !== kind))
+    throw new CommandStructureError("MV-DSL-SHAPE", "Unexpected authored text kind.", {
+      dslPath: `${path}.kind`,
+      expected: kind,
+      actual: describeValue(value.kind),
+    });
+  if (!Object.hasOwn(value, field) || typeof value[field] !== "string")
+    throw new CommandStructureError("MV-DSL-SHAPE", "A complete text string is required.", {
+      dslPath: `${path}.${field}`,
+      expected: "explicit string",
+      actual: Object.hasOwn(value, field) ? describeValue(value[field]) : "missing",
+    });
+}
+
 export function assertDslCommandList(
   value: unknown,
   path: string,
@@ -99,5 +127,10 @@ export function assertDslCommandList(
     if (!Object.hasOwn(node, "kind") || typeof node.kind !== "string")
       fail(at, "missing command kind");
     if (node.kind === "rawDslCommand") assertRawDslInput(node, at, 0, true, validateRaw);
+    if (node.kind === "showText") assertShowText(node, at);
+    if (node.kind === "inputNumber") assertInputNumber(node, at);
+    if (node.kind === "selectItem") assertSelectItem(node, at);
+    if (node.kind === "showScrollingText") assertShowScrollingText(node, at);
+    if (node.kind === "comment") assertComment(node, at);
   }
 }

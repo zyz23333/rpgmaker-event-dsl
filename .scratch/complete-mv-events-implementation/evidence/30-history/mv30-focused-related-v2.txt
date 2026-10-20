@@ -1,0 +1,13 @@
+
+> rpgmaker-event-dsl@0.1.2 test C:\Users\Shuen\.codex\worktrees\mv-ticket-30\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> vitest run "test/label-script-plugin.test.ts" "test/events.test.ts" "test/decompiler.test.ts" "test/command-boundary.test.ts" "test/loop.test.ts" "test/definitions.test.ts" "test/architecture.test.ts"
+
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-30/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+
+ Test Files  7 passed (7)
+      Tests  89 passed (89)
+   Start at  02:19:05
+   Duration  5.58s (transform 1.15s, setup 0ms, import 5.03s, tests 3.47s, environment 1ms)
+

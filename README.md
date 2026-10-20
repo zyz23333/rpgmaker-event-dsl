@@ -58,7 +58,14 @@ agent to change safely.
 The DSL gives those raw records readable names and typed structure:
 
 ```ts
-commands: [showText({ lines: ["Welcome."] })];
+commands: [
+  showText({
+    lines: ["Welcome."],
+    face: { image: null, index: 0 },
+    background: "window",
+    position: "bottom",
+  }),
+];
 ```
 
 That single DSL command compiles into the raw command list above. `code: 101` starts the
@@ -207,7 +214,14 @@ export const introCommonEvent = commonEvent({
   id: 1,
   name: "Intro",
   trigger: "none",
-  commands: [showText({ lines: ["Welcome."] })],
+  commands: [
+    showText({
+      lines: ["Welcome."],
+      face: { image: null, index: 0 },
+      background: "window",
+      position: "bottom",
+    }),
+  ],
 });
 ```
 
@@ -541,6 +555,35 @@ are preserved with a warning. Each choice and a separate cancel branch own their
 Body End Marker; see the [Choices example](packages/rpgmaker-event-dsl/README.md#choices)
 for the complete authoring shape.
 
+Message helpers require their complete named settings:
+
+```ts
+showText({
+  lines: ["Welcome.\r", ""],
+  face: { image: null, index: 11 },
+  background: "window",
+  position: "bottom",
+});
+inputNumber({ variable: variableRef({ id: 2 }), digits: 8 });
+selectItem({ variable: variableRef({ id: 2 }), itemType: "hiddenB" });
+showScrollingText({ lines: ["Credits", ""], speed: 2, noFastForward: false });
+comment({ lines: ["Quest state", ""] });
+```
+
+Each `lines` element is one physical saved record. Preserve CR, whitespace and empty
+or trailing empty lines; an embedded LF is rejected. Show Text requires 1–4 lines,
+Comment 1–6, and Scrolling Text at least one. Split longer dialogue into explicit
+`showText` calls. The compiler never trims or splits a group automatically.
+Background is `window`/`dim`/`transparent`, and position is `top`/`middle`/`bottom`.
+Face `image` is a `faces` image Asset Reference or `null` for None; its independent
+integer `index` is required, accepts 0–2,147,483,647 and rejects negative zero.
+Non-None indices at least 8 warn about the official two-row layout while preserving
+the saved value. Asset files and dimensions are unchecked; None retains its index.
+Number input requires digits 1–8. Item selection requires `regular`, `key`, `hiddenA`
+or `hiddenB`; its variable is the result destination and must resolve to an existing
+System Variable Slot. Scrolling speed is an integer 1–8 and `noFastForward` is an
+explicit Boolean. These text records do not require the Script Command Gate.
+
 `setMovementRoute({ target, route: { commands, repeat?, skippable?, wait?, terminator? } })`
 uses the shared `MovementRoute` model. `commands` is required and may be empty;
 the route defaults are `repeat: true`, `skippable: false`, and `wait: false`.
@@ -617,9 +660,23 @@ or unreachable Script/continuation records, script conditions, Control Variables
 script operands, Set Movement Route records and mirrors, and saved Page routes in
 every movement mode. Recognized raw commands receive the same checks. With the Gate
 closed, Decompile produces source with warnings; Check and Compile reject the current
-declarations until those scripts are removed or the Gate is enabled. `pluginCommand(...)`
-carries MV's native plugin command string; plugin-specific argument semantics remain
-outside validation.
+declarations until those scripts are removed or the Gate is enabled.
+
+`label({ name })` and `jumpToLabel({ name })` require a complete string, including an
+explicit empty string when intended. MV searches the complete current native command
+list for the first exact Label, across branch indentation. Duplicate Labels and missing
+targets warn; separate event pages and Common Events have separate label scopes.
+CR/LF parameter-reconfirmation warnings preserve the original string.
+
+`script({ code })` or `script(scriptInput({ code }))` uses 1–12 physical records,
+splitting only on LF. An empty string is one record; CR and trailing empty records are
+preserved. This limit belongs to the Script command and does not limit single-slot
+Script Inputs in conditions, variable operands or Movement Routes.
+
+`pluginCommand({ line })` carries the entire MV Plugin Command Line as one required
+string. Empty text, leading/trailing/repeated spaces, Tab, CR and LF remain exact.
+The Script Command Gate permits Plugin Commands. A Plugin Command Registry is optional
+lint; plugin-specific execution and argument semantics remain outside validation.
 
 Conditional Script retains its entire single string slot, including empty strings,
 CR, LF, trailing whitespace and long input. CR or LF produces a reconfirmation
@@ -671,7 +728,14 @@ export const introCommonEvent = commonEvent({
   id: 1,
   name: "Intro",
   trigger: "none",
-  commands: [showText({ lines: ["Welcome."] })],
+  commands: [
+    showText({
+      lines: ["Welcome."],
+      face: { image: null, index: 0 },
+      background: "window",
+      position: "bottom",
+    }),
+  ],
 });
 
 export const doorEvent = mapEvent({
@@ -686,7 +750,12 @@ export const doorEvent = mapEvent({
         switch1: { enabled: true, ref: switchRef({ id: 1 }) },
       },
       commands: [
-        showText({ lines: ["The door is open."] }),
+        showText({
+          lines: ["The door is open."],
+          face: { image: null, index: 0 },
+          background: "window",
+          position: "bottom",
+        }),
         callCommonEvent({ commonEvent: commonEventRef({ id: 1 }) }),
       ],
     }),
@@ -864,3 +933,36 @@ Identity.
 
 This repository's original source code and the published `rpgmaker-event-dsl` package are
 licensed under the MIT License. See `LICENSE` and `packages/rpgmaker-event-dsl/LICENSE`.
+
+## Actor Text and Images
+
+```ts
+nameInputProcessing({ actor: actorRef({ id: 1 }), maxCharacters: 16 });
+changeName({ actor: actorRef({ id: 1 }), name: "" });
+changeNickname({ actor: actorRef({ id: 1 }), nickname: "  Mira  " });
+changeProfile({ actor: actorRef({ id: 1 }), profile: "First line\nSecond line\n" });
+changeActorImages({
+  actor: actorRef({ id: 1 }),
+  character: { image: null, index: 7 },
+  face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 11 },
+  battler: null,
+});
+changeVehicleImage({ vehicle: "airship", image: null, index: 7 });
+```
+
+All shown fields are required. Name Input uses a fixed existing Actor and an integer
+`maxCharacters` from 1 through 16. Battle execution skips its Name scene and produces
+a context warning. Name, nickname and profile are complete strings, including empty
+text, whitespace, CR, LF, CRLF and trailing characters, without a product length cap.
+Name and nickname warn on LF; profile warns on two or more LF characters, including
+trailing LF. CR independently warns about parameter reconfirmation. These strings
+remain one saved slot and do not require the Script Command Gate.
+
+Character and vehicle images use the `characters` folder, faces use `faces`, and
+battlers use `sv_actors`. Explicit `null` selects None. Character and vehicle indices
+are independent integers 0 through 7, including with None or a large character image.
+Face indices use 0 through 2,147,483,647 excluding negative zero. A non-None face
+index of at least 8 warns that it exceeds the official two-row layout and its asset
+dimensions are unchecked; None preserves the index without that warning. Vehicles
+are `boat`, `ship` or `airship`. In battle, Change Vehicle Image changes the held map
+vehicle object, with a warning that immediate visibility is uncertain.

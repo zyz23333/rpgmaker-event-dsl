@@ -1,0 +1,81 @@
+
+> rpgmaker-event-dsl@0.1.2 test C:\Users\Shuen\.codex\worktrees\mv-ticket-30\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> vitest run "test/label-script-plugin-workspace.test.ts"
+
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-30/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+stderr | test/label-script-plugin-workspace.test.ts > MV-S6-TEXT-001: round trips exact Label Script and Plugin records in all three event containers and all fifteen carriers
+decompile warning map:1/event:1: MV-LABEL-DUPLICATE at pages[0].list[2].parameters[0]: Duplicate exact Label; Jump to Label selects the first match in the complete native list, including across branch indentation. Actual " A ".
+decompile warning map:1/event:1: MV-TEXT-RECONFIRMATION at pages[0].list[6].parameters[0]: The complete string is preserved; LF exceeds the single-line editor control; CR preservation on parameter reconfirmation requires native verification. Actual "A\rB\nC\r\n\t ".
+decompile warning map:1/event:1: MV-TEXT-RECONFIRMATION at pages[0].list[7].parameters[0]: The complete string is preserved; LF exceeds the single-line editor control; CR preservation on parameter reconfirmation requires native verification. Actual "A\rB\nC\r\n\t ".
+decompile warning map:1/event:1: MV-LABEL-MISSING at pages[0].list[8].parameters[0]: No exact Label exists in this complete native list; Jump to Label continues without jumping. Actual "elsewhere".
+decompile warning commonEvent:1: MV-LABEL-DUPLICATE at list[2].parameters[0]: Duplicate exact Label; Jump to Label selects the first match in the complete native list, including across branch indentation. Actual " A ".
+decompile warning commonEvent:1: MV-TEXT-RECONFIRMATION at list[6].parameters[0]: The complete string is preserved; LF exceeds the single-line editor control; CR preservation on parameter reconfirmation requires native verification. Actual "A\rB\nC\r\n\t ".
+decompile warning commonEvent:1: MV-TEXT-RECONFIRMATION at list[7].parameters[0]: The complete string is preserved; LF exceeds the single-line editor control; CR preservation on parameter reconfirmation requires native verification. Actual "A\rB\nC\r\n\t ".
+decompile warning commonEvent:1: MV-LABEL-MISSING at list[8].parameters[0]: No exact Label exists in this complete native list; Jump to Label continues without jumping. Actual "elsewhere".
+decompile warning troop:1: MV-LABEL-DUPLICATE at pages[0].list[2].parameters[0]: Duplicate exact Label; Jump to Label selects the first match in the complete native list, including across branch indentation. Actual " A ".
+decompile warning troop:1: MV-TEXT-RECONFIRMATION at pages[0].list[6].parameters[0]: The complete string is preserved; LF exceeds the single-line editor control; CR preservation on parameter reconfirmation requires native verification. Actual "A\rB\nC\r\n\t ".
+decompile warning troop:1: MV-TEXT-RECONFIRMATION at pages[0].list[7].parameters[0]: The complete string is preserved; LF exceeds the single-line editor control; CR preservation on parameter reconfirmation requires native verification. Actual "A\rB\nC\r\n\t ".
+decompile warning troop:1: MV-LABEL-MISSING at pages[0].list[8].parameters[0]: No exact Label exists in this complete native list; Jump to Label continues without jumping. Actual "elsewhere".
+
+stderr | test/label-script-plugin-workspace.test.ts > MV-S6-TEXT-001: round trips exact Label Script and Plugin records in all three event containers and all fifteen carriers
+compile warning commonEvent:1: MV-LABEL-DUPLICATE at list[2].parameters[0]: Duplicate exact Label; Jump to Label selects the first match in the complete native list, including across branch indentation. Actual " A ".
+compile warning commonEvent:1: MV-TEXT-RECONFIRMATION at list[6].parameters[0]: The complete string is preserved; LF exceeds the single-line editor control; CR preservation on parameter reconfirmation requires native verification. Actual "A\rB\nC\r\n\t ".
+compile warning commonEvent:1: MV-TEXT-RECONFIRMATION at list[7].parameters[0]: The complete string is preserved; LF exceeds the single-line editor control; CR preservation on parameter reconfirmation requires native verification. Actual "A\rB\nC\r\n\t ".
+compile warning commonEvent:1: MV-LABEL-MISSING at list[8].parameters[0]: No exact Label exists in this complete native list; Jump to Label continues without jumping. Actual "elsewhere".
+compile warning map:1/event:1: MV-LABEL-DUPLICATE at pages[0].list[2].parameters[0]: Duplicate exact Label; Jump to Label selects the first match in the complete native list, including across branch indentation. Actual " A ".
+compile warning map:1/event:1: MV-TEXT-RECONFIRMATION at pages[0].list[6].parameters[0]: The complete string is preserved; LF exceeds the single-line editor control; CR preservation on parameter reconfirmation requires native verification. Actual "A\rB\nC\r\n\t ".
+compile warning map:1/event:1: MV-TEXT-RECONFIRMATION at pages[0].list[7].parameters[0]: The complete string is preserved; LF exceeds the single-line editor control; CR preservation on parameter reconfirmation requires native verification. Actual "A\rB\nC\r\n\t ".
+compile warning map:1/event:1: MV-LABEL-MISSING at pages[0].list[8].parameters[0]: No exact Label exists in this complete native list; Jump to Label continues without jumping. Actual "elsewhere".
+compile warning troop:1: MV-LABEL-DUPLICATE at pages[0].list[2].parameters[0]: Duplicate exact Label; Jump to Label selects the first match in the complete native list, including across branch indentation. Actual " A ".
+compile warning troop:1: MV-TEXT-RECONFIRMATION at pages[0].list[6].parameters[0]: The complete string is preserved; LF exceeds the single-line editor control; CR preservation on parameter reconfirmation requires native verification. Actual "A\rB\nC\r\n\t ".
+compile warning troop:1: MV-TEXT-RECONFIRMATION at pages[0].list[7].parameters[0]: The complete string is preserved; LF exceeds the single-line editor control; CR preservation on parameter reconfirmation requires native verification. Actual "A\rB\nC\r\n\t ".
+compile warning troop:1: MV-LABEL-MISSING at pages[0].list[8].parameters[0]: No exact Label exists in this complete native list; Jump to Label continues without jumping. Actual "elsewhere".
+
+stderr | test/label-script-plugin-workspace.test.ts > MV-S6-TEXT-001: round trips exact Label Script and Plugin records in all three event containers and all fifteen carriers
+compile warning commonEvent:1: MV-LABEL-DUPLICATE at list[2].parameters[0]: Duplicate exact Label; Jump to Label selects the first match in the complete native list, including across branch indentation. Actual " A ".
+compile warning commonEvent:1: MV-TEXT-RECONFIRMATION at list[6].parameters[0]: The complete string is preserved; LF exceeds the single-line editor control; CR preservation on parameter reconfirmation requires native verification. Actual "A\rB\nC\r\n\t ".
+compile warning commonEvent:1: MV-TEXT-RECONFIRMATION at list[7].parameters[0]: The complete string is preserved; LF exceeds the single-line editor control; CR preservation on parameter reconfirmation requires native verification. Actual "A\rB\nC\r\n\t ".
+compile warning commonEvent:1: MV-LABEL-MISSING at list[8].parameters[0]: No exact Label exists in this complete native list; Jump to Label continues without jumping. Actual "elsewhere".
+compile warning map:1/event:1: MV-LABEL-DUPLICATE at pages[0].list[2].parameters[0]: Duplicate exact Label; Jump to Label selects the first match in the complete native list, including across branch indentation. Actual " A ".
+compile warning map:1/event:1: MV-TEXT-RECONFIRMATION at pages[0].list[6].parameters[0]: The complete string is preserved; LF exceeds the single-line editor control; CR preservation on parameter reconfirmation requires native verification. Actual "A\rB\nC\r\n\t ".
+compile warning map:1/event:1: MV-TEXT-RECONFIRMATION at pages[0].list[7].parameters[0]: The complete string is preserved; LF exceeds the single-line editor control; CR preservation on parameter reconfirmation requires native verification. Actual "A\rB\nC\r\n\t ".
+compile warning map:1/event:1: MV-LABEL-MISSING at pages[0].list[8].parameters[0]: No exact Label exists in this complete native list; Jump to Label continues without jumping. Actual "elsewhere".
+compile warning troop:1: MV-LABEL-DUPLICATE at pages[0].list[2].parameters[0]: Duplicate exact Label; Jump to Label selects the first match in the complete native list, including across branch indentation. Actual " A ".
+compile warning troop:1: MV-TEXT-RECONFIRMATION at pages[0].list[6].parameters[0]: The complete string is preserved; LF exceeds the single-line editor control; CR preservation on parameter reconfirmation requires native verification. Actual "A\rB\nC\r\n\t ".
+compile warning troop:1: MV-TEXT-RECONFIRMATION at pages[0].list[7].parameters[0]: The complete string is preserved; LF exceeds the single-line editor control; CR preservation on parameter reconfirmation requires native verification. Actual "A\rB\nC\r\n\t ".
+compile warning troop:1: MV-LABEL-MISSING at pages[0].list[8].parameters[0]: No exact Label exists in this complete native list; Jump to Label continues without jumping. Actual "elsewhere".
+
+stderr | test/label-script-plugin-workspace.test.ts > MV-S6-TEXT-001: round trips exact Label Script and Plugin records in all three event containers and all fifteen carriers
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\text-complete-MUw9yW
+
+ ❯ test/label-script-plugin-workspace.test.ts (4 tests | 1 failed) 13945ms
+   × MV-S6-TEXT-001: round trips exact Label Script and Plugin records in all three event containers and all fifteen carriers 3715ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/label-script-plugin-workspace.test.ts > MV-S6-TEXT-001: round trips exact Label Script and Plugin records in all three event containers and all fifteen carriers
+Error: ENOENT: no such file or directory, open 'C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\text-complete-MUw9yW\最小 Workspace with spaces\.rpgmaker-event-dsl\generated-project-data\Actors.json'
+ ❯ test/label-script-plugin-workspace.test.ts:68:77
+     66|     expect(await observe(workspaceRoot)).toStrictEqual(before);
+     67|     await api.compileWorkspace({ workspaceRoot, check: false });
+     68|     for (const [name, value] of Object.entries(expected)) expect(JSON.…
+       |                                                                             ^
+     69|     await api.diffWorkspace({ workspaceRoot });
+     70|     await api.pushWorkspace({ workspaceRoot, allowDestructive: false }…
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ evidence test/label-script-plugin-workspace.test.ts:51:9
+ ❯ test/label-script-plugin-workspace.test.ts:57:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  02:11:37
+   Duration  15.83s (transform 634ms, setup 0ms, import 1.62s, tests 13.95s, environment 0ms)
+
+C:\Users\Shuen\.codex\worktrees\mv-ticket-30\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run "test/label-script-plugin-workspace.test.ts"`
+Exit status 1

@@ -158,7 +158,7 @@ describe("compileMapEvent", () => {
         name: "Plugin",
         x: 0,
         y: 0,
-        pages: [page({ commands: [pluginCommand({ command: "MyPlugin", args: [] })] })],
+        pages: [page({ commands: [pluginCommand({ line: "MyPlugin" })] })],
       },
       { nextId: 1, resolver },
     );
@@ -182,12 +182,12 @@ describe("compileMapEvent", () => {
         pages: [
           page({
             commands: [
-              comment(["note"]),
+              comment({ lines: ["note"] }),
               showText({
                 lines: ["Hello"],
                 face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 2 },
-                background: 1,
-                positionType: 0,
+                background: "dim",
+                position: "top",
               }),
               showChoices({
                 choices: [
@@ -196,12 +196,19 @@ describe("compileMapEvent", () => {
                 ],
                 cancel: {
                   kind: "branch",
-                  commands: [showText({ lines: ["Canceled"] })],
+                  commands: [
+                    showText({
+                      lines: ["Canceled"],
+                      face: { image: null, index: 0 },
+                      background: "window",
+                      position: "bottom",
+                    }),
+                  ],
                   endMarker: "absent",
                 },
               }),
               inputNumber({ variable: variableRef({ name: "Count" }), digits: 3 }),
-              selectItem({ variable: variableRef({ name: "Count" }), itemType: 1 }),
+              selectItem({ variable: variableRef({ name: "Count" }), itemType: "regular" }),
               showScrollingText({ lines: ["Scroll", "More"], speed: 5, noFastForward: true }),
               controlVariables({
                 variable: variableRef({ name: "Count" }),
@@ -1110,7 +1117,7 @@ describe("compileMapEvent", () => {
               gameOver(),
               returnToTitleScreen(),
               script({ code: "const x = 1;\nconsole.log(x);" }),
-              pluginCommand({ command: "MyPlugin", args: ["arg1", "arg2"] }),
+              pluginCommand({ line: "MyPlugin arg1 arg2" }),
             ],
           }),
         ],

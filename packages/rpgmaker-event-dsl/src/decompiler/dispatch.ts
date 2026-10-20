@@ -318,7 +318,6 @@ export function renderCommandAt(
     throw new Error("Cannot render missing event command.");
   }
   if (
-    (command.code === 101 && command.parameters[0] === "" && command.parameters[1] !== 0) ||
     (command.code === 101 && commands[index + 1]?.code !== 401) ||
     (command.code === 105 && commands[index + 1]?.code !== 405)
   )
@@ -413,12 +412,12 @@ export function renderSimpleCommand(
     }
     case 118:
       return {
-        expression: `label(${literal(readStringParameter(command.parameters[0]))})`,
+        expression: `label({ name: ${literal(readStringParameter(command.parameters[0]))} })`,
         helperNames: ["label"],
       };
     case 119:
       return {
-        expression: `jumpToLabel(${literal(readStringParameter(command.parameters[0]))})`,
+        expression: `jumpToLabel({ name: ${literal(readStringParameter(command.parameters[0]))} })`,
         helperNames: ["jumpToLabel"],
       };
     case 121: {
@@ -499,7 +498,7 @@ export function renderSimpleCommand(
       const itemType = command.parameters[1];
       return variableId !== null && isItemType(itemType)
         ? {
-            expression: `selectItem({ variable: variableRef({ id: ${variableId} }), itemType: ${itemType} })`,
+            expression: `selectItem({ variable: variableRef({ id: ${variableId} }), itemType: ${literal(["regular", "key", "hiddenA", "hiddenB"][itemType - 1])} })`,
             helperNames: ["selectItem", "variableRef"],
           }
         : null;

@@ -284,12 +284,9 @@ export {
   getLocationInfo,
   eraseEvent,
 } from "../commands/map/authoring.js";
+export { battleProcessing, shopProcessing } from "../commands/battle/authoring.js";
 export {
-  battleProcessing,
-  shopProcessing,
   nameInputProcessing,
-} from "../commands/battle/authoring.js";
-export {
   changeHp,
   changeMp,
   changeState,

@@ -1,0 +1,13 @@
+
+> rpgmaker-event-dsl@0.1.2 test C:\Users\Shuen\.codex\worktrees\mv-ticket-30\rpgmaker-event-dsl\packages\rpgmaker-event-dsl
+> vitest run "test/movement-route.test.ts" "test/command-boundary.test.ts" "test/loop.test.ts" "test/label-script-plugin.test.ts"
+
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-30/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+
+ Test Files  4 passed (4)
+      Tests  110 passed (110)
+   Start at  02:22:03
+   Duration  2.69s (transform 1.21s, setup 0ms, import 4.38s, tests 152ms, environment 0ms)
+

@@ -41,7 +41,7 @@ it.each(conditionCases)(
 it.each([undefined, "present", "absent"] as const)(
   "preserves independent then/else body marker state: %s",
   (endMarker) => {
-    const then: ChildCommandBody = { commands: [comment(["then"])] };
+    const then: ChildCommandBody = { commands: [comment({ lines: ["then"] })] };
     if (endMarker !== undefined) then.endMarker = endMarker;
     const event = commonEvent({
       id: 1,
@@ -78,7 +78,7 @@ it.each(["present", "absent"] as const)(
         conditional({
           condition: { kind: "button", button: "ok" },
           then: {
-            commands: [comment(["content"]), rawDslCommand({ code: 0, parameters: [] })],
+            commands: [comment({ lines: ["content"] }), rawDslCommand({ code: 0, parameters: [] })],
             endMarker,
           },
         }),

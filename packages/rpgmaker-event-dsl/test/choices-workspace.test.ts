@@ -236,7 +236,7 @@ it("MV-S6-CHOICES-011: independent Choices roundtrip all three containers and in
         'name: "Installed Choices"',
       ).replace('name: "Saved Map"', 'name: "Installed Map"');
       if (source.includes("troopEvent("))
-        source = `import {comment} from "rpgmaker-event-dsl";\n${source.replace("commands: [", 'commands: [comment(["Installed Choices"]),')}`;
+        source = `import {comment} from "rpgmaker-event-dsl";\n${source.replace("commands: [", 'commands: [comment({ lines: ["Installed Choices"] }),')}`;
       await writeFile(path, source);
     }
     const edited = await business(s.workspaceRoot);

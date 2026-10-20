@@ -43,6 +43,23 @@ Use event pages for persistent top-level state changes. Use `conditional(...)` i
 
 NPC dialogue usually uses a Map Event with an action trigger. Use pages when dialogue changes by quest or story state. Use `showChoices(...)` when the player decides.
 
+For dialogue use `showText({ lines, face: { image, index }, background, position })`.
+Every field is required. Background is window/dim/transparent; position is
+top/middle/bottom. Use a `faces` `imageAsset(...)` or `null` for None, and preserve
+the independent index even for None. Index accepts 0–2,147,483,647 and rejects
+negative zero. A non-None index at least 8 warns about the official two-row layout;
+image files and dimensions are unchecked. Each line is one physical record:
+keep CR, whitespace and trailing empty strings, and never embed LF. Show Text
+requires 1–4 lines; author multiple calls when more are needed. Use
+`showScrollingText({ lines, speed, noFastForward })` with at least one line,
+integer speed 1–8 and an explicit Boolean. Use `comment({ lines })` for 1–6 lines.
+Text records work with the Script Command Gate disabled.
+
+Use `inputNumber({ variable, digits })` with required integer digits 1–8, or
+`selectItem({ variable, itemType })` with required regular/key/hiddenA/hiddenB.
+Both variables are result destinations and resolve as ordinary System Variable
+Slots. Item cancellation writes runtime value zero; it does not authorize slot zero.
+
 A one-time chest usually uses two pages: unopened page gives the reward and turns self switch A on; opened page is conditioned by self switch A and shows short "empty" feedback or no commands.
 
 A locked door usually uses an action-triggered Map Event. Use `conditional(...)` when the door looks the same; use pages when it has a persistent opened or unlocked state. Use `transferPlayer(...)` for doors that move the player.
@@ -271,7 +288,25 @@ does not scan asset files or infer that a valid Tileset reference guarantees loa
 
 Use `script(...)` and `scriptInput(...)` for short RPG Maker MV JavaScript only when the Workspace Script Command Gate allows it and ordinary event commands are not enough. The Gate also checks Conditional Branch script conditions, Control Variables script operands, Set Movement Route script subcommands and mirrors, and saved Page routes in every movement mode. Empty and unreachable scripts still count. With the Gate closed, Decompile warns while generating source; Check and Compile reject current declarations containing scripts. Remove the actual scripts or enable the Gate deliberately before compiling.
 
-Use `pluginCommand(...)` only when the plugin command is grounded in user intent, existing project usage, or plugin documentation. The DSL models MV's native plugin command string; plugin-specific argument schemas are outside this helper's validation boundary.
+Use `label({ name })` and `jumpToLabel({ name })` with explicit complete strings,
+including an empty string when intended. Preserve whitespace, CR, LF and trailing
+characters. Jumps search the complete current native list from its start, even across
+branch indentation, and choose the first exact Label. Separate pages and Common Events
+have separate scopes. Review duplicate/missing-label warnings and CR/LF reconfirmation
+warnings without automatically renaming labels or changing text.
+
+Use `script({ code })` or `script(scriptInput({ code }))` for 1–12 Script physical
+records. Split only on LF, retain CR and trailing empty records, and count empty code
+as one record. The record-count limit does not apply to single-slot Script Inputs in
+conditions, variable operands or Movement Routes. Continuations belong to the parent.
+
+Use `pluginCommand({ line })` when the Plugin Command Line is grounded in user intent,
+existing project usage or plugin documentation. Carry the complete required string,
+including empty text, leading/trailing/repeated spaces, Tab, CR and LF. MV splits the
+line on literal ASCII spaces at execution; preserving the line preserves its empty
+command/argument values. Plugin Commands are permitted with the Script Command Gate
+closed. A Plugin Command Registry is optional lint; private plugin semantics remain
+outside validation.
 
 Use `rawDslCommand(...)` for a genuinely unknown command with a valid record envelope
 and surrounding structure. Recognized native parameters and references retain their
@@ -283,3 +318,36 @@ indent of zero is absolute. Let formal owners generate their continuations and m
 handwritten raw records must still form a valid complete structure.
 Confirm code, parameters, and indentation from project data, Decompiled Source, nearby
 examples, or reliable MV command mapping.
+
+## Actor Text and Images
+
+```ts
+nameInputProcessing({ actor: actorRef({ id: 1 }), maxCharacters: 16 });
+changeName({ actor: actorRef({ id: 1 }), name: "" });
+changeNickname({ actor: actorRef({ id: 1 }), nickname: "  Mira  " });
+changeProfile({ actor: actorRef({ id: 1 }), profile: "First line\nSecond line\n" });
+changeActorImages({
+  actor: actorRef({ id: 1 }),
+  character: { image: null, index: 7 },
+  face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 11 },
+  battler: null,
+});
+changeVehicleImage({ vehicle: "airship", image: null, index: 7 });
+```
+
+All shown fields are required. Name Input uses a fixed existing Actor and an integer
+`maxCharacters` from 1 through 16. Battle execution skips its Name scene and produces
+a context warning. Name, nickname and profile are complete strings, including empty
+text, whitespace, CR, LF, CRLF and trailing characters, without a product length cap.
+Name and nickname warn on LF; profile warns on two or more LF characters, including
+trailing LF. CR independently warns about parameter reconfirmation. These strings
+remain one saved slot and do not require the Script Command Gate.
+
+Character and vehicle images use the `characters` folder, faces use `faces`, and
+battlers use `sv_actors`. Explicit `null` selects None. Character and vehicle indices
+are independent integers 0 through 7, including with None or a large character image.
+Face indices use 0 through 2,147,483,647 excluding negative zero. A non-None face
+index of at least 8 warns that it exceeds the official two-row layout and its asset
+dimensions are unchecked; None preserves the index without that warning. Vehicles
+are `boat`, `ship` or `airship`. In battle, Change Vehicle Image changes the held map
+vehicle object, with a warning that immediate visibility is uncertain.
