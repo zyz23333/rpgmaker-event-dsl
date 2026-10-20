@@ -1,0 +1,4970 @@
+{
+  "formatVersion": 1,
+  "createdAt": "2026-10-20T03:31:45.271Z",
+  "runner": {
+    "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-48/source-result.json",
+    "sha256": "4d3361e6d8ff6b08c5262cebe0a3e65bc4c0165687f89422ead929eb6738f6ce",
+    "sourcePassed": 2086,
+    "sourceFailed": 11
+  },
+  "scope": "Selected actual source runner verdicts, not a new execution. Affected Loop passing rerun is bound separately below.",
+  "families": [
+    {
+      "id": "switch-input-equivalence",
+      "tests": [
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/system-slots.test.ts",
+          "title": "MV-S3-SLOTS-001: preserves unnamed System capacity through real Workspace roundtrip and name removal",
+          "status": "passed",
+          "failureMessages": []
+        }
+      ]
+    },
+    {
+      "id": "loop-input-equivalence",
+      "tests": [
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/loop-workspace.test.ts",
+          "title": "round trips complete Loop saved lists through actual Discovery, Check, Compile, Diff and Push",
+          "status": "passed",
+          "failureMessages": []
+        }
+      ]
+    },
+    {
+      "id": "route-input-equivalence",
+      "tests": [
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/movement-route-workspace.test.ts",
+          "title": "round trips independent Movement Routes through actual Discovery, evaluation, Check, Compile, Diff and Push",
+          "status": "passed",
+          "failureMessages": []
+        }
+      ]
+    },
+    {
+      "id": "map-numeric-negative-zero",
+      "tests": [
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+          "title": "preserves Map numeric negative zero: disabled threshold through actual discovered source and complete Workspace Push",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+          "title": "preserves Map numeric negative zero: enabled threshold through actual discovered source and complete Workspace Push",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+          "title": "preserves Map numeric negative zero: disabled actor ID through actual discovered source and complete Workspace Push",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+          "title": "preserves Map numeric negative zero: disabled item ID through actual discovered source and complete Workspace Push",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+          "title": "preserves Map numeric negative zero: disabled switch1 ID through actual discovered source and complete Workspace Push",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+          "title": "preserves Map numeric negative zero: disabled switch2 ID through actual discovered source and complete Workspace Push",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+          "title": "preserves Map numeric negative zero: disabled variable ID through actual discovered source and complete Workspace Push",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+          "title": "preserves Map numeric negative zero: character index through actual discovered source and complete Workspace Push",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+          "title": "preserves Map numeric negative zero: tile ID through actual discovered source and complete Workspace Push",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+          "title": "preserves Map numeric negative zero: pattern through actual discovered source and complete Workspace Push",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+          "title": "preserves authored Map numeric negative zero from actual helper source evaluation through full Workspace Push",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+          "title": "preserves authored Map numeric negative zero from actual untyped source evaluation through full Workspace Push",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+          "title": "rejects native Map categorical or enabled-reference negative zero at priorityType without publishing or changing complete state",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+          "title": "rejects native Map categorical or enabled-reference negative zero at trigger without publishing or changing complete state",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+          "title": "rejects native Map categorical or enabled-reference negative zero at moveType without publishing or changing complete state",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+          "title": "rejects native Map categorical or enabled-reference negative zero at conditions.actorId without publishing or changing complete state",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+          "title": "rejects native Map categorical or enabled-reference negative zero at conditions.itemId without publishing or changing complete state",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+          "title": "rejects native Map categorical or enabled-reference negative zero at conditions.switch1Id without publishing or changing complete state",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+          "title": "rejects native Map categorical or enabled-reference negative zero at conditions.switch2Id without publishing or changing complete state",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/map-page-numeric-workspace.test.ts",
+          "title": "rejects native Map categorical or enabled-reference negative zero at conditions.variableId without publishing or changing complete state",
+          "status": "passed",
+          "failureMessages": []
+        }
+      ]
+    },
+    {
+      "id": "choices-numeric-negative-zero",
+      "tests": [
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+          "title": "MV-S6-CHOICES-006: preserves numeric saved choice indices through Workspace 'native positive zero'",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+          "title": "MV-S6-CHOICES-006: preserves numeric saved choice indices through Workspace 'native cancel negative zero'",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+          "title": "MV-S6-CHOICES-006: preserves numeric saved choice indices through Workspace 'native default negative zero'",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+          "title": "MV-S6-CHOICES-006: preserves numeric saved choice indices through Workspace 'native both negative zero'",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+          "title": "MV-S6-CHOICES-006: preserves numeric saved choice indices through Workspace 'formal positive zero'",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+          "title": "MV-S6-CHOICES-006: preserves numeric saved choice indices through Workspace 'formal cancel negative zero'",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/choices-workspace.test.ts",
+          "title": "MV-S6-CHOICES-006: preserves numeric saved choice indices through Workspace 'formal default negative zero'",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/choices.test.ts",
+          "title": "MV-S6-CHOICES-001: preserves numeric saved choice indices with negative zero in 'cancel' through formal, raw and decompile",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/choices.test.ts",
+          "title": "MV-S6-CHOICES-001: preserves numeric saved choice indices with negative zero in 'default' through formal, raw and decompile",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/choices.test.ts",
+          "title": "MV-S6-CHOICES-001: preserves numeric saved choice indices with negative zero in 'both' through formal, raw and decompile",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/choices.test.ts",
+          "title": "MV-S6-CHOICES-001: preserves saved default and cancel index +0 independently of the current two choices",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/choices.test.ts",
+          "title": "MV-S6-CHOICES-001: preserves saved default and cancel index 1 independently of the current two choices",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/choices.test.ts",
+          "title": "MV-S6-CHOICES-001: preserves saved default and cancel index 2 independently of the current two choices",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/choices.test.ts",
+          "title": "MV-S6-CHOICES-001: preserves saved default and cancel index 3 independently of the current two choices",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/choices.test.ts",
+          "title": "MV-S6-CHOICES-001: preserves saved default and cancel index 4 independently of the current two choices",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/choices.test.ts",
+          "title": "MV-S6-CHOICES-001: preserves saved default and cancel index 5 independently of the current two choices",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/choices.test.ts",
+          "title": "MV-S6-CHOICES-003: refuses a 'ordinal negative zero' through the native structure seam",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/choices.test.ts",
+          "title": "MV-S6-CHOICES-005: rejects forged Choices at the precise owned path '.cancel.index'",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/choices.test.ts",
+          "title": "MV-S6-CHOICES-005: rejects forged Choices at the precise owned path '.defaultChoice.index'",
+          "status": "passed",
+          "failureMessages": []
+        }
+      ]
+    },
+    {
+      "id": "all-reference-constructors",
+      "tests": [
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "rejects original accessor referenceRange target through helper without reading its discriminator",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "rejects original accessor referenceRange target through graph without reading its discriminator",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "rejects original accessor referenceRange target through compile without reading its discriminator",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "rejects original inherited referenceRange target through helper without reading its discriminator",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "rejects original inherited referenceRange target through graph without reading its discriminator",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "rejects original inherited referenceRange target through compile without reading its discriminator",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "rejects original non-enumerable referenceRange target through helper without reading its discriminator",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "rejects original non-enumerable referenceRange target through graph without reading its discriminator",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "rejects original non-enumerable referenceRange target through compile without reading its discriminator",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "all reference helpers refuse unknown fields and id-name ambiguity without inventing a numeric domain",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "rejects direct reference, range and both endpoint shapes in helpers and direct command nodes",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: actorRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: animationRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: armorRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: classRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: commonEventRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: enemyRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: itemRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: mapRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: skillRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: stateRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: switchRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: tilesetRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: troopRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: variableRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: weaponRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        }
+      ]
+    },
+    {
+      "id": "control-original-invalid-inputs",
+      "tests": [
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "rejects original accessor switch target through helper without reading its discriminator",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "rejects original inherited switch target through helper without reading its discriminator",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "rejects original non-enumerable switch target through helper without reading its discriminator",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "rejects original accessor referenceRange target through helper without reading its discriminator",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "rejects original inherited referenceRange target through helper without reading its discriminator",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "rejects original non-enumerable referenceRange target through helper without reading its discriminator",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "all reference helpers refuse unknown fields and id-name ambiguity without inventing a numeric domain",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "rejects helper input fields before switch, self-switch or Loop projection",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "rejects direct switch fields at their DSL paths and retains the existing direct Loop rejection",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-boundaries.test.ts",
+          "title": "rejects direct reference, range and both endpoint shapes in helpers and direct command nodes",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-002: rejects actual controlSwitches helper extras via source expression 0",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-002: rejects actual controlSwitches helper extras via source expression 1",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-002: rejects actual controlSwitches helper extras via source expression 2",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-002: rejects actual controlSelfSwitch helper extras via source expression 0",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-002: rejects actual controlSelfSwitch helper extras via source expression 1",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-002: rejects actual controlSelfSwitch helper extras via source expression 2",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-002: rejects actual loop helper extras via source expression 0",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-002: rejects actual loop helper extras via source expression 1",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-002: rejects actual loop helper extras via source expression 2",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: actorRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: animationRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: armorRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: classRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: commonEventRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: enemyRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: itemRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: mapRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: skillRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: stateRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: switchRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: tilesetRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: troopRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: variableRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-003: weaponRef evaluates controls and rejects discarded actual source fields",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-004: rejects evaluated nested shape 0 through helper",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-004: rejects evaluated nested shape 1 through helper",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-004: rejects evaluated nested shape 2 through helper",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-004: rejects evaluated nested shape 3 through helper",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-004: rejects evaluated nested shape 4 through helper",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-005: refuses native E121 signed zero before publication with complete state preserved",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+          "title": "MV-S3-INPUT-005: refuses native E123 signed zero before publication with complete state preserved",
+          "status": "passed",
+          "failureMessages": []
+        }
+      ]
+    },
+    {
+      "id": "imageAsset-helper-and-real-source",
+      "tests": [
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/pictures-workspace.test.ts",
+          "title": "MV-S6-PICTURE-008: rejects imageAsset input fields before projection via actual local source",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/pictures-workspace.test.ts",
+          "title": "MV-S6-PICTURE-008: rejects imageAsset input fields before projection via actual const source",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/pictures-workspace.test.ts",
+          "title": "MV-S6-PICTURE-008: rejects imageAsset input fields before projection via actual spread source",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/pictures-workspace.test.ts",
+          "title": "MV-S6-PICTURE-008: rejects imageAsset input fields before projection via actual cast source",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/pictures.test.ts",
+          "title": "rejects imageAsset input fields before projection while retaining exact valid filename values",
+          "status": "passed",
+          "failureMessages": []
+        }
+      ]
+    },
+    {
+      "id": "audioAsset-helper-and-real-source",
+      "tests": [
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/audio-commands.test.ts",
+          "title": "rejects incomplete, extra, inherited and invalid BGM inputs before helper selection or encoding",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/audio-commands.test.ts",
+          "title": "applies complete AUDIO and matching asset categories to playback and all system audio settings",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/audio-commands.test.ts",
+          "title": "checks original Audio Asset fields before selecting folder and filename",
+          "status": "passed",
+          "failureMessages": []
+        }
+      ]
+    },
+    {
+      "id": "movieAsset-helper-and-real-source",
+      "tests": [
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/screen-effects-workspace.test.ts",
+          "title": "MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/screen-effects.test.ts",
+          "title": "rejects untyped Movie Asset helper fields before they can be lost",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/screen-effects.test.ts",
+          "title": "expresses explicit Movie None and a named movie without inventing an asset",
+          "status": "passed",
+          "failureMessages": []
+        }
+      ]
+    },
+    {
+      "id": "scriptInput-helper-and-real-source",
+      "tests": [
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/label-script-plugin-workspace.test.ts",
+          "title": "MV-S6-TEXT-003: closed Gate permits Decompile and complete Plugin lines but rejects nested and raw empty scripts without publication",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/label-script-plugin-workspace.test.ts",
+          "title": "MV-S6-TEXT-004: source const spread casts and direct untyped commands retain strict text validation",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/label-script-plugin.test.ts",
+          "title": "rejects extra, missing and non-data text fields before helper projection and command encoding",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/label-script-plugin.test.ts",
+          "title": "preserves complete single-slot Label Jump and Plugin strings: empty",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "suite": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/label-script-plugin.test.ts",
+          "title": "recursively gates empty formal and raw Script groups in Loop Conditional and Choices",
+          "status": "passed",
+          "failureMessages": []
+        }
+      ]
+    }
+  ],
+  "legacyInputEquivalence": [
+    {
+      "id": "MV-R1-SWITCH-011",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/system-slots-project.json",
+        "sha256": "eae9d3c30c431a9a66a2af6e822100309da6920f794ba34b84fea15566bdde38",
+        "unchangedFromNativeInput": true
+      },
+      "currentExecutedProof": "switch-input-equivalence",
+      "priorNativeResult": {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\results\\MV-R1-SWITCH-011-2026-10-19T08-05-17-612Z-85a484cf-d5d0-432e-b64a-0cc7e709916f.json",
+        "sha256": "3bdb7ee8386d9508efe1c9de6e86bc994b2c65826d3bd47e0a432605bd21ccd0",
+        "revision": "2861e76a9aa27772127bc88c05548b64755af53b",
+        "startedAt": "2026-10-19T08:02:56.766Z",
+        "completedAt": "2026-10-19T08:05:17.613Z"
+      },
+      "priorActual": {
+        "literal-control/direct": {
+          "timestamp": "2026-10-19T08:02:56.766Z",
+          "method": "actual-native-game",
+          "origin": "literal-control",
+          "mode": "direct",
+          "engine": "1.6.1",
+          "versions": {
+            "http_parser": "2.7.0",
+            "node": "9.7.1",
+            "v8": "6.5.254.31",
+            "uv": "1.19.2",
+            "zlib": "1.2.11",
+            "ares": "1.13.0",
+            "modules": "59",
+            "nghttp2": "1.29.0",
+            "napi": "2",
+            "openssl": "1.0.2n",
+            "icu": "60.1",
+            "unicode": "10.0",
+            "cldr": "32.0",
+            "tz": "2017c",
+            "nw": "0.29.0",
+            "node-webkit": "0.29.0",
+            "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+            "nw-flavor": "sdk",
+            "chromium": "65.0.3325.146"
+          },
+          "scene": "Scene_Map",
+          "frameCount": 20,
+          "input": [
+            {
+              "code": 121,
+              "indent": 0,
+              "parameters": [
+                1,
+                3,
+                0
+              ]
+            },
+            {
+              "code": 121,
+              "indent": 0,
+              "parameters": [
+                2,
+                2,
+                1
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "A",
+                0
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "A",
+                1
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "B",
+                0
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "B",
+                1
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "C",
+                0
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "C",
+                1
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "D",
+                0
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "D",
+                1
+              ]
+            },
+            {
+              "code": 0,
+              "indent": 0,
+              "parameters": []
+            }
+          ],
+          "expected": {
+            "initial": {
+              "switches": [
+                false,
+                false,
+                false,
+                false
+              ],
+              "selfSwitches": [
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "steps": [
+              {
+                "code": 121,
+                "state": {
+                  "switches": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 121,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    true,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    true,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    true,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    true
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 0,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              }
+            ],
+            "final": {
+              "switches": [
+                true,
+                false,
+                true,
+                false
+              ],
+              "selfSwitches": [
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "isRunning": false
+          },
+          "actual": {
+            "initial": {
+              "switches": [
+                false,
+                false,
+                false,
+                false
+              ],
+              "selfSwitches": [
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "steps": [
+              {
+                "code": 121,
+                "state": {
+                  "switches": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 121,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    true,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    true,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    true,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    true
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 0,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              }
+            ],
+            "final": {
+              "switches": [
+                true,
+                false,
+                true,
+                false
+              ],
+              "selfSwitches": [
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "isRunning": false
+          },
+          "passed": true
+        },
+        "literal-control/common-call": {
+          "timestamp": "2026-10-19T08:02:56.887Z",
+          "method": "actual-native-game",
+          "origin": "literal-control",
+          "mode": "common-call",
+          "engine": "1.6.1",
+          "versions": {
+            "http_parser": "2.7.0",
+            "node": "9.7.1",
+            "v8": "6.5.254.31",
+            "uv": "1.19.2",
+            "zlib": "1.2.11",
+            "ares": "1.13.0",
+            "modules": "59",
+            "nghttp2": "1.29.0",
+            "napi": "2",
+            "openssl": "1.0.2n",
+            "icu": "60.1",
+            "unicode": "10.0",
+            "cldr": "32.0",
+            "tz": "2017c",
+            "nw": "0.29.0",
+            "node-webkit": "0.29.0",
+            "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+            "nw-flavor": "sdk",
+            "chromium": "65.0.3325.146"
+          },
+          "scene": "Scene_Map",
+          "frameCount": 20,
+          "input": [
+            {
+              "code": 121,
+              "indent": 0,
+              "parameters": [
+                1,
+                3,
+                0
+              ]
+            },
+            {
+              "code": 121,
+              "indent": 0,
+              "parameters": [
+                2,
+                2,
+                1
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "A",
+                0
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "A",
+                1
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "B",
+                0
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "B",
+                1
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "C",
+                0
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "C",
+                1
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "D",
+                0
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "D",
+                1
+              ]
+            },
+            {
+              "code": 0,
+              "indent": 0,
+              "parameters": []
+            }
+          ],
+          "expected": {
+            "initial": {
+              "switches": [
+                false,
+                false,
+                false,
+                false
+              ],
+              "selfSwitches": [
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "steps": [],
+            "final": {
+              "switches": [
+                true,
+                false,
+                true,
+                false
+              ],
+              "selfSwitches": [
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "isRunning": false
+          },
+          "actual": {
+            "initial": {
+              "switches": [
+                false,
+                false,
+                false,
+                false
+              ],
+              "selfSwitches": [
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "steps": [],
+            "final": {
+              "switches": [
+                true,
+                false,
+                true,
+                false
+              ],
+              "selfSwitches": [
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "isRunning": false
+          },
+          "passed": true
+        },
+        "compiled-workspace/direct": {
+          "timestamp": "2026-10-19T08:02:56.905Z",
+          "method": "actual-native-game",
+          "origin": "compiled-workspace",
+          "mode": "direct",
+          "engine": "1.6.1",
+          "versions": {
+            "http_parser": "2.7.0",
+            "node": "9.7.1",
+            "v8": "6.5.254.31",
+            "uv": "1.19.2",
+            "zlib": "1.2.11",
+            "ares": "1.13.0",
+            "modules": "59",
+            "nghttp2": "1.29.0",
+            "napi": "2",
+            "openssl": "1.0.2n",
+            "icu": "60.1",
+            "unicode": "10.0",
+            "cldr": "32.0",
+            "tz": "2017c",
+            "nw": "0.29.0",
+            "node-webkit": "0.29.0",
+            "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+            "nw-flavor": "sdk",
+            "chromium": "65.0.3325.146"
+          },
+          "scene": "Scene_Map",
+          "frameCount": 20,
+          "input": [
+            {
+              "code": 121,
+              "indent": 0,
+              "parameters": [
+                1,
+                3,
+                0
+              ]
+            },
+            {
+              "code": 121,
+              "indent": 0,
+              "parameters": [
+                2,
+                2,
+                1
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "A",
+                0
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "A",
+                1
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "B",
+                0
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "B",
+                1
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "C",
+                0
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "C",
+                1
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "D",
+                0
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "D",
+                1
+              ]
+            },
+            {
+              "code": 0,
+              "indent": 0,
+              "parameters": []
+            }
+          ],
+          "expected": {
+            "initial": {
+              "switches": [
+                false,
+                false,
+                false,
+                false
+              ],
+              "selfSwitches": [
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "steps": [
+              {
+                "code": 121,
+                "state": {
+                  "switches": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 121,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    true,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    true,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    true,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    true
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 0,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              }
+            ],
+            "final": {
+              "switches": [
+                true,
+                false,
+                true,
+                false
+              ],
+              "selfSwitches": [
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "isRunning": false
+          },
+          "actual": {
+            "initial": {
+              "switches": [
+                false,
+                false,
+                false,
+                false
+              ],
+              "selfSwitches": [
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "steps": [
+              {
+                "code": 121,
+                "state": {
+                  "switches": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 121,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    true,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    true,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    true,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    true
+                  ]
+                }
+              },
+              {
+                "code": 123,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              {
+                "code": 0,
+                "state": {
+                  "switches": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "selfSwitches": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              }
+            ],
+            "final": {
+              "switches": [
+                true,
+                false,
+                true,
+                false
+              ],
+              "selfSwitches": [
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "isRunning": false
+          },
+          "passed": true
+        },
+        "compiled-workspace/common-call": {
+          "timestamp": "2026-10-19T08:02:56.891Z",
+          "method": "actual-native-game",
+          "origin": "compiled-workspace",
+          "mode": "common-call",
+          "engine": "1.6.1",
+          "versions": {
+            "http_parser": "2.7.0",
+            "node": "9.7.1",
+            "v8": "6.5.254.31",
+            "uv": "1.19.2",
+            "zlib": "1.2.11",
+            "ares": "1.13.0",
+            "modules": "59",
+            "nghttp2": "1.29.0",
+            "napi": "2",
+            "openssl": "1.0.2n",
+            "icu": "60.1",
+            "unicode": "10.0",
+            "cldr": "32.0",
+            "tz": "2017c",
+            "nw": "0.29.0",
+            "node-webkit": "0.29.0",
+            "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+            "nw-flavor": "sdk",
+            "chromium": "65.0.3325.146"
+          },
+          "scene": "Scene_Map",
+          "frameCount": 20,
+          "input": [
+            {
+              "code": 121,
+              "indent": 0,
+              "parameters": [
+                1,
+                3,
+                0
+              ]
+            },
+            {
+              "code": 121,
+              "indent": 0,
+              "parameters": [
+                2,
+                2,
+                1
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "A",
+                0
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "A",
+                1
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "B",
+                0
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "B",
+                1
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "C",
+                0
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "C",
+                1
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "D",
+                0
+              ]
+            },
+            {
+              "code": 123,
+              "indent": 0,
+              "parameters": [
+                "D",
+                1
+              ]
+            },
+            {
+              "code": 0,
+              "indent": 0,
+              "parameters": []
+            }
+          ],
+          "expected": {
+            "initial": {
+              "switches": [
+                false,
+                false,
+                false,
+                false
+              ],
+              "selfSwitches": [
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "steps": [],
+            "final": {
+              "switches": [
+                true,
+                false,
+                true,
+                false
+              ],
+              "selfSwitches": [
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "isRunning": false
+          },
+          "actual": {
+            "initial": {
+              "switches": [
+                false,
+                false,
+                false,
+                false
+              ],
+              "selfSwitches": [
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "steps": [],
+            "final": {
+              "switches": [
+                true,
+                false,
+                true,
+                false
+              ],
+              "selfSwitches": [
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "isRunning": false
+          },
+          "passed": true
+        }
+      },
+      "priorExpected": {
+        "direct": {
+          "initial": {
+            "switches": [
+              false,
+              false,
+              false,
+              false
+            ],
+            "selfSwitches": [
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          "steps": [
+            {
+              "code": 121,
+              "state": {
+                "switches": [
+                  true,
+                  true,
+                  true,
+                  false
+                ],
+                "selfSwitches": [
+                  false,
+                  false,
+                  false,
+                  false
+                ]
+              }
+            },
+            {
+              "code": 121,
+              "state": {
+                "switches": [
+                  true,
+                  false,
+                  true,
+                  false
+                ],
+                "selfSwitches": [
+                  false,
+                  false,
+                  false,
+                  false
+                ]
+              }
+            },
+            {
+              "code": 123,
+              "state": {
+                "switches": [
+                  true,
+                  false,
+                  true,
+                  false
+                ],
+                "selfSwitches": [
+                  true,
+                  false,
+                  false,
+                  false
+                ]
+              }
+            },
+            {
+              "code": 123,
+              "state": {
+                "switches": [
+                  true,
+                  false,
+                  true,
+                  false
+                ],
+                "selfSwitches": [
+                  false,
+                  false,
+                  false,
+                  false
+                ]
+              }
+            },
+            {
+              "code": 123,
+              "state": {
+                "switches": [
+                  true,
+                  false,
+                  true,
+                  false
+                ],
+                "selfSwitches": [
+                  false,
+                  true,
+                  false,
+                  false
+                ]
+              }
+            },
+            {
+              "code": 123,
+              "state": {
+                "switches": [
+                  true,
+                  false,
+                  true,
+                  false
+                ],
+                "selfSwitches": [
+                  false,
+                  false,
+                  false,
+                  false
+                ]
+              }
+            },
+            {
+              "code": 123,
+              "state": {
+                "switches": [
+                  true,
+                  false,
+                  true,
+                  false
+                ],
+                "selfSwitches": [
+                  false,
+                  false,
+                  true,
+                  false
+                ]
+              }
+            },
+            {
+              "code": 123,
+              "state": {
+                "switches": [
+                  true,
+                  false,
+                  true,
+                  false
+                ],
+                "selfSwitches": [
+                  false,
+                  false,
+                  false,
+                  false
+                ]
+              }
+            },
+            {
+              "code": 123,
+              "state": {
+                "switches": [
+                  true,
+                  false,
+                  true,
+                  false
+                ],
+                "selfSwitches": [
+                  false,
+                  false,
+                  false,
+                  true
+                ]
+              }
+            },
+            {
+              "code": 123,
+              "state": {
+                "switches": [
+                  true,
+                  false,
+                  true,
+                  false
+                ],
+                "selfSwitches": [
+                  false,
+                  false,
+                  false,
+                  false
+                ]
+              }
+            },
+            {
+              "code": 0,
+              "state": {
+                "switches": [
+                  true,
+                  false,
+                  true,
+                  false
+                ],
+                "selfSwitches": [
+                  false,
+                  false,
+                  false,
+                  false
+                ]
+              }
+            }
+          ],
+          "final": {
+            "switches": [
+              true,
+              false,
+              true,
+              false
+            ],
+            "selfSwitches": [
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          "isRunning": false
+        },
+        "commonCall": {
+          "initial": {
+            "switches": [
+              false,
+              false,
+              false,
+              false
+            ],
+            "selfSwitches": [
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          "steps": [],
+          "final": {
+            "switches": [
+              true,
+              false,
+              true,
+              false
+            ],
+            "selfSwitches": [
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          "isRunning": false
+        }
+      },
+      "currentGameExecuted": false,
+      "disposition": "Prior concrete native oracle retained; exact independent input unchanged; current real source-evaluated Workspace compares complete saved output to that input; final52/54 normal Scene impacted regression is additional, separately identified evidence."
+    },
+    {
+      "id": "MV-R3-LOOP-013",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/loop-cases.json",
+        "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067",
+        "unchangedFromNativeInput": true
+      },
+      "currentExecutedProof": "loop-input-equivalence",
+      "priorNativeResult": {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\results\\MV-R3-LOOP-013-2026-10-19T08-24-47-995Z-076fff45-b4c5-47f1-b0d9-3cb2b4fe7592.json",
+        "sha256": "47f02d53db60ed51f317461dd55d0427bc34d71cefc783d95411ea73b0f361d8",
+        "revision": "cb77da2b4dc079c34d5c9d16ff9394292a908f7f",
+        "startedAt": "2026-10-19T08:21:06.847Z",
+        "completedAt": "2026-10-19T08:24:47.995Z"
+      },
+      "priorActual": {
+        "literal": {
+          "identity": {
+            "startedAt": "2026-10-19T08:21:06.847Z",
+            "completedAt": "2026-10-19T08:21:12.790Z",
+            "host": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/nwjs-win-test/game.exe",
+            "hostSha256": "78beb07fa8f2b905d468a40d64d0d5588b4cfa42d7822d5e16878245657da3aa",
+            "fixture": {
+              "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-13\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\test\\fixtures\\mv-evidence\\loop-cases.json",
+              "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+            },
+            "compiledSource": {
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\loop-roundtrip-7xSH89\\最小 Workspace with spaces\\.rpgmaker-event-dsl\\generated-project-data\\CommonEvents.json",
+              "sha256": "3622826ededf4d27e6055cc5ae3d1ea73f2e5744860e1ba70e6de83ed0127643"
+            },
+            "exit": {
+              "code": 0,
+              "signal": null
+            },
+            "files": {
+              "observer.js": "f19ada5faca668cd515e4af4ead6bb51609c20c77b69a58495f6d3e955f813d4",
+              "cases.json": "ae2faa91ea593d13d00226292af3979c6cda4094ae944119228c9542325515df",
+              "data/CommonEvents.json": "e8e4afd01dd6aa388d99d6b78a6d4b992eb6be7a692faae8edba9a981bdc9894",
+              "data/Map001.json": "662c508f367f38f393c34f13eb192a872e5f32f609d2e8500d7bfd601e391b1b",
+              "runtime-result.json": "d1f6b1472a3e27182ee88f820a7c43d322ea94a1fd132fb0c761758583157cd2",
+              "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          },
+          "result": {
+            "timestamp": "2026-10-19T08:21:12.728Z",
+            "method": "actual-native-game",
+            "mode": "literal",
+            "engine": "1.6.1",
+            "versions": {
+              "http_parser": "2.7.0",
+              "node": "9.7.1",
+              "v8": "6.5.254.31",
+              "uv": "1.19.2",
+              "zlib": "1.2.11",
+              "ares": "1.13.0",
+              "modules": "59",
+              "nghttp2": "1.29.0",
+              "napi": "2",
+              "openssl": "1.0.2n",
+              "icu": "60.1",
+              "unicode": "10.0",
+              "cldr": "32.0",
+              "tz": "2017c",
+              "nw": "0.29.0",
+              "node-webkit": "0.29.0",
+              "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+              "nw-flavor": "sdk",
+              "chromium": "65.0.3325.146"
+            },
+            "scene": "Scene_Map",
+            "frameCount": 0,
+            "results": [
+              {
+                "eventId": 1,
+                "input": [
+                  {
+                    "code": 112,
+                    "indent": 0,
+                    "parameters": []
+                  },
+                  {
+                    "code": 121,
+                    "indent": 1,
+                    "parameters": [
+                      1,
+                      1,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 113,
+                    "indent": 1,
+                    "parameters": []
+                  },
+                  {
+                    "code": 0,
+                    "indent": 1,
+                    "parameters": []
+                  },
+                  {
+                    "code": 413,
+                    "indent": 0,
+                    "parameters": []
+                  },
+                  {
+                    "code": 115,
+                    "indent": 0,
+                    "parameters": []
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      2,
+                      2,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ],
+                "before": [
+                  false,
+                  false
+                ],
+                "expected": [
+                  true,
+                  false
+                ],
+                "actual": [
+                  true,
+                  false
+                ],
+                "isRunning": false,
+                "passed": true
+              },
+              {
+                "eventId": 2,
+                "input": [
+                  {
+                    "code": 112,
+                    "indent": 0,
+                    "parameters": []
+                  },
+                  {
+                    "code": 112,
+                    "indent": 1,
+                    "parameters": []
+                  },
+                  {
+                    "code": 121,
+                    "indent": 2,
+                    "parameters": [
+                      3,
+                      3,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 113,
+                    "indent": 2,
+                    "parameters": []
+                  },
+                  {
+                    "code": 0,
+                    "indent": 2,
+                    "parameters": []
+                  },
+                  {
+                    "code": 413,
+                    "indent": 1,
+                    "parameters": []
+                  },
+                  {
+                    "code": 113,
+                    "indent": 1,
+                    "parameters": []
+                  },
+                  {
+                    "code": 413,
+                    "indent": 0,
+                    "parameters": []
+                  },
+                  {
+                    "code": 115,
+                    "indent": 0,
+                    "parameters": []
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      4,
+                      4,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ],
+                "before": [
+                  false,
+                  false
+                ],
+                "expected": [
+                  true,
+                  false
+                ],
+                "actual": [
+                  true,
+                  false
+                ],
+                "isRunning": false,
+                "passed": true
+              },
+              {
+                "eventId": 3,
+                "input": [
+                  {
+                    "code": 113,
+                    "indent": 0,
+                    "parameters": []
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      5,
+                      5,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 115,
+                    "indent": 0,
+                    "parameters": []
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      6,
+                      6,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ],
+                "before": [
+                  false,
+                  false
+                ],
+                "expected": [
+                  false,
+                  false
+                ],
+                "actual": [
+                  false,
+                  false
+                ],
+                "isRunning": false,
+                "passed": true
+              },
+              {
+                "eventId": 5,
+                "input": [
+                  {
+                    "code": 117,
+                    "indent": 0,
+                    "parameters": [
+                      4
+                    ]
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      9,
+                      9,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 115,
+                    "indent": 0,
+                    "parameters": []
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      10,
+                      10,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ],
+                "before": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "expected": [
+                  true,
+                  false,
+                  true,
+                  false
+                ],
+                "actual": [
+                  true,
+                  false,
+                  true,
+                  false
+                ],
+                "isRunning": false,
+                "passed": true
+              }
+            ],
+            "passed": true
+          }
+        },
+        "compiled": {
+          "identity": {
+            "startedAt": "2026-10-19T08:21:12.803Z",
+            "completedAt": "2026-10-19T08:21:18.671Z",
+            "host": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/nwjs-win-test/game.exe",
+            "hostSha256": "78beb07fa8f2b905d468a40d64d0d5588b4cfa42d7822d5e16878245657da3aa",
+            "fixture": {
+              "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-13\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\test\\fixtures\\mv-evidence\\loop-cases.json",
+              "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+            },
+            "compiledSource": {
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\loop-roundtrip-7xSH89\\最小 Workspace with spaces\\.rpgmaker-event-dsl\\generated-project-data\\CommonEvents.json",
+              "sha256": "3622826ededf4d27e6055cc5ae3d1ea73f2e5744860e1ba70e6de83ed0127643"
+            },
+            "exit": {
+              "code": 0,
+              "signal": null
+            },
+            "files": {
+              "observer.js": "927983194732528ffb117a362e2538567714ae93ff9f31f816d2aadce45ef973",
+              "cases.json": "ae2faa91ea593d13d00226292af3979c6cda4094ae944119228c9542325515df",
+              "data/CommonEvents.json": "e8e4afd01dd6aa388d99d6b78a6d4b992eb6be7a692faae8edba9a981bdc9894",
+              "data/Map001.json": "662c508f367f38f393c34f13eb192a872e5f32f609d2e8500d7bfd601e391b1b",
+              "runtime-result.json": "722f25d8ac02e1d0057550cfab6dee240e7ff93c363810dd87c5cc1cf1f5b064",
+              "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          },
+          "result": {
+            "timestamp": "2026-10-19T08:21:18.619Z",
+            "method": "actual-native-game",
+            "mode": "compiled",
+            "engine": "1.6.1",
+            "versions": {
+              "http_parser": "2.7.0",
+              "node": "9.7.1",
+              "v8": "6.5.254.31",
+              "uv": "1.19.2",
+              "zlib": "1.2.11",
+              "ares": "1.13.0",
+              "modules": "59",
+              "nghttp2": "1.29.0",
+              "napi": "2",
+              "openssl": "1.0.2n",
+              "icu": "60.1",
+              "unicode": "10.0",
+              "cldr": "32.0",
+              "tz": "2017c",
+              "nw": "0.29.0",
+              "node-webkit": "0.29.0",
+              "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+              "nw-flavor": "sdk",
+              "chromium": "65.0.3325.146"
+            },
+            "scene": "Scene_Map",
+            "frameCount": 0,
+            "results": [
+              {
+                "eventId": 1,
+                "input": [
+                  {
+                    "code": 112,
+                    "indent": 0,
+                    "parameters": []
+                  },
+                  {
+                    "code": 121,
+                    "indent": 1,
+                    "parameters": [
+                      1,
+                      1,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 113,
+                    "indent": 1,
+                    "parameters": []
+                  },
+                  {
+                    "code": 0,
+                    "indent": 1,
+                    "parameters": []
+                  },
+                  {
+                    "code": 413,
+                    "indent": 0,
+                    "parameters": []
+                  },
+                  {
+                    "code": 115,
+                    "indent": 0,
+                    "parameters": []
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      2,
+                      2,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ],
+                "before": [
+                  false,
+                  false
+                ],
+                "expected": [
+                  true,
+                  false
+                ],
+                "actual": [
+                  true,
+                  false
+                ],
+                "isRunning": false,
+                "passed": true
+              },
+              {
+                "eventId": 2,
+                "input": [
+                  {
+                    "code": 112,
+                    "indent": 0,
+                    "parameters": []
+                  },
+                  {
+                    "code": 112,
+                    "indent": 1,
+                    "parameters": []
+                  },
+                  {
+                    "code": 121,
+                    "indent": 2,
+                    "parameters": [
+                      3,
+                      3,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 113,
+                    "indent": 2,
+                    "parameters": []
+                  },
+                  {
+                    "code": 0,
+                    "indent": 2,
+                    "parameters": []
+                  },
+                  {
+                    "code": 413,
+                    "indent": 1,
+                    "parameters": []
+                  },
+                  {
+                    "code": 113,
+                    "indent": 1,
+                    "parameters": []
+                  },
+                  {
+                    "code": 413,
+                    "indent": 0,
+                    "parameters": []
+                  },
+                  {
+                    "code": 115,
+                    "indent": 0,
+                    "parameters": []
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      4,
+                      4,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ],
+                "before": [
+                  false,
+                  false
+                ],
+                "expected": [
+                  true,
+                  false
+                ],
+                "actual": [
+                  true,
+                  false
+                ],
+                "isRunning": false,
+                "passed": true
+              },
+              {
+                "eventId": 3,
+                "input": [
+                  {
+                    "code": 113,
+                    "indent": 0,
+                    "parameters": []
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      5,
+                      5,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 115,
+                    "indent": 0,
+                    "parameters": []
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      6,
+                      6,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ],
+                "before": [
+                  false,
+                  false
+                ],
+                "expected": [
+                  false,
+                  false
+                ],
+                "actual": [
+                  false,
+                  false
+                ],
+                "isRunning": false,
+                "passed": true
+              },
+              {
+                "eventId": 5,
+                "input": [
+                  {
+                    "code": 117,
+                    "indent": 0,
+                    "parameters": [
+                      4
+                    ]
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      9,
+                      9,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 115,
+                    "indent": 0,
+                    "parameters": []
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      10,
+                      10,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ],
+                "before": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "expected": [
+                  true,
+                  false,
+                  true,
+                  false
+                ],
+                "actual": [
+                  true,
+                  false,
+                  true,
+                  false
+                ],
+                "isRunning": false,
+                "passed": true
+              }
+            ],
+            "passed": true
+          }
+        }
+      },
+      "priorExpected": "Independent literal and actual compiled lists produce the same fresh-state switch values and stopped interpreter for all four cases; child Exit permits caller continuation.",
+      "currentGameExecuted": false,
+      "disposition": "Prior concrete native oracle retained; exact independent input unchanged; current real source-evaluated Workspace compares complete saved output to that input; final52/54 normal Scene impacted regression is additional, separately identified evidence."
+    },
+    {
+      "id": "MV-R1-ROUTE-014",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/movement-route-cases.json",
+        "sha256": "c5f48d068f867f56817a9f65f3ed70c79c1c69c9534468ced3f3fdd35e0fec4c",
+        "unchangedFromNativeInput": true
+      },
+      "currentExecutedProof": "route-input-equivalence",
+      "priorNativeResult": {
+        "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\results\\MV-R1-ROUTE-014-2026-10-19T09-11-25-831Z-effb011c-3739-477a-8c5b-a47e2fb322bf.json",
+        "sha256": "26bf4af0b040480d742e024db8ea4df4a844558882b3574cd790048bd8894d88",
+        "revision": "dad1fd42e34b2ffc1c97abb90cd7beccc9c76eb0",
+        "startedAt": "2026-10-19T08:58:32.690Z",
+        "completedAt": "2026-10-19T09:11:25.831Z"
+      },
+      "priorActual": {
+        "literal": {
+          "identity": {
+            "startedAt": "2026-10-19T08:58:32.690Z",
+            "completedAt": "2026-10-19T08:58:47.838Z",
+            "host": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/nwjs-win-test/game.exe",
+            "hostSha256": "78beb07fa8f2b905d468a40d64d0d5588b4cfa42d7822d5e16878245657da3aa",
+            "fixture": {
+              "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-14\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\test\\fixtures\\mv-evidence\\movement-route-cases.json",
+              "sha256": "c5f48d068f867f56817a9f65f3ed70c79c1c69c9534468ced3f3fdd35e0fec4c"
+            },
+            "compiledSource": {
+              "path": "C:/Users/Shuen/.codex/tmp/mv-ticket14-workspaces/movement-roundtrip-T67mBd/最小 Workspace with spaces/.rpgmaker-event-dsl/generated-project-data/CommonEvents.json",
+              "sha256": "3d3d1d6831842b340a6afe2985451b4a026300932332e27177acd012fea6b0b3"
+            },
+            "exit": {
+              "code": 0,
+              "signal": null
+            },
+            "engineFiles": [
+              {
+                "name": "js/rpg_core.js",
+                "sha256": "9ad9914cc421af6d054c3f01b022b7383863b047ec3f6f76aa897e6cfbf864c6"
+              },
+              {
+                "name": "js/rpg_managers.js",
+                "sha256": "b3d5c746cf52234bdd34af746dbf3caecf96bb3477cc6d24121c4a1a11241114"
+              },
+              {
+                "name": "js/rpg_objects.js",
+                "sha256": "2d43dd9d8974c88a1b82ffa493d6d8a02c4ce1d0dfc8f05e6c0ab731e3f0573e"
+              },
+              {
+                "name": "js/rpg_scenes.js",
+                "sha256": "a76ea8c14ec7414a0e2bb488b19734603cc3d8aace3f163e3aa82fc3d0d20d20"
+              },
+              {
+                "name": "js/rpg_sprites.js",
+                "sha256": "f13e67ef4ed308afe71c8503dbe4da65b478cb772a7c0cea88d0e280a4e4fcb0"
+              },
+              {
+                "name": "js/rpg_windows.js",
+                "sha256": "2501aea15906d84a2fb51de20e6dc006f847249674f14802ec2ac2dd5361bb99"
+              },
+              {
+                "name": "js/main.js",
+                "sha256": "dcab1427f95c4bcedf1ed595b828d0c423d4c8d1767452c9a4e651a9c07a3ab9"
+              }
+            ],
+            "files": {
+              "observer.js": "5d085a46fb83a6254eeeff35e007d5036729aec89f33009971627387aef265d8",
+              "cases.json": "8a427fbf79236317b3c51b838f30c8df54218ce190588c32b5b8891ccb6d3302",
+              "data/CommonEvents.json": "02949c2181117041344274a9eae576f0683e5599a215732d264c04f8689d0b71",
+              "data/Map001.json": "95d734461e948731f0584c7430c38977e6c0fc184f74d30963ae08567a8f9368",
+              "data/System.json": "5a820620941a40f106982de10ff574212991a584222c66b9a6eb1cb1c04ece25",
+              "runtime-result.json": "5c94dfe7a5002441c073e7093b30b8f7bf2e6ba51ff3ab1c3c1c87eae75b9783",
+              "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          },
+          "result": {
+            "timestamp": "2026-10-19T08:58:47.743Z",
+            "method": "actual-native-game",
+            "mode": "literal",
+            "engine": "1.6.1",
+            "versions": {
+              "http_parser": "2.7.0",
+              "node": "9.7.1",
+              "v8": "6.5.254.31",
+              "uv": "1.19.2",
+              "zlib": "1.2.11",
+              "ares": "1.13.0",
+              "modules": "59",
+              "nghttp2": "1.29.0",
+              "napi": "2",
+              "openssl": "1.0.2n",
+              "icu": "60.1",
+              "unicode": "10.0",
+              "cldr": "32.0",
+              "tz": "2017c",
+              "nw": "0.29.0",
+              "node-webkit": "0.29.0",
+              "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+              "nw-flavor": "sdk",
+              "chromium": "65.0.3325.146"
+            },
+            "scene": "Scene_Map",
+            "frameCount": 90,
+            "results": [
+              {
+                "eventId": 1,
+                "input": [
+                  {
+                    "code": 205,
+                    "indent": 0,
+                    "parameters": [
+                      -1,
+                      {
+                        "list": [
+                          {
+                            "code": 16
+                          },
+                          {
+                            "code": 17,
+                            "indent": null
+                          },
+                          {
+                            "code": 18,
+                            "indent": 0
+                          },
+                          {
+                            "code": 14,
+                            "parameters": [
+                              0,
+                              0
+                            ]
+                          },
+                          {
+                            "code": 15,
+                            "parameters": [
+                              2
+                            ],
+                            "indent": null
+                          },
+                          {
+                            "code": 27,
+                            "parameters": [
+                              1
+                            ],
+                            "indent": 0
+                          },
+                          {
+                            "code": 44,
+                            "parameters": [
+                              {
+                                "name": "Cursor1",
+                                "volume": 37,
+                                "pitch": 102,
+                                "pan": -5
+                              }
+                            ],
+                            "indent": null
+                          },
+                          {
+                            "code": 45,
+                            "parameters": [
+                              "$gameSwitches.setValue(2, true);\r\n"
+                            ],
+                            "indent": 0
+                          },
+                          {
+                            "code": 0
+                          }
+                        ],
+                        "repeat": false,
+                        "skippable": true,
+                        "wait": true
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 16
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 17,
+                        "indent": null
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 18,
+                        "indent": 0
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 14,
+                        "parameters": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 15,
+                        "parameters": [
+                          2
+                        ],
+                        "indent": null
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 27,
+                        "parameters": [
+                          1
+                        ],
+                        "indent": 0
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 44,
+                        "parameters": [
+                          {
+                            "name": "Cursor1",
+                            "volume": 37,
+                            "pitch": 102,
+                            "pan": -5
+                          }
+                        ],
+                        "indent": null
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 45,
+                        "parameters": [
+                          "$gameSwitches.setValue(2, true);\r\n"
+                        ],
+                        "indent": 0
+                      }
+                    ]
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      3,
+                      3,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ],
+                "before": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "first": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": true,
+                  "forcing": true,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "expected": {
+                  "switches": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 6
+                },
+                "actual": {
+                  "switches": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 6
+                },
+                "elapsedFrames": 90,
+                "passed": true
+              },
+              {
+                "eventId": 3,
+                "input": [
+                  {
+                    "code": 205,
+                    "indent": 0,
+                    "parameters": [
+                      -1,
+                      {
+                        "list": [
+                          {
+                            "code": 15,
+                            "parameters": [
+                              10
+                            ]
+                          },
+                          {
+                            "code": 27,
+                            "parameters": [
+                              1
+                            ]
+                          },
+                          {
+                            "code": 0,
+                            "parameters": []
+                          }
+                        ],
+                        "repeat": false,
+                        "skippable": false,
+                        "wait": false
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 15,
+                        "parameters": [
+                          10
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 27,
+                        "parameters": [
+                          1
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      3,
+                      3,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ],
+                "before": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "first": {
+                  "switches": [
+                    false,
+                    false,
+                    true
+                  ],
+                  "running": false,
+                  "forcing": true,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "expected": {
+                  "switches": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "actual": {
+                  "switches": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "elapsedFrames": 90,
+                "passed": true,
+                "firstExpected": {
+                  "switches": [
+                    false,
+                    false,
+                    true
+                  ],
+                  "running": false,
+                  "forcing": true
+                }
+              },
+              {
+                "eventId": 4,
+                "input": [
+                  {
+                    "code": 205,
+                    "indent": 0,
+                    "parameters": [
+                      -1,
+                      {
+                        "list": [
+                          {
+                            "code": 27,
+                            "parameters": [
+                              1
+                            ],
+                            "indent": 0
+                          },
+                          {
+                            "code": 15,
+                            "parameters": [
+                              1
+                            ],
+                            "indent": null
+                          },
+                          {
+                            "code": 0
+                          }
+                        ],
+                        "repeat": true,
+                        "skippable": false,
+                        "wait": true
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 27,
+                        "parameters": [
+                          1
+                        ],
+                        "indent": 0
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 15,
+                        "parameters": [
+                          1
+                        ],
+                        "indent": null
+                      }
+                    ]
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      3,
+                      3,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ],
+                "before": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "first": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": true,
+                  "forcing": true,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "expected": {
+                  "switches": [
+                    true,
+                    false,
+                    false
+                  ],
+                  "running": true,
+                  "forcing": true,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "actual": {
+                  "switches": [
+                    true,
+                    false,
+                    false
+                  ],
+                  "running": true,
+                  "forcing": true,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "elapsedFrames": 90,
+                "passed": true
+              },
+              {
+                "eventId": 5,
+                "input": [
+                  {
+                    "code": 205,
+                    "indent": 0,
+                    "parameters": [
+                      -1,
+                      {
+                        "list": [
+                          {
+                            "code": 2,
+                            "indent": null
+                          },
+                          {
+                            "code": 18
+                          },
+                          {
+                            "code": 27,
+                            "parameters": [
+                              1
+                            ]
+                          },
+                          {
+                            "code": 0,
+                            "parameters": []
+                          }
+                        ],
+                        "repeat": false,
+                        "skippable": false,
+                        "wait": true
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 2,
+                        "indent": null
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 18
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 27,
+                        "parameters": [
+                          1
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      3,
+                      3,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ],
+                "before": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "first": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": true,
+                  "forcing": true,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "expected": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": true,
+                  "forcing": true,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 4
+                },
+                "actual": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": true,
+                  "forcing": true,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 4
+                },
+                "elapsedFrames": 90,
+                "passed": true
+              },
+              {
+                "eventId": 6,
+                "input": [
+                  {
+                    "code": 205,
+                    "indent": 0,
+                    "parameters": [
+                      -1,
+                      {
+                        "list": [
+                          {
+                            "code": 2,
+                            "indent": 0
+                          },
+                          {
+                            "code": 18
+                          },
+                          {
+                            "code": 27,
+                            "parameters": [
+                              1
+                            ]
+                          },
+                          {
+                            "code": 0
+                          }
+                        ],
+                        "repeat": false,
+                        "skippable": true,
+                        "wait": true
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 2,
+                        "indent": 0
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 18
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 27,
+                        "parameters": [
+                          1
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      3,
+                      3,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ],
+                "before": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "first": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": true,
+                  "forcing": true,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "expected": {
+                  "switches": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 6
+                },
+                "actual": {
+                  "switches": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 6
+                },
+                "elapsedFrames": 90,
+                "passed": true
+              }
+            ],
+            "passed": true
+          }
+        },
+        "compiled": {
+          "identity": {
+            "startedAt": "2026-10-19T08:58:47.886Z",
+            "completedAt": "2026-10-19T08:59:03.077Z",
+            "host": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/nwjs-win-test/game.exe",
+            "hostSha256": "78beb07fa8f2b905d468a40d64d0d5588b4cfa42d7822d5e16878245657da3aa",
+            "fixture": {
+              "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-14\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\test\\fixtures\\mv-evidence\\movement-route-cases.json",
+              "sha256": "c5f48d068f867f56817a9f65f3ed70c79c1c69c9534468ced3f3fdd35e0fec4c"
+            },
+            "compiledSource": {
+              "path": "C:/Users/Shuen/.codex/tmp/mv-ticket14-workspaces/movement-roundtrip-T67mBd/最小 Workspace with spaces/.rpgmaker-event-dsl/generated-project-data/CommonEvents.json",
+              "sha256": "3d3d1d6831842b340a6afe2985451b4a026300932332e27177acd012fea6b0b3"
+            },
+            "exit": {
+              "code": 0,
+              "signal": null
+            },
+            "engineFiles": [
+              {
+                "name": "js/rpg_core.js",
+                "sha256": "9ad9914cc421af6d054c3f01b022b7383863b047ec3f6f76aa897e6cfbf864c6"
+              },
+              {
+                "name": "js/rpg_managers.js",
+                "sha256": "b3d5c746cf52234bdd34af746dbf3caecf96bb3477cc6d24121c4a1a11241114"
+              },
+              {
+                "name": "js/rpg_objects.js",
+                "sha256": "2d43dd9d8974c88a1b82ffa493d6d8a02c4ce1d0dfc8f05e6c0ab731e3f0573e"
+              },
+              {
+                "name": "js/rpg_scenes.js",
+                "sha256": "a76ea8c14ec7414a0e2bb488b19734603cc3d8aace3f163e3aa82fc3d0d20d20"
+              },
+              {
+                "name": "js/rpg_sprites.js",
+                "sha256": "f13e67ef4ed308afe71c8503dbe4da65b478cb772a7c0cea88d0e280a4e4fcb0"
+              },
+              {
+                "name": "js/rpg_windows.js",
+                "sha256": "2501aea15906d84a2fb51de20e6dc006f847249674f14802ec2ac2dd5361bb99"
+              },
+              {
+                "name": "js/main.js",
+                "sha256": "dcab1427f95c4bcedf1ed595b828d0c423d4c8d1767452c9a4e651a9c07a3ab9"
+              }
+            ],
+            "files": {
+              "observer.js": "896026e5909c49ca989a2578fddbd302d9da0dfe1d6e48b57fb4863b9f611bc2",
+              "cases.json": "8a427fbf79236317b3c51b838f30c8df54218ce190588c32b5b8891ccb6d3302",
+              "data/CommonEvents.json": "02949c2181117041344274a9eae576f0683e5599a215732d264c04f8689d0b71",
+              "data/Map001.json": "95d734461e948731f0584c7430c38977e6c0fc184f74d30963ae08567a8f9368",
+              "data/System.json": "5a820620941a40f106982de10ff574212991a584222c66b9a6eb1cb1c04ece25",
+              "runtime-result.json": "be7ecaaae67fd4c526b5a36c78b831ca92749f16809e6fc0085199f5ad989537",
+              "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          },
+          "result": {
+            "timestamp": "2026-10-19T08:59:03.017Z",
+            "method": "actual-native-game",
+            "mode": "compiled",
+            "engine": "1.6.1",
+            "versions": {
+              "http_parser": "2.7.0",
+              "node": "9.7.1",
+              "v8": "6.5.254.31",
+              "uv": "1.19.2",
+              "zlib": "1.2.11",
+              "ares": "1.13.0",
+              "modules": "59",
+              "nghttp2": "1.29.0",
+              "napi": "2",
+              "openssl": "1.0.2n",
+              "icu": "60.1",
+              "unicode": "10.0",
+              "cldr": "32.0",
+              "tz": "2017c",
+              "nw": "0.29.0",
+              "node-webkit": "0.29.0",
+              "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+              "nw-flavor": "sdk",
+              "chromium": "65.0.3325.146"
+            },
+            "scene": "Scene_Map",
+            "frameCount": 90,
+            "results": [
+              {
+                "eventId": 1,
+                "input": [
+                  {
+                    "code": 205,
+                    "indent": 0,
+                    "parameters": [
+                      -1,
+                      {
+                        "list": [
+                          {
+                            "code": 16
+                          },
+                          {
+                            "code": 17,
+                            "indent": null
+                          },
+                          {
+                            "code": 18,
+                            "indent": 0
+                          },
+                          {
+                            "code": 14,
+                            "parameters": [
+                              0,
+                              0
+                            ]
+                          },
+                          {
+                            "code": 15,
+                            "parameters": [
+                              2
+                            ],
+                            "indent": null
+                          },
+                          {
+                            "code": 27,
+                            "parameters": [
+                              1
+                            ],
+                            "indent": 0
+                          },
+                          {
+                            "code": 44,
+                            "parameters": [
+                              {
+                                "name": "Cursor1",
+                                "volume": 37,
+                                "pitch": 102,
+                                "pan": -5
+                              }
+                            ],
+                            "indent": null
+                          },
+                          {
+                            "code": 45,
+                            "parameters": [
+                              "$gameSwitches.setValue(2, true);\r\n"
+                            ],
+                            "indent": 0
+                          },
+                          {
+                            "code": 0
+                          }
+                        ],
+                        "repeat": false,
+                        "skippable": true,
+                        "wait": true
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 16
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 17,
+                        "indent": null
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 18,
+                        "indent": 0
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 14,
+                        "parameters": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 15,
+                        "parameters": [
+                          2
+                        ],
+                        "indent": null
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 27,
+                        "parameters": [
+                          1
+                        ],
+                        "indent": 0
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 44,
+                        "parameters": [
+                          {
+                            "name": "Cursor1",
+                            "volume": 37,
+                            "pitch": 102,
+                            "pan": -5
+                          }
+                        ],
+                        "indent": null
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 45,
+                        "parameters": [
+                          "$gameSwitches.setValue(2, true);\r\n"
+                        ],
+                        "indent": 0
+                      }
+                    ]
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      3,
+                      3,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ],
+                "before": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "first": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": true,
+                  "forcing": true,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "expected": {
+                  "switches": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 6
+                },
+                "actual": {
+                  "switches": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 6
+                },
+                "elapsedFrames": 90,
+                "passed": true
+              },
+              {
+                "eventId": 3,
+                "input": [
+                  {
+                    "code": 205,
+                    "indent": 0,
+                    "parameters": [
+                      -1,
+                      {
+                        "list": [
+                          {
+                            "code": 15,
+                            "parameters": [
+                              10
+                            ]
+                          },
+                          {
+                            "code": 27,
+                            "parameters": [
+                              1
+                            ]
+                          },
+                          {
+                            "code": 0,
+                            "parameters": []
+                          }
+                        ],
+                        "repeat": false,
+                        "skippable": false,
+                        "wait": false
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 15,
+                        "parameters": [
+                          10
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 27,
+                        "parameters": [
+                          1
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      3,
+                      3,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ],
+                "before": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "first": {
+                  "switches": [
+                    false,
+                    false,
+                    true
+                  ],
+                  "running": false,
+                  "forcing": true,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "expected": {
+                  "switches": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "actual": {
+                  "switches": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "elapsedFrames": 90,
+                "passed": true,
+                "firstExpected": {
+                  "switches": [
+                    false,
+                    false,
+                    true
+                  ],
+                  "running": false,
+                  "forcing": true
+                }
+              },
+              {
+                "eventId": 4,
+                "input": [
+                  {
+                    "code": 205,
+                    "indent": 0,
+                    "parameters": [
+                      -1,
+                      {
+                        "list": [
+                          {
+                            "code": 27,
+                            "parameters": [
+                              1
+                            ],
+                            "indent": 0
+                          },
+                          {
+                            "code": 15,
+                            "parameters": [
+                              1
+                            ],
+                            "indent": null
+                          },
+                          {
+                            "code": 0
+                          }
+                        ],
+                        "repeat": true,
+                        "skippable": false,
+                        "wait": true
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 27,
+                        "parameters": [
+                          1
+                        ],
+                        "indent": 0
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 15,
+                        "parameters": [
+                          1
+                        ],
+                        "indent": null
+                      }
+                    ]
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      3,
+                      3,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ],
+                "before": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "first": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": true,
+                  "forcing": true,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "expected": {
+                  "switches": [
+                    true,
+                    false,
+                    false
+                  ],
+                  "running": true,
+                  "forcing": true,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "actual": {
+                  "switches": [
+                    true,
+                    false,
+                    false
+                  ],
+                  "running": true,
+                  "forcing": true,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "elapsedFrames": 90,
+                "passed": true
+              },
+              {
+                "eventId": 5,
+                "input": [
+                  {
+                    "code": 205,
+                    "indent": 0,
+                    "parameters": [
+                      -1,
+                      {
+                        "list": [
+                          {
+                            "code": 2,
+                            "indent": null
+                          },
+                          {
+                            "code": 18
+                          },
+                          {
+                            "code": 27,
+                            "parameters": [
+                              1
+                            ]
+                          },
+                          {
+                            "code": 0,
+                            "parameters": []
+                          }
+                        ],
+                        "repeat": false,
+                        "skippable": false,
+                        "wait": true
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 2,
+                        "indent": null
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 18
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 27,
+                        "parameters": [
+                          1
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      3,
+                      3,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ],
+                "before": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "first": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": true,
+                  "forcing": true,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "expected": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": true,
+                  "forcing": true,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 4
+                },
+                "actual": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": true,
+                  "forcing": true,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 4
+                },
+                "elapsedFrames": 90,
+                "passed": true
+              },
+              {
+                "eventId": 6,
+                "input": [
+                  {
+                    "code": 205,
+                    "indent": 0,
+                    "parameters": [
+                      -1,
+                      {
+                        "list": [
+                          {
+                            "code": 2,
+                            "indent": 0
+                          },
+                          {
+                            "code": 18
+                          },
+                          {
+                            "code": 27,
+                            "parameters": [
+                              1
+                            ]
+                          },
+                          {
+                            "code": 0
+                          }
+                        ],
+                        "repeat": false,
+                        "skippable": true,
+                        "wait": true
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 2,
+                        "indent": 0
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 18
+                      }
+                    ]
+                  },
+                  {
+                    "code": 505,
+                    "indent": 0,
+                    "parameters": [
+                      {
+                        "code": 27,
+                        "parameters": [
+                          1
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "code": 121,
+                    "indent": 0,
+                    "parameters": [
+                      3,
+                      3,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ],
+                "before": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "first": {
+                  "switches": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "running": true,
+                  "forcing": true,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 2
+                },
+                "expected": {
+                  "switches": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 6
+                },
+                "actual": {
+                  "switches": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "running": false,
+                  "forcing": false,
+                  "x": 0,
+                  "y": 0,
+                  "direction": 6
+                },
+                "elapsedFrames": 90,
+                "passed": true
+              }
+            ],
+            "passed": true
+          }
+        }
+      },
+      "priorExpected": "Literal and actual compiled lists match independent expected state over 90 native frames per case; no-wait continues early, repeat+wait and blocked unskippable remain waiting, and skippable advances.",
+      "currentGameExecuted": false,
+      "disposition": "Prior concrete native oracle retained; exact independent input unchanged; current real source-evaluated Workspace compares complete saved output to that input; final52/54 normal Scene impacted regression is additional, separately identified evidence."
+    }
+  ],
+  "loopAfterCorrection": {
+    "receipt": "M:/Shuen/Codex/mv-events-implementation-20261020/final-loop-stable-rerun/receipt-38008.json",
+    "sha256": "58266038e80d63e49ac64c31840e1f0a56c6e60c6d71cc2334e076135dbfb0dc",
+    "log": "M:/Shuen/Codex/mv-events-implementation-20261020/final-loop-stable-rerun/run-1792462461541.log",
+    "sha256Log": "bd0e13d58f6ea13602aa6fe77d561a56f8c0c67524cff9ed94a4def4cdadec8e",
+    "passedTests": 43,
+    "scope": "After final Loop descriptor correction; includes complete Loop Workspace roundtrip by name-filter Loop|loop. Original source baseline and its failures remain unchanged."
+  }
+}

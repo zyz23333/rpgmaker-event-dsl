@@ -1,0 +1,1915 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-R1-ROUTE-014",
+  "runId": "2026-10-20T03-50-22-407Z-38b99586-a68c-4c90-a547-3894df1d7dfb",
+  "status": "passed",
+  "startedAt": "2026-10-20T03:50:22.036Z",
+  "completedAt": "2026-10-20T03:50:22.407Z",
+  "operator": "Codex final55 documentary evidence audit; no new game or test execution",
+  "source": {
+    "revision": "201c48d05d66ec6e44581225f7dde86951223715",
+    "fingerprint": "981700ff523a74b0ad8c099cb23fb026a4f52ab733e5cec765cbaac629363625",
+    "files": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "sha256": "22e859380bc067748d6b238b57770726da093e6346de1921bf6ff50527829632"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/common-scheduling-reuse.json",
+        "sha256": "52499384f103d168a44cbff1f6875ba8e067633955852d59a2963c14c9019248"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/controlled-battle-transfer.json",
+        "sha256": "ec27ba98a6087422184400b90e9094905ab9cf79d34cc57fc3d33e4f0983a30b"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/effective-matrix.json",
+        "sha256": "2a19e58a96e18a734192757edf9eb1c322708e44d2bb6a25fa47f5fd2b8bb8da"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/location-reuse.json",
+        "sha256": "b564a62134f3b9231c7d6282753e470c8d1d0d8cbd4f11df1c69b079033ec259"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/map-appearance-reuse.json",
+        "sha256": "9747d7d04b4c52acd7675e7a8e1405ed45e6641a42575109be2cdbea251bb960"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/native-obligations.json",
+        "sha256": "62b830c5d6d5001453653f56be72983dc2d25d6f3dbd585534b5642640322596"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/publication-script.cjs",
+        "sha256": "245c4718c0462c5148f000dd42a14a7ee7f4f0b0b08fb3f66858c92c4fc7c23f"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/selected-runner-proofs.json",
+        "sha256": "d00f539608c193ae3b6933762a32e3784d4b8b1098a3b14723abc1d3ab5ee613"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/README.md",
+        "sha256": "dcdb62a2c86bf7e88cb02ce5cee9a3f7403bed24bd148443b1b1fded1e25d9ee"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/requirements.json",
+        "sha256": "c99f4a5c21520ed6dd82cdff63647ce2e1301284db046f44b45335b09ef70c8e"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/issues/55-completion-evidence-audit.md",
+        "sha256": "17e08ed5058fd8af690f055357580eb7ae0064dd03e0ce6875d844e81e96432a"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/tickets.md",
+        "sha256": "813ec37627fb634ab6c7ef71aed7e8719b92b8a2804dfa74b80168a94a2f66aa"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-e1-e7/comparison-receipt.json",
+        "sha256": "a43a677bda7caa67d4cf197659dd80c6ca5d98007e087c51157cdb51b34d5848"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-evidence-merge/merge-completion.json",
+        "sha256": "2581818d709f12aad03cdb96de4338e22b98025db6049eef27749a7e587cf01d"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-matrix/docs-example-55-verification/workspace-result.json",
+        "sha256": "f8ed2b89da78742d70705632e946a0e9df925b885ae730808dd99755e926282a"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final48-candidate.json",
+        "sha256": "2f4460874393ba6761740d6613c9c7b7cbbd161f8639a77c96a56ea84943bd63"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final54-effective-receipt.json",
+        "sha256": "a6dd90b195b7c438b130d62968f42877fc6619c3886de58e696fae6eee0e71c0"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final55-audit/e-supplement/comparison-receipt.json",
+        "sha256": "9b6c611214230b888228459651b4003b93a149b734875196c25c4613fe147b83"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/known-public-counterexample-closure-ledger.md",
+        "sha256": "179e9f66863bd4fb2880a9d3f8691ce3c792fcd1b87f902a75a6578042aa45eb"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/shared-constructor-input-finalization-followup.md",
+        "sha256": "35eaa938e2b134001b7e8eced2c627736369e33797b7a2dbd7dfe780b59b8d9a"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket53-final/tools/final-delivery-01a43682-7e25-403b-99c8-12a1de5452c3.json",
+        "sha256": "2f9e2df0e09da15ca9836173c5e7aeef5e19d9b72c2e900638a43c0e233b8d4a"
+      }
+    ]
+  },
+  "fixture": {
+    "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/movement-route-cases.json",
+    "sha256": "c5f48d068f867f56817a9f65f3ed70c79c1c69c9534468ced3f3fdd35e0fec4c"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "node": "v22.23.0",
+    "vitest": "4.1.9",
+    "typescript": "5.9.3",
+    "package": "0.1.2",
+    "native": {
+      "method": "game",
+      "mv": "RPG Maker MV1.6.1",
+      "runtime": "Aggregation of identified actual native observations; no new game execution by this audit",
+      "nwjs": "0.29.0",
+      "tools": {
+        "candidate": "2dc639015f908de6fd524e50236e5422b5f8e990",
+        "compileContractVersion": "mv-1.6.1/22",
+        "auditHead": "201c48d05d66ec6e44581225f7dde86951223715",
+        "evidenceMethod": "Exact original/current case references and preserved execution identities in native-obligations.json"
+      },
+      "artifacts": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/native-obligations.json",
+          "sha256": "62b830c5d6d5001453653f56be72983dc2d25d6f3dbd585534b5642640322596"
+        }
+      ]
+    }
+  },
+  "stages": [
+    "Read exact accepted requirement and current concrete obligation",
+    "Reconcile authoritative actual runner/native verdicts and retained original failures",
+    "Validate fixed candidate and explicit affected/unaffected input equivalence",
+    "Publish immutable effective audit result; no new test, build or game"
+  ],
+  "expected": "Literal and actual compiled lists match independent expected state over 90 native frames per case; no-wait continues early, repeat+wait and blocked unskippable remain waiting, and skippable advances.",
+  "actual": {
+    "auditOnly": true,
+    "newGameExecutions": 0,
+    "newTestExecutions": 0,
+    "candidate": "2dc639015f908de6fd524e50236e5422b5f8e990",
+    "compileContractVersion": "mv-1.6.1/22",
+    "effectiveStatus": "passed",
+    "nativeObligation": {
+      "id": "MV-R1-ROUTE-014",
+      "status": "passed",
+      "note": "Retain the original concrete native oracle and its execution time. Exact independent original input is unchanged; current actual Workspace runner compares complete relevant output to it. Final52 normal Scene regression is additional evidence. No new legacy game launch is claimed.",
+      "proofs": [
+        {
+          "ticket": 52,
+          "case": "r1-autonomous-forced-route-waits",
+          "pair": {
+            "path": "M:\\mv52\\batch-587c0a87-fba2-4160-b9cb-d8560d1fd3c1\\s-e29ce9b416cb-996f6238\\pair-result.json",
+            "sha256": "78caa55e8da1621b5b4dfeec07ba35a59a147372b2d231bb5653c12927247550"
+          },
+          "anchors": [
+            "inactiveSavedRouteNeverRuns",
+            "customRouteExecutesNatively",
+            "forcedNoWaitReturnsSameFrame",
+            "forcedWaitFinishesBeforeContinuation",
+            "parallelDuringForcedWait"
+          ]
+        },
+        {
+          "ticket": 54,
+          "case": "movement-none-script",
+          "pair": {
+            "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-game-54\\final54-movement-none-script-92f14317-6154-4ac8-aa60-7a78c6a21493\\pair-result.json",
+            "sha256": "91b4848a9ee90f3313c4ae1c73ddc9c6605d84daf06f1a34cfef6e54e15030cd",
+            "strictPassed": true
+          },
+          "anchors": [
+            "singleSlotScriptInBothEntrances",
+            "scriptThisBinding",
+            "noneImageKeepsIndex",
+            "noneSeKeepsBufferPlaying",
+            "realAudioSignalBeforeAfterNone",
+            "routeSavedStateFlags"
+          ],
+          "classification": "strict-native-pair-passed",
+          "strictPassed": true
+        }
+      ],
+      "priorNativeReuse": {
+        "id": "MV-R1-ROUTE-014",
+        "fixture": {
+          "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/movement-route-cases.json",
+          "sha256": "c5f48d068f867f56817a9f65f3ed70c79c1c69c9534468ced3f3fdd35e0fec4c",
+          "unchangedFromNativeInput": true
+        },
+        "currentExecutedProof": "route-input-equivalence",
+        "priorNativeResult": {
+          "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\.scratch\\complete-mv-events-implementation\\evidence\\results\\MV-R1-ROUTE-014-2026-10-19T09-11-25-831Z-effb011c-3739-477a-8c5b-a47e2fb322bf.json",
+          "sha256": "26bf4af0b040480d742e024db8ea4df4a844558882b3574cd790048bd8894d88",
+          "revision": "dad1fd42e34b2ffc1c97abb90cd7beccc9c76eb0",
+          "startedAt": "2026-10-19T08:58:32.690Z",
+          "completedAt": "2026-10-19T09:11:25.831Z"
+        },
+        "priorActual": {
+          "literal": {
+            "identity": {
+              "startedAt": "2026-10-19T08:58:32.690Z",
+              "completedAt": "2026-10-19T08:58:47.838Z",
+              "host": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/nwjs-win-test/game.exe",
+              "hostSha256": "78beb07fa8f2b905d468a40d64d0d5588b4cfa42d7822d5e16878245657da3aa",
+              "fixture": {
+                "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-14\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\test\\fixtures\\mv-evidence\\movement-route-cases.json",
+                "sha256": "c5f48d068f867f56817a9f65f3ed70c79c1c69c9534468ced3f3fdd35e0fec4c"
+              },
+              "compiledSource": {
+                "path": "C:/Users/Shuen/.codex/tmp/mv-ticket14-workspaces/movement-roundtrip-T67mBd/最小 Workspace with spaces/.rpgmaker-event-dsl/generated-project-data/CommonEvents.json",
+                "sha256": "3d3d1d6831842b340a6afe2985451b4a026300932332e27177acd012fea6b0b3"
+              },
+              "exit": {
+                "code": 0,
+                "signal": null
+              },
+              "engineFiles": [
+                {
+                  "name": "js/rpg_core.js",
+                  "sha256": "9ad9914cc421af6d054c3f01b022b7383863b047ec3f6f76aa897e6cfbf864c6"
+                },
+                {
+                  "name": "js/rpg_managers.js",
+                  "sha256": "b3d5c746cf52234bdd34af746dbf3caecf96bb3477cc6d24121c4a1a11241114"
+                },
+                {
+                  "name": "js/rpg_objects.js",
+                  "sha256": "2d43dd9d8974c88a1b82ffa493d6d8a02c4ce1d0dfc8f05e6c0ab731e3f0573e"
+                },
+                {
+                  "name": "js/rpg_scenes.js",
+                  "sha256": "a76ea8c14ec7414a0e2bb488b19734603cc3d8aace3f163e3aa82fc3d0d20d20"
+                },
+                {
+                  "name": "js/rpg_sprites.js",
+                  "sha256": "f13e67ef4ed308afe71c8503dbe4da65b478cb772a7c0cea88d0e280a4e4fcb0"
+                },
+                {
+                  "name": "js/rpg_windows.js",
+                  "sha256": "2501aea15906d84a2fb51de20e6dc006f847249674f14802ec2ac2dd5361bb99"
+                },
+                {
+                  "name": "js/main.js",
+                  "sha256": "dcab1427f95c4bcedf1ed595b828d0c423d4c8d1767452c9a4e651a9c07a3ab9"
+                }
+              ],
+              "files": {
+                "observer.js": "5d085a46fb83a6254eeeff35e007d5036729aec89f33009971627387aef265d8",
+                "cases.json": "8a427fbf79236317b3c51b838f30c8df54218ce190588c32b5b8891ccb6d3302",
+                "data/CommonEvents.json": "02949c2181117041344274a9eae576f0683e5599a215732d264c04f8689d0b71",
+                "data/Map001.json": "95d734461e948731f0584c7430c38977e6c0fc184f74d30963ae08567a8f9368",
+                "data/System.json": "5a820620941a40f106982de10ff574212991a584222c66b9a6eb1cb1c04ece25",
+                "runtime-result.json": "5c94dfe7a5002441c073e7093b30b8f7bf2e6ba51ff3ab1c3c1c87eae75b9783",
+                "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              }
+            },
+            "result": {
+              "timestamp": "2026-10-19T08:58:47.743Z",
+              "method": "actual-native-game",
+              "mode": "literal",
+              "engine": "1.6.1",
+              "versions": {
+                "http_parser": "2.7.0",
+                "node": "9.7.1",
+                "v8": "6.5.254.31",
+                "uv": "1.19.2",
+                "zlib": "1.2.11",
+                "ares": "1.13.0",
+                "modules": "59",
+                "nghttp2": "1.29.0",
+                "napi": "2",
+                "openssl": "1.0.2n",
+                "icu": "60.1",
+                "unicode": "10.0",
+                "cldr": "32.0",
+                "tz": "2017c",
+                "nw": "0.29.0",
+                "node-webkit": "0.29.0",
+                "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+                "nw-flavor": "sdk",
+                "chromium": "65.0.3325.146"
+              },
+              "scene": "Scene_Map",
+              "frameCount": 90,
+              "results": [
+                {
+                  "eventId": 1,
+                  "input": [
+                    {
+                      "code": 205,
+                      "indent": 0,
+                      "parameters": [
+                        -1,
+                        {
+                          "list": [
+                            {
+                              "code": 16
+                            },
+                            {
+                              "code": 17,
+                              "indent": null
+                            },
+                            {
+                              "code": 18,
+                              "indent": 0
+                            },
+                            {
+                              "code": 14,
+                              "parameters": [
+                                0,
+                                0
+                              ]
+                            },
+                            {
+                              "code": 15,
+                              "parameters": [
+                                2
+                              ],
+                              "indent": null
+                            },
+                            {
+                              "code": 27,
+                              "parameters": [
+                                1
+                              ],
+                              "indent": 0
+                            },
+                            {
+                              "code": 44,
+                              "parameters": [
+                                {
+                                  "name": "Cursor1",
+                                  "volume": 37,
+                                  "pitch": 102,
+                                  "pan": -5
+                                }
+                              ],
+                              "indent": null
+                            },
+                            {
+                              "code": 45,
+                              "parameters": [
+                                "$gameSwitches.setValue(2, true);\r\n"
+                              ],
+                              "indent": 0
+                            },
+                            {
+                              "code": 0
+                            }
+                          ],
+                          "repeat": false,
+                          "skippable": true,
+                          "wait": true
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 16
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 17,
+                          "indent": null
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 18,
+                          "indent": 0
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 14,
+                          "parameters": [
+                            0,
+                            0
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 15,
+                          "parameters": [
+                            2
+                          ],
+                          "indent": null
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 27,
+                          "parameters": [
+                            1
+                          ],
+                          "indent": 0
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 44,
+                          "parameters": [
+                            {
+                              "name": "Cursor1",
+                              "volume": 37,
+                              "pitch": 102,
+                              "pan": -5
+                            }
+                          ],
+                          "indent": null
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 45,
+                          "parameters": [
+                            "$gameSwitches.setValue(2, true);\r\n"
+                          ],
+                          "indent": 0
+                        }
+                      ]
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        3,
+                        3,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "before": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "first": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": true,
+                    "forcing": true,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "expected": {
+                    "switches": [
+                      true,
+                      true,
+                      true
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 6
+                  },
+                  "actual": {
+                    "switches": [
+                      true,
+                      true,
+                      true
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 6
+                  },
+                  "elapsedFrames": 90,
+                  "passed": true
+                },
+                {
+                  "eventId": 3,
+                  "input": [
+                    {
+                      "code": 205,
+                      "indent": 0,
+                      "parameters": [
+                        -1,
+                        {
+                          "list": [
+                            {
+                              "code": 15,
+                              "parameters": [
+                                10
+                              ]
+                            },
+                            {
+                              "code": 27,
+                              "parameters": [
+                                1
+                              ]
+                            },
+                            {
+                              "code": 0,
+                              "parameters": []
+                            }
+                          ],
+                          "repeat": false,
+                          "skippable": false,
+                          "wait": false
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 15,
+                          "parameters": [
+                            10
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 27,
+                          "parameters": [
+                            1
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        3,
+                        3,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "before": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "first": {
+                    "switches": [
+                      false,
+                      false,
+                      true
+                    ],
+                    "running": false,
+                    "forcing": true,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "expected": {
+                    "switches": [
+                      true,
+                      false,
+                      true
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "actual": {
+                    "switches": [
+                      true,
+                      false,
+                      true
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "elapsedFrames": 90,
+                  "passed": true,
+                  "firstExpected": {
+                    "switches": [
+                      false,
+                      false,
+                      true
+                    ],
+                    "running": false,
+                    "forcing": true
+                  }
+                },
+                {
+                  "eventId": 4,
+                  "input": [
+                    {
+                      "code": 205,
+                      "indent": 0,
+                      "parameters": [
+                        -1,
+                        {
+                          "list": [
+                            {
+                              "code": 27,
+                              "parameters": [
+                                1
+                              ],
+                              "indent": 0
+                            },
+                            {
+                              "code": 15,
+                              "parameters": [
+                                1
+                              ],
+                              "indent": null
+                            },
+                            {
+                              "code": 0
+                            }
+                          ],
+                          "repeat": true,
+                          "skippable": false,
+                          "wait": true
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 27,
+                          "parameters": [
+                            1
+                          ],
+                          "indent": 0
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 15,
+                          "parameters": [
+                            1
+                          ],
+                          "indent": null
+                        }
+                      ]
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        3,
+                        3,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "before": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "first": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": true,
+                    "forcing": true,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "expected": {
+                    "switches": [
+                      true,
+                      false,
+                      false
+                    ],
+                    "running": true,
+                    "forcing": true,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "actual": {
+                    "switches": [
+                      true,
+                      false,
+                      false
+                    ],
+                    "running": true,
+                    "forcing": true,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "elapsedFrames": 90,
+                  "passed": true
+                },
+                {
+                  "eventId": 5,
+                  "input": [
+                    {
+                      "code": 205,
+                      "indent": 0,
+                      "parameters": [
+                        -1,
+                        {
+                          "list": [
+                            {
+                              "code": 2,
+                              "indent": null
+                            },
+                            {
+                              "code": 18
+                            },
+                            {
+                              "code": 27,
+                              "parameters": [
+                                1
+                              ]
+                            },
+                            {
+                              "code": 0,
+                              "parameters": []
+                            }
+                          ],
+                          "repeat": false,
+                          "skippable": false,
+                          "wait": true
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 2,
+                          "indent": null
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 18
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 27,
+                          "parameters": [
+                            1
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        3,
+                        3,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "before": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "first": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": true,
+                    "forcing": true,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "expected": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": true,
+                    "forcing": true,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 4
+                  },
+                  "actual": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": true,
+                    "forcing": true,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 4
+                  },
+                  "elapsedFrames": 90,
+                  "passed": true
+                },
+                {
+                  "eventId": 6,
+                  "input": [
+                    {
+                      "code": 205,
+                      "indent": 0,
+                      "parameters": [
+                        -1,
+                        {
+                          "list": [
+                            {
+                              "code": 2,
+                              "indent": 0
+                            },
+                            {
+                              "code": 18
+                            },
+                            {
+                              "code": 27,
+                              "parameters": [
+                                1
+                              ]
+                            },
+                            {
+                              "code": 0
+                            }
+                          ],
+                          "repeat": false,
+                          "skippable": true,
+                          "wait": true
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 2,
+                          "indent": 0
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 18
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 27,
+                          "parameters": [
+                            1
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        3,
+                        3,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "before": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "first": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": true,
+                    "forcing": true,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "expected": {
+                    "switches": [
+                      true,
+                      false,
+                      true
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 6
+                  },
+                  "actual": {
+                    "switches": [
+                      true,
+                      false,
+                      true
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 6
+                  },
+                  "elapsedFrames": 90,
+                  "passed": true
+                }
+              ],
+              "passed": true
+            }
+          },
+          "compiled": {
+            "identity": {
+              "startedAt": "2026-10-19T08:58:47.886Z",
+              "completedAt": "2026-10-19T08:59:03.077Z",
+              "host": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/nwjs-win-test/game.exe",
+              "hostSha256": "78beb07fa8f2b905d468a40d64d0d5588b4cfa42d7822d5e16878245657da3aa",
+              "fixture": {
+                "path": "C:\\Users\\Shuen\\.codex\\worktrees\\mv-ticket-14\\rpgmaker-event-dsl\\packages\\rpgmaker-event-dsl\\test\\fixtures\\mv-evidence\\movement-route-cases.json",
+                "sha256": "c5f48d068f867f56817a9f65f3ed70c79c1c69c9534468ced3f3fdd35e0fec4c"
+              },
+              "compiledSource": {
+                "path": "C:/Users/Shuen/.codex/tmp/mv-ticket14-workspaces/movement-roundtrip-T67mBd/最小 Workspace with spaces/.rpgmaker-event-dsl/generated-project-data/CommonEvents.json",
+                "sha256": "3d3d1d6831842b340a6afe2985451b4a026300932332e27177acd012fea6b0b3"
+              },
+              "exit": {
+                "code": 0,
+                "signal": null
+              },
+              "engineFiles": [
+                {
+                  "name": "js/rpg_core.js",
+                  "sha256": "9ad9914cc421af6d054c3f01b022b7383863b047ec3f6f76aa897e6cfbf864c6"
+                },
+                {
+                  "name": "js/rpg_managers.js",
+                  "sha256": "b3d5c746cf52234bdd34af746dbf3caecf96bb3477cc6d24121c4a1a11241114"
+                },
+                {
+                  "name": "js/rpg_objects.js",
+                  "sha256": "2d43dd9d8974c88a1b82ffa493d6d8a02c4ce1d0dfc8f05e6c0ab731e3f0573e"
+                },
+                {
+                  "name": "js/rpg_scenes.js",
+                  "sha256": "a76ea8c14ec7414a0e2bb488b19734603cc3d8aace3f163e3aa82fc3d0d20d20"
+                },
+                {
+                  "name": "js/rpg_sprites.js",
+                  "sha256": "f13e67ef4ed308afe71c8503dbe4da65b478cb772a7c0cea88d0e280a4e4fcb0"
+                },
+                {
+                  "name": "js/rpg_windows.js",
+                  "sha256": "2501aea15906d84a2fb51de20e6dc006f847249674f14802ec2ac2dd5361bb99"
+                },
+                {
+                  "name": "js/main.js",
+                  "sha256": "dcab1427f95c4bcedf1ed595b828d0c423d4c8d1767452c9a4e651a9c07a3ab9"
+                }
+              ],
+              "files": {
+                "observer.js": "896026e5909c49ca989a2578fddbd302d9da0dfe1d6e48b57fb4863b9f611bc2",
+                "cases.json": "8a427fbf79236317b3c51b838f30c8df54218ce190588c32b5b8891ccb6d3302",
+                "data/CommonEvents.json": "02949c2181117041344274a9eae576f0683e5599a215732d264c04f8689d0b71",
+                "data/Map001.json": "95d734461e948731f0584c7430c38977e6c0fc184f74d30963ae08567a8f9368",
+                "data/System.json": "5a820620941a40f106982de10ff574212991a584222c66b9a6eb1cb1c04ece25",
+                "runtime-result.json": "be7ecaaae67fd4c526b5a36c78b831ca92749f16809e6fc0085199f5ad989537",
+                "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              }
+            },
+            "result": {
+              "timestamp": "2026-10-19T08:59:03.017Z",
+              "method": "actual-native-game",
+              "mode": "compiled",
+              "engine": "1.6.1",
+              "versions": {
+                "http_parser": "2.7.0",
+                "node": "9.7.1",
+                "v8": "6.5.254.31",
+                "uv": "1.19.2",
+                "zlib": "1.2.11",
+                "ares": "1.13.0",
+                "modules": "59",
+                "nghttp2": "1.29.0",
+                "napi": "2",
+                "openssl": "1.0.2n",
+                "icu": "60.1",
+                "unicode": "10.0",
+                "cldr": "32.0",
+                "tz": "2017c",
+                "nw": "0.29.0",
+                "node-webkit": "0.29.0",
+                "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+                "nw-flavor": "sdk",
+                "chromium": "65.0.3325.146"
+              },
+              "scene": "Scene_Map",
+              "frameCount": 90,
+              "results": [
+                {
+                  "eventId": 1,
+                  "input": [
+                    {
+                      "code": 205,
+                      "indent": 0,
+                      "parameters": [
+                        -1,
+                        {
+                          "list": [
+                            {
+                              "code": 16
+                            },
+                            {
+                              "code": 17,
+                              "indent": null
+                            },
+                            {
+                              "code": 18,
+                              "indent": 0
+                            },
+                            {
+                              "code": 14,
+                              "parameters": [
+                                0,
+                                0
+                              ]
+                            },
+                            {
+                              "code": 15,
+                              "parameters": [
+                                2
+                              ],
+                              "indent": null
+                            },
+                            {
+                              "code": 27,
+                              "parameters": [
+                                1
+                              ],
+                              "indent": 0
+                            },
+                            {
+                              "code": 44,
+                              "parameters": [
+                                {
+                                  "name": "Cursor1",
+                                  "volume": 37,
+                                  "pitch": 102,
+                                  "pan": -5
+                                }
+                              ],
+                              "indent": null
+                            },
+                            {
+                              "code": 45,
+                              "parameters": [
+                                "$gameSwitches.setValue(2, true);\r\n"
+                              ],
+                              "indent": 0
+                            },
+                            {
+                              "code": 0
+                            }
+                          ],
+                          "repeat": false,
+                          "skippable": true,
+                          "wait": true
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 16
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 17,
+                          "indent": null
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 18,
+                          "indent": 0
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 14,
+                          "parameters": [
+                            0,
+                            0
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 15,
+                          "parameters": [
+                            2
+                          ],
+                          "indent": null
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 27,
+                          "parameters": [
+                            1
+                          ],
+                          "indent": 0
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 44,
+                          "parameters": [
+                            {
+                              "name": "Cursor1",
+                              "volume": 37,
+                              "pitch": 102,
+                              "pan": -5
+                            }
+                          ],
+                          "indent": null
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 45,
+                          "parameters": [
+                            "$gameSwitches.setValue(2, true);\r\n"
+                          ],
+                          "indent": 0
+                        }
+                      ]
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        3,
+                        3,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "before": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "first": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": true,
+                    "forcing": true,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "expected": {
+                    "switches": [
+                      true,
+                      true,
+                      true
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 6
+                  },
+                  "actual": {
+                    "switches": [
+                      true,
+                      true,
+                      true
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 6
+                  },
+                  "elapsedFrames": 90,
+                  "passed": true
+                },
+                {
+                  "eventId": 3,
+                  "input": [
+                    {
+                      "code": 205,
+                      "indent": 0,
+                      "parameters": [
+                        -1,
+                        {
+                          "list": [
+                            {
+                              "code": 15,
+                              "parameters": [
+                                10
+                              ]
+                            },
+                            {
+                              "code": 27,
+                              "parameters": [
+                                1
+                              ]
+                            },
+                            {
+                              "code": 0,
+                              "parameters": []
+                            }
+                          ],
+                          "repeat": false,
+                          "skippable": false,
+                          "wait": false
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 15,
+                          "parameters": [
+                            10
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 27,
+                          "parameters": [
+                            1
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        3,
+                        3,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "before": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "first": {
+                    "switches": [
+                      false,
+                      false,
+                      true
+                    ],
+                    "running": false,
+                    "forcing": true,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "expected": {
+                    "switches": [
+                      true,
+                      false,
+                      true
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "actual": {
+                    "switches": [
+                      true,
+                      false,
+                      true
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "elapsedFrames": 90,
+                  "passed": true,
+                  "firstExpected": {
+                    "switches": [
+                      false,
+                      false,
+                      true
+                    ],
+                    "running": false,
+                    "forcing": true
+                  }
+                },
+                {
+                  "eventId": 4,
+                  "input": [
+                    {
+                      "code": 205,
+                      "indent": 0,
+                      "parameters": [
+                        -1,
+                        {
+                          "list": [
+                            {
+                              "code": 27,
+                              "parameters": [
+                                1
+                              ],
+                              "indent": 0
+                            },
+                            {
+                              "code": 15,
+                              "parameters": [
+                                1
+                              ],
+                              "indent": null
+                            },
+                            {
+                              "code": 0
+                            }
+                          ],
+                          "repeat": true,
+                          "skippable": false,
+                          "wait": true
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 27,
+                          "parameters": [
+                            1
+                          ],
+                          "indent": 0
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 15,
+                          "parameters": [
+                            1
+                          ],
+                          "indent": null
+                        }
+                      ]
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        3,
+                        3,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "before": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "first": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": true,
+                    "forcing": true,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "expected": {
+                    "switches": [
+                      true,
+                      false,
+                      false
+                    ],
+                    "running": true,
+                    "forcing": true,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "actual": {
+                    "switches": [
+                      true,
+                      false,
+                      false
+                    ],
+                    "running": true,
+                    "forcing": true,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "elapsedFrames": 90,
+                  "passed": true
+                },
+                {
+                  "eventId": 5,
+                  "input": [
+                    {
+                      "code": 205,
+                      "indent": 0,
+                      "parameters": [
+                        -1,
+                        {
+                          "list": [
+                            {
+                              "code": 2,
+                              "indent": null
+                            },
+                            {
+                              "code": 18
+                            },
+                            {
+                              "code": 27,
+                              "parameters": [
+                                1
+                              ]
+                            },
+                            {
+                              "code": 0,
+                              "parameters": []
+                            }
+                          ],
+                          "repeat": false,
+                          "skippable": false,
+                          "wait": true
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 2,
+                          "indent": null
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 18
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 27,
+                          "parameters": [
+                            1
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        3,
+                        3,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "before": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "first": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": true,
+                    "forcing": true,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "expected": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": true,
+                    "forcing": true,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 4
+                  },
+                  "actual": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": true,
+                    "forcing": true,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 4
+                  },
+                  "elapsedFrames": 90,
+                  "passed": true
+                },
+                {
+                  "eventId": 6,
+                  "input": [
+                    {
+                      "code": 205,
+                      "indent": 0,
+                      "parameters": [
+                        -1,
+                        {
+                          "list": [
+                            {
+                              "code": 2,
+                              "indent": 0
+                            },
+                            {
+                              "code": 18
+                            },
+                            {
+                              "code": 27,
+                              "parameters": [
+                                1
+                              ]
+                            },
+                            {
+                              "code": 0
+                            }
+                          ],
+                          "repeat": false,
+                          "skippable": true,
+                          "wait": true
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 2,
+                          "indent": 0
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 18
+                        }
+                      ]
+                    },
+                    {
+                      "code": 505,
+                      "indent": 0,
+                      "parameters": [
+                        {
+                          "code": 27,
+                          "parameters": [
+                            1
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "code": 121,
+                      "indent": 0,
+                      "parameters": [
+                        3,
+                        3,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "before": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "first": {
+                    "switches": [
+                      false,
+                      false,
+                      false
+                    ],
+                    "running": true,
+                    "forcing": true,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 2
+                  },
+                  "expected": {
+                    "switches": [
+                      true,
+                      false,
+                      true
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 6
+                  },
+                  "actual": {
+                    "switches": [
+                      true,
+                      false,
+                      true
+                    ],
+                    "running": false,
+                    "forcing": false,
+                    "x": 0,
+                    "y": 0,
+                    "direction": 6
+                  },
+                  "elapsedFrames": 90,
+                  "passed": true
+                }
+              ],
+              "passed": true
+            }
+          }
+        },
+        "priorExpected": "Literal and actual compiled lists match independent expected state over 90 native frames per case; no-wait continues early, repeat+wait and blocked unskippable remain waiting, and skippable advances.",
+        "currentGameExecuted": false,
+        "disposition": "Prior concrete native oracle retained; exact independent input unchanged; current real source-evaluated Workspace compares complete saved output to that input; final52/54 normal Scene impacted regression is additional, separately identified evidence."
+      },
+      "title": "Actual native route wait, repeat, skip and finite-envelope controls",
+      "groups": [
+        "R1",
+        "R6"
+      ]
+    },
+    "actorAuthoritativeRunnerProof": null,
+    "automation": null,
+    "allRequiredAudit": null,
+    "limits": "Audit timestamp is not an underlying test/game execution timestamp. Original failed runs and exact expected-refusal versus native-pass classifications remain preserved."
+  },
+  "difference": null
+}

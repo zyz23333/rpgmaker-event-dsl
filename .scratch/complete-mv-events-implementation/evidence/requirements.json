@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "scope": "Ticket01 seeds, ticket02 Windows baseline, tickets03–10 native reverse-engineering/accepted finite contracts, ticket11 System/switches, ticket12 captured map/battle context and ticket13 Loop/Break/Exit. Not complete105+45 or final E1–E7/R1–R7 acceptance. Ticket16 adds Windows Workspace operation locking and interruption/pending independence. Ticket14 adds the shared Movement Route envelope, exact E205/E505 mirrors and assigned actual native route controls. Ticket17 adds byte-consistent Snapshot capture and Project Root Binding; full compile-input, Drift and recovery contracts retain their later tickets. Ticket15 adds finite raw JSON, known-shape failures, recursive Script Gate and a minimum saved Page Autonomous Movement carrier; no complete later-family or final native acceptance is claimed.",
+  "scope": "Complete MV1.6.1 event DSL implementation at the accepted105-event/45-movement command and A1–A8 finite contracts. Final E1–E7 REA/product comparisons, actual R1–R7 games, explicit unaffected native reuse, authoritative source/built affected-run reconciliation, current docs/examples and final55 all-requirement audit are recorded. Original facts, deductions, synthetic support, failures and actual execution identities remain separate.",
   "requirements": [
     {
       "id": "MV-S0-CE-001",
@@ -1984,8 +1984,8 @@
       },
       "expected": "Each direct run observes all11 literal per-command states, and each Common call ends with switches[true,false,true,false], self-switches[false,false,false,false] and terminated interpreter. Literal and compiled observations agree.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/11-system-slots-and-native-switches.md",
-        "section": "## Native game execution"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R1"
@@ -3006,8 +3006,8 @@
       },
       "expected": "Independent literal and actual compiled lists produce the same fresh-state switch values and stopped interpreter for all four cases; child Exit permits caller continuation.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/13-loop-acceptance.md",
-        "section": "## Actual MV execution"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R1",
@@ -6157,8 +6157,8 @@
       },
       "expected": "Literal and actual compiled lists match independent expected state over 90 native frames per case; no-wait continues early, repeat+wait and blocked unskippable remain waiting, and skippable advances.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/14-movement-acceptance.md",
-        "section": "## Actual MV execution"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R1",
@@ -11534,8 +11534,8 @@
       "input": "Identified editor resources and actual current built product comparisons; independent saved-state fixtures and actual game pair when R1.",
       "expected": "Full allocated contract comparison passes with facts, deductions, synthetic support and actual native observations distinguished.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/24-map-event-full-pages.md",
-        "section": "R1 — actual native game pairs"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R1"
@@ -11585,8 +11585,8 @@
       "input": "Identified editor resources and actual current built product comparisons; independent saved-state fixtures and actual game pair when R1.",
       "expected": "Full allocated contract comparison passes with facts, deductions, synthetic support and actual native observations distinguished.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/24-map-event-full-pages.md",
-        "section": "R1 — actual native game pairs"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R1"
@@ -12553,8 +12553,8 @@
       },
       "expected": "Allocated R2 actual normal Scene/Input literal and formal DSL product pair",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/25-troop-event-ownership-and-reset.md",
-        "section": "## R2"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R2"
@@ -12696,8 +12696,8 @@
       },
       "expected": "Complete independent15disk-carrier and3loaded-carrier comparisons, actual Map+Troops Push, two fresh native processes and original17-page/three-turn scheduling expectations",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/25-troop-event-ownership-and-reset.md",
-        "section": "## R2"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R2"
@@ -12794,8 +12794,8 @@
       },
       "expected": "Complete independent15disk-carrier and3loaded-carrier comparisons, actual Map+Troops Push, two fresh native processes and original17-page/three-turn scheduling expectations",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/25-troop-event-ownership-and-reset.md",
-        "section": "## R2"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R2"
@@ -12843,8 +12843,8 @@
       },
       "expected": "Complete independent15disk-carrier and3loaded-carrier comparisons, actual Map+Troops Push, two fresh native processes and original17-page/three-turn scheduling expectations",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/25-troop-event-ownership-and-reset.md",
-        "section": "## R2"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R2"
@@ -12892,8 +12892,8 @@
       },
       "expected": "Complete Map/Common trigger and named E117 runtime pair with exact complete disk/loaded carriers, normal Scene/Input scheduling, valid fresh profiles and owned process ancestry, unchanged engine files, empty stdout/stderr and exit0",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/23-common-event-roundtrip.md",
-        "section": "## R1/R4 完整产品与原生配对"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R1"
@@ -12941,8 +12941,8 @@
       },
       "expected": "Shared-switch Common Parallel wait and shutdown runtime pair with exact complete disk/loaded carriers, normal Scene/Input scheduling, valid fresh profiles and owned process ancestry, unchanged engine files, empty stdout/stderr and exit0",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/23-common-event-roundtrip.md",
-        "section": "## R1/R4 完整产品与原生配对"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R1"
@@ -12990,8 +12990,8 @@
       },
       "expected": "Lowest active Common Autorun ID selection runtime pair with exact complete disk/loaded carriers, normal Scene/Input scheduling, valid fresh profiles and owned process ancestry, unchanged engine files, empty stdout/stderr and exit0",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/23-common-event-roundtrip.md",
-        "section": "## R1/R4 完整产品与原生配对"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R1"
@@ -13039,8 +13039,8 @@
       },
       "expected": "Same Common formal current-event and self-switch behavior from Map and Battle with exact complete disk/loaded carriers, normal Scene/Input scheduling, valid fresh profiles and owned process ancestry, unchanged engine files, empty stdout/stderr and exit0",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/23-common-event-roundtrip.md",
-        "section": "## R1/R4 完整产品与原生配对"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R4"
@@ -13462,8 +13462,8 @@
       },
       "expected": "Public init Clone Decompile formal edit Check Compile Diff Push; all15 disk carriers and complete loaded carriers match, original13 predicates pass on both actual native processes under strict v5 identity/profile/output/exit checks.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/33-movement-instructions.md",
-        "section": "R1 native route waits"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R1"
@@ -13517,8 +13517,8 @@
       },
       "expected": "All19 independent predicates pass per side; exact public product installation and loaded input; ongoing SE buffer/signal retained by None, autonomous None observed before page is normally disabled; old v1 premise failure preserved.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/33-movement-instructions.md",
-        "section": "R6 and R7 native movement controls"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R1",
@@ -13621,8 +13621,8 @@
       },
       "expected": "A fresh allocated actual built public Workspace product pair consumes the exact bound external independent input bytes; original predicates remain intact; complete Map/Common/System/Troops generated, installed and loaded values match. Strict v5 process/profile/engine/disk/output/exit and all15 carrier comparisons pass.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/33-movement-instructions.md",
-        "section": "Native delivery input bindings"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R1"
@@ -13667,8 +13667,8 @@
       },
       "expected": "A fresh allocated actual built public Workspace product pair consumes the exact bound external independent input bytes; original predicates remain intact; complete Map/Common/System/Troops generated, installed and loaded values match. Strict v5 process/profile/engine/disk/output/exit and all15 carrier comparisons pass.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/33-movement-instructions.md",
-        "section": "Native delivery input bindings"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R1",
@@ -14147,8 +14147,8 @@
       "slice": "36 / S6",
       "required": true,
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/36-map-appearance-settings.md",
-        "section": "R6 — current built product pairs"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       }
     },
     {
@@ -14195,8 +14195,8 @@
       "slice": "36 / S6",
       "required": true,
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/36-map-appearance-settings.md",
-        "section": "R6 — missing Tileset image behavior"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       }
     },
     {
@@ -15801,8 +15801,8 @@
       "required": true,
       "expected": "Allocated R3 actual native literal and compiled Choices game pairs",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/27-choices-complete-branches.md",
-        "section": "## R3 原生游戏对照"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       }
     },
     {
@@ -17397,8 +17397,8 @@
       },
       "expected": "Actual deterministic per-side simulation and visible/native observations agree with independent expected behavior; preserve raw failures and candidate identities.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/37-screen-weather-waits-and-movies-dev-checkpoint.md",
-        "section": "## R6 pending game observation"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R6"
@@ -17742,8 +17742,8 @@
       },
       "expected": "Picture allocated R6 actual current built game validation pending",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/38-picture-complete-parameters.md",
-        "section": "## R6 — pending actual game validation"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R6"
@@ -17982,8 +17982,8 @@
       },
       "expected": "Ticket39 allocated R6 current built normal-Scene audio and system audio pairs",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/39-audio-and-system-audio-dev-checkpoint.md",
-        "section": "## R6 pending game observation"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R6"
@@ -19054,8 +19054,8 @@
       },
       "expected": "Actual native normal Scene results and complete loaded/disk carrier comparisons with immutable host/engine/observer/source/dist identities; hardened copy/isolation proofs and all reference bytes unchanged. Pending focused DEV; no runtime pass claimed.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/31-control-variables-dev.md",
-        "section": "## Remaining finalization"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "E5",
@@ -19342,8 +19342,8 @@
       },
       "expected": "Actual isolated normal-Scene literal and compiled games agree with original native semantics; E4 shipped editor code paths and final product output compare separately. Not executed by focused DEV.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-editor-supplement.md",
-        "section": "## Inventory E4 portion"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "E4",
@@ -19557,8 +19557,8 @@
       "slice": "47 final acceptance pending",
       "required": true,
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/32-47-inventory-shop-capability-batch.md",
-        "section": "## Pending native acceptance"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       }
     },
     {
@@ -19733,8 +19733,8 @@
       },
       "expected": "E4/E6 exact target and code evidence compared with final built output; actual hardened R5 game pair exercises direct/variables/exchange/query and controlled battle Transfer, with all physical protection gates. This requirement remains pending.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-editor-supplement.md",
-        "section": "## Location E4/E6 portion"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "E4",
@@ -19996,8 +19996,8 @@
       },
       "expected": "Final R1/R4/R6 native literal/compiled built-product pairs remain required; no game execution is claimed by focused DEV.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/35-map-characters-dev.md",
-        "section": "Pending native R1/R4/R6"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R1",
@@ -20357,8 +20357,8 @@
       },
       "expected": "Pending final integrated source/build/built and impacted R1/R3 validation",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/control-input-fix-dev.md",
-        "section": "## Pending final integration verification"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R1",
@@ -20942,8 +20942,8 @@
       },
       "expected": "Allocated E5 product comparison or actual MV 1.6.1 normal-scene R3/R7 execution with independent expectations and physical isolation proof; pending at DEV checkpoint.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/30-text-dev-checkpoint.md",
-        "section": "## Pending native and final verification"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R3"
@@ -20984,8 +20984,8 @@
       },
       "expected": "Allocated E5 product comparison or actual MV 1.6.1 normal-scene R3/R7 execution with independent expectations and physical isolation proof; pending at DEV checkpoint.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/30-text-dev-checkpoint.md",
-        "section": "## Pending native and final verification"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R7"
@@ -21344,8 +21344,8 @@
       },
       "expected": "51 completes final E5/E6 REA/product comparisons;54 observes actual R6 Name Input, complete Actor strings and independent None/character/face/battler/vehicle display behavior. Synthetic extremes retain their source classification.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/29-30-44-text-capability-batch.md",
-        "section": "## Remaining final acceptance"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "E5",
@@ -21602,8 +21602,8 @@
       },
       "expected": "Preserve full battle page scheduling/results, hidden/member behavior, Force skill-scope targets, residual Abort state, animation effect/visibility and no-op/error consequences under actual game runtime; no patched engine substitute.",
       "review": {
-        "path": ".scratch/complete-mv-events-implementation/evidence/battle-batch-delivery.md",
-        "section": "## Final native work"
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Native obligation audit"
       },
       "nativeGroups": [
         "R2",
@@ -22519,6 +22519,55 @@
         "layer": "Actual public API original invalid-input refusal"
       },
       "slice": "52 final R1–R3",
+      "required": true
+    },
+    {
+      "id": "MV-S7-COMPLETION-AUDIT-055",
+      "title": "Final all-required-obligation evidence audit, candidate identity, current API documentation and examples",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/55-completion-evidence-audit.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### T5"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Existing exact accepted requirements, actual authoritative source/built runner verdicts, final REA/built comparisons, actual native receipts, current output-equivalence proofs, known counterexamples, API documentation and full example; no new game/test execution claimed by the audit.",
+      "fixture": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit/effective-matrix.json",
+        "sha256": "2a19e58a96e18a734192757edf9eb1c322708e44d2bb6a25fa47f5fd2b8bb8da"
+      },
+      "expected": "Every preceding required obligation has explicit effective passing evidence or a precise accepted not-applicable rule; no unresolved failed/blocked/not-executed/retest-required obligation. Native observations, REA facts, conditional deductions and synthetic support stay distinct; original failed attempts stay unchanged.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/55-final-audit.md",
+        "section": "## Final effective matrix"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows Node22 metadata/schema/link/hash audit over the fixed candidate and immutable actual receipts",
+        "owner": "55 completion evidence audit",
+        "layer": "Documentary all-obligation audit; no new native, build or full suite"
+      },
+      "slice": "S7 final evidence, documentation and examples",
       "required": true
     }
   ]
