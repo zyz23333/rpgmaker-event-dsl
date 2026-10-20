@@ -1,6 +1,6 @@
 # 44: 角色文本与人物／载具图像
 
-Status: claimed
+Status: resolved
 Blocked by: 08, 09, 23
 Stage: S6
 Execution batch: [文本、脚本与角色展示](../tickets.md#batch-text)
@@ -21,18 +21,18 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 ## Acceptance criteria
 
-- [ ] E303 的姓名输入参数与 E320/E324/E325 的完整文本分别遵守原生契约；不将单槽 warning 套到未列字段。
-- [ ] E322/E323 全部人物/脸图/战斗图/载具素材和独立 index 准确保存，faceIndex 域、负零、None 与 >=8 warning 一致。
+- [x] E303 的姓名输入参数与 E320/E324/E325 的完整文本分别遵守原生契约；不将单槽 warning 套到未列字段。
+- [x] E322/E323 全部人物/脸图/战斗图/载具素材和独立 index 准确保存，faceIndex 域、负零、None 与 >=8 warning 一致。
 - [ ] 取得 E5/E6/R6 分配证据，正式/raw/反编译与真实源码往返支持空白、CR/LF/尾字符和合法异常保存值。
 
 ### 共通要求（限本票适用范围）
 
-- [ ] 按规格 I1–I12 和对应完整参数附表实现；正式编写、编译、反编译、验证、已知 raw 及适用 Workspace 路径一起交付，实际发现并求值生成源码，预期独立于待测编译器。
-- [ ] 对本票拥有的字段/模式/枚举/None/独立保存值/默认/正负边界及已知相互作用建案例；完整比较键存在性、数组长度/顺序、页序、值、镜像、CR 和非激活配置。
-- [ ] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
-- [ ] 按规格 2026-10-20 用户执行修订，开发及批次合入执行 Windows / Node 22 受影响测试与必要检查；全量适用自动化及构建集中到 48。安全票仍验证用户可观察的源码、项目、Snapshot、manifest、Discovery 集合和诊断状态。
-- [ ] 本票原生场景可集中到 49–54 最终回归；开发票关闭时记录实际自动化结果，并明确指向待执行的最终场景，不把未执行记为通过。证据按规格 2026-10-20 用户执行修订保留必要版本、输入、命令和预期/实际日志。
-- [ ] 同步受影响的当前公开 API 文档、示例及编写指南；不保留旧 API 别名或迁移说明，不分发首方编辑器、runtime/源码或本地游戏资产。
+- [x] 按规格 I1–I12 和对应完整参数附表实现；正式编写、编译、反编译、验证、已知 raw 及适用 Workspace 路径一起交付，实际发现并求值生成源码，预期独立于待测编译器。
+- [x] 对本票拥有的字段/模式/枚举/None/独立保存值/默认/正负边界及已知相互作用建案例；完整比较键存在性、数组长度/顺序、页序、值、镜像、CR 和非激活配置。
+- [x] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
+- [x] 按规格 2026-10-20 用户执行修订，开发及批次合入执行 Windows / Node 22 受影响测试与必要检查；全量适用自动化及构建集中到 48。安全票仍验证用户可观察的源码、项目、Snapshot、manifest、Discovery 集合和诊断状态。
+- [x] 本票原生场景可集中到 49–54 最终回归；开发票关闭时记录实际自动化结果，并明确指向待执行的最终场景，不把未执行记为通过。证据按规格 2026-10-20 用户执行修订保留必要版本、输入、命令和预期/实际日志。
+- [x] 同步受影响的当前公开 API 文档、示例及编写指南；不保留旧 API 别名或迁移说明，不分发首方编辑器、runtime/源码或本地游戏资产。
 
 ## Verification
 
@@ -52,3 +52,11 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [角色、战斗与场景参数附表](../../complete-mv-events/research/command-parameters/actors-battle.md)。
+
+## Comments
+
+### 2026-10-20 — Batch development resolved under the user amendment
+
+Completed as the continuous29/30/44 batch after merging actual integration2ce2ba3b. Product checkpoint59328ebd (format-only2e733ff7), incoming contract17 advances once to18. Windows/Node22 typecheck,342 affected unit tests,13 actual source Workspace cases and contract freshness passed. Complete source, Project, Snapshot, generated, manifest, config/descriptor, pending and Discovery states are checked where applicable. Current API documents/examples are reconciled.
+
+See [the batch delivery and actual log pointers](../evidence/29-30-44-text-capability-batch.md). The first two acceptance items and common development requirements are complete. The combined native acceptance item remains unchecked: E5/E6 final REA/product comparison belongs to51; R3 to52; R6/R7 actual MV1.6.1/NW.js games to54. Full/build checks belong to48. These unexecuted final obligations are not claimed as passed. Original DEV/failure records remain in place; earlier claimed-only full/native queue language is superseded by the2026-10-20 user amendment.

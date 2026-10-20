@@ -707,3 +707,15 @@ Ticket29 adds focused synthetic message delivery checks; its E5/E6 reverse-engin
 | MV-S6-TEXT-E5 | Ticket 30 allocated E5 final product/native verification |
 | MV-S6-TEXT-R3 | Ticket 30 allocated R3 final product/native verification |
 | MV-S6-TEXT-R7 | Ticket 30 allocated R7 final product/native verification |
+
+## Text capability batch29/30/44 development closure
+
+[Current batch report](29-30-44-text-capability-batch.md) records actual source, inputs, commands, logs and retained failures. Development resolves under the user amendment; final E5/E6, R3 and R6/R7 remain with51/52/54.
+
+| Requirement | Obligation | Actual layer |
+| --- | --- | --- |
+| MV-S6-ACTOR-PRESENTATION-001 | Actor presentation in complete three-container evaluated Workspace and edited Push | Actual public source tests and complete temporary filesystem |
+| MV-S6-ACTOR-PRESENTATION-002 | Original helper and forged Actor presentation source refuse writes and stale Push | Actual public source tests and complete temporary filesystem |
+| MV-S6-ACTOR-PRESENTATION-003 | Late malformed recognized Actor image refuses all source publication | Actual public source tests and complete temporary filesystem |
+| MV-S6-ACTOR-PRESENTATION-004 | Public Actor text and image helpers compiler decompiler raw domains and accurate warnings | Actual public source tests and complete temporary filesystem |
+| MV-S6-ACTOR-PRESENTATION-NATIVE | Final E5/E6 product comparison and actual R6 Actor text image display remain required | Pending51/54; not executed |

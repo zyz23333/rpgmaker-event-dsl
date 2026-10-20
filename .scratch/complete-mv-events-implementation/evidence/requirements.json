@@ -19695,6 +19695,368 @@
       },
       "slice": "30",
       "required": true
+    },
+    {
+      "id": "MV-S6-ACTOR-PRESENTATION-001",
+      "title": "Actor presentation in complete three-container evaluated Workspace and edited Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/44-actor-text-and-character-images.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-20 用户执行修订：按批次开发，减少全量与证据开销"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E303"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E320"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E323"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E324"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independently authored synthetic native arrays, original/untyped helper inputs and actual generated TypeScript source in linked tests. No editor UI or actual game execution claim.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/actor-presentation-cases.json",
+        "sha256": "e4670ed4be1e6f383c0ebcafcfbf1deb6b458776630b79f29c5cb7800aa7e9c6"
+      },
+      "expected": "Independent19-command fixture roundtrips Map/Common/Troop via Discovery/evaluation; Check is read-only; complete four-file Compile Output and all15 Project/Snapshot files match independent expected data after an authored edit and Push.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/actor-presentation-workspace.test.ts",
+        "name": "MV-S6-ACTOR-PRESENTATION-001:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / Vitest4.1.9; original deadlines and two workers",
+        "owner": "Text capability batch29/30/44; current actual logs in29-30-44-text-capability-batch.md",
+        "layer": "Public authoring/compiler/decompiler/graph and actual Workspace source evaluation/filesystem"
+      },
+      "slice": "44 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-ACTOR-PRESENTATION-002",
+      "title": "Original helper and forged Actor presentation source refuse writes and stale Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/44-actor-text-and-character-images.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-20 用户执行修订：按批次开发，减少全量与证据开销"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E303"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E320"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E323"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E324"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independently authored synthetic native arrays, original/untyped helper inputs and actual generated TypeScript source in linked tests. No editor UI or actual game execution claim.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/actor-presentation-cases.json",
+        "sha256": "e4670ed4be1e6f383c0ebcafcfbf1deb6b458776630b79f29c5cb7800aa7e9c6"
+      },
+      "expected": "Both original helper extra-field and direct native-domain violations reject Check/Compile and stale Push while complete source, Project, Snapshot, generated data, manifest, config/descriptor, pending state and Discovery remain unchanged.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/actor-presentation-workspace.test.ts",
+        "name": "MV-S6-ACTOR-PRESENTATION-002:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / Vitest4.1.9; original deadlines and two workers",
+        "owner": "Text capability batch29/30/44; current actual logs in29-30-44-text-capability-batch.md",
+        "layer": "Public authoring/compiler/decompiler/graph and actual Workspace source evaluation/filesystem"
+      },
+      "slice": "44 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-ACTOR-PRESENTATION-003",
+      "title": "Late malformed recognized Actor image refuses all source publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/44-actor-text-and-character-images.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-20 用户执行修订：按批次开发，减少全量与证据开销"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E303"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E320"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E323"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E324"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Independently authored synthetic native arrays, original/untyped helper inputs and actual generated TypeScript source in linked tests. No editor UI or actual game execution claim.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/actor-presentation-cases.json",
+        "sha256": "e4670ed4be1e6f383c0ebcafcfbf1deb6b458776630b79f29c5cb7800aa7e9c6"
+      },
+      "expected": "A late native E322 out-of-domain face index fails with a located parameters[4] diagnostic before any source is published; all Workspace business state remains unchanged.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/actor-presentation-workspace.test.ts",
+        "name": "MV-S6-ACTOR-PRESENTATION-003:"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / Vitest4.1.9; original deadlines and two workers",
+        "owner": "Text capability batch29/30/44; current actual logs in29-30-44-text-capability-batch.md",
+        "layer": "Public authoring/compiler/decompiler/graph and actual Workspace source evaluation/filesystem"
+      },
+      "slice": "44 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-ACTOR-PRESENTATION-004",
+      "title": "Public Actor text and image helpers compiler decompiler raw domains and accurate warnings",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/44-actor-text-and-character-images.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-20 用户执行修订：按批次开发，减少全量与证据开销"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E303"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E320"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E323"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E324"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Independently authored synthetic native arrays, original/untyped helper inputs and actual generated TypeScript source in linked tests. No editor UI or actual game execution claim.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/actor-presentation-cases.json",
+        "sha256": "e4670ed4be1e6f383c0ebcafcfbf1deb6b458776630b79f29c5cb7800aa7e9c6"
+      },
+      "expected": "The five Actor presentation public-seam cases preserve independent None/index and complete19-record vectors, evaluate canonical source, reject original/native/raw malformed fields and face domains, retain long/control-character text and numeric signed zero, and emit exact text/layout/battle diagnostics.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/actor-presentation.test.ts",
+        "name": "evaluates canonical Actor presentation source against independent complete saved vectors"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0 / Vitest4.1.9; original deadlines and two workers",
+        "owner": "Text capability batch29/30/44; current actual logs in29-30-44-text-capability-batch.md",
+        "layer": "Public authoring/compiler/decompiler/graph and actual Workspace source evaluation/filesystem"
+      },
+      "slice": "44 / S6",
+      "required": true
+    },
+    {
+      "id": "MV-S6-ACTOR-PRESENTATION-NATIVE",
+      "title": "Final E5/E6 product comparison and actual R6 Actor text image display remain required",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/44-actor-text-and-character-images.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "## 2026-10-20 用户执行修订：按批次开发，减少全量与证据开销"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E303"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E320"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E322"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E323"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E324"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/actors-battle.md",
+          "section": "### E325"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "reverse-engineering-observation",
+      "input": "Final built product, same-identity editor code evidence08/09 and isolated actual MV1.6.1/NW.js normal-scene R6 controls. Not executed by this development batch.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/actor-presentation-cases.json",
+        "sha256": "e4670ed4be1e6f383c0ebcafcfbf1deb6b458776630b79f29c5cb7800aa7e9c6"
+      },
+      "expected": "51 completes final E5/E6 REA/product comparisons;54 observes actual R6 Name Input, complete Actor strings and independent None/character/face/battler/vehicle display behavior. Synthetic extremes retain their source classification.",
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/29-30-44-text-capability-batch.md",
+        "section": "## Remaining final acceptance"
+      },
+      "nativeGroups": [
+        "E5",
+        "E6",
+        "R6"
+      ],
+      "execution": {
+        "environment": "Windows / Node22 / final built product and MV1.6.1/NW.js",
+        "owner": "Final51 and54 runners",
+        "layer": "Final REA/product comparison and actual game observation; pending"
+      },
+      "slice": "44 / S6",
+      "required": true
     }
   ]
 }
