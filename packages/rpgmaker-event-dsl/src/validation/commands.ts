@@ -36,6 +36,11 @@ import {
 } from "../commands/movement/access-validation.js";
 import { assertSceneCommandInput } from "../commands/system/validation.js";
 import { assertActorResourceInput } from "../commands/actor/validation.js";
+import { assertShopInput } from "../commands/battle/shop-validation.js";
+import {
+  assertInventoryInput,
+  isInventoryCommandKind,
+} from "../commands/variables/inventory-validation.js";
 
 type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
@@ -79,10 +84,21 @@ export function validateNodes(
       assertSceneCommandInput(node.kind, node, nodePath);
       assertPictureInput(node.kind, node, nodePath, true, resolver);
       assertActorResourceInput(node.kind, node, nodePath, true, resolver);
+      if (node.kind === "shopProcessing") assertShopInput(node, nodePath, true, resolver);
     } catch (error) {
       if (error instanceof CommandStructureError)
         issues.push(error.issue(options.identity ?? "event", "compile"));
       else throw error;
+      continue;
+    }
+    if (isInventoryCommandKind(node.kind)) {
+      try {
+        assertInventoryInput(node.kind, node, nodePath, true, resolver);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+      }
       continue;
     }
     const childOptions = (field: string): CommandValidationOptions => ({
@@ -198,34 +214,6 @@ export function validateNodes(
           issues.push(error.issue(options.identity ?? "event", "compile"));
         else throw error;
       }
-    }
-    if (node.kind === "changeItems") {
-      captureReferenceIssue(() => resolver.resolveReference(node.item), issues);
-      if (isVariableReferenceValue(node.amount)) {
-        const amountRef = node.amount;
-        captureReferenceIssue(() => resolver.resolveReference(amountRef), issues);
-      }
-    }
-    if (node.kind === "changeWeapons") {
-      captureReferenceIssue(() => resolver.resolveReference(node.weapon), issues);
-      if (isVariableReferenceValue(node.amount)) {
-        const amountRef = node.amount;
-        captureReferenceIssue(() => resolver.resolveReference(amountRef), issues);
-      }
-    }
-    if (node.kind === "changeArmors") {
-      captureReferenceIssue(() => resolver.resolveReference(node.armor), issues);
-      if (isVariableReferenceValue(node.amount)) {
-        const amountRef = node.amount;
-        captureReferenceIssue(() => resolver.resolveReference(amountRef), issues);
-      }
-    }
-    if (node.kind === "changeGold" && isVariableReferenceValue(node.value)) {
-      const valueRef = node.value;
-      captureReferenceIssue(() => resolver.resolveReference(valueRef), issues);
-    }
-    if (node.kind === "changePartyMember") {
-      captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
     }
     if (node.kind === "inputNumber" || node.kind === "selectItem") {
       captureReferenceIssue(() => resolver.resolveReference(node.variable), issues);
@@ -346,7 +334,10 @@ export function validateNodes(
     }
     if (node.kind === "shopProcessing") {
       for (const goods of node.goods) {
-        captureReferenceIssue(() => resolver.resolveReference(goods.item), issues);
+        if (goods.kind === "placeholder") continue;
+        const reference =
+          goods.kind === "item" ? goods.item : goods.kind === "weapon" ? goods.weapon : goods.armor;
+        captureReferenceIssue(() => resolver.resolveReference(reference), issues);
       }
     }
     if (node.kind === "nameInputProcessing") {

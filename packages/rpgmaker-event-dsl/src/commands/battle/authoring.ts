@@ -6,6 +6,7 @@ import type {
   ShopGoods,
   ShopProcessingDslCommand,
 } from "../../domain/types.js";
+import { assertShopInput } from "./shop-validation.js";
 
 export function battleProcessing(input: {
   troop:
@@ -49,16 +50,17 @@ export function battleProcessing(input: {
 }
 
 export function shopProcessing(input: {
-  goods: readonly [ShopGoods, ...ShopGoods[]];
-  allowSelling?: boolean;
+  goods: readonly ShopGoods[];
+  purchaseOnly?: boolean;
 }): ShopProcessingDslCommand {
+  assertShopInput(input, "shopProcessing", false);
   const node: ShopProcessingDslCommand = {
     kind: "shopProcessing",
     goods: input.goods,
   };
 
-  if (input.allowSelling !== undefined) {
-    node.allowSelling = input.allowSelling;
+  if (input.purchaseOnly !== undefined) {
+    node.purchaseOnly = input.purchaseOnly;
   }
 
   return node;

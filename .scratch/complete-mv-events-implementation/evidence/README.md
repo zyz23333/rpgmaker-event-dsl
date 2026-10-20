@@ -676,6 +676,26 @@ Conditional 集成，契约 `/15`、374 条要求；开发票按用户执行修�
 
 [Current batch report](41-43-actor-capability-batch.md) links the executed source version, independent inputs, actual commands and original logs. Development is complete; final E7 product comparison and R4/R7 actual game execution remain required in51/53/54. Existing41 raw results and all prior failures stay at their original paths. No per-ticket full/build/native or large archive was added under the 2026-10-20 user amendment.
 
+| Requirement | Case | Scope |
+| --- | --- | --- |
+| MV-S6-INVENTORY-001 | Complete native quantity mode and independent flag matrix through actual Workspace publication | Synthetic focused DEV; native:not-executed |
+| MV-S6-INVENTORY-002 | Local const helper and direct node unknown fields fail without changing business state | Synthetic focused DEV; native:not-executed |
+| MV-S6-INVENTORY-003 | Native invalid saved slots fail before source publication including categorical negative zero | Synthetic focused DEV; native:not-executed |
+| MV-S6-INVENTORY-004 | Native fixed references must exist in their real project category before takeover | Synthetic focused DEV; native:not-executed |
+| MV-S6-INVENTORY-005 | Formal helpers, direct nodes, native and recognized raw share complete inventory and party domains | Synthetic focused DEV; native:not-executed |
+| MV-S6-INVENTORY-006 | Same-identity E4/product comparison and actual R4 execution | Pending; [DEV record](32-inventory-party-dev.md#pending-e4r4-acceptance) |
+
+
+| Requirement | Obligation | Evidence kind |
+| --- | --- | --- |
+| MV-S6-SHOP-001 | Exact ordered placeholders, categories, standard/custom prices and purchaseOnly survive Decompile, evaluated source, Check, Compile, Diff and real Push with complete carriers | synthetic-support |
+| MV-S6-SHOP-002 | Evaluated original placeholder extra fields reject Check, Compile, stale Diff and Push while preserving all business state | synthetic-rejection |
+| MV-S6-SHOP-003 | Late malformed Shop in Troop fails before publishing any source with complete business state unchanged | synthetic-rejection |
+
+
+| Requirement | Obligation | Evidence kind |
+| --- | --- | --- |
+| MV-S6-SHOP-004 | Item, weapon and armor native IDs must exist in their actual category before source publication; another category cannot substitute | synthetic-rejection |
 ## Ticket31 Control Variables
 
 The five stable obligations below retain the original DEV records. Current development closure and affected reruns are recorded in the [Ticket31 finalization report](31-control-variables-finalization.md); `MV-S6-VARIABLES-005` remains unexecuted and is carried to49/51–54. Its complete64-sample Random, self-alias, once-before-loop Script and numeric runtime outcomes remain required. Daily index validity does not mark that native obligation passed.
@@ -687,3 +707,5 @@ The five stable obligations below retain the original DEV records. Current devel
 | MV-S6-VARIABLES-003 | Native saved-shape and fixed-reference rejection before source publication | Synthetic DEV rejection; [record](31-control-variables-dev.md) |
 | MV-S6-VARIABLES-004 | Evaluated untyped source and known-raw Gate Check/Compile isolation | Synthetic DEV rejection; [record](31-control-variables-dev.md) |
 | MV-S6-VARIABLES-005 | Final built lifecycle and actual normal-Scene variable runtime observations | Required E5/R4/R7 pending; [record](31-control-variables-dev.md#remaining-finalization) |
+
+| MV-S6-SHOP-005 | Final E2/E4 and actual R6 Shop Scene consequences | Pending; see [batch report](32-47-inventory-shop-capability-batch.md#pending-native-acceptance) |

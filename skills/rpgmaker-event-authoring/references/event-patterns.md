@@ -67,6 +67,15 @@ call graph is required.
 
 Shopkeepers use `shopProcessing(...)`. Event-driven battles use `battleProcessing(...)` and record outcomes only when later events depend on them.
 
+Shop requires `goods`, which may be empty, and defaults `purchaseOnly` to false.
+Real goods use matching fields and references: `{ kind: "item", item: itemRef(...) }`,
+`{ kind: "weapon", weapon: weaponRef(...) }`, and
+`{ kind: "armor", armor: armorRef(...) }`. Omit `price` for standard pricing;
+custom prices are integers 0..999999. Preserve ordered duplicates and any saved
+`{ kind: "placeholder" }` entries without adding reference or price fields.
+Empty goods compiles to one exact native placeholder; the sole placeholder
+decompiles as empty goods. Mixed or repeated placeholders retain every position.
+
 ## DSL Command Selection
 
 Use `conditional({ condition, then: { commands: [...] }, else? })` for a

@@ -1,0 +1,79 @@
+
+ RUN  v4.1.9 C:/Users/Shuen/.codex/worktrees/mv-ticket-32/rpgmaker-event-dsl/packages/rpgmaker-event-dsl
+
+ ❯ test/architecture.test.ts (2 tests | 1 failed) 259ms
+     × keeps the migrated source tree acyclic and free of transitional facades 161ms
+ ❯ test/staged-graph.test.ts (31 tests | 1 failed) 30ms
+     × rejects ambiguous external name references from snapshot indexes 5ms
+ ❯ test/system-slots.test.ts (4 tests | 1 failed) 4275ms
+   × MV-S3-SLOTS-002: separates actual empty-name IDs, unnamed slots and DSL-only name resolution 52ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/architecture.test.ts > module architecture > keeps the migrated source tree acyclic and free of transitional facades
+Error: Internal module cycle detected at validation\dsl-command-inputs.ts.
+ ❯ visit test/architecture.test.ts:57:13
+     55|   const visit = (filePath: string): void => {
+     56|     if (visiting.has(filePath)) {
+     57|       throw new Error(`Internal module cycle detected at ${relative(so…
+       |             ^
+     58|     }
+     59|     if (visited.has(filePath)) {
+ ❯ visit test/architecture.test.ts:65:7
+ ❯ visit test/architecture.test.ts:65:7
+ ❯ visit test/architecture.test.ts:65:7
+ ❯ visit test/architecture.test.ts:65:7
+ ❯ visit test/architecture.test.ts:65:7
+ ❯ visit test/architecture.test.ts:65:7
+ ❯ visit test/architecture.test.ts:65:7
+ ❯ visit test/architecture.test.ts:65:7
+ ❯ visit test/architecture.test.ts:65:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  test/staged-graph.test.ts > validateDslOwnedDeclarations > rejects ambiguous external name references from snapshot indexes
+AssertionError: expected [ …(2) ] to include 'Ambiguous item reference: Potion'
+ ❯ test/staged-graph.test.ts:372:57
+    370|     );
+    371|
+    372|     expect(result.issues.map((issue) => issue.message)).toContain(
+       |                                                         ^
+    373|       "Ambiguous item reference: Potion",
+    374|     );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  test/system-slots.test.ts > MV-S3-SLOTS-002: separates actual empty-name IDs, unnamed slots and DSL-only name resolution
+AssertionError: expected [ …(4) ] to deeply equal [ …(4) ]
+
+- Expected
++ Received
+
+  [
+    "MV-E121-REFERENCE validation common event 1.commands[0].switch: Unknown switch reference id: 4",
+    "MV-E121-REFERENCE validation common event 1.commands[1].switch: Unknown switch reference: Snapshot switch",
+    "Unknown variable reference id: 3",
+-   "Unknown item reference id: 2",
++   "compile error common event 1: MV-E126-INPUT: Invalid inventory or party command input. (commands[3].item); expected existing uniquely resolved item reference; actual \"Unknown item reference id: 2\"",
+  ]
+
+ ❯ test/system-slots.test.ts:326:50
+    324|       snapshotReferences,
+    325|     }).issues;
+    326|     expect(issues.map(({ message }) => message)).toEqual([
+       |                                                  ^
+    327|       "MV-E121-REFERENCE validation common event 1.commands[0].switch:…
+    328|       "MV-E121-REFERENCE validation common event 1.commands[1].switch:…
+ ❯ test/system-slots.test.ts:55:30
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  3 failed | 3 passed (6)
+      Tests  3 failed | 55 passed (58)
+   Start at  02:49:48
+   Duration  6.47s (transform 1.56s, setup 0ms, import 3.40s, tests 4.63s, environment 0ms)
+
+undefined
+C:\Users\Shuen\.codex\worktrees\mv-ticket-32\rpgmaker-event-dsl\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/dsl.test.ts test/events.test.ts test/decompiler.test.ts test/staged-graph.test.ts test/system-slots.test.ts test/architecture.test.ts

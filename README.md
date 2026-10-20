@@ -458,6 +458,21 @@ event commands. Set it to `true` only when Script Inputs are intentional and rev
 
 ## Event Command Coverage
 
+Gold, item, weapon and armor changes use explicit quantity modes. For example,
+`changeGold({ operation: "gain", value: { kind: "constant", value: 250 } })`
+and `changeItems({ item: itemRef({ id: 1 }), operation: "lose", amount:
+{ kind: "variable", variable: variableRef({ id: 3 }) } })`. Gold constants are
+integers 1..9,999,999; item, weapon and armor constants are integers 1..9999.
+Runtime variable values may be zero, negative or outside those literal ranges;
+MV applies them during execution along with its gold and inventory caps.
+
+`changeWeapons` and `changeArmors` require an explicit `includeEquipment` boolean
+even during gain. `changePartyMember({ actor: actorRef({ id: 1 }), operation:
+"remove", initialize: true })` keeps its required initialization flag even during
+removal. These inactive settings remain part of the saved event. Item, weapon,
+armor and actor targets use matching fixed project references; party operations
+are `add`/`remove`, and quantity operations are `gain`/`lose`.
+
 The public command helpers target the RPG Maker MV 1.6.1 editor event command surface.
 Use MV-aligned helper names such as `controlSwitches(...)`, `controlVariables(...)`,
 `showScrollingText(...)`, `setMovementRoute(...)`, `playBgm(...)`, `changeHp(...)`, and
@@ -487,6 +502,16 @@ Continuation commands are represented by their parent helper. For example, `show
 owns MV text continuation records, `showChoices(...)` owns choice branches,
 `battleProcessing(...)` owns battle result branches, `shopProcessing(...)` owns goods
 continuations, and `setMovementRoute(...)` owns nested move route commands.
+
+`shopProcessing({ goods, purchaseOnly? })` requires an ordered goods list and
+defaults `purchaseOnly` to false. Use `{ kind: "item", item: itemRef(...) }`,
+`{ kind: "weapon", weapon: weaponRef(...) }`, or
+`{ kind: "armor", armor: armorRef(...) }` with matching existing references.
+Omit `price` for standard pricing, or give an integer 0..999999 for a custom
+price. Repeated goods stay in order. `{ kind: "placeholder" }` preserves an
+exact native structural placeholder, including repeated or interleaved entries;
+it carries no reference or price. An empty `goods: []` emits the sole placeholder,
+and only that sole placeholder decompiles back to an empty list.
 
 `showChoices({ choices: [{ text, commands, endMarker? }], defaultChoice?, cancel?, position?, background? })`
 keeps each of its 1–6 choices with its required child commands. Default choice and

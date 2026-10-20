@@ -1,4 +1,5 @@
 import type {
+  ChangeGoldDslCommand,
   CommandOperand,
   ControlVariablesDslCommand,
   OperateValueOperand,
@@ -95,6 +96,16 @@ export function compileOperateValueParameters(
     isReferenceValue(operand) ? 1 : 0,
     isReferenceValue(operand) ? resolver.resolveReference(operand) : operand,
   ];
+}
+
+export function compileQuantityParameters(
+  operation: "gain" | "lose",
+  operand: ChangeGoldDslCommand["value"],
+  resolver: ReferenceResolver,
+): [number, number, number] {
+  return operand.kind === "constant"
+    ? [operation === "gain" ? 0 : 1, 0, operand.value]
+    : [operation === "gain" ? 0 : 1, 1, resolver.resolveReference(operand.variable)];
 }
 
 export function compileControlVariablesGameDataOperand(

@@ -257,12 +257,12 @@ export const rewardChestEvent = mapEvent({
         showText({ lines: ["You found a DSL reward chest."] }),
         changeGold({
           operation: "gain",
-          value: 100,
+          value: { kind: "constant", value: 100 },
         }),
         changeItems({
           item: potion,
           operation: "gain",
-          amount: 1,
+          amount: { kind: "constant", value: 1 },
         }),
         controlVariables({
           variable: visitCountVariable,
@@ -335,7 +335,7 @@ export const practiceBattleEvent = mapEvent({
         abortBattle(),
         shopProcessing({
           goods: [{ kind: "item", item: potion, price: 1 }],
-          allowSelling: true,
+          purchaseOnly: false,
         }),
         nameInputProcessing({
           actor: heroActor,

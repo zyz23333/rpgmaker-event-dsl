@@ -79,8 +79,8 @@ export function renderShopProcessingCommand(
   }
 
   const firstGoods = renderShopGoods(command.parameters);
-  const allowSelling = command.parameters[4];
-  if (firstGoods === null || typeof allowSelling !== "boolean") {
+  const purchaseOnly = command.parameters[4];
+  if (firstGoods === null || typeof purchaseOnly !== "boolean") {
     return renderSimpleCommand(command, index);
   }
 
@@ -103,9 +103,11 @@ export function renderShopProcessingCommand(
     nextIndex += 1;
   }
 
-  const fields = [`goods: [${goods.join(", ")}]`];
-  if (allowSelling) {
-    fields.push("allowSelling: true");
+  const solePlaceholder =
+    goods.length === 1 && command.parameters.slice(0, 4).every((value) => Object.is(value, 0));
+  const fields = [`goods: [${solePlaceholder ? "" : goods.join(", ")}]`];
+  if (purchaseOnly) {
+    fields.push("purchaseOnly: true");
   }
 
   return {
@@ -161,6 +163,12 @@ export function battleBranchFieldName(code: number): "escape" | "lose" | "win" {
 export function renderShopGoods(
   parameters: readonly unknown[],
 ): { expression: string; helperNames: readonly string[] } | null {
+  if (
+    parameters.slice(0, 4).length === 4 &&
+    parameters.slice(0, 4).every((value) => Object.is(value, 0))
+  ) {
+    return { expression: '{ kind: "placeholder" }', helperNames: [] };
+  }
   const kind = shopGoodsKindFromCode(parameters[0]);
   const itemId = readPositiveInteger(parameters[1]);
   const priceMode = parameters[2];
@@ -173,9 +181,9 @@ export function renderShopGoods(
   }
 
   const helperName = kind === "item" ? "itemRef" : kind === "weapon" ? "weaponRef" : "armorRef";
-  const fields = [`kind: ${literal(kind)}`, `item: ${helperName}({ id: ${itemId} })`];
+  const fields = [`kind: ${literal(kind)}`, `${kind}: ${helperName}({ id: ${itemId} })`];
   if (priceMode === 1) {
-    fields.push(`price: ${price}`);
+    fields.push(`price: ${literal(price)}`);
   }
 
   return {

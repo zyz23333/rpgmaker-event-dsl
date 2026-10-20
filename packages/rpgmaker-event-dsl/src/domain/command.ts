@@ -8,6 +8,7 @@ import type {
   CharacterRuntimeSelector,
   ColorInput,
   CommandPosition,
+  ConstantOperand,
   ConditionalBranchCondition,
   CommandOperand,
   Direction,
@@ -24,6 +25,7 @@ import type {
   ScriptInput,
   ToneInput,
   VehicleTarget,
+  VariableOperand,
 } from "./references.js";
 
 export type DslCommand =
@@ -276,37 +278,37 @@ export type ControlTimerDslCommand =
 export type ChangeGoldDslCommand = {
   kind: "changeGold";
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ConstantOperand | VariableOperand;
 };
 
 export type ChangeItemsDslCommand = {
   kind: "changeItems";
   item: ReferenceValue<"item">;
   operation: "gain" | "lose";
-  amount: OperateValueOperand;
+  amount: ConstantOperand | VariableOperand;
 };
 
 export type ChangeWeaponsDslCommand = {
   kind: "changeWeapons";
   weapon: ReferenceValue<"weapon">;
   operation: "gain" | "lose";
-  amount: OperateValueOperand;
-  includeEquipment?: boolean;
+  amount: ConstantOperand | VariableOperand;
+  includeEquipment: boolean;
 };
 
 export type ChangeArmorsDslCommand = {
   kind: "changeArmors";
   armor: ReferenceValue<"armor">;
   operation: "gain" | "lose";
-  amount: OperateValueOperand;
-  includeEquipment?: boolean;
+  amount: ConstantOperand | VariableOperand;
+  includeEquipment: boolean;
 };
 
 export type ChangePartyMemberDslCommand = {
   kind: "changePartyMember";
   actor: ReferenceValue<"actor">;
   operation: "add" | "remove";
-  initialize?: boolean;
+  initialize: boolean;
 };
 
 export type ChangeBattleBgmDslCommand = {
@@ -675,16 +677,16 @@ export type BattleProcessingDslCommand = {
   lose?: readonly DslCommand[];
 };
 
-export type ShopGoods = {
-  kind: "item" | "weapon" | "armor";
-  item: ReferenceValue<"item"> | ReferenceValue<"weapon"> | ReferenceValue<"armor">;
-  price?: number;
-};
+export type ShopGoods =
+  | { kind: "placeholder" }
+  | { kind: "item"; item: ReferenceValue<"item">; price?: number }
+  | { kind: "weapon"; weapon: ReferenceValue<"weapon">; price?: number }
+  | { kind: "armor"; armor: ReferenceValue<"armor">; price?: number };
 
 export type ShopProcessingDslCommand = {
   kind: "shopProcessing";
-  goods: readonly [ShopGoods, ...ShopGoods[]];
-  allowSelling?: boolean;
+  goods: readonly ShopGoods[];
+  purchaseOnly?: boolean;
 };
 
 export type NameInputProcessingDslCommand = {

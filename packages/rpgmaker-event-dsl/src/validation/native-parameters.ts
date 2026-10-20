@@ -1,4 +1,5 @@
 import { CommandStructureError } from "./command-errors.js";
+import { assertNativeShopParameters } from "../commands/battle/shop-native.js";
 import { renderJsonValue } from "../project-data/json-values.js";
 import { assertNativeConditionalParameters } from "../commands/flow/conditional-validation.js";
 import {
@@ -12,6 +13,7 @@ import { assertNativeSystemSettingsParameters } from "../commands/movement/acces
 import { assertNativePictureParameters } from "../commands/screen/picture-native.js";
 import { assertNativeAudioParameters } from "../commands/audio/validation.js";
 import { assertNativeActorResourceParameters } from "../commands/actor/native-validation.js";
+import { assertNativeInventoryCommand } from "../commands/variables/inventory-native.js";
 
 // Shared saved-slot envelopes. Family validators retain ownership of semantic ranges,
 // references and mode-specific saved values; this table is not full family acceptance.
@@ -150,6 +152,10 @@ export function assertNativeCommandParameters(
   path: string,
 ): void {
   if (!isKnownCommandCode(code)) return;
+  if (code === 302 || code === 605) {
+    assertNativeShopParameters(code, parameters, path);
+    return;
+  }
   if (code >= 231 && code <= 235) {
     assertNativePictureParameters(code, parameters, path);
     return;
@@ -167,6 +173,7 @@ export function assertNativeCommandParameters(
   if (code === 122) assertNativeControlVariables(parameters, path);
   assertNativeSystemSettingsParameters(code, parameters, path);
   assertNativeActorResourceParameters(code, parameters, path);
+  assertNativeInventoryCommand(code, parameters, path);
   try {
     assertNativeSwitchCommand(code, parameters);
   } catch (error) {
@@ -274,11 +281,6 @@ export function assertNativeCommandParameters(
     oneOf(1, [null]);
   }
   if (code === 232) oneOf(1, [0]);
-  if (code === 302 || code === 605) {
-    oneOf(0, [0, 1, 2]);
-    oneOf(2, [0, 1]);
-    if (parameters[2] === 0) oneOf(3, [0]);
-  }
   if (code === 201) {
     oneOf(0, [0, 1]);
     if (parameters[0] === 0) {
