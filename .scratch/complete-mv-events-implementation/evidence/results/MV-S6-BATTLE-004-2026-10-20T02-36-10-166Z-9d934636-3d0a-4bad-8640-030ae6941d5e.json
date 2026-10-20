@@ -1,0 +1,275 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-S6-BATTLE-004",
+  "runId": "2026-10-20T02-36-10-166Z-9d934636-3d0a-4bad-8640-030ae6941d5e",
+  "status": "passed",
+  "startedAt": "2026-10-20T02:36:00.278Z",
+  "completedAt": "2026-10-20T02:36:10.166Z",
+  "operator": "Codex final49–51 standalone product comparison",
+  "source": {
+    "revision": "2dc639015f908de6fd524e50236e5422b5f8e990",
+    "fingerprint": "5cc8b7466fe78a80b56cefda3051c900281f0deb920280f9d8fde88b5db94920",
+    "files": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-final-editor-cases.json",
+        "sha256": "c6a8169198450ae1dd68fee7e637927c33204bbe280c9d1830720a09b82d0a3c"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/49-51-final-editor-comparison.md",
+        "sha256": "7a9ee261a0815aba129ea96c4555d94e3bea32527b8a6810d253c2e7f4968905"
+      },
+      {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/authoring-DglMrmuD.mjs",
+        "sha256": "a6e722fdc8fb67451910cd52fc9c90e98331356e8814bff6597b08ee7e6c1771"
+      },
+      {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/authoring-DglMrmuD.mjs.map",
+        "sha256": "3c6f7deb86b6e161d06745bf3e78ff95fb4eb0af7f116625ddcc4fb26d3bbc47"
+      },
+      {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/cli.d.mts",
+        "sha256": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee"
+      },
+      {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/cli.d.mts.map",
+        "sha256": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c"
+      },
+      {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/cli.mjs",
+        "sha256": "dcbb6173dd5956c8b2fc2c78d2b9c276e36e24e20c7f8276ae024d61fc3ecaf6"
+      },
+      {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/cli.mjs.map",
+        "sha256": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8"
+      },
+      {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/index.d.mts",
+        "sha256": "84df6738b61413bd007bfbfbea0faa0bd8163ce9bb35bab50858ac485efb3e47"
+      },
+      {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/index.d.mts.map",
+        "sha256": "cea267e56ff1029cfbd4d898d82222db44818aec71b29af177ed7808931471c9"
+      },
+      {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/index.mjs",
+        "sha256": "21a3ba0d3640b05357c04aebd2979decaf566ffc0f16b8047f8d6d5351198cb2"
+      },
+      {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/index.mjs.map",
+        "sha256": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36"
+      },
+      {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/operations-DYUBy4eN.mjs",
+        "sha256": "b3fe23bc09dd45bc1e954703dfe9c6bc4986c359eaf2c22c47d017354f0e1107"
+      },
+      {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/operations-DYUBy4eN.mjs.map",
+        "sha256": "721ca954ab8e48b9a02fb93df9d200e7ce7521d6d41e1e1303e65ffd515479ed"
+      },
+      {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/workspace-api.d.mts",
+        "sha256": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594"
+      },
+      {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/workspace-api.d.mts.map",
+        "sha256": "e865bc5bbe325d1e10afb88e1057bee5464f21fba0bfd211e74cb43c7b24a11c"
+      },
+      {
+        "path": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/dist/workspace-api.mjs",
+        "sha256": "24369d6d1d686b082665cda3b5e76292ed778420eadcfdad431a9cea11169788"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final48-candidate.json",
+        "sha256": "2f4460874393ba6761740d6613c9c7b7cbbd161f8639a77c96a56ea84943bd63"
+      },
+      {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-e1-e7\\compare-final.cjs",
+        "sha256": "8b1ef59e4416b18731dc483813f72460d074cb62438f2eb627fc7a77202a5f75"
+      },
+      {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-e1-e7\\comparison-receipt.json",
+        "sha256": "a43a677bda7caa67d4cf197659dd80c6ca5d98007e087c51157cdb51b34d5848"
+      },
+      {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-e1-e7\\final-editor-input.json",
+        "sha256": "fbf9d4c4699738d847e83068242de07aa4637617bf0a57f70f57b052291477e4"
+      },
+      {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-e1-e7\\resource-identity-receipt.json",
+        "sha256": "b900cc6f5c0fbce919e91c58ab0590be92988ef38f97dd8b3062687b775e7966"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/actor-presentation-cases.json",
+        "sha256": "e4670ed4be1e6f383c0ebcafcfbf1deb6b458776630b79f29c5cb7800aa7e9c6"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/battle-command-cases.json",
+        "sha256": "3cbfc7ef5d0762e0b81fd7d2e5a535baa53a6368c6d705c5a2162f5703fa0b63"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/choices-complete.json",
+        "sha256": "96fa9216ffc39e59817f942b2d7db72ca9b8f5f4fa9ff6d14a681593d715e44a"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+        "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/label-script-plugin-cases.json",
+        "sha256": "f32ae15b4fc3d70ada9ae03c3d3b9408313193a951ccedaa7419937cf6f5066c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/loop-cases.json",
+        "sha256": "f3de75778b718f7781d69d255e4b8f4449f41c9f0071daf266d13cc1afe60067"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/movement-route-cases.json",
+        "sha256": "c5f48d068f867f56817a9f65f3ed70c79c1c69c9534468ced3f3fdd35e0fec4c"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/shop-cases.json",
+        "sha256": "5ad46501b631316e8d50fc425c8764018f54a4c9b3954e6c4a1d18b1be4dba9d"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/timer-saved-slots.json",
+        "sha256": "7eaba31994d78312a61128d7e796891309eaae13b3b0554a14ffe9947ce248b1"
+      },
+      {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/troop-event-project.json",
+        "sha256": "75b247afbf139f5323d58595189ebcef42506f353e4fc45145723b45ff1b9dd9"
+      }
+    ]
+  },
+  "fixture": {
+    "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/battle-command-cases.json",
+    "sha256": "3cbfc7ef5d0762e0b81fd7d2e5a535baa53a6368c6d705c5a2162f5703fa0b63"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "node": "v22.23.0",
+    "vitest": "not-used; standalone actual built API script",
+    "typescript": "5.9.3 (candidate bundled source evaluation)",
+    "package": "0.1.2",
+    "native": {
+      "method": "reverse-engineering",
+      "mv": "1.6.1 self-report; same identified target",
+      "runtime": "editor UI and game not executed by49–51",
+      "nwjs": "not-executed",
+      "tools": {
+        "node": "v22.23.0",
+        "rea": "6.7.0 available inventory; historical identified evidence reuse, no new analysis",
+        "decoder": "Node fs/zlib/crypto read-only, no target-code evaluation"
+      },
+      "artifacts": [
+        {
+          "path": "references/RPGMV/RPGMV.exe",
+          "sha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281"
+        },
+        {
+          "path": "references/RPGMV/QtQuick/Controls/qtquickcontrolsplugin.dll",
+          "sha256": "a89c9bcd4fc6b18725ccfb155d770c2a4467de15f52350d3e1ba5920aaaff6a6"
+        },
+        {
+          "path": "references/RPGMV/QtQuick/Controls/plugins.qmltypes",
+          "sha256": "58aba7eb65d07e8763035172c6c2bc6e53c22795828196d9bfd90e46cac40561"
+        },
+        {
+          "path": "references/RPGMV/QtQuick/Controls/qmldir",
+          "sha256": "0ed18792740787ecb235bbe73122e3155f970d046495bc6525987e80833cb72a"
+        },
+        {
+          "path": "references/RPGMV/Help/page/01_11_01.html",
+          "sha256": "cf1aa93ec2795b4e6fe5e9205451ff6c21d184758fab9b2fe029a057532b2cdf"
+        }
+      ]
+    }
+  },
+  "stages": [
+    "Decompile final built product",
+    "Discovery/evaluation plus Check with unchanged business files",
+    "Complete generated carrier equality including signed zero and nested saved shape",
+    "Edited Compile / Diff / Push with complete 15-carrier and Snapshot equality",
+    "EXP original helper, recognized Raw and native Decompile reject 10000000 without publication or business-state change"
+  ],
+  "expected": "Final49/50 bind same-identity REA facts and independent product output; static inference is not editor UI capture.",
+  "actual": {
+    "group": "E2/E4",
+    "completeCarrierEquality": true,
+    "comparedCarriers": 15,
+    "sourcePaths": [
+      "decompiled/common-events.events.ts",
+      "decompiled/maps/Map001.events.ts",
+      "decompiled/system.dsl.ts",
+      "decompiled/troop-events.events.ts"
+    ],
+    "warningCodes": [
+      "MV-CHOICE-INDEX",
+      "MV-E101-FACE-LAYOUT",
+      "MV-E111-SCRIPT-RECONFIRM",
+      "MV-E301-CONTEXT",
+      "MV-E303-BATTLE",
+      "MV-E320-TEXT-RECONFIRMATION",
+      "MV-E322-FACE-LAYOUT",
+      "MV-E323-BATTLE",
+      "MV-E324-TEXT-RECONFIRMATION",
+      "MV-E325-TEXT-RECONFIRMATION",
+      "MV-E331-ENEMY-CONTEXT",
+      "MV-E332-ENEMY-CONTEXT",
+      "MV-E333-ENEMY-CONTEXT",
+      "MV-E334-ENEMY-CONTEXT",
+      "MV-E335-ENEMY-CONTEXT",
+      "MV-E336-ENEMY-CONTEXT",
+      "MV-E337-ENEMY-CONTEXT",
+      "MV-E339-CONTEXT",
+      "MV-E339-ENEMY-CONTEXT",
+      "MV-E340-CONTEXT",
+      "MV-E342-ENEMY-CONTEXT",
+      "MV-LABEL-DUPLICATE",
+      "MV-LABEL-MISSING",
+      "MV-MOVEMENT-TEXT-RISK",
+      "MV-TEXT-RECONFIRMATION"
+    ],
+    "negative": [],
+    "comparisonReceipt": {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-e1-e7\\comparison-receipt.json",
+      "sha256": "a43a677bda7caa67d4cf197659dd80c6ca5d98007e087c51157cdb51b34d5848"
+    },
+    "resourceReceipt": {
+      "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\final-e1-e7\\resource-identity-receipt.json",
+      "sha256": "b900cc6f5c0fbce919e91c58ab0590be92988ef38f97dd8b3062687b775e7966"
+    },
+    "candidate": {
+      "packageRoot": "F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl",
+      "revision": "2dc639015f908de6fd524e50236e5422b5f8e990",
+      "executionHead": "2dc639015f908de6fd524e50236e5422b5f8e990",
+      "compileContractVersion": "mv-1.6.1/22",
+      "manifest": {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final48-candidate.json",
+        "sha256": "2f4460874393ba6761740d6613c9c7b7cbbd161f8639a77c96a56ea84943bd63"
+      },
+      "workspaceApiSha256": "24369d6d1d686b082665cda3b5e76292ed778420eadcfdad431a9cea11169788",
+      "indexSha256": "21a3ba0d3640b05357c04aebd2979decaf566ffc0f16b8047f8d6d5351198cb2",
+      "dist": {
+        "authoring-DglMrmuD.mjs": "a6e722fdc8fb67451910cd52fc9c90e98331356e8814bff6597b08ee7e6c1771",
+        "authoring-DglMrmuD.mjs.map": "3c6f7deb86b6e161d06745bf3e78ff95fb4eb0af7f116625ddcc4fb26d3bbc47",
+        "cli.d.mts": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee",
+        "cli.d.mts.map": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c",
+        "cli.mjs": "dcbb6173dd5956c8b2fc2c78d2b9c276e36e24e20c7f8276ae024d61fc3ecaf6",
+        "cli.mjs.map": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8",
+        "index.d.mts": "84df6738b61413bd007bfbfbea0faa0bd8163ce9bb35bab50858ac485efb3e47",
+        "index.d.mts.map": "cea267e56ff1029cfbd4d898d82222db44818aec71b29af177ed7808931471c9",
+        "index.mjs": "21a3ba0d3640b05357c04aebd2979decaf566ffc0f16b8047f8d6d5351198cb2",
+        "index.mjs.map": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36",
+        "operations-DYUBy4eN.mjs": "b3fe23bc09dd45bc1e954703dfe9c6bc4986c359eaf2c22c47d017354f0e1107",
+        "operations-DYUBy4eN.mjs.map": "721ca954ab8e48b9a02fb93df9d200e7ce7521d6d41e1e1303e65ffd515479ed",
+        "workspace-api.d.mts": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594",
+        "workspace-api.d.mts.map": "e865bc5bbe325d1e10afb88e1057bee5464f21fba0bfd211e74cb43c7b24a11c",
+        "workspace-api.mjs": "24369d6d1d686b082665cda3b5e76292ed778420eadcfdad431a9cea11169788"
+      },
+      "distFingerprint": "5dcb4e52d6d1533b8a0f12c4064f9386238ebc66bf54f368cc212aa738045277"
+    }
+  },
+  "difference": null
+}
