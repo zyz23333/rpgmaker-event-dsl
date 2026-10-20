@@ -1,6 +1,6 @@
 # 31: Control Variables 全操作数
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 09, 23, 25
 Stage: S6
 Execution batch: [变量操作数与求值](../tickets.md#batch-variables)
@@ -52,3 +52,9 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [核心指令参数附表](../../complete-mv-events/research/command-parameters/core.md)。
+
+## Comments
+
+### 2026-10-20 — 变量批次认领
+
+在记录创建的M工作树 `mv-variables-batch`、分支 `codex/mv-variables-batch`，基于实际集成 `6dfa75eb96cc089bb00d85012c643ec9af2cdad7` 认领本批次。复用既有DEV `e3f947a592cf8251211803a7a04ccf4e40a3e553`，按已接受T1公开DSL/真实Workspace测试边界完成最新整合及必要受影响验证；48集中全量/构建，E5/R4/R7与原64sampleRandom等运行求值义务保留给49–54最终实测，不重做既有red或历史大归档。
