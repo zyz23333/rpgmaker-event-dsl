@@ -170,7 +170,6 @@ export function assertNativeCommandParameters(
   assertNativeSystemSettingsParameters(code, parameters, path);
   assertNativeActorResourceParameters(code, parameters, path);
 
-
   assertNativeMapCharacterParameters(code, parameters, path);
   try {
     assertNativeSwitchCommand(code, parameters);

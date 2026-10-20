@@ -102,9 +102,13 @@ export function validateCompiledCommandLists(
             prefix,
             origins,
             ...(declaration.kind === "mapEvent"
-              ? { eventIds: new Set([...graph.mapEventsByIdentity.values()]
-                    .filter((event) => event.mapId === declaration.mapId)
-                    .map((event) => event.id)) }
+              ? {
+                  eventIds: new Set(
+                    [...graph.mapEventsByIdentity.values()]
+                      .filter((event) => event.mapId === declaration.mapId)
+                      .map((event) => event.id),
+                  ),
+                }
               : {}),
           }),
         );

@@ -40,6 +40,66 @@ function evidenceIt(name: string, verify: () => void) {
   });
 }
 
+for (const targetKind of ["switch", "referenceRange"] as const)
+  for (const shape of ["accessor", "inherited", "non-enumerable"] as const)
+    for (const entry of ["helper", "graph", "compile"] as const)
+      it(`rejects original ${shape} ${targetKind} target through ${entry} without reading its discriminator`, () => {
+        let reads = 0;
+        const target: Record<string, unknown> =
+          targetKind === "switch"
+            ? { id: 1 }
+            : { from: switchRef({ id: 1 }), to: switchRef({ id: 1 }) };
+        const descriptor =
+          shape === "non-enumerable"
+            ? { value: targetKind, enumerable: false }
+            : {
+                enumerable: true,
+                configurable: true,
+                get() {
+                  reads++;
+                  Object.defineProperty(target, "kind", {
+                    value: targetKind,
+                    enumerable: true,
+                    configurable: true,
+                  });
+                  return targetKind;
+                },
+              };
+        if (shape === "inherited")
+          Object.setPrototypeOf(target, Object.create(Object.prototype, { kind: descriptor }));
+        else Object.defineProperty(target, "kind", descriptor);
+        const input = { switch: target, value: true };
+        if (entry === "helper")
+          expect(() => controlSwitches(input as never)).toThrow(/MV-DSL-SHAPE/);
+        else {
+          const event = commonEvent({
+            id: 1,
+            name: "Original switch target shape",
+            trigger: "none",
+            commands: [{ kind: "controlSwitches", ...input } as never],
+          });
+          const options = { scriptEnabled: false, snapshotReferences: { switchCapacity: 1 } };
+          if (entry === "graph")
+            expect(validateDslOwnedDeclarations([event], options).issues).toContainEqual(
+              expect.objectContaining({
+                level: "error",
+                code: "MV-DSL-SHAPE",
+                dslPath: "commands[0].switch",
+              }),
+            );
+          else {
+            const graph = buildStagedDataGraph({
+              declarations: [event],
+              snapshotReferences: options.snapshotReferences,
+            });
+            expect(() =>
+              compileCommonEvent(event, { nextId: 1, resolver: graph.resolver }),
+            ).toThrow(/MV-DSL-SHAPE/);
+          }
+        }
+        expect(reads).toBe(0);
+      });
+
 evidenceIt(
   "rejects symbolic switch negative zero before Decompile or known raw mapping and retains positive zero controls",
   () => {

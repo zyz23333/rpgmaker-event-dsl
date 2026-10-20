@@ -13,12 +13,8 @@ export function assertSwitchCommandInput(
   if (kind !== "controlSwitches") return;
   const target = input.switch;
   const at = `${path}.switch`;
-  if (
-    typeof target === "object" &&
-    target !== null &&
-    "kind" in target &&
-    target.kind === "referenceRange"
-  ) {
+  assertDslObject(target, undefined, at);
+  if (target.kind === "referenceRange") {
     const range: unknown = target;
     assertDslObject(range, ["kind", "from", "to"], at);
     assertReferenceInput(range.from, "switch", `${at}.from`, true);

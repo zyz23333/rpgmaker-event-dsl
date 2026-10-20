@@ -163,7 +163,6 @@ export function compileNodes(
     assertSceneCommandInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
     assertActorResourceInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
 
-
     if (isMapCharacterKind(node.kind))
       assertMapCharacterInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     const outputStart = output.length;

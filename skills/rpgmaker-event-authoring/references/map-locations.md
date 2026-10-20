@@ -16,7 +16,9 @@ setVehicleLocation({
   vehicle: "airship",
   destination: {
     kind: "variables",
-    map: variableRef({ id: 1 }), x: variableRef({ id: 2 }), y: variableRef({ id: 3 }),
+    map: variableRef({ id: 1 }),
+    x: variableRef({ id: 2 }),
+    y: variableRef({ id: 3 }),
   },
 });
 setEventLocation({
