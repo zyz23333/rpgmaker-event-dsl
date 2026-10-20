@@ -19516,6 +19516,50 @@
       },
       "slice": "47 focused development; final REA and games pending",
       "required": true
+    },
+    {
+      "id": "MV-S6-SHOP-005",
+      "title": "Final E2/E4 Shop saved-state product comparison and actual Shop Scene consequences",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/complete-mv-events-implementation-spec.md",
+          "section": "### I4 — 参数覆盖与结构化命令"
+        }
+      ],
+      "dimensions": [
+        "A2",
+        "A4",
+        "A6"
+      ],
+      "classifications": [
+        "positive",
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "game-observation",
+      "input": "Final built candidate and identity-bound native Shop saving paths; actual separate literal and compiled Shop games, empty and ordered/repeated placeholder goods with standard/custom prices and purchaseOnly.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/shop-cases.json",
+        "sha256": "5ad46501b631316e8d50fc425c8764018f54a4c9b3954e6c4a1d18b1be4dba9d"
+      },
+      "expected": "Final product preserves the accepted saved forms and actual Shop Scene consequences agree with native control; not executed in this development batch.",
+      "nativeGroups": [
+        "E2",
+        "E4",
+        "R6"
+      ],
+      "execution": {
+        "environment": "Identified MV1.6.1 / NW.js and final built package",
+        "owner": "Final regression implementer",
+        "layer": "REA/product comparison and actual isolated native games"
+      },
+      "slice": "47 final acceptance pending",
+      "required": true,
+      "review": {
+        "path": ".scratch/complete-mv-events-implementation/evidence/32-47-inventory-shop-capability-batch.md",
+        "section": "## Pending native acceptance"
+      }
     }
   ]
 }

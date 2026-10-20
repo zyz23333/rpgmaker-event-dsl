@@ -707,3 +707,5 @@ The five stable obligations below retain the original DEV records. Current devel
 | MV-S6-VARIABLES-003 | Native saved-shape and fixed-reference rejection before source publication | Synthetic DEV rejection; [record](31-control-variables-dev.md) |
 | MV-S6-VARIABLES-004 | Evaluated untyped source and known-raw Gate Check/Compile isolation | Synthetic DEV rejection; [record](31-control-variables-dev.md) |
 | MV-S6-VARIABLES-005 | Final built lifecycle and actual normal-Scene variable runtime observations | Required E5/R4/R7 pending; [record](31-control-variables-dev.md#remaining-finalization) |
+
+| MV-S6-SHOP-005 | Final E2/E4 and actual R6 Shop Scene consequences | Pending; see [batch report](32-47-inventory-shop-capability-batch.md#pending-native-acceptance) |

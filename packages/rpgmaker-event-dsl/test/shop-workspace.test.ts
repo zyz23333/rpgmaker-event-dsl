@@ -58,6 +58,8 @@ async function state(workspaceRoot: string) {
     snapshot: await tree(paths.projectDataSnapshotDirectory),
     generated: await tree(paths.generatedProjectDataDirectory),
     source: await tree(join(workspaceRoot, "src")),
+    pending: await tree(paths.pendingPushDirectory),
+    descriptor: await readFile(join(workspaceRoot, "Game/Game.rpgproject"), "utf8"),
     manifest: await readFile(paths.syncManifestPath, "utf8"),
     config: await readFile(join(workspaceRoot, "rpgmaker-event-dsl.config.json"), "utf8"),
     discovery: await discoverDefinitionFiles(workspaceRoot, discovery),
@@ -65,7 +67,7 @@ async function state(workspaceRoot: string) {
 }
 async function prepare(workspaceRoot: string, malformed = false) {
   const { projectFiles } = await createMinimalProject(workspaceRoot);
-  const files: Record<string, any> = structuredClone(projectFiles);
+  const files: Record<string, unknown> = structuredClone(projectFiles);
   files["Items.json"] = [null, { id: 1, name: "Potion", external: true }];
   files["Weapons.json"] = [null, null, { id: 2, name: "Sword" }];
   files["Armors.json"] = [null, null, null, { id: 3, name: "Armor" }];
@@ -88,18 +90,16 @@ async function prepare(workspaceRoot: string, malformed = false) {
     null,
     { id: 1, name: "Shop fixture", trigger: 0, switchId: 1, list: structuredClone(fixture.list) },
   ];
-  files["Troops.json"] = [
-    null,
-    {
-      id: 1,
-      name: "External troop",
-      members: [],
-      external: { keep: true },
-      pages: [{ ...structuredClone(battlePage), list: structuredClone(fixture.list) }],
-    },
-  ];
+  const troop = {
+    id: 1,
+    name: "External troop",
+    members: [],
+    external: { keep: true },
+    pages: [{ ...structuredClone(battlePage), list: structuredClone(fixture.list) }],
+  };
+  files["Troops.json"] = [null, troop];
   if (malformed)
-    files["Troops.json"][1].pages[0].list.splice(-1, 0, {
+    troop.pages[0]!.list.splice(-1, 0, {
       code: 302,
       indent: 0,
       parameters: [1, 0, 0, 0, false],
@@ -155,7 +155,7 @@ it("MV-S6-SHOP-001: evaluates Shop source in three containers and installs compl
     const source = await readFile(sourcePath, "utf8");
     expect(source).not.toContain("rawDslCommand");
     await writeFile(sourcePath, source.replace("Shop fixture", "Shop source evaluated"));
-    expected["CommonEvents.json"][1].name = "Shop source evaluated";
+    (expected["CommonEvents.json"] as { name: string }[])[1]!.name = "Shop source evaluated";
     await compileWorkspace({ workspaceRoot, check: false });
     expect(await diffWorkspace({ workspaceRoot })).toContain("CommonEvents.json");
     await pushWorkspace({ workspaceRoot, allowDestructive: false });
