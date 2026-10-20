@@ -288,21 +288,36 @@ describe("collectDslOwnedDeclarations", () => {
       showPicture({
         pictureId: 1,
         image: imageAsset({ folder: "pictures", name: "Poster" }),
-        position: { kind: "direct", x: 10, y: 20, origin: "center" },
+        origin: "center",
+        position: { kind: "direct", x: 10, y: 20 },
+        scaleX: 100,
+        scaleY: 100,
+        opacity: 255,
+        blendMode: "normal",
       }).kind,
     ).toBe("showPicture");
     expect(
       movePicture({
         pictureId: 1,
+        origin: "upperLeft",
         position: { kind: "variables", x: variableRef({ id: 1 }), y: variableRef({ id: 2 }) },
+        scaleX: 100,
+        scaleY: 100,
+        opacity: 255,
+        blendMode: "normal",
         duration: 60,
         wait: true,
       }).kind,
     ).toBe("movePicture");
     expect(rotatePicture({ pictureId: 1, speed: 5 }).kind).toBe("rotatePicture");
-    expect(tintPicture({ pictureId: 1, tone: [68, -34, -34, 0], duration: 30 }).kind).toBe(
-      "tintPicture",
-    );
+    expect(
+      tintPicture({
+        pictureId: 1,
+        tone: { red: 68, green: -34, blue: -34, gray: 0 },
+        duration: 30,
+        wait: false,
+      }).kind,
+    ).toBe("tintPicture");
     expect(erasePicture({ pictureId: 1 }).kind).toBe("erasePicture");
     expect(setWeatherEffect({ weather: "rain", power: 5, duration: 60, wait: false }).kind).toBe(
       "setWeatherEffect",

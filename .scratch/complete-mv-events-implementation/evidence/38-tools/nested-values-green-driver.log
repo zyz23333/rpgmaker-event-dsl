@@ -1,0 +1,10 @@
+{"label":"nested-values-green","files":165,"fingerprint":"144a52c459e15361b3b57b6a7cedaf721c3ede0d875f717c1a1da495b70d0ff7","out":"M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket38-temp\\source-snapshots\\nested-values-green"}
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-38/packages/rpgmaker-event-dsl
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed | 4 skipped (5)
+   Start at  04:07:05
+   Duration  1.25s (transform 354ms, setup 0ms, import 1.10s, tests 5ms, environment 0ms)
+

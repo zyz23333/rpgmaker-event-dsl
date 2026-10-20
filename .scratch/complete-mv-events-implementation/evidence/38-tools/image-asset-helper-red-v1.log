@@ -1,0 +1,37 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-38/packages/rpgmaker-event-dsl
+
+ ❯ test/pictures.test.ts (10 tests | 1 failed | 9 skipped) 66ms
+   × rejects imageAsset input fields before projection while retaining exact valid filename values 65ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/pictures.test.ts > rejects imageAsset input fields before projection while retaining exact valid filename values
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/pictures.test.ts:54:46
+
+     52|     { folder: "faces", name: "CR\rname", unexpected: true },
+     53|   ])
+     54|     expect(() => imageAsset(input as never)).toThrow("MV-DSL-SHAPE");
+       |                                              ^
+     55|   expect(imageAsset({ folder: "pictures", name: "CR\rname" })).toStric…
+     56|     kind: "asset",
+ ❯ test/pictures.test.ts:27:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 9 skipped (10)
+   Start at  04:51:02
+   Duration  1.74s (transform 463ms, setup 0ms, import 1.51s, tests 66ms, environment 0ms)
+
+undefined
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-38\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/pictures.test.ts -t rejects imageAsset input fields before projection

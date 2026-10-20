@@ -524,21 +524,20 @@ export type WaitDslCommand = {
 
 export type PictureOrigin = "upperLeft" | "center";
 
-export type PicturePosition = CommandPosition & {
-  origin?: PictureOrigin;
-};
+export type PicturePosition = CommandPosition;
 
 export type PictureDisplayInput = {
-  scaleX?: number;
-  scaleY?: number;
-  opacity?: number;
-  blendMode?: 0 | 1 | 2 | 3;
+  origin: PictureOrigin;
+  scaleX: number;
+  scaleY: number;
+  opacity: number;
+  blendMode: "normal" | "additive" | "multiply" | "screen";
 };
 
 export type ShowPictureDslCommand = {
   kind: "showPicture";
   pictureId: number;
-  image: ImageAssetReference;
+  image: ImageAssetReference | null;
   position: PicturePosition;
 } & PictureDisplayInput;
 
@@ -547,7 +546,7 @@ export type MovePictureDslCommand = {
   pictureId: number;
   position: PicturePosition;
   duration: number;
-  wait?: boolean;
+  wait: boolean;
 } & PictureDisplayInput;
 
 export type RotatePictureDslCommand = {
@@ -559,9 +558,9 @@ export type RotatePictureDslCommand = {
 export type TintPictureDslCommand = {
   kind: "tintPicture";
   pictureId: number;
-  tone: ToneInput;
+  tone: Extract<ToneInput, { red: number }>;
   duration: number;
-  wait?: boolean;
+  wait: boolean;
 };
 
 export type ErasePictureDslCommand = {

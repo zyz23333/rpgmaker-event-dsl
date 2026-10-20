@@ -1,0 +1,44 @@
+[
+  {
+    "completedAt": "2026-10-19T21:22:12.9906319Z",
+    "arguments": [
+      "--filter",
+      "rpgmaker-event-dsl",
+      "typecheck"
+    ],
+    "exitCode": 0,
+    "startedAt": "2026-10-19T21:22:09.9443360Z",
+    "check": "typecheck"
+  },
+  {
+    "completedAt": "2026-10-19T21:22:13.2974348Z",
+    "arguments": [
+      "exec",
+      "oxlint",
+      "packages/rpgmaker-event-dsl/src",
+      "packages/rpgmaker-event-dsl/test",
+      "packages/rpgmaker-event-dsl/vitest.windows.config.ts"
+    ],
+    "exitCode": 0,
+    "startedAt": "2026-10-19T21:22:12.9912761Z",
+    "check": "scoped-lint"
+  },
+  {
+    "completedAt": "2026-10-19T21:22:13.9871613Z",
+    "arguments": [
+      "exec",
+      "oxfmt",
+      "--ignore-path",
+      ".oxfmtignore",
+      "--check",
+      "packages/rpgmaker-event-dsl"
+    ],
+    "exitCode": 0,
+    "startedAt": "2026-10-19T21:22:13.2975097Z",
+    "check": "scoped-format"
+  },
+  {
+    "exitCode": 0,
+    "check": "git diff --check"
+  }
+]

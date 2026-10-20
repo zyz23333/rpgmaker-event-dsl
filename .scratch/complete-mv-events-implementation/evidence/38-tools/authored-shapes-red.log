@@ -1,0 +1,36 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-ticket-38/packages/rpgmaker-event-dsl
+
+ ❯ test/pictures.test.ts (4 tests | 1 failed | 3 skipped) 6ms
+   × rejects all owned helper and direct-node excess fields before picture output 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/pictures.test.ts > rejects all owned helper and direct-node excess fields before picture output
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ test/pictures.test.ts:21:65
+
+     19|   for(const [helper,input] of cases){
+     20|     const invoke=helper as (input:never)=>unknown;
+     21|     expect(()=>invoke({...input,unexpected:"refuse"} as never)).toThro…
+       |                                                                 ^
+     22|     const node=invoke(input as never) as object;
+     23|     const event=commonEvent({id:1,name:"Bad fields",trigger:"none",com…
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 skipped (4)
+   Start at  04:05:41
+   Duration  1.26s (transform 347ms, setup 0ms, import 1.09s, tests 6ms, environment 0ms)
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+undefined
+M:\Shuen\Codex\mv-events-implementation-20261020\worktrees\mv-ticket-38\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/pictures.test.ts -t owned helper

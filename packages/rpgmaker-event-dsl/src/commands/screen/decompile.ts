@@ -75,8 +75,12 @@ export function renderShowPicture(
     display === null
     ? null
     : {
-        expression: `showPicture({ pictureId: ${pictureId}, image: imageAsset({ folder: "pictures", name: ${literal(imageName)} }), position: ${position.expression}${display} })`,
-        helperNames: ["imageAsset", "showPicture", ...position.helperNames],
+        expression: `showPicture({ pictureId: ${pictureId}, image: ${imageName === "" ? "null" : `imageAsset({ folder: "pictures", name: ${literal(imageName)} })`}, origin: ${literal(pictureOriginFromCode(command.parameters[2]))}, position: ${position.expression}${display} })`,
+        helperNames: [
+          ...(imageName === "" ? [] : ["imageAsset"]),
+          "showPicture",
+          ...position.helperNames,
+        ],
       };
 }
 
@@ -106,7 +110,7 @@ export function renderMovePicture(
     typeof wait !== "boolean"
     ? null
     : {
-        expression: `movePicture({ pictureId: ${pictureId}, position: ${position.expression}${display}, duration: ${duration}${wait ? ", wait: true" : ""} })`,
+        expression: `movePicture({ pictureId: ${pictureId}, origin: ${literal(pictureOriginFromCode(command.parameters[2]))}, position: ${position.expression}${display}, duration: ${duration}, wait: ${wait} })`,
         helperNames: ["movePicture", ...position.helperNames],
       };
 }
@@ -120,7 +124,7 @@ export function renderRotatePicture(
   return pictureId === null || typeof speed !== "number"
     ? null
     : {
-        expression: `rotatePicture({ pictureId: ${pictureId}, speed: ${speed} })`,
+        expression: `rotatePicture({ pictureId: ${pictureId}, speed: ${literal(speed)} })`,
         helperNames: ["rotatePicture"],
       };
 }
@@ -129,7 +133,10 @@ export function renderTintPicture(
   command: RawEventCommand,
 ): Omit<RenderedCommand, "nextIndex"> | null {
   const pictureId = readPositiveInteger(command.parameters[0]);
-  const tone = renderTone(command.parameters[1]);
+  const value = command.parameters[1];
+  const tone = isNumberTuple(value, 4)
+    ? `{ red: ${literal(value[0])}, green: ${literal(value[1])}, blue: ${literal(value[2])}, gray: ${literal(value[3])} }`
+    : null;
   const duration = command.parameters[2];
   const wait = command.parameters[3];
 
@@ -139,7 +146,7 @@ export function renderTintPicture(
     typeof wait !== "boolean"
     ? null
     : {
-        expression: `tintPicture({ pictureId: ${pictureId}, tone: ${tone}, duration: ${duration}${wait ? ", wait: true" : ""} })`,
+        expression: `tintPicture({ pictureId: ${pictureId}, tone: ${tone}, duration: ${duration}, wait: ${wait} })`,
         helperNames: ["tintPicture"],
       };
 }
@@ -188,7 +195,7 @@ export function renderPicturePosition(
 
   if (designation === 0 && typeof xParameter === "number" && typeof yParameter === "number") {
     return {
-      expression: `{ kind: "direct", x: ${xParameter}, y: ${yParameter}${origin === "center" ? ', origin: "center"' : ""} }`,
+      expression: `{ kind: "direct", x: ${literal(xParameter)}, y: ${literal(yParameter)} }`,
       helperNames: [],
     };
   }
@@ -199,7 +206,7 @@ export function renderPicturePosition(
     return xVariableId === null || yVariableId === null
       ? null
       : {
-          expression: `{ kind: "variables", x: variableRef({ id: ${xVariableId} }), y: variableRef({ id: ${yVariableId} })${origin === "center" ? ', origin: "center"' : ""} }`,
+          expression: `{ kind: "variables", x: variableRef({ id: ${xVariableId} }), y: variableRef({ id: ${yVariableId} }) }`,
           helperNames: ["variableRef"],
         };
   }
@@ -248,21 +255,7 @@ export function renderPictureDisplay(
     return null;
   }
 
-  const fields: string[] = [];
-  if (scaleX !== 100) {
-    fields.push(`scaleX: ${scaleX}`);
-  }
-  if (scaleY !== 100) {
-    fields.push(`scaleY: ${scaleY}`);
-  }
-  if (opacity !== 255) {
-    fields.push(`opacity: ${opacity}`);
-  }
-  if (blendMode !== 0) {
-    fields.push(`blendMode: ${blendMode}`);
-  }
-
-  return fields.length === 0 ? "" : `, ${fields.join(", ")}`;
+  return `, scaleX: ${literal(scaleX)}, scaleY: ${literal(scaleY)}, opacity: ${literal(opacity)}, blendMode: ${literal(["normal", "additive", "multiply", "screen"][blendMode])}`;
 }
 
 export function renderTone(value: unknown): string | null {

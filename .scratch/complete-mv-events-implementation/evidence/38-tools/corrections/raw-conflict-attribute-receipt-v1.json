@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-10-19T21:42:55.989Z",
+  "reason": "Preserved raw merge-conflict evidence deliberately contains original conflict markers; render only these exact six archive files as opaque diffs without changing any capture bytes.",
+  "beforeManifestSha256": "59d0f82010d74ce8cafaed3b1aeea8e21e048665bd6420590004ace153fc2acd",
+  "beforeAttributeSha256": "ef5c230f4d8b87142cf574d3b391a2b4ac5ccaf1776980fac2bd8cb3305cdc06",
+  "afterAttributeSha256": "80f48118c9676b17c21e601270978ee494819d2891db69b1549b48252d1c9e4a",
+  "exactOpaquePaths": [
+    ".scratch/complete-mv-events-implementation/evidence/38-tools/merge73504ec-conflict-loop-test.txt",
+    ".scratch/complete-mv-events-implementation/evidence/38-tools/merge73504ec-conflict-native-parameters.txt",
+    ".scratch/complete-mv-events-implementation/evidence/38-tools/merge73504ec-conflict-readme.txt",
+    ".scratch/complete-mv-events-implementation/evidence/38-tools/merge73504ec-conflict-requirements.txt",
+    ".scratch/complete-mv-events-implementation/evidence/38-tools/merge888b-conflict-readme.txt",
+    ".scratch/complete-mv-events-implementation/evidence/38-tools/merge888b-conflict-requirements.txt"
+  ],
+  "captureBytesUnchanged": true,
+  "oldArchiveEntries": 204,
+  "newArchiveEntries": 208
+}

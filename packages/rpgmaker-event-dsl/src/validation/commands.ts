@@ -13,6 +13,8 @@ import type { ReferenceResolver, ValidationIssue } from "./types.js";
 import { captureReferenceIssue } from "./shared.js";
 import { isReferenceValue } from "./inspection.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
+import { assertPictureInput } from "../commands/screen/picture-inputs.js";
+import { assertPictureReferences } from "../commands/screen/picture-references.js";
 import { assertNativeContextReferences } from "./native-context-references.js";
 import { resolveCommonEventCall, assertLoopCommand } from "../commands/flow/validation.js";
 import {
@@ -69,6 +71,7 @@ export function validateNodes(
       assertSystemAccessInput(node.kind, node, nodePath, true);
       assertWindowColorInput(node.kind, node, nodePath, true);
       assertSceneCommandInput(node.kind, node, nodePath);
+      assertPictureInput(node.kind, node, nodePath, true, resolver);
     } catch (error) {
       if (error instanceof CommandStructureError)
         issues.push(error.issue(options.identity ?? "event", "compile"));
@@ -151,12 +154,16 @@ export function validateNodes(
     }
     if (node.kind === "rawDslCommand") {
       try {
+        assertPictureReferences(node.code, node.parameters, resolver, { dslPath: nodePath });
         assertNativeContextReferences(node.code, node.parameters, resolver);
       } catch (error) {
-        issues.push({
-          level: "error",
-          message: `validation ${options.identity ?? "event"}.${nodePath}: ${error instanceof Error ? error.message : String(error)}`,
-        });
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else
+          issues.push({
+            level: "error",
+            message: `validation ${options.identity ?? "event"}.${nodePath}: ${error instanceof Error ? error.message : String(error)}`,
+          });
       }
     }
     if (node.kind === "controlVariables") {

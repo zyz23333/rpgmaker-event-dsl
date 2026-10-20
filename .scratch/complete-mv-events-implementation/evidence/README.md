@@ -608,3 +608,23 @@ Ticket37 focused DEV appends independent screen cases; its R6 game gate remains 
 | MV-S6-SCREEN-002 | rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state | synthetic-rejection | Public Workspace API, actual source evaluation and complete filesystem state |
 | MV-S6-SCREEN-003 | rejects late malformed native Screen slots before source publication without changing existing business state | synthetic-rejection | Public Workspace API, actual source evaluation and complete filesystem state |
 | MV-S6-SCREEN-R6 | Current built normal-Scene screen waits, parallel effects, Weather and Movie runtime acceptance | game-observation | Actual game normal Scenes from current built Workspace output |
+
+Ticket38 focused DEV uses independent Picture literals and actual Workspace operations. Full/build/built/native remain pending.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-PICTURE-001 | Complete Picture public command and native parameter domains | synthetic-support | Public command and actual Workspace source/filesystem boundary |
+| MV-S6-PICTURE-002 | Complete Picture matrix through actual Workspace and real Push | synthetic-support | Public command and actual Workspace source/filesystem boundary |
+| MV-S6-PICTURE-003 | Actual Picture helper/direct/nested fields reject projection loss | synthetic-rejection | Public command and actual Workspace source/filesystem boundary |
+| MV-S6-PICTURE-004 | Picture malformed native and known raw refusal preserves complete state | synthetic-rejection | Public command and actual Workspace source/filesystem boundary |
+| MV-S6-PICTURE-005 | Picture signed numeric zero through formal direct and raw real Push | synthetic-support | Public command and actual Workspace source/filesystem boundary |
+| MV-S6-PICTURE-006 | Picture current public types reject incomplete and legacy forms | synthetic-rejection | Public command and actual Workspace source/filesystem boundary |
+| MV-S6-PICTURE-R6 | Picture allocated R6 actual current built game validation pending | game-observation | Pending actual current built product and literal native game pair |
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-PICTURE-007 | Picture Map and Battle page carriers preserve complete inactive state | synthetic-support | Public Workspace and complete carrier/state assertions |
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-PICTURE-008 | imageAsset refuses extra own inputs before projection into Picture values | synthetic-rejection | Public constructor and actual Workspace complete failure-state assertions |

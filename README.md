@@ -705,6 +705,21 @@ rpgmaker-event-dsl push --allow-destructive
 Destructive Push does not bypass Generated Freshness, Generated Project Data integrity,
 or Project Drift checks.
 
+## Picture commands
+
+Picture commands use explicit complete display settings. `showPicture` requires a
+`pictures` image Asset Reference or `image: null`; `movePicture` has no image field.
+Both require top-level `origin: "upperLeft" | "center"`, direct integer coordinates
+in −9999..9999 or two variable references, integer `scaleX`/`scaleY` in −2000..2000,
+integer `opacity` in 0..255 and named `blendMode` (`normal`, `additive`, `multiply`,
+`screen`). Negative scales flip the picture. None retains the Picture settings;
+`erasePicture` erases the slot. Picture IDs 1..100 are runtime selectors and need no
+prior Show. `rotatePicture` speed is integer −90..90, with zero stopping rotation.
+Move and Tint require integer duration 1..999 and explicit Boolean `wait`.
+`tintPicture` requires a named `{ red, green, blue, gray }` Tone object, with RGB
+in −255..255 and gray in 0..255. See the complete
+[Picture authoring reference](skills/rpgmaker-event-authoring/references/pictures.md).
+
 ## Example Project
 
 See `example/full-event` for a sample workspace using source discovery and explicit Entry
