@@ -3,6 +3,7 @@
 Status: ready-for-agent
 Blocked by: 49, 50, 51, 52, 53, 54
 Stage: S7
+Execution batch: [证据审计与完整支持交付](../tickets.md#batch-delivery)
 Created: 2026-10-19
 Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-implementation-spec.md)
 

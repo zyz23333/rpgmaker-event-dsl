@@ -2,15 +2,115 @@
 
 Published: 2026-10-19
 Parent: [实施规格](complete-mv-events-implementation-spec.md)
-Approval: [已确认拆分记录](ticket-breakdown-draft.md#comments)
+Original breakdown: [已确认拆分记录](ticket-breakdown-draft.md#comments)
 
-用户已确认 55 张任务的粒度、范围和依赖。所有任务已逐票发布为 ready-for-agent；该状态表示规格充分，是否可领取仍须检查单票 Blocked by。任务状态以各独立文件为准。
+2026-10-20，按用户“只优化当前剩余任务”的要求，将剩余工作改为按下方批次连续执行。调整时 55 张票中已有 29 张 resolved，剩余 26 张归为 11 个执行批次；前 8 批补齐能力，后 3 批完成集成、最终原生回归和交付审计。该统计是调整时的快照，当前状态仍以各独立文件为准。
 
-发布时唯一无阻塞任务是 [01：证据索引与最小往返样例](issues/01-evidence-index-and-roundtrip-fixture.md)。01 完成后，02–10 可按环境条件分别领取。按依赖前沿推进，不要求编号全程串行。
+原票继续承载各自范围、验收点、依赖、证据和完成状态；本索引负责组织执行。批次不是新票，没有独立状态，不替代成员票的验收记录。首次发布时的 55 张拆分与确认记录保留为历史依据，后续继续本 effort 时优先按本节选取执行批次。
 
 当前平台范围仅为 Windows / Node 22；Linux 等其他平台不构成本阶段支持或验收要求。02 已调整为 Windows 自动化基线，任务编号和依赖保持不变。
 
-## 已发布任务
+## 当前执行批次
+
+### 执行约定
+
+- 默认按一个能力批次连续推进，在同一工作分支上处理成员票、集中审查和交付；成员票是验收清单，不再默认每张票各开一次完整实施会话。跨会话继续时保留该批次的上下文和未完成项。用户明确只指定某张票时，以用户指定范围为准。
+- 启动前逐票检查 `Status`、`Blocked by` 和占用情况。某成员已有执行者或仍被阻塞时，跳过该成员并记录原因，其余可做工作继续；不因分组增加阻塞边。调整时前 8 批的所有原有前置均已 resolved，表中顺序只是推荐推进顺序。
+- 按[2026-10-20 用户执行修订](complete-mv-events-implementation-spec.md#2026-10-20-用户执行修订按批次开发减少全量与证据开销)，开发和批次交付运行受影响测试及必要检查，不默认逐票或逐批全量。全量适用自动化及构建集中到 48 最终集成候选；影响不明或实际回归需要时才扩大。同一有效运行覆盖多票时共享引用，不为逐票关闭重复执行。
+- 每张票仍须逐项满足原有专有及共通要求，才可改为 resolved。仅完成部分成员时只关闭已满足条件的票，其余保留准确状态；没有执行的场景不能借用同批其他场景的通过结论。最终候选之后有变更，按规格 T6 对受影响证据复验。
+- 沿用既有验收索引、稳定需求 ID 和证据存放方式；以源码版本、输入路径、命令和预期/实际日志记录新证据，旧记录原地引用。停止逐次全量冻结、历史 payload 克隆和重复审计；日常索引检查当前有效层。E/R 可统一到 49–54，开发票关闭须明确最终回归仍由对应专门票承担。最终仍覆盖全部 E1–E7 和 R1–R7。
+
+<a id="batch-conditions"></a>
+
+### 条件与分支
+
+成员：[Conditional 全条件与子体](issues/28-conditional-all-modes-and-bodies.md)。
+
+交付全部条件模式、Actor 子型、then/else 保存形态、上下文引用与 Gate。条件模式和结构组合较多，保留独立执行边界。
+
+<a id="batch-variables"></a>
+
+### 变量操作数与求值
+
+成员：[Control Variables 全操作数](issues/31-control-variables-all-operands.md)。
+
+交付全部 operand / Game Data 模式、值域及真实运行求值语义。操作数矩阵和求值次数有独立风险，保留独立执行边界。
+
+<a id="batch-text"></a>
+
+### 文本、脚本与角色展示
+
+成员：[消息、滚动文本与注释](issues/29-messages-scrolling-text-and-comments.md)、[Label、Script 与 Plugin Line](issues/30-labels-scripts-and-plugin-lines.md)、[角色文本与人物／载具图像](issues/44-actor-text-and-character-images.md)。
+
+集中交付行记录、单槽字符串、CR/LF、脸图索引与 None、Label 和脚本 Gate；共享文本及素材边界案例，分别验证各指令自己的记录规则和运行后果。
+
+<a id="batch-inventory-shop"></a>
+
+### 物品、队伍与商店
+
+成员：[金钱、物品与队伍变更](issues/32-inventory-and-party-changes.md)、[Shop 完整商品结构](issues/47-shop-complete-goods-structure.md)。
+
+集中交付物品类别和数量、队伍独立保存选项、商品顺序/价格/占位及父属续行；复用商品引用上下文和 Workspace 场景。
+
+<a id="batch-map"></a>
+
+### 地图位置与角色行为
+
+成员：[地图位置与 Location Info](issues/34-map-locations-and-location-info.md)、[地图角色、动画与跟随者](issues/35-map-characters-animations-and-followers.md)。
+
+集中交付位置/查询、角色目标、跟随者、动画与等待；共享 Map/Common 上下文和运行工程，分别保留坐标域、目标子集和停滞风险验证。
+
+<a id="batch-presentation"></a>
+
+### 画面、图片、音频与系统场景
+
+成员：[画面、天气、等待与影片](issues/37-screen-weather-waits-and-movies.md)、[Picture 完整参数](issues/38-picture-complete-parameters.md)、[音频播放与系统音频设置](issues/39-audio-and-system-audio-settings.md)、[系统访问、窗口色与场景](issues/40-system-access-window-color-and-scenes.md)。
+
+集中交付表现和场景命令的完整参数、独立保存值、None 与等待。复用 R6 工程、自制素材及共同准备；参数域和实际图像/声音/场景结果仍逐项证明，影片、场景切换等会干扰后续执行的案例使用独立初态。
+
+<a id="batch-actors"></a>
+
+### 角色状态、成长与装备
+
+成员：[角色生命、资源与状态](issues/41-actor-resources-and-states.md)、[角色成长、技能与职业](issues/42-actor-growth-skills-and-classes.md)、[动态装备槽](issues/43-runtime-equipment-slots.md)。
+
+集中交付 Actor 固定/运行选择、资源与成长操作数、EXP 和动态装备槽；复用角色、职业、装备及库存上下文，分别保留 R4/R7 场景和独立初态。
+
+<a id="batch-battle"></a>
+
+### 敌人与战斗控制
+
+成员：[敌人状态、出现与表现](issues/45-enemy-state-and-appearance.md)、[Battle Processing 与战斗控制](issues/46-battle-processing-and-control.md)。
+
+集中交付敌人 selector、状态与表现、战斗结果分支、Force Action 和 Abort Battle；共享 Troop/Common 上下文和战斗工程，单独核对各 selector 子集及调度后果。
+
+<a id="batch-integration"></a>
+
+### 全矩阵与三类事件集成
+
+成员：[全矩阵与三类事件集成](issues/48-full-matrix-and-three-container-integration.md)。
+
+依赖前 8 批的全部成员以及原依赖中的已完成票均 resolved，按原票执行。交付完整覆盖审计、混合场景和 Workspace 安全检查，形成绑定源码、构建与输入身份的最终回归候选。
+
+<a id="batch-native-regression"></a>
+
+### 最终原生回归
+
+成员：[最终编辑器逆向与产品比较：容器与分支](issues/49-final-editor-containers-and-branches.md)、[最终编辑器逆向与产品比较：移动与保存状态](issues/50-final-editor-movement-and-saved-state.md)、[最终编辑器逆向与产品比较：文本、素材与 EXP](issues/51-final-editor-text-assets-and-exp.md)、[最终游戏回归：页、战斗与控制流](issues/52-final-game-pages-battles-and-control-flow.md)、[最终游戏回归：动态选择与地图位置](issues/53-final-game-runtime-selectors-and-locations.md)、[最终游戏回归：表现、脚本与数值](issues/54-final-game-presentation-scripts-and-values.md)。
+
+依赖[全矩阵与三类事件集成](issues/48-full-matrix-and-three-container-integration.md)完成。在同一候选与已核对的原生环境上，统一准备和调度 E1–E7 逆向/产品比较及 R1–R7 实际游戏运行。两类工作均只依赖集成票，彼此不增加先后依赖；保留原六张票的独立场景、结果及关闭记录。该批可跨会话完成，复用环境准备不等于复用受前一场景污染的游戏状态。
+
+<a id="batch-delivery"></a>
+
+### 证据审计与完整支持交付
+
+成员：[证据审计与完整支持交付](issues/55-completion-evidence-audit.md)。
+
+依赖最终原生回归的全部六张成员票 resolved。核对有效证据、候选和复验状态、公开文档后，按原票门槛形成交付结论。
+
+## 原始任务索引
+
+下表保留 55 张原票与直接依赖，用于查询验收责任；执行组织以上方批次为准。首次发布时唯一无阻塞任务为[证据索引与最小往返样例](issues/01-evidence-index-and-roundtrip-fixture.md)，该历史前沿已不代表当前进度。
 
 | 编号 | 任务 | 阶段 | 直接依赖 |
 | --- | --- | --- | --- |
@@ -93,3 +193,13 @@ Approval: [已确认拆分记录](ticket-breakdown-draft.md#comments)
 ### 2026-10-19 — 编辑器验收改用逆向
 
 按实施规格的用户验收修订，同步 03–10、49–51 及全票共通证据条款。03–10 按 reverse-engineer-anything 追踪实际编辑器初始化、加载、编辑确认与序列化；观察、推导及未决时序分开，首方原始输出仅在仓库外保留。49–51 将最终候选产品输出与独立契约和逆向结论比较；52–54 和 R1–R7 仍须实际 MV 1.6.1 / NW.js 游戏运行。依赖、领域行为及完成门槛保持不变，修订本身不关闭任务。上文首次发布统计保留为历史记录。
+
+### 2026-10-20 — 剩余任务按能力批次执行
+
+用户反馈实施拆分过细，并明确本次只优化当前剩余任务。核对原票后，29 张已 resolved，剩余 26 张按上方 11 个批次组织；每张未完成票新增 `Execution batch` 入口，后续以批次作为默认执行和集中交付单元。复杂的条件与变量矩阵分别保留独立边界，其余按共享上下文、参数规则和原生运行准备合并推进。
+
+本次调整只改变剩余工作的执行安排；原票状态、直接依赖、验收点、证据责任及既有完成记录沿用。批次中共用的全量检查和构建结果须绑定同一候选，逐票引用并在各自要求满足后关闭；最终 E1–E7/R1–R7 与完整支持审计仍按规格执行。本次未领取或关闭实施票。
+
+### 2026-10-20 — 减少全量测试及证据成本
+
+用户随后要求开发中优化单测、尽量减少全量并放低证据要求。实施规格新增优先修订，当前执行约定及未完成票共通条款同步：开发与批次合入采用受影响验证；全量集中到最终集成；新证据保留必要身份、输入和结果日志即可；历史记录原地引用。原生代表场景可集中到最终回归票，实际游戏验证继续保留。此修订不把尚未执行的测试或游戏场景记为通过。
