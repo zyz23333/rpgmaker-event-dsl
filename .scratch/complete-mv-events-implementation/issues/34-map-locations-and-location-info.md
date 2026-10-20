@@ -1,6 +1,6 @@
 # 34: 地图位置与 Location Info
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 06, 23, 24
 Stage: S6
 Execution batch: [地图位置与角色行为](../tickets.md#batch-map)
@@ -52,3 +52,9 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [系统、地图与表现参数附表](../../complete-mv-events/research/command-parameters/visual-map.md)。
+
+## Comments
+
+### 2026-10-20 — 地图批次认领
+
+记录创建的M工作树 `mv-map-batch`、分支 `codex/mv-map-batch` 已快进至实际集成 `2ce2ba3b4a364dc3770f953323707d843a4f53c7`（契约17、388要求）。复用34DEV `7033c4606cc8f7298189974cf7ad8046fb95d450`，与35及S3/Loop补充连续整合；按当前用户轻量策略验证受影响公共DSL及必要真实Workspace/类型/静态检查。E4/E6/R5保留到49–54最终回归，48负责全量/构建，55审计最终验收；不重做已通过的历史red或大归档。
