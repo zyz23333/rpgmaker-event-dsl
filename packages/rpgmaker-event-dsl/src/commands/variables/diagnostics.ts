@@ -1,11 +1,30 @@
 import type { CommandOrigins, RawEventCommand } from "../../compiler/types.js";
-import type { ValidationIssue } from "../../validation/types.js";
+import type { ReferenceResolver, ValidationIssue } from "../../validation/types.js";
 import { describeValue } from "../../project-data/json-values.js";
 
 export type VariableInputContext = {
   mapEventIds?: readonly number[];
   troopMemberCount?: number;
+  troopSkippedPositions?: readonly number[];
 };
+
+export function variableTroopContext(
+  members: unknown,
+  resolver: ReferenceResolver,
+): VariableInputContext {
+  if (!Array.isArray(members)) return { troopMemberCount: 0 };
+  const skipped: number[] = [];
+  for (const [index, member] of members.entries()) {
+    const enemyId =
+      member && typeof member === "object" && "enemyId" in member ? member.enemyId : undefined;
+    try {
+      resolver.resolveReference({ kind: "enemy", id: enemyId as number });
+    } catch {
+      skipped.push(index);
+    }
+  }
+  return { troopMemberCount: members.length - skipped.length, troopSkippedPositions: skipped };
+}
 
 export function inspectNativeVariableInputs(
   commands: readonly RawEventCommand[],
@@ -66,7 +85,17 @@ export function inspectNativeVariableInputs(
         "MV-E122-RUNTIME-TARGET",
         5,
         ".value.enemy.index",
-        "The enemy member position is absent from this Troop's saved members. In this battle context the native operand can return 0; future runtime context is not guaranteed.",
+        "This runtime Troop position is absent after skipping saved entries with a missing Enemy. In this battle context the native operand returns 0; future runtime context is not guaranteed.",
+      );
+    else if (
+      p[4] === 4 &&
+      context?.troopSkippedPositions?.some((position) => position <= Number(p[5]))
+    )
+      warning(
+        "MV-E122-RUNTIME-TARGET",
+        5,
+        ".value.enemy.index",
+        "MV skips saved entries with a missing Enemy when constructing runtime members, so this saved position can address a later raw member. The saved selector is preserved.",
       );
     if (p[4] === 4 && context?.mapEventIds !== undefined)
       warning(

@@ -41,6 +41,9 @@ Character targets share `{ kind: "runtimeSelector", scope: "character", target }
 player, currentEvent, or event with a positive `id`. Fixed project references must
 resolve. A runtime position can be absent and return 0; review contextual warnings
 without rewriting the value. Common Events inherit their caller's context.
+Missing Enemy entries are skipped when MV constructs runtime Troop members, so a
+saved position can select a later raw member or return 0. Keep the saved position
+and review the contextual warning. Hidden members still provide Game Data values.
 
 Script Input preserves its complete single-slot string, including empty text,
 whitespace, CR/LF/CRLF and trailing characters, without a product character or line

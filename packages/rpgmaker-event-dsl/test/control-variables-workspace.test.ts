@@ -72,6 +72,7 @@ async function prepare(workspaceRoot: string, list = nativeList) {
   files["System.json"] = { switches: ["", ""], variables: ["", "", "", ""] };
   for (const name of ["Actors", "Items", "Weapons", "Armors"])
     files[name + ".json"] = [null, { id: 1, name: "" }];
+  files["Enemies.json"] = [null, { id: 1, name: "Available Enemy" }];
   files["MapInfos.json"] = [null, { id: 1, name: "Map", parentId: 0 }];
   files["Map001.json"] = {
     width: 10,
@@ -129,7 +130,7 @@ async function prepare(workspaceRoot: string, list = nativeList) {
     {
       id: 1,
       name: "External troop",
-      members: [],
+      members: [{ enemyId: 999 }, { enemyId: 1, hidden: true }],
       external: { kept: [null, -0] },
       pages: [
         {
@@ -149,6 +150,8 @@ async function prepare(workspaceRoot: string, list = nativeList) {
           },
           span: 0,
           list: [
+            { code: 122, indent: 0, parameters: [1, 1, 0, 3, 4, 0, 0] },
+            { code: 122, indent: 0, parameters: [1, 1, 0, 3, 4, 1, 0] },
             { code: 122, indent: 0, parameters: [1, 1, 0, 3, 4, 7, 0] },
             { code: 122, indent: 0, parameters: [1, 1, 0, 3, 5, -1, 0] },
             end,
@@ -172,6 +175,13 @@ it("MV-S6-VARIABLES-002: roundtrips every E122 operand and status through actual
       const warnings = vi.spyOn(console, "error").mockImplementation(() => {});
       try {
         await api.decompileWorkspace({ workspaceRoot });
+        const warningText = warnings.mock.calls.flat().join("\n");
+        expect(warningText).toMatch(
+          /MV-E122-RUNTIME-TARGET.*pages\[0\]\.list\[0\]\.parameters\[5\].*skips.*Enemy/,
+        );
+        expect(warningText).toMatch(
+          /MV-E122-RUNTIME-TARGET.*pages\[0\]\.list\[1\]\.parameters\[5\].*returns 0/,
+        );
       } finally {
         warnings.mockRestore();
       }

@@ -346,6 +346,61 @@ it("warns for absent runtime members in a known Troop while keeping Common Event
   ]);
 });
 
+it("warns when skipped Enemy entries shift or remove a Game Data runtime position", () => {
+  const commands = [
+    controlVariables({
+      variable: variableRef({ id: 1 }),
+      operation: "set",
+      value: {
+        kind: "gameData",
+        source: "enemy",
+        enemy: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
+        value: "hp",
+      },
+    }),
+    rawDslCommand({ code: 122, parameters: [1, 1, 0, 3, 4, 1, 0] }),
+  ];
+  const event = troopEvent({ troopId: 1, pages: [battlePage({ commands })] });
+  const graph = buildStagedDataGraph({
+    declarations: [event],
+    snapshotReferences: {
+      variableCapacity: 1,
+      troops: [{ id: 1, name: "Troop" }],
+      enemies: [{ id: 1, name: "Valid Enemy" }],
+    },
+    snapshotTroops: [{ id: 1, members: [{ enemyId: 999 }, { enemyId: 1, hidden: true }] }],
+  });
+  const warnings = validateStagedDataGraph(graph, { scriptEnabled: true }).issues.filter(
+    ({ code }) => code === "MV-E122-RUNTIME-TARGET",
+  );
+  expect(warnings).toEqual([
+    expect.objectContaining({
+      nativePath: "pages[0].list[0].parameters[5]",
+      dslPath: "pages[0].commands[0].value.enemy.index",
+      message: expect.stringMatching(/skips.*Enemy/),
+    }),
+    expect.objectContaining({
+      nativePath: "pages[0].list[1].parameters[5]",
+      dslPath: "pages[0].commands[1].parameters[5]",
+      message: expect.stringMatching(/returns 0/),
+    }),
+  ]);
+  const hiddenGraph = buildStagedDataGraph({
+    declarations: [troopEvent({ troopId: 1, pages: [battlePage({ commands: [commands[0]!] })] })],
+    snapshotReferences: {
+      variableCapacity: 1,
+      troops: [{ id: 1, name: "Troop" }],
+      enemies: [{ id: 1, name: "Valid Enemy" }],
+    },
+    snapshotTroops: [{ id: 1, members: [{ enemyId: 1, hidden: true }] }],
+  });
+  expect(
+    validateStagedDataGraph(hiddenGraph, { scriptEnabled: true }).issues.filter(
+      ({ code }) => code === "MV-E122-RUNTIME-TARGET",
+    ),
+  ).toEqual([]);
+});
+
 it("warns about single-slot script CR/LF while preserving the complete text", () => {
   const event = commonEvent({
     id: 1,

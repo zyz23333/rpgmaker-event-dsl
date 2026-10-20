@@ -416,7 +416,10 @@ Game Data sources use `{ kind: "gameData", source, ... }`:
 Every Runtime Selector includes `kind: "runtimeSelector"`. Enemy and party
 positions retain numeric negative zero. Fixed references must resolve; unknown
 Common Event runtime context is allowed. Determinable unavailable runtime targets
-warn and may return native 0. Inventory Game Data counts exclude equipped items;
+warn and may return native 0. Missing Enemy entries are skipped when a Troop's
+runtime members are constructed; saved positions can shift or become unavailable,
+and warnings preserve those positions. A hidden member still supplies Game Data.
+Inventory Game Data counts exclude equipped items;
 actor/enemy status sources have no TP. Script mode uses
 `{ kind: "script", script: scriptInput({ code }) }`: the complete single-slot
 string is preserved, including empty text, whitespace, CR/LF/CRLF and trailing

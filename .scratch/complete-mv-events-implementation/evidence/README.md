@@ -576,6 +576,8 @@ Ticket27 closure audit passed:328 requirements retain incoming314 in order and o
 
 ## Ticket31 Control Variables
 
+The five stable obligations below retain the original DEV records. Current development closure and affected reruns are recorded in the Ticket31 finalization report; `MV-S6-VARIABLES-005` remains unexecuted and is carried to49/51–54. Its complete64-sample Random, self-alias, once-before-loop Script and numeric runtime outcomes remain required. Daily index validity does not mark that native obligation passed.
+
 | Requirement | Obligation | Evidence kind | Required layer |
 | --- | --- | --- | --- |
 | MV-S6-VARIABLES-001 | Independent six-operation/five-mode and all Game Data saved-parameter cases | Synthetic DEV; [record](31-control-variables-dev.md) |

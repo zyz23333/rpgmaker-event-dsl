@@ -23,6 +23,7 @@ import {
 import { renderCommands } from "./dispatch.js";
 import { renderDecompiledCommandList } from "./dispatch.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
+import { variableTroopContext } from "../commands/variables/diagnostics.js";
 import { assertNativeContextReferences } from "../validation/native-context-references.js";
 import { buildSnapshotReferenceInput } from "../validation/staged-graph.js";
 import {
@@ -283,9 +284,7 @@ async function buildDecompiledSourceFiles(
           stage: "decompile",
           scriptEnabled: options.scriptEnabled ?? false,
           prefix,
-          variableContext: {
-            troopMemberCount: Array.isArray(troop.members) ? troop.members.length : 0,
-          },
+          variableContext: variableTroopContext(troop.members, resolver),
         }),
       );
       const errors = inspectNativeCommandReferences(commands, resolver, {
