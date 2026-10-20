@@ -1,0 +1,13 @@
+{
+  "scope": "Final staged Git blob verification; preserves the prior archives",
+  "files": [
+    {
+      "file": "audit-staged.cjs",
+      "sha256": "c5bb87a10a3e04d61e0057e793b3c37ab56ea15fd79f37be79b5ebf5fa6ab362"
+    },
+    {
+      "file": "staged-hash-audit.log",
+      "sha256": "7af9e30469163f4f2effca3f88303846e413fba9eaf1f2612a6000dd07f7c0c5"
+    }
+  ]
+}

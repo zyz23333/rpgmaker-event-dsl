@@ -200,7 +200,7 @@ export {
 import {
   renderControlVariables,
   renderReferenceTarget,
-  renderOperateValueOperand,
+  renderQuantityOperand,
 } from "../commands/variables/decompile.js";
 export {
   renderControlVariables,
@@ -467,7 +467,7 @@ export function renderSimpleCommand(
       return null;
     }
     case 125: {
-      const operand = renderOperateValueOperand(
+      const operand = renderQuantityOperand(
         command.parameters[0],
         command.parameters[1],
         command.parameters[2],
@@ -505,7 +505,7 @@ export function renderSimpleCommand(
     }
     case 126: {
       const itemId = readPositiveInteger(command.parameters[0]);
-      const operand = renderOperateValueOperand(
+      const operand = renderQuantityOperand(
         command.parameters[1],
         command.parameters[2],
         command.parameters[3],
@@ -519,7 +519,7 @@ export function renderSimpleCommand(
     }
     case 127: {
       const weaponId = readPositiveInteger(command.parameters[0]);
-      const operand = renderOperateValueOperand(
+      const operand = renderQuantityOperand(
         command.parameters[1],
         command.parameters[2],
         command.parameters[3],
@@ -534,7 +534,7 @@ export function renderSimpleCommand(
     }
     case 128: {
       const armorId = readPositiveInteger(command.parameters[0]);
-      const operand = renderOperateValueOperand(
+      const operand = renderQuantityOperand(
         command.parameters[1],
         command.parameters[2],
         command.parameters[3],

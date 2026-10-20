@@ -301,7 +301,11 @@ evidenceIt(
           value: true,
         }),
         inputNumber({ variable: variableRef({ id: 2 }), digits: 1 }),
-        changeItems({ item: itemRef({ id: 1 }), operation: "gain", amount: 1 }),
+        changeItems({
+          item: itemRef({ id: 1 }),
+          operation: "gain",
+          amount: { kind: "constant", value: 1 },
+        }),
       ],
     });
     expect(
@@ -311,7 +315,11 @@ evidenceIt(
       controlSwitches({ switch: switchRef({ id: 4 }), value: false }),
       controlSwitches({ switch: switchRef({ name: "Snapshot switch" }), value: true }),
       inputNumber({ variable: variableRef({ id: 3 }), digits: 1 }),
-      changeItems({ item: itemRef({ id: 2 }), operation: "gain", amount: 1 }),
+      changeItems({
+        item: itemRef({ id: 2 }),
+        operation: "gain",
+        amount: { kind: "constant", value: 1 },
+      }),
     ];
     const issues = validateDslOwnedDeclarations([{ ...event, commands: invalid }], {
       scriptEnabled: false,
@@ -321,7 +329,7 @@ evidenceIt(
       "MV-E121-REFERENCE validation common event 1.commands[0].switch: Unknown switch reference id: 4",
       "MV-E121-REFERENCE validation common event 1.commands[1].switch: Unknown switch reference: Snapshot switch",
       "Unknown variable reference id: 3",
-      "Unknown item reference id: 2",
+      'compile error common event 1: MV-E126-INPUT: Invalid inventory or party command input. (commands[3].item); expected existing uniquely resolved item reference; actual "Unknown item reference id: 2"',
     ]);
     expect(
       validateDslOwnedDeclarations(
@@ -417,7 +425,7 @@ export const addedVariable = variableDefinition({ id: 4, name: "Extended variabl
         `import { commonEvent, inputNumber, variableRef, changeItems, itemRef } from "rpgmaker-event-dsl";
 export const unnamedReferences = commonEvent({ id: 2, name: "Unnamed references", trigger: "none", commands: [
   inputNumber({ variable: variableRef({ id: 4 }), digits: 1 }),
-  changeItems({ item: itemRef({ id: 1 }), operation: "gain", amount: 1 }),
+  changeItems({ item: itemRef({ id: 1 }), operation: "gain", amount: { kind: "constant", value: 1 } }),
 ] });
 `,
       );
