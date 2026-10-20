@@ -1,0 +1,45 @@
+
+ RUN  v4.1.9 F:/Shuen/RPG/mv32-focused-temp
+
+stderr | inventory-party-external.test.ts > MV-S6-INVENTORY-001: evaluates the complete native mode and inactive flag matrix and performs a real harmless Push
+Windows verification sandbox retained: F:\Shuen\RPG\mv32-focused-sandboxes\inventory-native-matrix-MkXqPO
+
+ ❯ inventory-party-external.test.ts (21 tests | 1 failed) 10689ms
+   × MV-S6-INVENTORY-001: evaluates the complete native mode and inactive flag matrix and performs a real harmless Push 2853ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  inventory-party-external.test.ts > MV-S6-INVENTORY-001: evaluates the complete native mode and inactive flag matrix and performs a real harmless Push
+AssertionError: expected 'Structured Diff Report\n\nAffected Pr…' to contain 'No changes.'
+
+- Expected
++ Received
+
+- No changes.
++ Structured Diff Report
++
++ Affected Project Data Files:
++ - none
++
++ Destructive Changes: no
+
+ ❯ inventory-party-external.test.ts:95:52
+     93|     expect(JSON.parse(after.project!["CommonEvents.json"])).toStrictEq…
+     94|     expect(after.snapshot).toStrictEqual(after.project);
+     95|     expect(await diffWorkspace({ workspaceRoot })).toContain("No chang…
+       |                                                    ^
+     96|   });
+     97| });
+ ❯ inventory-party-external.test.ts:35:11
+ ❯ withWindowsSandbox C:/Users/Shuen/.codex/worktrees/mv-ticket-32/rpgmaker-event-dsl/packages/rpgmaker-event-dsl/test/support/windows-sandbox.ts:56:5
+ ❯ withInventoryEvidence inventory-party-external.test.ts:32:3
+ ❯ inventory-party-external.test.ts:63:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 20 passed (21)
+   Start at  02:44:31
+   Duration  12.36s (transform 486ms, setup 0ms, import 1.54s, tests 10.69s, environment 0ms)
+

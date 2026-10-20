@@ -675,3 +675,12 @@ Conditional 集成，契约 `/15`、374 条要求；开发票按用户执行修�
 | MV-S6-ACTOR-EQUIPMENT-002 | Final System equipment capacity and candidate warnings preserve runtime identity without fixed-table substitution | synthetic-support | Existing authoring/compiler/decompiler/validation seams |
 
 [Current batch report](41-43-actor-capability-batch.md) links the executed source version, independent inputs, actual commands and original logs. Development is complete; final E7 product comparison and R4/R7 actual game execution remain required in51/53/54. Existing41 raw results and all prior failures stay at their original paths. No per-ticket full/build/native or large archive was added under the 2026-10-20 user amendment.
+
+| Requirement | Case | Scope |
+| --- | --- | --- |
+| MV-S6-INVENTORY-001 | Complete native quantity mode and independent flag matrix through actual Workspace publication | Synthetic focused DEV; native:not-executed |
+| MV-S6-INVENTORY-002 | Local const helper and direct node unknown fields fail without changing business state | Synthetic focused DEV; native:not-executed |
+| MV-S6-INVENTORY-003 | Native invalid saved slots fail before source publication including categorical negative zero | Synthetic focused DEV; native:not-executed |
+| MV-S6-INVENTORY-004 | Native fixed references must exist in their real project category before takeover | Synthetic focused DEV; native:not-executed |
+| MV-S6-INVENTORY-005 | Formal helpers, direct nodes, native and recognized raw share complete inventory and party domains | Synthetic focused DEV; native:not-executed |
+| MV-S6-INVENTORY-006 | Same-identity E4/product comparison and actual R4 execution | Pending; [DEV record](32-inventory-party-dev.md#pending-e4r4-acceptance) |

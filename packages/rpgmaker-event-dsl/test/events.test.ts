@@ -209,7 +209,7 @@ describe("compileMapEvent", () => {
                 value: 3,
               }),
               controlSwitches({ switch: switchRef({ name: "Gate" }), value: true }),
-              changeGold({ operation: "gain", value: 5 }),
+              changeGold({ operation: "gain", value: { kind: "constant", value: 5 } }),
               controlSwitches({
                 switch: {
                   kind: "referenceRange",
@@ -241,18 +241,25 @@ describe("compileMapEvent", () => {
               }),
               controlTimer({ action: "start", seconds: 45 }),
               controlTimer({ action: "stop" }),
-              changeGold({ operation: "lose", value: variableRef({ name: "Count" }) }),
-              changeItems({ item: itemRef({ name: "Potion" }), operation: "lose", amount: 1 }),
+              changeGold({
+                operation: "lose",
+                value: { kind: "variable", variable: variableRef({ name: "Count" }) },
+              }),
+              changeItems({
+                item: itemRef({ name: "Potion" }),
+                operation: "lose",
+                amount: { kind: "constant", value: 1 },
+              }),
               changeWeapons({
                 weapon: { kind: "weapon", id: 1 },
                 operation: "gain",
-                amount: variableRef({ name: "Count" }),
+                amount: { kind: "variable", variable: variableRef({ name: "Count" }) },
                 includeEquipment: true,
               }),
               changeArmors({
                 armor: { kind: "armor", id: 1 },
                 operation: "lose",
-                amount: 2,
+                amount: { kind: "constant", value: 2 },
                 includeEquipment: false,
               }),
               changePartyMember({

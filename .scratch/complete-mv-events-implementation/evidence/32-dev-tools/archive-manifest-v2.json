@@ -1,0 +1,17 @@
+{
+  "scope": "Supplemental final audit and index-only log; preserves the initial archive",
+  "files": [
+    {
+      "file": "audit-dev-v2.cjs",
+      "sha256": "ad027ab7ce1df99962a6fcac91c25b2b8b21dfade9743d3d8fccedbaec3bab2d"
+    },
+    {
+      "file": "dev-audit-v2.log",
+      "sha256": "ad91c5c17a37f08e0808d42eca4a04b0a7cc736546b57fb2c535e81812c7c83a"
+    },
+    {
+      "file": "index-only-final.log",
+      "sha256": "23261da3fd8a37d21a3d9a282d2dd066fa042059569f5b8725792ffa73c84965"
+    }
+  ]
+}

@@ -532,6 +532,33 @@ input; CR warns that parameter reconfirmation needs verification. Warnings retai
 the exact text. Empty, inactive and unreachable M45 instructions still require
 `scriptEnabled: true` during Check and Compile.
 
+## Inventory and party changes
+
+`changeGold({ operation, value })` and `changeItems({ item, operation, amount })`
+use explicit quantity objects: `{ kind: "constant", value }` or
+`{ kind: "variable", variable: variableRef({ id }) }`. Gold constants are integers
+1..9,999,999; item, weapon and armor constants are integers 1..9999. The operation
+is `gain` or `lose`. Variable mode preserves its source reference and accepts
+runtime values outside the constant range, including zero and negative values;
+MV handles its runtime caps separately.
+
+`changeWeapons({ weapon, operation, amount, includeEquipment })` and
+`changeArmors({ armor, operation, amount, includeEquipment })` require the boolean
+flag, including gain mode. `changePartyMember({ actor, operation, initialize })`
+selects one fixed actor, uses `add` or `remove`, and requires the boolean
+initialization flag even during removal. All shown fields are required, and the
+fixed item/weapon/armor/actor references resolve in their matching project tables.
+
+```ts
+changeWeapons({
+  weapon: weaponRef({ id: 1 }),
+  operation: "gain",
+  amount: { kind: "variable", variable: variableRef({ id: 3 }) },
+  includeEquipment: true,
+});
+changePartyMember({ actor: actorRef({ id: 1 }), operation: "remove", initialize: true });
+```
+
 ## Raw commands and the Script Command Gate
 
 `rawDslCommand({ code, indent?, parameters })` carries one event command. Explicit

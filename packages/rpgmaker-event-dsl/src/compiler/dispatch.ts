@@ -65,6 +65,7 @@ import {
   compileControlVariablesParameters,
   compileReferenceTargetRange,
   compileOperateValueParameters,
+  compileQuantityParameters,
 } from "../commands/variables/compile.js";
 export {
   resolveControlValue,
@@ -129,6 +130,10 @@ export {
   locationInfoTypeToCode,
 } from "./shared/media.js";
 export type { RawEventCommand } from "./types.js";
+import {
+  assertInventoryInput,
+  isInventoryCommandKind,
+} from "../commands/variables/inventory-validation.js";
 
 export function compileNodes(
   nodes: readonly DslCommand[],
@@ -149,6 +154,8 @@ export function compileNodes(
     assertWindowColorInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true);
     assertSceneCommandInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
     assertActorResourceInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
+    if (isInventoryCommandKind(node.kind))
+      assertInventoryInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
     const outputStart = output.length;
     switch (node.kind) {
       case "showText":
@@ -350,7 +357,7 @@ export function compileNodes(
         output.push({
           code: 125,
           indent,
-          parameters: compileOperateValueParameters(node.operation, node.value, resolver),
+          parameters: compileQuantityParameters(node.operation, node.value, resolver),
         });
         break;
       case "changeItems":
@@ -359,7 +366,7 @@ export function compileNodes(
           indent,
           parameters: [
             resolver.resolveReference(node.item),
-            ...compileOperateValueParameters(node.operation, node.amount, resolver),
+            ...compileQuantityParameters(node.operation, node.amount, resolver),
           ],
         });
         break;
@@ -369,8 +376,8 @@ export function compileNodes(
           indent,
           parameters: [
             resolver.resolveReference(node.weapon),
-            ...compileOperateValueParameters(node.operation, node.amount, resolver),
-            node.includeEquipment ?? false,
+            ...compileQuantityParameters(node.operation, node.amount, resolver),
+            node.includeEquipment,
           ],
         });
         break;
@@ -380,8 +387,8 @@ export function compileNodes(
           indent,
           parameters: [
             resolver.resolveReference(node.armor),
-            ...compileOperateValueParameters(node.operation, node.amount, resolver),
-            node.includeEquipment ?? false,
+            ...compileQuantityParameters(node.operation, node.amount, resolver),
+            node.includeEquipment,
           ],
         });
         break;
@@ -392,7 +399,7 @@ export function compileNodes(
           parameters: [
             resolver.resolveReference(node.actor),
             node.operation === "add" ? 0 : 1,
-            node.initialize ?? false,
+            node.initialize,
           ],
         });
         break;

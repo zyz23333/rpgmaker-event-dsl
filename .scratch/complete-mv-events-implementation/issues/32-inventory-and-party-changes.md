@@ -1,6 +1,6 @@
 # 32: 金钱、物品与队伍变更
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 23
 Stage: S6
 Execution batch: [物品、队伍与商店](../tickets.md#batch-inventory-shop)
@@ -50,3 +50,15 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
 - [核心指令参数附表](../../complete-mv-events/research/command-parameters/core.md)。
+
+### 2026-10-20 — 聚焦开发领取
+
+独立分支 codex/mv-ticket-32，基于实际 integration c2a40a41c094ccdda47faccd4399891952739008。按已接受 T1 seams 逐切片 red→green；本检查点仅开发，保留所有旧证据，不进行 broad/build/built/native 或契约版本增量，仍需最终 E4/R4 和独立合并验收。
+
+### 2026-10-20 — DEV 检查点，尚未最终验收
+
+E125–E129已覆盖正式mode对象、必填独立flags、精确原生槽、严格helper投影前与direct节点字段、引用/范围、负零分类拒绝、编反编译及真实Discovery/Check/Compile/Diff/Push。完整28记录原生矩阵经过实际发现并求值，gain+true/remove+true及无名变量槽原样保存；拒绝案例核对完整业务状态。当前公开README、示例与编写指南同步。
+
+44聚焦测试/2文件、58相关测试/6文件（含架构）、证据索引3测试、typecheck及scoped lint/format通过。新增6需求，286旧需求对象/原始字节前缀及2989旧证据blob保持一致。详细记录与不可变审计见[DEV证据](../evidence/32-inventory-party-dev.md)。保留C盘ENOSPC与初版检查失败记录；未执行native的结果明确标注not-executed。
+
+仍为claimed；后续需在实际最终integration上协调30/31变量family、26/28/30 raw错误路径重叠，按root队列完成契约版本增量、完整检查/构建/built、E4比较与实际R4，再由独立merger验收。本DEV提交不能关闭32。

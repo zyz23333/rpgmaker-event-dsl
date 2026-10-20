@@ -36,6 +36,9 @@ Turn RPG Maker MV gameplay intent into idiomatic Event DSL source. Use Workspace
 
    For Picture commands, read `references/pictures.md` before choosing image None,
    position, origin, display fields, Tone, rotation or waiting behavior.
+   For gold, item, weapon, armor or party membership changes, read
+   `references/inventory-party.md` before choosing quantity modes, project targets
+   or inactive saved equipment and initialization flags.
 
 4. Author Definition Source.
 

@@ -191,20 +191,37 @@ describe("collectDslOwnedDeclarations", () => {
       controlVariables({ variable: variableRef({ id: 2 }), operation: "add", value: 3 }).kind,
     ).toBe("controlVariables");
     expect(controlSelfSwitch({ selfSwitch: "A", value: false }).kind).toBe("controlSelfSwitch");
-    expect(changeGold({ operation: "gain", value: 5 }).kind).toBe("changeGold");
-    expect(changeItems({ item: itemRef({ id: 1 }), operation: "lose", amount: 2 }).kind).toBe(
-      "changeItems",
+    expect(changeGold({ operation: "gain", value: { kind: "constant", value: 5 } }).kind).toBe(
+      "changeGold",
     );
+    expect(
+      changeItems({
+        item: itemRef({ id: 1 }),
+        operation: "lose",
+        amount: { kind: "constant", value: 2 },
+      }).kind,
+    ).toBe("changeItems");
     expect(controlTimer({ action: "start", seconds: 30 }).kind).toBe("controlTimer");
     expect(
-      changeWeapons({ weapon: { kind: "weapon", id: 1 }, operation: "gain", amount: 1 }).kind,
+      changeWeapons({
+        weapon: { kind: "weapon", id: 1 },
+        operation: "gain",
+        amount: { kind: "constant", value: 1 },
+        includeEquipment: false,
+      }).kind,
     ).toBe("changeWeapons");
     expect(
-      changeArmors({ armor: { kind: "armor", id: 1 }, operation: "lose", amount: 1 }).kind,
+      changeArmors({
+        armor: { kind: "armor", id: 1 },
+        operation: "lose",
+        amount: { kind: "constant", value: 1 },
+        includeEquipment: false,
+      }).kind,
     ).toBe("changeArmors");
-    expect(changePartyMember({ actor: { kind: "actor", id: 1 }, operation: "add" }).kind).toBe(
-      "changePartyMember",
-    );
+    expect(
+      changePartyMember({ actor: { kind: "actor", id: 1 }, operation: "add", initialize: false })
+        .kind,
+    ).toBe("changePartyMember");
     expect(
       changeBattleBgm({
         audio: {
