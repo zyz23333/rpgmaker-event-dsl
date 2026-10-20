@@ -48,6 +48,7 @@ import { assertNativeBattlePages, type NativeBattleEventPage } from "../validati
 import { renderMapPageSettings } from "./map-page.js";
 import { inspectMapLocationContext } from "../commands/map/location-context.js";
 import type { SnapshotMapValidationEntry } from "../validation/types.js";
+import { inspectMapCharacterContext } from "../validation/map-character-context.js";
 
 export type DecompileFile = {
   content: string;
@@ -220,6 +221,10 @@ async function buildDecompiledSourceFiles(
             maps: contextMaps,
             currentMapId: mapInfo.id,
           }),
+          ...inspectMapCharacterContext(page.list ?? [], {
+            ...inputOptions,
+            eventIds: new Set(events.map((event) => event.id)),
+          }),
         );
         if (page.movement !== undefined) {
           const path = `pages[${pageIndex}].moveRoute`;
@@ -269,6 +274,10 @@ async function buildDecompiledSourceFiles(
         identity: `commonEvent:${event.id}`,
         stage: "decompile",
         maps: contextMaps,
+      }),
+      ...inspectMapCharacterContext(event.list ?? [], {
+        identity: `commonEvent:${event.id}`,
+        stage: "decompile",
       }),
     );
     issues.push(
@@ -337,6 +346,7 @@ async function buildDecompiledSourceFiles(
           battle: true,
           prefix,
         }),
+        ...inspectMapCharacterContext(commands, { identity, stage: "decompile", prefix }),
       );
       issues.push(
         ...inspectNativeCommandInputs(commands, {

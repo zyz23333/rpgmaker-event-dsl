@@ -523,6 +523,7 @@ export const movementStationEvent = mapEvent({
         showBalloonIcon({
           target: playerCharacter,
           balloon: "question",
+          wait: false,
         }),
         changeTransparency({
           transparent: false,

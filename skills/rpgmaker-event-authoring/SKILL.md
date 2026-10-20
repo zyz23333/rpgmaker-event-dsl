@@ -44,6 +44,10 @@ Turn RPG Maker MV gameplay intent into idiomatic Event DSL source. Use Workspace
    `references/map-locations.md` before choosing modes, selectors, coordinates,
    defaults or interpreting bounds warnings.
 
+   For scrolling, vehicle boarding, transparency, animations, balloons, event
+   erasure or followers, read `references/map-characters.md` before choosing
+   directions, targets, required flags, waits or caller-dependent behavior.
+
 4. Author Definition Source.
 
    Edit Definition Source selected by the Workspace Config. Preserve existing Entry Identity and local source style. Use the MV-aligned DSL helpers for RPG Maker MV 1.6.1 editor command families. Keep continuation commands inside their parent helper, such as text lines in `showText(...)`, choice branches in `showChoices(...)`, battle result branches in `battleProcessing(...)`, shop goods continuations in `shopProcessing(...)`, and route commands in `setMovementRoute(...)`.

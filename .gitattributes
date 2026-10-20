@@ -22,3 +22,6 @@
 
 # Preserve closed original Ticket27 finalization captures and immutable audits.
 /.scratch/complete-mv-events-implementation/evidence/27-final-history/** -text -whitespace
+
+# Ticket35 retains original focused DEV scripts and raw runner output byte-for-byte.
+/.scratch/complete-mv-events-implementation/evidence/35-dev-tools/** -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol

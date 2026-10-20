@@ -26,6 +26,10 @@ import type {
 } from "../../domain/types.js";
 import { assertSystemAccessInput, assertWindowColorInput } from "./access-validation.js";
 import { assertMapLocationInput } from "../map/location-validation.js";
+import {
+  assertMapCharacterInput,
+  assertParameterlessCharacterCall,
+} from "./character-validation.js";
 
 export function changeSaveAccess(input: { enabled: boolean }): ChangeSaveAccessDslCommand {
   assertSystemAccessInput("changeSaveAccess", input, "changeSaveAccess");
@@ -103,10 +107,11 @@ export function setEventLocation(input: {
 }
 
 export function scrollMap(input: {
-  direction: Direction;
+  direction: ScrollMapDslCommand["direction"];
   distance: number;
   speed: number;
 }): ScrollMapDslCommand {
+  assertMapCharacterInput("scrollMap", input, "scrollMap", false);
   return {
     kind: "scrollMap",
     direction: input.direction,
@@ -130,12 +135,14 @@ export function setMovementRoute(input: {
 }
 
 export function getOnOffVehicle(): GetOnOffVehicleDslCommand {
+  assertParameterlessCharacterCall("getOnOffVehicle", arguments);
   return {
     kind: "getOnOffVehicle",
   };
 }
 
 export function changeTransparency(input: { transparent: boolean }): ChangeTransparencyDslCommand {
+  assertMapCharacterInput("changeTransparency", input, "changeTransparency", false);
   return {
     kind: "changeTransparency",
     transparent: input.transparent,
@@ -145,35 +152,31 @@ export function changeTransparency(input: { transparent: boolean }): ChangeTrans
 export function showAnimation(input: {
   target: CharacterRuntimeSelector;
   animation: ReferenceValue<"animation">;
-  wait?: boolean;
+  wait: boolean;
 }): ShowAnimationDslCommand {
+  assertMapCharacterInput("showAnimation", input, "showAnimation", false);
   const node: ShowAnimationDslCommand = {
     kind: "showAnimation",
     target: input.target,
     animation: input.animation,
+    wait: input.wait,
   };
-
-  if (input.wait !== undefined) {
-    node.wait = input.wait;
-  }
 
   return node;
 }
 
 export function showBalloonIcon(input: {
   target: CharacterRuntimeSelector;
-  balloon: BalloonIcon | number;
-  wait?: boolean;
+  balloon: BalloonIcon;
+  wait: boolean;
 }): ShowBalloonIconDslCommand {
+  assertMapCharacterInput("showBalloonIcon", input, "showBalloonIcon", false);
   const node: ShowBalloonIconDslCommand = {
     kind: "showBalloonIcon",
     target: input.target,
     balloon: input.balloon,
+    wait: input.wait,
   };
-
-  if (input.wait !== undefined) {
-    node.wait = input.wait;
-  }
 
   return node;
 }
@@ -181,6 +184,7 @@ export function showBalloonIcon(input: {
 export function changePlayerFollowers(input: {
   visible: boolean;
 }): ChangePlayerFollowersDslCommand {
+  assertMapCharacterInput("changePlayerFollowers", input, "changePlayerFollowers", false);
   return {
     kind: "changePlayerFollowers",
     visible: input.visible,
@@ -188,6 +192,7 @@ export function changePlayerFollowers(input: {
 }
 
 export function gatherFollowers(): GatherFollowersDslCommand {
+  assertParameterlessCharacterCall("gatherFollowers", arguments);
   return {
     kind: "gatherFollowers",
   };

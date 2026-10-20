@@ -11,6 +11,7 @@ import {
   variableTroopContext,
   type VariableInputContext,
 } from "../commands/variables/diagnostics.js";
+import { inspectMapCharacterContext } from "./map-character-context.js";
 import { inspectMapLocationContext } from "../commands/map/location-context.js";
 
 export function validateCompiledCommandLists(
@@ -94,6 +95,19 @@ export function validateCompiledCommandLists(
         const { breaksOutsideLoops } = inspectCommandListStructure(commands, {
           requireTerminator: true,
         });
+        issues.push(
+          ...inspectMapCharacterContext(commands, {
+            identity: list.identity,
+            stage: "compile",
+            prefix,
+            origins,
+            ...(declaration.kind === "mapEvent"
+              ? { eventIds: new Set([...graph.mapEventsByIdentity.values()]
+                    .filter((event) => event.mapId === declaration.mapId)
+                    .map((event) => event.id)) }
+              : {}),
+          }),
+        );
         issues.push(
           ...inspectMapLocationContext(commands, {
             identity: list.identity,

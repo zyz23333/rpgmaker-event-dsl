@@ -13,6 +13,8 @@ import { assertNativePictureParameters } from "../commands/screen/picture-native
 import { assertNativeAudioParameters } from "../commands/audio/validation.js";
 import { assertNativeActorResourceParameters } from "../commands/actor/native-validation.js";
 
+import { assertNativeMapCharacterParameters } from "../commands/movement/character-native.js";
+
 // Shared saved-slot envelopes. Family validators retain ownership of semantic ranges,
 // references and mode-specific saved values; this table is not full family acceptance.
 const signatures: Record<number, string> = {
@@ -167,6 +169,9 @@ export function assertNativeCommandParameters(
   if (code === 122) assertNativeControlVariables(parameters, path);
   assertNativeSystemSettingsParameters(code, parameters, path);
   assertNativeActorResourceParameters(code, parameters, path);
+
+
+  assertNativeMapCharacterParameters(code, parameters, path);
   try {
     assertNativeSwitchCommand(code, parameters);
   } catch (error) {

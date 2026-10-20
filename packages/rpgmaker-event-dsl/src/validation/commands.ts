@@ -38,6 +38,11 @@ import { assertSceneCommandInput } from "../commands/system/validation.js";
 import { assertActorResourceInput } from "../commands/actor/validation.js";
 import { assertMapLocationInput } from "../commands/map/location-validation.js";
 
+import {
+  assertMapCharacterInput,
+  isMapCharacterKind,
+} from "../commands/movement/character-validation.js";
+
 type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
 export function validatePages(
@@ -85,6 +90,16 @@ export function validateNodes(
         issues.push(error.issue(options.identity ?? "event", "compile"));
       else throw error;
       continue;
+    }
+    if (isMapCharacterKind(node.kind)) {
+      try {
+        assertMapCharacterInput(node.kind, node, nodePath, true, resolver);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+        continue;
+      }
     }
     const childOptions = (field: string): CommandValidationOptions => ({
       ...options,
@@ -318,15 +333,6 @@ export function validateNodes(
         if (error instanceof CommandStructureError)
           issues.push(error.issue(options.identity ?? "event", "compile"));
       }
-    }
-    if (node.kind === "showAnimation") {
-      validateCharacterRuntimeSelector(node.target, "Show Animation target", issues);
-      captureSwitchIssue("MV-E212-REFERENCE", "animation", () =>
-        resolver.resolveReference(node.animation),
-      );
-    }
-    if (node.kind === "showBalloonIcon") {
-      validateCharacterRuntimeSelector(node.target, "Show Balloon Icon target", issues);
     }
     if (node.kind === "showPicture" || node.kind === "movePicture") {
       validateCommandPosition(node.position, resolver, issues);

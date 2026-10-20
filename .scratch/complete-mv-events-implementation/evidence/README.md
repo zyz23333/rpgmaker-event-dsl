@@ -698,3 +698,16 @@ Original DEV records are retained; current batch closure will be recorded separa
 | MV-S6-LOCATION-002 | Reject evaluated untyped Location sources without changing business state | Synthetic source Workspace; native not executed; [record](34-map-locations-dev-checkpoint.md) |
 | MV-S6-LOCATION-003 | Reject native Location coordinates and unsupported exchange padding atomically | Synthetic source Workspace; native not executed; [record](34-map-locations-dev-checkpoint.md) |
 | MV-S6-LOCATION-004 | Pending final E4/E6 product comparison and R5 native game acceptance | Pending E4/E6/R5; not executed; [record](34-map-locations-dev-checkpoint.md) |
+
+## Ticket35 Map Characters
+
+Original DEV records are retained; current batch closure will be recorded separately. `MV-S6-CHARACTER-006` remains required and unexecuted for final R1/R4/R6.
+
+| Requirement | Obligation | Evidence |
+| --- | --- | --- |
+| MV-S6-CHARACTER-001 | Complete native matrix through real Workspace evaluation and Push |
+| MV-S6-CHARACTER-002 | Evaluated helper and direct-node excess fields refuse before projection |
+| MV-S6-CHARACTER-003 | Invalid native slots and fixed animation references refuse before publication |
+| MV-S6-CHARACTER-004 | Current public types require named enums and explicit wait |
+| MV-S6-CHARACTER-005 | Approved command seams validate complete map-character contract |
+| MV-S6-CHARACTER-006 | Pending actual R1/R4/R6 normal Scene product comparison |
