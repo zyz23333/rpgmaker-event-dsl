@@ -98,12 +98,8 @@ export function assertControlVariablesInput(
   assertDslObject(input, [...(withKind ? ["kind"] : []), "variable", "operation", "value"], path);
   choice(input.operation, `${path}.operation`, operations);
   const target = input.variable;
-  if (
-    typeof target === "object" &&
-    target !== null &&
-    "kind" in target &&
-    target.kind === "referenceRange"
-  ) {
+  assertDslObject(target, undefined, `${path}.variable`);
+  if (target.kind === "referenceRange") {
     assertDslObject(target, ["kind", "from", "to"], `${path}.variable`);
     const range = target as Record<string, unknown>;
     const from = ref(range.from, "variable", `${path}.variable.from`);
