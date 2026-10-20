@@ -1,6 +1,6 @@
 # 42: 角色成长、技能与职业
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 10, 23
 Stage: S6
 Execution batch: [角色状态、成长与装备](../tickets.md#batch-actors)

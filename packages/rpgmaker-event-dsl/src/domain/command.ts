@@ -733,7 +733,7 @@ export type ChangeExpDslCommand = {
   target: ActorCommandTarget;
   operation: "gain" | "lose";
   value: OperateValueOperand;
-  showLevelUp?: boolean;
+  showLevelUp: boolean;
 };
 
 export type ChangeLevelDslCommand = {
@@ -741,7 +741,7 @@ export type ChangeLevelDslCommand = {
   target: ActorCommandTarget;
   operation: "gain" | "lose";
   value: OperateValueOperand;
-  showLevelUp?: boolean;
+  showLevelUp: boolean;
 };
 
 export type ChangeParameterDslCommand = {
@@ -776,7 +776,7 @@ export type ChangeClassDslCommand = {
   kind: "changeClass";
   actor: ReferenceValue<"actor">;
   class: ReferenceValue<"class">;
-  keepExp?: boolean;
+  keepExp: boolean;
 };
 
 export type ChangeActorImagesDslCommand = {

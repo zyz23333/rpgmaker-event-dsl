@@ -4,6 +4,15 @@ import { CommandStructureError } from "../../validation/command-errors.js";
 import { assertDslObject } from "../../validation/dsl-command-inputs.js";
 import type { ReferenceResolver } from "../../validation/types.js";
 
+export function assertActorSavedFlag(code: number, field: string, value: unknown): void {
+  if (typeof value !== "boolean")
+    throw new CommandStructureError(`MV-E${code}-INPUT`, "Expected independently saved boolean.", {
+      dslPath: field,
+      expected: "explicit boolean",
+      actual: describeValue(value),
+    });
+}
+
 const codes = {
   changeHp: 311,
   changeMp: 312,

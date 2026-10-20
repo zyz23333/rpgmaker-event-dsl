@@ -24,7 +24,7 @@ import type {
   ReferenceValue,
   VehicleTarget,
 } from "../../domain/types.js";
-import { assertActorResourceInput } from "./validation.js";
+import { assertActorResourceInput, assertActorSavedFlag } from "./validation.js";
 
 export function changeHp(input: {
   target: ActorResourceTarget;
@@ -82,8 +82,9 @@ export function changeExp(input: {
   target: ActorCommandTarget;
   operation: "gain" | "lose";
   value: OperateValueOperand;
-  showLevelUp?: boolean;
+  showLevelUp: boolean;
 }): ChangeExpDslCommand {
+  assertActorSavedFlag(315, "changeExp.showLevelUp", input.showLevelUp);
   const node: ChangeExpDslCommand = {
     kind: "changeExp",
     target: input.target,
@@ -102,8 +103,9 @@ export function changeLevel(input: {
   target: ActorCommandTarget;
   operation: "gain" | "lose";
   value: OperateValueOperand;
-  showLevelUp?: boolean;
+  showLevelUp: boolean;
 }): ChangeLevelDslCommand {
+  assertActorSavedFlag(316, "changeLevel.showLevelUp", input.showLevelUp);
   const node: ChangeLevelDslCommand = {
     kind: "changeLevel",
     target: input.target,
@@ -173,8 +175,9 @@ export function changeName(input: {
 export function changeClass(input: {
   actor: ReferenceValue<"actor">;
   class: ReferenceValue<"class">;
-  keepExp?: boolean;
+  keepExp: boolean;
 }): ChangeClassDslCommand {
+  assertActorSavedFlag(321, "changeClass.keepExp", input.keepExp);
   const node: ChangeClassDslCommand = {
     kind: "changeClass",
     actor: input.actor,

@@ -1,6 +1,6 @@
 # 43: 动态装备槽
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 23
 Stage: S6
 Execution batch: [角色状态、成长与装备](../tickets.md#batch-actors)
