@@ -2,7 +2,19 @@
 
 Ticket31 closes the E122 development scope under the accepted 2026-10-20 execution policy. The original DEV is reused, the current integration is merged, and affected public DSL/Workspace checks pass. Final build and native acceptance remain assigned to48–55; no new full-suite, build, built-product or game run is claimed here.
 
-## Source and requirements
+## Current correction after independent review
+
+The first READY `b9b1b12cb5a94111199878bfab7ea8607e65e7e4` was returned for one product defect: a nested target's `kind` accessor could replace itself with a data property before the original own-data check. Both the public helper and directly authored graph/compile could accept that invalid original input. The independent report and unmodified public-entry reproduction remain at `M:/Shuen/Codex/mv-events-implementation-20261020/ticket31-merger/review-b9b1b12c.md`, `reproduce-original-target.mts` and `original-target-reproduction-helper-and-graph.log` in that same directory.
+
+Fix `6a3c79b6` checks the complete original target's plain, enumerable own-data shape before reading its discriminator; the existing mode-specific field checks then run normally. It changes no accepted domain contract. Tests cover Variable Reference and Reference Range targets, own self-replacing accessors, inherited accessors and non-enumerable data discriminators through helper, direct graph validation and direct compilation. Each invocation uses its own original target and asserts zero getter reads as well as rejection.
+
+The actual TDD red (`original-target-red-v1`) had12 failures and6 passes: own accessor inputs were accepted, while inherited accessor inputs were rejected only after one getter read. After the minimal guard change, `original-target-green-v1` passed all18 new cases. Both original receipts and logs remain under `M:/Shuen/Codex/mv-events-implementation-20261020/ticket31-final/`.
+
+The actual Actor integration `ad04129163119da21efac04a0bc374f55d5fda98` was then merged without product source conflicts. Current clean product `89eb3e34a86f15b6d303d085d261e3c75ba7842d` uses contract `mv-1.6.1/17` and388 requirements: exact incoming383 metadata/objects/order plus the unchanged original Variables five. Reconciliation receipt: `ticket31-final/reconcile-actor-v1.json` under the same M output parent. Existing Actor metadata, Common fixture hashes, original results and `005` pending identity remain intact.
+
+At clean `89eb3e34`, `original-target-affected-v1` passed6 files /257 tests: all188 Variables unit cases, Variables Workspace16, command boundary, DSL, staged graph and the current388-row evidence index. The Workspace run exercises actual source Discovery/evaluation and real Push. `original-target-typecheck-v1`, `original-target-lint-v1` and `original-target-format-v1` passed package typecheck and the three affected source/test/contract files' static checks. These current affected checks replace no historical failure, and unrelated previous passing checks are reused. This correction adds no full/build/built/game run or large archive. All final E5/R4/R7 obligations and `MV-S6-VARIABLES-005` below remain unexecuted.
+
+## First READY source and requirements
 
 - Initial incoming integration: `6dfa75eb96cc089bb00d85012c643ec9af2cdad7`, contract `mv-1.6.1/14`,332 requirements.
 - Reused original DEV: `e3f947a592cf8251211803a7a04ccf4e40a3e553`; DEV integration merge: `9f498f61776f093a4e7991a1d424d732adc21423`.

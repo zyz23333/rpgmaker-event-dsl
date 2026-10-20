@@ -83,3 +83,9 @@ E5/R4/R7 acceptance still require the serialized finalization queue. See the
 受影响自动化包括初次8文件427测试、Variables Workspace16测试、最终4文件185测试、共享Workspace/索引3文件41测试；最新整合后相交边界及379行索引5文件223测试、类型检查、相交lint/format通过。记录保留原DEV索引超时、新测试red及误含历史证据格式的失败命令，不重写原始失败。具体执行输入、M盘日志及结果见[当前交付报告](../evidence/31-control-variables-finalization.md)。
 
 `MV-S6-VARIABLES-005`仍required/unexecuted/zero results。完整64-sample Random、self-alias、Script一次求值、完整单槽字符串、floor/div/mod0、Common/战斗真实上下文继续指向49–54；48全量/构建，55最终状态审计。本次没有full/build/built/native或新大归档。
+
+### 2026-10-20 — 独立审查退回后的修订交付
+
+首个READY `b9b1b12c` 因原始嵌套变量target在own-data检查前读取kind getter被退回。修复 `6a3c79b6` 将plain/own-data完整检查移到判别前，不改变已接受领域契约。新增Variable Reference/Reference Range × own accessor/inherited accessor/non-enumerable data × helper/direct graph/direct compile共18例，原版真实12fail/6pass，修复后18pass且getter读取0。独立复现和原red日志保留，见[报告中的修订记录](../evidence/31-control-variables-finalization.md#current-correction-after-independent-review)。
+
+已合入实际Actor主线 `ad04129163119da21efac04a0bc374f55d5fda98`；当前产品 `89eb3e34a86f15b6d303d085d261e3c75ba7842d`，契约17，388要求=完整incoming383 metadata/原序对象+原own5。该clean输入上6文件257测试通过（含Variables188、真实Workspace16及共享边界/当前索引），package typecheck、相交lint/format通过。本票保持resolved；005仍required/unexecuted/zero results，48–55与完整64sample/self-alias/Script once/floor/div/mod0等最终义务保持原分配。
