@@ -18087,6 +18087,194 @@
       },
       "slice": "39 / S6",
       "required": true
+    },
+    {
+      "id": "MV-S6-CONDITIONAL-R2-GUARD",
+      "title": "preserves the original R2 Conditional guard marker through actual discovered source and Workspace Push",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/28-conditional-all-modes-and-bodies.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E111 — Conditional Branch"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "Reduced original R2 E122/E111/E121 guard with nonempty saved body marker; original full17-page/three-turn native follow-up remains outstanding.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/conditional-workspace.test.ts",
+        "sha256": "b3ca6fb7710ee4e83b399fb56db7e69b0e8c821add6b836c0e49362b8b216a5c"
+      },
+      "expected": "The exact full Common carrier survives actual source evaluation, no-op Diff and a genuine name edit installed by Push.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/conditional-workspace.test.ts",
+        "name": "preserves the original R2 Conditional guard marker through actual discovered source and Workspace Push"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0; source entry for DEV, built verification remains queued",
+        "owner": "Codex ticket28 implementer /root/ticket_28",
+        "layer": "Actual public Workspace API/CLI, real Discovery/evaluation and filesystem; no native execution claimed"
+      },
+      "slice": "28 / S6 DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S6-CONDITIONAL-ALL-CARRIERS",
+      "title": "round-trips every Conditional mode and numeric negative zero through actual source in all three carriers",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/28-conditional-all-modes-and-bodies.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E111 — Conditional Branch"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "positive",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-support",
+      "input": "57 independent exact native condition vectors plus four explicit negative-zero payloads in complete Map/Common/Troop carriers.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/conditional-workspace.test.ts",
+        "sha256": "b3ca6fb7710ee4e83b399fb56db7e69b0e8c821add6b836c0e49362b8b216a5c"
+      },
+      "expected": "All14 modes and Actor7 subtypes retain complete slots, body markers, empty else, strings and numeric sign through CLI Decompile, Discovery/load, Check, Compile, no-op Diff and genuinely changed Push; Gate failures preserve business state.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/conditional-workspace.test.ts",
+        "name": "round-trips every Conditional mode and numeric negative zero through actual source in all three carriers"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0; source entry for DEV, built verification remains queued",
+        "owner": "Codex ticket28 implementer /root/ticket_28",
+        "layer": "Actual public Workspace API/CLI, real Discovery/evaluation and filesystem; no native execution claimed"
+      },
+      "slice": "28 / S6 DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S6-CONDITIONAL-NATIVE-REJECTION",
+      "title": "rejects malformed Conditional native inputs and missing fixed references before source publication",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/28-conditional-all-modes-and-bodies.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E111 — Conditional Branch"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Actual captured native range/mode/count/fixed-reference counterexamples passed to public Workspace Clone/Decompile.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/conditional-workspace.test.ts",
+        "sha256": "b3ca6fb7710ee4e83b399fb56db7e69b0e8c821add6b836c0e49362b8b216a5c"
+      },
+      "expected": "Known malformed E111 rejects with stable family diagnostics before publishing source and preserves complete Project/Snapshot/generated/manifest/configuration/Discovery/source state.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/conditional-workspace.test.ts",
+        "name": "rejects malformed Conditional native inputs and missing fixed references before source publication"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0; source entry for DEV, built verification remains queued",
+        "owner": "Codex ticket28 implementer /root/ticket_28",
+        "layer": "Actual public Workspace API/CLI, real Discovery/evaluation and filesystem; no native execution claimed"
+      },
+      "slice": "28 / S6 DEV",
+      "required": true
+    },
+    {
+      "id": "MV-S6-CONDITIONAL-SOURCE-REJECTION",
+      "title": "rejects malformed actual discovered Conditional source with Check and Compile while preserving business files",
+      "sources": [
+        {
+          "path": ".scratch/complete-mv-events-implementation/issues/28-conditional-all-modes-and-bodies.md",
+          "section": "## Acceptance criteria"
+        },
+        {
+          "path": ".scratch/complete-mv-events/research/command-parameters/core.md",
+          "section": "### E111 — Conditional Branch"
+        }
+      ],
+      "dimensions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "classifications": [
+        "negative",
+        "boundary",
+        "combination"
+      ],
+      "sourceKind": "synthetic-rejection",
+      "input": "Actually discovered/evaluated helper/direct/raw TypeScript source with as-never escape, missing required boolean, extra field, empty absent body, nested unused empty script and raw empty script.",
+      "fixture": {
+        "path": "packages/rpgmaker-event-dsl/test/conditional-workspace.test.ts",
+        "sha256": "b3ca6fb7710ee4e83b399fb56db7e69b0e8c821add6b836c0e49362b8b216a5c"
+      },
+      "expected": "Both Check and Compile reject intended family/child-body/Gate failures without changing complete business files.",
+      "test": {
+        "path": "packages/rpgmaker-event-dsl/test/conditional-workspace.test.ts",
+        "name": "rejects malformed actual discovered Conditional source with Check and Compile while preserving business files"
+      },
+      "nativeGroups": [],
+      "execution": {
+        "environment": "Windows / Node22.23.0 / pnpm10.33.0; source entry for DEV, built verification remains queued",
+        "owner": "Codex ticket28 implementer /root/ticket_28",
+        "layer": "Actual public Workspace API/CLI, real Discovery/evaluation and filesystem; no native execution claimed"
+      },
+      "slice": "28 / S6 DEV",
+      "required": true
     }
   ]
 }

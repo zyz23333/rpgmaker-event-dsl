@@ -3,7 +3,7 @@ import { createHash, randomUUID } from "node:crypto";
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { createRequire } from "node:module";
 import { arch, release } from "node:os";
-import { dirname, isAbsolute, join, relative, resolve } from "node:path";
+import { basename, dirname, isAbsolute, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { z } from "zod";
@@ -116,9 +116,9 @@ export function sha256(bytes: string | Uint8Array): string {
   return createHash("sha256").update(bytes).digest("hex");
 }
 
-export async function readRequirements() {
+export async function readRequirements(directory = evidenceRoot) {
   return requirementsSchema.parse(
-    JSON.parse(await readFile(join(evidenceRoot, "requirements.json"), "utf8")),
+    JSON.parse(await readFile(join(directory, "requirements.json"), "utf8")),
   );
 }
 
@@ -136,8 +136,11 @@ function repositoryPath(path: string): string {
   return resolved;
 }
 
-export async function validateRequirements(): Promise<void> {
-  const index = await readRequirements();
+export async function validateRequirements({
+  directory = evidenceRoot,
+  history = "latest",
+}: { directory?: string; history?: "latest" | "all" } = {}): Promise<void> {
+  const index = await readRequirements(directory);
   const artifactBytes = new Map<string, Promise<Buffer>>();
   const readArtifact = (path: string): Promise<Buffer> => {
     const resolved = repositoryPath(path);
@@ -149,7 +152,7 @@ export async function validateRequirements(): Promise<void> {
     return bytes;
   };
   const ids = new Set<string>();
-  const checklist = await readFile(join(evidenceRoot, "README.md"), "utf8");
+  const checklist = await readFile(join(directory, "README.md"), "utf8");
   const listedIds = [...checklist.matchAll(/^\|\s*(MV-[A-Z0-9-]+)\s*\|/gmu)].map(
     (match) => match[1],
   );
@@ -186,12 +189,60 @@ export async function validateRequirements(): Promise<void> {
   if (listedIds.length !== ids.size || listedIds.some((id) => !ids.has(id!))) {
     throw new Error("Human checklist has missing, duplicate, or unknown requirement IDs");
   }
-  const resultsRoot = join(evidenceRoot, "results");
+  const resultsRoot = join(directory, "results");
   const requirementsById = new Map(
     index.requirements.map((requirement) => [requirement.id, requirement]),
   );
   const runIds = new Set<string>();
-  const resultPaths = (await listFiles(resultsRoot)).filter((path) => path.endsWith(".json"));
+  const allResultPaths = (await listFiles(resultsRoot)).filter((path) => path.endsWith(".json"));
+  const parsedResults = new Map<string, z.infer<typeof resultSchema>>();
+  const namedResults = new Map<string, { requirementId: string; runId: string }>();
+  const latest = new Map<string, { time: number; paths: string[] }>();
+  if (history === "latest") {
+    for (const path of allResultPaths) {
+      const name = basename(path).match(
+        /^(MV-[A-Z0-9-]+)-(\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}-\d{3}Z-[a-f0-9]{8}-(?:[a-f0-9]{4}-){3}[a-f0-9]{12})\.json$/u,
+      );
+      const namedTime = name?.[2]?.replace(
+        /^(\d{4}-\d{2}-\d{2}T\d{2})-(\d{2})-(\d{2})-(\d{3})Z-.+$/u,
+        "$1:$2:$3.$4Z",
+      );
+      let requirementId: string;
+      let time: number;
+      if (
+        namedTime !== undefined &&
+        Number.isFinite(Date.parse(namedTime)) &&
+        new Date(namedTime).toISOString() === namedTime
+      ) {
+        requirementId = name![1]!;
+        time = Date.parse(namedTime);
+        namedResults.set(path, { requirementId, runId: name![2]! });
+      } else {
+        // Legacy names have no trustworthy ordering metadata. Always parse them,
+        // including malformed names, so they cannot silently disappear from checks.
+        const result = resultSchema.parse(JSON.parse(await readFile(path, "utf8")));
+        parsedResults.set(path, result);
+        requirementId = result.requirementId;
+        time = Date.parse(result.completedAt);
+      }
+      if (!requirementsById.has(requirementId))
+        throw new Error(`Result references unknown requirement: ${path}`);
+      const previous = latest.get(requirementId);
+      if (previous === undefined || time > previous.time) {
+        latest.set(requirementId, { time, paths: [path] });
+      } else if (time === previous.time) {
+        previous.paths.push(path);
+      }
+    }
+  }
+  const resultPaths =
+    history === "all"
+      ? allResultPaths
+      : [
+          ...new Set(
+            [...latest.values()].flatMap(({ paths }) => paths).concat([...parsedResults.keys()]),
+          ),
+        ].sort();
   const resultReadWindow = 32;
   const readResult = (path: string): Promise<PromiseSettledResult<string>> =>
     readFile(path, "utf8").then(
@@ -205,7 +256,14 @@ export async function validateRequirements(): Promise<void> {
     const nextPath = resultPaths[position + resultReadWindow];
     if (nextPath !== undefined) reads[slot] = readResult(nextPath);
     if (content.status === "rejected") throw content.reason;
-    const result = resultSchema.parse(JSON.parse(content.value));
+    const result = parsedResults.get(path) ?? resultSchema.parse(JSON.parse(content.value));
+    const named = namedResults.get(path);
+    if (
+      named !== undefined &&
+      (named.requirementId !== result.requirementId || named.runId !== result.runId)
+    ) {
+      throw new Error(`Result identity differs from filename: ${path}`);
+    }
     const requirement = requirementsById.get(result.requirementId);
     if (requirement === undefined)
       throw new Error(`Result references unknown requirement: ${path}`);
@@ -290,7 +348,7 @@ export async function recordEvidence(input: {
     completedAt: new Date().toISOString(),
     operator: process.env.GITHUB_ACTOR ?? "Codex automated verification",
     source: {
-      revision: execFileSync("git", ["rev-parse", "HEAD"], {
+      revision: execFileSync("git", ["-c", "core.longpaths=true", "rev-parse", "HEAD"], {
         cwd: repositoryRoot,
         encoding: "utf8",
       }).trim(),

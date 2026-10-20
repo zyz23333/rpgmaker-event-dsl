@@ -172,9 +172,11 @@ evidenceIt(
             commands: [
               conditional({
                 condition: { kind: "switch", switch: switchRef({ id: 1 }), value: true },
-                then: [
-                  controlSelfSwitch({ selfSwitch: "A", value: undefined as unknown as boolean }),
-                ],
+                then: {
+                  commands: [
+                    controlSelfSwitch({ selfSwitch: "A", value: undefined as unknown as boolean }),
+                  ],
+                },
               }),
             ],
           },
@@ -182,7 +184,7 @@ evidenceIt(
         { scriptEnabled: false, snapshotReferences },
       ).issues.map(({ message }) => message),
     ).toContain(
-      "MV-E123-VALUE validation common event 1.commands[0].then[0].value: expected explicit boolean; received undefined.",
+      "MV-E123-VALUE validation common event 1.commands[0].then.commands[0].value: expected explicit boolean; received undefined.",
     );
     expect(
       validateDslOwnedDeclarations(

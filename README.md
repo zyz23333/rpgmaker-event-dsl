@@ -511,6 +511,29 @@ Project data references use helpers such as `switchRef(...)`, `variableRef(...)`
 Asset References instead: `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)`
 compile to MV filename stems without checking the filesystem or resolving database IDs.
 
+Use `conditional({ condition, then: { commands, endMarker? }, else? })` for
+momentary checks. An omitted `else` has no native Else record; an explicit
+`else: { commands: [] }` retains an empty branch. Each body defaults its own
+Body End Marker to `"present"`. Use `"absent"` only for a nonempty body whose
+saved marker is absent. Formal and raw child records are checked together;
+nested bodies retain their own marker state.
+
+Conditional covers all 14 MV condition modes and all seven Actor checks. Variable
+comparisons use `value: { kind: "constant", value }` or
+`value: { kind: "variable", variable: variableRef(...) }`, with
+`eq/ge/le/gt/lt/ne`. Enemy conditions use a member Runtime Selector with
+`scope: "enemy", target: "enemy", index: 0..7`; Character conditions use
+`scope: "character"` with `target: "player"`, `"currentEvent"`, or `"event"`
+and a positive `id`. Character directions are 2/4/6/8. Weapon and Armor
+conditions require an explicit Boolean `includeEquipment`.
+
+Fixed references resolve in their own project category. Missing runtime positions
+and unavailable contexts warn while preserving the saved selector. Common Event
+caller context remains unknown. Enemy appeared checks MV's `isAlive()`, so a hidden
+or dead member is false. Ordinary numeric Conditional constants, timer seconds,
+gold amounts and enemy indices retain negative zero. Symbolic native mode and
+enum encodings that cannot faithfully represent negative zero are rejected.
+
 JavaScript-bearing inputs are explicit Script Inputs and are gated by the workspace
 `scriptEnabled` setting. The Gate scans every saved script position, including empty
 or unreachable Script/continuation records, script conditions, Control Variables
@@ -520,6 +543,11 @@ closed, Decompile produces source with warnings; Check and Compile reject the cu
 declarations until those scripts are removed or the Gate is enabled. `pluginCommand(...)`
 carries MV's native plugin command string; plugin-specific argument semantics remain
 outside validation.
+
+Conditional Script retains its entire single string slot, including empty strings,
+CR, LF, trailing whitespace and long input. CR or LF produces a reconfirmation
+warning independently of the Gate. Actor name comparisons retain the same exact
+string data and receive no script reconfirmation warning.
 
 `rawDslCommand({ code, indent?, parameters })` carries one event record. An explicit
 `indent: 0` is absolute and remains explicit after Decompile. Parameters must be dense,

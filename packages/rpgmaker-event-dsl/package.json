@@ -43,6 +43,7 @@
     "build": "tsdown",
     "dev": "tsx src/cli.ts",
     "test": "vitest run",
+    "test:evidence:history": "tsx test/support/audit-mv-evidence.ts",
     "test:windows-baseline": "vitest run --config vitest.windows.config.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },

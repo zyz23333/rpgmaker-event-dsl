@@ -1,0 +1,39 @@
+{
+  "formatVersion": 1,
+  "status": "DEV only; source checks passed, broad/build/built/native/version integration remain queued",
+  "baseRevision": "205334338d8e64e3d00e485849c9ddf67bd7e3b1",
+  "previousRequirementCount": 274,
+  "currentRequirementCount": 278,
+  "oldRowsDeepEqual": true,
+  "historicalFileCount": 2307,
+  "historicalFilesByteEqual": true,
+  "previousIndexSha256": "59a40c9f77f81a50ee4d705285067ae2b0d3bb8e4c389a611fc6ec51ee266e10",
+  "currentIndexSha256": "e4d4e69b0ad2c6294b625cd9693ec055ec01fa53c36c70bee7fe201195f59a75",
+  "newResults": [
+    {
+      "requirementId": "MV-S6-CONDITIONAL-R2-GUARD",
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-CONDITIONAL-R2-GUARD-2026-10-19T17-59-38-088Z-9e789408-b149-46f8-bc86-ecc6e2042dd6.json",
+      "sha256": "8e85089f9c54a4cf8fba9b5cc2d8077d963ecfde6d3bf123d01526c5db72c2b2",
+      "sourceFingerprint": "a66bb4d2a88ab2dc62792bdf932ff165384d523cf61728cedada030a6b74863b"
+    },
+    {
+      "requirementId": "MV-S6-CONDITIONAL-ALL-CARRIERS",
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-CONDITIONAL-ALL-CARRIERS-2026-10-19T17-59-46-940Z-222aa598-9d90-4509-9d91-a8d9c1fd0aeb.json",
+      "sha256": "e892f1e13c811b18e3ab0afd2abb1336ccce4cf45f77d89bc8519bdf1e3a322f",
+      "sourceFingerprint": "a66bb4d2a88ab2dc62792bdf932ff165384d523cf61728cedada030a6b74863b"
+    },
+    {
+      "requirementId": "MV-S6-CONDITIONAL-NATIVE-REJECTION",
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-CONDITIONAL-NATIVE-REJECTION-2026-10-19T17-59-47-259Z-f1de3a3d-7e60-4bc2-9aa9-ffc9b76ac715.json",
+      "sha256": "9726866f077fb7870693bb351135a431106a41fa92635c41fd118169dd033803",
+      "sourceFingerprint": "a66bb4d2a88ab2dc62792bdf932ff165384d523cf61728cedada030a6b74863b"
+    },
+    {
+      "requirementId": "MV-S6-CONDITIONAL-SOURCE-REJECTION",
+      "path": ".scratch/complete-mv-events-implementation/evidence/results/MV-S6-CONDITIONAL-SOURCE-REJECTION-2026-10-19T17-59-51-892Z-74b7bef6-5e3c-4698-be34-a1aa80305dc6.json",
+      "sha256": "24d6472326c2501cda390a014f8b1579ca05c8429c81954c3917b55adbe82665",
+      "sourceFingerprint": "a66bb4d2a88ab2dc62792bdf932ff165384d523cf61728cedada030a6b74863b"
+    }
+  ],
+  "performedAt": "2026-10-19T18:00:45.410Z"
+}

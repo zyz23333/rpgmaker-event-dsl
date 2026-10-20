@@ -342,14 +342,20 @@ it("reports currently unrepresented known saved variants instead of silently dro
       { code: 101, indent: 0, parameters: ["", 3, 0, 2] },
       { code: 401, indent: 0, parameters: [""] },
     ],
-    [
-      { code: 111, indent: 0, parameters: [12, ""] },
-      { code: 230, indent: 1, parameters: [1] },
-      { code: 0, indent: 1, parameters: [] },
-      { code: 412, indent: 0, parameters: [] },
-    ],
   ])
     expect(() => renderDecompiledCommandList(list)).toThrow(/MV-COMMAND-UNSUPPORTED/);
+});
+
+it("represents a Conditional body containing content and its own saved end marker", () => {
+  const list = [
+    { code: 111, indent: 0, parameters: [12, ""] },
+    { code: 230, indent: 1, parameters: [1] },
+    { code: 0, indent: 1, parameters: [] },
+    { code: 412, indent: 0, parameters: [] },
+  ];
+  expect(renderDecompiledCommandList(list).source).toBe(
+    'conditional({ condition: {\n  kind: "script",\n  script: scriptInput({ code: "" }),\n}, then: { commands: [wait({ frames: 1 }),] } }),',
+  );
 });
 
 it("rejects nonrepresentable raw JSON before copying or rendering its parameter array", () => {

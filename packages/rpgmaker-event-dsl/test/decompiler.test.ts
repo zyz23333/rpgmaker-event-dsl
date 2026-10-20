@@ -350,7 +350,7 @@ describe("decompiler command list rendering", () => {
     ).toEqual({
       helperNames: ["conditional", "eraseEvent", "scriptInput", "switchRef", "wait"],
       source: [
-        'conditional({ condition: { kind: "switch", switch: switchRef({ id: 2 }), value: true }, then: [wait({ frames: 10 }),], else: [conditional({ condition: {   kind: "script",   script: scriptInput({ code: "$gameParty.gold() > 10" }), }, then: [eraseEvent(),] }),] }),',
+        'conditional({ condition: { kind: "switch", switch: switchRef({ id: 2 }), value: true }, then: { commands: [wait({ frames: 10 }),], endMarker: "absent" }, else: { commands: [conditional({ condition: {   kind: "script",   script: scriptInput({ code: "$gameParty.gold() > 10" }), }, then: { commands: [eraseEvent(),], endMarker: "absent" } }),], endMarker: "absent" } }),',
         "wait({ frames: 30 }),",
       ].join("\n"),
     });
@@ -378,11 +378,11 @@ describe("decompiler command list rendering", () => {
     ).toEqual({
       helperNames: ["actorRef", "classRef", "conditional", "stateRef", "variableRef", "weaponRef"],
       source: [
-        'conditional({ condition: { kind: "variable", variable: variableRef({ id: 3 }), operator: "ne", value: variableRef({ id: 4 }) }, then: [] }),',
-        'conditional({ condition: { kind: "actor", actor: actorRef({ id: 1 }), check: { kind: "class", class: classRef({ id: 5 }) } }, then: [] }),',
-        'conditional({ condition: { kind: "enemy", enemyIndex: 0, check: { kind: "state", state: stateRef({ id: 6 }) } }, then: [] }),',
-        'conditional({ condition: { kind: "weapon", weapon: weaponRef({ id: 7 }), includeEquipment: true }, then: [] }),',
-        'conditional({ condition: { kind: "vehicle", vehicle: "airship" }, then: [] }),',
+        'conditional({ condition: { kind: "variable", variable: variableRef({ id: 3 }), operator: "ne", value: { kind: "variable", variable: variableRef({ id: 4 }) } }, then: { commands: [] } }),',
+        'conditional({ condition: { kind: "actor", actor: actorRef({ id: 1 }), check: { kind: "class", class: classRef({ id: 5 }) } }, then: { commands: [] } }),',
+        'conditional({ condition: { kind: "enemy", enemy: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 }, check: { kind: "state", state: stateRef({ id: 6 }) } }, then: { commands: [] } }),',
+        'conditional({ condition: { kind: "weapon", weapon: weaponRef({ id: 7 }), includeEquipment: true }, then: { commands: [] } }),',
+        'conditional({ condition: { kind: "vehicle", vehicle: "airship" }, then: { commands: [] } }),',
       ].join("\n"),
     });
   });

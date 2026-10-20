@@ -23,6 +23,10 @@ import {
 } from "../commands/movement/validation.js";
 import { CommandStructureError } from "./command-structure.js";
 import { assertDslCommandList } from "./dsl-command-inputs.js";
+import {
+  assertConditionalCommand,
+  inspectConditionalReferences,
+} from "../commands/flow/conditional-validation.js";
 import { assertShowChoicesInput } from "../commands/message/validation.js";
 import { assertMapAppearanceInput } from "../commands/map/validation.js";
 import {
@@ -82,6 +86,23 @@ export function validateNodes(
       ...options,
       path: `${nodePath}.${field}`,
     });
+    if (node.kind === "conditional") {
+      const identity = (options.identity ?? "event")
+        .replace(/^common event (\d+)$/u, "commonEvent:$1")
+        .replace(/^map (\d+) event (\d+)$/u, "map:$1/event:$2");
+      try {
+        assertConditionalCommand(node, nodePath);
+      } catch (error) {
+        if (error instanceof CommandStructureError) issues.push(error.issue(identity, "compile"));
+        else throw error;
+        continue;
+      }
+      issues.push(
+        ...inspectConditionalReferences(node, nodePath, resolver).map((error) =>
+          error.issue(identity, "compile"),
+        ),
+      );
+    }
     if (node.kind === "loop") {
       try {
         assertLoopCommand(node, nodePath);
@@ -430,10 +451,9 @@ export function validateNodes(
       validateCommandPosition(node.location, resolver, issues);
     }
     if (node.kind === "conditional") {
-      validateConditionalBranchCondition(node.condition, resolver, options, issues);
-      validateNodes(node.then, resolver, childOptions("then"), issues);
-      if (node.else) {
-        validateNodes(node.else, resolver, childOptions("else"), issues);
+      validateNodes(node.then.commands, resolver, childOptions("then.commands"), issues);
+      if (node.else !== undefined) {
+        validateNodes(node.else.commands, resolver, childOptions("else.commands"), issues);
       }
     }
   }
@@ -802,8 +822,8 @@ export function validateConditionalBranchCondition(
       break;
     case "variable":
       captureReferenceIssue(() => resolver.resolveReference(condition.variable), issues);
-      if (isVariableReferenceValue(condition.value)) {
-        const valueRef = condition.value;
+      if (condition.value.kind === "variable") {
+        const valueRef = condition.value.variable;
         captureReferenceIssue(() => resolver.resolveReference(valueRef), issues);
       }
       break;
