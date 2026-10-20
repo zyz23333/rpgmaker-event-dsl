@@ -415,16 +415,21 @@ function statesAndEquipability() {
   );
 }
 function mapCharacterConsequences() {
-  const route = (codes) =>
-    c(205, [
-      -1,
-      {
-        repeat: false,
-        skippable: false,
-        wait: true,
-        list: codes.map((code) => ({ code, parameters: [] })).concat([{ code: 0, parameters: [] }]),
-      },
-    ]);
+  const route = (codes) => {
+    const instructions = codes.map((code) => ({ code }));
+    return [
+      c(205, [
+        -1,
+        {
+          repeat: false,
+          skippable: false,
+          wait: true,
+          list: [...copy(instructions), { code: 0, parameters: [] }],
+        },
+      ]),
+      ...instructions.map((instruction) => c(505, [copy(instruction)])),
+    ];
+  };
   const commands = [
     c(355, ["window.finalScrollStartedAt=Graphics.frameCount;"]),
     c(204, [6, 2, 4]),
@@ -438,18 +443,21 @@ function mapCharacterConsequences() {
     c(230, [40]),
     trace('{case:"scroll-finishes",remaining:$gameMap._scrollRest}'),
     c(202, [0, 0, 1, 2, 1]),
-    route([18]),
+    ...route([18]),
     c(206),
     c(230, [60]),
     trace(
       '{case:"board-adjacent-boat",inBoat:$gamePlayer.isInBoat(),player:[$gamePlayer.x,$gamePlayer.y],boat:[$gameMap.boat().x,$gameMap.boat().y]}',
     ),
+    // Boarding adopts the vehicle's native facing. Explicitly face the blocked
+    // right-hand landing tile before the separately observed disembark attempt.
+    ...route([18]),
     c(206),
     c(230, [12]),
     trace(
       '{case:"blocked-land-keeps-boat",inBoat:$gamePlayer.isInBoat(),player:[$gamePlayer.x,$gamePlayer.y]}',
     ),
-    route([16]),
+    ...route([16]),
     c(206),
     c(230, [60]),
     trace(
@@ -463,7 +471,7 @@ function mapCharacterConsequences() {
     trace(
       '{case:"show-followers-refresh",visible:$gamePlayer.followers().visibleFollowers().length}',
     ),
-    route([3, 3, 3]),
+    ...route([3, 3, 3]),
     c(355, ["window.finalGatherStartedAt=Graphics.frameCount;"]),
     trace('{case:"before-gather",apart:!$gamePlayer.followers().areGathered()}'),
     c(217),
@@ -602,6 +610,10 @@ function forceSkillScopes() {
           name: "Independent native skill scope " + scope,
           scope,
         };
+      // Database JSON has explicit null slots, including the unused gap before
+      // this independently authored high-ID skill range.
+      for (let index = 0; index < carriers["Skills.json"].length; index++)
+        if (!Object.hasOwn(carriers["Skills.json"], index)) carriers["Skills.json"][index] = null;
       const list = [];
       for (const definition of definitions)
         list.push(
@@ -610,7 +622,14 @@ function forceSkillScopes() {
           c(339, definition.parameters),
           scopeTrace("after:" + definition.id),
         );
-      list.push(scopeTrace("before-native-finish"), c(331, [-1, 1, 0, 9999999, true]), c(0));
+      // Keep hidden7 out of all scope observations, then reveal it before the
+      // original cleanup HP command so the complete enemy-dead oracle remains.
+      list.push(
+        scopeTrace("before-native-finish"),
+        c(335, [7]),
+        c(331, [-1, 1, 0, 9999999, true]),
+        c(0),
+      );
       carriers["Troops.json"][1].pages[0].list = list;
       value.loadedCarriers["Troops.json"] = copy(carriers["Troops.json"]);
       value.loadedCarriers["Skills.json"] = copy(carriers["Skills.json"]);

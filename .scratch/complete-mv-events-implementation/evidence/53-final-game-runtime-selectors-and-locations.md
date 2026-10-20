@@ -2,13 +2,16 @@
 
 ## Execution status
 
-Requirement `MV-S7-GAME-R4-053` is required and **not executed**.
+Requirement `MV-S7-GAME-R4-053` **passed** the final actual game pairs on
+candidate `2dc639015f908de6fd524e50236e5422b5f8e990`, contract `mv-1.6.1/22`.
+The original eleven complete controls plus one required Script-context supplement
+give twelve final effective pairs and24 passing native processes. Four failed
+pairs remain intact; two failed before game launch and two reached actual games.
+See [Final execution](#final-execution) for exact identities, commands and results.
 
-**Preparation only. Product lifecycle and native games are not executed.**
-Ticket53 is claimed and remains blocked on ticket48's recorded final candidate
-and freshly built package. The first2026-10-20 specification amendment governs
-checks and evidence; no old source-freeze, per-stage release or full-history
-choreography is introduced. Full automation/build belongs to48.
+The preparation sections below preserve their then-current pending statements.
+Their static checks were not game observations. Final full automation/build
+belongs to48 and was reused without another build or full test run.
 
 Dedicated worktree:
 `M:/Shuen/Codex/mv-events-implementation-20261020/worktrees/mv-final-r4-r5`,
@@ -37,7 +40,8 @@ supplements extend their coverage.
 
 ## R5 scenario
 
-Requirement `MV-S7-GAME-R5-053` is required and **not executed**.
+Requirement `MV-S7-GAME-R5-053` **passed** the original location control and
+Map-character consequence supplement; see [Final execution](#final-execution).
 
 The original R5 normal-Scene control is retained without shrinking its three
 expected traces: invalid-x queries produce `[0,0,101,0,77,1]`; Event/Vehicle
@@ -172,3 +176,161 @@ Skill/Class, and rendered Animation/Balloon waits.53 adds state/Actor0/equipment
 and movement/vehicle/follower consequences.52 retains full R1 route contexts and
 Battle scheduling, Battle skip/Abort residual behavior. No smaller guard replaces
 the original complete scheduling or Common controls.
+
+## Final execution
+
+The released48 manifest is
+`M:/Shuen/Codex/mv-events-implementation-20261020/final48-candidate.json`.
+Every final pair used its fixed candidate
+`2dc639015f908de6fd524e50236e5422b5f8e990`, package
+`F:/Shuen/RPG/rpgmaker-event-dsl/packages/rpgmaker-event-dsl`, contract22 and
+built public API SHA256
+`24369d6d1d686b082665cda3b5e76292ed778420eadcfdad431a9cea11169788`.
+The dedicated source worktree merged that candidate at `059a163d`; later owned
+supplementary source bytes are bound by their captured hashes, rather than being
+misrepresented as already committed at that execution HEAD.
+
+The compact actual receipt is
+`M:/Shuen/Codex/mv-events-implementation-20261020/ticket53-final/tools/final-delivery-01a43682-7e25-403b-99c8-12a1de5452c3.json`,
+SHA256 `2f9e2df0e09da15ca9836173c5e7aeef5e19d9b72c2e900638a43c0e233b8d4a`.
+It retains all16 attempts, their original pair-result identities, all twelve
+final effective expected/actual observations, exact fixtures/source/tool hashes,
+formal-source checks and the mixed-obligation portion verdicts.
+
+Windows tooling used Node22.23.0; each actual game reports MV1.6.1,
+NW.js0.29.0, bundled Node9.7.1 and Chromium65.0.3325.146. Seed and host remain
+the released manifest's `references/RPGMV/NewData` and
+`references/RPGMV/nwjs-win-test/game.exe`. TEMP/TMP, private physical games,
+fresh per-process profiles and all new outputs are on M. No first-party game
+assets, engine files or private runtime projects are added to Git.
+
+All final rows pass public Init/Clone/Decompile, a real edit of generated formal
+source, Check with unchanged business state, Compile/Diff/Push with genuine
+replacement, complete independent carrier comparison and both actual games.
+Each final side passes loaded-carrier equality, unchanged engine identity,
+explicit fresh profile, declared project/host, owned process ancestry, empty
+stdout/stderr and reliable exit0. Stochastic actual values remain in raw results;
+pair comparison uses the specified per-side predicates.
+
+| Final scenario                | Actual final consequence                                                                                                                                                     |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Original64 operands           | Integer/range/distinct-observed predicates pass on both actual64-value samples; self-alias2,3,4→4,6,8 and Script1,1,1/counter1 remain exact                                  |
+| Original six equipment cases  | Same ID switches Armor/Weapon after dual wield; missing/None/stock effects and variable Actor0 across four members match the original oracle                                 |
+| Complete Common V99           | Normal Map7 input→Common1→native Battle→same Common1→victory→Map return, three real source edits and all original context/self-switch observations pass                      |
+| Common context supplement V99 | Missing/hidden/filtered Enemy, unavailable Character/Party, Map/Battle values, scrolling skip and inherited-current-event erase pass                                         |
+| Original28 Force V99          | All28 cases pass,25 hits, all four actual Guard inputs, hidden/appeared/dead subjects/targets, fixed/last/random targets, native waits and normal victory/return             |
+| Original R5 locations         | All three complete traces pass, including `[0,0,101,0,77,1]`, outside Event/Boat coordinates and player7,0 transfer on a4×3 map                                              |
+| Inventory/Party               | Negative/zero runtime values, cap99, insufficient loss, include/exclude equipment and duplicate/initialize/remove consequences pass                                          |
+| Variable operations/Game Data | All six operations, storage floor, division/modulo0, result100000000 and all eight Game Data source kinds pass                                                               |
+| State/equipability            | Variable Actor0 add/remove/recover state, fixed Actor distinction, death-state removal and unusable candidate returned to inventory pass                                     |
+| Map-character supplement      | Scroll start/next wait, blocked right landing, permitted down landing, show/hide refresh, actual Gather wait and missing Event selector pass                                 |
+| Five Force skill scopes V99   | One friend/all friends/all visible enemies/self/random friend; all target sets and every native HP consequence pass, with14 actual hits                                      |
+| Script Map/Battle supplement  | Empty Script stores undefined/public0 across three targets; complete CRLF multiline Script floors to5 and evaluates once across three targets; interpreter eventId is7 then0 |
+
+The last row is [its own versioned input](53-variable-script-context-supplement.cjs).
+It preserves the complete Common control while filling the explicit
+VARIABLES-005 empty/multiline Common/Battle runtime obligation. It supplements
+the original eleven controls rather than replacing one.
+
+The actual command entry point is
+`M:/Shuen/Codex/mv-events-implementation-20261020/ticket53-final/tools/run-final-r4-r5-v1.cjs`
+under the recorded Node22 binary. All calls pass `--mode=native`, the released
+`--packageRoot`, `--candidateCommit`, `--seedRoot` and `--host`, and either the
+main `--module` or the Script supplement `--module`. The original full call is
+log025; log029 uses `--from=final-r4-force-full-range-variable99`; log033 runs
+the Script supplement; log039 starts at Map-character; log042 and044 select only
+the affected Map and scope cases. Six immutable execution summaries remain under
+`ticket53-final/runs/`: `execution-1f50bf1b-d02b-4514-97c3-2900d45a216c`,
+`execution-a0e90772-24f7-4b00-a635-545cf1799336`,
+`execution-81d65c3e-0927-4878-b92c-f58ab3a39c2b`,
+`execution-2c9d9b34-afc7-4068-8ee3-86f0aa105808`,
+`execution-9db65db6-ef2b-419b-9acc-430aa5ebe636` and
+`execution-28166991-a25f-4472-837e-f026aacc5f26`.
+
+## Retained failures and affected corrections
+
+- The first launcher call lost its saved environment-prefix binding after the
+  task resumed and PowerShell attempted `undefinednode`. It failed before Node,
+  product or game execution. The original tool output remains; log025 is the
+  corrected explicit environment call.
+- The first Force attempt failed before product execution because the external
+  strict JSON writer used sparse `Array.map`, creating consecutive commas in
+  the authored high-ID skill table. Root authorized only `Array.from` so holes
+  serialize as null while negative zero remains exact. Log028 proves both.
+  Original harness bytes remain at
+  `ticket53-final/tools/final-native-pair-support-v1-before-array-holes.cjs`,
+  SHA256 `36169a1747e6d16030b530d2581950eb1d178e59af3263756d35a7b5e4708974`;
+  corrected harness SHA256 is
+  `085091b1b316eaab2d76257e9f7d119fc13df95ffaa84ad2fd321e3c45954c0b`.
+  The first four passing pairs executed the former loaded helper; later53
+  processes loaded the latter. Original source, per-run copied helper and
+  captured require-cache hashes identify the actual versions. Log030 also
+  preserves the first runner bytes against its captured original hash.
+- The first authored Map-character route was correctly refused by Decompile:
+  parameterless movement records had an invalid empty parameter key and lacked
+  full205/505 mirrors. The corrected authored input follows ADR0015, with the
+  same movement codes, flags and consequence oracle. Its original rejection and
+  source remain in log029 and the corresponding failed pair.
+- The next Map pair reached both actual games and failed. Native boarding adopts
+  the boat's facing; the assumed right-facing blocked landing instead left
+  towards the left and later blocked the walking route. An explicit native
+  TurnRight after boarding makes the intended input precise; all existing
+  blocked/passable/Gather predicates are retained. Log039 keeps the failure;
+  log042 passes the affected pair.
+- The first skill-scope pair had all five scope/target/HP cases pass, but retained
+  a hidden enemy through cleanup. Native HP changes skip that hidden subject;
+  battle-end appearance made the complete enemy-dead oracle fail. After all
+  scope observations, native335 now reveals it before the original cleanup HP
+  command. Unused slots in the self-authored high-ID Skills table are explicit
+  JSON nulls before constructing the loaded-carrier expectation. The existing
+  action and victory predicates are preserved. Log039 retains both actual sides
+  of that failure; log044 passes the affected complete pair.
+- Current index log026 retained its10-second timeout. The same current-index
+  case passed with a60-second affected-run budget in log027; this is not a new
+  full suite or a replacement for48's released full/built checks. Scoped lint
+  log035 found no files because the integrated archived-scratch ignore applies;
+  explicit owned-file lint with `--no-ignore` passed in036 and040.
+
+No product source, accepted domain or compile contract was changed by53.
+Full original controls remain separately exercised. Original game failures,
+private copies, earlier static failures and raw results stay at their original
+paths; only affected scenarios were rerun.
+
+## Final requirement receipts and aggregation
+
+Three fresh immutable passed results are added under `results/`, all timestamped
+`2026-10-20T03-01-32-073Z`: `MV-S7-GAME-R4-053` suffix
+`4e62ad07-f094-467c-a6d9-4999e924dba2`, `MV-S7-GAME-R5-053` suffix
+`b9cc4901-65f8-4c3e-ae5d-2aff8a714251`, and independently complete
+`MV-S5-COMMON-R4-CONTEXT` suffix `67096d4e-0928-4361-9107-29ee7f096b31`.
+Log045 binds their exact hashes to the compact receipt.
+
+| Immutable result                                                                                                        | SHA256                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| [R4](results/MV-S7-GAME-R4-053-2026-10-20T03-01-32-073Z-4e62ad07-f094-467c-a6d9-4999e924dba2.json)                      | `aae8ebc6cd43dfeeac43f091acceb28b1860d521a012f27f21711218ec2d7000` |
+| [R5](results/MV-S7-GAME-R5-053-2026-10-20T03-01-32-073Z-b9cc4901-65f8-4c3e-ae5d-2aff8a714251.json)                      | `f89af4d57519508dcd829cd96709bfc85dc16a2091a7c327edd88fac674f6a33` |
+| [Common R4 context](results/MV-S5-COMMON-R4-CONTEXT-2026-10-20T03-01-32-073Z-67096d4e-0928-4361-9107-29ee7f096b31.json) | `d43912514996921c7c5a3932c5a7491b356bd9e6e819b2fee78728e2d03c29da` |
+
+The receipt's `portions` records VARIABLES-005's complete assigned native
+operands/numeric/Script/Common/Battle portion, LOCATION-004's R5 portion,
+INVENTORY-006's R4 portion, CHARACTER-006's assigned Map-character portion and
+BATTLE-005's Force/skill-scope R4 portion. Final55 aggregates their other E/R
+receipts from51/52/54. No blanket passed result is emitted here for a mixed
+requirement whose other portions belong to those tickets.
+
+## Final affected verification
+
+Log046 formats this owned report; log047 passes `git diff --check`. Log048 runs
+`pnpm --filter rpgmaker-event-dsl exec vitest run test/mv-evidence.test.ts -t 'validates the evidence index' --testTimeout=120000`:
+one test passed and two intentionally unselected tests skipped; actual test time
+529ms, total2.77s. This checks the current440-row index and newly added results,
+not another full test suite, build or native run. The extended affected-case
+budget retains log026's original timeout and log027's earlier success.
+
+The external final-static-and-index receipt
+`M:/Shuen/Codex/mv-events-implementation-20261020/ticket53-final/tools/final-static-and-index-4318c5e0-9c1f-4f42-8515-1142deae2faf.json`
+records exact commands/environment/HEAD/status, unchanged hashes of the three
+new immutable results, and object-for-object equality of all438 incoming
+requirement rows and index metadata against the released candidate. Only53's
+two owned rows were updated. No product source or compile contract changes are
+part of this delivery.

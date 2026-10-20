@@ -791,13 +791,23 @@ small Workspace groups. Final native requirements remain pending.
 | MV-S6-BATTLE-004 | Final E2/E4 editor code-path facts and independent final product comparison                                                         | Required pending    | Final49/50 REA/product comparison                                |
 | MV-S6-BATTLE-005 | Full original R2, R4 forced/selector contexts and R6 Enemy Animation                                                                | Required pending    | Final52/53/54 actual MV1.6.1/NW.js game pairs                    |
 
-## Final53 R4–R5 pending game obligations
+## Final53 R4–R5 actual game closure
 
-[Preparation and execution status](53-final-game-runtime-selectors-and-locations.md)
-retains the original complete controls and supplements; no game or final candidate
-product lifecycle has run yet.
+[Final execution and retained failures](53-final-game-runtime-selectors-and-locations.md)
+records twelve final passing literal/product pairs and24 actual native processes
+on candidate `2dc639015f908de6fd524e50236e5422b5f8e990`, contract `mv-1.6.1/22`.
+All original eleven complete controls and the required Script-context supplement
+ran through the real final built Workspace lifecycle and fresh MV1.6.1/NW.js
+games. Four failed pair attempts remain preserved. Three immutable passed result
+records close the two rows below and `MV-S5-COMMON-R4-CONTEXT`.
 
 | Requirement       | Obligation                                                                                         | Actual layer           |
 | ----------------- | -------------------------------------------------------------------------------------------------- | ---------------------- |
-| MV-S7-GAME-R4-053 | Complete dynamic Common, Variables, Actor0/state/equipment/Inventory and Force Action actual pairs | Required; not executed |
-| MV-S7-GAME-R5-053 | Actual location, small-map query differences and vehicle/follower consequences                     | Required; not executed |
+| MV-S7-GAME-R4-053 | Complete dynamic Common, Variables, Actor0/state/equipment/Inventory and Force Action actual pairs | Passed actual game pairs |
+| MV-S7-GAME-R5-053 | Actual location, small-map query differences and vehicle/follower consequences                     | Passed actual game pairs |
+
+The report's final receipt records only53's assigned native portions for the
+mixed VARIABLES-005, LOCATION-004, INVENTORY-006, CHARACTER-006 and BATTLE-005
+requirements. Their other E/R portions remain with51/52/54 and final55's
+aggregation; the earlier development/pending statements above retain their
+historical meaning.

@@ -1,0 +1,957 @@
+{
+  "formatVersion": 1,
+  "requirementId": "MV-S7-GAME-R5-053",
+  "runId": "2026-10-20T03-01-32-073Z-b9cc4901-65f8-4c3e-ae5d-2aff8a714251",
+  "status": "passed",
+  "startedAt": "2026-10-20T02:32:37.961Z",
+  "completedAt": "2026-10-20T03:01:32.073Z",
+  "operator": "Codex final53 actual native executor",
+  "source": {
+    "revision": "059a163dcffd673e48d8eba8962ea644d9b36ad0",
+    "fingerprint": "4b36ec0d3bec4f328d4f52393796a70f668e102ca1bfd7194157636e0b0fc91a",
+    "files": [
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/23-history/mv23-r4-common-context-delivery-v1.cjs",
+        "sha256": "f0d2e2116fbc56cce6d646ae04f8a83c729f43cade0dae366d84a1ae1a398af7"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/53-common-context-input.cjs",
+        "sha256": "051ecd665299cb8885809bd7ed66c900ad9454b1c64cd24566b45dcae52112a6"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/53-runtime-scenarios.cjs",
+        "sha256": "969a90440be948f29d89f5bef8af505dac466dd3e826a30b396bdd2abe092641"
+      },
+      {
+        "path": ".scratch/complete-mv-events-implementation/evidence/53-variable-script-context-supplement.cjs",
+        "sha256": "d4c2878a157dc4a8d93ba74522653af514ed44d5b0656d91fe3006ed14da2dea"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final-native-pair-support-v1.cjs",
+        "sha256": "085091b1b316eaab2d76257e9f7d119fc13df95ffaa84ad2fd321e3c45954c0b"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/final48-candidate.json",
+        "sha256": "2f4460874393ba6761740d6613c9c7b7cbbd161f8639a77c96a56ea84943bd63"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket53-final/tools/final-native-pair-support-v1-before-array-holes.cjs",
+        "sha256": "36169a1747e6d16030b530d2581950eb1d178e59af3263756d35a7b5e4708974"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket53-final/tools/run-final-r4-r5-before-from-option.cjs",
+        "sha256": "d631d17c38a2daff6b6905ac6524296ce7c40ece2698d5d8f4287e476bb65d08"
+      },
+      {
+        "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket53-final/tools/run-final-r4-r5-v1.cjs",
+        "sha256": "eac05238749d549ec9201f9a3b5714b7145ee813fde259777cbe640ef0b06bc9"
+      },
+      {
+        "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket53-final\\tools\\collect-final-results-v1.cjs",
+        "sha256": "cb9ac2a573fd2f2b12fe4b2c6e8cda8fb8b008556eb66162a67bae14770b6f49"
+      }
+    ]
+  },
+  "fixture": {
+    "path": ".scratch/complete-mv-events-implementation/evidence/53-runtime-scenarios.cjs",
+    "sha256": "969a90440be948f29d89f5bef8af505dac466dd3e826a30b396bdd2abe092641"
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "node": "v22.23.0",
+    "vitest": "not invoked by native runner",
+    "typescript": "candidate public Check uses package declaration types",
+    "package": "0.1.2",
+    "native": {
+      "method": "game",
+      "mv": "1.6.1",
+      "runtime": "Actual private native Game processes; NW.js bundled Node9.7.1/Chromium65.0.3325.146",
+      "nwjs": "0.29.0",
+      "tools": {
+        "node": "C:\\Users\\Shuen\\AppData\\Local\\pnpm-cache\\dlx\\e71f3854d6e4a210b542a0fff0f6de7931eae2c732fef8abdbb6314c36843fd7\\1a152fc0f14-2f10\\node_modules\\.pnpm\\node@22.23.0\\node_modules\\node\\bin\\node.exe",
+        "host": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\nwjs-win-test\\game.exe",
+        "runner": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket53-final/tools/run-final-r4-r5-v1.cjs",
+        "candidate": "M:/Shuen/Codex/mv-events-implementation-20261020/final48-candidate.json"
+      },
+      "artifacts": [
+        {
+          "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket53-final/tools/final-delivery-01a43682-7e25-403b-99c8-12a1de5452c3.json",
+          "sha256": "2f9e2df0e09da15ca9836173c5e7aeef5e19d9b72c2e900638a43c0e233b8d4a"
+        },
+        {
+          "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket53-final/runs/execution-1f50bf1b-d02b-4514-97c3-2900d45a216c/summary.json",
+          "sha256": "aa4780cec6081ce518a6d296b90992efeed5c4cbd4c972a98dd96cbff8b27d17"
+        },
+        {
+          "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket53-final/runs/execution-a0e90772-24f7-4b00-a635-545cf1799336/summary.json",
+          "sha256": "cf70b62b8e3f3594b3180dde00e76fdcec3f29fd11778a0bb3ffd4dc3a418d5b"
+        },
+        {
+          "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket53-final/runs/execution-81d65c3e-0927-4878-b92c-f58ab3a39c2b/summary.json",
+          "sha256": "50403215c63589f621f838caf75a92738057b9c5d6a3d7969299d15905d641f7"
+        },
+        {
+          "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket53-final/runs/execution-2c9d9b34-afc7-4068-8ee3-86f0aa105808/summary.json",
+          "sha256": "1ccb1f89bc953bba5a3c237eb53f9a990c827aa4765b9cd8bc214c08027598f4"
+        },
+        {
+          "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket53-final/runs/execution-9db65db6-ef2b-419b-9acc-430aa5ebe636/summary.json",
+          "sha256": "a078f782861d63674f466aa789a940f90e2756fa70ba4dc09820f9ba650cc1e5"
+        },
+        {
+          "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket53-final/runs/execution-28166991-a25f-4472-837e-f026aacc5f26/summary.json",
+          "sha256": "a61cea80923215856c8c8188258be3ad47d4e2c895c0ee8afa07fc0e4c2cafad"
+        }
+      ]
+    }
+  },
+  "stages": [
+    "Independent complete literal fixture; preserved original controls and finite V99 HP operand derivation",
+    "Recorded final48 public built Init/Clone/Decompile and real formal-source edit",
+    "Public Check preserves state; Compile/Diff/Push performs real replacement; complete carrier equality",
+    "Actual independent literal and compiled native normal Scenes with fresh profiles and owned reliable exits",
+    "Loaded-carrier and engine identity checks; full per-side consequence oracle; appropriate stochastic comparison"
+  ],
+  "expected": {
+    "contract": "mv-1.6.1/22",
+    "candidateCommit": "2dc639015f908de6fd524e50236e5422b5f8e990",
+    "scenarios": [
+      "final-r5-original-location-consequences",
+      "final-r4-r5-map-character-consequences"
+    ],
+    "everyFinalSidePassed": true,
+    "priorFailuresPreserved": true
+  },
+  "actual": {
+    "capture": {
+      "path": "M:/Shuen/Codex/mv-events-implementation-20261020/ticket53-final/tools/final-delivery-01a43682-7e25-403b-99c8-12a1de5452c3.json",
+      "sha256": "2f9e2df0e09da15ca9836173c5e7aeef5e19d9b72c2e900638a43c0e233b8d4a"
+    },
+    "candidateCommit": "2dc639015f908de6fd524e50236e5422b5f8e990",
+    "apiSha256": "24369d6d1d686b082665cda3b5e76292ed778420eadcfdad431a9cea11169788",
+    "scenarioCount": 2,
+    "scenarios": [
+      {
+        "scenario": "final-r5-original-location-consequences",
+        "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket53-final\\runs\\final-r5-original-location-consequences-3347e885-b9ff-4aaa-932e-ea9d0806d624",
+        "pairResult": {
+          "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket53-final\\runs\\final-r5-original-location-consequences-3347e885-b9ff-4aaa-932e-ea9d0806d624/pair-result.json",
+          "sha256": "71fd072e400e46427305e68655d2dc517290cb2657ce96d5345710977f02e112"
+        },
+        "fixture": {
+          "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket53-final\\runs\\final-r5-original-location-consequences-3347e885-b9ff-4aaa-932e-ea9d0806d624/independent-fixture.json",
+          "sha256": "ce1984ae414979f17a086a8a58abfdf637b7d4d70376f4e110beb081f5f5d360"
+        },
+        "scenarioSource": {
+          "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket53-final\\runs\\final-r5-original-location-consequences-3347e885-b9ff-4aaa-932e-ea9d0806d624/scenario-original.cjs",
+          "sha256": "63f3624a9613e753fa01e29bfe5d5abaeac57c870cef046c001fef88e8d083f7"
+        },
+        "formalSource": {
+          "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket53-final\\runs\\final-r5-original-location-consequences-3347e885-b9ff-4aaa-932e-ea9d0806d624/formal-source-summary.json",
+          "sha256": "20eab70c28a7a6f33a01c3243b1aa845a645b54edf69bbc42f1a22255b695b7b"
+        },
+        "build": {
+          "candidateCommit": "2dc639015f908de6fd524e50236e5422b5f8e990",
+          "apiSha256": "24369d6d1d686b082665cda3b5e76292ed778420eadcfdad431a9cea11169788",
+          "sourceSha256": "4837d1fb0ed97e7badf66830dacd3ad3e90221e68f8d31b89a3719192440cfd6",
+          "distSha256": "e9dd263ea99d4baebe9f074f59427970dc34afeedacd4e3bd6089b591e9759c9",
+          "harnessSha256": "085091b1b316eaab2d76257e9f7d119fc13df95ffaa84ad2fd321e3c45954c0b"
+        },
+        "sides": {
+          "literal": {
+            "passed": true,
+            "validation": {
+              "freshExplicitProfile": true,
+              "declaredProfile": true,
+              "identityParsed": true,
+              "declaredHost": true,
+              "declaredProject": true,
+              "ownedProcess": true,
+              "isolatedAppName": true,
+              "appDataPathRecorded": true,
+              "stdoutEmpty": true,
+              "stderrEmpty": true,
+              "exit0": true,
+              "runtimePassed": true,
+              "diskInputUnchanged": true,
+              "loadedCarriersMatch": true,
+              "engineIdentityMatches": true
+            },
+            "exitCode": 0,
+            "pid": 34084,
+            "engine": "1.6.1",
+            "versions": {
+              "http_parser": "2.7.0",
+              "node": "9.7.1",
+              "v8": "6.5.254.31",
+              "uv": "1.19.2",
+              "zlib": "1.2.11",
+              "ares": "1.13.0",
+              "modules": "59",
+              "nghttp2": "1.29.0",
+              "napi": "2",
+              "openssl": "1.0.2n",
+              "icu": "60.1",
+              "unicode": "10.0",
+              "cldr": "32.0",
+              "tz": "2017c",
+              "nw": "0.29.0",
+              "node-webkit": "0.29.0",
+              "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+              "nw-flavor": "sdk",
+              "chromium": "65.0.3325.146"
+            },
+            "expected": {
+              "trace": [
+                {
+                  "id": "invalid-x-alias-and-bounded-queries",
+                  "actual": [
+                    0,
+                    0,
+                    101,
+                    0,
+                    77,
+                    1
+                  ]
+                },
+                {
+                  "id": "event-and-vehicle-retain-outside-location",
+                  "actual": {
+                    "event": [
+                      5,
+                      0
+                    ],
+                    "boat": [
+                      1,
+                      6,
+                      0
+                    ],
+                    "queries": [
+                      1,
+                      0,
+                      0,
+                      102
+                    ]
+                  }
+                },
+                {
+                  "id": "native-transfer-retains-outside-coordinates",
+                  "actual": {
+                    "map": 1,
+                    "player": [
+                      7,
+                      0
+                    ],
+                    "dimensions": [
+                      4,
+                      3
+                    ]
+                  }
+                }
+              ],
+              "activation": false,
+              "finished": true
+            },
+            "actual": {
+              "trace": [
+                {
+                  "id": "invalid-x-alias-and-bounded-queries",
+                  "actual": [
+                    0,
+                    0,
+                    101,
+                    0,
+                    77,
+                    1
+                  ]
+                },
+                {
+                  "id": "event-and-vehicle-retain-outside-location",
+                  "actual": {
+                    "event": [
+                      5,
+                      0
+                    ],
+                    "boat": [
+                      1,
+                      6,
+                      0
+                    ],
+                    "queries": [
+                      1,
+                      0,
+                      0,
+                      102
+                    ]
+                  }
+                },
+                {
+                  "id": "native-transfer-retains-outside-coordinates",
+                  "actual": {
+                    "map": 1,
+                    "player": [
+                      7,
+                      0
+                    ],
+                    "dimensions": [
+                      4,
+                      3
+                    ]
+                  }
+                }
+              ],
+              "activation": false,
+              "finished": true
+            },
+            "checks": null,
+            "caseResults": null,
+            "error": null
+          },
+          "compiled": {
+            "passed": true,
+            "validation": {
+              "freshExplicitProfile": true,
+              "declaredProfile": true,
+              "identityParsed": true,
+              "declaredHost": true,
+              "declaredProject": true,
+              "ownedProcess": true,
+              "isolatedAppName": true,
+              "appDataPathRecorded": true,
+              "stdoutEmpty": true,
+              "stderrEmpty": true,
+              "exit0": true,
+              "runtimePassed": true,
+              "diskInputUnchanged": true,
+              "loadedCarriersMatch": true,
+              "engineIdentityMatches": true
+            },
+            "exitCode": 0,
+            "pid": 23728,
+            "engine": "1.6.1",
+            "versions": {
+              "http_parser": "2.7.0",
+              "node": "9.7.1",
+              "v8": "6.5.254.31",
+              "uv": "1.19.2",
+              "zlib": "1.2.11",
+              "ares": "1.13.0",
+              "modules": "59",
+              "nghttp2": "1.29.0",
+              "napi": "2",
+              "openssl": "1.0.2n",
+              "icu": "60.1",
+              "unicode": "10.0",
+              "cldr": "32.0",
+              "tz": "2017c",
+              "nw": "0.29.0",
+              "node-webkit": "0.29.0",
+              "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+              "nw-flavor": "sdk",
+              "chromium": "65.0.3325.146"
+            },
+            "expected": {
+              "trace": [
+                {
+                  "id": "invalid-x-alias-and-bounded-queries",
+                  "actual": [
+                    0,
+                    0,
+                    101,
+                    0,
+                    77,
+                    1
+                  ]
+                },
+                {
+                  "id": "event-and-vehicle-retain-outside-location",
+                  "actual": {
+                    "event": [
+                      5,
+                      0
+                    ],
+                    "boat": [
+                      1,
+                      6,
+                      0
+                    ],
+                    "queries": [
+                      1,
+                      0,
+                      0,
+                      102
+                    ]
+                  }
+                },
+                {
+                  "id": "native-transfer-retains-outside-coordinates",
+                  "actual": {
+                    "map": 1,
+                    "player": [
+                      7,
+                      0
+                    ],
+                    "dimensions": [
+                      4,
+                      3
+                    ]
+                  }
+                }
+              ],
+              "activation": false,
+              "finished": true
+            },
+            "actual": {
+              "trace": [
+                {
+                  "id": "invalid-x-alias-and-bounded-queries",
+                  "actual": [
+                    0,
+                    0,
+                    101,
+                    0,
+                    77,
+                    1
+                  ]
+                },
+                {
+                  "id": "event-and-vehicle-retain-outside-location",
+                  "actual": {
+                    "event": [
+                      5,
+                      0
+                    ],
+                    "boat": [
+                      1,
+                      6,
+                      0
+                    ],
+                    "queries": [
+                      1,
+                      0,
+                      0,
+                      102
+                    ]
+                  }
+                },
+                {
+                  "id": "native-transfer-retains-outside-coordinates",
+                  "actual": {
+                    "map": 1,
+                    "player": [
+                      7,
+                      0
+                    ],
+                    "dimensions": [
+                      4,
+                      3
+                    ]
+                  }
+                }
+              ],
+              "activation": false,
+              "finished": true
+            },
+            "checks": null,
+            "caseResults": null,
+            "error": null
+          }
+        }
+      },
+      {
+        "scenario": "final-r4-r5-map-character-consequences",
+        "root": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket53-final\\runs\\final-r4-r5-map-character-consequences-4a23e91e-1934-495b-8fa6-ab168a41e174",
+        "pairResult": {
+          "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket53-final\\runs\\final-r4-r5-map-character-consequences-4a23e91e-1934-495b-8fa6-ab168a41e174/pair-result.json",
+          "sha256": "41050cd8b90612e6d020b123de6c8bf49e513609add77f89ac0fd35380a1c7bc"
+        },
+        "fixture": {
+          "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket53-final\\runs\\final-r4-r5-map-character-consequences-4a23e91e-1934-495b-8fa6-ab168a41e174/independent-fixture.json",
+          "sha256": "b4a6c40150ed55dad1a8dd4168b78690d5ad4bb12c3fd54e9cf5e01ed408e3f6"
+        },
+        "scenarioSource": {
+          "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket53-final\\runs\\final-r4-r5-map-character-consequences-4a23e91e-1934-495b-8fa6-ab168a41e174/scenario-original.cjs",
+          "sha256": "bf7b9e1744b9bbe96c5c09f7deae37e025b68a753f640d66a64b4ed6ef6bbd81"
+        },
+        "formalSource": {
+          "path": "M:\\Shuen\\Codex\\mv-events-implementation-20261020\\ticket53-final\\runs\\final-r4-r5-map-character-consequences-4a23e91e-1934-495b-8fa6-ab168a41e174/formal-source-summary.json",
+          "sha256": "6b6b4f433604549cbae0ff10197105c34ff53f5a8a8fb0b38cbae1fa462fdce7"
+        },
+        "build": {
+          "candidateCommit": "2dc639015f908de6fd524e50236e5422b5f8e990",
+          "apiSha256": "24369d6d1d686b082665cda3b5e76292ed778420eadcfdad431a9cea11169788",
+          "sourceSha256": "4837d1fb0ed97e7badf66830dacd3ad3e90221e68f8d31b89a3719192440cfd6",
+          "distSha256": "e9dd263ea99d4baebe9f074f59427970dc34afeedacd4e3bd6089b591e9759c9",
+          "harnessSha256": "085091b1b316eaab2d76257e9f7d119fc13df95ffaa84ad2fd321e3c45954c0b"
+        },
+        "sides": {
+          "literal": {
+            "passed": true,
+            "validation": {
+              "freshExplicitProfile": true,
+              "declaredProfile": true,
+              "identityParsed": true,
+              "declaredHost": true,
+              "declaredProject": true,
+              "ownedProcess": true,
+              "isolatedAppName": true,
+              "appDataPathRecorded": true,
+              "stdoutEmpty": true,
+              "stderrEmpty": true,
+              "exit0": true,
+              "runtimePassed": true,
+              "diskInputUnchanged": true,
+              "loadedCarriersMatch": true,
+              "engineIdentityMatches": true
+            },
+            "exitCode": 0,
+            "pid": 41392,
+            "engine": "1.6.1",
+            "versions": {
+              "http_parser": "2.7.0",
+              "node": "9.7.1",
+              "v8": "6.5.254.31",
+              "uv": "1.19.2",
+              "zlib": "1.2.11",
+              "ares": "1.13.0",
+              "modules": "59",
+              "nghttp2": "1.29.0",
+              "napi": "2",
+              "openssl": "1.0.2n",
+              "icu": "60.1",
+              "unicode": "10.0",
+              "cldr": "32.0",
+              "tz": "2017c",
+              "nw": "0.29.0",
+              "node-webkit": "0.29.0",
+              "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+              "nw-flavor": "sdk",
+              "chromium": "65.0.3325.146"
+            },
+            "expected": {
+              "trace": [
+                {
+                  "case": "scroll-starts-without-wait",
+                  "remaining": 2,
+                  "elapsed": 0
+                },
+                {
+                  "case": "next-scroll-waits-for-prior",
+                  "waited": true,
+                  "remaining": 1,
+                  "direction": 2
+                },
+                {
+                  "case": "scroll-finishes",
+                  "remaining": 0
+                },
+                {
+                  "case": "board-adjacent-boat",
+                  "inBoat": true,
+                  "player": [
+                    2,
+                    1
+                  ],
+                  "boat": [
+                    2,
+                    1
+                  ]
+                },
+                {
+                  "case": "blocked-land-keeps-boat",
+                  "inBoat": true,
+                  "player": [
+                    2,
+                    1
+                  ]
+                },
+                {
+                  "case": "passable-land-leaves-boat",
+                  "walking": true,
+                  "player": [
+                    2,
+                    2
+                  ],
+                  "boat": [
+                    2,
+                    1
+                  ]
+                },
+                {
+                  "case": "hide-followers-refresh",
+                  "visible": 0
+                },
+                {
+                  "case": "show-followers-refresh",
+                  "visible": 3
+                },
+                {
+                  "case": "before-gather",
+                  "apart": true
+                },
+                {
+                  "case": "gather-waits",
+                  "gathered": true,
+                  "waited": true,
+                  "player": [
+                    5,
+                    2
+                  ],
+                  "followers": [
+                    [
+                      5,
+                      2
+                    ],
+                    [
+                      5,
+                      2
+                    ],
+                    [
+                      5,
+                      2
+                    ]
+                  ]
+                },
+                {
+                  "case": "missing-event-location-no-object",
+                  "absent": true
+                }
+              ],
+              "activation": false,
+              "finished": true
+            },
+            "actual": {
+              "trace": [
+                {
+                  "case": "scroll-starts-without-wait",
+                  "remaining": 2,
+                  "elapsed": 0
+                },
+                {
+                  "case": "next-scroll-waits-for-prior",
+                  "waited": true,
+                  "remaining": 1,
+                  "direction": 2
+                },
+                {
+                  "case": "scroll-finishes",
+                  "remaining": 0
+                },
+                {
+                  "case": "board-adjacent-boat",
+                  "inBoat": true,
+                  "player": [
+                    2,
+                    1
+                  ],
+                  "boat": [
+                    2,
+                    1
+                  ]
+                },
+                {
+                  "case": "blocked-land-keeps-boat",
+                  "inBoat": true,
+                  "player": [
+                    2,
+                    1
+                  ]
+                },
+                {
+                  "case": "passable-land-leaves-boat",
+                  "walking": true,
+                  "player": [
+                    2,
+                    2
+                  ],
+                  "boat": [
+                    2,
+                    1
+                  ]
+                },
+                {
+                  "case": "hide-followers-refresh",
+                  "visible": 0
+                },
+                {
+                  "case": "show-followers-refresh",
+                  "visible": 3
+                },
+                {
+                  "case": "before-gather",
+                  "apart": true
+                },
+                {
+                  "case": "gather-waits",
+                  "gathered": true,
+                  "waited": true,
+                  "player": [
+                    5,
+                    2
+                  ],
+                  "followers": [
+                    [
+                      5,
+                      2
+                    ],
+                    [
+                      5,
+                      2
+                    ],
+                    [
+                      5,
+                      2
+                    ]
+                  ]
+                },
+                {
+                  "case": "missing-event-location-no-object",
+                  "absent": true
+                }
+              ],
+              "activation": false,
+              "finished": true
+            },
+            "checks": null,
+            "caseResults": null,
+            "error": null
+          },
+          "compiled": {
+            "passed": true,
+            "validation": {
+              "freshExplicitProfile": true,
+              "declaredProfile": true,
+              "identityParsed": true,
+              "declaredHost": true,
+              "declaredProject": true,
+              "ownedProcess": true,
+              "isolatedAppName": true,
+              "appDataPathRecorded": true,
+              "stdoutEmpty": true,
+              "stderrEmpty": true,
+              "exit0": true,
+              "runtimePassed": true,
+              "diskInputUnchanged": true,
+              "loadedCarriersMatch": true,
+              "engineIdentityMatches": true
+            },
+            "exitCode": 0,
+            "pid": 14536,
+            "engine": "1.6.1",
+            "versions": {
+              "http_parser": "2.7.0",
+              "node": "9.7.1",
+              "v8": "6.5.254.31",
+              "uv": "1.19.2",
+              "zlib": "1.2.11",
+              "ares": "1.13.0",
+              "modules": "59",
+              "nghttp2": "1.29.0",
+              "napi": "2",
+              "openssl": "1.0.2n",
+              "icu": "60.1",
+              "unicode": "10.0",
+              "cldr": "32.0",
+              "tz": "2017c",
+              "nw": "0.29.0",
+              "node-webkit": "0.29.0",
+              "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+              "nw-flavor": "sdk",
+              "chromium": "65.0.3325.146"
+            },
+            "expected": {
+              "trace": [
+                {
+                  "case": "scroll-starts-without-wait",
+                  "remaining": 2,
+                  "elapsed": 0
+                },
+                {
+                  "case": "next-scroll-waits-for-prior",
+                  "waited": true,
+                  "remaining": 1,
+                  "direction": 2
+                },
+                {
+                  "case": "scroll-finishes",
+                  "remaining": 0
+                },
+                {
+                  "case": "board-adjacent-boat",
+                  "inBoat": true,
+                  "player": [
+                    2,
+                    1
+                  ],
+                  "boat": [
+                    2,
+                    1
+                  ]
+                },
+                {
+                  "case": "blocked-land-keeps-boat",
+                  "inBoat": true,
+                  "player": [
+                    2,
+                    1
+                  ]
+                },
+                {
+                  "case": "passable-land-leaves-boat",
+                  "walking": true,
+                  "player": [
+                    2,
+                    2
+                  ],
+                  "boat": [
+                    2,
+                    1
+                  ]
+                },
+                {
+                  "case": "hide-followers-refresh",
+                  "visible": 0
+                },
+                {
+                  "case": "show-followers-refresh",
+                  "visible": 3
+                },
+                {
+                  "case": "before-gather",
+                  "apart": true
+                },
+                {
+                  "case": "gather-waits",
+                  "gathered": true,
+                  "waited": true,
+                  "player": [
+                    5,
+                    2
+                  ],
+                  "followers": [
+                    [
+                      5,
+                      2
+                    ],
+                    [
+                      5,
+                      2
+                    ],
+                    [
+                      5,
+                      2
+                    ]
+                  ]
+                },
+                {
+                  "case": "missing-event-location-no-object",
+                  "absent": true
+                }
+              ],
+              "activation": false,
+              "finished": true
+            },
+            "actual": {
+              "trace": [
+                {
+                  "case": "scroll-starts-without-wait",
+                  "remaining": 2,
+                  "elapsed": 0
+                },
+                {
+                  "case": "next-scroll-waits-for-prior",
+                  "waited": true,
+                  "remaining": 1,
+                  "direction": 2
+                },
+                {
+                  "case": "scroll-finishes",
+                  "remaining": 0
+                },
+                {
+                  "case": "board-adjacent-boat",
+                  "inBoat": true,
+                  "player": [
+                    2,
+                    1
+                  ],
+                  "boat": [
+                    2,
+                    1
+                  ]
+                },
+                {
+                  "case": "blocked-land-keeps-boat",
+                  "inBoat": true,
+                  "player": [
+                    2,
+                    1
+                  ]
+                },
+                {
+                  "case": "passable-land-leaves-boat",
+                  "walking": true,
+                  "player": [
+                    2,
+                    2
+                  ],
+                  "boat": [
+                    2,
+                    1
+                  ]
+                },
+                {
+                  "case": "hide-followers-refresh",
+                  "visible": 0
+                },
+                {
+                  "case": "show-followers-refresh",
+                  "visible": 3
+                },
+                {
+                  "case": "before-gather",
+                  "apart": true
+                },
+                {
+                  "case": "gather-waits",
+                  "gathered": true,
+                  "waited": true,
+                  "player": [
+                    5,
+                    2
+                  ],
+                  "followers": [
+                    [
+                      5,
+                      2
+                    ],
+                    [
+                      5,
+                      2
+                    ],
+                    [
+                      5,
+                      2
+                    ]
+                  ]
+                },
+                {
+                  "case": "missing-event-location-no-object",
+                  "absent": true
+                }
+              ],
+              "activation": false,
+              "finished": true
+            },
+            "checks": null,
+            "caseResults": null,
+            "error": null
+          }
+        }
+      }
+    ]
+  },
+  "difference": null
+}
