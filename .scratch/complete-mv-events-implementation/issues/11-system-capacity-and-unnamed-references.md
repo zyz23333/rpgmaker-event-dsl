@@ -78,7 +78,7 @@ baseline revision. Public READMEs and the Event Authoring reference are synchron
 
 ## Supplementary correction — 2026-10-20
 
-Supplementary status: claimed
+Supplementary status: resolved
 
 补充开发分支 `codex/mv-control-input-fix`，基于实际 integration
 `38542767606ff9712e45d2a8e4894558e3a7d385`，contract10 保持不变。按既定 T1 seams
@@ -95,3 +95,8 @@ all fifteen constructor shapes, complete preservation and immutable failed attem
 296incoming rows and4278historical blobs stay exact; seven rows append to303 and
 123new records retain121passed/2failed, all native not executed. Supplementary status
 remains claimed; full/build/built/contract/native/merger delivery remains pending.
+
+
+## Supplementary Answer — 2026-10-20 开发批次完成
+
+补充DEV717171be已与34/35共同整合。全部15引用构造器、原始helper/direct/nested反例、类别负零拒绝及正零/Loop控制均保留；另修正读取Switch目标kind前未验证原始对象的问题，18条独立公共入口测试保留12失败red与18通过green。当前受影响67tests、必要真实Workspace43tests（全部15构造器）及type/static通过，详见[批次交付记录](../evidence/map-batch-delivery.md)。本补充开发完成，原Outcome及历史失败不重写；`MV-S3-INPUT-007`仍零执行，最终full/build/built归48、适用R1/R3实际游戏归52、总审计归55。

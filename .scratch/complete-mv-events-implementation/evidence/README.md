@@ -690,7 +690,7 @@ The five stable obligations below retain the original DEV records. Current devel
 
 ## Ticket34 Map Locations
 
-Original DEV records are retained; current batch closure will be recorded separately. `MV-S6-LOCATION-004` remains required and unexecuted for final E4/E6/R5.
+Original DEV records are retained. [Current batch development closure](map-batch-delivery.md) records actual affected and real Workspace checks. `MV-S6-LOCATION-004` remains required and unexecuted for final E4/E6/R5 in50/51/53.
 
 | Requirement | Obligation | Evidence |
 | --- | --- | --- |
@@ -701,7 +701,7 @@ Original DEV records are retained; current batch closure will be recorded separa
 
 ## Ticket35 Map Characters
 
-Original DEV records are retained; current batch closure will be recorded separately. `MV-S6-CHARACTER-006` remains required and unexecuted for final R1/R4/R6.
+Original DEV records are retained. [Current batch development closure](map-batch-delivery.md) records actual affected and real Workspace checks. `MV-S6-CHARACTER-006` remains required and unexecuted for final R1/R4/R6 in52–54.
 
 | Requirement | Obligation | Evidence |
 | --- | --- | --- |
@@ -714,7 +714,7 @@ Original DEV records are retained; current batch closure will be recorded separa
 
 ## Shared S3 / Loop input supplement
 
-All fifteen constructors and original DEV controls are retained. Current batch closure is separate; `MV-S3-INPUT-007` remains unexecuted for final candidate/full/build/built and applicable normal-Scene regressions.
+All fifteen constructors and original DEV controls are retained. [Current batch development closure](map-batch-delivery.md) records all15 actual-source constructor/Push cases and the original-switch-target correction. `MV-S3-INPUT-007` remains unexecuted for final candidate/full/build/built in48 and applicable R1/R3 normal-Scene regressions in52.
 
 | Requirement | Obligation | Evidence |
 | --- | --- | --- |
