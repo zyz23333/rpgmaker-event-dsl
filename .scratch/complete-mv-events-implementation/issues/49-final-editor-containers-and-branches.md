@@ -1,6 +1,6 @@
 # 49: 最终编辑器逆向与产品比较：容器与分支
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 48
 Stage: S7
 Execution batch: [最终原生回归](../tickets.md#batch-native-regression)
@@ -44,3 +44,9 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [实施规格](../complete-mv-events-implementation-spec.md)：T3–T4、T6（E1–E2）；完整契约与未在本票重复列出的参数规则以规格及其规范附表为准。
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
+
+## Comments
+
+### 2026-10-20 — 最终 E1–E7 比较批次认领
+
+在专用分支 `codex/mv-final-e1-e7`、M 工作树从实际集成 `e3d7bd3f`（438 要求、契约21）准备49–51。复用同身份03–10及既有容器保存链逆向，重新核对所用二进制/资源身份与路径覆盖；普通创建、容器保存和参数重确认分别记录。最终候选的 built 产品比较等48交付后执行。没有运行编辑器 UI 或游戏，也未将本票验收记为通过。

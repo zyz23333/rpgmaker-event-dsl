@@ -1,6 +1,6 @@
 # 50: 最终编辑器逆向与产品比较：移动与保存状态
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 48
 Stage: S7
 Execution batch: [最终原生回归](../tickets.md#batch-native-regression)
@@ -44,3 +44,9 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [实施规格](../complete-mv-events-implementation-spec.md)：T3–T4、T6（E3–E4）；完整契约与未在本票重复列出的参数规则以规格及其规范附表为准。
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
+
+## Comments
+
+### 2026-10-20 — 最终 E1–E7 比较批次认领
+
+与49/51同批在 `codex/mv-final-e1-e7` 准备，基于实际集成 `e3d7bd3f`。优先复用04移动外壳与镜像、05Timer、06Transfer、07Shop、03Battle的同身份资源事实和已接受契约，保留插入/复制推导及 Qt 时序限定；48交付后执行最终 built 产品输出比较。最终游戏仍由52–54负责，本票尚未通过。
