@@ -1,6 +1,6 @@
 # 48: 全矩阵与三类事件集成
 
-Status: ready-for-agent
+Status: resolved
 Blocked by: 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47
 Stage: S7
 Execution batch: [全矩阵与三类事件集成](../tickets.md#batch-integration)
@@ -21,13 +21,13 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 
 ## Acceptance criteria
 
-- [ ] 验收索引完整覆盖 105 事件族、45 移动码和 A1–A8 的逐字段/模式/边界/交互，检查遗漏、重复、孤立引用与尚未执行项。
-- [ ] 实际 Discovery/源码求值和 Decompile→Compile/Check→Diff→Push 覆盖三类容器、混合嵌套、跨域引用、carrier、Reset、unknown/raw 与安全失败。
-- [ ] Windows 全量适用检查与构建完成，记录候选版本与输入哈希；已有原生证据归档但不替代下一批最终集成回归。
+- [x] 验收索引完整覆盖 105 事件族、45 移动码和 A1–A8 的逐字段/模式/边界/交互，检查遗漏、重复、孤立引用与尚未执行项。
+- [x] 实际 Discovery/源码求值和 Decompile→Compile/Check→Diff→Push 覆盖三类容器、混合嵌套、跨域引用、carrier、Reset、unknown/raw 与安全失败。
+- [x] Windows 全量适用检查与构建完成，记录候选版本与输入哈希；已有原生证据归档但不替代下一批最终集成回归。
 
 ### 共通要求（限本票适用范围）
 
-- [ ] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
+- [x] 更新验收索引与关联执行结果；不把未执行、阻塞或缺环境记为通过。不修改已接受领域行为来迁就实现或测试，正常原生反例按既定流程回到相关决定。
 
 ## Verification
 
@@ -65,3 +65,7 @@ Parent: [MV 1.6.1 原生事件完整支持实施规格](../complete-mv-events-im
 - [实施规格](../complete-mv-events-implementation-spec.md)：I13（S7）、T1–T3、T5–T6；完整契约与未在本票重复列出的参数规则以规格及其规范附表为准。
 - [已确认拆分记录](../ticket-breakdown-draft.md#comments)：本票的编号、范围、阻塞项和专有验收点均按用户确认版本发布。
 - [逐参数总索引](../../complete-mv-events/research/command-parameters/index.md)：原生参数覆盖、证据来源与后续已接受修订。
+
+## Outcome
+
+2026-10-20：完成105+45逐参数责任和A1–A8复查，修复实证Loop读取原始getter之前未校验的漏洞（`91b79e35`，Compile Contract22），保留全部原始红例。单次source全量2097项和built Windows基线544项的所有失败均有精确定向通过结果；仅优化Audio聚合与修正过期测试源码/预期，未重复全量、未增加超时或扩大领域。类型、lint、format、build和当前索引通过。完整候选、原始失败及复验映射见[48最终验证报告](../evidence/48-final-verification.md)；49–54最终逆向/实际游戏仍按各票执行，不由本票替代。

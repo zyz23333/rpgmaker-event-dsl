@@ -249,103 +249,99 @@ it("MV-S6-AUDIO-001: reconstructs all audio modes and signed zero through evalua
   });
 });
 
-it("MV-S6-AUDIO-002: refuses evaluated malformed helper direct and known raw audio sources without changing complete business state", async () => {
-  const good = "{ asset:null, volume:1, pitch:51, pan:1 }";
-  const cases: Array<[string, string, string, string?]> = [
-    ["playBgm({audio:{...audio, pitch:undefined}} as any)", "MV-E241", "playBgm.audio.pitch"],
-    ["playBgs({audio:{...audio, extra:true}} as any)", "MV-E245", "playBgs.audio"],
-    [
-      "playMe({audio:{...audio, asset:audioAsset({folder:'bgm',name:'Wrong'})}} as any)",
-      "MV-E249",
-      "playMe.audio.asset",
-    ],
-    ["playSe({audio:{...audio, asset:undefined}} as any)", "MV-E250", "playSe.audio.asset"],
-    ["playBgm({audio, extra:1} as any)", "MV-E241", "playBgm"],
-    [
-      "{kind:'changeBattleBgm',audio:{...audio,volume:-1}} as any",
-      "MV-E132",
-      "commands[1].audio.volume",
-    ],
-    [
-      "{kind:'changeVictoryMe',audio:{...audio,pitch:151}} as any",
-      "MV-E133",
-      "commands[1].audio.pitch",
-    ],
-    [
-      "{kind:'changeDefeatMe',audio:{...audio,pan:-101}} as any",
-      "MV-E139",
-      "commands[1].audio.pan",
-    ],
-    ["{kind:'changeVehicleBgm',vehicle:'car',audio} as any", "MV-E140", "commands[1].vehicle"],
-    ["{kind:'playBgm',audio:null} as any", "MV-E241", "commands[1].audio"],
-    [
-      "{kind:'playBgs',audio:{volume:1,pitch:51,pan:1}} as any",
-      "MV-E245",
-      "commands[1].audio.asset",
-    ],
-    [
-      "{kind:'playMe',audio:{...audio,asset:{kind:'asset',category:'image',folder:'me',name:'Wrong'}}} as any",
-      "MV-E249",
-      "commands[1].audio.asset",
-    ],
-    [
-      "{kind:'playSe',audio:{...audio,asset:{kind:'asset',category:'audio',folder:'se',name:''}}} as any",
-      "MV-E250",
-      "commands[1].audio.asset",
-    ],
-    ["fadeoutBgm({duration:0} as any)", "MV-E242", "fadeoutBgm.duration"],
-    ["{kind:'fadeoutBgs',duration:1000} as any", "MV-E246", "commands[1].duration"],
-    ["{kind:'saveBgm',extra:true} as any", "MV-E243", "commands[1]"],
-    ["{kind:'replayBgm',duration:1} as any", "MV-E244", "commands[1]"],
-    ["{kind:'stopSe',audio} as any", "MV-E251", "commands[1]"],
-    ["call({discarded:true})", "MV-E243", "saveBgm", "const call = saveBgm as any;"],
-    [
-      "playBgm({audio:{...audio,asset:audioAsset({folder:'bgm',name:'Track',extra:true} as any)}})",
-      "MV-AUDIO-ASSET",
-      "audioAsset",
-    ],
-    [
-      "rawDslCommand({code:250,parameters:[{name:'',volume:1,pitch:51,pan:101}]})",
-      "MV-E250-PARAMETER",
-      "commands[1].parameters[0].pan",
-    ],
-    [
-      "{kind:'rawDslCommand',code:140,parameters:[-0,{name:'',volume:1,pitch:51,pan:1}]} as any",
-      "MV-E140-PARAMETER",
-      "commands[1].parameters[0]",
-    ],
-    ["rawDslCommand({code:244,parameters:[0]})", "MV-E244-PARAMETER", "commands[1].parameters"],
-  ];
-  await withWindowsSandbox("audio-source-refusal", async ({ workspaceRoot }) => {
-    await prepare(workspaceRoot);
-    await decompileWorkspace({ workspaceRoot });
-    await compileWorkspace({ workspaceRoot, check: false });
-    const sourcePath = join(workspaceRoot, "src/decompiled/common-events.events.ts");
-    for (const [expression, code, path, prelude = ""] of cases) {
-      await writeFile(
-        sourcePath,
-        `import {commonEvent,audioAsset,playBgm,playBgs,playMe,playSe,fadeoutBgm,saveBgm,rawDslCommand} from "rpgmaker-event-dsl";\nconst audio=${good};\n${prelude}\nexport const entry=commonEvent({id:1,name:"Audio Common",trigger:"none",commands:[saveBgm(),${expression}]});\n`,
-      );
-      const before = await state(workspaceRoot);
-      for (const check of [true, false]) {
-        const failure = await compileWorkspace({ workspaceRoot, check }).then(
-          () => undefined,
-          (error) => error,
+const malformedAudioSources: Array<[string, string, string, string?]> = [
+  ["playBgm({audio:{...audio, pitch:undefined}} as any)", "MV-E241", "playBgm.audio.pitch"],
+  ["playBgs({audio:{...audio, extra:true}} as any)", "MV-E245", "playBgs.audio"],
+  [
+    "playMe({audio:{...audio, asset:audioAsset({folder:'bgm',name:'Wrong'})}} as any)",
+    "MV-E249",
+    "playMe.audio.asset",
+  ],
+  ["playSe({audio:{...audio, asset:undefined}} as any)", "MV-E250", "playSe.audio.asset"],
+  ["playBgm({audio, extra:1} as any)", "MV-E241", "playBgm"],
+  [
+    "{kind:'changeBattleBgm',audio:{...audio,volume:-1}} as any",
+    "MV-E132",
+    "commands[1].audio.volume",
+  ],
+  [
+    "{kind:'changeVictoryMe',audio:{...audio,pitch:151}} as any",
+    "MV-E133",
+    "commands[1].audio.pitch",
+  ],
+  ["{kind:'changeDefeatMe',audio:{...audio,pan:-101}} as any", "MV-E139", "commands[1].audio.pan"],
+  ["{kind:'changeVehicleBgm',vehicle:'car',audio} as any", "MV-E140", "commands[1].vehicle"],
+  ["{kind:'playBgm',audio:null} as any", "MV-E241", "commands[1].audio"],
+  ["{kind:'playBgs',audio:{volume:1,pitch:51,pan:1}} as any", "MV-E245", "commands[1].audio.asset"],
+  [
+    "{kind:'playMe',audio:{...audio,asset:{kind:'asset',category:'image',folder:'me',name:'Wrong'}}} as any",
+    "MV-E249",
+    "commands[1].audio.asset",
+  ],
+  [
+    "{kind:'playSe',audio:{...audio,asset:{kind:'asset',category:'audio',folder:'se',name:''}}} as any",
+    "MV-E250",
+    "commands[1].audio.asset",
+  ],
+  ["fadeoutBgm({duration:0} as any)", "MV-E242", "fadeoutBgm.duration"],
+  ["{kind:'fadeoutBgs',duration:1000} as any", "MV-E246", "commands[1].duration"],
+  ["{kind:'saveBgm',extra:true} as any", "MV-E243", "commands[1]"],
+  ["{kind:'replayBgm',duration:1} as any", "MV-E244", "commands[1]"],
+  ["{kind:'stopSe',audio} as any", "MV-E251", "commands[1]"],
+  ["call({discarded:true})", "MV-E243", "saveBgm", "const call = saveBgm as any;"],
+  [
+    "playBgm({audio:{...audio,asset:audioAsset({folder:'bgm',name:'Track',extra:true} as any)}})",
+    "MV-AUDIO-ASSET",
+    "audioAsset",
+  ],
+  [
+    "rawDslCommand({code:250,parameters:[{name:'',volume:1,pitch:51,pan:101}]})",
+    "MV-E250-PARAMETER",
+    "commands[1].parameters[0].pan",
+  ],
+  [
+    "{kind:'rawDslCommand',code:140,parameters:[-0,{name:'',volume:1,pitch:51,pan:1}]} as any",
+    "MV-E140-PARAMETER",
+    "commands[1].parameters[0]",
+  ],
+  ["rawDslCommand({code:244,parameters:[0]})", "MV-E244-PARAMETER", "commands[1].parameters"],
+];
+
+// Keep every input and Check/Compile/Push assertion, with bounded independent batches.
+for (let offset = 0; offset < malformedAudioSources.length; offset += 8)
+  it(`MV-S6-AUDIO-002: refuses evaluated malformed audio source batch ${offset / 8 + 1} without changing complete business state`, async () => {
+    const good = "{ asset:null, volume:1, pitch:51, pan:1 }";
+    const cases = malformedAudioSources.slice(offset, offset + 8);
+    await withWindowsSandbox(`audio-source-refusal-${offset}`, async ({ workspaceRoot }) => {
+      await prepare(workspaceRoot);
+      await decompileWorkspace({ workspaceRoot });
+      await compileWorkspace({ workspaceRoot, check: false });
+      const sourcePath = join(workspaceRoot, "src/decompiled/common-events.events.ts");
+      for (const [expression, code, path, prelude = ""] of cases) {
+        await writeFile(
+          sourcePath,
+          `import {commonEvent,audioAsset,playBgm,playBgs,playMe,playSe,fadeoutBgm,saveBgm,rawDslCommand} from "rpgmaker-event-dsl";\nconst audio=${good};\n${prelude}\nexport const entry=commonEvent({id:1,name:"Audio Common",trigger:"none",commands:[saveBgm(),${expression}]});\n`,
         );
-        expect(failure).toBeInstanceOf(Error);
-        expect(failure.message).toContain(code);
-        expect(failure.message).toContain(path);
-        expect(failure.message).toContain("expected");
-        expect(failure.message).toContain("actual");
+        const before = await state(workspaceRoot);
+        for (const check of [true, false]) {
+          const failure = await compileWorkspace({ workspaceRoot, check }).then(
+            () => undefined,
+            (error) => error,
+          );
+          expect(failure).toBeInstanceOf(Error);
+          expect(failure.message).toContain(code);
+          expect(failure.message).toContain(path);
+          expect(failure.message).toContain("expected");
+          expect(failure.message).toContain("actual");
+          expect(await state(workspaceRoot)).toStrictEqual(before);
+        }
+        await expect(pushWorkspace({ workspaceRoot, allowDestructive: false })).rejects.toThrow(
+          /stale before push/,
+        );
         expect(await state(workspaceRoot)).toStrictEqual(before);
       }
-      await expect(pushWorkspace({ workspaceRoot, allowDestructive: false })).rejects.toThrow(
-        /stale before push/,
-      );
-      expect(await state(workspaceRoot)).toStrictEqual(before);
-    }
+    });
   });
-});
 
 it("MV-S6-AUDIO-003: refuses late malformed saved audio records before Decompile publication and preserves every existing business file", async () => {
   const audio = { name: "", volume: 1, pitch: 51, pan: 1 };

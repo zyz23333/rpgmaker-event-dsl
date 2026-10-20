@@ -303,7 +303,7 @@ evidenceTest(
           text
             .replace("All conditions", "Installed conditions")
             .replace("Complete blank", "Installed map event")
-            .replace('comment(["then"])', 'comment(["Installed body"])'),
+            .replace('comment({ lines: ["then"] })', 'comment({ lines: ["Installed body"] })'),
         );
       }
       await compileWorkspace({ workspaceRoot, check: false });

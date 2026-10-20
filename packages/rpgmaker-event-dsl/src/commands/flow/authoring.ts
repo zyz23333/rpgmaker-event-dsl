@@ -14,7 +14,7 @@ import type {
   ScriptInput,
 } from "../../domain/types.js";
 import { scriptInput } from "../../authoring/references.js";
-import { assertCommonEventCall } from "./validation.js";
+import { assertCommonEventCall, assertLoopBody } from "./validation.js";
 import { assertConditionalCommand } from "./conditional-validation.js";
 
 import { assertComment } from "../message/validation.js";
@@ -42,6 +42,7 @@ export function conditional(input: {
 
 export function loop(input: { body: LoopDslCommand["body"] }): LoopDslCommand {
   assertDslObject(input, ["body"], "loop");
+  assertLoopBody(input.body, "loop.body");
   return { kind: "loop", body: input.body };
 }
 
