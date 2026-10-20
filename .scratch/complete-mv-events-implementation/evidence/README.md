@@ -676,6 +676,18 @@ Conditional 集成，契约 `/15`、374 条要求；开发票按用户执行修�
 
 [Current batch report](41-43-actor-capability-batch.md) links the executed source version, independent inputs, actual commands and original logs. Development is complete; final E7 product comparison and R4/R7 actual game execution remain required in51/53/54. Existing41 raw results and all prior failures stay at their original paths. No per-ticket full/build/native or large archive was added under the 2026-10-20 user amendment.
 
+## Ticket31 Control Variables
+
+The five stable obligations below retain the original DEV records. Current development closure and affected reruns are recorded in the [Ticket31 finalization report](31-control-variables-finalization.md); `MV-S6-VARIABLES-005` remains unexecuted and is carried to49/51–54. Its complete64-sample Random, self-alias, once-before-loop Script and numeric runtime outcomes remain required. Daily index validity does not mark that native obligation passed.
+
+| Requirement | Obligation | Evidence kind | Required layer |
+| --- | --- | --- | --- |
+| MV-S6-VARIABLES-001 | Independent six-operation/five-mode and all Game Data saved-parameter cases | Synthetic DEV; [record](31-control-variables-dev.md) |
+| MV-S6-VARIABLES-002 | Actual source Discovery, Check, Compile, Diff and complete-carrier real Push | Synthetic DEV E5 support; [record](31-control-variables-dev.md) |
+| MV-S6-VARIABLES-003 | Native saved-shape and fixed-reference rejection before source publication | Synthetic DEV rejection; [record](31-control-variables-dev.md) |
+| MV-S6-VARIABLES-004 | Evaluated untyped source and known-raw Gate Check/Compile isolation | Synthetic DEV rejection; [record](31-control-variables-dev.md) |
+| MV-S6-VARIABLES-005 | Final built lifecycle and actual normal-Scene variable runtime observations | Required E5/R4/R7 pending; [record](31-control-variables-dev.md#remaining-finalization) |
+
 Ticket29 adds focused synthetic message delivery checks; its E5/E6 reverse-engineering product comparisons and R6 actual game delivery remain separate and pending.
 
 | Requirement | Obligation | Evidence kind | Required layer |

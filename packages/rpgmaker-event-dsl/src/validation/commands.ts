@@ -13,6 +13,7 @@ import type { ReferenceResolver, ValidationIssue } from "./types.js";
 import { captureReferenceIssue } from "./shared.js";
 import { isReferenceValue } from "./inspection.js";
 import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
+import { assertControlVariablesInput } from "../commands/variables/control-variables.js";
 import { assertPictureInput } from "../commands/screen/picture-inputs.js";
 import { assertPictureReferences } from "../commands/screen/picture-references.js";
 import { assertNativeContextReferences } from "./native-context-references.js";
@@ -194,21 +195,12 @@ export function validateNodes(
       }
     }
     if (node.kind === "controlVariables") {
-      validateReferenceOrRange(node.variable, resolver, issues);
-      if (isVariableReferenceValue(node.value)) {
-        const valueRef = node.value;
-        captureReferenceIssue(() => resolver.resolveReference(valueRef), issues);
-      }
-      if (typeof node.value === "object" && node.value !== null && "kind" in node.value) {
-        if (node.value.kind === "script" && !options.scriptEnabled) {
-          issues.push({
-            level: "error",
-            message: "Control Variables script operands require explicit config enablement.",
-          });
-        }
-        if (node.value.kind === "gameData") {
-          validateControlVariablesGameDataOperand(node.value, resolver, issues);
-        }
+      try {
+        assertControlVariablesInput(node, nodePath, true, resolver);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
       }
     }
     if (node.kind === "changeItems") {

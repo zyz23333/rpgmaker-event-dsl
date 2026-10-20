@@ -7,6 +7,7 @@ import {
 } from "../commands/variables/validation.js";
 import { assertNativeScreenParameters } from "../commands/screen/validation.js";
 import { assertNativeMapAppearanceParameters } from "../commands/map/native-validation.js";
+import { assertNativeControlVariables } from "../commands/variables/native-control-variables.js";
 import { assertNativeSystemSettingsParameters } from "../commands/movement/access-native-validation.js";
 import { assertNativePictureParameters } from "../commands/screen/picture-native.js";
 import { assertNativeAudioParameters } from "../commands/audio/validation.js";
@@ -164,6 +165,7 @@ export function assertNativeCommandParameters(
     return;
   }
   assertNativeMapAppearanceParameters(code, parameters, path);
+  if (code === 122) assertNativeControlVariables(parameters, path);
   assertNativeSystemSettingsParameters(code, parameters, path);
   assertNativeActorResourceParameters(code, parameters, path);
   assertNativeActorPresentationParameters(code, parameters, path);

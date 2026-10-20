@@ -1,0 +1,8 @@
+{
+  "classification": "archive-tooling failure, separate from product tests",
+  "command": "node C:/Users/Shuen/.codex/tmp/mv31-dev-20261020-run1/archive-and-audit.cjs",
+  "exitCode": 1,
+  "failure": "ENOENT reading scoped-oxlint.log: Tee-Object produced no file for the successful zero-output scoped lint command",
+  "partialEffects": "All immutable baseline checks passed; complete source bytes were frozen externally; 17 exact synthetic result files and the first two log files were copied before failure. No existing artifacts were overwritten.",
+  "correction": "Preserve the original script as archive-and-audit-v1-failed.cjs; represent known zero-output checks as empty files; rerun an idempotent audit that checks exact bytes before reusing any existing destination."
+}
