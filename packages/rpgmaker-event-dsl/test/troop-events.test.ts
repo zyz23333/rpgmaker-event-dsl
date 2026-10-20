@@ -193,10 +193,11 @@ it("requires unique existing Troop identities and nonempty ordered pages without
       snapshotTroops: [{ id: 2001, members: [] }],
       snapshotReferences: { troops: [{ id: 2001, name: "" }] },
     };
-    const valid = troopEvent({ troopId: 2001, pages: [battlePage({ commands: [] })] });
+    const validInput = { troopId: 2001, pages: [battlePage({ commands: [] })] } as const;
+    const valid = troopEvent(validInput);
     expect(validateDslOwnedDeclarations([valid], context).issues).toEqual([]);
     expect(
-      validateDslOwnedDeclarations([troopEvent({ ...valid, troopId: 0 })], context).issues,
+      validateDslOwnedDeclarations([troopEvent({ ...validInput, troopId: 0 })], context).issues,
     ).toContainEqual(
       expect.objectContaining({
         code: "MV-TROOP-IDENTITY",
@@ -222,10 +223,10 @@ it("requires unique existing Troop identities and nonempty ordered pages without
     );
     for (const definitions of [
       [valid, valid],
-      [troopEvent({ ...valid, troopId: 1 })],
-      [troopEvent({ ...valid, troopId: 0 })],
-      [troopEvent({ ...valid, pages: [] as never })],
-      [troopEvent({ ...valid, pages: [null] as never })],
+      [troopEvent({ ...validInput, troopId: 1 })],
+      [troopEvent({ ...validInput, troopId: 0 })],
+      [troopEvent({ ...validInput, pages: [] as never })],
+      [troopEvent({ ...validInput, pages: [null] as never })],
     ])
       expect(
         validateDslOwnedDeclarations(definitions, context).issues.some(
@@ -233,7 +234,7 @@ it("requires unique existing Troop identities and nonempty ordered pages without
         ),
       ).toBe(true);
     const twentyOne = troopEvent({
-      ...valid,
+      ...validInput,
       pages: Array.from({ length: 21 }, () => battlePage({ commands: [] })) as never,
     });
     expect(validateDslOwnedDeclarations([twentyOne], context).issues).toEqual([

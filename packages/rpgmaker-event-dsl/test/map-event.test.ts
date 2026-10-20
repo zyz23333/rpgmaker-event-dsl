@@ -177,6 +177,20 @@ describe("complete Map Event saved state", () => {
     { image: { unknown: true } },
     { options: { unknown: true } },
   ])("rejects invalid or unknown saved settings even while inactive: %j", (invalid) => {
+    if ("unknown" in invalid) {
+      const input = { commands: [], unknown: true };
+      expect(() => page(input)).toThrow("MV-DSL-SHAPE");
+      const direct = {
+        ...event({ commands: [] }),
+        pages: [{ ...page({ commands: [] }), ...input }] as const,
+      };
+      expect(
+        validateStagedDataGraph(buildStagedDataGraph({ declarations: [direct] }), {
+          scriptEnabled: false,
+        }).issues.some((issue) => issue.level === "error"),
+      ).toBe(true);
+      return;
+    }
     expect(
       issues({ commands: [], ...invalid } as unknown as Parameters<typeof page>[0]).some(
         (issue) => issue.level === "error",
