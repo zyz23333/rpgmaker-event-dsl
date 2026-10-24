@@ -204,6 +204,22 @@ _Avoid_: Project Data Reference, raw asset string, scanned asset entry
 A category-specific helper for creating an Asset Reference with an explicit RPG Maker MV asset namespace.
 _Avoid_: generic assetRef, imgRef, per-folder helper, Project Data Reference helper
 
+**Event Asset Use**:
+An occurrence of a named RPG Maker MV asset in supported event saved state, or reached from an event operation through known standard project data relationships. Each occurrence retains its event origin independently of other uses of the same asset, including when its saved configuration is inactive.
+_Avoid_: unique asset file, Asset Reference, guaranteed runtime load
+
+**Asset Dependency Chain**:
+The ordered standard project data relationships connecting an event operation to an indirect Event Asset Use, identifying the intervening entries and asset-bearing field. The chain describes why the asset is associated with that operation without itself guaranteeing execution.
+_Avoid_: whole-database asset scan, Project Data Reference, asset ownership
+
+**Conditional Asset Candidate**:
+A saved initial or default asset name reached through a selected native relationship for an event operation, whose current runtime value may have been replaced. Its origin includes the condition under which that saved name applies.
+_Avoid_: confirmed current asset, arbitrary associated asset, missing asset
+
+**Asset Check Exception**:
+An explicit Workspace policy for a specific asset namespace and original name that permits eligible file-check findings to remain nonblocking while retaining each affected Event Asset Use and the stated reason.
+_Avoid_: ignored asset, successful file check, global validation bypass
+
 **Runtime Selector**:
 A schema-first DSL value that selects an RPG Maker MV object, slot, or equipment candidate using execution-time context. A selector is not itself a Project Data Reference, but a fixed project target within it may be identified by one.
 _Avoid_: Project Data Reference, database entry reference, Asset Reference
@@ -373,7 +389,7 @@ Workspace metadata that records synchronization file hashes, Generated Freshness
 _Avoid_: generated output, project data file, lockfile, entry identity binding
 
 **Compile Baseline**:
-The current set of inputs that Compile Output depends on, including DSL source inputs and their validation dependencies, Workspace Config, the Project Data Snapshot, the Project Root Binding, and the Compile Contract Version.
+The current set of compilation inputs that Compile Output belongs to, including DSL source inputs and their validation dependencies, Workspace Config, the Project Data Snapshot, the Project Root Binding, and the Compile Contract Version. Asset-check policy belongs to these inputs; live asset-file conditions do not.
 _Avoid_: source hash, snapshot freshness, generated state
 
 **Compile Contract Version**:
@@ -381,15 +397,15 @@ The tool-maintained version of the Event DSL compilation contract that determine
 _Avoid_: package version, RPG Maker engine version, source version
 
 **Generated Freshness**:
-The condition that Generated Project Data was produced from the current Compile Baseline.
-_Avoid_: project drift, entry identity, source ownership
+The condition that Generated Project Data was produced from the current Compile Baseline, independent of whether live asset files currently satisfy the checking policy.
+_Avoid_: project drift, entry identity, source ownership, current asset availability
 
 **Compile Check**:
 A read-only Compile mode that validates discovered DSL source and the Staged Data Graph without writing Generated Project Data.
 _Avoid_: standalone lint, dry-run push, source-only check
 
 **Project-Aware Validation**:
-A validation pass that checks DSL-owned declarations and references against the Staged Data Graph and Project Data Snapshot.
+A validation pass that checks DSL-owned declarations and references against the Staged Data Graph and Project Data Snapshot, and selected Event Asset Uses against the bound Project Root. Standard-data relationships and live asset-file conditions remain distinct inputs.
 _Avoid_: type checking only, best-effort apply
 
 **MV-Style JSON Writer**:
@@ -551,9 +567,13 @@ _Avoid_: config default, inherited old value
 - A **Sync Manifest** records file hashes for **Generated Project Data** and **Project Data Snapshots**.
 - A **Sync Manifest** does not record **Entry Identity** bindings.
 - A **Compile Baseline** includes the current DSL source inputs and their validation dependencies, **Workspace Config**, **Project Data Snapshot**, **Project Root Binding**, and **Compile Contract Version**.
+- **Asset Check Exception** policy belongs to the **Compile Baseline**; live asset-file conditions do not.
 - A **Sync Manifest** may record **Compile Baseline** hashes to check **Generated Freshness**.
+- **Generated Freshness** does not establish that current **Event Asset Uses** satisfy the asset-file policy.
 - **Push** requires **Generated Freshness**.
+- **Push** checks current asset-file conditions for the event state in **Generated Project Data** and the corresponding **Project Data Snapshot**.
 - **Diff** requires **Generated Freshness**.
+- **Diff** does not check current asset-file conditions, and **Clone**, **Pull**, and **DSL Decompilation** do not add an asset-file gate.
 - **Compile** with check-only behavior is read-only and does not create **Generated Freshness**.
 - The **Project Root** path in a **Workspace Config** is resolved relative to the **Workspace Root**.
 - The **Workspace Config** uses `projectRoot` for the MV project directory.
@@ -676,3 +696,5 @@ _Avoid_: config default, inherited old value
 - "All TypeScript files" was rejected for **Definition Source Discovery** because ordinary helper modules are not necessarily **Definition Sources**.
 - "Source freshness" was rejected as too narrow; **Generated Freshness** is based on the full **Compile Baseline**, not only DSL source inputs.
 - "Dirty state" was rejected for incomplete Project Root writes; **Interrupted Push** distinguishes tool-created incomplete synchronization from ordinary **Project Drift**.
+- "Generated data is fresh, so its assets are available" was rejected: **Generated Freshness** and current asset-file conditions are separate requirements.
+- "Recovery completed, so assets passed" was rejected: **Interrupted Push** recovery can record completed project-data writes before current asset-file checks succeed.

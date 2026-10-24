@@ -1,0 +1,149 @@
+{
+  "evidenceType": "controlled replay of an exact embedded QML JavaScript function",
+  "editorExecuted": false,
+  "scope": "needToCopy2 predicate only; not complete packaging, Qt, native I/O, encryption or runtime loading",
+  "artifact": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\RPGMV.exe",
+  "artifactSha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+  "sourceResource": {
+    "offset": 393812,
+    "decodedSha256": "248435cfcd038d50a484c8a6d48077652fa074d88b898f19a51665bfc0e5d5f8"
+  },
+  "predicateSha256": "ac6ec1b30f1554997a847e01a9a6cc8b751181727a490210e4ba3d5ac18e76d8",
+  "identities": [
+    {
+      "name": "packaging",
+      "offset": 393812,
+      "decodedSha256": "248435cfcd038d50a484c8a6d48077652fa074d88b898f19a51665bfc0e5d5f8",
+      "storedBytes": 2821,
+      "decodedBytes": 15207
+    },
+    {
+      "name": "assetRules",
+      "offset": 401493,
+      "decodedSha256": "79fb5f2d2a36feb46ff26d3ab69125f7a4292a9fed8c9c772591162278463cdf",
+      "storedBytes": 4169,
+      "decodedBytes": 29764
+    },
+    {
+      "name": "deploymentOption",
+      "offset": 425759,
+      "decodedSha256": "69e37055b8998ca48b40f76606ec78a18b7ba79e6a98263fa09038ff5def27fa",
+      "storedBytes": 785,
+      "decodedBytes": 3180
+    }
+  ],
+  "results": [
+    {
+      "name": "listed image",
+      "file": "img/pictures/Used.png",
+      "required": [
+        "img/pictures/Used"
+      ],
+      "keep": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "unlisted image",
+      "file": "img/pictures/Unused.png",
+      "required": [],
+      "keep": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "listed audio",
+      "file": "audio/bgm/Theme.ogg",
+      "required": [
+        "audio/bgm/Theme"
+      ],
+      "keep": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "unlisted audio",
+      "file": "audio/se/Unused.ogg",
+      "required": [],
+      "keep": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "unlisted movie",
+      "file": "movies/Unused.webm",
+      "required": [],
+      "keep": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "listed dot in stem",
+      "file": "img/pictures/Scene.v2.png",
+      "required": [
+        "img/pictures/Scene.v2"
+      ],
+      "keep": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "shorter listed stem keeps dotted file",
+      "file": "img/pictures/Scene.v2.png",
+      "required": [
+        "img/pictures/Scene"
+      ],
+      "keep": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "dot in directory",
+      "file": "img/custom.v2/Scene.png",
+      "required": [
+        "img/custom.v2/Scene"
+      ],
+      "keep": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "name case differs",
+      "file": "img/pictures/Used.png",
+      "required": [
+        "img/pictures/used"
+      ],
+      "keep": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "extension case differs",
+      "file": "img/pictures/Used.PNG",
+      "required": [
+        "img/pictures/Used"
+      ],
+      "keep": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "unlisted plugin JS",
+      "file": "js/plugins/Plugin.js",
+      "required": [],
+      "keep": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "strip disabled",
+      "file": "img/pictures/Unused.png",
+      "required": [],
+      "strip": false,
+      "keep": true,
+      "actual": true,
+      "passed": true
+    }
+  ],
+  "allPassed": true
+}
