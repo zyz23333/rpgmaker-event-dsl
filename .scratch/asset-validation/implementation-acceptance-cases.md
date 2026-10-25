@@ -3,6 +3,7 @@
 所属规格：[事件素材文件存在性检查实施规格](asset-validation-spec.md)
 规范预期：[已接受的验收矩阵](acceptance-matrix.md)
 建立日期：2026-10-24
+修订日期：2026-10-25（设计减重；以下现行预期取代旧版本）
 
 本附件为已接受的 97 个用例族分配有穷的子用例标识、fixture 和执行入口，供实施时逐项落实。**所有子用例当前均为计划，未实施／执行。** 以下事实预期来自已决契约，不能由产品收集器、判定器或诊断策略生成。
 
@@ -10,7 +11,7 @@
 
 完整标识为 `AV.<族>.<分支>.<表示>.<字段>.<结果>`。表中逗号分隔的值须逐个展开，斜线只在正文中描述关系；多列均有备选值时取表内明确要求的组合，不能任选代表值。没有适用维度时使用 `base`、`native`、`case`、`expected` 四个固定默认值。每格列出的 token 是确定值，不是让实施方日后再选择的占位符；表明只配对的场景不做无意义笛卡尔积。
 
-例如直接显示图片缺失的两个实例是 `AV.A07.base.formal.p1.missing` 和 `AV.A07.base.raw.p1.missing`；它们分别对照独立预期。页图像无 raw 命令实例；自主移动也不虚构 raw 页或未知移动指令接口。新增回归用例沿族追加唯一分支，不覆盖旧标识。
+例如直接显示图片缺失的两个实例是 `AV.A07.base.formal.p1.missing` 和 `AV.A07.base.raw.p1.missing`；它们分别对照独立预期。页图像无 raw 命令实例；自主移动也不虚构 raw 页或未知移动指令接口。新增回归用例沿族追加唯一分支。此次尚未实施的设计修订保留族 ID，撤销的分支由下表的新分支替代；旧版本分支不再是实施要求。
 
 公共输入与规则：
 
@@ -20,8 +21,8 @@
 - System 提供所需 optSideView、标题、BGM／ME 及 sounds 槽 7／9；未被选中的字段可以另用有意损坏值证明不解释它们。普通文件默认准确存在，加密标志为 false。每个到达字段的素材名由用例标识与字段标记组成，基本变体之间不共享文件。
 - A／B 的 `present` 变体全部所需文件存在；`missing` 只删除当前字段的文件，其余字段仍正常。多次使用同名、同目标不同级别等只在专门的共享用例中构造。
 - A／B 的普通使用缺失为 error；明确标注的候选为 warning，明确非活动由 C／D 另测。原生执行条件本身不把普通使用改成候选。
-- 每个 A／B 实例核对完整使用集合、原名、类别、具体保存位置、链、条件及诊断，而非只检查一个 expected message。所有失败都核对各操作允许改变和必须保持的文件／同步状态。
-- 每个回执记录完整 ID、上游族及决策出处、具体输入／字段、时机、独立预期、实际结果、环境、方式、责任和证据位置。自动化由实施方执行；N 组由实施方准备并尽可能执行，必要人工由维护者执行，最终验收由维护者确认。
+- 每个 A／B 实例核对完整使用集合、原名、类别、具体保存位置、事件内链、直接调用关系、条件及诊断，而非只检查一个 expected message。所有失败都核对各操作允许改变和必须保持的文件／同步状态。
+- 自动化可从独立用例数据与执行结果生成回执，避免另建重复手工台账；每个回执记录完整 ID、上游族及决策出处、具体输入／字段、时机、独立预期、实际结果、环境、方式、责任和证据位置。自动化由实施方执行；N 组由实施方准备并尽可能执行，必要人工由维护者执行，最终验收由维护者确认。
 
 ## A. 直接使用：18 族
 
@@ -68,8 +69,8 @@
 | B12 | return-title | title1,title2,title-bgm | 各字段独立；不展开标题 UI |
 | B13 | battle-system | battle-bgm,victory-me,defeat-me,start-se | 前三者候选；start-se 为槽 7 且保留地图启动条件 |
 | B14 | map-battle-background | battleback1,battleback2 | 两个宿主地图背景候选，不使用 Battle Test 字段 |
-| B15 | call-common | called-picture | 固定当前 Common Event 内一处普通图片，链含调用位置 |
-| B16 | skill-common-effects | effect0-picture,effect1-picture | 两个保存 effect 分别展开；与正动画路径共存，不因 reservation 覆盖丢弃 |
+| B15 | call-common | called-picture | 目标 Common Event 的素材定义位置独立核对，直接调用位置另记，不复制使用 |
+| B16 | skill-common-effects | effect0-picture,effect1-picture | 两个不同目标各自独立检查并保留各 effect 关系；同目标重复 effect 由 C04 验证不重复使用；正动画路径共存 |
 
 B02／B08 使用上述九个非空槽的合法基础 Tileset；C06 另证明合法空槽不查询。关系若在当前测试表达中已由完整原生结构验证拒绝，不得靠坏 fixture 使本组“缺文件”变成提前引用错误。
 
@@ -81,9 +82,9 @@ B02／B08 使用上述九个非空槽的合法基础 Tileset；C06 另证明合�
 | --- | --- | --- |
 | C01 | map-pages,common-uncalled,troop-pages,nested-choice,nested-loop | 三类当前根、多个页及嵌套体均有可定位使用；普通缺失 error；不依赖运行可达性 |
 | C02 | removed-map,removed-common,reset-troop | 旧快照保留缺图但当前已移除；不补回素材根，不改变删除／重置规则 |
-| C03 | route-mirror,independent-command,repeated-checkpoint | 205／505 一次，另一个命令独立；重查不增加逻辑次数；分别验证图像和 SE（字段 token 为 image,se） |
-| C04 | two-callers,common-independent-root,repeated-enemy,repeated-tileset-name | 共用文件查询但每个调用、根、成员、槽来源保留 |
-| C05 | self-cycle,mutual-cycle,long-acyclic,dynamic-target,known-sibling | 当前链闭环停；预设 12 跳无环链完整保留，测试不得因此实现统一 12 层上限；动态不当成功，已知兄弟关系继续 |
+| C03 | route-mirror,independent-command,repeated-command | 205／505 一次，另一真实命令独立；新命令检查不累计使用次数；图像和 SE 字段分别为 image,se |
+| C04 | two-callers,common-independent-root,repeated-enemy,repeated-tileset-name,repeated-common-effect | 公共事件定义使用只计一次，所有直接调用点独立保留；成员／槽是真实不同路径而各计一次；文件查询可共享 |
+| C05 | self-cycle,mutual-cycle,long-acyclic,shared-dag,dynamic-target,known-sibling | 循环不递归展开、不新增循环诊断；12 跳链及多层双调用共享图只核对全部定义位置和直接边，使用次数不按路径增长；动态不当通过，已知兄弟关系继续 |
 | C06 | none-direct,none-indirect,default-page-image,default-page-route,saved-audio-controls,saved-image-index | none-direct 字段展开 A 表全部素材字段和两种路线容器，使用各字段既有合法 None 编码；none-indirect 展开 B 表原生允许空值的到达字段（动画图／SE、Tileset 槽、Enemy／Actor 名称、Map 图像／音频、System 名称），不把缺字段当空值；默认仅在已有可选字段应用；音频／索引非默认独立值保留 |
 | C07 | target-missing,field-missing,field-wrong-type,field-empty,file-missing | 字段问题／合法空／缺文件对 B 表到达字段分别变体；target-missing 只用于有固定数据库目标的关系，System 直接保存字段使用 field-missing，不虚构固定引用；只损坏当前关系必要位置，非法空编码仍按原输入规则失败 |
 | C08 | route-fixed,route-random,route-approach,tile-with-character,autoplay-bgm-off,autoplay-bgs-off,battleback-off,false-page-condition,unreached-branch | 保存名称仍收集；前七种明确非活动按政策 warning；页条件／分支推演不降级，候选与非活动原因都保留 |
@@ -125,15 +126,15 @@ F07 的字符和设备名实例把具体 Unicode 编号／设备名追加到字�
 | 族 | 分支 token 与有穷组合 | 预期 |
 | --- | --- | --- |
 | D01 | ordinary,candidate,inactive × missing,name-mismatch,wrong-type | ordinary 为 error，其余 warning；采用下方明确配对的表示，不虚构直接候选或 raw 页 |
-| D02 | unsupported-name,unsupported-link,encrypted,required-field,unqueryable,inconsistent × ordinary,candidate,inactive,exception | 全部 error；另设 reference-error、structure-error、script-gate 三支验证既有错误不被例外绕过 |
+| D02 | unsupported-name,unsupported-link,encrypted,required-field,unqueryable,inconsistent × ordinary,candidate,inactive,exception | 前三类在 candidate／inactive 为 warning + 未检查，ordinary／exception（普通使用加例外）为 error；其余全部 error；另设 reference-error、structure-error、script-gate 保留既有错误；inconsistent 限单次查询 |
 | D03 | eligible × missing,name-mismatch,wrong-type；exact-namespace,case-distinct,space-distinct,suffix-distinct,encoding-distinct | 三类 error 可降级并保留原因；同目标 formal／raw／间接多来源均生效；不同准确键不误匹配 |
 | D04 | invalid-category,invalid-folder,category-folder-mismatch,empty-name,missing-name,missing-reason,blank-reason,duplicate,unknown-field | 配置 error，指出配置项，不最后覆盖；后续检查未运行不得写成通过 |
 | D05 | repaired,unused,warning-only,incomplete | 完整无降级时 warning 定位配置项；incomplete 不下无用例外结论；不改配置 |
 | D06 | mixed-levels,multiple-files,same-file-two-groups | 组取最高有效级别而保留成员；分别数组／文件／使用；最后一支为独立内部聚合输入，不伪造同时磁盘状态 |
 | D07 | shared-directory-failure,shared-field-failure,invalid-target | 共同失败关联所有来源，无合法目标不制造路径或已确认缺失文件 |
 | D08 | independent-results,early-config,early-structure,early-reference | 独立错误／warning 均保留；早期输入不可信明确未运行，不强求穷尽 |
-| D09 | map-page,nested-body,route,common-chain,repeated-chain,reliable-source,unknown-source | 标识／阶段／原名／搜索依据及完整链可核对；有可靠源码才给行列 |
-| D10 | cli-error,cli-warning,cli-exception,cli-dynamic,cli-cycle,cli-incomplete | 退出及可获取的信息符合政策，不锁死无意义排版 |
+| D09 | map-page,nested-body,route,common-definition,shared-callers,reliable-source,unknown-source | 定义位置、事件内链和每个直接调用点可核对；使用计数不按调用路径增长；有可靠源码才给行列 |
+| D10 | cli-error,cli-warning,cli-exception,cli-dynamic,cli-cycle-relations,cli-unchecked-warning,cli-query-failure | 循环关系不产生循环诊断；支持范围 warning 标记未检查且可成功，查询失败 error；退出及来源信息符合政策 |
 
 ### D01 的表示约束
 
@@ -146,17 +147,17 @@ ordinary 的表示展开 `direct-formal,direct-raw,indirect-formal,indirect-raw`
 | 族 | 确定分支 token | 时机与最终状态预期 |
 | --- | --- | --- |
 | W01 | initial,fresh,stale × success,error,warning | 表示 api,cli；Check 不发布、不刷新 Manifest／Freshness、不写项目 |
-| W02 | delete-before-return,repair-warning-before-return,stable-warning | Check 首次观察后、完成边界变化即失败，稳定 warning 成功 |
-| W03 | error-before-publication,change-before-publication | Compile 发布前失败，无本次输出，项目不变 |
-| W04 | asset-change-before-manifest,publication-io-failure | 本地发布已开始时失败按无效状态边界处理；成功重编译才能继续 |
-| W05 | error-before-first-replacement,change-after-staging | Push 写前失败，不开始项目替换，允许既有本地准备状态 |
-| W06 | delete-after-writes,change-after-writes | 全部 data 写后、记账前失败留 pending，不回滚；明确已写状态 |
+| W02 | delete-before-gate,repair-before-gate,delete-after-check,stable-warning | Check 唯一素材门槛前按当前事实判定；检查后到返回不再查询素材，下次命令可失败；Check 只读 |
+| W03 | error-at-gate,repair-before-gate | Compile 门槛 error 不发布；门槛前修复可成功，不产生变化错误；项目不写 |
+| W04 | delete-after-check-before-manifest,publication-io-failure | 素材检查后删图不追加扫描且可成功发布；独立 I/O 失败仍按原无效状态边界处理 |
+| W05 | error-after-staging,repair-after-staging | 暂存后的唯一素材门槛按当前事实判定；error 不替换、不创建本次 pending；补齐可通过 |
+| W06 | delete-after-writes,type-change-after-writes | data 写后只改素材，不追加扫描，正常完成记账且无 pending；再运行无差异 Push 按当前事实失败 |
 | W07 | no-diff-asset-error,no-diff-data-drift | 无差异也检查；单纯素材错误无 pending；标准漂移仍优先拒绝 |
 | W08 | delete-diff-push-repair | 同一序列：Compile 后删图，Diff 不查；Push 失败，补图后其他输入未变可直接重试 |
 | W09 | animation-rename-unpulled,tileset-rename-unpulled,after-pull-recompile | 旧快照用于 Compile，Push 漂移拒绝；Pull 失效旧输出，重编译用新名 |
 | W10 | content,size,mtime,file-identity,unrelated-directory-entry | 必要存在性事实不变，操作不因这些变化失败；不读媒体内容 |
-| W11 | presence,case-match,path-type,path-link,queryability,failure-location,improvement | 每支在 Check 完成前、Compile 发布前、Compile Manifest 前、Push 写前、Push 记账前分别验证（字段 token 为相应边界）；相关变化均要求重跑 |
-| W12 | same-point-reuse,next-point-fresh,next-command-fresh | 多来源保留；新点／命令新观察；不锁死调用次数、不重复逻辑使用 |
+| W11 | presence,case-match,path-type,path-link,queryability,failure-location,improvement | 每支在素材查询开始前制造变化；字段 check-gate,compile-gate,push-gate，分别只判断当前事实；改善可成功，允许 warning 也可成功，无跨点比较；查询内失败归 F12 |
+| W12 | same-pass-reuse,next-command-fresh | 多定义使用及直接调用点保留；新命令取得当前事实，不读历史成功缓存、不按路径复制使用、不锁定 syscall 次数 |
 | W13 | source,validation-dependency,config,exception,snapshot,generated,binding | 各分支在 Push 写前及记账前分别变更（字段 prewrite,postwrite）；停止或 pending，不半途采用新输入，合法自身写入不误判 |
 | W14 | exception-change,pull,rebind,contract-change,check-does-not-refresh | 基线过期需重编译；Check／恢复／素材通过不能升级旧输出；根别名规则保留 |
 | W15 | all-generated-missing-asset,all-snapshot,mixed,missing,unknown | 全生成可完成记账后当前失败而不重新留 pending；全旧放弃后正常检查；其他拒绝自动恢复 |
@@ -164,9 +165,9 @@ ordinary 的表示展开 `direct-formal,direct-raw,indirect-formal,indirect-raw`
 | W17 | clone,pull,decompile,diff | 缺素材不新增文件门槛，原有数据／表达／新鲜度规则保持 |
 | W18 | concurrent-workspace,pending-non-push,pending-rebind | 互斥与原绑定恢复保持，不新增跨 Workspace 协调 |
 | W19 | compile-success,compile-failure,push-success,push-failure,recovery | 仅允许各操作的数据／元数据变更；素材不进快照、备份、复制、写入，必要字段只读 |
-| W20 | generated-roots-and-chains,no-dsl-reevaluation,no-historical-report | 生成事件重建含当前公共事件及完整链、排除旧快照已移除根；模块求值哨兵证明不重跑 DSL；新操作实际查文件 |
+| W20 | generated-roots-and-relations,no-dsl-reevaluation,no-historical-report | 从生成事件重建定义内使用、事件内链和直接调用关系；共享／循环不展开全部路径，排除旧快照移除根；哨兵证明不重求值 DSL；新命令实际查询 |
 
-W11 对改善的 fixture 使用已允许 warning 的稳定初始状态，使流程能够到达后续边界；普通 error 已在前面终止时不能伪称测试了末端检查。W13 的改动不混淆当前绑定项目与其他项目。W15／W16 保留独立构造的 pending 证据及真实中断先例，不能调用被测恢复决策生成预期状态。
+W11 的变化发生在唯一素材门槛的查询开始前，不构造并不存在的首轮素材检查；改善分支可从缺失恢复到准确文件，按当前事实通过。W04／W06 则在素材检查后只改素材，用于证明不做后续复查。W13 的改动不混淆当前绑定项目与其他项目。W15／W16 保留独立构造的 pending 证据及真实 data 中断先例；pending 不能由写后素材变化制造，仍需覆盖原有数据恢复条件，不能调用被测恢复决策生成预期状态。
 
 ## N. 原生必验：6 族
 
@@ -183,6 +184,6 @@ W11 对改善的 fixture 使用已允许 warning 的稳定初始状态，使流�
 
 ## 覆盖与执行交接
 
-本表包含 A 18、B 16、C 13、F 14、D 10、W 20、N 6，共 97 个族；与已接受矩阵逐族对应。完整子用例标识由上述有限展开唯一确定。实施方将其写入测试名称和验收回执；可以参数化组织、共用 fixture，但不得减少任何已列字段、分支或指定边界。
+本表包含 A 18、B 16、C 13、F 14、D 10、W 20、N 6，共 97 个族；与已接受矩阵逐族对应。完整子用例标识由上述有限展开唯一确定。实施方将其写入测试名称和验收回执；可以参数化组织、共用 fixture，但不得减少本次修订后仍列出的字段、分支或指定边界。撤销的跨点素材比较与全传递路径预期不再执行。
 
 类别组合、控制字符、合法空字段等枚举须独立按上游契约转录；该转录是测试数据准备，不是新增政策。因能力不足未执行的真实案例保留缺口并安排补验。产品验收前交付每项实际状态、证据及任何反例处理结果；在此之前本索引的计划身份不变。

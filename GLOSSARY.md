@@ -205,11 +205,11 @@ A category-specific helper for creating an Asset Reference with an explicit RPG 
 _Avoid_: generic assetRef, imgRef, per-folder helper, Project Data Reference helper
 
 **Event Asset Use**:
-An occurrence of a named RPG Maker MV asset in supported event saved state, or reached from an event operation through known standard project data relationships. Each occurrence retains its event origin independently of other uses of the same asset, including when its saved configuration is inactive.
+An occurrence of a named RPG Maker MV asset in supported event saved state, or reached from an event operation through known standard project data relationships. Its origin is the defining event and saved field or event-local dependency, independently of filename sharing, inactive configuration or the number of callers of that event.
 _Avoid_: unique asset file, Asset Reference, guaranteed runtime load
 
 **Asset Dependency Chain**:
-The ordered standard project data relationships connecting an event operation to an indirect Event Asset Use, identifying the intervening entries and asset-bearing field. The chain describes why the asset is associated with that operation without itself guaranteeing execution.
+The ordered standard project data relationships connecting an operation in the defining event to an indirect Event Asset Use, identifying the intervening entries and asset-bearing field. The chain explains the local dependency without concatenating transitive Common Event caller paths or guaranteeing execution.
 _Avoid_: whole-database asset scan, Project Data Reference, asset ownership
 
 **Conditional Asset Candidate**:

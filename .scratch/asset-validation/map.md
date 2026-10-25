@@ -10,37 +10,24 @@ Status: resolved
 
 ## Notes
 
-- 用户于 2026-10-20 确认：本轮终点是厘清设计，为可实施的规格铺路；重点是事件引用的图片、音频、影片等素材是否有效。
-- 用户随后明确首版只规划文件存在性，不规划图片尺寸、脸图或行走图索引与实际布局的匹配。
-- 事件自身保存的直接素材引用继续纳入：事件页图像、指令、嵌套分支与 Movement Route；可识别的原生 Raw DSL Command 应遵守同样规则。确切检查位置、未启用保存状态、None 和未知负载边界已由票 02 的完整 Answer 确认。
-- 用户于 2026-10-20 在澄清数据库条目存在性与其素材存在性的区别后，明确要求将“事件可静态追踪的间接素材依赖”纳入首版规划，替代最初只查直接引用的范围选择。以事件实际引用的目标为起点，沿已知标准数据关系追踪；播放动画所用的图片与 SE、更换图块组所用的图块图片作为覆盖讨论用例，不自动扫描整个数据库。
-- 引用某个项目数据条目不等于所选事件操作会加载其全部素材。例如修改角色 HP 不能直接成为检查该角色全部图像并阻断编译的依据。票 02 已确认有限关系清单、Conditional Asset Candidates、逐次来源和动态／循环停止点；纯粹同条目关联不纳入。后续已接受的级别与例外政策见[素材检查结果如何诊断并影响编译](issues/04-asset-diagnostics-and-policy.md#answer)。
-- 用户确认优先融入 Compile 与 Compile Check；其默认检查、严重性和逐素材例外已由[素材检查结果如何诊断并影响编译](issues/04-asset-diagnostics-and-policy.md#answer)逐项及整体确认，不再从“融入工作流”推断政策。[工作流票](issues/05-workspace-asset-check-lifecycle.md#answer)已确认 Compile／Check 的完成边界重查、Push 写入前后及无写入情形的当次检查；实时素材条件与 Generated Freshness 分开，未引入素材快照。
-- 使用 GLOSSARY.md 的 Asset Reference 与 Project Data Reference 术语。直接素材引用仍是 DSL Asset Reference；间接素材来自所引用标准项目数据中的素材字段，不把这些原生字段改称或改写成 DSL Asset Reference，也不重做现有项目数据条目的引用解析。
-- 延续当前 Windows / Node.js 22 和 RPG Maker MV 1.6.1 范围，不在本地图引入其他平台或引擎版本的兼容承诺。
-- 每次继续前读取 wayfinder、docs/agents/issue-tracker.md、docs/agents/domain.md 与 GLOSSARY.md；设计票使用 grilling 与 domain-modeling，研究票使用 research。HITL 票必须由用户实际参与；一次会话最多解决一张设计票，研究票除外。
-- 当前基线：素材 helper 及命令校验只检查结构、类别与非空 filename stem；普通 Compile 与 Compile Check 共用项目校验路径，尚无素材磁盘存在性检查。已有引用收集器不等同于包含来源位置和已识别 raw 参数的完整素材使用清单。
-- [ADR 0016](../../docs/adr/0016-event-rooted-asset-use-coverage.md) 已接受事件起点的有限素材覆盖，并修订 [ADR 0011](../../docs/adr/0011-native-command-state-and-validation.md) 原有“文件不扫描”的设计边界；[ADR 0017](../../docs/adr/0017-exact-asset-file-existence-in-editing-projects.md) 已接受普通编辑项目的准确文件匹配与元数据存在性契约；[ADR 0018](../../docs/adr/0018-asset-check-diagnostics-and-explicit-exceptions.md) 已接受诊断与显式逐素材例外政策；[ADR 0019](../../docs/adr/0019-asset-checks-at-workflow-boundaries.md) 已接受输入一致性、工作流检查点、变化判据与恢复边界。尺寸检查继续排除；不能把设计完成写成已实现扫描功能。
-- [ADR 0012](../../docs/adr/0012-event-saved-state-roundtrip-boundary.md) 的保存状态与已识别 raw 校验边界继续适用；[ADR 0013](../../docs/adr/0013-bind-generated-data-to-compilation-assumptions.md) 已接入工作流决定：素材政策属于编译基线，实时文件观察不属于；Push 重建生成事件及对应快照的素材使用，在写入边界检查文件、捕获输入和绑定。素材不进入 Standard Project Data Snapshot、复制、备份或 Push 写入范围，既有标准 data 漂移与恢复内容检查继续有效。
-- 间接检查只按已知消费位置读取必要的标准项目数据字段，不扩展 DSL-Owned Project Data 或写入权限；外部素材字段及必要 System 设置使用同一份捕获快照，文件查询使用绑定的实时 Project Root。不混读实时标准 data，不演变为外部条目全部字段或插件私有数据的通用校验。
-- Diff 不扫描实时素材，Clone／Pull／DSL Decompilation 不增加素材文件门槛。操作内相关文件观察改变须重跑；仅内容、修改时间、文件身份或无关目录项改变不单独失效。写后失败保留 Interrupted Push，可证明已完成的 data 写入仍可恢复记账，之后再判当前素材，恢复本身不证明素材通过。检查点与同 Workspace 互斥不构成跨进程原子隔离。
-- 本地 tracker 使用 Type / Labels 表示票类型，Status: open / claimed / resolved 表示 wayfinding 状态，不使用 triage 标签。Blocked by 使用本目录内的票号；按编号选取未解决、未认领且前置均已 resolved 的票。开放票通过 issues/ 元数据查询，不在本地图正文重复列出。
-- 研究可以使用本地 references/ 内的首方帮助、模板与 MV 1.6.1 runtime；逐条区分文档、静态代码与实际运行观察。研究报告保留出处，不发布原生源码或游戏资产副本。
-- 研究使用独立的临时 research/<name> 分支，仅推送自写研究 Markdown，不开 PR、不合并。研究结果作为票内上下文输入，不代替用户对支持范围的选择。
-- 已完成的原生文件定位研究按最初直接引用范围交付，其目录、文件名和扩展名事实可供间接素材复用；它本身没有证明标准数据依赖边或操作相关性完整。票 02 已补充所选关系的首方静态消费依据；没有据此宣称运行时所有依赖均已覆盖。
-- 用户在原版部署排除范围研究后确认继续采用事件起点，原版字段清单只用于查漏，不采用原版全库扫描起点；首版不接入插件显式素材声明、typed 参数或声明的备注字段。票 02 的 Q1–Q14 与合并 Answer 已于 2026-10-20 完整确认，票已 resolved；后续决策以上述覆盖契约为输入。
-- 用户于 2026-10-24 最终确认[验收与实施规格交接契约](issues/06-asset-validation-acceptance.md#answer)及[验收矩阵](acceptance-matrix.md)。全部子票与本地图均已 resolved，表示设计路线已完成、可编写实施规格；产品实现、自动化与原生必验仍待后续执行，不把设计完成等同于产品验收。
+- 现行设计已按用户于 2026-10-25 的“调整一下”修订，依据前一轮过度设计评审；此前 Comments 中的确认是历史，当前 Answer、ADR 和实施规格已同步。
+- 首版仍为 Windows / Node.js 22、RPG Maker MV 1.6.1 普通编辑项目的文件存在性检查。事件直接引用、已识别 raw 和有限标准数据间接关系保留；图片尺寸、解码和播放保证继续排除。
+- 所有当前 Map／Common／Troop Event 独立检查。素材保留定义位置和事件内 Asset Dependency Chain，公共事件保留直接调用位置；不再枚举所有传递调用路径，调用数量不放大素材使用次数，循环关系不另生成停止诊断。见 [ADR 0016](../../docs/adr/0016-event-rooted-asset-use-coverage.md)。
+- 普通使用的确认文件问题默认 error，候选／明确非活动配置为 warning。名称／链接／加密不受支持时，候选／非活动同样 warning 并标记未检查；坏字段、固定引用与实际查询失败仍 error。逐素材例外仍只降级已确认文件问题。见 [ADR 0017](../../docs/adr/0017-exact-asset-file-existence-in-editing-projects.md)／[0018](../../docs/adr/0018-asset-check-diagnostics-and-explicit-exceptions.md)。
+- Compile／Check 在完整候选校验后、发布或返回前检查一次；Push 暂存后、pending 和首次 data 替换前检查一次，无写入 Push 也检查。取消跨检查点素材比较、改善也失败、Manifest 前和 Push 写后素材复查。见 [ADR 0019](../../docs/adr/0019-asset-checks-at-workflow-boundaries.md)。
+- 素材可用性与 data 同步分开：写后素材变化不创建或保留 pending；真正 data／编译依据异常仍沿既有保护和恢复。实时素材不进 Compile Baseline，政策进入；Diff、Clone、Pull、Decompilation 不新增文件门槛。
+- 事件、外部必要字段和 System 设置使用同一捕获视图；素材查询使用绑定实时 Project Root。素材不进入快照、复制、备份或写入；不扩大 DSL-Owned Project Data 或外部数据校验范围。
+- 文件定位研究及原生部署范围研究仅是事实依据；采用事件起点，不改用原版全库扫描。原生研究不等于产品验收。
+- 设计和交接已完成，地图及六张票保持 resolved；[实施规格](asset-validation-spec.md)保持 ready-for-agent。[验收矩阵](acceptance-matrix.md)及[子用例索引](implementation-acceptance-cases.md)已按修订更新，产品实现、自动化和原生必验仍待执行。
 
 ## Decisions so far
 
-<!-- 只索引已解决的决策票。建图阶段确认的目的与边界见 Notes。 -->
-
-- [MV 原生素材名称如何定位到项目文件](issues/01-native-asset-file-resolution.md#answer)：已记录 MV 1.6.1 的原生文件定位与部署差别、Windows 名称事实及未实测边界，供支持政策票决策。
-- [事件直接与间接素材依赖的检查边界如何统一](issues/02-direct-asset-reference-coverage.md#answer)：以全部当前事件定义为独立起点，覆盖选定直接字段与有限标准数据关系；保存未启用配置也检查，保留逐次来源、条件候选和公共事件链，动态目标／循环处有界停止；排除全库、插件声明和引擎硬编码素材扩展。领域覆盖设计已完成，诊断与工作流未预设；见 ADR 0016。
-- [素材文件存在性应如何判定](issues/03-asset-file-existence-contract.md#answer)：普通编辑项目按准确目录／名称及固定桌面扩展名匹配，普通文件元数据确认即可，不强制打开；单层名称、链接和加密边界明确，缺失、名称不符、类型问题与无法检查分开记录，保留全部使用来源。见 ADR 0017。
-- [素材检查结果如何诊断并影响编译](issues/04-asset-diagnostics-and-policy.md#answer)：两种编译默认检查，明确使用的已确认文件问题默认 error，候选／非活动配置默认 warning；仅允许带原因的逐素材文件问题降级，不豁免支持边界或无法检查。保留逐次来源、分组与不完整检查状态。见 ADR 0018。
-- [素材检查如何接入 Compile 与 Push 并保持结果有效](issues/05-workspace-asset-check-lifecycle.md#answer)：标准数据采用一致捕获视图，文件查询绑定实时项目；Compile／Check 完成边界及 Push 写入前后重查，无写入 Push 也检查。实时素材条件不进入持久编译基线，Diff／接管不新增文件扫描；仅比较存在性相关变化，逐检查点取得新观察。写后失败留 pending，恢复记账与当前素材判断分开，保留同步、绑定和非原子性边界。见 ADR 0019。
-- [如何验收素材存在性检查并交接实施规格](issues/06-asset-validation-acceptance.md#answer)：确定独立预期、逐项覆盖与关键组合，形成七组验收矩阵；明确 Windows 实测／注入、有限原生必验及证据责任、诊断与工作流断言、反例处理和实施顺序。设计交接已完成，产品验收须以后续实际执行结果另行确认。
+- [01 原生文件定位](issues/01-native-asset-file-resolution.md#answer)：MV 1.6.1 目录、文件名、扩展名和部署差异的研究依据。
+- [02 覆盖与来源](issues/02-direct-asset-reference-coverage.md#answer)：有限直接／间接字段，定义事件内来源和直接公共事件调用关系；不枚举传递调用链。见 [ADR 0016](../../docs/adr/0016-event-rooted-asset-use-coverage.md)。
+- [03 文件事实](issues/03-asset-file-existence-contract.md#answer)：准确单层名称、固定桌面扩展名、普通文件元数据及链接／加密边界；单次查询失败与缺失分开。见 ADR 0017。
+- [04 诊断政策](issues/04-asset-diagnostics-and-policy.md#answer)：普通使用严格，候选／非活动的文件问题及支持范围问题 warning；支持范围警告标记未检查，输入／查询失败仍 error。见 [ADR 0018](../../docs/adr/0018-asset-check-diagnostics-and-explicit-exceptions.md)。
+- [05 工作流](issues/05-workspace-asset-check-lifecycle.md#answer)：一次当前素材门槛、每条新命令重新查询、与 data 写入恢复解耦；保留编译输入和标准 data 保护。见 [ADR 0019](../../docs/adr/0019-asset-checks-at-workflow-boundaries.md)。
+- [06 验收交接](issues/06-asset-validation-acceptance.md#answer)：逐字段、来源、文件事实、诊断、工作流及有限原生必验；按收缩后的契约更新预期，所有产品验收仍待执行。
 
 ## Not yet specified
 
@@ -106,3 +93,9 @@ Status: resolved
 ### 2026-10-24 — 实施规格已发布
 
 用户在验收票完成后调用 to-spec，要求编写规格。已将六票 Answer、ADR 0016–0019、验收矩阵及现有 Workspace／CLI 接入点合成为[事件素材文件存在性检查实施规格](asset-validation-spec.md)，状态为 ready-for-agent，并附[实施验收子用例索引](implementation-acceptance-cases.md)。规格沿用验收票已确认的测试入口，细化配置、内部职责、稳定诊断标识及实施顺序；没有重新访谈或修改已决产品政策。本地图继续 resolved，表示设计交接完成；产品代码、自动化和原生必验仍待实施／执行。
+
+### 2026-10-25 — 过度设计评审后的收缩
+
+用户要求按评审调整。已修订 ADR 0016／0018／0019，并同步 ADR 0006、0011–0013、0017、GLOSSARY、票 02–06、实施规格及两份验收材料。主要撤销多检查点素材事实相等、改善也失败、写后素材 pending 和全传递调用链展开；候选／非活动中的不支持形式改为 warning + 未检查。实际字段覆盖、文件定位规则、data 一致性／恢复及原生必验保留。
+
+当前正文与各票 Answer 为现行设计，历史确认不再作为被替代规则的实现要求。本次只修订文档；地图继续 resolved，实施规格继续 ready-for-agent，不宣称产品实现或验收完成。
