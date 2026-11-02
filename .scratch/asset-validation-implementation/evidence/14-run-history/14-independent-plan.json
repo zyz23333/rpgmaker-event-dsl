@@ -1,0 +1,965 @@
+{
+  "status": "independent-plan-not-an-execution-result",
+  "authorityRevision": "1f01ba534e5eee1047a1f3cc6665370924707f32",
+  "finalPlan": {
+    "path": "M:\\Shuen\\Codex\\asset-validation-notes\\final-canonical-id-plan.json",
+    "sha256": "869c6752eedb1997e0ccbca5e3bce81c74122ce68f4600c970822ce37b9841b6"
+  },
+  "originalPlan": {
+    "path": "M:\\Shuen\\Codex\\asset-validation-notes\\planned-acceptance-ids-12-16.json",
+    "sha256": "c9c9a5739ccc2e666ae1fdafc77273c311d0fb44b96e5525519fc53672ba113c"
+  },
+  "primaryIds": [
+    "AV.C13.push-success.formal.case.expected",
+    "AV.W05.error-after-staging.api.case.expected",
+    "AV.W05.error-after-staging.cli.case.expected",
+    "AV.W05.repair-after-staging.api.case.expected",
+    "AV.W07.no-diff-asset-error.api.case.expected",
+    "AV.W07.no-diff-asset-error.cli.case.expected",
+    "AV.W07.no-diff-data-drift.api.case.expected",
+    "AV.W08.delete-diff-push-repair.api.case.expected",
+    "AV.W08.delete-diff-push-repair.cli.case.expected",
+    "AV.W11.case-match.api.push-gate.expected",
+    "AV.W11.failure-location.api.push-gate.expected",
+    "AV.W11.improvement.api.push-gate.expected",
+    "AV.W11.path-link.api.push-gate.expected",
+    "AV.W11.path-type.api.push-gate.expected",
+    "AV.W11.presence.api.push-gate.expected",
+    "AV.W11.queryability.api.push-gate.expected",
+    "AV.W13.binding.api.prewrite.expected",
+    "AV.W13.config.api.prewrite.expected",
+    "AV.W13.exception.api.prewrite.expected",
+    "AV.W13.generated.api.prewrite.expected",
+    "AV.W13.snapshot.api.prewrite.expected",
+    "AV.W13.source.api.prewrite.expected",
+    "AV.W13.source.cli.prewrite.expected",
+    "AV.W13.validation-dependency.api.prewrite.expected",
+    "AV.W19.push-failure.api.case.expected",
+    "AV.W19.push-success.api.case.expected",
+    "AV.W20.generated-roots-and-relations.api.case.expected",
+    "AV.W20.generated-roots-and-relations.cli.case.expected",
+    "AV.W20.no-dsl-reevaluation.api.case.expected",
+    "AV.W20.no-historical-report.api.case.expected"
+  ],
+  "supportingIds": [
+    "AV.W12.next-command-fresh.api.case.expected"
+  ],
+  "cases": [
+    {
+      "id": "AV.W05.error-after-staging.api.case.expected",
+      "family": "W05",
+      "branch": "error-after-staging",
+      "representation": "api",
+      "field": "case",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "Staging complete; sole Push asset gate before creating this pending state and before first data replacement",
+      "expected": {
+        "currentPush": "Ordinary effective asset error blocks all data replacement.",
+        "requiredPause": "The controlled mutation/query must occur before pending creation; a later prewrite pause is insufficient to prove no pending."
+      },
+      "stateProfileRefs": [
+        "pushAssetBeforeWriteError",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:163"
+    },
+    {
+      "id": "AV.W05.error-after-staging.cli.case.expected",
+      "family": "W05",
+      "branch": "error-after-staging",
+      "representation": "cli",
+      "field": "case",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Actual CLI subprocess, controlled at real OS/IPC boundary where needed",
+      "boundary": "Staging complete; sole Push asset gate before creating this pending state and before first data replacement",
+      "expected": {
+        "currentPush": "Ordinary effective asset error blocks all data replacement.",
+        "requiredPause": "The controlled mutation/query must occur before pending creation; a later prewrite pause is insufficient to prove no pending."
+      },
+      "stateProfileRefs": [
+        "pushAssetBeforeWriteError",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:163"
+    },
+    {
+      "id": "AV.W05.repair-after-staging.api.case.expected",
+      "family": "W05",
+      "branch": "repair-after-staging",
+      "representation": "api",
+      "field": "case",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "Staging complete, restore exact file before sole Push asset query begins",
+      "expected": {
+        "currentPush": "Proceed using current valid facts if integrity/freshness/drift/input guards pass.",
+        "noChangeError": "Do not compare to a fabricated earlier asset pass."
+      },
+      "stateProfileRefs": [
+        "pushSuccess",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:163"
+    },
+    {
+      "id": "AV.W07.no-diff-asset-error.api.case.expected",
+      "family": "W07",
+      "branch": "no-diff-asset-error",
+      "representation": "api",
+      "field": "case",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "Push has no Affected Project Data Files; existing prerequisites passed; sole gate before return",
+      "expected": {
+        "currentPush": "Still query assets and fail on ordinary effective error.",
+        "generatedFreshness": "Asset deletion alone does not stale generated bytes."
+      },
+      "stateProfileRefs": [
+        "pushNoWriteError",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:165"
+    },
+    {
+      "id": "AV.W07.no-diff-asset-error.cli.case.expected",
+      "family": "W07",
+      "branch": "no-diff-asset-error",
+      "representation": "cli",
+      "field": "case",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Actual CLI subprocess, controlled at real OS/IPC boundary where needed",
+      "boundary": "Push has no Affected Project Data Files; existing prerequisites passed; sole gate before return",
+      "expected": {
+        "currentPush": "Still query assets and fail on ordinary effective error.",
+        "generatedFreshness": "Asset deletion alone does not stale generated bytes."
+      },
+      "stateProfileRefs": [
+        "pushNoWriteError",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:165"
+    },
+    {
+      "id": "AV.W07.no-diff-data-drift.api.case.expected",
+      "family": "W07",
+      "branch": "no-diff-data-drift",
+      "representation": "api",
+      "field": "case",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "No generated differences, but current standard data differs from captured Snapshot",
+      "expected": {
+        "currentPush": "Existing complete standard-data Project Drift check rejects before asset gate.",
+        "coverage": "Do not claim assets passed if their gate was not reached.",
+        "projectData": "No tool replacement under drift.",
+        "pending": "No new write attempt is authorized."
+      },
+      "stateProfileRefs": [
+        "pushNoWriteError",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:165"
+    },
+    {
+      "id": "AV.W08.delete-diff-push-repair.api.case.expected",
+      "family": "W08",
+      "branch": "delete-diff-push-repair",
+      "representation": "api",
+      "field": "case",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "One sequence: Compile success -> media delete -> Diff -> Push -> exact repair -> Push retry",
+      "expected": {
+        "diff": "Does not query media; normal generated integrity/freshness semantics stay intact.",
+        "firstPush": "Fresh ordinary asset error; no writes/new pending.",
+        "retry": "Other compilation inputs/current data unchanged; repair permits Push without recompile.",
+        "toolMediaWrites": false
+      },
+      "stateProfileRefs": [
+        "pushAssetBeforeWriteError",
+        "pushSuccess",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:166"
+    },
+    {
+      "id": "AV.W08.delete-diff-push-repair.cli.case.expected",
+      "family": "W08",
+      "branch": "delete-diff-push-repair",
+      "representation": "cli",
+      "field": "case",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Actual CLI subprocess, controlled at real OS/IPC boundary where needed",
+      "boundary": "One sequence: Compile success -> media delete -> Diff -> Push -> exact repair -> Push retry",
+      "expected": {
+        "diff": "Does not query media; normal generated integrity/freshness semantics stay intact.",
+        "firstPush": "Fresh ordinary asset error; no writes/new pending.",
+        "retry": "Other compilation inputs/current data unchanged; repair permits Push without recompile.",
+        "toolMediaWrites": false
+      },
+      "stateProfileRefs": [
+        "pushAssetBeforeWriteError",
+        "pushSuccess",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:166"
+    },
+    {
+      "id": "AV.W11.case-match.api.push-gate.expected",
+      "family": "W11",
+      "branch": "case-match",
+      "representation": "api",
+      "field": "push-gate",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "Before Push after staging, before pending/data replacement's sole asset-query start",
+      "expected": {
+        "mutation": "Leave only a near case spelling, with no accurate item.",
+        "finding": "Current exact-name mismatch; never choose the alternative.",
+        "ordinary": "error",
+        "noEarlierPass": "Do not invent a first asset pass in this command.",
+        "noComparison": "No cross-point observation equality/change error; query-internal contradictions are F12.",
+        "stateRule": "On ordinary current error, stop at this gate. On current allowed warning or repaired existence, normal operation success/read-only semantics apply.",
+        "improvementSuccess": false
+      },
+      "stateProfileRefs": [
+        "pushAssetBeforeWriteError",
+        "pushSuccess",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:169"
+    },
+    {
+      "id": "AV.W11.failure-location.api.push-gate.expected",
+      "family": "W11",
+      "branch": "failure-location",
+      "representation": "api",
+      "field": "push-gate",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "Before Push after staging, before pending/data replacement's sole asset-query start",
+      "expected": {
+        "mutation": "Change which necessary path component is missing before query.",
+        "finding": "Report only current missing location. Include a permitted warning-to-warning sequence without requiring rerun for a changed observation.",
+        "ordinary": "severity follows current use; candidate/inactive warning can succeed",
+        "noEarlierPass": "Do not invent a first asset pass in this command.",
+        "noComparison": "No cross-point observation equality/change error; query-internal contradictions are F12.",
+        "stateRule": "On ordinary current error, stop at this gate. On current allowed warning or repaired existence, normal operation success/read-only semantics apply.",
+        "improvementSuccess": false
+      },
+      "stateProfileRefs": [
+        "pushAssetBeforeWriteError",
+        "pushSuccess",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:169"
+    },
+    {
+      "id": "AV.W11.improvement.api.push-gate.expected",
+      "family": "W11",
+      "branch": "improvement",
+      "representation": "api",
+      "field": "push-gate",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "Before Push after staging, before pending/data replacement's sole asset-query start",
+      "expected": {
+        "mutation": "Restore an exact observable ordinary file before query.",
+        "finding": "Current existence succeeds; improvement is not an independent failure.",
+        "ordinary": "success",
+        "noEarlierPass": "Do not invent a first asset pass in this command.",
+        "noComparison": "No cross-point observation equality/change error; query-internal contradictions are F12.",
+        "stateRule": "On ordinary current error, stop at this gate. On current allowed warning or repaired existence, normal operation success/read-only semantics apply.",
+        "improvementSuccess": true
+      },
+      "stateProfileRefs": [
+        "pushAssetBeforeWriteError",
+        "pushSuccess",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:169"
+    },
+    {
+      "id": "AV.W11.path-link.api.push-gate.expected",
+      "family": "W11",
+      "branch": "path-link",
+      "representation": "api",
+      "field": "push-gate",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "Before Push after staging, before pending/data replacement's sole asset-query start",
+      "expected": {
+        "mutation": "Introduce an unsupported below-root link before query.",
+        "finding": "Current unsupported-link policy; do not visit target.",
+        "ordinary": "error; accepted candidates/inactive contexts warn and remain unchecked",
+        "noEarlierPass": "Do not invent a first asset pass in this command.",
+        "noComparison": "No cross-point observation equality/change error; query-internal contradictions are F12.",
+        "stateRule": "On ordinary current error, stop at this gate. On current allowed warning or repaired existence, normal operation success/read-only semantics apply.",
+        "improvementSuccess": false
+      },
+      "stateProfileRefs": [
+        "pushAssetBeforeWriteError",
+        "pushSuccess",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:169"
+    },
+    {
+      "id": "AV.W11.path-type.api.push-gate.expected",
+      "family": "W11",
+      "branch": "path-type",
+      "representation": "api",
+      "field": "push-gate",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "Before Push after staging, before pending/data replacement's sole asset-query start",
+      "expected": {
+        "mutation": "Make a necessary directory/final file the wrong type before query.",
+        "finding": "Current wrong-type finding at the actual failed component.",
+        "ordinary": "error",
+        "noEarlierPass": "Do not invent a first asset pass in this command.",
+        "noComparison": "No cross-point observation equality/change error; query-internal contradictions are F12.",
+        "stateRule": "On ordinary current error, stop at this gate. On current allowed warning or repaired existence, normal operation success/read-only semantics apply.",
+        "improvementSuccess": false
+      },
+      "stateProfileRefs": [
+        "pushAssetBeforeWriteError",
+        "pushSuccess",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:169"
+    },
+    {
+      "id": "AV.W11.presence.api.push-gate.expected",
+      "family": "W11",
+      "branch": "presence",
+      "representation": "api",
+      "field": "push-gate",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "Before Push after staging, before pending/data replacement's sole asset-query start",
+      "expected": {
+        "mutation": "Remove a required ordinary exact file before query.",
+        "finding": "Current confirmed missing directory/file according to actual location.",
+        "ordinary": "error",
+        "noEarlierPass": "Do not invent a first asset pass in this command.",
+        "noComparison": "No cross-point observation equality/change error; query-internal contradictions are F12.",
+        "stateRule": "On ordinary current error, stop at this gate. On current allowed warning or repaired existence, normal operation success/read-only semantics apply.",
+        "improvementSuccess": false
+      },
+      "stateProfileRefs": [
+        "pushAssetBeforeWriteError",
+        "pushSuccess",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:169"
+    },
+    {
+      "id": "AV.W11.queryability.api.push-gate.expected",
+      "family": "W11",
+      "branch": "queryability",
+      "representation": "api",
+      "field": "push-gate",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "Before Push after staging, before pending/data replacement's sole asset-query start",
+      "expected": {
+        "mutation": "Inject necessary enumeration/metadata failure before/current query.",
+        "finding": "Current MV-ASSET-QUERY-FAILED; not missing.",
+        "ordinary": "error for every use",
+        "noEarlierPass": "Do not invent a first asset pass in this command.",
+        "noComparison": "No cross-point observation equality/change error; query-internal contradictions are F12.",
+        "stateRule": "On ordinary current error, stop at this gate. On current allowed warning or repaired existence, normal operation success/read-only semantics apply.",
+        "improvementSuccess": false
+      },
+      "stateProfileRefs": [
+        "pushAssetBeforeWriteError",
+        "pushSuccess",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:169"
+    },
+    {
+      "id": "AV.W13.binding.api.prewrite.expected",
+      "family": "W13",
+      "branch": "binding",
+      "representation": "api",
+      "field": "prewrite",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "Before first data replacement, at retained complete-input guard",
+      "expected": {
+        "mutatedInput": "Project Root Binding / explicit target authority.",
+        "currentPush": "Stop; do not adopt changed input, recompile, change policy or switch write target mid-command.",
+        "dataExpectation": "Do not start replacement under changed authority/input.",
+        "endEvidence": "At completion, expected standard data is generated content for legally written files plus original Snapshot content for all other standard files.",
+        "selfWrite": "Do not misclassify this Push's own legal data writes as external drift.",
+        "assets": "No new media pass after data writes."
+      },
+      "stateProfileRefs": [
+        "pushInputPrewriteStop",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:171"
+    },
+    {
+      "id": "AV.W13.config.api.prewrite.expected",
+      "family": "W13",
+      "branch": "config",
+      "representation": "api",
+      "field": "prewrite",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "Before first data replacement, at retained complete-input guard",
+      "expected": {
+        "mutatedInput": "Relevant Workspace Config bytes/policy.",
+        "currentPush": "Stop; do not adopt changed input, recompile, change policy or switch write target mid-command.",
+        "dataExpectation": "Do not start replacement under changed authority/input.",
+        "endEvidence": "At completion, expected standard data is generated content for legally written files plus original Snapshot content for all other standard files.",
+        "selfWrite": "Do not misclassify this Push's own legal data writes as external drift.",
+        "assets": "No new media pass after data writes."
+      },
+      "stateProfileRefs": [
+        "pushInputPrewriteStop",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:171"
+    },
+    {
+      "id": "AV.W13.exception.api.prewrite.expected",
+      "family": "W13",
+      "branch": "exception",
+      "representation": "api",
+      "field": "prewrite",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "Before first data replacement, at retained complete-input guard",
+      "expected": {
+        "mutatedInput": "Exact asset exception configuration/policy.",
+        "currentPush": "Stop; do not adopt changed input, recompile, change policy or switch write target mid-command.",
+        "dataExpectation": "Do not start replacement under changed authority/input.",
+        "endEvidence": "At completion, expected standard data is generated content for legally written files plus original Snapshot content for all other standard files.",
+        "selfWrite": "Do not misclassify this Push's own legal data writes as external drift.",
+        "assets": "No new media pass after data writes."
+      },
+      "stateProfileRefs": [
+        "pushInputPrewriteStop",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:171"
+    },
+    {
+      "id": "AV.W13.generated.api.prewrite.expected",
+      "family": "W13",
+      "branch": "generated",
+      "representation": "api",
+      "field": "prewrite",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "Before first data replacement, at retained complete-input guard",
+      "expected": {
+        "mutatedInput": "Verified Generated Project Data bytes/file set.",
+        "currentPush": "Stop; do not adopt changed input, recompile, change policy or switch write target mid-command.",
+        "dataExpectation": "Do not start replacement under changed authority/input.",
+        "endEvidence": "At completion, expected standard data is generated content for legally written files plus original Snapshot content for all other standard files.",
+        "selfWrite": "Do not misclassify this Push's own legal data writes as external drift.",
+        "assets": "No new media pass after data writes."
+      },
+      "stateProfileRefs": [
+        "pushInputPrewriteStop",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:171"
+    },
+    {
+      "id": "AV.W13.snapshot.api.prewrite.expected",
+      "family": "W13",
+      "branch": "snapshot",
+      "representation": "api",
+      "field": "prewrite",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "Before first data replacement, at retained complete-input guard",
+      "expected": {
+        "mutatedInput": "Captured standard Project Data Snapshot bytes/file set.",
+        "currentPush": "Stop; do not adopt changed input, recompile, change policy or switch write target mid-command.",
+        "dataExpectation": "Do not start replacement under changed authority/input.",
+        "endEvidence": "At completion, expected standard data is generated content for legally written files plus original Snapshot content for all other standard files.",
+        "selfWrite": "Do not misclassify this Push's own legal data writes as external drift.",
+        "assets": "No new media pass after data writes."
+      },
+      "stateProfileRefs": [
+        "pushInputPrewriteStop",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:171"
+    },
+    {
+      "id": "AV.W13.source.api.prewrite.expected",
+      "family": "W13",
+      "branch": "source",
+      "representation": "api",
+      "field": "prewrite",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "Before first data replacement, at retained complete-input guard",
+      "expected": {
+        "mutatedInput": "Definition Source bytes.",
+        "currentPush": "Stop; do not adopt changed input, recompile, change policy or switch write target mid-command.",
+        "dataExpectation": "Do not start replacement under changed authority/input.",
+        "endEvidence": "At completion, expected standard data is generated content for legally written files plus original Snapshot content for all other standard files.",
+        "selfWrite": "Do not misclassify this Push's own legal data writes as external drift.",
+        "assets": "No new media pass after data writes."
+      },
+      "stateProfileRefs": [
+        "pushInputPrewriteStop",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:171"
+    },
+    {
+      "id": "AV.W13.source.cli.prewrite.expected",
+      "family": "W13",
+      "branch": "source",
+      "representation": "cli",
+      "field": "prewrite",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Actual CLI subprocess, controlled at real OS/IPC boundary where needed",
+      "boundary": "Before first data replacement, at retained complete-input guard",
+      "expected": {
+        "mutatedInput": "Definition Source bytes.",
+        "currentPush": "Stop; do not adopt changed input, recompile, change policy or switch write target mid-command.",
+        "dataExpectation": "Do not start replacement under changed authority/input.",
+        "endEvidence": "At completion, expected standard data is generated content for legally written files plus original Snapshot content for all other standard files.",
+        "selfWrite": "Do not misclassify this Push's own legal data writes as external drift.",
+        "assets": "No new media pass after data writes."
+      },
+      "stateProfileRefs": [
+        "pushInputPrewriteStop",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:171"
+    },
+    {
+      "id": "AV.W13.validation-dependency.api.prewrite.expected",
+      "family": "W13",
+      "branch": "validation-dependency",
+      "representation": "api",
+      "field": "prewrite",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "Before first data replacement, at retained complete-input guard",
+      "expected": {
+        "mutatedInput": "A captured validation/type dependency used by compilation.",
+        "currentPush": "Stop; do not adopt changed input, recompile, change policy or switch write target mid-command.",
+        "dataExpectation": "Do not start replacement under changed authority/input.",
+        "endEvidence": "At completion, expected standard data is generated content for legally written files plus original Snapshot content for all other standard files.",
+        "selfWrite": "Do not misclassify this Push's own legal data writes as external drift.",
+        "assets": "No new media pass after data writes."
+      },
+      "stateProfileRefs": [
+        "pushInputPrewriteStop",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:171"
+    },
+    {
+      "id": "AV.W19.push-failure.api.case.expected",
+      "family": "W19",
+      "branch": "push-failure",
+      "representation": "api",
+      "field": "case",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14",
+        "15"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "One callback contains independent before-write and after-write scenarios",
+      "expected": {
+        "prewrite": "14: ordinary asset gate error means no data replacement and no new pending.",
+        "postwrite": "15: genuine compilation-input/data-evidence failure retains already written bytes and pending.",
+        "notPostwriteFailure": "An asset-only postwrite deletion/type change belongs to successful bookkeeping/W06, not a fabricated Interrupted Push.",
+        "registration": "One canonical callback/receipt; field stays case. Do not add prewrite/postwrite fields here."
+      },
+      "stateProfileRefs": [
+        "pushAssetBeforeWriteError",
+        "pushInputPostwriteFailure",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:177"
+    },
+    {
+      "id": "AV.W19.push-success.api.case.expected",
+      "family": "W19",
+      "branch": "push-success",
+      "representation": "api",
+      "field": "case",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "Normal permitted Push, including indirect assets;15 may extend the same callback for asset-only postwrite mutations",
+      "expected": {
+        "allowed": "Only owned Affected Project Data Files and normal Snapshot/Manifest/pending bookkeeping.",
+        "preservation": "External entries, custom fields and original asset names remain.",
+        "postwriteMedia": "If15 extends this canonical case, missing/changed media alone still permits data bookkeeping."
+      },
+      "stateProfileRefs": [
+        "pushSuccess",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:177"
+    },
+    {
+      "id": "AV.W20.generated-roots-and-relations.api.case.expected",
+      "family": "W20",
+      "branch": "generated-roots-and-relations",
+      "representation": "api",
+      "field": "case",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "After generated integrity/freshness/drift validation, rebuild current event-local uses and direct edges from complete generated events plus corresponding capture",
+      "expected": {
+        "roots": "All current Map/Common/Troop definitions; exclude removed/reset/replaced Snapshot roots.",
+        "relations": "Independently specified indirect dependency chains and each direct Common Event/Skill effect call.",
+        "counts": "Shared/cyclic graph stays finite; no transitive caller paths or multiplied defining uses.",
+        "report": "Actionable original saved positions, not merely evidence that no DSL re-evaluation occurred."
+      },
+      "stateProfileRefs": [
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:178"
+    },
+    {
+      "id": "AV.W20.generated-roots-and-relations.cli.case.expected",
+      "family": "W20",
+      "branch": "generated-roots-and-relations",
+      "representation": "cli",
+      "field": "case",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Actual CLI subprocess, controlled at real OS/IPC boundary where needed",
+      "boundary": "After generated integrity/freshness/drift validation, rebuild current event-local uses and direct edges from complete generated events plus corresponding capture",
+      "expected": {
+        "roots": "All current Map/Common/Troop definitions; exclude removed/reset/replaced Snapshot roots.",
+        "relations": "Independently specified indirect dependency chains and each direct Common Event/Skill effect call.",
+        "counts": "Shared/cyclic graph stays finite; no transitive caller paths or multiplied defining uses.",
+        "report": "Actionable original saved positions, not merely evidence that no DSL re-evaluation occurred."
+      },
+      "stateProfileRefs": [
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:178"
+    },
+    {
+      "id": "AV.W20.no-dsl-reevaluation.api.case.expected",
+      "family": "W20",
+      "branch": "no-dsl-reevaluation",
+      "representation": "api",
+      "field": "case",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "Compile a test Definition Source that records evaluation, then clear the external sentinel without changing compilation inputs and Push",
+      "expected": {
+        "sentinel": "Push does not recreate sentinel; no second module evaluation.",
+        "allowedSourceReads": "Reading/checking source bytes and type dependencies remains allowed.",
+        "scope": "Test-source sentinel only; do not execute native game scripts or add product orchestration APIs."
+      },
+      "stateProfileRefs": [
+        "pushSuccess",
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:178"
+    },
+    {
+      "id": "AV.W20.no-historical-report.api.case.expected",
+      "family": "W20",
+      "branch": "no-historical-report",
+      "representation": "api",
+      "field": "case",
+      "result": "expected",
+      "status": "planned-not-executed",
+      "idSpellingStatus": "literal-or-section-rule",
+      "primaryTickets": [
+        "14"
+      ],
+      "entryRequirement": "Workspace API in real temporary project; controlled subprocess/OS boundary where needed",
+      "boundary": "After successful Compile/earlier report, change media before a subsequent Push's sole gate",
+      "expected": {
+        "currentPush": "Actually query current files; do not trust persisted/previous successful asset report.",
+        "reuse": "Use generated events/captured standard data without evaluating DSL.",
+        "retry": "Current repair can permit later Push without a new Compile if all actual compilation inputs stay current."
+      },
+      "stateProfileRefs": [
+        "allAssetsReadonly"
+      ],
+      "source": ".scratch/asset-validation/implementation-acceptance-cases.md:178"
+    }
+  ],
+  "c13": {
+    "id": "AV.C13.push-success.formal.case.expected",
+    "expected": "Only existing owned data may change; external necessary fields, names and custom fields are preserved; media never enters Snapshot, backup, copying or writes."
+  },
+  "invariantContracts": {
+    "roots": "Current generated/candidate Map/Common/Troop events only; Common Events are independent roots; preserve finite direct117/Skill-effect edges without copying defining uses or enumerating transitive caller paths.",
+    "capturedData": "Selected external standard fields use the same captured Snapshot. Unpulled live data is drift, not a supplemental dependency source.",
+    "gates": {
+      "check": "One asset pass after trusted output validation, before returning.",
+      "compile": "One asset pass before local publication; none at Manifest commit.",
+      "writingPush": "After staging and passed prerequisites, before creating pending or first project replacement.",
+      "noWritePush": "After ordinary prerequisites, before return, even without differences.",
+      "postwrite": "No further media scan; asset-only changes allow normal data bookkeeping."
+    },
+    "protectedInputs": "Source, validation dependencies, relevant config/exceptions, Snapshot, generated bytes and binding retain existing before-write/completion protection; full standard-data drift and per-file old-content guards remain.",
+    "persistence": "No live file observations in Compile Baseline/Generated Freshness; policy and Compile Contract Version remain compilation inputs.",
+    "recovery": "Original binding/understood content evidence decide all-generated/all-snapshot/refusal; current assets cannot block completed-data bookkeeping or re-pend it. Current freshness/drift/asset gate are subsequent decisions.",
+    "retired": "No cross-point media-observation comparator, improvement failure, postwrite media scan, cycle diagnostic or transitive caller-path use multiplication."
+  },
+  "stateProfiles": {
+    "checkReadonly": {
+      "toolWrites": {
+        "projectData": false,
+        "generatedData": false,
+        "snapshot": false,
+        "syncManifest": false,
+        "compileBaseline": false,
+        "pending": false,
+        "assets": false
+      },
+      "freshness": "Preserve initial/fresh/stale basis; Check cannot publish or refresh it. Exclude only the explicitly recorded external test-driver mutation when comparing trees."
+    },
+    "compileGateError": {
+      "outcome": "failure",
+      "toolWrites": {
+        "projectData": false,
+        "generatedPublication": false,
+        "snapshot": false,
+        "syncManifest": false,
+        "assets": false
+      },
+      "basis": "Do not publish this candidate or upgrade an earlier output. Preserve existing prepublication failure semantics."
+    },
+    "compileSuccess": {
+      "outcome": "success",
+      "allowedToolWrites": [
+        "Generated Project Data",
+        "normal Compile Sync Manifest/baseline bookkeeping"
+      ],
+      "forbiddenToolWrites": [
+        "Project Root data",
+        "Snapshot content",
+        "asset files"
+      ],
+      "basis": "Only successful Compile establishes the current compilation basis; live asset facts are absent from it."
+    },
+    "compilePublicationFailure": {
+      "outcome": "failure",
+      "boundary": "Publication has started; fault before successful Manifest completion.",
+      "basis": "Retain existing invalid-output semantics; do not promise the old output survives. No successful/fresh new output claim; successful recompile is required.",
+      "forbiddenToolWrites": [
+        "Project Root data",
+        "asset files"
+      ]
+    },
+    "pushAssetBeforeWriteError": {
+      "outcome": "failure",
+      "projectData": "No replacement begins.",
+      "pending": "Do not create this Push's pending state.",
+      "staging": "Clean staged files according to existing rules.",
+      "snapshotAndManifest": "No normal synchronization bookkeeping.",
+      "assets": "No tool media writes."
+    },
+    "pushSuccess": {
+      "outcome": "success",
+      "projectData": "Only Affected Project Data Files change to generated bytes.",
+      "snapshotAndManifest": "Complete normal synchronization bookkeeping using the verified compilation basis.",
+      "pending": "Clear completed pending; do not retain it for asset-only changes.",
+      "assets": "No copies/backups/tool writes; only explicit external mutation is allowed."
+    },
+    "pushNoWriteError": {
+      "outcome": "failure",
+      "projectData": "No new data writes.",
+      "pending": "No new pending for an asset error.",
+      "snapshotAndManifest": "Do not manufacture successful new synchronization state.",
+      "assets": "Read-only to tool."
+    },
+    "pushInputPrewriteStop": {
+      "outcome": "failure",
+      "projectData": "Do not start replacing data under changed source/dependency/config/Snapshot/generated/binding.",
+      "authority": "Do not adopt changed inputs or grant a new target/policy authority mid-command.",
+      "pending": "The explicit no-new-pending guarantee is specified for asset-only gate errors. This plan does not invent a stronger pending guarantee for all existing input-protection failure boundaries.",
+      "assets": "Read-only to tool."
+    },
+    "pushInputPostwriteFailure": {
+      "outcome": "failure",
+      "projectData": "Acknowledge already written generated bytes; no rollback or 'nothing written' claim.",
+      "snapshotAndManifest": "Do not complete ordinary synchronization under inconsistent inputs/data evidence.",
+      "pending": "Retain Interrupted Push with its original binding and compilation evidence.",
+      "assets": "No postwrite asset scan; no asset copying or backup."
+    },
+    "recoveryAllGenerated": {
+      "recoveryOutcome": "Complete verified data bookkeeping even if media are missing.",
+      "pending": "Clear the recovered pending before ordinary current Push prerequisites/gate; a later current failure must not recreate pending for completed data.",
+      "basis": "Preserve original structure/hash/version/binding; do not upgrade it.",
+      "projectData": "Do not acquire new write authority through recovery."
+    },
+    "recoveryAllSnapshot": {
+      "recoveryOutcome": "Abandon the all-old interrupted attempt according to existing content evidence.",
+      "pending": "Remove abandoned pending, then run normal current Push validation.",
+      "basis": "Retain original evidence semantics; no recovery-derived new authority."
+    },
+    "recoveryRefused": {
+      "outcome": "failure",
+      "recoveryOutcome": "Refuse automatic recovery for mixed/missing/unknown/inconsistent evidence.",
+      "pending": "Retain evidence for explicit recovery; no automatic repair.",
+      "projectData": "No automatic overwrite/rollback to force a uniform state.",
+      "assets": "Availability cannot substitute for data evidence."
+    },
+    "allAssetsReadonly": {
+      "forbiddenToolActions": [
+        "copy media to Snapshot",
+        "media backup",
+        "copy media to generated output",
+        "write/rename/repair media",
+        "media hashing/content reads for this existence gate"
+      ],
+      "necessaryExternalFields": "Read only; preserve original names and unknown fields."
+    }
+  }
+}

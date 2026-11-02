@@ -1,0 +1,13 @@
+{
+  "platform": "win32",
+  "M": {
+    "exitCode": 1,
+    "path": "M:/Shuen/Codex/asset-validation-notes/ticket14-case-capability-m",
+    "output": "Error:  Access is denied.\r\n"
+  },
+  "TEMP": {
+    "exitCode": 0,
+    "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\ticket14-case-capability-5eafacdd7944487e8bcc59967b035b2e",
+    "output": "Case sensitive attribute on directory C:\\Users\\Shuen\\AppData\\Local\\Temp\\ticket14-case-capability-5eafacdd7944487e8bcc59967b035b2e is enabled.\r\n"
+  }
+}

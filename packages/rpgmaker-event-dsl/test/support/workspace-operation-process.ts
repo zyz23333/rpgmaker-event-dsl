@@ -73,6 +73,7 @@ export function startWorkspaceOperation(
     assetPath?: string;
     assetFault?: "enumeration";
     observeAssets?: boolean;
+    allowDestructive?: boolean;
   },
 ) {
   const helperUrl = new URL("./workspace-operation-child.mjs", import.meta.url);
@@ -80,6 +81,7 @@ export function startWorkspaceOperation(
   const mode = input.mode ?? "api";
   const startedAt = new Date().toISOString();
   const commands = input.operation === "check" ? ["compile", "--check"] : [input.operation];
+  if (input.operation === "push" && input.allowDestructive) commands.push("--allow-destructive");
   const arguments_ = [
     "--import",
     import.meta.resolve("tsx"),

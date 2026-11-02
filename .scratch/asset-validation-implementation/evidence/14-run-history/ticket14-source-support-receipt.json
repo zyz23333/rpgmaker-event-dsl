@@ -1,0 +1,229 @@
+{
+  "id": "AV.W12.next-command-fresh.api.case.expected",
+  "ownerTicket": "13",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T07:46:46.536Z",
+  "completedAt": "2026-11-02T07:46:49.699Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import type { WorkflowInput } from \"../types/workflow-input.js\";\nimport {commonEvent,mapEvent,showPicture,imageAsset,callCommonEvent,commonEventRef,showAnimation,animationRef,changeTileset,tilesetRef} from \"rpgmaker-event-dsl\";\nexport const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"Poster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"}),callCommonEvent({commonEvent:commonEventRef({id:11})}),callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"Poster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"}),callCommonEvent({commonEvent:commonEventRef({id:12})})]});\nexport const event12=commonEvent({id:12,name:\"Event 12\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:10})})]});\n",
+      "project": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Map"
+          }
+        ],
+        "Map001.json": {
+          "id": 1,
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": [
+            null
+          ],
+          "custom": {
+            "keep": [
+              "opaque",
+              null
+            ]
+          }
+        }
+      },
+      "defaultDirectFixtureOrigin": "CommonEvents.json[10].list[0].parameters[1] (directSource only; overrides have their own literal assertions)",
+      "policy": "one current pass; no media input persistence"
+    },
+    {
+      "operation": {
+        "operation": "check"
+      },
+      "actual": {
+        "exit": {
+          "exitCode": 1,
+          "signal": null
+        },
+        "result": {
+          "kind": "result",
+          "ok": false,
+          "message": "compile --check asset check failed:\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game; required extension: .png; target: M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 2 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 82); base: error; effective: error\n  - error commonEvent:11 CommonEvents.json[11].list[0].parameters[1]; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 4, column 82); base: error; effective: error\n1 problem group(s), 1 problem file(s), 2 affected use(s). Coverage: complete.\nDirect Common Event calls:\n  - commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:11; DSL: commands[1]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 266)\n  - commonEvent:10 CommonEvents.json[10].list[2].parameters[0] -> commonEvent:11; DSL: commands[2]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 321)\n  - commonEvent:11 CommonEvents.json[11].list[1].parameters[0] -> commonEvent:12; DSL: commands[1]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 4, column 266)\n  - commonEvent:12 CommonEvents.json[12].list[0].parameters[0] -> commonEvent:10; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 5, column 82)"
+        },
+        "text": "compile --check asset check failed:\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game; required extension: .png; target: M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 2 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 82); base: error; effective: error\n  - error commonEvent:11 CommonEvents.json[11].list[0].parameters[1]; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 4, column 82); base: error; effective: error\n1 problem group(s), 1 problem file(s), 2 affected use(s). Coverage: complete.\nDirect Common Event calls:\n  - commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:11; DSL: commands[1]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 266)\n  - commonEvent:10 CommonEvents.json[10].list[2].parameters[0] -> commonEvent:11; DSL: commands[2]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 321)\n  - commonEvent:11 CommonEvents.json[11].list[1].parameters[0] -> commonEvent:12; DSL: commands[1]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 4, column 266)\n  - commonEvent:12 CommonEvents.json[12].list[0].parameters[0] -> commonEvent:10; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 5, column 82)",
+        "messages": [
+          {
+            "kind": "asset-query",
+            "path": "M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "result",
+            "ok": false,
+            "message": "compile --check asset check failed:\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game; required extension: .png; target: M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 2 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 82); base: error; effective: error\n  - error commonEvent:11 CommonEvents.json[11].list[0].parameters[1]; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 4, column 82); base: error; effective: error\n1 problem group(s), 1 problem file(s), 2 affected use(s). Coverage: complete.\nDirect Common Event calls:\n  - commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:11; DSL: commands[1]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 266)\n  - commonEvent:10 CommonEvents.json[10].list[2].parameters[0] -> commonEvent:11; DSL: commands[2]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 321)\n  - commonEvent:11 CommonEvents.json[11].list[1].parameters[0] -> commonEvent:12; DSL: commands[1]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 4, column 266)\n  - commonEvent:12 CommonEvents.json[12].list[0].parameters[0] -> commonEvent:10; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 5, column 82)"
+          }
+        ],
+        "process": {
+          "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+          "arguments": [
+            "--import",
+            "file:///M:/Shuen/Codex/asset-validation-14-push/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+            "M:\\Shuen\\Codex\\asset-validation-14-push\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+          ],
+          "cwd": "M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces",
+          "startedAt": "2026-11-02T07:46:47.127Z",
+          "completedAt": "2026-11-02T07:46:48.362Z",
+          "exitCode": 1,
+          "signal": null,
+          "stdout": "",
+          "stderr": "",
+          "ipcMessages": [
+            {
+              "kind": "asset-query",
+              "path": "M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img"
+            },
+            {
+              "kind": "asset-query",
+              "path": "M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img"
+            },
+            {
+              "kind": "asset-query",
+              "path": "M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img\\pictures"
+            },
+            {
+              "kind": "asset-query",
+              "path": "M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img\\pictures"
+            },
+            {
+              "kind": "result",
+              "ok": false,
+              "message": "compile --check asset check failed:\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game; required extension: .png; target: M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 2 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 82); base: error; effective: error\n  - error commonEvent:11 CommonEvents.json[11].list[0].parameters[1]; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 4, column 82); base: error; effective: error\n1 problem group(s), 1 problem file(s), 2 affected use(s). Coverage: complete.\nDirect Common Event calls:\n  - commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:11; DSL: commands[1]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 266)\n  - commonEvent:10 CommonEvents.json[10].list[2].parameters[0] -> commonEvent:11; DSL: commands[2]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 321)\n  - commonEvent:11 CommonEvents.json[11].list[1].parameters[0] -> commonEvent:12; DSL: commands[1]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 4, column 266)\n  - commonEvent:12 CommonEvents.json[12].list[0].parameters[0] -> commonEvent:10; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 5, column 82)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "operation": {
+        "operation": "check"
+      },
+      "actual": {
+        "exit": {
+          "exitCode": 0,
+          "signal": null
+        },
+        "result": {
+          "kind": "result",
+          "ok": true
+        },
+        "text": "compile --check asset check info:\nDirect Common Event calls:\n  - commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:11; DSL: commands[1]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 266)\n  - commonEvent:10 CommonEvents.json[10].list[2].parameters[0] -> commonEvent:11; DSL: commands[2]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 321)\n  - commonEvent:11 CommonEvents.json[11].list[1].parameters[0] -> commonEvent:12; DSL: commands[1]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 4, column 266)\n  - commonEvent:12 CommonEvents.json[12].list[0].parameters[0] -> commonEvent:10; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 5, column 82)\n",
+        "messages": [
+          {
+            "kind": "asset-query",
+            "path": "M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png"
+          },
+          {
+            "kind": "result",
+            "ok": true
+          }
+        ],
+        "process": {
+          "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+          "arguments": [
+            "--import",
+            "file:///M:/Shuen/Codex/asset-validation-14-push/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+            "M:\\Shuen\\Codex\\asset-validation-14-push\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+          ],
+          "cwd": "M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces",
+          "startedAt": "2026-11-02T07:46:48.415Z",
+          "completedAt": "2026-11-02T07:46:49.689Z",
+          "exitCode": 0,
+          "signal": null,
+          "stdout": "",
+          "stderr": "compile --check asset check info:\nDirect Common Event calls:\n  - commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:11; DSL: commands[1]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 266)\n  - commonEvent:10 CommonEvents.json[10].list[2].parameters[0] -> commonEvent:11; DSL: commands[2]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 321)\n  - commonEvent:11 CommonEvents.json[11].list[1].parameters[0] -> commonEvent:12; DSL: commands[1]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 4, column 266)\n  - commonEvent:12 CommonEvents.json[12].list[0].parameters[0] -> commonEvent:10; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-source-support-serial-workspaces/asset-workflow-graph-next-command-fresh-AskQw5/最小 Workspace with spaces/src/workflow.events.ts (line 5, column 82)\n",
+          "ipcMessages": [
+            {
+              "kind": "asset-query",
+              "path": "M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img"
+            },
+            {
+              "kind": "asset-query",
+              "path": "M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img"
+            },
+            {
+              "kind": "asset-query",
+              "path": "M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img\\pictures"
+            },
+            {
+              "kind": "asset-query",
+              "path": "M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img\\pictures"
+            },
+            {
+              "kind": "asset-query",
+              "path": "M:\\Shuen\\Codex\\asset-validation-notes\\ticket14-source-support-serial-workspaces\\asset-workflow-graph-next-command-fresh-AskQw5\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png"
+            },
+            {
+              "kind": "result",
+              "ok": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "graphSource": "import {commonEvent,mapEvent,showPicture,imageAsset,callCommonEvent,commonEventRef,showAnimation,animationRef,changeTileset,tilesetRef} from \"rpgmaker-event-dsl\";\nexport const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"Poster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"}),callCommonEvent({commonEvent:commonEventRef({id:11})}),callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"Poster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"}),callCommonEvent({commonEvent:commonEventRef({id:12})})]});\nexport const event12=commonEvent({id:12,name:\"Event 12\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:10})})]});\n",
+      "expectedUses": [
+        "commonEvent:10 CommonEvents.json[10].list[0].parameters[1]",
+        "commonEvent:11 CommonEvents.json[11].list[0].parameters[1]"
+      ],
+      "expectedDirectEdges": [
+        "commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:11",
+        "commonEvent:10 CommonEvents.json[10].list[2].parameters[0] -> commonEvent:11",
+        "commonEvent:11 CommonEvents.json[11].list[1].parameters[0] -> commonEvent:12",
+        "commonEvent:12 CommonEvents.json[12].list[0].parameters[0] -> commonEvent:10"
+      ],
+      "expected": "finite graph; same-target observation reuse allowed, exact syscall counts unconstrained"
+    }
+  ],
+  "expected": {
+    "description": "shared and cyclic definitions retain two uses and four finite direct call sites without historical success caching",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-workflow-workspace.test.ts",
+    "sha256": "674ecaa8bf740225e8fa3615ba3dbdf107807fdd5dc660f3b89f90ddf3f8767a",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-workflow-graph-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(sandbox, { source: graphSource });\n\t\tif (branch === \"next-command-fresh\") {\n\t\t\tawait put(root);\n\t\t\tawait api.compileWorkspace({\n\t\t\t\t...sandbox,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tawait (0,__vite_ssr_import_0__.rm)((0,__vite_ssr_import_1__.join)(root, media));\n\t\t};\n\t\tconst before = await observe(root);\n\t\tfor (const operationName of branch === \"same-pass-reuse\" ? [\n\t\t\t\"check\",\n\t\t\t\"compile\",\n\t\t\t\"check\"\n\t\t] : [\"check\"]) {\n\t\t\tconst result = await operation(sandbox, { operation: operationName });\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.exit.exitCode).toBe(1);\n\t\t\texpectGraphFailure(result.text);\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.messages.some((m) => m.kind === \"asset-query\")).toBe(true);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await observe(root)).toEqual(before);\n\t\t};\n\t\tif (branch === \"next-command-fresh\") {\n\t\t\t(0,__vite_ssr_import_2__.expect)(await api.isGeneratedProjectDataFresh(sandbox)).toBe(true);\n\t\t\tawait put(root);\n\t\t\tconst repaired = await observe(root);\n\t\t\tconst result = await operation(sandbox, { operation: \"check\" });\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.exit.exitCode).toBe(0);\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.messages.some((m) => m.kind === \"asset-query\")).toBe(true);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await observe(root)).toEqual(repaired);\n\t\t};\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\tgraphSource,\n\t\t\texpectedUses: graphUses,\n\t\t\texpectedDirectEdges: graphEdges,\n\t\t\texpected: \"finite graph; same-target observation reuse allowed, exact syscall counts unconstrained\"\n\t\t});\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

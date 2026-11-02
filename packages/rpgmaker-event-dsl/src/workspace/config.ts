@@ -47,7 +47,7 @@ export async function loadWorkspace(workspaceRoot: string): Promise<LoadedWorksp
     );
     if (exceptionIssues.length)
       throw new Error(
-        `MV-ASSET-INVALID-EXCEPTION: ${exceptionIssues.map((issue) => `${issue.path.map((part, index) => (typeof part === "number" ? `[${part}]` : `${index ? "." : ""}${String(part)}`)).join("")}: ${issue.message}`).join("\n")}\ncompile asset check not run: Workspace Config is invalid.`,
+        `MV-ASSET-INVALID-EXCEPTION: ${exceptionIssues.map((issue) => `${issue.path.map((part, index) => (typeof part === "number" ? `[${part}]` : `${index ? "." : ""}${String(part)}`)).join("")}: ${issue.message}`).join("\n")}\nasset check not run: Workspace Config is invalid.`,
       );
     throw parsed.error;
   }

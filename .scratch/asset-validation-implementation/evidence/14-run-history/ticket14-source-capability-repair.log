@@ -1,0 +1,19 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/asset-validation-14-push/packages/rpgmaker-event-dsl
+
+stderr | test/asset-file-workspace.test.ts > AV.F03.exact-plus-case-variant.filesystem.case.expected: real case-coexisting files never replace the exact spelling
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-ticket14-source-capability-repair\asset-exact-plus-case-variant-QVuLdX
+
+stderr | test/asset-file-workspace.test.ts > AV.F03.multiple-case-variants.filesystem.case.expected: real case-coexisting files never replace the exact spelling
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-ticket14-source-capability-repair\asset-multiple-case-variants-Opn6gP
+
+ ✓ test/asset-file-workspace.test.ts (171 tests | 169 skipped) 855ms
+   ✓ AV.F03.exact-plus-case-variant.filesystem.case.expected: real case-coexisting files never replace the exact spelling  545ms
+   ✓ AV.F03.multiple-case-variants.filesystem.case.expected: real case-coexisting files never replace the exact spelling  309ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed | 169 skipped (171)
+   Start at  16:03:13
+   Duration  2.99s (transform 664ms, setup 0ms, import 2.00s, tests 855ms, environment 0ms)
+
+JSON report written to M:/Shuen/Codex/asset-validation-notes/ticket14-source-capability-repair.json

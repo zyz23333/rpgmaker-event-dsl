@@ -1,0 +1,53 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/asset-validation-14-push/packages/rpgmaker-event-dsl
+
+stderr | test/asset-push-workspace.test.ts > AV.W13.generated.api.prewrite.expected: changed captured inputs or write authority stop before the first replacement
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-input-green-workspaces\asset-push-input-generated-ChXigV
+
+ ❯ test/asset-push-workspace.test.ts (8 tests | 1 failed | 7 skipped) 1517ms
+   × AV.W13.generated.api.prewrite.expected: changed captured inputs or write authority stop before the first replacement 1516ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/asset-push-workspace.test.ts > AV.W13.generated.api.prewrite.expected: changed captured inputs or write authority stop before the first replacement
+AssertionError: expected { 'data/': 'directory', …(19) } to deeply equal { 'data/': 'directory', …(19) }
+
+- Expected
++ Received
+
+@@ -3,11 +3,11 @@
+    "data/": "directory",
+    "data/Actors.json": "W251bGxd",
+    "data/Animations.json": "W251bGxd",
+    "data/Armors.json": "W251bGxd",
+    "data/Classes.json": "W251bGxd",
+-   "data/CommonEvents.json": "W251bGxd",
++   "data/CommonEvents.json": "WwogIG51bGwsCiAgbnVsbCwKICBudWxsLAogIG51bGwsCiAgbnVsbCwKICBudWxsLAogIG51bGwsCiAgbnVsbCwKICBudWxsLAogIG51bGwsCiAgewogICAgImlkIjoxMCwKICAgICJuYW1lIjoiUHVzaCB3b3JrZmxvdyIsCiAgICAidHJpZ2dlciI6MCwKICAgICJzd2l0Y2hJZCI6MSwKICAgICJsaXN0IjpbCiAgICAgIHsKICAgICAgICAiY29kZSI6MjMxLAogICAgICAgICJpbmRlbnQiOjAsCiAgICAgICAgInBhcmFtZXRlcnMiOlsKICAgICAgICAgIDEsCiAgICAgICAgICAiUHVzaFBvc3RlciIsCiAgICAgICAgICAwLAogICAgICAgICAgMCwKICAgICAgICAgIDAsCiAgICAgICAgICAwLAogICAgICAgICAgMTAwLAogICAgICAgICAgMTAwLAogICAgICAgICAgMjU1LAogICAgICAgICAgMAogICAgICAgIF0KICAgICAgfSwKICAgICAgewogICAgICAgICJjb2RlIjowLAogICAgICAgICJpbmRlbnQiOjAsCiAgICAgICAgInBhcmFtZXRlcnMiOltdCiAgICAgIH0KICAgIF0KICB9Cl0K",
+    "data/Enemies.json": "W251bGxd",
+    "data/Items.json": "W251bGxd",
+    "data/Map001.json": "eyJpZCI6MSwid2lkdGgiOjEsImhlaWdodCI6MSwidGlsZXNldElkIjoxLCJldmVudHMiOltudWxsXSwiY3VzdG9tIjp7InByZXNlcnZlZCI6WyJvcGFxdWUiLG51bGxdfX0=",
+    "data/MapInfos.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlB1c2ggTWFwIn1d",
+    "data/Skills.json": "W251bGxd",
+
+ ❯ test/asset-push-workspace.test.ts:43:63
+     41|     });
+
+     42|     expect(actual.exitCode).toBe(1);expect(actual.message+actual.stder…
+     43|     const after=await observePush(root);expect(after.project).toEqual(…
+       |                                                               ^
+     44|     expect({...after,project:changed.project,state:changed.state}).toE…
+     45|     expect(withoutPending(after.state)).toEqual(withoutPending(changed…
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/asset-push-workspace.test.ts:25:3
+ ❯ test/support/asset-evidence.ts:25:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 7 skipped (8)
+   Start at  15:12:58
+   Duration  3.61s (transform 669ms, setup 0ms, import 1.93s, tests 1.52s, environment 0ms)
+
+undefined
+M:\Shuen\Codex\asset-validation-14-push\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/asset-push-workspace.test.ts --maxWorkers=1 -t W13.generated
