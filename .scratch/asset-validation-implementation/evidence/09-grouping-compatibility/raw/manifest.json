@@ -1,0 +1,174 @@
+{
+  "artifacts": [
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/attempt-01-crlf-capture-original.ts",
+      "bytes": 8088,
+      "sha256": "da715ef1129a8d932816101364625d86428bdf678f166dc15b1019e443bb5b4b"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/attempt-01-crlf-diagnostic-original-contract39.json",
+      "bytes": 67945,
+      "sha256": "5453e6cfc67a4a084691021c60a5f1a8b0aefff023b7a11e4b11c12fe1f8d0db"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/attempt-01-crlf-diagnostic-original-contract39.log",
+      "bytes": 1617,
+      "sha256": "6009ec097c3174a187398a6554cd4fefcd9781f52fb58fee91454e404e036fac"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/attempt-01-crlf-process-results.json",
+      "bytes": 18495,
+      "sha256": "e77ca1addb79b3bc2eb1baa7d97ee574656107a5715fdf3cec718f2b09035718"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/attempt-01-crlf-run-09-grouping.ps1",
+      "bytes": 2736,
+      "sha256": "8e0e61831e9889a9a5ad799fcc5916ac1050f408efc26582cae27da7b916ad59"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/build-contract40.log",
+      "bytes": 2545,
+      "sha256": "71948704deebc62ecb9e9e3991bf39a0c057dbb0eb613e783f7a81fc71d0b9cb"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/capture-original.ts",
+      "bytes": 8092,
+      "sha256": "db70a34ff95d136d01b43268eef45bd84902af5439ddff798581d21858736454"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/contract40-freeze.json",
+      "bytes": 34105,
+      "sha256": "d3e4fb0128c2d44660153d4975a13a812ec4ab055b5a5739799755c8cb68343c"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/diagnostic-original-contract39-process-results.json",
+      "bytes": 18494,
+      "sha256": "7bdc12dcd7a04681346f41f572f4476666f0fef26795d80319f7d1f1d7e32a5a"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/diagnostic-original-contract39.json",
+      "bytes": 67961,
+      "sha256": "d35e26f6331cf3c8a31c6e70296d80cee163c352f68a730917aaf3379e0a392e"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/diagnostic-original-contract39.log",
+      "bytes": 388,
+      "sha256": "9489310412b0b368dfe86b51aa0a0c4cd665e1fbe0017c663ccc63435012a1be"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/diagnostic-product-inputs.json",
+      "bytes": 1755,
+      "sha256": "d8dd4f51ec18ea4f4ab17bea16fc2db7e5b4e23f4a2ddeceb970a9b3bf747890"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/expected-and-registration.json",
+      "bytes": 738,
+      "sha256": "1f3452e0868edd6f27bf8c910c3a8fd2786957d157bd15645a058d1f634cc31c"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/focused-built-receipt.json",
+      "bytes": 69319,
+      "sha256": "deee2eac006dc40329da86c56386c82866735b8a207faf1db141e126d279e126"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/focused-built.json",
+      "bytes": 49364,
+      "sha256": "aee9de258d6cdd7bfdee9e41c3478e84f9d210ebb8b9acfc8a4ce1bddc41ed91"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/focused-built.log",
+      "bytes": 165,
+      "sha256": "9a1742ef5c909721848016f576fce3d15a283434e2ea5b858e41982e958ca9a2"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/focused-source-receipt.json",
+      "bytes": 69427,
+      "sha256": "fcbe137ac3cc35afe91251fad6332523f41f6656e631408fb4c7176e1252b59f"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/focused-source.json",
+      "bytes": 49373,
+      "sha256": "0d9d62483b8c32c70ce92edf5ec038cacf0cfa57c3d31a2a910b2d8ba31fbe93"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/focused-source.log",
+      "bytes": 166,
+      "sha256": "218b401259df101e04241846366705e7328df59a8a894d54061992d2305e558e"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/format.log",
+      "bytes": 117,
+      "sha256": "baf67e6584513d66fb6e6a8c156626fbd87220c9bc1d61fcf358dd409f7541e9"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/freeze-current.mjs",
+      "bytes": 1753,
+      "sha256": "ac18741903282b65dad5e0243bd1089b3bb550e3e2d18819be4644a83029df00"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/frozen-asset-system-workspace.test.ts.txt",
+      "bytes": 42176,
+      "sha256": "86934f80311612ea09e08259af880c9b2de50bfe6f9f47a50f4fa3555cba7e91"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/lint.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/local-links.json",
+      "bytes": 5904,
+      "sha256": "320b48d538752e9472e7c4cbb0d6ea09ad88cf331afca728938b2df5e0f961fc"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/original-17-failed-process-results.json",
+      "bytes": 436,
+      "sha256": "3ca65f26970becb9bf5417fb23b3ddbdbe7844dbe8de1541d6ea66d91f875db1"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/original-17-failed-receipt.json",
+      "bytes": 6544,
+      "sha256": "f34e8920dd1642e192a2664f8cdeb7f7f15f3d4559128c636f6f4f252adc1d8a"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/original-17-failed-system.events.ts.txt",
+      "bytes": 310,
+      "sha256": "5994bbdb9a419dc5c0869f2438db3da5a30dadec5a11e9612fee58b48daca8aa"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/original-badexpect-asset-system-workspace.test.ts.txt",
+      "bytes": 40602,
+      "sha256": "0a6e12bc45987f79a2f8cb6a7ade8fce917e434156c26bea01c94a640972d7d4"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/run-09-grouping.ps1",
+      "bytes": 2736,
+      "sha256": "8e0e61831e9889a9a5ad799fcc5916ac1050f408efc26582cae27da7b916ad59"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/typecheck-contract39-preparation.log",
+      "bytes": 145,
+      "sha256": "1eafbed2891c5936ae920298e98c42bcaa6fa46f34d52ddae80e64472bf00f28"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/typecheck.log",
+      "bytes": 145,
+      "sha256": "1eafbed2891c5936ae920298e98c42bcaa6fa46f34d52ddae80e64472bf00f28"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/verification.json",
+      "bytes": 2762,
+      "sha256": "ff9ee3654b07347756f057fe883be331dfcf7c114c9495c9c201b05c571e164d"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/verify-09-grouping.mjs",
+      "bytes": 9813,
+      "sha256": "ccc56c199e08183e6ec6d2940a1389f9ac6c1ee8d000510c623dfbbd59f169eb"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/verify-local-links.mjs",
+      "bytes": 1185,
+      "sha256": "dea49f3fc01eaa585d340216fbd36eb7e7c6fc5a030d51b13ee80156bf22b72e"
+    }
+  ]
+}

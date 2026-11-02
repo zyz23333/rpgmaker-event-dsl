@@ -8,12 +8,13 @@ import ts from "typescript";
 
 const raw = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(raw, "../../../../..");
+const checkOnly = process.argv.includes("--check-only");
 const currentFile = "packages/rpgmaker-event-dsl/test/asset-system-workspace.test.ts";
 const id = "AV.C07.shared-system-field.formal.case.expected";
 const hash = (bytes) => createHash("sha256").update(bytes).digest("hex");
 const json = (name) => JSON.parse(fs.readFileSync(path.join(raw, name), "utf8"));
 const relative = (file) => path.relative(root, file).split(path.sep).join("/");
-const write = (name, value) => fs.writeFileSync(path.join(raw, name), JSON.stringify(value, null, 2) + "\n");
+const write = (name, value) => { if (!checkOnly) fs.writeFileSync(path.join(raw, name), JSON.stringify(value, null, 2) + "\n"); };
 
 function canonicalRange(text) {
   const source = ts.createSourceFile(currentFile, text, ts.ScriptTarget.Latest, true);
@@ -65,6 +66,7 @@ if (process.argv.includes("--prepare")) {
 }
 
 const originalFailure = json("original-17-failed-receipt.json");
+assert.equal(hash(fs.readFileSync(path.join(raw, "original-17-failed-receipt.json"))), "f34e8920dd1642e192a2664f8cdeb7f7f15f3d4559128c636f6f4f252adc1d8a");
 assert.equal(originalFailure.id, id);
 assert.equal(originalFailure.status, "failed");
 assert.equal(originalFailure.expected.sha256, registration.originalSourceSha256);
@@ -74,6 +76,20 @@ assert.equal(diagnostic.completed, true);
 assert.equal(diagnostic.sourceRevision, "126b1980014e5c9a4c9bd877505e04a30f097759");
 assert.equal(diagnostic.operations.length, 3);
 for (const operation of diagnostic.operations) assert(Object.values(operation.checks).every(Boolean));
+for (const item of json("diagnostic-product-inputs.json").files) {
+  assert.equal(hash(execFileSync("git", ["show", diagnostic.sourceRevision + ":" + item.path], { cwd: root })), item.sha256, item.path + " diagnostic Git blob");
+}
+assert.equal(hash(fs.readFileSync(path.join(root, ".scratch/asset-validation-implementation/evidence/09-system-acceptance.json"))), "b67414e9f45712cf31ca85ebce43dc4fd276adf14784ec3b45f0ff65e517c5e3");
+const freeze = json("contract40-freeze.json");
+assert.equal(freeze.contract, "mv-1.6.1/40");
+assert.equal(freeze.canonicalTest.sha256, registration.frozenSourceSha256);
+for (const item of [freeze.canonicalTest, ...freeze.sources, ...freeze.artifacts]) {
+  assert.equal(hash(fs.readFileSync(path.join(root, item.path))), item.sha256, item.path);
+}
+for (const item of [freeze.canonicalTest, ...freeze.sources]) {
+  assert.equal(hash(execFileSync("git", ["show", freeze.head + ":" + item.path], { cwd: root })), item.sha256, item.path + " frozen Git blob");
+}
+execFileSync("git", ["diff", "--quiet", freeze.integrationBase, "HEAD", "--", "packages/rpgmaker-event-dsl/src"], { cwd: root });
 
 const finalResults = [];
 for (const entry of ["source", "built"]) {
@@ -125,6 +141,7 @@ const verification = {
   originalFailurePreserved: { status: originalFailure.status, actual: originalFailure.actual, receiptSha256: hash(fs.readFileSync(path.join(raw, "original-17-failed-receipt.json"))) },
   diagnosticOnly: { revision: diagnostic.sourceRevision, contract: "mv-1.6.1/39", completedOperations: 3, originalTitleFilesAllQueriedPerOperation: true, noContentReads: true, noCanonicalPassClaim: true, firstAttemptObserverFailure: "CLI CRLF trailing carriage return; original full API/CLI bytes and failed observer artifacts preserved" },
   finalResults,
+  finalFreeze: { head: freeze.head, integrationBase: freeze.integrationBase, contract: freeze.contract, sourceFilesVerifiedAgainstWorktreeAndGit: freeze.sources.length, builtArtifactsVerifiedAgainstFrozenBytes: freeze.artifacts.length, noTicket09ProductPatch: true },
 };
 write("verification.json", verification);
 const artifacts = fs.readdirSync(raw).filter((name) => name !== "manifest.json").sort().map((name) => {
@@ -132,4 +149,11 @@ const artifacts = fs.readdirSync(raw).filter((name) => name !== "manifest.json")
   return { path: relative(path.join(raw, name)), bytes: bytes.length, sha256: hash(bytes) };
 });
 write("manifest.json", { artifacts });
+if (checkOnly) {
+  for (const item of json("manifest.json").artifacts) {
+    const bytes = fs.readFileSync(path.join(root, item.path));
+    assert.equal(hash(bytes), item.sha256, item.path);
+    assert.equal(hash(execFileSync("git", ["show", "HEAD:" + item.path], { cwd: root })), item.sha256, item.path + " committed Git blob");
+  }
+}
 console.log(JSON.stringify({ verified: id, finalResults, rawArtifacts: artifacts.length, manifestSha256: hash(fs.readFileSync(path.join(raw, "manifest.json"))) }, null, 2));
