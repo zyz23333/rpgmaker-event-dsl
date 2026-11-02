@@ -1,0 +1,258 @@
+{
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "completed": true,
+  "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces",
+  "cliEntry": "M:\\Shuen\\Codex\\asset-validation-09-system\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+  "processes": [
+    {
+      "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+      "arguments": [
+        "--import",
+        "file:///M:/Shuen/Codex/asset-validation-09-system/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+        "M:\\Shuen\\Codex\\asset-validation-09-system\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+      ],
+      "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces",
+      "startedAt": "2026-11-02T10:50:56.164Z",
+      "completedAt": "2026-11-02T10:50:57.432Z",
+      "exitCode": 1,
+      "signal": null,
+      "stdout": "",
+      "stderr": "",
+      "ipcMessages": [
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\audio"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\audio"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\audio\\bgm"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\audio\\bgm"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\audio\\bgm\\TitleMusic.ogg"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img\\titles1"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img\\titles1"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img\\titles1\\TitleOne.png"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img\\titles2"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img\\titles2"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img\\titles2\\TitleTwo.png"
+        },
+        {
+          "kind": "result",
+          "ok": false,
+          "message": "compile --check asset check failed:\nerror MV-ASSET-INVALID-DATA: System.json.gameoverMe.name: Necessary asset name must be a string; this relationship is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game; failed at: System.json.gameoverMe.name\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[0]; chain: System.json.gameoverMe.name (Game Over ME); DSL: pages[0].commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-system-grouping-diagnostic-lcmCcs/最小 Workspace with spaces/src/system.events.ts (line 1, column 262); base: error; effective: error\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[1]; chain: System.json.gameoverMe.name (Game Over ME); DSL: pages[0].commands[1]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-system-grouping-diagnostic-lcmCcs/最小 Workspace with spaces/src/system.events.ts (line 1, column 273); base: error; effective: error\n1 problem group(s), 0 problem file(s), 2 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked."
+        }
+      ]
+    },
+    {
+      "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+      "arguments": [
+        "--import",
+        "file:///M:/Shuen/Codex/asset-validation-09-system/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+        "M:\\Shuen\\Codex\\asset-validation-09-system\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+      ],
+      "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces",
+      "startedAt": "2026-11-02T10:50:57.439Z",
+      "completedAt": "2026-11-02T10:50:58.707Z",
+      "exitCode": 1,
+      "signal": null,
+      "stdout": "",
+      "stderr": "",
+      "ipcMessages": [
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\audio"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\audio"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\audio\\bgm"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\audio\\bgm"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\audio\\bgm\\TitleMusic.ogg"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img\\titles1"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img\\titles1"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img\\titles1\\TitleOne.png"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img\\titles2"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img\\titles2"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img\\titles2\\TitleTwo.png"
+        },
+        {
+          "kind": "result",
+          "ok": false,
+          "message": "compile asset check failed:\nerror MV-ASSET-INVALID-DATA: System.json.gameoverMe.name: Necessary asset name must be a string; this relationship is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game; failed at: System.json.gameoverMe.name\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[0]; chain: System.json.gameoverMe.name (Game Over ME); DSL: pages[0].commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-system-grouping-diagnostic-lcmCcs/最小 Workspace with spaces/src/system.events.ts (line 1, column 262); base: error; effective: error\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[1]; chain: System.json.gameoverMe.name (Game Over ME); DSL: pages[0].commands[1]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-system-grouping-diagnostic-lcmCcs/最小 Workspace with spaces/src/system.events.ts (line 1, column 273); base: error; effective: error\n1 problem group(s), 0 problem file(s), 2 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked."
+        }
+      ]
+    },
+    {
+      "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+      "arguments": [
+        "--import",
+        "file:///M:/Shuen/Codex/asset-validation-09-system/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+        "--import",
+        "file:///M:/Shuen/Codex/asset-validation-09-system/packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+        "M:\\Shuen\\Codex\\asset-validation-09-system\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+        "compile",
+        "--check"
+      ],
+      "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces",
+      "startedAt": "2026-11-02T10:50:58.718Z",
+      "completedAt": "2026-11-02T10:51:00.001Z",
+      "exitCode": 1,
+      "signal": null,
+      "stdout": "",
+      "stderr": "M:\\Shuen\\Codex\\asset-validation-09-system\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131\r\n    throw new Error(`${input.commandName} asset check failed:\\n${errors.join(\"\\n\")}`);\r\n          ^\r\n\r\nError: compile --check asset check failed:\r\nerror MV-ASSET-INVALID-DATA: System.json.gameoverMe.name: Necessary asset name must be a string; this relationship is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game; failed at: System.json.gameoverMe.name\r\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[0]; chain: System.json.gameoverMe.name (Game Over ME); DSL: pages[0].commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-system-grouping-diagnostic-lcmCcs/最小 Workspace with spaces/src/system.events.ts (line 1, column 262); base: error; effective: error\r\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[1]; chain: System.json.gameoverMe.name (Game Over ME); DSL: pages[0].commands[1]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-system-grouping-diagnostic-lcmCcs/最小 Workspace with spaces/src/system.events.ts (line 1, column 273); base: error; effective: error\r\n1 problem group(s), 0 problem file(s), 2 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.\r\n    at checkEventAssets (M:\\Shuen\\Codex\\asset-validation-09-system\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131:11)\r\n    at async compileWorkspaceUnlocked (M:\\Shuen\\Codex\\asset-validation-09-system\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:277:5)\r\n    at async withWorkspaceOperationLock (M:\\Shuen\\Codex\\asset-validation-09-system\\packages\\rpgmaker-event-dsl\\src\\workspace\\operation-lock.ts:45:12)\r\n    at async compileWorkspace (M:\\Shuen\\Codex\\asset-validation-09-system\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:217:3)\r\n    at async Command.<anonymous> (M:\\Shuen\\Codex\\asset-validation-09-system\\packages\\rpgmaker-event-dsl\\src\\cli.ts:67:7)\r\n    at async Command.parseAsync (M:\\Shuen\\Codex\\asset-validation-09-system\\node_modules\\.pnpm\\commander@14.0.3\\node_modules\\commander\\lib\\command.js:1122:5)\r\n    at async runCli (M:\\Shuen\\Codex\\asset-validation-09-system\\packages\\rpgmaker-event-dsl\\src\\cli.ts:110:3)\r\n    at async <anonymous> (M:\\Shuen\\Codex\\asset-validation-09-system\\packages\\rpgmaker-event-dsl\\src\\cli.ts:122:3)\r\n\r\nNode.js v22.23.4\r\n",
+      "ipcMessages": [
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\audio"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\audio"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\audio\\bgm"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\audio\\bgm"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\audio\\bgm\\TitleMusic.ogg"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img\\titles1"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img\\titles1"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img\\titles1\\TitleOne.png"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img\\titles2"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img\\titles2"
+        },
+        {
+          "kind": "asset-query",
+          "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-grouping-diagnostic-lcmCcs\\最小 Workspace with spaces\\Game\\img\\titles2\\TitleTwo.png"
+        }
+      ]
+    }
+  ]
+}

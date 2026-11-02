@@ -1,6 +1,6 @@
 # 09: 结束、标题与战斗默认素材的检查
 
-Status: resolved
+Status: claimed
 Blocked by: 06
 Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -62,6 +62,7 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 ## Comments
 
 - 2026-10-24：用户回复“确认”，本票按已确认的 17 票拆分发布为 ready-for-agent。产品实现、自动化与原生验收均尚未由本次发布执行。
+- 2026-11-02：重新领取 `AV.C07.shared-system-field.formal.case.expected` 的分组兼容缺口。09 worktree 开始 clean，已 fast-forward 到集成提交 `126b1980014e5c9a4c9bd877505e04a30f097759`。17 的 Contract 39 run 在取消前真实触发旧 header 计数 2／实际 1 的失败；原失败与现场、09 原有 passed 历史均保留。按规格 §7 先捕获完整公共 API／实际 CLI 的分组与全部来源，再决定兼容更正；沿用已确认的 Workspace API／CLI seam，不新增产品报告 API。准备阶段遵守 03 独占测试窗口，未运行产品或测试；本次新证据将单独归档到 `09-grouping-compatibility`，不改写原 Outcome／证据。
 
 ## Outcome — 2026-11-02
 

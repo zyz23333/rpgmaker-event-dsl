@@ -1,0 +1,21 @@
+Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\asset-system-grouping-diagnostic-rOqVnr
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: {"exitOne":true,"oneHeader":true,"exactMemberCount":true,"originsExactlyOnce":true,"allMemberChains":true,"allMemberLevels":false,"statistics":true,"failedField":true,"noFabricatedTarget":true,"noMissingFile":true,"noQueryError":true,"titleFilesAllQueried":true,"noContentRead":true,"unchanged":true}
+    at <anonymous> (M:\Shuen\Codex\asset-validation-09-system\.scratch\asset-validation-implementation\evidence\09-grouping-compatibility\raw\capture-original.ts:161:5)
+    at async withWindowsSandbox (M:\Shuen\Codex\asset-validation-09-system\packages\rpgmaker-event-dsl\test\support\windows-sandbox.ts:56:5)
+    at async <anonymous> (M:\Shuen\Codex\asset-validation-09-system\.scratch\asset-validation-implementation\evidence\09-grouping-compatibility\raw\capture-original.ts:85:1) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v22.23.4
+undefined
+M:\Shuen\Codex\asset-validation-09-system\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: tsx ../../.scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/capture-original.ts M:\Shuen\Codex\asset-validation-09-system\.scratch\asset-validation-implementation\evidence\09-grouping-compatibility\raw\diagnostic-original-contract39.json

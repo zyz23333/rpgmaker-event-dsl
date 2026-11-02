@@ -759,19 +759,50 @@ it("AV.C07.shared-system-field.formal.case.expected: one malformed System field 
     });
     for (const field of titleFields) await media(root, field);
     const before = await state(root);
+    const expectSharedFieldGroup = (message: string) => {
+      const members = message
+        .split(/\r?\n/u)
+        .filter((line) => line.startsWith("  - error map:1/event:1 "));
+      expect(members.map((line) => line.split("; chain:")[0])).toEqual([
+        "  - error map:1/event:1 Map001.json.events[1].pages[0].list[0]",
+        "  - error map:1/event:1 Map001.json.events[1].pages[0].list[1]",
+      ]);
+      for (const [index, member] of members.entries()) {
+        expect(member).toContain("chain: System.json.gameoverMe.name (Game Over ME)");
+        expect(member).toContain(`DSL: pages[0].commands[${index}]`);
+        expect(member).toMatch(/; base: error; effective: error$/u);
+      }
+      expect(
+        message.match(/1 problem group\(s\), 0 problem file\(s\), 2 affected use\(s\)/gu),
+      ).toHaveLength(1);
+      expect(message).toContain(
+        "Coverage: incomplete; named relationships or file checks remain unchecked.",
+      );
+      expect(message).toContain("failed at: System.json.gameoverMe.name");
+      expect(message).not.toContain("; target:");
+      expect(message).not.toContain("MV-ASSET-QUERY-FAILED");
+    };
     for (const check of [true, false]) {
       const actual = await capture(root, check);
-      expect(actual.failure.match(/error MV-ASSET-INVALID-DATA/gu)).toHaveLength(2);
+      const after = await state(root);
+      recordAssetInput({ groupingCompatibilityApi: { check, actual, before, after } });
+      expect(actual.failure.match(/error MV-ASSET-INVALID-DATA/gu)).toHaveLength(1);
       expect(actual.failure).toContain("System.json.gameoverMe.name");
       expect(actual.failure).toContain("list[0]");
       expect(actual.failure).toContain("list[1]");
       expect(actual.failure).not.toContain("MV-ASSET-MISSING-FILE");
-      expect(await state(root)).toEqual(before);
+      expectSharedFieldGroup(actual.failure);
+      expect(after).toEqual(before);
     }
     const cli = await runCli(sandbox, ["compile", "--check"], { allowFailure: true });
+    const afterCli = await state(root);
+    recordAssetInput({ groupingCompatibilityCli: { cli, before, after: afterCli } });
     expect(cli.exitCode).not.toBe(0);
-    expect(cli.stderr.match(/error MV-ASSET-INVALID-DATA/gu)).toHaveLength(2);
-    expect(await state(root)).toEqual(before);
+    expect(cli.exitCode).toBe(1);
+    expect(cli.stderr.match(/error MV-ASSET-INVALID-DATA/gu)).toHaveLength(1);
+    expectSharedFieldGroup(cli.stderr);
+    expect(cli.stderr).not.toContain("MV-ASSET-MISSING-FILE");
+    expect(afterCli).toEqual(before);
   });
 });
 for (const [token, override] of [
