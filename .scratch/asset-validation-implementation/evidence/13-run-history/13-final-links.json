@@ -1,0 +1,82 @@
+[
+  {
+    "exists": true,
+    "target": "13-workflow-acceptance.json",
+    "source": ".scratch/asset-validation-implementation/evidence/13-workflow-acceptance.md"
+  },
+  {
+    "exists": true,
+    "target": "13-run-history/",
+    "source": ".scratch/asset-validation-implementation/evidence/13-workflow-acceptance.md"
+  },
+  {
+    "exists": true,
+    "target": "../../asset-validation/asset-validation-spec.md",
+    "source": ".scratch/asset-validation-implementation/evidence/13-workflow-acceptance.md"
+  },
+  {
+    "exists": true,
+    "target": "../../asset-validation/acceptance-matrix.md",
+    "source": ".scratch/asset-validation-implementation/evidence/13-workflow-acceptance.md"
+  },
+  {
+    "exists": true,
+    "target": "../../asset-validation/implementation-acceptance-cases.md",
+    "source": ".scratch/asset-validation-implementation/evidence/13-workflow-acceptance.md"
+  },
+  {
+    "exists": true,
+    "target": "../issues/13-compile-check-consistency.md",
+    "source": ".scratch/asset-validation-implementation/evidence/13-workflow-acceptance.md"
+  },
+  {
+    "exists": true,
+    "target": "../../asset-validation/asset-validation-spec.md",
+    "source": ".scratch/asset-validation-implementation/issues/13-compile-check-consistency.md"
+  },
+  {
+    "exists": true,
+    "target": "../ticket-breakdown-draft.md",
+    "source": ".scratch/asset-validation-implementation/issues/13-compile-check-consistency.md"
+  },
+  {
+    "exists": true,
+    "target": "12-exceptions-and-complete-diagnostics.md",
+    "source": ".scratch/asset-validation-implementation/issues/13-compile-check-consistency.md"
+  },
+  {
+    "exists": true,
+    "target": "../evidence/13-workflow-acceptance.md",
+    "source": ".scratch/asset-validation-implementation/issues/13-compile-check-consistency.md"
+  },
+  {
+    "exists": true,
+    "target": "../evidence/13-workflow-acceptance.json",
+    "source": ".scratch/asset-validation-implementation/issues/13-compile-check-consistency.md"
+  },
+  {
+    "exists": true,
+    "target": "../../asset-validation/asset-validation-spec.md",
+    "source": ".scratch/asset-validation-implementation/issues/13-compile-check-consistency.md"
+  },
+  {
+    "exists": true,
+    "target": "../../asset-validation/acceptance-matrix.md",
+    "source": ".scratch/asset-validation-implementation/issues/13-compile-check-consistency.md"
+  },
+  {
+    "exists": true,
+    "target": "../../asset-validation/implementation-acceptance-cases.md",
+    "source": ".scratch/asset-validation-implementation/issues/13-compile-check-consistency.md"
+  },
+  {
+    "exists": true,
+    "target": "../ticket-breakdown-draft.md",
+    "source": ".scratch/asset-validation-implementation/issues/13-compile-check-consistency.md"
+  },
+  {
+    "exists": true,
+    "target": "../tickets.md",
+    "source": ".scratch/asset-validation-implementation/issues/13-compile-check-consistency.md"
+  }
+]

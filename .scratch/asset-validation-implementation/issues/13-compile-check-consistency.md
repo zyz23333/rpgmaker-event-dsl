@@ -1,6 +1,6 @@
 # 13: Compile／Check 单次素材门槛与输出有效性
 
-Status: claimed
+Status: resolved
 Blocked by: 12
 Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -10,19 +10,19 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Acceptance criteria
 
-- [ ] Check 的 initial／fresh／stale × success／error／warning 全部只读；Compile 发布前失败不发布，发布已开始后的失败沿用无效输出语义，成功重编译才能恢复。
-- [ ] 唯一素材门槛按当前事实判断，包含补齐后成功和 warning 到 warning；检查后删图不追加扫描、不使本次发布失败。内容、大小、时间、文件身份及无关目录项不比较；新命令重新查询且逻辑计数稳定。
-- [ ] 验证快照与实时素材的区别、未 Pull 标准数据改变及 Pull 后重编译、规则／绑定／政策新鲜度；Clone／Pull／Decompilation／Diff 不新增实时素材扫描。
-- [ ] 受控子进程验证 API 和指定 CLI 路径、编译输入保护及只读边界，不承诺持续监控或原子隔离。
+- [x] Check 的 initial／fresh／stale × success／error／warning 全部只读；Compile 发布前失败不发布，发布已开始后的失败沿用无效输出语义，成功重编译才能恢复。
+- [x] 唯一素材门槛按当前事实判断，包含补齐后成功和 warning 到 warning；检查后删图不追加扫描、不使本次发布失败。内容、大小、时间、文件身份及无关目录项不比较；新命令重新查询且逻辑计数稳定。
+- [x] 验证快照与实时素材的区别、未 Pull 标准数据改变及 Pull 后重编译、规则／绑定／政策新鲜度；Clone／Pull／Decompilation／Diff 不新增实时素材扫描。
+- [x] 受控子进程验证 API 和指定 CLI 路径、编译输入保护及只读边界，不承诺持续监控或原子隔离。
 
 ### 共通要求（限本票适用范围）
 
-- [ ] 完成本票验收族中分配给本票的全部有限子用例；共享族按下表分支签收，不减少字段、表示、时机或结果，不把其他票负责的分支误记为通过。
-- [ ] 正式表达与已识别 raw 各自对照独立预期；按适用范围核对完整 Event Asset Use、Asset Dependency Chain、条件、None、必要字段问题及文件事实。预期不得调用被测收集器、匹配器或政策函数生成。
-- [ ] 在 Windows / Node.js 22 的真实临时 Workspace 中，按原索引指定的 API／实际 CLI 入口和边界验证结果及允许的状态变化。纯语义测试只作补充，故障注入位于测试子进程操作系统边界。
-- [ ] 保留现有公共 Workspace API 和 CLI；不新增产品测试开关、JSON CLI、全局跳过或通配符例外。素材不进入持久编译基线、快照、备份、复制或写入范围。
-- [ ] 补齐本票影响的既有成功 fixture 所需真实文件与必要标准字段，保留旧断言与未知字段。同步适用使用说明、样例及构建后 CLI 用例清单；行为变更协调 Compile Contract Version。
-- [ ] 记录完整子用例 ID、契约出处、输入、预期、实际、环境、执行方式及证据；未执行、能力受限和失败分别记录，不能以 skip 计为通过。反例按规格回到责任行为或决定处理。
+- [x] 完成本票验收族中分配给本票的全部有限子用例；共享族按下表分支签收，不减少字段、表示、时机或结果，不把其他票负责的分支误记为通过。
+- [x] 正式表达与已识别 raw 各自对照独立预期；按适用范围核对完整 Event Asset Use、Asset Dependency Chain、条件、None、必要字段问题及文件事实。预期不得调用被测收集器、匹配器或政策函数生成。
+- [x] 在 Windows / Node.js 22 的真实临时 Workspace 中，按原索引指定的 API／实际 CLI 入口和边界验证结果及允许的状态变化。纯语义测试只作补充，故障注入位于测试子进程操作系统边界。
+- [x] 保留现有公共 Workspace API 和 CLI；不新增产品测试开关、JSON CLI、全局跳过或通配符例外。素材不进入持久编译基线、快照、备份、复制或写入范围。
+- [x] 补齐本票影响的既有成功 fixture 所需真实文件与必要标准字段，保留旧断言与未知字段。同步适用使用说明、样例及构建后 CLI 用例清单；行为变更协调 Compile Contract Version。
+- [x] 记录完整子用例 ID、契约出处、输入、预期、实际、环境、执行方式及证据；未执行、能力受限和失败分别记录，不能以 skip 计为通过。反例按规格回到责任行为或决定处理。
 
 ## Acceptance ownership
 
@@ -52,9 +52,15 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Verification
 
-按上游索引指定的实例与入口运行本票适用验证，并记录相关仓库检查、构建和 Windows CLI 结果；最终全量核对由 17 负责。本票发现的失败不得以延后到 17 代替修复。当前所有产品测试和原生检查均为待实施／未执行，完成时追加实际结果。
+已按上游索引执行63W＋4C：源码／构建分别67／67，共134条规范回执；每入口12个实际CLI ID，过滤项不计通过。受影响的8个既有suite源码／构建分别299／299，无过滤项。typecheck、lint、format、build、空白差异及本地链接检查通过。最终全仓与原生核对仍由17负责。
 
 完成后记录实际 outcome 和验证，再更新本票状态。原规格、决策地图及已完成决策票不因本票发布而改状态。
+
+## Outcome
+
+2026-11-02：本票完成。现有产品在 integration37 已有单次 Compile／Check 门槛，本票以真实 Windows／Node22 API／CLI 和 OS 暂停边界补全有限验收，保留全部输入保护及只读语义；没有产品行为变更，Contract仍为 `mv-1.6.1/37`。测试子进程释放 checkpoint 时移除残留 message listener，使成功 CLI 能真实退出。image重复命令复用04原唯一callback（共享owner04,13），SE重复命令新增唯一callback，不累积使用数。新suite加入构建后Windows清单，使用说明同步。
+
+完整结果、边界、独立预期、失败fixture修正及范围见[13验收说明](../evidence/13-workflow-acceptance.md)与[逐ID机器合册](../evidence/13-workflow-acceptance.json)。所有原始red／失败及修复报告保留；134条最终receipt的断言源SHA与冻结后的最终Git测试工件逐一核对。14–16的新增Push／pending／恢复责任没有提前签收。
 
 ## Sources
 
