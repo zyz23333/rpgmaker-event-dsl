@@ -19,6 +19,13 @@
     "built": 105,
     "passingReceipts": 210
   },
+  "additionalVerification": [
+    { "command": "pnpm typecheck", "status": "passed" },
+    { "command": "pnpm lint", "status": "passed" },
+    { "command": "pnpm format:check", "status": "passed" },
+    { "command": "pnpm build", "status": "passed" },
+    { "command": "source vitest battle-workspace system-access-window-scenes-workspace troop-workflow --maxWorkers=1", "status": "passed", "suites": 3, "tests": 56, "durationSeconds": 128.78 }
+  ],
   "boundaries": "Check and failing Compile preserve source/config/project/Snapshot/generated/Manifest/pending; successful Compile changes only output and bookkeeping. Captured external fields and asset bytes stay unchanged except explicit test-owned repair.",
   "developmentHistory": [
     {

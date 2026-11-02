@@ -4,6 +4,8 @@ Verified implementation revision: `ab7150c1a0c74b8744a3fe4c3f24cadd33e75764`. In
 
 Windows / Node.js 22.23.4 / pnpm 10.33.0. Real Workspace API and actual source and built CLI subprocesses. 96 normative IDs plus 9 supplemental regressions: 105 source + 105 built = 210 passing receipts. Native execution is not claimed here.
 
+Additional completed checks before peer integration: `pnpm typecheck`, `pnpm lint`, `pnpm format:check`, and `pnpm build` passed. Source regressions for `battle-workspace`, `system-access-window-scenes-workspace`, and `troop-workflow` passed 56/56 across three suites (128.78 seconds, one worker).
+
 Independent test inputs specify exact names, namespaces, native positions, field chains, conditions, candidate/inactive reasons and severity. Check and failure assertions compare source, config, project/media tree, Snapshot, generated tree, Manifest and pending state. Successful Compile preserves the project and captured external data; explicit test repairs are accounted for before comparison.
 
 TDD red/green history: Game Over, title, battle-default, host-background and dynamic301 tracer cases each failed for the missing behavior before implementation. The first full source96 run passed94 and exposed2 fixture omissions masked by setup defaults; explicit undefined overrides now produce truly absent native fields. Supplemental tests preserve existing context warnings and count shared diagnostic headers independently from repeated path rendering.
