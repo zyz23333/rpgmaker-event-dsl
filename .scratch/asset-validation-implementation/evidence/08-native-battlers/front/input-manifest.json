@@ -1,0 +1,579 @@
+{
+  "created": "2026-11-02T03:45:38.705Z",
+  "baseIntegration": "898b87db05b47dda648bfa42e2f2ace0a26d3e67",
+  "runtime": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\rmmv-local-runtime-1.6.1",
+  "nw": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\nwjs-win\\Game.exe",
+  "scenario": "front",
+  "outerNode": "v22.23.4",
+  "command": {
+    "executable": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+    "args": [
+      "M:\\Shuen\\Codex\\asset-validation-08-battlers\\.scratch\\asset-validation-implementation\\probes\\native-battlers\\run-battlers.mjs",
+      "F:/Shuen/RPG/rpgmaker-event-dsl/references/rmmv-local-runtime-1.6.1",
+      "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/nwjs-win/Game.exe",
+      "front",
+      "M:/Shuen/Codex/asset-validation-notes/n05-front-run-03"
+    ]
+  },
+  "launch": {
+    "executable": "M:\\Shuen\\Codex\\asset-validation-notes\\n05-front-run-03\\Game.exe",
+    "args": [
+      "--user-data-dir=M:\\Shuen\\Codex\\asset-validation-notes\\n05-front-run-03\\nw-profile",
+      "--enable-logging",
+      "--log-file=M:\\Shuen\\Codex\\asset-validation-notes\\n05-front-run-03\\nw.log"
+    ],
+    "cwd": "M:\\Shuen\\Codex\\asset-validation-notes\\n05-front-run-03",
+    "windowsHide": true,
+    "timeoutMs": 60000
+  },
+  "runtimeHashes": [
+    {
+      "file": "rpg_core.js",
+      "source": "9ad9914cc421af6d054c3f01b022b7383863b047ec3f6f76aa897e6cfbf864c6",
+      "copy": "9ad9914cc421af6d054c3f01b022b7383863b047ec3f6f76aa897e6cfbf864c6"
+    },
+    {
+      "file": "rpg_managers.js",
+      "source": "b3d5c746cf52234bdd34af746dbf3caecf96bb3477cc6d24121c4a1a11241114",
+      "copy": "b3d5c746cf52234bdd34af746dbf3caecf96bb3477cc6d24121c4a1a11241114"
+    },
+    {
+      "file": "rpg_objects.js",
+      "source": "2d43dd9d8974c88a1b82ffa493d6d8a02c4ce1d0dfc8f05e6c0ab731e3f0573e",
+      "copy": "2d43dd9d8974c88a1b82ffa493d6d8a02c4ce1d0dfc8f05e6c0ab731e3f0573e"
+    },
+    {
+      "file": "rpg_scenes.js",
+      "source": "a76ea8c14ec7414a0e2bb488b19734603cc3d8aace3f163e3aa82fc3d0d20d20",
+      "copy": "a76ea8c14ec7414a0e2bb488b19734603cc3d8aace3f163e3aa82fc3d0d20d20"
+    },
+    {
+      "file": "rpg_sprites.js",
+      "source": "f13e67ef4ed308afe71c8503dbe4da65b478cb772a7c0cea88d0e280a4e4fcb0",
+      "copy": "f13e67ef4ed308afe71c8503dbe4da65b478cb772a7c0cea88d0e280a4e4fcb0"
+    },
+    {
+      "file": "rpg_windows.js",
+      "source": "2501aea15906d84a2fb51de20e6dc006f847249674f14802ec2ac2dd5361bb99",
+      "copy": "2501aea15906d84a2fb51de20e6dc006f847249674f14802ec2ac2dd5361bb99"
+    }
+  ],
+  "nwSha256": "487bd28f3d0b43ed9827ba519d6d113c4f31059bd62b4492da586c7bc82a9474",
+  "shellHashes": [
+    {
+      "file": "Game.exe",
+      "source": "487bd28f3d0b43ed9827ba519d6d113c4f31059bd62b4492da586c7bc82a9474",
+      "copy": "487bd28f3d0b43ed9827ba519d6d113c4f31059bd62b4492da586c7bc82a9474"
+    },
+    {
+      "file": "nw.dll",
+      "source": "4a3f39e9476288d109dbfe0b0c245f032ebf920c5142af36a2a15b31f9ff2139",
+      "copy": "4a3f39e9476288d109dbfe0b0c245f032ebf920c5142af36a2a15b31f9ff2139"
+    }
+  ],
+  "scriptHashes": [
+    {
+      "file": "run-battlers.mjs",
+      "sha256": "20fd0ea9136e33191c4dfef604aa2292b4d6ef0c48ced54d6a7be983c732f7d5"
+    },
+    {
+      "file": "native-battlers.js",
+      "sha256": "c676e93b713fdd9d2cb1bf3b2c020e5d155e3eb2c425e0285846f45c84e6a907"
+    },
+    {
+      "file": "index.html",
+      "sha256": "05348a135897d16c30ed86ef0f714cf0e14ffaf59e705676c8bf941f663eb53c"
+    }
+  ],
+  "projectScriptHashes": [
+    {
+      "relative": "libs/fpsmeter.js",
+      "sha256": "fec43a13a522dafe9c28c3d30635a275af350edf3423de0349fb6fb9c01e9450"
+    },
+    {
+      "relative": "libs/iphone-inline-video.browser.js",
+      "sha256": "68d7edfc56c4fc6a21de7d55107fd6a334e1a3ff72eb21c14a2553ab9c92eeba"
+    },
+    {
+      "relative": "libs/lz-string.js",
+      "sha256": "7acc5ae524455fb67dee09375b4246386241f7dc4708dcdf8af0e78ca8267de7"
+    },
+    {
+      "relative": "libs/pixi-picture.js",
+      "sha256": "93fd8355e6847e791f363718c400aa7087c153123cea4b3186f325e2b1976075"
+    },
+    {
+      "relative": "libs/pixi-tilemap.js",
+      "sha256": "18e1f1d138643392733998fb428d1134eb35a645db57d336baa7fe5e5b996405"
+    },
+    {
+      "relative": "libs/pixi.js",
+      "sha256": "e8c3aba19cbdb6bfdfe7e9e06753329171731d1a05d5c49b750cc6656a31444a"
+    },
+    {
+      "relative": "main.js",
+      "sha256": "dcab1427f95c4bcedf1ed595b828d0c423d4c8d1767452c9a4e651a9c07a3ab9"
+    },
+    {
+      "relative": "plugins/AltMenuScreen.js",
+      "sha256": "6e103b929c3df10350166db451d650c75f314620b384a0f7564c044cc9540027"
+    },
+    {
+      "relative": "plugins/AltSaveScreen.js",
+      "sha256": "5ad4a92a83f288d0215fea645a600d32194da34085c61d4154168449689ca9bd"
+    },
+    {
+      "relative": "plugins/Community_Basic.js",
+      "sha256": "93d25e8b1a9154da02685472c596ec9baa5a6ae2abc29ca1b8f85c5d651f0ad6"
+    },
+    {
+      "relative": "plugins/EnemyBook.js",
+      "sha256": "03f52b3152a71060e542cab551f2bbe8d3674539db67025a8dfd9d31a9521d61"
+    },
+    {
+      "relative": "plugins/ItemBook.js",
+      "sha256": "bd0127bfcd37667a638056d0f2566034db0b4cbfdf34cae173200ba2f8ccef45"
+    },
+    {
+      "relative": "plugins/MadeWithMv.js",
+      "sha256": "eb4f8afed8e68a326b681bc70aea2bb5c597664cc84b99b8fad48943e531be80"
+    },
+    {
+      "relative": "plugins/SimpleMsgSideView.js",
+      "sha256": "dd5724942020b99f2dd3763fe0700b8b0b6511e317e8f6b92d32293898629014"
+    },
+    {
+      "relative": "plugins/TitleCommandPosition.js",
+      "sha256": "76bfa385f96b5fd9ebb15245135e6fd4671116460d266736cb215d6be837a2c8"
+    },
+    {
+      "relative": "plugins/WeaponSkill.js",
+      "sha256": "89b99854c4db09f6be189832338d459747f96a75dfba5d500ad41fadfdfb88ac"
+    },
+    {
+      "relative": "plugins.js",
+      "sha256": "c98089dbbd54722b6a5961bcba4771a6f30b2693397a89bf22add152feb65dbb"
+    },
+    {
+      "relative": "rpg_core.js",
+      "sha256": "9ad9914cc421af6d054c3f01b022b7383863b047ec3f6f76aa897e6cfbf864c6"
+    },
+    {
+      "relative": "rpg_managers.js",
+      "sha256": "b3d5c746cf52234bdd34af746dbf3caecf96bb3477cc6d24121c4a1a11241114"
+    },
+    {
+      "relative": "rpg_objects.js",
+      "sha256": "2d43dd9d8974c88a1b82ffa493d6d8a02c4ce1d0dfc8f05e6c0ab731e3f0573e"
+    },
+    {
+      "relative": "rpg_scenes.js",
+      "sha256": "a76ea8c14ec7414a0e2bb488b19734603cc3d8aace3f163e3aa82fc3d0d20d20"
+    },
+    {
+      "relative": "rpg_sprites.js",
+      "sha256": "f13e67ef4ed308afe71c8503dbe4da65b478cb772a7c0cea88d0e280a4e4fcb0"
+    },
+    {
+      "relative": "rpg_windows.js",
+      "sha256": "2501aea15906d84a2fb51de20e6dc006f847249674f14802ec2ac2dd5361bb99"
+    }
+  ],
+  "fixtures": [
+    {
+      "relative": "Actors.json",
+      "sha256": "4abde89288b34ce0037c1d4faf79bf2b1c15e7d7ef8545920db0a373e1a6db18"
+    },
+    {
+      "relative": "Animations.json",
+      "sha256": "aeea23a6290b14202dc41982427ea78facda1f4e7a57a82e5d6be5e7d4bbcb24"
+    },
+    {
+      "relative": "Armors.json",
+      "sha256": "45b3df06bfd2f99eaec7f5b05ace3bce6522d6d2f388bca26f791b6b6d8525c1"
+    },
+    {
+      "relative": "Classes.json",
+      "sha256": "e5c8053b1759eb7ebe325b3331209ad11164daa6d0f01b2eb9cd9b7812cb9f88"
+    },
+    {
+      "relative": "CommonEvents.json",
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relative": "Enemies.json",
+      "sha256": "d5fbc412fdf033f5078a06bee6ef1eb0ef3c0ef6087bbed33c8c1f2a39a302fc"
+    },
+    {
+      "relative": "Items.json",
+      "sha256": "4eb71f4d281a7d1022d9a8a677ee146bed8e8c5df99325890ceb65d9022200f6"
+    },
+    {
+      "relative": "Map001.json",
+      "sha256": "0049baf9f2bdecf13dc2a6baf31852c0a7c64e01c7fb27b8c335640744262112"
+    },
+    {
+      "relative": "MapInfos.json",
+      "sha256": "d3c1acb24691d9a9056832c0450bc43960dcff9ffe8d2d88c284c589e40ffe74"
+    },
+    {
+      "relative": "Skills.json",
+      "sha256": "11e6d55e657c8d949c9448f765bc179da889c72ebda7f9802d0f2df581259982"
+    },
+    {
+      "relative": "States.json",
+      "sha256": "ec46fe60e73c35e22c3393911365385570bb15c2b51b03bee850ca315334e6e7"
+    },
+    {
+      "relative": "System.json",
+      "sha256": "0dae9842962c5f06f4d23d289ecbec5227ad5a1772d83f97a7a52778ad93443d"
+    },
+    {
+      "relative": "Tilesets.json",
+      "sha256": "1adc836c58eb17b8d27c696b5ed0fee89efc8da1c7161179b8890ed8d43b95b5"
+    },
+    {
+      "relative": "Troops.json",
+      "sha256": "b0fbc898acadfb75a277888a0d5d6bfa2b1ac83c988ecf1e099816a3b471d0d8"
+    },
+    {
+      "relative": "Weapons.json",
+      "sha256": "0d94789174dd2f9735a95a321268c39d6a3a5ccdb09cc21aa98d82c65acecc4e"
+    }
+  ],
+  "generated": [
+    {
+      "relative": "img/enemies/ModeEnemy.png",
+      "role": "N05 same Enemy front-view sample; N06 background battle support",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 80,
+        "height": 96,
+        "rgba": [
+          255,
+          0,
+          0,
+          255
+        ]
+      },
+      "sha256": "3141a69af84cf61298452bbb87a42a5c8b7e3c51f0a37cfaeb258387774c82fa"
+    },
+    {
+      "relative": "img/sv_enemies/ModeEnemy.png",
+      "role": "N05 same Enemy side-view sample; N06 background battle support",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 96,
+        "height": 80,
+        "rgba": [
+          0,
+          255,
+          0,
+          255
+        ]
+      },
+      "sha256": "9e262427572522e16e7308531c5b30beecd525311f36de58d299a5e0fe1316b4"
+    },
+    {
+      "relative": "img/characters/InitialCharacter.png",
+      "role": "N06 saved initial versus current runtime character; N05 background party support",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 576,
+        "height": 384,
+        "rgba": [
+          255,
+          0,
+          255,
+          255
+        ]
+      },
+      "sha256": "a29c57b2099e9b9d4560f3d8709692da25c8092a9491cec91799ec888e7f8175"
+    },
+    {
+      "relative": "img/characters/CurrentCharacter.png",
+      "role": "N06 saved initial versus current runtime character; N05 background party support",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 576,
+        "height": 384,
+        "rgba": [
+          0,
+          255,
+          255,
+          255
+        ]
+      },
+      "sha256": "9d943e1e89b2b121aa290901004ee7f6fb31e4502bb78eb97f6db430d640c2d2"
+    },
+    {
+      "relative": "img/sv_actors/InitialBattler.png",
+      "role": "N06 saved initial versus current runtime SV; N05 background party support",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 576,
+        "height": 384,
+        "rgba": [
+          255,
+          255,
+          0,
+          255
+        ]
+      },
+      "sha256": "48d4cb3bdbd4fab36c00a64d81b433490a06c96731b34d6a0a77a8161fc0bacc"
+    },
+    {
+      "relative": "img/sv_actors/CurrentBattler.png",
+      "role": "N06 saved initial versus current runtime SV; N05 background party support",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 576,
+        "height": 384,
+        "rgba": [
+          0,
+          0,
+          255,
+          255
+        ]
+      },
+      "sha256": "4231fd4b6fa1946908aad4cb12d99b01ec31a293d135d81aec9023668dccede4"
+    },
+    {
+      "relative": "img/battlebacks1/ProbeBackdrop1.png",
+      "role": "background scene support, outside native relationship claim",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 1000,
+        "height": 740,
+        "rgba": [
+          20,
+          20,
+          20,
+          255
+        ]
+      },
+      "sha256": "4f9a813697858b987682b0c20b2cea9dbab7ea708646758f05124d8e994b1783"
+    },
+    {
+      "relative": "img/battlebacks2/ProbeBackdrop2.png",
+      "role": "background scene support, outside native relationship claim",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 1000,
+        "height": 740,
+        "rgba": [
+          40,
+          40,
+          40,
+          255
+        ]
+      },
+      "sha256": "bc2e188c221764810691cc2b86b90de37f5437181f4c158165838ef5b0f47f93"
+    },
+    {
+      "relative": "img/system/Window.png",
+      "role": "background scene support, outside Event Asset Use selection",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 192,
+        "height": 192,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "f81e2c960f6f3f32561e9d466e6bc7327975a8dc94c49df95ac9ec236796daef"
+    },
+    {
+      "relative": "img/system/Loading.png",
+      "role": "background scene support, outside Event Asset Use selection",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 128,
+        "height": 128,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "3e2f158b2186e35b2db34043fabe3f48e3718c63c280484be8a123c1f174b658"
+    },
+    {
+      "relative": "img/system/Shadow1.png",
+      "role": "background scene support, outside Event Asset Use selection",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 48,
+        "height": 48,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "f94fdc0ec51ea18d36013be68fe73532587e21a311bfcf4bf8801009de53ec06"
+    },
+    {
+      "relative": "img/system/Shadow2.png",
+      "role": "background scene support, outside Event Asset Use selection",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 48,
+        "height": 48,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "f94fdc0ec51ea18d36013be68fe73532587e21a311bfcf4bf8801009de53ec06"
+    },
+    {
+      "relative": "img/system/Balloon.png",
+      "role": "background scene support, outside Event Asset Use selection",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 384,
+        "height": 384,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "5b910e5960a5cfb4c21bd787b39879a90c6d6cad3872a9d8a08d1ba06e46c9aa"
+    },
+    {
+      "relative": "img/system/States.png",
+      "role": "background scene support, outside Event Asset Use selection",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 768,
+        "height": 96,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "e2a0abe89176a25a48b5834ea8a35a45fab175dcb695c7a936e56285ea566537"
+    },
+    {
+      "relative": "img/system/IconSet.png",
+      "role": "background scene support, outside Event Asset Use selection",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 512,
+        "height": 512,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "7a39387f34d1569fefaaec1b8f612e836166b72f1c0ce4364fc25e46cfec67f2"
+    },
+    {
+      "relative": "img/system/Damage.png",
+      "role": "background scene support, outside Event Asset Use selection",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 240,
+        "height": 160,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "b1b93be842c628d682444d27a9c63978fad8c2212a320e4cbc920f6f57cf8699"
+    },
+    {
+      "relative": "img/system/Weapons1.png",
+      "role": "background scene support, outside Event Asset Use selection",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 576,
+        "height": 384,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "45255e9aeed58efb50a6b9475f92ff093ffa29e4334caf448e7d7e1595daaa73"
+    },
+    {
+      "relative": "img/system/Weapons2.png",
+      "role": "background scene support, outside Event Asset Use selection",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 576,
+        "height": 384,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "45255e9aeed58efb50a6b9475f92ff093ffa29e4334caf448e7d7e1595daaa73"
+    },
+    {
+      "relative": "img/system/Weapons3.png",
+      "role": "background scene support, outside Event Asset Use selection",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 576,
+        "height": 384,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "45255e9aeed58efb50a6b9475f92ff093ffa29e4334caf448e7d7e1595daaa73"
+    },
+    {
+      "relative": "img/system/ButtonSet.png",
+      "role": "background scene support, outside Event Asset Use selection",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 288,
+        "height": 96,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "faa9553666f4abc30858658a93fcadd01d7579a63e71633099dca35a55ac292c"
+    }
+  ],
+  "independentExpected": {
+    "id": "AV.N05.enemy-front.native-run.case.observed",
+    "enemyId": 1,
+    "troopId": 1,
+    "member": 0,
+    "savedName": "ModeEnemy",
+    "optSideView": false,
+    "selected": "img/enemies/ModeEnemy.png",
+    "width": 80,
+    "height": 96,
+    "pixel": "#ff0000",
+    "bothDirectoriesExist": true
+  }
+}

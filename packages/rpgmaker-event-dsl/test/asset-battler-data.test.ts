@@ -195,3 +195,25 @@ it("uses one captured Actor Enemy and System view instead of newer live fields",
     ).toContain("SavedEnemy");
   });
 });
+
+it("removing an Actor does not interpret initial image candidates or infer party reordering assets", async () => {
+  await withWindowsSandbox("asset-remove-actor-scope", async (sandbox) => {
+    const root = sandbox.workspaceRoot;
+    await prepare(root, "unneeded mode", 17);
+    await writeFile(
+      join(root, "src/selected.events.ts"),
+      'import {commonEvent,changePartyMember,actorRef} from "rpgmaker-event-dsl";export const event=commonEvent({id:1,name:"Remove only",trigger:"none",commands:[changePartyMember({actor:actorRef({id:1}),operation:"remove",initialize:true})]});',
+    );
+    const before = await readFile(join(root, ".rpgmaker-event-dsl/sync-manifest.json"), "utf8");
+    await compileWorkspace({ workspaceRoot: root, check: true });
+    const cli = await runCli(sandbox, ["compile", "--check"]);
+    expect(cli.stderr).not.toContain("MV-ASSET-");
+    expect(await readFile(join(root, ".rpgmaker-event-dsl/sync-manifest.json"), "utf8")).toBe(
+      before,
+    );
+    await compileWorkspace({ workspaceRoot: root, check: false });
+    expect(
+      await readFile(join(root, ".rpgmaker-event-dsl/project-data-snapshot/Actors.json"), "utf8"),
+    ).toContain('"characterName":17');
+  });
+});
