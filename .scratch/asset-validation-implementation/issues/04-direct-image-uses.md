@@ -65,6 +65,7 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 - 2026-10-24：用户回复“确认”，本票按已确认的 17 票拆分发布为 ready-for-agent。产品实现、自动化与原生验收均尚未由本次发布执行。
 - 2026-11-02：按 [17 的公开说明核对](17-integrated-acceptance.md)回补本票的一处说明遗漏，短暂重新领取；开始前 04 worktree clean，已 fast-forward 到集成提交 `29f19dfd3ed943df2e0c9ae2b7c446ada248d501`。发现点为包 README 的 Message Commands 段仍称“image files and dimensions are unchecked”，与当前 Show Text 脸图文件检查及后文素材规则不一致。本次仅修正文案，保留既有 Outcome 与验收证据；不修改产品、Compile Contract Version 或测试。
+- 2026-11-02：17 的公开说明核对另发现 authoring skill 的 `references/event-patterns.md` Face 段仍有同一句旧说明，本票再次短暂领取。04 worktree 从 clean 的 `58c218c2` fast-forward 到集成提交 `80c945e43cd96677c31429ee411863c76ec2e69b`；已按 writing-for-agents 及其 SKILL-MECHANICS 核对技能参考与主 Skill 上下文。本次仅回补 Face 的保存值／文件检查边界，保留主 Skill、其他 pattern（含另归 06 的 Tileset 段）、既有 Outcome 与证据。
 
 ## Outcome
 
@@ -73,3 +74,5 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 [验收记录](../evidence/04-image-acceptance.md)及[138 条逐项结果](../evidence/04-image-acceptance.json)记录 69 个所属 ID 的源码／构建入口结果。最终选定源码 75／75、构建入口 75／75；既有受影响工作流 177／177，地图外观 8／8，构建、typecheck、lint、format:check、diff 检查通过。未把过滤器未选择的其他用例或原生政策待决定部分记为通过。全量及最终 Windows 汇总由 17 负责。
 
 2026-11-02 说明回补：已修正包 README 的 Message Commands 段，明确所选脸图按共享素材规则检查准确普通文件存在性，图像尺寸、布局和解码仍不检查，None 的索引保存与告警边界保持原说明。与同一 README 后文素材规则核对一致；仅此文案与本票记录变更，既有 Outcome 和全部验收证据保留，产品、Compile Contract Version 与测试未变。`oxfmt --check packages/rpgmaker-event-dsl/README.md`、`git diff --check` 及两份变更 Markdown 的 11 处本地链接目标检查通过；此次未新增或重跑产品测试，也不把既有测试结果作为此次新执行记录。17 的公开说明核对可继续据此验收。本票重新 resolved。
+
+2026-11-02 技能参考说明回补：已修正 `skills/rpgmaker-event-authoring/references/event-patterns.md` 的 Face 段，明确 helper 保留保存名称、索引与消息设置，Workspace 素材检查按共享文件规则验证所选文件；图像尺寸、布局和解码仍在检查边界外。与包 README 的脸图说明一致。`oxfmt --check` 该参考文件、`git diff --check`、两份变更 Markdown 的 12 处本地链接目标检查及“参考文件只改 Face 段”的完整文本比对通过；主 Skill、其他 pattern（含 Tileset）、产品、Compile Contract Version、测试与全部既有验收证据均未变。本次没有执行产品测试或广测，原证据继续保留为其原执行记录。本票重新 resolved，交回 17 继续核对。

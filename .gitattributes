@@ -63,7 +63,11 @@ packages/rpgmaker-event-dsl/test/fixtures/asset-legacy-policy-evidence.json -tex
 /.scratch/asset-validation-implementation/evidence/14-run-history/*.log -whitespace
 # Keep ticket15 original failed and successful runner/receipt bytes unchanged.
 /.scratch/asset-validation-implementation/evidence/15-raw/** -text -whitespace
+# Preserve reopened ticket03's Windows name probe and red/green evidence bytes.
+/.scratch/asset-validation-implementation/evidence/03-device-space/** -text -whitespace
 # Keep ticket16's original failed and successful execution bytes unchanged.
 /.scratch/asset-validation-implementation/evidence/16-raw/** -text -whitespace
 # Keep ticket17 actual command logs, receipts, and canceled attempts byte-identical.
 /.scratch/asset-validation-implementation/evidence/17-raw/** -text -whitespace
+# Preserve ticket09's original failure and grouping-compatibility execution bytes.
+/.scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/** -text -whitespace

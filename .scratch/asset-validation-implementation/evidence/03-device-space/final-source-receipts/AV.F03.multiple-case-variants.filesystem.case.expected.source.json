@@ -1,0 +1,47 @@
+{
+  "id": "AV.F03.multiple-case-variants.filesystem.case.expected",
+  "ownerTicket": "03",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:38:05.462Z",
+  "completedAt": "2026-11-02T10:38:06.206Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "names": [
+        "Poster"
+      ],
+      "source": "import {commonEvent,rawDslCommand} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"Poster\",0,0,0,0,100,100,255,0]})]});",
+      "contract": "exact selected PNG metadata in the bound Project Root"
+    },
+    {},
+    {
+      "capability": "real case-sensitive NTFS directory; failure is not skipped",
+      "stdout": "������Ŀ¼ C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-multiple-case-variants-PSlmKS\\��С Workspace with spaces\\Game\\img\\pictures �����ִ�Сд���ԡ�\r\n"
+    },
+    {
+      "file": "img/pictures/poster.png",
+      "contents": "ordinary zero-byte file",
+      "timing": "before asset gate"
+    },
+    {
+      "file": "img/pictures/POSTER.png",
+      "contents": "ordinary zero-byte file",
+      "timing": "before asset gate"
+    }
+  ],
+  "expected": {
+    "description": "real case-coexisting files never replace the exact spelling",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-file-workspace.test.ts",
+    "sha256": "61cbdd643880adf3d124748862751b96fdaf2a86fefb5e451b99b8457255449b",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_6__.withWindowsSandbox)(`asset-${branch}`, async (sandbox) => {\n\t\tawait prepare(sandbox.workspaceRoot);\n\t\tconst directory = (0,__vite_ssr_import_2__.join)(sandbox.workspaceRoot, \"Game/img/pictures\");\n\t\tawait (0,__vite_ssr_import_1__.mkdir)(directory, { recursive: true });\n\t\tconst capability = await (0,__vite_ssr_import_3__.promisify)((0,__vite_ssr_import_0__.execFile))(\"fsutil.exe\", [\n\t\t\t\"file\",\n\t\t\t\"setCaseSensitiveInfo\",\n\t\t\tdirectory,\n\t\t\t\"enable\"\n\t\t], { windowsHide: true });\n\t\t(0,__vite_ssr_import_5__.recordAssetInput)({\n\t\t\tcapability: \"real case-sensitive NTFS directory; failure is not skipped\",\n\t\t\tstdout: capability.stdout\n\t\t});\n\t\tawait png(sandbox.workspaceRoot, \"img/pictures/poster.png\");\n\t\tawait png(sandbox.workspaceRoot, branch === \"exact-plus-case-variant\" ? \"img/pictures/Poster.png\" : \"img/pictures/POSTER.png\");\n\t\t(0,__vite_ssr_import_4__.expect)((await (0,__vite_ssr_import_1__.readdir)(directory)).sort()).toEqual(branch === \"exact-plus-case-variant\" ? [\"Poster.png\", \"poster.png\"] : [\"POSTER.png\", \"poster.png\"]);\n\t\tif (branch === \"exact-plus-case-variant\") await api.compileWorkspace({\n\t\t\tworkspaceRoot: sandbox.workspaceRoot,\n\t\t\tcheck: true\n\t\t});\n\t\telse {\n\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\tworkspaceRoot: sandbox.workspaceRoot,\n\t\t\t\tcheck: true\n\t\t\t}).then(() => \"\", String);\n\t\t\t(0,__vite_ssr_import_4__.expect)(failure).toContain(\"MV-ASSET-NAME-MISMATCH\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(failure).toContain(\"POSTER.png, poster.png\");\n\t\t}\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

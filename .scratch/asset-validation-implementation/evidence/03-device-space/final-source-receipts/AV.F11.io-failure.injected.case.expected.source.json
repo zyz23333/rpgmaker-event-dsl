@@ -1,0 +1,47 @@
+{
+  "id": "AV.F11.io-failure.injected.case.expected",
+  "ownerTicket": "03",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:38:27.377Z",
+  "completedAt": "2026-11-02T10:38:29.203Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "names": [
+        "Broken",
+        "Missing"
+      ],
+      "source": "import {commonEvent,rawDslCommand} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"Broken\",0,0,0,0,100,100,255,0]}),rawDslCommand({code:231,indent:0,parameters:[2,\"Missing\",0,0,0,0,100,100,255,0]})]});",
+      "contract": "exact selected PNG metadata in the bound Project Root"
+    },
+    {},
+    {
+      "file": "img/pictures/Broken.png",
+      "contents": "ordinary zero-byte file",
+      "timing": "before asset gate"
+    },
+    {
+      "injected": "OS lstat throws EIO; not a real ACL claim",
+      "result": {
+        "kind": "result",
+        "ok": false,
+        "message": "compile --check asset check failed:\nerror MV-ASSET-QUERY-FAILED: Controlled asset metadata I/O failure: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-io-failure-N1Izp7\\最小 Workspace with spaces\\Game\\img\\pictures\\Broken.png Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-io-failure-N1Izp7\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-io-failure-N1Izp7\\最小 Workspace with spaces\\Game\\img\\pictures\\Broken.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-io-failure-N1Izp7\\最小 Workspace with spaces\\Game\\img\\pictures\\Broken.png\n  image/pictures \"Broken\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; base: error; effective: error\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-io-failure-N1Izp7\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-io-failure-N1Izp7\\最小 Workspace with spaces\\Game\\img\\pictures\\Missing.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-io-failure-N1Izp7\\最小 Workspace with spaces\\Game\\img\\pictures\\Missing.png\n  image/pictures \"Missing\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[1].parameters[1]; DSL: commands[1]; base: error; effective: error\n2 problem group(s), 2 problem file(s), 2 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked."
+      }
+    }
+  ],
+  "expected": {
+    "description": "metadata errors remain query failures and independent missing files are retained",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-file-workspace.test.ts",
+    "sha256": "61cbdd643880adf3d124748862751b96fdaf2a86fefb5e451b99b8457255449b",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_6__.withWindowsSandbox)(`asset-${branch}`, async (sandbox) => {\n\t\tawait prepare(sandbox.workspaceRoot, [\"Broken\", \"Missing\"]);\n\t\tconst target = await png(sandbox.workspaceRoot, \"img/pictures/Broken.png\");\n\t\tconst before = await localState(sandbox.workspaceRoot);\n\t\tconst child = (0,__vite_ssr_import_7__.startWorkspaceOperation)(sandbox, {\n\t\t\toperation: \"check\",\n\t\t\tboundary,\n\t\t\tassetPath: \"img/pictures/Broken.png\"\n\t\t});\n\t\ttry {\n\t\t\tconst result = await child.waitFor(\"result\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(result.ok).toBe(false);\n\t\t\t(0,__vite_ssr_import_4__.expect)(result.message).toContain(\"MV-ASSET-QUERY-FAILED\");\n\t\t\tconst query = result.message.split(\"\\n\").find((line) => line.includes(\"MV-ASSET-QUERY-FAILED\"));\n\t\t\t(0,__vite_ssr_import_4__.expect)(query.endsWith(`; failed at: ${target}`)).toBe(true);\n\t\t\t(0,__vite_ssr_import_4__.expect)(result.message).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(result.message).toContain(\"image/pictures \\\"Missing\\\"\");\n\t\t\t(0,__vite_ssr_import_5__.recordAssetInput)({\n\t\t\t\tinjected: `OS lstat throws ${code}; not a real ACL claim`,\n\t\t\t\tresult\n\t\t\t});\n\t\t} finally {\n\t\t\tawait child.stop();\n\t\t};\n\t\t(0,__vite_ssr_import_4__.expect)(await localState(sandbox.workspaceRoot)).toEqual(before);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

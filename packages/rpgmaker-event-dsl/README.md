@@ -1089,7 +1089,9 @@ None omits the file lookup while retaining independent image indices, and script
 strings do not create guessed image references or bypass the Script Command Gate.
 
 File matching preserves Chinese text, spaces, dots and `$`/`!` prefixes. A stem
-ending in a space or dot keeps it before the appended extension. Unicode
+ending in a space or dot keeps it before the appended extension.
+Reserved Windows device names also cover ASCII spaces before the first dot,
+including `NUL .png`. Saved names keep their original spelling. Unicode
 normalization, alternative formats and a `www` resource tree do not substitute
 for the exact target. Existing Project Root aliases keep their binding semantics;
 symlinks and junctions below that root are refused, while ordinary hard links pass.

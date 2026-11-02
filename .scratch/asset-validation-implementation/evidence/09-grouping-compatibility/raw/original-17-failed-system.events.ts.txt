@@ -1,0 +1,1 @@
+import {mapEvent,commonEvent,troopEvent,gameOver,returnToTitleScreen,battleProcessing,troopRef,variableRef,rawDslCommand} from "rpgmaker-event-dsl";export const event=mapEvent({mapId:1,id:1,name:"System",x:0,y:0,pages:[{conditions:{},trigger:"action",commands:[gameOver(),gameOver(),returnToTitleScreen()]}]});
