@@ -41,3 +41,5 @@
 原始 red、失败、修复与完整最终 JSON 报告分别保存，未覆盖成成功。最初 red 来自测试 helper 尚无新暂停边界，随后 red 来自状态观察器对 Windows 永久 kernel lock 的误判；不把这些测试基础设施或 fixture red 描述为产品规格失败。另归档了 14 个真实失败临时项目的原 process records、输入及失败后状态；未完成 finalization 的超时目录明确记录 process-results 不可得，保留原 timeout 报告，不合成进程成功。收紧前的两个 67／67 原报告另保留为 pre-tightening，实际测试源 revision 为 d9be9248；最终回执的断言源 SHA 均与789fef61最终 Git 工件核对。合册生成脚本只做独立计划与实际回执对账，不执行产品计算。全仓、原生媒体最终验收仍由17负责；14–16的 Push／pending／恢复新责任没有在本票签收。
 
 8 个受影响旧 suite（compile-inputs、compile-publication、snapshot-binding、workspace-locking、decompile-publication、push-drift、push-recovery、asset-file-workspace）源码／构建各 **299／299**，无过滤项。typecheck、lint、format、build、空白差异及本地链接检查通过；原始记录列在机器合册及 runner history。本票没有增加 Manifest 媒体扫描、发布后复查、跨点比较、历史成功缓存或持续监控。
+
+仓库属性要求 evidence text 使用 LF。PowerShell 原 CRLF 字节另以 base64、原 SHA 和规范化 SHA 保存在 `13-run-history/13-original-text-bytes.json`；history manifest 对应实际 Git 存储的 LF 字节，避免文本规范化使证据哈希失配。

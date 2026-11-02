@@ -10,6 +10,20 @@ const history = import.meta.dirname;
 const sha = (value) => createHash("sha256").update(value).digest("hex");
 const json = async (path) => JSON.parse(await readFile(path, "utf8"));
 const save = async (path, value) => writeFile(path, JSON.stringify(value, null, 2) + "\n");
+// Git requires LF for evidence text. Keep the exact original PowerShell bytes as
+// base64 before normalizing, then hash the text that is actually stored in Git.
+const originalTextPath=join(history,"13-original-text-bytes.json");
+const originalText=await json(originalTextPath).catch(()=>[]);
+for(const name of await readdir(history)) {
+  if(!/\.(log|json)$/u.test(name)||name==="13-original-text-bytes.json") continue;
+  const path=join(history,name);const bytes=await readFile(path);
+  if(!bytes.includes(Buffer.from("\r\n"))) continue;
+  const normalized=Buffer.from(bytes.toString("utf8").replaceAll("\r\n","\n"));
+  if(!originalText.some(entry=>entry.name===name&&entry.originalSha256===sha(bytes)))
+    originalText.push({name,originalBytes:bytes.length,originalSha256:sha(bytes),originalBase64:bytes.toString("base64"),gitNormalizedSha256:sha(normalized),reason:"Repository text attributes normalize CRLF to LF; original byte stream retained independently"});
+  await writeFile(path,normalized);
+}
+await save(originalTextPath,originalText);
 const planPath = "M:/Shuen/Codex/asset-validation-notes/planned-acceptance-ids-12-16.json";
 const originalPlan = await json(planPath);
 const related = [

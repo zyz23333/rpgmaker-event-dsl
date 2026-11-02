@@ -1,5 +1,5 @@
 {
-  "createdAt": "2026-11-02T06:57:26.816Z",
+  "createdAt": "2026-11-02T06:59:07.440Z",
   "scope": "Original red/failure/final runner outputs and check logs. Filtered cases never count as passing; fixture and test-driver corrections are described in the human evidence.",
   "files": [
     {
@@ -39,8 +39,8 @@
     },
     {
       "name": "13-build.log",
-      "bytes": 2489,
-      "sha256": "d0f2fdcfc99851eeaae19e38ff682fc0871af573603badad69ed4baba96b4758"
+      "bytes": 2458,
+      "sha256": "31995d98837ff89140212936009367dc7cfd69dd0e079f2e3dc861cc5954fd22"
     },
     {
       "name": "13-built-compatibility.json",
@@ -84,28 +84,28 @@
     },
     {
       "name": "13-final-format.log",
-      "bytes": 392,
-      "sha256": "6489e2fcf761353f2dfa8699de3c7fe7d7fb9f3485638da77a7fc68060a60740"
+      "bytes": 384,
+      "sha256": "c62f35174f6163e1a46c34facee4bf582f508db133def61b33e63da15c5e5ca3"
     },
     {
       "name": "13-final-integration-merge.log",
-      "bytes": 21,
-      "sha256": "6785c86f48e066e125db2b99c3c9fffddce2495ae2da837332b6f9887346e291"
+      "bytes": 20,
+      "sha256": "e5d6c99aec87ec07a2d1b5c1222d8b690d0a61c3548a55c795fff56db9450d0d"
     },
     {
       "name": "13-final-links.json",
-      "bytes": 2959,
-      "sha256": "3885bf1144bec531acbedc90cbf780e7f198b2944996de9541d865b5408c2d9f"
+      "bytes": 2877,
+      "sha256": "84a033672720d75e3946bffc7f2e81a7d58a528ad92a692016776588cea8a7aa"
     },
     {
       "name": "13-final-lint.log",
-      "bytes": 102,
-      "sha256": "6e7b530390d5735f3ea61a341abf902100ee9f114941539e24486c6155c61152"
+      "bytes": 98,
+      "sha256": "4d88c2760f4a06c33c393274b89803798c07d2f538b904b4f55b0b0d805e8cec"
     },
     {
       "name": "13-final-typecheck.log",
-      "bytes": 265,
-      "sha256": "172eecff57906474b8e91b9ee0c8f27502c81751415bc209dfddb4ff0308a483"
+      "bytes": 258,
+      "sha256": "88b077502174a24c94cf3f3a0b85db782ac71ec435626b42f84193deeefa93e9"
     },
     {
       "name": "13-fixture-prerequisites-green.json",
@@ -119,8 +119,13 @@
     },
     {
       "name": "13-lint.log",
-      "bytes": 102,
-      "sha256": "6e7b530390d5735f3ea61a341abf902100ee9f114941539e24486c6155c61152"
+      "bytes": 98,
+      "sha256": "4d88c2760f4a06c33c393274b89803798c07d2f538b904b4f55b0b0d805e8cec"
+    },
+    {
+      "name": "13-original-text-bytes.json",
+      "bytes": 12746,
+      "sha256": "ff827a885ecf16fe4a647bc6046e016fec827c55283557fa14d2622b804fbfbf"
     },
     {
       "name": "13-publication-green.json",
@@ -129,8 +134,8 @@
     },
     {
       "name": "13-run-revisions.json",
-      "bytes": 323,
-      "sha256": "b0011ff021aa17ceaca0a76ed10528f8d7200a6aa3cf58985e4c2de1d9a5cc55"
+      "bytes": 317,
+      "sha256": "6e4561cf9d30fcf23166b920d0235d0647b74f2f69d58022bf247fe3a7f3d18d"
     },
     {
       "name": "13-shared-c03-source.json",
@@ -169,13 +174,13 @@
     },
     {
       "name": "13-typecheck.log",
-      "bytes": 265,
-      "sha256": "172eecff57906474b8e91b9ee0c8f27502c81751415bc209dfddb4ff0308a483"
+      "bytes": 258,
+      "sha256": "88b077502174a24c94cf3f3a0b85db782ac71ec435626b42f84193deeefa93e9"
     },
     {
       "name": "build-13-acceptance.mjs",
-      "bytes": 9666,
-      "sha256": "ce6937d34dcdddae8df3ab7c0f545f46c5a29c59cad2342273be289110fb397a"
+      "bytes": 10715,
+      "sha256": "4c76b9210f823a34d921b078a38f834e107da57285bc70fd99a79bcd63149a16"
     }
   ]
 }
