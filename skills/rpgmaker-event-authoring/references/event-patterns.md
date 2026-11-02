@@ -47,8 +47,10 @@ For dialogue use `showText({ lines, face: { image, index }, background, position
 Every field is required. Background is window/dim/transparent; position is
 top/middle/bottom. Use a `faces` `imageAsset(...)` or `null` for None, and preserve
 the independent index even for None. Index accepts 0–2,147,483,647 and rejects
-negative zero. A non-None index at least 8 warns about the official two-row layout;
-image files and dimensions are unchecked. Each line is one physical record:
+negative zero. A non-None index at least 8 warns about the official two-row layout.
+The helper preserves the saved name, index and message settings. Workspace asset
+checks validate the selected file under the shared asset-file rules; image
+dimensions, layout and decoding remain unchecked. Each line is one physical record:
 keep CR, whitespace and trailing empty strings, and never embed LF. Show Text
 requires 1–4 lines; author multiple calls when more are needed. Use
 `showScrollingText({ lines, speed, noFastForward })` with at least one line,
