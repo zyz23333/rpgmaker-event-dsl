@@ -2,7 +2,7 @@
 
 Type: research
 Labels: wayfinder:research
-Status: resolved
+Status: needs-info
 Mode: AFK
 Blocked by: none
 Parent: [事件素材引用检查的决策地图](../map.md)
@@ -27,6 +27,8 @@ Assignee: Codex research agent
 - Sources: local first-party Help, templates, and MV 1.6.1 runtime; no editor/game execution is claimed.
 
 ## Answer
+
+2026-11-02 — 原生执行反例重开：下述静态研究遗漏了 `loadNormalBitmap` 的 `decodeURIComponent(path)`。真实 MV 1.6.1／NW.js 的图片 `literal%20image` 和 `image#hash` 未定位到同名字面文件；保留原名红图、仅加入 URL 解释后的绿图后，相同调用加载绿图。详见[实际观察与最小复现](../../asset-validation-implementation/evidence/01-native-media/observations.md)。普通 `%percent` 图片及已测音频 `%`／`#` 通过，不能将局部失败推广为全部百分号均失败。事实已留证；图片支持边界交由文件规则票和维护者决定，历史研究结论不再作为该部分通过依据。
 
 2026-10-20 — 事实调查完成，详见 [MV 原生素材文件定位研究](../research/native-asset-file-resolution.md)。报告逐项保留首方文件与行号，记录 v1.6.1 输入哈希，并区分文档、静态实现和未实测部分；不替后续 HITL 设计票选择支持政策。
 

@@ -1,7 +1,7 @@
 # 事件素材引用检查的决策地图
 
 Labels: wayfinder:map
-Status: resolved
+Status: needs-info
 
 ## Destination
 
@@ -9,6 +9,8 @@ Status: resolved
 地图完成时，阻碍实施的设计问题均已解决；本轮建图不实现产品功能，也不把研究结论等同于产品验收。
 
 ## Notes
+
+- 2026-11-02 原生反例重开图片特殊名称边界：[真实请求和磁盘对照证据](../asset-validation-implementation/evidence/01-native-media/observations.md)推翻图片 `literal%20image`／`image#hash` 的字面文件定位假设。01／03 及 ADR 0017 已重开，等待维护者决定支持政策；此前 resolved 描述是历史，其余设计和独立实现继续推进。
 
 - 现行设计已按用户于 2026-10-25 的“调整一下”修订，依据前一轮过度设计评审；此前 Comments 中的确认是历史，当前 Answer、ADR 和实施规格已同步。
 - 首版仍为 Windows / Node.js 22、RPG Maker MV 1.6.1 普通编辑项目的文件存在性检查。事件直接引用、已识别 raw 和有限标准数据间接关系保留；图片尺寸、解码和播放保证继续排除。
@@ -30,6 +32,8 @@ Status: resolved
 - [06 验收交接](issues/06-asset-validation-acceptance.md#answer)：逐字段、来源、文件事实、诊断、工作流及有限原生必验；按收缩后的契约更新预期，所有产品验收仍待执行。
 
 ## Not yet specified
+
+- 2026-11-02 当前待决：图片 `%`／`#` 的支持边界。已有三个可审阅选项及最小反例，见上述原生观察；未接受替代政策。
 
 - 无。本地图范围内的文件定位事实、领域覆盖、文件存在性、诊断、工作流、验收与实施规格交接决定均已完成。后续具体实现设计由实施规格承担；新事实反例或范围扩展按验收票的重开规则处理。
 
