@@ -67,4 +67,6 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Comments
 
+- 2026-11-02：仅澄清既有验收 ID 编码，行为范围与数量不变，见原索引新增的 D02–D10 标识展开。D02 使用角色分支与事实字段，D03 eligible 使用事实字段，其余单因子 D02–D10 使用默认 native 表示与 case 字段。扩展 10 已有 D09 三个协作 callback 时将其 formal 表示统一为 native，保留旧断言、来源和历史回执，不另注册同义测试。
+
 - 2026-10-24：用户回复“确认”，本票按已确认的 17 票拆分发布为 ready-for-agent。产品实现、自动化与原生验收均尚未由本次发布执行。
