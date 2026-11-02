@@ -1,6 +1,6 @@
 # 13: Compile／Check 单次素材门槛与输出有效性
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 12
 Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -65,6 +65,8 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 - [实施任务索引](../tickets.md)：全部正式票与初始领取入口。
 
 ## Comments
+
+- 2026-11-02：13 实施代理在独立工作树确认 clean，并快进到 integration `1f01ba534e5eee1047a1f3cc6665370924707f32`（Contract37）后领取。沿用已确认 Workspace API／实际 CLI 和测试子进程 OS 适配层 seam，按 TDD 验证本票 63W＋4C 责任；不提前签收14–16。
 
 - 2026-11-02：仅澄清 W01 既有状态 × 结果组合的 ID 编码：按状态、结果顺序用连字符合成分支，分别展开 api／cli，共 18 个 ID；case 字段和 expected 结果段保持固定，行为范围、入口与数量不变。见原索引 W 组引言。
 

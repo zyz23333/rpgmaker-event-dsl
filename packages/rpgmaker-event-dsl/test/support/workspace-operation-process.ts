@@ -40,6 +40,9 @@ export function startWorkspaceOperation(
       | "asset-io-failure"
       | "asset-media-read-denied"
       | "asset-link-guard"
+      | "asset-before-pass"
+      | "asset-after-check-pass"
+      | "asset-no-media-query"
       | "compile-manifest"
       | "generated-write-failure"
       | "generated-installation-failure"
@@ -68,6 +71,8 @@ export function startWorkspaceOperation(
     captureFile?: string;
     barrier?: boolean;
     assetPath?: string;
+    assetFault?: "enumeration";
+    observeAssets?: boolean;
   },
 ) {
   const helperUrl = new URL("./workspace-operation-child.mjs", import.meta.url);
@@ -91,6 +96,7 @@ export function startWorkspaceOperation(
         mode,
         workspaceRoot: sandbox.workspaceRoot,
         apiEntry: workspaceApiEntry,
+        projectRoot: resolve(sandbox.workspaceRoot, "Game"),
         assetPath: resolve(
           sandbox.workspaceRoot,
           "Game",

@@ -29,6 +29,7 @@ export default defineConfig({
       "test/asset-common-workspace.test.ts",
       "test/asset-file-workspace.test.ts",
       "test/asset-diagnostics-workspace.test.ts",
+      "test/asset-workflow-workspace.test.ts",
       "test/audio-commands-workspace.test.ts",
       "test/movement-instructions-workspace.test.ts",
       "test/cli-entry.test.ts",

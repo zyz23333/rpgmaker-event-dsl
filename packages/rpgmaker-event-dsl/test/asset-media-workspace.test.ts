@@ -16,6 +16,7 @@ const {
   compileWorkspace,
 }: typeof import("../src/workspace-api.js") = await import(workspaceApiEntry);
 const it = createAssetTest({ ownerTicket: "05", testSource: import.meta.url });
+const repeatedIt = createAssetTest({ ownerTicket: "13", testSource: import.meta.url });
 const imports =
   'import {mapEvent,audioAsset,movieAsset,rawDslCommand,changeBattleBgm,changeVictoryMe,changeDefeatMe,changeVehicleBgm,playBgm,playBgs,playMe,playSe,playMovie,setMovementRoute} from "rpgmaker-event-dsl";\n';
 const source = (command: string, pageFields = "") =>
@@ -363,42 +364,63 @@ it("AV.C06.saved-audio-controls.formal.case.expected: None preserves signed zero
   });
 });
 
-for (const branch of ["route-mirror", "independent-command"] as const)
-  it(`AV.C03.${branch}.formal.se.expected: SE mirrors do not create uses and independent saved commands do`, async () => {
-    await withWindowsSandbox(`asset-se-count-${branch}`, async ({ workspaceRoot: root }) => {
-      await prepare(
-        root,
-        source(
-          formalRoute +
-            (branch === "independent-command" ? `,playSe({audio:${audio("se", "RouteSE")}})` : ""),
-        ),
-      );
-      const path = await mediaFile(root, "se", "RouteSE");
-      await compileWorkspace({ workspaceRoot: root, check: false });
-      const actual = await published(root);
-      const expected = [routeUse];
-      if (branch === "independent-command")
-        expected.push({
-          ...routeUse,
-          nativePath: "Map001.json.events[1].pages[0].list[2].parameters[0].name",
-          relatedNativePaths: [],
-        });
-      expect(actual.uses).toEqual(expected);
-      await rm(path);
-      recordAssetInput({ removedFile: path, timing: "before repeated Check and Compile commands" });
-      const before = await state(root);
-      for (const check of [true, false, true]) {
-        const failure = await compileWorkspace({ workspaceRoot: root, check }).then(
-          () => "",
-          String,
+for (const branch of ["route-mirror", "independent-command", "repeated-command"] as const)
+  (branch === "repeated-command" ? repeatedIt : it)(
+    `AV.C03.${branch}.formal.se.expected: SE mirrors do not create uses and independent saved commands do`,
+    async () => {
+      await withWindowsSandbox(`asset-se-count-${branch}`, async ({ workspaceRoot: root }) => {
+        await prepare(
+          root,
+          source(
+            formalRoute +
+              (branch === "independent-command"
+                ? `,playSe({audio:${audio("se", "RouteSE")}})`
+                : branch === "repeated-command"
+                  ? `,${formalRoute}`
+                  : ""),
+          ),
         );
-        expect(failure).toContain(`${expected.length} use(s)`);
-        for (const use of expected) expect(failure).toContain(use.nativePath);
-        expect(failure).toContain(routeUse.relatedNativePaths[0]);
-        expect(await state(root)).toEqual(before);
-      }
-    });
-  });
+        const path = await mediaFile(root, "se", "RouteSE");
+        await compileWorkspace({ workspaceRoot: root, check: false });
+        const actual = await published(root);
+        const expected = [routeUse];
+        if (branch === "independent-command")
+          expected.push({
+            ...routeUse,
+            nativePath: "Map001.json.events[1].pages[0].list[2].parameters[0].name",
+            relatedNativePaths: [],
+          });
+        if (branch === "repeated-command")
+          expected.push({
+            ...routeUse,
+            nativePath:
+              "Map001.json.events[1].pages[0].list[2].parameters[1].list[0].parameters[0].name",
+            relatedNativePaths: [
+              "Map001.json.events[1].pages[0].list[3].parameters[0].parameters[0].name",
+            ],
+          });
+        expect(actual.uses).toEqual(expected);
+        await rm(path);
+        recordAssetInput({
+          removedFile: path,
+          timing: "before repeated Check and Compile commands",
+        });
+        const before = await state(root);
+        for (const check of [true, false, true]) {
+          const failure = await compileWorkspace({ workspaceRoot: root, check }).then(
+            () => "",
+            String,
+          );
+          expect(failure).toContain(`${expected.length} use(s)`);
+          for (const use of expected) expect(failure).toContain(use.nativePath);
+          expect(failure).toContain(routeUse.relatedNativePaths[0]);
+          if (branch === "repeated-command")
+            expect(failure).toContain(expected[1]!.relatedNativePaths[0]);
+          expect(await state(root)).toEqual(before);
+        }
+      });
+    },
+  );
 
 const namespaces = [
   { family: "F01", code: 241, folder: "bgm", parameter: 0, helper: "playBgm" },
