@@ -273,6 +273,7 @@ async function compileWorkspaceUnlocked(options: CompileWorkspaceOptions): Promi
   await checkEventAssets({
     projectRoot: workspace.projectRoot,
     files: candidate.files,
+    externalData: snapshot.statePaths.snapshotContents!,
     commandName,
   });
   if (options.check) {

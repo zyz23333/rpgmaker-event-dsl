@@ -57,7 +57,20 @@ async function observe(workspaceRoot: string) {
 async function project(workspaceRoot: string, includeMatrix = true) {
   const fixture = await createMinimalProject(workspaceRoot);
   const files = fixture.projectFiles;
-  files["Animations.json"] = [null, { id: 1, name: "", frames: [], fixture: { keep: [null, {}] } }];
+  files["Animations.json"] = [
+    null,
+    {
+      id: 1,
+      name: "",
+      animation1Name: "CharacterAnimation",
+      animation2Name: "",
+      timings: [],
+      frames: [],
+      fixture: { keep: [null, {}] },
+    },
+  ];
+  await mkdir(join(workspaceRoot, "Game/img/animations"), { recursive: true });
+  await writeFile(join(workspaceRoot, "Game/img/animations/CharacterAnimation.png"), "");
   const matrix = includeMatrix ? saved.list : [end];
   files["CommonEvents.json"] = [
     null,

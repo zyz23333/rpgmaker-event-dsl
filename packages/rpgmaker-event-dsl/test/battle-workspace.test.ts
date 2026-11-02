@@ -1,4 +1,4 @@
-import { readFile, readdir, rename, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, rename, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { expect, it as test } from "vitest";
 import { recordEvidence } from "./support/mv-evidence.js";
@@ -76,6 +76,18 @@ async function prepare(workspaceRoot: string) {
     "States.json",
   ])
     files[file] = [null, { id: 1, name: "Saved reference" }];
+  files["Animations.json"] = [
+    null,
+    {
+      id: 1,
+      name: "Saved reference",
+      animation1Name: "BattleAnimation",
+      animation2Name: "",
+      timings: [],
+    },
+  ];
+  await mkdir(join(workspaceRoot, "Game/img/animations"), { recursive: true });
+  await writeFile(join(workspaceRoot, "Game/img/animations/BattleAnimation.png"), "");
   (files["System.json"] as { variables: string[] }).variables = ["", ""];
   files["CommonEvents.json"] = [
     null,
