@@ -1,0 +1,1718 @@
+{
+  "schema": "asset-validation-native-existing-observation-audit/v1",
+  "auditedAt": "2026-11-02T10:30:52.573Z",
+  "executionAt17": "none; original actual runs and their byte-identical artifacts retained",
+  "originalMedia": {
+    "environment": {
+      "mv": "1.6.1",
+      "platform": "win32",
+      "architecture": "ia32",
+      "node": "9.7.1",
+      "nw": "0.29.0",
+      "chromium": "65.0.3325.146"
+    },
+    "samples": [
+      {
+        "id": "AV.N01.image-png.native-run.case.observed",
+        "category": "image",
+        "savedName": "image-png",
+        "status": "observed",
+        "diskSha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+        "actualRequestCount": 2
+      },
+      {
+        "id": "AV.N01.audio-ogg.native-run.case.observed",
+        "category": "audio",
+        "savedName": "audio-ogg",
+        "status": "observed",
+        "diskSha256": "e6c23e8fbdddeb612695a874d79db974770b3191a45aec90e255817453248b25",
+        "actualRequestCount": 1
+      },
+      {
+        "id": "AV.N01.movie-webm.native-run.case.observed",
+        "category": "movie",
+        "savedName": "movie-webm",
+        "status": "observed",
+        "diskSha256": "6eb7cdb7373d84a6440877f05832326618c94937b742f6c1541162d59776776f",
+        "actualRequestCount": 1
+      },
+      {
+        "id": "AV.N02.chinese.native-run.case.observed",
+        "category": "image",
+        "savedName": "中文图片",
+        "status": "observed",
+        "diskSha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+        "actualRequestCount": 2
+      },
+      {
+        "id": "AV.N02.chinese.native-run.case.observed",
+        "category": "audio",
+        "savedName": "中文音频",
+        "status": "observed",
+        "diskSha256": "9e32f562bbbc0de5fa649f1647ed3ac2debfdf21c773080b2885dbd121dbda8d",
+        "actualRequestCount": 1
+      },
+      {
+        "id": "AV.N02.chinese.native-run.case.observed",
+        "category": "movie",
+        "savedName": "中文影片",
+        "status": "observed",
+        "diskSha256": "df25a97ed9ae29d61d60367f6f3283613a7cd02e812a797437f50d6117c3b553",
+        "actualRequestCount": 1
+      },
+      {
+        "id": "AV.N02.space.native-run.case.observed",
+        "category": "image",
+        "savedName": "image with space",
+        "status": "observed",
+        "diskSha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+        "actualRequestCount": 2
+      },
+      {
+        "id": "AV.N02.space.native-run.case.observed",
+        "category": "audio",
+        "savedName": "audio with space",
+        "status": "observed",
+        "diskSha256": "3841960bc0b28ddfa6b28c2252364e3cbf576ba059bb096f6a5b62fa43e83589",
+        "actualRequestCount": 1
+      },
+      {
+        "id": "AV.N02.space.native-run.case.observed",
+        "category": "movie",
+        "savedName": "movie with space",
+        "status": "observed",
+        "diskSha256": "23d05ed0da50ca8d14b3597965be55fc553efc5d0ab0c294a277f37ea632bfe9",
+        "actualRequestCount": 1
+      },
+      {
+        "id": "AV.N02.image-percent.native-run.case.observed",
+        "category": "image",
+        "savedName": "literal%20image",
+        "status": "failed",
+        "diskSha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+        "actualRequestCount": 2
+      },
+      {
+        "id": "AV.N02.image-percent.native-run.case.observed",
+        "category": "image",
+        "savedName": "image%percent",
+        "status": "observed",
+        "diskSha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+        "actualRequestCount": 2
+      },
+      {
+        "id": "AV.N02.image-hash.native-run.case.observed",
+        "category": "image",
+        "savedName": "image#hash",
+        "status": "failed",
+        "diskSha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+        "actualRequestCount": 2
+      },
+      {
+        "id": "AV.N02.audio-percent.native-run.case.observed",
+        "category": "audio",
+        "savedName": "literal%20audio",
+        "status": "observed",
+        "diskSha256": "3fe37bc09f538f5d129b9332cfaae5c7dc6d135f9aaf51b932a016f67fb7e7e4",
+        "actualRequestCount": 1
+      },
+      {
+        "id": "AV.N02.audio-percent.native-run.case.observed",
+        "category": "audio",
+        "savedName": "audio%percent",
+        "status": "observed",
+        "diskSha256": "61ffc8ecedc1fa9e0f53d271403c0aae7c2701c357d690568c69e0dc321dcca6",
+        "actualRequestCount": 1
+      },
+      {
+        "id": "AV.N02.audio-hash.native-run.case.observed",
+        "category": "audio",
+        "savedName": "audio#hash",
+        "status": "observed",
+        "diskSha256": "a1bbd1a676f04515b286a8f08636f75681e9aef3f45c5e6e18dbcf6815921ae0",
+        "actualRequestCount": 1
+      }
+    ],
+    "counterexamplesRetained": [
+      {
+        "savedName": "literal%20image",
+        "originalExactFileRetained": {
+          "relative": "img/pictures/literal%20image.png",
+          "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\img\\pictures\\literal%20image.png",
+          "bytes": 101,
+          "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+          "ordinaryFile": true
+        },
+        "alternativeAbsentBefore": true,
+        "addedAlternative": {
+          "relative": "img/pictures/literal image.png",
+          "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\img\\pictures\\literal image.png",
+          "bytes": 99,
+          "sha256": "c57d632e3d98397f65cf47be7dee1e05aeb4e52434c23e496ab85e9212bcb042",
+          "ordinaryFile": true
+        },
+        "requests": [
+          {
+            "caseId": "counterexample.native-path.literal%20image",
+            "kind": "ImageManager.loadNormalBitmap",
+            "requested": "img/pictures/literal%2520image.png",
+            "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/literal%2520image.png"
+          },
+          {
+            "caseId": "counterexample.native-path.literal%20image",
+            "kind": "Bitmap._requestImage",
+            "requested": "img/pictures/literal%20image.png",
+            "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/literal%20image.png"
+          }
+        ],
+        "actual": {
+          "width": 16,
+          "height": 16,
+          "pixel": "#007f00",
+          "nativeImageSrc": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/literal%20image.png"
+        },
+        "conclusion": "Adding only the URL-interpreted alternative makes the unchanged native operation load its green pixels; original exact-named red file remained present."
+      },
+      {
+        "savedName": "image#hash",
+        "originalExactFileRetained": {
+          "relative": "img/pictures/image#hash.png",
+          "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\img\\pictures\\image#hash.png",
+          "bytes": 101,
+          "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+          "ordinaryFile": true
+        },
+        "alternativeAbsentBefore": true,
+        "addedAlternative": {
+          "relative": "img/pictures/image",
+          "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\img\\pictures\\image",
+          "bytes": 99,
+          "sha256": "c57d632e3d98397f65cf47be7dee1e05aeb4e52434c23e496ab85e9212bcb042",
+          "ordinaryFile": true
+        },
+        "requests": [
+          {
+            "caseId": "counterexample.native-path.image#hash",
+            "kind": "ImageManager.loadNormalBitmap",
+            "requested": "img/pictures/image%23hash.png",
+            "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image%23hash.png"
+          },
+          {
+            "caseId": "counterexample.native-path.image#hash",
+            "kind": "Bitmap._requestImage",
+            "requested": "img/pictures/image#hash.png",
+            "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image#hash.png"
+          }
+        ],
+        "actual": {
+          "width": 16,
+          "height": 16,
+          "pixel": "#007f00",
+          "nativeImageSrc": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image#hash.png"
+        },
+        "conclusion": "Adding only the URL-interpreted alternative makes the unchanged native operation load its green pixels; original exact-named red file remained present."
+      }
+    ],
+    "currentObligations": [
+      {
+        "id": "AV.N01.image-png.native-run.case.observed",
+        "currentObligation": true,
+        "status": "satisfied-by-original-native-observation",
+        "samples": [
+          {
+            "category": "image",
+            "savedName": "image-png",
+            "originalStatus": "observed",
+            "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1"
+          }
+        ]
+      },
+      {
+        "id": "AV.N01.audio-ogg.native-run.case.observed",
+        "currentObligation": true,
+        "status": "satisfied-by-original-native-observation",
+        "samples": [
+          {
+            "category": "audio",
+            "savedName": "audio-ogg",
+            "originalStatus": "observed",
+            "sha256": "e6c23e8fbdddeb612695a874d79db974770b3191a45aec90e255817453248b25"
+          }
+        ]
+      },
+      {
+        "id": "AV.N01.movie-webm.native-run.case.observed",
+        "currentObligation": true,
+        "status": "satisfied-by-original-native-observation",
+        "samples": [
+          {
+            "category": "movie",
+            "savedName": "movie-webm",
+            "originalStatus": "observed",
+            "sha256": "6eb7cdb7373d84a6440877f05832326618c94937b742f6c1541162d59776776f"
+          }
+        ]
+      },
+      {
+        "id": "AV.N02.chinese.native-run.case.observed",
+        "currentObligation": true,
+        "status": "satisfied-by-original-native-observation",
+        "samples": [
+          {
+            "category": "image",
+            "savedName": "中文图片",
+            "originalStatus": "observed",
+            "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1"
+          },
+          {
+            "category": "audio",
+            "savedName": "中文音频",
+            "originalStatus": "observed",
+            "sha256": "9e32f562bbbc0de5fa649f1647ed3ac2debfdf21c773080b2885dbd121dbda8d"
+          },
+          {
+            "category": "movie",
+            "savedName": "中文影片",
+            "originalStatus": "observed",
+            "sha256": "df25a97ed9ae29d61d60367f6f3283613a7cd02e812a797437f50d6117c3b553"
+          }
+        ]
+      },
+      {
+        "id": "AV.N02.space.native-run.case.observed",
+        "currentObligation": true,
+        "status": "satisfied-by-original-native-observation",
+        "samples": [
+          {
+            "category": "image",
+            "savedName": "image with space",
+            "originalStatus": "observed",
+            "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1"
+          },
+          {
+            "category": "audio",
+            "savedName": "audio with space",
+            "originalStatus": "observed",
+            "sha256": "3841960bc0b28ddfa6b28c2252364e3cbf576ba059bb096f6a5b62fa43e83589"
+          },
+          {
+            "category": "movie",
+            "savedName": "movie with space",
+            "originalStatus": "observed",
+            "sha256": "23d05ed0da50ca8d14b3597965be55fc553efc5d0ab0c294a277f37ea632bfe9"
+          }
+        ]
+      },
+      {
+        "id": "AV.N02.audio-percent.native-run.case.observed",
+        "currentObligation": true,
+        "status": "satisfied-by-original-native-observation",
+        "samples": [
+          {
+            "category": "audio",
+            "savedName": "literal%20audio",
+            "originalStatus": "observed",
+            "sha256": "3fe37bc09f538f5d129b9332cfaae5c7dc6d135f9aaf51b932a016f67fb7e7e4"
+          },
+          {
+            "category": "audio",
+            "savedName": "audio%percent",
+            "originalStatus": "observed",
+            "sha256": "61ffc8ecedc1fa9e0f53d271403c0aae7c2701c357d690568c69e0dc321dcca6"
+          }
+        ]
+      },
+      {
+        "id": "AV.N02.audio-hash.native-run.case.observed",
+        "currentObligation": true,
+        "status": "satisfied-by-original-native-observation",
+        "samples": [
+          {
+            "category": "audio",
+            "savedName": "audio#hash",
+            "originalStatus": "observed",
+            "sha256": "a1bbd1a676f04515b286a8f08636f75681e9aef3f45c5e6e18dbcf6815921ae0"
+          }
+        ]
+      }
+    ],
+    "excludedHistoricalObservations": [
+      {
+        "id": "AV.N02.image-percent.native-run.case.observed",
+        "savedName": "literal%20image",
+        "originalStatus": "failed",
+        "currentObligation": false,
+        "disposition": "explicit-maintainer-support-exclusion; original observation unchanged"
+      },
+      {
+        "id": "AV.N02.image-percent.native-run.case.observed",
+        "savedName": "image%percent",
+        "originalStatus": "observed",
+        "currentObligation": false,
+        "disposition": "explicit-maintainer-support-exclusion; original observation unchanged"
+      },
+      {
+        "id": "AV.N02.image-hash.native-run.case.observed",
+        "savedName": "image#hash",
+        "originalStatus": "failed",
+        "currentObligation": false,
+        "disposition": "explicit-maintainer-support-exclusion; original observation unchanged"
+      }
+    ]
+  },
+  "selectedRuns": [
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/06-native-animation/native-results.json",
+      "environment": {
+        "mv": "1.6.1",
+        "platform": "win32",
+        "architecture": "ia32",
+        "node": "9.7.1",
+        "nw": "0.29.0",
+        "chromium": "65.0.3325.146"
+      },
+      "status": "observed",
+      "events": 151,
+      "assertionEventReferencesRechecked": 80,
+      "assertions": [
+        {
+          "index": 0,
+          "label": "genuine Scene_Map and advancing hidden frames",
+          "passed": true,
+          "actualRows": null
+        },
+        {
+          "index": 1,
+          "label": "only selected command212 executes once",
+          "passed": true,
+          "actualRows": 1
+        },
+        {
+          "index": 2,
+          "label": "preload requests both saved images before any animation instance",
+          "passed": true,
+          "actualRows": 4
+        },
+        {
+          "index": 3,
+          "label": "unselected branch preloads both control images and never creates its animation",
+          "passed": true,
+          "actualRows": 4
+        },
+        {
+          "index": 4,
+          "label": "native loadBitmaps consumes both images",
+          "passed": true,
+          "actualRows": 2
+        },
+        {
+          "index": 5,
+          "label": "preload and native consumers retain the same bitmap identities",
+          "passed": true,
+          "actualRows": 2
+        },
+        {
+          "index": 6,
+          "label": "four native animation frames execute",
+          "passed": true,
+          "actualRows": 4
+        },
+        {
+          "index": 7,
+          "label": "native cells select N03-first as ready 192px sheet cell",
+          "passed": true,
+          "actualRows": 4
+        },
+        {
+          "index": 8,
+          "label": "native cells select N03-second as ready 192px sheet cell",
+          "passed": true,
+          "actualRows": 4
+        },
+        {
+          "index": 9,
+          "label": "native renderer drawImage consumes img/animations/N03-first.png",
+          "passed": true,
+          "actualRows": 16
+        },
+        {
+          "index": 10,
+          "label": "native renderer drawImage consumes img/animations/N03-second.png",
+          "passed": true,
+          "actualRows": 16
+        },
+        {
+          "index": 11,
+          "label": "selected images have genuine native load callbacks",
+          "passed": true,
+          "actualRows": 15
+        },
+        {
+          "index": 12,
+          "label": "two timings execute at saved frames0 and2 without duplicate suppression",
+          "passed": true,
+          "actualRows": 2
+        },
+        {
+          "index": 13,
+          "label": "timing SE exact names and independent saved controls",
+          "passed": true,
+          "actualRows": 2
+        },
+        {
+          "index": 14,
+          "label": "audio SE calls originate at actual processTimingData, never preload",
+          "passed": true,
+          "actualRows": 2
+        },
+        {
+          "index": 15,
+          "label": "native SE buffer requests, decodes and starts N03-se-first",
+          "passed": true,
+          "actualRows": null
+        },
+        {
+          "index": 16,
+          "label": "native SE buffer requests, decodes and starts N03-se-second",
+          "passed": true,
+          "actualRows": null
+        },
+        {
+          "index": 17,
+          "label": "unselected timing SEs never requested or played",
+          "passed": true,
+          "actualRows": 2
+        },
+        {
+          "index": 18,
+          "label": "animation stopped and native event wait completed",
+          "passed": true,
+          "actualRows": null
+        }
+      ],
+      "final": {
+        "frame": 19,
+        "scene": "Scene_Map",
+        "eventMarker": true,
+        "rendererType": 2,
+        "audioContextState": "running",
+        "animationStates": [
+          {
+            "id": "animation-16",
+            "animationId": 1,
+            "duration": 0,
+            "isPlaying": false,
+            "ready": true,
+            "bitmap1": {
+              "id": "bitmap-14",
+              "url": "img/animations/N03-first.png",
+              "ready": true,
+              "width": 960,
+              "height": 192
+            },
+            "bitmap2": {
+              "id": "bitmap-15",
+              "url": "img/animations/N03-second.png",
+              "ready": true,
+              "width": 960,
+              "height": 192
+            }
+          }
+        ]
+      }
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/07-native-maps/change/native-results.json",
+      "environment": {
+        "mv": "1.6.1",
+        "platform": "win32",
+        "architecture": "ia32",
+        "node": "9.7.1",
+        "nw": "0.29.0",
+        "chromium": "65.0.3325.146"
+      },
+      "status": "observed",
+      "events": 99,
+      "assertionEventReferencesRechecked": 62,
+      "assertions": [
+        {
+          "index": 0,
+          "label": "actual Scene_Map and advancing hidden frames",
+          "passed": true,
+          "actualRows": null
+        },
+        {
+          "index": 1,
+          "label": "every saved sheet actually requested and loaded as valid self-made image",
+          "passed": true,
+          "actualRows": 20
+        },
+        {
+          "index": 2,
+          "label": "all selected bitmaps ready without active Image errors",
+          "passed": true,
+          "actualRows": 9
+        },
+        {
+          "index": 3,
+          "label": "interpreter setup preloads all nine saved slots",
+          "passed": true,
+          "actualRows": 9
+        },
+        {
+          "index": 4,
+          "label": "actual command282 independently reserves each saved slot in group order",
+          "passed": true,
+          "actualRows": 27
+        },
+        {
+          "index": 5,
+          "label": "actual command282 completes live tileset change1 to2",
+          "passed": true,
+          "actualRows": 3
+        },
+        {
+          "index": 6,
+          "label": "map drawing separately consumes all nine new sheets",
+          "passed": true,
+          "actualRows": 2
+        },
+        {
+          "index": 7,
+          "label": "blank target page does not create a page-tile sheet consumer",
+          "passed": true,
+          "actualRows": 0
+        },
+        {
+          "index": 8,
+          "label": "native one-shot controller completion marker was reached",
+          "passed": true,
+          "actualRows": 1
+        }
+      ],
+      "final": {
+        "frame": 3,
+        "scene": "Scene_Map",
+        "marker": true,
+        "liveTilesetId": 2,
+        "rendererType": 2,
+        "bitmaps": [
+          {
+            "name": "N04-A1",
+            "bitmap": {
+              "id": "bitmap-13",
+              "url": "img/tilesets/N04-A1.png",
+              "ready": true,
+              "width": 768,
+              "height": 576
+            }
+          },
+          {
+            "name": "N04-A2",
+            "bitmap": {
+              "id": "bitmap-14",
+              "url": "img/tilesets/N04-A2.png",
+              "ready": true,
+              "width": 768,
+              "height": 576
+            }
+          },
+          {
+            "name": "N04-A3",
+            "bitmap": {
+              "id": "bitmap-15",
+              "url": "img/tilesets/N04-A3.png",
+              "ready": true,
+              "width": 768,
+              "height": 384
+            }
+          },
+          {
+            "name": "N04-A4",
+            "bitmap": {
+              "id": "bitmap-16",
+              "url": "img/tilesets/N04-A4.png",
+              "ready": true,
+              "width": 768,
+              "height": 720
+            }
+          },
+          {
+            "name": "N04-A5",
+            "bitmap": {
+              "id": "bitmap-17",
+              "url": "img/tilesets/N04-A5.png",
+              "ready": true,
+              "width": 384,
+              "height": 768
+            }
+          },
+          {
+            "name": "N04-B",
+            "bitmap": {
+              "id": "bitmap-18",
+              "url": "img/tilesets/N04-B.png",
+              "ready": true,
+              "width": 768,
+              "height": 768
+            }
+          },
+          {
+            "name": "N04-C",
+            "bitmap": {
+              "id": "bitmap-19",
+              "url": "img/tilesets/N04-C.png",
+              "ready": true,
+              "width": 768,
+              "height": 768
+            }
+          },
+          {
+            "name": "N04-D",
+            "bitmap": {
+              "id": "bitmap-20",
+              "url": "img/tilesets/N04-D.png",
+              "ready": true,
+              "width": 768,
+              "height": 768
+            }
+          },
+          {
+            "name": "N04-E",
+            "bitmap": {
+              "id": "bitmap-21",
+              "url": "img/tilesets/N04-E.png",
+              "ready": true,
+              "width": 768,
+              "height": 768
+            }
+          }
+        ]
+      }
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/07-native-maps/tile-b/native-results.json",
+      "environment": {
+        "mv": "1.6.1",
+        "platform": "win32",
+        "architecture": "ia32",
+        "node": "9.7.1",
+        "nw": "0.29.0",
+        "chromium": "65.0.3325.146"
+      },
+      "status": "observed",
+      "events": 68,
+      "assertionEventReferencesRechecked": 60,
+      "assertions": [
+        {
+          "index": 0,
+          "label": "actual Scene_Map and advancing hidden frames",
+          "passed": true,
+          "actualRows": null
+        },
+        {
+          "index": 1,
+          "label": "every saved sheet actually requested and loaded as valid self-made image",
+          "passed": true,
+          "actualRows": 20
+        },
+        {
+          "index": 2,
+          "label": "all selected bitmaps ready without active Image errors",
+          "passed": true,
+          "actualRows": 9
+        },
+        {
+          "index": 3,
+          "label": "page tile saved value selects exactly one literal B–E slot",
+          "passed": true,
+          "actualRows": null
+        },
+        {
+          "index": 4,
+          "label": "map rendering separately loads all nine sheets, including eight unselected by page sprite",
+          "passed": true,
+          "actualRows": 9
+        },
+        {
+          "index": 5,
+          "label": "native selected bitmap has exact self-made color and 768px sheet dimensions",
+          "passed": true,
+          "actualRows": 20
+        },
+        {
+          "index": 6,
+          "label": "native page frame is the independently specified 48px B–E cell",
+          "passed": true,
+          "actualRows": 6
+        },
+        {
+          "index": 7,
+          "label": "native Canvas renderer actually draws selected sheet",
+          "passed": true,
+          "actualRows": 4
+        },
+        {
+          "index": 8,
+          "label": "no Change Tileset command or reservations are credited to page selection",
+          "passed": true,
+          "actualRows": null
+        },
+        {
+          "index": 9,
+          "label": "native one-shot controller completion marker was reached",
+          "passed": true,
+          "actualRows": 1
+        }
+      ],
+      "final": {
+        "frame": 4,
+        "scene": "Scene_Map",
+        "marker": true,
+        "liveTilesetId": 1,
+        "rendererType": 2,
+        "bitmaps": [
+          {
+            "name": "N04-A1",
+            "bitmap": {
+              "id": "bitmap-11",
+              "url": "img/tilesets/N04-A1.png",
+              "ready": true,
+              "width": 768,
+              "height": 576
+            }
+          },
+          {
+            "name": "N04-A2",
+            "bitmap": {
+              "id": "bitmap-12",
+              "url": "img/tilesets/N04-A2.png",
+              "ready": true,
+              "width": 768,
+              "height": 576
+            }
+          },
+          {
+            "name": "N04-A3",
+            "bitmap": {
+              "id": "bitmap-13",
+              "url": "img/tilesets/N04-A3.png",
+              "ready": true,
+              "width": 768,
+              "height": 384
+            }
+          },
+          {
+            "name": "N04-A4",
+            "bitmap": {
+              "id": "bitmap-14",
+              "url": "img/tilesets/N04-A4.png",
+              "ready": true,
+              "width": 768,
+              "height": 720
+            }
+          },
+          {
+            "name": "N04-A5",
+            "bitmap": {
+              "id": "bitmap-15",
+              "url": "img/tilesets/N04-A5.png",
+              "ready": true,
+              "width": 384,
+              "height": 768
+            }
+          },
+          {
+            "name": "N04-B",
+            "bitmap": {
+              "id": "bitmap-16",
+              "url": "img/tilesets/N04-B.png",
+              "ready": true,
+              "width": 768,
+              "height": 768
+            }
+          },
+          {
+            "name": "N04-C",
+            "bitmap": {
+              "id": "bitmap-17",
+              "url": "img/tilesets/N04-C.png",
+              "ready": true,
+              "width": 768,
+              "height": 768
+            }
+          },
+          {
+            "name": "N04-D",
+            "bitmap": {
+              "id": "bitmap-18",
+              "url": "img/tilesets/N04-D.png",
+              "ready": true,
+              "width": 768,
+              "height": 768
+            }
+          },
+          {
+            "name": "N04-E",
+            "bitmap": {
+              "id": "bitmap-19",
+              "url": "img/tilesets/N04-E.png",
+              "ready": true,
+              "width": 768,
+              "height": 768
+            }
+          }
+        ]
+      }
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/07-native-maps/tile-c/native-results.json",
+      "environment": {
+        "mv": "1.6.1",
+        "platform": "win32",
+        "architecture": "ia32",
+        "node": "9.7.1",
+        "nw": "0.29.0",
+        "chromium": "65.0.3325.146"
+      },
+      "status": "observed",
+      "events": 66,
+      "assertionEventReferencesRechecked": 58,
+      "assertions": [
+        {
+          "index": 0,
+          "label": "actual Scene_Map and advancing hidden frames",
+          "passed": true,
+          "actualRows": null
+        },
+        {
+          "index": 1,
+          "label": "every saved sheet actually requested and loaded as valid self-made image",
+          "passed": true,
+          "actualRows": 20
+        },
+        {
+          "index": 2,
+          "label": "all selected bitmaps ready without active Image errors",
+          "passed": true,
+          "actualRows": 9
+        },
+        {
+          "index": 3,
+          "label": "page tile saved value selects exactly one literal B–E slot",
+          "passed": true,
+          "actualRows": null
+        },
+        {
+          "index": 4,
+          "label": "map rendering separately loads all nine sheets, including eight unselected by page sprite",
+          "passed": true,
+          "actualRows": 9
+        },
+        {
+          "index": 5,
+          "label": "native selected bitmap has exact self-made color and 768px sheet dimensions",
+          "passed": true,
+          "actualRows": 20
+        },
+        {
+          "index": 6,
+          "label": "native page frame is the independently specified 48px B–E cell",
+          "passed": true,
+          "actualRows": 5
+        },
+        {
+          "index": 7,
+          "label": "native Canvas renderer actually draws selected sheet",
+          "passed": true,
+          "actualRows": 3
+        },
+        {
+          "index": 8,
+          "label": "no Change Tileset command or reservations are credited to page selection",
+          "passed": true,
+          "actualRows": null
+        },
+        {
+          "index": 9,
+          "label": "native one-shot controller completion marker was reached",
+          "passed": true,
+          "actualRows": 1
+        }
+      ],
+      "final": {
+        "frame": 3,
+        "scene": "Scene_Map",
+        "marker": true,
+        "liveTilesetId": 1,
+        "rendererType": 2,
+        "bitmaps": [
+          {
+            "name": "N04-A1",
+            "bitmap": {
+              "id": "bitmap-11",
+              "url": "img/tilesets/N04-A1.png",
+              "ready": true,
+              "width": 768,
+              "height": 576
+            }
+          },
+          {
+            "name": "N04-A2",
+            "bitmap": {
+              "id": "bitmap-12",
+              "url": "img/tilesets/N04-A2.png",
+              "ready": true,
+              "width": 768,
+              "height": 576
+            }
+          },
+          {
+            "name": "N04-A3",
+            "bitmap": {
+              "id": "bitmap-13",
+              "url": "img/tilesets/N04-A3.png",
+              "ready": true,
+              "width": 768,
+              "height": 384
+            }
+          },
+          {
+            "name": "N04-A4",
+            "bitmap": {
+              "id": "bitmap-14",
+              "url": "img/tilesets/N04-A4.png",
+              "ready": true,
+              "width": 768,
+              "height": 720
+            }
+          },
+          {
+            "name": "N04-A5",
+            "bitmap": {
+              "id": "bitmap-15",
+              "url": "img/tilesets/N04-A5.png",
+              "ready": true,
+              "width": 384,
+              "height": 768
+            }
+          },
+          {
+            "name": "N04-B",
+            "bitmap": {
+              "id": "bitmap-16",
+              "url": "img/tilesets/N04-B.png",
+              "ready": true,
+              "width": 768,
+              "height": 768
+            }
+          },
+          {
+            "name": "N04-C",
+            "bitmap": {
+              "id": "bitmap-17",
+              "url": "img/tilesets/N04-C.png",
+              "ready": true,
+              "width": 768,
+              "height": 768
+            }
+          },
+          {
+            "name": "N04-D",
+            "bitmap": {
+              "id": "bitmap-18",
+              "url": "img/tilesets/N04-D.png",
+              "ready": true,
+              "width": 768,
+              "height": 768
+            }
+          },
+          {
+            "name": "N04-E",
+            "bitmap": {
+              "id": "bitmap-19",
+              "url": "img/tilesets/N04-E.png",
+              "ready": true,
+              "width": 768,
+              "height": 768
+            }
+          }
+        ]
+      }
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/07-native-maps/tile-d/native-results.json",
+      "environment": {
+        "mv": "1.6.1",
+        "platform": "win32",
+        "architecture": "ia32",
+        "node": "9.7.1",
+        "nw": "0.29.0",
+        "chromium": "65.0.3325.146"
+      },
+      "status": "observed",
+      "events": 65,
+      "assertionEventReferencesRechecked": 57,
+      "assertions": [
+        {
+          "index": 0,
+          "label": "actual Scene_Map and advancing hidden frames",
+          "passed": true,
+          "actualRows": null
+        },
+        {
+          "index": 1,
+          "label": "every saved sheet actually requested and loaded as valid self-made image",
+          "passed": true,
+          "actualRows": 20
+        },
+        {
+          "index": 2,
+          "label": "all selected bitmaps ready without active Image errors",
+          "passed": true,
+          "actualRows": 9
+        },
+        {
+          "index": 3,
+          "label": "page tile saved value selects exactly one literal B–E slot",
+          "passed": true,
+          "actualRows": null
+        },
+        {
+          "index": 4,
+          "label": "map rendering separately loads all nine sheets, including eight unselected by page sprite",
+          "passed": true,
+          "actualRows": 9
+        },
+        {
+          "index": 5,
+          "label": "native selected bitmap has exact self-made color and 768px sheet dimensions",
+          "passed": true,
+          "actualRows": 20
+        },
+        {
+          "index": 6,
+          "label": "native page frame is the independently specified 48px B–E cell",
+          "passed": true,
+          "actualRows": 4
+        },
+        {
+          "index": 7,
+          "label": "native Canvas renderer actually draws selected sheet",
+          "passed": true,
+          "actualRows": 3
+        },
+        {
+          "index": 8,
+          "label": "no Change Tileset command or reservations are credited to page selection",
+          "passed": true,
+          "actualRows": null
+        },
+        {
+          "index": 9,
+          "label": "native one-shot controller completion marker was reached",
+          "passed": true,
+          "actualRows": 1
+        }
+      ],
+      "final": {
+        "frame": 3,
+        "scene": "Scene_Map",
+        "marker": true,
+        "liveTilesetId": 1,
+        "rendererType": 2,
+        "bitmaps": [
+          {
+            "name": "N04-A1",
+            "bitmap": {
+              "id": "bitmap-11",
+              "url": "img/tilesets/N04-A1.png",
+              "ready": true,
+              "width": 768,
+              "height": 576
+            }
+          },
+          {
+            "name": "N04-A2",
+            "bitmap": {
+              "id": "bitmap-12",
+              "url": "img/tilesets/N04-A2.png",
+              "ready": true,
+              "width": 768,
+              "height": 576
+            }
+          },
+          {
+            "name": "N04-A3",
+            "bitmap": {
+              "id": "bitmap-13",
+              "url": "img/tilesets/N04-A3.png",
+              "ready": true,
+              "width": 768,
+              "height": 384
+            }
+          },
+          {
+            "name": "N04-A4",
+            "bitmap": {
+              "id": "bitmap-14",
+              "url": "img/tilesets/N04-A4.png",
+              "ready": true,
+              "width": 768,
+              "height": 720
+            }
+          },
+          {
+            "name": "N04-A5",
+            "bitmap": {
+              "id": "bitmap-15",
+              "url": "img/tilesets/N04-A5.png",
+              "ready": true,
+              "width": 384,
+              "height": 768
+            }
+          },
+          {
+            "name": "N04-B",
+            "bitmap": {
+              "id": "bitmap-16",
+              "url": "img/tilesets/N04-B.png",
+              "ready": true,
+              "width": 768,
+              "height": 768
+            }
+          },
+          {
+            "name": "N04-C",
+            "bitmap": {
+              "id": "bitmap-17",
+              "url": "img/tilesets/N04-C.png",
+              "ready": true,
+              "width": 768,
+              "height": 768
+            }
+          },
+          {
+            "name": "N04-D",
+            "bitmap": {
+              "id": "bitmap-18",
+              "url": "img/tilesets/N04-D.png",
+              "ready": true,
+              "width": 768,
+              "height": 768
+            }
+          },
+          {
+            "name": "N04-E",
+            "bitmap": {
+              "id": "bitmap-19",
+              "url": "img/tilesets/N04-E.png",
+              "ready": true,
+              "width": 768,
+              "height": 768
+            }
+          }
+        ]
+      }
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/07-native-maps/tile-e/native-results.json",
+      "environment": {
+        "mv": "1.6.1",
+        "platform": "win32",
+        "architecture": "ia32",
+        "node": "9.7.1",
+        "nw": "0.29.0",
+        "chromium": "65.0.3325.146"
+      },
+      "status": "observed",
+      "events": 64,
+      "assertionEventReferencesRechecked": 56,
+      "assertions": [
+        {
+          "index": 0,
+          "label": "actual Scene_Map and advancing hidden frames",
+          "passed": true,
+          "actualRows": null
+        },
+        {
+          "index": 1,
+          "label": "every saved sheet actually requested and loaded as valid self-made image",
+          "passed": true,
+          "actualRows": 20
+        },
+        {
+          "index": 2,
+          "label": "all selected bitmaps ready without active Image errors",
+          "passed": true,
+          "actualRows": 9
+        },
+        {
+          "index": 3,
+          "label": "page tile saved value selects exactly one literal B–E slot",
+          "passed": true,
+          "actualRows": null
+        },
+        {
+          "index": 4,
+          "label": "map rendering separately loads all nine sheets, including eight unselected by page sprite",
+          "passed": true,
+          "actualRows": 9
+        },
+        {
+          "index": 5,
+          "label": "native selected bitmap has exact self-made color and 768px sheet dimensions",
+          "passed": true,
+          "actualRows": 20
+        },
+        {
+          "index": 6,
+          "label": "native page frame is the independently specified 48px B–E cell",
+          "passed": true,
+          "actualRows": 3
+        },
+        {
+          "index": 7,
+          "label": "native Canvas renderer actually draws selected sheet",
+          "passed": true,
+          "actualRows": 3
+        },
+        {
+          "index": 8,
+          "label": "no Change Tileset command or reservations are credited to page selection",
+          "passed": true,
+          "actualRows": null
+        },
+        {
+          "index": 9,
+          "label": "native one-shot controller completion marker was reached",
+          "passed": true,
+          "actualRows": 1
+        }
+      ],
+      "final": {
+        "frame": 3,
+        "scene": "Scene_Map",
+        "marker": true,
+        "liveTilesetId": 1,
+        "rendererType": 2,
+        "bitmaps": [
+          {
+            "name": "N04-A1",
+            "bitmap": {
+              "id": "bitmap-11",
+              "url": "img/tilesets/N04-A1.png",
+              "ready": true,
+              "width": 768,
+              "height": 576
+            }
+          },
+          {
+            "name": "N04-A2",
+            "bitmap": {
+              "id": "bitmap-12",
+              "url": "img/tilesets/N04-A2.png",
+              "ready": true,
+              "width": 768,
+              "height": 576
+            }
+          },
+          {
+            "name": "N04-A3",
+            "bitmap": {
+              "id": "bitmap-13",
+              "url": "img/tilesets/N04-A3.png",
+              "ready": true,
+              "width": 768,
+              "height": 384
+            }
+          },
+          {
+            "name": "N04-A4",
+            "bitmap": {
+              "id": "bitmap-14",
+              "url": "img/tilesets/N04-A4.png",
+              "ready": true,
+              "width": 768,
+              "height": 720
+            }
+          },
+          {
+            "name": "N04-A5",
+            "bitmap": {
+              "id": "bitmap-15",
+              "url": "img/tilesets/N04-A5.png",
+              "ready": true,
+              "width": 384,
+              "height": 768
+            }
+          },
+          {
+            "name": "N04-B",
+            "bitmap": {
+              "id": "bitmap-16",
+              "url": "img/tilesets/N04-B.png",
+              "ready": true,
+              "width": 768,
+              "height": 768
+            }
+          },
+          {
+            "name": "N04-C",
+            "bitmap": {
+              "id": "bitmap-17",
+              "url": "img/tilesets/N04-C.png",
+              "ready": true,
+              "width": 768,
+              "height": 768
+            }
+          },
+          {
+            "name": "N04-D",
+            "bitmap": {
+              "id": "bitmap-18",
+              "url": "img/tilesets/N04-D.png",
+              "ready": true,
+              "width": 768,
+              "height": 768
+            }
+          },
+          {
+            "name": "N04-E",
+            "bitmap": {
+              "id": "bitmap-19",
+              "url": "img/tilesets/N04-E.png",
+              "ready": true,
+              "width": 768,
+              "height": 768
+            }
+          }
+        ]
+      }
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/08-native-battlers/front/native-results.json",
+      "environment": {
+        "mv": "1.6.1",
+        "platform": "win32",
+        "architecture": "ia32",
+        "node": "9.7.1",
+        "nw": "0.29.0",
+        "chromium": "65.0.3325.146"
+      },
+      "status": "observed",
+      "events": 52,
+      "assertionEventReferencesRechecked": 20,
+      "assertions": [
+        {
+          "index": 0,
+          "label": "genuine Scene_Battle reached through saved native301",
+          "passed": true,
+          "actualRows": 1
+        },
+        {
+          "index": 1,
+          "label": "native fixed Troop creates the selected Enemy",
+          "passed": true,
+          "actualRows": 1
+        },
+        {
+          "index": 2,
+          "label": "same saved Enemy and System flag select only the native mode directory",
+          "passed": true,
+          "actualRows": 1
+        },
+        {
+          "index": 3,
+          "label": "selected native Enemy bitmap has independent dimensions and pixel",
+          "passed": true,
+          "actualRows": 1
+        },
+        {
+          "index": 4,
+          "label": "selected image has a genuine native request and load",
+          "passed": true,
+          "actualRows": 15
+        },
+        {
+          "index": 5,
+          "label": "native Canvas consumes selected Enemy pixels",
+          "passed": true,
+          "actualRows": 1
+        },
+        {
+          "index": 6,
+          "label": "opposite directory is present but not requested as Enemy",
+          "passed": true,
+          "actualRows": null
+        }
+      ],
+      "final": {
+        "frame": 60,
+        "scene": "Scene_Battle",
+        "rendererType": 2,
+        "actor": {
+          "saved": {
+            "characterName": "InitialCharacter",
+            "characterIndex": 0,
+            "battlerName": "InitialBattler"
+          },
+          "runtime": {
+            "characterName": "InitialCharacter",
+            "characterIndex": 0,
+            "battlerName": "InitialBattler"
+          },
+          "party": [
+            1
+          ],
+          "player": {
+            "characterName": "InitialCharacter",
+            "characterIndex": 0
+          }
+        },
+        "optSideView": false,
+        "mapStage": false,
+        "commandsComplete": false
+      }
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/08-native-battlers/side/native-results.json",
+      "environment": {
+        "mv": "1.6.1",
+        "platform": "win32",
+        "architecture": "ia32",
+        "node": "9.7.1",
+        "nw": "0.29.0",
+        "chromium": "65.0.3325.146"
+      },
+      "status": "observed",
+      "events": 59,
+      "assertionEventReferencesRechecked": 22,
+      "assertions": [
+        {
+          "index": 0,
+          "label": "genuine Scene_Battle reached through saved native301",
+          "passed": true,
+          "actualRows": 1
+        },
+        {
+          "index": 1,
+          "label": "native fixed Troop creates the selected Enemy",
+          "passed": true,
+          "actualRows": 1
+        },
+        {
+          "index": 2,
+          "label": "same saved Enemy and System flag select only the native mode directory",
+          "passed": true,
+          "actualRows": 1
+        },
+        {
+          "index": 3,
+          "label": "selected native Enemy bitmap has independent dimensions and pixel",
+          "passed": true,
+          "actualRows": 1
+        },
+        {
+          "index": 4,
+          "label": "selected image has a genuine native request and load",
+          "passed": true,
+          "actualRows": 16
+        },
+        {
+          "index": 5,
+          "label": "native Canvas consumes selected Enemy pixels",
+          "passed": true,
+          "actualRows": 2
+        },
+        {
+          "index": 6,
+          "label": "opposite directory is present but not requested as Enemy",
+          "passed": true,
+          "actualRows": null
+        }
+      ],
+      "final": {
+        "frame": 61,
+        "scene": "Scene_Battle",
+        "rendererType": 2,
+        "actor": {
+          "saved": {
+            "characterName": "InitialCharacter",
+            "characterIndex": 0,
+            "battlerName": "InitialBattler"
+          },
+          "runtime": {
+            "characterName": "InitialCharacter",
+            "characterIndex": 0,
+            "battlerName": "InitialBattler"
+          },
+          "party": [
+            1
+          ],
+          "player": {
+            "characterName": "InitialCharacter",
+            "characterIndex": 0
+          }
+        },
+        "optSideView": true,
+        "mapStage": false,
+        "commandsComplete": false
+      }
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/08-native-battlers/override/native-results.json",
+      "environment": {
+        "mv": "1.6.1",
+        "platform": "win32",
+        "architecture": "ia32",
+        "node": "9.7.1",
+        "nw": "0.29.0",
+        "chromium": "65.0.3325.146"
+      },
+      "status": "observed",
+      "events": 81,
+      "assertionEventReferencesRechecked": 8,
+      "assertions": [
+        {
+          "index": 0,
+          "label": "genuine Scene_Battle reached through saved native301",
+          "passed": true,
+          "actualRows": 1
+        },
+        {
+          "index": 1,
+          "label": "native fixed Troop creates the selected Enemy",
+          "passed": true,
+          "actualRows": 1
+        },
+        {
+          "index": 2,
+          "label": "native322 overrides runtime images while saved Actor remains unchanged",
+          "passed": true,
+          "actualRows": 1
+        },
+        {
+          "index": 3,
+          "label": "native129 adds Actor with initialize:false and retains runtime replacement",
+          "passed": true,
+          "actualRows": 1
+        },
+        {
+          "index": 4,
+          "label": "actual player uses current runtime character cell",
+          "passed": true,
+          "actualRows": 1
+        },
+        {
+          "index": 5,
+          "label": "actual side-view Actor uses current runtime battler sheet",
+          "passed": true,
+          "actualRows": 1
+        },
+        {
+          "index": 6,
+          "label": "saved initial character preload is separate from later actual drawing",
+          "passed": true,
+          "actualRows": 2
+        },
+        {
+          "index": 7,
+          "label": "saved candidates remain unchanged after map and battle consumption",
+          "passed": true,
+          "actualRows": null
+        }
+      ],
+      "final": {
+        "frame": 64,
+        "scene": "Scene_Battle",
+        "rendererType": 2,
+        "actor": {
+          "saved": {
+            "characterName": "InitialCharacter",
+            "characterIndex": 0,
+            "battlerName": "InitialBattler"
+          },
+          "runtime": {
+            "characterName": "CurrentCharacter",
+            "characterIndex": 3,
+            "battlerName": "CurrentBattler"
+          },
+          "party": [
+            1
+          ],
+          "player": {
+            "characterName": "CurrentCharacter",
+            "characterIndex": 3
+          }
+        },
+        "optSideView": true,
+        "mapStage": true,
+        "commandsComplete": true
+      }
+    }
+  ],
+  "inputFingerprints": [
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/01-native-media/native-results.json",
+      "sha256": "a44d131f4be8f2519fb8fd84f73caf1b2974bddbf5dbb349cf6bcc6d357e4a47",
+      "bytes": 30596
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/01-native-media/policy-resolution-2026-11-02.json",
+      "sha256": "b089ee62fc4053843cf08f99270d6793eb20b667576a4e9653da28c9ce0b7de3",
+      "bytes": 16632
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/06-native-animation/native-results.json",
+      "sha256": "0d83e54c8f0e371f78fbc9c9fb1c6789ae9824a7fb1b850afd4094988b9433df",
+      "bytes": 202455
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/07-native-maps/change/native-results.json",
+      "sha256": "ef8129b318d9f9ffba1c4df9e1433c5a88a6c43bbc33b185a836d332d981b99a",
+      "bytes": 124990
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/07-native-maps/tile-b/native-results.json",
+      "sha256": "7606535acc6d13935b44ebc6b078994a5026f1d0adac19f6dd1f74fb9f57532c",
+      "bytes": 95073
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/07-native-maps/tile-c/native-results.json",
+      "sha256": "8ca57253fba18dd44d7660396d804fbe332faec8a2e4a4dfe102fc1e03a164fd",
+      "bytes": 92755
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/07-native-maps/tile-d/native-results.json",
+      "sha256": "90a37afb260235bb9e8f387fcb78a61463d7c4c18af4abfc89fb531f347c8b19",
+      "bytes": 91351
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/07-native-maps/tile-e/native-results.json",
+      "sha256": "4e4d57ae6c085b1e5bb1ce3d3a91e46840205d1eea892d98e7e02e920cd060b4",
+      "bytes": 90187
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/08-native-battlers/front/native-results.json",
+      "sha256": "e302964ae3edcda4f1760645db50bae423585eb7ac7d5d07991dd86b6c06a374",
+      "bytes": 53267
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/08-native-battlers/side/native-results.json",
+      "sha256": "6aa4abd88830dd1a1d1646c4ba10a7c39f007a3900cb340c73cb990c0542b146",
+      "bytes": 61177
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/08-native-battlers/override/native-results.json",
+      "sha256": "ffe52a230fde8f50f4dd354d9d38aae58f76495380ffa315a1dfcba1946c8213",
+      "bytes": 67634
+    }
+  ],
+  "totalSelectedRunAssertions": 90,
+  "limitations": [
+    "Native observations concern valid self-made samples, not arbitrary content or complete games.",
+    "N01/N02 original raw exit1 and two image special-name counterexamples remain historical evidence; policy excludes images containing any percent/hash.",
+    "Successful preload is kept distinct from actual frame, Canvas, and WebAudio consumption; product support still checks existence only."
+  ]
+}

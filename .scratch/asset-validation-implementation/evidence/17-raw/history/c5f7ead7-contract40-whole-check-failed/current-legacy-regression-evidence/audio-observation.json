@@ -1,0 +1,53 @@
+{
+  "executionFreeze": "c5f7ead75ba78680b92ad81924ba8cb884d2b751",
+  "runner": "MV-S6-AUDIO-002 batch2 failed; full error pending; no cause inferred",
+  "helperRecords": [
+    {
+      "originalIgnoredPath": "test-results/mv-evidence/MV-S6-AUDIO-002-2026-11-02T11-59-44-806Z-87fcd2e5-2807-4814-b5ee-4642c078cbd7.json",
+      "preservedPath": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S6-AUDIO-002-2026-11-02T11-59-44-806Z-87fcd2e5-2807-4814-b5ee-4642c078cbd7.json",
+      "bytes": 59401,
+      "sha256": "2eecb82bd498e788b05cc8afbbc25c11221a89389930269e0333e8677f54d530",
+      "status": "passed",
+      "expected": "MV-S6-AUDIO-002: refuses evaluated malformed audio source batch 1 without changing complete business state",
+      "actual": {
+        "entry": "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "assertionsCompleted": true
+      },
+      "startedAt": "2026-11-02T11:59:25.468Z",
+      "completedAt": "2026-11-02T11:59:44.806Z",
+      "difference": null
+    },
+    {
+      "originalIgnoredPath": "test-results/mv-evidence/MV-S6-AUDIO-002-2026-11-02T12-00-15-179Z-17e2b5ee-8791-4984-a53e-c94a9718f110.json",
+      "preservedPath": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S6-AUDIO-002-2026-11-02T12-00-15-179Z-17e2b5ee-8791-4984-a53e-c94a9718f110.json",
+      "bytes": 59401,
+      "sha256": "e49be27aa16532d51f067abd8d305eb64981f728e81a20d1fe42d22b29fb88c3",
+      "status": "passed",
+      "expected": "MV-S6-AUDIO-002: refuses evaluated malformed audio source batch 2 without changing complete business state",
+      "actual": {
+        "entry": "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "assertionsCompleted": true
+      },
+      "startedAt": "2026-11-02T11:59:44.858Z",
+      "completedAt": "2026-11-02T12:00:15.179Z",
+      "difference": null
+    },
+    {
+      "originalIgnoredPath": "test-results/mv-evidence/MV-S6-AUDIO-002-2026-11-02T12-00-38-535Z-3aa368db-39a0-4558-bb06-dcf850a40326.json",
+      "preservedPath": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S6-AUDIO-002-2026-11-02T12-00-38-535Z-3aa368db-39a0-4558-bb06-dcf850a40326.json",
+      "bytes": 59401,
+      "sha256": "4129227a361ef0eb690394223976ec9e2deaf5bf937e424766ab0e26b1821e81",
+      "status": "passed",
+      "expected": "MV-S6-AUDIO-002: refuses evaluated malformed audio source batch 3 without changing complete business state",
+      "actual": {
+        "entry": "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "assertionsCompleted": true
+      },
+      "startedAt": "2026-11-02T12:00:14.998Z",
+      "completedAt": "2026-11-02T12:00:38.535Z",
+      "difference": null
+    }
+  ],
+  "helperStatusDoesNotOverrideRunnerFailure": true,
+  "noTestRepeatOrMutation": true
+}

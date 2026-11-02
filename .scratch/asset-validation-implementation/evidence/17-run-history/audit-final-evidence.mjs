@@ -154,6 +154,7 @@ const bindingAudit = base.sourceBindings.map((row) => {
     recordedRendering: row.historicalHashBindings.map((binding) => binding.recordedSourceRendering),
     current: fingerprint(freeze, row.path, "current-assertion-source") };
 });
+const retiredHistoricalIds = new Set(base.historicalOnly.retiredIdentities.map((row) => row.id));
 const historicalReceipts = base.receiptLocations.map((location) => {
   const receipt = pointer(json(base.preparationRevision, location.file), location.pointer);
   check(objSha(receipt) === location.receiptObjectSha256, `Original aggregate receipt changed ${location.ref}`);
@@ -162,12 +163,13 @@ const historicalReceipts = base.receiptLocations.map((location) => {
   check(receipt.status === location.recordedStatus && receipt.ownerTicket === location.ownerTicket, `Original owner/status mismatch ${location.ref}`);
   check(sha(receipt.expected.assertions) === location.recordedRuntimeAssertionSha256 && objSha(receipt.input) === location.inputObjectSha256, `Original input/assertion mismatch ${location.ref}`);
   const isCurrent = planByExistingId.has(receipt.id);
+  const isActiveSupplementary = !isCurrent && !retiredHistoricalIds.has(receipt.id);
   return { ref: location.ref, id: receipt.id, entry: receipt.entry, ownerTicket: receipt.ownerTicket,
     containingTicket: location.containingTicket, status: receipt.status, file: location.file, pointer: location.pointer,
     receiptObjectSha256: objSha(receipt), inputObjectSha256: objSha(receipt.input), runtimeAssertionSha256: sha(receipt.expected.assertions),
     assertionSource: location.assertionSource, assertionSourceSha256: location.assertionSourceSha256,
-    historicalDefinition: location.historicalTestDefinition, currentDefinition: isCurrent ? locateCurrent(receipt) : null,
-    identityClass: isCurrent ? "current-obligation-original-evidence" : "separate-supplementary-or-retired-history",
+    historicalDefinition: location.historicalTestDefinition, currentDefinition: isCurrent || isActiveSupplementary ? locateCurrent(receipt) : null,
+    identityClass: isCurrent ? "current-obligation-original-evidence" : isActiveSupplementary ? "active-supplementary-original-evidence" : "retired-history-only",
     actualFinalHeadExecutionClaimed: false };
 });
 

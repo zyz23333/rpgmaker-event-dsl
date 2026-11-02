@@ -1,0 +1,119 @@
+{
+  "id": "AV.C05.self-cycle.formal.case.expected",
+  "ownerTicket": "10,11",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:48:20.413Z",
+  "completedAt": "2026-11-02T11:48:26.988Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "graph": {
+        "branch": "self-cycle",
+        "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:10})}),showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+        "identities": [
+          "commonEvent:10"
+        ],
+        "useIdentity": "commonEvent:10",
+        "usePath": "CommonEvents.json[10].list[1].parameters[1]",
+        "edges": [
+          [
+            "commonEvent:10",
+            "CommonEvents.json[10].list[0].parameters[0]",
+            "commonEvent:10",
+            10
+          ]
+        ]
+      },
+      "expectedUseCount": 1,
+      "recursion": "none; definitions independent"
+    },
+    {
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-common-self-cycle-x3GItN\\最小 Workspace with spaces",
+      "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:10})}),showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+      "project": {},
+      "target": "Game/img/pictures/CalledPoster.png"
+    },
+    {
+      "graph": {
+        "source": "export const event10=commonEvent({id:10,name:\"Action graph 10\",trigger:\"none\",commands:[forceAction({subject:{kind:\"runtimeSelector\",scope:\"battler\",target:\"actor\",actor:actorRef({id:1})},skill:skillRef({id:1}),target:{kind:\"random\"}}),showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"EffectGraphPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});",
+        "targets": [
+          10
+        ],
+        "identities": [
+          "commonEvent:10"
+        ],
+        "useId": 10,
+        "pictureIndex": 1,
+        "direct": []
+      },
+      "expectedCalls": [
+        {
+          "caller": "commonEvent:10",
+          "nativePath": "CommonEvents.json[10].list[0].parameters[2]",
+          "target": "commonEvent:10",
+          "targetId": 10,
+          "dependencyChain": [
+            {
+              "data": "Skills.json",
+              "id": 1,
+              "field": "effects[0].dataId",
+              "relationship": "Skill Common Event effect"
+            }
+          ]
+        }
+      ],
+      "expectedUse": {
+        "category": "image",
+        "folder": "pictures",
+        "name": "EffectGraphPoster",
+        "identity": "commonEvent:10",
+        "nativePath": "CommonEvents.json[10].list[1].parameters[1]",
+        "relatedNativePaths": [],
+        "dependencyChain": [],
+        "conditions": []
+      },
+      "expectedUseCount": 1,
+      "traversal": "finite direct effects and117 only, no caller paths"
+    },
+    {
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-action-graph-self-cycle-I16Wgy\\最小 Workspace with spaces",
+      "source": "import {commonEvent,forceAction,actorRef,skillRef,callCommonEvent,commonEventRef,showPicture,imageAsset} from \"rpgmaker-event-dsl\";export const event10=commonEvent({id:10,name:\"Action graph 10\",trigger:\"none\",commands:[forceAction({subject:{kind:\"runtimeSelector\",scope:\"battler\",target:\"actor\",actor:actorRef({id:1})},skill:skillRef({id:1}),target:{kind:\"random\"}}),showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"EffectGraphPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});",
+      "project": {
+        "Skills.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Zero animation with all effects",
+            "animationId": 0,
+            "effects": [
+              {
+                "code": 44,
+                "dataId": 10,
+                "value1": 17,
+                "value2": 23
+              }
+            ]
+          }
+        ],
+        "Animations.json": [
+          null
+        ]
+      }
+    }
+  ],
+  "expected": {
+    "description": "retains every finite direct edge without multiplying defining asset uses",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+    "sha256": "80b0b5db6eed13962acdb76da24df7ead3e1617143e33eb18a4f7ad53cffe94c",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${graph.branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\tgraph,\n\t\t\texpectedUseCount: 1,\n\t\t\trecursion: \"none; definitions independent\"\n\t\t});\n\t\tawait prepare(root, graph.source);\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tconst before = await state(root);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst files = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.nativeAssetEvents)(files).map(({ identity }) => identity)).toEqual(graph.identities);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual(graph.edges.map(([caller, nativePath, target, targetId]) => ({\n\t\t\tcaller,\n\t\t\tnativePath,\n\t\t\ttarget,\n\t\t\ttargetId,\n\t\t\tdependencyChain: []\n\t\t})));\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([{\n\t\t\t...expectedCalledUse,\n\t\t\tidentity: graph.useIdentity,\n\t\t\tnativePath: graph.usePath\n\t\t}]);\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"same name new bytes\");\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\tconst source = (0,__vite_ssr_import_1__.join)(root, \"src/calls.events.ts\");\n\t\t(0,__vite_ssr_import_2__.expect)(await (0,__vite_ssr_import_0__.readFile)(source, \"utf8\")).toBe(imports + graph.source);\n\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project[\"img/pictures/CalledPoster.png\"]).toBe(Buffer.from(\"same name new bytes\").toString(\"base64\"));\n\t});\n\tawait (0,__vite_ssr_import_9__.verifyForcedActionGraph)(graph.branch);\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

@@ -1,10 +1,18 @@
 # 17 整体验收：技术证据与待审状态
 
-当前为**进行中的技术验收**。票17保持 `claimed`，未取得或代填维护者最终确认。首次完整命令尝试冻结在 `11e52e3cbc93fe5200cb51d0c2882a9cec222765`（集成基点 `29f19dfd3ed943df2e0c9ae2b7c446ada248d501`，Compile Contract39）；该次检查因产品缺口取消，不能作为全量通过。修复集成后必须建立新冻结，重新按原配置完成全部命令。
+当前为**进行中的技术验收，待旧回归修复后重新完整执行**。票17保持 `claimed`，未取得或代填维护者最终确认。03／04／06／09／16补修已集成；最近完整执行冻结为 `c5f7ead75ba78680b92ad81924ba8cb884d2b751`，集成基点 `f30d64d635eddc832879e1536bb72f89e82ad015`，Compile Contract `mv-1.6.1/40`。该次完整check真实失败；首次Contract39尝试因已确认的设备名产品缺口取消，二者原始历史单独保存，均不能作为最终全量通过。
 
 ## 命令与失败历史
 
-Windows10 `10.0.19045` x64、Node `v22.23.4`、pnpm `10.33.0`；默认 `C:\Users\Shuen\AppData\Local\Temp`，仓库 `maxWorkers:2`，无全局 CLI entry 覆盖。先做 setup build，再顺序执行 `pnpm check`、`pnpm build`、`pnpm --filter rpgmaker-event-dsl test:windows-baseline`。[命令记录器](17-run-history/run-final-validation.mjs)已经提交在上述执行冻结，产品／测试未在运行中改动。
+Windows10 `10.0.19045` x64、Node `v22.23.4`、pnpm `10.33.0`；默认 `C:\Users\Shuen\AppData\Local\Temp`，仓库 `maxWorkers:2`，无全局 CLI entry 覆盖。先做 setup build，再顺序执行 `pnpm check`、`pnpm build`、`pnpm --filter rpgmaker-event-dsl test:windows-baseline`。[命令记录器](17-run-history/run-final-validation.mjs)已经提交在上述执行冻结；它记录初始干净状态、受保护源码／测试／配置哈希、真实命令原始输出与退出、两次构建产物及每条实际回执，拒绝陈旧或命令时间窗外的回执。运行期间不提交、合并或修改产品／测试／配置。
+
+c5f7ead7这一轮Contract40完整check自然exit1，原始[命令历史](17-raw/history/c5f7ead7-contract40-whole-check-failed/command-history.json)、[完整输出](17-raw/history/c5f7ead7-contract40-whole-check-failed/01-pnpm-check.log)及[封存处置](17-raw/history/c5f7ead7-contract40-whole-check-failed/disposition.json)保留真实总结：103文件为97通过、6失败；3409测试为3403通过、6失败，运行2750.83秒，无skip或过滤。setup build和check的typecheck／lint／format通过；正式第二build及Windows baseline由记录器fail-fast而未启动。
+
+完整错误明确五项为test timeout：Picture007、actorRef Input003各10000ms；Audio002第二批、Movement003、Screen002各30000ms。原因超出这一真实错误的部分尚未建立，不能自行改断言或把它们改称通过。另一失败是final-review-workspace.test.ts136的严格CURRENT期待`mv-1.6.1/38`实际收到`mv-1.6.1/40`；下一行才写历史`/23`，后续历史／状态断言未到。真实失败sandbox的44个业务文件和process-results已按原字节保存，node_modules未跟随。
+
+该轮素材source实际有1241条完成且通过的回执：1195 canonical、39活动原补充、7设备名补充。source轴不增加canonical数，也不能替代失败的完整check；built未执行。五项timeout的原ignored helper记录仍写passed／断言完成，已[原样保留](17-raw/history/c5f7ead7-contract40-whole-check-failed/current-legacy-regression-evidence/observation.json)并与Vitest runner failure单列，不能用helper覆盖runner结论。封存共1320份原文件、127487998字节，含完整source收据、命令输出、独立计划与该冻结静态审计。该轮没有终止、重复测试或修改产品／测试／配置；后续由主任务退责任修复并建立新冻结重跑。
+
+[失败checkpoint工件清单](17-failed-checkpoint-manifest.json)另涵盖17现有历史、全部当前审计／脚本、正文和票17；提交后按清单逐字节核验Git blob，结果写入`17-failed-git-verification.json`。这个checkpoint只交接已保存的真实失败和准备性审计，不标记17技术完成。
 
 首次真实运行完整保存在 [取消处置](17-raw/history/11e52e3c-contract39-canceled/disposition.json)、[原命令记录](17-raw/history/11e52e3c-contract39-canceled/command-history.json)和[原始输出](17-raw/history/11e52e3c-contract39-canceled/01-pnpm-check.log)：
 
@@ -16,7 +24,7 @@ Windows10 `10.0.19045` x64、Node `v22.23.4`、pnpm `10.33.0`；默认 `C:\Users
 
 ## 有限义务与原始证据
 
-[独立重展开计划](17-raw/final-canonical-id-plan.json)仅从现行规格、验收矩阵、有限子用例索引和已确认责任表展开，不导入产品或测试。首次执行冻结仍有97族、1209项义务，其中1195自动化、14原生；与外部独立旧计划的义务、责任和方法形状完全一致。独立计划的准备性旧正文不构成本票最终结论。
+[独立重展开计划](17-raw/final-canonical-id-plan.json)仅从现行规格、验收矩阵、有限子用例索引和已确认责任表展开，不导入产品、测试或运行回执。本次Contract40执行冻结仍有97族、1209项义务，其中1195自动化、14原生；与外部独立旧计划的义务、责任和方法形状完全一致。独立计划的准备性旧正文不构成本票最终结论。
 
 | 分组 | 族数 | 有限义务 | 核对重点 |
 | --- | ---: | ---: | --- |
@@ -30,7 +38,7 @@ Windows10 `10.0.19045` x64、Node `v22.23.4`、pnpm `10.33.0`；默认 `C:\Users
 
 [原始证据审计](17-original-evidence-audit.json)重读真实Git blob及原JSON pointer，核对2484条原聚合自动化记录、15的26条原回执、16的24条原回执、28组原断言源码哈希绑定，以及16的100份原始工件与16项原冻结输入。每项当前义务都找到所需入口与全部主责任贡献；F07的编码拼写通过一一对应映射保留既有canonical ID，不利用别名双计。该工件的当前完整执行字段仍待后续最终命令，不能从原历史passed推断当前版本passed。
 
-[原断言保留审计](17-original-assertion-preservation.json)在旧39冻结比较2450个当前义务原回执位置（含15／16追加的50条），归并为185个原／现callback版本对。该旧冻结的15对callback文本有扩展。后续最终冻结必须另外明确：09的两个过时标题期待2→1按规格共同依据分组规则纠正，并增强两来源、统计和状态核对；16的CURRENT Contract39→40包含一个严格版本断言与一个记录值更新，以隔离当前配置变化原因。原09及16/f03/39的源码／回执／失败历史均保留，不能笼统声称所有原expect字面未改。静态保留和语法差异不单独证明fixture参数、辅助函数或真实行为，仍需语义审阅和最终运行共同证明。
+[原断言保留审计](17-original-assertion-preservation.json)在本次冻结比较2528个仍活动的原回执定义位置（包括1195当前义务的原证据、15／16追加记录及39个活动补充ID的原记录），归并为208个原／现callback版本对；17对callback文本变化。四个callback存在需解释的原expect文本差异：C08 route-approach和C11 route-script的变化仅格式，语法树相同；09的两个过时标题期待2→1按规格共同依据分组规则纠正，并增强两来源、统计和状态核对，原直接状态查询改为已捕获的after／afterCli相等断言；16的CURRENT Contract39→40包含一个严格版本断言与一个记录值更新，以隔离当前配置变化原因。没有未分类的断言语法差异。原09及16/f03/39的源码／回执／失败历史均保留，不能笼统声称所有原expect字面未改。静态保留不单独证明fixture参数、辅助函数或真实行为，仍需语义审阅和最终运行共同证明。
 
 原03六条 `not-executed-policy-pending` 原字节哈希 `a8652ef3feda52e3677af8d8d52f9fd3fbbedbbf4a1dacfea453af802e14d071` 保留；退出义务的旧图片filesystem ID不改写为通过。D09三条旧formal ID迁移到native后不构成别名双计。B14的两个host-target-missing为不适用；宿主载体不是另选固定目标。W12由13唯一注册，14的记录仅引用；W19保留14／15共同责任，原断言及独立成功／失败callback不重复注册。15、16的原失败、过滤、准备错误及重跑经过均保留，不能改写成一次全过。
 
@@ -40,7 +48,7 @@ Compile／Check在完整候选验证后调用同一个素材门槛：当前事�
 
 直接字段、双动画图和timing SE、九Tileset槽、页图块B–E单槽、前／侧视Enemy、Actor初始候选、固定传送Map及System字段均以独立文字预期核对完整使用集合、原生保存位置、事件内链、执行条件和必要的候选／非活动原因。formal/raw指向各自真实合法原生字段；205／505镜像只计一次，第二真实命令及重复成员／槽保留独立位置。None保留独立控制值并省略查询；已知兄弟关系不会因为另一路动态停止而消失。C07的首次失败是旧标题计数预期与共同字段分组规则冲突；09实际捕获证实1组、0合法问题文件、2成员／2使用，list[0]和list[1]各一次，安全标题兄弟关系继续查询且状态不变，没有产品丢来源结论。
 
-文件观察器从根realpath逐层枚举准确名称并lstat；不读媒体内容或跟随根以下链接。只有合法名称形成目标；图片与影片任一`%`／`#`在查询前拒绝，音频按原名查询。普通文件、缺失、大小写不符、类型不符、支持范围、查询错误和查询内矛盾分开。设备名空格变体缺口已退03，修复后须复核不可例外豁免的事实分类。
+文件观察器从根realpath逐层枚举准确名称并lstat；不读媒体内容或跟随根以下链接。只有合法名称形成目标；图片与影片任一`%`／`#`在查询前拒绝，音频按原名查询。普通文件、缺失、大小写不符、类型不符、支持范围、查询错误和查询内矛盾分开。03已修复保留设备token后、首个点号前ASCII空格的识别，规则只增加`[ ]*`，不trim原名、不扩大Unicode空白，也不允许例外豁免。28个设备token在图片／音频／影片均作为不支持输入；candidate／inactive保留警告与覆盖不完整，八个真实普通文件正控制及可豁免的缺失文件对照保留。新增七个`SUPPLEMENT.device-space-*`回归单列，不增加canonical义务。
 
 例外模式严格只有四字段，准确category／folder／原名匹配；同键重复失败，仅确认缺失／名称／类型三类error可降级。基础级别、有效级别、理由和全部来源均保留；查询失败、必要字段问题、结构／引用／Script Gate不能豁免。配置默认空数组参与当前Compile Baseline、摘要和新鲜度；历史Manifest与pending的省略字段保持原结构重算原hash，不填默认后假造旧依据。
 
@@ -63,6 +71,8 @@ N03、N04、N05／N06的九次签收运行共有705条原生事件、90项通过
 
 ## 说明核对与剩余门槛
 
-README的例外JSON示例准确提供四个字段和理由，正文解释准确PNG／OGG／WebM、存在性不保证内容／尺寸、修复后再Check／Compile／Push、同一命令单次门槛及恢复后当前门槛。已发现并交回原责任的陈旧说明为package README208–209的Face文件未查，以及authoring skill event-patterns50–51与292–293的文件扫描旧排除；修复合入后须在最终冻结复核。
+README的例外JSON示例准确提供四个字段和理由，正文解释准确PNG／OGG／WebM、存在性不保证内容／尺寸、修复后再Check／Compile／Push、同一命令单次门槛及恢复后当前门槛。04已回补package README与authoring skill的Face说明，06已回补authoring skill的Animation／Tileset说明；最终冻结的正文明确所选文件要经过共享素材门槛，内容／尺寸／布局／解码仍不承诺。
 
-尚需：03／09产品修复和说明回补集成；新冻结的三条原样完整命令及所有1195项源码／构建实际回执；逐项最终输入／断言／责任绑定；最终Standards与Spec双轴独立评审；维护者实际审阅确认。最后一项由维护者完成前，本票不能设为resolved。
+[补修集成审计](17-integrated-corrections-audit.json)重读452份原始补修工件（03有395份、09有34份、16有23份），核对每份长度、SHA256、Git blob与磁盘字节。03旧F07尾部3168字节哈希保持`21b202d79f5ce591d1b99d72381301cc7c7809c5ff2d11bacdc6ab4833e4f216`；09归一换行后指定callback以外完全相同；16原文件只替换两个CURRENT字面量便等于当前文件。03真实red、09原失败及CRLF观察器失败、16版本兼容red和全部历史过滤均原样保留，后来的成功不追写旧结果。
+
+尚需：本次冻结的三条原样完整命令及所有1195项源码／构建实际回执；逐项最终输入／断言／责任绑定；最终Standards与Spec双轴独立评审；维护者实际审阅确认。最后一项由维护者完成前，本票不能设为resolved。

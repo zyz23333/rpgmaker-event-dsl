@@ -1,0 +1,61 @@
+{
+  "id": "AV.F02.movie-mp4-only.filesystem.case.expected",
+  "ownerTicket": "05",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:42:59.769Z",
+  "completedAt": "2026-11-02T11:43:01.174Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import {mapEvent,audioAsset,movieAsset,rawDslCommand,changeBattleBgm,changeVictoryMe,changeDefeatMe,changeVehicleBgm,playBgm,playBgs,playMe,playSe,playMovie,setMovementRoute} from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Media\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[playMovie({movie:movieAsset({name:\"Alternative\"})})]}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Media"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Tiles"
+          }
+        ]
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-media-format-movie-mp4-only-1GKX78\\最小 Workspace with spaces\\Game\\movies\\Alternative.mp4",
+      "extension": ".mp4",
+      "timing": "before the asset gate"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-media-format-movie-mp4-only-1GKX78\\最小 Workspace with spaces\\Game\\movies\\Alternative.webm",
+      "extension": ".webm",
+      "timing": "before the asset gate"
+    }
+  ],
+  "expected": {
+    "description": "alternative formats do not satisfy the fixed editing extension",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-media-workspace.test.ts",
+    "sha256": "843bbe0a812fb252cf1a6bfdc3709898389388f42d0a2bafaec2b031b1c1ba65",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-media-format-${branch}`, async ({ workspaceRoot: root }) => {\n\t\tconst vector = {\n\t\t\tfamily: \"F02\",\n\t\t\tcode: movie ? 261 : 250,\n\t\t\tfolder,\n\t\t\tparameter: 0,\n\t\t\thelper: movie ? \"playMovie\" : \"playSe\",\n\t\t\tmovie\n\t\t};\n\t\tawait prepare(root, source(expression(vector, \"Alternative\")));\n\t\tawait mediaFile(root, folder, \"Alternative\", extension);\n\t\tconst before = await state(root);\n\t\tfor (const check of [true, false]) {\n\t\t\tconst failure = await compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck\n\t\t\t}).then(() => \"\", String);\n\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(`required extension: ${movie ? \".webm\" : \".ogg\"}`);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t};\n\t\tawait mediaFile(root, folder, \"Alternative\");\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)((await published(root)).uses).toEqual([expectedUse(vector, \"Alternative\")]);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

@@ -1,0 +1,282 @@
+{
+  "id": "AV.C10.troop-host-only.formal.case.expected",
+  "ownerTicket": "08",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:48:02.722Z",
+  "completedAt": "2026-11-02T11:48:05.814Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {commonEvent,battleProcessing,troopRef,enemyTransform,enemyRef,changePartyMember,actorRef,rawDslCommand,setVehicleLocation,troopEvent,changeHp,mapRef,comment} from \"rpgmaker-event-dsl\";export const event=troopEvent({troopId:1,pages:[{commands:[]}]});",
+      "projectOverrides": {
+        "Troops.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Troop",
+            "members": [
+              {
+                "enemyId": 1,
+                "x": 100,
+                "y": 200,
+                "hidden": false
+              },
+              {
+                "enemyId": 2,
+                "x": 300,
+                "y": 400,
+                "hidden": true
+              }
+            ],
+            "pages": []
+          }
+        ],
+        "Enemies.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Enemy 1",
+            "battlerName": "VisibleEnemy",
+            "battlerHue": 123,
+            "actions": [
+              {
+                "skillId": 1
+              }
+            ],
+            "custom": {
+              "keep": true
+            }
+          },
+          {
+            "id": 2,
+            "name": "Enemy 2",
+            "battlerName": "HiddenEnemy",
+            "battlerHue": 123,
+            "actions": [
+              {
+                "skillId": 1
+              }
+            ],
+            "custom": {
+              "keep": true
+            }
+          }
+        ],
+        "Actors.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Actor",
+            "characterName": "InitialCharacter",
+            "characterIndex": 7,
+            "battlerName": "InitialBattler",
+            "faceName": "ExcludedFace",
+            "equips": [
+              1
+            ],
+            "custom": {
+              "keep": true
+            }
+          }
+        ],
+        "System.json": {
+          "gameTitle": "Synthetic evidence context",
+          "switches": [
+            "",
+            "Saved switch"
+          ],
+          "variables": [
+            ""
+          ],
+          "fixtureOrigin": {
+            "retainedNull": null,
+            "retainedArray": []
+          },
+          "optSideView": false,
+          "battleBgm": {
+            "name": "",
+            "volume": 17,
+            "pitch": 73,
+            "pan": -41
+          },
+          "victoryMe": {
+            "name": "",
+            "volume": 17,
+            "pitch": 73,
+            "pan": -41
+          },
+          "defeatMe": {
+            "name": "",
+            "volume": 17,
+            "pitch": 73,
+            "pan": -41
+          },
+          "sounds": [
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            }
+          ]
+        }
+      }
+    },
+    {
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-scope-troop-host-only-YheHNU\\最小 Workspace with spaces"
+    }
+  ],
+  "expected": {
+    "description": "excluded operations and associations do not widen asset relationships or external ownership",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-battler-workspace.test.ts",
+    "sha256": "1dad6a66ee3934961665960b33b4b83bc38df1ca327f3d7f832865b9303e0606",
+    "assertions": "async () => {\n\t\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-scope-${branch}`, async (sandbox) => {\n\t\t\tconst root = sandbox.workspaceRoot;\n\t\t\tconst overrides = branch === \"vehicle-position\" ? {\n\t\t\t\t\"MapInfos.json\": [null, {\n\t\t\t\t\tid: 1,\n\t\t\t\t\tname: \"Destination\"\n\t\t\t\t}],\n\t\t\t\t\"Map001.json\": {\n\t\t\t\t\twidth: 1,\n\t\t\t\t\theight: 1,\n\t\t\t\t\ttilesetId: 1,\n\t\t\t\t\tevents: []\n\t\t\t\t},\n\t\t\t\t\"Tilesets.json\": [null, {\n\t\t\t\t\tid: 1,\n\t\t\t\t\tname: \"Tiles\"\n\t\t\t\t}],\n\t\t\t\t\"System.json\": {\n\t\t\t\t\tswitches: [\"\", \"Switch\"],\n\t\t\t\t\tvariables: [\"\"],\n\t\t\t\t\tboat: {\n\t\t\t\t\t\tcharacterName: \"ExcludedVehicle\",\n\t\t\t\t\t\tbgm: { name: \"ExcludedVehicleBgm\" }\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t} : branch === \"unrelated-actor\" ? { \"Actors.json\": [\n\t\t\t\tnull,\n\t\t\t\tactor(),\n\t\t\t\t{\n\t\t\t\t\tid: 2,\n\t\t\t\t\tname: \"Unrelated\",\n\t\t\t\t\tcharacterName: 17,\n\t\t\t\t\tbattlerName: { invalid: true },\n\t\t\t\t\tfaceName: \"MissingUnused\"\n\t\t\t\t}\n\t\t\t] } : {};\n\t\t\tconst authored = branch === \"troop-host-only\" ? `${imports}export const event=troopEvent({troopId:1,pages:[{commands:[]}]});` : source(branch === \"actor-hp\" ? \"changeHp({target:{kind:\\\"runtimeSelector\\\",scope:\\\"actor\\\",target:\\\"actor\\\",actor:actorRef({id:1})},operation:\\\"lose\\\",value:{kind:\\\"constant\\\",value:99},allowDeath:true})\" : branch === \"vehicle-position\" ? \"setVehicleLocation({vehicle:\\\"boat\\\",destination:{kind:\\\"direct\\\",map:mapRef({id:1}),x:0,y:0}})\" : branch === \"enemy-ai\" ? fixed : \"comment({lines:[\\\"No selected Actor operation\\\"]})\");\n\t\t\tawait prepare(root, authored, overrides);\n\t\t\tif (branch === \"enemy-ai\") {\n\t\t\t\tawait media(root, \"enemies\", \"VisibleEnemy\");\n\t\t\t\tawait media(root, \"enemies\", \"HiddenEnemy\");\n\t\t\t};\n\t\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ workspaceRoot: root });\n\t\t\tconst before = await state(root);\n\t\t\tawait compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: true\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).not.toContain(\"MV-ASSET-\");\n\t\t\tawait compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst actual = await observed(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)(actual.relations).toEqual({\n\t\t\t\tuses: branch === \"enemy-ai\" ? expectedUses(\"B03\", \"front\") : [],\n\t\t\t\tproblems: []\n\t\t\t});\n\t\t\tif (branch === \"troop-host-only\") (0,__vite_ssr_import_2__.expect)(JSON.parse(actual.external.get(\"Troops.json\"))[1].members).toEqual(troop().members);\n\t\t\tif (branch === \"unrelated-actor\") (0,__vite_ssr_import_2__.expect)(JSON.parse(actual.external.get(\"Actors.json\"))).toEqual(overrides[\"Actors.json\"]);\n\t\t\tif (branch === \"actor-hp\") (0,__vite_ssr_import_2__.expect)(JSON.parse(actual.external.get(\"Actors.json\"))[1]).toEqual(actor());\n\t\t});\n\t}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

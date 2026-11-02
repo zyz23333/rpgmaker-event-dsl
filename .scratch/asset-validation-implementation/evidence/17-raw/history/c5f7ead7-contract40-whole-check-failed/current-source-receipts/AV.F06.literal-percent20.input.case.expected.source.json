@@ -1,0 +1,151 @@
+{
+  "id": "AV.F06.literal-percent20.input.case.expected",
+  "ownerTicket": "03",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:25:45.445Z",
+  "completedAt": "2026-11-02T11:25:53.800Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "names": [
+        "literal%20image"
+      ],
+      "source": "import {commonEvent,rawDslCommand} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"literal%20image\",0,0,0,0,100,100,255,0]})]});",
+      "contract": "exact selected PNG metadata in the bound Project Root"
+    },
+    {},
+    {
+      "representation": "formal",
+      "source": "import {commonEvent,showPicture,imageAsset} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"literal%20image\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});"
+    },
+    {
+      "file": "img/pictures/literal%20image.png",
+      "contents": "ordinary zero-byte file",
+      "timing": "before asset gate"
+    },
+    {
+      "file": "img/pictures/literal image.png",
+      "contents": "ordinary zero-byte file",
+      "timing": "before asset gate"
+    },
+    {
+      "representation": "formal",
+      "actualCli": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-image-literal-percent20-formal-KyQ3bK\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T11:25:46.335Z",
+        "completedAt": "2026-11-02T11:25:47.841Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131\r\n    throw new Error(`${input.commandName} asset check failed:\\n${errors.join(\"\\n\")}`);\r\n          ^\r\n\r\nError: compile --check asset check failed:\r\nerror MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-image-literal-percent20-formal-KyQ3bK\\最小 Workspace with spaces\\Game; required extension: .png\r\n  image/pictures \"literal%20image\"; 1 use(s)\r\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-image-literal-percent20-formal-KyQ3bK/最小 Workspace with spaces/src/files.events.ts (line 2, column 77); base: error; effective: error\r\n1 problem group(s), 0 problem file(s), 1 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.\r\n    at checkEventAssets (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131:11)\r\n    at async compileWorkspaceUnlocked (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:277:5)\r\n    at async withWorkspaceOperationLock (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operation-lock.ts:45:12)\r\n    at async compileWorkspace (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:217:3)\r\n    at async Command.<anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:67:7)\r\n    at async Command.parseAsync (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\node_modules\\.pnpm\\commander@14.0.3\\node_modules\\commander\\lib\\command.js:1122:5)\r\n    at async runCli (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:110:3)\r\n    at async <anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:122:3)\r\n\r\nNode.js v22.23.4\r\n",
+        "ipcMessages": []
+      },
+      "guard": "no descent into img; exact and URL-interpreted files both exist"
+    },
+    {
+      "representation": "formal",
+      "actualCompileCli": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-image-literal-percent20-formal-KyQ3bK\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T11:25:47.841Z",
+        "completedAt": "2026-11-02T11:25:49.421Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131\r\n    throw new Error(`${input.commandName} asset check failed:\\n${errors.join(\"\\n\")}`);\r\n          ^\r\n\r\nError: compile asset check failed:\r\nerror MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-image-literal-percent20-formal-KyQ3bK\\最小 Workspace with spaces\\Game; required extension: .png\r\n  image/pictures \"literal%20image\"; 1 use(s)\r\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-image-literal-percent20-formal-KyQ3bK/最小 Workspace with spaces/src/files.events.ts (line 2, column 77); base: error; effective: error\r\n1 problem group(s), 0 problem file(s), 1 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.\r\n    at checkEventAssets (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131:11)\r\n    at async compileWorkspaceUnlocked (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:277:5)\r\n    at async withWorkspaceOperationLock (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operation-lock.ts:45:12)\r\n    at async compileWorkspace (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:217:3)\r\n    at async Command.<anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:67:7)\r\n    at async Command.parseAsync (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\node_modules\\.pnpm\\commander@14.0.3\\node_modules\\commander\\lib\\command.js:1122:5)\r\n    at async runCli (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:110:3)\r\n    at async <anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:122:3)\r\n\r\nNode.js v22.23.4\r\n"
+      }
+    },
+    {
+      "names": [
+        "literal%20image"
+      ],
+      "source": "import {commonEvent,rawDslCommand} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"literal%20image\",0,0,0,0,100,100,255,0]})]});",
+      "contract": "exact selected PNG metadata in the bound Project Root"
+    },
+    {},
+    {
+      "file": "img/pictures/literal%20image.png",
+      "contents": "ordinary zero-byte file",
+      "timing": "before asset gate"
+    },
+    {
+      "file": "img/pictures/literal image.png",
+      "contents": "ordinary zero-byte file",
+      "timing": "before asset gate"
+    },
+    {
+      "representation": "raw",
+      "actualCli": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-image-literal-percent20-raw-s6O4K6\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T11:25:50.547Z",
+        "completedAt": "2026-11-02T11:25:52.255Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131\r\n    throw new Error(`${input.commandName} asset check failed:\\n${errors.join(\"\\n\")}`);\r\n          ^\r\n\r\nError: compile --check asset check failed:\r\nerror MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-image-literal-percent20-raw-s6O4K6\\最小 Workspace with spaces\\Game; required extension: .png\r\n  image/pictures \"literal%20image\"; 1 use(s)\r\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; base: error; effective: error\r\n1 problem group(s), 0 problem file(s), 1 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.\r\n    at checkEventAssets (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131:11)\r\n    at async compileWorkspaceUnlocked (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:277:5)\r\n    at async withWorkspaceOperationLock (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operation-lock.ts:45:12)\r\n    at async compileWorkspace (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:217:3)\r\n    at async Command.<anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:67:7)\r\n    at async Command.parseAsync (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\node_modules\\.pnpm\\commander@14.0.3\\node_modules\\commander\\lib\\command.js:1122:5)\r\n    at async runCli (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:110:3)\r\n    at async <anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:122:3)\r\n\r\nNode.js v22.23.4\r\n",
+        "ipcMessages": []
+      },
+      "guard": "no descent into img; exact and URL-interpreted files both exist"
+    },
+    {
+      "representation": "raw",
+      "actualCompileCli": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-image-literal-percent20-raw-s6O4K6\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T11:25:52.255Z",
+        "completedAt": "2026-11-02T11:25:53.790Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131\r\n    throw new Error(`${input.commandName} asset check failed:\\n${errors.join(\"\\n\")}`);\r\n          ^\r\n\r\nError: compile asset check failed:\r\nerror MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-image-literal-percent20-raw-s6O4K6\\最小 Workspace with spaces\\Game; required extension: .png\r\n  image/pictures \"literal%20image\"; 1 use(s)\r\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; base: error; effective: error\r\n1 problem group(s), 0 problem file(s), 1 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.\r\n    at checkEventAssets (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131:11)\r\n    at async compileWorkspaceUnlocked (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:277:5)\r\n    at async withWorkspaceOperationLock (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operation-lock.ts:45:12)\r\n    at async compileWorkspace (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:217:3)\r\n    at async Command.<anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:67:7)\r\n    at async Command.parseAsync (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\node_modules\\.pnpm\\commander@14.0.3\\node_modules\\commander\\lib\\command.js:1122:5)\r\n    at async runCli (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:110:3)\r\n    at async <anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:122:3)\r\n\r\nNode.js v22.23.4\r\n"
+      }
+    }
+  ],
+  "expected": {
+    "description": "image percent and hash names are rejected before any category lookup without changing the saved value",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-file-workspace.test.ts",
+    "sha256": "61cbdd643880adf3d124748862751b96fdaf2a86fefb5e451b99b8457255449b",
+    "assertions": "async () => {\n\t\tfor (const representation of [\"formal\", \"raw\"]) await (0,__vite_ssr_import_6__.withWindowsSandbox)(`asset-image-${branch}-${representation}`, async (sandbox) => {\n\t\t\tconst root = sandbox.workspaceRoot;\n\t\t\tawait prepare(root, [name]);\n\t\t\tif (representation === \"formal\") {\n\t\t\t\tconst source = `import {commonEvent,showPicture,imageAsset} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:${JSON.stringify(name)}}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});`;\n\t\t\t\tawait (0,__vite_ssr_import_1__.writeFile)((0,__vite_ssr_import_2__.join)(root, \"src/files.events.ts\"), source);\n\t\t\t\t(0,__vite_ssr_import_5__.recordAssetInput)({\n\t\t\t\t\trepresentation,\n\t\t\t\t\tsource\n\t\t\t\t});\n\t\t\t};\n\t\t\tawait png(root, `img/pictures/${name}.png`);\n\t\t\tawait png(root, `img/pictures/${alternative}`);\n\t\t\tconst before = await localState(root);\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(failure).toContain(\"error MV-ASSET-UNSUPPORTED-NAME\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(failure).toContain(JSON.stringify(name));\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(failure).toContain(\"CommonEvents.json[10].list[0].parameters[1]\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(failure).toContain(\"this use is unchecked\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(failure).not.toContain(\"; target:\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(failure).not.toContain(\"; failed at:\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(failure).not.toContain(\"MV-ASSET-MISSING\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(await localState(root)).toEqual(before);\n\t\t\t};\n\t\t\tconst child = (0,__vite_ssr_import_7__.startWorkspaceOperation)(sandbox, {\n\t\t\t\toperation: \"check\",\n\t\t\t\tmode: \"cli\",\n\t\t\t\tboundary: \"asset-link-guard\",\n\t\t\t\tassetPath: \"img\"\n\t\t\t});\n\t\t\ttry {\n\t\t\t\t(0,__vite_ssr_import_4__.expect)((await child.ended).exitCode).toBe(1);\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(child.messages.some((message) => message.kind === \"asset-link-follow-attempt\")).toBe(false);\n\t\t\t\tconst cli = sandbox.processes.at(-1);\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).toContain(\"error MV-ASSET-UNSUPPORTED-NAME\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).toContain(JSON.stringify(name));\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).not.toContain(\"; target:\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).not.toContain(\"MV-ASSET-QUERY-FAILED\");\n\t\t\t\t(0,__vite_ssr_import_5__.recordAssetInput)({\n\t\t\t\t\trepresentation,\n\t\t\t\t\tactualCli: cli,\n\t\t\t\t\tguard: \"no descent into img; exact and URL-interpreted files both exist\"\n\t\t\t\t});\n\t\t\t} finally {\n\t\t\t\tawait child.stop();\n\t\t\t};\n\t\t\tconst cli = await (0,__vite_ssr_import_6__.runCli)(sandbox, [\"compile\"], { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_4__.expect)(cli.exitCode).toBe(1);\n\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).toContain(\"error MV-ASSET-UNSUPPORTED-NAME\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).toContain(JSON.stringify(name));\n\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).not.toContain(\"; target:\");\n\t\t\t(0,__vite_ssr_import_5__.recordAssetInput)({\n\t\t\t\trepresentation,\n\t\t\t\tactualCompileCli: cli\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_4__.expect)(await localState(root)).toEqual(before);\n\t\t\t(0,__vite_ssr_import_4__.expect)((await (0,__vite_ssr_import_1__.readdir)((0,__vite_ssr_import_2__.join)(root, \"Game/img/pictures\"))).sort()).toEqual([`${name}.png`, alternative].sort());\n\t\t});\n\t}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

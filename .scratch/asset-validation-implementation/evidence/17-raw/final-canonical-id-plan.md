@@ -1,8 +1,8 @@
 # 全量 canonical ID 独立计划与差异报告
 
-权威快照：`11e52e3cbc93fe5200cb51d0c2882a9cec222765`。本计划逐项独立转录当前验收矩阵／子用例索引与责任票；未领取17、修改仓库、运行测试、检查产品收集器或读取执行回执。所有实际状态均为 **未在本计划中审计**。JSON 是逐项机器可读目录，本文件也逐项列出1209个计划身份；这不是产品完成或验收通过声明。
+权威快照：`c5f7ead75ba78680b92ad81924ba8cb884d2b751`。本程序逐项独立转录当前验收矩阵／子用例索引与责任票，不导入产品／测试、不运行产品命令、不读取执行回执。所有实际状态均为 **未在本计划中审计**，票17的领取状态和已执行命令由独立验收工件记录。JSON 是逐项机器可读目录，本文件也逐项列出1209个计划身份；这不是产品完成或验收通过声明。
 
-**身份拼写限制：** 1209项语义义务完整，其中1084项的ID由权威token及固定默认值直接确定。F07另125项由权威明确到具体字符／设备名，但未规定后缀分隔及大小写；本计划使用 `case-uXXXX` 小写十六进制和 `case-<大写设备名原文>`，仅为计划编码。未来17必须将既有canonical spelling与JSON中独立semanticKey逐项一对一映射。纯拼写差异不能当行为缺口，也不能注册别名或跳过逐字符核验。F07五个独立路径形式分支不存在此后缀歧义。
+**身份拼写限制：** 1209项语义义务完整，其中1084项的ID由权威token及固定默认值直接确定。F07另125项由权威明确到具体字符／设备名，但未规定后缀分隔及大小写；本计划使用 `case-uXXXX` 小写十六进制和 `case-<大写设备名原文>`，仅为计划编码。票17将既有canonical spelling与JSON中独立semanticKey逐项一对一映射。纯拼写差异不能当行为缺口，也不能注册别名或跳过逐字符核验。F07五个独立路径形式分支不存在此后缀歧义。
 
 source／built 是回执轴，不增加ID。N组媒体、B–E图块、多timing样本和共享票场景都不能扩大或替代canonical身份。D02–D10的native仅是表示token，D10仍须实际CLI。
 
@@ -51,14 +51,14 @@ source／built 是回执轴，不增加ID。N组媒体、B–E图块、多timing
 
 06–11的644主责身份与3个D09协作引用构成647项旧目录，均逐ID命中；12–16的215项也全部命中。在各旧计划所覆盖目录内，06–16逐票的主责／协作身份集合也一致，JSON列出22个责任集合对账。W16两个ID保留12的历史格式／hash兼容支持引用，恢复执行仍全归16；未把该支持写成12执行W16。两个B14旧未决候选原本未计入644／647，现明确N/A；该处不减少当前义务数量。A/F维度旧计划的86／201、全族计数旧计划的1209也与独立展开一致。此对账只比较计划，不比较测试或回执。
 
-## 差异与未来17核验
+## 差异与17独立核验
 
 - **identity-spelling-gap**（F07 125 suffix-expanded cases (9 forbidden,32 controls,84 devices); five standalone path-form IDs have exact authority tokens）：Authority requires a concrete Unicode/device suffix but does not prescribe separator, Unicode marker, or case. This plan serializes case-uXXXX (lower hex) and case-<uppercase literal device> only as its own notation. 17 must build an injective/surjective mapping from each existing canonical spelling to the independent semanticKey, preserving every literal codepoint/device and all three device branches. Pure spelling differences are not behavior gaps. Do not create aliases, edit authority, or rename existing registrations now.
 - **historical-pending-to-N/A**（Prior06–11 unresolvedCases (2 B14 host-target IDs)）：Prior plan already excluded them from its 644 primary and647 catalog rows. Current disposition is N/A, leaving counts unchanged. Keep the provisional candidates in the notApplicable table; do not demand or invent missing-asset passes.
-- **outdated-ownership-summary**（.scratch/asset-validation-implementation/ticket-breakdown-draft.md:244）：Uses repeated-checkpoint in its C03 prose; current index and13 ticket use repeated-command. Use current C03.repeated-command token; no extra obsolete ID.
-- **outdated-ownership-summary**（.scratch/asset-validation-implementation/ticket-breakdown-draft.md:289）：Still lists15 Push bookkeeping as a W11 gate. Current index has check-gate/compile-gate/push-gate only;15 ticket33 explicitly assigns no-postwrite-scan proof. No fourth W11 gate. W06/W19 cover postwrite asset changes and state.
-- **outdated-ownership-summary**（.scratch/asset-validation-implementation/ticket-breakdown-draft.md:290）：Still lists same-point-reuse/next-point-fresh. Current index and13 ticket42 specify same-pass-reuse/next-command-fresh. Do not restore old workflow IDs.
-- **prior-source-pointer-drift**（Prior independent06–11 and12–16 plans）：Their stored source hashes and line numbers retain older documentation snapshots; current authority at1f01ba53 includes the F06/N02 policy and explicit ID encoding clarification. Use the SHA256 and line pointers attached to this plan for the requested revision; future17 must read its final authority again.
+- **ownership-summary-aligned**（.scratch/asset-validation-implementation/ticket-breakdown-draft.md:244）：| C03 | 04, 05, 13 | 04 图像镜像／独立指令；05 SE 同分支；13 两种字段 repeated-command，新命令各自重建逻辑使用，不累计次数 | Preserve C03 repeated-command; do not restore withdrawn checkpoint IDs or add a postwrite asset gate.
+- **ownership-summary-aligned**（.scratch/asset-validation-implementation/ticket-breakdown-draft.md:289）：| W11 | 13, 14, 15 | 13 在 Check／Compile 单次素材门槛判断七种当前变化，门槛后的素材变化不失效；14 覆盖 Push 写前单次门槛；15 覆盖写后素材变化仍正常记账，无额外素材门槛 | Preserve W11 prewrite gate and postwrite no-scan proof; do not restore withdrawn checkpoint IDs or add a postwrite asset gate.
+- **ownership-summary-aligned**（.scratch/asset-validation-implementation/ticket-breakdown-draft.md:290）：| W12 | 13 | same-pass-reuse／next-command-fresh；14 复核 Push 新命令，引用 13 的唯一注册，不增加 canonical ID；不保留已撤销的 next-point-fresh 要求 | Preserve W12 same-pass reuse / next-command fresh; do not restore withdrawn checkpoint IDs or add a postwrite asset gate.
+- **prior-source-pointer-drift**（Prior independent06–11 and12–16 plans）：Their stored source hashes and line numbers retain older documentation snapshots; each source attached to this plan is read at its explicit authorityRevision. Use this plan’s SHA256 and line pointers for the requested execution freeze; audit execution separately.
 
 ## 已退役／历史身份
 
@@ -1982,28 +1982,29 @@ source／built 是回执轴，不增加ID。N组媒体、B–E图块、多timing
 | --- | --- | ---: |
 | .scratch/asset-validation/implementation-acceptance-cases.md | `4e8a591f5c4d157e5876b6058d4c7ed6d4f440da584b58a23add2f205477a25f` | 29676 |
 | .scratch/asset-validation/acceptance-matrix.md | `fddf586c2212a998bad5a32ec105691e05a879a52ea6d8cb07b16a1aa841b0ba` | 28893 |
-| .scratch/asset-validation-implementation/issues/04-direct-image-uses.md | `d8ceacd64b2dea9679672617fa5adf09c539fefcbe17974f3738adba0faa4661` | 5905 |
+| .scratch/asset-validation-implementation/issues/04-direct-image-uses.md | `d7e539a6b5d98ca3a93be564be64bd55ee9d934ebd47386b2b9c9da85689d8ac` | 8480 |
 | .scratch/asset-validation/asset-validation-spec.md | `00d0d85abcda6d3141549616afb8aa410f993f2bb51e82ef7d8467e56b76d82f` | 48120 |
 | .scratch/asset-validation-implementation/issues/05-direct-audio-and-movie-uses.md | `9fdfffdff9cb8ddbe89a809eb7a896fdfb131ae86a0c19b012cdc207d7bad15d` | 6405 |
 | .scratch/asset-validation-implementation/issues/02-picture-compile-check.md | `e240fee24e1ae4311a97ef5e9d3986583d3dd62330416852cbaf5b6cb58a2476` | 6349 |
-| .scratch/asset-validation-implementation/issues/06-animation-and-tileset-dependencies.md | `8faa1c029fc2eec41952a34d94ea18883ed4e86d2dedba600d62271e8052fa6b` | 6895 |
+| .scratch/asset-validation-implementation/issues/06-animation-and-tileset-dependencies.md | `31de2af11c4a673a747e6cf417f6a9339f6cda952ba4f3ced25105e01edf1899` | 8471 |
 | .scratch/asset-validation-implementation/issues/08-enemy-and-actor-candidates.md | `0a38bf468fa961bcdcce05f9fa43a7438550b3c4063d546b0d4ff77d80fcf456` | 6841 |
 | .scratch/asset-validation-implementation/issues/11-forced-action-dependencies.md | `151db8cae494cd45f00b6ffad9dc30dda20dbd1417be172c4ee9dd8a8fe1468a` | 7650 |
 | .scratch/asset-validation-implementation/issues/07-transfer-and-page-tile-dependencies.md | `9a8452bce9da8381e98158aad49d73be056283851d3b640fa10ec1642fe3689d` | 8009 |
-| .scratch/asset-validation-implementation/issues/09-system-and-battle-defaults.md | `fed33ffaa357c101b9a013bbfa3e82f18100daea8d534e6dcab1157ccb87010a` | 6916 |
+| .scratch/asset-validation-implementation/issues/09-system-and-battle-defaults.md | `94ccaf496e057c170550ac52e70227bff74d7a71f0b0278ca501275f65834104` | 9053 |
 | .scratch/asset-validation-implementation/issues/10-common-event-dependency-chains.md | `83b033b5f8aab821289af47021152cc924578282fa1e79cda9ec61381e0b48e7` | 5768 |
 | .scratch/asset-validation-implementation/issues/13-compile-check-consistency.md | `e95c42876e2c9294ac9afb0c2a9c8ddfc1854786c2c7eccd0d308dedcdc64fdc` | 7306 |
 | .scratch/asset-validation-implementation/issues/12-exceptions-and-complete-diagnostics.md | `42ff2215b81b8ea149bf06fd8aa7eab6291912625aab76a821c4b7bfd328ebc7` | 8927 |
 | .scratch/asset-validation-implementation/issues/14-push-generated-asset-preflight.md | `da97da2f6c97dfceead8c427448d49e460cb7fba797760a3357833362698a3d4` | 7239 |
 | .scratch/asset-validation/issues/03-asset-file-existence-contract.md | `c6a24d3c78b6204f431ed93f4bd2ea198d309a16d2cc189f0f468d78e76462c6` | 26732 |
-| .scratch/asset-validation-implementation/issues/03-exact-file-observation.md | `305aab1b7bfc07da5070120347931be5efea8df2ac25b7ddc44856ac7a2557ff` | 8382 |
+| .scratch/asset-validation-implementation/issues/03-exact-file-observation.md | `688d99bcb716442a8206c89ab05f3f3184471c0e394ddc5a06dd5bcb52280d4c` | 11106 |
 | .scratch/asset-validation-implementation/issues/15-push-postwrite-consistency.md | `ec8e6207bf413ceb89f14ca918ad982c0c1082d3ba8dcbfaf6f3ac496f90e17e` | 7423 |
-| .scratch/asset-validation-implementation/issues/16-recovery-and-current-asset-policy.md | `7b2c391b23567ebcb9389f0e5d602840be5985713ba2440de900c8330cc3f77b` | 7264 |
+| .scratch/asset-validation-implementation/issues/16-recovery-and-current-asset-policy.md | `801b33c07ce0e1054fd5fcc23704a0513bfc9cdcd60f25d9180397d16e396aa7` | 9951 |
 | .scratch/asset-validation-implementation/issues/01-native-media-locations.md | `4efcebefab140b0c21b7e26c0f86bb0c55b988ed5463b95d893f093b8c7b7b0e` | 5869 |
+| .scratch/asset-validation-implementation/ticket-breakdown-draft.md | `0efccebb9aed6d6cb883e07ad9c71dc92a31aa683170b0cd4886523a7413ee0f` | 26853 |
 
 ## 后续使用边界
 
-- Read final authoritative matrix/index and ticket ownership again at17, because1f01ba53 is only this plan snapshot.
+- Use final authoritative matrix/index and ticket ownership at the explicit freeze c5f7ead75ba78680b92ad81924ba8cb884d2b751; this plan alone is not an execution audit.
 - Map every expected semantic ID to registered tests and source/built/native receipts using independent expectations.
 - Resolve F07 spelling one-to-one independently of behavior; never infer completeness from family/total counts.
 - Check hashes, environment, required entry methods, exact assertions and all samples before assessing actual status.
