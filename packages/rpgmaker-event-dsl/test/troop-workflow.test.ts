@@ -55,6 +55,15 @@ const savedPage = {
 async function fixture() {
   const workspaceRoot = await mkdtemp(join(tmpdir(), "mv25-troop-"));
   await createMinimalProject(workspaceRoot);
+  const systemPath = join(workspaceRoot, "Game/data/System.json");
+  const system = JSON.parse(await readFile(systemPath, "utf8"));
+  Object.assign(system, {
+    battleBgm: { name: "", volume: 90, pitch: 100, pan: 0 },
+    victoryMe: { name: "", volume: 90, pitch: 100, pan: 0 },
+    defeatMe: { name: "", volume: 90, pitch: 100, pan: 0 },
+    sounds: Array.from({ length: 8 }, () => ({ name: "", volume: 90, pitch: 100, pan: 0 })),
+  });
+  await writeFile(systemPath, JSON.stringify(system));
   await mkdir(join(workspaceRoot, "src"));
   await writeFile(
     join(workspaceRoot, "rpgmaker-event-dsl.config.json"),

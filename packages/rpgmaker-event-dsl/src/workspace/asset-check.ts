@@ -6,6 +6,7 @@ import { assetUseLevel } from "../validation/asset-policy.js";
 import { collectAnimationAndTilesetAssets } from "../validation/asset-dependencies.js";
 import type { AssetOrigin } from "../validation/asset-dependencies.js";
 import { collectMapAssetRelations } from "../validation/asset-map-relations.js";
+import { collectSystemAssets } from "../validation/asset-system-relations.js";
 import { collectActorEnemyAssets } from "../validation/asset-actor-enemy-relations.js";
 
 function renderOrigin(use: AssetOrigin): string {
@@ -20,16 +21,18 @@ export async function checkEventAssets(input: {
   commandName: string;
 }): Promise<void> {
   const mapRelations = collectMapAssetRelations(input.files, input.externalData);
+  const systemRelations = collectSystemAssets(input.files, input.externalData);
   const relationGroups = [
     collectAnimationAndTilesetAssets(input.files, input.externalData),
     collectActorEnemyAssets(input.files, input.externalData),
     mapRelations,
+    systemRelations,
   ];
   const relations = {
     uses: relationGroups.flatMap((group) => group.uses),
     problems: relationGroups.flatMap((group) => group.problems),
   };
-  for (const stop of mapRelations.stops)
+  for (const stop of [...mapRelations.stops, ...systemRelations.stops])
     console.error(
       `${input.commandName} asset check info:\ninfo MV-ASSET-DYNAMIC-STOP: ${stop.reason}\n  - ${renderOrigin(stop)}`,
     );
