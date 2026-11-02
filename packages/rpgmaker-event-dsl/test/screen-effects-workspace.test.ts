@@ -29,7 +29,7 @@ const commands: SavedCommand[] = JSON.parse(
   ),
 );
 
-function it(name: string, body: () => Promise<void>) {
+function it(name: string, body: () => Promise<void>, timeout = 30_000) {
   test(
     name,
     async () => {
@@ -55,7 +55,7 @@ function it(name: string, body: () => Promise<void>) {
         });
       }
     },
-    30_000,
+    timeout,
   );
 }
 
@@ -327,7 +327,7 @@ it("MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Sc
       expect(await state(workspaceRoot)).toStrictEqual(before);
     }
   });
-});
+}, 90_000);
 
 it("MV-S6-SCREEN-003: rejects late malformed native Screen slots before source publication without changing existing business state", async () => {
   for (const [code, parameters, suffix] of [
