@@ -26,6 +26,7 @@ export default defineConfig({
       "test/cli-entry.test.ts",
       "test/workspace-locking.test.ts",
       "test/snapshot-binding.test.ts",
+      "test/snapshot-context.test.ts",
       "test/compile-inputs.test.ts",
       "test/compile-publication.test.ts",
       "test/decompile-publication.test.ts",

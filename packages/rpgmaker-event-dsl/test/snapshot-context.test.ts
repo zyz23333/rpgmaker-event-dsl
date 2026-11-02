@@ -4,7 +4,8 @@ import { join } from "node:path";
 
 import { expect, it } from "vitest";
 
-import {
+import { workspaceApiEntry } from "./support/workspace-operation-process.js";
+const {
   cloneWorkspace,
   compileWorkspace,
   decompileWorkspace,
@@ -12,7 +13,7 @@ import {
   initWorkspace,
   pullWorkspace,
   pushWorkspace,
-} from "../src/workspace-api.js";
+}: typeof import("../src/workspace-api.js") = await import(workspaceApiEntry);
 import { createMinimalProject, withWindowsSandbox } from "./support/windows-sandbox.js";
 import { loadSnapshotValidationInput } from "../src/workspace/operations.js";
 import { getWorkspaceStatePaths } from "../src/workspace/state.js";
