@@ -25,6 +25,7 @@ export default defineConfig({
       "test/battle-workspace.test.ts",
       "test/asset-battler-workspace.test.ts",
       "test/asset-battler-data.test.ts",
+      "test/asset-action-workspace.test.ts",
       "test/asset-common-workspace.test.ts",
       "test/asset-file-workspace.test.ts",
       "test/audio-commands-workspace.test.ts",

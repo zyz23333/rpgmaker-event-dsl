@@ -9,7 +9,7 @@ export function renderAssetCallContext(
   return `\nDirect Common Event calls:\n${calls
     .map(
       (call) =>
-        `  - ${call.caller} ${call.nativePath} -> ${call.target}${renderAuthoredAssetLocation(call.nativePath, locations)}`,
+        `  - ${call.caller} ${call.nativePath} -> ${call.target}${call.dependencyChain.length ? `; chain: ${call.dependencyChain.map((step) => `${step.data}${step.id === undefined ? "" : `[${step.id}]`}.${step.field} (${step.relationship})`).join(" -> ")}` : ""}${renderAuthoredAssetLocation(call.nativePath, locations)}`,
     )
     .join("\n")}`;
 }

@@ -1,3 +1,4 @@
+import { collectForcedActionAssets } from "../validation/asset-action-relations.js";
 import { assetTargetKey, collectEventAssetUses } from "../validation/asset-uses.js";
 import { collectCommonEventCalls } from "../validation/asset-common-calls.js";
 import { renderAssetCallContext } from "./asset-call-context.js";
@@ -24,6 +25,7 @@ export async function checkEventAssets(input: {
   exceptions?: readonly AssetCheckException[];
   locations?: ReadonlyMap<string, AuthoredAssetLocation>;
 }): Promise<void> {
+  const actions = collectForcedActionAssets(input.files, input.externalData);
   const mapRelations = collectMapAssetRelations(input.files, input.externalData);
   const systemRelations = collectSystemAssets(input.files, input.externalData);
   const relationGroups = [
@@ -31,12 +33,13 @@ export async function checkEventAssets(input: {
     collectActorEnemyAssets(input.files, input.externalData),
     mapRelations,
     systemRelations,
+    actions,
   ];
   const relations = {
     uses: relationGroups.flatMap((group) => group.uses),
     problems: relationGroups.flatMap((group) => group.problems),
   };
-  const stops = [...mapRelations.stops, ...systemRelations.stops];
+  const stops = [...mapRelations.stops, ...systemRelations.stops, ...actions.stops];
   const uses = [...collectEventAssetUses(input.files), ...relations.uses];
   const system = JSON.parse(input.files.get("System.json")!);
   const findings: AssetFinding[] = relations.problems.map((problem) => ({
@@ -107,7 +110,7 @@ export async function checkEventAssets(input: {
     parts.push(
       `${report.statistics.groups} problem group(s), ${report.statistics.files} problem file(s), ${report.statistics.uses} affected use(s). Coverage: ${report.incomplete ? "incomplete; named relationships or file checks remain unchecked" : "complete"}.`,
     );
-  const calls = renderAssetCallContext(collectCommonEventCalls(input.files), input.locations);
+  const calls = renderAssetCallContext([...collectCommonEventCalls(input.files), ...actions.calls], input.locations);
   if (calls) parts.push(calls.trimStart());
   if (report.hasErrors)
     throw new Error(`${input.commandName} asset check failed:\n${parts.join("\n")}`);
