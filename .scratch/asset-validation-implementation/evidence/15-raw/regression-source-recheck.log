@@ -1,0 +1,5 @@
+
+> rpgmaker-event-dsl@0.1.2 test M:\Shuen\Codex\asset-validation-15-postwrite\packages\rpgmaker-event-dsl
+> vitest run "--maxWorkers=1" "test/push-recovery.test.ts" "-t" "RECOVERY-010.*push-after-install" "--reporter=json" "--outputFile=../../test-results/15-regression-source-recheck.json"
+
+JSON report written to M:/Shuen/Codex/asset-validation-15-postwrite/test-results/15-regression-source-recheck.json

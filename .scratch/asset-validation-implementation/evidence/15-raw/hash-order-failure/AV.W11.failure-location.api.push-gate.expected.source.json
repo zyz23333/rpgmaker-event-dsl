@@ -1,0 +1,148 @@
+{
+  "id": "AV.W11.failure-location.api.push-gate.expected",
+  "ownerTicket": "14",
+  "status": "failed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T08:40:58.317Z",
+  "completedAt": "2026-11-02T08:41:00.442Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-current-failure-location-TA0jQu\\最小 Workspace with spaces",
+      "source": "import type {PushInput} from \"../types/push-input.js\";\nimport {commonEvent,mapEvent,troopEvent,showPicture,imageAsset,callCommonEvent,commonEventRef,forceAction,actorRef,skillRef,showAnimation,animationRef} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Push workflow\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"PushPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});",
+      "project": {
+        "CommonEvents.json": [
+          null
+        ],
+        "System.json": {
+          "gameTitle": "Push fixture",
+          "switches": [
+            ""
+          ],
+          "variables": [
+            ""
+          ],
+          "fixtureOrigin": {
+            "retainedNull": null,
+            "retainedArray": []
+          }
+        },
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Push Map"
+          }
+        ],
+        "Map001.json": {
+          "id": 1,
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": [
+            null
+          ],
+          "custom": {
+            "preserved": [
+              "opaque",
+              null
+            ]
+          }
+        }
+      },
+      "exceptions": [
+        {
+          "category": "image",
+          "folder": "pictures",
+          "name": "PushPoster",
+          "reason": "optional test image"
+        }
+      ],
+      "media": "ordinary zero-byte PNG; metadata only"
+    },
+    {
+      "operation": {
+        "operation": "push",
+        "boundary": "asset-before-pass"
+      },
+      "actual": {
+        "exitCode": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "push (before pending state or Project Root replacement) asset check warning:\nwarning MV-ASSET-MISSING-DIRECTORY: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-current-failure-location-TA0jQu\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-current-failure-location-TA0jQu\\最小 Workspace with spaces\\Game\\img\\pictures\\PushPoster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-current-failure-location-TA0jQu\\最小 Workspace with spaces\\Game\\img\\pictures\n  image/pictures \"PushPoster\"; 1 use(s)\n  - warning commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; base: error; effective: warning; exception reason: optional test image\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete.\n",
+        "message": "",
+        "messages": [
+          {
+            "kind": "checkpoint",
+            "pid": 44856
+          },
+          {
+            "kind": "asset-pass-entered"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-current-failure-location-TA0jQu\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-current-failure-location-TA0jQu\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "result",
+            "ok": true
+          }
+        ]
+      },
+      "process": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-15-postwrite/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-15-postwrite\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-current-failure-location-TA0jQu\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T08:40:58.977Z",
+        "completedAt": "2026-11-02T08:41:00.401Z",
+        "exitCode": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "push (before pending state or Project Root replacement) asset check warning:\nwarning MV-ASSET-MISSING-DIRECTORY: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-current-failure-location-TA0jQu\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-current-failure-location-TA0jQu\\最小 Workspace with spaces\\Game\\img\\pictures\\PushPoster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-current-failure-location-TA0jQu\\最小 Workspace with spaces\\Game\\img\\pictures\n  image/pictures \"PushPoster\"; 1 use(s)\n  - warning commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; base: error; effective: warning; exception reason: optional test image\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete.\n",
+        "ipcMessages": [
+          {
+            "kind": "checkpoint",
+            "pid": 44856
+          },
+          {
+            "kind": "asset-pass-entered"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-current-failure-location-TA0jQu\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-current-failure-location-TA0jQu\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "result",
+            "ok": true
+          }
+        ]
+      }
+    }
+  ],
+  "expected": {
+    "description": "the sole staged asset gate uses current file facts",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-push-workspace.test.ts",
+    "sha256": "69374a70f37bf2209131a8db25b2f89aa94feb4b68ee2eb8161a344befe41474",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_5__.withWindowsSandbox)(`asset-push-current-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot, warning = branch === \"failure-location\", initialMissing = warning || branch === \"improvement\";\n\t\tawait (0,__vite_ssr_import_6__.preparePush)(sandbox, { ...initialMissing ? { exceptions: [{\n\t\t\tcategory: \"image\",\n\t\t\tfolder: \"pictures\",\n\t\t\tname: \"PushPoster\",\n\t\t\treason: \"optional test image\"\n\t\t}] } : {} });\n\t\tif (initialMissing) await (0,__vite_ssr_import_0__.rm)((0,__vite_ssr_import_1__.join)(root, (0,__vite_ssr_import_6__.pushPicturePath)));\n\t\tawait __vite_ssr_import_6__.pushApi.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tlet changed;\n\t\tconst actual = await (0,__vite_ssr_import_6__.controlledPush)(sandbox, {\n\t\t\tboundary: \"asset-before-pass\",\n\t\t\t...branch === \"queryability\" ? { assetFault: \"enumeration\" } : {}\n\t\t}, async () => {\n\t\t\tif (branch === \"presence\") await (0,__vite_ssr_import_0__.rm)((0,__vite_ssr_import_1__.join)(root, (0,__vite_ssr_import_6__.pushPicturePath)));\n\t\t\tif (branch === \"case-match\") {\n\t\t\t\tawait (0,__vite_ssr_import_0__.rename)((0,__vite_ssr_import_1__.join)(root, (0,__vite_ssr_import_6__.pushPicturePath)), (0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/temporary.png\"));\n\t\t\t\tawait (0,__vite_ssr_import_0__.rename)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/temporary.png\"), (0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/pushposter.png\"));\n\t\t\t};\n\t\t\tif (branch === \"path-type\") {\n\t\t\t\tawait (0,__vite_ssr_import_0__.rm)((0,__vite_ssr_import_1__.join)(root, (0,__vite_ssr_import_6__.pushPicturePath)));\n\t\t\t\tawait (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, (0,__vite_ssr_import_6__.pushPicturePath)));\n\t\t\t};\n\t\t\tif (branch === \"path-link\") {\n\t\t\t\tawait (0,__vite_ssr_import_0__.rm)((0,__vite_ssr_import_1__.join)(root, (0,__vite_ssr_import_6__.pushPicturePath)));\n\t\t\t\tconst target = (0,__vite_ssr_import_1__.join)(sandbox.root, \"external image directory\");\n\t\t\t\tawait (0,__vite_ssr_import_0__.mkdir)(target);\n\t\t\t\tawait (0,__vite_ssr_import_0__.symlink)(target, (0,__vite_ssr_import_1__.join)(root, (0,__vite_ssr_import_6__.pushPicturePath)), \"junction\");\n\t\t\t};\n\t\t\tif (warning) await (0,__vite_ssr_import_0__.rm)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures\"), { recursive: true });\n\t\t\tif (branch === \"improvement\") await (0,__vite_ssr_import_6__.putPushFile)(root);\n\t\t\tchanged = await (0,__vite_ssr_import_6__.observePush)(root);\n\t\t\t(0,__vite_ssr_import_3__.expect)(Object.keys(changed.project).some((key) => key.startsWith(\"data/push-staging.tmp-\"))).toBe(true);\n\t\t});\n\t\tconst succeeds = warning || branch === \"improvement\", text = actual.message + actual.stderr + actual.stdout;\n\t\t(0,__vite_ssr_import_3__.expect)(actual.exitCode).toBe(succeeds ? 0 : 1);\n\t\tconst codes = {\n\t\t\tpresence: \"MISSING-FILE\",\n\t\t\t\"case-match\": \"NAME-MISMATCH\",\n\t\t\t\"path-type\": \"PATH-TYPE\",\n\t\t\t\"path-link\": \"UNSUPPORTED-LINK\",\n\t\t\tqueryability: \"QUERY-FAILED\",\n\t\t\t\"failure-location\": \"MISSING-DIRECTORY\",\n\t\t\timprovement: null\n\t\t};\n\t\tif (codes[branch]) (0,__vite_ssr_import_3__.expect)(text).toContain(`${warning ? \"warning\" : \"error\"} MV-ASSET-${codes[branch]}`);\n\t\tif (branch === \"improvement\") (0,__vite_ssr_import_3__.expect)(text).not.toContain(\"error MV-ASSET-\");\n\t\tif (branch === \"queryability\") (0,__vite_ssr_import_3__.expect)(text).toContain(\"Controlled asset workflow enumeration denied\");\n\t\t(0,__vite_ssr_import_3__.expect)(text).not.toMatch(/changed during.*asset|asset.*changed during/i);\n\t\t(0,__vite_ssr_import_3__.expect)(actual.messages.some((m) => m.kind === \"asset-query\")).toBe(true);\n\t\t(0,__vite_ssr_import_3__.expect)(actual.messages.filter((m) => m.kind === \"asset-content-read-attempt\")).toEqual([]);\n\t\tconst cleanBefore = {\n\t\t\t...changed,\n\t\t\tproject: withoutStage(changed.project)\n\t\t};\n\t\tif (succeeds) await successfulPush(root, cleanBefore);\n\t\telse (0,__vite_ssr_import_3__.expect)(await (0,__vite_ssr_import_6__.observePush)(root)).toEqual(cleanBefore);\n\t\t(0,__vite_ssr_import_4__.recordAssetInput)({\n\t\t\tbranch,\n\t\t\tdriverChanged: changed,\n\t\t\texpected: succeeds ? \"current valid/warning facts permit normal Push\" : \"current asset error leaves no replacement, pending or staging\"\n\t\t});\n\t});\n}"
+  },
+  "actual": "AssertionError: expected { version: 1, …(4) } to deeply equal { version: 1, …(4) }",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

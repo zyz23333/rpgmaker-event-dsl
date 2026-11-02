@@ -1,0 +1,8 @@
+
+> rpgmaker-event-dsl@0.1.2 test M:\Shuen\Codex\asset-validation-15-postwrite\packages\rpgmaker-event-dsl
+> vitest run "--maxWorkers=1" "test/asset-push-workspace.test.ts" "--reporter=json" "--outputFile=../../test-results/15-final-source.json"
+
+JSON report written to M:/Shuen/Codex/asset-validation-15-postwrite/test-results/15-final-source.json
+M:\Shuen\Codex\asset-validation-15-postwrite\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run "--maxWorkers=1" "test/asset-push-workspace.test.ts" "--reporter=json" "--outputFile=../../test-results/15-final-source.json"`
+Exit status 1
