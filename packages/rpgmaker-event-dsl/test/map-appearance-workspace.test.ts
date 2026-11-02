@@ -7,7 +7,7 @@ import { discoverDefinitionFiles, loadDefinitionFile } from "../src/workspace/de
 import { getWorkspaceStatePaths } from "../src/workspace/state.js";
 import { createMinimalProject, withWindowsSandbox } from "./support/windows-sandbox.js";
 import { blankEvent, blankPage } from "./support/map-event-fixtures.js";
-import { createAssetTest } from "./support/asset-evidence.js";
+import { createAssetTest, recordAssetInput } from "./support/asset-evidence.js";
 import {
   changeMapNameDisplay,
   changeTileset,
@@ -80,6 +80,14 @@ assetIt(
   async () => {
     await withWindowsSandbox("map-appearance-original-name", async ({ workspaceRoot }) => {
       const original = await prepare(workspaceRoot, saved);
+      recordAssetInput({
+        fixture: "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-appearance-cases.json",
+        commands: saved,
+        project: original,
+        expectedSavedName: " Sky\r\n ",
+        gates:
+          "Check and Compile reject the original unsupported name without publication; Decompilation preserves it",
+      });
       expect(original.events[1]!.pages[0]!.list[7]!.parameters[0]).toBe(" Sky\r\n ");
       await decompileWorkspace({ workspaceRoot });
       const authored = await readFile(
