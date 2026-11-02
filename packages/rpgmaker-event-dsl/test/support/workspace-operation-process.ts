@@ -34,6 +34,12 @@ export function startWorkspaceOperation(
       | "snapshot-capture"
       | "snapshot-manifest-failure"
       | "input-validation"
+      | "asset-after-enumeration"
+      | "asset-enumeration-denied"
+      | "asset-metadata-denied"
+      | "asset-io-failure"
+      | "asset-media-read-denied"
+      | "asset-link-guard"
       | "compile-manifest"
       | "generated-write-failure"
       | "generated-installation-failure"
@@ -61,6 +67,7 @@ export function startWorkspaceOperation(
     failInstall?: boolean;
     captureFile?: string;
     barrier?: boolean;
+    assetPath?: string;
   },
 ) {
   const helperUrl = new URL("./workspace-operation-child.mjs", import.meta.url);
@@ -84,6 +91,11 @@ export function startWorkspaceOperation(
         mode,
         workspaceRoot: sandbox.workspaceRoot,
         apiEntry: workspaceApiEntry,
+        assetPath: resolve(
+          sandbox.workspaceRoot,
+          "Game",
+          input.assetPath ?? "img/pictures/Poster.png",
+        ),
         configPath: resolve(sandbox.workspaceRoot, "rpgmaker-event-dsl.config.json"),
         snapshotPath: resolve(
           sandbox.workspaceRoot,

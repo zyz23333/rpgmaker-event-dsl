@@ -3,7 +3,10 @@ import { join } from "node:path";
 import { expect } from "vitest";
 import { createAssetTest, recordAssetInput } from "./support/asset-evidence.js";
 import { createMinimalProject, runCli, withWindowsSandbox } from "./support/windows-sandbox.js";
-import { workspaceApiEntry } from "./support/workspace-operation-process.js";
+import {
+  startWorkspaceOperation,
+  workspaceApiEntry,
+} from "./support/workspace-operation-process.js";
 import { getWorkspaceStatePaths } from "../src/workspace/state.js";
 import { collectEventAssetUses } from "../src/validation/asset-uses.js";
 
@@ -644,5 +647,40 @@ it("AV.C11.route-script.formal.case.expected: route scripts retain the Script Ga
       code: 45,
       parameters: ['ImageManager.loadCharacter("Missing");'],
     });
+  });
+});
+
+it("AV.C08.inactive-query-failure.injected.image.expected: an inactive image cannot downgrade an inconclusive metadata query", async () => {
+  await withWindowsSandbox("asset-inactive-query", async (sandbox) => {
+    const root = sandbox.workspaceRoot;
+    await prepare(
+      root,
+      source(
+        "",
+        `,movement:{type:"fixed",route:{commands:[{kind:"changeImage",character:${image("characters", "Route")},characterIndex:7}]}}`,
+      ),
+    );
+    await materialize(root, [{ token: "p0", folder: "characters", name: "Route", parameter: 0 }]);
+    const before = await state(root);
+    const child = startWorkspaceOperation(sandbox, {
+      operation: "check",
+      mode: "cli",
+      boundary: "asset-io-failure",
+      assetPath: "img/characters/Route.png",
+    });
+    try {
+      expect((await child.ended).exitCode).toBe(1);
+      const result = sandbox.processes.at(-1)!;
+      recordAssetInput({
+        injected: "OS lstat throws EIO at Route.png; not a real ACL claim",
+        result,
+      });
+      expect(result.stderr).toContain("error MV-ASSET-QUERY-FAILED");
+      expect(result.stderr).toContain("inactive");
+      expect(result.stderr).toContain(`error map:1/event:1 ${autonomousUse.nativePath}`);
+    } finally {
+      await child.stop();
+    }
+    expect(await state(root)).toEqual(before);
   });
 });

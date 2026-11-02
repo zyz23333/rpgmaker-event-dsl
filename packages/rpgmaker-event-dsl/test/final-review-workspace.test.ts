@@ -126,14 +126,14 @@ for (const [name, body] of [
     });
   }, 30_000);
 
-it("keeps an explicit old /23 contract stale until a normal current /27 Compile", async () => {
-  await withWindowsSandbox("final-review-contract-27", async (sandbox) => {
+it("keeps an explicit old /23 contract stale until a normal current /28 Compile", async () => {
+  await withWindowsSandbox("final-review-contract-28", async (sandbox) => {
     const { workspaceRoot } = sandbox;
     await prepare(workspaceRoot);
     await api.compileWorkspace({ ...sandbox, check: false });
     const manifestPath = join(workspaceRoot, ".rpgmaker-event-dsl/sync-manifest.json");
     const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
-    expect(manifest.compileBaseline.compileContractVersion).toBe("mv-1.6.1/27");
+    expect(manifest.compileBaseline.compileContractVersion).toBe("mv-1.6.1/28");
     manifest.compileBaseline.compileContractVersion = "mv-1.6.1/23";
     await writeFile(manifestPath, JSON.stringify(manifest));
     const before = await observe(workspaceRoot);
