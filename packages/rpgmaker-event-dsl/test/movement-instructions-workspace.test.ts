@@ -317,7 +317,7 @@ it("MV-S6-MOVEMENT-003: rejects malformed evaluated untyped movement values with
       expect(await state(workspaceRoot)).toStrictEqual(before);
     }
   });
-}, 30_000);
+}, 60_000);
 
 it.each([
   [

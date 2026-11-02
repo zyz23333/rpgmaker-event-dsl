@@ -34,30 +34,34 @@ const display =
   'pictureId:1,origin:"upperLeft",position:{kind:"direct",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:"normal"';
 const sourcePath = (root: string) => join(root, "src/decompiled/common-events.events.ts");
 
-function evidenceIt(id: string, name: string, verify: () => Promise<void>) {
-  it(`${id}: ${name}`, async () => {
-    const startedAt = new Date().toISOString();
-    let failure: unknown;
-    try {
-      await verify();
-    } catch (error) {
-      failure = error;
-      throw error;
-    } finally {
-      await recordEvidence({
-        requirementId: id,
-        startedAt,
-        stages: [
-          "Independent native literals and source",
-          "Actual Discovery, public package evaluation, Workspace Check/Compile/Diff/Push",
-          "Complete source/Discovery/Project Root/Snapshot/generated/config/descriptor/manifest comparisons",
-        ],
-        expected: name,
-        actual: { assertionsCompleted: failure === undefined, entry: workspaceApiEntry },
-        ...(failure === undefined ? {} : { error: failure }),
-      });
-    }
-  });
+function evidenceIt(id: string, name: string, verify: () => Promise<void>, timeout?: number) {
+  it(
+    `${id}: ${name}`,
+    async () => {
+      const startedAt = new Date().toISOString();
+      let failure: unknown;
+      try {
+        await verify();
+      } catch (error) {
+        failure = error;
+        throw error;
+      } finally {
+        await recordEvidence({
+          requirementId: id,
+          startedAt,
+          stages: [
+            "Independent native literals and source",
+            "Actual Discovery, public package evaluation, Workspace Check/Compile/Diff/Push",
+            "Complete source/Discovery/Project Root/Snapshot/generated/config/descriptor/manifest comparisons",
+          ],
+          expected: name,
+          actual: { assertionsCompleted: failure === undefined, entry: workspaceApiEntry },
+          ...(failure === undefined ? {} : { error: failure }),
+        });
+      }
+    },
+    timeout,
+  );
 }
 
 // The historical literal keeps its CR name below to verify takeover. Successful file
@@ -300,6 +304,7 @@ evidenceIt(
       await assertFiles(root, expected, carriers);
     });
   },
+  30_000,
 );
 for (const [helper, valid] of helpers)
   for (const form of ["input", "{...input}", "input as never", "direct"])

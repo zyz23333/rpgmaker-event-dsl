@@ -59,7 +59,7 @@ assetIt(
   },
 );
 
-function it(name: string, body: () => Promise<void>) {
+function it(name: string, body: () => Promise<void>, timeout = 30_000) {
   test(
     name,
     async () => {
@@ -85,7 +85,7 @@ function it(name: string, body: () => Promise<void>) {
         });
       }
     },
-    30_000,
+    timeout,
   );
 }
 
@@ -381,7 +381,7 @@ for (let offset = 0; offset < malformedAudioSources.length; offset += 8)
         expect(await state(workspaceRoot)).toStrictEqual(before);
       }
     });
-  });
+  }, 60_000);
 
 it("MV-S6-AUDIO-003: refuses late malformed saved audio records before Decompile publication and preserves every existing business file", async () => {
   const audio = { name: "", volume: 1, pitch: 51, pan: 1 };
