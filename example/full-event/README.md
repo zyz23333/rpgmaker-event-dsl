@@ -62,6 +62,14 @@ For the direct media examples, supply ordinary `audio/bgm/Battle1.ogg`,
 names and case. M4A, MP4 and encrypted suffixes do not replace these editing files.
 None needs no file; its independently saved numeric controls remain unchanged.
 
+The Force Action example selects Snapshot Skill 1. A positive saved animation ID
+requires that Animation's two named PNG sheets and timing OGG effects. A default
+Actor attack retains Animation 1 as an unarmed candidate and reports that current
+weapon animations are unknown; initial equipment does not resolve them. Keep a
+current Common Event declaration for every saved Common Event effect of the
+selected Skill. All effect positions remain checked even when animation ID is
+zero, and each target event's assets stay at its own definition.
+
 The example is a private pnpm package that installs `rpgmaker-event-dsl` from npm. Run
 `pnpm install` in this directory after copying the example or changing package metadata.
 

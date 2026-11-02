@@ -609,7 +609,15 @@ for (const field of reached)
           expect(JSON.parse(actual.external.get("Skills.json")!)).toEqual(
             field.family === "B16" ? effectSkills() : skills(),
           );
-          expect((await state(root)).project).toEqual(before.project);
+          expect((await state(root)).project).toEqual({
+            ...before.project,
+            ...(outcome === "missing"
+              ? {
+                  [`${target.category === "image" ? "img" : "audio"}/${target.folder}/${target.name}.${target.category === "image" ? "png" : "ogg"}`]:
+                    "",
+                }
+              : {}),
+          });
           expect((await state(root)).source).toEqual(before.source);
           expect((await state(root)).snapshot).toEqual(before.snapshot);
         });
