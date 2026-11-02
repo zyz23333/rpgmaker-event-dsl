@@ -1,4 +1,4 @@
-import { readFile, readdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { expect, it } from "vitest";
 import { discoverDefinitionFiles, loadDefinitionFile } from "../src/workspace/definitions.js";
@@ -60,7 +60,13 @@ function evidenceIt(id: string, name: string, verify: () => Promise<void>) {
   });
 }
 
-function commonText(records: string[] = fixture.commonRecords): string {
+// The historical literal keeps its CR name below to verify takeover. Successful file
+// checking uses a separately named Windows file without changing the domain's saved values.
+function commonText(
+  records: string[] = fixture.commonRecords.map((record: string) =>
+    record.replace("CR\\rname", "Line picture"),
+  ),
+): string {
   return `[null,{"id":1,"name":"Picture matrix","trigger":0,"switchId":1,"list":[${records.join(",")}]}]`;
 }
 async function prepare(
@@ -74,9 +80,28 @@ async function prepare(
       join(root, "Game/data", name),
       name === "CommonEvents.json" ? nativeText : JSON.stringify(value),
     );
+  await mkdir(join(root, "Game/img/pictures"), { recursive: true });
+  for (const name of ["Wide picture", "Line picture", "Unscanned picture"])
+    await writeFile(join(root, "Game/img/pictures", `${name}.png`), "");
   await initWorkspace({ workspaceRoot: root, projectRoot: "./Game" });
   await cloneWorkspace({ workspaceRoot: root });
 }
+
+it("retains the original CR picture name in Decompiled Source while the file gate rejects it without publication", async () => {
+  await withWindowsSandbox("picture-cr-file-policy", async ({ workspaceRoot: root }) => {
+    await prepare(root, commonText(fixture.commonRecords));
+    await decompileWorkspace({ workspaceRoot: root });
+    const source = await readFile(sourcePath(root), "utf8");
+    expect(source).toContain('name: "CR\\rname"');
+    const before = await state(root);
+    for (const check of [true, false]) {
+      await expect(compileWorkspace({ workspaceRoot: root, check })).rejects.toThrow(
+        "MV-ASSET-UNSUPPORTED-NAME",
+      );
+      expect(await state(root)).toEqual(before);
+    }
+  });
+});
 async function directory(path: string): Promise<Record<string, string> | null> {
   try {
     const output: Record<string, string> = {};
