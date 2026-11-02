@@ -241,7 +241,7 @@ Acceptance: [验收矩阵](../asset-validation/acceptance-matrix.md) · [实施�
 | B16 | 11 | Skill 的全部 Common Event effects |
 | C01 | 02 | 所有列出的根、页与嵌套分支 |
 | C02 | 02 | 三种移除／重置；Push 再由 W20 的 14 验证 |
-| C03 | 04, 05, 13 | 04 图像镜像／独立指令；05 SE 同分支；13 两种字段 repeated-checkpoint |
+| C03 | 04, 05, 13 | 04 图像镜像／独立指令；05 SE 同分支；13 两种字段 repeated-command，新命令各自重建逻辑使用，不累计次数 |
 | C04 | 06, 08, 10, 11 | 06 repeated-tileset-name；08 repeated-enemy；10 two-callers／common-independent-root；11 repeated-common-effect（2026-11-02 补记既有 B16／索引责任） |
 | C05 | 09, 10, 11 | 10 自／互循环和长链；09 动态敌群与已知系统兄弟；11 Skill／Common 链及武器动态路径和已知兄弟 |
 | C06 | 02, 04–11 | 按 A／B 字段 owner 分配 None；04 两个页默认与 saved-image-index；05 saved-audio-controls |
@@ -286,8 +286,8 @@ Acceptance: [验收矩阵](../asset-validation/acceptance-matrix.md) · [实施�
 | W08 | 14 | Compile → 删除 → Diff → Push 失败 → 修复 → 重试 |
 | W09 | 13 | 动画／图块未 Pull 改名与 Pull 后重编译 |
 | W10 | 13 | 内容／大小／mtime／身份／无关目录项全部分支 |
-| W11 | 13, 14, 15 | 13 Check 返回及 Compile 两边界；14 Push 写前；15 Push 记账前。每个边界均执行全部七种变化 |
-| W12 | 13 | same-point-reuse／next-point-fresh／next-command-fresh；Push 新命令由 14 再验证 |
+| W11 | 13, 14, 15 | 13 在 Check／Compile 单次素材门槛判断七种当前变化，门槛后的素材变化不失效；14 覆盖 Push 写前单次门槛；15 覆盖写后素材变化仍正常记账，无额外素材门槛 |
+| W12 | 13 | same-pass-reuse／next-command-fresh；14 复核 Push 新命令，引用 13 的唯一注册，不增加 canonical ID；不保留已撤销的 next-point-fresh 要求 |
 | W13 | 14, 15 | 14 所有 prewrite 输入；15 所有 postwrite 输入，含 source 的两个 CLI 边界 |
 | W14 | 12, 13 | 12 exception-change；13 pull／rebind／contract-change／check-does-not-refresh |
 | W15 | 16 | 五种恢复 data 状态及当前素材结果 |

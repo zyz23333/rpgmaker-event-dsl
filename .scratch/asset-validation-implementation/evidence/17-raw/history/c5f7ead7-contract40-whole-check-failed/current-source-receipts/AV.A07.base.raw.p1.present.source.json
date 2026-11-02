@@ -1,0 +1,62 @@
+{
+  "id": "AV.A07.base.raw.p1.present",
+  "ownerTicket": "02",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:49:27.221Z",
+  "completedAt": "2026-11-02T11:49:28.138Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import { mapEvent,commonEvent,troopEvent,showPicture,imageAsset,rawDslCommand,loop,showChoices,conditional,script,pluginCommand } from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Asset map\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"Poster\",0,0,0,0,100,100,255,0]})]}]});\n",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Asset map"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Asset tiles"
+          }
+        ]
+      },
+      "target": {
+        "category": "image",
+        "folder": "pictures",
+        "name": "Poster",
+        "extension": ".png"
+      },
+      "gates": "one complete native candidate validation followed by one live asset pass; no publication on errors"
+    },
+    {
+      "fileOperation": "create ordinary zero-byte Game/img/pictures/Poster.png",
+      "timing": "before the operation's asset gate"
+    }
+  ],
+  "expected": {
+    "description": "checks the exact native picture field and preserves all origins",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-picture-workspace.test.ts",
+    "sha256": "1c1a708c2ab685eb467f4ebd3eafd39d509a9682bd41a40cb1448fa217fb46e5",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-picture-${representation}-${outcome}`, async ({ workspaceRoot: root }) => {\n\t\tconst source = `${imports}export const event=mapEvent({mapId:1,id:1,name:\"Asset map\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[${command}]}]});\\n`;\n\t\tawait prepare(root, {\n\t\t\tsource,\n\t\t\tproject: {\n\t\t\t\t\"MapInfos.json\": [null, {\n\t\t\t\t\tid: 1,\n\t\t\t\t\tname: \"Asset map\"\n\t\t\t\t}],\n\t\t\t\t\"Map001.json\": {\n\t\t\t\t\twidth: 1,\n\t\t\t\t\theight: 1,\n\t\t\t\t\ttilesetId: 1,\n\t\t\t\t\tevents: []\n\t\t\t\t},\n\t\t\t\t\"Tilesets.json\": [null, {\n\t\t\t\t\tid: 1,\n\t\t\t\t\tname: \"Asset tiles\"\n\t\t\t\t}]\n\t\t\t}\n\t\t});\n\t\tawait (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures\"), { recursive: true });\n\t\tif (outcome === \"present\") await materialize(root);\n\t\tconst before = await state(root);\n\t\tif (outcome === \"missing\") {\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"map:1/event:1\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"Map001.json.events[1].pages[0].list[0].parameters[1]\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t}\n\t\t} else {\n\t\t\tawait compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: true\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\tawait compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)(await publishedUses(root)).toEqual([{\n\t\t\t\tcategory: \"image\",\n\t\t\t\tfolder: \"pictures\",\n\t\t\t\tname: \"Poster\",\n\t\t\t\tidentity: \"map:1/event:1\",\n\t\t\t\tnativePath: \"Map001.json.events[1].pages[0].list[0].parameters[1]\",\n\t\t\t\trelatedNativePaths: [],\n\t\t\t\tdependencyChain: [],\n\t\t\t\tconditions: []\n\t\t\t}]);\n\t\t}\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

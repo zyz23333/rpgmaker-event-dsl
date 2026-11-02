@@ -1,0 +1,65 @@
+{
+  "id": "AV.D02.structure-error.native.case.expected",
+  "ownerTicket": "12",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:26:11.076Z",
+  "completedAt": "2026-11-02T11:26:12.784Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {commonEvent,mapEvent,showPicture,imageAsset,rawDslCommand,showAnimation,animationRef,changePartyMember,actorRef,transferPlayer,mapRef,loop,setMovementRoute,script,callCommonEvent,commonEventRef,variableDefinition,variableRef} from \"rpgmaker-event-dsl\";\nexport const event10=commonEvent({id:10,name:\"Diagnostics\",trigger:\"none\",commands:[rawDslCommand({code:231,parameters:[1]})]});\n",
+      "project": {}
+    },
+    {
+      "assetCheckExceptions": [
+        {
+          "category": "image",
+          "folder": "pictures",
+          "name": "Poster",
+          "reason": "Awaiting artwork"
+        }
+      ]
+    },
+    {
+      "earlierFailure": "structure-error",
+      "actualApi": {
+        "failure": "Error: compile --check validation failed:\n- compile error commonEvent:10: MV-E231-PARAMETERS: Invalid saved Picture parameter. (commands[0].parameters); expected exactly 10 saved slots; actual [1]\ncompile asset check not run: earlier compile input or validation failure left no trusted complete candidate.",
+        "output": "Error: compile --check validation failed:\n- compile error commonEvent:10: MV-E231-PARAMETERS: Invalid saved Picture parameter. (commands[0].parameters); expected exactly 10 saved slots; actual [1]\ncompile asset check not run: earlier compile input or validation failure left no trusted complete candidate."
+      }
+    },
+    {
+      "actualCli": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-gate-structure-error-g8i5Zx\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T11:26:11.519Z",
+        "completedAt": "2026-11-02T11:26:12.777Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:335\r\n      throw new Error(\r\n            ^\r\n\r\nError: compile --check validation failed:\r\n- compile error commonEvent:10: MV-E231-PARAMETERS: Invalid saved Picture parameter. (commands[0].parameters); expected exactly 10 saved slots; actual [1]\r\ncompile asset check not run: earlier compile input or validation failure left no trusted complete candidate.\r\n    at compileWorkspaceUnlocked (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:335:13)\r\n    at async withWorkspaceOperationLock (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operation-lock.ts:45:12)\r\n    ... 4 lines matching cause stack trace ...\r\n    at async <anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:122:3) {\r\n  [cause]: Error: compile --check validation failed:\r\n  - compile error commonEvent:10: MV-E231-PARAMETERS: Invalid saved Picture parameter. (commands[0].parameters); expected exactly 10 saved slots; actual [1]\r\n      at compileWorkspaceUnlocked (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:263:13)\r\n      at async withWorkspaceOperationLock (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operation-lock.ts:45:12)\r\n      at async compileWorkspace (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:217:3)\r\n      at async Command.<anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:67:7)\r\n      at async Command.parseAsync (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\node_modules\\.pnpm\\commander@14.0.3\\node_modules\\commander\\lib\\command.js:1122:5)\r\n      at async runCli (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:110:3)\r\n      at async <anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:122:3)\r\n}\r\n\r\nNode.js v22.23.4\r\n"
+      }
+    }
+  ],
+  "expected": {
+    "description": "matching asset exceptions cannot waive a prior fixed reference structure or Script Command Gate error",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-diagnostics-workspace.test.ts",
+    "sha256": "ca2a861f1e5e15bf0928b994c9ebfff5e3a31ea4be169f5259f90de067ea3ca5",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-gate-${branch}`, async (sandbox) => {\n\t\tconst result = await earlyFailure(sandbox.workspaceRoot, branch);\n\t\t(0,__vite_ssr_import_2__.expect)(result.failure).toMatch(branch === \"script-gate\" ? /script/iu : branch === \"reference-error\" ? /animation/iu : /231|parameters|structure/iu);\n\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"asset check not run\");\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ actualCli: cli });\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

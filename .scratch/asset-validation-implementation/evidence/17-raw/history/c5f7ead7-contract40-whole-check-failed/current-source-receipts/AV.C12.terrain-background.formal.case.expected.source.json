@@ -1,0 +1,215 @@
+{
+  "id": "AV.C12.terrain-background.formal.case.expected",
+  "ownerTicket": "09",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:33:51.480Z",
+  "completedAt": "2026-11-02T11:33:53.772Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {mapEvent,commonEvent,troopEvent,gameOver,returnToTitleScreen,battleProcessing,troopRef,variableRef,rawDslCommand} from \"rpgmaker-event-dsl\";export const event=mapEvent({mapId:1,id:1,name:\"System\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[battleProcessing({troop:{kind:\"fixed\",troop:troopRef({id:1})}})]}]});",
+      "projectOverrides": {
+        "System.json": {
+          "gameTitle": "Synthetic evidence context",
+          "switches": [
+            "",
+            "Saved switch"
+          ],
+          "variables": [
+            ""
+          ],
+          "fixtureOrigin": {
+            "retainedNull": null,
+            "retainedArray": []
+          },
+          "gameoverMe": {
+            "name": "GameOver",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "title1Name": "TitleOne",
+          "title2Name": "TitleTwo",
+          "titleBgm": {
+            "name": "TitleMusic",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "battleBgm": {
+            "name": "BattleMusic",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "victoryMe": {
+            "name": "Victory",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "defeatMe": {
+            "name": "Defeat",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "sounds": [
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "BattleStart",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            }
+          ],
+          "optSideView": false,
+          "hasEncryptedImages": false,
+          "hasEncryptedAudio": false,
+          "battleback1Name": "MissingTestOne",
+          "battleback2Name": "MissingTestTwo",
+          "testTroopId": 99,
+          "windowskin": "MissingWindow",
+          "titleUi": {
+            "name": "MissingUi"
+          },
+          "unrelated": {
+            "retain": [
+              null,
+              17
+            ]
+          }
+        },
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "System"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "specifyBattleback": false,
+          "battleback1Name": "",
+          "battleback2Name": "",
+          "events": [],
+          "custom": {
+            "retain": [
+              null,
+              17
+            ]
+          },
+          "data": [
+            2816
+          ],
+          "scrollType": 3
+        },
+        "Troops.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Selected troop",
+            "members": [],
+            "pages": []
+          }
+        ],
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Field",
+            "tilesetNames": [
+              "MissingTerrainSheet"
+            ],
+            "flags": [
+              0,
+              4096
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-excluded-terrain-background-Z46nfj\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-excluded-terrain-background-Z46nfj\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-excluded-terrain-background-Z46nfj\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-excluded-terrain-background-Z46nfj\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+    }
+  ],
+  "expected": {
+    "description": "only explicitly selected saved media fields are checked and excluded hardcoded, terrain or Battle Test relationships add no targets",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-system-workspace.test.ts",
+    "sha256": "86934f80311612ea09e08259af880c9b2de50bfe6f9f47a50f4fa3555cba7e91",
+    "assertions": "async () => {\n\t\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-excluded-${branch}`, async (sandbox) => {\n\t\t\tconst root = sandbox.workspaceRoot, title = branch === \"hardcoded-system\";\n\t\t\tconst system = {\n\t\t\t\tbattleback1Name: \"MissingTestOne\",\n\t\t\t\tbattleback2Name: \"MissingTestTwo\",\n\t\t\t\ttestTroopId: 99,\n\t\t\t\twindowskin: \"MissingWindow\",\n\t\t\t\ttitleUi: { name: \"MissingUi\" },\n\t\t\t\tunrelated: { retain: [null, 17] }\n\t\t\t};\n\t\t\tconst map = {\n\t\t\t\t...mapData(),\n\t\t\t\t...branch === \"terrain-background\" ? {\n\t\t\t\t\tspecifyBattleback: false,\n\t\t\t\t\tbattleback1Name: \"\",\n\t\t\t\t\tbattleback2Name: \"\",\n\t\t\t\t\tdata: [2816],\n\t\t\t\t\tscrollType: 3\n\t\t\t\t} : {}\n\t\t\t};\n\t\t\tawait prepare(root, source(title ? \"gameOver(),returnToTitleScreen()\" : commandFor(battleFields[0])), system, {\n\t\t\t\t\"Map001.json\": map,\n\t\t\t\t\"Tilesets.json\": [null, {\n\t\t\t\t\tid: 1,\n\t\t\t\t\tname: \"Field\",\n\t\t\t\t\ttilesetNames: [\"MissingTerrainSheet\"],\n\t\t\t\t\tflags: [0, 4096]\n\t\t\t\t}]\n\t\t\t});\n\t\t\tconst fields = title ? [...gameoverFields, ...titleFields] : branch === \"terrain-background\" ? battleFields : [...backgroundFields, ...battleFields];\n\t\t\tfor (const field of fields) await media(root, field);\n\t\t\tconst before = await state(root);\n\t\t\tconst check = await capture(root, true);\n\t\t\t(0,__vite_ssr_import_2__.expect)(check).toEqual({\n\t\t\t\tfailure: \"\",\n\t\t\t\tdiagnostics: \"\"\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t(0,__vite_ssr_import_2__.expect)((await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"])).stderr).toBe(\"\");\n\t\t\tawait compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst uses = title ? [...expected(gameoverFields), ...expected(titleFields).map((use) => ({\n\t\t\t\t...use,\n\t\t\t\tnativePath: \"Map001.json.events[1].pages[0].list[1]\"\n\t\t\t}))] : expected(fields);\n\t\t\tconst actual = await observed(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)(actual.relations).toEqual({\n\t\t\t\tuses,\n\t\t\t\tproblems: [],\n\t\t\t\tstops: []\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)(JSON.parse(actual.external.get(\"System.json\"))).toMatchObject(system);\n\t\t\tconst after = await state(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)(after.project).toEqual(before.project);\n\t\t\t(0,__vite_ssr_import_2__.expect)(after.snapshot).toEqual(before.snapshot);\n\t\t});\n\t}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

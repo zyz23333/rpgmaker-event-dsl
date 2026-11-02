@@ -1,0 +1,60 @@
+{
+  "id": "AV.C03.repeated-command.formal.se.expected",
+  "ownerTicket": "13",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:42:52.234Z",
+  "completedAt": "2026-11-02T11:42:54.001Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import {mapEvent,audioAsset,movieAsset,rawDslCommand,changeBattleBgm,changeVictoryMe,changeDefeatMe,changeVehicleBgm,playBgm,playBgs,playMe,playSe,playMovie,setMovementRoute} from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Media\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[setMovementRoute({target:{kind:\"runtimeSelector\",scope:\"character\",target:\"player\"},route:{commands:[{kind:\"playSe\",audio:{asset:audioAsset({folder:\"se\",name:\"RouteSE\"}),volume:17,pitch:73,pan:-41}}]}}),setMovementRoute({target:{kind:\"runtimeSelector\",scope:\"character\",target:\"player\"},route:{commands:[{kind:\"playSe\",audio:{asset:audioAsset({folder:\"se\",name:\"RouteSE\"}),volume:17,pitch:73,pan:-41}}]}})]}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Media"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Tiles"
+          }
+        ]
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-se-count-repeated-command-ToXhaW\\最小 Workspace with spaces\\Game\\audio\\se\\RouteSE.ogg",
+      "extension": ".ogg",
+      "timing": "before the asset gate"
+    },
+    {
+      "removedFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-se-count-repeated-command-ToXhaW\\最小 Workspace with spaces\\Game\\audio\\se\\RouteSE.ogg",
+      "timing": "before repeated Check and Compile commands"
+    }
+  ],
+  "expected": {
+    "description": "SE mirrors do not create uses and independent saved commands do",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-media-workspace.test.ts",
+    "sha256": "843bbe0a812fb252cf1a6bfdc3709898389388f42d0a2bafaec2b031b1c1ba65",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-se-count-${branch}`, async ({ workspaceRoot: root }) => {\n\t\tawait prepare(root, source(formalRoute + (branch === \"independent-command\" ? `,playSe({audio:${audio(\"se\", \"RouteSE\")}})` : branch === \"repeated-command\" ? `,${formalRoute}` : \"\")));\n\t\tconst path = await mediaFile(root, \"se\", \"RouteSE\");\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst actual = await published(root);\n\t\tconst expected = [routeUse];\n\t\tif (branch === \"independent-command\") expected.push({\n\t\t\t...routeUse,\n\t\t\tnativePath: \"Map001.json.events[1].pages[0].list[2].parameters[0].name\",\n\t\t\trelatedNativePaths: []\n\t\t});\n\t\tif (branch === \"repeated-command\") expected.push({\n\t\t\t...routeUse,\n\t\t\tnativePath: \"Map001.json.events[1].pages[0].list[2].parameters[1].list[0].parameters[0].name\",\n\t\t\trelatedNativePaths: [\"Map001.json.events[1].pages[0].list[3].parameters[0].parameters[0].name\"]\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(actual.uses).toEqual(expected);\n\t\tawait (0,__vite_ssr_import_0__.rm)(path);\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\tremovedFile: path,\n\t\t\ttiming: \"before repeated Check and Compile commands\"\n\t\t});\n\t\tconst before = await state(root);\n\t\tfor (const check of [\n\t\t\ttrue,\n\t\t\tfalse,\n\t\t\ttrue\n\t\t]) {\n\t\t\tconst failure = await compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck\n\t\t\t}).then(() => \"\", String);\n\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(`${expected.length} use(s)`);\n\t\t\tfor (const use of expected) (0,__vite_ssr_import_2__.expect)(failure).toContain(use.nativePath);\n\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(routeUse.relatedNativePaths[0]);\n\t\t\tif (branch === \"repeated-command\") (0,__vite_ssr_import_2__.expect)(failure).toContain(expected[1].relatedNativePaths[0]);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t}\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

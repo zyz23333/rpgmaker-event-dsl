@@ -1,0 +1,113 @@
+{
+  "id": "AV.W07.no-diff-data-drift.api.case.expected",
+  "ownerTicket": "14",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:12:31.711Z",
+  "completedAt": "2026-11-02T10:12:33.904Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-no-diff-drift-jBrJlf\\最小 Workspace with spaces",
+      "source": "import type {PushInput} from \"../types/push-input.js\";\nimport {commonEvent,mapEvent,troopEvent,showPicture,imageAsset,callCommonEvent,commonEventRef,forceAction,actorRef,skillRef,showAnimation,animationRef} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Push workflow\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"PushPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});",
+      "project": {
+        "CommonEvents.json": [
+          null
+        ],
+        "System.json": {
+          "gameTitle": "Push fixture",
+          "switches": [
+            ""
+          ],
+          "variables": [
+            ""
+          ],
+          "fixtureOrigin": {
+            "retainedNull": null,
+            "retainedArray": []
+          }
+        },
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Push Map"
+          }
+        ],
+        "Map001.json": {
+          "id": 1,
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": [
+            null
+          ],
+          "custom": {
+            "preserved": [
+              "opaque",
+              null
+            ]
+          }
+        }
+      },
+      "exceptions": [],
+      "media": "ordinary zero-byte PNG; metadata only"
+    },
+    {
+      "operation": {
+        "operation": "push",
+        "boundary": "asset-no-media-query"
+      },
+      "actual": {
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "",
+        "message": "Project Drift detected before push for Actors.json. Run pull first.\npush asset check not run: Push prerequisites failed.",
+        "messages": [
+          {
+            "kind": "result",
+            "ok": false,
+            "message": "Project Drift detected before push for Actors.json. Run pull first.\npush asset check not run: Push prerequisites failed."
+          }
+        ]
+      },
+      "process": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-no-diff-drift-jBrJlf\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T10:12:32.709Z",
+        "completedAt": "2026-11-02T10:12:33.877Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "",
+        "ipcMessages": [
+          {
+            "kind": "result",
+            "ok": false,
+            "message": "Project Drift detected before push for Actors.json. Run pull first.\npush asset check not run: Push prerequisites failed."
+          }
+        ]
+      }
+    }
+  ],
+  "expected": {
+    "description": "full standard data drift rejects before the asset pass",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-push-workspace.test.ts",
+    "sha256": "28d7e7c68e5c04838cf5c321d42cbba96b938d8a398a7e216a03c378dca6226d",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_5__.withWindowsSandbox)(\"asset-push-no-diff-drift\", async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait (0,__vite_ssr_import_6__.preparePush)(sandbox);\n\t\tawait __vite_ssr_import_6__.pushApi.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tawait __vite_ssr_import_6__.pushApi.pushWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tallowDestructive: false\n\t\t});\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/data/Actors.json\"), JSON.stringify([null, {\n\t\t\tid: 1,\n\t\t\tname: \"External drift\"\n\t\t}]));\n\t\tawait (0,__vite_ssr_import_0__.rm)((0,__vite_ssr_import_1__.join)(root, (0,__vite_ssr_import_6__.pushPicturePath)));\n\t\tconst before = await (0,__vite_ssr_import_6__.observePush)(root), actual = await (0,__vite_ssr_import_6__.controlledPush)(sandbox, { boundary: \"asset-no-media-query\" });\n\t\t(0,__vite_ssr_import_3__.expect)(actual.exitCode).toBe(1);\n\t\t(0,__vite_ssr_import_3__.expect)(actual.message + actual.stderr).toContain(\"Project Drift\");\n\t\t(0,__vite_ssr_import_3__.expect)(actual.message + actual.stderr).toContain(\"push asset check not run\");\n\t\t(0,__vite_ssr_import_3__.expect)(actual.messages.filter((m) => m.kind === \"asset-query\")).toEqual([]);\n\t\t(0,__vite_ssr_import_3__.expect)(await (0,__vite_ssr_import_6__.observePush)(root)).toEqual(before);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

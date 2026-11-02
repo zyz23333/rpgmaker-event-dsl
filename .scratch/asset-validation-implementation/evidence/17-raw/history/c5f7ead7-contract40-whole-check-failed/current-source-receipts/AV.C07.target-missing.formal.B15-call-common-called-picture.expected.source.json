@@ -1,0 +1,75 @@
+{
+  "id": "AV.C07.target-missing.formal.B15-call-common-called-picture.expected",
+  "ownerTicket": "10",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:49:04.783Z",
+  "completedAt": "2026-11-02T11:49:07.980Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-common-target-missing-mQFkCF\\最小 Workspace with spaces",
+      "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:12})})]});\n",
+      "project": {
+        "CommonEvents.json": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          {
+            "id": 12,
+            "name": "Snapshot only",
+            "trigger": 0,
+            "switchId": 1,
+            "list": [
+              {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                  1,
+                  "OldPoster",
+                  0,
+                  0,
+                  0,
+                  0,
+                  100,
+                  100,
+                  255,
+                  0
+                ]
+              },
+              {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+              }
+            ]
+          }
+        ]
+      },
+      "target": "Game/img/pictures/CalledPoster.png"
+    }
+  ],
+  "expected": {
+    "description": "a Snapshot-only Common Event cannot satisfy a current call or masquerade as a missing file",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+    "sha256": "80b0b5db6eed13962acdb76da24df7ead3e1617143e33eb18a4f7ad53cffe94c",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(\"asset-common-target-missing\", async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tconst snapshotCommon = Array.from({ length: 13 }, () => null);\n\t\tsnapshotCommon[12] = {\n\t\t\tid: 12,\n\t\t\tname: \"Snapshot only\",\n\t\t\ttrigger: 0,\n\t\t\tswitchId: 1,\n\t\t\tlist: [{\n\t\t\t\tcode: 231,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: [\n\t\t\t\t\t1,\n\t\t\t\t\t\"OldPoster\",\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t100,\n\t\t\t\t\t100,\n\t\t\t\t\t255,\n\t\t\t\t\t0\n\t\t\t\t]\n\t\t\t}, {\n\t\t\t\tcode: 0,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: []\n\t\t\t}]\n\t\t};\n\t\tawait prepare(root, common(10, call(12)), { \"CommonEvents.json\": snapshotCommon });\n\t\tconst before = await state(root);\n\t\tfor (const check of [true, false]) {\n\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck\n\t\t\t}).then(() => \"\", String);\n\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"MV-E117-REFERENCE\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(failure).not.toContain(\"MV-ASSET-MISSING\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t};\n\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"MV-E117-REFERENCE\");\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

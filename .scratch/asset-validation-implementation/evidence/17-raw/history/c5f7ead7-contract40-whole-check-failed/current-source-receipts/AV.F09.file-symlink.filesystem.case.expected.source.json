@@ -1,0 +1,46 @@
+{
+  "id": "AV.F09.file-symlink.filesystem.case.expected",
+  "ownerTicket": "03",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:26:33.113Z",
+  "completedAt": "2026-11-02T11:26:34.456Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "names": [
+        "Poster"
+      ],
+      "source": "import {commonEvent,rawDslCommand} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"Poster\",0,0,0,0,100,100,255,0]})]});",
+      "contract": "exact selected PNG metadata in the bound Project Root"
+    },
+    {},
+    {
+      "actualLink": {
+        "linkPath": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-file-symlink-4p0jTq\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png",
+        "target": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-file-symlink-4p0jTq\\external-media",
+        "type": "file"
+      },
+      "guard": "OS read/enumerate/realpath/descent below link rejected if attempted",
+      "result": {
+        "kind": "result",
+        "ok": false,
+        "message": "compile --check asset check failed:\nerror MV-ASSET-UNSUPPORTED-LINK: Links below Project Root are unsupported; this use is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-file-symlink-4p0jTq\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-file-symlink-4p0jTq\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-file-symlink-4p0jTq\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; base: error; effective: error\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked."
+      }
+    }
+  ],
+  "expected": {
+    "description": "links below Project Root are refused without descending",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-file-workspace.test.ts",
+    "sha256": "61cbdd643880adf3d124748862751b96fdaf2a86fefb5e451b99b8457255449b",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_6__.withWindowsSandbox)(`asset-${branch}`, async (sandbox) => {\n\t\tawait prepare(sandbox.workspaceRoot);\n\t\tconst root = sandbox.workspaceRoot;\n\t\tconst linkRelative = branch === \"top-symlink\" ? \"img\" : branch === \"category-junction\" ? \"img/pictures\" : \"img/pictures/Poster.png\";\n\t\tconst linkPath = (0,__vite_ssr_import_2__.join)(root, \"Game\", linkRelative);\n\t\tconst target = branch === \"link-in-root\" ? (0,__vite_ssr_import_2__.join)(root, \"Game/inside.png\") : (0,__vite_ssr_import_2__.join)(sandbox.root, branch === \"dangling-link\" ? \"absent.png\" : \"external-media\");\n\t\tconst type = branch === \"top-symlink\" ? \"dir\" : branch === \"category-junction\" ? \"junction\" : \"file\";\n\t\tif (branch !== \"dangling-link\") {\n\t\t\tif (type === \"file\") await (0,__vite_ssr_import_1__.writeFile)(target, \"opaque media\");\n\t\t\telse {\n\t\t\t\tconst targetFile = (0,__vite_ssr_import_2__.join)(target, branch === \"top-symlink\" ? \"pictures/Poster.png\" : \"Poster.png\");\n\t\t\t\tawait (0,__vite_ssr_import_1__.mkdir)((0,__vite_ssr_import_2__.dirname)(targetFile), { recursive: true });\n\t\t\t\tawait (0,__vite_ssr_import_1__.writeFile)(targetFile, \"opaque media\");\n\t\t\t}\n\t\t};\n\t\tawait (0,__vite_ssr_import_1__.mkdir)((0,__vite_ssr_import_2__.dirname)(linkPath), { recursive: true });\n\t\tawait (0,__vite_ssr_import_1__.symlink)(target, linkPath, type);\n\t\tconst child = (0,__vite_ssr_import_7__.startWorkspaceOperation)(sandbox, {\n\t\t\toperation: \"check\",\n\t\t\tboundary: \"asset-link-guard\",\n\t\t\tassetPath: linkRelative\n\t\t});\n\t\ttry {\n\t\t\tconst result = await child.waitFor(\"result\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(result.ok).toBe(false);\n\t\t\t(0,__vite_ssr_import_4__.expect)(result.message).toContain(\"MV-ASSET-UNSUPPORTED-LINK\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(result.message).toContain(`failed at: ${linkPath}`);\n\t\t\t(0,__vite_ssr_import_4__.expect)(child.messages.some((message) => message.kind === \"asset-link-follow-attempt\")).toBe(false);\n\t\t\t(0,__vite_ssr_import_5__.recordAssetInput)({\n\t\t\t\tactualLink: {\n\t\t\t\t\tlinkPath,\n\t\t\t\t\ttarget,\n\t\t\t\t\ttype\n\t\t\t\t},\n\t\t\t\tguard: \"OS read/enumerate/realpath/descent below link rejected if attempted\",\n\t\t\t\tresult\n\t\t\t});\n\t\t} finally {\n\t\t\tawait child.stop();\n\t\t}\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

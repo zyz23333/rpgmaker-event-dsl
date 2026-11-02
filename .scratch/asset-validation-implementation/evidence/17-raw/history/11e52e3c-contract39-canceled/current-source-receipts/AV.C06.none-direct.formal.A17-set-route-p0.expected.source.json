@@ -1,0 +1,58 @@
+{
+  "id": "AV.C06.none-direct.formal.A17-set-route-p0.expected",
+  "ownerTicket": "04",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:23:00.276Z",
+  "completedAt": "2026-11-02T10:23:01.004Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import {mapEvent,showText,imageAsset,audioAsset,rawDslCommand,changeBattleBack,changeParallax,changeActorImages,changeVehicleImage,actorRef,setMovementRoute,scriptInput} from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Images\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[setMovementRoute({target:{kind:\"runtimeSelector\",scope:\"character\",target:\"player\"},route:{commands:[{kind:\"changeImage\",character:null,characterIndex:7}]}})]}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Images"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Tiles"
+          }
+        ],
+        "Actors.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Actor"
+          }
+        ]
+      }
+    }
+  ],
+  "expected": {
+    "description": "route None keeps nondefault index without querying an image folder",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-image-workspace.test.ts",
+    "sha256": "da8b9e1d60d42f4bcf94a25b55e25aa210aa3e915f5dc22b81763b53b7a0fd21",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-route-none-${branch}`, async ({ workspaceRoot: root }) => {\n\t\tconst noneRoute = routeSource.replace(\"imageAsset({folder:\\\"characters\\\",name:\\\"Route\\\"})\", \"null\");\n\t\tawait prepare(root, source(branch === \"set-route\" ? noneRoute : \"\", branch === \"autonomous\" ? `,movement:{type:\"custom\",route:{commands:[{kind:\"changeImage\",character:null,characterIndex:7}]}}` : \"\"));\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await uses(root)).toEqual([]);\n\t\tconst actual = await page(root);\n\t\tconst route = branch === \"autonomous\" ? actual.moveRoute : actual.list[0].parameters[1];\n\t\t(0,__vite_ssr_import_2__.expect)(route.list).toEqual([{\n\t\t\tcode: 41,\n\t\t\tparameters: [\"\", 7]\n\t\t}, {\n\t\t\tcode: 0,\n\t\t\tparameters: []\n\t\t}]);\n\t\tif (branch === \"set-route\") (0,__vite_ssr_import_2__.expect)(actual.list[1].parameters).toEqual([{\n\t\t\tcode: 41,\n\t\t\tparameters: [\"\", 7]\n\t\t}]);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

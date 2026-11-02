@@ -1,0 +1,62 @@
+{
+  "id": "AV.D04.empty-name.native.case.expected",
+  "ownerTicket": "12",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:09:27.872Z",
+  "completedAt": "2026-11-02T10:09:28.703Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {commonEvent,rawDslCommand} from \"rpgmaker-event-dsl\";export const event=commonEvent({id:10,name:\"Diagnostics\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"Poster\",0,0,0,0,100,100,255,0]})]});",
+      "project": {}
+    },
+    {
+      "assetCheckExceptions": [
+        {
+          "category": "image",
+          "folder": "pictures",
+          "name": "",
+          "reason": "Awaiting artwork"
+        }
+      ]
+    },
+    {
+      "actualApi": {
+        "failure": "Error: MV-ASSET-INVALID-EXCEPTION: assetCheckExceptions[0].name: Too small: expected string to have >=1 characters\nasset check not run: Workspace Config is invalid.\ncompile asset check not run: earlier compile input or validation failure left no trusted complete candidate.",
+        "output": "Error: MV-ASSET-INVALID-EXCEPTION: assetCheckExceptions[0].name: Too small: expected string to have >=1 characters\nasset check not run: Workspace Config is invalid.\ncompile asset check not run: earlier compile input or validation failure left no trusted complete candidate."
+      },
+      "actualCli": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-config-empty-name-jhezIV\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T10:09:27.932Z",
+        "completedAt": "2026-11-02T10:09:28.697Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:335\r\n      throw new Error(\r\n            ^\r\n\r\nError: MV-ASSET-INVALID-EXCEPTION: assetCheckExceptions[0].name: Too small: expected string to have >=1 characters\r\nasset check not run: Workspace Config is invalid.\r\ncompile asset check not run: earlier compile input or validation failure left no trusted complete candidate.\r\n    at compileWorkspaceUnlocked (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:335:13)\r\n    at async withWorkspaceOperationLock (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operation-lock.ts:45:12)\r\n    ... 4 lines matching cause stack trace ...\r\n    at async <anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:122:3) {\r\n  [cause]: Error: MV-ASSET-INVALID-EXCEPTION: assetCheckExceptions[0].name: Too small: expected string to have >=1 characters\r\n  asset check not run: Workspace Config is invalid.\r\n      at loadWorkspace (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\config.ts:49:13)\r\n      at async compileWorkspaceUnlocked (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:227:23)\r\n      at async withWorkspaceOperationLock (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operation-lock.ts:45:12)\r\n      at async compileWorkspace (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:217:3)\r\n      at async Command.<anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:67:7)\r\n      at async Command.parseAsync (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\node_modules\\.pnpm\\commander@14.0.3\\node_modules\\commander\\lib\\command.js:1122:5)\r\n      at async runCli (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:110:3)\r\n      at async <anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:122:3)\r\n}\r\n\r\nNode.js v22.23.4\r\n"
+      }
+    }
+  ],
+  "expected": {
+    "description": "invalid exact exception configuration fails before asset checking and identifies its item",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-diagnostics-workspace.test.ts",
+    "sha256": "ca2a861f1e5e15bf0928b994c9ebfff5e3a31ea4be169f5259f90de067ea3ca5",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-config-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root);\n\t\tawait configuration(root, branch === \"duplicate\" ? [entry, entry] : [entry]);\n\t\tconst before = await state(root);\n\t\tconst result = await check(root);\n\t\t(0,__vite_ssr_import_2__.expect)(result.failure).toContain(\"MV-ASSET-INVALID-EXCEPTION\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.failure).toContain(`assetCheckExceptions[${branch === \"duplicate\" ? 1 : 0}]`);\n\t\t(0,__vite_ssr_import_2__.expect)(result.failure).toContain(\"asset check not run\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.failure).not.toContain(\"MV-ASSET-MISSING\");\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"MV-ASSET-INVALID-EXCEPTION\");\n\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"asset check not run\");\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\tactualApi: result,\n\t\t\tactualCli: cli\n\t\t});\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

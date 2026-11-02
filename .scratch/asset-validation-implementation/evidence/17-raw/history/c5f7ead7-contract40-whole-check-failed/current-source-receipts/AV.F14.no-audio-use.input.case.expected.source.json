@@ -1,0 +1,61 @@
+{
+  "id": "AV.F14.no-audio-use.input.case.expected",
+  "ownerTicket": "05",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:43:10.501Z",
+  "completedAt": "2026-11-02T11:43:11.547Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import {mapEvent,audioAsset,movieAsset,rawDslCommand,changeBattleBgm,changeVictoryMe,changeDefeatMe,changeVehicleBgm,playBgm,playBgs,playMe,playSe,playMovie,setMovementRoute} from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Media\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[]}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Media"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Tiles"
+          }
+        ],
+        "System.json": {
+          "switches": [
+            ""
+          ],
+          "variables": [
+            ""
+          ],
+          "hasEncryptedImages": null,
+          "hasEncryptedAudio": "broken"
+        }
+      }
+    }
+  ],
+  "expected": {
+    "description": "unrelated encryption flags do not affect absent audio or movies",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-media-workspace.test.ts",
+    "sha256": "843bbe0a812fb252cf1a6bfdc3709898389388f42d0a2bafaec2b031b1c1ba65",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-${branch}`, async ({ workspaceRoot: root }) => {\n\t\tconst vector = {\n\t\t\tfamily: \"F14\",\n\t\t\tcode: 261,\n\t\t\tfolder: \"movies\",\n\t\t\tparameter: 0,\n\t\t\thelper: \"playMovie\",\n\t\t\tmovie: true\n\t\t};\n\t\tawait prepare(root, source(branch === \"movie-only\" ? expression(vector, \"MovieOnly\") : \"\"), { \"System.json\": {\n\t\t\tswitches: [\"\"],\n\t\t\tvariables: [\"\"],\n\t\t\thasEncryptedImages: null,\n\t\t\thasEncryptedAudio: \"broken\"\n\t\t} });\n\t\tif (branch === \"movie-only\") await mediaFile(root, \"movies\", \"MovieOnly\");\n\t\tconst before = await state(root);\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)((await published(root)).uses).toEqual(branch === \"movie-only\" ? [expectedUse(vector, \"MovieOnly\")] : []);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

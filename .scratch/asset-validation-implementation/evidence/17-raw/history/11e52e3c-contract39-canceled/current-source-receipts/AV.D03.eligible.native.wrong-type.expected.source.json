@@ -1,0 +1,88 @@
+{
+  "id": "AV.D03.eligible.native.wrong-type.expected",
+  "ownerTicket": "12",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:09:53.971Z",
+  "completedAt": "2026-11-02T10:09:55.767Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {commonEvent,mapEvent,showPicture,imageAsset,rawDslCommand,showAnimation,animationRef,changePartyMember,actorRef,transferPlayer,mapRef,loop,setMovementRoute,script,callCommonEvent,commonEventRef,variableDefinition,variableRef} from \"rpgmaker-event-dsl\";\nimport {playSe,audioAsset} from \"rpgmaker-event-dsl\";\nexport const event10=commonEvent({id:10,name:\"Diagnostics\",trigger:\"none\",commands:[playSe({audio:{asset:audioAsset({folder:\"se\",name:\"Shared\"}),volume:90,pitch:100,pan:0}}),rawDslCommand({code:250,parameters:[{name:\"Shared\",volume:90,pitch:100,pan:0}]}),showAnimation({target:{kind:\"runtimeSelector\",scope:\"character\",target:\"player\"},animation:animationRef({id:1}),wait:false})]});\n",
+      "project": {
+        "Animations.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Animation",
+            "animation1Name": "",
+            "animation2Name": "",
+            "timings": [
+              {
+                "frame": 7,
+                "se": {
+                  "name": "Shared",
+                  "volume": 90,
+                  "pitch": 100,
+                  "pan": 0
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fact": "wrong-type",
+      "target": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-eligible-wrong-type-nVyNuv\\最小 Workspace with spaces\\Game\\audio\\se\\Shared.ogg"
+    },
+    {
+      "assetCheckExceptions": [
+        {
+          "category": "audio",
+          "folder": "se",
+          "name": "Shared",
+          "reason": "  Recording in progress  "
+        }
+      ]
+    },
+    {
+      "actualApi": {
+        "failure": "",
+        "output": "compile warning commonEvent:10: MV-E212-CONTEXT at list[2].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.\ncompile --check asset check warning:\nwarning MV-ASSET-PATH-TYPE: Expected ordinary file. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-eligible-wrong-type-nVyNuv\\最小 Workspace with spaces\\Game; required extension: .ogg; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-eligible-wrong-type-nVyNuv\\最小 Workspace with spaces\\Game\\audio\\se\\Shared.ogg; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-eligible-wrong-type-nVyNuv\\最小 Workspace with spaces\\Game\\audio\\se\\Shared.ogg\n  audio/se \"Shared\"; 3 use(s)\n  - warning commonEvent:10 CommonEvents.json[10].list[0].parameters[0].name; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-eligible-wrong-type-nVyNuv/最小 Workspace with spaces/src/diagnostics.events.ts (line 3, column 85); base: error; effective: warning; exception reason:   Recording in progress  \n  - warning commonEvent:10 CommonEvents.json[10].list[1].parameters[0].name; DSL: commands[1]; base: error; effective: warning; exception reason:   Recording in progress  \n  - warning commonEvent:10 CommonEvents.json[10].list[2].parameters[1]; chain: Animations.json[1].timings[0].se.name (Animation timing sound effect); conditions: Animation timing SE plays only when its frame is reached and duplicate suppression permits playback.; DSL: commands[2]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-eligible-wrong-type-nVyNuv/最小 Workspace with spaces/src/diagnostics.events.ts (line 3, column 256); base: error; effective: warning; exception reason:   Recording in progress  \n1 problem group(s), 1 problem file(s), 3 affected use(s). Coverage: complete.\n"
+      },
+      "actualCli": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-eligible-wrong-type-nVyNuv\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T10:09:54.452Z",
+        "completedAt": "2026-11-02T10:09:55.761Z",
+        "exitCode": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "compile warning commonEvent:10: MV-E212-CONTEXT at list[2].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.\ncompile --check asset check warning:\nwarning MV-ASSET-PATH-TYPE: Expected ordinary file. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-eligible-wrong-type-nVyNuv\\最小 Workspace with spaces\\Game; required extension: .ogg; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-eligible-wrong-type-nVyNuv\\最小 Workspace with spaces\\Game\\audio\\se\\Shared.ogg; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-eligible-wrong-type-nVyNuv\\最小 Workspace with spaces\\Game\\audio\\se\\Shared.ogg\n  audio/se \"Shared\"; 3 use(s)\n  - warning commonEvent:10 CommonEvents.json[10].list[0].parameters[0].name; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-eligible-wrong-type-nVyNuv/最小 Workspace with spaces/src/diagnostics.events.ts (line 3, column 85); base: error; effective: warning; exception reason:   Recording in progress  \n  - warning commonEvent:10 CommonEvents.json[10].list[1].parameters[0].name; DSL: commands[1]; base: error; effective: warning; exception reason:   Recording in progress  \n  - warning commonEvent:10 CommonEvents.json[10].list[2].parameters[1]; chain: Animations.json[1].timings[0].se.name (Animation timing sound effect); conditions: Animation timing SE plays only when its frame is reached and duplicate suppression permits playback.; DSL: commands[2]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-eligible-wrong-type-nVyNuv/最小 Workspace with spaces/src/diagnostics.events.ts (line 3, column 256); base: error; effective: warning; exception reason:   Recording in progress  \n1 problem group(s), 1 problem file(s), 3 affected use(s). Coverage: complete.\n"
+      },
+      "independentlyExpected": "Three distinct formal/raw/Animation-timing uses of one exact SE; all three base errors downgrade, original spaced reason retained."
+    }
+  ],
+  "expected": {
+    "description": "one exact exception downgrades formal raw and indirect uses while retaining each complete origin",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-diagnostics-workspace.test.ts",
+    "sha256": "ca2a861f1e5e15bf0928b994c9ebfff5e3a31ea4be169f5259f90de067ea3ca5",
+    "assertions": "() => eligibleSources(problem)"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

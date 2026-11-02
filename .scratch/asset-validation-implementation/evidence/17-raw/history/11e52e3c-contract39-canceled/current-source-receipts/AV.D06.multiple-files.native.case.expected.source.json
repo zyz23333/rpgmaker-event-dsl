@@ -1,0 +1,76 @@
+{
+  "id": "AV.D06.multiple-files.native.case.expected",
+  "ownerTicket": "12",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:10:08.506Z",
+  "completedAt": "2026-11-02T10:10:08.945Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {commonEvent,mapEvent,showPicture,imageAsset,rawDslCommand,showAnimation,animationRef,changePartyMember,actorRef,transferPlayer,mapRef,loop,setMovementRoute,script,callCommonEvent,commonEventRef,variableDefinition,variableRef} from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Mixed\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",image:{character:imageAsset({folder:\"characters\",name:\"Poster\"}),characterIndex:0},movement:{type:\"custom\",route:{commands:[{kind:\"changeImage\",character:imageAsset({folder:\"characters\",name:\"Poster\"}),characterIndex:0}]}},commands:[changePartyMember({actor:actorRef({id:1}),operation:\"add\",initialize:false}),showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"Other\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]}]});",
+      "project": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Diagnostics"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Tiles",
+            "tilesetNames": [
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ]
+          }
+        ],
+        "Actors.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Actor",
+            "characterName": "Poster",
+            "battlerName": ""
+          }
+        ]
+      }
+    },
+    {
+      "actualApi": {
+        "failure": "Error: compile --check asset check failed:\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-count-multiple-files-SB0twm\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-count-multiple-files-SB0twm\\最小 Workspace with spaces\\Game\\img\\characters\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-count-multiple-files-SB0twm\\最小 Workspace with spaces\\Game\\img\\characters\\Poster.png\n  image/characters \"Poster\"; 3 use(s)\n  - error map:1/event:1 Map001.json.events[1].pages[0].image.characterName; DSL: pages[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-count-multiple-files-SB0twm/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 71); base: error; effective: error\n  - warning map:1/event:1 Map001.json.events[1].pages[0].list[0].parameters[0]; chain: Actors.json[1].characterName (Actor initial character image); conditions: The added Actor supplies a player or follower image only when effective in the current party.; candidate: Actor initial character image may be replaced by runtime image settings.; DSL: pages[0].commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-count-multiple-files-SB0twm/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 336); base: warning; effective: warning\n  - error map:1/event:1 Map001.json.events[1].pages[0].moveRoute.list[0].parameters[0]; DSL: pages[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-count-multiple-files-SB0twm/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 71); base: error; effective: error\nerror MV-ASSET-PATH-TYPE: Expected ordinary file. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-count-multiple-files-SB0twm\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-count-multiple-files-SB0twm\\最小 Workspace with spaces\\Game\\img\\pictures\\Other.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-count-multiple-files-SB0twm\\最小 Workspace with spaces\\Game\\img\\pictures\\Other.png\n  image/pictures \"Other\"; 1 use(s)\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[1].parameters[1]; DSL: pages[0].commands[1]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-count-multiple-files-SB0twm/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 413); base: error; effective: error\n2 problem group(s), 2 problem file(s), 4 affected use(s). Coverage: complete.",
+        "output": "Error: compile --check asset check failed:\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-count-multiple-files-SB0twm\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-count-multiple-files-SB0twm\\最小 Workspace with spaces\\Game\\img\\characters\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-count-multiple-files-SB0twm\\最小 Workspace with spaces\\Game\\img\\characters\\Poster.png\n  image/characters \"Poster\"; 3 use(s)\n  - error map:1/event:1 Map001.json.events[1].pages[0].image.characterName; DSL: pages[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-count-multiple-files-SB0twm/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 71); base: error; effective: error\n  - warning map:1/event:1 Map001.json.events[1].pages[0].list[0].parameters[0]; chain: Actors.json[1].characterName (Actor initial character image); conditions: The added Actor supplies a player or follower image only when effective in the current party.; candidate: Actor initial character image may be replaced by runtime image settings.; DSL: pages[0].commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-count-multiple-files-SB0twm/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 336); base: warning; effective: warning\n  - error map:1/event:1 Map001.json.events[1].pages[0].moveRoute.list[0].parameters[0]; DSL: pages[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-count-multiple-files-SB0twm/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 71); base: error; effective: error\nerror MV-ASSET-PATH-TYPE: Expected ordinary file. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-count-multiple-files-SB0twm\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-count-multiple-files-SB0twm\\最小 Workspace with spaces\\Game\\img\\pictures\\Other.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-count-multiple-files-SB0twm\\最小 Workspace with spaces\\Game\\img\\pictures\\Other.png\n  image/pictures \"Other\"; 1 use(s)\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[1].parameters[1]; DSL: pages[0].commands[1]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-count-multiple-files-SB0twm/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 413); base: error; effective: error\n2 problem group(s), 2 problem file(s), 4 affected use(s). Coverage: complete."
+      }
+    }
+  ],
+  "expected": {
+    "description": "groups retain individual ordinary and candidate levels and count groups files and real uses separately",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-diagnostics-workspace.test.ts",
+    "sha256": "ca2a861f1e5e15bf0928b994c9ebfff5e3a31ea4be169f5259f90de067ea3ca5",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-count-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, mixedSource(branch === \"multiple-files\"), {\n\t\t\t...mapProject,\n\t\t\t\"Actors.json\": [null, {\n\t\t\t\tid: 1,\n\t\t\t\tname: \"Actor\",\n\t\t\t\tcharacterName: \"Poster\",\n\t\t\t\tbattlerName: \"\"\n\t\t\t}]\n\t\t});\n\t\tawait (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game/img/characters\"), { recursive: true });\n\t\tif (branch === \"multiple-files\") await (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/Other.png\"), { recursive: true });\n\t\tconst result = await check(root);\n\t\t(0,__vite_ssr_import_2__.expect)(result.failure).toContain(\"error MV-ASSET-MISSING-FILE\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(\"image/characters \\\"Poster\\\"; 3 use(s)\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.output.match(/base: error; effective: error/gu)).toHaveLength(branch === \"multiple-files\" ? 3 : 2);\n\t\t(0,__vite_ssr_import_2__.expect)(result.output.match(/base: warning; effective: warning/gu)).toHaveLength(1);\n\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(branch === \"multiple-files\" ? \"2 problem group(s), 2 problem file(s), 4 affected use(s)\" : \"1 problem group(s), 1 problem file(s), 3 affected use(s)\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(\"Map001.json.events[1].pages[0].image.characterName\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(\"Map001.json.events[1].pages[0].moveRoute.list[0].parameters[0]\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(\"Actors.json[1].characterName\");\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ actualApi: result });\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}
