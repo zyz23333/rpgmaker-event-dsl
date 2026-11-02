@@ -38,6 +38,10 @@
 /.scratch/asset-validation-implementation/evidence/01-native-media/samples/** -text -whitespace
 /.scratch/asset-validation-implementation/probes/native-media/** -text -whitespace
 
+# Preserve ticket03's original pending receipts and policy-closure raw captures.
+/.scratch/asset-validation-implementation/evidence/03-file-observation-acceptance.json -text -whitespace
+/.scratch/asset-validation-implementation/evidence/03-image-policy/** -text -whitespace
+
 # Preserve N03's original native evidence and probe hashes, including raw log spaces.
 /.scratch/asset-validation-implementation/evidence/06-native-animation/** -text -whitespace
 /.scratch/asset-validation-implementation/probes/native-animation/** -text -whitespace

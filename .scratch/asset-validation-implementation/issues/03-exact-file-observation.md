@@ -1,6 +1,6 @@
 # 03: 准确名称、链接与文件查询失败的检查
 
-Status: claimed
+Status: resolved
 Blocked by: 02
 Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -10,18 +10,18 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Acceptance criteria
 
-- [ ] 覆盖目录各级及扩展名大小写、追加双后缀、中文／空格／纯空白／点号／前缀／Unicode；图片含 `%`／`#`（包括 `%20`）按不支持 input 验证，查询前拒绝且不伪造目标；按完整追加文件名校验禁止字符和全部保留设备名。
+- [x] 覆盖目录各级及扩展名大小写、追加双后缀、中文／空格／纯空白／点号／前缀／Unicode；图片含 `%`／`#`（包括 `%20`）按不支持 input 验证，查询前拒绝且不伪造目标；按完整追加文件名校验禁止字符和全部保留设备名。
 - [x] 根别名沿既有绑定；根以下 symlink／junction 不跟随，包括根内、根外和 dangling。硬链接、空文件、元数据可查而媒体内容读取受阻的场景可通过。
 - [x] 以真实文件树及明确标注的故障注入验证查询失败、枚举后消失、类型变化、独立路径继续、准确问题位置和无资源根回退。通过实际 Compile／Check 验证，不止内部匹配测试。
 
 ### 共通要求（限本票适用范围）
 
-- [ ] 完成本票验收族中分配给本票的全部有限子用例；共享族按下表分支签收，不减少字段、表示、时机或结果，不把其他票负责的分支误记为通过。
-- [ ] 正式表达与已识别 raw 各自对照独立预期；按适用范围核对完整 Event Asset Use、Asset Dependency Chain、条件、None、必要字段问题及文件事实。预期不得调用被测收集器、匹配器或政策函数生成。
-- [ ] 在 Windows / Node.js 22 的真实临时 Workspace 中，按原索引指定的 API／实际 CLI 入口和边界验证结果及允许的状态变化。纯语义测试只作补充，故障注入位于测试子进程操作系统边界。
-- [ ] 保留现有公共 Workspace API 和 CLI；不新增产品测试开关、JSON CLI、全局跳过或通配符例外。素材不进入持久编译基线、快照、备份、复制或写入范围。
-- [ ] 补齐本票影响的既有成功 fixture 所需真实文件与必要标准字段，保留旧断言与未知字段。同步适用使用说明、样例及构建后 CLI 用例清单；行为变更协调 Compile Contract Version。
-- [ ] 记录完整子用例 ID、契约出处、输入、预期、实际、环境、执行方式及证据；未执行、能力受限和失败分别记录，不能以 skip 计为通过。反例按规格回到责任行为或决定处理。
+- [x] 完成本票验收族中分配给本票的全部有限子用例；共享族按下表分支签收，不减少字段、表示、时机或结果，不把其他票负责的分支误记为通过。
+- [x] 正式表达与已识别 raw 各自对照独立预期；按适用范围核对完整 Event Asset Use、Asset Dependency Chain、条件、None、必要字段问题及文件事实。预期不得调用被测收集器、匹配器或政策函数生成。
+- [x] 在 Windows / Node.js 22 的真实临时 Workspace 中，按原索引指定的 API／实际 CLI 入口和边界验证结果及允许的状态变化。纯语义测试只作补充，故障注入位于测试子进程操作系统边界。
+- [x] 保留现有公共 Workspace API 和 CLI；不新增产品测试开关、JSON CLI、全局跳过或通配符例外。素材不进入持久编译基线、快照、备份、复制或写入范围。
+- [x] 补齐本票影响的既有成功 fixture 所需真实文件与必要标准字段，保留旧断言与未知字段。同步适用使用说明、样例及构建后 CLI 用例清单；行为变更协调 Compile Contract Version。
+- [x] 记录完整子用例 ID、契约出处、输入、预期、实际、环境、执行方式及证据；未执行、能力受限和失败分别记录，不能以 skip 计为通过。反例按规格回到责任行为或决定处理。
 
 ## Acceptance ownership
 
@@ -49,11 +49,15 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Verification
 
-2026-11-02 政策已确认，仍需产品收尾：在公共 Workspace API 与实际 CLI 分别验证源码／构建入口的新三个 F06 input ID，并保留独立预期。旧 filesystem ID 的六条 `not-executed-policy-pending` 回执不变，须以新回执另行记录，不能覆盖或以别名计通过；[权威身份修订](../../asset-validation/implementation-acceptance-cases.md#2026-11-02-f06-身份修订与历史回执)及[政策出处](../evidence/01-native-media/policy-resolution-2026-11-02.md)已就绪。本票在实现／验证完成前保持 claimed。
+2026-11-02 政策收尾完成：在公共 Workspace API 与实际 CLI 分别通过源码／构建入口的新三个 F06 input ID，并保留独立预期。旧 filesystem ID 的六条 `not-executed-policy-pending` 回执原字节不变，新结果另记于[收尾回执](../evidence/03-image-policy-acceptance.md)及[新机器回执](../evidence/03-image-policy-acceptance.json)；[权威身份修订](../../asset-validation/implementation-acceptance-cases.md#2026-11-02-f06-身份修订与历史回执)及[政策出处](../evidence/01-native-media/policy-resolution-2026-11-02.md)一致。原166个ID完整证据继续保留，未受影响156项不虚称本次重跑；10个合法名ID及原音频／影片另作源码／构建复核。
 
-按上游索引指定的实例与入口运行本票适用验证，并记录相关仓库检查、构建和 Windows CLI 结果；最终全量核对由 17 负责。本票发现的失败不得以延后到 17 代替修复。当前所有产品测试和原生检查均为待实施／未执行，完成时追加实际结果。
+新政策及两项候选／非活动补充在Windows／Node22分别通过源码／构建，共10条新通过；合法名称及05原音频／影片28条定向复核通过，既有图片／发布两套回归各入口42/42。typecheck、lint、format:check、build及diff检查通过；Compile Contract Version为35，已保留最新integration行为。最终全仓及Windows baseline仍由17汇总，原生反例由01处置并保留，本票未重跑原生。
 
 完成后记录实际 outcome 和验证，再更新本票状态。原规格、决策地图及已完成决策票不因本票发布而改状态。
+
+## Outcome
+
+2026-11-02 resolved。共用文件观察在构造路径／文件查询前拒绝所有图片 `%`／`#`；音频字面查询、影片原排除、保存值表达与既定候选／非活动warning政策保持。三新F06 input ID补齐正式／raw、公共API与实际源码／构建CLI；另验证候选／非活动及非pictures目录。原332条通过与六条待决JSON保全，新历史迁移和red/green证据另存；没有新公共开关、测试API或提前实现12例外配置。本票完成不替代17验收。
 
 ## Sources
 
@@ -69,3 +73,4 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 - 2026-11-02：独立 worktree 从集成 `3eb12b8d` 开始；测试入口沿用规格已确认的 Workspace API、实际 CLI 与测试子进程 OS 接口。先实现独立文件规则；图片百分号／井号的原生反例等待维护者决定，本票不自行改政策。
 - 2026-11-02：独立范围的 166 个用例均通过 Windows / Node.js 22 源码与构建入口，共 332 条实际通过回执；真实大小写并存、符号链接、junction 与硬链接均已执行。修正查询内类型矛盾分类与枚举异常的实际失败位置，保留逐项独立检查和元数据边界。[阶段回执](../evidence/03-file-observation-acceptance.md)及[机器回执](../evidence/03-file-observation-acceptance.json)明确列出 3 个 F06 待决用例、6 条未执行记录，不能计为通过。图片 `%`／`#` 政策保持原状，用户尚未回复，票仍 claimed，不能关闭或解除后续依赖。
 - 2026-11-02（后续人类答复）：维护者确认统一排除图片 `%`／`#`、音频继续支持。旧待决状态保留为历史，当前产品缺口已明确为三个 input 用例及行为，尚未在01文档票中实现或计通过；03继续 claimed。
+- 2026-11-02（产品收尾）：已按TDD完成三个新input行为及两项warning补充，公共API／实际CLI的source与built通过；旧音频／影片、合法名称和图片／发布回归通过。旧JSON332pass＋六pending原字节保留，当前新回执和Outcome记录完成，03设resolved；不提前实施12。

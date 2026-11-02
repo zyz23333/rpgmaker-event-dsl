@@ -1,0 +1,46 @@
+{
+  "id": "AV.F06.image-percent.input.case.expected",
+  "ownerTicket": "03",
+  "status": "failed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T04:45:20.361Z",
+  "completedAt": "2026-11-02T04:45:20.905Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "names": [
+        "image%percent"
+      ],
+      "source": "import {commonEvent,rawDslCommand} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"image%percent\",0,0,0,0,100,100,255,0]})]});",
+      "contract": "exact selected PNG metadata in the bound Project Root"
+    },
+    {
+      "representation": "formal",
+      "source": "import {commonEvent,showPicture,imageAsset} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"image%percent\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});"
+    },
+    {
+      "file": "img/pictures/image%percent.png",
+      "contents": "ordinary zero-byte file",
+      "timing": "before asset gate"
+    },
+    {
+      "file": "img/pictures/imagepercent.png",
+      "contents": "ordinary zero-byte file",
+      "timing": "before asset gate"
+    }
+  ],
+  "expected": {
+    "description": "image percent and hash names are rejected before any category lookup without changing the saved value",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-file-workspace.test.ts",
+    "sha256": "c9df5c10f7959c86665855c021568fcb3e538aaea711811d5d731a789ac43134",
+    "assertions": "async () => {\n\t\tfor (const representation of [\"formal\", \"raw\"]) await (0,__vite_ssr_import_6__.withWindowsSandbox)(`asset-image-${branch}-${representation}`, async (sandbox) => {\n\t\t\tconst root = sandbox.workspaceRoot;\n\t\t\tawait prepare(root, [name]);\n\t\t\tif (representation === \"formal\") {\n\t\t\t\tconst source = `import {commonEvent,showPicture,imageAsset} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:${JSON.stringify(name)}}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});`;\n\t\t\t\tawait (0,__vite_ssr_import_1__.writeFile)((0,__vite_ssr_import_2__.join)(root, \"src/files.events.ts\"), source);\n\t\t\t\t(0,__vite_ssr_import_5__.recordAssetInput)({\n\t\t\t\t\trepresentation,\n\t\t\t\t\tsource\n\t\t\t\t});\n\t\t\t};\n\t\t\tawait png(root, `img/pictures/${name}.png`);\n\t\t\tawait png(root, `img/pictures/${alternative}`);\n\t\t\tconst before = await localState(root);\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(failure).toContain(\"error MV-ASSET-UNSUPPORTED-NAME\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(failure).toContain(JSON.stringify(name));\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(failure).toContain(\"CommonEvents.json[10].list[0].parameters[1]\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(failure).toContain(\"this use is unchecked\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(failure).not.toContain(\"; target:\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(failure).not.toContain(\"; failed at:\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(failure).not.toContain(\"MV-ASSET-MISSING\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(await localState(root)).toEqual(before);\n\t\t\t};\n\t\t\tconst child = (0,__vite_ssr_import_7__.startWorkspaceOperation)(sandbox, {\n\t\t\t\toperation: \"check\",\n\t\t\t\tmode: \"cli\",\n\t\t\t\tboundary: \"asset-link-guard\",\n\t\t\t\tassetPath: \"img\"\n\t\t\t});\n\t\t\ttry {\n\t\t\t\t(0,__vite_ssr_import_4__.expect)((await child.ended).exitCode).toBe(1);\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(child.messages.some((message) => message.kind === \"asset-link-follow-attempt\")).toBe(false);\n\t\t\t\tconst cli = sandbox.processes.at(-1);\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).toContain(\"error MV-ASSET-UNSUPPORTED-NAME\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).toContain(JSON.stringify(name));\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).not.toContain(\"; target:\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).not.toContain(\"MV-ASSET-QUERY-FAILED\");\n\t\t\t\t(0,__vite_ssr_import_5__.recordAssetInput)({\n\t\t\t\t\trepresentation,\n\t\t\t\t\tactualCli: cli,\n\t\t\t\t\tguard: \"no descent into img; exact and URL-interpreted files both exist\"\n\t\t\t\t});\n\t\t\t} finally {\n\t\t\t\tawait child.stop();\n\t\t\t};\n\t\t\tconst cli = await (0,__vite_ssr_import_6__.runCli)(sandbox, [\"compile\"], { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_4__.expect)(cli.exitCode).toBe(1);\n\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).toContain(\"error MV-ASSET-UNSUPPORTED-NAME\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).toContain(JSON.stringify(name));\n\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).not.toContain(\"; target:\");\n\t\t\t(0,__vite_ssr_import_5__.recordAssetInput)({\n\t\t\t\trepresentation,\n\t\t\t\tactualCompileCli: cli\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_4__.expect)(await localState(root)).toEqual(before);\n\t\t\t(0,__vite_ssr_import_4__.expect)((await (0,__vite_ssr_import_1__.readdir)((0,__vite_ssr_import_2__.join)(root, \"Game/img/pictures\"))).sort()).toEqual([`${name}.png`, alternative].sort());\n\t\t});\n\t}"
+  },
+  "actual": "AssertionError: expected '' to contain 'error MV-ASSET-UNSUPPORTED-NAME'",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

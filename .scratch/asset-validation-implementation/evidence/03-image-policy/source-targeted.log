@@ -1,0 +1,67 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/asset-validation-03-files/packages/rpgmaker-event-dsl
+
+stderr | test/asset-file-workspace.test.ts > AV.F06.image-candidate.input.case.expected: unsupported saved image names warn with unchecked coverage and preserve their candidate or inactive origin
+compile --check asset check warning:
+warning MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\asset-image-candidate-0EogNb\最小 Workspace with spaces\Game; required extension: .png
+  image/characters "Candidate%20#Image"; 1 use(s)
+  - warning commonEvent:10 CommonEvents.json[10].list[0].parameters[0]; chain: Actors.json[1].characterName (Actor initial character image); conditions: The added Actor supplies a player or follower image only when effective in the current party.; candidate: Actor initial character image may be replaced by runtime image settings.
+
+stderr | test/asset-file-workspace.test.ts > AV.F06.image-candidate.input.case.expected: unsupported saved image names warn with unchecked coverage and preserve their candidate or inactive origin
+compile --check asset check warning:
+warning MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\asset-image-candidate-0EogNb\最小 Workspace with spaces\Game; required extension: .png
+  image/sv_actors "Candidate%20#Image"; 1 use(s)
+  - warning commonEvent:10 CommonEvents.json[10].list[0].parameters[0]; chain: Actors.json[1].battlerName (Actor initial battler image); conditions: Actor battler images apply only in side-view battle and while the Actor is an effective battle member.; candidate: Actor initial battler image may be replaced by runtime image settings.
+
+stderr | test/asset-file-workspace.test.ts > AV.F06.image-candidate.input.case.expected: unsupported saved image names warn with unchecked coverage and preserve their candidate or inactive origin
+compile asset check warning:
+warning MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\asset-image-candidate-0EogNb\最小 Workspace with spaces\Game; required extension: .png
+  image/characters "Candidate%20#Image"; 1 use(s)
+  - warning commonEvent:10 CommonEvents.json[10].list[0].parameters[0]; chain: Actors.json[1].characterName (Actor initial character image); conditions: The added Actor supplies a player or follower image only when effective in the current party.; candidate: Actor initial character image may be replaced by runtime image settings.
+
+stderr | test/asset-file-workspace.test.ts > AV.F06.image-candidate.input.case.expected: unsupported saved image names warn with unchecked coverage and preserve their candidate or inactive origin
+compile asset check warning:
+warning MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\asset-image-candidate-0EogNb\最小 Workspace with spaces\Game; required extension: .png
+  image/sv_actors "Candidate%20#Image"; 1 use(s)
+  - warning commonEvent:10 CommonEvents.json[10].list[0].parameters[0]; chain: Actors.json[1].battlerName (Actor initial battler image); conditions: Actor battler images apply only in side-view battle and while the Actor is an effective battle member.; candidate: Actor initial battler image may be replaced by runtime image settings.
+
+stderr | test/asset-file-workspace.test.ts > AV.F06.image-inactive.input.case.expected: unsupported saved image names warn with unchecked coverage and preserve their candidate or inactive origin
+compile --check asset check warning:
+warning MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\asset-image-inactive-rO0FnT\最小 Workspace with spaces\Game; required extension: .png
+  image/characters "Inactive%20#Image"; 1 use(s)
+  - warning map:1/event:1 Map001.json.events[1].pages[0].moveRoute.list[0].parameters[0]; inactive: Autonomous Movement is fixed; the saved route is inactive.
+
+stderr | test/asset-file-workspace.test.ts > AV.F06.image-inactive.input.case.expected: unsupported saved image names warn with unchecked coverage and preserve their candidate or inactive origin
+compile asset check warning:
+warning MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\asset-image-inactive-rO0FnT\最小 Workspace with spaces\Game; required extension: .png
+  image/characters "Inactive%20#Image"; 1 use(s)
+  - warning map:1/event:1 Map001.json.events[1].pages[0].moveRoute.list[0].parameters[0]; inactive: Autonomous Movement is fixed; the saved route is inactive.
+
+ ✓ test/asset-file-workspace.test.ts (171 tests | 156 skipped) 36732ms
+   ✓ AV.F06.image-percent.input.case.expected: image percent and hash names are rejected before any category lookup without changing the saved value  5831ms
+   ✓ AV.F06.image-hash.input.case.expected: image percent and hash names are rejected before any category lookup without changing the saved value  6425ms
+   ✓ AV.F06.literal-percent20.input.case.expected: image percent and hash names are rejected before any category lookup without changing the saved value  6552ms
+   ✓ AV.F06.image-candidate.input.case.expected: unsupported saved image names warn with unchecked coverage and preserve their candidate or inactive origin  3580ms
+   ✓ AV.F06.image-inactive.input.case.expected: unsupported saved image names warn with unchecked coverage and preserve their candidate or inactive origin  3901ms
+   ✓ AV.F04.chinese.filesystem.case.expected: the complete saved name is preserved before appending PNG  1189ms
+   ✓ AV.F04.space.filesystem.case.expected: the complete saved name is preserved before appending PNG  1139ms
+   ✓ AV.F04.whitespace-only.filesystem.case.expected: the complete saved name is preserved before appending PNG  1064ms
+   ✓ AV.F04.dot.filesystem.case.expected: the complete saved name is preserved before appending PNG  1039ms
+   ✓ AV.F04.dollar.filesystem.case.expected: the complete saved name is preserved before appending PNG  1033ms
+   ✓ AV.F04.bang.filesystem.case.expected: the complete saved name is preserved before appending PNG  1030ms
+   ✓ AV.F04.trailing-space-stem.filesystem.case.expected: the complete saved name is preserved before appending PNG  1065ms
+   ✓ AV.F04.trailing-dot-stem.filesystem.case.expected: the complete saved name is preserved before appending PNG  1041ms
+   ✓ AV.F05.double-extension.filesystem.case.expected: suffixes and Unicode are never normalized to an alternative  898ms
+   ✓ AV.F05.unicode-distinct.filesystem.case.expected: suffixes and Unicode are never normalized to an alternative  938ms
+ ✓ test/asset-media-workspace.test.ts (81 tests | 77 skipped) 3638ms
+   ✓ AV.F06.audio-percent.filesystem.case.expected: audio keeps literal encoded-looking characters  605ms
+   ✓ AV.F06.audio-hash.filesystem.case.expected: audio keeps literal encoded-looking characters  374ms
+   ✓ AV.F06.movie-percent.input.case.expected: unsupported movie names are explicit and never traverse a media target  1322ms
+   ✓ AV.F06.movie-hash.input.case.expected: unsupported movie names are explicit and never traverse a media target  1334ms
+
+ Test Files  2 passed (2)
+      Tests  19 passed | 233 skipped (252)
+   Start at  12:51:36
+   Duration  43.02s (transform 691ms, setup 0ms, import 2.32s, tests 40.37s, environment 0ms)
+
+JSON report written to M:/Shuen/Codex/asset-validation-03-files/packages/rpgmaker-event-dsl/test-results/03-image-policy-source.json
