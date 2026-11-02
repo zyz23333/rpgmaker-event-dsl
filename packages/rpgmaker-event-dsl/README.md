@@ -971,6 +971,15 @@ still expose an unsupported name so it can be repaired. Check leaves generated
 data, the Snapshot and synchronization metadata unchanged. Asset observations are
 transient and do not enter Compile Baseline.
 
+File matching preserves Chinese text, spaces, dots and `$`/`!` prefixes. A stem
+ending in a space or dot keeps it before the appended extension. Unicode
+normalization, alternative formats and a `www` resource tree do not substitute
+for the exact target. Existing Project Root aliases keep their binding semantics;
+symlinks and junctions below that root are refused, while ordinary hard links pass.
+If enumeration or metadata cannot complete, or their observed entry types disagree
+within the same query, the diagnostic is `MV-ASSET-QUERY-FAILED`. Such an inconclusive
+query is distinct from an observed missing file, and safe independent checks continue.
+
 ## Enemies and battle control
 
 Enemy resource commands use named operands and explicit saved selectors:

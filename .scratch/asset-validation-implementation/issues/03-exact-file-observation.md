@@ -1,6 +1,6 @@
 # 03: 准确名称、链接与文件查询失败的检查
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 02
 Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -11,8 +11,8 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 ## Acceptance criteria
 
 - [ ] 覆盖目录各级及扩展名大小写、追加双后缀、中文／空格／纯空白／点号／前缀／Unicode、图片字面量百分号和井号；按完整追加文件名校验禁止字符和全部保留设备名。
-- [ ] 根别名沿既有绑定；根以下 symlink／junction 不跟随，包括根内、根外和 dangling。硬链接、空文件、元数据可查而媒体内容读取受阻的场景可通过。
-- [ ] 以真实文件树及明确标注的故障注入验证查询失败、枚举后消失、类型变化、独立路径继续、准确问题位置和无资源根回退。通过实际 Compile／Check 验证，不止内部匹配测试。
+- [x] 根别名沿既有绑定；根以下 symlink／junction 不跟随，包括根内、根外和 dangling。硬链接、空文件、元数据可查而媒体内容读取受阻的场景可通过。
+- [x] 以真实文件树及明确标注的故障注入验证查询失败、枚举后消失、类型变化、独立路径继续、准确问题位置和无资源根回退。通过实际 Compile／Check 验证，不止内部匹配测试。
 
 ### 共通要求（限本票适用范围）
 
@@ -64,3 +64,5 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 ## Comments
 
 - 2026-10-24：用户回复“确认”，本票按已确认的 17 票拆分发布为 ready-for-agent。产品实现、自动化与原生验收均尚未由本次发布执行。
+- 2026-11-02：独立 worktree 从集成 `3eb12b8d` 开始；测试入口沿用规格已确认的 Workspace API、实际 CLI 与测试子进程 OS 接口。先实现独立文件规则；图片百分号／井号的原生反例等待维护者决定，本票不自行改政策。
+- 2026-11-02：独立范围的 166 个用例均通过 Windows / Node.js 22 源码与构建入口，共 332 条实际通过回执；真实大小写并存、符号链接、junction 与硬链接均已执行。修正查询内类型矛盾分类与枚举异常的实际失败位置，保留逐项独立检查和元数据边界。[阶段回执](../evidence/03-file-observation-acceptance.md)及[机器回执](../evidence/03-file-observation-acceptance.json)明确列出 3 个 F06 待决用例、6 条未执行记录，不能计为通过。图片 `%`／`#` 政策保持原状，用户尚未回复，票仍 claimed，不能关闭或解除后续依赖。

@@ -1,7 +1,8 @@
 import fs from "node:fs/promises";
+import fsSync from "node:fs";
 import childProcess from "node:child_process";
 import { syncBuiltinESMExports } from "node:module";
-import { resolve } from "node:path";
+import { basename, dirname, resolve, sep } from "node:path";
 
 // T1 system-boundary control: pause one real filesystem operation in a real child.
 // Product modules have no test flags or orchestration API.
@@ -12,6 +13,12 @@ const writeFile = fs.writeFile;
 const link = fs.link;
 const rm = fs.rm;
 const mkdtemp = fs.mkdtemp;
+const readdir = fs.readdir;
+const lstat = fs.lstat;
+const realpath = fs.realpath;
+const open = fs.open;
+const openSync = fsSync.openSync;
+const readFileSync = fsSync.readFileSync;
 const spawn = childProcess.spawn;
 const reached = new Set();
 let inputReads = 0;
@@ -30,7 +37,82 @@ async function checkpoint(kind = "checkpoint") {
     });
   });
 }
+function controlledAssetError(code, action, path) {
+  return Object.assign(new Error(`Controlled asset ${action}: ${String(path)}`), { code });
+}
+function guardAssetRead(path) {
+  if (
+    options.boundary === "asset-media-read-denied" &&
+    resolve(String(path)) === options.assetPath
+  ) {
+    process.send({ kind: "asset-content-read-attempt" });
+    throw controlledAssetError("EACCES", "content read denied", path);
+  }
+}
+function guardAssetLink(path, allowLinkMetadata = false) {
+  const absolute = resolve(String(path));
+  if (
+    options.boundary === "asset-link-guard" &&
+    (absolute.startsWith(options.assetPath + sep) ||
+      (!allowLinkMetadata && absolute === options.assetPath))
+  ) {
+    process.send({ kind: "asset-link-follow-attempt", path: absolute });
+    throw controlledAssetError("EACCES", "link descent forbidden", path);
+  }
+}
+fs.readdir = async function (path, ...args) {
+  guardAssetLink(path);
+  if (
+    options.boundary === "asset-enumeration-denied" &&
+    resolve(String(path)) === options.assetPath &&
+    !reached.has("asset-fault")
+  ) {
+    reached.add("asset-fault");
+    throw controlledAssetError("EACCES", "enumeration denied", path);
+  }
+  const entries = await readdir(path, ...args);
+  if (
+    options.boundary === "asset-after-enumeration" &&
+    resolve(String(path)) === dirname(options.assetPath) &&
+    entries.some(
+      (entry) => (typeof entry === "string" ? entry : entry.name) === basename(options.assetPath),
+    )
+  )
+    await checkpoint();
+  return entries;
+};
+fs.lstat = async function (path, ...args) {
+  guardAssetLink(path, true);
+  if (resolve(String(path)) === options.assetPath) {
+    if (options.boundary === "asset-metadata-denied")
+      throw controlledAssetError("EACCES", "metadata denied", path);
+    if (options.boundary === "asset-io-failure")
+      throw controlledAssetError("EIO", "metadata I/O failure", path);
+  }
+  return lstat(path, ...args);
+};
+fs.realpath = async function (path, ...args) {
+  guardAssetLink(path);
+  return realpath(path, ...args);
+};
+fs.open = async function (path, ...args) {
+  guardAssetRead(path);
+  guardAssetLink(path);
+  return open(path, ...args);
+};
+fsSync.openSync = function (path, ...args) {
+  guardAssetRead(path);
+  guardAssetLink(path);
+  return openSync(path, ...args);
+};
+fsSync.readFileSync = function (path, ...args) {
+  guardAssetRead(path);
+  guardAssetLink(path);
+  return readFileSync(path, ...args);
+};
 fs.readFile = async function (path, ...args) {
+  guardAssetRead(path);
+  guardAssetLink(path);
   if (options.boundary === "config" && resolve(String(path)) === options.configPath) {
     await checkpoint();
   }

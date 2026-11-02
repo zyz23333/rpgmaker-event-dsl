@@ -39,7 +39,17 @@ export async function observeAssetFile(
       reason:
         "Saved name is outside supported Windows single-component names; this use is unchecked.",
     };
-  const root = await realpath(projectRoot);
+  let root: string;
+  try {
+    root = await realpath(projectRoot);
+  } catch (error) {
+    return {
+      ...base,
+      code: "MV-ASSET-QUERY-FAILED",
+      failurePath: projectRoot,
+      reason: error instanceof Error ? error.message : String(error),
+    };
+  }
   const directories =
     target.category === "movie" ? [] : [target.category === "image" ? "img" : "audio"];
   const components = [...directories, target.folder, filename];
@@ -48,11 +58,13 @@ export async function observeAssetFile(
   for (const [index, component] of components.entries()) {
     const path = join(parent, component);
     const final = index === components.length - 1;
+    let queriedPath = parent;
     try {
-      const entries = await readdir(parent);
-      if (!entries.includes(component)) {
+      const entries = await readdir(parent, { withFileTypes: true });
+      const entry = entries.find((candidate) => candidate.name === component);
+      if (entry === undefined) {
         const approximate = entries.filter(
-          (entry) => entry.toLowerCase() === component.toLowerCase(),
+          (candidate) => candidate.name.toLowerCase() === component.toLowerCase(),
         );
         return {
           ...base,
@@ -64,11 +76,36 @@ export async function observeAssetFile(
               ? "MV-ASSET-MISSING-FILE"
               : "MV-ASSET-MISSING-DIRECTORY",
           reason: approximate.length
-            ? `Exact name required; found ${approximate.join(", ")}.`
+            ? `Exact name required; found ${approximate
+                .map((candidate) => candidate.name)
+                .sort()
+                .join(", ")}.`
             : "Required exact directory entry is absent.",
         };
       }
+      queriedPath = path;
       const metadata = await lstat(path);
+      if (
+        (
+          [
+            "isFile",
+            "isDirectory",
+            "isSymbolicLink",
+            "isBlockDevice",
+            "isCharacterDevice",
+            "isFIFO",
+            "isSocket",
+          ] as const
+        ).some((kind) => entry[kind]() !== metadata[kind]())
+      )
+        return {
+          ...base,
+          targetPath,
+          failurePath: path,
+          code: "MV-ASSET-QUERY-FAILED",
+          reason:
+            "Directory enumeration and metadata disagree about the entry type; this query is inconclusive.",
+        };
       if (metadata.isSymbolicLink())
         return {
           ...base,
@@ -90,7 +127,7 @@ export async function observeAssetFile(
       return {
         ...base,
         targetPath,
-        failurePath: path,
+        failurePath: queriedPath,
         code: "MV-ASSET-QUERY-FAILED",
         reason: error instanceof Error ? error.message : String(error),
       };
