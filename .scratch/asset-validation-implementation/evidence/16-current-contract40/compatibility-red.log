@@ -1,0 +1,8 @@
+
+> rpgmaker-event-dsl@0.1.2 test M:\Shuen\Codex\asset-validation-16-recovery\packages\rpgmaker-event-dsl
+> vitest run "--maxWorkers=1" "test/asset-recovery-workspace.test.ts" "-t" "^AV[.]W16[.]changed-current-config[.]api[.]case[.]expected:" "--reporter=json" "--outputFile=../../.scratch/asset-validation-implementation/evidence/16-current-contract40/compatibility-red-runner.json"
+
+JSON report written to M:/Shuen/Codex/asset-validation-16-recovery/.scratch/asset-validation-implementation/evidence/16-current-contract40/compatibility-red-runner.json
+M:\Shuen\Codex\asset-validation-16-recovery\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run "--maxWorkers=1" "test/asset-recovery-workspace.test.ts" "-t" "^AV[.]W16[.]changed-current-config[.]api[.]case[.]expected:" "--reporter=json" "--outputFile=../../.scratch/asset-validation-implementation/evidence/16-current-contract40/compatibility-red-runner.json"`
+Exit status 1

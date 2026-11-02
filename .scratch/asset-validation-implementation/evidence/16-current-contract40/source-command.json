@@ -1,0 +1,22 @@
+{
+  "phase": "source",
+  "command": "pnpm",
+  "arguments": [
+    "--filter",
+    "rpgmaker-event-dsl",
+    "test",
+    "--maxWorkers=1",
+    "test/asset-recovery-workspace.test.ts",
+    "-t",
+    "^AV[.]W16[.]changed-current-config[.]api[.]case[.]expected:",
+    "--reporter=json",
+    "--outputFile=../../.scratch/asset-validation-implementation/evidence/16-current-contract40/source-runner.json"
+  ],
+  "startedAt": "2026-11-02T10:59:54.5733636Z",
+  "completedAt": "2026-11-02T11:00:00.8366686Z",
+  "exitCode": 0,
+  "head": "0fb8b677c1c8679a334cae034b6823a776ace789",
+  "node": "v22.23.4",
+  "TEMP": "C:\\Users\\Shuen\\AppData\\Local\\Temp",
+  "TMP": "C:\\Users\\Shuen\\AppData\\Local\\Temp"
+}
