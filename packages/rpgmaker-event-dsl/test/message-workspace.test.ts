@@ -126,6 +126,8 @@ async function prepare(
   lists: { map?: unknown[]; common?: unknown[]; troop?: unknown[] } = {},
 ) {
   const fixture = await createMinimalProject(workspaceRoot);
+  await mkdir(join(workspaceRoot, "Game/img/faces"), { recursive: true });
+  await writeFile(join(workspaceRoot, "Game/img/faces/UnscannedFace.png"), "");
   const files = {
     "System.json": { ...fixture.projectFiles["System.json"], variables: ["", "", ""] },
     "MapInfos.json": [null, { id: 1, name: "Messages Map" }],

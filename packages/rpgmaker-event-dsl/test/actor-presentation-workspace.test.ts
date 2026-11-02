@@ -1,4 +1,4 @@
-import { readFile, readdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { expect, it } from "vitest";
 import { workspaceApiEntry } from "./support/workspace-operation-process.js";
@@ -36,6 +36,15 @@ const defaultBattlePage = JSON.parse(
 
 async function prepare(workspaceRoot: string, commands = fixture.commands, threeContainers = true) {
   const { projectFiles } = await createMinimalProject(workspaceRoot);
+  for (const [folder, names] of [
+    ["characters", ["$Big", "Character", "Vehicle"]],
+    ["faces", ["Face"]],
+    ["sv_actors", ["Battler"]],
+  ] as const) {
+    await mkdir(join(workspaceRoot, "Game/img", folder), { recursive: true });
+    for (const name of names)
+      await writeFile(join(workspaceRoot, "Game/img", folder, `${name}.png`), "");
+  }
   const files: Record<string, unknown> = structuredClone(projectFiles);
   files["Actors.json"] = [
     null,

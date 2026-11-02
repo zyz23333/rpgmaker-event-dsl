@@ -1,6 +1,6 @@
 # 04: 事件页、图像指令与移动图像的检查
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 02
 Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)

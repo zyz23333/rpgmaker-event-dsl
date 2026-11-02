@@ -949,12 +949,17 @@ Move has no image field and requires duration 1..999 and explicit Boolean `wait`
 Rotate speed is integer −90..90, including zero to stop. Tint requires named RGB
 integers −255..255, gray 0..255, duration 1..999 and explicit Boolean `wait`.
 
-Compile and `compile --check` check current Show Picture files before publishing or
-returning. The saved name is used exactly as written, with `.png` appended under
-`img/pictures` in the bound Project Root. An existing suffix is retained, and every
-directory, filename and extension must have the exact case. Formal commands and
-recognized raw 231 records use the same rules in every current Map Event, Common
-Event and Troop Event, including nested branches and uncalled Common Events.
+Compile and `compile --check` check current event image files before publishing or
+returning. This includes page character images, Show Text faces, Show Picture,
+both Change Battleback layers, Change Parallax, Change Actor Images, Change Vehicle
+Image and Change Image in both movement route containers. Each saved name is used
+exactly as written, with `.png` appended in its native `img` folder in the bound
+Project Root. An existing suffix is retained, and every directory, filename and
+extension must have the exact case. Formal commands and recognized raw records use
+the same rules in every current Map Event, Common Event and Troop Event, including
+nested branches and uncalled Common Events. A 205 route and its 505 mirror are one
+logical use, with both native positions retained; independent commands remain
+independent uses.
 
 The check observes ordinary-file metadata only: empty files pass, and no image
 decoding or layout guarantee is made. None needs no file. Missing directories or
@@ -964,6 +969,16 @@ and every defining native position. It preserves saved names; Decompilation can
 still expose an unsupported name so it can be repaired. Check leaves generated
 data, the Snapshot and synchronization metadata unchanged. Asset observations are
 transient and do not enter Compile Baseline.
+
+Saved Autonomous Movement images remain checked when the movement type is fixed,
+random or approach. A tile page's saved character name also remains checked.
+Confirmed file problems in these explicitly inactive settings warn; unsupported
+names, links and encryption warn with unchecked coverage. Invalid necessary data
+and failed metadata queries remain errors. A shared filename keeps every origin
+and its own level, and its strongest level determines whether the command fails.
+Page conditions and branch reachability do not reduce ordinary image errors.
+None omits the file lookup while retaining independent image indices, and script
+strings do not create guessed image references or bypass the Script Command Gate.
 
 ## Enemies and battle control
 
