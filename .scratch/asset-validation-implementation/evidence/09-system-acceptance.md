@@ -8,11 +8,11 @@ Additional completed checks before peer integration: `pnpm typecheck`, `pnpm lin
 
 Independent test inputs specify exact names, namespaces, native positions, field chains, conditions, candidate/inactive reasons and severity. Check and failure assertions compare source, config, project/media tree, Snapshot, generated tree, Manifest and pending state. Successful Compile preserves the project and captured external data; explicit test repairs are accounted for before comparison.
 
-TDD red/green history: Game Over, title, battle-default, host-background and dynamic301 tracer cases each failed for the missing behavior before implementation. The first full source96 run passed94 and exposed2 fixture omissions masked by setup defaults; explicit undefined overrides now produce truly absent native fields. Supplemental tests preserve existing context warnings and count shared diagnostic headers independently from repeated path rendering.
+TDD red/green history: Game Over, title, battle-default, host-background and dynamic 301 tracer cases each failed for the missing behavior before implementation. The first full source 96 run passed 94 and exposed 2 fixture omissions masked by setup defaults; explicit undefined overrides now produce truly absent native fields. Supplemental tests preserve existing context warnings and count shared diagnostic headers independently from repeated path rendering.
 
 B14 target-missing applicability: its host Map must exist to retain a current Map Event root. The two provisional target-missing candidate IDs are not applicable; the real missing Map prerequisite is demonstrated by the supplemental host-map-required case. Field-missing/type/None/file variants remain fully covered. No nonexistent host fixture is counted as a missing asset or successful asset pass.
 
-Shared C05 callbacks are unique in asset-system-workspace.test.ts and remain available for11 to append independent Skill/weapon scenarios. Dynamic301 stops only the Troop/Enemy branch; known System and Map siblings still report independent errors/warnings.
+Shared C05 callbacks are unique in asset-system-workspace.test.ts and remain available for 11 to append independent Skill/weapon scenarios. Dynamic 301 stops only the Troop/Enemy branch; known System and Map siblings still report independent errors/warnings.
 
 Per-ID receipts (full inputs, independent assertion source, environment and actual results are in the adjacent JSON):
 
@@ -123,3 +123,5 @@ Per-ID receipts (full inputs, independent assertion source, environment and actu
 | `AV.C12.battle-test-background.formal.case.expected` | passed | passed |
 | `AV.C12.hardcoded-system.formal.case.expected` | passed | passed |
 | `AV.C12.terrain-background.formal.case.expected` | passed | passed |
+
+Post-integration verification: merged 08 integration `4cf156255d077f06614578dd7bf11b5e85cdfd54` in `5b315610`, retaining both collectors and all fixture/README/Windows-list changes. Compile Contract Version is `mv-1.6.1/32`. The four affected old suites (`battle-workspace`, `snapshot-context`, `system-access-window-scenes-workspace`, `troop-workflow`) passed 61/61 source (125.74 seconds) and 61/61 built (91.49 seconds). C05/B13/B14 passed 27/27 source and 27/27 built after integration. Those 54 refreshed receipts replace their prior receipts in the adjacent JSON; the full 105/105 runs per entry remain the initial complete acceptance and no filtered-out case is counted as a repeated pass.

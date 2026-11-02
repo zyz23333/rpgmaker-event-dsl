@@ -1,6 +1,6 @@
 # 09: 结束、标题与战斗默认素材的检查
 
-Status: claimed
+Status: resolved
 Blocked by: 06
 Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -10,18 +10,18 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Acceptance criteria
 
-- [ ] B11–B14 完整覆盖：Game Over ME；标题两图与 BGM；战斗 BGM／胜败 ME 默认候选和 sounds 槽 7；Map Event 宿主地图两层战斗背景候选。
-- [ ] 保留胜败、地图启动、specifyBattleback 及运行时覆盖条件；动态敌群只停止该分支，已知系统关系继续。
-- [ ] 不加入硬编码 GameOver／标题 UI、地形推导、Battle Test 背景；Common／Troop Event 不推断调用地图。字段错误和共享 System 失败保留全部来源。
+- [x] B11–B14 完整覆盖：Game Over ME；标题两图与 BGM；战斗 BGM／胜败 ME 默认候选和 sounds 槽 7；Map Event 宿主地图两层战斗背景候选。
+- [x] 保留胜败、地图启动、specifyBattleback 及运行时覆盖条件；动态敌群只停止该分支，已知系统关系继续。
+- [x] 不加入硬编码 GameOver／标题 UI、地形推导、Battle Test 背景；Common／Troop Event 不推断调用地图。字段错误和共享 System 失败保留全部来源。
 
 ### 共通要求（限本票适用范围）
 
-- [ ] 完成本票验收族中分配给本票的全部有限子用例；共享族按下表分支签收，不减少字段、表示、时机或结果，不把其他票负责的分支误记为通过。
-- [ ] 正式表达与已识别 raw 各自对照独立预期；按适用范围核对完整 Event Asset Use、Asset Dependency Chain、条件、None、必要字段问题及文件事实。预期不得调用被测收集器、匹配器或政策函数生成。
-- [ ] 在 Windows / Node.js 22 的真实临时 Workspace 中，按原索引指定的 API／实际 CLI 入口和边界验证结果及允许的状态变化。纯语义测试只作补充，故障注入位于测试子进程操作系统边界。
-- [ ] 保留现有公共 Workspace API 和 CLI；不新增产品测试开关、JSON CLI、全局跳过或通配符例外。素材不进入持久编译基线、快照、备份、复制或写入范围。
-- [ ] 补齐本票影响的既有成功 fixture 所需真实文件与必要标准字段，保留旧断言与未知字段。同步适用使用说明、样例及构建后 CLI 用例清单；行为变更协调 Compile Contract Version。
-- [ ] 记录完整子用例 ID、契约出处、输入、预期、实际、环境、执行方式及证据；未执行、能力受限和失败分别记录，不能以 skip 计为通过。反例按规格回到责任行为或决定处理。
+- [x] 完成本票验收族中分配给本票的全部有限子用例；共享族按下表分支签收，不减少字段、表示、时机或结果，不把其他票负责的分支误记为通过。
+- [x] 正式表达与已识别 raw 各自对照独立预期；按适用范围核对完整 Event Asset Use、Asset Dependency Chain、条件、None、必要字段问题及文件事实。预期不得调用被测收集器、匹配器或政策函数生成。
+- [x] 在 Windows / Node.js 22 的真实临时 Workspace 中，按原索引指定的 API／实际 CLI 入口和边界验证结果及允许的状态变化。纯语义测试只作补充，故障注入位于测试子进程操作系统边界。
+- [x] 保留现有公共 Workspace API 和 CLI；不新增产品测试开关、JSON CLI、全局跳过或通配符例外。素材不进入持久编译基线、快照、备份、复制或写入范围。
+- [x] 补齐本票影响的既有成功 fixture 所需真实文件与必要标准字段，保留旧断言与未知字段。同步适用使用说明、样例及构建后 CLI 用例清单；行为变更协调 Compile Contract Version。
+- [x] 记录完整子用例 ID、契约出处、输入、预期、实际、环境、执行方式及证据；未执行、能力受限和失败分别记录，不能以 skip 计为通过。反例按规格回到责任行为或决定处理。
 
 ## Acceptance ownership
 
@@ -62,3 +62,13 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 ## Comments
 
 - 2026-10-24：用户回复“确认”，本票按已确认的 17 票拆分发布为 ready-for-agent。产品实现、自动化与原生验收均尚未由本次发布执行。
+
+## Outcome — 2026-11-02
+
+Implemented B11–B14 in the independent `asset-system-relations.ts` collector. Current candidate events are the only roots; selected System and host Map fields use the captured external data reader. Default audio/background candidates, victory/defeat/map-launch conditions, disabled background reasons, complete origins and field chains remain explicit. Dynamic 301 Troop targets retain an unchecked stop while known siblings continue. Common/Troop roots do not infer a caller Map; hardcoded UI/GameOver, terrain and Battle Test fields remain excluded. External data and media stay read-only.
+
+The 96 assigned normative IDs plus 9 supplemental boundaries passed through real Windows / Node.js 22.23.4 Workspace API and actual source/built CLI paths:105/105 source and 105/105 built. Shared C05 callbacks remain unique for 11 to append Skill/weapon scenarios. Two provisional B14 target-missing candidate IDs are not applicable because preserving a current Map Event requires its host Map carrier; the real missing-map reference prerequisite is separately demonstrated, without claiming an unreached asset pass.
+
+Merged latest integration `4cf156255d077f06614578dd7bf11b5e85cdfd54` (08), preserved both collectors and shared fixture changes, and reconciled Compile Contract Version to 32. Post-merge affected old regressions passed 61/61 source and 61/61 built; selected C05/B13/B14 cases passed 27/27 source and 27/27 built. Typecheck, lint, formatting and build passed. Native acceptance and the overall spec gate remain outside this ticket’s completion claim.
+
+Evidence: [per-ID summary](../evidence/09-system-acceptance.md) and [full210 receipts plus verification](../evidence/09-system-acceptance.json). The evidence preserves tracer red/green outcomes and the initial fixture/expectation corrections.

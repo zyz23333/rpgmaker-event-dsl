@@ -4,6 +4,7 @@
   "revision": "ab7150c1a0c74b8744a3fe4c3f24cadd33e75764",
   "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
   "implementationBase": "898b87db05b47dda648bfa42e2f2ace0a26d3e67",
+  "preIntegrationReceiptArchive": "Commit 0edc5dd6 preserves the original complete210 source/built receipts before the54 selected interaction receipts were refreshed after integration.",
   "scope": "B11–B14; assigned C05/C06/C07/C08/C12 branches;9 supplemental boundary regressions.",
   "publicSeams": "Real Workspace API Compile/Check and actual source/built CLI subprocesses; independent literal collector assertions supplement public results.",
   "environment": {
@@ -20,11 +21,29 @@
     "passingReceipts": 210
   },
   "additionalVerification": [
-    { "command": "pnpm typecheck", "status": "passed" },
-    { "command": "pnpm lint", "status": "passed" },
-    { "command": "pnpm format:check", "status": "passed" },
-    { "command": "pnpm build", "status": "passed" },
-    { "command": "source vitest battle-workspace system-access-window-scenes-workspace troop-workflow --maxWorkers=1", "status": "passed", "suites": 3, "tests": 56, "durationSeconds": 128.78 }
+    {
+      "command": "pnpm typecheck",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm lint",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm format:check",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm build",
+      "status": "passed"
+    },
+    {
+      "command": "source vitest battle-workspace system-access-window-scenes-workspace troop-workflow --maxWorkers=1",
+      "status": "passed",
+      "suites": 3,
+      "tests": 56,
+      "durationSeconds": 128.78
+    }
   ],
   "boundaries": "Check and failing Compile preserve source/config/project/Snapshot/generated/Manifest/pending; successful Compile changes only output and bookkeeping. Captured external fields and asset bytes stay unchanged except explicit test-owned repair.",
   "developmentHistory": [
@@ -5860,8 +5879,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:54:42.583Z",
-      "completedAt": "2026-11-02T03:54:44.366Z",
+      "startedAt": "2026-11-02T04:20:56.318Z",
+      "completedAt": "2026-11-02T04:20:57.954Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -6018,22 +6037,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-LoTgGH\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-2EJCrL\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-LoTgGH\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-2EJCrL\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-LoTgGH\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-2EJCrL\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-LoTgGH\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-2EJCrL\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-LoTgGH\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-2EJCrL\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-LoTgGH\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-2EJCrL\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         }
       ],
       "expected": {
@@ -6050,8 +6069,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:51:59.104Z",
-      "completedAt": "2026-11-02T03:52:01.711Z",
+      "startedAt": "2026-11-02T04:20:11.338Z",
+      "completedAt": "2026-11-02T04:20:13.750Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -6208,22 +6227,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-94uJrM\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-znciZL\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-94uJrM\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-znciZL\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-94uJrM\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-znciZL\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-94uJrM\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-znciZL\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-94uJrM\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-znciZL\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-94uJrM\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-battle-system-tracer-znciZL\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         }
       ],
       "expected": {
@@ -6240,8 +6259,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:25.613Z",
-      "completedAt": "2026-11-02T03:52:27.188Z",
+      "startedAt": "2026-11-02T04:20:20.453Z",
+      "completedAt": "2026-11-02T04:20:21.712Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -6398,22 +6417,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-poZdkm\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-mzVvwc\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-poZdkm\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-mzVvwc\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-poZdkm\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-mzVvwc\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-poZdkm\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-mzVvwc\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-poZdkm\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-mzVvwc\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-poZdkm\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-mzVvwc\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -6430,8 +6449,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:48:47.393Z",
-      "completedAt": "2026-11-02T03:48:49.560Z",
+      "startedAt": "2026-11-02T04:19:13.811Z",
+      "completedAt": "2026-11-02T04:19:15.685Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -6588,22 +6607,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-Nl9MN0\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-gbzbyX\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-Nl9MN0\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-gbzbyX\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-Nl9MN0\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-gbzbyX\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-Nl9MN0\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-gbzbyX\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-Nl9MN0\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-gbzbyX\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-Nl9MN0\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-gbzbyX\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -6620,8 +6639,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:38.048Z",
-      "completedAt": "2026-11-02T03:52:39.597Z",
+      "startedAt": "2026-11-02T04:20:30.494Z",
+      "completedAt": "2026-11-02T04:20:31.659Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -6778,22 +6797,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-M9ZXpi\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-GABRNw\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-M9ZXpi\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-GABRNw\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-M9ZXpi\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-GABRNw\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-M9ZXpi\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-GABRNw\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-M9ZXpi\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-GABRNw\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-M9ZXpi\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-GABRNw\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -6810,8 +6829,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:49:05.686Z",
-      "completedAt": "2026-11-02T03:49:08.114Z",
+      "startedAt": "2026-11-02T04:19:32.410Z",
+      "completedAt": "2026-11-02T04:19:34.999Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -6968,22 +6987,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-hbsL6E\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-XwTmG0\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-hbsL6E\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-XwTmG0\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-hbsL6E\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-XwTmG0\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-hbsL6E\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-XwTmG0\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-hbsL6E\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-XwTmG0\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-hbsL6E\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-XwTmG0\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -7000,8 +7019,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:36.528Z",
-      "completedAt": "2026-11-02T03:52:38.047Z",
+      "startedAt": "2026-11-02T04:20:29.283Z",
+      "completedAt": "2026-11-02T04:20:30.494Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -7158,22 +7177,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-GUTBmx\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-HbGKLf\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-GUTBmx\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-HbGKLf\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-GUTBmx\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-HbGKLf\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-GUTBmx\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-HbGKLf\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-GUTBmx\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-HbGKLf\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-GUTBmx\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-HbGKLf\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -7190,8 +7209,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:49:03.262Z",
-      "completedAt": "2026-11-02T03:49:05.685Z",
+      "startedAt": "2026-11-02T04:19:29.637Z",
+      "completedAt": "2026-11-02T04:19:32.408Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -7348,22 +7367,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-fUTvS9\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-9soi7C\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-fUTvS9\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-9soi7C\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-fUTvS9\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-9soi7C\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-fUTvS9\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-9soi7C\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-fUTvS9\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-9soi7C\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-fUTvS9\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-9soi7C\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -7380,8 +7399,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:44.391Z",
-      "completedAt": "2026-11-02T03:52:46.221Z",
+      "startedAt": "2026-11-02T04:20:35.762Z",
+      "completedAt": "2026-11-02T04:20:37.705Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -7538,25 +7557,25 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-032nso\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-qc6pqi\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-032nso\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-qc6pqi\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-032nso\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-qc6pqi\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-032nso\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-qc6pqi\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-032nso\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-qc6pqi\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-032nso\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-qc6pqi\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-032nso\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-qc6pqi\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -7573,8 +7592,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:49:15.301Z",
-      "completedAt": "2026-11-02T03:49:18.038Z",
+      "startedAt": "2026-11-02T04:19:42.390Z",
+      "completedAt": "2026-11-02T04:19:45.104Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -7731,25 +7750,25 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-HqM9ai\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-O0D3xY\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-HqM9ai\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-O0D3xY\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-HqM9ai\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-O0D3xY\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-HqM9ai\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-O0D3xY\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-HqM9ai\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-O0D3xY\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-HqM9ai\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-O0D3xY\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-HqM9ai\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-O0D3xY\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -7766,8 +7785,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:42.811Z",
-      "completedAt": "2026-11-02T03:52:44.390Z",
+      "startedAt": "2026-11-02T04:20:34.216Z",
+      "completedAt": "2026-11-02T04:20:35.761Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -7924,22 +7943,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-05O94x\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-hwtjBw\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-05O94x\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-hwtjBw\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-05O94x\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-hwtjBw\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-05O94x\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-hwtjBw\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-05O94x\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-hwtjBw\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-05O94x\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-hwtjBw\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -7956,8 +7975,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:49:12.909Z",
-      "completedAt": "2026-11-02T03:49:15.300Z",
+      "startedAt": "2026-11-02T04:19:40.046Z",
+      "completedAt": "2026-11-02T04:19:42.389Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -8114,22 +8133,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-G1j9gf\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-YvSjiY\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-G1j9gf\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-YvSjiY\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-G1j9gf\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-YvSjiY\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-G1j9gf\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-YvSjiY\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-G1j9gf\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-YvSjiY\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-G1j9gf\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-YvSjiY\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -8146,8 +8165,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:31.857Z",
-      "completedAt": "2026-11-02T03:52:33.425Z",
+      "startedAt": "2026-11-02T04:20:25.484Z",
+      "completedAt": "2026-11-02T04:20:26.903Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -8304,22 +8323,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-Jjbq3c\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-kId6pN\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-Jjbq3c\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-kId6pN\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-Jjbq3c\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-kId6pN\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-Jjbq3c\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-kId6pN\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-Jjbq3c\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-kId6pN\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-Jjbq3c\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-kId6pN\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -8336,8 +8355,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:48:56.072Z",
-      "completedAt": "2026-11-02T03:48:58.320Z",
+      "startedAt": "2026-11-02T04:19:22.387Z",
+      "completedAt": "2026-11-02T04:19:24.679Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -8494,22 +8513,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-MgSYLA\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-dpceMJ\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-MgSYLA\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-dpceMJ\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-MgSYLA\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-dpceMJ\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-MgSYLA\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-dpceMJ\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-MgSYLA\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-dpceMJ\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-MgSYLA\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-dpceMJ\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -8526,8 +8545,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:30.302Z",
-      "completedAt": "2026-11-02T03:52:31.856Z",
+      "startedAt": "2026-11-02T04:20:24.077Z",
+      "completedAt": "2026-11-02T04:20:25.482Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -8684,22 +8703,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-xPh5iS\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-gCi7xY\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-xPh5iS\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-gCi7xY\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-xPh5iS\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-gCi7xY\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-xPh5iS\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-gCi7xY\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-xPh5iS\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-gCi7xY\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-xPh5iS\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-gCi7xY\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -8716,8 +8735,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:48:53.873Z",
-      "completedAt": "2026-11-02T03:48:56.071Z",
+      "startedAt": "2026-11-02T04:19:20.168Z",
+      "completedAt": "2026-11-02T04:19:22.386Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -8874,22 +8893,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-MqF3kh\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-JhU6p0\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-MqF3kh\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-JhU6p0\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-MqF3kh\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-JhU6p0\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-MqF3kh\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-JhU6p0\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-MqF3kh\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-JhU6p0\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-MqF3kh\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-JhU6p0\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -8906,8 +8925,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:28.716Z",
-      "completedAt": "2026-11-02T03:52:30.301Z",
+      "startedAt": "2026-11-02T04:20:22.890Z",
+      "completedAt": "2026-11-02T04:20:24.076Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -9064,22 +9083,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-eZelYI\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-pg9Iw7\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-eZelYI\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-pg9Iw7\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-eZelYI\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-pg9Iw7\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-eZelYI\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-pg9Iw7\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-eZelYI\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-pg9Iw7\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-eZelYI\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-pg9Iw7\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -9096,8 +9115,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:48:51.705Z",
-      "completedAt": "2026-11-02T03:48:53.872Z",
+      "startedAt": "2026-11-02T04:19:17.888Z",
+      "completedAt": "2026-11-02T04:19:20.167Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -9254,22 +9273,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-QfXoBx\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-qsc3xc\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-QfXoBx\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-qsc3xc\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-QfXoBx\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-qsc3xc\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-QfXoBx\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-qsc3xc\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-QfXoBx\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-qsc3xc\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-QfXoBx\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-missing-qsc3xc\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -9286,8 +9305,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:27.189Z",
-      "completedAt": "2026-11-02T03:52:28.715Z",
+      "startedAt": "2026-11-02T04:20:21.713Z",
+      "completedAt": "2026-11-02T04:20:22.889Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -9444,22 +9463,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-gf0saT\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-3My2oz\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-gf0saT\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-3My2oz\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-gf0saT\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-3My2oz\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-gf0saT\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-3My2oz\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-gf0saT\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-3My2oz\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-gf0saT\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-3My2oz\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -9476,8 +9495,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:48:49.560Z",
-      "completedAt": "2026-11-02T03:48:51.704Z",
+      "startedAt": "2026-11-02T04:19:15.686Z",
+      "completedAt": "2026-11-02T04:19:17.886Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -9634,22 +9653,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-g7eZ3L\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-j9RFuP\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-g7eZ3L\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-j9RFuP\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-g7eZ3L\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-j9RFuP\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-g7eZ3L\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-j9RFuP\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-g7eZ3L\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-j9RFuP\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-g7eZ3L\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-battle-bgm-present-j9RFuP\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -9666,8 +9685,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:41.167Z",
-      "completedAt": "2026-11-02T03:52:42.810Z",
+      "startedAt": "2026-11-02T04:20:32.845Z",
+      "completedAt": "2026-11-02T04:20:34.215Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -9824,22 +9843,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-E1Z3Pc\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-KjA9xd\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-E1Z3Pc\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-KjA9xd\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-E1Z3Pc\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-KjA9xd\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-E1Z3Pc\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-KjA9xd\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-E1Z3Pc\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-KjA9xd\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-E1Z3Pc\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-KjA9xd\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -9856,8 +9875,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:49:10.505Z",
-      "completedAt": "2026-11-02T03:49:12.908Z",
+      "startedAt": "2026-11-02T04:19:37.590Z",
+      "completedAt": "2026-11-02T04:19:40.044Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -10014,22 +10033,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-oYIVHW\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-BLxfC3\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-oYIVHW\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-BLxfC3\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-oYIVHW\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-BLxfC3\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-oYIVHW\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-BLxfC3\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-oYIVHW\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-BLxfC3\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-oYIVHW\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-missing-BLxfC3\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -10046,8 +10065,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:39.598Z",
-      "completedAt": "2026-11-02T03:52:41.166Z",
+      "startedAt": "2026-11-02T04:20:31.659Z",
+      "completedAt": "2026-11-02T04:20:32.844Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -10204,22 +10223,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-UbVC8S\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-3j5Bbi\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-UbVC8S\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-3j5Bbi\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-UbVC8S\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-3j5Bbi\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-UbVC8S\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-3j5Bbi\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-UbVC8S\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-3j5Bbi\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-UbVC8S\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-3j5Bbi\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -10236,8 +10255,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:49:08.116Z",
-      "completedAt": "2026-11-02T03:49:10.504Z",
+      "startedAt": "2026-11-02T04:19:35.000Z",
+      "completedAt": "2026-11-02T04:19:37.589Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -10394,22 +10413,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-eteqrw\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-so5UUK\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-eteqrw\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-so5UUK\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-eteqrw\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-so5UUK\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-eteqrw\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-so5UUK\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-eteqrw\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-so5UUK\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-eteqrw\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-defeat-me-present-so5UUK\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -10426,8 +10445,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:47.757Z",
-      "completedAt": "2026-11-02T03:52:49.575Z",
+      "startedAt": "2026-11-02T04:20:39.379Z",
+      "completedAt": "2026-11-02T04:20:41.463Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -10584,25 +10603,25 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-DFwAvQ\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-iVURoG\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-DFwAvQ\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-iVURoG\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-DFwAvQ\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-iVURoG\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-DFwAvQ\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-iVURoG\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-DFwAvQ\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-iVURoG\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-DFwAvQ\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-iVURoG\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-DFwAvQ\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-iVURoG\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -10619,8 +10638,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:49:20.437Z",
-      "completedAt": "2026-11-02T03:49:23.121Z",
+      "startedAt": "2026-11-02T04:19:47.405Z",
+      "completedAt": "2026-11-02T04:19:49.991Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -10777,25 +10796,25 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-z9sRRH\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-SBHyFo\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-z9sRRH\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-SBHyFo\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-z9sRRH\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-SBHyFo\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-z9sRRH\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-SBHyFo\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-z9sRRH\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-SBHyFo\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-z9sRRH\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-SBHyFo\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-z9sRRH\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-missing-SBHyFo\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -10812,8 +10831,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:46.222Z",
-      "completedAt": "2026-11-02T03:52:47.757Z",
+      "startedAt": "2026-11-02T04:20:37.706Z",
+      "completedAt": "2026-11-02T04:20:39.378Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -10970,22 +10989,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-D0OOJW\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-xYW2WF\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-D0OOJW\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-xYW2WF\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-D0OOJW\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-xYW2WF\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-D0OOJW\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-xYW2WF\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-D0OOJW\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-xYW2WF\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-D0OOJW\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-xYW2WF\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -11002,8 +11021,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:49:18.039Z",
-      "completedAt": "2026-11-02T03:49:20.436Z",
+      "startedAt": "2026-11-02T04:19:45.105Z",
+      "completedAt": "2026-11-02T04:19:47.404Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -11160,22 +11179,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-xmH0dM\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-hIzBOL\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-xmH0dM\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-hIzBOL\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-xmH0dM\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-hIzBOL\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-xmH0dM\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-hIzBOL\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-xmH0dM\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-hIzBOL\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-xmH0dM\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-start-se-present-hIzBOL\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -11192,8 +11211,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:34.966Z",
-      "completedAt": "2026-11-02T03:52:36.527Z",
+      "startedAt": "2026-11-02T04:20:28.112Z",
+      "completedAt": "2026-11-02T04:20:29.282Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -11350,22 +11369,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-X8dXTD\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-YUBGx1\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-X8dXTD\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-YUBGx1\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-X8dXTD\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-YUBGx1\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-X8dXTD\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-YUBGx1\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-X8dXTD\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-YUBGx1\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-X8dXTD\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-YUBGx1\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -11382,8 +11401,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:49:00.767Z",
-      "completedAt": "2026-11-02T03:49:03.261Z",
+      "startedAt": "2026-11-02T04:19:26.927Z",
+      "completedAt": "2026-11-02T04:19:29.635Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -11540,22 +11559,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-B2m72I\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-GJmzLA\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-B2m72I\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-GJmzLA\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-B2m72I\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-GJmzLA\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-B2m72I\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-GJmzLA\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-B2m72I\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-GJmzLA\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-B2m72I\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-missing-GJmzLA\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -11572,8 +11591,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:33.426Z",
-      "completedAt": "2026-11-02T03:52:34.965Z",
+      "startedAt": "2026-11-02T04:20:26.904Z",
+      "completedAt": "2026-11-02T04:20:28.111Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -11730,22 +11749,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-U4X3fN\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-NdYfYJ\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-U4X3fN\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-NdYfYJ\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-U4X3fN\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-NdYfYJ\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-U4X3fN\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-NdYfYJ\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-U4X3fN\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-NdYfYJ\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-U4X3fN\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-NdYfYJ\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -11762,8 +11781,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:48:58.321Z",
-      "completedAt": "2026-11-02T03:49:00.766Z",
+      "startedAt": "2026-11-02T04:19:24.680Z",
+      "completedAt": "2026-11-02T04:19:26.925Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -11920,22 +11939,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-QyBmme\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-MYpahK\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-QyBmme\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-MYpahK\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-QyBmme\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-MYpahK\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-QyBmme\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-MYpahK\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-QyBmme\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-MYpahK\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-QyBmme\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B13-victory-me-present-MYpahK\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -11952,8 +11971,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:54:44.367Z",
-      "completedAt": "2026-11-02T03:54:46.090Z",
+      "startedAt": "2026-11-02T04:20:57.955Z",
+      "completedAt": "2026-11-02T04:20:59.692Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -12110,22 +12129,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-czDaOK\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-IgFodn\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-czDaOK\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-IgFodn\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-czDaOK\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-IgFodn\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-czDaOK\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-IgFodn\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-czDaOK\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-IgFodn\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-czDaOK\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-IgFodn\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         }
       ],
       "expected": {
@@ -12142,8 +12161,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:01.712Z",
-      "completedAt": "2026-11-02T03:52:04.458Z",
+      "startedAt": "2026-11-02T04:20:13.751Z",
+      "completedAt": "2026-11-02T04:20:16.137Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -12300,22 +12319,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-ZwOUvw\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-IBDmgo\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-ZwOUvw\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-IBDmgo\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-ZwOUvw\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-IBDmgo\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-ZwOUvw\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-IBDmgo\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-ZwOUvw\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-IBDmgo\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-ZwOUvw\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-background-tracer-IBDmgo\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         }
       ],
       "expected": {
@@ -12332,8 +12351,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:49.577Z",
-      "completedAt": "2026-11-02T03:52:51.070Z",
+      "startedAt": "2026-11-02T04:20:41.464Z",
+      "completedAt": "2026-11-02T04:20:43.105Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -12490,22 +12509,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-d4utlM\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-XM8qfE\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-d4utlM\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-XM8qfE\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-d4utlM\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-XM8qfE\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-d4utlM\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-XM8qfE\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-d4utlM\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-XM8qfE\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-d4utlM\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-XM8qfE\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -12522,8 +12541,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:49:23.122Z",
-      "completedAt": "2026-11-02T03:49:25.407Z",
+      "startedAt": "2026-11-02T04:19:49.992Z",
+      "completedAt": "2026-11-02T04:19:52.221Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -12680,22 +12699,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-FfRnfw\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-ucTSbH\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-FfRnfw\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-ucTSbH\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-FfRnfw\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-ucTSbH\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-FfRnfw\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-ucTSbH\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-FfRnfw\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-ucTSbH\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-FfRnfw\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-ucTSbH\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -12712,8 +12731,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:55.725Z",
-      "completedAt": "2026-11-02T03:52:57.311Z",
+      "startedAt": "2026-11-02T04:20:47.937Z",
+      "completedAt": "2026-11-02T04:20:49.550Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -12870,22 +12889,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-ntsJoG\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-uHMUE4\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-ntsJoG\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-uHMUE4\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-ntsJoG\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-uHMUE4\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-ntsJoG\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-uHMUE4\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-ntsJoG\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-uHMUE4\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-ntsJoG\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-uHMUE4\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -12902,8 +12921,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:49:32.245Z",
-      "completedAt": "2026-11-02T03:49:34.536Z",
+      "startedAt": "2026-11-02T04:19:59.498Z",
+      "completedAt": "2026-11-02T04:20:01.842Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -13060,22 +13079,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-2hlKHF\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-NSGBKR\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-2hlKHF\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-NSGBKR\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-2hlKHF\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-NSGBKR\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-2hlKHF\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-NSGBKR\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-2hlKHF\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-NSGBKR\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-2hlKHF\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-NSGBKR\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -13092,8 +13111,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:54.166Z",
-      "completedAt": "2026-11-02T03:52:55.724Z",
+      "startedAt": "2026-11-02T04:20:46.323Z",
+      "completedAt": "2026-11-02T04:20:47.936Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -13250,22 +13269,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-SScHpF\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-dUI83Y\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-SScHpF\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-dUI83Y\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-SScHpF\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-dUI83Y\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-SScHpF\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-dUI83Y\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-SScHpF\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-dUI83Y\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-SScHpF\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-dUI83Y\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -13282,8 +13301,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:49:29.965Z",
-      "completedAt": "2026-11-02T03:49:32.244Z",
+      "startedAt": "2026-11-02T04:19:56.970Z",
+      "completedAt": "2026-11-02T04:19:59.497Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -13440,22 +13459,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-9Xwgs5\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-5Zsn1W\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-9Xwgs5\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-5Zsn1W\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-9Xwgs5\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-5Zsn1W\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-9Xwgs5\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-5Zsn1W\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-9Xwgs5\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-5Zsn1W\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-9Xwgs5\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-5Zsn1W\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -13472,8 +13491,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:52.620Z",
-      "completedAt": "2026-11-02T03:52:54.165Z",
+      "startedAt": "2026-11-02T04:20:44.720Z",
+      "completedAt": "2026-11-02T04:20:46.322Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -13630,22 +13649,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-ecD14G\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-utDYdv\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-ecD14G\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-utDYdv\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-ecD14G\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-utDYdv\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-ecD14G\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-utDYdv\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-ecD14G\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-utDYdv\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-ecD14G\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-utDYdv\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -13662,8 +13681,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:49:27.689Z",
-      "completedAt": "2026-11-02T03:49:29.965Z",
+      "startedAt": "2026-11-02T04:19:54.492Z",
+      "completedAt": "2026-11-02T04:19:56.969Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -13820,22 +13839,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-ghwVOG\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-ICJAht\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-ghwVOG\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-ICJAht\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-ghwVOG\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-ICJAht\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-ghwVOG\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-ICJAht\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-ghwVOG\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-ICJAht\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-ghwVOG\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-missing-ICJAht\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -13852,8 +13871,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:51.071Z",
-      "completedAt": "2026-11-02T03:52:52.620Z",
+      "startedAt": "2026-11-02T04:20:43.106Z",
+      "completedAt": "2026-11-02T04:20:44.719Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -14010,22 +14029,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-SOPrVU\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-MoA2rS\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-SOPrVU\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-MoA2rS\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-SOPrVU\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-MoA2rS\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-SOPrVU\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-MoA2rS\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-SOPrVU\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-MoA2rS\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-SOPrVU\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-MoA2rS\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -14042,8 +14061,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:49:25.408Z",
-      "completedAt": "2026-11-02T03:49:27.689Z",
+      "startedAt": "2026-11-02T04:19:52.222Z",
+      "completedAt": "2026-11-02T04:19:54.491Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -14200,22 +14219,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-Kp7tye\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-ZTfFMp\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-Kp7tye\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-ZTfFMp\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-Kp7tye\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-ZTfFMp\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-Kp7tye\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-ZTfFMp\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-Kp7tye\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-ZTfFMp\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-Kp7tye\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback1-present-ZTfFMp\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -14232,8 +14251,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:58.880Z",
-      "completedAt": "2026-11-02T03:53:00.458Z",
+      "startedAt": "2026-11-02T04:20:51.193Z",
+      "completedAt": "2026-11-02T04:20:52.852Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -14390,22 +14409,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-zjpMeI\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-Myis5c\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-zjpMeI\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-Myis5c\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-zjpMeI\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-Myis5c\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-zjpMeI\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-Myis5c\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-zjpMeI\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-Myis5c\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-zjpMeI\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-Myis5c\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -14422,8 +14441,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:49:36.740Z",
-      "completedAt": "2026-11-02T03:49:39.225Z",
+      "startedAt": "2026-11-02T04:20:04.103Z",
+      "completedAt": "2026-11-02T04:20:06.341Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -14580,22 +14599,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-NOTnIF\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-eHsUAr\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-NOTnIF\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-eHsUAr\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-NOTnIF\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-eHsUAr\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-NOTnIF\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-eHsUAr\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-NOTnIF\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-eHsUAr\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-NOTnIF\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-missing-eHsUAr\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -14612,8 +14631,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:52:57.312Z",
-      "completedAt": "2026-11-02T03:52:58.879Z",
+      "startedAt": "2026-11-02T04:20:49.551Z",
+      "completedAt": "2026-11-02T04:20:51.192Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -14770,22 +14789,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-UkgKng\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-GqDC7W\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-UkgKng\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-GqDC7W\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-UkgKng\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-GqDC7W\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-UkgKng\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-GqDC7W\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-UkgKng\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-GqDC7W\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-UkgKng\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-GqDC7W\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -14802,8 +14821,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:49:34.537Z",
-      "completedAt": "2026-11-02T03:49:36.739Z",
+      "startedAt": "2026-11-02T04:20:01.843Z",
+      "completedAt": "2026-11-02T04:20:04.102Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -14960,22 +14979,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-PDWsI8\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-j6wFQY\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-PDWsI8\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-j6wFQY\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-PDWsI8\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-j6wFQY\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-PDWsI8\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-j6wFQY\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-PDWsI8\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-j6wFQY\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-PDWsI8\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-B14-battleback2-present-j6wFQY\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -14992,8 +15011,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:54:27.605Z",
-      "completedAt": "2026-11-02T03:54:29.205Z",
+      "startedAt": "2026-11-02T04:20:54.754Z",
+      "completedAt": "2026-11-02T04:20:56.317Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -15150,16 +15169,16 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-nonmap-Pz3D34\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-nonmap-Gm4uIr\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-nonmap-Pz3D34\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-nonmap-Gm4uIr\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-nonmap-Pz3D34\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-nonmap-Gm4uIr\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-nonmap-Pz3D34\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-nonmap-Gm4uIr\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -15176,8 +15195,8 @@
       "ownerTicket": "09",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:51:37.499Z",
-      "completedAt": "2026-11-02T03:51:39.684Z",
+      "startedAt": "2026-11-02T04:20:08.920Z",
+      "completedAt": "2026-11-02T04:20:11.337Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -15334,16 +15353,16 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-nonmap-4EXSit\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-nonmap-f5mi5n\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-nonmap-4EXSit\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-nonmap-f5mi5n\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-nonmap-4EXSit\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-nonmap-f5mi5n\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-nonmap-4EXSit\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-nonmap-f5mi5n\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -15360,8 +15379,8 @@
       "ownerTicket": "09,11",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:51:56.559Z",
-      "completedAt": "2026-11-02T03:51:59.198Z",
+      "startedAt": "2026-11-02T04:20:17.965Z",
+      "completedAt": "2026-11-02T04:20:20.452Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -15519,22 +15538,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-jg701s\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-AOH8v7\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-jg701s\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-AOH8v7\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-jg701s\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-AOH8v7\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-jg701s\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-AOH8v7\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-jg701s\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-AOH8v7\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-jg701s\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-AOH8v7\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         },
         {
           "source": "import {mapEvent,commonEvent,troopEvent,gameOver,returnToTitleScreen,battleProcessing,troopRef,variableRef,rawDslCommand} from \"rpgmaker-event-dsl\";export const event=mapEvent({mapId:1,id:1,name:\"System\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[battleProcessing({troop:{kind:\"randomEncounter\"},canEscape:true,canLose:true,win:{commands:[]},escape:{commands:[]},lose:{commands:[]}})]}]});",
@@ -15685,22 +15704,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-zBj3UO\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-YpZZaL\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-zBj3UO\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-YpZZaL\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-zBj3UO\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-YpZZaL\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-zBj3UO\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-YpZZaL\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-zBj3UO\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-YpZZaL\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-zBj3UO\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-YpZZaL\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -15717,8 +15736,8 @@
       "ownerTicket": "09,11",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:48:10.255Z",
-      "completedAt": "2026-11-02T03:48:13.629Z",
+      "startedAt": "2026-11-02T04:19:10.107Z",
+      "completedAt": "2026-11-02T04:19:13.810Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -15876,22 +15895,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-0RQX1p\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-HRkkOI\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-0RQX1p\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-HRkkOI\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-0RQX1p\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-HRkkOI\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-0RQX1p\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-HRkkOI\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-0RQX1p\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-HRkkOI\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-0RQX1p\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-HRkkOI\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         },
         {
           "source": "import {mapEvent,commonEvent,troopEvent,gameOver,returnToTitleScreen,battleProcessing,troopRef,variableRef,rawDslCommand} from \"rpgmaker-event-dsl\";export const event=mapEvent({mapId:1,id:1,name:\"System\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[battleProcessing({troop:{kind:\"randomEncounter\"},canEscape:true,canLose:true,win:{commands:[]},escape:{commands:[]},lose:{commands:[]}})]}]});",
@@ -16042,22 +16061,22 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-MuB3j5\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-PPe9af\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-MuB3j5\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-PPe9af\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-MuB3j5\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-PPe9af\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-MuB3j5\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-PPe9af\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-MuB3j5\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-PPe9af\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-MuB3j5\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-PPe9af\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         }
       ],
       "expected": {
@@ -16074,8 +16093,8 @@
       "ownerTicket": "09,11",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:54:18.801Z",
-      "completedAt": "2026-11-02T03:54:20.721Z",
+      "startedAt": "2026-11-02T04:20:52.853Z",
+      "completedAt": "2026-11-02T04:20:54.752Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -16232,28 +16251,28 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-HaPs4a\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-fjpj3n\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-HaPs4a\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-fjpj3n\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-HaPs4a\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-fjpj3n\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-HaPs4a\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-fjpj3n\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-HaPs4a\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-fjpj3n\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-HaPs4a\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-fjpj3n\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-HaPs4a\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-fjpj3n\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-HaPs4a\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-fjpj3n\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         }
       ],
       "expected": {
@@ -16270,8 +16289,8 @@
       "ownerTicket": "09,11",
       "status": "passed",
       "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "startedAt": "2026-11-02T03:51:26.441Z",
-      "completedAt": "2026-11-02T03:51:28.919Z",
+      "startedAt": "2026-11-02T04:20:06.342Z",
+      "completedAt": "2026-11-02T04:20:08.918Z",
       "environment": {
         "platform": "win32",
         "node": "v22.23.4",
@@ -16428,28 +16447,28 @@
           }
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-LgxQto\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-loUPFL\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-LgxQto\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-loUPFL\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-LgxQto\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-loUPFL\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-LgxQto\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-loUPFL\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-LgxQto\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-loUPFL\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-LgxQto\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-loUPFL\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-LgxQto\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-loUPFL\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
         },
         {
-          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-LgxQto\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+          "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-known-sibling-loUPFL\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
         }
       ],
       "expected": {
@@ -39307,5 +39326,43 @@
       "actual": "All independent assertions passed.",
       "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
     }
-  ]
+  ],
+  "postIntegrationVerification": {
+    "integrationRevision": "4cf156255d077f06614578dd7bf11b5e85cdfd54",
+    "mergeRevision": "5b315610d2e9b8ace37ed6a464fbc1342c66820b",
+    "verifiedRevision": "ec290764731e5292955fe27655f2077ca6962f58",
+    "compileContractVersion": "mv-1.6.1/32",
+    "conflicts": "Combined both collectors, both Snapshot fixture additions, both README explanations and all Windows-suite entries. No relationship scope or old assertion was removed.",
+    "sourceOldRegression": {
+      "suites": 4,
+      "tests": 61,
+      "status": "passed",
+      "durationSeconds": 125.74
+    },
+    "builtOldRegression": {
+      "suites": 4,
+      "tests": 61,
+      "status": "passed",
+      "durationSeconds": 91.49
+    },
+    "sourceSelected": {
+      "families": [
+        "C05",
+        "B13",
+        "B14"
+      ],
+      "tests": 27,
+      "status": "passed"
+    },
+    "builtSelected": {
+      "families": [
+        "C05",
+        "B13",
+        "B14"
+      ],
+      "tests": 27,
+      "status": "passed"
+    },
+    "selectionNote": "The original105-case complete run per entry passed before peer integration; these27 interaction cases were actually repeated after integration. Other cases are not counted as repeated passes."
+  }
 }
