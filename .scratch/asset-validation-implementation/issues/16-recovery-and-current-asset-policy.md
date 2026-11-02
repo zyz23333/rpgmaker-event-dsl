@@ -1,6 +1,6 @@
 # 16: 恢复记账与当前素材条件分开判定
 
-Status: resolved
+Status: claimed
 Blocked by: 15
 Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -63,6 +63,8 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 - [实施任务索引](../tickets.md)：全部正式票与初始领取入口。
 
 ## Comments
+
+- 2026-11-02（CURRENT40预期兼容重开）：按root明确指派，原worktree clean于 `3bd97e41d129883caafb6f2921f2190fe0d68bf5`，已快进当前integration `f79bacb496b18f59562663b7fc9e9d10e86c747f`／Contract40并claim。03保留clean。原resolved／outcome、f03冻结及100份raw证据保持原字节；本次只验证W16 changed-current-config中CURRENT39字面期待与actual40的compatibility-red，再只更新该callback两处current literal。它是随工具契约更新的fixture预期兼容，不是产品违约，无产品补丁／新AV ID／Contract bump。原fresh前置、空policy、allN恢复保原basis、current config freshness拒绝、零assetquery、pending清除等完整断言和legacy省略／35／6变体均保留。root已释放targeted独占窗口，Node22／C TEMP／maxWorkers1；新资料单独归档，不重跑86广测，17随后完整核对。
 
 - 2026-11-02：picture_02 在 `M:/Shuen/Codex/asset-validation-16-recovery`、`codex/asset-validation-16-recovery` 领取。确认原工作树 clean 后已快进到含已 resolved 15 的 integration `5aab331ae7bf1f3d038a0fb7a595087b5d09156a`，Contract39。沿用已确认公共 Workspace API／实际 CLI／真实测试子进程 OS checkpoint，独立完成 12 个主责 ID；历史 runtime pending 使用明确 synthetic 临时根、实际 O/N bytes 与独立原式 hash，12 的 schema 金样只作格式出处。按当前 Contract 隔离 current-config 变化；不将正常写后 guards 移入历史恢复。Node22、默认 C TEMP、maxWorkers1，广测窗口已由主代理独占授权；baseline green 如实记录，无须制造产品补丁。
 

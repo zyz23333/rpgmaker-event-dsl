@@ -1,0 +1,645 @@
+{
+  "base": "f79bacb496b18f59562663b7fc9e9d10e86c747f",
+  "originalAssertionFreeze": "f03e66e6e4550da8a72f98c118fbc36c3af4d1d5",
+  "source": {
+    "path": "packages/rpgmaker-event-dsl/test/asset-recovery-workspace.test.ts",
+    "bytes": 25202,
+    "sha256": "6b9f56c923b3840195fd96cf7c37c2a331029404d11ca39b1ea85e7c835e0eb2",
+    "gitBlob": "c138226cc1b181fff3eaf1f8132af45df86c58b8"
+  },
+  "historicalArtifacts": [
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-recovery-acceptance.md",
+      "bytes": 9959,
+      "sha256": "a02b37e2fc259bffda72bb68f89c05efe3461cfac3cb1b20c1deadfe531cc468",
+      "gitBlob": "57be474a642ca9fb2df2dac6ff0073083d1108ab"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-recovery-acceptance.json",
+      "bytes": 66640782,
+      "sha256": "1f55c1c65901e6ee296cee5c2bf67d3df8ecada0387d4ed0c68dff314857b01f",
+      "gitBlob": "d956e6dab9e74837d6fe44932ab336ac47840cd0"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-git-verification.json",
+      "bytes": 788,
+      "sha256": "87abba0b93f69feb7310480a5c930c338a6cd54aeb453447803c47700d1859c4",
+      "gitBlob": "39e73e157bffdd52fddbae9f2f62227f0ea6fa2f"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-final-local-links.json",
+      "bytes": 6133,
+      "sha256": "f88d352164ab1fcdf8dd20dc40cea25f92596f7e344e6ce02d2233c94f52da0b",
+      "gitBlob": "d07b412ba39b3e8401412e482e97d0d53669e884"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/manifest.json",
+      "bytes": 16599,
+      "sha256": "24954e5266d664782b24f64a790b27e15551e75292f0666ef1f6cf0acf1de9c8",
+      "gitBlob": "80cde3f4d2254f0b7875fe3933f147eff55b9726"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-build.log",
+      "bytes": 2491,
+      "sha256": "32f327eb845555179dd1b032162fd20e56f49347fefa8ceedbe02c1839f32a63",
+      "gitBlob": "513948a65a14c86f9c662f43eb8928fa32fdc331"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-built-final.json",
+      "bytes": 6263,
+      "sha256": "8f2bb4b47282d436ad18bf79df9d3c35dbf5ce33254c24951bacaecebb43909c",
+      "gitBlob": "213ab635e2170f2b0b1a5ea8c43e13202a830874"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-built-final.log",
+      "bytes": 145,
+      "sha256": "2df298493e68f4b2826e78376504a17d89925a48f6efc9ba0b76aa32091e2370",
+      "gitBlob": "c38cfa55e58b98a3e9d3158b620f105de89af053"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-built-invocation-error.log",
+      "bytes": 1810,
+      "sha256": "331c0dafb5efe7ba5d65055ab6481a0e9fa812c8493a90ab3299984e34da54a2",
+      "gitBlob": "e0f34793705957b32695bb567518d7de6429bd09"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-compatibility-built.json",
+      "bytes": 29545,
+      "sha256": "3dd045c726d5db38c0ac59804c7000b98997a2045ae6933c03ca0d73f7bb45c0",
+      "gitBlob": "18ec20a2a0855dbac7f7196fbbd8e00a0d040329"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-compatibility-built.log",
+      "bytes": 153,
+      "sha256": "59b2636c11555e1fe5c61fa85c7b4ea4d5f1ad4ff400bf74c0302716182286b3",
+      "gitBlob": "68a9b44cd1982b391542a2e57e5e481d6834f154"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-compatibility-source.json",
+      "bytes": 29529,
+      "sha256": "b32552664be03fe065f8c4ba7c1c7679d11adba3bd7f1d34229d964e928f7b7a",
+      "gitBlob": "a0a7c13a6ac6b50770643ed658eae4df28963897"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-compatibility-source.log",
+      "bytes": 154,
+      "sha256": "67502fc605c05713c56bc0e1c7109bb253d11ba101504ef5e12d31c319752aac",
+      "gitBlob": "5b709ced95d1e5decaf3010ca848d41e363f165b"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-execution-inputs.json",
+      "bytes": 1434,
+      "sha256": "927f3363750186576ee677d4d17868fc3cea03724578208e88aa8ff049f04219",
+      "gitBlob": "9c3fa543871a777a1848259d0ac33e7b6d286d7d"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-failed-attempt-inputs.json",
+      "bytes": 761807,
+      "sha256": "f80fb867cb4002417d9528d25124d8834679c93e3c7bc53b311559bdd2f63817",
+      "gitBlob": "2e16877177ac43b47e8680bb174958efa84d153c"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-final-run-timeline.json",
+      "bytes": 1482,
+      "sha256": "e05f19ebad55cb2c333aa40746ee1f39cd8ef69ff0027f2a8d6464b5c6ea0792",
+      "gitBlob": "01ffe72c20462da6487d03bf967141e6b52916a6"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-01-source-receipt.json",
+      "bytes": 1252274,
+      "sha256": "3a0e3538ac2b94eb718a222297d81924f20206d7131746d97cd461a4a7564dbc",
+      "gitBlob": "88c0c8e05aea8407f36defa8579963d9e4f7bb7e"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-01-source.json",
+      "bytes": 5994,
+      "sha256": "9b93018c774a5522c647c6ae16e1a36204ebb25e2eafcc7ddafa3d167fdcc3a3",
+      "gitBlob": "6028d8eac8f6dea007ffc5502e8e6e97fa5eac37"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-01-source.log",
+      "bytes": 151,
+      "sha256": "fa0618c968fb463929d7f41dea476248336826bdd8a352425358f66b254bf36d",
+      "gitBlob": "9977e5bc3bdcaa3959f5782ad03c2a5c09146431"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-02-source-receipt.json",
+      "bytes": 1255171,
+      "sha256": "398f9cd74437724e7e9a2180ae2b19519fdc399b3dbbf5873b71f948ce980cca",
+      "gitBlob": "34f292120c7e7b307b01d42ed40033a7450bdd06"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-02-source.json",
+      "bytes": 5985,
+      "sha256": "d839c781c6e194ba85e29c968518d1fec38114b0fbd3d1ea6d2980ee2994ac07",
+      "gitBlob": "48a8a1415621e3699375ea2f9d78cc5f0881bcf3"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-02-source.log",
+      "bytes": 151,
+      "sha256": "580e8a098ab01fd22df1a8c39b0eeb2cf9a979b718bcc3a5752daf90df49d3bb",
+      "gitBlob": "9e64c31c4c633743ce713ce7bde93870e9c61219"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-03-source-receipt.json",
+      "bytes": 2421479,
+      "sha256": "935ae79632e903ea70acc50f66078bd22bb727863b034328a62ba919bd271ea4",
+      "gitBlob": "2dbc3998c91d3e69492ab0cef949ad4dc09275a8"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-03-source.json",
+      "bytes": 5985,
+      "sha256": "7e20ead3dcc9471a224809302678aff3bc6f73aeacc934640e89401b7236f5d2",
+      "gitBlob": "1a0c8aec85e6f36b2bac7dff5cb9f13519b8776e"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-03-source.log",
+      "bytes": 151,
+      "sha256": "5bfd3a81d01b93c5be3bfc307e3e8166033d363f961d64320ae807e465207cc0",
+      "gitBlob": "bf615660d55ccf768679efe4992bb64a40f5f2d2"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-04-source-receipt.json",
+      "bytes": 1514763,
+      "sha256": "fa166853b1c917efde1e06b45d22b645051bb349eeee21a03c77651dc2dae539",
+      "gitBlob": "49a43c202168bdd1ada7964fdea9aa427d4b5a24"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-04-source.json",
+      "bytes": 5984,
+      "sha256": "bab6a47050310c4a218233edd68f99e451c65136c8a694af82486c514ebd2a96",
+      "gitBlob": "4662da3497bc2a5fc84eecf9635281b36aaf5964"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-04-source.log",
+      "bytes": 151,
+      "sha256": "284ba7e343d0e6a14bed126dc12b1fc77e5e1403becd956317f29fc72d943248",
+      "gitBlob": "3f28c0cfe8d7aa23fd9ad267889508c4042a511c"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-05-source-receipt.json",
+      "bytes": 3041875,
+      "sha256": "04bf252197ff904ac7d5236a29657f6b1817ffd97d68d0d13b44fed140eafe25",
+      "gitBlob": "92bcae709acc80308e311d5099e1beea712b42e0"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-05-source.json",
+      "bytes": 5993,
+      "sha256": "5b7ceba2794eac654d7da68cf4dccc45386189043baf4ac36f8300ac30c9040d",
+      "gitBlob": "f97312e08ed87fbd794956b5b50d0e3e8750aeae"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-05-source.log",
+      "bytes": 151,
+      "sha256": "3dad5368212d5b4f7972b33281d8fc3d894ab6aef03b61c67d28252528756175",
+      "gitBlob": "226f3eaba020a7a4cfd90edf385c095645cad77f"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-06-source-receipt.json",
+      "bytes": 6114735,
+      "sha256": "625ea47e3bf5196ed0fdcf2dc94e7410ebf136d741bee0a4663786e064413abd",
+      "gitBlob": "a6886698d9cec3ea4d8eccb69e17788a6fafb88c"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-06-source.json",
+      "bytes": 5981,
+      "sha256": "6516ea34bf303d21570f5fa607f3d5573dc6034b13126d145d1dd3aaecf92cb2",
+      "gitBlob": "15d15689fd4b2b1ca84d528a63d3586e1e2640da"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-06-source.log",
+      "bytes": 151,
+      "sha256": "46e10c9a1a3c8e841b8206686faddfdb7770ead928d8bcc48e22874840730cfe",
+      "gitBlob": "9f23812331a6988eda3d507f3a86cf2e28ccddf2"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-07-source-receipt.json",
+      "bytes": 4671437,
+      "sha256": "99f732c0333660655dbd741c020830b5b5b11a69652ae59633ba14476edd4d88",
+      "gitBlob": "ab8b2944e1ff519b74d911275fb2a993a3e9b02c"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-07-source.json",
+      "bytes": 5985,
+      "sha256": "d172a154104926cf0e5e4eddd4511f848411e08905ca8c4fd9918d385b690d12",
+      "gitBlob": "d909bf4726907e7b407f095864f2d30e26f0b818"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-07-source.log",
+      "bytes": 151,
+      "sha256": "72ec2cb853770c2157006ed61467826a96f06e43c6156629e670d4033af392d6",
+      "gitBlob": "0e0af7b9b608882fcbd8e984a2a38d08ecc64ff2"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-08-source-receipt.json",
+      "bytes": 1683809,
+      "sha256": "181f6f4f4860eada67feb7d3078a661e1db6bc3428c955f3924cdc16ebff24cb",
+      "gitBlob": "d8cd82f863a44602561cf3002856559a4e800e59"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-08-source.json",
+      "bytes": 5994,
+      "sha256": "d7d7b3b0638957439bdfe267576c8d4b233ac76b7cb6a956c82018e0c80bc16a",
+      "gitBlob": "edec154e7c68709aa9c49b7382c1ac4d153bcfcf"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-08-source.log",
+      "bytes": 151,
+      "sha256": "5e9272e9fa01c500d5f4d6a4c0f493fca4bb810feaa9b5673d60200a8da51d67",
+      "gitBlob": "ff2ca38f0cdb099e757fcb311c43d4ef0e68a8c2"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-09-failed-receipt.json",
+      "bytes": 681145,
+      "sha256": "66c355b3611cb3521b7e8ef2ddeb0014130d98c2501d56280260039a88c98279",
+      "gitBlob": "1785e1288ec34d08a2c0b697dfb9af339a9aa9cb"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-09-source.json",
+      "bytes": 6721,
+      "sha256": "13066e83f82926a5a3eef5954a4df9188241b826dea2952d9ce2497a3b8ee597",
+      "gitBlob": "63dd2c42ef4eadfa39d41cf7617321d9bca32255"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-09-source.log",
+      "bytes": 543,
+      "sha256": "7b5d84db74abdae8b8d07862638f19cbbbc41f30363acbeee1faf70ac33706eb",
+      "gitBlob": "ee562727e5414e1f820507951ac4d3b2459a50b9"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-first-assertions.ts.txt",
+      "bytes": 24560,
+      "sha256": "0b8c6c1dbf4582e72d0a74e8b6257fbc18abc1b1f8c94302c1272961d03e4d5a",
+      "gitBlob": "71576a33692ba5a11e61b46c3e3523ce1928d8b6"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-focused-first-helper.ts.txt",
+      "bytes": 12698,
+      "sha256": "74cbc180020c56759c1ed916e5ded3c8ba51814610c7e69b1f59aca6ccc0d821",
+      "gitBlob": "8a6265f17b38a7ab2bf690600c00de74a190b807"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-format-final.log",
+      "bytes": 393,
+      "sha256": "e489f4aa57a402e94c95d36af4e396ecafdc8e6b82364f528d6f482ffff82a28",
+      "gitBlob": "7c7c95975612d8e5567633aa20550f6bc9205f1f"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-independent-plan.json",
+      "bytes": 21952,
+      "sha256": "a68ed3b6eebea02d6922f6b0003e7e6214827641969e264ed3c9ccf4cd42d561",
+      "gitBlob": "b23b2da640c987d4278d94effb92817df451d3f4"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-lint-first.log",
+      "bytes": 103,
+      "sha256": "978a635e882beb90576d83edc0c61e5144239adaff92bc1b682d95222ec07641",
+      "gitBlob": "93dba37bf9c14f76f5438ebf73eb8a12d2c84951"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-local-links.json",
+      "bytes": 5821,
+      "sha256": "6de549c90910bd33ca54ea1d774f42208499073840788d4121fd62ba576b1677",
+      "gitBlob": "b6712e5f743f29105d7f2f61b9cdca0334269570"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-registered-retry-09-source-receipt.json",
+      "bytes": 1251093,
+      "sha256": "e16cabe023f9c6ac8390c7ddbc0e79ad0b43ccc1f5d30503442a35e6188b0825",
+      "gitBlob": "f03b68474d6c8c35d692ffa8c1fab6a0802098c7"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-registered-retry-09-source.json",
+      "bytes": 5994,
+      "sha256": "a19bbcd355ecf0107f47689ed66d4a5a02380becc2de89af5e88ffd2a0f45abf",
+      "gitBlob": "49e95031ecd6349bed3b5b32eb8d3d6ca4a1df6e"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-registered-retry-09-source.log",
+      "bytes": 160,
+      "sha256": "942777c5f4a03bc8ba60879f0e50b83c38b02001ff8fcbf8291e1a3854ba287e",
+      "gitBlob": "0c26082b12d9f086ed86093d3056f714132b4fbe"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-registered-retry-10-source-receipt.json",
+      "bytes": 7453059,
+      "sha256": "59409f01dc6248d8af03e19436b851d645478824568900bebaf70b544c710e6b",
+      "gitBlob": "7584f700de366e377b916da34d2438acfb8c1ffc"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-registered-retry-10-source.json",
+      "bytes": 5986,
+      "sha256": "019c986057fae15927f61ee2ca305f36ab31611bd7979caea5b23237e4358086",
+      "gitBlob": "b6335754a901f07a947e542e30a97aa5d1aec509"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-registered-retry-10-source.log",
+      "bytes": 160,
+      "sha256": "750073ca961c5a3a1884d3cbfd138d7ea282a14c994f113db8fb17cb100b435e",
+      "gitBlob": "d60f0eee36fd0752836f31278e26448a9b73b2b0"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-registered-retry-11-source-receipt.json",
+      "bytes": 1984556,
+      "sha256": "7719f6c6431e2c190c7b6154616be16a657df1ea4c506bcbfff867951782c0ee",
+      "gitBlob": "6d747773dcc7b5a05a01d45ec8e3bef2146a2540"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-registered-retry-11-source.json",
+      "bytes": 5984,
+      "sha256": "c869aa581ceed9fdb631d603bc3da79cff52cbd564445e0f13f87ebe38e93b85",
+      "gitBlob": "cc5b6649f0c25154146ecaf773be1a6f6d87c0c8"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-registered-retry-11-source.log",
+      "bytes": 160,
+      "sha256": "d65020bd012ac4554635d59e911bf944ac11ea68719e074225a5eef5ee2b015a",
+      "gitBlob": "0c51a544a91e7844f8d5855ea3efe65ae3dbfe2a"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-registered-retry-12-source-receipt.json",
+      "bytes": 5607208,
+      "sha256": "c324e8e27b963a2eaa5f908c5874c6d39614f80553b6fe710b8a76789c1888e6",
+      "gitBlob": "fdeac3ff130560649536c5596f96b2b80a1336f4"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-registered-retry-12-source.json",
+      "bytes": 5985,
+      "sha256": "f33836d2baa95eefc91a2bff902b65f0dd747dde2120c6d83c9da21a0af85ab5",
+      "gitBlob": "cb910ac0961c5e9dd31685316f76bfe0ee43a498"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-registered-retry-12-source.log",
+      "bytes": 160,
+      "sha256": "3a153f52e4f1931372af9176542b4a6f9dbd510547247b24502672ccbe36ba8b",
+      "gitBlob": "71c03d59a4981fd3f9839260cd1d86dc2c9d6fc9"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-registration-before-repair.ts.txt",
+      "bytes": 22035,
+      "sha256": "8e440ea66ef04662148daba04ae3c915c17e7a90c5138d38328e45b390d5baad",
+      "gitBlob": "11f288875f11787e0e4d0203835b2557ca811e27"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-registration-verified.json",
+      "bytes": 2247,
+      "sha256": "248cc2116ee8e5e2756a0d522f1487318e137ce45a02e1848077c7acce2d0c9f",
+      "gitBlob": "ec99f05dce702304fa1c7353476b2c1bcc863a6b"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice01-failed-receipt.json",
+      "bytes": 343137,
+      "sha256": "50d2e48acc50ca16d4e54388c5ee25a1991cc2ee982e6b29175e514f53021615",
+      "gitBlob": "b4fef166be4619bd059cbbdb219d5b999e1c4ec7"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice01-helper.ts.txt",
+      "bytes": 9820,
+      "sha256": "8cad2f5862b071f2d9f376135137afabca1b18cbb5a3ac7709230d795a0b1765",
+      "gitBlob": "7ea41a69ad71944a783b328853ed598251808291"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice01-source-green.json",
+      "bytes": 1183,
+      "sha256": "833b692bb8f3f8daf1f003a892318153fbafca748f31246b7cfffc7042722642",
+      "gitBlob": "1a1e7508a109ab51e01aefe099d6bafbbe3c81bf"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice01-source-green.log",
+      "bytes": 154,
+      "sha256": "48b92b90760ad3257b65b23b34a36d51c583bb2693fd0003c888ed4224b5a6f4",
+      "gitBlob": "3bb89a2ef04ecbd5cefcc2e436af0307ae9149c3"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice01-source.json",
+      "bytes": 2080,
+      "sha256": "cbbc2dd055e0915aad48238b9b682ae627ef7b2e9f4fabd359afb5b2fb46b336",
+      "gitBlob": "a0d9fe297e03aa537a066ee718c309cce5d0ee9d"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice01-source.log",
+      "bytes": 487,
+      "sha256": "97c13b6f067a18b6404f8352c876314c995a354c53c9383100b7835ec63757a2",
+      "gitBlob": "f4bf287d9f257aa15eea1d5c8bba69e26d4e6607"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice01-test.ts.txt",
+      "bytes": 2597,
+      "sha256": "98575e271d07f698b9f2ace8213319508fb322078d94827ab94c0812134b0a59",
+      "gitBlob": "19ee63329b5e0fcb253a7f319705c199caaf716c"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice02-cli.json",
+      "bytes": 1619,
+      "sha256": "d88d3c58c2750d62f580ab52f6730ea75b2d7520477fd219349611605537c4ac",
+      "gitBlob": "0f6d16b058954c9f4e64b8cb471d8aa0129b4f56"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice02-cli.log",
+      "bytes": 145,
+      "sha256": "1f7a63dac026fb7aff3d61b34632a007f143f01dac10549aeba254aa64c39c70",
+      "gitBlob": "c4b15777482e1e641486720d458add832b953850"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice03-all-snapshot-registered.json",
+      "bytes": 5091,
+      "sha256": "deac37047c96db19e49bef6fd06658ab8918d20bf601cc367250de925f8b28a5",
+      "gitBlob": "0ed8f811ce72cb5862b0edf9c71a8b493c86cae2"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice03-all-snapshot-registered.log",
+      "bytes": 165,
+      "sha256": "f3755db2086649e199f4fbe28fa94c886fe8639d500ec4ed7d7d5299c3e053b8",
+      "gitBlob": "e31de00d25bee9a7c86bc51d23f7dc4b1a932356"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice03-all-snapshot.json",
+      "bytes": 1594,
+      "sha256": "42998b882fea0566a09188624d3e6e6784321ef5dea1aed920f73deba23bdd3c",
+      "gitBlob": "e1cd7be9ed6d7e4f51e52cacf6760a4c79f6b3b4"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice03-all-snapshot.log",
+      "bytes": 154,
+      "sha256": "aa923bcd73e0041bd72b9218c8e3d6fa39f9bc1877cf5a071fe1ba8ceae79523",
+      "gitBlob": "cf4d03d0765a7a612caae824061111db4037a79d"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice04-mixed.json",
+      "bytes": 1594,
+      "sha256": "29b3def0738f0159e4412fa20958166b3949a3635e56594aa1c0227c26665faf",
+      "gitBlob": "bd3bb2f18260e931ea840789bafe8250d97365de"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice04-mixed.log",
+      "bytes": 147,
+      "sha256": "d64ba87ae6e19c7eaf1d60826ae3c682b0e6927e2a7b6d16056c24bf2a4fd4c5",
+      "gitBlob": "01e07419eeaf51650655b9bcb0dd0d1ee22269ee"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice05-missing.json",
+      "bytes": 1594,
+      "sha256": "f23ab62bf44aab1bc5771c88ef7fbb3fe4bb59cae25489df3a4d980a2e5a59a9",
+      "gitBlob": "d300323bcee0c935927026958b3c605142045da7"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice05-missing.log",
+      "bytes": 149,
+      "sha256": "58ab7aab3408bdaf1cf5427cf10c460894c6f321df25087016c6d4e6d676acef",
+      "gitBlob": "dd1816143904b7bd576ecef66d4595d59850f5d4"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice06-unknown.json",
+      "bytes": 1594,
+      "sha256": "ce84840d17a5c5e375794d5b84d3a3a78d18f2e1d5963724d58f22f9e41d9178",
+      "gitBlob": "afcd885d412882aef62163b8e6d2c74e97b76ac4"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice06-unknown.log",
+      "bytes": 149,
+      "sha256": "4246803f7eaeec7277f143697c9b75167de22b7ef604589892973bef872fa0f1",
+      "gitBlob": "bab893df8e564c2fc397f3136e46f136e161d1a5"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice07-historical.json",
+      "bytes": 1594,
+      "sha256": "a6ca80725028a069974aafe51096fd1f5a5846be09658800c18e547fda85d2ad",
+      "gitBlob": "ce1721f63481c6183ab95097915cd10af20f09b1"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice07-historical.log",
+      "bytes": 152,
+      "sha256": "24968402cb56b6ced52e9f44d5219569b8a09febfe97078eabed99a3f0d83d3b",
+      "gitBlob": "1efcd623109528c40a888c8d603a09229126fc58"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice08-current-config.json",
+      "bytes": 1594,
+      "sha256": "cdad35e08a3bc2e91c8cdc6b3ca7adfd91590f8e93d84f24149af8f63ad9e493",
+      "gitBlob": "83477ea73c0d61e59bc990e499ebcfefe5d781fd"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice08-current-config.log",
+      "bytes": 156,
+      "sha256": "8d5112419ee6c4397e34f04888a72b01eb6e131105f398aa9ea8fd9dd51da49f",
+      "gitBlob": "fae63518cc07e2504cbf9eae1998fe8d5d47f197"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice09-concurrent.json",
+      "bytes": 1594,
+      "sha256": "c2a74f4a30951cdee87f0a5367b5cef48623c00a02f646cf245f963522c9224c",
+      "gitBlob": "4301bd08d9188dadf7b7bb3263b92ebfcca49f81"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice09-concurrent.log",
+      "bytes": 152,
+      "sha256": "c742e2256534b0d2161259252e983ea502277d7467130f8d90e6b81da080b584",
+      "gitBlob": "8f2ace45a0a385ec391d52da2eb6de37915a5ade"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice10-non-push.json",
+      "bytes": 1594,
+      "sha256": "bc785387373c1c13baedba1e78fcce4996e5c53c7bd81cd650a5b8c678a9b47d",
+      "gitBlob": "ba826baef9c511207b71c647cef9436c00bb3fee"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-slice10-non-push.log",
+      "bytes": 150,
+      "sha256": "37bcf404d02db5f4f557e90b43ea1d70aa001236d18a50fc3b59ee743697bbb3",
+      "gitBlob": "0cbe76ec4f3287f46ba1a8b604603a20ec597702"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-source-final.json",
+      "bytes": 6262,
+      "sha256": "0394e687c0b330f706c49b0eb4c26caf27330e3bb2e4c4a863c5ff09b7b33b99",
+      "gitBlob": "86c7ce07c35b9f8d1fcec0e92feea75a83a4e76c"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-source-final.log",
+      "bytes": 146,
+      "sha256": "269beccd1d6b947db00a4ecb06c0a8579936a19bb641d55c488c9be60a81f62c",
+      "gitBlob": "8578c219e4ce78027aafb6d1c9237628cf8fc465"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-typecheck-final.log",
+      "bytes": 266,
+      "sha256": "038e4932c80b24e51a2000cf0b37c8cda9f6ed0caad42565d210c7a5033c2730",
+      "gitBlob": "81162c70816a8441a9265db1f239350626313176"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/16-typecheck-first.log",
+      "bytes": 266,
+      "sha256": "038e4932c80b24e51a2000cf0b37c8cda9f6ed0caad42565d210c7a5033c2730",
+      "gitBlob": "81162c70816a8441a9265db1f239350626313176"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/build-16-acceptance.mjs",
+      "bytes": 14671,
+      "sha256": "9275aa760124322374b57a83b9a94f20197e4e7d6017735bb7e79e35522ee1fb",
+      "gitBlob": "4791f905814ba128108e81fa578f6414325bd449"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/pre-registration-receipts/AV.W15.all-generated-missing-asset.api.case.expected.source.json",
+      "bytes": 1252237,
+      "sha256": "2adb8fca16f424422c554b39bce5142cb5f3c9369ad9a2a4b029ee09cd6e51cc",
+      "gitBlob": "18a8a9aeae01db4d8921af842397ae61b514d403"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/pre-registration-receipts/AV.W15.all-generated-missing-asset.cli.case.expected.source.json",
+      "bytes": 1255171,
+      "sha256": "12cebbd19aece513fe8b0c59148044857c0fe1366cc17980f2271bd12cfb4e18",
+      "gitBlob": "53bd4f909526faf413844b8a2b6146645fe8af13"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/pre-registration-receipts/AV.W15.all-snapshot.api.case.expected.source.json",
+      "bytes": 2421479,
+      "sha256": "889328eeccd1b5b7e5976c35036914685aa0b5f5dfbe1aeb8bbf154b2262e985",
+      "gitBlob": "8d9dfa5cff70d5292cffe9346f89733f72f204fb"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/repair-16-registration.mjs",
+      "bytes": 1652,
+      "sha256": "41fcf3e53142a40f21c735a135a7f636c195b3428b8355ed35dc23e5f06525c8",
+      "gitBlob": "e0cf283fab39ed57c7af4711f88dda0b63fffb53"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/run-16-final-first-invocation.ps1.txt",
+      "bytes": 2304,
+      "sha256": "3981a555adc05c8d3322894b17c98f5b6489cc424e02e6d16b9df356456296d3",
+      "gitBlob": "0ec847c0f3c0058c354c77c3b9375df7995e3720"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/run-16-final.ps1",
+      "bytes": 2370,
+      "sha256": "12a70260d7c3188855b8413ce9a65a3ddbc9d676758a7f1f82730035e710df0f",
+      "gitBlob": "f5489cf8e55268eabfb26fa969b2337d970f0482"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/run-16-focused.ps1",
+      "bytes": 2419,
+      "sha256": "3ece8143daf6df2e3d9953e8d926c64c4598bfef18c4619b4d0b7aff30231844",
+      "gitBlob": "3ff73da606db89c79923bdc6ba37a546b496d0f5"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/verify-16-git.mjs",
+      "bytes": 3096,
+      "sha256": "ec6382f65fb12d6d585e56443db4a282bbbf4c4a67850e93e48be867a9643d81",
+      "gitBlob": "460902051a1d09f9943069a8174929205907100e"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/verify-16-local-links.mjs",
+      "bytes": 1210,
+      "sha256": "1da7fcd6547d15874fa2b213b81e93efb1a944b86a268fc6f96b59cc12ce2ff1",
+      "gitBlob": "141fdf40b8d1ff90907f2f55d73ba6c84e4ee7ed"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/16-raw/verify-16-registration.mjs",
+      "bytes": 2336,
+      "sha256": "cead8e6e649f3f385dcd9402159e13f7344f54ab6b3f4024078897bdfd67b3b3",
+      "gitBlob": "ee8494ba7411306c8da274cdb2ddcce4c81a4523"
+    }
+  ],
+  "originalRawCount": 100,
+  "originalFinalReceiptCount": 24,
+  "classification": "Current-fixture literal expectation compatibility; no product violation or original-history rewrite."
+}
