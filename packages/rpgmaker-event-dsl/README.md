@@ -984,6 +984,17 @@ Diagnostics show the defining event, selected database entry and complete field
 chain. Image preloading and timing SE execution have separate conditions; these
 saved dependencies do not guarantee that an animation frame will execute.
 
+Game Over follows `System.gameoverMe.name`; Return to Title follows both saved
+title images and `titleBgm.name`. Battle Processing checks the saved System battle
+BGM, victory ME and defeat ME as defaults that runtime settings may replace, plus
+`sounds[7].name` with its map-launch condition. A Map Event's battle command also
+checks its host Map's two saved battle backgrounds as conditional candidates.
+Disabled `specifyBattleback` retains those names and their inactive reason. Common
+and Troop Events do not infer a caller Map. Dynamic Troop selectors report their
+unchecked enemy relationship while known System and host Map relationships
+continue. Hardcoded GameOver/title UI, terrain-derived backgrounds and System
+Battle Test backgrounds are outside this selected relationship coverage.
+
 Fixed Battle Processing follows every Troop member's Enemy battler image,
 including hidden and repeated members. Enemy Transform follows the saved new
 Enemy even when its runtime target may be absent. `System.optSideView` selects
