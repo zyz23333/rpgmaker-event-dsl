@@ -1,6 +1,6 @@
 # 17: 完整功能验收与使用说明核对
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 01, 08, 09, 11, 16
 Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -52,3 +52,4 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 ## Comments
 
 - 2026-10-24：用户回复“确认”，本票按已确认的 17 票拆分发布为 ready-for-agent。产品实现、自动化与原生验收均尚未由本次发布执行。
+- 2026-11-02：01–16 已全部 resolved 并合入集成提交 `29f19dfd3ed943df2e0c9ae2b7c446ada248d501`。验收分支从干净 worktree 快进至该提交后领取本票；按既定公开 Workspace API 与真实 CLI 入口核对最终证据，使用 Windows / Node.js 22、默认 C TEMP、仓库原有 worker 配置执行完整命令。技术验收与双轴评审完成后仍保留 claimed，等待维护者实际审阅确认，不代填批准。
