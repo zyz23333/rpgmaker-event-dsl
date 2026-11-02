@@ -1,0 +1,73 @@
+{
+  "id": "AV.C07.shared-system-field.formal.case.expected",
+  "verifiedAt": "2026-11-02T11:00:43.256Z",
+  "head": "832c74d37e02fd99b6aedcb21d5a6759a3522182",
+  "registration": {
+    "id": "AV.C07.shared-system-field.formal.case.expected",
+    "ownerTicket": "09",
+    "uniqueTopLevelCanonicalCallbacks": 1,
+    "allOtherTestSourceUnchanged": true,
+    "originalSourceSha256": "0a6e12bc45987f79a2f8cb6a7ade8fce917e434156c26bea01c94a640972d7d4",
+    "frozenSourceSha256": "86934f80311612ea09e08259af880c9b2de50bfe6f9f47a50f4fa3555cba7e91",
+    "originalHeaderExpectations": [
+      2,
+      2
+    ],
+    "newHeaderExpectations": [
+      1,
+      1
+    ],
+    "expectedStatistics": {
+      "groups": 1,
+      "files": 0,
+      "affectedUses": 2
+    },
+    "expectedNativePaths": [
+      "Map001.json.events[1].pages[0].list[0]",
+      "Map001.json.events[1].pages[0].list[1]"
+    ],
+    "authority": ".scratch/asset-validation/asset-validation-spec.md section 7"
+  },
+  "originalFailurePreserved": {
+    "status": "failed",
+    "actual": "AssertionError: expected [ 'error MV-ASSET-INVALID-DATA' ] to have a length of 2 but got 1",
+    "receiptSha256": "f34e8920dd1642e192a2664f8cdeb7f7f15f3d4559128c636f6f4f252adc1d8a"
+  },
+  "diagnosticOnly": {
+    "revision": "126b1980014e5c9a4c9bd877505e04a30f097759",
+    "contract": "mv-1.6.1/39",
+    "completedOperations": 3,
+    "originalTitleFilesAllQueriedPerOperation": true,
+    "noContentReads": true,
+    "noCanonicalPassClaim": true,
+    "firstAttemptObserverFailure": "CLI CRLF trailing carriage return; original full API/CLI bytes and failed observer artifacts preserved"
+  },
+  "finalResults": [
+    {
+      "entry": "source",
+      "actualPassed": 1,
+      "actualFailed": 0,
+      "filteredNotPasses": 104,
+      "receipt": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/focused-source-receipt.json",
+      "sourceSha256": "86934f80311612ea09e08259af880c9b2de50bfe6f9f47a50f4fa3555cba7e91",
+      "operationsWithCompleteMessagesAndUnchangedState": 3
+    },
+    {
+      "entry": "built",
+      "actualPassed": 1,
+      "actualFailed": 0,
+      "filteredNotPasses": 104,
+      "receipt": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/focused-built-receipt.json",
+      "sourceSha256": "86934f80311612ea09e08259af880c9b2de50bfe6f9f47a50f4fa3555cba7e91",
+      "operationsWithCompleteMessagesAndUnchangedState": 3
+    }
+  ],
+  "finalFreeze": {
+    "head": "832c74d37e02fd99b6aedcb21d5a6759a3522182",
+    "integrationBase": "f79bacb496b18f59562663b7fc9e9d10e86c747f",
+    "contract": "mv-1.6.1/40",
+    "sourceFilesVerifiedAgainstWorktreeAndGit": 158,
+    "builtArtifactsVerifiedAgainstFrozenBytes": 15,
+    "noTicket09ProductPatch": true
+  }
+}

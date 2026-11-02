@@ -62,6 +62,7 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 ## Comments
 
 - 2026-10-24：用户回复“确认”，本票按已确认的 17 票拆分发布为 ready-for-agent。产品实现、自动化与原生验收均尚未由本次发布执行。
+- 2026-11-02：重新领取 `AV.C07.shared-system-field.formal.case.expected` 的分组兼容缺口。09 worktree 开始 clean，已 fast-forward 到集成提交 `126b1980014e5c9a4c9bd877505e04a30f097759`。17 的 Contract 39 run 在取消前真实触发旧 header 计数 2／实际 1 的失败；原失败与现场、09 原有 passed 历史均保留。按规格 §7 先捕获完整公共 API／实际 CLI 的分组与全部来源，再决定兼容更正；沿用已确认的 Workspace API／CLI seam，不新增产品报告 API。准备阶段遵守 03 独占测试窗口，未运行产品或测试；本次新证据将单独归档到 `09-grouping-compatibility`，不改写原 Outcome／证据。
 
 ## Outcome — 2026-11-02
 
@@ -72,3 +73,7 @@ The 96 assigned normative IDs plus 9 supplemental boundaries passed through real
 Merged latest integration `4cf156255d077f06614578dd7bf11b5e85cdfd54` (08), preserved both collectors and shared fixture changes, and reconciled Compile Contract Version to 32. Post-merge affected old regressions passed 61/61 source and 61/61 built; selected C05/B13/B14 cases passed 27/27 source and 27/27 built. Typecheck, lint, formatting and build passed. Native acceptance and the overall spec gate remain outside this ticket’s completion claim.
 
 Evidence: [per-ID summary](../evidence/09-system-acceptance.md) and [full210 receipts plus verification](../evidence/09-system-acceptance.json). The evidence preserves tracer red/green outcomes and the initial fixture/expectation corrections.
+
+2026-11-02 分组兼容更正：先以原输入在 Contract 39 捕获完整 API Check／Compile 和实际 CLI Check，确认按共同 `System.json.gameoverMe.name` 依据正确合成 1 group／0 files，保留 list[0] 与 list[1] 两个独立 member／2 affected uses、各自 chain／DSL 位置及 base／effective error；三份标题素材继续查询元数据，全部状态不变。由此更正原唯一 C07 callback 的两处旧 header 计数 2→1，并增强完整成员、统计、incomplete、无伪造 target 和无写入断言，记录完整实际消息与前后状态。未新增 AV alias、修改原输入或产品；Compile Contract Version 保持 03 已集成的 40。
+
+合入当前 integration `f79bacb496b18f59562663b7fc9e9d10e86c747f` 后，在 `832c74d3` 新建构建并冻结 158 个产品源文件与 15 个构建产物。该唯一 callback 的源码与构建入口各真实 1 pass、0 fail，各 104 个 filtered 注册不计通过；typecheck、该测试文件 lint／formatter、build 与 diff 检查通过。新 [分组兼容证据](../evidence/09-grouping-compatibility/acceptance.md) 单独保存原 17 真实失败、原 badexpect、39 diagnostic、Windows CRLF 观察器失败原件、新 40 runner／receipts／source hash 与校验。原 09 Outcome／过去 passed 证据和原失败现场均保留；取消不是原失败原因。本票重新 resolved，17 仍需执行完整 105 suite 及全仓验收。
