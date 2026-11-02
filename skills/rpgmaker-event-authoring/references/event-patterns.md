@@ -290,9 +290,12 @@ both independent fields: `battleback1` uses `battlebacks1`, `battleback2` uses
 fields: an image in `parallaxes` or `null`, Boolean `loopX` and `loopY`, and integer
 `sx` and `sy` in −32..32. Preserve negative zero in both speed slots. Keep saved
 speeds when a loop is disabled or the image is None. Preserve filenames exactly;
-use `null` for None and nonempty Asset Reference
-names for actual files. Check intentional missing assets in the game: the Workspace
-does not scan asset files or infer that a valid Tileset reference guarantees loading.
+use `null` for None and nonempty Asset Reference names for actual files. The helpers
+preserve references and saved settings. Workspace asset checks follow the selected
+Animation and Tileset relationships in captured standard data under the shared
+asset-file rules: both Animation image sheets, every timing SE and all named
+Tileset slots. File existence and a valid Tileset reference do not guarantee
+layout, decoding, loading or runtime use.
 
 Use `script(...)` and `scriptInput(...)` for short RPG Maker MV JavaScript only when the Workspace Script Command Gate allows it and ordinary event commands are not enough. The Gate also checks Conditional Branch script conditions, Control Variables script operands, Set Movement Route script subcommands and mirrors, and saved Page routes in every movement mode. Empty and unreachable scripts still count. With the Gate closed, Decompile warns while generating source; Check and Compile reject current declarations containing scripts. Remove the actual scripts or enable the Gate deliberately before compiling.
 
