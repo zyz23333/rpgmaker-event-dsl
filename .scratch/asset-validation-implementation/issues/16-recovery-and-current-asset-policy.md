@@ -1,6 +1,6 @@
 # 16: 恢复记账与当前素材条件分开判定
 
-Status: claimed
+Status: resolved
 Blocked by: 15
 Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -42,11 +42,15 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Verification
 
+2026-11-02 CURRENT40预期兼容：仅W16 changed-current-config唯一callback先运行原CURRENT39字面期待，实际CURRENT40产生compatibility-red（0pass／1fail／11filtered，非产品违约）；只更新该callback两处current literal后冻结 `0fb8b677c1c8679a334cae034b6823a776ace789`，build40与source／built各1pass／11filtered通过。fresh原依据、空policy、allN恢复保原basis、current config freshness拒绝、零assetquery、pending清除及全部状态断言保留；legacy35／6／policy与type/version省略变体不改。typecheck、lint、format及diff检查通过，整个产品src树与基底相同。原100raw、原24receipt和所有旧39执行证据原字节保留，新[验收说明](../evidence/16-current-contract40-acceptance.md)、[机器合册](../evidence/16-current-contract40-acceptance.json)及[Git审计](../evidence/16-current-contract40-git-verification.json)独立记录；过滤不计通过，没有再跑旧86或其余11，17随后完整核对。
+
 按上游索引指定的实例与入口运行本票适用验证，并记录相关仓库检查、构建和 Windows CLI 结果；最终全量核对由 17 负责。本票发现的失败不得以延后到 17 代替修复。当前所有产品测试和原生检查均为待实施／未执行，完成时追加实际结果。
 
 完成后记录实际 outcome 和验证，再更新本票状态。原规格、决策地图及已完成决策票不因本票发布而改状态。
 
 ## Outcome
+
+- 2026-11-02 CURRENT40兼容再次resolved：03推进工具契约后，原W16 current-config fixture的两处CURRENT39预期已同步40，保留配置改变因果的fresh前置和完整恢复断言。此次仅修正测试预期，无产品行为变更、新AV ID或Contract bump；原resolved/outcome和100份raw历史保持，新source／built各1实际通过另存。
 
 - 2026-11-02：已完成本票 12 个唯一规范 ID，最终 source **12/12**、built **12/12**，均零失败、零过滤，共 24 条最终 receipt；另有12个 focused callback 各实际1 pass及匹配回执，其余过滤注册不计通过。真实 API／CLI data 中断、五种恢复状态、独立 synthetic 历史 O/N/hash、当前 Contract39 下配置变化、互斥／非 Push／原绑定、三类完整恢复状态 profile 均已落实。
 - 既有 `push-recovery`、`snapshot-binding`、`workspace-locking`、`compile-inputs`、`push-drift` 五套件 source **86/86**、built **86/86**，均零失败、零过滤。typecheck、lint、format、build 已通过。所有测试 Node22、默认 C TEMP、maxWorkers1；不重复无关 F/D 矩阵。
@@ -63,6 +67,8 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 - [实施任务索引](../tickets.md)：全部正式票与初始领取入口。
 
 ## Comments
+
+- 2026-11-02（CURRENT40兼容关闭）：原39expect vs actual40的compatibility-red已原样保留；两处current literal更新后source／built各1pass／11filtered，build及static过。原f03源码除这两literal外逐字节保留，所有legacyvariants和历史105份资料（含100raw）保全。新资料单独归档，恢复resolved并交回集成；17完整矩阵尚由最终流程执行，worktree不清理。
 
 - 2026-11-02（CURRENT40预期兼容重开）：按root明确指派，原worktree clean于 `3bd97e41d129883caafb6f2921f2190fe0d68bf5`，已快进当前integration `f79bacb496b18f59562663b7fc9e9d10e86c747f`／Contract40并claim。03保留clean。原resolved／outcome、f03冻结及100份raw证据保持原字节；本次只验证W16 changed-current-config中CURRENT39字面期待与actual40的compatibility-red，再只更新该callback两处current literal。它是随工具契约更新的fixture预期兼容，不是产品违约，无产品补丁／新AV ID／Contract bump。原fresh前置、空policy、allN恢复保原basis、current config freshness拒绝、零assetquery、pending清除等完整断言和legacy省略／35／6变体均保留。root已释放targeted独占窗口，Node22／C TEMP／maxWorkers1；新资料单独归档，不重跑86广测，17随后完整核对。
 
