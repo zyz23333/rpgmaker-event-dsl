@@ -1,0 +1,8 @@
+
+> rpgmaker-event-dsl@0.1.2 test M:\Shuen\Codex\asset-validation-03-files\packages\rpgmaker-event-dsl
+> vitest run "--maxWorkers=1" "test/asset-file-workspace.test.ts" "-t" "SUPPLEMENT.device-space-exception" "--reporter=json" "--outputFile=../../test-results/03-device-space-red.json"
+
+JSON report written to M:/Shuen/Codex/asset-validation-03-files/test-results/03-device-space-red.json
+M:\Shuen\Codex\asset-validation-03-files\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run "--maxWorkers=1" "test/asset-file-workspace.test.ts" "-t" "SUPPLEMENT.device-space-exception" "--reporter=json" "--outputFile=../../test-results/03-device-space-red.json"`
+Exit status 1

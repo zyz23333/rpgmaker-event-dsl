@@ -1,0 +1,41 @@
+{
+  "id": "AV.F10.metadata-only.injected.case.expected",
+  "ownerTicket": "03",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:38:31.093Z",
+  "completedAt": "2026-11-02T10:38:33.237Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "names": [
+        "Poster"
+      ],
+      "source": "import {commonEvent,rawDslCommand} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"Poster\",0,0,0,0,100,100,255,0]})]});",
+      "contract": "exact selected PNG metadata in the bound Project Root"
+    },
+    {},
+    {
+      "file": "img/pictures/Poster.png",
+      "contents": "ordinary zero-byte file",
+      "timing": "before asset gate"
+    },
+    {
+      "injected": "async/sync open/readFile reject only the media path; metadata remains real and accessible; not a real ACL claim"
+    }
+  ],
+  "expected": {
+    "description": "content-open rejection is irrelevant to ordinary-file existence",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-file-workspace.test.ts",
+    "sha256": "61cbdd643880adf3d124748862751b96fdaf2a86fefb5e451b99b8457255449b",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_6__.withWindowsSandbox)(\"asset-metadata-only\", async (sandbox) => {\n\t\tawait prepare(sandbox.workspaceRoot);\n\t\tawait png(sandbox.workspaceRoot);\n\t\tconst before = await localState(sandbox.workspaceRoot);\n\t\tconst child = (0,__vite_ssr_import_7__.startWorkspaceOperation)(sandbox, {\n\t\t\toperation: \"check\",\n\t\t\tboundary: \"asset-media-read-denied\"\n\t\t});\n\t\ttry {\n\t\t\t(0,__vite_ssr_import_4__.expect)((await child.waitFor(\"result\")).ok).toBe(true);\n\t\t\t(0,__vite_ssr_import_4__.expect)(child.messages.some((message) => message.kind === \"asset-content-read-attempt\")).toBe(false);\n\t\t\t(0,__vite_ssr_import_5__.recordAssetInput)({ injected: \"async/sync open/readFile reject only the media path; metadata remains real and accessible; not a real ACL claim\" });\n\t\t} finally {\n\t\t\tawait child.stop();\n\t\t};\n\t\t(0,__vite_ssr_import_4__.expect)(await localState(sandbox.workspaceRoot)).toEqual(before);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

@@ -1,0 +1,56 @@
+{
+  "id": "AV.F07.slash.input.case.expected",
+  "ownerTicket": "03",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:38:54.737Z",
+  "completedAt": "2026-11-02T10:38:58.865Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "names": [
+        "sub/Poster"
+      ],
+      "source": "import {commonEvent,rawDslCommand} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"sub/Poster\",0,0,0,0,100,100,255,0]})]});",
+      "contract": "exact selected PNG metadata in the bound Project Root"
+    },
+    {},
+    {
+      "actualCli": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-03-files/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-03-files/packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-unsupported-slash-RbIp7a\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T10:38:56.072Z",
+        "completedAt": "2026-11-02T10:38:58.848Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131\r\n    throw new Error(`${input.commandName} asset check failed:\\n${errors.join(\"\\n\")}`);\r\n          ^\r\n\r\nError: compile --check asset check failed:\r\nerror MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-unsupported-slash-RbIp7a\\最小 Workspace with spaces\\Game; required extension: .png\r\n  image/pictures \"sub/Poster\"; 1 use(s)\r\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; base: error; effective: error\r\n1 problem group(s), 0 problem file(s), 1 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.\r\n    at checkEventAssets (M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131:11)\r\n    at async compileWorkspaceUnlocked (M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:277:5)\r\n    at async withWorkspaceOperationLock (M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\src\\workspace\\operation-lock.ts:45:12)\r\n    at async compileWorkspace (M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:217:3)\r\n    at async Command.<anonymous> (M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\src\\cli.ts:67:7)\r\n    at async Command.parseAsync (M:\\Shuen\\Codex\\asset-validation-03-files\\node_modules\\.pnpm\\commander@14.0.3\\node_modules\\commander\\lib\\command.js:1122:5)\r\n    at async runCli (M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\src\\cli.ts:110:3)\r\n    at async <anonymous> (M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\src\\cli.ts:122:3)\r\n\r\nNode.js v22.23.4\r\n",
+        "ipcMessages": []
+      },
+      "guard": "no descent into any image category for unsupported slash name"
+    }
+  ],
+  "expected": {
+    "description": "unsupported names retain the original input without a fabricated file target",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-file-workspace.test.ts",
+    "sha256": "61cbdd643880adf3d124748862751b96fdaf2a86fefb5e451b99b8457255449b",
+    "assertions": "async () => {\n\t\tawait (0,__vite_ssr_import_6__.withWindowsSandbox)(`asset-unsupported-${branch}`, async (sandbox) => {\n\t\t\tawait prepare(sandbox.workspaceRoot, [name]);\n\t\t\tconst before = await localState(sandbox.workspaceRoot);\n\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\tworkspaceRoot: sandbox.workspaceRoot,\n\t\t\t\tcheck: true\n\t\t\t}).then(() => \"\", String);\n\t\t\t(0,__vite_ssr_import_4__.expect)(failure).toContain(\"MV-ASSET-UNSUPPORTED-NAME\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(failure).toContain(JSON.stringify(name));\n\t\t\t(0,__vite_ssr_import_4__.expect)(failure).toContain(\"CommonEvents.json[10].list[0].parameters[1]\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(failure).not.toContain(\"; target:\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(failure).not.toContain(\"MV-ASSET-MISSING\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(await localState(sandbox.workspaceRoot)).toEqual(before);\n\t\t\tif (branch === \"slash\") {\n\t\t\t\tconst child = (0,__vite_ssr_import_7__.startWorkspaceOperation)(sandbox, {\n\t\t\t\t\toperation: \"check\",\n\t\t\t\t\tmode: \"cli\",\n\t\t\t\t\tboundary: \"asset-link-guard\",\n\t\t\t\t\tassetPath: \"img\"\n\t\t\t\t});\n\t\t\t\ttry {\n\t\t\t\t\t(0,__vite_ssr_import_4__.expect)((await child.ended).exitCode).toBe(1);\n\t\t\t\t\t(0,__vite_ssr_import_4__.expect)(child.messages.some((message) => message.kind === \"asset-link-follow-attempt\")).toBe(false);\n\t\t\t\t\t(0,__vite_ssr_import_4__.expect)(sandbox.processes.at(-1).stderr).toContain(\"MV-ASSET-UNSUPPORTED-NAME\");\n\t\t\t\t\t(0,__vite_ssr_import_5__.recordAssetInput)({\n\t\t\t\t\t\tactualCli: sandbox.processes.at(-1),\n\t\t\t\t\t\tguard: \"no descent into any image category for unsupported slash name\"\n\t\t\t\t\t});\n\t\t\t\t} finally {\n\t\t\t\t\tawait child.stop();\n\t\t\t\t}\n\t\t\t}\n\t\t});\n\t}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}
