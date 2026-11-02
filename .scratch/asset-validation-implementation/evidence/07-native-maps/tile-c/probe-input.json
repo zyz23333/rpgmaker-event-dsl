@@ -1,0 +1,132 @@
+{
+  "scenario": "tile-c",
+  "selected": {
+    "tileId": 256,
+    "slot": 6,
+    "name": "N04-C",
+    "sx": 0,
+    "sy": 0,
+    "pixel": "#ff8000"
+  },
+  "expectedNames": [
+    "N04-A1",
+    "N04-A2",
+    "N04-A3",
+    "N04-A4",
+    "N04-A5",
+    "N04-B",
+    "N04-C",
+    "N04-D",
+    "N04-E"
+  ],
+  "expectedSheets": [
+    {
+      "slot": 0,
+      "name": "N04-A1",
+      "width": 768,
+      "height": 576,
+      "rgba": [
+        255,
+        0,
+        0,
+        255
+      ]
+    },
+    {
+      "slot": 1,
+      "name": "N04-A2",
+      "width": 768,
+      "height": 576,
+      "rgba": [
+        0,
+        255,
+        0,
+        255
+      ]
+    },
+    {
+      "slot": 2,
+      "name": "N04-A3",
+      "width": 768,
+      "height": 384,
+      "rgba": [
+        0,
+        0,
+        255,
+        255
+      ]
+    },
+    {
+      "slot": 3,
+      "name": "N04-A4",
+      "width": 768,
+      "height": 720,
+      "rgba": [
+        255,
+        255,
+        0,
+        255
+      ]
+    },
+    {
+      "slot": 4,
+      "name": "N04-A5",
+      "width": 384,
+      "height": 768,
+      "rgba": [
+        255,
+        0,
+        255,
+        255
+      ]
+    },
+    {
+      "slot": 5,
+      "name": "N04-B",
+      "width": 768,
+      "height": 768,
+      "rgba": [
+        0,
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "slot": 6,
+      "name": "N04-C",
+      "width": 768,
+      "height": 768,
+      "rgba": [
+        255,
+        128,
+        0,
+        255
+      ]
+    },
+    {
+      "slot": 7,
+      "name": "N04-D",
+      "width": 768,
+      "height": 768,
+      "rgba": [
+        128,
+        0,
+        255,
+        255
+      ]
+    },
+    {
+      "slot": 8,
+      "name": "N04-E",
+      "width": 768,
+      "height": 768,
+      "rgba": [
+        192,
+        192,
+        192,
+        255
+      ]
+    }
+  ]
+}

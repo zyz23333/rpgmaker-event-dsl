@@ -1,0 +1,7 @@
+[3176:37544:1102/115025.768:ERROR:gpu_process_transport_factory.cc(1024)] Lost UI shared context.
+[3176:37544:1102/115025.849:WARNING:push_messaging_service_factory.cc(30)] PushMessagingService could not be built because InstanceID is unexpectedly disabled
+[3176:37544:1102/115028.007:INFO:CONSOLE(27682)] "
+ %c %c %c PixiJS 4.5.4 - ✰ Canvas ✰  %c  %c  http://www.pixijs.com/  %c %c ♥%c♥%c♥ 
+
+", source: chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/js/libs/pixi.js (27682)
+[3176:37544:1102/115028.237:INFO:chrome_cryptauth_service.cc(231)] Profile is not authenticated yet; waiting before starting CryptAuth managers.
