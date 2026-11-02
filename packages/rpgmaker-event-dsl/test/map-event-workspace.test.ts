@@ -336,6 +336,8 @@ it("preserves disabled condition settings, independent images and every saved pa
     await createMinimalProject(workspaceRoot);
     await mkdir(join(workspaceRoot, "Game/img/characters"), { recursive: true });
     await writeFile(join(workspaceRoot, "Game/img/characters/!$Big.png"), "");
+    await mkdir(join(workspaceRoot, "Game/img/tilesets"), { recursive: true });
+    await writeFile(join(workspaceRoot, "Game/img/tilesets/E.png"), "");
     const pages = [
       {
         ...structuredClone(blankPage),

@@ -1,6 +1,6 @@
 # 07: 传送地图与页图块的素材检查
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 06
 Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -61,3 +61,5 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 ## Comments
 
 - 2026-10-24：用户回复“确认”，本票按已确认的 17 票拆分发布为 ready-for-agent。产品实现、自动化与原生验收均尚未由本次发布执行。
+
+- 2026-11-02：基于 integration 898b87db（06 resolved）领取；干净工作树快进，包 typecheck 与既有 dependency-data 4/4 基线通过。按已确认 Workspace/API、实际 CLI、纯关系补充及原生 N04 seams 使用 TDD 实施。

@@ -169,8 +169,15 @@ preserves negative zero, and remains saved while its loop is disabled or its ima
 is None. Use the exact
 `battlebacks1`, `battlebacks2` and `parallaxes` folders for each image slot; an empty
 Asset Reference name is invalid. Tilesets must exist in the Snapshot and have no
-None value. Asset filenames are preserved without scanning local image files;
-a valid reference does not guarantee that MV can load its images.
+None value. Compile and Check validate selected event assets against exact local
+ordinary files while preserving their saved names; file existence does not
+guarantee that MV can decode or display the images. Change Tileset checks all nine
+named sheets. Fixed Transfer Player destinations check their captured Map's
+Tileset sheets, parallax and saved BGM/BGS, retaining autoplay conditions and
+warning for confirmed file problems in audio whose autoplay is off. A Map Event
+Page tile checks only its selected initial-host B–E sheet as a conditional
+candidate; runtime tileset changes may replace that choice. Variable transfer
+destinations report their unchecked dynamic boundary without guessing a Map.
 
 System access commands each require an explicit Boolean `enabled`:
 
@@ -621,9 +628,10 @@ even when empty or inactive. See the [movement parameter reference](packages/rpg
 for every instruction and accepted range.
 
 Project data references use helpers such as `switchRef(...)`, `variableRef(...)`,
-`actorRef(...)`, `skillRef(...)`, and `tilesetRef(...)`. Asset parameters use no-scan
-Asset References instead: `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)`
-compile to MV filename stems without checking the filesystem or resolving database IDs.
+`actorRef(...)`, `skillRef(...)`, and `tilesetRef(...)`. Asset parameters use
+Asset References: `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)`
+compile to preserved MV filename stems rather than database IDs. Workspace
+validation checks the supported Event Asset Uses against exact ordinary files.
 
 Actor HP/MP/TP, State and Recover All helpers use explicit Actor Runtime Selectors;
 resource quantities use a constant or variable operand, and HP requires its saved

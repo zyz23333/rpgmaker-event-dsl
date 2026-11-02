@@ -9,6 +9,7 @@ import {
 } from "./support/workspace-operation-process.js";
 import { getWorkspaceStatePaths } from "../src/workspace/state.js";
 import { collectEventAssetUses } from "../src/validation/asset-uses.js";
+import { collectMapAssetRelations } from "../src/validation/asset-map-relations.js";
 
 const {
   initWorkspace,
@@ -17,6 +18,7 @@ const {
 }: typeof import("../src/workspace-api.js") = await import(workspaceApiEntry);
 const it = createAssetTest({ ownerTicket: "04", testSource: import.meta.url });
 const routeIt = createAssetTest({ ownerTicket: "04,05", testSource: import.meta.url });
+const tileIt = createAssetTest({ ownerTicket: "04,07", testSource: import.meta.url });
 const imports =
   'import {mapEvent,showText,imageAsset,audioAsset,rawDslCommand,changeBattleBack,changeParallax,changeActorImages,changeVehicleImage,actorRef,setMovementRoute,scriptInput} from "rpgmaker-event-dsl";\n';
 const source = (command: string, pageFields = "") =>
@@ -44,42 +46,99 @@ async function prepare(root: string, authored: string, overrides: Record<string,
 
 const routeSource =
   'setMovementRoute({target:{kind:"runtimeSelector",scope:"character",target:"player"},route:{commands:[{kind:"changeImage",character:imageAsset({folder:"characters",name:"Route"}),characterIndex:7}]}})';
-it("AV.C08.tile-with-character.formal.case.expected: tile page retains its inactive saved character name", async () => {
-  await withWindowsSandbox("asset-tile-character", async (sandbox) => {
-    const root = sandbox.workspaceRoot;
-    await prepare(
-      root,
-      source("", `,image:{character:${image("characters", "Saved")},characterIndex:7,tileId:1}`),
-      {
-        "Tilesets.json": [
-          null,
-          { id: 1, name: "Tiles", tilesetNames: ["", "", "", "", "", "BaseB", "", "", ""] },
+tileIt(
+  "AV.C08.tile-with-character.formal.case.expected: tile page retains its inactive saved character name and independently selects its initial B-sheet candidate",
+  async () => {
+    await withWindowsSandbox("asset-tile-character", async (sandbox) => {
+      const root = sandbox.workspaceRoot;
+      await prepare(
+        root,
+        source("", `,image:{character:${image("characters", "Saved")},characterIndex:7,tileId:1}`),
+        {
+          "Tilesets.json": [
+            null,
+            { id: 1, name: "Tiles", tilesetNames: ["", "", "", "", "", "BaseB", "", "", ""] },
+          ],
+        },
+      );
+      await mkdir(join(root, "Game/img/characters"), { recursive: true });
+      await mkdir(join(root, "Game/img/tilesets"), { recursive: true });
+      await writeFile(join(root, "Game/img/tilesets/BaseB.png"), "");
+      recordAssetInput({ ordinaryZeroByteFile: "Game/img/tilesets/BaseB.png" });
+      const before = await state(root);
+      const result = await runCli(sandbox, ["compile", "--check"]);
+      recordAssetInput({ cliResult: result });
+      expect(result.stderr).toContain("warning MV-ASSET-MISSING-FILE");
+      expect(result.stderr).toContain("saved characterName is inactive");
+      expect(await state(root)).toEqual(before);
+      await compileWorkspace({ workspaceRoot: root, check: false });
+      expect(await uses(root)).toEqual([
+        {
+          category: "image",
+          folder: "characters",
+          name: "Saved",
+          identity: "map:1/event:1",
+          nativePath: "Map001.json.events[1].pages[0].image.characterName",
+          relatedNativePaths: [],
+          dependencyChain: [],
+          conditions: [],
+          inactive: "Map Event Page uses a tile image; the saved characterName is inactive.",
+        },
+      ]);
+      const paths = getWorkspaceStatePaths(root);
+      const current = new Map<string, string>(),
+        captured = new Map<string, string>();
+      for (const file of await readdir(paths.generatedProjectDataDirectory))
+        if (file.endsWith(".json"))
+          current.set(
+            file,
+            await readFile(join(paths.generatedProjectDataDirectory, file), "utf8"),
+          );
+      for (const file of await readdir(paths.projectDataSnapshotDirectory))
+        if (file.endsWith(".json"))
+          captured.set(
+            file,
+            await readFile(join(paths.projectDataSnapshotDirectory, file), "utf8"),
+          );
+      expect(collectMapAssetRelations(current, captured)).toEqual({
+        uses: [
+          {
+            category: "image",
+            folder: "tilesets",
+            name: "BaseB",
+            identity: "map:1/event:1",
+            nativePath: "Map001.json.events[1].pages[0].image.tileId",
+            relatedNativePaths: [],
+            dependencyChain: [
+              {
+                data: "Map001.json",
+                field: "tilesetId",
+                relationship: "Map Event Page initial host Tileset",
+              },
+              {
+                data: "Tilesets.json",
+                id: 1,
+                field: "tilesetNames[5]",
+                relationship: "Map Event Page tile image sheet",
+              },
+            ],
+            conditions: [
+              "Page tile bitmap is selected from the host Map's initial Tileset; map rendering may separately request every sheet.",
+            ],
+            candidate:
+              "Map Event Page uses the host Map's initial Tileset; runtime tileset changes may override it.",
+          },
         ],
-      },
-    );
-    await mkdir(join(root, "Game/img/characters"), { recursive: true });
-    const before = await state(root);
-    const result = await runCli(sandbox, ["compile", "--check"]);
-    recordAssetInput({ cliResult: result });
-    expect(result.stderr).toContain("warning MV-ASSET-MISSING-FILE");
-    expect(result.stderr).toContain("saved characterName is inactive");
-    expect(await state(root)).toEqual(before);
-    await compileWorkspace({ workspaceRoot: root, check: false });
-    expect(await uses(root)).toEqual([
-      {
-        category: "image",
-        folder: "characters",
-        name: "Saved",
-        identity: "map:1/event:1",
-        nativePath: "Map001.json.events[1].pages[0].image.characterName",
-        relatedNativePaths: [],
-        dependencyChain: [],
-        conditions: [],
-        inactive: "Map Event Page uses a tile image; the saved characterName is inactive.",
-      },
-    ]);
-  });
-});
+        problems: [],
+        stops: [],
+      });
+      expect([
+        ...(await uses(root)),
+        ...collectMapAssetRelations(current, captured).uses,
+      ]).toHaveLength(2);
+    });
+  },
+);
 
 type ImageField = { token: string; folder: string; name: string; parameter: number };
 type ImageVector = {
