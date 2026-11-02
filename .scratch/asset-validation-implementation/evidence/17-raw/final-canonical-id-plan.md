@@ -1,6 +1,6 @@
 # 全量 canonical ID 独立计划与差异报告
 
-权威快照：`c5f7ead75ba78680b92ad81924ba8cb884d2b751`。本程序逐项独立转录当前验收矩阵／子用例索引与责任票，不导入产品／测试、不运行产品命令、不读取执行回执。所有实际状态均为 **未在本计划中审计**，票17的领取状态和已执行命令由独立验收工件记录。JSON 是逐项机器可读目录，本文件也逐项列出1209个计划身份；这不是产品完成或验收通过声明。
+权威快照：`0b5195c4095e9b21b8e345541c4ae7859bc2d66a`。本程序逐项独立转录当前验收矩阵／子用例索引与责任票，不导入产品／测试、不运行产品命令、不读取执行回执。所有实际状态均为 **未在本计划中审计**，票17的领取状态和已执行命令由独立验收工件记录。JSON 是逐项机器可读目录，本文件也逐项列出1209个计划身份；这不是产品完成或验收通过声明。
 
 **身份拼写限制：** 1209项语义义务完整，其中1084项的ID由权威token及固定默认值直接确定。F07另125项由权威明确到具体字符／设备名，但未规定后缀分隔及大小写；本计划使用 `case-uXXXX` 小写十六进制和 `case-<大写设备名原文>`，仅为计划编码。票17将既有canonical spelling与JSON中独立semanticKey逐项一对一映射。纯拼写差异不能当行为缺口，也不能注册别名或跳过逐字符核验。F07五个独立路径形式分支不存在此后缀歧义。
 
@@ -2004,7 +2004,7 @@ source／built 是回执轴，不增加ID。N组媒体、B–E图块、多timing
 
 ## 后续使用边界
 
-- Use final authoritative matrix/index and ticket ownership at the explicit freeze c5f7ead75ba78680b92ad81924ba8cb884d2b751; this plan alone is not an execution audit.
+- Use final authoritative matrix/index and ticket ownership at the explicit freeze 0b5195c4095e9b21b8e345541c4ae7859bc2d66a; this plan alone is not an execution audit.
 - Map every expected semantic ID to registered tests and source/built/native receipts using independent expectations.
 - Resolve F07 spelling one-to-one independently of behavior; never infer completeness from family/total counts.
 - Check hashes, environment, required entry methods, exact assertions and all samples before assessing actual status.

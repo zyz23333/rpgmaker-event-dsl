@@ -20,6 +20,7 @@ function visit(path) {
   }
 }
 visit(prefix + "17-raw"); visit(prefix + "17-run-history");
+if (!failedCheckpoint) visit(prefix + "17-regression-repair");
 for (const entry of readdirSync(prefix, { withFileTypes: true }))
   if (entry.isFile() && entry.name.startsWith("17-") && !["17-final-artifact-manifest.json", "17-final-git-verification.json",
     "17-failed-checkpoint-manifest.json", "17-failed-git-verification.json"].includes(entry.name)) files.push(prefix + entry.name);
@@ -28,7 +29,7 @@ const artifacts = [...new Set(files)].sort().map((path) => { const bytes = readF
   return { path, bytes: bytes.length, sha256: sha(bytes), expectedGitBlobId: blob(bytes) }; });
 const result = { schemaVersion: 1, kind: failedCheckpoint ? "failed-whole-validation-checkpoint; not final acceptance" : "final-technical-evidence",
   executionFreeze: history.frozenRevision, generatedAt: new Date().toISOString(),
-  scope: "all17 raw/current/history evidence, audit artifacts, recorder/auditor sources, narrative and issue17; self and later Git verification excluded",
+  scope: "all17 raw/current/history evidence, audit artifacts, recorder/auditor sources, narrative and issue17; final mode also includes original17-regression-repair evidence; self and later Git verification excluded",
   count: artifacts.length, totalBytes: artifacts.reduce((sum, row) => sum + row.bytes, 0), artifacts };
 writeFileSync(prefix + (failedCheckpoint ? "17-failed-checkpoint-manifest.json" : "17-final-artifact-manifest.json"), JSON.stringify(result, null, 2) + "\n");
 console.log(JSON.stringify({ count: result.count, bytes: result.totalBytes }, null, 2));

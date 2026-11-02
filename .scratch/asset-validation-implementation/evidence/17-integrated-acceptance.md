@@ -2,6 +2,10 @@
 
 当前为**进行中的技术验收，待旧回归修复后重新完整执行**。票17保持 `claimed`，未取得或代填维护者最终确认。03／04／06／09／16补修已集成；最近完整执行冻结为 `c5f7ead75ba78680b92ad81924ba8cb884d2b751`，集成基点 `f30d64d635eddc832879e1536bb72f89e82ad015`，Compile Contract `mv-1.6.1/40`。该次完整check真实失败；首次Contract39尝试因已确认的设备名产品缺口取消，二者原始历史单独保存，均不能作为最终全量通过。
 
+17-support已集成至`0b5195c4095e9b21b8e345541c4ae7859bc2d66a`，将以新干净冻结完整重验。[独立修复审计](17-regression-repair-audit.json)核对六个完整文件：只归一明确允许的局部deadline参数／传递和final-review三处CURRENT字符串后，完整AST与c5原文件一致，保留122个callback、295个literal arrays、936个字符串输入／diagnostic。Picture007及全部15种Input003预算10→30秒；三批Audio002及Movement003预算30→60秒；Screen002预算30→90秒。全局10000ms、2workers及正常Windows include保持原样。这些是完整流程的局部预算，不是产品性能修复、业务断言放宽或对旧timeout原因的证明；静态重审与输入准备安排在完整命令前后，同样不能作为旧失败的因果解释。
+
+legacy final-review单独登记CURRENT38→40：严格版本expect、标题、sandbox描述恰好三个字符串；历史`mv-1.6.1/23`赋值以及全部stale／fresh／Check不升级断言完整保留。这一更新与09标题计数2→1、16 CURRENT39→40为三个独立纠正，不能混称所有原expect字面不变。support真实source／built各22passed、0failed、115filtered，六个suite实际执行，分别21个helper；85份原raw与332项helper来源文件独立核验。final-review真实由runner通过，Movement的实际CLI入口和其余Workspace API的src／dist入口均单独核对。上述窄验证不替代三条完整验收命令，也没有重跑原生。
+
 ## 命令与失败历史
 
 Windows10 `10.0.19045` x64、Node `v22.23.4`、pnpm `10.33.0`；默认 `C:\Users\Shuen\AppData\Local\Temp`，仓库 `maxWorkers:2`，无全局 CLI entry 覆盖。先做 setup build，再顺序执行 `pnpm check`、`pnpm build`、`pnpm --filter rpgmaker-event-dsl test:windows-baseline`。[命令记录器](17-run-history/run-final-validation.mjs)已经提交在上述执行冻结；它记录初始干净状态、受保护源码／测试／配置哈希、真实命令原始输出与退出、两次构建产物及每条实际回执，拒绝陈旧或命令时间窗外的回执。运行期间不提交、合并或修改产品／测试／配置。
