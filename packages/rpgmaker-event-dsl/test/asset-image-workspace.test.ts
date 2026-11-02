@@ -728,28 +728,54 @@ for (const [branch, name, system, expected, level] of [
     });
   });
 
-it("AV.C11.route-script.formal.case.expected: route scripts retain the Script Gate and their strings do not become image targets", async () => {
-  await withWindowsSandbox("asset-route-script", async ({ workspaceRoot: root }) => {
-    await prepare(
-      root,
-      source(
-        'setMovementRoute({target:{kind:"runtimeSelector",scope:"character",target:"player"},route:{commands:[{kind:"script",script:scriptInput({code:"ImageManager.loadCharacter(\\\"Missing\\\");"})}]}})',
-      ),
-    );
-    const before = await state(root);
-    await expect(compileWorkspace({ workspaceRoot: root, check: true })).rejects.toThrow(/script/i);
-    expect(await state(root)).toEqual(before);
-    const config = join(root, "rpgmaker-event-dsl.config.json");
-    const values = JSON.parse(await readFile(config, "utf8"));
-    await writeFile(config, JSON.stringify({ ...values, scriptEnabled: true }));
-    await compileWorkspace({ workspaceRoot: root, check: false });
-    expect(await uses(root)).toEqual([]);
-    expect((await page(root)).list[0].parameters[1].list[0]).toEqual({
-      code: 45,
-      parameters: ['ImageManager.loadCharacter("Missing");'],
+createAssetTest({ ownerTicket: "04,12", testSource: import.meta.url })(
+  "AV.C11.route-script.formal.case.expected: route scripts retain the Script Gate and their strings do not become image targets",
+  async () => {
+    await withWindowsSandbox("asset-route-script", async ({ workspaceRoot: root }) => {
+      await prepare(
+        root,
+        source(
+          'setMovementRoute({target:{kind:"runtimeSelector",scope:"character",target:"player"},route:{commands:[{kind:"script",script:scriptInput({code:"ImageManager.loadCharacter(\\\"Missing\\\");"})}]}})',
+        ),
+      );
+      const before = await state(root);
+      await expect(compileWorkspace({ workspaceRoot: root, check: true })).rejects.toThrow(
+        /script/i,
+      );
+      expect(await state(root)).toEqual(before);
+      const config = join(root, "rpgmaker-event-dsl.config.json");
+      const values = JSON.parse(await readFile(config, "utf8"));
+      await writeFile(config, JSON.stringify({ ...values, scriptEnabled: true }));
+      await compileWorkspace({ workspaceRoot: root, check: false });
+      expect(await uses(root)).toEqual([]);
+      expect((await page(root)).list[0].parameters[1].list[0]).toEqual({
+        code: 45,
+        parameters: ['ImageManager.loadCharacter("Missing");'],
+      });
+      await writeFile(
+        config,
+        JSON.stringify({
+          ...values,
+          scriptEnabled: false,
+          assetCheckExceptions: [
+            {
+              category: "image",
+              folder: "characters",
+              name: "Missing",
+              reason: "Cannot waive route Script Command Gate",
+            },
+          ],
+        }),
+      );
+      const exceptionBefore = await state(root);
+      await expect(compileWorkspace({ workspaceRoot: root, check: true })).rejects.toThrow(
+        /script/iu,
+      );
+      expect(await state(root)).toEqual(exceptionBefore);
+      recordAssetInput({ matchingRouteExceptionDoesNotBypassScriptGate: true });
     });
-  });
-});
+  },
+);
 
 it("AV.C08.inactive-query-failure.injected.image.expected: an inactive image cannot downgrade an inconclusive metadata query", async () => {
   await withWindowsSandbox("asset-inactive-query", async (sandbox) => {

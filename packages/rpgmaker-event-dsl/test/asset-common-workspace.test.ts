@@ -11,6 +11,7 @@ import { verifyForcedActionGraph } from "./support/asset-action-scenarios.js";
 
 const api: typeof import("../src/workspace-api.js") = await import(workspaceApiEntry);
 const it = createAssetTest({ ownerTicket: "10", testSource: import.meta.url });
+const diagnosticIt = createAssetTest({ ownerTicket: "10,12", testSource: import.meta.url });
 const graphIt = createAssetTest({ ownerTicket: "10,11", testSource: import.meta.url });
 const imports =
   'import {commonEvent,mapEvent,troopEvent,callCommonEvent,commonEventRef,showPicture,imageAsset,rawDslCommand,loop} from "rpgmaker-event-dsl";\n';
@@ -515,32 +516,69 @@ for (const branch of ["removed-common-call", "replaced-common-call"] as const)
   });
 
 for (const branch of ["common-definition", "shared-callers", "unknown-source"] as const)
-  it(`AV.D09.${branch}.formal.case.expected: CLI exposes defining asset fields and finite direct callers without fabricated source coordinates`, async () => {
-    await withWindowsSandbox(`asset-call-location-${branch}`, async (sandbox) => {
-      const root = sandbox.workspaceRoot;
-      await prepare(
-        root,
-        common(10, branch === "shared-callers" ? `${call(11)},${call(11)}` : call(11)) +
-          common(11, picture),
-      );
-      const before = await state(root);
-      const result = await runCli(sandbox, ["compile"], { allowFailure: true });
-      expect(result.exitCode).toBe(1);
-      expect(result.stderr).toContain("compile asset check failed");
-      expect(result.stderr).toContain("MV-ASSET-MISSING-FILE");
-      expect(result.stderr).toContain('image/pictures "CalledPoster"; 1 use(s)');
-      expect(result.stderr).toContain("commonEvent:11 CommonEvents.json[11].list[0].parameters[1]");
-      expect(result.stderr).toContain(
-        "commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11",
-      );
-      expect(result.stderr).toContain("Project Root:");
-      expect(result.stderr).toContain("required extension: .png");
-      if (branch === "shared-callers")
-        expect(result.stderr).toContain(
-          "commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:11",
+  diagnosticIt(
+    `AV.D09.${branch}.native.case.expected: CLI exposes defining asset fields and finite direct callers without fabricated source coordinates`,
+    async () => {
+      await withWindowsSandbox(`asset-call-location-${branch}`, async (sandbox) => {
+        const root = sandbox.workspaceRoot;
+        await prepare(
+          root,
+          common(10, branch === "shared-callers" ? `${call(11)},${call(11)}` : call(11)) +
+            common(11, picture),
         );
-      expect(result.stderr).not.toMatch(/calls\.events\.ts:\d+:\d+/u);
-      expect(result.stderr).not.toContain("MV-ASSET-DYNAMIC-STOP");
-      expect(await state(root)).toEqual(before);
-    });
-  });
+        const before = await state(root);
+        const result = await runCli(sandbox, ["compile"], { allowFailure: true });
+        expect(result.exitCode).toBe(1);
+        expect(result.stderr).toContain("compile asset check failed");
+        expect(result.stderr).toContain("MV-ASSET-MISSING-FILE");
+        expect(result.stderr).toContain('image/pictures "CalledPoster"; 1 use(s)');
+        expect(result.stderr).toContain(
+          "commonEvent:11 CommonEvents.json[11].list[0].parameters[1]",
+        );
+        expect(result.stderr).toContain(
+          "commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11",
+        );
+        expect(result.stderr).toContain("Project Root:");
+        expect(result.stderr).toContain("required extension: .png");
+        if (branch === "shared-callers")
+          expect(result.stderr).toContain(
+            "commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:11",
+          );
+        expect(result.stderr).not.toMatch(/calls\.events\.ts:\d+:\d+/u);
+        expect(result.stderr).not.toContain("MV-ASSET-DYNAMIC-STOP");
+        expect(result.stderr).toContain("1 problem group(s), 1 problem file(s), 1 affected use(s)");
+        expect(result.stderr).toContain("DSL: commands[0]");
+        expect(result.stderr).toContain("calls.events.ts (line");
+        const apiFailure = await api
+          .compileWorkspace({ workspaceRoot: root, check: true })
+          .then(() => "", String);
+        expect(apiFailure).toContain("1 affected use(s)");
+        expect(apiFailure).toContain("commonEvent:11 CommonEvents.json[11].list[0].parameters[1]");
+        expect(await state(root)).toEqual(before);
+        recordAssetInput({
+          currentCanonicalRepresentation: "native",
+          migratedFromHistoricalFormalId: true,
+          actualCli: result,
+          actualApiFailure: apiFailure,
+        });
+        if (branch === "unknown-source") {
+          const rawSource = imports + common(10, rawCall(11)) + common(11, rawPicture);
+          await writeFile(join(root, "src/calls.events.ts"), rawSource);
+          const rawBefore = await state(root);
+          const rawResult = await runCli(sandbox, ["compile", "--check"], { allowFailure: true });
+          expect(rawResult.exitCode).toBe(1);
+          expect(rawResult.stderr).toContain("CommonEvents.json[11].list[0].parameters[1]");
+          expect(rawResult.stderr).toContain("DSL: commands[0]");
+          expect(rawResult.stderr).not.toContain("; source:");
+          expect(rawResult.stderr).toContain("1 affected use(s)");
+          expect(await state(root)).toEqual(rawBefore);
+          recordAssetInput({
+            rawSource,
+            actualRawCli: rawResult,
+            sourceFallback:
+              "Native and authored command paths retained; raw payload coordinates deliberately not guessed.",
+          });
+        }
+      });
+    },
+  );

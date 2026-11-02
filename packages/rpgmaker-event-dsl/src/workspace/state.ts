@@ -61,11 +61,11 @@ export const syncManifestSchema = z
         hash: hashSchema,
         config: z
           .object({
+            assetCheckExceptions: assetCheckExceptionsSchema.optional(),
             scriptEnabled: z.boolean(),
             sourceExclude: z.array(z.string().min(1)),
             sourceInclude: z.array(z.string().min(1)),
             sourceRoot: z.string().min(1),
-            assetCheckExceptions: assetCheckExceptionsSchema.optional(),
           })
           .strict(),
         snapshotFiles: projectDataHashesSchema,

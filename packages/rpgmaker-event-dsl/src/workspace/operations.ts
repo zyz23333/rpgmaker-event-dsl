@@ -333,7 +333,7 @@ async function compileWorkspaceUnlocked(options: CompileWorkspaceOptions): Promi
   } catch (error) {
     if (!assetCheckStarted)
       throw new Error(
-        `${error instanceof Error ? error.message : String(error)}\nAsset check not run: earlier compile input or validation failure left no trusted complete candidate.`,
+        `${error instanceof Error ? error.message : String(error)}\ncompile asset check not run: earlier compile input or validation failure left no trusted complete candidate.`,
         { cause: error },
       );
     throw error;

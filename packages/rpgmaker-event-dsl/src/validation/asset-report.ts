@@ -79,7 +79,9 @@ export function buildAssetReport(
             origin,
             baseLevel,
             effectiveLevel: downgrade ? ("warning" as const) : baseLevel,
-            ...(downgrade ? { exceptionReason: exceptions[exceptionIndex]!.reason } : {}),
+            ...(eligible.has(finding.code) && exceptionIndex >= 0
+              ? { exceptionReason: exceptions[exceptionIndex]!.reason }
+              : {}),
           };
         });
       return {
@@ -90,9 +92,21 @@ export function buildAssetReport(
     });
   const incomplete =
     hasDynamicStops || findings.some((finding) => incompleteCodes.has(finding.code));
-  const ineffective = incomplete
+  const indeterminateScope =
+    hasDynamicStops ||
+    findings.some((finding) => incompleteCodes.has(finding.code) && finding.target === undefined);
+  const uncheckedTargets = new Set(
+    findings.flatMap((finding) =>
+      incompleteCodes.has(finding.code) && finding.target !== undefined
+        ? [assetTargetKey(finding.target)]
+        : [],
+    ),
+  );
+  const ineffective = indeterminateScope
     ? []
-    : exceptions.flatMap((entry, index) => (used.has(index) ? [] : [{ index, entry }]));
+    : exceptions.flatMap((entry, index) =>
+        used.has(index) || uncheckedTargets.has(assetTargetKey(entry)) ? [] : [{ index, entry }],
+      );
   const files = new Set(
     groups.flatMap((group) => (group.targetPath === undefined ? [] : [group.targetPath])),
   );

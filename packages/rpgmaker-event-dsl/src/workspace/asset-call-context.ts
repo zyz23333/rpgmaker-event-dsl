@@ -6,7 +6,17 @@ export function renderAssetCallContext(
   locations?: ReadonlyMap<string, AuthoredAssetLocation>,
 ): string {
   if (calls.length === 0) return "";
-  return `\nDirect Common Event calls:\n${calls
+  return `\nDirect Common Event calls:\n${[...calls]
+    .sort((left, right) =>
+      JSON.stringify([
+        left.caller,
+        left.nativePath,
+        left.dependencyChain,
+        left.target,
+      ]).localeCompare(
+        JSON.stringify([right.caller, right.nativePath, right.dependencyChain, right.target]),
+      ),
+    )
     .map(
       (call) =>
         `  - ${call.caller} ${call.nativePath} -> ${call.target}${call.dependencyChain.length ? `; chain: ${call.dependencyChain.map((step) => `${step.data}${step.id === undefined ? "" : `[${step.id}]`}.${step.field} (${step.relationship})`).join(" -> ")}` : ""}${renderAuthoredAssetLocation(call.nativePath, locations)}`,

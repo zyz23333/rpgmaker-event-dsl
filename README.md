@@ -479,7 +479,8 @@ Workspace config uses source discovery instead of per-file target bindings:
   "scriptEnabled": false,
   "sourceRoot": "src",
   "sourceInclude": ["**/*.events.ts", "**/*.dsl.ts"],
-  "sourceExclude": ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"]
+  "sourceExclude": ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"],
+  "assetCheckExceptions": []
 }
 ```
 

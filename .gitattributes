@@ -54,3 +54,6 @@
 # Preserve original N05/N06 native evidence and probe bytes, including NW log spaces.
 /.scratch/asset-validation-implementation/evidence/08-native-battlers/** -text -whitespace
 /.scratch/asset-validation-implementation/probes/native-battlers/** -text -whitespace
+# Fixed independent pre-policy evidence must retain its original bytes.
+packages/rpgmaker-event-dsl/test/fixtures/asset-legacy-policy-evidence.json -text
+/.scratch/asset-validation-implementation/evidence/12-run-history/** -text

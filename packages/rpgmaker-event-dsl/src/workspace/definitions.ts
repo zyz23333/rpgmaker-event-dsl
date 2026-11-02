@@ -390,8 +390,14 @@ function evaluateExpression(node: ts.Expression, scope: EvaluationScope): unknow
       output.push(evaluateExpression(element, scope));
     }
 
-    const position = scope.sourceFile.getLineAndCharacterOfPosition(node.getStart(scope.sourceFile));
-    rememberCapturedLocation(output, { file: scope.sourceFile.fileName, line: position.line + 1, column: position.character + 1 });
+    const position = scope.sourceFile.getLineAndCharacterOfPosition(
+      node.getStart(scope.sourceFile),
+    );
+    rememberCapturedLocation(output, {
+      file: scope.sourceFile.fileName,
+      line: position.line + 1,
+      column: position.character + 1,
+    });
     return output;
   }
 
@@ -428,8 +434,14 @@ function evaluateExpression(node: ts.Expression, scope: EvaluationScope): unknow
       set(evaluatePropertyName(property.name), evaluateExpression(property.initializer, scope));
     }
 
-    const position = scope.sourceFile.getLineAndCharacterOfPosition(node.getStart(scope.sourceFile));
-    rememberCapturedLocation(output, { file: scope.sourceFile.fileName, line: position.line + 1, column: position.character + 1 });
+    const position = scope.sourceFile.getLineAndCharacterOfPosition(
+      node.getStart(scope.sourceFile),
+    );
+    rememberCapturedLocation(output, {
+      file: scope.sourceFile.fileName,
+      line: position.line + 1,
+      column: position.character + 1,
+    });
     return output;
   }
 
@@ -441,8 +453,14 @@ function evaluateExpression(node: ts.Expression, scope: EvaluationScope): unknow
 
     const args = node.arguments.map((argument) => evaluateExpression(argument, scope));
     const result = callee(...args);
-    const position = scope.sourceFile.getLineAndCharacterOfPosition(node.getStart(scope.sourceFile));
-    rememberCapturedLocation(result, { file: scope.sourceFile.fileName, line: position.line + 1, column: position.character + 1 });
+    const position = scope.sourceFile.getLineAndCharacterOfPosition(
+      node.getStart(scope.sourceFile),
+    );
+    rememberCapturedLocation(result, {
+      file: scope.sourceFile.fileName,
+      line: position.line + 1,
+      column: position.character + 1,
+    });
     return result;
   }
 

@@ -76,10 +76,14 @@ export function renderAuthoredAssetLocation(
   locations?: ReadonlyMap<string, AuthoredAssetLocation>,
 ): string {
   if (!locations) return "";
-  const match = [...locations]
-    .filter(([path]) => nativePath === path || nativePath.startsWith(`${path}.`))
-    .sort(([left], [right]) => right.length - left.length)[0]?.[1];
-  return match === undefined
-    ? ""
-    : `; DSL: ${match.dslPath}${match.source === undefined ? "" : `; source: ${match.source.file} (line ${match.source.line}, column ${match.source.column})`}`;
+  let path = nativePath;
+  while (path !== "") {
+    const match = locations.get(path);
+    if (match !== undefined)
+      return `; DSL: ${match.dslPath}${match.source === undefined ? "" : `; source: ${match.source.file} (line ${match.source.line}, column ${match.source.column})`}`;
+    const separator = path.lastIndexOf(".");
+    if (separator < 0) return "";
+    path = path.slice(0, separator);
+  }
+  return "";
 }

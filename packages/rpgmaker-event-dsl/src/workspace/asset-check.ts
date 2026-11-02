@@ -88,15 +88,24 @@ export async function checkEventAssets(input: {
           ...(fact.failurePath === undefined ? {} : { failurePath: fact.failurePath }),
         };
     }
-    if (finding) findings.push({ ...finding, target, uses: group });
+    if (finding)
+      findings.push({
+        ...finding,
+        extension:
+          target.category === "image" ? ".png" : target.category === "audio" ? ".ogg" : ".webm",
+        target,
+        uses: group,
+      });
   }
   const origin = (value: AssetOrigin) =>
     renderOrigin(value) + renderAuthoredAssetLocation(value.nativePath, input.locations);
   const report = buildAssetReport(findings, input.exceptions ?? [], stops.length > 0);
-  const parts = report.groups.map(
+  const groupParts = report.groups.map(
     (group) =>
       `${group.level} ${group.code}: ${group.reason} Project Root: ${input.projectRoot}${group.extension === undefined ? "" : `; required extension: ${group.extension}`}${group.targetPath === undefined ? "" : `; target: ${group.targetPath}`}${group.failurePath === undefined ? "" : `; failed at: ${group.failurePath}`}\n${group.target === undefined ? "" : `  ${group.target.category}/${group.target.folder} ${JSON.stringify(group.target.name)}; ${group.members.length} use(s)\n`}${group.members.map((member) => `  - ${member.effectiveLevel} ${origin(member.origin)}; base: ${member.baseLevel}; effective: ${member.effectiveLevel}${member.exceptionReason === undefined ? "" : `; exception reason: ${member.exceptionReason}`}`).join("\n")}`,
   );
+  const errors = groupParts.filter((_, index) => report.groups[index]!.level === "error");
+  const parts = groupParts.filter((_, index) => report.groups[index]!.level === "warning");
   parts.push(
     ...stops.map((stop) => `info MV-ASSET-DYNAMIC-STOP: ${stop.reason}\n  - ${origin(stop)}`),
   );
@@ -106,16 +115,18 @@ export async function checkEventAssets(input: {
         `warning MV-ASSET-INEFFECTIVE-EXCEPTION: assetCheckExceptions[${index}] ${entry.category}/${entry.folder} ${JSON.stringify(entry.name)} downgraded no error; reason: ${entry.reason}`,
     ),
   );
-  if (parts.length)
-    parts.push(
-      `${report.statistics.groups} problem group(s), ${report.statistics.files} problem file(s), ${report.statistics.uses} affected use(s). Coverage: ${report.incomplete ? "incomplete; named relationships or file checks remain unchecked" : "complete"}.`,
-    );
-  const calls = renderAssetCallContext([...collectCommonEventCalls(input.files), ...actions.calls], input.locations);
-  if (calls) parts.push(calls.trimStart());
-  if (report.hasErrors)
-    throw new Error(`${input.commandName} asset check failed:\n${parts.join("\n")}`);
+  const summary = `${report.statistics.groups} problem group(s), ${report.statistics.files} problem file(s), ${report.statistics.uses} affected use(s). Coverage: ${report.incomplete ? "incomplete; named relationships or file checks remain unchecked" : "complete"}.`;
+  const finalParts = report.hasErrors ? errors : parts;
+  if (groupParts.length || stops.length || report.ineffective.length) finalParts.push(summary);
+  const calls = renderAssetCallContext(
+    [...collectCommonEventCalls(input.files), ...actions.calls],
+    input.locations,
+  );
+  if (calls) finalParts.push(calls.trimStart());
   if (parts.length)
     console.error(
-      `${input.commandName} asset check ${report.groups.length || report.ineffective.length ? "warning" : "info"}:\n${parts.join("\n")}`,
+      `${input.commandName} asset check ${report.groups.some((group) => group.level === "warning") || report.ineffective.length ? "warning" : "info"}:\n${parts.join("\n")}`,
     );
+  if (report.hasErrors)
+    throw new Error(`${input.commandName} asset check failed:\n${errors.join("\n")}`);
 }
