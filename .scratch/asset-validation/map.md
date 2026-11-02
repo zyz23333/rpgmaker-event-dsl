@@ -1,7 +1,7 @@
 # 事件素材引用检查的决策地图
 
 Labels: wayfinder:map
-Status: needs-info
+Status: resolved
 
 ## Destination
 
@@ -10,7 +10,7 @@ Status: needs-info
 
 ## Notes
 
-- 2026-11-02 原生反例重开图片特殊名称边界：[真实请求和磁盘对照证据](../asset-validation-implementation/evidence/01-native-media/observations.md)推翻图片 `literal%20image`／`image#hash` 的字面文件定位假设。01／03 及 ADR 0017 已重开，等待维护者决定支持政策；此前 resolved 描述是历史，其余设计和独立实现继续推进。
+- 2026-11-02 原生反例已按维护者答复处置：[真实请求和磁盘对照证据](../asset-validation-implementation/evidence/01-native-media/observations.md)推翻图片 `literal%20image`／`image#hash` 的字面文件定位假设。维护者选择“图片含 `%` 或 `#` 统一不支持；音频保持支持”，01／03 与 ADR 0017 恢复 resolved／accepted。普通百分号图片成功及两个失败和因果对照均保留，见[政策处置对账](../asset-validation-implementation/evidence/01-native-media/policy-resolution-2026-11-02.md)。产品 F06 图片分支仍由实施票 03 落实，不据文档关闭产品票。
 
 - 现行设计已按用户于 2026-10-25 的“调整一下”修订，依据前一轮过度设计评审；此前 Comments 中的确认是历史，当前 Answer、ADR 和实施规格已同步。
 - 首版仍为 Windows / Node.js 22、RPG Maker MV 1.6.1 普通编辑项目的文件存在性检查。事件直接引用、已识别 raw 和有限标准数据间接关系保留；图片尺寸、解码和播放保证继续排除。
@@ -20,20 +20,18 @@ Status: needs-info
 - 素材可用性与 data 同步分开：写后素材变化不创建或保留 pending；真正 data／编译依据异常仍沿既有保护和恢复。实时素材不进 Compile Baseline，政策进入；Diff、Clone、Pull、Decompilation 不新增文件门槛。
 - 事件、外部必要字段和 System 设置使用同一捕获视图；素材查询使用绑定实时 Project Root。素材不进入快照、复制、备份或写入；不扩大 DSL-Owned Project Data 或外部数据校验范围。
 - 文件定位研究及原生部署范围研究仅是事实依据；采用事件起点，不改用原版全库扫描。原生研究不等于产品验收。
-- 设计和交接已完成，地图及六张票保持 resolved；[实施规格](asset-validation-spec.md)保持 ready-for-agent。[验收矩阵](acceptance-matrix.md)及[子用例索引](implementation-acceptance-cases.md)已按修订更新，产品实现、自动化和原生必验仍待执行。
+- 设计和交接已完成，地图及六张票保持 resolved；[实施规格](asset-validation-spec.md)保持 ready-for-agent。[验收矩阵](acceptance-matrix.md)及[子用例索引](implementation-acceptance-cases.md)已按修订更新，产品实现、自动化和原生必验的实际状态以各实施票证据为准，最终完成由17汇总。
 
 ## Decisions so far
 
 - [01 原生文件定位](issues/01-native-asset-file-resolution.md#answer)：MV 1.6.1 目录、文件名、扩展名和部署差异的研究依据。
 - [02 覆盖与来源](issues/02-direct-asset-reference-coverage.md#answer)：有限直接／间接字段，定义事件内来源和直接公共事件调用关系；不枚举传递调用链。见 [ADR 0016](../../docs/adr/0016-event-rooted-asset-use-coverage.md)。
-- [03 文件事实](issues/03-asset-file-existence-contract.md#answer)：准确单层名称、固定桌面扩展名、普通文件元数据及链接／加密边界；单次查询失败与缺失分开。见 ADR 0017。
+- [03 文件事实](issues/03-asset-file-existence-contract.md#answer)：准确单层名称、固定桌面扩展名、普通文件元数据及链接／加密边界；图片／影片含 `%`／`#` 不支持，音频按原名；单次查询失败与缺失分开。见 ADR 0017。
 - [04 诊断政策](issues/04-asset-diagnostics-and-policy.md#answer)：普通使用严格，候选／非活动的文件问题及支持范围问题 warning；支持范围警告标记未检查，输入／查询失败仍 error。见 [ADR 0018](../../docs/adr/0018-asset-check-diagnostics-and-explicit-exceptions.md)。
 - [05 工作流](issues/05-workspace-asset-check-lifecycle.md#answer)：一次当前素材门槛、每条新命令重新查询、与 data 写入恢复解耦；保留编译输入和标准 data 保护。见 [ADR 0019](../../docs/adr/0019-asset-checks-at-workflow-boundaries.md)。
 - [06 验收交接](issues/06-asset-validation-acceptance.md#answer)：逐字段、来源、文件事实、诊断、工作流及有限原生必验；按收缩后的契约更新预期，所有产品验收仍待执行。
 
 ## Not yet specified
-
-- 2026-11-02 当前待决：图片 `%`／`#` 的支持边界。已有三个可审阅选项及最小反例，见上述原生观察；未接受替代政策。
 
 - 无。本地图范围内的文件定位事实、领域覆盖、文件存在性、诊断、工作流、验收与实施规格交接决定均已完成。后续具体实现设计由实施规格承担；新事实反例或范围扩展按验收票的重开规则处理。
 
@@ -103,3 +101,7 @@ Status: needs-info
 用户要求按评审调整。已修订 ADR 0016／0018／0019，并同步 ADR 0006、0011–0013、0017、GLOSSARY、票 02–06、实施规格及两份验收材料。主要撤销多检查点素材事实相等、改善也失败、写后素材 pending 和全传递调用链展开；候选／非活动中的不支持形式改为 warning + 未检查。实际字段覆盖、文件定位规则、data 一致性／恢复及原生必验保留。
 
 当前正文与各票 Answer 为现行设计，历史确认不再作为被替代规则的实现要求。本次只修订文档；地图继续 resolved，实施规格继续 ready-for-agent，不宣称产品实现或验收完成。
+
+### 2026-11-02 — 图片特殊名称反例的政策处置
+
+源票 01／03 和 ADR 0017 曾因原生图片 `%20`／`#` 反例重开为 needs-info／proposed。维护者随后明确选择统一排除含 `%`／`#` 的图片名、音频继续支持，现恢复设计完成状态。现行规格、验收矩阵／索引及实施职责一致更新；原始15样本13成功2反例、普通百分号成功与两组因果对照保持历史事实。实施01按当前支持域对账关闭，实施03和最终17仍各自承担产品实现与验收。

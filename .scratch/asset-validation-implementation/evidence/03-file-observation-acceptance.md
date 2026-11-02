@@ -2,6 +2,8 @@
 
 日期：2026-11-02。状态：**独立产品范围已实现并验证；F06 三个图片特殊名称用例等待用户政策决定，票 03 仍 claimed。** 不将未执行项计为通过，也不替代整体验收票 17。
 
+后续政策说明：上述为本阶段运行时的历史状态。维护者现已确认图片含 `%`／`#` 统一不支持，音频继续支持，详见[政策处置](01-native-media/policy-resolution-2026-11-02.md)。当前三个图片 F06 canonical ID 已改为 input，产品仍待03落实；本文件下方及机器回执中的旧 filesystem ID、六条 `not-executed-policy-pending` 和原有执行计数保持历史事实，不覆盖为通过。
+
 环境为 Windows x64、Node.js `v22.23.4`（`M:/Shuen/Codex/tools/node-v22.23.4-win-x64/node.exe`）。测试使用实际临时 Workspace、真实文件树与实际源码／构建后 CLI；没有新增产品测试开关、公共报告 API、扫描入口或全局跳过。
 
 机器回执：[03-file-observation-acceptance.json](03-file-observation-acceptance.json)，含 **166 个独立用例 ID、332 条源码／构建入口通过结果**，以及 **3 个独立待执行 ID、6 条明确未执行记录**。每条执行记录保存字面输入、独立断言、断言源码哈希、环境、操作与结果；受控故障另保留子进程诊断。产品与测试文件哈希和测试时的契约版本 26 一并记录。
