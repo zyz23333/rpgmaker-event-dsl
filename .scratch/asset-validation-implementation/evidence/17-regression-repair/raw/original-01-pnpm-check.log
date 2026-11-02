@@ -1,0 +1,272 @@
+
+> rpgmaker-event-dsl-workspace@0.0.0 check M:\Shuen\Codex\asset-validation-17-acceptance
+> pnpm typecheck && pnpm lint && pnpm format:check && pnpm test
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 typecheck M:\Shuen\Codex\asset-validation-17-acceptance
+> pnpm -r typecheck
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl typecheck$ tsc -p tsconfig.json --noEmit
+packages/rpgmaker-event-dsl typecheck: Done
+
+> rpgmaker-event-dsl-workspace@0.0.0 lint M:\Shuen\Codex\asset-validation-17-acceptance
+> oxlint .
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 format:check M:\Shuen\Codex\asset-validation-17-acceptance
+> oxfmt --ignore-path .oxfmtignore --check package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rpgmaker-event-dsl
+
+Checking formatting...
+
+All matched files use the correct format.
+Finished in 660ms on 339 files using 20 threads.
+
+> rpgmaker-event-dsl-workspace@0.0.0 test M:\Shuen\Codex\asset-validation-17-acceptance
+> pnpm -r test
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl test$ vitest run
+packages/rpgmaker-event-dsl test:  RUN  v4.1.9 M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl
+packages/rpgmaker-event-dsl test:  ❯ test/pictures-workspace.test.ts (64 tests | 1 failed) 296666ms
+packages/rpgmaker-event-dsl test:    × MV-S6-PICTURE-007: preserves Picture commands in Map and Battle pages with inactive saved values and real Push 10592ms
+packages/rpgmaker-event-dsl test:  ❯ test/audio-commands-workspace.test.ts (6 tests | 1 failed) 98748ms
+packages/rpgmaker-event-dsl test:    × MV-S6-AUDIO-002: refuses evaluated malformed audio source batch 2 without changing complete business state 30139ms
+packages/rpgmaker-event-dsl test:  ❯ test/control-input-workspace.test.ts (43 tests | 1 failed) 283017ms
+packages/rpgmaker-event-dsl test:    × MV-S3-INPUT-003: actorRef evaluates controls and rejects discarded actual source fields 10356ms
+packages/rpgmaker-event-dsl test:  ❯ test/movement-instructions-workspace.test.ts (14 tests | 1 failed) 103371ms
+packages/rpgmaker-event-dsl test:    × MV-S6-MOVEMENT-003: rejects malformed evaluated untyped movement values without changing any complete Workspace carrier or publication state 31342ms
+packages/rpgmaker-event-dsl test: stderr | test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+packages/rpgmaker-event-dsl test: decompile warning troop:1: MV-E236-BATTLE at pages[0].list[12]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: decompile warning troop:1: MV-E236-BATTLE at pages[0].list[13]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: decompile warning troop:1: MV-E236-BATTLE at pages[0].list[14]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: decompile warning troop:1: MV-E236-BATTLE at pages[0].list[15]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: decompile warning troop:1: MV-E236-BATTLE at pages[0].list[16]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: decompile warning troop:1: MV-E236-BATTLE at pages[0].list[17]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: decompile warning troop:1: MV-E236-BATTLE at pages[0].list[18]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: decompile warning troop:1: MV-E236-BATTLE at pages[0].list[19]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: stderr | test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[12]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[13]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[14]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[15]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[16]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[17]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[18]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[19]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: stderr | test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[12]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[13]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[14]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[15]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[16]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[17]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[18]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[19]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: stderr | test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[12]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[13]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[14]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[15]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[16]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[17]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[18]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[19]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: stderr | test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[12]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[13]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[14]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[15]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[16]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[17]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[18]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[19]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: stderr | test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[12]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[13]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[14]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[15]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[16]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[17]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[18]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[19]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: stderr | test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[12]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[13]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[14]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[15]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[16]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[17]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[18]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[19]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: stderr | test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[12]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[13]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[14]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[15]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[16]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[17]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[18]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[19]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: stderr | test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[12]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[13]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[14]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[15]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[16]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[17]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[18]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[19]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: stderr | test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[12]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[13]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[14]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[15]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[16]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[17]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[18]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[19]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: stderr | test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[12]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[13]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[14]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[15]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[16]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[17]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[18]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[19]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: stderr | test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[12]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[13]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[14]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[15]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[16]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[17]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[18]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[19]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: stderr | test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[12]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[13]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[14]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[15]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[16]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[17]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[18]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[19]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: stderr | test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[12]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[13]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[14]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[15]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[16]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[17]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[18]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[19]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: stderr | test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[12]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[13]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[14]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[15]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[16]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[17]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[18]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[19]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: stderr | test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[12]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[13]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[14]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[15]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[16]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[17]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[18]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test: compile warning troop:1: MV-E236-BATTLE at pages[0].list[19]: battle execution skips both the weather effect and its wait. Saved parameters are retained.
+packages/rpgmaker-event-dsl test:  ❯ test/screen-effects-workspace.test.ts (3 tests | 1 failed) 49450ms
+packages/rpgmaker-event-dsl test:    × MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state 30119ms
+packages/rpgmaker-event-dsl test: stderr | test/final-review-workspace.test.ts > keeps an explicit old /23 contract stale until a normal current /38 Compile
+packages/rpgmaker-event-dsl test: Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\final-review-contract-38-M5hhgB
+packages/rpgmaker-event-dsl test:  ❯ test/final-review-workspace.test.ts (7 tests | 1 failed) 19221ms
+packages/rpgmaker-event-dsl test:    × keeps an explicit old /23 contract stale until a normal current /38 Compile 1528ms
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/audio-commands-workspace.test.ts > MV-S6-AUDIO-002: refuses evaluated malformed audio source batch 2 without changing complete business state
+packages/rpgmaker-event-dsl test: Error: Test timed out in 30000ms.
+packages/rpgmaker-event-dsl test: If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+packages/rpgmaker-event-dsl test:  ❯ it test/audio-commands-workspace.test.ts:63:3
+packages/rpgmaker-event-dsl test:      61|
+packages/rpgmaker-event-dsl test:      62| function it(name: string, body: () => Promise<void>) {
+packages/rpgmaker-event-dsl test:      63|   test(
+packages/rpgmaker-event-dsl test:        |   ^
+packages/rpgmaker-event-dsl test:      64|     name,
+packages/rpgmaker-event-dsl test:      65|     async () => {
+packages/rpgmaker-event-dsl test:  ❯ test/audio-commands-workspace.test.ts:352:3
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/control-input-workspace.test.ts > MV-S3-INPUT-003: actorRef evaluates controls and rejects discarded actual source fields
+packages/rpgmaker-event-dsl test: Error: Test timed out in 10000ms.
+packages/rpgmaker-event-dsl test: If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+packages/rpgmaker-event-dsl test:  ❯ evidenceIt test/control-input-workspace.test.ts:35:3
+packages/rpgmaker-event-dsl test:      33|
+packages/rpgmaker-event-dsl test:      34| function evidenceIt(name: string, verify: () => Promise<void>) {
+packages/rpgmaker-event-dsl test:      35|   it(name, async () => {
+packages/rpgmaker-event-dsl test:        |   ^
+packages/rpgmaker-event-dsl test:      36|     const startedAt = new Date().toISOString();
+packages/rpgmaker-event-dsl test:      37|     let failure: unknown;
+packages/rpgmaker-event-dsl test:  ❯ test/control-input-workspace.test.ts:205:3
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/final-review-workspace.test.ts > keeps an explicit old /23 contract stale until a normal current /38 Compile
+packages/rpgmaker-event-dsl test: AssertionError: expected 'mv-1.6.1/40' to be 'mv-1.6.1/38' // Object.is equality
+packages/rpgmaker-event-dsl test: Expected: "mv-1.6.1/38"
+packages/rpgmaker-event-dsl test: Received: "mv-1.6.1/40"
+packages/rpgmaker-event-dsl test:  ❯ test/final-review-workspace.test.ts:136:61
+packages/rpgmaker-event-dsl test:     134|     const manifestPath = join(workspaceRoot, ".rpgmaker-event-dsl/sync…
+packages/rpgmaker-event-dsl test:     135|     const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+packages/rpgmaker-event-dsl test:     136|     expect(manifest.compileBaseline.compileContractVersion).toBe("mv-1…
+packages/rpgmaker-event-dsl test:        |                                                             ^
+packages/rpgmaker-event-dsl test:     137|     manifest.compileBaseline.compileContractVersion = "mv-1.6.1/23";
+packages/rpgmaker-event-dsl test:     138|     await writeFile(manifestPath, JSON.stringify(manifest));
+packages/rpgmaker-event-dsl test:  ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+packages/rpgmaker-event-dsl test:  ❯ test/final-review-workspace.test.ts:130:3
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/movement-instructions-workspace.test.ts > MV-S6-MOVEMENT-003: rejects malformed evaluated untyped movement values without changing any complete Workspace carrier or publication state
+packages/rpgmaker-event-dsl test: Error: Test timed out in 30000ms.
+packages/rpgmaker-event-dsl test: If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+packages/rpgmaker-event-dsl test:  ❯ test/movement-instructions-workspace.test.ts:292:1
+packages/rpgmaker-event-dsl test:     290| }, 30_000);
+packages/rpgmaker-event-dsl test:     291|
+packages/rpgmaker-event-dsl test:     292| it("MV-S6-MOVEMENT-003: rejects malformed evaluated untyped movement v…
+packages/rpgmaker-event-dsl test:        | ^
+packages/rpgmaker-event-dsl test:     293|   await withMovementEvidence("003", "movement-untyped", async ({ works…
+packages/rpgmaker-event-dsl test:     294|     await prepare(workspaceRoot, [blankPage]);
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/pictures-workspace.test.ts > MV-S6-PICTURE-007: preserves Picture commands in Map and Battle pages with inactive saved values and real Push
+packages/rpgmaker-event-dsl test: Error: Test timed out in 10000ms.
+packages/rpgmaker-event-dsl test: If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+packages/rpgmaker-event-dsl test:  ❯ evidenceIt test/pictures-workspace.test.ts:38:3
+packages/rpgmaker-event-dsl test:      36|
+packages/rpgmaker-event-dsl test:      37| function evidenceIt(id: string, name: string, verify: () => Promise<vo…
+packages/rpgmaker-event-dsl test:      38|   it(`${id}: ${name}`, async () => {
+packages/rpgmaker-event-dsl test:        |   ^
+packages/rpgmaker-event-dsl test:      39|     const startedAt = new Date().toISOString();
+packages/rpgmaker-event-dsl test:      40|     let failure: unknown;
+packages/rpgmaker-event-dsl test:  ❯ test/pictures-workspace.test.ts:265:1
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/screen-effects-workspace.test.ts > MV-S6-SCREEN-002: rejects evaluated const spread as-any helper and direct Screen inputs while preserving complete Workspace state
+packages/rpgmaker-event-dsl test: Error: Test timed out in 30000ms.
+packages/rpgmaker-event-dsl test: If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+packages/rpgmaker-event-dsl test:  ❯ it test/screen-effects-workspace.test.ts:33:3
+packages/rpgmaker-event-dsl test:      31|
+packages/rpgmaker-event-dsl test:      32| function it(name: string, body: () => Promise<void>) {
+packages/rpgmaker-event-dsl test:      33|   test(
+packages/rpgmaker-event-dsl test:        |   ^
+packages/rpgmaker-event-dsl test:      34|     name,
+packages/rpgmaker-event-dsl test:      35|     async () => {
+packages/rpgmaker-event-dsl test:  ❯ test/screen-effects-workspace.test.ts:263:1
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+packages/rpgmaker-event-dsl test:  Test Files  6 failed | 97 passed (103)
+packages/rpgmaker-event-dsl test:       Tests  6 failed | 3403 passed (3409)
+packages/rpgmaker-event-dsl test:    Start at  19:24:46
+packages/rpgmaker-event-dsl test:    Duration  2750.83s (transform 3.59s, setup 0ms, import 50.10s, tests 5432.55s, environment 8ms)
+packages/rpgmaker-event-dsl test: Failed
+M:\Shuen\Codex\asset-validation-17-acceptance\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run`
+Exit status 1
+ ELIFECYCLE  Test failed. See above for more details.
+ ELIFECYCLE  Command failed with exit code 1.
