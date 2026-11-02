@@ -1,6 +1,6 @@
 # 01: 核实原生媒体定位与特殊名称
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: None
 Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -51,3 +51,5 @@ None（可立即开始）。
 ## Comments
 
 - 2026-10-24：用户回复“确认”，本票按已确认的 17 票拆分发布为 ready-for-agent。产品实现、自动化与原生验收均尚未由本次发布执行。
+- 2026-11-02：从 `codex/asset-validation-integration`（`f6a00f25`）建立独立 worktree 后领取；准备使用本地 MV 1.6.1 原生 NW.js 与有效自制媒体留证。
+- 2026-11-02：执行 N01／N02 共 15 个有效媒体样本，13 个原生观察通过、2 个与现行契约矛盾；另完成 2 个绿色／红色文件因果对照。N01、中文／空格及全部音频特殊名称通过；图片 `literal%20image` 与 `image#hash` 的原名文件存在且有效，但 MV 1.6.1 最终 URL 分别读取空格名称和 fragment 前名称。完整[回执、最小反例及待决选项](../evidence/01-native-media/observations.md)、[原生结果](../evidence/01-native-media/native-results.json)和[可复现探针](../probes/native-media/run-native-media.mjs)已保存。依规格反例规则提出重开 ADR 0017 和相关决策；尚未修改政策或原验收预期，票继续 claimed，不能宣称全部原生验收完成。
