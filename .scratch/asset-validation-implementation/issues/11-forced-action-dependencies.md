@@ -33,6 +33,7 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 | B06 | 角色默认攻击候选与未知武器停止 |
 | B07 | 敌人默认攻击 sound9 |
 | B16 | Skill 的全部 Common Event effects |
+| C04 | repeated-common-effect：同一 Skill 的重复 effect 指向同一 Common Event 时，逐项保留直接调用位置，被调用事件的素材仍按定义位置计数。 |
 | C05 | Skill effects／Common 直接关系有限表示及角色默认攻击的动态武器路径；已知动画／effects 兄弟路径继续。 |
 | C06 | 本票 B05、B06、B07、B16 所有原生允许 None 的到达字段，按上游有限子用例展开。 |
 | C07 | 本票 B05、B06、B07、B16 到达字段的 target-missing／field-missing／field-wrong-type／field-empty／file-missing 适用变体；固定目标与 System 字段按原索引分别处理。 |
@@ -60,5 +61,7 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 - [实施任务索引](../tickets.md)：全部正式票与初始领取入口。
 
 ## Comments
+
+- 2026-11-02 实施责任核对：上游索引已明确要求 `AV.C04.repeated-common-effect.formal.case.expected`，B16 也要求同目标重复 effect；原责任表遗漏 C04 行，现显式归属本票，不增加产品范围或新验收 token。共享规范 ID 的合并测试保留既有独立断言，避免重复注册及回执覆盖。
 
 - 2026-10-24：用户回复“确认”，本票按已确认的 17 票拆分发布为 ready-for-agent。产品实现、自动化与原生验收均尚未由本次发布执行。

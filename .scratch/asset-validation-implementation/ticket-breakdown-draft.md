@@ -242,7 +242,7 @@ Acceptance: [验收矩阵](../asset-validation/acceptance-matrix.md) · [实施�
 | C01 | 02 | 所有列出的根、页与嵌套分支 |
 | C02 | 02 | 三种移除／重置；Push 再由 W20 的 14 验证 |
 | C03 | 04, 05, 13 | 04 图像镜像／独立指令；05 SE 同分支；13 两种字段 repeated-checkpoint |
-| C04 | 06, 08, 10 | 06 repeated-tileset-name；08 repeated-enemy；10 two-callers／common-independent-root |
+| C04 | 06, 08, 10, 11 | 06 repeated-tileset-name；08 repeated-enemy；10 two-callers／common-independent-root；11 repeated-common-effect（2026-11-02 补记既有 B16／索引责任） |
 | C05 | 09, 10, 11 | 10 自／互循环和长链；09 动态敌群与已知系统兄弟；11 Skill／Common 链及武器动态路径和已知兄弟 |
 | C06 | 02, 04–11 | 按 A／B 字段 owner 分配 None；04 两个页默认与 saved-image-index；05 saved-audio-controls |
 | C07 | 06–11 | 按 B 字段 owner 完成 target／field／empty／file 五分支中适用部分 |
