@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "frozenRevision": "154ad2cd30cf07d254ab17a819e4181ae2a95b79",
+  "worktree": "M:\\Shuen\\Codex\\asset-validation-12-exceptions",
+  "branch": "codex/asset-validation-12-exceptions",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "execPath": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+    "architecture": "x64",
+    "osRelease": "10.0.19045",
+    "temp": "C:\\Users\\Shuen\\AppData\\Local\\Temp",
+    "tmp": "C:\\Users\\Shuen\\AppData\\Local\\Temp",
+    "effectiveTempDirectory": "C:\\Users\\Shuen\\AppData\\Local\\Temp",
+    "pnpmVersion": "10.33.0",
+    "entry": "source (default; MV_CLI_ENTRY absent)",
+    "maxWorkers": "2 (unchanged vitest.config.ts; no command override)",
+    "globalTestTimeout": "10000 (unchanged vitest.config.ts)",
+    "localIncompleteTimeout": 30000,
+    "entryOrTempOrWorkerOrGlobalTimeoutOverrides": []
+  },
+  "commands": [
+    {
+      "name": "01-typecheck",
+      "executable": "M:/Shuen/Codex/tools/node-v22.23.4-win-x64/node.exe",
+      "argv": [
+        "F:/Javascript/nodejs/node_modules/corepack/dist/pnpm.js",
+        "typecheck"
+      ],
+      "displayCommand": "pnpm typecheck",
+      "cwd": "M:\\Shuen\\Codex\\asset-validation-12-exceptions",
+      "startedAt": "2026-11-02T13:49:39.530Z",
+      "exitCode": 0,
+      "signal": null,
+      "completedAt": "2026-11-02T13:49:55.667Z",
+      "durationMs": 16137,
+      "log": {
+        "file": "raw/green/01-typecheck.log",
+        "bytes": 261,
+        "sha256": "3b3d4f9169d877575292fb45a2a6f2898027cacbb0ba6873615475a731efb118"
+      }
+    },
+    {
+      "name": "02-lint",
+      "executable": "M:/Shuen/Codex/tools/node-v22.23.4-win-x64/node.exe",
+      "argv": [
+        "F:/Javascript/nodejs/node_modules/corepack/dist/pnpm.js",
+        "lint"
+      ],
+      "displayCommand": "pnpm lint",
+      "cwd": "M:\\Shuen\\Codex\\asset-validation-12-exceptions",
+      "startedAt": "2026-11-02T13:49:55.677Z",
+      "exitCode": 0,
+      "signal": null,
+      "completedAt": "2026-11-02T13:49:56.590Z",
+      "durationMs": 913,
+      "log": {
+        "file": "raw/green/02-lint.log",
+        "bytes": 101,
+        "sha256": "8d9b16561fe6e67c14e58afc021ca282cf056cc873b30d0ea449834b6ee9882f"
+      }
+    },
+    {
+      "name": "03-format-check",
+      "executable": "M:/Shuen/Codex/tools/node-v22.23.4-win-x64/node.exe",
+      "argv": [
+        "F:/Javascript/nodejs/node_modules/corepack/dist/pnpm.js",
+        "format:check"
+      ],
+      "displayCommand": "pnpm format:check",
+      "cwd": "M:\\Shuen\\Codex\\asset-validation-12-exceptions",
+      "startedAt": "2026-11-02T13:49:56.600Z",
+      "exitCode": 0,
+      "signal": null,
+      "completedAt": "2026-11-02T13:49:58.120Z",
+      "durationMs": 1520,
+      "log": {
+        "file": "raw/green/03-format-check.log",
+        "bytes": 387,
+        "sha256": "808cb847987309728783ebbd2ffb262eb916bce5be20d7a675f435846c50fe4b"
+      }
+    },
+    {
+      "name": "04-source-d05",
+      "executable": "M:/Shuen/Codex/tools/node-v22.23.4-win-x64/node.exe",
+      "argv": [
+        "F:/Javascript/nodejs/node_modules/corepack/dist/pnpm.js",
+        "--filter",
+        "rpgmaker-event-dsl",
+        "test",
+        "test/asset-diagnostics-workspace.test.ts",
+        "-t",
+        "^AV[.]D05[.]",
+        "--reporter=json",
+        "--outputFile=M:\\Shuen\\Codex\\asset-validation-12-exceptions\\.scratch\\asset-validation-implementation\\evidence\\12-d05-budget-repair\\raw\\green\\source-d05-runner.json"
+      ],
+      "displayCommand": "pnpm --filter rpgmaker-event-dsl test test/asset-diagnostics-workspace.test.ts -t ^AV[.]D05[.] --reporter=json --outputFile=M:\\Shuen\\Codex\\asset-validation-12-exceptions\\.scratch\\asset-validation-implementation\\evidence\\12-d05-budget-repair\\raw\\green\\source-d05-runner.json",
+      "cwd": "M:\\Shuen\\Codex\\asset-validation-12-exceptions",
+      "startedAt": "2026-11-02T13:49:58.128Z",
+      "exitCode": 0,
+      "signal": null,
+      "completedAt": "2026-11-02T13:50:21.872Z",
+      "durationMs": 23744,
+      "log": {
+        "file": "raw/green/04-source-d05.log",
+        "bytes": 550,
+        "sha256": "473ca04593979d4ec21e1b54df40fbee5a47c635aaab83ca32f28c67e2c02cf6"
+      }
+    }
+  ],
+  "frozenFiles": [
+    {
+      "file": "packages/rpgmaker-event-dsl/test/asset-diagnostics-workspace.test.ts",
+      "bytes": 55332,
+      "sha256": "d42af99a66c7dbe470e8aaaff276b5a2212968ecbbebb13013bbaa446277ae50"
+    },
+    {
+      "file": "packages/rpgmaker-event-dsl/test/support/asset-evidence.ts",
+      "bytes": 3014,
+      "sha256": "b2bab74f73144f70a7e341658d8d2934508f52a7fee3b88be7d01a18b9daaa41"
+    },
+    {
+      "file": "packages/rpgmaker-event-dsl/vitest.config.ts",
+      "bytes": 240,
+      "sha256": "205dcf739555549758afcdf2051835bb37173e071987af8de2bc2870e5039e39"
+    },
+    {
+      "file": "packages/rpgmaker-event-dsl/package.json",
+      "bytes": 1463,
+      "sha256": "2344a542d3836993009639da4efa83e5fb4df1849b026e6f0051648bee4d1a7d"
+    },
+    {
+      "file": "package.json",
+      "bytes": 906,
+      "sha256": "770e4e3a85243faa5f7a4e029097699e7c024f0655342a18bd47d507bf7af8b4"
+    },
+    {
+      "file": "pnpm-lock.yaml",
+      "bytes": 58603,
+      "sha256": "4f685f5fccae0de0bef4666fb12f314fd0b26ae81ac68a26cc90cf2dd247c5b5"
+    }
+  ],
+  "executionCompletedAt": "2026-11-02T13:50:21.930Z",
+  "frozenFilesUnchangedAfterExecution": true
+}

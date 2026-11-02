@@ -1,0 +1,5 @@
+
+> rpgmaker-event-dsl@0.1.2 test M:\Shuen\Codex\asset-validation-12-exceptions\packages\rpgmaker-event-dsl
+> vitest run "test/asset-diagnostics-workspace.test.ts" "-t" "^AV[.]D05[.]" "--reporter=json" "--outputFile=M:\\Shuen\\Codex\\asset-validation-12-exceptions\\.scratch\\asset-validation-implementation\\evidence\\12-d05-budget-repair\\raw\\green\\source-d05-runner.json"
+
+JSON report written to M:/Shuen/Codex/asset-validation-12-exceptions/.scratch/asset-validation-implementation/evidence/12-d05-budget-repair/raw/green/source-d05-runner.json
