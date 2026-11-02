@@ -86,6 +86,10 @@ async function prepare(workspaceRoot: string) {
       timings: [],
     },
   ];
+  files["Enemies.json"] = [null, { id: 1, name: "Saved reference", battlerName: "BattleEnemy" }];
+  (files["System.json"] as Record<string, unknown>).optSideView = false;
+  await mkdir(join(workspaceRoot, "Game/img/enemies"), { recursive: true });
+  await writeFile(join(workspaceRoot, "Game/img/enemies/BattleEnemy.png"), "");
   await mkdir(join(workspaceRoot, "Game/img/animations"), { recursive: true });
   await writeFile(join(workspaceRoot, "Game/img/animations/BattleAnimation.png"), "");
   (files["System.json"] as { variables: string[] }).variables = ["", ""];

@@ -6,6 +6,7 @@ import { assetUseLevel } from "../validation/asset-policy.js";
 import { collectAnimationAndTilesetAssets } from "../validation/asset-dependencies.js";
 import type { AssetOrigin } from "../validation/asset-dependencies.js";
 import { collectMapAssetRelations } from "../validation/asset-map-relations.js";
+import { collectActorEnemyAssets } from "../validation/asset-actor-enemy-relations.js";
 
 function renderOrigin(use: AssetOrigin): string {
   return `${use.identity} ${use.nativePath}${use.relatedNativePaths.length ? `; related: ${use.relatedNativePaths.join(", ")}` : ""}${use.dependencyChain.length ? `; chain: ${use.dependencyChain.map((step) => `${step.data}${step.id === undefined ? "" : `[${step.id}]`}.${step.field} (${step.relationship})`).join(" -> ")}` : ""}${use.conditions.length ? `; conditions: ${use.conditions.join(" ")}` : ""}${use.inactive ? `; inactive: ${use.inactive}` : ""}${use.candidate ? `; candidate: ${use.candidate}` : ""}`;
@@ -21,6 +22,7 @@ export async function checkEventAssets(input: {
   const mapRelations = collectMapAssetRelations(input.files, input.externalData);
   const relationGroups = [
     collectAnimationAndTilesetAssets(input.files, input.externalData),
+    collectActorEnemyAssets(input.files, input.externalData),
     mapRelations,
   ];
   const relations = {
