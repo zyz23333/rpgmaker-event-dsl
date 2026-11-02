@@ -1,0 +1,26 @@
+{
+  "id": "AV.C07.shared-system-field.formal.case.expected",
+  "ownerTicket": "09",
+  "uniqueTopLevelCanonicalCallbacks": 1,
+  "allOtherTestSourceUnchanged": true,
+  "originalSourceSha256": "0a6e12bc45987f79a2f8cb6a7ade8fce917e434156c26bea01c94a640972d7d4",
+  "frozenSourceSha256": "86934f80311612ea09e08259af880c9b2de50bfe6f9f47a50f4fa3555cba7e91",
+  "originalHeaderExpectations": [
+    2,
+    2
+  ],
+  "newHeaderExpectations": [
+    1,
+    1
+  ],
+  "expectedStatistics": {
+    "groups": 1,
+    "files": 0,
+    "affectedUses": 2
+  },
+  "expectedNativePaths": [
+    "Map001.json.events[1].pages[0].list[0]",
+    "Map001.json.events[1].pages[0].list[1]"
+  ],
+  "authority": ".scratch/asset-validation/asset-validation-spec.md section 7"
+}

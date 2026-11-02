@@ -1,0 +1,495 @@
+{
+  "id": "AV.C07.shared-system-field.formal.case.expected",
+  "ownerTicket": "09",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:56:24.895Z",
+  "completedAt": "2026-11-02T10:56:26.443Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "built",
+  "input": [
+    {
+      "source": "import {mapEvent,commonEvent,troopEvent,gameOver,returnToTitleScreen,battleProcessing,troopRef,variableRef,rawDslCommand} from \"rpgmaker-event-dsl\";export const event=mapEvent({mapId:1,id:1,name:\"System\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[gameOver(),gameOver(),returnToTitleScreen()]}]});",
+      "projectOverrides": {
+        "System.json": {
+          "gameTitle": "Synthetic evidence context",
+          "switches": [
+            "",
+            "Saved switch"
+          ],
+          "variables": [
+            ""
+          ],
+          "fixtureOrigin": {
+            "retainedNull": null,
+            "retainedArray": []
+          },
+          "gameoverMe": null,
+          "title1Name": "TitleOne",
+          "title2Name": "TitleTwo",
+          "titleBgm": {
+            "name": "TitleMusic",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "battleBgm": {
+            "name": "BattleMusic",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "victoryMe": {
+            "name": "Victory",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "defeatMe": {
+            "name": "Defeat",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "sounds": [
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "BattleStart",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            }
+          ],
+          "optSideView": false,
+          "hasEncryptedImages": false,
+          "hasEncryptedAudio": false
+        },
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "System"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "specifyBattleback": true,
+          "battleback1Name": "BackOne",
+          "battleback2Name": "BackTwo",
+          "events": [],
+          "custom": {
+            "retain": [
+              null,
+              17
+            ]
+          }
+        },
+        "Troops.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Selected troop",
+            "members": [],
+            "pages": []
+          }
+        ]
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-shared-field-0wumPN\\最小 Workspace with spaces\\Game\\img\\titles1\\TitleOne.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-shared-field-0wumPN\\最小 Workspace with spaces\\Game\\img\\titles2\\TitleTwo.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-shared-field-0wumPN\\最小 Workspace with spaces\\Game\\audio\\bgm\\TitleMusic.ogg"
+    },
+    {
+      "groupingCompatibilityApi": {
+        "check": true,
+        "actual": {
+          "failure": "Error: compile --check asset check failed:\nerror MV-ASSET-INVALID-DATA: System.json.gameoverMe.name: Necessary asset name must be a string; this relationship is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-shared-field-0wumPN\\最小 Workspace with spaces\\Game; failed at: System.json.gameoverMe.name\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[0]; chain: System.json.gameoverMe.name (Game Over ME); DSL: pages[0].commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-system-shared-field-0wumPN/最小 Workspace with spaces/src/system.events.ts (line 1, column 262); base: error; effective: error\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[1]; chain: System.json.gameoverMe.name (Game Over ME); DSL: pages[0].commands[1]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-system-shared-field-0wumPN/最小 Workspace with spaces/src/system.events.ts (line 1, column 273); base: error; effective: error\n1 problem group(s), 0 problem file(s), 2 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.",
+          "diagnostics": ""
+        },
+        "before": {
+          "source": {
+            "system.events.ts": "aW1wb3J0IHttYXBFdmVudCxjb21tb25FdmVudCx0cm9vcEV2ZW50LGdhbWVPdmVyLHJldHVyblRvVGl0bGVTY3JlZW4sYmF0dGxlUHJvY2Vzc2luZyx0cm9vcFJlZix2YXJpYWJsZVJlZixyYXdEc2xDb21tYW5kfSBmcm9tICJycGdtYWtlci1ldmVudC1kc2wiO2V4cG9ydCBjb25zdCBldmVudD1tYXBFdmVudCh7bWFwSWQ6MSxpZDoxLG5hbWU6IlN5c3RlbSIseDowLHk6MCxwYWdlczpbe2NvbmRpdGlvbnM6e30sdHJpZ2dlcjoiYWN0aW9uIixjb21tYW5kczpbZ2FtZU92ZXIoKSxnYW1lT3ZlcigpLHJldHVyblRvVGl0bGVTY3JlZW4oKV19XX0pOw=="
+          },
+          "config": "{\n  \"projectRoot\": \"./Game\",\n  \"scriptEnabled\": false,\n  \"sourceRoot\": \"src\",\n  \"sourceInclude\": [\n    \"**/*.events.ts\",\n    \"**/*.dsl.ts\"\n  ],\n  \"sourceExclude\": [\n    \"**/*.test.ts\",\n    \"**/*.spec.ts\",\n    \"**/*.d.ts\"\n  ],\n  \"assetCheckExceptions\": []\n}\n",
+          "project": {
+            "audio/bgm/TitleMusic.ogg": "",
+            "data/Actors.json": "W251bGxd",
+            "data/Animations.json": "W251bGxd",
+            "data/Armors.json": "W251bGxd",
+            "data/Classes.json": "W251bGxd",
+            "data/CommonEvents.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV2aWRlbmNlIENvbW1vbiBFdmVudCIsInRyaWdnZXIiOjAsInN3aXRjaElkIjoxLCJsaXN0IjpbeyJjb2RlIjoxMDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiLDAsMSwwXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTeW50aGV0aWMgQ1JccmtlcHQiXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjoxMDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTZWxmLWF1dGhvcmVkIGZpeHR1cmUiXX0seyJjb2RlIjo0MDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjowLCJpbmRlbnQiOjAsInBhcmFtZXRlcnMiOltdfV19XQ==",
+            "data/Enemies.json": "W251bGxd",
+            "data/Items.json": "W251bGxd",
+            "data/Map001.json": "eyJ3aWR0aCI6MSwiaGVpZ2h0IjoxLCJ0aWxlc2V0SWQiOjEsInNwZWNpZnlCYXR0bGViYWNrIjp0cnVlLCJiYXR0bGViYWNrMU5hbWUiOiJCYWNrT25lIiwiYmF0dGxlYmFjazJOYW1lIjoiQmFja1R3byIsImV2ZW50cyI6W10sImN1c3RvbSI6eyJyZXRhaW4iOltudWxsLDE3XX19",
+            "data/MapInfos.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlN5c3RlbSJ9XQ==",
+            "data/Skills.json": "W251bGxd",
+            "data/States.json": "W251bGxd",
+            "data/System.json": "eyJnYW1lVGl0bGUiOiJTeW50aGV0aWMgZXZpZGVuY2UgY29udGV4dCIsInN3aXRjaGVzIjpbIiIsIlNhdmVkIHN3aXRjaCJdLCJ2YXJpYWJsZXMiOlsiIl0sImZpeHR1cmVPcmlnaW4iOnsicmV0YWluZWROdWxsIjpudWxsLCJyZXRhaW5lZEFycmF5IjpbXX0sImdhbWVvdmVyTWUiOm51bGwsInRpdGxlMU5hbWUiOiJUaXRsZU9uZSIsInRpdGxlMk5hbWUiOiJUaXRsZVR3byIsInRpdGxlQmdtIjp7Im5hbWUiOiJUaXRsZU11c2ljIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImJhdHRsZUJnbSI6eyJuYW1lIjoiQmF0dGxlTXVzaWMiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwidmljdG9yeU1lIjp7Im5hbWUiOiJWaWN0b3J5Iiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImRlZmVhdE1lIjp7Im5hbWUiOiJEZWZlYXQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwic291bmRzIjpbeyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiQmF0dGxlU3RhcnQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfV0sIm9wdFNpZGVWaWV3IjpmYWxzZSwiaGFzRW5jcnlwdGVkSW1hZ2VzIjpmYWxzZSwiaGFzRW5jcnlwdGVkQXVkaW8iOmZhbHNlfQ==",
+            "data/Tilesets.json": "W251bGxd",
+            "data/Troops.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlNlbGVjdGVkIHRyb29wIiwibWVtYmVycyI6W10sInBhZ2VzIjpbXX1d",
+            "data/Weapons.json": "W251bGxd",
+            "Game.rpgproject": "UlBHTVYgMS42LjEK",
+            "img/titles1/TitleOne.png": "",
+            "img/titles2/TitleTwo.png": ""
+          },
+          "snapshot": {
+            "Actors.json": "W251bGxd",
+            "Animations.json": "W251bGxd",
+            "Armors.json": "W251bGxd",
+            "Classes.json": "W251bGxd",
+            "CommonEvents.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV2aWRlbmNlIENvbW1vbiBFdmVudCIsInRyaWdnZXIiOjAsInN3aXRjaElkIjoxLCJsaXN0IjpbeyJjb2RlIjoxMDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiLDAsMSwwXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTeW50aGV0aWMgQ1JccmtlcHQiXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjoxMDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTZWxmLWF1dGhvcmVkIGZpeHR1cmUiXX0seyJjb2RlIjo0MDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjowLCJpbmRlbnQiOjAsInBhcmFtZXRlcnMiOltdfV19XQ==",
+            "Enemies.json": "W251bGxd",
+            "Items.json": "W251bGxd",
+            "Map001.json": "eyJ3aWR0aCI6MSwiaGVpZ2h0IjoxLCJ0aWxlc2V0SWQiOjEsInNwZWNpZnlCYXR0bGViYWNrIjp0cnVlLCJiYXR0bGViYWNrMU5hbWUiOiJCYWNrT25lIiwiYmF0dGxlYmFjazJOYW1lIjoiQmFja1R3byIsImV2ZW50cyI6W10sImN1c3RvbSI6eyJyZXRhaW4iOltudWxsLDE3XX19",
+            "MapInfos.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlN5c3RlbSJ9XQ==",
+            "Skills.json": "W251bGxd",
+            "States.json": "W251bGxd",
+            "System.json": "eyJnYW1lVGl0bGUiOiJTeW50aGV0aWMgZXZpZGVuY2UgY29udGV4dCIsInN3aXRjaGVzIjpbIiIsIlNhdmVkIHN3aXRjaCJdLCJ2YXJpYWJsZXMiOlsiIl0sImZpeHR1cmVPcmlnaW4iOnsicmV0YWluZWROdWxsIjpudWxsLCJyZXRhaW5lZEFycmF5IjpbXX0sImdhbWVvdmVyTWUiOm51bGwsInRpdGxlMU5hbWUiOiJUaXRsZU9uZSIsInRpdGxlMk5hbWUiOiJUaXRsZVR3byIsInRpdGxlQmdtIjp7Im5hbWUiOiJUaXRsZU11c2ljIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImJhdHRsZUJnbSI6eyJuYW1lIjoiQmF0dGxlTXVzaWMiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwidmljdG9yeU1lIjp7Im5hbWUiOiJWaWN0b3J5Iiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImRlZmVhdE1lIjp7Im5hbWUiOiJEZWZlYXQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwic291bmRzIjpbeyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiQmF0dGxlU3RhcnQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfV0sIm9wdFNpZGVWaWV3IjpmYWxzZSwiaGFzRW5jcnlwdGVkSW1hZ2VzIjpmYWxzZSwiaGFzRW5jcnlwdGVkQXVkaW8iOmZhbHNlfQ==",
+            "Tilesets.json": "W251bGxd",
+            "Troops.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlNlbGVjdGVkIHRyb29wIiwibWVtYmVycyI6W10sInBhZ2VzIjpbXX1d",
+            "Weapons.json": "W251bGxd"
+          },
+          "generated": null,
+          "manifest": "{\n  \"version\":1,\n  \"projectRootBinding\":\"c:\\\\users\\\\shuen\\\\appdata\\\\local\\\\temp\\\\rpgmaker-event-dsl-windows\\\\asset-system-shared-field-0wumpn\\\\最小 workspace with spaces\\\\game\",\n  \"snapshotFiles\":[\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Actors.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Animations.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Armors.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Classes.json\"\n    },\n    {\n      \"hash\":\"78dde0b943db9c919cdfd0c03718c6263e308c45b96561447c6efd20dc6eb203\",\n      \"relativePath\":\"CommonEvents.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Enemies.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Items.json\"\n    },\n    {\n      \"hash\":\"1286c8c9ecd8883688f7b0d0e16c70c28c4f5301d3f24b322d7106bad7c18aaa\",\n      \"relativePath\":\"Map001.json\"\n    },\n    {\n      \"hash\":\"4869a1bd6c3dde05d5d16f4c49f2973262f7ad14d0285ecc851a3ae137dc280f\",\n      \"relativePath\":\"MapInfos.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Skills.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"States.json\"\n    },\n    {\n      \"hash\":\"838b4d27a17e95879e61d35164fcf3bf594056c00674166737627bfd7316bb38\",\n      \"relativePath\":\"System.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Tilesets.json\"\n    },\n    {\n      \"hash\":\"676b9f456bf2fe0b23544adf9ba7251ce6fa8f579e04af163477f789d2df74ca\",\n      \"relativePath\":\"Troops.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Weapons.json\"\n    }\n  ]\n}\n",
+          "pending": null
+        },
+        "after": {
+          "source": {
+            "system.events.ts": "aW1wb3J0IHttYXBFdmVudCxjb21tb25FdmVudCx0cm9vcEV2ZW50LGdhbWVPdmVyLHJldHVyblRvVGl0bGVTY3JlZW4sYmF0dGxlUHJvY2Vzc2luZyx0cm9vcFJlZix2YXJpYWJsZVJlZixyYXdEc2xDb21tYW5kfSBmcm9tICJycGdtYWtlci1ldmVudC1kc2wiO2V4cG9ydCBjb25zdCBldmVudD1tYXBFdmVudCh7bWFwSWQ6MSxpZDoxLG5hbWU6IlN5c3RlbSIseDowLHk6MCxwYWdlczpbe2NvbmRpdGlvbnM6e30sdHJpZ2dlcjoiYWN0aW9uIixjb21tYW5kczpbZ2FtZU92ZXIoKSxnYW1lT3ZlcigpLHJldHVyblRvVGl0bGVTY3JlZW4oKV19XX0pOw=="
+          },
+          "config": "{\n  \"projectRoot\": \"./Game\",\n  \"scriptEnabled\": false,\n  \"sourceRoot\": \"src\",\n  \"sourceInclude\": [\n    \"**/*.events.ts\",\n    \"**/*.dsl.ts\"\n  ],\n  \"sourceExclude\": [\n    \"**/*.test.ts\",\n    \"**/*.spec.ts\",\n    \"**/*.d.ts\"\n  ],\n  \"assetCheckExceptions\": []\n}\n",
+          "project": {
+            "audio/bgm/TitleMusic.ogg": "",
+            "data/Actors.json": "W251bGxd",
+            "data/Animations.json": "W251bGxd",
+            "data/Armors.json": "W251bGxd",
+            "data/Classes.json": "W251bGxd",
+            "data/CommonEvents.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV2aWRlbmNlIENvbW1vbiBFdmVudCIsInRyaWdnZXIiOjAsInN3aXRjaElkIjoxLCJsaXN0IjpbeyJjb2RlIjoxMDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiLDAsMSwwXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTeW50aGV0aWMgQ1JccmtlcHQiXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjoxMDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTZWxmLWF1dGhvcmVkIGZpeHR1cmUiXX0seyJjb2RlIjo0MDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjowLCJpbmRlbnQiOjAsInBhcmFtZXRlcnMiOltdfV19XQ==",
+            "data/Enemies.json": "W251bGxd",
+            "data/Items.json": "W251bGxd",
+            "data/Map001.json": "eyJ3aWR0aCI6MSwiaGVpZ2h0IjoxLCJ0aWxlc2V0SWQiOjEsInNwZWNpZnlCYXR0bGViYWNrIjp0cnVlLCJiYXR0bGViYWNrMU5hbWUiOiJCYWNrT25lIiwiYmF0dGxlYmFjazJOYW1lIjoiQmFja1R3byIsImV2ZW50cyI6W10sImN1c3RvbSI6eyJyZXRhaW4iOltudWxsLDE3XX19",
+            "data/MapInfos.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlN5c3RlbSJ9XQ==",
+            "data/Skills.json": "W251bGxd",
+            "data/States.json": "W251bGxd",
+            "data/System.json": "eyJnYW1lVGl0bGUiOiJTeW50aGV0aWMgZXZpZGVuY2UgY29udGV4dCIsInN3aXRjaGVzIjpbIiIsIlNhdmVkIHN3aXRjaCJdLCJ2YXJpYWJsZXMiOlsiIl0sImZpeHR1cmVPcmlnaW4iOnsicmV0YWluZWROdWxsIjpudWxsLCJyZXRhaW5lZEFycmF5IjpbXX0sImdhbWVvdmVyTWUiOm51bGwsInRpdGxlMU5hbWUiOiJUaXRsZU9uZSIsInRpdGxlMk5hbWUiOiJUaXRsZVR3byIsInRpdGxlQmdtIjp7Im5hbWUiOiJUaXRsZU11c2ljIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImJhdHRsZUJnbSI6eyJuYW1lIjoiQmF0dGxlTXVzaWMiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwidmljdG9yeU1lIjp7Im5hbWUiOiJWaWN0b3J5Iiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImRlZmVhdE1lIjp7Im5hbWUiOiJEZWZlYXQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwic291bmRzIjpbeyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiQmF0dGxlU3RhcnQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfV0sIm9wdFNpZGVWaWV3IjpmYWxzZSwiaGFzRW5jcnlwdGVkSW1hZ2VzIjpmYWxzZSwiaGFzRW5jcnlwdGVkQXVkaW8iOmZhbHNlfQ==",
+            "data/Tilesets.json": "W251bGxd",
+            "data/Troops.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlNlbGVjdGVkIHRyb29wIiwibWVtYmVycyI6W10sInBhZ2VzIjpbXX1d",
+            "data/Weapons.json": "W251bGxd",
+            "Game.rpgproject": "UlBHTVYgMS42LjEK",
+            "img/titles1/TitleOne.png": "",
+            "img/titles2/TitleTwo.png": ""
+          },
+          "snapshot": {
+            "Actors.json": "W251bGxd",
+            "Animations.json": "W251bGxd",
+            "Armors.json": "W251bGxd",
+            "Classes.json": "W251bGxd",
+            "CommonEvents.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV2aWRlbmNlIENvbW1vbiBFdmVudCIsInRyaWdnZXIiOjAsInN3aXRjaElkIjoxLCJsaXN0IjpbeyJjb2RlIjoxMDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiLDAsMSwwXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTeW50aGV0aWMgQ1JccmtlcHQiXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjoxMDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTZWxmLWF1dGhvcmVkIGZpeHR1cmUiXX0seyJjb2RlIjo0MDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjowLCJpbmRlbnQiOjAsInBhcmFtZXRlcnMiOltdfV19XQ==",
+            "Enemies.json": "W251bGxd",
+            "Items.json": "W251bGxd",
+            "Map001.json": "eyJ3aWR0aCI6MSwiaGVpZ2h0IjoxLCJ0aWxlc2V0SWQiOjEsInNwZWNpZnlCYXR0bGViYWNrIjp0cnVlLCJiYXR0bGViYWNrMU5hbWUiOiJCYWNrT25lIiwiYmF0dGxlYmFjazJOYW1lIjoiQmFja1R3byIsImV2ZW50cyI6W10sImN1c3RvbSI6eyJyZXRhaW4iOltudWxsLDE3XX19",
+            "MapInfos.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlN5c3RlbSJ9XQ==",
+            "Skills.json": "W251bGxd",
+            "States.json": "W251bGxd",
+            "System.json": "eyJnYW1lVGl0bGUiOiJTeW50aGV0aWMgZXZpZGVuY2UgY29udGV4dCIsInN3aXRjaGVzIjpbIiIsIlNhdmVkIHN3aXRjaCJdLCJ2YXJpYWJsZXMiOlsiIl0sImZpeHR1cmVPcmlnaW4iOnsicmV0YWluZWROdWxsIjpudWxsLCJyZXRhaW5lZEFycmF5IjpbXX0sImdhbWVvdmVyTWUiOm51bGwsInRpdGxlMU5hbWUiOiJUaXRsZU9uZSIsInRpdGxlMk5hbWUiOiJUaXRsZVR3byIsInRpdGxlQmdtIjp7Im5hbWUiOiJUaXRsZU11c2ljIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImJhdHRsZUJnbSI6eyJuYW1lIjoiQmF0dGxlTXVzaWMiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwidmljdG9yeU1lIjp7Im5hbWUiOiJWaWN0b3J5Iiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImRlZmVhdE1lIjp7Im5hbWUiOiJEZWZlYXQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwic291bmRzIjpbeyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiQmF0dGxlU3RhcnQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfV0sIm9wdFNpZGVWaWV3IjpmYWxzZSwiaGFzRW5jcnlwdGVkSW1hZ2VzIjpmYWxzZSwiaGFzRW5jcnlwdGVkQXVkaW8iOmZhbHNlfQ==",
+            "Tilesets.json": "W251bGxd",
+            "Troops.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlNlbGVjdGVkIHRyb29wIiwibWVtYmVycyI6W10sInBhZ2VzIjpbXX1d",
+            "Weapons.json": "W251bGxd"
+          },
+          "generated": null,
+          "manifest": "{\n  \"version\":1,\n  \"projectRootBinding\":\"c:\\\\users\\\\shuen\\\\appdata\\\\local\\\\temp\\\\rpgmaker-event-dsl-windows\\\\asset-system-shared-field-0wumpn\\\\最小 workspace with spaces\\\\game\",\n  \"snapshotFiles\":[\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Actors.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Animations.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Armors.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Classes.json\"\n    },\n    {\n      \"hash\":\"78dde0b943db9c919cdfd0c03718c6263e308c45b96561447c6efd20dc6eb203\",\n      \"relativePath\":\"CommonEvents.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Enemies.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Items.json\"\n    },\n    {\n      \"hash\":\"1286c8c9ecd8883688f7b0d0e16c70c28c4f5301d3f24b322d7106bad7c18aaa\",\n      \"relativePath\":\"Map001.json\"\n    },\n    {\n      \"hash\":\"4869a1bd6c3dde05d5d16f4c49f2973262f7ad14d0285ecc851a3ae137dc280f\",\n      \"relativePath\":\"MapInfos.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Skills.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"States.json\"\n    },\n    {\n      \"hash\":\"838b4d27a17e95879e61d35164fcf3bf594056c00674166737627bfd7316bb38\",\n      \"relativePath\":\"System.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Tilesets.json\"\n    },\n    {\n      \"hash\":\"676b9f456bf2fe0b23544adf9ba7251ce6fa8f579e04af163477f789d2df74ca\",\n      \"relativePath\":\"Troops.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Weapons.json\"\n    }\n  ]\n}\n",
+          "pending": null
+        }
+      }
+    },
+    {
+      "groupingCompatibilityApi": {
+        "check": false,
+        "actual": {
+          "failure": "Error: compile asset check failed:\nerror MV-ASSET-INVALID-DATA: System.json.gameoverMe.name: Necessary asset name must be a string; this relationship is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-shared-field-0wumPN\\最小 Workspace with spaces\\Game; failed at: System.json.gameoverMe.name\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[0]; chain: System.json.gameoverMe.name (Game Over ME); DSL: pages[0].commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-system-shared-field-0wumPN/最小 Workspace with spaces/src/system.events.ts (line 1, column 262); base: error; effective: error\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[1]; chain: System.json.gameoverMe.name (Game Over ME); DSL: pages[0].commands[1]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-system-shared-field-0wumPN/最小 Workspace with spaces/src/system.events.ts (line 1, column 273); base: error; effective: error\n1 problem group(s), 0 problem file(s), 2 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.",
+          "diagnostics": ""
+        },
+        "before": {
+          "source": {
+            "system.events.ts": "aW1wb3J0IHttYXBFdmVudCxjb21tb25FdmVudCx0cm9vcEV2ZW50LGdhbWVPdmVyLHJldHVyblRvVGl0bGVTY3JlZW4sYmF0dGxlUHJvY2Vzc2luZyx0cm9vcFJlZix2YXJpYWJsZVJlZixyYXdEc2xDb21tYW5kfSBmcm9tICJycGdtYWtlci1ldmVudC1kc2wiO2V4cG9ydCBjb25zdCBldmVudD1tYXBFdmVudCh7bWFwSWQ6MSxpZDoxLG5hbWU6IlN5c3RlbSIseDowLHk6MCxwYWdlczpbe2NvbmRpdGlvbnM6e30sdHJpZ2dlcjoiYWN0aW9uIixjb21tYW5kczpbZ2FtZU92ZXIoKSxnYW1lT3ZlcigpLHJldHVyblRvVGl0bGVTY3JlZW4oKV19XX0pOw=="
+          },
+          "config": "{\n  \"projectRoot\": \"./Game\",\n  \"scriptEnabled\": false,\n  \"sourceRoot\": \"src\",\n  \"sourceInclude\": [\n    \"**/*.events.ts\",\n    \"**/*.dsl.ts\"\n  ],\n  \"sourceExclude\": [\n    \"**/*.test.ts\",\n    \"**/*.spec.ts\",\n    \"**/*.d.ts\"\n  ],\n  \"assetCheckExceptions\": []\n}\n",
+          "project": {
+            "audio/bgm/TitleMusic.ogg": "",
+            "data/Actors.json": "W251bGxd",
+            "data/Animations.json": "W251bGxd",
+            "data/Armors.json": "W251bGxd",
+            "data/Classes.json": "W251bGxd",
+            "data/CommonEvents.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV2aWRlbmNlIENvbW1vbiBFdmVudCIsInRyaWdnZXIiOjAsInN3aXRjaElkIjoxLCJsaXN0IjpbeyJjb2RlIjoxMDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiLDAsMSwwXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTeW50aGV0aWMgQ1JccmtlcHQiXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjoxMDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTZWxmLWF1dGhvcmVkIGZpeHR1cmUiXX0seyJjb2RlIjo0MDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjowLCJpbmRlbnQiOjAsInBhcmFtZXRlcnMiOltdfV19XQ==",
+            "data/Enemies.json": "W251bGxd",
+            "data/Items.json": "W251bGxd",
+            "data/Map001.json": "eyJ3aWR0aCI6MSwiaGVpZ2h0IjoxLCJ0aWxlc2V0SWQiOjEsInNwZWNpZnlCYXR0bGViYWNrIjp0cnVlLCJiYXR0bGViYWNrMU5hbWUiOiJCYWNrT25lIiwiYmF0dGxlYmFjazJOYW1lIjoiQmFja1R3byIsImV2ZW50cyI6W10sImN1c3RvbSI6eyJyZXRhaW4iOltudWxsLDE3XX19",
+            "data/MapInfos.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlN5c3RlbSJ9XQ==",
+            "data/Skills.json": "W251bGxd",
+            "data/States.json": "W251bGxd",
+            "data/System.json": "eyJnYW1lVGl0bGUiOiJTeW50aGV0aWMgZXZpZGVuY2UgY29udGV4dCIsInN3aXRjaGVzIjpbIiIsIlNhdmVkIHN3aXRjaCJdLCJ2YXJpYWJsZXMiOlsiIl0sImZpeHR1cmVPcmlnaW4iOnsicmV0YWluZWROdWxsIjpudWxsLCJyZXRhaW5lZEFycmF5IjpbXX0sImdhbWVvdmVyTWUiOm51bGwsInRpdGxlMU5hbWUiOiJUaXRsZU9uZSIsInRpdGxlMk5hbWUiOiJUaXRsZVR3byIsInRpdGxlQmdtIjp7Im5hbWUiOiJUaXRsZU11c2ljIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImJhdHRsZUJnbSI6eyJuYW1lIjoiQmF0dGxlTXVzaWMiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwidmljdG9yeU1lIjp7Im5hbWUiOiJWaWN0b3J5Iiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImRlZmVhdE1lIjp7Im5hbWUiOiJEZWZlYXQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwic291bmRzIjpbeyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiQmF0dGxlU3RhcnQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfV0sIm9wdFNpZGVWaWV3IjpmYWxzZSwiaGFzRW5jcnlwdGVkSW1hZ2VzIjpmYWxzZSwiaGFzRW5jcnlwdGVkQXVkaW8iOmZhbHNlfQ==",
+            "data/Tilesets.json": "W251bGxd",
+            "data/Troops.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlNlbGVjdGVkIHRyb29wIiwibWVtYmVycyI6W10sInBhZ2VzIjpbXX1d",
+            "data/Weapons.json": "W251bGxd",
+            "Game.rpgproject": "UlBHTVYgMS42LjEK",
+            "img/titles1/TitleOne.png": "",
+            "img/titles2/TitleTwo.png": ""
+          },
+          "snapshot": {
+            "Actors.json": "W251bGxd",
+            "Animations.json": "W251bGxd",
+            "Armors.json": "W251bGxd",
+            "Classes.json": "W251bGxd",
+            "CommonEvents.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV2aWRlbmNlIENvbW1vbiBFdmVudCIsInRyaWdnZXIiOjAsInN3aXRjaElkIjoxLCJsaXN0IjpbeyJjb2RlIjoxMDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiLDAsMSwwXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTeW50aGV0aWMgQ1JccmtlcHQiXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjoxMDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTZWxmLWF1dGhvcmVkIGZpeHR1cmUiXX0seyJjb2RlIjo0MDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjowLCJpbmRlbnQiOjAsInBhcmFtZXRlcnMiOltdfV19XQ==",
+            "Enemies.json": "W251bGxd",
+            "Items.json": "W251bGxd",
+            "Map001.json": "eyJ3aWR0aCI6MSwiaGVpZ2h0IjoxLCJ0aWxlc2V0SWQiOjEsInNwZWNpZnlCYXR0bGViYWNrIjp0cnVlLCJiYXR0bGViYWNrMU5hbWUiOiJCYWNrT25lIiwiYmF0dGxlYmFjazJOYW1lIjoiQmFja1R3byIsImV2ZW50cyI6W10sImN1c3RvbSI6eyJyZXRhaW4iOltudWxsLDE3XX19",
+            "MapInfos.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlN5c3RlbSJ9XQ==",
+            "Skills.json": "W251bGxd",
+            "States.json": "W251bGxd",
+            "System.json": "eyJnYW1lVGl0bGUiOiJTeW50aGV0aWMgZXZpZGVuY2UgY29udGV4dCIsInN3aXRjaGVzIjpbIiIsIlNhdmVkIHN3aXRjaCJdLCJ2YXJpYWJsZXMiOlsiIl0sImZpeHR1cmVPcmlnaW4iOnsicmV0YWluZWROdWxsIjpudWxsLCJyZXRhaW5lZEFycmF5IjpbXX0sImdhbWVvdmVyTWUiOm51bGwsInRpdGxlMU5hbWUiOiJUaXRsZU9uZSIsInRpdGxlMk5hbWUiOiJUaXRsZVR3byIsInRpdGxlQmdtIjp7Im5hbWUiOiJUaXRsZU11c2ljIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImJhdHRsZUJnbSI6eyJuYW1lIjoiQmF0dGxlTXVzaWMiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwidmljdG9yeU1lIjp7Im5hbWUiOiJWaWN0b3J5Iiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImRlZmVhdE1lIjp7Im5hbWUiOiJEZWZlYXQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwic291bmRzIjpbeyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiQmF0dGxlU3RhcnQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfV0sIm9wdFNpZGVWaWV3IjpmYWxzZSwiaGFzRW5jcnlwdGVkSW1hZ2VzIjpmYWxzZSwiaGFzRW5jcnlwdGVkQXVkaW8iOmZhbHNlfQ==",
+            "Tilesets.json": "W251bGxd",
+            "Troops.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlNlbGVjdGVkIHRyb29wIiwibWVtYmVycyI6W10sInBhZ2VzIjpbXX1d",
+            "Weapons.json": "W251bGxd"
+          },
+          "generated": null,
+          "manifest": "{\n  \"version\":1,\n  \"projectRootBinding\":\"c:\\\\users\\\\shuen\\\\appdata\\\\local\\\\temp\\\\rpgmaker-event-dsl-windows\\\\asset-system-shared-field-0wumpn\\\\最小 workspace with spaces\\\\game\",\n  \"snapshotFiles\":[\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Actors.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Animations.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Armors.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Classes.json\"\n    },\n    {\n      \"hash\":\"78dde0b943db9c919cdfd0c03718c6263e308c45b96561447c6efd20dc6eb203\",\n      \"relativePath\":\"CommonEvents.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Enemies.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Items.json\"\n    },\n    {\n      \"hash\":\"1286c8c9ecd8883688f7b0d0e16c70c28c4f5301d3f24b322d7106bad7c18aaa\",\n      \"relativePath\":\"Map001.json\"\n    },\n    {\n      \"hash\":\"4869a1bd6c3dde05d5d16f4c49f2973262f7ad14d0285ecc851a3ae137dc280f\",\n      \"relativePath\":\"MapInfos.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Skills.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"States.json\"\n    },\n    {\n      \"hash\":\"838b4d27a17e95879e61d35164fcf3bf594056c00674166737627bfd7316bb38\",\n      \"relativePath\":\"System.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Tilesets.json\"\n    },\n    {\n      \"hash\":\"676b9f456bf2fe0b23544adf9ba7251ce6fa8f579e04af163477f789d2df74ca\",\n      \"relativePath\":\"Troops.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Weapons.json\"\n    }\n  ]\n}\n",
+          "pending": null
+        },
+        "after": {
+          "source": {
+            "system.events.ts": "aW1wb3J0IHttYXBFdmVudCxjb21tb25FdmVudCx0cm9vcEV2ZW50LGdhbWVPdmVyLHJldHVyblRvVGl0bGVTY3JlZW4sYmF0dGxlUHJvY2Vzc2luZyx0cm9vcFJlZix2YXJpYWJsZVJlZixyYXdEc2xDb21tYW5kfSBmcm9tICJycGdtYWtlci1ldmVudC1kc2wiO2V4cG9ydCBjb25zdCBldmVudD1tYXBFdmVudCh7bWFwSWQ6MSxpZDoxLG5hbWU6IlN5c3RlbSIseDowLHk6MCxwYWdlczpbe2NvbmRpdGlvbnM6e30sdHJpZ2dlcjoiYWN0aW9uIixjb21tYW5kczpbZ2FtZU92ZXIoKSxnYW1lT3ZlcigpLHJldHVyblRvVGl0bGVTY3JlZW4oKV19XX0pOw=="
+          },
+          "config": "{\n  \"projectRoot\": \"./Game\",\n  \"scriptEnabled\": false,\n  \"sourceRoot\": \"src\",\n  \"sourceInclude\": [\n    \"**/*.events.ts\",\n    \"**/*.dsl.ts\"\n  ],\n  \"sourceExclude\": [\n    \"**/*.test.ts\",\n    \"**/*.spec.ts\",\n    \"**/*.d.ts\"\n  ],\n  \"assetCheckExceptions\": []\n}\n",
+          "project": {
+            "audio/bgm/TitleMusic.ogg": "",
+            "data/Actors.json": "W251bGxd",
+            "data/Animations.json": "W251bGxd",
+            "data/Armors.json": "W251bGxd",
+            "data/Classes.json": "W251bGxd",
+            "data/CommonEvents.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV2aWRlbmNlIENvbW1vbiBFdmVudCIsInRyaWdnZXIiOjAsInN3aXRjaElkIjoxLCJsaXN0IjpbeyJjb2RlIjoxMDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiLDAsMSwwXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTeW50aGV0aWMgQ1JccmtlcHQiXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjoxMDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTZWxmLWF1dGhvcmVkIGZpeHR1cmUiXX0seyJjb2RlIjo0MDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjowLCJpbmRlbnQiOjAsInBhcmFtZXRlcnMiOltdfV19XQ==",
+            "data/Enemies.json": "W251bGxd",
+            "data/Items.json": "W251bGxd",
+            "data/Map001.json": "eyJ3aWR0aCI6MSwiaGVpZ2h0IjoxLCJ0aWxlc2V0SWQiOjEsInNwZWNpZnlCYXR0bGViYWNrIjp0cnVlLCJiYXR0bGViYWNrMU5hbWUiOiJCYWNrT25lIiwiYmF0dGxlYmFjazJOYW1lIjoiQmFja1R3byIsImV2ZW50cyI6W10sImN1c3RvbSI6eyJyZXRhaW4iOltudWxsLDE3XX19",
+            "data/MapInfos.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlN5c3RlbSJ9XQ==",
+            "data/Skills.json": "W251bGxd",
+            "data/States.json": "W251bGxd",
+            "data/System.json": "eyJnYW1lVGl0bGUiOiJTeW50aGV0aWMgZXZpZGVuY2UgY29udGV4dCIsInN3aXRjaGVzIjpbIiIsIlNhdmVkIHN3aXRjaCJdLCJ2YXJpYWJsZXMiOlsiIl0sImZpeHR1cmVPcmlnaW4iOnsicmV0YWluZWROdWxsIjpudWxsLCJyZXRhaW5lZEFycmF5IjpbXX0sImdhbWVvdmVyTWUiOm51bGwsInRpdGxlMU5hbWUiOiJUaXRsZU9uZSIsInRpdGxlMk5hbWUiOiJUaXRsZVR3byIsInRpdGxlQmdtIjp7Im5hbWUiOiJUaXRsZU11c2ljIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImJhdHRsZUJnbSI6eyJuYW1lIjoiQmF0dGxlTXVzaWMiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwidmljdG9yeU1lIjp7Im5hbWUiOiJWaWN0b3J5Iiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImRlZmVhdE1lIjp7Im5hbWUiOiJEZWZlYXQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwic291bmRzIjpbeyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiQmF0dGxlU3RhcnQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfV0sIm9wdFNpZGVWaWV3IjpmYWxzZSwiaGFzRW5jcnlwdGVkSW1hZ2VzIjpmYWxzZSwiaGFzRW5jcnlwdGVkQXVkaW8iOmZhbHNlfQ==",
+            "data/Tilesets.json": "W251bGxd",
+            "data/Troops.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlNlbGVjdGVkIHRyb29wIiwibWVtYmVycyI6W10sInBhZ2VzIjpbXX1d",
+            "data/Weapons.json": "W251bGxd",
+            "Game.rpgproject": "UlBHTVYgMS42LjEK",
+            "img/titles1/TitleOne.png": "",
+            "img/titles2/TitleTwo.png": ""
+          },
+          "snapshot": {
+            "Actors.json": "W251bGxd",
+            "Animations.json": "W251bGxd",
+            "Armors.json": "W251bGxd",
+            "Classes.json": "W251bGxd",
+            "CommonEvents.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV2aWRlbmNlIENvbW1vbiBFdmVudCIsInRyaWdnZXIiOjAsInN3aXRjaElkIjoxLCJsaXN0IjpbeyJjb2RlIjoxMDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiLDAsMSwwXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTeW50aGV0aWMgQ1JccmtlcHQiXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjoxMDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTZWxmLWF1dGhvcmVkIGZpeHR1cmUiXX0seyJjb2RlIjo0MDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjowLCJpbmRlbnQiOjAsInBhcmFtZXRlcnMiOltdfV19XQ==",
+            "Enemies.json": "W251bGxd",
+            "Items.json": "W251bGxd",
+            "Map001.json": "eyJ3aWR0aCI6MSwiaGVpZ2h0IjoxLCJ0aWxlc2V0SWQiOjEsInNwZWNpZnlCYXR0bGViYWNrIjp0cnVlLCJiYXR0bGViYWNrMU5hbWUiOiJCYWNrT25lIiwiYmF0dGxlYmFjazJOYW1lIjoiQmFja1R3byIsImV2ZW50cyI6W10sImN1c3RvbSI6eyJyZXRhaW4iOltudWxsLDE3XX19",
+            "MapInfos.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlN5c3RlbSJ9XQ==",
+            "Skills.json": "W251bGxd",
+            "States.json": "W251bGxd",
+            "System.json": "eyJnYW1lVGl0bGUiOiJTeW50aGV0aWMgZXZpZGVuY2UgY29udGV4dCIsInN3aXRjaGVzIjpbIiIsIlNhdmVkIHN3aXRjaCJdLCJ2YXJpYWJsZXMiOlsiIl0sImZpeHR1cmVPcmlnaW4iOnsicmV0YWluZWROdWxsIjpudWxsLCJyZXRhaW5lZEFycmF5IjpbXX0sImdhbWVvdmVyTWUiOm51bGwsInRpdGxlMU5hbWUiOiJUaXRsZU9uZSIsInRpdGxlMk5hbWUiOiJUaXRsZVR3byIsInRpdGxlQmdtIjp7Im5hbWUiOiJUaXRsZU11c2ljIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImJhdHRsZUJnbSI6eyJuYW1lIjoiQmF0dGxlTXVzaWMiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwidmljdG9yeU1lIjp7Im5hbWUiOiJWaWN0b3J5Iiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImRlZmVhdE1lIjp7Im5hbWUiOiJEZWZlYXQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwic291bmRzIjpbeyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiQmF0dGxlU3RhcnQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfV0sIm9wdFNpZGVWaWV3IjpmYWxzZSwiaGFzRW5jcnlwdGVkSW1hZ2VzIjpmYWxzZSwiaGFzRW5jcnlwdGVkQXVkaW8iOmZhbHNlfQ==",
+            "Tilesets.json": "W251bGxd",
+            "Troops.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlNlbGVjdGVkIHRyb29wIiwibWVtYmVycyI6W10sInBhZ2VzIjpbXX1d",
+            "Weapons.json": "W251bGxd"
+          },
+          "generated": null,
+          "manifest": "{\n  \"version\":1,\n  \"projectRootBinding\":\"c:\\\\users\\\\shuen\\\\appdata\\\\local\\\\temp\\\\rpgmaker-event-dsl-windows\\\\asset-system-shared-field-0wumpn\\\\最小 workspace with spaces\\\\game\",\n  \"snapshotFiles\":[\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Actors.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Animations.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Armors.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Classes.json\"\n    },\n    {\n      \"hash\":\"78dde0b943db9c919cdfd0c03718c6263e308c45b96561447c6efd20dc6eb203\",\n      \"relativePath\":\"CommonEvents.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Enemies.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Items.json\"\n    },\n    {\n      \"hash\":\"1286c8c9ecd8883688f7b0d0e16c70c28c4f5301d3f24b322d7106bad7c18aaa\",\n      \"relativePath\":\"Map001.json\"\n    },\n    {\n      \"hash\":\"4869a1bd6c3dde05d5d16f4c49f2973262f7ad14d0285ecc851a3ae137dc280f\",\n      \"relativePath\":\"MapInfos.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Skills.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"States.json\"\n    },\n    {\n      \"hash\":\"838b4d27a17e95879e61d35164fcf3bf594056c00674166737627bfd7316bb38\",\n      \"relativePath\":\"System.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Tilesets.json\"\n    },\n    {\n      \"hash\":\"676b9f456bf2fe0b23544adf9ba7251ce6fa8f579e04af163477f789d2df74ca\",\n      \"relativePath\":\"Troops.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Weapons.json\"\n    }\n  ]\n}\n",
+          "pending": null
+        }
+      }
+    },
+    {
+      "groupingCompatibilityCli": {
+        "cli": {
+          "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+          "arguments": [
+            "M:\\Shuen\\Codex\\asset-validation-09-system\\packages\\rpgmaker-event-dsl\\dist\\cli.mjs",
+            "compile",
+            "--check"
+          ],
+          "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-shared-field-0wumPN\\最小 Workspace with spaces",
+          "startedAt": "2026-11-02T10:56:25.619Z",
+          "completedAt": "2026-11-02T10:56:26.433Z",
+          "exitCode": 1,
+          "signal": null,
+          "stdout": "",
+          "stderr": "file:///M:/Shuen/Codex/asset-validation-09-system/packages/rpgmaker-event-dsl/dist/operations-D_79zrOU.mjs:10109\r\n\tif (report.hasErrors) throw new Error(`${input.commandName} asset check failed:\\n${errors.join(\"\\n\")}`);\r\n\t                            ^\r\n\r\nError: compile --check asset check failed:\r\nerror MV-ASSET-INVALID-DATA: System.json.gameoverMe.name: Necessary asset name must be a string; this relationship is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-shared-field-0wumPN\\最小 Workspace with spaces\\Game; failed at: System.json.gameoverMe.name\r\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[0]; chain: System.json.gameoverMe.name (Game Over ME); DSL: pages[0].commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-system-shared-field-0wumPN/最小 Workspace with spaces/src/system.events.ts (line 1, column 262); base: error; effective: error\r\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[1]; chain: System.json.gameoverMe.name (Game Over ME); DSL: pages[0].commands[1]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-system-shared-field-0wumPN/最小 Workspace with spaces/src/system.events.ts (line 1, column 273); base: error; effective: error\r\n1 problem group(s), 0 problem file(s), 2 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.\r\n    at checkEventAssets (file:///M:/Shuen/Codex/asset-validation-09-system/packages/rpgmaker-event-dsl/dist/operations-D_79zrOU.mjs:10109:30)\r\n    at async compileWorkspaceUnlocked (file:///M:/Shuen/Codex/asset-validation-09-system/packages/rpgmaker-event-dsl/dist/operations-D_79zrOU.mjs:10858:3)\r\n    at async withWorkspaceOperationLock (file:///M:/Shuen/Codex/asset-validation-09-system/packages/rpgmaker-event-dsl/dist/operations-D_79zrOU.mjs:8663:10)\r\n    at async compileWorkspace (file:///M:/Shuen/Codex/asset-validation-09-system/packages/rpgmaker-event-dsl/dist/operations-D_79zrOU.mjs:10819:2)\r\n    at async Command.<anonymous> (file:///M:/Shuen/Codex/asset-validation-09-system/packages/rpgmaker-event-dsl/dist/cli.mjs:28:3)\r\n    at async Command.parseAsync (M:\\Shuen\\Codex\\asset-validation-09-system\\node_modules\\.pnpm\\commander@14.0.3\\node_modules\\commander\\lib\\command.js:1122:5)\r\n    at async runCli (file:///M:/Shuen/Codex/asset-validation-09-system/packages/rpgmaker-event-dsl/dist/cli.mjs:52:2)\r\n    at async file:///M:/Shuen/Codex/asset-validation-09-system/packages/rpgmaker-event-dsl/dist/cli.mjs:58:56\r\n\r\nNode.js v22.23.4\r\n"
+        },
+        "before": {
+          "source": {
+            "system.events.ts": "aW1wb3J0IHttYXBFdmVudCxjb21tb25FdmVudCx0cm9vcEV2ZW50LGdhbWVPdmVyLHJldHVyblRvVGl0bGVTY3JlZW4sYmF0dGxlUHJvY2Vzc2luZyx0cm9vcFJlZix2YXJpYWJsZVJlZixyYXdEc2xDb21tYW5kfSBmcm9tICJycGdtYWtlci1ldmVudC1kc2wiO2V4cG9ydCBjb25zdCBldmVudD1tYXBFdmVudCh7bWFwSWQ6MSxpZDoxLG5hbWU6IlN5c3RlbSIseDowLHk6MCxwYWdlczpbe2NvbmRpdGlvbnM6e30sdHJpZ2dlcjoiYWN0aW9uIixjb21tYW5kczpbZ2FtZU92ZXIoKSxnYW1lT3ZlcigpLHJldHVyblRvVGl0bGVTY3JlZW4oKV19XX0pOw=="
+          },
+          "config": "{\n  \"projectRoot\": \"./Game\",\n  \"scriptEnabled\": false,\n  \"sourceRoot\": \"src\",\n  \"sourceInclude\": [\n    \"**/*.events.ts\",\n    \"**/*.dsl.ts\"\n  ],\n  \"sourceExclude\": [\n    \"**/*.test.ts\",\n    \"**/*.spec.ts\",\n    \"**/*.d.ts\"\n  ],\n  \"assetCheckExceptions\": []\n}\n",
+          "project": {
+            "audio/bgm/TitleMusic.ogg": "",
+            "data/Actors.json": "W251bGxd",
+            "data/Animations.json": "W251bGxd",
+            "data/Armors.json": "W251bGxd",
+            "data/Classes.json": "W251bGxd",
+            "data/CommonEvents.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV2aWRlbmNlIENvbW1vbiBFdmVudCIsInRyaWdnZXIiOjAsInN3aXRjaElkIjoxLCJsaXN0IjpbeyJjb2RlIjoxMDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiLDAsMSwwXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTeW50aGV0aWMgQ1JccmtlcHQiXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjoxMDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTZWxmLWF1dGhvcmVkIGZpeHR1cmUiXX0seyJjb2RlIjo0MDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjowLCJpbmRlbnQiOjAsInBhcmFtZXRlcnMiOltdfV19XQ==",
+            "data/Enemies.json": "W251bGxd",
+            "data/Items.json": "W251bGxd",
+            "data/Map001.json": "eyJ3aWR0aCI6MSwiaGVpZ2h0IjoxLCJ0aWxlc2V0SWQiOjEsInNwZWNpZnlCYXR0bGViYWNrIjp0cnVlLCJiYXR0bGViYWNrMU5hbWUiOiJCYWNrT25lIiwiYmF0dGxlYmFjazJOYW1lIjoiQmFja1R3byIsImV2ZW50cyI6W10sImN1c3RvbSI6eyJyZXRhaW4iOltudWxsLDE3XX19",
+            "data/MapInfos.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlN5c3RlbSJ9XQ==",
+            "data/Skills.json": "W251bGxd",
+            "data/States.json": "W251bGxd",
+            "data/System.json": "eyJnYW1lVGl0bGUiOiJTeW50aGV0aWMgZXZpZGVuY2UgY29udGV4dCIsInN3aXRjaGVzIjpbIiIsIlNhdmVkIHN3aXRjaCJdLCJ2YXJpYWJsZXMiOlsiIl0sImZpeHR1cmVPcmlnaW4iOnsicmV0YWluZWROdWxsIjpudWxsLCJyZXRhaW5lZEFycmF5IjpbXX0sImdhbWVvdmVyTWUiOm51bGwsInRpdGxlMU5hbWUiOiJUaXRsZU9uZSIsInRpdGxlMk5hbWUiOiJUaXRsZVR3byIsInRpdGxlQmdtIjp7Im5hbWUiOiJUaXRsZU11c2ljIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImJhdHRsZUJnbSI6eyJuYW1lIjoiQmF0dGxlTXVzaWMiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwidmljdG9yeU1lIjp7Im5hbWUiOiJWaWN0b3J5Iiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImRlZmVhdE1lIjp7Im5hbWUiOiJEZWZlYXQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwic291bmRzIjpbeyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiQmF0dGxlU3RhcnQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfV0sIm9wdFNpZGVWaWV3IjpmYWxzZSwiaGFzRW5jcnlwdGVkSW1hZ2VzIjpmYWxzZSwiaGFzRW5jcnlwdGVkQXVkaW8iOmZhbHNlfQ==",
+            "data/Tilesets.json": "W251bGxd",
+            "data/Troops.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlNlbGVjdGVkIHRyb29wIiwibWVtYmVycyI6W10sInBhZ2VzIjpbXX1d",
+            "data/Weapons.json": "W251bGxd",
+            "Game.rpgproject": "UlBHTVYgMS42LjEK",
+            "img/titles1/TitleOne.png": "",
+            "img/titles2/TitleTwo.png": ""
+          },
+          "snapshot": {
+            "Actors.json": "W251bGxd",
+            "Animations.json": "W251bGxd",
+            "Armors.json": "W251bGxd",
+            "Classes.json": "W251bGxd",
+            "CommonEvents.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV2aWRlbmNlIENvbW1vbiBFdmVudCIsInRyaWdnZXIiOjAsInN3aXRjaElkIjoxLCJsaXN0IjpbeyJjb2RlIjoxMDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiLDAsMSwwXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTeW50aGV0aWMgQ1JccmtlcHQiXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjoxMDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTZWxmLWF1dGhvcmVkIGZpeHR1cmUiXX0seyJjb2RlIjo0MDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjowLCJpbmRlbnQiOjAsInBhcmFtZXRlcnMiOltdfV19XQ==",
+            "Enemies.json": "W251bGxd",
+            "Items.json": "W251bGxd",
+            "Map001.json": "eyJ3aWR0aCI6MSwiaGVpZ2h0IjoxLCJ0aWxlc2V0SWQiOjEsInNwZWNpZnlCYXR0bGViYWNrIjp0cnVlLCJiYXR0bGViYWNrMU5hbWUiOiJCYWNrT25lIiwiYmF0dGxlYmFjazJOYW1lIjoiQmFja1R3byIsImV2ZW50cyI6W10sImN1c3RvbSI6eyJyZXRhaW4iOltudWxsLDE3XX19",
+            "MapInfos.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlN5c3RlbSJ9XQ==",
+            "Skills.json": "W251bGxd",
+            "States.json": "W251bGxd",
+            "System.json": "eyJnYW1lVGl0bGUiOiJTeW50aGV0aWMgZXZpZGVuY2UgY29udGV4dCIsInN3aXRjaGVzIjpbIiIsIlNhdmVkIHN3aXRjaCJdLCJ2YXJpYWJsZXMiOlsiIl0sImZpeHR1cmVPcmlnaW4iOnsicmV0YWluZWROdWxsIjpudWxsLCJyZXRhaW5lZEFycmF5IjpbXX0sImdhbWVvdmVyTWUiOm51bGwsInRpdGxlMU5hbWUiOiJUaXRsZU9uZSIsInRpdGxlMk5hbWUiOiJUaXRsZVR3byIsInRpdGxlQmdtIjp7Im5hbWUiOiJUaXRsZU11c2ljIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImJhdHRsZUJnbSI6eyJuYW1lIjoiQmF0dGxlTXVzaWMiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwidmljdG9yeU1lIjp7Im5hbWUiOiJWaWN0b3J5Iiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImRlZmVhdE1lIjp7Im5hbWUiOiJEZWZlYXQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwic291bmRzIjpbeyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiQmF0dGxlU3RhcnQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfV0sIm9wdFNpZGVWaWV3IjpmYWxzZSwiaGFzRW5jcnlwdGVkSW1hZ2VzIjpmYWxzZSwiaGFzRW5jcnlwdGVkQXVkaW8iOmZhbHNlfQ==",
+            "Tilesets.json": "W251bGxd",
+            "Troops.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlNlbGVjdGVkIHRyb29wIiwibWVtYmVycyI6W10sInBhZ2VzIjpbXX1d",
+            "Weapons.json": "W251bGxd"
+          },
+          "generated": null,
+          "manifest": "{\n  \"version\":1,\n  \"projectRootBinding\":\"c:\\\\users\\\\shuen\\\\appdata\\\\local\\\\temp\\\\rpgmaker-event-dsl-windows\\\\asset-system-shared-field-0wumpn\\\\最小 workspace with spaces\\\\game\",\n  \"snapshotFiles\":[\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Actors.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Animations.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Armors.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Classes.json\"\n    },\n    {\n      \"hash\":\"78dde0b943db9c919cdfd0c03718c6263e308c45b96561447c6efd20dc6eb203\",\n      \"relativePath\":\"CommonEvents.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Enemies.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Items.json\"\n    },\n    {\n      \"hash\":\"1286c8c9ecd8883688f7b0d0e16c70c28c4f5301d3f24b322d7106bad7c18aaa\",\n      \"relativePath\":\"Map001.json\"\n    },\n    {\n      \"hash\":\"4869a1bd6c3dde05d5d16f4c49f2973262f7ad14d0285ecc851a3ae137dc280f\",\n      \"relativePath\":\"MapInfos.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Skills.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"States.json\"\n    },\n    {\n      \"hash\":\"838b4d27a17e95879e61d35164fcf3bf594056c00674166737627bfd7316bb38\",\n      \"relativePath\":\"System.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Tilesets.json\"\n    },\n    {\n      \"hash\":\"676b9f456bf2fe0b23544adf9ba7251ce6fa8f579e04af163477f789d2df74ca\",\n      \"relativePath\":\"Troops.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Weapons.json\"\n    }\n  ]\n}\n",
+          "pending": null
+        },
+        "after": {
+          "source": {
+            "system.events.ts": "aW1wb3J0IHttYXBFdmVudCxjb21tb25FdmVudCx0cm9vcEV2ZW50LGdhbWVPdmVyLHJldHVyblRvVGl0bGVTY3JlZW4sYmF0dGxlUHJvY2Vzc2luZyx0cm9vcFJlZix2YXJpYWJsZVJlZixyYXdEc2xDb21tYW5kfSBmcm9tICJycGdtYWtlci1ldmVudC1kc2wiO2V4cG9ydCBjb25zdCBldmVudD1tYXBFdmVudCh7bWFwSWQ6MSxpZDoxLG5hbWU6IlN5c3RlbSIseDowLHk6MCxwYWdlczpbe2NvbmRpdGlvbnM6e30sdHJpZ2dlcjoiYWN0aW9uIixjb21tYW5kczpbZ2FtZU92ZXIoKSxnYW1lT3ZlcigpLHJldHVyblRvVGl0bGVTY3JlZW4oKV19XX0pOw=="
+          },
+          "config": "{\n  \"projectRoot\": \"./Game\",\n  \"scriptEnabled\": false,\n  \"sourceRoot\": \"src\",\n  \"sourceInclude\": [\n    \"**/*.events.ts\",\n    \"**/*.dsl.ts\"\n  ],\n  \"sourceExclude\": [\n    \"**/*.test.ts\",\n    \"**/*.spec.ts\",\n    \"**/*.d.ts\"\n  ],\n  \"assetCheckExceptions\": []\n}\n",
+          "project": {
+            "audio/bgm/TitleMusic.ogg": "",
+            "data/Actors.json": "W251bGxd",
+            "data/Animations.json": "W251bGxd",
+            "data/Armors.json": "W251bGxd",
+            "data/Classes.json": "W251bGxd",
+            "data/CommonEvents.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV2aWRlbmNlIENvbW1vbiBFdmVudCIsInRyaWdnZXIiOjAsInN3aXRjaElkIjoxLCJsaXN0IjpbeyJjb2RlIjoxMDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiLDAsMSwwXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTeW50aGV0aWMgQ1JccmtlcHQiXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjoxMDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTZWxmLWF1dGhvcmVkIGZpeHR1cmUiXX0seyJjb2RlIjo0MDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjowLCJpbmRlbnQiOjAsInBhcmFtZXRlcnMiOltdfV19XQ==",
+            "data/Enemies.json": "W251bGxd",
+            "data/Items.json": "W251bGxd",
+            "data/Map001.json": "eyJ3aWR0aCI6MSwiaGVpZ2h0IjoxLCJ0aWxlc2V0SWQiOjEsInNwZWNpZnlCYXR0bGViYWNrIjp0cnVlLCJiYXR0bGViYWNrMU5hbWUiOiJCYWNrT25lIiwiYmF0dGxlYmFjazJOYW1lIjoiQmFja1R3byIsImV2ZW50cyI6W10sImN1c3RvbSI6eyJyZXRhaW4iOltudWxsLDE3XX19",
+            "data/MapInfos.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlN5c3RlbSJ9XQ==",
+            "data/Skills.json": "W251bGxd",
+            "data/States.json": "W251bGxd",
+            "data/System.json": "eyJnYW1lVGl0bGUiOiJTeW50aGV0aWMgZXZpZGVuY2UgY29udGV4dCIsInN3aXRjaGVzIjpbIiIsIlNhdmVkIHN3aXRjaCJdLCJ2YXJpYWJsZXMiOlsiIl0sImZpeHR1cmVPcmlnaW4iOnsicmV0YWluZWROdWxsIjpudWxsLCJyZXRhaW5lZEFycmF5IjpbXX0sImdhbWVvdmVyTWUiOm51bGwsInRpdGxlMU5hbWUiOiJUaXRsZU9uZSIsInRpdGxlMk5hbWUiOiJUaXRsZVR3byIsInRpdGxlQmdtIjp7Im5hbWUiOiJUaXRsZU11c2ljIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImJhdHRsZUJnbSI6eyJuYW1lIjoiQmF0dGxlTXVzaWMiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwidmljdG9yeU1lIjp7Im5hbWUiOiJWaWN0b3J5Iiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImRlZmVhdE1lIjp7Im5hbWUiOiJEZWZlYXQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwic291bmRzIjpbeyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiQmF0dGxlU3RhcnQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfV0sIm9wdFNpZGVWaWV3IjpmYWxzZSwiaGFzRW5jcnlwdGVkSW1hZ2VzIjpmYWxzZSwiaGFzRW5jcnlwdGVkQXVkaW8iOmZhbHNlfQ==",
+            "data/Tilesets.json": "W251bGxd",
+            "data/Troops.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlNlbGVjdGVkIHRyb29wIiwibWVtYmVycyI6W10sInBhZ2VzIjpbXX1d",
+            "data/Weapons.json": "W251bGxd",
+            "Game.rpgproject": "UlBHTVYgMS42LjEK",
+            "img/titles1/TitleOne.png": "",
+            "img/titles2/TitleTwo.png": ""
+          },
+          "snapshot": {
+            "Actors.json": "W251bGxd",
+            "Animations.json": "W251bGxd",
+            "Armors.json": "W251bGxd",
+            "Classes.json": "W251bGxd",
+            "CommonEvents.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV2aWRlbmNlIENvbW1vbiBFdmVudCIsInRyaWdnZXIiOjAsInN3aXRjaElkIjoxLCJsaXN0IjpbeyJjb2RlIjoxMDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiLDAsMSwwXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTeW50aGV0aWMgQ1JccmtlcHQiXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjoxMDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTZWxmLWF1dGhvcmVkIGZpeHR1cmUiXX0seyJjb2RlIjo0MDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjowLCJpbmRlbnQiOjAsInBhcmFtZXRlcnMiOltdfV19XQ==",
+            "Enemies.json": "W251bGxd",
+            "Items.json": "W251bGxd",
+            "Map001.json": "eyJ3aWR0aCI6MSwiaGVpZ2h0IjoxLCJ0aWxlc2V0SWQiOjEsInNwZWNpZnlCYXR0bGViYWNrIjp0cnVlLCJiYXR0bGViYWNrMU5hbWUiOiJCYWNrT25lIiwiYmF0dGxlYmFjazJOYW1lIjoiQmFja1R3byIsImV2ZW50cyI6W10sImN1c3RvbSI6eyJyZXRhaW4iOltudWxsLDE3XX19",
+            "MapInfos.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlN5c3RlbSJ9XQ==",
+            "Skills.json": "W251bGxd",
+            "States.json": "W251bGxd",
+            "System.json": "eyJnYW1lVGl0bGUiOiJTeW50aGV0aWMgZXZpZGVuY2UgY29udGV4dCIsInN3aXRjaGVzIjpbIiIsIlNhdmVkIHN3aXRjaCJdLCJ2YXJpYWJsZXMiOlsiIl0sImZpeHR1cmVPcmlnaW4iOnsicmV0YWluZWROdWxsIjpudWxsLCJyZXRhaW5lZEFycmF5IjpbXX0sImdhbWVvdmVyTWUiOm51bGwsInRpdGxlMU5hbWUiOiJUaXRsZU9uZSIsInRpdGxlMk5hbWUiOiJUaXRsZVR3byIsInRpdGxlQmdtIjp7Im5hbWUiOiJUaXRsZU11c2ljIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImJhdHRsZUJnbSI6eyJuYW1lIjoiQmF0dGxlTXVzaWMiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwidmljdG9yeU1lIjp7Im5hbWUiOiJWaWN0b3J5Iiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0sImRlZmVhdE1lIjp7Im5hbWUiOiJEZWZlYXQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSwic291bmRzIjpbeyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiIiwidm9sdW1lIjoyMSwicGl0Y2giOjcxLCJwYW4iOi0zMX0seyJuYW1lIjoiQmF0dGxlU3RhcnQiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfSx7Im5hbWUiOiIiLCJ2b2x1bWUiOjIxLCJwaXRjaCI6NzEsInBhbiI6LTMxfV0sIm9wdFNpZGVWaWV3IjpmYWxzZSwiaGFzRW5jcnlwdGVkSW1hZ2VzIjpmYWxzZSwiaGFzRW5jcnlwdGVkQXVkaW8iOmZhbHNlfQ==",
+            "Tilesets.json": "W251bGxd",
+            "Troops.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlNlbGVjdGVkIHRyb29wIiwibWVtYmVycyI6W10sInBhZ2VzIjpbXX1d",
+            "Weapons.json": "W251bGxd"
+          },
+          "generated": null,
+          "manifest": "{\n  \"version\":1,\n  \"projectRootBinding\":\"c:\\\\users\\\\shuen\\\\appdata\\\\local\\\\temp\\\\rpgmaker-event-dsl-windows\\\\asset-system-shared-field-0wumpn\\\\最小 workspace with spaces\\\\game\",\n  \"snapshotFiles\":[\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Actors.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Animations.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Armors.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Classes.json\"\n    },\n    {\n      \"hash\":\"78dde0b943db9c919cdfd0c03718c6263e308c45b96561447c6efd20dc6eb203\",\n      \"relativePath\":\"CommonEvents.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Enemies.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Items.json\"\n    },\n    {\n      \"hash\":\"1286c8c9ecd8883688f7b0d0e16c70c28c4f5301d3f24b322d7106bad7c18aaa\",\n      \"relativePath\":\"Map001.json\"\n    },\n    {\n      \"hash\":\"4869a1bd6c3dde05d5d16f4c49f2973262f7ad14d0285ecc851a3ae137dc280f\",\n      \"relativePath\":\"MapInfos.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Skills.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"States.json\"\n    },\n    {\n      \"hash\":\"838b4d27a17e95879e61d35164fcf3bf594056c00674166737627bfd7316bb38\",\n      \"relativePath\":\"System.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Tilesets.json\"\n    },\n    {\n      \"hash\":\"676b9f456bf2fe0b23544adf9ba7251ce6fa8f579e04af163477f789d2df74ca\",\n      \"relativePath\":\"Troops.json\"\n    },\n    {\n      \"hash\":\"1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd\",\n      \"relativePath\":\"Weapons.json\"\n    }\n  ]\n}\n",
+          "pending": null
+        }
+      }
+    }
+  ],
+  "expected": {
+    "description": "one malformed System field retains every independent defining command and safe title sibling",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-system-workspace.test.ts",
+    "sha256": "86934f80311612ea09e08259af880c9b2de50bfe6f9f47a50f4fa3555cba7e91",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(\"asset-system-shared-field\", async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, source(\"gameOver(),gameOver(),returnToTitleScreen()\"), { gameoverMe: null });\n\t\tfor (const field of titleFields) await media(root, field);\n\t\tconst before = await state(root);\n\t\tconst expectSharedFieldGroup = (message) => {\n\t\t\tconst members = message.split(/\\r?\\n/u).filter((line) => line.startsWith(\"  - error map:1/event:1 \"));\n\t\t\t(0,__vite_ssr_import_2__.expect)(members.map((line) => line.split(\"; chain:\")[0])).toEqual([\"  - error map:1/event:1 Map001.json.events[1].pages[0].list[0]\", \"  - error map:1/event:1 Map001.json.events[1].pages[0].list[1]\"]);\n\t\t\tfor (const [index, member] of members.entries()) {\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(member).toContain(\"chain: System.json.gameoverMe.name (Game Over ME)\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(member).toContain(`DSL: pages[0].commands[${index}]`);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(member).toMatch(/; base: error; effective: error$/u);\n\t\t\t};\n\t\t\t(0,__vite_ssr_import_2__.expect)(message.match(/1 problem group\\(s\\), 0 problem file\\(s\\), 2 affected use\\(s\\)/gu)).toHaveLength(1);\n\t\t\t(0,__vite_ssr_import_2__.expect)(message).toContain(\"Coverage: incomplete; named relationships or file checks remain unchecked.\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(message).toContain(\"failed at: System.json.gameoverMe.name\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(message).not.toContain(\"; target:\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(message).not.toContain(\"MV-ASSET-QUERY-FAILED\");\n\t\t};\n\t\tfor (const check of [true, false]) {\n\t\t\tconst actual = await capture(root, check);\n\t\t\tconst after = await state(root);\n\t\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ groupingCompatibilityApi: {\n\t\t\t\tcheck,\n\t\t\t\tactual,\n\t\t\t\tbefore,\n\t\t\t\tafter\n\t\t\t} });\n\t\t\t(0,__vite_ssr_import_2__.expect)(actual.failure.match(/error MV-ASSET-INVALID-DATA/gu)).toHaveLength(1);\n\t\t\t(0,__vite_ssr_import_2__.expect)(actual.failure).toContain(\"System.json.gameoverMe.name\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(actual.failure).toContain(\"list[0]\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(actual.failure).toContain(\"list[1]\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(actual.failure).not.toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t\texpectSharedFieldGroup(actual.failure);\n\t\t\t(0,__vite_ssr_import_2__.expect)(after).toEqual(before);\n\t\t};\n\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\tconst afterCli = await state(root);\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ groupingCompatibilityCli: {\n\t\t\tcli,\n\t\t\tbefore,\n\t\t\tafter: afterCli\n\t\t} });\n\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).not.toBe(0);\n\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr.match(/error MV-ASSET-INVALID-DATA/gu)).toHaveLength(1);\n\t\texpectSharedFieldGroup(cli.stderr);\n\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).not.toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t(0,__vite_ssr_import_2__.expect)(afterCli).toEqual(before);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}
