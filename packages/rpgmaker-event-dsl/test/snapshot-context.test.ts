@@ -1,5 +1,5 @@
 import { deepStrictEqual } from "node:assert/strict";
-import { readFile, readdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 import { expect, it } from "vitest";
@@ -53,7 +53,7 @@ function evidenceIt(name: string, verify: () => Promise<unknown>, timeout?: numb
   );
 }
 
-async function createContextProject(workspaceRoot: string) {
+async function createContextProject(workspaceRoot: string, validBattleMembers = false) {
   await createMinimalProject(workspaceRoot);
   const fixture = JSON.parse(
     await readFile(
@@ -73,6 +73,25 @@ async function createContextProject(workspaceRoot: string) {
     (troop: Record<string, unknown> | null) =>
       troop === null ? null : { ...troop, pages: [structuredClone(troopFixture.defaultPage)] },
   );
+  // Only the successful fixed-launch scenario needs every member to resolve.
+  // Other contexts retain the original absent Enemy99 and its saved member position.
+  if (validBattleMembers) fixture.projectFiles["Troops.json"][4].members[1].enemyId = 1;
+  Object.assign(fixture.projectFiles["Animations.json"][3], {
+    animation1Name: "ContextAnimation",
+    animation2Name: "",
+    timings: [],
+  });
+  fixture.projectFiles["Enemies.json"][1].battlerName = "ContextEnemy";
+  fixture.projectFiles["System.json"].optSideView = false;
+  for (const [folder, names] of [
+    ["animations", ["ContextAnimation"]],
+    ["enemies", ["ContextEnemy"]],
+    ["tilesets", ["A1", "A2", "B", "D"]],
+  ] as const) {
+    await mkdir(join(workspaceRoot, "Game/img", folder), { recursive: true });
+    for (const name of names)
+      await writeFile(join(workspaceRoot, "Game/img", folder, `${name}.png`), "");
+  }
   for (const [name, value] of Object.entries(fixture.projectFiles))
     await writeFile(join(workspaceRoot, "Game", "data", name), JSON.stringify(value));
   await initWorkspace({ workspaceRoot, projectRoot: "./Game" });
@@ -212,7 +231,7 @@ evidenceIt(
   async () => {
     let actual: unknown;
     await withWindowsSandbox("snapshot-context-references", async ({ workspaceRoot }) => {
-      await createContextProject(workspaceRoot);
+      await createContextProject(workspaceRoot, true);
       const sourcePath = join(workspaceRoot, "src", "context.events.ts");
       const source = (
         command: string,

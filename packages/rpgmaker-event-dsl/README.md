@@ -984,6 +984,20 @@ Diagnostics show the defining event, selected database entry and complete field
 chain. Image preloading and timing SE execution have separate conditions; these
 saved dependencies do not guarantee that an animation frame will execute.
 
+Fixed Battle Processing follows every Troop member's Enemy battler image,
+including hidden and repeated members. Enemy Transform follows the saved new
+Enemy even when its runtime target may be absent. `System.optSideView` selects
+exactly `img/enemies` or `img/sv_enemies`; a non-boolean required mode is an input
+error. A Troop Event's identity alone does not select its host members' images,
+and Enemy AI skills are outside these relationships.
+
+Adding an Actor retains its saved initial character and side-view battler names
+as conditional candidates. Current runtime image settings may replace them;
+player/follower participation, side-view battle and effective battle membership
+remain explicit conditions. Missing candidate files warn, while damaged required
+names still block. This relationship excludes face images, initial equipment,
+party removal/reordering and HP side effects.
+
 Only selected necessary fields are interpreted. Empty native names mean None;
 missing or invalid necessary names produce `MV-ASSET-INVALID-DATA` while safe
 independent fields continue checking. External data comes from the same captured

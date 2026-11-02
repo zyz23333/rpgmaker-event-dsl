@@ -17,6 +17,8 @@ export default defineConfig({
       "test/asset-media-workspace.test.ts",
       "test/asset-dependency-workspace.test.ts",
       "test/asset-dependency-data.test.ts",
+      "test/asset-battler-workspace.test.ts",
+      "test/asset-battler-data.test.ts",
       "test/asset-common-workspace.test.ts",
       "test/asset-file-workspace.test.ts",
       "test/audio-commands-workspace.test.ts",
