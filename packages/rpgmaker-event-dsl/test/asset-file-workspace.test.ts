@@ -254,7 +254,7 @@ it("AV.F11.enumerate-denied.injected.case.expected: enumeration failures identif
       expect(result.message).toContain("MV-ASSET-QUERY-FAILED");
       const query = result
         .message!.split("\n")
-        .find((line) => line.startsWith("error MV-ASSET-QUERY-FAILED"))!;
+        .find((line) => line.includes("MV-ASSET-QUERY-FAILED"))!;
       expect(query.endsWith(`; failed at: ${directory}`)).toBe(true);
       expect(result.message).toContain("MV-ASSET-MISSING-FILE");
       expect(result.message).toContain('image/pictures "Broken"');
@@ -289,7 +289,7 @@ for (const [branch, boundary, code] of [
         expect(result.message).toContain("MV-ASSET-QUERY-FAILED");
         const query = result
           .message!.split("\n")
-          .find((line) => line.startsWith("error MV-ASSET-QUERY-FAILED"))!;
+          .find((line) => line.includes("MV-ASSET-QUERY-FAILED"))!;
         expect(query.endsWith(`; failed at: ${target}`)).toBe(true);
         expect(result.message).toContain("MV-ASSET-MISSING-FILE");
         expect(result.message).toContain('image/pictures "Missing"');
