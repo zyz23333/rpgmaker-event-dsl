@@ -17,6 +17,7 @@ const {
   compileWorkspace,
 }: typeof import("../src/workspace-api.js") = await import(workspaceApiEntry);
 const it = createAssetTest({ ownerTicket: "04", testSource: import.meta.url });
+const repeatedIt = createAssetTest({ ownerTicket: "04,13", testSource: import.meta.url });
 const routeIt = createAssetTest({ ownerTicket: "04,05", testSource: import.meta.url });
 const tileIt = createAssetTest({ ownerTicket: "04,07", testSource: import.meta.url });
 const imports =
@@ -550,46 +551,52 @@ it("AV.C06.none-direct.raw.A07-base-p1.expected: recognized raw Show Picture Non
 });
 
 for (const branch of ["route-mirror", "independent-command", "repeated-command"] as const)
-  it(`AV.C03.${branch}.formal.image.expected: mirrored route records count once and real commands retain independent origins on every run`, async () => {
-    await withWindowsSandbox(`asset-count-${branch}`, async ({ workspaceRoot: root }) => {
-      const second =
-        branch === "route-mirror"
-          ? ""
-          : branch === "independent-command"
-            ? `,changeVehicleImage({vehicle:"boat",image:${image("characters", "Route")},index:7})`
-            : ` ,${routeSource}`;
-      await prepare(root, source(routeSource + second));
-      await materialize(root, [{ token: "p0", folder: "characters", name: "Route", parameter: 0 }]);
-      await compileWorkspace({ workspaceRoot: root, check: false });
-      const expected = [routeUse];
-      if (branch === "independent-command")
-        expected.push({
-          ...routeUse,
-          nativePath: "Map001.json.events[1].pages[0].list[2].parameters[1]",
-          relatedNativePaths: [],
-        });
-      if (branch === "repeated-command")
-        expected.push({
-          ...routeUse,
-          nativePath: "Map001.json.events[1].pages[0].list[2].parameters[1].list[0].parameters[0]",
-          relatedNativePaths: [
-            "Map001.json.events[1].pages[0].list[3].parameters[0].parameters[0]",
-          ],
-        });
-      expect(await uses(root)).toEqual(expected);
-      await rm(join(root, "Game/img/characters/Route.png"));
-      const before = await state(root);
-      for (const check of [true, false, true]) {
-        const failure = await compileWorkspace({ workspaceRoot: root, check }).then(
-          () => "",
-          String,
-        );
-        expect(failure).toContain(`${expected.length} use(s)`);
-        for (const use of expected) expect(failure).toContain(use.nativePath);
-        expect(await state(root)).toEqual(before);
-      }
-    });
-  });
+  (branch === "repeated-command" ? repeatedIt : it)(
+    `AV.C03.${branch}.formal.image.expected: mirrored route records count once and real commands retain independent origins on every run`,
+    async () => {
+      await withWindowsSandbox(`asset-count-${branch}`, async ({ workspaceRoot: root }) => {
+        const second =
+          branch === "route-mirror"
+            ? ""
+            : branch === "independent-command"
+              ? `,changeVehicleImage({vehicle:"boat",image:${image("characters", "Route")},index:7})`
+              : ` ,${routeSource}`;
+        await prepare(root, source(routeSource + second));
+        await materialize(root, [
+          { token: "p0", folder: "characters", name: "Route", parameter: 0 },
+        ]);
+        await compileWorkspace({ workspaceRoot: root, check: false });
+        const expected = [routeUse];
+        if (branch === "independent-command")
+          expected.push({
+            ...routeUse,
+            nativePath: "Map001.json.events[1].pages[0].list[2].parameters[1]",
+            relatedNativePaths: [],
+          });
+        if (branch === "repeated-command")
+          expected.push({
+            ...routeUse,
+            nativePath:
+              "Map001.json.events[1].pages[0].list[2].parameters[1].list[0].parameters[0]",
+            relatedNativePaths: [
+              "Map001.json.events[1].pages[0].list[3].parameters[0].parameters[0]",
+            ],
+          });
+        expect(await uses(root)).toEqual(expected);
+        await rm(join(root, "Game/img/characters/Route.png"));
+        const before = await state(root);
+        for (const check of [true, false, true]) {
+          const failure = await compileWorkspace({ workspaceRoot: root, check }).then(
+            () => "",
+            String,
+          );
+          expect(failure).toContain(`${expected.length} use(s)`);
+          for (const use of expected) expect(failure).toContain(use.nativePath);
+          expect(await state(root)).toEqual(before);
+        }
+      });
+    },
+  );
 
 for (const type of ["fixed", "random", "approach"] as const)
   routeIt(

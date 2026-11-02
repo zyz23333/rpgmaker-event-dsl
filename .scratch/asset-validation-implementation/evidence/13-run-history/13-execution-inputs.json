@@ -1,0 +1,58 @@
+[
+  {
+    "path": ".scratch/asset-validation/asset-validation-spec.md",
+    "sha256": "00d0d85abcda6d3141549616afb8aa410f993f2bb51e82ef7d8467e56b76d82f"
+  },
+  {
+    "path": ".scratch/asset-validation/acceptance-matrix.md",
+    "sha256": "fddf586c2212a998bad5a32ec105691e05a879a52ea6d8cb07b16a1aa841b0ba"
+  },
+  {
+    "path": ".scratch/asset-validation/implementation-acceptance-cases.md",
+    "sha256": "4e8a591f5c4d157e5876b6058d4c7ed6d4f440da584b58a23add2f205477a25f"
+  },
+  {
+    "path": "packages/rpgmaker-event-dsl/README.md",
+    "sha256": "ca46237c986278f3ea2d2b73c0da6d63493cf78a4f00a5bc7d79f1799dafc5cd"
+  },
+  {
+    "path": "packages/rpgmaker-event-dsl/vitest.windows.config.ts",
+    "sha256": "a0f164822525d9253e1740cea694faf60d8a43a3227e75181116c9a264ba1b6f"
+  },
+  {
+    "path": "packages/rpgmaker-event-dsl/test/asset-workflow-workspace.test.ts",
+    "sha256": "674ecaa8bf740225e8fa3615ba3dbdf107807fdd5dc660f3b89f90ddf3f8767a"
+  },
+  {
+    "path": "packages/rpgmaker-event-dsl/test/asset-image-workspace.test.ts",
+    "sha256": "da8b9e1d60d42f4bcf94a25b55e25aa210aa3e915f5dc22b81763b53b7a0fd21"
+  },
+  {
+    "path": "packages/rpgmaker-event-dsl/test/asset-media-workspace.test.ts",
+    "sha256": "843bbe0a812fb252cf1a6bfdc3709898389388f42d0a2bafaec2b031b1c1ba65"
+  },
+  {
+    "path": "packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+    "sha256": "afdc69eb65fcd806c6bc05167f6788d71dffce1b1966902ff106d4aa5197d253"
+  },
+  {
+    "path": "packages/rpgmaker-event-dsl/test/support/workspace-operation-process.ts",
+    "sha256": "a5610a96011086da65798d225c711287d0a5abe506cc98cef4ba29b957e92bc9"
+  },
+  {
+    "path": "packages/rpgmaker-event-dsl/test/support/asset-evidence.ts",
+    "sha256": "427516c552d3e163e9dc67bd674c9fd9c2a571b976d2109558bfce84642c630a"
+  },
+  {
+    "path": "packages/rpgmaker-event-dsl/dist/cli.mjs",
+    "sha256": "7ad5dfb4fe22ba6f74dcc30272be8b3db2385bfa6d8f609d1388a65a1a069dd0"
+  },
+  {
+    "path": "packages/rpgmaker-event-dsl/dist/workspace-api.mjs",
+    "sha256": "7f3c56485d44ce4bf302f800153a1386b1d502bf0c88132e948b794b7557d636"
+  },
+  {
+    "path": "packages/rpgmaker-event-dsl/dist/index.d.mts",
+    "sha256": "84df6738b61413bd007bfbfbea0faa0bd8163ce9bb35bab50858ac485efb3e47"
+  }
+]

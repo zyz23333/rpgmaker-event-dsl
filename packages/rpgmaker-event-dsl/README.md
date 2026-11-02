@@ -1066,6 +1066,16 @@ still expose an unsupported name so it can be repaired. Check leaves generated
 data, the Snapshot and synchronization metadata unchanged. Asset observations are
 transient and do not enter Compile Baseline.
 
+Compile and Check make one asset-check pass after validating the complete candidate.
+Check preserves initial, fresh and stale output authority on success, warnings and
+failure. Compile checks before publishing generated data; it retains its existing
+source, type-dependency, configuration, Snapshot and binding consistency checks at
+publication and Manifest commit. Deleting media after the asset pass does not add
+another scan or prevent otherwise valid publication. Each new command queries
+current files, so a later Check can fail even while generated data remains fresh.
+Media content, size, timestamps, identity and unrelated entries do not become
+compilation inputs. Clone, Pull, Decompilation and Diff add no asset-file gate.
+
 Saved Autonomous Movement images remain checked when the movement type is fixed,
 random or approach. A tile page's saved character name also remains checked.
 Confirmed file problems in these explicitly inactive settings warn; unsupported
