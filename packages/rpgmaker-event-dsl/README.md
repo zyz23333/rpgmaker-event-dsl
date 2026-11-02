@@ -984,6 +984,15 @@ Diagnostics show the defining event, selected database entry and complete field
 chain. Image preloading and timing SE execution have separate conditions; these
 saved dependencies do not guarantee that an animation frame will execute.
 
+Force Action follows its fixed Snapshot Skill. A positive `animationId` selects
+that Animation's image sheets and timing SE; zero closes only the animation path.
+Actor default attacks retain Animation 1 as a conditional candidate for having no
+current weapon, alongside an explicit unchecked stop for runtime weapon choices.
+Initial Actor equipment does not stand in for current weapons. Enemy default
+attacks select `System.sounds[9].name` in `audio/se`, without inventing an Animation.
+Missing unarmed candidate files warn; malformed necessary Skill, Animation or
+sound fields remain errors.
+
 Game Over follows `System.gameoverMe.name`; Return to Title follows both saved
 title images and `titleBgm.name`. Battle Processing checks the saved System battle
 BGM, victory ME and defeat ME as defaults that runtime settings may replace, plus
@@ -1020,6 +1029,11 @@ the direct Common Event call sites with their defining events, native positions
 and target IDs. Repeated, cyclic and shared calls retain each saved call site;
 they do not multiply the called definition's asset-use count or produce a separate
 cycle warning. Removed Snapshot events are excluded from the current call graph.
+Every saved Common Event effect of a selected Skill retains its own direct call
+site and Skill/effect field chain, including repeated effects targeting the same
+event. Its target must be a current Common Event definition. Animation errors or
+runtime weapon stops leave safe effect relationships in scope; Common Event
+assets continue to belong only to their defining event.
 
 The check observes ordinary-file metadata only: empty files pass, and no image
 decoding or layout guarantee is made. None needs no file. Missing directories or

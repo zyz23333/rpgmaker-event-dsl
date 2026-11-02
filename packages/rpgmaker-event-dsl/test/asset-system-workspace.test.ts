@@ -6,6 +6,7 @@ import { createMinimalProject, runCli, withWindowsSandbox } from "./support/wind
 import { workspaceApiEntry } from "./support/workspace-operation-process.js";
 import { getWorkspaceStatePaths } from "../src/workspace/state.js";
 import { collectSystemAssets } from "../src/validation/asset-system-relations.js";
+import { verifyForcedActionSibling } from "./support/asset-action-scenarios.js";
 
 const {
   initWorkspace,
@@ -70,6 +71,7 @@ sharedIt(
           },
         ]);
       });
+    await verifyForcedActionSibling("dynamic-target");
   },
 );
 const mapData = () => ({
@@ -598,6 +600,7 @@ sharedIt(
       expect(actual.problems).toEqual([]);
       expect(actual.stops).toHaveLength(1);
     });
+    await verifyForcedActionSibling("known-sibling");
   },
 );
 it("AV.C08.battleback-off.formal.case.expected: disabled saved host backgrounds retain both candidate and inactive reasons while missing files remain warnings", async () => {

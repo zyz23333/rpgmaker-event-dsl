@@ -29,7 +29,12 @@ export async function checkEventAssets(input: {
       `${input.commandName} asset check info:\ninfo MV-ASSET-DYNAMIC-STOP: ${stop.reason}\n  - ${renderOrigin(stop)}`,
     );
   const relations = {
-    uses: [...animationTilesets.uses, ...actorsEnemies.uses, ...systemRelations.uses, ...actions.uses],
+    uses: [
+      ...animationTilesets.uses,
+      ...actorsEnemies.uses,
+      ...systemRelations.uses,
+      ...actions.uses,
+    ],
     problems: [
       ...animationTilesets.problems,
       ...actorsEnemies.problems,

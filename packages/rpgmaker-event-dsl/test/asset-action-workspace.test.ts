@@ -902,3 +902,180 @@ it("AV.C12.initial-equipment.formal.case.expected: saved initial weapons never r
     expect((await state(root)).snapshot).toEqual(before.snapshot);
   });
 });
+
+test("zero animation closes only the animation relationship and retains every saved effect", async () => {
+  await withWindowsSandbox("asset-action-zero-animation", async (sandbox) => {
+    const root = sandbox.workspaceRoot;
+    await prepare(root, sourceFor("B16"), {
+      "Skills.json": effectSkills(0),
+      "Animations.json": [null],
+    });
+    for (const use of pictureExpected()) await media(root, use.category, use.folder, use.name);
+    const before = await state(root);
+    await api.compileWorkspace({ workspaceRoot: root, check: true });
+    expect(await state(root)).toEqual(before);
+    const cli = await runCli(sandbox, ["compile", "--check"]);
+    expect(cli.stderr).not.toContain("MV-ASSET-");
+    await api.compileWorkspace({ workspaceRoot: root, check: false });
+    const actual = await observed(root);
+    expect(actual.relations).toEqual({ uses: [], problems: [], stops: [], calls: effectCalls() });
+    expect(collectEventAssetUses(actual.files)).toEqual(pictureExpected());
+  });
+});
+
+test("necessary Skill animation and effects containers fail independently without suppressing the safe relationship", () => {
+  const field = reached[0]!;
+  for (const invalid of [undefined, null, "2", 1.5, false]) {
+    const table = effectSkills();
+    if (invalid === undefined) delete (table[1]! as Record<string, unknown>).animationId;
+    else (table[1]! as Record<string, unknown>).animationId = invalid;
+    const result = synthetic(field, { "Skills.json": table });
+    expect(result.uses).toEqual([]);
+    expect(result.calls).toEqual(effectCalls());
+    expect(result.problems).toEqual([
+      {
+        ...actionOrigin,
+        dependencyChain: [
+          {
+            data: "Skills.json",
+            id: 1,
+            field: "animationId",
+            relationship: "Forced action Skill animation",
+          },
+        ],
+        conditions: [],
+        dataPath: "Skills.json[1].animationId",
+        reason:
+          "Necessary Skill animationId must be an integer; this animation relationship is unchecked.",
+      },
+    ]);
+  }
+  for (const invalid of [undefined, null, "effects", {}]) {
+    const table = skills();
+    if (invalid === undefined) delete (table[1]! as Record<string, unknown>).effects;
+    else (table[1]! as Record<string, unknown>).effects = invalid;
+    const result = synthetic(field, { "Skills.json": table });
+    expect(result.uses).toEqual(animationExpected(false));
+    expect(result.calls).toEqual([]);
+    expect(result.problems).toEqual([
+      {
+        ...actionOrigin,
+        dependencyChain: [
+          {
+            data: "Skills.json",
+            id: 1,
+            field: "effects",
+            relationship: "Skill Common Event effects",
+          },
+        ],
+        conditions: [],
+        dataPath: "Skills.json[1].effects",
+        reason: "Necessary Skill effects must be an array; effect relationships are unchecked.",
+      },
+    ]);
+  }
+});
+
+test("actual API and CLI keep damaged selected Skill fields, a missing current effect target and a later safe target distinct", async () => {
+  await withWindowsSandbox("asset-action-selected-field-errors", async (sandbox) => {
+    const root = sandbox.workspaceRoot,
+      table = effectSkills();
+    (table[1]! as Record<string, unknown>).animationId = "invalid";
+    table[1]!.effects = [null, { code: 44, dataId: 10 }, { code: 44, dataId: 11 }] as never;
+    const old = Array.from({ length: 12 }, () => null as unknown);
+    old[10] = {
+      id: 10,
+      name: "Snapshot only target",
+      trigger: 0,
+      switchId: 1,
+      list: [{ code: 0, indent: 0, parameters: [] }],
+    };
+    await prepare(root, common(1, force()) + common(11, picture("EffectSecond")), {
+      "Skills.json": table,
+      "CommonEvents.json": old,
+    });
+    await media(root, "image", "pictures", "EffectSecond");
+    const before = await state(root);
+    for (const check of [true, false]) {
+      const failure = await api
+        .compileWorkspace({ workspaceRoot: root, check })
+        .then(() => "", String);
+      expect(failure).toContain("error MV-ASSET-INVALID-DATA: Skills.json[1].animationId");
+      expect(failure).toContain("Skills.json[1].effects[0].code");
+      expect(failure).toContain("CommonEvents.json[10]");
+      expect(failure).toContain("Skills.json[1].effects[2].dataId");
+      expect(failure).toContain("-> commonEvent:11");
+      expect(failure).not.toContain("MV-ASSET-MISSING-FILE");
+      expect(await state(root)).toEqual(before);
+    }
+    const cli = await runCli(sandbox, ["compile", "--check"], { allowFailure: true });
+    expect(cli.exitCode).toBe(1);
+    expect(cli.stderr).toContain("Skills.json[1].animationId");
+    expect(cli.stderr).toContain("Skills.json[1].effects[2].dataId");
+    expect(await state(root)).toEqual(before);
+  });
+});
+
+test("captured Skills Animations and System stay coherent while effect targets use current Common definitions", async () => {
+  await withWindowsSandbox("asset-action-captured-view", async (sandbox) => {
+    const root = sandbox.workspaceRoot,
+      old = Array.from({ length: 12 }, () => null as unknown);
+    old[10] = {
+      id: 10,
+      name: "Old target",
+      trigger: 0,
+      switchId: 1,
+      list: [
+        { code: 231, indent: 0, parameters: [1, "ExcludedOld", 0, 0, 0, 0, 100, 100, 255, 0] },
+        { code: 0, indent: 0, parameters: [] },
+      ],
+    };
+    await prepare(
+      root,
+      common(1, `${force()},${force(2, true)}`) +
+        common(10, picture("EffectFirst")) +
+        common(11, picture("EffectSecond")),
+      { "Skills.json": effectSkills(), "CommonEvents.json": old },
+    );
+    for (const use of [...animationExpected(false), ...enemyExpected(), ...pictureExpected()])
+      await media(root, use.category, use.folder, use.name);
+    await writeFile(
+      join(root, "Game/data/Skills.json"),
+      JSON.stringify([
+        null,
+        { id: 1, name: "New live Skill", animationId: 99, effects: [{ code: 44, dataId: 99 }] },
+      ]),
+    );
+    await writeFile(
+      join(root, "Game/data/Animations.json"),
+      JSON.stringify([null, { id: 1, animation1Name: "NewLiveAnimation" }]),
+    );
+    await writeFile(
+      join(root, "Game/data/System.json"),
+      JSON.stringify({ sounds: Array.from({ length: 10 }, () => audio("NewLiveSound")) }),
+    );
+    const before = await state(root);
+    await api.compileWorkspace({ workspaceRoot: root, check: true });
+    expect(await state(root)).toEqual(before);
+    const cli = await runCli(sandbox, ["compile", "--check"]);
+    expect(cli.stderr).not.toContain("MV-ASSET-");
+    await api.compileWorkspace({ workspaceRoot: root, check: false });
+    const actual = await observed(root);
+    expect(actual.relations).toEqual({
+      uses: [
+        ...animationExpected(false),
+        ...enemyExpected().map((use) => ({
+          ...use,
+          nativePath: "CommonEvents.json[1].list[1].parameters[2]",
+        })),
+      ],
+      problems: [],
+      stops: [],
+      calls: effectCalls(),
+    });
+    expect(collectEventAssetUses(actual.files)).toEqual(pictureExpected());
+    expect(JSON.parse(actual.external.get("Skills.json")!)).toEqual(effectSkills());
+    expect((await state(root)).project).toEqual(before.project);
+    expect((await state(root)).snapshot).toEqual(before.snapshot);
+  });
+});
