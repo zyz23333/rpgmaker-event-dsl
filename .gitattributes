@@ -56,4 +56,4 @@
 /.scratch/asset-validation-implementation/probes/native-battlers/** -text -whitespace
 # Fixed independent pre-policy evidence must retain its original bytes.
 packages/rpgmaker-event-dsl/test/fixtures/asset-legacy-policy-evidence.json -text
-/.scratch/asset-validation-implementation/evidence/12-run-history/** -text
+/.scratch/asset-validation-implementation/evidence/12-run-history/** -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol

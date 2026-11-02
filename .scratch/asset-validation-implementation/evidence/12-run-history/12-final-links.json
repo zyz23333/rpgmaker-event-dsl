@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "checkedLocalLinks": 28,
+  "missing": [],
+  "files": [
+    "README.md",
+    "packages/rpgmaker-event-dsl/README.md",
+    "example/full-event/README.md",
+    ".scratch/asset-validation-implementation/issues/12-exceptions-and-complete-diagnostics.md",
+    ".scratch/asset-validation-implementation/evidence/12-exception-acceptance.md"
+  ],
+  "policy": "Existing local destinations only; external URLs and heading-only links are not counted as local file checks."
+}
