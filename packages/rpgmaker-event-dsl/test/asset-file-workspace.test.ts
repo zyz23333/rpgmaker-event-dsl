@@ -164,6 +164,334 @@ it("SUPPLEMENT.device-space-exception: a reserved device followed by ASCII space
   });
 });
 
+const spacedDeviceInputs = [
+  "cOn   ",
+  "PRN ",
+  "aux  .extra",
+  "NUL .png",
+  "COM1 ",
+  "com2  ",
+  "COM3 .foo",
+  "COM4 ",
+  "COM5 ",
+  "COM6 ",
+  "COM7 ",
+  "COM8 ",
+  "COM9 ",
+  "lpt1 ",
+  "LPT2 ",
+  "LPT3 ",
+  "LPT4 ",
+  "LPT5 ",
+  "LPT6 ",
+  "LPT7 ",
+  "LPT8 ",
+  "LPT9 ",
+  "COM¹ ",
+  "com²  .foo",
+  "COM³ ",
+  "LPT¹ ",
+  "lpt²  ",
+  "LPT³ ",
+];
+
+function deviceCommand(category: "image" | "audio" | "movie", name: string, index: number) {
+  const saved = JSON.stringify(name);
+  if (category === "image")
+    return index % 2
+      ? `rawDslCommand({code:231,parameters:[${index + 1},${saved},0,0,0,0,100,100,255,0]})`
+      : `showPicture({pictureId:${index + 1},image:imageAsset({folder:"pictures",name:${saved}}),origin:"upperLeft",position:{kind:"direct",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:"normal"})`;
+  if (category === "audio")
+    return index % 2
+      ? `rawDslCommand({code:241,parameters:[{name:${saved},volume:90,pitch:100,pan:0}]})`
+      : `playBgm({audio:{asset:audioAsset({folder:"bgm",name:${saved}}),volume:90,pitch:100,pan:0}})`;
+  return index % 2
+    ? `rawDslCommand({code:261,parameters:[${saved}]})`
+    : `playMovie({movie:movieAsset({name:${saved}})})`;
+}
+
+for (const category of ["image", "audio", "movie"] as const)
+  it(`SUPPLEMENT.device-space-${category}: all reserved device tokens before ASCII spaces reject formal and raw names without target queries`, async () => {
+    await withWindowsSandbox(`asset-device-space-${category}`, async (sandbox) => {
+      const root = sandbox.workspaceRoot;
+      expect(spacedDeviceInputs).toHaveLength(28);
+      const authored =
+        'import {commonEvent,rawDslCommand,showPicture,imageAsset,playBgm,audioAsset,playMovie,movieAsset} from "rpgmaker-event-dsl";' +
+        `export const event=commonEvent({id:10,name:"Device spaces",trigger:"none",commands:[${spacedDeviceInputs.map((name, index) => deviceCommand(category, name, index)).join(",")}]});`;
+      await prepare(root, [], { source: authored });
+      const before = await deviceFixtureState(root);
+      recordAssetInput({
+        supplementary: true,
+        canonicalId: null,
+        category,
+        expectedDeviceInputs: spacedDeviceInputs,
+        expectedGroups: 28,
+        expectedTargetFiles: 0,
+        expectedUses: 28,
+        expectedOrigins: spacedDeviceInputs.map((name, index) => ({
+          name,
+          nativePath: `CommonEvents.json[10].list[${index}].parameters[${category === "image" ? "1" : "0"}]${category === "audio" ? ".name" : ""}`,
+        })),
+        before,
+      });
+      for (const check of [true, false]) {
+        const failure = await api
+          .compileWorkspace({ workspaceRoot: root, check })
+          .then(() => "", String);
+        recordAssetInput({ check, actualFailure: failure });
+        expect(failure).toContain("28 problem group(s), 0 problem file(s), 28 affected use(s)");
+        expect(failure.match(/error MV-ASSET-UNSUPPORTED-NAME:/gu) ?? []).toHaveLength(28);
+        for (const [index, name] of spacedDeviceInputs.entries()) {
+          expect(failure).toContain(JSON.stringify(name));
+          expect(failure).toContain(
+            `CommonEvents.json[10].list[${index}].parameters[${category === "image" ? "1" : "0"}]${category === "audio" ? ".name" : ""}`,
+          );
+        }
+        expect(failure).toContain("Coverage: incomplete");
+        expect(failure).not.toContain("; target:");
+        expect(failure).not.toContain("MV-ASSET-MISSING");
+        expect(await deviceFixtureState(root)).toEqual(before);
+      }
+      const child = startWorkspaceOperation(sandbox, {
+        operation: "compile",
+        mode: "cli",
+        boundary: "asset-no-media-query",
+        observeAssets: true,
+      });
+      try {
+        expect((await child.ended).exitCode).toBe(1);
+        const record = sandbox.processes.at(-1)!;
+        recordAssetInput({ actualCli: record, messages: child.messages });
+        expect(record.stderr.match(/error MV-ASSET-UNSUPPORTED-NAME:/gu) ?? []).toHaveLength(28);
+        expect(record.stderr).not.toContain("MV-ASSET-QUERY-FAILED");
+        expect(record.stderr).not.toContain("; target:");
+        expect(
+          child.messages.filter(
+            (message) =>
+              message.kind === "asset-query" || message.kind === "asset-content-read-attempt",
+          ),
+        ).toEqual([]);
+        expect(await deviceFixtureState(root)).toEqual(before);
+      } finally {
+        await child.stop();
+      }
+    });
+  });
+
+for (const role of ["candidate", "inactive"] as const)
+  it(`SUPPLEMENT.device-space-${role}: unsupported saved devices warn with incomplete coverage without an exception downgrade or ineffective finding`, async () => {
+    await withWindowsSandbox(`asset-device-space-${role}`, async (sandbox) => {
+      const root = sandbox.workspaceRoot,
+        name = role === "candidate" ? "lPt¹ " : "cOn   .foo";
+      const authored =
+        role === "candidate"
+          ? 'import {commonEvent,changePartyMember,actorRef} from "rpgmaker-event-dsl";export const event=commonEvent({id:10,name:"Device candidate",trigger:"none",commands:[changePartyMember({actor:actorRef({id:1}),operation:"add",initialize:false})]});'
+          : `import {mapEvent,imageAsset} from "rpgmaker-event-dsl";export const event=mapEvent({mapId:1,id:1,name:"Device inactive",x:0,y:0,pages:[{conditions:{},trigger:"action",commands:[],movement:{type:"fixed",route:{commands:[{kind:"changeImage",character:imageAsset({folder:"characters",name:${JSON.stringify(name)}}),characterIndex:7}]}}}]});`;
+      const projectFiles =
+        role === "candidate"
+          ? {
+              "Actors.json": [null, { id: 1, name: "Actor", characterName: name, battlerName: "" }],
+            }
+          : {
+              "MapInfos.json": [null, { id: 1, name: "Map" }],
+              "Map001.json": { width: 1, height: 1, tilesetId: 1, events: [] },
+              "Tilesets.json": [null, { id: 1, name: "Tiles" }],
+            };
+      await prepare(root, [], { source: authored, projectFiles });
+      const configPath = join(root, "rpgmaker-event-dsl.config.json"),
+        config = JSON.parse(await readFile(configPath, "utf8"));
+      config.assetCheckExceptions = [
+        {
+          category: "image",
+          folder: "characters",
+          name,
+          reason: "Unsupported role remains unchecked",
+        },
+      ];
+      await writeFile(configPath, JSON.stringify(config));
+      const before = await deviceFixtureState(root);
+      await api.compileWorkspace({ workspaceRoot: root, check: true });
+      expect(await deviceFixtureState(root)).toEqual(before);
+      const child = startWorkspaceOperation(sandbox, {
+        operation: "check",
+        mode: "cli",
+        boundary: "asset-no-media-query",
+        observeAssets: true,
+      });
+      try {
+        expect((await child.ended).exitCode).toBe(0);
+        const record = sandbox.processes.at(-1)!;
+        recordAssetInput({
+          supplementary: true,
+          canonicalId: null,
+          role,
+          name,
+          before,
+          actualCli: record,
+          messages: child.messages,
+        });
+        expect(record.stderr).toContain("warning MV-ASSET-UNSUPPORTED-NAME");
+        expect(record.stderr).toContain(JSON.stringify(name));
+        expect(record.stderr).toContain("base: warning; effective: warning");
+        expect(record.stderr).toContain("Coverage: incomplete");
+        expect(record.stderr).toContain(
+          role === "candidate"
+            ? "candidate: Actor initial"
+            : "inactive: Autonomous Movement is fixed",
+        );
+        expect(record.stderr).not.toContain("; target:");
+        expect(record.stderr).not.toContain("exception reason:");
+        expect(record.stderr).not.toContain("MV-ASSET-INEFFECTIVE-EXCEPTION");
+        expect(record.stderr).not.toContain("error MV-ASSET");
+        expect(
+          child.messages.filter(
+            (message) =>
+              message.kind === "asset-query" || message.kind === "asset-content-read-attempt",
+          ),
+        ).toEqual([]);
+      } finally {
+        await child.stop();
+      }
+      expect(await deviceFixtureState(root)).toEqual(before);
+      await api.compileWorkspace({ workspaceRoot: root, check: false });
+      const after = await deviceFixtureState(root);
+      expect({ ...after, state: before.state }).toEqual(before);
+      const retained = (state: Record<string, string>) =>
+        Object.fromEntries(
+          Object.entries(state).filter(
+            ([key]) => key !== "sync-manifest.json" && !key.startsWith("generated-project-data/"),
+          ),
+        );
+      expect(retained(after.state)).toEqual(retained(before.state));
+      if (role === "candidate") {
+        const actors = JSON.parse(
+          Buffer.from(after.state["project-data-snapshot/Actors.json"]!, "base64").toString(),
+        );
+        expect(actors[1].characterName).toBe(name);
+      } else {
+        const map = JSON.parse(
+          Buffer.from(after.state["generated-project-data/Map001.json"]!, "base64").toString(),
+        );
+        expect(map.events[1].pages[0].moveRoute.list[0].parameters[0]).toBe(name);
+      }
+      recordAssetInput({
+        after,
+        expected:
+          "Only normal Compile generated/Manifest publication; original saved spelling, Snapshot and all Project/media bytes preserved; warning is not an exception downgrade.",
+      });
+    });
+  });
+
+it("SUPPLEMENT.device-space-supported-controls: ordinary trailing spaces, leading spaces and non-ASCII whitespace preserve exact real filenames", async () => {
+  await withWindowsSandbox("asset-device-space-supported", async (sandbox) => {
+    const root = sandbox.workspaceRoot,
+      names = ["Poster ", "Poster  ", "NULx", " NUL", "NUL x", "COM0 ", "NUL\u00a0", "NUL\u3000"];
+    await prepare(root, names);
+    for (const name of names) await png(root, `img/pictures/${name}.png`);
+    const before = await deviceFixtureState(root);
+    await api.compileWorkspace({ workspaceRoot: root, check: false });
+    const after = await deviceFixtureState(root);
+    expect({ ...after, state: before.state }).toEqual(before);
+    const retained = (state: Record<string, string>) =>
+      Object.fromEntries(
+        Object.entries(state).filter(
+          ([key]) => key !== "sync-manifest.json" && !key.startsWith("generated-project-data/"),
+        ),
+      );
+    expect(retained(after.state)).toEqual(retained(before.state));
+    const events = JSON.parse(
+      Buffer.from(after.state["generated-project-data/CommonEvents.json"]!, "base64").toString(),
+    );
+    expect(
+      events[10].list
+        .slice(0, 8)
+        .map((command: { parameters: unknown[] }) => command.parameters[1]),
+    ).toEqual(names);
+    expect((await readdir(join(root, "Game/img/pictures"))).sort()).toEqual(
+      names.map((name) => name + ".png").sort(),
+    );
+    const child = startWorkspaceOperation(sandbox, {
+      operation: "check",
+      mode: "cli",
+      observeAssets: true,
+    });
+    try {
+      expect((await child.ended).exitCode).toBe(0);
+      const record = sandbox.processes.at(-1)!;
+      expect(record.stderr).not.toContain("MV-ASSET-UNSUPPORTED-NAME");
+      expect(child.messages.some((message) => message.kind === "asset-query")).toBe(true);
+      expect(
+        child.messages.filter((message) => message.kind === "asset-content-read-attempt"),
+      ).toEqual([]);
+      expect(await deviceFixtureState(root)).toEqual(after);
+      recordAssetInput({
+        supplementary: true,
+        canonicalId: null,
+        names,
+        unicodeNonDevices: ["U+00A0", "U+3000"],
+        before,
+        after,
+        actualCli: record,
+        messages: child.messages,
+      });
+    } finally {
+      await child.stop();
+    }
+    await rm(join(root, "Game/img/pictures/COM0 .png"));
+    const configPath = join(root, "rpgmaker-event-dsl.config.json"),
+      config = JSON.parse(await readFile(configPath, "utf8"));
+    config.assetCheckExceptions = [
+      {
+        category: "image",
+        folder: "pictures",
+        name: "COM0 ",
+        reason: "Ordinary non-device file is temporarily absent",
+      },
+    ];
+    await writeFile(configPath, JSON.stringify(config));
+    const eligibleBefore = await deviceFixtureState(root);
+    await api.compileWorkspace({ workspaceRoot: root, check: true });
+    expect(await deviceFixtureState(root)).toEqual(eligibleBefore);
+    const eligibleChild = startWorkspaceOperation(sandbox, {
+      operation: "compile",
+      mode: "cli",
+      observeAssets: true,
+    });
+    try {
+      expect((await eligibleChild.ended).exitCode).toBe(0);
+      const record = sandbox.processes.at(-1)!;
+      expect(record.stderr).toContain("warning MV-ASSET-MISSING-FILE");
+      expect(record.stderr).toContain('image/pictures "COM0 "');
+      expect(record.stderr).toContain(
+        "base: error; effective: warning; exception reason: Ordinary non-device file is temporarily absent",
+      );
+      expect(record.stderr).toContain("Coverage: complete");
+      expect(record.stderr).not.toContain("MV-ASSET-UNSUPPORTED-NAME");
+      expect(record.stderr).not.toContain("MV-ASSET-INEFFECTIVE-EXCEPTION");
+      expect(eligibleChild.messages.some((message) => message.kind === "asset-query")).toBe(true);
+      expect(
+        eligibleChild.messages.filter((message) => message.kind === "asset-content-read-attempt"),
+      ).toEqual([]);
+      const eligibleAfter = await deviceFixtureState(root);
+      expect({ ...eligibleAfter, state: eligibleBefore.state }).toEqual(eligibleBefore);
+      const withoutManifest = (state: Record<string, string>) =>
+        Object.fromEntries(Object.entries(state).filter(([key]) => key !== "sync-manifest.json"));
+      expect(withoutManifest(eligibleAfter.state)).toEqual(withoutManifest(eligibleBefore.state));
+      recordAssetInput({
+        supplementary: true,
+        canonicalId: null,
+        eligibleOrdinaryException: "COM0 ",
+        eligibleBefore,
+        eligibleAfter,
+        actualCli: record,
+        messages: eligibleChild.messages,
+      });
+    } finally {
+      await eligibleChild.stop();
+    }
+  });
+});
+
 function unsupportedImageNameCase(branch: string, name: string, alternative: string) {
   it(`AV.F06.${branch}.input.case.expected: image percent and hash names are rejected before any category lookup without changing the saved value`, async () => {
     for (const representation of ["formal", "raw"] as const)
