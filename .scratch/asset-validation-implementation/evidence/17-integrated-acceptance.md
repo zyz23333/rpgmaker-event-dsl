@@ -1,14 +1,18 @@
 # 17 整体验收：技术证据与待审状态
 
-当前为**进行中的技术验收，待旧回归修复后重新完整执行**。票17保持 `claimed`，未取得或代填维护者最终确认。03／04／06／09／16补修已集成；最近完整执行冻结为 `c5f7ead75ba78680b92ad81924ba8cb884d2b751`，集成基点 `f30d64d635eddc832879e1536bb72f89e82ad015`，Compile Contract `mv-1.6.1/40`。该次完整check真实失败；首次Contract39尝试因已确认的设备名产品缺口取消，二者原始历史单独保存，均不能作为最终全量通过。
+当前为**进行中的组合技术验收，待D05局部补证与首次构建后覆盖**。票17保持 `claimed`，未取得或代填维护者最终确认。03／04／06／09／16与17-support补修已集成；最近完整执行冻结为 `af748ee5067f41096a296a79f81b078415096606`，集成基点 `0b5195c4095e9b21b8e345541c4ae7859bc2d66a`，Compile Contract `mv-1.6.1/40`。该次完整check自然exit1、唯一D05 timeout；c5完整check六失败与首次Contract39取消历史分别保留，均不能写成最终整仓通过。用户随后明确“完整跑一次耗时太长了，尽量减少全量运行”，因此后续沿用经身份核验的实际通过集合，仅补失败项／直接受影响项和仍未执行的built责任，不再从头重复源码全量。
 
-17-support已集成至`0b5195c4095e9b21b8e345541c4ae7859bc2d66a`，将以新干净冻结完整重验。[独立修复审计](17-regression-repair-audit.json)核对六个完整文件：只归一明确允许的局部deadline参数／传递和final-review三处CURRENT字符串后，完整AST与c5原文件一致，保留122个callback、295个literal arrays、936个字符串输入／diagnostic。Picture007及全部15种Input003预算10→30秒；三批Audio002及Movement003预算30→60秒；Screen002预算30→90秒。全局10000ms、2workers及正常Windows include保持原样。这些是完整流程的局部预算，不是产品性能修复、业务断言放宽或对旧timeout原因的证明；静态重审与输入准备安排在完整命令前后，同样不能作为旧失败的因果解释。
+17-support已集成至`0b5195c4095e9b21b8e345541c4ae7859bc2d66a`，并在af新干净冻结实际完整重验。[独立修复审计](17-regression-repair-audit.json)核对六个完整文件：只归一明确允许的局部deadline参数／传递和final-review三处CURRENT字符串后，完整AST与c5原文件一致，保留122个callback、295个literal arrays、936个字符串输入／diagnostic。Picture007及全部15种Input003预算10→30秒；三批Audio002及Movement003预算30→60秒；Screen002预算30→90秒。全局10000ms、2workers及正常Windows include保持原样。这些是完整流程的局部预算，不是产品性能修复、业务断言放宽或对旧timeout原因的证明；静态重审与输入准备安排在完整命令前后，同样不能作为旧失败的因果解释。
 
 legacy final-review单独登记CURRENT38→40：严格版本expect、标题、sandbox描述恰好三个字符串；历史`mv-1.6.1/23`赋值以及全部stale／fresh／Check不升级断言完整保留。这一更新与09标题计数2→1、16 CURRENT39→40为三个独立纠正，不能混称所有原expect字面不变。support真实source／built各22passed、0failed、115filtered，六个suite实际执行，分别21个helper；85份原raw与332项helper来源文件独立核验。final-review真实由runner通过，Movement的实际CLI入口和其余Workspace API的src／dist入口均单独核对。上述窄验证不替代三条完整验收命令，也没有重跑原生。
 
 ## 命令与失败历史
 
 Windows10 `10.0.19045` x64、Node `v22.23.4`、pnpm `10.33.0`；默认 `C:\Users\Shuen\AppData\Local\Temp`，仓库 `maxWorkers:2`，无全局 CLI entry 覆盖。先做 setup build，再顺序执行 `pnpm check`、`pnpm build`、`pnpm --filter rpgmaker-event-dsl test:windows-baseline`。[命令记录器](17-run-history/run-final-validation.mjs)已经提交在上述执行冻结；它记录初始干净状态、受保护源码／测试／配置哈希、真实命令原始输出与退出、两次构建产物及每条实际回执，拒绝陈旧或命令时间窗外的回执。运行期间不提交、合并或修改产品／测试／配置。
+
+af748ee5这轮setup build与check的typecheck／lint／format实际通过，完整source自然exit1：[原始输出](17-raw/history/af748ee5-contract40-whole-check-failed/01-pnpm-check.log)与[命令历史](17-raw/history/af748ee5-contract40-whole-check-failed/command-history.json)记录103文件=102passed＋1failed、3409测试=3408passed＋1failed、2380.17秒，没有skip或过滤。唯一明确失败为`AV.D05.incomplete.native.case.expected`，错误为`Test timed out in 10000ms`，定位asset-diagnostics-workspace.test.ts561及asset-evidence.ts19。该项helper最后写passed，13:26:57.389Z至13:27:08.936Z约11.547秒；仍必须按runner判为failed，不能用最终body完成代替runner通过，也不由该耗时推断产品性能根因。正式第二build及Windows baseline按记录器fail-fast均未启动。
+
+[af封存处置](17-raw/history/af748ee5-contract40-whole-check-failed/disposition.json)保存2152份工件、270257664字节，含原日志／历史、1241份真实source素材回执、896份本轮原legacy helper、同输入的3409项注册收集以及af计划／静态审计。仅收集命令不执行callback；收集前后1561个受保护输入及source回执字节一致。[组合验证底表](17-af-source-composite-base.json)与[完整身份索引](17-raw/history/af748ee5-contract40-whole-check-failed/source-case-identities.json)明确方法：完整runner总数3409、0skip／filter、唯一明确failed集合，加上同冻结输入3409注册集合，对集合减法得到3408项逐名pass；这些是推导身份，不是逐名pass日志观察。全部1241素材helper虽然写passed，但其中D05因runner失败必须排除，因此当前可沿用1194 canonical source＋46 supplementary source，尚不能声称1195自动化或built轴完成。与最终修复冻结的产品／输入／断言身份仍须逐项核验。
 
 c5f7ead7这一轮Contract40完整check自然exit1，原始[命令历史](17-raw/history/c5f7ead7-contract40-whole-check-failed/command-history.json)、[完整输出](17-raw/history/c5f7ead7-contract40-whole-check-failed/01-pnpm-check.log)及[封存处置](17-raw/history/c5f7ead7-contract40-whole-check-failed/disposition.json)保留真实总结：103文件为97通过、6失败；3409测试为3403通过、6失败，运行2750.83秒，无skip或过滤。setup build和check的typecheck／lint／format通过；正式第二build及Windows baseline由记录器fail-fast而未启动。
 
@@ -79,4 +83,4 @@ README的例外JSON示例准确提供四个字段和理由，正文解释准确P
 
 [补修集成审计](17-integrated-corrections-audit.json)重读452份原始补修工件（03有395份、09有34份、16有23份），核对每份长度、SHA256、Git blob与磁盘字节。03旧F07尾部3168字节哈希保持`21b202d79f5ce591d1b99d72381301cc7c7809c5ff2d11bacdc6ab4833e4f216`；09归一换行后指定callback以外完全相同；16原文件只替换两个CURRENT字面量便等于当前文件。03真实red、09原失败及CRLF观察器失败、16版本兼容red和全部历史过滤均原样保留，后来的成功不追写旧结果。
 
-尚需：本次冻结的三条原样完整命令及所有1195项源码／构建实际回执；逐项最终输入／断言／责任绑定；最终Standards与Spec双轴独立评审；维护者实际审阅确认。最后一项由维护者完成前，本票不能设为resolved。
+尚需：D05有界局部修复与失败／直接受影响source定向补证；正式build及首次built baseline，包含1195 canonical和46 supplementary的真实built结果；跨冻结产品／原输入／断言身份及最终逐项责任绑定；诚实标明af完整check失败的组合覆盖审计；最终Standards与Spec双轴独立评审；维护者实际审阅确认。遵照用户减少全量指令，不再重跑源码已通过集合。维护者确认前，本票不能设为resolved。

@@ -1,0 +1,167 @@
+{
+  "id": "AV.C07.field-missing.formal.B08-transfer-fixed-slot1.expected",
+  "ownerTicket": "07",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T13:04:13.000Z",
+  "completedAt": "2026-11-02T13:04:15.111Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {mapEvent,transferPlayer,mapRef,rawDslCommand,variableDefinition,variableRef} from \"rpgmaker-event-dsl\";export const event=mapEvent({mapId:1,id:1,name:\"Map assets\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[transferPlayer({destination:{kind:\"direct\",map:mapRef({id:2}),x:0,y:0}})]}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Host"
+          },
+          {
+            "id": 2,
+            "name": "Transfer"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Map002.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 2,
+          "parallaxName": "TransferSky",
+          "autoplayBgm": true,
+          "autoplayBgs": true,
+          "bgm": {
+            "name": "TransferBgm",
+            "volume": 17,
+            "pitch": 73,
+            "pan": -41
+          },
+          "bgs": {
+            "name": "TransferBgs",
+            "volume": 17,
+            "pitch": 73,
+            "pan": -41
+          },
+          "battleback1Name": "ExcludedBack1",
+          "battleback2Name": "ExcludedBack2",
+          "events": [],
+          "custom": {
+            "untouched": true
+          }
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Map tiles",
+            "tilesetNames": [
+              "Transfer0",
+              "Transfer1",
+              "Transfer2",
+              "Transfer3",
+              "Transfer4",
+              "Transfer5",
+              "Transfer6",
+              "Transfer7",
+              "Transfer8"
+            ],
+            "custom": {
+              "untouched": true
+            }
+          },
+          {
+            "id": 2,
+            "name": "Map tiles",
+            "tilesetNames": [
+              "Transfer0",
+              null,
+              "Transfer2",
+              "Transfer3",
+              "Transfer4",
+              "Transfer5",
+              "Transfer6",
+              "Transfer7",
+              "Transfer8"
+            ],
+            "custom": {
+              "untouched": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-problem-field-missing-B08-transfer-fixed-slot1-MiweiR\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer0.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-problem-field-missing-B08-transfer-fixed-slot1-MiweiR\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer1.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-problem-field-missing-B08-transfer-fixed-slot1-MiweiR\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer2.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-problem-field-missing-B08-transfer-fixed-slot1-MiweiR\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer3.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-problem-field-missing-B08-transfer-fixed-slot1-MiweiR\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer4.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-problem-field-missing-B08-transfer-fixed-slot1-MiweiR\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer5.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-problem-field-missing-B08-transfer-fixed-slot1-MiweiR\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer6.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-problem-field-missing-B08-transfer-fixed-slot1-MiweiR\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer7.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-problem-field-missing-B08-transfer-fixed-slot1-MiweiR\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer8.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-problem-field-missing-B08-transfer-fixed-slot1-MiweiR\\最小 Workspace with spaces\\Game\\img\\parallaxes\\TransferSky.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-problem-field-missing-B08-transfer-fixed-slot1-MiweiR\\最小 Workspace with spaces\\Game\\audio\\bgm\\TransferBgm.ogg"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-problem-field-missing-B08-transfer-fixed-slot1-MiweiR\\最小 Workspace with spaces\\Game\\audio\\bgs\\TransferBgs.ogg"
+    },
+    {
+      "cliResult": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-problem-field-missing-B08-transfer-fixed-slot1-MiweiR\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T13:04:13.846Z",
+        "completedAt": "2026-11-02T13:04:15.088Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131\r\n    throw new Error(`${input.commandName} asset check failed:\\n${errors.join(\"\\n\")}`);\r\n          ^\r\n\r\nError: compile --check asset check failed:\r\nerror MV-ASSET-INVALID-DATA: Tilesets.json[2].tilesetNames[1]: Necessary asset name must be a string; this relationship is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-problem-field-missing-B08-transfer-fixed-slot1-MiweiR\\最小 Workspace with spaces\\Game; failed at: Tilesets.json[2].tilesetNames[1]\r\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[0].parameters[1]; chain: Map002.json.tilesetId (Transfer destination Map tileset) -> Tilesets.json[2].tilesetNames[1] (Tileset image sheet); conditions: Transfer destination configuration may be overridden at runtime. All named tileset sheets are requested independently of tiles placed on the map.; DSL: pages[0].commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-map-problem-field-missing-B08-transfer-fixed-slot1-MiweiR/最小 Workspace with spaces/src/map-assets.events.ts (line 1, column 229); base: error; effective: error\r\n1 problem group(s), 0 problem file(s), 1 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.\r\n    at checkEventAssets (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131:11)\r\n    at async compileWorkspaceUnlocked (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:277:5)\r\n    at async withWorkspaceOperationLock (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operation-lock.ts:45:12)\r\n    at async compileWorkspace (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:217:3)\r\n    at async Command.<anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:67:7)\r\n    at async Command.parseAsync (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\node_modules\\.pnpm\\commander@14.0.3\\node_modules\\commander\\lib\\command.js:1122:5)\r\n    at async runCli (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:110:3)\r\n    at async <anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:122:3)\r\n\r\nNode.js v22.23.4\r\n"
+      }
+    }
+  ],
+  "expected": {
+    "description": "reference, necessary field, legal empty value and missing file remain distinct with complete safe sibling origins",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-map-workspace.test.ts",
+    "sha256": "57756a93e3b4949db852ed777c4805229f65e1e5194ac060f1de25a762444ccd",
+    "assertions": "async () => {\n\t\t\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-map-problem-${branch}-${suffix}`, async (sandbox) => {\n\t\t\t\tconst root = sandbox.workspaceRoot;\n\t\t\t\tconst overrides = branch === \"field-missing\" ? changed(field, undefined, true) : branch === \"field-wrong-type\" ? changed(field, 17) : branch === \"field-empty\" ? changed(field, \"\") : branch === \"target-missing\" && field.family === \"B09\" ? { \"Map001.json\": {\n\t\t\t\t\twidth: 1,\n\t\t\t\t\theight: 1,\n\t\t\t\t\ttilesetId: 99,\n\t\t\t\t\tevents: []\n\t\t\t\t} } : {};\n\t\t\t\tawait prepare(root, authoredFor(field, branch === \"target-missing\" && field.family === \"B08\" ? 3 : 2), overrides);\n\t\t\t\tawait allMedia(root, field.family === \"B08\" ? fields.filter((f) => branch !== \"file-missing\" || f.token !== field.token) : branch === \"file-missing\" ? [] : [fields[field.slot]]);\n\t\t\t\tif (branch === \"file-missing\") await (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game\", field.category === \"image\" ? \"img\" : \"audio\", field.folder), { recursive: true });\n\t\t\t\tconst before = await state(root);\n\t\t\t\tconst successful = branch === \"field-empty\" || branch === \"file-missing\" && field.family === \"B09\";\n\t\t\t\tfor (const check of [true, false]) {\n\t\t\t\t\tconst failure = await compileWorkspace({\n\t\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\t\tcheck\n\t\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t\tif (successful) {\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toBe(\"\");\n\t\t\t\t\t\tif (check) (0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t\t\t} else {\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).not.toBe(\"\");\n\t\t\t\t\t\tif (branch === \"target-missing\") {\n\t\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toMatch(field.family === \"B09\" ? /MV-MAP-TILESET/ : /reference/iu);\n\t\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).not.toContain(\"MV-ASSET-MISSING\");\n\t\t\t\t\t\t} else if (field.family === \"B09\" && branch !== \"file-missing\") {\n\t\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"MV-MAP-TILESET\");\n\t\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).not.toContain(\"MV-ASSET-MISSING\");\n\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(branch === \"file-missing\" ? \"error MV-ASSET-MISSING-FILE\" : \"error MV-ASSET-INVALID-DATA\");\n\t\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(dataPathFor(field));\n\t\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(transferOrigin.nativePath);\n\t\t\t\t\t\t};\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t\t\t}\n\t\t\t\t};\n\t\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ cliResult: cli });\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode === 0).toBe(successful);\n\t\t\t\tif (branch === \"file-missing\") (0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(`${field.family === \"B09\" ? \"warning\" : \"error\"} MV-ASSET-MISSING-FILE`);\n\t\t\t\tif (!successful) (0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t\tif (branch !== \"target-missing\") {\n\t\t\t\t\tconst expected = expectedFor(field), failed = expected.find((use) => use.name === field.name);\n\t\t\t\t\tif (branch === \"field-empty\") {\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)((await observed(root)).relations).toEqual({\n\t\t\t\t\t\t\tuses: expected.filter((use) => use.name !== field.name),\n\t\t\t\t\t\t\tproblems: [],\n\t\t\t\t\t\t\tstops: []\n\t\t\t\t\t\t});\n\t\t\t\t\t} else if (branch === \"field-missing\" || branch === \"field-wrong-type\") {\n\t\t\t\t\t\tconst { category: _category, folder: _folder, name: _name, ...origin } = failed;\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(collected(field, overrides)).toEqual({\n\t\t\t\t\t\t\tuses: expected.filter((use) => use.name !== field.name),\n\t\t\t\t\t\t\tproblems: [{\n\t\t\t\t\t\t\t\t...origin,\n\t\t\t\t\t\t\t\tdataPath: dataPathFor(field),\n\t\t\t\t\t\t\t\treason: \"Necessary asset name must be a string; this relationship is unchecked.\"\n\t\t\t\t\t\t\t}],\n\t\t\t\t\t\t\tstops: []\n\t\t\t\t\t\t});\n\t\t\t\t\t} else {\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(collected(field, {})).toEqual({\n\t\t\t\t\t\t\tuses: expected,\n\t\t\t\t\t\t\tproblems: [],\n\t\t\t\t\t\t\tstops: []\n\t\t\t\t\t\t});\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t});\n\t\t}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

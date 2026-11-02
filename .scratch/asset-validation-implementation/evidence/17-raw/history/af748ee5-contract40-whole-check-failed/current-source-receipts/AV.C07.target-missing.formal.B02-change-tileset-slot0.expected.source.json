@@ -1,0 +1,123 @@
+{
+  "id": "AV.C07.target-missing.formal.B02-change-tileset-slot0.expected",
+  "ownerTicket": "06",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T13:06:03.718Z",
+  "completedAt": "2026-11-02T13:06:05.761Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {mapEvent,showAnimation,showBattleAnimation,changeTileset,animationRef,tilesetRef,rawDslCommand} from \"rpgmaker-event-dsl\";export const event=mapEvent({mapId:1,id:1,name:\"Dependencies\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[changeTileset({tileset:tilesetRef({id:2})})]}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Dependencies"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Animations.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Animation",
+            "animation1Name": "First",
+            "animation2Name": "Second",
+            "timings": [
+              {
+                "frame": 0,
+                "se": {
+                  "name": "Timing0",
+                  "volume": 17,
+                  "pitch": 73,
+                  "pan": -41
+                }
+              },
+              {
+                "frame": 2,
+                "se": {
+                  "name": "Timing1",
+                  "volume": 23,
+                  "pitch": 80,
+                  "pan": 31
+                }
+              }
+            ],
+            "custom": {
+              "untouched": true
+            }
+          }
+        ],
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Tiles",
+            "tilesetNames": [
+              "Tile0",
+              "Tile1",
+              "Tile2",
+              "Tile3",
+              "Tile4",
+              "Tile5",
+              "Tile6",
+              "Tile7",
+              "Tile8"
+            ],
+            "custom": {
+              "untouched": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-problem-target-missing-B02-change-tileset-slot0-E8UYyj\\最小 Workspace with spaces\\Game\\img\\tilesets\\Tile0.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-problem-target-missing-B02-change-tileset-slot0-E8UYyj\\最小 Workspace with spaces\\Game\\img\\tilesets\\Tile1.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-problem-target-missing-B02-change-tileset-slot0-E8UYyj\\最小 Workspace with spaces\\Game\\img\\tilesets\\Tile2.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-problem-target-missing-B02-change-tileset-slot0-E8UYyj\\最小 Workspace with spaces\\Game\\img\\tilesets\\Tile3.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-problem-target-missing-B02-change-tileset-slot0-E8UYyj\\最小 Workspace with spaces\\Game\\img\\tilesets\\Tile4.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-problem-target-missing-B02-change-tileset-slot0-E8UYyj\\最小 Workspace with spaces\\Game\\img\\tilesets\\Tile5.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-problem-target-missing-B02-change-tileset-slot0-E8UYyj\\最小 Workspace with spaces\\Game\\img\\tilesets\\Tile6.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-problem-target-missing-B02-change-tileset-slot0-E8UYyj\\最小 Workspace with spaces\\Game\\img\\tilesets\\Tile7.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-problem-target-missing-B02-change-tileset-slot0-E8UYyj\\最小 Workspace with spaces\\Game\\img\\tilesets\\Tile8.png"
+    }
+  ],
+  "expected": {
+    "description": "fixed reference, necessary name, legal None and actual missing file retain distinct outcomes and safe siblings",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-dependency-workspace.test.ts",
+    "sha256": "7fb1705a936b1937abe59c1e95fb58df3780eb1f707c847a4647d33e2ce8c2a4",
+    "assertions": "async () => {\n\t\t\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-problem-${branch}-${suffix}`, async (sandbox) => {\n\t\t\t\tconst root = sandbox.workspaceRoot;\n\t\t\t\tconst overrides = branch === \"target-missing\" ? {} : branch === \"field-missing\" ? changeField(field, undefined, true) : branch === \"field-wrong-type\" ? changeField(field, 17) : branch === \"field-empty\" ? changeField(field, \"\") : {};\n\t\t\t\t// Keep host Map's own tileset valid; only the command's fixed target is absent.\n\t\t\t\tconst expression = branch === \"target-missing\" ? commandFor(field).replace(\"id:1\", \"id:2\") : commandFor(field);\n\t\t\t\tawait prepare(root, source(expression), overrides);\n\t\t\t\tfor (const item of fieldsFor(field)) if (branch !== \"file-missing\" || item.token !== field.token) await media(root, item.category, item.folder, item.name);\n\t\t\t\tconst before = await state(root);\n\t\t\t\tif (branch === \"field-empty\") {\n\t\t\t\t\tawait compileWorkspace({\n\t\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\t\tcheck: true\n\t\t\t\t\t});\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t\t\t\tawait compileWorkspace({\n\t\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\t\tcheck: false\n\t\t\t\t\t});\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)((await observed(root)).relations).toEqual({\n\t\t\t\t\t\tuses: expectedFor(field).filter((item) => item.name !== field.name),\n\t\t\t\t\t\tproblems: []\n\t\t\t\t\t});\n\t\t\t\t} else {\n\t\t\t\t\tfor (const check of [true, false]) {\n\t\t\t\t\t\tconst failure = await compileWorkspace({\n\t\t\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\t\t\tcheck\n\t\t\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).not.toBe(\"\");\n\t\t\t\t\t\tif (branch === \"target-missing\") {\n\t\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toMatch(/reference/iu);\n\t\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toMatch(field.family === \"B01\" ? /animation/iu : /tileset/iu);\n\t\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).not.toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(branch === \"file-missing\" ? \"error MV-ASSET-MISSING-FILE\" : \"error MV-ASSET-INVALID-DATA\");\n\t\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(`${fileFor(field)}[1].${field.field}`);\n\t\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(expectedFor(field)[0].nativePath);\n\t\t\t\t\t\t};\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t\t\t};\n\t\t\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).not.toBe(0);\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(branch === \"target-missing\" ? \"reference\" : `${fileFor(field)}[1].${field.field}`);\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t\t\tif (branch !== \"target-missing\" && branch !== \"file-missing\") {\n\t\t\t\t\t\tconst actual = collected(field, overrides);\n\t\t\t\t\t\tconst expected = expectedFor(field), failed = expected.find((item) => item.name === field.name);\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(actual.uses).toEqual(expected.filter((item) => item.name !== field.name));\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(actual.problems).toEqual([{\n\t\t\t\t\t\t\tidentity: failed.identity,\n\t\t\t\t\t\t\tnativePath: failed.nativePath,\n\t\t\t\t\t\t\trelatedNativePaths: [],\n\t\t\t\t\t\t\tdependencyChain: failed.dependencyChain,\n\t\t\t\t\t\t\tconditions: failed.conditions,\n\t\t\t\t\t\t\tdataPath: `${fileFor(field)}[1].${field.field}`,\n\t\t\t\t\t\t\treason: \"Necessary asset name must be a string; this relationship is unchecked.\"\n\t\t\t\t\t\t}]);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t});\n\t\t}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}
