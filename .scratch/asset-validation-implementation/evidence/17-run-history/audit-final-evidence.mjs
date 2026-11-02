@@ -7,8 +7,8 @@ import { join } from "node:path";
 
 const root = process.cwd();
 const notes = process.env.ASSET_VALIDATION_PREPARATION_ROOT ?? "M:/Shuen/Codex/asset-validation-notes";
-const freeze = "11e52e3cbc93fe5200cb51d0c2882a9cec222765";
-const integration = "29f19dfd3ed943df2e0c9ae2b7c446ada248d501";
+const freeze = process.env.ASSET_VALIDATION_EXECUTION_FREEZE ?? "11e52e3cbc93fe5200cb51d0c2882a9cec222765";
+const integration = process.env.ASSET_VALIDATION_INTEGRATED_BASE ?? "29f19dfd3ed943df2e0c9ae2b7c446ada248d501";
 const prefix = ".scratch/asset-validation-implementation/evidence/";
 const sha = (value) => createHash("sha256").update(value).digest("hex");
 const objSha = (value) => sha(JSON.stringify(value));
@@ -197,8 +197,9 @@ for (const row of manifest16.files) {
 const sourceInputs16 = machine16.sourceInputs.map((row) => {
   const original = fingerprint(row.gitRevision, row.path, "original16-frozen-source");
   const current = fingerprint(freeze, row.path, "current16-source");
-  check(original.sha256 === row.sha256 && current.sha256 === row.sha256, `16 source changed ${row.path}`);
-  return original;
+  check(original.sha256 === row.sha256, `16 original source changed ${row.path}`);
+  return { ...original, currentAtExecutionFreeze: current, currentBytesUnchanged: current.sha256 === row.sha256,
+    disposition: current.sha256 === row.sha256 ? "unchanged" : "current source differs; original frozen input retained; final run and semantic review required" };
 });
 const added16 = machine16.receipts.map((wrapper, index) => {
   const receipt = wrapper.receipt;
@@ -280,7 +281,7 @@ const result = { schemaVersion: 1, status: "final-original-evidence-and-current-
     native: native.length, originalAggregateAutomatedRecords: historicalReceipts.length, added15: added15.length,
     added16: added16.length, original16RawArtifacts: manifest16.files.length, original16FrozenSourceInputs: sourceInputs16.length },
   canonicalCases: finalCases, originalAutomatedEvidence: allHistorical, nativeEvidence: native,
-  originalAssertionSourceBindings: bindingAudit, ticketStatesAtFreeze: issueStatuses,
+  originalAssertionSourceBindings: bindingAudit, original16SourceInputsComparedWithCurrent: sourceInputs16, ticketStatesAtFreeze: issueStatuses,
   historicalDispositions: { retiredIdentities: base.historicalOnly.retiredIdentities,
     original03PendingSha256: sha(blob(freeze, old03)), original03SixPendingUnchanged: true,
     referenceOnly: base.historicalOnly.referenceOnly, notApplicable: base.historicalOnly.notApplicable,

@@ -1,8 +1,8 @@
 {
   "executionFreeze": "11e52e3cbc93fe5200cb51d0c2882a9cec222765",
   "status": "static-assertion-preservation-audit; manual semantic findings remain separate",
-  "comparedOriginalReceiptLocations": 2400,
-  "uniqueCallbackVersionPairs": 169,
+  "comparedOriginalReceiptLocations": 2450,
+  "uniqueCallbackVersionPairs": 185,
   "changedCallbackVersionPairs": 15,
   "expressionDifferencesRequiringManualReview": 2,
   "limitations": [
@@ -5316,6 +5316,328 @@
       "originalAssertionExpressionCount": 9,
       "currentAssertionExpressionCount": 9,
       "originalAssertionExpressionsPreservedAsExactTokens": 9,
+      "missingExactExpressionsRequireManualReview": []
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/asset-push-workspace.test.ts",
+      "representativeId": "AV.W06.delete-after-writes.api.case.expected",
+      "originalReceiptRefs": [
+        "T15-R01",
+        "T15-R02",
+        "T15-R03",
+        "T15-R14",
+        "T15-R15",
+        "T15-R16"
+      ],
+      "originalRevision": "0212a757956f0aff0860c9e0e7a291703e8d59f4",
+      "originalCallbackSha256": "9c9f7704391855ad6df1e12511da5dae7afbd9a0463cfb55b9a605299e071ae2",
+      "currentRevision": "11e52e3cbc93fe5200cb51d0c2882a9cec222765",
+      "currentLine": 220,
+      "currentCallbackSha256": "9c9f7704391855ad6df1e12511da5dae7afbd9a0463cfb55b9a605299e071ae2",
+      "callbackTextUnchanged": true,
+      "callbackTokensUnchanged": true,
+      "originalAssertionExpressionCount": 7,
+      "currentAssertionExpressionCount": 7,
+      "originalAssertionExpressionsPreservedAsExactTokens": 7,
+      "missingExactExpressionsRequireManualReview": []
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/asset-push-workspace.test.ts",
+      "representativeId": "AV.W13.binding.api.postwrite.expected",
+      "originalReceiptRefs": [
+        "T15-R04",
+        "T15-R17"
+      ],
+      "originalRevision": "0212a757956f0aff0860c9e0e7a291703e8d59f4",
+      "originalCallbackSha256": "eb92d3c4aa77a83f7ddcf0a66e3fed68d55739e2de4aa8bbd75ab3626a5550c6",
+      "currentRevision": "11e52e3cbc93fe5200cb51d0c2882a9cec222765",
+      "currentLine": 151,
+      "currentCallbackSha256": "eb92d3c4aa77a83f7ddcf0a66e3fed68d55739e2de4aa8bbd75ab3626a5550c6",
+      "callbackTextUnchanged": true,
+      "callbackTokensUnchanged": true,
+      "originalAssertionExpressionCount": 7,
+      "currentAssertionExpressionCount": 7,
+      "originalAssertionExpressionsPreservedAsExactTokens": 7,
+      "missingExactExpressionsRequireManualReview": []
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/asset-push-workspace.test.ts",
+      "representativeId": "AV.W13.config.api.postwrite.expected",
+      "originalReceiptRefs": [
+        "T15-R05",
+        "T15-R06",
+        "T15-R07",
+        "T15-R08",
+        "T15-R09",
+        "T15-R10",
+        "T15-R11",
+        "T15-R18",
+        "T15-R19",
+        "T15-R20",
+        "T15-R21",
+        "T15-R22",
+        "T15-R23",
+        "T15-R24"
+      ],
+      "originalRevision": "0212a757956f0aff0860c9e0e7a291703e8d59f4",
+      "originalCallbackSha256": "ef31d492a013b08b07bf4125bca3d3622bfa240c41e108ef1e59feb5f898e20b",
+      "currentRevision": "11e52e3cbc93fe5200cb51d0c2882a9cec222765",
+      "currentLine": 71,
+      "currentCallbackSha256": "ef31d492a013b08b07bf4125bca3d3622bfa240c41e108ef1e59feb5f898e20b",
+      "callbackTextUnchanged": true,
+      "callbackTokensUnchanged": true,
+      "originalAssertionExpressionCount": 5,
+      "currentAssertionExpressionCount": 5,
+      "originalAssertionExpressionsPreservedAsExactTokens": 5,
+      "missingExactExpressionsRequireManualReview": []
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/asset-push-workspace.test.ts",
+      "representativeId": "AV.W19.push-failure.api.case.expected",
+      "originalReceiptRefs": [
+        "T15-R12",
+        "T15-R25"
+      ],
+      "originalRevision": "0212a757956f0aff0860c9e0e7a291703e8d59f4",
+      "originalCallbackSha256": "40940b178fd1d21e0c98802e18dce9500c075a7bc362407fab46e94806e33697",
+      "currentRevision": "11e52e3cbc93fe5200cb51d0c2882a9cec222765",
+      "currentLine": 318,
+      "currentCallbackSha256": "40940b178fd1d21e0c98802e18dce9500c075a7bc362407fab46e94806e33697",
+      "callbackTextUnchanged": true,
+      "callbackTokensUnchanged": true,
+      "originalAssertionExpressionCount": 9,
+      "currentAssertionExpressionCount": 9,
+      "originalAssertionExpressionsPreservedAsExactTokens": 9,
+      "missingExactExpressionsRequireManualReview": []
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/asset-push-workspace.test.ts",
+      "representativeId": "AV.W19.push-success.api.case.expected",
+      "originalReceiptRefs": [
+        "T15-R13",
+        "T15-R26"
+      ],
+      "originalRevision": "0212a757956f0aff0860c9e0e7a291703e8d59f4",
+      "originalCallbackSha256": "dc1b21910342b4420944bca7ef905dee53bc29ae83f7d561b686a1628128d11b",
+      "currentRevision": "11e52e3cbc93fe5200cb51d0c2882a9cec222765",
+      "currentLine": 379,
+      "currentCallbackSha256": "dc1b21910342b4420944bca7ef905dee53bc29ae83f7d561b686a1628128d11b",
+      "callbackTextUnchanged": true,
+      "callbackTokensUnchanged": true,
+      "originalAssertionExpressionCount": 2,
+      "currentAssertionExpressionCount": 2,
+      "originalAssertionExpressionsPreservedAsExactTokens": 2,
+      "missingExactExpressionsRequireManualReview": []
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/asset-recovery-workspace.test.ts",
+      "representativeId": "AV.W15.all-generated-missing-asset.api.case.expected",
+      "originalReceiptRefs": [
+        "T16-R01",
+        "T16-R02",
+        "T16-R13",
+        "T16-R14"
+      ],
+      "originalRevision": "f03e66e6e4550da8a72f98c118fbc36c3af4d1d5",
+      "originalCallbackSha256": "960ee26368e8a21d854a379982405a8c3ac442c517d7fd5fdfa0dc52cce06809",
+      "currentRevision": "11e52e3cbc93fe5200cb51d0c2882a9cec222765",
+      "currentLine": 36,
+      "currentCallbackSha256": "960ee26368e8a21d854a379982405a8c3ac442c517d7fd5fdfa0dc52cce06809",
+      "callbackTextUnchanged": true,
+      "callbackTokensUnchanged": true,
+      "originalAssertionExpressionCount": 11,
+      "currentAssertionExpressionCount": 11,
+      "originalAssertionExpressionsPreservedAsExactTokens": 11,
+      "missingExactExpressionsRequireManualReview": []
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/asset-recovery-workspace.test.ts",
+      "representativeId": "AV.W15.all-snapshot.api.case.expected",
+      "originalReceiptRefs": [
+        "T16-R03",
+        "T16-R15"
+      ],
+      "originalRevision": "f03e66e6e4550da8a72f98c118fbc36c3af4d1d5",
+      "originalCallbackSha256": "b8c2e585ac156e961cca045bf243f45b7ca3b19d369eba2e1f7b7165175b9910",
+      "currentRevision": "11e52e3cbc93fe5200cb51d0c2882a9cec222765",
+      "currentLine": 378,
+      "currentCallbackSha256": "b8c2e585ac156e961cca045bf243f45b7ca3b19d369eba2e1f7b7165175b9910",
+      "callbackTextUnchanged": true,
+      "callbackTokensUnchanged": true,
+      "originalAssertionExpressionCount": 8,
+      "currentAssertionExpressionCount": 8,
+      "originalAssertionExpressionsPreservedAsExactTokens": 8,
+      "missingExactExpressionsRequireManualReview": []
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/asset-recovery-workspace.test.ts",
+      "representativeId": "AV.W15.missing.api.case.expected",
+      "originalReceiptRefs": [
+        "T16-R04",
+        "T16-R16"
+      ],
+      "originalRevision": "f03e66e6e4550da8a72f98c118fbc36c3af4d1d5",
+      "originalCallbackSha256": "c2f0f0307e120a97d9251ee29e98bb67835d119004f08f18457ea7f0d87d60ac",
+      "currentRevision": "11e52e3cbc93fe5200cb51d0c2882a9cec222765",
+      "currentLine": 342,
+      "currentCallbackSha256": "c2f0f0307e120a97d9251ee29e98bb67835d119004f08f18457ea7f0d87d60ac",
+      "callbackTextUnchanged": true,
+      "callbackTokensUnchanged": true,
+      "originalAssertionExpressionCount": 2,
+      "currentAssertionExpressionCount": 2,
+      "originalAssertionExpressionsPreservedAsExactTokens": 2,
+      "missingExactExpressionsRequireManualReview": []
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/asset-recovery-workspace.test.ts",
+      "representativeId": "AV.W15.mixed.api.case.expected",
+      "originalReceiptRefs": [
+        "T16-R05",
+        "T16-R17"
+      ],
+      "originalRevision": "f03e66e6e4550da8a72f98c118fbc36c3af4d1d5",
+      "originalCallbackSha256": "e8a2526812fa4b797dbb8386d89a9d55733e1d3b4ca995ebaeed643c2c3bd70f",
+      "currentRevision": "11e52e3cbc93fe5200cb51d0c2882a9cec222765",
+      "currentLine": 362,
+      "currentCallbackSha256": "e8a2526812fa4b797dbb8386d89a9d55733e1d3b4ca995ebaeed643c2c3bd70f",
+      "callbackTextUnchanged": true,
+      "callbackTokensUnchanged": true,
+      "originalAssertionExpressionCount": 2,
+      "currentAssertionExpressionCount": 2,
+      "originalAssertionExpressionsPreservedAsExactTokens": 2,
+      "missingExactExpressionsRequireManualReview": []
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/asset-recovery-workspace.test.ts",
+      "representativeId": "AV.W15.unknown.api.case.expected",
+      "originalReceiptRefs": [
+        "T16-R06",
+        "T16-R18"
+      ],
+      "originalRevision": "f03e66e6e4550da8a72f98c118fbc36c3af4d1d5",
+      "originalCallbackSha256": "6592237286eb65fd803d7d99b62fe1b13080bebbbf6136725ec86f3a8b0b859d",
+      "currentRevision": "11e52e3cbc93fe5200cb51d0c2882a9cec222765",
+      "currentLine": 307,
+      "currentCallbackSha256": "6592237286eb65fd803d7d99b62fe1b13080bebbbf6136725ec86f3a8b0b859d",
+      "callbackTextUnchanged": true,
+      "callbackTokensUnchanged": true,
+      "originalAssertionExpressionCount": 4,
+      "currentAssertionExpressionCount": 4,
+      "originalAssertionExpressionsPreservedAsExactTokens": 4,
+      "missingExactExpressionsRequireManualReview": []
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/asset-recovery-workspace.test.ts",
+      "representativeId": "AV.W16.changed-current-config.api.case.expected",
+      "originalReceiptRefs": [
+        "T16-R07",
+        "T16-R19"
+      ],
+      "originalRevision": "f03e66e6e4550da8a72f98c118fbc36c3af4d1d5",
+      "originalCallbackSha256": "5cb9e457d16fe5ff2103024aa70d1f5389d0ba21195f93c961351fdb65feccc9",
+      "currentRevision": "11e52e3cbc93fe5200cb51d0c2882a9cec222765",
+      "currentLine": 217,
+      "currentCallbackSha256": "5cb9e457d16fe5ff2103024aa70d1f5389d0ba21195f93c961351fdb65feccc9",
+      "callbackTextUnchanged": true,
+      "callbackTokensUnchanged": true,
+      "originalAssertionExpressionCount": 12,
+      "currentAssertionExpressionCount": 12,
+      "originalAssertionExpressionsPreservedAsExactTokens": 12,
+      "missingExactExpressionsRequireManualReview": []
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/asset-recovery-workspace.test.ts",
+      "representativeId": "AV.W16.stale-original-basis.api.case.expected",
+      "originalReceiptRefs": [
+        "T16-R08",
+        "T16-R20"
+      ],
+      "originalRevision": "f03e66e6e4550da8a72f98c118fbc36c3af4d1d5",
+      "originalCallbackSha256": "e3c0cbe5f20cd87588e8f911a6e6989e639dda5b088ec5b4c725ef5cd1cd1b81",
+      "currentRevision": "11e52e3cbc93fe5200cb51d0c2882a9cec222765",
+      "currentLine": 263,
+      "currentCallbackSha256": "e3c0cbe5f20cd87588e8f911a6e6989e639dda5b088ec5b4c725ef5cd1cd1b81",
+      "callbackTextUnchanged": true,
+      "callbackTokensUnchanged": true,
+      "originalAssertionExpressionCount": 14,
+      "currentAssertionExpressionCount": 14,
+      "originalAssertionExpressionsPreservedAsExactTokens": 14,
+      "missingExactExpressionsRequireManualReview": []
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/asset-recovery-workspace.test.ts",
+      "representativeId": "AV.W18.concurrent-workspace.api.case.expected",
+      "originalReceiptRefs": [
+        "T16-R09",
+        "T16-R21"
+      ],
+      "originalRevision": "f03e66e6e4550da8a72f98c118fbc36c3af4d1d5",
+      "originalCallbackSha256": "c59c47df26dcb87ce252ab75df5f6129aefd60b729ab0acaf58b115e74597773",
+      "currentRevision": "11e52e3cbc93fe5200cb51d0c2882a9cec222765",
+      "currentLine": 120,
+      "currentCallbackSha256": "c59c47df26dcb87ce252ab75df5f6129aefd60b729ab0acaf58b115e74597773",
+      "callbackTextUnchanged": true,
+      "callbackTokensUnchanged": true,
+      "originalAssertionExpressionCount": 11,
+      "currentAssertionExpressionCount": 11,
+      "originalAssertionExpressionsPreservedAsExactTokens": 11,
+      "missingExactExpressionsRequireManualReview": []
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/asset-recovery-workspace.test.ts",
+      "representativeId": "AV.W18.pending-non-push.api.case.expected",
+      "originalReceiptRefs": [
+        "T16-R10",
+        "T16-R22"
+      ],
+      "originalRevision": "f03e66e6e4550da8a72f98c118fbc36c3af4d1d5",
+      "originalCallbackSha256": "56737431483f8c6d478f6dc28e266e77644b995231cbebe48a057af647531972",
+      "currentRevision": "11e52e3cbc93fe5200cb51d0c2882a9cec222765",
+      "currentLine": 77,
+      "currentCallbackSha256": "56737431483f8c6d478f6dc28e266e77644b995231cbebe48a057af647531972",
+      "callbackTextUnchanged": true,
+      "callbackTokensUnchanged": true,
+      "originalAssertionExpressionCount": 5,
+      "currentAssertionExpressionCount": 5,
+      "originalAssertionExpressionsPreservedAsExactTokens": 5,
+      "missingExactExpressionsRequireManualReview": []
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/asset-recovery-workspace.test.ts",
+      "representativeId": "AV.W18.pending-rebind.api.case.expected",
+      "originalReceiptRefs": [
+        "T16-R11",
+        "T16-R23"
+      ],
+      "originalRevision": "f03e66e6e4550da8a72f98c118fbc36c3af4d1d5",
+      "originalCallbackSha256": "7186be0cbfead09c2bf33b2f0af7f07f92592d8b2f56f726bad71a32d8e92149",
+      "currentRevision": "11e52e3cbc93fe5200cb51d0c2882a9cec222765",
+      "currentLine": 435,
+      "currentCallbackSha256": "7186be0cbfead09c2bf33b2f0af7f07f92592d8b2f56f726bad71a32d8e92149",
+      "callbackTextUnchanged": true,
+      "callbackTokensUnchanged": true,
+      "originalAssertionExpressionCount": 10,
+      "currentAssertionExpressionCount": 10,
+      "originalAssertionExpressionsPreservedAsExactTokens": 10,
+      "missingExactExpressionsRequireManualReview": []
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/asset-recovery-workspace.test.ts",
+      "representativeId": "AV.W19.recovery.api.case.expected",
+      "originalReceiptRefs": [
+        "T16-R12",
+        "T16-R24"
+      ],
+      "originalRevision": "f03e66e6e4550da8a72f98c118fbc36c3af4d1d5",
+      "originalCallbackSha256": "3652c48ac15115dd2135059b88196ae2554eab8be063dd784d5be42272082ad1",
+      "currentRevision": "11e52e3cbc93fe5200cb51d0c2882a9cec222765",
+      "currentLine": 482,
+      "currentCallbackSha256": "3652c48ac15115dd2135059b88196ae2554eab8be063dd784d5be42272082ad1",
+      "callbackTextUnchanged": true,
+      "callbackTokensUnchanged": true,
+      "originalAssertionExpressionCount": 7,
+      "currentAssertionExpressionCount": 7,
+      "originalAssertionExpressionsPreservedAsExactTokens": 7,
       "missingExactExpressionsRequireManualReview": []
     }
   ]

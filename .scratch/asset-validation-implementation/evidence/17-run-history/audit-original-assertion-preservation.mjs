@@ -43,22 +43,43 @@ function assertions(node, tree) {
   visit(node);
   return result;
 }
-const relevant = original.originalAutomatedEvidence.filter((row) => row.currentDefinition && row.historicalDefinition?.candidates?.length === 1);
+function originalLocation(row) {
+  if (row.historicalDefinition?.candidates?.length === 1) {
+    const binding = original.originalAssertionSourceBindings.find((item) => item.key === row.assertionSource + "@" + row.assertionSourceSha256);
+    if (!binding) throw new Error("Original source binding missing " + row.ref);
+    return { ...row, originalPath: row.assertionSource, originalRevision: binding.historical[0].revision,
+      originalSourceSha256: row.assertionSourceSha256, originalCallbackSha256: row.historicalDefinition.candidates[0].callbackSourceSha256 };
+  }
+  if (row.historicalTestDefinition) return { ...row, originalPath: row.assertionsSource,
+    originalRevision: row.originalRunRevision, originalSourceSha256: row.assertionsSourceSha256,
+    originalCallbackSha256: row.historicalTestDefinition.callbackSha256 };
+  // Ticket16 has exact original receipt and frozen source/runner bindings. Its
+  // unchanged title expression identifies the old callback independently of runtime text.
+  const tree = source(row.originalRunRevision, row.assertionSource), found = [];
+  function visit(node) {
+    if (ts.isCallExpression(node) && node.arguments.length > 1 && node.arguments[0].getText(tree) === row.currentDefinition.titleExpression
+      && (ts.isArrowFunction(node.arguments[1]) || ts.isFunctionExpression(node.arguments[1]))) found.push(node.arguments[1]);
+    ts.forEachChild(node, visit);
+  }
+  visit(tree);
+  if (found.length !== 1) throw new Error("Original16 title callback not unique " + row.ref);
+  return { ...row, originalPath: row.assertionSource, originalRevision: row.originalRunRevision,
+    originalSourceSha256: row.assertionSourceSha256, originalCallbackSha256: sha(found[0].getText(tree)) };
+}
+const relevant = original.originalAutomatedEvidence.filter((row) => row.currentDefinition).map(originalLocation);
 const groups = new Map();
 for (const row of relevant) {
-  const oldSha = row.historicalDefinition.candidates[0].callbackSourceSha256;
-  const key = [row.assertionSource, row.assertionSourceSha256, oldSha, row.currentDefinition.callbackSha256].join("@");
+  const oldSha = row.originalCallbackSha256;
+  const key = [row.originalPath, row.originalSourceSha256, oldSha, row.currentDefinition.callbackSha256].join("@");
   if (groups.has(key)) { groups.get(key).originalReceiptRefs.push(row.ref); continue; }
-  const binding = original.originalAssertionSourceBindings.find((item) => item.key === row.assertionSource + "@" + row.assertionSourceSha256);
-  if (!binding) throw new Error("Original source binding missing " + row.ref);
-  const oldTree = source(binding.historical[0].revision, row.assertionSource);
-  const currentTree = source(original.executionFreeze, row.assertionSource);
+  const oldTree = source(row.originalRevision, row.originalPath);
+  const currentTree = source(original.executionFreeze, row.originalPath);
   const old = callback(oldTree, oldSha), current = callback(currentTree, row.currentDefinition.callbackSha256);
   const oldExpectations = assertions(old, oldTree), currentExpectations = assertions(current, currentTree);
   const tokenSet = new Set(currentExpectations.map(tokens));
   const missing = oldExpectations.filter((expectation) => !tokenSet.has(tokens(expectation)));
-  groups.set(key, { path: row.assertionSource, representativeId: row.id, originalReceiptRefs: [row.ref],
-    originalRevision: binding.historical[0].revision, originalCallbackSha256: oldSha,
+  groups.set(key, { path: row.originalPath, representativeId: row.id, originalReceiptRefs: [row.ref],
+    originalRevision: row.originalRevision, originalCallbackSha256: oldSha,
     currentRevision: original.executionFreeze, currentLine: row.currentDefinition.line,
     currentCallbackSha256: row.currentDefinition.callbackSha256,
     callbackTextUnchanged: oldSha === row.currentDefinition.callbackSha256,

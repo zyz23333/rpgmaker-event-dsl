@@ -8,7 +8,7 @@ import path from 'node:path';
 const root = process.cwd();
 const out = path.join(root, '.scratch/asset-validation-implementation/evidence/17-raw');
 const priorDirectory = process.env.ASSET_VALIDATION_PRIOR_PLAN_ROOT ?? 'M:/Shuen/Codex/asset-validation-notes';
-const revision = '11e52e3cbc93fe5200cb51d0c2882a9cec222765';
+const revision = process.env.ASSET_VALIDATION_EXECUTION_FREEZE ?? '11e52e3cbc93fe5200cb51d0c2882a9cec222765';
 const I = '.scratch/asset-validation/implementation-acceptance-cases.md';
 const M = '.scratch/asset-validation/acceptance-matrix.md';
 const S = '.scratch/asset-validation/asset-validation-spec.md';
@@ -272,10 +272,8 @@ const supplemental=[...['image-candidate','image-inactive'].map(b=>({id:`AV.F06.
 const discrepancies=[
  {kind:'identity-spelling-gap',scope:'F07 125 suffix-expanded cases (9 forbidden,32 controls,84 devices); five standalone path-form IDs have exact authority tokens',finding:'Authority requires a concrete Unicode/device suffix but does not prescribe separator, Unicode marker, or case. This plan serializes case-uXXXX (lower hex) and case-<uppercase literal device> only as its own notation.',action:'17 must build an injective/surjective mapping from each existing canonical spelling to the independent semanticKey, preserving every literal codepoint/device and all three device branches. Pure spelling differences are not behavior gaps. Do not create aliases, edit authority, or rename existing registrations now.'},
  {kind:'historical-pending-to-N/A',scope:'Prior06–11 unresolvedCases (2 B14 host-target IDs)',finding:'Prior plan already excluded them from its 644 primary and647 catalog rows. Current disposition is N/A, leaving counts unchanged.',action:'Keep the provisional candidates in the notApplicable table; do not demand or invent missing-asset passes.'},
- {kind:'outdated-ownership-summary',scope:`${O}:244`,finding:'Uses repeated-checkpoint in its C03 prose; current index and13 ticket use repeated-command.',action:'Use current C03.repeated-command token; no extra obsolete ID.'},
- {kind:'outdated-ownership-summary',scope:`${O}:289`,finding:'Still lists15 Push bookkeeping as a W11 gate. Current index has check-gate/compile-gate/push-gate only;15 ticket33 explicitly assigns no-postwrite-scan proof.',action:'No fourth W11 gate. W06/W19 cover postwrite asset changes and state.'},
- {kind:'outdated-ownership-summary',scope:`${O}:290`,finding:'Still lists same-point-reuse/next-point-fresh. Current index and13 ticket42 specify same-pass-reuse/next-command-fresh.',action:'Do not restore old workflow IDs.'},
- {kind:'prior-source-pointer-drift',scope:'Prior independent06–11 and12–16 plans',finding:'Their stored source hashes and line numbers retain older documentation snapshots; current authority at1f01ba53 includes the F06/N02 policy and explicit ID encoding clarification.',action:'Use the SHA256 and line pointers attached to this plan for the requested revision; future17 must read its final authority again.'}
+ ...[[244,'repeated-command','C03 repeated-command'],[289,'无额外素材门槛','W11 prewrite gate and postwrite no-scan proof'],[290,'same-pass-reuse／next-command-fresh','W12 same-pass reuse / next-command fresh']].map(([line,accepted,label])=>({kind:doc(O).lines[line-1].includes(accepted)?'ownership-summary-aligned':'outdated-ownership-summary',scope:`${O}:${line}`,finding:doc(O).lines[line-1],action:`Preserve ${label}; do not restore withdrawn checkpoint IDs or add a postwrite asset gate.`})),
+ {kind:'prior-source-pointer-drift',scope:'Prior independent06–11 and12–16 plans',finding:'Their stored source hashes and line numbers retain older documentation snapshots; each source attached to this plan is read at its explicit authorityRevision.',action:'Use this plan’s SHA256 and line pointers for the requested execution freeze; audit execution separately.'}
 ];
 const ownerMembershipComparison=[];
 for(const [file,scope] of [['planned-acceptance-ids-06-11.json',['06','07','08','09','10','11']],['planned-acceptance-ids-12-16.json',['12','13','14','15','16']]]) {
@@ -291,11 +289,11 @@ const priorDimensionPlanComparison=[
 ];
 const perTicket=Object.fromEntries(Object.keys(issueNames).map(n=>[n,{primaryIds:cases.filter(c=>c.primaryTickets.includes(n)).map(c=>c.id),supportingIds:cases.filter(c=>c.supportingTickets.includes(n)).map(c=>c.id)}]));
 const plan={schemaVersion:1,title:'Final independent full-family canonical identity plan',preparedAt:'2026-11-02',authorityRevision:revision,
- status:'plan-only-not-execution-audit',purpose:'Independently transcribe all finite obligations at the requested integration revision; supply owners, required entry axes and discrepancies for later17.',
- boundaries:{repositoryEdited:false,ticket17Claimed:false,productTestsRun:false,productCollectorsOrConstantsUsedForExpectations:false,testNamesOrReceiptsUsedAsSpecification:false,existingEvidenceInspectedForThisPlan:false,previousPlansComparedOnlyAfterIndependentExpansion:true,allOutputsOutsideRepo:true},
+ status:'authority-reexpansion-only-not-execution-verdict',purpose:'Independently transcribe all finite obligations at the explicit execution freeze; supply owners, required entry axes and source pointers to ticket17 execution and semantic audits.',
+ boundaries:{productOrTestFilesEditedByThisProgram:false,productTestsRunByThisProgram:false,productCollectorsOrConstantsUsedForExpectations:false,testNamesOrReceiptsUsedAsSpecification:false,existingExecutionEvidenceInspectedByThisProgram:false,previousPlansComparedOnlyAfterIndependentExpansion:true,outputDirectory:'.scratch/asset-validation-implementation/evidence/17-raw',ticket17StateAndExecutionAuditedSeparately:true},
  counts:{families:97,independentSemanticObligations:1209,automated:1195,native:14,sourceBuiltIsReceiptAxis:true,exactAuthorityTokenIds:1084,planEncodedF07SuffixIdsRequiringOneToOneSpellingMap:125,perGroup,perFamily},
  identityRules:{format:'AV.<family>.<branch>.<representation>.<field>.<result>',defaults:['base','native','case','expected'],cartesianRule:'Expand only explicitly paired factors; do not create raw page/autonomous representations.',f07PlanEncoding:'case-uXXXX with lower hexadecimal for Unicode cases; case-<uppercase literal device> for device branches. This is a plan notation, not an assertion about existing canonical spelling.',f07RequiredSemanticMapping:'125 complete semantic keys must each map to one and only one existing canonical spelling at17; aliases and missing/repeated codepoints/devices are invalid.',receiptRule:'source/built never changes a canonical ID. N samples, two animation images/SE timings, B–E page-tile samples and owner scenarios do not multiply IDs.',ownershipRule:'primaryTickets are required behavioral owners; supportingTickets record explicit cooperation without multiplying IDs or introducing unconditional extra scenarios. Optional proof alternatives are explained on the row.'},
- executionAuditNextSteps:['Read final authoritative matrix/index and ticket ownership again at17, because1f01ba53 is only this plan snapshot.','Map every expected semantic ID to registered tests and source/built/native receipts using independent expectations.','Resolve F07 spelling one-to-one independently of behavior; never infer completeness from family/total counts.','Check hashes, environment, required entry methods, exact assertions and all samples before assessing actual status.','Separate pass/failure/not-executed/capability limits and historical/supplementary records; no product acceptance is claimed here.'],
+ executionAuditNextSteps:[`Use final authoritative matrix/index and ticket ownership at the explicit freeze ${revision}; this plan alone is not an execution audit.`,'Map every expected semantic ID to registered tests and source/built/native receipts using independent expectations.','Resolve F07 spelling one-to-one independently of behavior; never infer completeness from family/total counts.','Check hashes, environment, required entry methods, exact assertions and all samples before assessing actual status.','Separate pass/failure/not-executed/capability limits and historical/supplementary records; no product acceptance is claimed here.'],
  reachedFieldMappings:reachedFields,directNoneFieldMappings:directFields,families:Object.values(familyMeta),cases,perTicket,retiredHistory,notApplicable,supplementaryDeclaredByCurrentIndex:supplemental,
  priorIndependentPlanComparison:comparisons,ownerMembershipComparison,priorDimensionPlanComparison,discrepancies,
  authoritySources:[...docs.values()].map(({lines,...rest})=>rest)};
@@ -303,8 +301,8 @@ const jsonPath=path.join(out,'final-canonical-id-plan.json');
 writeFileSync(jsonPath,JSON.stringify(plan,null,2)+'\n','utf8');
 const sourceLabel=r=>`${r.path}:${r.line}${r.endLine!==r.line?`–${r.endLine}`:''}`;
 const md=[];
-md.push('# 全量 canonical ID 独立计划与差异报告','',`权威快照：\`${revision}\`。本计划逐项独立转录当前验收矩阵／子用例索引与责任票；未领取17、修改仓库、运行测试、检查产品收集器或读取执行回执。所有实际状态均为 **未在本计划中审计**。JSON 是逐项机器可读目录，本文件也逐项列出1209个计划身份；这不是产品完成或验收通过声明。`,'',
- '**身份拼写限制：** 1209项语义义务完整，其中1084项的ID由权威token及固定默认值直接确定。F07另125项由权威明确到具体字符／设备名，但未规定后缀分隔及大小写；本计划使用 `case-uXXXX` 小写十六进制和 `case-<大写设备名原文>`，仅为计划编码。未来17必须将既有canonical spelling与JSON中独立semanticKey逐项一对一映射。纯拼写差异不能当行为缺口，也不能注册别名或跳过逐字符核验。F07五个独立路径形式分支不存在此后缀歧义。','',
+md.push('# 全量 canonical ID 独立计划与差异报告','',`权威快照：\`${revision}\`。本程序逐项独立转录当前验收矩阵／子用例索引与责任票，不导入产品／测试、不运行产品命令、不读取执行回执。所有实际状态均为 **未在本计划中审计**，票17的领取状态和已执行命令由独立验收工件记录。JSON 是逐项机器可读目录，本文件也逐项列出1209个计划身份；这不是产品完成或验收通过声明。`,'',
+ '**身份拼写限制：** 1209项语义义务完整，其中1084项的ID由权威token及固定默认值直接确定。F07另125项由权威明确到具体字符／设备名，但未规定后缀分隔及大小写；本计划使用 `case-uXXXX` 小写十六进制和 `case-<大写设备名原文>`，仅为计划编码。票17将既有canonical spelling与JSON中独立semanticKey逐项一对一映射。纯拼写差异不能当行为缺口，也不能注册别名或跳过逐字符核验。F07五个独立路径形式分支不存在此后缀歧义。','',
  'source／built 是回执轴，不增加ID。N组媒体、B–E图块、多timing样本和共享票场景都不能扩大或替代canonical身份。D02–D10的native仅是表示token，D10仍须实际CLI。','',
  '## 数量与责任','', '| 组 | 族数 | 独立ID／语义义务 |','| --- | ---: | ---: |');
 for(const g of ['A','B','C','F','D','W','N'])md.push(`| ${g} | ${Object.keys(perFamily).filter(f=>f.startsWith(g)).length} | ${perGroup[g]} |`);
@@ -315,7 +313,7 @@ md.push('','多票共享身份只计一次；主责票数相加不等于1209。�
  '## 独立旧计划对账','', '| 旧计划 | 旧目录项 | 在当前计划中逐ID命中 | 不在当前计划中的旧ID |','| --- | ---: | ---: | ---: |');
 for(const c of comparisons)md.push(`| ${c.file} | ${c.priorCatalogRows} | ${c.matchedCurrentIds} | ${c.priorIdsAbsentFromCurrentPlan.length} |`);
 md.push('','06–11的644主责身份与3个D09协作引用构成647项旧目录，均逐ID命中；12–16的215项也全部命中。在各旧计划所覆盖目录内，06–16逐票的主责／协作身份集合也一致，JSON列出22个责任集合对账。W16两个ID保留12的历史格式／hash兼容支持引用，恢复执行仍全归16；未把该支持写成12执行W16。两个B14旧未决候选原本未计入644／647，现明确N/A；该处不减少当前义务数量。A/F维度旧计划的86／201、全族计数旧计划的1209也与独立展开一致。此对账只比较计划，不比较测试或回执。','',
- '## 差异与未来17核验','');
+ '## 差异与17独立核验','');
 for(const d of discrepancies)md.push(`- **${d.kind}**（${d.scope}）：${d.finding} ${d.action}`);
 md.push('','## 已退役／历史身份','', '| 历史ID | 当前处置／替代 |','| --- | --- |');
 for(const h of retiredHistory)md.push(`| \`${h.id}\` | ${h.disposition}${h.replacementId?`; → \`${h.replacementId}\``:''}；${h.preservation} |`);

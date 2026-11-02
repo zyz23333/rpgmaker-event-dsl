@@ -30,7 +30,7 @@ Windows10 `10.0.19045` x64、Node `v22.23.4`、pnpm `10.33.0`；默认 `C:\Users
 
 [原始证据审计](17-original-evidence-audit.json)重读真实Git blob及原JSON pointer，核对2484条原聚合自动化记录、15的26条原回执、16的24条原回执、28组原断言源码哈希绑定，以及16的100份原始工件与16项原冻结输入。每项当前义务都找到所需入口与全部主责任贡献；F07的编码拼写通过一一对应映射保留既有canonical ID，不利用别名双计。该工件的当前完整执行字段仍待后续最终命令，不能从原历史passed推断当前版本passed。
 
-[原断言保留审计](17-original-assertion-preservation.json)比较2400个当前义务原回执位置，归并为169个原／现callback版本对。15对callback文本有扩展，其原expect表达式均保留；两处静态token差异为格式尾逗号，人工核对原义不变。静态保留只证明断言文本及注册位置，fixture参数、辅助函数与真实行为仍由语义审阅和最终运行共同证明。
+[原断言保留审计](17-original-assertion-preservation.json)比较2450个当前义务原回执位置（含15／16追加的50条），归并为185个原／现callback版本对。15对callback文本有扩展，其原expect表达式均保留；两处静态token差异为格式尾逗号，人工核对原义不变。静态保留只证明断言文本及注册位置，fixture参数、辅助函数与真实行为仍由语义审阅和最终运行共同证明。
 
 原03六条 `not-executed-policy-pending` 原字节哈希 `a8652ef3feda52e3677af8d8d52f9fd3fbbedbbf4a1dacfea453af802e14d071` 保留；退出义务的旧图片filesystem ID不改写为通过。D09三条旧formal ID迁移到native后不构成别名双计。B14的两个host-target-missing为不适用；宿主载体不是另选固定目标。W12由13唯一注册，14的记录仅引用；W19保留14／15共同责任，原断言及独立成功／失败callback不重复注册。15、16的原失败、过滤、准备错误及重跑经过均保留，不能改写成一次全过。
 
