@@ -1,5 +1,6 @@
 import type { RawEventCommand } from "../compiler/types.js";
-import type { AssetReference } from "../domain/references.js";
+import type { AssetReference, ImageAssetFolder } from "../domain/references.js";
+import type { NativeMovementRoute } from "../commands/movement/types.js";
 
 export type AssetTarget = Omit<AssetReference, "kind">;
 export type AssetDependency = {
@@ -66,20 +67,99 @@ export function nativeAssetEvents(files: ReadonlyMap<string, string>): NativeAss
 export function collectEventAssetUses(files: ReadonlyMap<string, string>): EventAssetUse[] {
   const uses: EventAssetUse[] = [];
   for (const event of nativeAssetEvents(files))
-    for (const page of event.pages)
-      for (const [index, command] of page.list.entries()) {
-        if (command.code !== 231 || command.parameters[1] === "") continue;
-        uses.push({
-          category: "image",
-          folder: "pictures",
-          name: command.parameters[1] as string,
-          identity: event.identity,
-          nativePath: `${page.nativePath}.list[${index}].parameters[1]`,
-          relatedNativePaths: [],
-          dependencyChain: [],
-          conditions: [],
-        });
+    for (const page of event.pages) {
+      if (event.kind === "mapEvent") {
+        const image = page.saved.image as { characterName: string; tileId: number };
+        if (image.characterName !== "")
+          uses.push({
+            category: "image",
+            folder: "characters",
+            name: image.characterName,
+            identity: event.identity,
+            nativePath: `${page.nativePath}.image.characterName`,
+            relatedNativePaths: [],
+            dependencyChain: [],
+            conditions: [],
+            ...(image.tileId > 0
+              ? {
+                  inactive:
+                    "Map Event Page uses a tile image; the saved characterName is inactive.",
+                }
+              : {}),
+          });
+        const route = page.saved.moveRoute as NativeMovementRoute;
+        for (const [index, record] of route.list.entries())
+          if (record.code === 41 && record.parameters![0] !== "")
+            uses.push({
+              category: "image",
+              folder: "characters",
+              name: record.parameters![0] as string,
+              identity: event.identity,
+              nativePath: `${page.nativePath}.moveRoute.list[${index}].parameters[0]`,
+              relatedNativePaths: [],
+              dependencyChain: [],
+              conditions: [],
+              ...(page.saved.moveType === 3
+                ? {}
+                : {
+                    inactive: `Autonomous Movement is ${["fixed", "random", "approach"][page.saved.moveType as number]}; the saved route is inactive.`,
+                  }),
+            });
       }
+      for (const [index, command] of page.list.entries()) {
+        if (command.code === 205) {
+          const route = command.parameters[1] as NativeMovementRoute;
+          for (const [routeIndex, record] of route.list.entries())
+            if (record.code === 41 && record.parameters![0] !== "")
+              uses.push({
+                category: "image",
+                folder: "characters",
+                name: record.parameters![0] as string,
+                identity: event.identity,
+                nativePath: `${page.nativePath}.list[${index}].parameters[1].list[${routeIndex}].parameters[0]`,
+                relatedNativePaths: [
+                  `${page.nativePath}.list[${index + 1 + routeIndex}].parameters[0].parameters[0]`,
+                ],
+                dependencyChain: [],
+                conditions: [],
+              });
+        }
+        const fields: readonly (readonly [number, ImageAssetFolder])[] =
+          command.code === 231
+            ? [[1, "pictures"]]
+            : command.code === 101
+              ? [[0, "faces"]]
+              : command.code === 283
+                ? [
+                    [0, "battlebacks1"],
+                    [1, "battlebacks2"],
+                  ]
+                : command.code === 284
+                  ? [[0, "parallaxes"]]
+                  : command.code === 322
+                    ? [
+                        [1, "characters"],
+                        [3, "faces"],
+                        [5, "sv_actors"],
+                      ]
+                    : command.code === 323
+                      ? [[1, "characters"]]
+                      : [];
+        for (const [field, folder] of fields) {
+          if (command.parameters[field] === "") continue;
+          uses.push({
+            category: "image",
+            folder,
+            name: command.parameters[field] as string,
+            identity: event.identity,
+            nativePath: `${page.nativePath}.list[${index}].parameters[${field}]`,
+            relatedNativePaths: [],
+            dependencyChain: [],
+            conditions: [],
+          });
+        }
+      }
+    }
   return uses;
 }
 

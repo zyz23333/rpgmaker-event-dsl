@@ -13,6 +13,7 @@ export default defineConfig({
       "test/map-appearance-workspace.test.ts",
       "test/pictures-workspace.test.ts",
       "test/asset-picture-workspace.test.ts",
+      "test/asset-image-workspace.test.ts",
       "test/asset-common-workspace.test.ts",
       "test/asset-file-workspace.test.ts",
       "test/audio-commands-workspace.test.ts",

@@ -334,6 +334,8 @@ it("MV-S5-MAP-011: round trips empty and populated native Map event arrays witho
 it("preserves disabled condition settings, independent images and every saved page field", async () => {
   await withMapEvidence("map-page-full", async ({ workspaceRoot }) => {
     await createMinimalProject(workspaceRoot);
+    await mkdir(join(workspaceRoot, "Game/img/characters"), { recursive: true });
+    await writeFile(join(workspaceRoot, "Game/img/characters/!$Big.png"), "");
     const pages = [
       {
         ...structuredClone(blankPage),

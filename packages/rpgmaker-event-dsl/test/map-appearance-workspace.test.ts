@@ -1,4 +1,4 @@
-import { readFile, readdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { expect, it as test } from "vitest";
 import { recordEvidence } from "./support/mv-evidence.js";
@@ -7,6 +7,7 @@ import { discoverDefinitionFiles, loadDefinitionFile } from "../src/workspace/de
 import { getWorkspaceStatePaths } from "../src/workspace/state.js";
 import { createMinimalProject, withWindowsSandbox } from "./support/windows-sandbox.js";
 import { blankEvent, blankPage } from "./support/map-event-fixtures.js";
+import { createAssetTest, recordAssetInput } from "./support/asset-evidence.js";
 import {
   changeMapNameDisplay,
   changeTileset,
@@ -68,6 +69,41 @@ const saved: SavedCommand[] = JSON.parse(
     "utf8",
   ),
 ).commands;
+// The original CR/LF name remains an exact Decompilation fixture below. Successful
+// file-gate workflows use a separately authored ordinary Windows filename.
+const supportedSaved = structuredClone(saved);
+supportedSaved[7]!.parameters[0] = "Cloud";
+
+const assetIt = createAssetTest({ ownerTicket: "04", testSource: import.meta.url });
+assetIt(
+  "AV.C11.saved-image-control-characters.native.A14-p0.expected: historical saved text decompiles unchanged and the asset gate rejects its unsupported filename",
+  async () => {
+    await withWindowsSandbox("map-appearance-original-name", async ({ workspaceRoot }) => {
+      const original = await prepare(workspaceRoot, saved);
+      recordAssetInput({
+        fixture: "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/map-appearance-cases.json",
+        commands: saved,
+        project: original,
+        expectedSavedName: " Sky\r\n ",
+        gates:
+          "Check and Compile reject the original unsupported name without publication; Decompilation preserves it",
+      });
+      expect(original.events[1]!.pages[0]!.list[7]!.parameters[0]).toBe(" Sky\r\n ");
+      await decompileWorkspace({ workspaceRoot });
+      const authored = await readFile(
+        join(workspaceRoot, "src/decompiled/maps/Map001.events.ts"),
+        "utf8",
+      );
+      expect(authored).toContain('name: " Sky\\r\\n "');
+      const before = await state(workspaceRoot);
+      for (const check of [true, false])
+        await expect(compileWorkspace({ workspaceRoot, check })).rejects.toThrow(
+          "MV-ASSET-UNSUPPORTED-NAME",
+        );
+      expect(await state(workspaceRoot)).toEqual(before);
+    });
+  },
+);
 
 it("MV-S6-MAP-APPEARANCE-007: preserves E284 signed zero through formal and known raw source, native Decompile, evaluation and real Push", async () => {
   const nativeText = await readFile(
@@ -117,6 +153,8 @@ it("MV-S6-MAP-APPEARANCE-007: preserves E284 signed zero through formal and know
         const expected = JSON.parse(nativeText);
         assertSigns(expected.events[1].pages[0].list);
         await createMinimalProject(workspaceRoot);
+        await mkdir(join(workspaceRoot, "Game/img/parallaxes"), { recursive: true });
+        await writeFile(join(workspaceRoot, "Game/img/parallaxes/Sky.png"), "");
         await writeFile(
           join(workspaceRoot, "Game/data/MapInfos.json"),
           '[null,{"id":1,"name":"Map"}]',
@@ -198,8 +236,17 @@ it("MV-S6-MAP-APPEARANCE-007: preserves E284 signed zero through formal and know
   if (failures.length > 0) throw new Error(failures.join("\n\n"));
 }, 60_000);
 
-async function prepare(workspaceRoot: string, list: SavedCommand[] = saved) {
+async function prepare(workspaceRoot: string, list: SavedCommand[] = supportedSaved) {
   await createMinimalProject(workspaceRoot);
+  for (const [folder, names] of [
+    ["battlebacks1", ["Castle1"]],
+    ["battlebacks2", ["Brick"]],
+    ["parallaxes", ["Sky", "Cloud"]],
+  ] as const) {
+    await mkdir(join(workspaceRoot, "Game/img", folder), { recursive: true });
+    for (const name of names)
+      await writeFile(join(workspaceRoot, "Game/img", folder, `${name}.png`), "");
+  }
   const carrier = {
     width: 17,
     height: 13,

@@ -123,6 +123,9 @@ const nativePage = (
 
 async function prepare(workspaceRoot: string, pages: unknown[]) {
   await createMinimalProject(workspaceRoot);
+  await mkdir(join(workspaceRoot, "Game/img/characters"), { recursive: true });
+  for (const name of ["Actor1", "People1", "!$Huge"])
+    await writeFile(join(workspaceRoot, "Game/img/characters", `${name}.png`), "");
   const carrier = {
     width: 17,
     height: 13,
