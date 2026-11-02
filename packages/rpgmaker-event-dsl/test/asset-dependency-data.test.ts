@@ -1,5 +1,8 @@
 import { expect, it } from "vitest";
-import { collectAnimationAndTilesetAssets } from "../src/validation/asset-dependencies.js";
+import {
+  CapturedAssetData,
+  collectAnimationAndTilesetAssets,
+} from "../src/validation/asset-dependencies.js";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { createMinimalProject, runCli, withWindowsSandbox } from "./support/windows-sandbox.js";
@@ -37,6 +40,39 @@ const external = (animation: unknown, tileset: unknown = { tilesetNames: [] }) =
     ["Animations.json", JSON.stringify([null, animation])],
     ["Tilesets.json", JSON.stringify([null, tileset])],
   ]);
+
+it("reads selected captured object files without discovering roots and keeps invalid containers distinct from array entries", () => {
+  const files = new Map<string, string | Uint8Array>([
+    ["Map002.json", JSON.stringify({ tilesetId: 2, custom: { preserved: true } })],
+    ["Map003.json", JSON.stringify([])],
+    ["System.json", new TextEncoder().encode(JSON.stringify({ optSideView: false }))],
+    ["Tilesets.json", JSON.stringify([null, { name: "Existing" }])],
+  ]);
+  const before = [...files];
+  const data = new CapturedAssetData(files);
+  const result = {
+    uses: [],
+    problems: [],
+  } as import("../src/validation/asset-dependencies.js").AssetRelations;
+  const origin = { ...imageOrigin, dependencyChain: [] };
+  expect(data.object("Map002.json", origin, result)).toEqual({
+    tilesetId: 2,
+    custom: { preserved: true },
+  });
+  expect(data.object("System.json", origin, result)).toEqual({ optSideView: false });
+  expect(data.object("Map003.json", origin, result)).toBeUndefined();
+  expect(data.object("Map004.json", origin, result)).toBeUndefined();
+  expect(data.entry("Tilesets.json", 1, origin, result)).toEqual({ name: "Existing" });
+  expect(result.uses).toEqual([]);
+  expect(result.problems).toEqual(
+    ["Map003.json", "Map004.json"].map((dataPath) => ({
+      ...origin,
+      dataPath,
+      reason: "Selected standard-data file must be an object; this relationship is unchecked.",
+    })),
+  );
+  expect([...files]).toEqual(before);
+});
 
 it("retains image siblings and complete selected timing chain when the timings container is uninterpretable", () => {
   const result = collectAnimationAndTilesetAssets(
