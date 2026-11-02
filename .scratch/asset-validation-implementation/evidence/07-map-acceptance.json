@@ -3,8 +3,8 @@
   "ticket": "07",
   "date": "2026-11-02",
   "implementationRevision": "3bcc85c573e23b6c1888c11605d94bcfcf09aa17",
-  "finalCompositionRevision": "68d7205a0f3070ff13d90aff1069a5fe8c6f0832",
-  "integrationRevision": "9d860dac0c618aa4e2874733e209af9e67b52260",
+  "finalCompositionRevision": "6e29570a43e51d4ac2611501a54be9a8d3b86010",
+  "integrationRevision": "7d4fdd1b71697419d877f276e209f82db52fc3b4",
   "compileContractVersion": "mv-1.6.1/33",
   "scope": "Only07: fixed Transfer Map configuration, initial-host page tile candidate, dynamic Transfer stop, shared C08 field. No whole specification, image percent/hash policy or other-ticket completion claim.",
   "environment": {
@@ -12874,7 +12874,7 @@
       "command": "pnpm format:check",
       "status": "passed",
       "path": "M:/Shuen/Codex/asset-validation-notes/07-format-final.log",
-      "sha256": "e1bff11cea285731c918c959aec800ecd45615643756e6ee76547ca76535c710"
+      "sha256": "11b0ea7ff0cca9acb3d43f54388cdae818acd2f5c43f70353322fac5a75895af"
     },
     {
       "name": "build",
@@ -13320,7 +13320,7 @@
     "actualNativeProcesses": 5,
     "originalBytesPreservedBy": {
       "path": ".gitattributes",
-      "sha256": "841466dfdb827fd5ec217466fbae6f9a6993fb5ed44f9b93167558aa9da57a15"
+      "sha256": "bc5f2931890ce0e40dcdded487cfebad3943b5bd0b0c03b6f003fd0b4aabb6c3"
     },
     "peerReview": {
       "reviewer": "native_01",
@@ -80044,18 +80044,27 @@
       "scope": "Complete five-suite built regression plus final source/built composition; contains08+09+07 and both201/301 dynamic stops. Product files held fixed during these runs."
     }
   },
+  "policyDocumentationMerge": {
+    "integrationRevision": "7d4fdd1b71697419d877f276e209f82db52fc3b4",
+    "mergeRevision": "6e29570a43e51d4ac2611501a54be9a8d3b86010",
+    "productDifferenceFromFinalExecution": "",
+    "historicalAuthorityPreserved": true,
+    "currentAuthorityUpdated": true,
+    "repeatMatricesRequired": false,
+    "reason": "Parent confirmed only policy/spec/evidence/README change;07 uses ordinary names. Product and every dist hash still equal the final33 execution inputs.03 owns new image percent/hash file policy."
+  },
   "currentAuthorities": [
     {
       "path": ".scratch/asset-validation/asset-validation-spec.md",
-      "sha256": "015233964c9565a983331ad16af6ac4e36e5e6ad6c41cba9ad42fd170905465c"
+      "sha256": "00d0d85abcda6d3141549616afb8aa410f993f2bb51e82ef7d8467e56b76d82f"
     },
     {
       "path": ".scratch/asset-validation/acceptance-matrix.md",
-      "sha256": "ed2d910f4cc1fe73735d105b5e17dc03199528304e5196a519c69144534ac4c1"
+      "sha256": "fddf586c2212a998bad5a32ec105691e05a879a52ea6d8cb07b16a1aa841b0ba"
     },
     {
       "path": ".scratch/asset-validation/implementation-acceptance-cases.md",
-      "sha256": "2b0bc4019e0497235391a6fb1ca3358430e32456bf5b97ddcfeca395a01ba719"
+      "sha256": "2e36e04a00e8e107a43c12cd09378e4a9c52124ca92a2a2f3d8885b9bfc5d2a2"
     },
     {
       "path": "docs/adr/0016-event-rooted-asset-use-coverage.md",
@@ -80063,7 +80072,7 @@
     },
     {
       "path": "docs/adr/0017-exact-asset-file-existence-in-editing-projects.md",
-      "sha256": "13267d6ec3a1107af00d845c65c2f6235095fb0044ed9ede95b3874cbb51337c"
+      "sha256": "573162293128f5a85e0043fc2cf57295ddd7e74d239c9e7c582dced3642c7efb"
     },
     {
       "path": "docs/adr/0018-asset-check-diagnostics-and-explicit-exceptions.md",
@@ -80098,7 +80107,7 @@
   ],
   "archivedHistory": {
     "path": ".scratch/asset-validation-implementation/evidence/07-run-history/manifest.json",
-    "sha256": "052ff580f01973e69592e8378bd61469a3b6e10cf714bd63354afd3a18809397",
+    "sha256": "77b41e92ec2563ad9fde6af1d2a667628af548d9e4c293aefe8283f51b18c9c5",
     "files": [
       {
         "name": "07-after08-source.json",
@@ -80235,7 +80244,7 @@
       {
         "name": "07-format-final.log",
         "bytes": 389,
-        "sha256": "e1bff11cea285731c918c959aec800ecd45615643756e6ee76547ca76535c710",
+        "sha256": "11b0ea7ff0cca9acb3d43f54388cdae818acd2f5c43f70353322fac5a75895af",
         "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-format-final.log"
       },
       {
@@ -80393,19 +80402,19 @@
   "documentation": [
     {
       "path": "README.md",
-      "sha256": "b18ff8e795054afa0393a0d2be5111ed6081951a7bf76f8b7f42e3a3c439e239"
+      "sha256": "4da47ec359ad4bec193e9221abe974c8770070a0c0c2a363aaa395ca6f29de9f"
     },
     {
       "path": "packages/rpgmaker-event-dsl/README.md",
-      "sha256": "5d295566f8b8e5d5a76f1a2334cf2b6d0e435bca51b04017bdab6f1ff16d485e"
+      "sha256": "b6fb5ccd94662cac2301b84d20eb846e39e0829572fe2fc2d41a0ec69d59a4a6"
     },
     {
       "path": ".scratch/asset-validation-implementation/issues/07-transfer-and-page-tile-dependencies.md",
-      "sha256": "b3549c10e751cd05c408c9d28fdad09edeb8b0e756b330365a335314ed6e2d57"
+      "sha256": "9a8452bce9da8381e98158aad49d73be056283851d3b640fa10ec1642fe3689d"
     },
     {
       "path": ".scratch/asset-validation-implementation/evidence/07-map-acceptance.md",
-      "sha256": "c5758e8785653b610924a8030186668ff0758a10531cf185cfeef8e4a0185365"
+      "sha256": "7cd9e96b3d6f5393da0201801afeb9e9cc24ced9164685de3b9fd54359c094c0"
     }
   ]
 }

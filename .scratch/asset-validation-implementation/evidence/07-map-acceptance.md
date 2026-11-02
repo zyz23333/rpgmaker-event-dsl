@@ -1,6 +1,6 @@
 # 07：Transfer Map 与 Map Event Page 图块素材验收
 
-日期：2026-11-02。票据：[07](../issues/07-transfer-and-page-tile-dependencies.md)。契约：[实施规格](../../asset-validation/asset-validation-spec.md)、[验收矩阵](../../asset-validation/acceptance-matrix.md)、[有限子用例索引](../../asset-validation/implementation-acceptance-cases.md)。实施分支 `codex/asset-validation-07-maps`，工作树 `M:/Shuen/Codex/asset-validation-07-maps`；从已完成06的集成 `898b87db` 实施。产品与原生归档提交 `8030b14f`，五项缺文件 fixture 修正提交 `3bcc85c5`。已合入08和09的最新集成 `9d860dac`，最终产品组合提交 `68d7205a`，Compile Contract Version `mv-1.6.1/33` 高于当前集成32。
+日期：2026-11-02。票据：[07](../issues/07-transfer-and-page-tile-dependencies.md)。契约：[实施规格](../../asset-validation/asset-validation-spec.md)、[验收矩阵](../../asset-validation/acceptance-matrix.md)、[有限子用例索引](../../asset-validation/implementation-acceptance-cases.md)。实施分支 `codex/asset-validation-07-maps`，工作树 `M:/Shuen/Codex/asset-validation-07-maps`；从已完成06的集成 `898b87db` 实施。产品与原生归档提交 `8030b14f`，五项缺文件 fixture 修正提交 `3bcc85c5`。已合入08／09的行为集成 `9d860dac` 及01政策文档最新集成 `7d4fdd1b`；最终产品组合提交 `68d7205a`，仅政策文档合入为 `6e29570a`。Compile Contract Version `mv-1.6.1/33` 高于当前集成32。
 
 [机器合册](07-map-acceptance.json)保留168个不同ID：自动化166各有源码／构建通过回执，另有2个原生规范ID。每条自动化回执以ID与执行时间匹配唯一实际runner，包含断言源版本／SHA256、输入、预期、实际CLI结果及对应阶段产品／构建哈希。主规范的源码、构建、原生集合分别与独立计划精确匹配，没有漏项或重复归属。原始报告在 [07-run-history](07-run-history/manifest.json) 按字节保留，包括失败和过滤未选项。
 
@@ -42,7 +42,7 @@ Map Event Page 的非零 tileId 读取捕获宿主初始 Tileset，B–E 只选�
 
 native_01 已只读独立审阅，无发现：两个规范ID、五次首次实际进程、49项断言及outer exit0一致，440次 evidence／外部原始项目／runtime／shell／probe／PNG／脚本／fixture SHA256比较全部匹配；同步来源栈、单槽、48px格、颜色、bitmap源身份和Canvas真实draw均分别核对。没有重跑原生或修改归档。
 
-本票没有改图片 `%`／`#` 政策代码，也不关闭01／03或宣称全规格完成。父任务随后接受图片名含 `%` 或 `#` 统一不支持、音频仍支持的新决定，由其对应票落实；本票全部关系样例均为普通名称，N04关系观察仍适用。
+本票没有改图片 `%`／`#` 政策代码，也不关闭其他票或宣称全规格完成。父任务随后接受图片名含 `%` 或 `#` 统一不支持、音频仍支持的新决定；已合入01的政策／规格／证据文档，03负责相应文件政策实现。本票全部关系样例均为普通名称，N04关系观察仍适用。原始运行的authority哈希保留不变，机器合册另记当前已更新的契约来源，没有把历史观察重新标成新执行。
 
 ## 收尾验证
 
@@ -55,3 +55,5 @@ native_01 已只读独立审阅，无发现：两个规范ID、五次首次实�
 根 `pnpm build`、`pnpm typecheck`、`pnpm lint`、`pnpm format:check` 和 `git diff --check` 全部通过。Windows构建后显式清单包含新增Map套件及既有地图定位套件，并保留08／09新增清单。README同步固定Transfer、页单图候选、关闭autoplay与动态停止；父任务确认的Face段存在性说明一并修正，保留None索引与未检查尺寸的边界。
 
 工单07已记录Outcome并resolved，等待父任务merger合入。宽回归窗口已释放给11；最终全仓、其他关系／例外／Push与整规格签收仍由相应票及17负责。
+
+最后将最新7d4fdd1b合入为6e29570a；只有政策／规格／证据／README变动，逐项产品与全部dist哈希仍匹配最终33运行输入，因此按父任务确认不重复07矩阵或N04。格式检查和diff检查重新通过，当前authority／文档哈希已刷新；原始主矩阵、08后源码、09后构建／组合的输入和原生authority仍按其实际时期保留。
