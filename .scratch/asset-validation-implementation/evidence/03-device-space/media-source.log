@@ -1,0 +1,5 @@
+
+> rpgmaker-event-dsl@0.1.2 test M:\Shuen\Codex\asset-validation-03-files\packages\rpgmaker-event-dsl
+> vitest run "--maxWorkers=1" "test/asset-media-workspace.test.ts" "-t" "^AV.F06." "--reporter=json" "--outputFile=../../test-results/03-device-space-media-source.json"
+
+JSON report written to M:/Shuen/Codex/asset-validation-03-files/test-results/03-device-space-media-source.json

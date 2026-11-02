@@ -1,0 +1,191 @@
+{
+  "id": "SUPPLEMENT.device-space-exception",
+  "ownerTicket": "03",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:40:37.759Z",
+  "completedAt": "2026-11-02T10:40:41.296Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "built",
+  "input": [
+    {
+      "names": [
+        "NUL "
+      ],
+      "source": "import {commonEvent,rawDslCommand} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"NUL \",0,0,0,0,100,100,255,0]})]});",
+      "contract": "exact selected PNG metadata in the bound Project Root"
+    },
+    {},
+    {
+      "supplementary": true,
+      "canonicalId": null,
+      "name": "NUL ",
+      "appendedName": "NUL .png",
+      "expectedDevice": true,
+      "independentAuthority": "Accepted ordinary Windows device-name contract and read-only RtlIsDosDeviceName_U probe; no product matching oracle",
+      "before": {
+        "config": "{\"projectRoot\":\"./Game\",\"scriptEnabled\":false,\"sourceRoot\":\"src\",\"sourceInclude\":[\"**/*.events.ts\",\"**/*.dsl.ts\"],\"sourceExclude\":[\"**/*.test.ts\",\"**/*.spec.ts\",\"**/*.d.ts\"],\"assetCheckExceptions\":[{\"category\":\"image\",\"folder\":\"pictures\",\"name\":\"NUL \",\"reason\":\"Exact exception must not waive unsupported devices\"}]}",
+        "source": "import {commonEvent,rawDslCommand} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"NUL \",0,0,0,0,100,100,255,0]})]});",
+        "project": {
+          "data/": "directory",
+          "data/Actors.json": "W251bGxd",
+          "data/Animations.json": "W251bGxd",
+          "data/Armors.json": "W251bGxd",
+          "data/Classes.json": "W251bGxd",
+          "data/CommonEvents.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV2aWRlbmNlIENvbW1vbiBFdmVudCIsInRyaWdnZXIiOjAsInN3aXRjaElkIjoxLCJsaXN0IjpbeyJjb2RlIjoxMDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiLDAsMSwwXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTeW50aGV0aWMgQ1JccmtlcHQiXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjoxMDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTZWxmLWF1dGhvcmVkIGZpeHR1cmUiXX0seyJjb2RlIjo0MDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjowLCJpbmRlbnQiOjAsInBhcmFtZXRlcnMiOltdfV19XQ==",
+          "data/Enemies.json": "W251bGxd",
+          "data/Items.json": "W251bGxd",
+          "data/MapInfos.json": "W251bGxd",
+          "data/Skills.json": "W251bGxd",
+          "data/States.json": "W251bGxd",
+          "data/System.json": "eyJnYW1lVGl0bGUiOiJTeW50aGV0aWMgZXZpZGVuY2UgY29udGV4dCIsInN3aXRjaGVzIjpbIiIsIlNhdmVkIHN3aXRjaCJdLCJ2YXJpYWJsZXMiOlsiIl0sImZpeHR1cmVPcmlnaW4iOnsicmV0YWluZWROdWxsIjpudWxsLCJyZXRhaW5lZEFycmF5IjpbXX19",
+          "data/Tilesets.json": "W251bGxd",
+          "data/Troops.json": "W251bGxd",
+          "data/Weapons.json": "W251bGxd",
+          "Game.rpgproject": "UlBHTVYgMS42LjEK",
+          "img/": "directory",
+          "img/pictures/": "directory"
+        },
+        "state": {
+          "project-data-snapshot/": "directory",
+          "project-data-snapshot/Actors.json": "W251bGxd",
+          "project-data-snapshot/Animations.json": "W251bGxd",
+          "project-data-snapshot/Armors.json": "W251bGxd",
+          "project-data-snapshot/Classes.json": "W251bGxd",
+          "project-data-snapshot/CommonEvents.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV2aWRlbmNlIENvbW1vbiBFdmVudCIsInRyaWdnZXIiOjAsInN3aXRjaElkIjoxLCJsaXN0IjpbeyJjb2RlIjoxMDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiLDAsMSwwXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTeW50aGV0aWMgQ1JccmtlcHQiXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjoxMDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTZWxmLWF1dGhvcmVkIGZpeHR1cmUiXX0seyJjb2RlIjo0MDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjowLCJpbmRlbnQiOjAsInBhcmFtZXRlcnMiOltdfV19XQ==",
+          "project-data-snapshot/Enemies.json": "W251bGxd",
+          "project-data-snapshot/Items.json": "W251bGxd",
+          "project-data-snapshot/MapInfos.json": "W251bGxd",
+          "project-data-snapshot/Skills.json": "W251bGxd",
+          "project-data-snapshot/States.json": "W251bGxd",
+          "project-data-snapshot/System.json": "eyJnYW1lVGl0bGUiOiJTeW50aGV0aWMgZXZpZGVuY2UgY29udGV4dCIsInN3aXRjaGVzIjpbIiIsIlNhdmVkIHN3aXRjaCJdLCJ2YXJpYWJsZXMiOlsiIl0sImZpeHR1cmVPcmlnaW4iOnsicmV0YWluZWROdWxsIjpudWxsLCJyZXRhaW5lZEFycmF5IjpbXX19",
+          "project-data-snapshot/Tilesets.json": "W251bGxd",
+          "project-data-snapshot/Troops.json": "W251bGxd",
+          "project-data-snapshot/Weapons.json": "W251bGxd",
+          "sync-manifest.json": "ewogICJ2ZXJzaW9uIjoxLAogICJwcm9qZWN0Um9vdEJpbmRpbmciOiJjOlxcdXNlcnNcXHNodWVuXFxhcHBkYXRhXFxsb2NhbFxcdGVtcFxccnBnbWFrZXItZXZlbnQtZHNsLXdpbmRvd3NcXGFzc2V0LWRldmljZS1zcGFjZS1leGNlcHRpb24temRoYnNxXFzmnIDlsI8gd29ya3NwYWNlIHdpdGggc3BhY2VzXFxnYW1lIiwKICAic25hcHNob3RGaWxlcyI6WwogICAgewogICAgICAiaGFzaCI6IjFkOGZjNmNlYjFmOTRjNjMyNmQ2ZDU0ODNkMjU4ZmNiMmUxNzllOTg2OTMyNWIyNDVkMTA1YzIyMTliZjY5ZmQiLAogICAgICAicmVsYXRpdmVQYXRoIjoiQWN0b3JzLmpzb24iCiAgICB9LAogICAgewogICAgICAiaGFzaCI6IjFkOGZjNmNlYjFmOTRjNjMyNmQ2ZDU0ODNkMjU4ZmNiMmUxNzllOTg2OTMyNWIyNDVkMTA1YzIyMTliZjY5ZmQiLAogICAgICAicmVsYXRpdmVQYXRoIjoiQW5pbWF0aW9ucy5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIxZDhmYzZjZWIxZjk0YzYzMjZkNmQ1NDgzZDI1OGZjYjJlMTc5ZTk4NjkzMjViMjQ1ZDEwNWMyMjE5YmY2OWZkIiwKICAgICAgInJlbGF0aXZlUGF0aCI6IkFybW9ycy5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIxZDhmYzZjZWIxZjk0YzYzMjZkNmQ1NDgzZDI1OGZjYjJlMTc5ZTk4NjkzMjViMjQ1ZDEwNWMyMjE5YmY2OWZkIiwKICAgICAgInJlbGF0aXZlUGF0aCI6IkNsYXNzZXMuanNvbiIKICAgIH0sCiAgICB7CiAgICAgICJoYXNoIjoiNzhkZGUwYjk0M2RiOWM5MTljZGZkMGMwMzcxOGM2MjYzZTMwOGM0NWI5NjU2MTQ0N2M2ZWZkMjBkYzZlYjIwMyIsCiAgICAgICJyZWxhdGl2ZVBhdGgiOiJDb21tb25FdmVudHMuanNvbiIKICAgIH0sCiAgICB7CiAgICAgICJoYXNoIjoiMWQ4ZmM2Y2ViMWY5NGM2MzI2ZDZkNTQ4M2QyNThmY2IyZTE3OWU5ODY5MzI1YjI0NWQxMDVjMjIxOWJmNjlmZCIsCiAgICAgICJyZWxhdGl2ZVBhdGgiOiJFbmVtaWVzLmpzb24iCiAgICB9LAogICAgewogICAgICAiaGFzaCI6IjFkOGZjNmNlYjFmOTRjNjMyNmQ2ZDU0ODNkMjU4ZmNiMmUxNzllOTg2OTMyNWIyNDVkMTA1YzIyMTliZjY5ZmQiLAogICAgICAicmVsYXRpdmVQYXRoIjoiSXRlbXMuanNvbiIKICAgIH0sCiAgICB7CiAgICAgICJoYXNoIjoiMWQ4ZmM2Y2ViMWY5NGM2MzI2ZDZkNTQ4M2QyNThmY2IyZTE3OWU5ODY5MzI1YjI0NWQxMDVjMjIxOWJmNjlmZCIsCiAgICAgICJyZWxhdGl2ZVBhdGgiOiJNYXBJbmZvcy5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIxZDhmYzZjZWIxZjk0YzYzMjZkNmQ1NDgzZDI1OGZjYjJlMTc5ZTk4NjkzMjViMjQ1ZDEwNWMyMjE5YmY2OWZkIiwKICAgICAgInJlbGF0aXZlUGF0aCI6IlNraWxscy5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIxZDhmYzZjZWIxZjk0YzYzMjZkNmQ1NDgzZDI1OGZjYjJlMTc5ZTk4NjkzMjViMjQ1ZDEwNWMyMjE5YmY2OWZkIiwKICAgICAgInJlbGF0aXZlUGF0aCI6IlN0YXRlcy5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIzMzRlM2MwMTA3NDc0OWUyMTBhMmQ5Yjk1MTg1YWVjNThjNzA4M2M0MWM1MTMxYWRlNWNiMDUwNzFkYjIzNjA2IiwKICAgICAgInJlbGF0aXZlUGF0aCI6IlN5c3RlbS5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIxZDhmYzZjZWIxZjk0YzYzMjZkNmQ1NDgzZDI1OGZjYjJlMTc5ZTk4NjkzMjViMjQ1ZDEwNWMyMjE5YmY2OWZkIiwKICAgICAgInJlbGF0aXZlUGF0aCI6IlRpbGVzZXRzLmpzb24iCiAgICB9LAogICAgewogICAgICAiaGFzaCI6IjFkOGZjNmNlYjFmOTRjNjMyNmQ2ZDU0ODNkMjU4ZmNiMmUxNzllOTg2OTMyNWIyNDVkMTA1YzIyMTliZjY5ZmQiLAogICAgICAicmVsYXRpdmVQYXRoIjoiVHJvb3BzLmpzb24iCiAgICB9LAogICAgewogICAgICAiaGFzaCI6IjFkOGZjNmNlYjFmOTRjNjMyNmQ2ZDU0ODNkMjU4ZmNiMmUxNzllOTg2OTMyNWIyNDVkMTA1YzIyMTliZjY5ZmQiLAogICAgICAicmVsYXRpdmVQYXRoIjoiV2VhcG9ucy5qc29uIgogICAgfQogIF0KfQo="
+        }
+      },
+      "after": {
+        "config": "{\"projectRoot\":\"./Game\",\"scriptEnabled\":false,\"sourceRoot\":\"src\",\"sourceInclude\":[\"**/*.events.ts\",\"**/*.dsl.ts\"],\"sourceExclude\":[\"**/*.test.ts\",\"**/*.spec.ts\",\"**/*.d.ts\"],\"assetCheckExceptions\":[{\"category\":\"image\",\"folder\":\"pictures\",\"name\":\"NUL \",\"reason\":\"Exact exception must not waive unsupported devices\"}]}",
+        "source": "import {commonEvent,rawDslCommand} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"NUL \",0,0,0,0,100,100,255,0]})]});",
+        "project": {
+          "data/": "directory",
+          "data/Actors.json": "W251bGxd",
+          "data/Animations.json": "W251bGxd",
+          "data/Armors.json": "W251bGxd",
+          "data/Classes.json": "W251bGxd",
+          "data/CommonEvents.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV2aWRlbmNlIENvbW1vbiBFdmVudCIsInRyaWdnZXIiOjAsInN3aXRjaElkIjoxLCJsaXN0IjpbeyJjb2RlIjoxMDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiLDAsMSwwXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTeW50aGV0aWMgQ1JccmtlcHQiXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjoxMDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTZWxmLWF1dGhvcmVkIGZpeHR1cmUiXX0seyJjb2RlIjo0MDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjowLCJpbmRlbnQiOjAsInBhcmFtZXRlcnMiOltdfV19XQ==",
+          "data/Enemies.json": "W251bGxd",
+          "data/Items.json": "W251bGxd",
+          "data/MapInfos.json": "W251bGxd",
+          "data/Skills.json": "W251bGxd",
+          "data/States.json": "W251bGxd",
+          "data/System.json": "eyJnYW1lVGl0bGUiOiJTeW50aGV0aWMgZXZpZGVuY2UgY29udGV4dCIsInN3aXRjaGVzIjpbIiIsIlNhdmVkIHN3aXRjaCJdLCJ2YXJpYWJsZXMiOlsiIl0sImZpeHR1cmVPcmlnaW4iOnsicmV0YWluZWROdWxsIjpudWxsLCJyZXRhaW5lZEFycmF5IjpbXX19",
+          "data/Tilesets.json": "W251bGxd",
+          "data/Troops.json": "W251bGxd",
+          "data/Weapons.json": "W251bGxd",
+          "Game.rpgproject": "UlBHTVYgMS42LjEK",
+          "img/": "directory",
+          "img/pictures/": "directory"
+        },
+        "state": {
+          "project-data-snapshot/": "directory",
+          "project-data-snapshot/Actors.json": "W251bGxd",
+          "project-data-snapshot/Animations.json": "W251bGxd",
+          "project-data-snapshot/Armors.json": "W251bGxd",
+          "project-data-snapshot/Classes.json": "W251bGxd",
+          "project-data-snapshot/CommonEvents.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV2aWRlbmNlIENvbW1vbiBFdmVudCIsInRyaWdnZXIiOjAsInN3aXRjaElkIjoxLCJsaXN0IjpbeyJjb2RlIjoxMDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiLDAsMSwwXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTeW50aGV0aWMgQ1JccmtlcHQiXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjoxMDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTZWxmLWF1dGhvcmVkIGZpeHR1cmUiXX0seyJjb2RlIjo0MDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjowLCJpbmRlbnQiOjAsInBhcmFtZXRlcnMiOltdfV19XQ==",
+          "project-data-snapshot/Enemies.json": "W251bGxd",
+          "project-data-snapshot/Items.json": "W251bGxd",
+          "project-data-snapshot/MapInfos.json": "W251bGxd",
+          "project-data-snapshot/Skills.json": "W251bGxd",
+          "project-data-snapshot/States.json": "W251bGxd",
+          "project-data-snapshot/System.json": "eyJnYW1lVGl0bGUiOiJTeW50aGV0aWMgZXZpZGVuY2UgY29udGV4dCIsInN3aXRjaGVzIjpbIiIsIlNhdmVkIHN3aXRjaCJdLCJ2YXJpYWJsZXMiOlsiIl0sImZpeHR1cmVPcmlnaW4iOnsicmV0YWluZWROdWxsIjpudWxsLCJyZXRhaW5lZEFycmF5IjpbXX19",
+          "project-data-snapshot/Tilesets.json": "W251bGxd",
+          "project-data-snapshot/Troops.json": "W251bGxd",
+          "project-data-snapshot/Weapons.json": "W251bGxd",
+          "sync-manifest.json": "ewogICJ2ZXJzaW9uIjoxLAogICJwcm9qZWN0Um9vdEJpbmRpbmciOiJjOlxcdXNlcnNcXHNodWVuXFxhcHBkYXRhXFxsb2NhbFxcdGVtcFxccnBnbWFrZXItZXZlbnQtZHNsLXdpbmRvd3NcXGFzc2V0LWRldmljZS1zcGFjZS1leGNlcHRpb24temRoYnNxXFzmnIDlsI8gd29ya3NwYWNlIHdpdGggc3BhY2VzXFxnYW1lIiwKICAic25hcHNob3RGaWxlcyI6WwogICAgewogICAgICAiaGFzaCI6IjFkOGZjNmNlYjFmOTRjNjMyNmQ2ZDU0ODNkMjU4ZmNiMmUxNzllOTg2OTMyNWIyNDVkMTA1YzIyMTliZjY5ZmQiLAogICAgICAicmVsYXRpdmVQYXRoIjoiQWN0b3JzLmpzb24iCiAgICB9LAogICAgewogICAgICAiaGFzaCI6IjFkOGZjNmNlYjFmOTRjNjMyNmQ2ZDU0ODNkMjU4ZmNiMmUxNzllOTg2OTMyNWIyNDVkMTA1YzIyMTliZjY5ZmQiLAogICAgICAicmVsYXRpdmVQYXRoIjoiQW5pbWF0aW9ucy5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIxZDhmYzZjZWIxZjk0YzYzMjZkNmQ1NDgzZDI1OGZjYjJlMTc5ZTk4NjkzMjViMjQ1ZDEwNWMyMjE5YmY2OWZkIiwKICAgICAgInJlbGF0aXZlUGF0aCI6IkFybW9ycy5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIxZDhmYzZjZWIxZjk0YzYzMjZkNmQ1NDgzZDI1OGZjYjJlMTc5ZTk4NjkzMjViMjQ1ZDEwNWMyMjE5YmY2OWZkIiwKICAgICAgInJlbGF0aXZlUGF0aCI6IkNsYXNzZXMuanNvbiIKICAgIH0sCiAgICB7CiAgICAgICJoYXNoIjoiNzhkZGUwYjk0M2RiOWM5MTljZGZkMGMwMzcxOGM2MjYzZTMwOGM0NWI5NjU2MTQ0N2M2ZWZkMjBkYzZlYjIwMyIsCiAgICAgICJyZWxhdGl2ZVBhdGgiOiJDb21tb25FdmVudHMuanNvbiIKICAgIH0sCiAgICB7CiAgICAgICJoYXNoIjoiMWQ4ZmM2Y2ViMWY5NGM2MzI2ZDZkNTQ4M2QyNThmY2IyZTE3OWU5ODY5MzI1YjI0NWQxMDVjMjIxOWJmNjlmZCIsCiAgICAgICJyZWxhdGl2ZVBhdGgiOiJFbmVtaWVzLmpzb24iCiAgICB9LAogICAgewogICAgICAiaGFzaCI6IjFkOGZjNmNlYjFmOTRjNjMyNmQ2ZDU0ODNkMjU4ZmNiMmUxNzllOTg2OTMyNWIyNDVkMTA1YzIyMTliZjY5ZmQiLAogICAgICAicmVsYXRpdmVQYXRoIjoiSXRlbXMuanNvbiIKICAgIH0sCiAgICB7CiAgICAgICJoYXNoIjoiMWQ4ZmM2Y2ViMWY5NGM2MzI2ZDZkNTQ4M2QyNThmY2IyZTE3OWU5ODY5MzI1YjI0NWQxMDVjMjIxOWJmNjlmZCIsCiAgICAgICJyZWxhdGl2ZVBhdGgiOiJNYXBJbmZvcy5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIxZDhmYzZjZWIxZjk0YzYzMjZkNmQ1NDgzZDI1OGZjYjJlMTc5ZTk4NjkzMjViMjQ1ZDEwNWMyMjE5YmY2OWZkIiwKICAgICAgInJlbGF0aXZlUGF0aCI6IlNraWxscy5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIxZDhmYzZjZWIxZjk0YzYzMjZkNmQ1NDgzZDI1OGZjYjJlMTc5ZTk4NjkzMjViMjQ1ZDEwNWMyMjE5YmY2OWZkIiwKICAgICAgInJlbGF0aXZlUGF0aCI6IlN0YXRlcy5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIzMzRlM2MwMTA3NDc0OWUyMTBhMmQ5Yjk1MTg1YWVjNThjNzA4M2M0MWM1MTMxYWRlNWNiMDUwNzFkYjIzNjA2IiwKICAgICAgInJlbGF0aXZlUGF0aCI6IlN5c3RlbS5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIxZDhmYzZjZWIxZjk0YzYzMjZkNmQ1NDgzZDI1OGZjYjJlMTc5ZTk4NjkzMjViMjQ1ZDEwNWMyMjE5YmY2OWZkIiwKICAgICAgInJlbGF0aXZlUGF0aCI6IlRpbGVzZXRzLmpzb24iCiAgICB9LAogICAgewogICAgICAiaGFzaCI6IjFkOGZjNmNlYjFmOTRjNjMyNmQ2ZDU0ODNkMjU4ZmNiMmUxNzllOTg2OTMyNWIyNDVkMTA1YzIyMTliZjY5ZmQiLAogICAgICAicmVsYXRpdmVQYXRoIjoiVHJvb3BzLmpzb24iCiAgICB9LAogICAgewogICAgICAiaGFzaCI6IjFkOGZjNmNlYjFmOTRjNjMyNmQ2ZDU0ODNkMjU4ZmNiMmUxNzllOTg2OTMyNWIyNDVkMTA1YzIyMTliZjY5ZmQiLAogICAgICAicmVsYXRpdmVQYXRoIjoiV2VhcG9ucy5qc29uIgogICAgfQogIF0KfQo="
+        }
+      },
+      "actualCompileFailure": "Error: compile asset check failed:\nerror MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-device-space-exception-ZDhbSQ\\最小 Workspace with spaces\\Game; required extension: .png\n  image/pictures \"NUL \"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; base: error; effective: error\n1 problem group(s), 0 problem file(s), 1 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked."
+    },
+    {
+      "operation": "check",
+      "mode": "api",
+      "ended": {
+        "exitCode": 1,
+        "signal": null
+      },
+      "process": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-03-files/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-device-space-exception-ZDhbSQ\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T10:40:38.373Z",
+        "completedAt": "2026-11-02T10:40:39.873Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "",
+        "ipcMessages": [
+          {
+            "kind": "result",
+            "ok": false,
+            "message": "compile --check asset check failed:\nerror MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-device-space-exception-ZDhbSQ\\最小 Workspace with spaces\\Game; required extension: .png\n  image/pictures \"NUL \"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; base: error; effective: error\n1 problem group(s), 0 problem file(s), 1 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked."
+          }
+        ]
+      },
+      "messages": [
+        {
+          "kind": "result",
+          "ok": false,
+          "message": "compile --check asset check failed:\nerror MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-device-space-exception-ZDhbSQ\\最小 Workspace with spaces\\Game; required extension: .png\n  image/pictures \"NUL \"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; base: error; effective: error\n1 problem group(s), 0 problem file(s), 1 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked."
+        }
+      ]
+    },
+    {
+      "operation": "compile",
+      "mode": "cli",
+      "ended": {
+        "exitCode": 1,
+        "signal": null
+      },
+      "process": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-03-files/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-03-files/packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\dist\\cli.mjs",
+          "compile"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-device-space-exception-ZDhbSQ\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T10:40:39.882Z",
+        "completedAt": "2026-11-02T10:40:41.279Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131\r\n    throw new Error(`${input.commandName} asset check failed:\\n${errors.join(\"\\n\")}`);\r\n          ^\r\n\r\nError: compile asset check failed:\r\nerror MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-device-space-exception-ZDhbSQ\\最小 Workspace with spaces\\Game; required extension: .png\r\n  image/pictures \"NUL \"; 1 use(s)\r\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; base: error; effective: error\r\n1 problem group(s), 0 problem file(s), 1 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.\r\n    at checkEventAssets (M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131:11)\r\n    at async compileWorkspaceUnlocked (M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:277:5)\r\n    at async withWorkspaceOperationLock (M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\src\\workspace\\operation-lock.ts:45:12)\r\n    at async compileWorkspace (M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:217:3)\r\n    at async Command.<anonymous> (M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\src\\cli.ts:67:7)\r\n    at async Command.parseAsync (M:\\Shuen\\Codex\\asset-validation-03-files\\node_modules\\.pnpm\\commander@14.0.3\\node_modules\\commander\\lib\\command.js:1122:5)\r\n    at async runCli (M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\src\\cli.ts:110:3)\r\n    at async <anonymous> (M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\src\\cli.ts:122:3)\r\n\r\nNode.js v22.23.4\r\n",
+        "ipcMessages": []
+      },
+      "messages": []
+    }
+  ],
+  "expected": {
+    "description": "a reserved device followed by ASCII space rejects before querying and cannot be waived by its exact exception",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-file-workspace.test.ts",
+    "sha256": "61cbdd643880adf3d124748862751b96fdaf2a86fefb5e451b99b8457255449b",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_6__.withWindowsSandbox)(\"asset-device-space-exception\", async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot, name = \"NUL \";\n\t\tawait prepare(root, [name]);\n\t\tawait (0,__vite_ssr_import_1__.mkdir)((0,__vite_ssr_import_2__.join)(root, \"Game/img/pictures\"), { recursive: true });\n\t\tconst configPath = (0,__vite_ssr_import_2__.join)(root, \"rpgmaker-event-dsl.config.json\"), config = JSON.parse(await (0,__vite_ssr_import_1__.readFile)(configPath, \"utf8\"));\n\t\tconfig.assetCheckExceptions = [{\n\t\t\tcategory: \"image\",\n\t\t\tfolder: \"pictures\",\n\t\t\tname,\n\t\t\treason: \"Exact exception must not waive unsupported devices\"\n\t\t}];\n\t\tawait (0,__vite_ssr_import_1__.writeFile)(configPath, JSON.stringify(config));\n\t\tconst before = await deviceFixtureState(root);\n\t\tconst failure = await api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t}).then(() => \"\", String);\n\t\tconst after = await deviceFixtureState(root);\n\t\t(0,__vite_ssr_import_5__.recordAssetInput)({\n\t\t\tsupplementary: true,\n\t\t\tcanonicalId: null,\n\t\t\tname,\n\t\t\tappendedName: \"NUL .png\",\n\t\t\texpectedDevice: true,\n\t\t\tindependentAuthority: \"Accepted ordinary Windows device-name contract and read-only RtlIsDosDeviceName_U probe; no product matching oracle\",\n\t\t\tbefore,\n\t\t\tafter,\n\t\t\tactualCompileFailure: failure\n\t\t});\n\t\t(0,__vite_ssr_import_4__.expect)(failure).toContain(\"error MV-ASSET-UNSUPPORTED-NAME\");\n\t\t(0,__vite_ssr_import_4__.expect)(failure).toContain(JSON.stringify(name));\n\t\t(0,__vite_ssr_import_4__.expect)(failure).toContain(\"this use is unchecked\");\n\t\t(0,__vite_ssr_import_4__.expect)(failure).toContain(\"Coverage: incomplete\");\n\t\t(0,__vite_ssr_import_4__.expect)(failure).not.toContain(\"; target:\");\n\t\t(0,__vite_ssr_import_4__.expect)(failure).not.toContain(\"; failed at:\");\n\t\t(0,__vite_ssr_import_4__.expect)(failure).not.toContain(\"MV-ASSET-MISSING\");\n\t\t(0,__vite_ssr_import_4__.expect)(failure).not.toContain(\"exception reason:\");\n\t\t(0,__vite_ssr_import_4__.expect)(failure).not.toContain(\"MV-ASSET-INEFFECTIVE-EXCEPTION\");\n\t\t(0,__vite_ssr_import_4__.expect)(after).toEqual(before);\n\t\tfor (const [operation, mode] of [[\"check\", \"api\"], [\"compile\", \"cli\"]]) {\n\t\t\tconst child = (0,__vite_ssr_import_7__.startWorkspaceOperation)(sandbox, {\n\t\t\t\toperation,\n\t\t\t\tmode,\n\t\t\t\tboundary: \"asset-no-media-query\",\n\t\t\t\tobserveAssets: true\n\t\t\t});\n\t\t\ttry {\n\t\t\t\tconst ended = await child.ended, process = sandbox.processes.at(-1), output = (child.messages.find((message) => message.kind === \"result\")?.message ?? \"\") + process.stderr;\n\t\t\t\t(0,__vite_ssr_import_5__.recordAssetInput)({\n\t\t\t\t\toperation,\n\t\t\t\t\tmode,\n\t\t\t\t\tended,\n\t\t\t\t\tprocess,\n\t\t\t\t\tmessages: child.messages\n\t\t\t\t});\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(ended.exitCode).toBe(1);\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(output).toContain(\"error MV-ASSET-UNSUPPORTED-NAME\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(output).not.toContain(\"MV-ASSET-QUERY-FAILED\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(output).not.toContain(\"; target:\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(output).not.toContain(\"exception reason:\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(output).not.toContain(\"MV-ASSET-INEFFECTIVE-EXCEPTION\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(child.messages.filter((message) => message.kind === \"asset-query\" || message.kind === \"asset-content-read-attempt\")).toEqual([]);\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(await deviceFixtureState(root)).toEqual(before);\n\t\t\t} finally {\n\t\t\t\tawait child.stop();\n\t\t\t}\n\t\t}\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

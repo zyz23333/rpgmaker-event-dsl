@@ -1,0 +1,38 @@
+{
+  "id": "AV.F04.trailing-dot-stem.filesystem.case.expected",
+  "ownerTicket": "03",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:38:16.762Z",
+  "completedAt": "2026-11-02T10:38:18.243Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "names": [
+        "Poster."
+      ],
+      "source": "import {commonEvent,rawDslCommand} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"Poster.\",0,0,0,0,100,100,255,0]})]});",
+      "contract": "exact selected PNG metadata in the bound Project Root"
+    },
+    {},
+    {
+      "file": "img/pictures/Poster..png",
+      "contents": "ordinary zero-byte file",
+      "timing": "before asset gate"
+    }
+  ],
+  "expected": {
+    "description": "the complete saved name is preserved before appending PNG",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-file-workspace.test.ts",
+    "sha256": "61cbdd643880adf3d124748862751b96fdaf2a86fefb5e451b99b8457255449b",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_6__.withWindowsSandbox)(`asset-name-${branch}`, async (sandbox) => {\n\t\tawait prepare(sandbox.workspaceRoot, [name]);\n\t\tawait png(sandbox.workspaceRoot, `img/pictures/${name}.png`);\n\t\tconst before = await localState(sandbox.workspaceRoot);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: sandbox.workspaceRoot,\n\t\t\tcheck: true\n\t\t});\n\t\t(0,__vite_ssr_import_4__.expect)(await localState(sandbox.workspaceRoot)).toEqual(before);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: sandbox.workspaceRoot,\n\t\t\tcheck: false\n\t\t});\n\t\tconst generated = JSON.parse(await (0,__vite_ssr_import_1__.readFile)((0,__vite_ssr_import_2__.join)(sandbox.workspaceRoot, \".rpgmaker-event-dsl/generated-project-data/CommonEvents.json\"), \"utf8\"));\n\t\t(0,__vite_ssr_import_4__.expect)(generated[10].list[0].parameters[1]).toBe(name);\n\t\t(0,__vite_ssr_import_4__.expect)(await (0,__vite_ssr_import_1__.readdir)((0,__vite_ssr_import_2__.join)(sandbox.workspaceRoot, \"Game/img/pictures\"))).toEqual([`${name}.png`]);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}
