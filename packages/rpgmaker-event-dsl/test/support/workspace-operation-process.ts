@@ -53,6 +53,7 @@ export function startWorkspaceOperation(
       | "decompile-move-unavailable"
       | "push-prewrite"
       | "push-after-install"
+      | "push-after-install-cleanup"
       | "push-before-install"
       | "push-before-capture"
       | "push-capture-restore"
@@ -73,6 +74,7 @@ export function startWorkspaceOperation(
     assetPath?: string;
     assetFault?: "enumeration";
     observeAssets?: boolean;
+    assetProjectRoots?: string[];
     allowDestructive?: boolean;
   },
 ) {

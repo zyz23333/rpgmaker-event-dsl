@@ -26,10 +26,13 @@ let snapshotCaptured = false;
 let assetPassEntered = false;
 function mediaPath(path) {
   const absolute = resolve(String(path));
-  return ["img", "audio", "movies"].some((folder) => {
-    const root = resolve(options.projectRoot ?? options.workspaceRoot, folder);
-    return absolute === root || absolute.startsWith(root + sep);
-  });
+  return [options.projectRoot ?? options.workspaceRoot, ...(options.assetProjectRoots ?? [])].some(
+    (projectRoot) =>
+      ["img", "audio", "movies"].some((folder) => {
+        const root = resolve(projectRoot, folder);
+        return absolute === root || absolute.startsWith(root + sep);
+      }),
+  );
 }
 function observeMediaQuery(path) {
   if (!options.observeAssets || !mediaPath(path)) return;
@@ -331,7 +334,14 @@ fs.rm = async function (path, ...args) {
     await rm(resolve(String(path), "operation/backup/CommonEvents.json"));
     throw new Error("Controlled partial retired cleanup failure");
   }
-  return rm(path, ...args);
+  const result = await rm(path, ...args);
+  if (
+    options.boundary === "push-after-install-cleanup" &&
+    String(path).includes("push-staging.tmp-") &&
+    String(path).replaceAll("\\", "/").endsWith(`/original/${options.captureFile}`)
+  )
+    await checkpoint();
+  return result;
 };
 childProcess.spawn = function (...args) {
   if (
