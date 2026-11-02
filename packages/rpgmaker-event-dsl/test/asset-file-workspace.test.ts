@@ -13,8 +13,14 @@ import {
 const api: typeof import("../src/workspace-api.js") = await import(workspaceApiEntry);
 const it = createAssetTest({ ownerTicket: "03", testSource: import.meta.url });
 
-async function prepare(root: string, names: string[] = ["Poster"]) {
-  const source = `import {commonEvent,rawDslCommand} from "rpgmaker-event-dsl";
+async function prepare(
+  root: string,
+  names: string[] = ["Poster"],
+  configuration: { source?: string; projectFiles?: Record<string, unknown> } = {},
+) {
+  const source =
+    configuration.source ??
+    `import {commonEvent,rawDslCommand} from "rpgmaker-event-dsl";
 export const event=commonEvent({id:10,name:"Files",trigger:"none",commands:[${names.map((name, index) => `rawDslCommand({code:231,indent:0,parameters:${JSON.stringify([index + 1, name, 0, 0, 0, 0, 100, 100, 255, 0])}})`).join(",")}]});`;
   recordAssetInput({
     names,
@@ -22,6 +28,9 @@ export const event=commonEvent({id:10,name:"Files",trigger:"none",commands:[${na
     contract: "exact selected PNG metadata in the bound Project Root",
   });
   await createMinimalProject(root);
+  for (const [file, data] of Object.entries(configuration.projectFiles ?? {}))
+    await writeFile(join(root, "Game/data", file), JSON.stringify(data));
+  recordAssetInput({ projectOverrides: configuration.projectFiles });
   await api.initWorkspace({ workspaceRoot: root, projectRoot: "./Game" });
   await api.cloneWorkspace({ workspaceRoot: root });
   await mkdir(join(root, "src"), { recursive: true });
@@ -48,6 +57,169 @@ async function localState(root: string) {
     pending: await readdir(join(state, "pending-push")).catch(() => null),
   };
 }
+
+function unsupportedImageNameCase(branch: string, name: string, alternative: string) {
+  it(`AV.F06.${branch}.input.case.expected: image percent and hash names are rejected before any category lookup without changing the saved value`, async () => {
+    for (const representation of ["formal", "raw"] as const)
+      await withWindowsSandbox(`asset-image-${branch}-${representation}`, async (sandbox) => {
+        const root = sandbox.workspaceRoot;
+        await prepare(root, [name]);
+        if (representation === "formal") {
+          const source = `import {commonEvent,showPicture,imageAsset} from "rpgmaker-event-dsl";
+export const event=commonEvent({id:10,name:"Files",trigger:"none",commands:[showPicture({pictureId:1,image:imageAsset({folder:"pictures",name:${JSON.stringify(name)}}),origin:"upperLeft",position:{kind:"direct",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:"normal"})]});`;
+          await writeFile(join(root, "src/files.events.ts"), source);
+          recordAssetInput({ representation, source });
+        }
+        await png(root, `img/pictures/${name}.png`);
+        await png(root, `img/pictures/${alternative}`);
+        const before = await localState(root);
+        for (const check of [true, false]) {
+          const failure = await api
+            .compileWorkspace({ workspaceRoot: root, check })
+            .then(() => "", String);
+          expect(failure).toContain("error MV-ASSET-UNSUPPORTED-NAME");
+          expect(failure).toContain(JSON.stringify(name));
+          expect(failure).toContain("CommonEvents.json[10].list[0].parameters[1]");
+          expect(failure).toContain("this use is unchecked");
+          expect(failure).not.toContain("; target:");
+          expect(failure).not.toContain("; failed at:");
+          expect(failure).not.toContain("MV-ASSET-MISSING");
+          expect(await localState(root)).toEqual(before);
+        }
+        const child = startWorkspaceOperation(sandbox, {
+          operation: "check",
+          mode: "cli",
+          boundary: "asset-link-guard",
+          assetPath: "img",
+        });
+        try {
+          expect((await child.ended).exitCode).toBe(1);
+          expect(
+            child.messages.some((message) => message.kind === "asset-link-follow-attempt"),
+          ).toBe(false);
+          const cli = sandbox.processes.at(-1)!;
+          expect(cli.stderr).toContain("error MV-ASSET-UNSUPPORTED-NAME");
+          expect(cli.stderr).toContain(JSON.stringify(name));
+          expect(cli.stderr).not.toContain("; target:");
+          expect(cli.stderr).not.toContain("MV-ASSET-QUERY-FAILED");
+          recordAssetInput({
+            representation,
+            actualCli: cli,
+            guard: "no descent into img; exact and URL-interpreted files both exist",
+          });
+        } finally {
+          await child.stop();
+        }
+        const cli = await runCli(sandbox, ["compile"], { allowFailure: true });
+        expect(cli.exitCode).toBe(1);
+        expect(cli.stderr).toContain("error MV-ASSET-UNSUPPORTED-NAME");
+        expect(cli.stderr).toContain(JSON.stringify(name));
+        expect(cli.stderr).not.toContain("; target:");
+        recordAssetInput({ representation, actualCompileCli: cli });
+        expect(await localState(root)).toEqual(before);
+        expect((await readdir(join(root, "Game/img/pictures"))).sort()).toEqual(
+          [`${name}.png`, alternative].sort(),
+        );
+      });
+  });
+}
+
+unsupportedImageNameCase("image-percent", "image%percent", "imagepercent.png");
+unsupportedImageNameCase("image-hash", "image#hash", "image");
+unsupportedImageNameCase("literal-percent20", "literal%20image", "literal image.png");
+
+for (const [branch, name] of [
+  ["candidate", "Candidate%20#Image"],
+  ["inactive", "Inactive%20#Image"],
+] as const)
+  it(`AV.F06.image-${branch}.input.case.expected: unsupported saved image names warn with unchecked coverage and preserve their candidate or inactive origin`, async () => {
+    await withWindowsSandbox(`asset-image-${branch}`, async (sandbox) => {
+      const root = sandbox.workspaceRoot;
+      const authored =
+        branch === "candidate"
+          ? `import {commonEvent,changePartyMember,actorRef} from "rpgmaker-event-dsl";export const event=commonEvent({id:10,name:"Files",trigger:"none",commands:[changePartyMember({actor:actorRef({id:1}),operation:"add",initialize:false})]});`
+          : `import {mapEvent,imageAsset} from "rpgmaker-event-dsl";export const event=mapEvent({mapId:1,id:1,name:"Files",x:0,y:0,pages:[{conditions:{},trigger:"action",commands:[],movement:{type:"fixed",route:{commands:[{kind:"changeImage",character:imageAsset({folder:"characters",name:${JSON.stringify(name)}}),characterIndex:7}]}}}]});`;
+      const projectFiles =
+        branch === "candidate"
+          ? {
+              "Actors.json": [
+                null,
+                { id: 1, name: "Actor", characterName: name, battlerName: name },
+              ],
+            }
+          : {
+              "MapInfos.json": [null, { id: 1, name: "Files" }],
+              "Map001.json": { width: 1, height: 1, tilesetId: 1, events: [] },
+              "Tilesets.json": [null, { id: 1, name: "Tiles" }],
+            };
+      await prepare(root, [], { source: authored, projectFiles });
+      const before = await localState(root);
+      await api.compileWorkspace({ workspaceRoot: root, check: true });
+      expect(await localState(root)).toEqual(before);
+      const child = startWorkspaceOperation(sandbox, {
+        operation: "check",
+        mode: "cli",
+        boundary: "asset-link-guard",
+        assetPath: "img",
+      });
+      try {
+        expect((await child.ended).exitCode).toBe(0);
+        expect(child.messages.some((message) => message.kind === "asset-link-follow-attempt")).toBe(
+          false,
+        );
+        const cli = sandbox.processes.at(-1)!;
+        expect(cli.stderr).toContain("warning MV-ASSET-UNSUPPORTED-NAME");
+        expect(cli.stderr).toContain(JSON.stringify(name));
+        expect(cli.stderr).toContain("this use is unchecked");
+        expect(cli.stderr).toContain(
+          branch === "candidate"
+            ? "candidate: Actor initial"
+            : "inactive: Autonomous Movement is fixed",
+        );
+        expect(cli.stderr).not.toContain("error MV-ASSET");
+        expect(cli.stderr).not.toContain("; target:");
+        if (branch === "candidate") {
+          expect(cli.stderr).toContain("image/characters");
+          expect(cli.stderr).toContain("image/sv_actors");
+          expect(cli.stderr).toContain("Actors.json[1].characterName");
+          expect(cli.stderr).toContain("Actors.json[1].battlerName");
+        } else
+          expect(cli.stderr).toContain(
+            "Map001.json.events[1].pages[0].moveRoute.list[0].parameters[0]",
+          );
+        recordAssetInput({
+          actualCli: cli,
+          guard: "no image lookup, even without any img directory",
+        });
+      } finally {
+        await child.stop();
+      }
+      expect(await localState(root)).toEqual(before);
+      await api.compileWorkspace({ workspaceRoot: root, check: false });
+      const cli = await runCli(sandbox, ["compile"]);
+      expect(cli.stderr).toContain("warning MV-ASSET-UNSUPPORTED-NAME");
+      recordAssetInput({ actualCompileCli: cli });
+      if (branch === "inactive") {
+        const map = JSON.parse(
+          await readFile(
+            join(root, ".rpgmaker-event-dsl/generated-project-data/Map001.json"),
+            "utf8",
+          ),
+        );
+        expect(map.events[1].pages[0].moveRoute.list[0].parameters[0]).toBe(name);
+      } else {
+        const actors = JSON.parse(
+          await readFile(
+            join(root, ".rpgmaker-event-dsl/project-data-snapshot/Actors.json"),
+            "utf8",
+          ),
+        );
+        expect(actors[1].characterName).toBe(name);
+        expect(actors[1].battlerName).toBe(name);
+      }
+      expect(await readdir(join(root, "Game"))).not.toContain("img");
+    });
+  });
 
 it("AV.F12.type-changes-during-query.injected.case.expected: an enumerated ordinary file becoming a directory is an inconclusive query", async () => {
   await withWindowsSandbox("asset-file-type-change", async (sandbox) => {

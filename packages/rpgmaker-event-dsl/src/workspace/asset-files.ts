@@ -31,7 +31,7 @@ export async function observeAssetFile(
     /[<>:"/\\|?*]/u.test(filename) ||
     Array.from(filename).some((character) => character.charCodeAt(0) < 32) ||
     /^(?:CON|PRN|AUX|NUL|COM[1-9¹²³]|LPT[1-9¹²³])(?:\.|$)/iu.test(filename) ||
-    (target.category === "movie" && /[%#]/u.test(target.name))
+    (target.category !== "audio" && /[%#]/u.test(target.name))
   )
     return {
       ...base,
