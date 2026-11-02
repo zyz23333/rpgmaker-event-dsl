@@ -57,3 +57,5 @@
 # Fixed independent pre-policy evidence must retain its original bytes.
 packages/rpgmaker-event-dsl/test/fixtures/asset-legacy-policy-evidence.json -text
 /.scratch/asset-validation-implementation/evidence/12-run-history/** -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol
+# Keep ticket13's raw runner log whitespace while retaining the recorded LF Git bytes.
+/.scratch/asset-validation-implementation/evidence/13-run-history/*.log -whitespace
