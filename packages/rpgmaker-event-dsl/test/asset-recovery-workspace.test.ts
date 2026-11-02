@@ -218,7 +218,7 @@ it("AV.W16.changed-current-config.api.case.expected: otherwise-current pending c
   await withWindowsSandbox("asset-recovery-current-config", async (sandbox) => {
     const root = sandbox.workspaceRoot;
     const { before, original } = await prepareRecovery(sandbox);
-    expect(original.compileBaseline.compileContractVersion).toBe("mv-1.6.1/39");
+    expect(original.compileBaseline.compileContractVersion).toBe("mv-1.6.1/40");
     expect(original.compileBaseline.config.assetCheckExceptions).toEqual([]);
     expect(await pushApi.isGeneratedProjectDataFresh({ workspaceRoot: root })).toBe(true);
     await preconstructPending(root, before, original);
@@ -249,7 +249,7 @@ it("AV.W16.changed-current-config.api.case.expected: otherwise-current pending c
     expect(JSON.parse(after.config).assetCheckExceptions).toEqual(config.assetCheckExceptions);
     expect(await pushApi.isGeneratedProjectDataFresh({ workspaceRoot: root })).toBe(false);
     recordAssetInput({
-      currentContract: "mv-1.6.1/39",
+      currentContract: "mv-1.6.1/40",
       driverChangedConfig: config,
       recoveryInput,
       actual,
