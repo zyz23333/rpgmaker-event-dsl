@@ -380,7 +380,8 @@ if (options.mode === "api") {
     const operationOptions = { workspaceRoot: options.workspaceRoot };
     if (options.operation === "compile") operationOptions.check = false;
     if (options.operation === "check") operationOptions.check = true;
-    if (options.operation === "push") operationOptions.allowDestructive = false;
+    if (options.operation === "push")
+      operationOptions.allowDestructive = options.allowDestructive ?? false;
     const names = {
       clone: "cloneWorkspace",
       pull: "pullWorkspace",

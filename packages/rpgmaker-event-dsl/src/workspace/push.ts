@@ -11,6 +11,7 @@ import {
 } from "../project-data/materialization.js";
 import {
   getWorkspaceStatePaths,
+  collectStandardProjectDataSnapshotPlan,
   readPendingPush,
   type SyncManifest,
   type WorkspaceStatePaths,
@@ -19,13 +20,14 @@ import {
   buildStructuredDiffReport,
   deriveAffectedProjectDataFiles,
 } from "../project-data/structured-diff.js";
-import { loadWorkspace, type LoadedWorkspace } from "./config.js";
+import { assertWorkspaceUnchanged, loadWorkspace, type LoadedWorkspace } from "./config.js";
 import type { PushWorkspaceOptions } from "./types.js";
 import { assertProjectDataSnapshotExists, readCurrentSnapshotFileHashes } from "./checks.js";
 import { isMissingFileError } from "./guards.js";
 import { isCanonicalMapFileName } from "../project-data/project.js";
 
 import { createPendingPushState, resolvePendingInterruptedPushForPush } from "./push-recovery.js";
+import { checkEventAssets } from "./asset-check.js";
 
 async function readFileHashOrNull(filePath: string): Promise<string | null> {
   try {
@@ -149,96 +151,138 @@ export async function pushWorkspace(options: PushWorkspaceOptions): Promise<void
 
 async function pushWorkspaceUnlocked(options: PushWorkspaceOptions): Promise<void> {
   const commandName = options.allowDestructive ? "push --allow-destructive" : "push";
-  const workspace = await loadWorkspace(options.workspaceRoot);
-  const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
-
-  await resolvePendingInterruptedPushForPush({ workspace, statePaths });
-
-  const manifest = await assertProjectDataSnapshotExists(
-    statePaths,
-    commandName,
-    workspace.projectRootBinding,
-  );
-
-  await assertGeneratedProjectDataIntegrity(statePaths, manifest, commandName);
-  await assertGeneratedProjectDataFresh({
-    commandName,
-    manifest,
-    statePaths,
-    workspace,
-  });
-
-  const generatedFiles = manifest.generatedFiles ?? [];
-  const generated = await readJsonFiles(statePaths.generatedProjectDataDirectory, generatedFiles);
-  const snapshot = await readJsonFiles(statePaths.projectDataSnapshotDirectory, generatedFiles);
-  const report = buildStructuredDiffReport({ generated, snapshot });
-
-  if (report.hasDestructiveChanges && !options.allowDestructive) {
-    throw new Error(
-      "Destructive Changes detected before push. Re-run with --allow-destructive after review.",
-    );
-  }
-
-  const affectedFiles = deriveAffectedProjectDataFiles({ generated, snapshot });
-  await assertNoProjectDrift({
-    expectedFiles: manifest.snapshotFiles,
-    dataDirectory: workspace.dataDirectory,
-  });
-  if (affectedFiles.length === 0) {
-    return;
-  }
-
-  const stagedWrite = await stageProjectRootWrites({
-    affectedFiles,
-    generatedFiles,
-    dataDirectory: workspace.dataDirectory,
-    statePaths,
-  });
-  const writtenFiles: string[] = [];
-  const snapshotHashes = new Map(
-    manifest.snapshotFiles.map((entry) => [entry.relativePath, entry.hash]),
-  );
-
+  let assetCheckStarted = false;
   try {
-    await createPendingPushState({ affectedFiles, generatedFiles, manifest, statePaths });
+    const workspace = await loadWorkspace(options.workspaceRoot);
+    const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
+
+    await resolvePendingInterruptedPushForPush({ workspace, statePaths });
+
+    const manifest = await assertProjectDataSnapshotExists(
+      statePaths,
+      commandName,
+      workspace.projectRootBinding,
+    );
+
+    await assertGeneratedProjectDataIntegrity(statePaths, manifest, commandName);
+    await assertGeneratedProjectDataFresh({
+      commandName,
+      manifest,
+      statePaths,
+      workspace,
+    });
+
+    const generatedFiles = manifest.generatedFiles ?? [];
+    const generated = await readJsonFiles(statePaths.generatedProjectDataDirectory, generatedFiles);
+    const snapshot = await readJsonFiles(statePaths.projectDataSnapshotDirectory, generatedFiles);
+    const report = buildStructuredDiffReport({ generated, snapshot });
+
+    if (report.hasDestructiveChanges && !options.allowDestructive) {
+      throw new Error(
+        "Destructive Changes detected before push. Re-run with --allow-destructive after review.",
+      );
+    }
+
+    const affectedFiles = deriveAffectedProjectDataFiles({ generated, snapshot });
+    const checkAssets = async (assetCommandName = commandName) => {
+      const captured = await collectStandardProjectDataSnapshotPlan(
+        statePaths.projectDataSnapshotDirectory,
+      );
+      const hashes = captured.map(({ hash, relativePath }) => ({ hash, relativePath }));
+      if (JSON.stringify(hashes) !== JSON.stringify(manifest.snapshotFiles))
+        throw new Error(`Snapshot inputs changed before ${commandName}. Run the command again.`);
+      assetCheckStarted = true;
+      await checkEventAssets({
+        projectRoot: workspace.projectRoot,
+        files: new Map([...generated].map(([path, value]) => [path, JSON.stringify(value)])),
+        externalData: new Map(captured.map(({ relativePath, content }) => [relativePath, content])),
+        commandName: assetCommandName,
+        exceptions: workspace.config.assetCheckExceptions,
+      });
+    };
     await assertNoProjectDrift({
       expectedFiles: manifest.snapshotFiles,
       dataDirectory: workspace.dataDirectory,
     });
-    for (const stagedFile of stagedWrite.files) {
-      const expectedHash = snapshotHashes.get(stagedFile.relativePath);
-      if (expectedHash === undefined) {
-        throw new Error(
-          `Project Drift detected before push for ${stagedFile.relativePath}. Run pull first.`,
-        );
-      }
-      await replaceProjectRootFile(stagedFile, expectedHash);
-      writtenFiles.push(stagedFile.relativePath);
+    if (affectedFiles.length === 0) {
+      await checkAssets();
+      await assertWorkspaceUnchanged(workspace, commandName);
+      await assertGeneratedProjectDataIntegrity(statePaths, manifest, commandName);
+      await assertGeneratedProjectDataFresh({ commandName, manifest, statePaths, workspace });
+      await assertNoProjectDrift({
+        expectedFiles: manifest.snapshotFiles,
+        dataDirectory: workspace.dataDirectory,
+      });
+      return;
     }
-    const generatedHashes = new Map(
-      generatedFiles.map(({ relativePath, hash }) => [relativePath, hash]),
-    );
-    await assertNoProjectDrift({
+
+    const stagedWrite = await stageProjectRootWrites({
+      affectedFiles,
+      generatedFiles,
       dataDirectory: workspace.dataDirectory,
-      expectedFiles: manifest.snapshotFiles.map((entry) =>
-        writtenFiles.includes(entry.relativePath)
-          ? { ...entry, hash: generatedHashes.get(entry.relativePath)! }
-          : entry,
-      ),
+      statePaths,
     });
-  } catch (error) {
-    if (!(error instanceof RetainedProjectRootObjectError)) {
+    const writtenFiles: string[] = [];
+    const snapshotHashes = new Map(
+      manifest.snapshotFiles.map((entry) => [entry.relativePath, entry.hash]),
+    );
+
+    try {
+      await checkAssets(`${commandName} (before pending state or Project Root replacement)`);
+    } catch (error) {
       await rm(stagedWrite.directory, { force: true, recursive: true });
+      throw error;
     }
-    const written = writtenFiles.length > 0 ? writtenFiles.join(", ") : "none";
+    try {
+      await createPendingPushState({ affectedFiles, generatedFiles, manifest, statePaths });
+      await assertWorkspaceUnchanged(workspace, commandName);
+      await assertGeneratedProjectDataIntegrity(statePaths, manifest, commandName);
+      await assertGeneratedProjectDataFresh({ commandName, manifest, statePaths, workspace });
+      await assertNoProjectDrift({
+        expectedFiles: manifest.snapshotFiles,
+        dataDirectory: workspace.dataDirectory,
+      });
+      for (const stagedFile of stagedWrite.files) {
+        const expectedHash = snapshotHashes.get(stagedFile.relativePath);
+        if (expectedHash === undefined) {
+          throw new Error(
+            `Project Drift detected before push for ${stagedFile.relativePath}. Run pull first.`,
+          );
+        }
+        await replaceProjectRootFile(stagedFile, expectedHash);
+        writtenFiles.push(stagedFile.relativePath);
+      }
+      const generatedHashes = new Map(
+        generatedFiles.map(({ relativePath, hash }) => [relativePath, hash]),
+      );
+      await assertNoProjectDrift({
+        dataDirectory: workspace.dataDirectory,
+        expectedFiles: manifest.snapshotFiles.map((entry) =>
+          writtenFiles.includes(entry.relativePath)
+            ? { ...entry, hash: generatedHashes.get(entry.relativePath)! }
+            : entry,
+        ),
+      });
+    } catch (error) {
+      if (!(error instanceof RetainedProjectRootObjectError)) {
+        await rm(stagedWrite.directory, { force: true, recursive: true });
+      }
+      const written = writtenFiles.length > 0 ? writtenFiles.join(", ") : "none";
+      throw new Error(
+        `Project Root replacement failed during push after writing: ${written}. ${error instanceof Error ? error.message : String(error)}`,
+        { cause: error },
+      );
+    }
+
+    await rm(stagedWrite.directory, { force: true, recursive: true });
+    await resolvePendingInterruptedPushForPush({ workspace, statePaths });
+  } catch (error) {
+    if (assetCheckStarted) throw error;
     throw new Error(
-      `Project Root replacement failed during push after writing: ${written}. ${error instanceof Error ? error.message : String(error)}`,
+      `${error instanceof Error ? error.message : String(error)}\n${commandName} asset check not run: Push prerequisites failed.`,
       { cause: error },
     );
   }
-
-  await rm(stagedWrite.directory, { force: true, recursive: true });
-  await resolvePendingInterruptedPushForPush({ workspace, statePaths });
 }
 
 async function assertGeneratedProjectDataFresh(input: {
